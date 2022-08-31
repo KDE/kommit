@@ -1,9 +1,5 @@
 # GitKlient
 
-[![CI Build](https://github.com/HamedMasafi/GitKlient/actions/workflows/main.yml/badge.svg)](https://github.com/HamedMasafi/GitKlient/actions/workflows/main.yml)
-[![GitLicense](https://gitlicense.com/badge/hamedmasafi/gitklient)](https://gitlicense.com/license/hamedmasafi/gitklient)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b4156035d6cb44bc83d31a5120662324)](https://www.codacy.com/gh/HamedMasafi/GitKlient/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HamedMasafi/GitKlient&amp;utm_campaign=Badge_Grade)
-
 Git gui client for KDE
 
 ## Build
