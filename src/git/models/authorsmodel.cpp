@@ -1,4 +1,5 @@
 #include "authorsmodel.h"
+#include <KLocalizedString>
 
 namespace Git {
 
@@ -23,9 +24,9 @@ QVariant AuthorsModel::headerData(int section, Qt::Orientation orientation, int 
 
     switch (section) {
     case 0:
-        return "Name";
+        return i18n("Name");
     case 1:
-        return "Email";
+        return i18n("Email");
     }
     return QVariant();
 }

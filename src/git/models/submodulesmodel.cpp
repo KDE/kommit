@@ -1,4 +1,5 @@
 #include "submodulesmodel.h"
+#include <KLocalizedString>
 #include "../gitsubmodule.h"
 #include "../gitmanager.h"
 
@@ -46,11 +47,11 @@ QVariant SubmodulesModel::headerData(int section, Qt::Orientation orientation, i
 
     switch (section) {
     case 0:
-        return "Path";
+        return i18n("Path");
     case 1:
-        return "Head";
+        return i18n("Head");
     case 2:
-        return "Status";
+        return i18n("Status");
     }
 
     return QVariant();

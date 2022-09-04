@@ -1,4 +1,5 @@
 #include "branchesmodel.h"
+#include <KLocalizedString>
 
 #include "../gitmanager.h"
 
@@ -47,11 +48,11 @@ QVariant BranchesModel::headerData(int section, Qt::Orientation orientation, int
 
     switch (section) {
         case 0:
-            return "Name";
+            return i18n("Name");
         case 1:
-            return "Commit(s) behind";
+            return i18n("Commit(s) behind");
         case 2:
-            return "Commit(s) ahead";
+            return i18n("Commit(s) ahead");
     }
     return QVariant();
 }

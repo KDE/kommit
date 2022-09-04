@@ -1,5 +1,5 @@
 #include "logsmodel.h"
-
+#include <KLocalizedString>
 #include "../gitmanager.h"
 #include "../gitlog.h"
 
@@ -238,18 +238,18 @@ QVariant LogsModel::headerData(int section, Qt::Orientation orientation, int rol
     if (_branch.isEmpty()) {
         switch (section) {
         case 0:
-            return tr("Graph");
+            return i18n("Graph");
         case 1:
-            return tr("Message");
+            return i18n("Message");
         }
     } else {
         switch (section) {
         case 0:
-            return tr("Message");
+            return i18n("Message");
         case 1:
-            return tr("Date");
+            return i18n("Date");
         case 2:
-            return tr("Author");
+            return i18n("Author");
         }
     }
     return QVariant();
