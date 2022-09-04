@@ -2,18 +2,17 @@
 <component type="desktop-application">
   <id>org.kde.gitklient.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_license> https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html </project_license>
-  <name>gitklient</name>
-  <summary> https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html#tag-summary </summary>
+  <project_license>GPL-3.0</project_license>
+  <name>Git Klient</name>
+  <summary> Git gui client for KDE </summary>
   <description>
-    <p> https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html#tag-description </p>
+    <p> Git gui client for KDE </p>
   </description>
-  <url type="homepage">https://github.com/HamedMasafi/GitKlient</url>
-  <url type="bugtracker">https://github.com/HamedMasafi/GitKlient/issues</url>
-  <url type="donation">https://www.example.org/community/donations</url>
+  <url type="homepage">https://invent.kde.org/sdk/gitklient</url>
+  <url type="bugtracker">https://invent.kde.org/sdk/gitklient/-/issues</url>
   <screenshots>
     <screenshot type="default">
-      <image> https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html#tag-screenshots </image>
+      <image> https://invent.kde.org/sdk/gitklient/-/raw/master/doc/screenshots/graph.png </image>
     </screenshot>
   </screenshots>
   <provides>
