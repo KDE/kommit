@@ -60,7 +60,6 @@ int main(int argc, char **argv)
     aboutData.addAuthor(i18n("Hamed Masafi"),
                         i18n("Author"),
                         QStringLiteral("hamed.masafi@gmail.com"));
-    aboutData.setOrganizationDomain("kde.org");
     aboutData.setDesktopFileName(QStringLiteral("org.kde.gitklient"));
 
     KAboutData::setApplicationData(aboutData);
