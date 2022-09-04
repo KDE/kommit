@@ -28,6 +28,14 @@ set(APP_SRCS
     commandargsparser.cpp
     appconfig.cpp
     settings/settingsmanager.cpp
+    appwindow.h
+    buttonsgroup.h
+    multipagewidget.h
+    diffwindow.h
+    mergewindow.h
+    commandargsparser.h
+    appconfig.h
+    settings/settingsmanager.h
 )
 
 ecm_qt_declare_logging_category(APP_SRCS
