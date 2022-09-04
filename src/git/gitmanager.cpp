@@ -13,7 +13,6 @@
 
 #include <QDebug>
 #include <QProcess>
-#include <QRegularExpression>
 #include <QFile>
 #include <QtConcurrent>
 
