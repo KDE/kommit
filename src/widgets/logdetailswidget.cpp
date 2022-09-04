@@ -139,11 +139,11 @@ void LogDetailsWidget::appendParagraph(QString &html, const QString &name, const
 
 void LogDetailsWidget::appendParagraph(QString &html, const QString &name, const QStringList &list)
 {
-    if (!list.size())
+    if (!list.isEmpty())
         return;
 
     html.append(QStringLiteral("<p><b>%1</b><ul>").arg(name));
-    for (auto &l: list)
+    for (const auto &l: list)
         html.append(QStringLiteral("<li>%1</li>").arg(l));
     html.append(QStringLiteral("</ul>"));
 }
@@ -168,12 +168,11 @@ QString LogDetailsWidget::createFileLink(const QString &file)
 
 void LogDetailsWidget::self_anchorClicked(const QUrl &url)
 {
-    auto scheme = url.scheme().toLower();
+    const auto scheme = url.scheme().toLower();
 
     if (scheme=="hash")
         emit hashClicked(url.path());
-
-    if (scheme=="file")
+    else if (scheme=="file")
         emit fileClicked(url.path());
 }
 
