@@ -9,7 +9,6 @@ class DiffTreeModel;
 class DiffWidget;
 class DiffTreeView;
 class FilesModel;
-class QStringListModel;
 class DiffWindow : public AppMainWindow
 {
     Q_OBJECT

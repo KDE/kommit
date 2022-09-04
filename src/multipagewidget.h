@@ -10,7 +10,6 @@ namespace Git {
 class Manager;
 }
 class QActionGroup;
-class QToolButton;
 class WidgetBase;
 class MultiPageWidget : public QWidget, private Ui::MultiPageWidget
 {

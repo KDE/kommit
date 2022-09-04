@@ -6,8 +6,6 @@
 #include <QStringList>
 #include <QStringList>
 
-class QCheckBox;
-class QLineEdit;
 class QWidget;
 
 namespace Git {

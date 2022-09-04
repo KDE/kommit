@@ -4,7 +4,6 @@
 #include <QMap>
 #include "filestatus.h"
 
-class QUrl;
 class QFileInfo ;
 class StatusCache
 {

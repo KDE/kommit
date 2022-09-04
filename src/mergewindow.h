@@ -9,7 +9,6 @@
 #include "diff/diff.h"
 #include "ui_gitklientmergeview.h"
 
-class GitKlientView;
 class SegmentsMapper;
 class QLabel;
 class MergeWindow : public AppMainWindow

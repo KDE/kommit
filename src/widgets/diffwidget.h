@@ -6,7 +6,6 @@
 #include "widgetbase.h"
 #include "git/gitfile.h"
 
-class SegmentConnector;
 class CodeEditor;
 class DiffWidget : public WidgetBase, private Ui::DiffWIdget
 {

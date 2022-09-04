@@ -18,7 +18,6 @@
 
 namespace Git {
 
-class AbstractGitItemsModel;
 class RemotesModel;
 class SubmodulesModel;
 class BranchesModel;

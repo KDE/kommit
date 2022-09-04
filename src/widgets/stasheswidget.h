@@ -8,7 +8,6 @@
 namespace Git {
 class StashesModel;
 }
-class QStandardItemModel;
 class StashActions;
 class StashesWidget : public WidgetBase, private Ui::StashesWidget
 {

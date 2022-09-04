@@ -6,7 +6,6 @@
 class QSortFilterProxyModel;
 class DiffTreeModel;
 class FilesModel;
-class QStringListModel;
 class DiffTreeView : public QWidget, private Ui::DiffTreeView
 {
     Q_OBJECT

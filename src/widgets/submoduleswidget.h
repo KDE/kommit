@@ -4,7 +4,6 @@
 #include "ui_submoduleswidget.h"
 #include "widgetbase.h"
 
-class QTreeWidgetItem;
 class SubmoduleActions;
 
 namespace Git {

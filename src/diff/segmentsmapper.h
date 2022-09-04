@@ -6,7 +6,6 @@
 #include <QObject>
 
 class CodeEditor;
-class QScrollBar;
 class SegmentsMapper : public QObject
 {
     Q_OBJECT
