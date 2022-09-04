@@ -704,16 +704,16 @@ QList<Segment *> diff(const QString &oldText, const QString &newText)
 void browseDir(QStringList &filesList, const QString &dirPath, const QString &basePath)
 {
     QDir d(basePath + "/" + dirPath);
-    auto files = d.entryList(QDir::NoDotAndDotDot | QDir::Files);
-    for (auto &f : files) {
+    const auto files = d.entryList(QDir::NoDotAndDotDot | QDir::Files);
+    for (const auto &f : files) {
         if (dirPath.isEmpty())
             filesList.append(dirPath + f);
         else
             filesList.append(dirPath + "/" + f);
     }
 
-    auto dirs = d.entryList(QDir::NoDotAndDotDot | QDir::Dirs);
-    for (auto &d : dirs) {
+    const auto dirs = d.entryList(QDir::NoDotAndDotDot | QDir::Dirs);
+    for (const auto &d : dirs) {
         if (dirPath.isEmpty())
             browseDir(filesList, dirPath + d, basePath);
         else

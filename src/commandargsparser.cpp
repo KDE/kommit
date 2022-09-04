@@ -50,8 +50,8 @@ void CommandArgsParser::add(const QString &name, const CommandList &list)
 void CommandArgsParser::add(const QString &name, const QString &list)
 {
     CommandList cmdList;
-    auto parts = list.split(' ');
-    for (auto &pp: parts) {
+    const auto parts = list.split(' ');
+    for (const auto &pp: parts) {
         auto p = pp;
         bool isOptional{false};
         if (p.startsWith("[") && p.endsWith("]")) {
@@ -75,7 +75,7 @@ bool CommandArgsParser::check(const CommandList &commands)
     auto appArgs = qApp->arguments();
 
     int idx{1};
-    for (auto &cmd: commands) {
+    for (const auto &cmd: commands) {
         switch (cmd.type) {
         case Command::Fixed:
             if (appArgs[idx] != cmd.s)

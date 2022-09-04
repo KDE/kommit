@@ -63,9 +63,9 @@ QStringList CommandChangedFiles::generateArgs() const
 void CommandChangedFiles::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
 {
     Q_UNUSED(errorOutput)
-    auto buffer = QString(output).split("\n");
+    const auto buffer = QString(output).split("\n");
 
-    for (auto &item: buffer) {
+    for (const auto &item: buffer) {
         if (!item.trimmed().size())
             continue;
         FileStatus fs;

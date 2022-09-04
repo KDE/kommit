@@ -77,13 +77,13 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent) :
     labelCurrentBranchName->setText(git->currentBranch());
 
     QSet<QString> _words;
-    for (auto &b: branches)
+    for (const auto &b: branches)
         _words.insert(b);
     for (auto &r: remotes)
         _words.insert(r);
     for (auto i = files.begin(); i != files.end(); ++i) {
-        auto parts = i.key().split("/");
-        for (auto &p: parts)
+        const auto parts = i.key().split("/");
+        for (const auto &p: parts)
             _words.insert(p);
         _words.insert(i.key());
     }

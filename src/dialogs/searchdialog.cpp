@@ -68,9 +68,9 @@ void SearchDialog::on_treeView_doubleClicked(QModelIndex index)
 void SearchDialog::beginSearch()
 {
     if (radioButtonSearchBranches->isChecked()) {
-        auto branchesList = _git->branches();
+        const auto branchesList = _git->branches();
         _progress.total = branchesList.size();
-        for (auto &branch: branchesList) {
+        for (const auto &branch: branchesList) {
             searchOnPlace(branch, QString());
             _progress.value++;
         }

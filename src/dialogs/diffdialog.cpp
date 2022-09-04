@@ -33,7 +33,7 @@ DiffDialog::DiffDialog(const QString &oldBranch, const QString &newBranch, QWidg
     setupUi(this);
 
     _diffModel = new DiffTreeModel;
-    auto diffs = Git::Manager::instance()->diffBranches(oldBranch, newBranch);
+    const auto diffs = Git::Manager::instance()->diffBranches(oldBranch, newBranch);
 
     for (auto &f: diffs)
         _diffModel->addFile(f);

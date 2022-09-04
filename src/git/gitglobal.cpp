@@ -49,9 +49,9 @@ QByteArray runGit(const QString &workingDir, const QStringList &args)
 QStringList readAllNonEmptyOutput(const QString &workingDir, const QStringList &cmd, bool trim)
 {
     QStringList list;
-    auto out = QString(runGit(workingDir, cmd)).split("\n");
+    const auto out = QString(runGit(workingDir, cmd)).split("\n");
 
-    for (auto &line : out) {
+    for (const auto &line : out) {
         QString b;
 
         if (trim)

@@ -33,7 +33,7 @@ const QList<Diff::Segment *> &SegmentsMapper::segments() const
 
 void SegmentsMapper::setSegments(const QList<Diff::MergeSegment *> &newSegments)
 {
-    for (auto &s: newSegments)
+    for (const auto &s: newSegments)
         _segments.append(s);
 }
 

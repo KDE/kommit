@@ -30,7 +30,7 @@
 
 bool isEmpty(const QStringList &list)
 {
-    if (!list.size())
+    if (list.isEmpty())
         return true;
 
     for (auto &s : list)

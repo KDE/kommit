@@ -77,8 +77,8 @@ void SubmodulesModel::fill()
 {
     qDeleteAll(_data);
     _data.clear();
-    auto modulesList = _git->readAllNonEmptyOutput({"submodule", "status"});
-    for (auto &line : modulesList) {
+    const auto modulesList = _git->readAllNonEmptyOutput({"submodule", "status"});
+    for (const auto &line : modulesList) {
         auto m = new Submodule;
         m->setCommitHash(line.mid(0, 40));
         auto n = line.lastIndexOf(" ");
