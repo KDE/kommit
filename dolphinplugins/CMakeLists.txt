@@ -16,6 +16,9 @@ set(
     actionmanager.cpp
     statuscache.cpp
     manager.cpp
+    actionmanager.h
+    statuscache.h
+    manager.h
     ${GIT_EXTRA_SOURCE}
 )
 kcoreaddons_add_plugin(
@@ -40,6 +43,9 @@ set(
     overlayplugin.cpp
     statuscache.cpp
     manager.cpp
+    overlayplugin.h
+    statuscache.h
+    manager.h
     ${GIT_EXTRA_SOURCE}
 )
 
