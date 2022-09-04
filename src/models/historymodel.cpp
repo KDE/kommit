@@ -2,6 +2,7 @@
 #include "git/gitloglist.h"
 #include "git/gitlog.h"
 #include <QDebug>
+#include <KLocalizedString>
 
 HistoryModel::HistoryModel(QObject *parent) : QAbstractListModel(parent)
 {
@@ -90,18 +91,18 @@ QVariant HistoryModel::headerData(int section, Qt::Orientation orientation, int 
     if (_branch.isEmpty()) {
         switch (section) {
         case 0:
-            return tr("Graph");
+            return i18n("Graph");
         case 1:
-            return tr("Message");
+            return i18n("Message");
         }
     } else {
         switch (section) {
         case 0:
-            return tr("Message");
+            return i18n("Message");
         case 1:
-            return tr("Date");
+            return i18n("Date");
         case 2:
-            return tr("Author");
+            return i18n("Author");
         }
     }
     return QVariant();
