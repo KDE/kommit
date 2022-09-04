@@ -56,11 +56,7 @@ int BlameCodeView::sidebarWidth() const
     for (auto &b: _blameData) {
         QString text = b.log ? b.log->authorName() : i18n("Uncommited");
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
         max = qMax(max, fm.horizontalAdvance(text));
-#else
-        max = qMax(max, fm.width(text));
-#endif
     }
 
     return max + CodeEditor::sidebarWidth() + 20;
