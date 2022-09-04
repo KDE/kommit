@@ -76,7 +76,7 @@ void IgnoreFileDialog::on_buttonBox_accepted()
     }
     QFile f(getIgnoreFile());
     if (!f.open(QIODevice::Append |QIODevice::Text)) {
-        KMessageBox::sorry(this, i18n("Unable to open file: %1").arg(getIgnoreFile()));
+        KMessageBox::sorry(this, i18n("Unable to open file: %1", getIgnoreFile()));
         return;
     }
 

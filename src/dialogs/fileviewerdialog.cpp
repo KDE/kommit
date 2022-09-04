@@ -86,7 +86,7 @@ void FileViewerDialog::showFile(const Git::File &file)
     lineEditBranchName->setText(file.place());
     lineEditFileName->setText(file.fileName());
     plainTextEdit->setReadOnly(true);
-    setWindowTitle(QStringLiteral("View file: %1").arg(file.fileName()));
+    setWindowTitle(i18n("View file: %1", file.fileName()));
     setWindowFilePath(file.fileName());
     labelFileIcon->setPixmap(
         QIcon::fromTheme(mime.iconName())

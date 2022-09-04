@@ -76,7 +76,7 @@ void CommandPull::parseOutput(const QByteArray &output, const QByteArray &errorO
     Q_UNUSED(errorOutput)
 #ifdef GIT_GUI
     if (output.contains("Already up to date.")) {
-        _ui->labelStatus->setText("Already up to date.");
+        _ui->labelStatus->setText(i18n("Already up to date."));
     }
     if (errorOutput.startsWith("fatal:")) {
         _ui->labelStatus->setText(errorOutput.mid(6));

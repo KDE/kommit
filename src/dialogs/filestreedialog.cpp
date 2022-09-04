@@ -28,7 +28,7 @@ FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent) :
     _treeModel->addData(files);
     treeView->setModel(_treeModel);
 
-    setWindowTitle(QStringLiteral("Browse files: %1").arg(place));
+    setWindowTitle(i18n("Browse files: %1", place));
 
     lineEditBranchName->setText(place);
 

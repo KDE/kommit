@@ -1,4 +1,5 @@
 #include "gitremote.h"
+#include <KLocalizedString>
 #include <QString>
 #include <QRegularExpression>
 #include <QDebug>
@@ -111,13 +112,13 @@ QString RemoteBranch::statusText() const
 {
     switch (status) {
     case Status::Unknown:
-        return "Unknown";
+        return i18n("Unknown");
     case Status::UpToDate:
-        return "Up to date";
+        return i18n("Up to date");
     case Status::FastForwardable:
-        return "Fast forwardable";
+        return i18n("Fast forwardable");
     case Status::LocalOutOfDate:
-        return "Local out of date";
+        return i18n("Local out of date");
     }
     return QString();
 }
