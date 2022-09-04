@@ -54,7 +54,6 @@ QList<FileStatus> MiniManager::repoFilesStatus() const
                                               "--porcelain"}, false);
 
     QList<FileStatus> files;
-    QSet<QString> set;
     //TODO: read untrackeds
     for (auto &item : buffer) {
         if (!item.trimmed().size())
