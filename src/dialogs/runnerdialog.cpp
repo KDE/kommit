@@ -5,7 +5,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include <QProcess>
 #include <QDebug>
 
 RunnerDialog::RunnerDialog(QWidget *parent) :

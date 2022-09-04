@@ -3,7 +3,6 @@
 
 #include "mergewindow.h"
 
-#include "GitKlientSettings.h"
 #include "dialogs/mergecloseeventdialog.h"
 #include "dialogs/mergeopenfilesdialog.h"
 #include "diff/segmentsmapper.h"

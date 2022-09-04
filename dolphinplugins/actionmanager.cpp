@@ -3,7 +3,6 @@
 #include "../src/git/gitmanager.h"
 #include <KFileItem>
 #include <KFileItemListProperties>
-#include <KIOWidgets/KAbstractFileItemActionPlugin>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KPluginLoader>

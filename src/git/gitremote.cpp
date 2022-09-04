@@ -1,6 +1,5 @@
 #include "gitremote.h"
 #include <KLocalizedString>
-#include <QString>
 #include <QRegularExpression>
 #include <QDebug>
 

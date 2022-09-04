@@ -1,5 +1,4 @@
 #include "historymodel.h"
-#include "git/gitloglist.h"
 #include "git/gitlog.h"
 #include <KLocalizedString>
 

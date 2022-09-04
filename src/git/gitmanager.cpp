@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitmanager.h"
-#include "filestatus.h"
 
 #include "models/branchesmodel.h"
 #include "models/logsmodel.h"
