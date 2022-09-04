@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 project(gitklient)
+set(PROJECT_VERSION 4)
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 3)
 set(PROJECT_VERSION_PATCH 0)
@@ -27,10 +28,14 @@ include(ECMAddTests)
 
 set (CMAKE_CXX_STANDARD 14)
 
-set(QT_MIN_VERSION "5.12")
+if(NOT DEFINED ${QT_MAJOR_VERSION})
+  set(QT_MAJOR_VERSION 5)
+endif()
+
+set(QT_MIN_VERSION 5.12.0)
 find_package(
-    Qt5 ${QT_MIN_VERSION}
-    CONFIG REQUIRED COMPONENTS
+    Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION}
+    CONFIG REQUIRED
         Core
         Gui
         Widgets
@@ -38,15 +43,14 @@ find_package(
         Test
 )
 
-find_package(Qt5Test ${QT_MIN_VERSION} CONFIG QUIET)
+#find_package(Qt5Test ${QT_MIN_VERSION} CONFIG QUIET)
 set_package_properties(
-    Qt5Test PROPERTIES
+    Qt${QT_VERSION_MAJOR} PROPERTIES
     PURPOSE "Required for tests"
     TYPE OPTIONAL
 )
 
 set(REQUIRED_KF5_VERSION "5.18")
-find_package(KF5KIO)
 find_package(
     KF5 ${REQUIRED_KF5_VERSION}
     REQUIRED COMPONENTS

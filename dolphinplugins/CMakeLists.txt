@@ -29,6 +29,7 @@ target_link_libraries(
     ${ACTIONS_PLUGIN}
     KF5::I18n
     KF5::WidgetsAddons
+    KF5::KIOCore
     KF5::KIOWidgets
 )
 

@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: None
+# SPDX-License-Identifier: CC0-1.0
+
+Dependencies:
+- 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
+  'require':
+    'frameworks/extra-cmake-modules': '@stable'
+    'frameworks/kdoctools': '@stable'
+    'frameworks/ki18n': '@stable'
+    'frameworks/ktexteditor': '@stable'
+    'frameworks/ktextwidgets': '@stable'
+    'frameworks/kio': '@stable'
+    'frameworks/ksyntaxhighlighting': '@stable'
+    'frameworks/kxmlgui': '@stable'
+
+

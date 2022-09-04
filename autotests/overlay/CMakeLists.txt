@@ -7,5 +7,5 @@ ecm_add_test(
     overlaytest.cpp
     NAME_PREFIX "app-"
     TEST_NAME OverlayTest
-    LINK_LIBRARIES Qt::Test Qt::Core Qt::Gui KF5::KIOWidgets
+    LINK_LIBRARIES Qt${QT_VERSION_MAJOR}::Test Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui KF5::KIOWidgets
 )

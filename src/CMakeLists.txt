@@ -96,12 +96,22 @@ ki18n_wrap_ui(
 )
 
 include(git/CMakeLists.txt)
-add_executable(gitklient ${APP_SRCS} ${GIT_SOURCE})
+
+
+if(QT_VERSION_MAJOR GREATER_EQUAL 6)
+    qt_add_executable(
+        gitklient
+        MANUAL_FINALIZATION
+        ${APP_SRCS} ${GIT_SOURCE}
+    )
+else()
+    add_executable(gitklient ${APP_SRCS} ${GIT_SOURCE})
+endif()
 
 target_link_libraries(gitklient
-    Qt5::Core
-    Qt5::Widgets
-    Qt5::Concurrent
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Concurrent
 
     KF5::CoreAddons
     KF5::I18n
@@ -119,6 +129,21 @@ target_link_libraries(gitklient
 
     KF5::SyntaxHighlighting
 )
+
+set_target_properties(
+    gitklient PROPERTIES
+    MACOSX_BUNDLE_GUI_IDENTIFIER org.kde.gitklient
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    MACOSX_BUNDLE TRUE
+    WIN32_EXECUTABLE TRUE
+)
+
+if(QT_VERSION_MAJOR EQUAL 6)
+    qt_finalize_executable(gitklient)
+endif()
+
+
 #set_property(TARGET KI18n APPEND PROPERTY
 #  INTERFACE_AUTOUIC_OPTIONS ${autouic_options}
 #)

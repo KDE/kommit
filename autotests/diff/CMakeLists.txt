@@ -5,7 +5,7 @@ ecm_add_test(
     difftest.cpp
     NAME_PREFIX "app-"
     TEST_NAME DiffTest
-    LINK_LIBRARIES KF5::CoreAddons Qt5::Test Qt5::Core KF5::I18n
+    LINK_LIBRARIES KF5::CoreAddons Qt${QT_VERSION_MAJOR}::Test Qt${QT_VERSION_MAJOR}::Core KF5::I18n
 )
 
 #configure_file(sqlmodel_REMOTE_32623.h sqlmodel_REMOTE_32623.h COPYONLY)
