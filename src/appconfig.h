@@ -8,7 +8,7 @@ class AppConfig
 {
     Git::Manager *_git;
 public:
-    AppConfig(Git::Manager *git);
+    explicit AppConfig(Git::Manager *git);
 
     void apply();
 };

@@ -9,7 +9,7 @@ namespace Git {
 class MiniManager
 {
 public:
-    MiniManager(const QString &path);
+    explicit MiniManager(const QString &path);
 
     const QString &path() const;
     void setPath(const QString &newPath);

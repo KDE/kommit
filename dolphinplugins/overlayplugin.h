@@ -16,7 +16,7 @@ class OverlayPlugin : public KOverlayIconPlugin
 
 public:
 
-    OverlayPlugin(QObject *parent = nullptr);
+    explicit OverlayPlugin(QObject *parent = nullptr);
 
     QStringList getOverlays(const QUrl &url) override;
 

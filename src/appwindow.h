@@ -50,7 +50,7 @@ public:
      * Default Constructor
      */
     AppWindow();
-    AppWindow(const QString &path);
+    explicit AppWindow(const QString &path);
 
     /**
      * Default Destructor
