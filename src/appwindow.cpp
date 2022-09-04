@@ -52,7 +52,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // KF headers
 #include <KActionCollection>
-#include <KConfigDialog>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QFileDialog>

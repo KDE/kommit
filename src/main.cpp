@@ -37,11 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Qt headers
 #include <QApplication>
 #include <QCommandLineParser>
-#include <QDebug>
-#include <QDir>
-#include <QFileInfo>
 #include <QIcon>
-#include <QLoggingCategory>
 
 int main(int argc, char **argv)
 {

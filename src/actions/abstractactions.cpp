@@ -3,7 +3,6 @@
 #include "git/gitmanager.h"
 
 #include <klocalizedstring.h>
-#include <QDebug>
 #include <QMenu>
 #include <QWidget>
 

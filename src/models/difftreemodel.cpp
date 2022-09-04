@@ -1,6 +1,5 @@
 #include "difftreemodel.h"
 
-#include <QDebug>
 #include <GitKlientSettings.h>
 
 DiffTreeModel::DiffTreeModel(QObject *parent) : TreeModel(parent)

@@ -13,7 +13,6 @@
 #include <KLocalizedString>
 
 #include <QPainter>
-#include <QTextBlock>
 
 BlameCodeView::BlameCodeView(QWidget *parent) : CodeEditor(parent)
 {

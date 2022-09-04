@@ -1,7 +1,6 @@
 #include "graphpainter.h"
 
 #include <QPainter>
-#include <QDebug>
 #include <QPainterPath>
 #include "git/models/logsmodel.h"
 #include "git/gitlog.h"

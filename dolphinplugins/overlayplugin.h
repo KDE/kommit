@@ -5,7 +5,6 @@
 #include "statuscache.h"
 #include <KOverlayIconPlugin>
 #include <QCache>
-#include <QMap>
 
 class OverlayPlugin : public KOverlayIconPlugin
 {

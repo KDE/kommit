@@ -3,7 +3,6 @@
 
 #include "abstractgititemsmodel.h"
 
-#include <QStringList>
 
 namespace Git {
 

@@ -3,10 +3,7 @@
 #include <KLocalizedString>
 #include <kmessagebox.h>
 
-#include <QAction>
-#include <QFileDialog>
 #include <QInputDialog>
-#include <QMenu>
 
 #include "dialogs/fetchdialog.h"
 #include "dialogs/filestreedialog.h"

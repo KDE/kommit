@@ -10,7 +10,6 @@
 
 #include <KConfigDialog>
 
-#include <QAction>
 #include <QWidget>
 
 SettingsManager::SettingsManager() = default;

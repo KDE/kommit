@@ -6,8 +6,6 @@
 #include <KLocalizedString>
 #endif
 
-#include <QDebug>
-#include <QLabel>
 
 namespace Git {
 

@@ -4,7 +4,6 @@
 #include "ui_multipagewidget.h"
 
 #include <QIcon>
-#include <QMap>
 
 namespace Git {
 class Manager;

@@ -5,11 +5,10 @@
 #include <KParts/OpenUrlArguments>
 #include <KLocalizedString>
 #include <KMimeTypeTrader>
-#include <KXMLGUIFactory>
 #include <KActionCollection>
+#include <KXMLGUIFactory>
 
 #include <QDebug>
-#include <QFileInfo>
 #include <QMimeData>
 #include <QMimeDatabase>
 #include <QProgressDialog>

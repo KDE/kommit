@@ -2,10 +2,8 @@
 #include "models/difftreemodel.h"
 #include "models/filesmodel.h"
 
-#include <QDebug>
 #include <QKeyEvent>
 #include <QSortFilterProxyModel>
-#include <QStringListModel>
 
 DiffTreeModel *DiffTreeView::diffModel() const
 {

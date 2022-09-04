@@ -1,7 +1,6 @@
 #include "mergedialog.h"
 
 #include <QWhatsThisClickedEvent>
-#include <QDesktopServices>
 
 #include "git/gitmanager.h"
 #include "git/commands/commandmerge.h"

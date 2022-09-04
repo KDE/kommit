@@ -12,7 +12,6 @@
 #include "widgets/editactionsmapper.h"
 
 #include <KActionCollection>
-#include <KConfigDialog>
 #include <KLocalizedString>
 #include <KMessageBox>
 
@@ -21,11 +20,10 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QMenu>
-#include <QScrollBar>
 #include <QStatusBar>
-#include <QTextBlock>
 #include <QTextEdit>
 #include <QSettings>
+#include <QTextBlock>
 
 
 bool isEmpty(const QStringList &list)

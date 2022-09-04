@@ -3,7 +3,6 @@
 
 #include "core/appmainwindow.h"
 #include <git/gitfile.h>
-#include <QObject>
 
 class DiffTreeModel;
 class DiffWidget;

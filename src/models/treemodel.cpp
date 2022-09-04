@@ -1,6 +1,5 @@
 #include "treemodel.h"
 
-#include <QColor>
 #include <QModelIndex>
 #include <QDebug>
 

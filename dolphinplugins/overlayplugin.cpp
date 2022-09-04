@@ -3,7 +3,7 @@
 #include "../src/git/gitmanager.h"
 #include <QUrl>
 #include <QDebug>
-#include <QDir>
+#include <QFileInfo>
 
 OverlayPlugin::OverlayPlugin(QObject *parent) : KOverlayIconPlugin(parent)
 {}

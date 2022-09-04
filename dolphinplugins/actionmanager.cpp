@@ -8,9 +8,6 @@
 #include <KPluginFactory>
 #include <KPluginLoader>
 #include <KProcess>
-#include <KService>
-#include <QApplication>
-#include <QDebug>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
 

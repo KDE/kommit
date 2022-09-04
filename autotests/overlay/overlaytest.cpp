@@ -5,8 +5,6 @@
 #include "gitglobal.cpp"
 
 #include <QtTest/QTest>
-#include <QDebug>
-#include <QDir>
 
 
 class OverlayTest : public QObject

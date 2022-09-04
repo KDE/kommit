@@ -7,7 +7,6 @@
 
 #include <KMessageBox>
 #include <QAction>
-#include <QMenu>
 
 #include "diffwindow.h"
 #include <klocalizedstring.h>

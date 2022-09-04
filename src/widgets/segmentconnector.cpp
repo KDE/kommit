@@ -4,7 +4,6 @@
 
 #include <QPainter>
 #include <QPainterPath>
-#include <QTextBlock>
 
 const QList<Diff::Segment *> &SegmentConnector::segments() const
 {

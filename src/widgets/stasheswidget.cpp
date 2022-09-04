@@ -3,11 +3,7 @@
 #include "git/models/stashesmodel.h"
 #include "actions/stashactions.h"
 
-#include <QInputDialog>
-#include <QDebug>
 
-#include <KLocalizedString>
-#include <QStandardItemModel>
 
 StashesWidget::StashesWidget(QWidget *parent) :
       WidgetBase(parent)

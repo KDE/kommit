@@ -3,7 +3,6 @@
 #include "git/gitremote.h"
 #include "git/models/remotesmodel.h"
 
-#include <QDebug>
 
 Git::Manager *RemoteDetailsWidget::git() const
 {

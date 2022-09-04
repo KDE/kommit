@@ -6,7 +6,6 @@
 #define GITKLIENT_LOGS_H
 
 #include "abstractgititemsmodel.h"
-#include <QAbstractListModel>
 
 namespace Git {
 

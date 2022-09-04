@@ -2,9 +2,6 @@
 
 #include "manager.h"
 #include <QFileInfo>
-#include <QUrl>
-#include <QDebug>
-#include <QDir>
 
 StatusCache::StatusCache()
 {

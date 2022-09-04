@@ -7,7 +7,6 @@
 
 #include <QDebug>
 #include <QAction>
-#include <QMenu>
 
 #include <kmessagebox.h>
 #include <klocalizedstring.h>

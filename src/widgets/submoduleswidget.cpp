@@ -4,8 +4,6 @@
 #include "git/models/submodulesmodel.h"
 #include "actions/submoduleactions.h"
 
-#include <QDebug>
-#include <QListWidgetItem>
 
 SubmodulesWidget::SubmodulesWidget(QWidget *parent) :
       WidgetBase(parent)

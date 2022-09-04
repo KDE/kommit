@@ -5,8 +5,6 @@
 #include "models/treemodel.h"
 #include "git/gitmanager.h"
 
-#include <QAction>
-#include <QMenu>
 
 CommitsWidget::CommitsWidget(QWidget *parent) : WidgetBase(parent)
 {

@@ -7,8 +7,6 @@
 #include "models/historymodel.h"
 #include "widgets/graphpainter.h"
 
-#include <QDebug>
-#include <QMenu>
 
 HistoryViewWidget::HistoryViewWidget(QWidget *parent) :
       WidgetBase(parent)

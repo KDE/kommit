@@ -5,7 +5,6 @@
 #include "git/gitfile.h"
 #include "git/gitmanager.h"
 #include "GitKlientSettings.h"
-#include <QDebug>
 
 ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent) :
       AppDialog(git, parent)

@@ -1,7 +1,7 @@
 ﻿#ifndef GITGRAPHLANE_H
 #define GITGRAPHLANE_H
 
-#include <QColor>
+#include <QList>
 
 namespace Git {
 

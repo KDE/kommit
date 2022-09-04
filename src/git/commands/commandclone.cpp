@@ -1,6 +1,5 @@
 #include "commandclone.h"
 
-#include <QDebug>
 
 namespace Git {
 

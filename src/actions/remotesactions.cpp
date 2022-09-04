@@ -3,7 +3,6 @@
 #include <QInputDialog>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
-#include <QDebug>
 
 #include "dialogs/runnerdialog.h"
 #include "git/commands/commandaddremote.h"

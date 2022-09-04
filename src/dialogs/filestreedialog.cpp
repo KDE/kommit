@@ -1,9 +1,7 @@
 #include "filestreedialog.h"
 #include "models/treemodel.h"
 #include "git/gitmanager.h"
-#include <QDebug>
 #include <QFileIconProvider>
-#include <QMenu>
 #include "dialogs/fileviewerdialog.h"
 #include "dialogs/filehistorydialog.h"
 #include "dialogs/searchdialog.h"

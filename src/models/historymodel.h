@@ -2,7 +2,6 @@
 #define HISTORYMODEL_H
 
 #include <QAbstractListModel>
-#include <QDateTime>
 #include "git/gitmanager.h"
 #include "git/gitloglist.h"
 

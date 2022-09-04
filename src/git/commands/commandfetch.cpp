@@ -1,7 +1,5 @@
 #include "commandfetch.h"
 
-#include <QDebug>
-#include <QLabel>
 
 namespace Git {
 

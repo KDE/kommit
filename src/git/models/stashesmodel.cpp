@@ -2,7 +2,6 @@
 
 #include "../gitmanager.h"
 
-#include <QDebug>
 
 //#include <klocalizedstring.h>
 

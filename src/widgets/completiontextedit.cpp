@@ -3,7 +3,6 @@
 #include <QKeyEvent>
 #include <QAbstractItemView>
 #include <QScrollBar>
-#include <QAbstractItemModel>
 #include <QStringListModel>
 
 CompletionTextEdit::CompletionTextEdit(QWidget *parent) : QTextEdit(parent)

@@ -3,7 +3,6 @@
 #include "diffwindow.h"
 
 #include <QAction>
-#include <QMenu>
 
 #include <KLocalizedString>
 

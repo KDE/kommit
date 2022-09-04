@@ -1,6 +1,5 @@
 #include "manager.h"
 
-#include <QDebug>
 #include <gitglobal.h>
 #include <QProcess>
 

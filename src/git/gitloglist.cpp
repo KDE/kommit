@@ -4,7 +4,6 @@
 #include "gitgraphlane.h"
 
 #include <QDateTime>
-#include <QDebug>
 #include <utility>
 
 namespace Git {

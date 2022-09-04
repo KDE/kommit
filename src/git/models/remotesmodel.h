@@ -6,7 +6,6 @@
 #define GITKLIENT_REMOTESCACHE_H
 
 #include "abstractgititemsmodel.h"
-#include <QAbstractListModel>
 
 namespace Git {
 class Remote;

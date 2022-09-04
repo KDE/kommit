@@ -3,8 +3,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include <QMenu>
-#include <QDebug>
 #include <QInputDialog>
 
 #include "diffwindow.h"

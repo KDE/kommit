@@ -1,7 +1,6 @@
 #ifndef BLAMEDATA_H
 #define BLAMEDATA_H
 
-#include <QDateTime>
 #include <QString>
 #include "gitloglist.h"
 

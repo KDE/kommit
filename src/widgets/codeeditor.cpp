@@ -7,13 +7,10 @@
 #include <KSyntaxHighlighting/SyntaxHighlighter>
 #include <KSyntaxHighlighting/Theme>
 
-#include <QActionGroup>
 #include <QApplication>
 #include <QDebug>
 #include <QFile>
-#include <QFileDialog>
 #include <QFontDatabase>
-#include <QMenu>
 #include <QPainter>
 #include <QPalette>
 

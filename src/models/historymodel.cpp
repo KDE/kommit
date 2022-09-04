@@ -1,7 +1,6 @@
 #include "historymodel.h"
 #include "git/gitloglist.h"
 #include "git/gitlog.h"
-#include <QDebug>
 #include <KLocalizedString>
 
 HistoryModel::HistoryModel(QObject *parent) : QAbstractListModel(parent)

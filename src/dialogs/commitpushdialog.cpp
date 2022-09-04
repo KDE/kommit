@@ -8,10 +8,8 @@
 #include "actions/changedfileactions.h"
 #include "GitKlientSettings.h"
 
-#include <QBitmap>
 #include <QPainter>
 
-#include <KService>
 #include <KTextEditor/CodeCompletionModel>
 #include <KTextEditor/Document>
 #include <KTextEditor/Editor>

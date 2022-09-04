@@ -7,8 +7,6 @@
 #include <QToolButton>
 #include <QDebug>
 #include <QMenu>
-#include <QSettings>
-#include <QInputDialog>
 
 #include "git/gitmanager.h"
 #include "git/gitremote.h"

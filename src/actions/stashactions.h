@@ -1,7 +1,6 @@
 #ifndef STASHACTIONS_H
 #define STASHACTIONS_H
 
-#include <QObject>
 
 #include "abstractactions.h"
 

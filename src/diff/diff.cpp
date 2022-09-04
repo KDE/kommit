@@ -2,9 +2,7 @@
 
 #include <QDebug>
 #include <QDir>
-#include <QDateTime>
 #include <set>
-#include <QElapsedTimer>
 
 namespace Diff
 {

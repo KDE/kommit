@@ -2,11 +2,8 @@
 #include "diffwidget.h"
 #include "diff/diff.h"
 
-#include <QHBoxLayout>
 #include <QScrollBar>
 #include <QTextBlock>
-#include <QDebug>
-#include <QSplitter>
 
 const Git::File &DiffWidget::oldFile() const
 {

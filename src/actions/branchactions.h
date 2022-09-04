@@ -1,7 +1,6 @@
 #ifndef BRANCHACTIONS_H
 #define BRANCHACTIONS_H
 
-#include <QObject>
 
 #include "abstractactions.h"
 
