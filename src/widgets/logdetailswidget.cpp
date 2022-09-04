@@ -139,7 +139,7 @@ void LogDetailsWidget::appendParagraph(QString &html, const QString &name, const
 
 void LogDetailsWidget::appendParagraph(QString &html, const QString &name, const QStringList &list)
 {
-    if (!list.isEmpty())
+    if (list.isEmpty())
         return;
 
     html.append(QStringLiteral("<p><b>%1</b><ul>").arg(name));
