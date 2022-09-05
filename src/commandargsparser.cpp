@@ -33,7 +33,7 @@
     else                                                                                           \
         git->setPath(path);                                                                        \
     if (!git->isValid()) {                                                                         \
-        KMessageBox::sorry(nullptr, i18n("The path is not git repo: %1", path));                   \
+        KMessageBox::error(nullptr, i18n("The path is not git repo: %1", path));                   \
         return 1;                                                                                  \
     } } while(false)
 
@@ -196,7 +196,7 @@ ArgParserReturn CommandArgsParser::init(const QString &path)
     if (d.exec() == QDialog::Accepted) {
         QDir dir;
         if (!dir.mkpath(d.path())) {
-            KMessageBox::sorry(nullptr,
+            KMessageBox::error(nullptr,
                                i18n("Unable to create path: %1", d.path()),
                                i18n("Init repo"));
             return 1;

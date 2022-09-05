@@ -32,7 +32,7 @@ QString SelectBranchesToDiffDialog::newBranch() const
 void SelectBranchesToDiffDialog::on_buttonBox_accepted()
 {
     if (oldBranch() == newBranch()) {
-        KMessageBox::sorry(this, i18n("The selected branches must be different!"));
+        KMessageBox::error(this, i18n("The selected branches must be different!"));
         return;
     }
     accept();

@@ -92,8 +92,8 @@ void RunnerDialog::git_finished(int exitCode, QProcess::ExitStatus exitStatus)
     pushButton->setText(i18n("Close"));
 
     if (exitStatus == QProcess::CrashExit)
-        KMessageBox::sorry(this, i18n("The git process crashed"));
+        KMessageBox::error(this, i18n("The git process crashed"));
 
     if (_cmd && _cmd->status() == Git::AbstractCommand::Error)
-        KMessageBox::sorry(this, _cmd->errorMessage());
+        KMessageBox::error(this, _cmd->errorMessage());
 }

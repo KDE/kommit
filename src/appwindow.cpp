@@ -231,7 +231,7 @@ void AppWindow::initRepo()
     if (d.exec() == QDialog::Accepted) {
         QDir dir;
         if (!dir.mkpath(d.path())) {
-            KMessageBox::sorry(this, i18n("Unable to create path: %1", d.path()), i18n("Init repo"));
+            KMessageBox::error(this, i18n("Unable to create path: %1", d.path()), i18n("Init repo"));
             return;
         }
         _git->init(d.path());
@@ -326,7 +326,7 @@ void AppWindow::repoSettings()
 void AppWindow::repoSwitch()
 {
     if (_git->isMerging()) {
-        KMessageBox::sorry(this, i18n("Cannot switch branch while merging"), i18n("Switch branch"));
+        KMessageBox::error(this, i18n("Cannot switch branch while merging"), i18n("Switch branch"));
         return;
     }
     SwitchBranchDialog d(_git, this);

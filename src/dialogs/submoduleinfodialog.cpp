@@ -84,7 +84,7 @@ void SubmoduleInfoDialog::on_toolButtonBrowseLocalPath_clicked()
         return;
 
     if (!localPath.startsWith(_git->path())) {
-        KMessageBox::sorry(this, i18n("The selected path is outside of working dir"));
+        KMessageBox::error(this, i18n("The selected path is outside of working dir"));
         return;
     }
 

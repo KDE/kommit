@@ -78,7 +78,7 @@ void SubmoduleActions::deinit()
 
     QDir d(_git->path() + "/.git/modules/" + _subModuleName);
     if (!d.removeRecursively()) {
-        KMessageBox::sorry(_parent, i18n("Unable to remove the module directory"));
+        KMessageBox::error(_parent, i18n("Unable to remove the module directory"));
         return;
     }
     qDebug()<<d.path();

@@ -35,7 +35,7 @@ IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, Q
         groupBoxFileName->setEnabled(false);
         groupBoxIgnoreFile->setEnabled(false);
         groupBoxPath->setEnabled(false);
-        KMessageBox::sorry(this, i18n("The file is ignored already"));
+        KMessageBox::error(this, i18n("The file is ignored already"));
         _isIgnoredAlready = true;
         buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
@@ -71,12 +71,12 @@ void IgnoreFileDialog::on_buttonBox_accepted()
     }
 
     if (lineEdit->text().isEmpty()) {
-        KMessageBox::sorry(this, i18n("Please enter the pattern"));
+        KMessageBox::error(this, i18n("Please enter the pattern"));
         return;
     }
     QFile f(getIgnoreFile());
     if (!f.open(QIODevice::Append |QIODevice::Text)) {
-        KMessageBox::sorry(this, i18n("Unable to open file: %1", getIgnoreFile()));
+        KMessageBox::error(this, i18n("Unable to open file: %1", getIgnoreFile()));
         return;
     }
 

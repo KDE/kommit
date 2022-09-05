@@ -178,7 +178,7 @@ void DiffWindow::on_treeView_fileSelected(const QString &file)
 {
     switch (_leftStorage) {
     case FileSystem:
-        _diffWidget->setOldFile(Git::File{_leftDir + "/" + file});
+        _diffWidget->setOldFile(Git::File{_leftDir + QLatin1Char('/') + file});
         break;
     case Git:
         _diffWidget->setOldFile({_oldBranch, file});
