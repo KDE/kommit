@@ -425,7 +425,7 @@ ArgParserReturn CommandArgsParser::remove(const QString &path)
     bool cached = r == KMessageBox::Yes;
 
     git->removeFile(path, cached);
-    KMessageBox::information(nullptr, i18n("File(s) removed to git successfully"));
+    KMessageBox::information(nullptr, i18n("File(s) removed from git successfully"));
     return 0;
 }
 

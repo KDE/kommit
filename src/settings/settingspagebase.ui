@@ -26,7 +26,7 @@
       <item row="0" column="0">
        <widget class="QCheckBox" name="kcfg_openLastRepo">
         <property name="text">
-         <string>Open last repo as startup</string>
+         <string>Open last repo at startup</string>
         </property>
        </widget>
       </item>

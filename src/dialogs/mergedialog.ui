@@ -36,7 +36,7 @@
      <item row="2" column="1">
       <widget class="QComboBox" name="comboBoxStrategy">
        <property name="whatsThis">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The merge mechanism (git merge and git pull commands) allows the backend merge strategies to be chosen with -s option. Some strategies can also take their own options, which can be passed by giving -X&amp;lt;option&amp;gt; arguments to git merge and/or git pull.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://git-scm.com/docs/merge-strategies&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#2980b9;&quot;&gt;More informations&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The merge mechanism (git merge and git pull commands) allows the backend merge strategies to be chosen with -s option. Some strategies can also take their own options, which can be passed by giving -X&amp;lt;option&amp;gt; arguments to git merge and/or git pull.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://git-scm.com/docs/merge-strategies&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#2980b9;&quot;&gt;More information&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <item>
         <property name="text">
@@ -105,7 +105,7 @@
       <item>
        <widget class="QRadioButton" name="radioButtonAllowFastForward">
         <property name="whatsThis">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;when possible resolve the merge as a fast-forward (only update the branch pointer to match the merged branch; do not create a merge commit). When not possible (when the merged-in history is not a descendant of the current history), create a merge commit.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;More informations&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When possible resolve the merge as a fast-forward (only update the branch pointer to match the merged branch; do not create a merge commit). When not possible (when the merged-in history is not a descendant of the current history), create a merge commit.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;More information&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>Allow fast forward</string>
@@ -115,7 +115,7 @@
       <item>
        <widget class="QRadioButton" name="radioButtonFastForwardOnly">
         <property name="whatsThis">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;resolve the merge as a fast-forward when possible. When not possible, refuse to merge and exit with a non-zero status.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff-only&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;More informations&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Resolve the merge as a fast-forward when possible. When not possible, refuse to merge and exit with a non-zero status.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff-only&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;More information&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>Fast forward only</string>
@@ -125,7 +125,7 @@
       <item>
        <widget class="QRadioButton" name="radioButtonNofastForward">
         <property name="whatsThis">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;create a merge commit in all cases, even when the merge could instead be resolved as a fast-forward.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---no-ff&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;More informations&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Create a merge commit in all cases, even when the merge could instead be resolved as a fast-forward.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---no-ff&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;More information&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>No fast forward</string>

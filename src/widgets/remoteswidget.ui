@@ -73,7 +73,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
-          <string>Informations</string>
+          <string>Information</string>
          </property>
          <layout class="QFormLayout" name="formLayout">
           <item row="1" column="0">
