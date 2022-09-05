@@ -30,7 +30,7 @@ void ButtonsGroup::buttonClicked()
     if (!btn)
         return;
 
-    for (auto &b : _buttons)
+    for (auto &b : qAsConst(_buttons))
         b->setChecked(b == btn);
 
     auto index = _buttons.indexOf(btn);

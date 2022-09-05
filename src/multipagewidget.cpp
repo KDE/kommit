@@ -126,6 +126,6 @@ QList<QAction *> MultiPageWidget::actions() const
 void MultiPageWidget::on_actionGroup_triggered(QAction *action)
 {
     stackedWidget->setCurrentIndex(action->data().toInt());
-    labelTitle->setText(action->text().replace("&", ""));
+    labelTitle->setText(action->text().remove(QLatin1Char('&')));
     labelPageIcon->setPixmap(action->icon().pixmap({32, 32}));
 }

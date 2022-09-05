@@ -16,7 +16,7 @@ bool StatusCache::addPath(const QString &path)
     auto statuses = git.repoFilesStatus();
 
     for (const auto &s: qAsConst(statuses)) {
-        _statuses.insert(git.path() + "/" + s.name(), s.status());
+        _statuses.insert(git.path() + QLatin1Char('/') + s.name(), s.status());
     }
     return true;
 }
@@ -71,7 +71,7 @@ FileStatus::Status StatusCache::pathStatus(const QString &path)
     FileStatus::Status status = FileStatus::Unmodified;
 
     for (const auto &s: qAsConst(statuses)) {
-        auto filePath = git.path() + "/" + s.name();
+        auto filePath = git.path() + QLatin1Char('/') + s.name();
 
         if (!filePath.startsWith(path)) {
             continue;

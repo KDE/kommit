@@ -30,8 +30,8 @@ void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
     int currentColor{0};
     _blameData = newBlameData;
     QString lastCommit;
-    for (auto &blame: newBlameData) {
-        QString commitHash = blame.log ? blame.log->commitHash() : QString();
+    for (const auto &blame: newBlameData) {
+        const QString commitHash = blame.log ? blame.log->commitHash() : QString();
 
         if (lastCommit != commitHash)
             currentColor = (currentColor + 1) % colors.size();
@@ -52,8 +52,8 @@ int BlameCodeView::sidebarWidth() const
     int max{0};
 
     auto fm = fontMetrics();
-    for (auto &b: _blameData) {
-        QString text = b.log ? b.log->authorName() : i18n("Uncommited");
+    for (const auto &b: _blameData) {
+        const QString text = b.log ? b.log->authorName() : i18n("Uncommited");
 
         max = qMax(max, fm.horizontalAdvance(text));
     }
