@@ -24,7 +24,7 @@ set(
 kcoreaddons_add_plugin(
     ${ACTIONS_PLUGIN}
     SOURCES ${ACTIONS_PLUGIN_SRC}
-    INSTALL_NAMESPACE "kf5/kfileitemaction"
+    INSTALL_NAMESPACE "kf${QT_VERSION_MAJOR}/kfileitemaction"
     JSON ${ACTIONS_PLUGIN}.json
 )
 
@@ -52,7 +52,7 @@ set(
 kcoreaddons_add_plugin(
     ${OVERLAY_PLUGIN}
     SOURCES ${OVERLAY_SRC}
-    INSTALL_NAMESPACE "kf5/overlayicon"
+    INSTALL_NAMESPACE "kf${QT_VERSION_MAJOR}/overlayicon"
     JSON ${OVERLAY_PLUGIN}.json
 )
 
