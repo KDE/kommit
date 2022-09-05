@@ -68,13 +68,13 @@ void AppWindow::init()
     initActions();
     _mainWidget = new MultiPageWidget(this);
     _mainWidget->setDefaultGitManager(_git);
-    addPage<HistoryViewWidget>("view_overview");
-    addPage<BranchesStatusWidget>("view_branches");
-    addPage<CommitsWidget>("view_commits");
-    addPage<StashesWidget>("view_stashes");
-    addPage<SubmodulesWidget>("view_submodules");
-    addPage<RemotesWidget>("view_remotes");
-    addPage<TagsWidget>("view_tags");
+    addPage<HistoryViewWidget>(QStringLiteral("view_overview"));
+    addPage<BranchesStatusWidget>(QStringLiteral("view_branches"));
+    addPage<CommitsWidget>(QStringLiteral("view_commits"));
+    addPage<StashesWidget>(QStringLiteral("view_stashes"));
+    addPage<SubmodulesWidget>(QStringLiteral("view_submodules"));
+    addPage<RemotesWidget>(QStringLiteral("view_remotes"));
+    addPage<TagsWidget>(QStringLiteral("view_tags"));
 
     setupGUI(StandardWindowOption::Default, "gitklientui.rc");
     _mainWidget->setCurrentIndex(0);
