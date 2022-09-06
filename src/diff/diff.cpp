@@ -701,13 +701,13 @@ QList<Segment *> diff(const QString &oldText, const QString &newText)
 
 void browseDir(QStringList &filesList, const QString &dirPath, const QString &basePath)
 {
-    QDir d(basePath + "/" + dirPath);
+    QDir d(basePath + QLatin1Char('/') + dirPath);
     const auto files = d.entryList(QDir::NoDotAndDotDot | QDir::Files);
     for (const auto &f : files) {
         if (dirPath.isEmpty())
             filesList.append(dirPath + f);
         else
-            filesList.append(dirPath + "/" + f);
+            filesList.append(dirPath + QLatin1Char('/') + f);
     }
 
     const auto dirs = d.entryList(QDir::NoDotAndDotDot | QDir::Dirs);
@@ -715,7 +715,7 @@ void browseDir(QStringList &filesList, const QString &dirPath, const QString &ba
         if (dirPath.isEmpty())
             browseDir(filesList, dirPath + d, basePath);
         else
-            browseDir(filesList, dirPath + "/" + d, basePath);
+            browseDir(filesList, dirPath + QLatin1Char('/') + d, basePath);
     }
 }
 

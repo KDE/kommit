@@ -48,13 +48,13 @@ void CloneDialog::on_lineEditUrl_textChanged(QString text)
         if (local.endsWith(".git", Qt::CaseInsensitive))
             local = local.mid(0, local.size() - 4);
 
-        lineEditPath->setText(_fixedPath + "/" + local);
+        lineEditPath->setText(_fixedPath + QLatin1Char('/') + local);
     }
 }
 
 void CloneDialog::on_toolButtonBrowseLocalPath_clicked()
 {
-    auto localPath = QFileDialog::getExistingDirectory(this, i18n("Local path"));
+    const auto localPath = QFileDialog::getExistingDirectory(this, i18n("Local path"));
     if (!localPath.isEmpty())
         lineEditPath->setText(localPath);
 }

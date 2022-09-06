@@ -64,7 +64,7 @@ QList<FileStatus> MiniManager::repoFilesStatus() const
 
         FileStatus fs;
         fs.parseStatusLine(item);
-        fs.setFullPath(_path + "/" + fs.name());
+        fs.setFullPath(_path + QLatin1Char('/') + fs.name());
         if (fs.status() != FileStatus::Untracked)// && !files.contains(fs))
             files.append(fs);
 

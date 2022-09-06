@@ -151,7 +151,7 @@ KService::Ptr FileActions::getViewer(const QString &mimeType)
 
 void FileActions::openWith()
 {
-    auto fileName = _git->path() + "/" + _filePath;
+    auto fileName = _git->path() + QLatin1Char('/') + _filePath;
     const QList<QUrl> fileUrlList = {QUrl::fromLocalFile(fileName)};
     QMimeDatabase db;
     QMimeType mimeType = db.mimeTypeForFile(fileName);
@@ -169,7 +169,7 @@ void FileActions::openWith()
 void FileActions::diffWithHead()
 {
     Git::File oldFile{_place, _filePath};
-    Git::File newFile{_git->path() + "/" + _filePath};
+    Git::File newFile{_git->path() + QLatin1Char('/') + _filePath};
 
     auto d = new DiffWindow(oldFile, newFile);
     d->showModal();
@@ -184,9 +184,9 @@ void FileActions::mergeWithHead()
     f.save(p);
 
     d->setFilePathBase(p);
-    d->setFilePathLocal(_git->path() + "/" + _filePath);
+    d->setFilePathLocal(_git->path() + QLatin1Char('/') + _filePath);
     d->setFilePathRemote(p);
-    d->setFilePathResult(_git->path() + "/" + _filePath);
+    d->setFilePathResult(_git->path() + QLatin1Char('/') + _filePath);
     d->load();
 
     d->showModal();

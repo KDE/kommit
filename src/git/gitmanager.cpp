@@ -95,7 +95,7 @@ QList<FileStatus> Manager::repoFilesStatus() const
         FileStatus fs;
         fs.parseStatusLine(item);
         //        qDebug() << "[STATUS]" << fs.name() << fs.status();
-        fs.setFullPath(_path + "/" + fs.name());
+        fs.setFullPath(_path + QLatin1Char('/') + fs.name());
         files.append(fs);
     }
     return files;
