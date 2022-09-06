@@ -22,9 +22,9 @@ void DiffTreeView::setModels(DiffTreeModel *newDiffModel, FilesModel *filesModel
 }
 
 DiffTreeView::DiffTreeView(QWidget *parent) : QWidget(parent)
+  , _filterModel(new QSortFilterProxyModel(this))
 {
     setupUi(this);
-    _filterModel = new QSortFilterProxyModel(this);
     _filterModel->setFilterKeyColumn(0);
     _filterModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
     listView->setModel(_filterModel);

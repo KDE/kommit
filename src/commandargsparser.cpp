@@ -50,7 +50,7 @@ void CommandArgsParser::add(const QString &name, const CommandList &list)
 void CommandArgsParser::add(const QString &name, const QString &list)
 {
     CommandList cmdList;
-    const auto parts = list.split(' ');
+    const auto parts = list.split(QLatin1Char(' '));
     for (const auto &pp: parts) {
         auto p = pp;
         bool isOptional{false};

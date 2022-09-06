@@ -11,7 +11,7 @@ class DiffTreeView : public QWidget, private Ui::DiffTreeView
     Q_OBJECT
 
     DiffTreeModel *_diffModel{nullptr};
-    QSortFilterProxyModel *_filterModel{nullptr};
+    QSortFilterProxyModel *const _filterModel;
     FilesModel *_filesModel;
     Q_PROPERTY(bool hideUnchangeds READ hideUnchangeds WRITE setHideUnchangeds NOTIFY hideUnchangedsChanged)
 

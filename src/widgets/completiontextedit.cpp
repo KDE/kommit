@@ -6,11 +6,9 @@
 #include <QStringListModel>
 
 CompletionTextEdit::CompletionTextEdit(QWidget *parent) : QTextEdit(parent)
+  , _completionModel(new QStringListModel(this))
+  , c(new QCompleter(this))
 {
-    c = new QCompleter(this);
-
-    _completionModel = new QStringListModel(this);
-
     c->setWidget(this);
     c->setModel(_completionModel);
     c->setCompletionMode(QCompleter::PopupCompletion);

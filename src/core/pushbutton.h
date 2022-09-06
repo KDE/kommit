@@ -13,10 +13,8 @@ public:
     void setAction(QAction *newAction);
 
 private:
-    QAction *_action{nullptr};
-
-private slots:
     void updateButtonStatusFromAction();
+    QAction *_action{nullptr};
 };
 
 #endif // PUSHBUTTON_H

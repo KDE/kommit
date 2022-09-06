@@ -35,8 +35,8 @@ private:
 
 private:
     QStringList _words;
-    QStringListModel *_completionModel;
-    QCompleter *c{nullptr};
+    QStringListModel *const _completionModel;
+    QCompleter *const c;
 };
 
 #endif // COMPLETIONTEXTEDIT_H

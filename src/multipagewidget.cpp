@@ -21,8 +21,8 @@ int MultiPageWidget::count() const
 
 MultiPageWidget::MultiPageWidget(QWidget *parent) :
       QWidget(parent)
+    , actionGroup(new QActionGroup(this))
 {
-    actionGroup = new QActionGroup(this);
     Q_SET_OBJECT_NAME(actionGroup);
 
     setupUi(this);
