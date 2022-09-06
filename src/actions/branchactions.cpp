@@ -67,9 +67,9 @@ void BranchActions::fetch()
 
 void BranchActions::create()
 {
-    auto newBranchName = QInputDialog::getText(_parent, i18n("Create new branch"), i18n("Branch name"));
+    const auto newBranchName = QInputDialog::getText(_parent, i18n("Create new branch"), i18n("Branch name"));
 
-    if (newBranchName !=QString()) {
+    if (!newBranchName.isEmpty()) {
         _git->runGit({"checkout", "-b", newBranchName});
         _git->branchesModel()->load();
     }
@@ -92,7 +92,7 @@ void BranchActions::diff()
 {
     QString mainBranch = _otherBranch;
 
-    if (mainBranch == QString()) {
+    if (!mainBranch.isEmpty()) {
         auto branches = _git->branches();
         if (branches.contains("master"))
             mainBranch = "master";

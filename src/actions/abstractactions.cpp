@@ -36,7 +36,7 @@ void AbstractActions::popup(const QPoint &pos)
 void AbstractActions::git_reloaded()
 {
     if (!_git->isValid()) {
-        for (auto &a: _actions)
+        for (auto &a: qAsConst(_actions))
             a->setEnabled(false);
         _actionStatuses.clear();
         return;

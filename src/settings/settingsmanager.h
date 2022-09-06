@@ -16,13 +16,11 @@ public:
     void exec(QWidget *parentWidget);
 
 
-private slots:
-    void settingsChanged();
-
 public slots:
     void show();
 
 private:
+    void settingsChanged();
     Ui::SettingsPageBase pageBase{};
     Ui::SettingsPageDiff pageDiff{};
     Ui::SettingsPageGit pageGit{};

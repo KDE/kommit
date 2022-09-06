@@ -82,7 +82,7 @@ void StashActions::create()
     }
     bool ok;
 
-    auto name = QInputDialog::getText(_parent,
+    const auto name = QInputDialog::getText(_parent,
                           i18n("Create new stash"),
                           i18n("Name of stash"),
                           QLineEdit::Normal,

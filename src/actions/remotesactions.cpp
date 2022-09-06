@@ -67,7 +67,7 @@ void RemotesActions::changeUrl()
         return;
     auto newUrl = QInputDialog::getText(_parent,
                                         i18n("Change url"),
-                                        "URL",
+                                        i18n("URL"),
                                         QLineEdit::Normal,
                                         remote->pushUrl);
 
@@ -81,7 +81,7 @@ void RemotesActions::rename()
 {
     auto newName = QInputDialog::getText(_parent,
                                          i18n("Rename"),
-                                         "New name",
+                                         i18n("New name"),
                                          QLineEdit::Normal,
                                          _remoteName);
 

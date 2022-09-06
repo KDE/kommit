@@ -27,9 +27,9 @@ DiffWindow::DiffWindow(Git::Manager *git) : AppMainWindow()
     init(true);
 
     _oldBranch = git->currentBranch();
-    auto diffs = git->diffBranch(_oldBranch);
+    const auto diffs = git->diffBranch(_oldBranch);
 
-    for (auto &f: diffs) {
+    for (const auto &f: diffs) {
         _diffModel->addFile(f);
         _filesModel->append(f.name());
     }
