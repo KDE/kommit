@@ -6,15 +6,15 @@ CommandCommit::CommandCommit() = default;
 
 QStringList CommandCommit::generateArgs() const
 {
-    QStringList args{"commit", "--message", _message};
+    QStringList args{QStringLiteral("commit"), QStringLiteral("--message"), _message};
 
     if (_amend)
-        args.append("--amend");
+        args.append(QStringLiteral("--amend"));
 
     if (_includeStatus)
-        args.append("--status");
+        args.append(QStringLiteral("--status"));
     else
-        args.append("--no-status");
+        args.append(QStringLiteral("--no-status"));
 
     return args;
 }

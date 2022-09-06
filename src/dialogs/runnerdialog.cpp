@@ -13,7 +13,7 @@ RunnerDialog::RunnerDialog(QWidget *parent) :
     setupUi(this);
 
     _git = new QProcess{this};
-    _git->setProgram("git");
+    _git->setProgram(QStringLiteral("git"));
     _git->setWorkingDirectory(Git::Manager::instance()->path());
 
     connect(_git,

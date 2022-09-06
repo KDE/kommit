@@ -81,19 +81,19 @@ void CommandFetch::setBranch(const QString &newBranch)
 
 QStringList CommandFetch::generateArgs() const
 {
-    QStringList args{"fetch", _remote};
+    QStringList args{QStringLiteral("fetch"), _remote};
     if (!_branch.isEmpty())
         args.append(_branch);
     if (_noFf)
-        args.append("--no-ff");
+        args.append(QStringLiteral("--no-ff"));
     if (_ffOnly)
-        args.append("--ff-only");
+        args.append(QStringLiteral("--ff-only"));
     if (_noCommit)
-        args.append("--no-commit");
+        args.append(QStringLiteral("--no-commit"));
     if (_prune)
-        args.append("--prune");
+        args.append(QStringLiteral("--prune"));
     if (_tags)
-        args.append("--tags");
+        args.append(QStringLiteral("--tags"));
     return args;
 }
 

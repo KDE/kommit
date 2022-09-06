@@ -94,10 +94,10 @@ void BranchActions::diff()
 
     if (!mainBranch.isEmpty()) {
         auto branches = _git->branches();
-        if (branches.contains("master"))
-            mainBranch = "master";
-        else if (branches.contains("main"))
-            mainBranch = "main";
+        if (branches.contains(QStringLiteral("master")))
+            mainBranch = QStringLiteral("master");
+        else if (branches.contains(QStringLiteral("main")))
+            mainBranch = QStringLiteral("main");
         else
             return;
     }

@@ -46,7 +46,7 @@ void CommandPush::setForce(bool newForce)
 
 QStringList CommandPush::generateArgs() const
 {
-    QStringList args{"push", _remote};
+    QStringList args{QStringLiteral("push"), _remote};
 
     if (_remoteBranch.isEmpty())
         args.append(_localBranch);
@@ -54,7 +54,7 @@ QStringList CommandPush::generateArgs() const
         args.append(_localBranch + ":" + _remoteBranch);
 
     if (_force)
-        args.append("--force");
+        args.append(QStringLiteral("--force"));
 
     return args;
 }

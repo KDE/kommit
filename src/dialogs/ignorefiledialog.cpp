@@ -90,9 +90,9 @@ void IgnoreFileDialog::on_buttonBox_accepted()
 QString IgnoreFileDialog::getIgnoreFile()
 {
     if (radioButtonRootIgnoreFile->isChecked())
-        return _git->path() + "/.gitignore";
+        return _git->path() + QStringLiteral("/.gitignore");
     else if (radioButtonDirIgnoreFile->isChecked())
-        return _git->path() + _path + ".gitignore";
+        return _git->path() + _path + QStringLiteral(".gitignore");
     else
-        return _git->path() + "/.git/info/exclude";
+        return _git->path() + QStringLiteral("/.git/info/exclude");
 }

@@ -42,12 +42,12 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const Git::File &file, Q
     setupUi(this);
 
     _fileName = file.fileName();
-    auto hashes = git->fileLog(file.fileName());
+    const auto hashes = git->fileLog(file.fileName());
 
     auto logs = git->logsModel();
 
 
-    for (auto &hash: hashes) {
+    for (const auto &hash: hashes) {
         auto log = logs->findLogByHash(hash);
         if (!log)
             continue;

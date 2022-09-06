@@ -19,7 +19,7 @@ void run(const QString &workingDir, const QStringList &args)
 void run(const QString &workingDir, AbstractCommand &cmd)
 {
     QProcess p;
-    p.setProgram("git");
+    p.setProgram(QStringLiteral("git"));
     p.setArguments(cmd.generateArgs());
     p.setWorkingDirectory(workingDir);
     p.start();
@@ -34,7 +34,7 @@ QByteArray runGit(const QString &workingDir, const QStringList &args)
     //    qDebug().noquote() << "Running: git " << args.join(" ");
 
     QProcess p;
-    p.setProgram("git");
+    p.setProgram(QStringLiteral("git"));
     p.setArguments(args);
     p.setWorkingDirectory(workingDir);
     p.start();

@@ -122,19 +122,19 @@ void CommandPull::setBranch(const QString &newBranch)
 
 QStringList CommandPull::generateArgs() const
 {
-    QStringList args{"pull", _remote, _branch};
+    QStringList args{QStringLiteral("pull"), _remote, _branch};
     if (_squash)
-        args.append("--squash");
+        args.append(QStringLiteral("--squash"));
     if (_noFf)
-        args.append("--no-ff");
+        args.append(QStringLiteral("--no-ff"));
     if (_ffOnly)
-        args.append("--ff-only");
+        args.append(QStringLiteral("--ff-only"));
     if (_noCommit)
-        args.append("--no-commit");
+        args.append(QStringLiteral("--no-commit"));
     if (_prune)
-        args.append("--prune");
+        args.append(QStringLiteral("--prune"));
     if (_tags)
-        args.append("--tags");
+        args.append(QStringLiteral("--tags"));
     return args;
 }
 

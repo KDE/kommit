@@ -10,7 +10,7 @@ AddSubmoduleCommand::AddSubmoduleCommand(Manager *git)
 
 QStringList AddSubmoduleCommand::generateArgs() const
 {
-    QStringList args{"submodule", "add", _url, _localPath};
+    QStringList args{QStringLiteral("submodule"), QStringLiteral("add"), _url, _localPath};
 
     if (!_branch.isEmpty())
         args << "--branch=" + _branch;

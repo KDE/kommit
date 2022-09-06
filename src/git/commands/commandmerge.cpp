@@ -10,18 +10,18 @@ CommandMerge::CommandMerge(Manager *git)
 
 QStringList CommandMerge::generateArgs() const
 {
-    QStringList  cmd{"merge"};
+    QStringList  cmd{QStringLiteral("merge")};
     switch (_ff) {
     case FastForwardType::Unset:
         break;
     case FastForwardType::Yes:
-        cmd.append("--ff");
+        cmd.append(QStringLiteral("--ff"));
         break;
     case FastForwardType::No:
-        cmd.append("--no-ff");
+        cmd.append(QStringLiteral("--no-ff"));
         break;
     case FastForwardType::OnlyFastForward:
-        cmd.append("--ff-only");
+        cmd.append(QStringLiteral("--ff-only"));
         break;
     }
 
