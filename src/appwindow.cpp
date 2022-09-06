@@ -198,7 +198,7 @@ void AppWindow::initRecentFiles(const QString &newItem)
     recentAction->menu()->clear();
     QSettings s;
     auto recentList = s.value("recent_files").toStringList();
-    if (newItem != QString()) {
+    if (!newItem.isEmpty()) {
         recentList.removeOne(newItem);
         recentList.prepend(newItem);
         s.setValue("recent_files", recentList);

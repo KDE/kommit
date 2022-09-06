@@ -29,7 +29,7 @@ QStringList CommandMerge::generateArgs() const
     appendBool(_squash, cmd, "squash");
     appendBool(_allowUnrelatedHistories, cmd, "allow-unrelated-histories");
 
-    if (_strategy != QString())
+    if (!_strategy.isEmpty())
         cmd.append("--strategy=" + _strategy);
 
     return cmd;

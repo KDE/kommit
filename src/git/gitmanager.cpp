@@ -550,7 +550,7 @@ void Manager::createStash(const QString &name) const
 {
     QStringList args{"stash", "push"};
 
-    if (name != QString())
+    if (!name.isEmpty())
         args.append({"--message", name});
 
     auto ret = runGit(args);

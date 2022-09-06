@@ -97,8 +97,8 @@ void FileActions::viewFile()
 
 void FileActions::saveAsFile()
 {
-    auto fileName = QFileDialog::getSaveFileName(_parent);
-    if (fileName != QString()) {
+    const auto fileName = QFileDialog::getSaveFileName(_parent);
+    if (!fileName.isEmpty()) {
         Git::File file{_place, _filePath};
         file.save(fileName);
     }

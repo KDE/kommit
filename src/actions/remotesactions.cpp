@@ -79,13 +79,13 @@ void RemotesActions::changeUrl()
 
 void RemotesActions::rename()
 {
-    auto newName = QInputDialog::getText(_parent,
+    const auto newName = QInputDialog::getText(_parent,
                                          i18n("Rename"),
                                          i18n("New name"),
                                          QLineEdit::Normal,
                                          _remoteName);
 
-    if (newName != QString()) {
+    if (!newName.isEmpty()) {
         _git->remotesModel()->rename(_remoteName, newName);
         _remoteName = newName;
     }

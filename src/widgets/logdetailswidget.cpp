@@ -101,7 +101,7 @@ void LogDetailsWidget::createText()
     clear();
     QString html;
     appendHeading(html, _log->subject());
-    if (_log->refLog() != QString())
+    if (!_log->refLog().isEmpty())
         appendParagraph(html, i18n("Ref"), _log->refLog());
     appendParagraph(html, i18n("Committer"), QStringLiteral("%1 &lt;%2&gt;").arg(_log->committerName(), _log->committerEmail()));
     appendParagraph(html, i18n("Author"), QStringLiteral("%1 &lt;%2&gt;").arg(_log->authorName(), _log->authorEmail()));

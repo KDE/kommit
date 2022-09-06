@@ -46,7 +46,7 @@ FileViewerDialog::~FileViewerDialog()
     QSettings s;
     s.setValue("FileViewerDialog_Geometry", saveGeometry());
 
-    if (_filePath != QString() && QFile::exists(_filePath))
+    if (!_filePath.isEmpty() && QFile::exists(_filePath))
         QFile::remove(_filePath);
 
     if (m_part) {

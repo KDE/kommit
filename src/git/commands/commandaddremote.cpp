@@ -14,7 +14,7 @@ QStringList CommandAddRemote::generateArgs() const
         args << "--mirrot";
     appendBool(_tags, args, "tags");
 
-    if (_master != QString())
+    if (!_master.isEmpty())
         args << "--master=" + _master;
 
     args << _remoteName << _url;

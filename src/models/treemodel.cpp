@@ -195,7 +195,7 @@ void TreeModel::addData(const QStringList &data, const QString &prefix, bool spl
 
         if (split) {
             auto nodePath = path;
-            if (prefix != QString())
+            if (!prefix.isEmpty())
                 nodePath.prepend(prefix + _seprator);
 
             auto parts = nodePath.split(_seprator);
@@ -211,7 +211,7 @@ void TreeModel::addData(const QStringList &data, const QString &prefix, bool spl
                 node->key = path;
             }
         } else {
-            if (prefix != QString())
+            if (!prefix.isEmpty())
                 node = createPath({prefix, path});
             else
                 node = createPath({path});
