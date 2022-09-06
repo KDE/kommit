@@ -1,6 +1,12 @@
 {
     "KPlugin": {
         "Description": "Overlay icon for owncloud",
+        "Description[ca]": "Icona de substitució per a l'ownCloud",
+        "Description[es]": "Icono superpuesto para owncloud",
+        "Description[nl]": "Overlay pictogram voor owncloud",
+        "Description[tr]": "Owncloud Simgesi",
+        "Description[uk]": "Піктограма-накладка для owncloud",
+        "Description[x-test]": "xxOverlay icon for owncloudxx",
         "ServiceTypes": [
             "KOverlayIconPlugin"
         ]

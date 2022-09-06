@@ -5,6 +5,12 @@
             "inode/directory"
         ],
         "Name": "Git Klient",
+        "Name[ca]": "Git Klient",
+        "Name[es]": "Git Klient",
+        "Name[nl]": "Git Klient",
+        "Name[tr]": "Git Klient",
+        "Name[uk]": "Git Klient",
+        "Name[x-test]": "xxGit Klientxx",
         "ServiceTypes": [
             "KFileItemAction/Plugin"
         ]

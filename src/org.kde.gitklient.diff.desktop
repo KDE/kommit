@@ -1,8 +1,20 @@
 [Desktop Entry]
 Name=Git Klient Diff
+Name[ca]=Git Klient Diff
+Name[es]=Diferencias de Git Klient
+Name[nl]=Git Klient Diff
+Name[tr]=Git Klient Diff
+Name[uk]=Різниця git Klient
+Name[x-test]=xxGit Klient Diffxx
 Exec=gitklient diff
 Icon=gitklient
 Type=Application
 X-DocPath=gitklient/index.html
 GenericName=Git client gui for KDE
+GenericName[ca]=Client gràfic del Git per al KDE
+GenericName[es]=Interfaz gráfica de cliente git para KDE
+GenericName[nl]=Git-client-gui voor KDE
+GenericName[tr]=KDE için Git Grafik Kullanıcı Arayüzü
+GenericName[uk]=Клієнтська графічна оболонка до git для KDE
+GenericName[x-test]=xxGit client gui for KDExx
 Categories=Development

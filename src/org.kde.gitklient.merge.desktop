@@ -1,8 +1,20 @@
 [Desktop Entry]
 Name=Git Klient Merge
+Name[ca]=Git Klient Merge
+Name[es]=Fusión de Git Klient
+Name[nl]=Git Klient Merge
+Name[tr]=Git Klient Birleştir
+Name[uk]=Об'єднання git Klient
+Name[x-test]=xxGit Klient Mergexx
 Exec=gitklient merge
 Icon=gitklient
 Type=Application
 X-DocPath=gitklient/index.html
 GenericName=Git client gui for KDE
+GenericName[ca]=Client gràfic del Git per al KDE
+GenericName[es]=Interfaz gráfica de cliente git para KDE
+GenericName[nl]=Git-client-gui voor KDE
+GenericName[tr]=KDE için Git Grafik Kullanıcı Arayüzü
+GenericName[uk]=Клієнтська графічна оболонка до git для KDE
+GenericName[x-test]=xxGit client gui for KDExx
 Categories=Development
