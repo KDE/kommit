@@ -23,8 +23,8 @@ StashActions::StashActions(Git::Manager *git, QWidget *parent) : AbstractActions
     _actionApply = addAction(i18n("Apply..."),this, &StashActions::apply,  false, true);
     _actionDrop = addAction(i18n("Remove..."),this, &StashActions::drop,  false, true);
 
-    _actionDrop->setIcon(QIcon::fromTheme("list-remove"));
-    _actionNew->setIcon(QIcon::fromTheme("list-add"));
+    _actionDrop->setIcon(QIcon::fromTheme(QStringLiteral("list-remove")));
+    _actionNew->setIcon(QIcon::fromTheme(QStringLiteral("list-add")));
 }
 
 const QString &StashActions::stashName() const
