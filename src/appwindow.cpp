@@ -1,4 +1,10 @@
 /*
+SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
+/*
 Copyright (C) 2021 by Hamed Masafi <hamed.masafi@gmail.com>
 
 This program is free software; you can redistribute it and/or
