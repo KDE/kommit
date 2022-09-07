@@ -5,23 +5,32 @@
   <project_license>GPL-3.0</project_license>
   <name>Git Klient</name>
   <name xml:lang="ca">Git Klient</name>
+  <name xml:lang="ca-valencia">Git Klient</name>
   <name xml:lang="es">Git Klient</name>
   <name xml:lang="nl">Git Klient</name>
+  <name xml:lang="pt">Git Klient</name>
+  <name xml:lang="sl">Odjemalec Git</name>
   <name xml:lang="tr">Git Klient</name>
   <name xml:lang="uk">Git Klient</name>
   <name xml:lang="x-test">xxGit Klientxx</name>
   <summary> Git gui client for KDE </summary>
   <summary xml:lang="ca">Client gràfic del Git per al KDE</summary>
+  <summary xml:lang="ca-valencia">Client gràfic de Git per a KDE</summary>
   <summary xml:lang="es">Interfaz gráfica de cliente git para KDE</summary>
   <summary xml:lang="nl">Git gui-client voor KDE</summary>
+  <summary xml:lang="pt">Cliente gráfico do Git para o KDE</summary>
+  <summary xml:lang="sl">Grafični vmesnik odjemalca Git za KDE</summary>
   <summary xml:lang="tr">KDE için Git Grafik Kullanıcı Arayüzü</summary>
   <summary xml:lang="uk">Клієнтська графічна оболонка до git для KDE</summary>
   <summary xml:lang="x-test">xxGit gui client for KDExx</summary>
   <description>
     <p> Git gui client for KDE </p>
     <p xml:lang="ca">Client gràfic del Git per al KDE</p>
+    <p xml:lang="ca-valencia">Client gràfic de Git per a KDE</p>
     <p xml:lang="es">Interfaz gráfica de cliente git para KDE</p>
     <p xml:lang="nl">Git gui-client voor KDE</p>
+    <p xml:lang="pt">Cliente gráfico do Git para o KDE</p>
+    <p xml:lang="sl">Grafični vmesnik odjemalca Git za KDE</p>
     <p xml:lang="tr">KDE için Git Grafik Kullanıcı Arayüzü</p>
     <p xml:lang="uk">Клієнтська графічна оболонка до git для KDE</p>
     <p xml:lang="x-test">xxGit gui client for KDExx</p>
