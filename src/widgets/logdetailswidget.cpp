@@ -65,11 +65,11 @@ void LogDetailsWidget::createText()
             QStringLiteral("<li><font color=%1>%2</a></li>").arg(color, createFileLink(i.key())));
     }
     QString parentHashHtml;
-    for (auto &parent: _log->parents())
+    for (const auto &parent: _log->parents())
         parentHashHtml.append(createHashLink(parent));
 
     QString childsHashHtml;
-    for (auto &child: _log->childs())
+    for (const auto &child: _log->childs())
         childsHashHtml.append(createHashLink(child));
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
@@ -170,9 +170,9 @@ void LogDetailsWidget::self_anchorClicked(const QUrl &url)
 {
     const auto scheme = url.scheme().toLower();
 
-    if (scheme=="hash")
+    if (scheme==QStringLiteral("hash"))
         emit hashClicked(url.path());
-    else if (scheme=="file")
+    else if (scheme==QStringLiteral("file"))
         emit fileClicked(url.path());
 }
 

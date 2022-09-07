@@ -51,7 +51,7 @@ int BlameCodeView::sidebarWidth() const
 {
     int max{0};
 
-    auto fm = fontMetrics();
+    const auto fm = fontMetrics();
     for (const auto &b: _blameData) {
         const QString text = b.log ? b.log->authorName() : i18n("Uncommited");
 

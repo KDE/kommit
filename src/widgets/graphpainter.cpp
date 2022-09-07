@@ -197,7 +197,7 @@ void GraphPainter::paintLane(QPainter *painter, const Git::GraphLane &lane, int 
         break;//just to avoid compiler warning
     }
 
-    for (auto &i: lane.upJoins()) {
+    for (const auto &i: lane.upJoins()) {
         painter->drawEllipse(point(i), 2, 2);
         QPainterPath p;
         p.moveTo(point(i));
@@ -207,7 +207,7 @@ void GraphPainter::paintLane(QPainter *painter, const Git::GraphLane &lane, int 
         painter->setBrush(Qt::transparent);
         painter->drawPath(p);
     }
-    for (auto &i: lane.bottomJoins()) {
+    for (const auto &i: lane.bottomJoins()) {
         painter->drawEllipse(point(i), 2, 2);
 
         QPainterPath p;

@@ -371,7 +371,7 @@ int CodeEditor::currentLineNumber() const
 
 void CodeEditor::gotoLineNumber(int lineNumber)
 {
-    QTextBlock block = document()->findBlockByLineNumber(lineNumber);
+    const QTextBlock block = document()->findBlockByLineNumber(lineNumber);
 
     if (block.isValid()) {
         QTextCursor cursor(block);

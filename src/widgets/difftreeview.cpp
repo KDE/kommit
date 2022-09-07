@@ -84,7 +84,7 @@ bool DiffTreeView::eventFilter(QObject *watched, QEvent *event)
         }
     }
     if (watched == listView && event->type() == QEvent::KeyPress) {
-        auto ke = dynamic_cast<QKeyEvent*>(event);
+        auto ke = static_cast<QKeyEvent*>(event);
 
         if (ke->key() == Qt::Key_Up && listView->currentIndex().row() == 0)
             lineEditFilter->setFocus();

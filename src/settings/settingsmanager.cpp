@@ -28,20 +28,20 @@ void SettingsManager::settingsChanged()
     auto git = Git::Manager::instance();
 
     if (GitKlientSettings::registerDiffTool()) {
-        git->setConfig("difftool.gitklientdiff.cmd",
-                       "gitklientdiff \"$LOCAL\" \"$REMOTE\"",
+        git->setConfig(QStringLiteral("difftool.gitklientdiff.cmd"),
+                       QStringLiteral("gitklientdiff \"$LOCAL\" \"$REMOTE\""),
                        Git::Manager::ConfigGlobal);
     } else {
         git->unsetConfig("difftool.gitklientdiff.cmd", Git::Manager::ConfigGlobal);
     }
     if (GitKlientSettings::registerMergeTool()) {
-        git->setConfig("mergetool.gitklientmerge.cmd",
-                       "gitklientmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"",
+        git->setConfig(QStringLiteral("mergetool.gitklientmerge.cmd"),
+                       QStringLiteral("gitklientmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\""),
                        Git::Manager::ConfigGlobal);
-        git->setConfig("mergetool.gitklientmerge.trustExitCode", "true", Git::Manager::ConfigGlobal);
+        git->setConfig(QStringLiteral("mergetool.gitklientmerge.trustExitCode"), QStringLiteral("true"), Git::Manager::ConfigGlobal);
     } else {
-        git->unsetConfig("mergetool.gitklientmerge.cmd", Git::Manager::ConfigGlobal);
-        git->unsetConfig("mergetool.gitklientmerge.trustExitCode", Git::Manager::ConfigGlobal);
+        git->unsetConfig(QStringLiteral("mergetool.gitklientmerge.cmd"), Git::Manager::ConfigGlobal);
+        git->unsetConfig(QStringLiteral("mergetool.gitklientmerge.trustExitCode"), Git::Manager::ConfigGlobal);
     }
 }
 

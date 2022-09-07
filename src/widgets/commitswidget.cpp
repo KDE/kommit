@@ -25,9 +25,9 @@ void CommitsWidget::reload()
     _repoModel->addData(branches);
 
     if (branches.contains("master"))
-        _mainBranch = "master";
+        _mainBranch = QStringLiteral("master");
     else if (branches.contains("main"))
-        _mainBranch = "main";
+        _mainBranch = QStringLiteral("main");
 
     widgetCommitsView->setBranch(QString());
 }
