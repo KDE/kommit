@@ -5,9 +5,12 @@
             "inode/directory"
         ],
         "Name": "Git Klient",
+        "Name[ca@valencia]": "Git Klient",
         "Name[ca]": "Git Klient",
         "Name[es]": "Git Klient",
         "Name[nl]": "Git Klient",
+        "Name[pt]": "Git Klient",
+        "Name[sl]": "Odjemalec Git",
         "Name[tr]": "Git Klient",
         "Name[uk]": "Git Klient",
         "Name[x-test]": "xxGit Klientxx",

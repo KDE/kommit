@@ -2,7 +2,10 @@
 Type=Service
 Name=My fancy action plugin
 Name[ca]=Un connector d'acció ferma
+Name[ca@valencia]=Un connector d'acció ferma
 Name[nl]=Mijn elegante actieplug-in
+Name[pt]=O meu 'plugin' bonito de acções
+Name[sl]=Moj vtičnik sanjskih dejavnosti
 Name[tr]=Janjanlı eylem eklentim
 Name[uk]=Додаток для моїх чудових дій
 Name[x-test]=xxMy fancy action pluginxx

@@ -1,8 +1,11 @@
 [Desktop Entry]
 Name=Git Klient
 Name[ca]=Git Klient
+Name[ca@valencia]=Git Klient
 Name[es]=Git Klient
 Name[nl]=Git Klient
+Name[pt]=Git Klient
+Name[sl]=Odjemalec Git
 Name[tr]=Git Klient
 Name[uk]=Git Klient
 Name[x-test]=xxGit Klientxx
@@ -12,8 +15,11 @@ Type=Application
 X-DocPath=gitklient/index.html
 GenericName=Git client gui for KDE
 GenericName[ca]=Client gràfic del Git per al KDE
+GenericName[ca@valencia]=Client gràfic de Git per a KDE
 GenericName[es]=Interfaz gráfica de cliente git para KDE
 GenericName[nl]=Git-client-gui voor KDE
+GenericName[pt]=Interface gráfica do Git para o KDE
+GenericName[sl]=Grafični vmesnik odjemalca Git za KDE
 GenericName[tr]=KDE için Git Grafik Kullanıcı Arayüzü
 GenericName[uk]=Клієнтська графічна оболонка до git для KDE
 GenericName[x-test]=xxGit client gui for KDExx
