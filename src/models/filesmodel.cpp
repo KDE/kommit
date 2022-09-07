@@ -50,5 +50,5 @@ void FilesModel::append(const QString &data)
 
 void FilesModel::addFile(const FileStatus &file)
 {
-
+    Q_UNUSED(file)
 }

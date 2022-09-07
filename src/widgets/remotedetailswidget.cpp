@@ -62,7 +62,7 @@ void RemoteDetailsWidget::setBranch(const QString &newBranch)
     labelPushUrl->setText(info.pushUrl);
     labelDefaultBranch->setText(info.headBranch);
 
-    for (const auto &rb: info.branches) {
+    for (const auto &rb: qAsConst(info.branches)) {
         auto item = new QTreeWidgetItem(treeWidget);
 
         item->setText(0, rb.name);
