@@ -102,10 +102,10 @@ void DiffWindow::init(bool showSideBar)
 
     mapper->addTextEdit(_diffWidget->oldCodeEditor());
     mapper->addTextEdit(_diffWidget->newCodeEditor());
-    setWindowTitle(i18n("GitKlient Diff[*]"));
+    setWindowTitle(i18nc("@title:window", "GitKlient Diff[*]"));
 
     _dock = new QDockWidget(this);
-    _dock->setWindowTitle(i18n("Tree"));
+    _dock->setWindowTitle(i18nc("@title:window", "Tree"));
     _dock->setObjectName("treeViewDock");
 
     _treeView = new DiffTreeView(this);

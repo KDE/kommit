@@ -46,9 +46,9 @@ void CloneDialog::setLocalPath(const QString &path)
     lineEditPath->setText(path);
 }
 
-void CloneDialog::on_lineEditUrl_textChanged(QString text)
+void CloneDialog::on_lineEditUrl_textChanged(const QString &text)
 {
-    auto parts = text.split("/");
+    const auto parts = text.split(QLatin1Char('/'));
     if (!parts.isEmpty()) {
         auto local = parts.last();
         if (local.endsWith(".git", Qt::CaseInsensitive))

@@ -44,7 +44,7 @@ void TagsActions::setTagName(const QString &newTagName)
 void TagsActions::create()
 {
     TagInfoDialog d(_parent);
-    d.setWindowTitle(i18n("New tag"));
+    d.setWindowTitle(i18nc("@title:window", "New tag"));
     if (d.exec() == QDialog::Accepted) {
         _git->createTag(d.tagName(), d.message());
         _git->tagsModel()->load();

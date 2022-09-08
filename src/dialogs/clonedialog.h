@@ -26,7 +26,7 @@ public:
     void setLocalPath(const QString &path);
 
 private slots:
-    void on_lineEditUrl_textChanged(QString text);
+    void on_lineEditUrl_textChanged(const QString &text);
     void on_toolButtonBrowseLocalPath_clicked();
     void on_buttonBox_accepted();
 };

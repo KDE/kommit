@@ -267,7 +267,7 @@ ArgParserReturn CommandArgsParser::create_tag(const QString &path)
     checkGitPath(path);
 
     TagInfoDialog d(nullptr);
-    d.setWindowTitle(i18n("New tag"));
+    d.setWindowTitle(i18nc("@title:window", "New tag"));
     if (d.exec() == QDialog::Accepted) {
         git->createTag(d.tagName(), d.message());
     }

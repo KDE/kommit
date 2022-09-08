@@ -57,7 +57,7 @@ FileViewerDialog::~FileViewerDialog()
 
     if (m_part) {
         QProgressDialog progressDialog(this);
-        progressDialog.setWindowTitle(i18n("Closing preview"));
+        progressDialog.setWindowTitle(i18nc("@title:window", "Closing preview"));
         progressDialog.setLabelText(i18n("Please wait while the preview is being closed..."));
 
         progressDialog.setMinimumDuration(500);
@@ -91,7 +91,7 @@ void FileViewerDialog::showFile(const Git::File &file)
     lineEditBranchName->setText(file.place());
     lineEditFileName->setText(file.fileName());
     plainTextEdit->setReadOnly(true);
-    setWindowTitle(i18n("View file: %1", file.fileName()));
+    setWindowTitle(i18nc("@title:window", "View file: %1", file.fileName()));
     setWindowFilePath(file.fileName());
     labelFileIcon->setPixmap(
         QIcon::fromTheme(mime.iconName())

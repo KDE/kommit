@@ -57,7 +57,7 @@ void DiffDialog::on_pushButtonSaveAs_clicked()
 {
     auto diff = Git::Manager::instance()->diff(_oldFile.fileName(),_newFile.fileName());
     qDebug().noquote() << diff;
-    auto fileName = QFileDialog::getSaveFileName(this, i18n("Save diff"));
+    const auto fileName = QFileDialog::getSaveFileName(this, i18n("Save diff"));
     if (!fileName.isEmpty()) {
         QFile f(fileName);
         if (!f.open(QIODevice::WriteOnly)) {
@@ -71,7 +71,7 @@ void DiffDialog::on_pushButtonSaveAs_clicked()
 
 void DiffDialog::on_treeView_clicked(const QModelIndex &index)
 {
-    auto fileName = _diffModel->fullPath(index);
+    const auto fileName = _diffModel->fullPath(index);
 
     Git::File oldFile(_oldBranch, fileName);
     Git::File newFile(_newBranch, fileName);
