@@ -103,7 +103,7 @@ const QString &BranchesModel::referenceBranch() const
     return _referenceBranch;
 }
 
-void Git::BranchesModel::calculateCommitStats()
+void BranchesModel::calculateCommitStats()
 {
     for (auto &b: _data) {
         auto commitsInfo = _git->uniqueCommiteOnBranches(_referenceBranch, b->name);
