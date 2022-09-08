@@ -14,13 +14,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 class ActionManager : public KAbstractFileItemActionPlugin
 {
     Q_OBJECT
-    StatusCache _cache;
-
-    QAction *_pullAction;
-    QAction *_pushAction;
-    QAction *_diffAction;
-    QAction *_logAction;
-    QAction *_openAppAction;
 public:
     explicit ActionManager(QObject *parent, const QList<QVariant>&);
 
@@ -34,6 +27,15 @@ private:
 
     void addMenuToNonGitFile(QMenu *menu, const QString &path);
     void addMenuToGitFile(QMenu *menu, const QString &path, bool isFile, const FileStatus::Status &status);
+
+private:
+    StatusCache _cache;
+
+    QAction *mPullAction = nullptr;
+    QAction *mPushAction = nullptr;
+    QAction *mDiffAction = nullptr;
+    QAction *mLogAction = nullptr;
+    QAction *mOpenAppAction = nullptr;
 };
 
 

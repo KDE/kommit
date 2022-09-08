@@ -18,12 +18,12 @@ MiniManager::MiniManager(const QString &path)
 
 const QString &MiniManager::path() const
 {
-    return _path;
+    return mPath;
 }
 
 void MiniManager::setPath(const QString &newPath)
 {
-    if (_path == newPath)
+    if (mPath == newPath)
         return;
 
     QProcess p;
@@ -35,22 +35,22 @@ void MiniManager::setPath(const QString &newPath)
     auto ret = p.readAllStandardOutput() + p.readAllStandardError();
 
     if (ret.contains("fatal")) {
-        _path = QString();
-        _isValid = false;
+        mPath = QString();
+        mIsValid = false;
     } else {
-        _path = ret.replace("\n", "");
-        _isValid = true;
+        mPath = ret.replace("\n", "");
+        mIsValid = true;
     }
 }
 
 bool MiniManager::isValid() const
 {
-    return _isValid;
+    return mIsValid;
 }
 
 QList<FileStatus> MiniManager::repoFilesStatus() const
 {
-    auto buffer = Git::readAllNonEmptyOutput(_path,
+    const auto buffer = Git::readAllNonEmptyOutput(mPath,
                                              {"status",
                                               "--untracked-files=all",
                                               "--ignored",
@@ -60,7 +60,7 @@ QList<FileStatus> MiniManager::repoFilesStatus() const
 
     QList<FileStatus> files;
     //TODO: read untrackeds
-    for (auto &item : buffer) {
+    for (const auto &item : buffer) {
         if (!item.trimmed().size())
             continue;
 
@@ -70,7 +70,7 @@ QList<FileStatus> MiniManager::repoFilesStatus() const
 
         FileStatus fs;
         fs.parseStatusLine(item);
-        fs.setFullPath(_path + QLatin1Char('/') + fs.name());
+        fs.setFullPath(mPath + QLatin1Char('/') + fs.name());
         if (fs.status() != FileStatus::Untracked)// && !files.contains(fs))
             files.append(fs);
 

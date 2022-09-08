@@ -22,25 +22,25 @@ bool StatusCache::addPath(const QString &path)
     auto statuses = git.repoFilesStatus();
 
     for (const auto &s: qAsConst(statuses)) {
-        _statuses.insert(git.path() + QLatin1Char('/') + s.name(), s.status());
+        mStatuses.insert(git.path() + QLatin1Char('/') + s.name(), s.status());
     }
     return true;
 }
 
 bool StatusCache::isInDir(const QString &dirPath, const QString &filePath)
 {
-    if (dirPath.endsWith("/"))
-        return filePath.lastIndexOf("/") == dirPath.size() - 1;
-    return filePath.lastIndexOf("/") == dirPath.size();
+    if (dirPath.endsWith(QLatin1Char('/')))
+        return filePath.lastIndexOf(QLatin1Char('/')) == dirPath.size() - 1;
+    return filePath.lastIndexOf(QLatin1Char('/')) == dirPath.size();
 }
 
 FileStatus::Status StatusCache::fileStatus(const QFileInfo &fileInfo)
 {
     auto filePath = fileInfo.absoluteFilePath();
 
-    if (!_lastDir.isEmpty() && isInDir(_lastDir, filePath)) {
-        if (_statuses.contains(filePath)) {
-            return _statuses.value(filePath);
+    if (!mLastDir.isEmpty() && isInDir(mLastDir, filePath)) {
+        if (mStatuses.contains(filePath)) {
+            return mStatuses.value(filePath);
         } else
             return FileStatus::Unknown;
     }
@@ -49,8 +49,8 @@ FileStatus::Status StatusCache::fileStatus(const QFileInfo &fileInfo)
     if (!addPath(fileInfo.absolutePath()))
         return FileStatus::NoGit;
 
-    if (_statuses.contains(filePath)) {
-        return _statuses.value(filePath);
+    if (mStatuses.contains(filePath)) {
+        return mStatuses.value(filePath);
     }
 
     return FileStatus::Unmodified;
@@ -77,7 +77,7 @@ FileStatus::Status StatusCache::pathStatus(const QString &path)
     FileStatus::Status status = FileStatus::Unmodified;
 
     for (const auto &s: qAsConst(statuses)) {
-        auto filePath = git.path() + QLatin1Char('/') + s.name();
+        const auto filePath = git.path() + QLatin1Char('/') + s.name();
 
         if (!filePath.startsWith(path)) {
             continue;

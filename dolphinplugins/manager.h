@@ -24,8 +24,8 @@ public:
     QList<FileStatus> repoFilesStatus() const;
 
 private:
-    QString _path;
-    bool _isValid{false};
+    QString mPath;
+    bool mIsValid{false};
 };
 
 } // namespace Git

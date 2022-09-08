@@ -13,8 +13,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 class QFileInfo ;
 class StatusCache
 {
-    QString _lastDir;
-    QMap<QString, FileStatus::Status> _statuses;
 
 public:
     StatusCache();
@@ -29,6 +27,10 @@ private:
     bool isInDir(const QString &dirPath, const QString &filePath);
 
     friend class OverlayTest;
+
+private:
+    QString mLastDir;
+    QMap<QString, FileStatus::Status> mStatuses;
 };
 
 #endif // STATUSCACHE_H

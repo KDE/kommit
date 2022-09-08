@@ -14,17 +14,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 class OverlayPlugin : public KOverlayIconPlugin
 {
-    Q_PLUGIN_METADATA(IID "org.kfe.gitklient.ovarlayiconplugin" FILE "gitklientoverlayplugin.json")
     Q_OBJECT
-
-    StatusCache _cache;
-
+    Q_PLUGIN_METADATA(IID "org.kfe.gitklient.ovarlayiconplugin" FILE "gitklientoverlayplugin.json")
 public:
-
     explicit OverlayPlugin(QObject *parent = nullptr);
-
     QStringList getOverlays(const QUrl &url) override;
 
+private:
+    StatusCache mCache;
 };
 
 #endif // KLIENTDOLPHINOVERLAYPLUGIN_H
