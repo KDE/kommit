@@ -70,11 +70,11 @@ void LogDetailsWidget::createText()
         filesHtml.append(
             QStringLiteral("<li><font color=%1>%2</a></li>").arg(color, createFileLink(i.key())));
     }
-    QString parentHashHtml;
+    QStringList parentHashHtml;
     for (const auto &parent: _log->parents())
         parentHashHtml.append(createHashLink(parent));
 
-    QString childsHashHtml;
+    QStringList childsHashHtml;
     for (const auto &child: _log->childs())
         childsHashHtml.append(createHashLink(child));
 
@@ -117,11 +117,11 @@ void LogDetailsWidget::createText()
     if (!_log->parents().empty())
         appendParagraph(html,
                         _log->parents().size() == 1 ? i18n("Parent") : i18n("Parents"),
-                        parentHashHtml);
+                        parentHashHtml.join(", "));
     if (!_log->childs().empty())
         appendParagraph(html,
                         _log->childs().size() == 1 ? i18n("Child") : i18n("Children"),
-                        childsHashHtml);
+                        childsHashHtml.join(", "));
 
     appendParagraph(html, i18n("Changed files"), filesHtml);
 
