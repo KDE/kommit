@@ -13,8 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KPluginFactory>
 #include <KPluginLoader>
 #include <KProcess>
-#include <QtWidgets/QAction>
-#include <QtWidgets/QMenu>
+#include <QAction>
+#include <QMenu>
 
 using namespace Git;
 
