@@ -37,7 +37,7 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
     Q_UNUSED(parentWidget);
 
     auto mainAction = new QAction;
-    mainAction->setText("Git Klient");
+    mainAction->setText(i18n("Git Klient"));
     mainAction->setIcon(QIcon::fromTheme("gitklient"));
 
     auto menu = new QMenu;
