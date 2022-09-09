@@ -41,7 +41,7 @@ void RunnerDialog::run(const QStringList &args)
 {
     progressBar->hide();
     _mode = RunByArgs;
-    lineEditCommand->setText("git " + args.join(" "));
+    lineEditCommand->setText("git " + args.join(QLatin1Char(' ')));
     textBrowser->append("$ " + lineEditCommand->text());
     _git->setArguments(args);
     _git->start();
@@ -57,7 +57,7 @@ void RunnerDialog::run(Git::AbstractCommand *command)
     }
 
     auto args = command->generateArgs();
-    lineEditCommand->setText("git " + args.join(" "));
+    lineEditCommand->setText("git " + args.join(QLatin1Char(' ')));
 
     if (command->supportProgress()) {
         progressBar->show();

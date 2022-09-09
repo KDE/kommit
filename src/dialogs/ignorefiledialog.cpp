@@ -25,8 +25,8 @@ IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, Q
     if (fi.isDir())
         groupBoxFileName->hide();
 
-    _path = fi.absolutePath() + "/";
-    _path = _path.replace(git->path(), "");
+    _path = fi.absolutePath() + QLatin1Char('/');
+    _path = _path.remove(git->path());
     _name = fi.baseName();
     _ext = fi.completeSuffix();
 
@@ -35,7 +35,7 @@ IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, Q
 
     generateIgnorePattern();
 
-    auto isIgnored = git->isIgnored(_name + "." + _ext);
+    auto isIgnored = git->isIgnored(_name + QLatin1Char('.') + _ext);
 
     if (isIgnored) {
         groupBoxFileName->setEnabled(false);
@@ -58,7 +58,7 @@ void IgnoreFileDialog::generateIgnorePattern()
         if (_ext.isEmpty())
             s = _name;
         else
-            s = _name + "." + _ext;
+            s = _name + QLatin1Char('.') + _ext;
     }
 
     if (radioButtonExactPath->isChecked())
