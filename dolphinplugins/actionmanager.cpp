@@ -114,9 +114,9 @@ void ActionManager::addMenuToGitFile(QMenu *menu, const QString &path, bool isFi
     addMenu(menu, i18n("Open"), {path});
     addMenu(menu, i18n("Pull"), {"pull", path}, QStringLiteral("git-pull"));
     addMenu(menu, i18n("Push"), {"push", path}, QStringLiteral("git-push"));
-    addMenu(menu, i18n("Modifications"), {"changes", path});
+    addMenu(menu, i18n("Modifications"), {"changes", path}, QStringLiteral("gitklient-changedfiles"));
     addMenu(menu, i18n("Diff"), {"diff", path});
-    addMenu(menu, i18n("Ignore file"), {"ignore", path});
+    addMenu(menu, i18n("Ignore file"), {"ignore", path}, QStringLiteral("git-ignore"));
     if (isFile) {
         addMenu(menu, i18n("History"), {"history", path});
         addMenu(menu, i18n("Blame"), {"blame", path});
