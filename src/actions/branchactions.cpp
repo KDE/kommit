@@ -114,7 +114,7 @@ void BranchActions::diff()
 
 void BranchActions::remove()
 {
-    auto r = KMessageBox::questionYesNo(_parent, i18n("Are you sure to remove the selected branch?"));
+    auto r = KMessageBox::questionYesNo(_parent, i18n("Are you sure to remove the selected branch?"), i18n("Remove Branch"));
 
     if (r == KMessageBox::No)
         return;

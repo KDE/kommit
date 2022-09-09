@@ -15,7 +15,7 @@ ModificationsDialog::ModificationsDialog(QWidget *parent) :
 
     auto git = Git::Manager::instance();
 
-    auto files = git->changedFiles();
+    const auto files = git->changedFiles();
 
     for (auto i = files.begin(); i != files.end(); ++i) {
         auto item = new QListWidgetItem(listWidget);

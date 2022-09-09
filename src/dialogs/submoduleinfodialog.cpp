@@ -94,5 +94,5 @@ void SubmoduleInfoDialog::on_toolButtonBrowseLocalPath_clicked()
         return;
     }
 
-    lineEditPath->setText(localPath.replace(_git->path() + "/", ""));
+    lineEditPath->setText(localPath.remove(_git->path() + QLatin1Char('/')));
 }

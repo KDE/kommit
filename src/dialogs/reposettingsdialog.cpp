@@ -13,13 +13,13 @@ RepoSettingsDialog::RepoSettingsDialog(Git::Manager *git, QWidget *parent) :
 {
     setupUi(this);
 
-    lineEditUserName->setText(git->config("user.name"));
-    lineEditUserEmail->setText(git->config("user.email"));
+    lineEditUserName->setText(git->config(QStringLiteral("user.name")));
+    lineEditUserEmail->setText(git->config(QStringLiteral("user.email")));
 }
 
 void RepoSettingsDialog::on_buttonBox_accepted()
 {
-    _git->setConfig("user.name", lineEditUserName->text());
-    _git->setConfig("user.email", lineEditUserEmail->text());
+    _git->setConfig(QStringLiteral("user.name"), lineEditUserName->text());
+    _git->setConfig(QStringLiteral("user.email"), lineEditUserEmail->text());
     accept();
 }
