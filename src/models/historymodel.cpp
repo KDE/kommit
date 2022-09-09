@@ -25,19 +25,19 @@ void HistoryModel::setBranch(const QString &newBranch)
         return;
 
     _branch = newBranch;
-    _logs.setBranch(_branch);
+    mLogs.setBranch(_branch);
     reload();
 }
 
 void HistoryModel::reload()
 {
     beginResetModel();
-    if (!_logs.empty()) {
-        qDeleteAll(_logs);
-        _logs.clear();
+    if (!mLogs.empty()) {
+        qDeleteAll(mLogs);
+        mLogs.clear();
     }
 
-    _logs.load();
+    mLogs.load();
 
     endResetModel();
 }
@@ -45,7 +45,7 @@ void HistoryModel::reload()
 int HistoryModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return _logs.size();
+    return mLogs.size();
 }
 
 int HistoryModel::columnCount(const QModelIndex &parent) const
@@ -56,12 +56,12 @@ int HistoryModel::columnCount(const QModelIndex &parent) const
 
 QVariant HistoryModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= _logs.size())
+    if (index.row() < 0 || index.row() >= mLogs.size())
         return QVariant();
     if (role != Qt::DisplayRole)
         return QVariant();
 
-    auto log = _logs.at(index.row());
+    auto log = mLogs.at(index.row());
 
     if (_branch.isEmpty()) {
         switch (index.column()) {
@@ -114,16 +114,16 @@ QVariant HistoryModel::headerData(int section, Qt::Orientation orientation, int 
 
 Git::Log *HistoryModel::log(const QModelIndex &index) const
 {
-    if (index.row() < 0 || index.row() >= _logs.size())
+    if (index.row() < 0 || index.row() >= mLogs.size())
         return nullptr;
 
-    return _logs.at(index.row());
+    return mLogs.at(index.row());
 }
 
 QModelIndex HistoryModel::findIndexByHash(const QString &hash) const
 {
     int idx{0};
-    for (auto &log : _logs)
+    for (auto &log : mLogs)
         if (log->commitHash() == hash)
             return index(idx);
         else
@@ -134,7 +134,7 @@ QModelIndex HistoryModel::findIndexByHash(const QString &hash) const
 Git::Log *HistoryModel::findLogByHash(const QString &hash) const
 {
     int idx{0};
-    for (auto &log : _logs)
+    for (auto &log : qAsConst(mLogs))
         if (log->commitHash() == hash)
             return log;
         else

@@ -13,9 +13,9 @@ namespace Git {
 
 namespace Impl {
 
-void readLine(const QString &line, const QString &seprator, QList<QString *> list)
+void readLine(const QString &line, const QString &separator, QList<QString *> list)
 {
-    auto parts = line.split(seprator);
+    const auto parts = line.split(separator);
     if (parts.size() != list.size())
         return;
 

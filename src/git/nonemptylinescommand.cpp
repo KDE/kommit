@@ -23,10 +23,9 @@ NonEmptyLinesCommand::NonEmptyLinesCommand() : ParameteresCommand()
 void NonEmptyLinesCommand::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
 {
     Q_UNUSED(errorOutput)
-    QStringList list;
-    auto out = QString(output).split("\n");
+    const auto out = QString(output).split(QLatin1Char('\n'));
 
-    for (auto &line: out) {
+    for (const auto &line: out) {
         auto b = line.trimmed();
         if (b.isEmpty())
             continue;

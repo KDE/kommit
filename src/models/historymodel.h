@@ -34,7 +34,7 @@ public Q_SLOTS:
     void reload();
 
 private:
-    Git::LogList _logs;
+    Git::LogList mLogs;
 };
 
 #endif // HISTORYMODEL_H

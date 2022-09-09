@@ -88,11 +88,11 @@ void SubmodulesModel::fill()
         auto m = new Submodule;
         m->setCommitHash(line.mid(0, 40));
         auto n = line.lastIndexOf(" ");
-        if (line.count(" ") == 1)
+        if (line.count(QLatin1Char(' ')) == 1)
             n = line.size() ;
         m->setPath(line.mid(41, n - 41));
 
-        if (line.count(' ') == 2)
+        if (line.count(QLatin1Char(' ')) == 2)
             m->setRefName(line.mid(n));
         _data.append(m);
     }

@@ -53,15 +53,15 @@ QString icon(const Diff::DiffType &status)
 {
     switch (status) {
     case  Diff::DiffType::Added:
-        return "git-status-added";
+        return QStringLiteral("git-status-added");
     case  Diff::DiffType::Modified:
-        return "git-status-modified";
+        return QStringLiteral("git-status-modified");
     case  Diff::DiffType::Removed:
-        return "git-status-removed";
+        return QStringLiteral("git-status-removed");
     case  Diff::DiffType::Unchanged:
-        return "git-status-update";
+        return QStringLiteral("git-status-update");
     }
-    return "git-status-update";
+    return QStringLiteral("git-status-update");
 }
 
 QColor textColor(const Diff::DiffType &status)

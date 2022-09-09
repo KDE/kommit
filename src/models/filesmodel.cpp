@@ -41,7 +41,7 @@ QVariant FilesModel::data(const QModelIndex &index, int role) const
 
 void FilesModel::append(const QString &data)
 {
-    auto i = data.lastIndexOf("/");
+    const auto i = data.lastIndexOf(QLatin1Char('/'));
     if (i != -1)
         _files.append({data.mid(i + 1), data});
     else
