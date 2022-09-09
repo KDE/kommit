@@ -45,13 +45,6 @@ ecm_qt_declare_logging_category(APP_SRCS
 )
 kconfig_add_kcfg_files(APP_SRCS settings/GitKlientSettings.kcfgc)
 
-#set(CMAKE_AUTOUIC ON)
-
-#qt5_wrap_ui(
-#    APP_SRCS
-#    widgets/commandpullwidget.ui
-#)
-
 add_compile_definitions(GIT_GUI)
 
 ki18n_wrap_ui(
