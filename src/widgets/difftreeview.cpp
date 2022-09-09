@@ -53,14 +53,14 @@ void DiffTreeView::on_lineEditFilter_textChanged(QString text)
 
 void DiffTreeView::on_treeView_clicked(const QModelIndex &index)
 {
-    auto fileName = _diffModel->fullPath(index);
+    const auto fileName = _diffModel->fullPath(index);
     emit fileSelected(fileName);
 }
 
 void DiffTreeView::on_listView_clicked(const QModelIndex &index)
 {
-    auto row = _filterModel->mapToSource(index).row();
-    auto fileName = _filesModel->data(_filesModel->index(row, 1), Qt::DisplayRole);
+    const auto row = _filterModel->mapToSource(index).row();
+    const auto fileName = _filesModel->data(_filesModel->index(row, 1), Qt::DisplayRole);
     emit fileSelected(fileName.toString());
 }
 

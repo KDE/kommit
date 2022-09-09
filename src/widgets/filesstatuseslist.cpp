@@ -13,12 +13,12 @@ FilesStatusesList::FilesStatusesList(QWidget *parent) : QTreeWidget(parent)
 
 const QList<FileStatus> &FilesStatusesList::files() const
 {
-    return _files;
+    return mFiles;
 }
 
 void FilesStatusesList::setFiles(const QList<FileStatus> &newFiles)
 {
-    _files = newFiles;
+    mFiles = newFiles;
 }
 
 bool FilesStatusesList::showCheckboxes() const

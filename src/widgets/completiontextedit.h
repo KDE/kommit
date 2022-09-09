@@ -40,9 +40,9 @@ private:
     QString textUnderCursor() const;
 
 private:
-    QStringList _words;
-    QStringListModel *const _completionModel;
-    QCompleter *const c;
+    QStringList mWords;
+    QStringListModel *const mCompletionModel;
+    QCompleter *const mCompleter;
 };
 
 #endif // COMPLETIONTEXTEDIT_H

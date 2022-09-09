@@ -38,7 +38,7 @@ void SettingsManager::settingsChanged()
                        QStringLiteral("gitklientdiff \"$LOCAL\" \"$REMOTE\""),
                        Git::Manager::ConfigGlobal);
     } else {
-        git->unsetConfig("difftool.gitklientdiff.cmd", Git::Manager::ConfigGlobal);
+        git->unsetConfig(QStringLiteral("difftool.gitklientdiff.cmd"), Git::Manager::ConfigGlobal);
     }
     if (GitKlientSettings::registerMergeTool()) {
         git->setConfig(QStringLiteral("mergetool.gitklientmerge.cmd"),

@@ -12,14 +12,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QStringListModel>
 
 CompletionTextEdit::CompletionTextEdit(QWidget *parent) : QTextEdit(parent)
-  , _completionModel(new QStringListModel(this))
-  , c(new QCompleter(this))
+  , mCompletionModel(new QStringListModel(this))
+  , mCompleter(new QCompleter(this))
 {
-    c->setWidget(this);
-    c->setModel(_completionModel);
-    c->setCompletionMode(QCompleter::PopupCompletion);
-    c->setCaseSensitivity(Qt::CaseInsensitive);
-    QObject::connect(c, QOverload<const QString &>::of(&QCompleter::activated),
+    mCompleter->setWidget(this);
+    mCompleter->setModel(mCompletionModel);
+    mCompleter->setCompletionMode(QCompleter::PopupCompletion);
+    mCompleter->setCaseSensitivity(Qt::CaseInsensitive);
+    QObject::connect(mCompleter, QOverload<const QString &>::of(&QCompleter::activated),
                      this, &CompletionTextEdit::insertCompletion);
 }
 
@@ -27,31 +27,31 @@ void CompletionTextEdit::setCompleter(QCompleter *completer)
 {
     Q_UNUSED(completer)
 
-    if (c)
-        c->disconnect(this);
+    if (mCompleter)
+        mCompleter->disconnect(this);
 }
 
 QCompleter *CompletionTextEdit::completer() const
 {
-    return c;
+    return mCompleter;
 }
 
 void CompletionTextEdit::addWord(const QString &word)
 {
-    _words.append(word);
+    mWords.append(word);
 }
 
 void CompletionTextEdit::addWords(const QStringList &words)
 {
-    _words.append(words);
+    mWords.append(words);
 }
 
 void CompletionTextEdit::insertCompletion(const QString &completion)
 {
-    if (c->widget() != this)
+    if (mCompleter->widget() != this)
         return;
     QTextCursor tc = textCursor();
-    int extra = completion.length() - c->completionPrefix().length();
+    int extra = completion.length() - mCompleter->completionPrefix().length();
     tc.movePosition(QTextCursor::Left);
     tc.movePosition(QTextCursor::EndOfWord);
     tc.insertText(completion.right(extra));
@@ -67,29 +67,29 @@ QString CompletionTextEdit::textUnderCursor() const
 
 const QStringList &CompletionTextEdit::words() const
 {
-    return _words;
+    return mWords;
 }
 
 void CompletionTextEdit::setWords(const QStringList &newWords)
 {
-    _words = newWords;
+    mWords = newWords;
 }
 
 void CompletionTextEdit::begin()
 {
-    _completionModel->setStringList(_words);
+    mCompletionModel->setStringList(mWords);
 }
 
 void CompletionTextEdit::focusInEvent(QFocusEvent *e)
 {
-    if (c)
-        c->setWidget(this);
+    if (mCompleter)
+        mCompleter->setWidget(this);
     QTextEdit::focusInEvent(e);
 }
 
 void CompletionTextEdit::keyPressEvent(QKeyEvent *e)
 {
-    if (c && c->popup()->isVisible()) {
+    if (mCompleter && mCompleter->popup()->isVisible()) {
         // The following keys are forwarded by the completer to the widget
        switch (e->key()) {
        case Qt::Key_Enter:
@@ -105,12 +105,12 @@ void CompletionTextEdit::keyPressEvent(QKeyEvent *e)
     }
 
     const bool isShortcut = (e->modifiers().testFlag(Qt::ControlModifier) && e->key() == Qt::Key_E); // CTRL+E
-    if (!c || !isShortcut) // do not process the shortcut when we have a completer
+    if (!mCompleter || !isShortcut) // do not process the shortcut when we have a completer
         QTextEdit::keyPressEvent(e);
 
     const bool ctrlOrShift = e->modifiers().testFlag(Qt::ControlModifier) ||
                              e->modifiers().testFlag(Qt::ShiftModifier);
-    if (!c || (ctrlOrShift && e->text().isEmpty()))
+    if (!mCompleter || (ctrlOrShift && e->text().isEmpty()))
         return;
 
     static QString eow("~!@#$%^&*()_+{}|:\"<>?,./;'[]\\-="); // end of word
@@ -119,16 +119,16 @@ void CompletionTextEdit::keyPressEvent(QKeyEvent *e)
 
     if (!isShortcut && (hasModifier || e->text().isEmpty()|| completionPrefix.length() < 3
                       || eow.contains(e->text().right(1)))) {
-        c->popup()->hide();
+        mCompleter->popup()->hide();
         return;
     }
 
-    if (completionPrefix != c->completionPrefix()) {
-        c->setCompletionPrefix(completionPrefix);
-        c->popup()->setCurrentIndex(c->completionModel()->index(0, 0));
+    if (completionPrefix != mCompleter->completionPrefix()) {
+        mCompleter->setCompletionPrefix(completionPrefix);
+        mCompleter->popup()->setCurrentIndex(mCompleter->completionModel()->index(0, 0));
     }
     QRect cr = cursorRect();
-    cr.setWidth(c->popup()->sizeHintForColumn(0)
-                + c->popup()->verticalScrollBar()->sizeHint().width());
-    c->complete(cr); // popup it up!
+    cr.setWidth(mCompleter->popup()->sizeHintForColumn(0)
+                + mCompleter->popup()->verticalScrollBar()->sizeHint().width());
+    mCompleter->complete(cr); // popup it up!
 }

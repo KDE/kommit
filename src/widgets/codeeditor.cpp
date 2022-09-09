@@ -71,12 +71,12 @@ CodeEditor::CodeEditor(QWidget *parent)
     emptyFormat.setBackground(QBrush(Qt::gray, Qt::BDiagPattern));
     //    normalFormat.setBackground(Qt::lightGray);
 
-    _formats.insert(Added, addedFormat);
-    _formats.insert(Removed, removedFormat);
-    _formats.insert(Unchanged, normalFormat);
-    _formats.insert(Edited, changedFormat);
-    _formats.insert(HighLight, highlightFormat);
-    _formats.insert(Empty, emptyFormat);
+    mFormats.insert(Added, addedFormat);
+    mFormats.insert(Removed, removedFormat);
+    mFormats.insert(Unchanged, normalFormat);
+    mFormats.insert(Edited, changedFormat);
+    mFormats.insert(HighLight, highlightFormat);
+    mFormats.insert(Empty, emptyFormat);
 
     setLineWrapMode(QPlainTextEdit::NoWrap);
 }
@@ -140,7 +140,7 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
         if (block.isVisible() && bottom >= event->rect().top()) {
 
             QBrush bg;
-            if (blockNumber >= _currentSegment.first && blockNumber <= _currentSegment.second)
+            if (blockNumber >= mCurrentSegment.first && blockNumber <= mCurrentSegment.second)
                 bg = Qt::yellow;
             else
                 bg = document()->findBlockByNumber(blockNumber).blockFormat().background();
@@ -313,13 +313,13 @@ void CodeEditor::append(const QString &code, const BlockType &type, Diff::Segmen
 {
     auto t = textCursor();
 
-    if (_segments.size())
+    if (mSegments.size())
         t.insertBlock();
 
     QTextCursor c(t.block());
     c.insertText(code);
-    _segments.insert(t.block().blockNumber(), segment);
-    t.setBlockFormat(_formats.value(type));
+    mSegments.insert(t.block().blockNumber(), segment);
+    t.setBlockFormat(mFormats.value(type));
     t.block().setUserData(new SegmentData{segment, isEmpty});
 }
 
@@ -327,7 +327,7 @@ int CodeEditor::append(const QString &code, const QColor &backgroundColor)
 {
     auto t = textCursor();
 
-    if (_segments.size())
+    if (mSegments.size())
         t.insertBlock();
 
     QTextCursor c(t.block());
@@ -335,7 +335,7 @@ int CodeEditor::append(const QString &code, const QColor &backgroundColor)
     QTextBlockFormat fmt;
     fmt.setBackground(backgroundColor);
     t.setBlockFormat(fmt);
-    _segments.insert(t.block().blockNumber(), nullptr);
+    mSegments.insert(t.block().blockNumber(), nullptr);
     return t.block().blockNumber();
 }
 
@@ -387,7 +387,7 @@ void CodeEditor::gotoLineNumber(int lineNumber)
 
 void CodeEditor::gotoSegment(Diff::Segment *segment)
 {
-    for (auto i = _segments.begin(); i != _segments.end(); i++) {
+    for (auto i = mSegments.begin(); i != mSegments.end(); i++) {
         if (i.value() == segment) {
             QTextBlock block = document()->findBlockByLineNumber(i.key());
 
@@ -408,39 +408,39 @@ void CodeEditor::mouseReleaseEvent(QMouseEvent *event)
 
 Diff::Segment *CodeEditor::currentSegment() const
 {
-    return _segments.value(textCursor().block().blockNumber(), nullptr);
+    return mSegments.value(textCursor().block().blockNumber(), nullptr);
 }
 
 void CodeEditor::highlightSegment(Diff::Segment *segment)
 {
-    _currentSegment = qMakePair(-1, -1);
-    for (auto i = _segments.begin(); i != _segments.end(); i++) {
+    mCurrentSegment = qMakePair(-1, -1);
+    for (auto i = mSegments.begin(); i != mSegments.end(); i++) {
         if (i.value() == segment) {
-            if (_currentSegment.first == -1)
-                _currentSegment.first = i.key();
+            if (mCurrentSegment.first == -1)
+                mCurrentSegment.first = i.key();
             //            auto block = document()->findBlockByNumber(i.key());
 
             //            QTextCursor cursor(block);
             ////            cursor.setBlockFormat(_formats.value(HighLight));
             //            setTextCursor(cursor);
             //            return;
-        } else if (_currentSegment.first != -1){
-            _currentSegment.second = i.key() - 1;
+        } else if (mCurrentSegment.first != -1){
+            mCurrentSegment.second = i.key() - 1;
             break;
         }
     }
 //    _currentSegment = segment;
     m_sideBar->update();
-    qDebug() << _currentSegment;
+    qDebug() << mCurrentSegment;
     return;
     qDebug() << "Segment not found";
 }
 
 void CodeEditor::clearAll()
 {
-    _segments.clear();
-    qDeleteAll(_segments);
-    _lines.clear();
+    mSegments.clear();
+    qDeleteAll(mSegments);
+    mLines.clear();
     clear();
 }
 

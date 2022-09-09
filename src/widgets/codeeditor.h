@@ -23,9 +23,6 @@ class CodeEditorSidebar;
 class CodeEditor : public QPlainTextEdit
 {
     Q_OBJECT
-    QMap<int, Diff::Segment*> _segments;
-    QPair<int, int> _currentSegment{-1, -1};
-
 public:
     enum BlockType {
         Unchanged,
@@ -68,9 +65,12 @@ protected:
     KSyntaxHighlighting::SyntaxHighlighter *m_highlighter;
     CodeEditorSidebar *m_sideBar;
 
+protected:
+    void paintEvent(QPaintEvent *e) override;
+
 private:
     friend class CodeEditorSidebar;
-    QMap<BlockType, QTextBlockFormat> _formats;
+    QMap<BlockType, QTextBlockFormat> mFormats;
     void setTheme(const KSyntaxHighlighting::Theme &theme);
 
     void updateSidebarGeometry();
@@ -83,13 +83,9 @@ private:
     void toggleFold(const QTextBlock &block);
 
     KSyntaxHighlighting::Repository m_repository;
-
-
-protected:
-    void paintEvent(QPaintEvent *e) override;
-
-private:
-    QMap<QTextBlock, BlockType> _lines;
+    QMap<QTextBlock, BlockType> mLines;
+    QMap<int, Diff::Segment*> mSegments;
+    QPair<int, int> mCurrentSegment{-1, -1};
 };
 
 #endif // CODEEDITOR_H

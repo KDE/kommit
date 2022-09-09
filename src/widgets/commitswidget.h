@@ -16,9 +16,6 @@ class CommitsWidget : public WidgetBase, private Ui::CommitsWidget
 {
     Q_OBJECT
 
-    TreeModel *_repoModel;
-    BranchActions *_actions;
-    QString _mainBranch;
 
 public:
     explicit CommitsWidget(QWidget *parent = nullptr);
@@ -34,6 +31,9 @@ private slots:
 
 private:
     void init();
+    TreeModel *mRepoModel = nullptr;
+    BranchActions *mActions = nullptr;
+    QString mMainBranch;
 };
 
 #endif // COMMITSWIDGET_H

@@ -26,14 +26,14 @@ CommitsWidget::CommitsWidget(Git::Manager *git, AppWindow *parent) : WidgetBase(
 
 void CommitsWidget::reload()
 {
-    _repoModel->clear();
+    mRepoModel->clear();
     auto branches = git()->branches();
-    _repoModel->addData(branches);
+    mRepoModel->addData(branches);
 
     if (branches.contains("master"))
-        _mainBranch = QStringLiteral("master");
+        mMainBranch = QStringLiteral("master");
     else if (branches.contains("main"))
-        _mainBranch = QStringLiteral("main");
+        mMainBranch = QStringLiteral("main");
 
     widgetCommitsView->setBranch(QString());
 }
@@ -54,7 +54,7 @@ void CommitsWidget::restoreState(QSettings &settings)
 
 void CommitsWidget::on_treeViewRepo_itemActivated(const QModelIndex &index)
 {
-    auto key = _repoModel->key(index);
+    auto key = mRepoModel->key(index);
     if (!key.isEmpty())
         widgetCommitsView->setBranch(key);
 }
@@ -62,15 +62,15 @@ void CommitsWidget::on_treeViewRepo_itemActivated(const QModelIndex &index)
 void CommitsWidget::on_treeViewRepo_customContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
-    auto branchName = _repoModel->fullPath(treeViewRepo->currentIndex());
-    _actions->setBranchName(branchName);
-    _actions->popup();
+    auto branchName = mRepoModel->fullPath(treeViewRepo->currentIndex());
+    mActions->setBranchName(branchName);
+    mActions->popup();
 }
 
 void CommitsWidget::init()
 {
-    _repoModel = new TreeModel(this);
-    treeViewRepo->setModel(_repoModel);
+    mRepoModel = new TreeModel(this);
+    treeViewRepo->setModel(mRepoModel);
 
-    _actions = new BranchActions(_git, this);
+    mActions = new BranchActions(_git, this);
 }

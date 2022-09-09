@@ -22,7 +22,7 @@ public:
     void setShowCheckboxes(bool newShowCheckboxes);
 
 private:
-    QList<FileStatus> _files;
+    QList<FileStatus> mFiles;
     bool _showCheckboxes{false};
 };
 
