@@ -33,6 +33,7 @@ set(GIT_KLIENT_ICONS
   sc-actions-git-tag.svg
   sc-actions-git-stash.svg
   sc-actions-git-submodules.svg
+  sc-actions-git-ignore.svg
 
   sc-actions-gitklient-changedfiles.svg
 )
