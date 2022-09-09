@@ -138,6 +138,11 @@ target_link_libraries(gitklient
     KF5::SyntaxHighlighting
 )
 
+if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
+    set_target_properties(gitklient PROPERTIES UNITY_BUILD ON)
+endif()
+
+
 set_target_properties(
     gitklient PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER org.kde.gitklient
