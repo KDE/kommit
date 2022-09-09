@@ -17,7 +17,7 @@ class ActionManager : public KAbstractFileItemActionPlugin
 public:
     explicit ActionManager(QObject *parent, const QList<QVariant>&);
 
-    void addMenu(QMenu *menu, const QString &title, const QStringList &args);
+    void addMenu(QMenu *menu, const QString &title, const QStringList &args, const QString &icon = QString());
     QList<QAction*> actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget) override;
 
 private:

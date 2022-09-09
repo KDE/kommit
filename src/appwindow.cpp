@@ -170,12 +170,14 @@ void AppWindow::initActions()
 
     auto repoPullAction = actionCollection->addAction("repo_pull", this, &AppWindow::pull);
     repoPullAction->setText(i18n("Pull..."));
+    repoPullAction->setIcon(QIcon::fromTheme("git-pull"));
 
     auto repoFetchAction = actionCollection->addAction("repo_fetch", this, &AppWindow::fetch);
     repoFetchAction->setText(i18n("Fetch..."));
 
     auto repoPushAction = actionCollection->addAction("repo_push", this, &AppWindow::commitPushAction);
     repoPushAction->setText(i18n("Push..."));
+    repoPushAction->setIcon(QIcon::fromTheme("git-push"));
 
     auto repoMergeAction = actionCollection->addAction("repo_merge", this, &AppWindow::merge);
     repoMergeAction->setText(i18n("Merge..."));

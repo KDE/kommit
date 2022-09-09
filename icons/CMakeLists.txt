@@ -24,6 +24,8 @@ set(GIT_KLIENT_ICONS
   sc-actions-diff-goto-next-diff.svg
   sc-actions-diff-goto-prev-diff.svg
 
+  sc-actions-git-pull.svg
+  sc-actions-git-push.svg
   sc-actions-git-branch.svg
   sc-actions-git-commit.svg
   sc-actions-git-overview.svg

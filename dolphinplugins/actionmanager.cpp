@@ -23,9 +23,11 @@ ActionManager::ActionManager(QObject *parent, const QList<QVariant> &) : KAbstra
 
 }
 
-void ActionManager::addMenu(QMenu *menu, const QString &title, const QStringList &args)
+void ActionManager::addMenu(QMenu *menu, const QString &title, const QStringList &args, const QString &icon)
 {
     auto action = menu->addAction(title);
+    if (!icon.isEmpty())
+        action->setIcon(QIcon::fromTheme(icon));
     connect(action, &QAction::triggered, [args]() {
         KProcess::startDetached("gitklient", args);
     });
@@ -110,8 +112,8 @@ void ActionManager::addMenuToNonGitFile(QMenu *menu, const QString &path)
 void ActionManager::addMenuToGitFile(QMenu *menu, const QString &path, bool isFile, const FileStatus::Status &status)
 {
     addMenu(menu, i18n("Open"), {path});
-    addMenu(menu, i18n("Pull"), {"pull", path});
-    addMenu(menu, i18n("Push"), {"push", path});
+    addMenu(menu, i18n("Pull"), {"pull", path}, QStringLiteral("git-pull"));
+    addMenu(menu, i18n("Push"), {"push", path}, QStringLiteral("git-push"));
     addMenu(menu, i18n("Modifications"), {"changes", path});
     addMenu(menu, i18n("Diff"), {"diff", path});
     addMenu(menu, i18n("Ignore file"), {"ignore", path});
