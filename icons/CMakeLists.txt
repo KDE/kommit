@@ -25,6 +25,7 @@ set(GIT_KLIENT_ICONS
   sc-actions-diff-goto-prev-diff.svg
 
   sc-actions-git-pull.svg
+  sc-actions-git-fetch.svg
   sc-actions-git-push.svg
   sc-actions-git-branch.svg
   sc-actions-git-commit.svg
@@ -34,6 +35,7 @@ set(GIT_KLIENT_ICONS
   sc-actions-git-stash.svg
   sc-actions-git-submodules.svg
   sc-actions-git-ignore.svg
+  sc-actions-git-merge.svg
 
   sc-actions-gitklient-changedfiles.svg
 )

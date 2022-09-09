@@ -174,6 +174,7 @@ void AppWindow::initActions()
 
     auto repoFetchAction = actionCollection->addAction("repo_fetch", this, &AppWindow::fetch);
     repoFetchAction->setText(i18n("Fetch..."));
+    repoFetchAction->setIcon(QIcon::fromTheme("git-fetch"));
 
     auto repoPushAction = actionCollection->addAction("repo_push", this, &AppWindow::commitPushAction);
     repoPushAction->setText(i18n("Push..."));
@@ -181,6 +182,7 @@ void AppWindow::initActions()
 
     auto repoMergeAction = actionCollection->addAction("repo_merge", this, &AppWindow::merge);
     repoMergeAction->setText(i18n("Merge..."));
+    repoMergeAction->setIcon(QIcon::fromTheme("git-merge"));
 
     auto diffBranchesAction = actionCollection->addAction("diff_branches", this, &AppWindow::diffBranches);
     diffBranchesAction->setText(i18n("Diff branches..."));
