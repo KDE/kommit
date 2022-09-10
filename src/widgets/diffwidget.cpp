@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 const Git::File &DiffWidget::oldFile() const
 {
-    return _oldFile;
+    return mOldFile;
 }
 
 void DiffWidget::setOldFileText(const Git::File &newOldFile)
@@ -23,13 +23,13 @@ void DiffWidget::setOldFileText(const Git::File &newOldFile)
 
 void DiffWidget::setOldFile(const Git::File &newOldFile)
 {
-    _oldFile = newOldFile;
+    mOldFile = newOldFile;
     setOldFileText(newOldFile);
 }
 
 const Git::File &DiffWidget::newFile() const
 {
-    return _newFile;
+    return mNewFile;
 }
 
 void DiffWidget::setNewFileText(const Git::File &newNewFile)
@@ -39,19 +39,19 @@ void DiffWidget::setNewFileText(const Git::File &newNewFile)
 
 void DiffWidget::setNewFile(const Git::File &newNewFile)
 {
-    _newFile = newNewFile;
+    mNewFile = newNewFile;
     setNewFileText(newNewFile);
 }
 
 void DiffWidget::compare()
 {
-    auto segments = Diff::diff(_oldFile.content(), _newFile.content());
+    auto segments = Diff::diff(mOldFile.content(), mNewFile.content());
 
     leftCodeEditor->clearAll();
     rightCodeEditor->clearAll();
 
-    leftCodeEditor->setHighlighting(_oldFile.fileName());
-    rightCodeEditor->setHighlighting(_newFile.fileName());
+    leftCodeEditor->setHighlighting(mOldFile.fileName());
+    rightCodeEditor->setHighlighting(mNewFile.fileName());
     segmentConnector->setSegments(segments);
     segmentConnector->update();
 
@@ -90,13 +90,13 @@ void DiffWidget::compare()
 void DiffWidget::showHiddenChars(bool show)
 {
     if (show) {
-        auto n = _defaultOption;
+        auto n = mDefaultOption;
         n.setFlags(QTextOption::ShowTabsAndSpaces | QTextOption::ShowDocumentTerminator);
         leftCodeEditor->document()->setDefaultTextOption(n);
         rightCodeEditor->document()->setDefaultTextOption(n);
     } else {
-        leftCodeEditor->document()->setDefaultTextOption(_defaultOption);
-        rightCodeEditor->document()->setDefaultTextOption(_defaultOption);
+        leftCodeEditor->document()->setDefaultTextOption(mDefaultOption);
+        rightCodeEditor->document()->setDefaultTextOption(mDefaultOption);
     }
     leftCodeEditor->setWordWrapMode(QTextOption::NoWrap);
     rightCodeEditor->setWordWrapMode(QTextOption::NoWrap);
@@ -129,7 +129,7 @@ CodeEditor *DiffWidget::newCodeEditor() const
     return rightCodeEditor;
 }
 
-DiffWidget::DiffWidget(QWidget *parent) : WidgetBase(parent), _oldFile(), _newFile()
+DiffWidget::DiffWidget(QWidget *parent) : WidgetBase(parent), mOldFile(), mNewFile()
 {
     setupUi(this);
     segmentConnector->setMinimumWidth(80);
@@ -159,11 +159,11 @@ DiffWidget::DiffWidget(QWidget *parent) : WidgetBase(parent), _oldFile(), _newFi
 
     recalculateInfoPaneSize();
 
-    _defaultOption = leftCodeEditor->document()->defaultTextOption();
+    mDefaultOption = leftCodeEditor->document()->defaultTextOption();
 }
 
 DiffWidget::DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidget *parent)
-    : WidgetBase(parent), _oldFile(oldFile), _newFile(newFile)
+    : WidgetBase(parent), mOldFile(oldFile), mNewFile(newFile)
 {
     setupUi(this);
     segmentConnector->setMinimumWidth(80);
@@ -193,7 +193,7 @@ DiffWidget::DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidg
 
     recalculateInfoPaneSize();
 
-    _defaultOption = leftCodeEditor->document()->defaultTextOption();
+    mDefaultOption = leftCodeEditor->document()->defaultTextOption();
 }
 
 void DiffWidget::oldCodeEditor_scroll(int value)

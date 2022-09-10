@@ -15,10 +15,6 @@ class FilesModel;
 class DiffTreeView : public QWidget, private Ui::DiffTreeView
 {
     Q_OBJECT
-
-    DiffTreeModel *_diffModel{nullptr};
-    QSortFilterProxyModel *const _filterModel;
-    FilesModel *_filesModel;
     Q_PROPERTY(bool hideUnchangeds READ hideUnchangeds WRITE setHideUnchangeds NOTIFY hideUnchangedsChanged)
 
 public:
@@ -32,13 +28,17 @@ public:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 private slots:
-    void on_lineEditFilter_textChanged(QString text);
+    void on_lineEditFilter_textChanged(const QString &text);
     void on_treeView_clicked(const QModelIndex &index);
     void on_listView_clicked(const QModelIndex &index);
 
 signals:
     void fileSelected(const QString &file);
     void hideUnchangedsChanged();
+private:
+    DiffTreeModel *mDiffModel{nullptr};
+    QSortFilterProxyModel *const mFilterModel;
+    FilesModel *mFilesModel;
 
 };
 

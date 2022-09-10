@@ -18,9 +18,6 @@ class LogsModel;
 class HistoryViewWidget : public WidgetBase, private Ui::HistoryViewWidget
 {
     Q_OBJECT
-    CommitActions *_actions;
-    Git::LogsModel *_historyModel;
-    GraphPainter *_graphPainter;
 
 public:
     explicit HistoryViewWidget(QWidget *parent = nullptr);
@@ -37,6 +34,10 @@ private slots:
     void on_treeViewHistory_customContextMenuRequested(const QPoint &pos);
 
     void git_pathChanged();
+private:
+    CommitActions *mActions = nullptr;
+    Git::LogsModel *mHistoryModel = nullptr;
+    GraphPainter *mGraphPainter = nullptr;
 };
 
 #endif // HISTORYVIEWWIDGET_H

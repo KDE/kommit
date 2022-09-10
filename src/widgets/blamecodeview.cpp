@@ -21,14 +21,14 @@ BlameCodeView::BlameCodeView(QWidget *parent) : CodeEditor(parent)
 
 const Git::BlameData &BlameCodeView::blameData() const
 {
-    return _blameData;
+    return mBlameData;
 }
 
 void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
 {
     QVector<QColor> colors{QColor(200, 150, 150, 100), QColor(150, 200, 150, 100)};
     int currentColor{0};
-    _blameData = newBlameData;
+    mBlameData = newBlameData;
     QString lastCommit;
     for (const auto &blame: newBlameData) {
         const QString commitHash = blame.log ? blame.log->commitHash() : QString();
@@ -37,14 +37,14 @@ void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
             currentColor = (currentColor + 1) % colors.size();
 
         auto blockNumber = append(blame.code, colors.at(currentColor));
-        _blames.insert(blockNumber, blame);
+        mBlames.insert(blockNumber, blame);
         lastCommit = commitHash;
     }
 }
 
 Git::BlameDataRow BlameCodeView::blameData(const int &blockNumber) const
 {
-    return _blames.value(blockNumber);
+    return mBlames.value(blockNumber);
 }
 
 int BlameCodeView::sidebarWidth() const
@@ -52,7 +52,7 @@ int BlameCodeView::sidebarWidth() const
     int max{0};
 
     const auto fm = fontMetrics();
-    for (const auto &b: _blameData) {
+    for (const auto &b: mBlameData) {
         const QString text = b.log ? b.log->authorName() : i18n("Uncommited");
 
         max = qMax(max, fm.horizontalAdvance(text));
@@ -77,9 +77,9 @@ void BlameCodeView::sidebarPaintEvent(QPaintEvent *event)
 
     while (block.isValid() && top <= event->rect().bottom()) {
         if (block.isVisible() && bottom >= event->rect().top()) {
-            if (blockNumber >= _blameData.size())
+            if (blockNumber >= mBlameData.size())
                 break;
-            auto &&d = _blameData.at(blockNumber);
+            auto &&d = mBlameData.at(blockNumber);
 
 
             painter.setPen(m_highlighter->theme().editorColor(

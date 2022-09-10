@@ -22,23 +22,24 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 class SegmentData : public QTextBlockUserData
 {
-    Diff::Segment *_segment{nullptr};
 
 public:
-    SegmentData(Diff::Segment *segment, bool empty = false) : _segment{segment}, isEmpty(empty) {}
+    SegmentData(Diff::Segment *segment, bool empty = false) : mSegment{segment}, mIsEmpty(empty) {}
     Diff::Segment *segment() const;
     void setSegment(Diff::Segment *newSegment);
-    bool isEmpty{false};
+    bool mIsEmpty{false};
+private:
+    Diff::Segment *mSegment{nullptr};
 };
 
 Diff::Segment *SegmentData::segment() const
 {
-    return _segment;
+    return mSegment;
 }
 
 void SegmentData::setSegment(Diff::Segment *newSegment)
 {
-    _segment = newSegment;
+    mSegment = newSegment;
 }
 
 CodeEditor::CodeEditor(QWidget *parent)

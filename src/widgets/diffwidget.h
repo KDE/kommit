@@ -19,10 +19,6 @@ class DiffWidget : public WidgetBase, private Ui::DiffWIdget
 
     Q_PROPERTY(bool sameSize READ sameSize WRITE setSameSize NOTIFY sameSizeChanged)
 
-    Git::File _oldFile;
-    Git::File _newFile;
-
-    QTextOption _defaultOption;
 public:
     explicit DiffWidget(QWidget *parent = nullptr);
     DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidget *parent = nullptr);
@@ -62,14 +58,19 @@ private slots:
     void oldCodeEditor_blockSelected();
     void newCodeEditor_blockSelected();
 
-private:
-    bool m_sameSize{false};
-
-    void recalculateInfoPaneSize();
-
 protected:
     void resizeEvent(QResizeEvent *event) override;
     void showEvent(QShowEvent *event) override;
+
+private:
+    bool m_sameSize{false};
+    Git::File mOldFile;
+    Git::File mNewFile;
+
+    QTextOption mDefaultOption;
+
+    void recalculateInfoPaneSize();
+
 };
 
 #endif // DIFFWIDGET_H

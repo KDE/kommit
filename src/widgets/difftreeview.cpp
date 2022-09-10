@@ -13,27 +13,27 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 DiffTreeModel *DiffTreeView::diffModel() const
 {
-    return _diffModel;
+    return mDiffModel;
 }
 
 void DiffTreeView::setModels(DiffTreeModel *newDiffModel, FilesModel *filesModel)
 {
-    _diffModel = newDiffModel;
-    _filesModel = filesModel;
+    mDiffModel = newDiffModel;
+    mFilesModel = filesModel;
 
-    _filterModel->setSourceModel(filesModel);
-    listView->setModel(_filterModel);
+    mFilterModel->setSourceModel(filesModel);
+    listView->setModel(mFilterModel);
 
-    treeView->setModel(_diffModel);
+    treeView->setModel(mDiffModel);
 }
 
 DiffTreeView::DiffTreeView(QWidget *parent) : QWidget(parent)
-  , _filterModel(new QSortFilterProxyModel(this))
+  , mFilterModel(new QSortFilterProxyModel(this))
 {
     setupUi(this);
-    _filterModel->setFilterKeyColumn(0);
-    _filterModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
-    listView->setModel(_filterModel);
+    mFilterModel->setFilterKeyColumn(0);
+    mFilterModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    listView->setModel(mFilterModel);
 
     connect(checkBoxHideUnchangeds,
             &QAbstractButton::toggled,
@@ -45,22 +45,22 @@ DiffTreeView::DiffTreeView(QWidget *parent) : QWidget(parent)
     listView->installEventFilter(this);
 }
 
-void DiffTreeView::on_lineEditFilter_textChanged(QString text)
+void DiffTreeView::on_lineEditFilter_textChanged(const QString &text)
 {
     stackedWidget->setCurrentIndex(text.isEmpty() ? 0 : 1);
-    _filterModel->setFilterRegularExpression(".*" + text + ".*");
+    mFilterModel->setFilterRegularExpression(".*" + text + ".*");
 }
 
 void DiffTreeView::on_treeView_clicked(const QModelIndex &index)
 {
-    const auto fileName = _diffModel->fullPath(index);
+    const auto fileName = mDiffModel->fullPath(index);
     emit fileSelected(fileName);
 }
 
 void DiffTreeView::on_listView_clicked(const QModelIndex &index)
 {
-    const auto row = _filterModel->mapToSource(index).row();
-    const auto fileName = _filesModel->data(_filesModel->index(row, 1), Qt::DisplayRole);
+    const auto row = mFilterModel->mapToSource(index).row();
+    const auto fileName = mFilesModel->data(mFilesModel->index(row, 1), Qt::DisplayRole);
     emit fileSelected(fileName.toString());
 }
 

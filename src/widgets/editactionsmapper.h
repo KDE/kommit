@@ -16,16 +16,6 @@ class EditActionsMapper : public QObject
 {
     Q_OBJECT
 
-    QList<QPlainTextEdit*> _textEdits;
-    QPlainTextEdit *_activeControl{nullptr};
-
-    QAction *_actionUndo{nullptr};
-    QAction *_actionRedo{nullptr};
-    QAction *_actionCopy{nullptr};
-    QAction *_actionCut{nullptr};
-    QAction *_actionPaste{nullptr};
-    QAction *_actionSelectAll{nullptr};
-    QAction *_actionDelete{nullptr};
 
 public:
     explicit EditActionsMapper(QObject *parent = nullptr);
@@ -51,6 +41,10 @@ private Q_SLOTS:
     // QObject interface
 public:
     bool eventFilter(QObject *watched, QEvent *event) override;
+
+private:
+    QList<QPlainTextEdit*> mTextEdits;
+    QPlainTextEdit *mActiveControl{nullptr};
 };
 
 #endif // EDITACTIONSMAPPER_H

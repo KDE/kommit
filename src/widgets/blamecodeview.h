@@ -13,9 +13,6 @@ class BlameCodeView : public CodeEditor
 {
     Q_OBJECT
 
-    Git::BlameData _blameData;
-    QMap<int, Git::BlameDataRow> _blames;
-
 public:
     BlameCodeView(QWidget *parent = nullptr);
     const Git::BlameData &blameData() const;
@@ -26,6 +23,8 @@ public:
 private:
     int sidebarWidth() const override;
     void sidebarPaintEvent(QPaintEvent *event) override;
+    Git::BlameData mBlameData;
+    QMap<int, Git::BlameDataRow> mBlames;
 };
 
 #endif // BLAMECODEVIEW_H

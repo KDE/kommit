@@ -18,45 +18,45 @@ HistoryViewWidget::HistoryViewWidget(QWidget *parent) :
       WidgetBase(parent)
 {
     setupUi(this);
-    _historyModel = new Git::LogsModel(Git::Manager::instance(), this);
+    mHistoryModel = new Git::LogsModel(Git::Manager::instance(), this);
 //        Git::Manager::instance()->logsCache();
-    treeViewHistory->setModel(_historyModel);
+    treeViewHistory->setModel(mHistoryModel);
 
-    _graphPainter = new GraphPainter(_historyModel, this);
-    treeViewHistory->setItemDelegateForColumn(0, _graphPainter);
+    mGraphPainter = new GraphPainter(mHistoryModel, this);
+    treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
 
     connect(Git::Manager::instance(),
             &Git::Manager::pathChanged,
             this,
             &HistoryViewWidget::git_pathChanged);
 
-    _actions = new CommitActions(Git::Manager::instance(), this);
+    mActions = new CommitActions(Git::Manager::instance(), this);
 }
 
 HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent):
       WidgetBase(git, parent)
 {
     setupUi(this);
-    _historyModel = git->logsModel();
-    treeViewHistory->setModel(_historyModel);
+    mHistoryModel = git->logsModel();
+    treeViewHistory->setModel(mHistoryModel);
 
-    _graphPainter = new GraphPainter(_historyModel, this);
-    treeViewHistory->setItemDelegateForColumn(0, _graphPainter);
+    mGraphPainter = new GraphPainter(mHistoryModel, this);
+    treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
 
     connect(Git::Manager::instance(),
             &Git::Manager::pathChanged,
             this,
             &HistoryViewWidget::git_pathChanged);
 
-    _actions = new CommitActions(git, this);
+    mActions = new CommitActions(git, this);
 }
 
 void HistoryViewWidget::setBranch(const QString &branchName)
 {
     treeViewHistory->setItemDelegateForColumn(0, nullptr);
-    _historyModel->setBranch(branchName);
-    if (_historyModel->rowCount(QModelIndex()))
-        treeViewHistory->setCurrentIndex(_historyModel->index(0));
+    mHistoryModel->setBranch(branchName);
+    if (mHistoryModel->rowCount(QModelIndex()))
+        treeViewHistory->setCurrentIndex(mHistoryModel->index(0));
 }
 
 void HistoryViewWidget::saveState(QSettings &settings) const
@@ -71,7 +71,7 @@ void HistoryViewWidget::restoreState(QSettings &settings)
 
 void HistoryViewWidget::on_treeViewHistory_itemActivated(const QModelIndex &index)
 {
-    auto log = _historyModel->fromIndex(index);
+    auto log = mHistoryModel->fromIndex(index);
     if (!log)
         return;
 
@@ -80,7 +80,7 @@ void HistoryViewWidget::on_treeViewHistory_itemActivated(const QModelIndex &inde
 
 void HistoryViewWidget::on_textBrowser_hashClicked(const QString &hash)
 {
-    auto index = _historyModel->findIndexByHash(hash);
+    auto index = mHistoryModel->findIndexByHash(hash);
     if (index.isValid()) {
         treeViewHistory->setCurrentIndex(index);
         on_treeViewHistory_itemActivated(index);
@@ -103,12 +103,12 @@ void HistoryViewWidget::on_textBrowser_fileClicked(const QString &file)
 void HistoryViewWidget::on_treeViewHistory_customContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
-    auto log = _historyModel->fromIndex(treeViewHistory->currentIndex());
+    auto log = mHistoryModel->fromIndex(treeViewHistory->currentIndex());
     if (!log)
         return;
-    _actions->setCommitHash(log->commitHash());
+    mActions->setCommitHash(log->commitHash());
 
-    _actions->popup();
+    mActions->popup();
 }
 
 void HistoryViewWidget::git_pathChanged()

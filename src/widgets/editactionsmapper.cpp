@@ -19,7 +19,7 @@ EditActionsMapper::EditActionsMapper(QObject *parent) : QObject(parent)
 
 void EditActionsMapper::addTextEdit(QPlainTextEdit *control)
 {
-    _textEdits.append(control);
+    mTextEdits.append(control);
 
     control->installEventFilter(this);
 
@@ -65,38 +65,38 @@ void EditActionsMapper::control_selectionChanged()
 
 void EditActionsMapper::actionUndo_triggered()
 {
-    if (_activeControl)
-        _activeControl->undo();
+    if (mActiveControl)
+        mActiveControl->undo();
 }
 
 void EditActionsMapper::actionRedo_triggered()
 {
-    if (_activeControl)
-        _activeControl->redo();
+    if (mActiveControl)
+        mActiveControl->redo();
 }
 
 void EditActionsMapper::actionCopy_triggered()
 {
-    if (_activeControl)
-        _activeControl->copy();
+    if (mActiveControl)
+        mActiveControl->copy();
 }
 
 void EditActionsMapper::actionCut_triggered()
 {
-    if (_activeControl)
-        _activeControl->cut();
+    if (mActiveControl)
+        mActiveControl->cut();
 }
 
 void EditActionsMapper::actionPaste_triggered()
 {
-    if (_activeControl)
-        _activeControl->paste();
+    if (mActiveControl)
+        mActiveControl->paste();
 }
 
 void EditActionsMapper::actionSelectAll_triggered()
 {
-    if (_activeControl)
-        _activeControl->selectAll();
+    if (mActiveControl)
+        mActiveControl->selectAll();
 }
 
 void EditActionsMapper::actionDelete_triggered()
@@ -108,14 +108,14 @@ bool EditActionsMapper::eventFilter(QObject *watched, QEvent *event)
     if (event->type() != QEvent::FocusIn && event->type() != QEvent::FocusOut)
         return QObject::eventFilter(watched, event);
     auto textEdit = qobject_cast<QPlainTextEdit *>(watched);
-    if (!textEdit || textEdit == _activeControl)
+    if (!textEdit || textEdit == mActiveControl)
         return QObject::eventFilter(watched, event);
     //    auto e = static_cast<QFocusEvent*>(event);
 
     if (event->type() != QEvent::FocusIn)
-        _activeControl = textEdit;
+        mActiveControl = textEdit;
     else
-        _activeControl = nullptr;
+        mActiveControl = nullptr;
 
     return QObject::eventFilter(watched, event);
 }
