@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef IGNOREFILEDIALOG_H
-#define IGNOREFILEDIALOG_H
+#pragma once
 
 #include "ui_ignorefiledialog.h"
 
@@ -28,4 +27,3 @@ private:
     QString getIgnoreFile();
 };
 
-#endif // IGNOREFILEDIALOG_H

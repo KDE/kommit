@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef SUBMODULESWIDGET_H
-#define SUBMODULESWIDGET_H
+#pragma once
 
 #include "ui_submoduleswidget.h"
 #include "widgetbase.h"
@@ -36,4 +35,3 @@ private slots:
     void on_treeView_activated(const QModelIndex &index);
 };
 
-#endif // SUBMODULESWIDGET_H

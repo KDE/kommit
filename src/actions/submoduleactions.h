@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef SUBMODULEACTIONS_H
-#define SUBMODULEACTIONS_H
+#pragma once
 
 #include "abstractactions.h"
 
@@ -35,4 +34,3 @@ private:
     DEFINE_ACTION(actionSync)
 };
 
-#endif // SUBMODULEACTIONS_H

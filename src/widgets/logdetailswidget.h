@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef LOGDETAILSWIDGET_H
-#define LOGDETAILSWIDGET_H
+#pragma once
 
 #include <QTextBrowser>
 
@@ -48,4 +47,3 @@ signals:
     void enableCommitsLinksChanged();
 };
 
-#endif // LOGDETAILSWIDGET_H

@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef FETCHDIALOG_H
-#define FETCHDIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_fetchdialog.h"
@@ -26,4 +25,3 @@ private slots:
     void on_buttonBox_accepted();
 };
 
-#endif // FETCHDIALOG_H

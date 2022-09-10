@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef SEGMENTCONNECTOR_H
-#define SEGMENTCONNECTOR_H
+#pragma once
 
 #include <QtWidgets/QWidget>
 #include <QtCore/QMap>
@@ -56,4 +55,3 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 };
 
-#endif // SEGMENTCONNECTOR_H

@@ -8,8 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 // Created by hamed on 25.03.22.
 //
 
-#ifndef GITKLIENT_CACHE_H
-#define GITKLIENT_CACHE_H
+#pragma once
 
 #include <QAbstractListModel>
 
@@ -46,4 +45,3 @@ private:
 };
 } // namespace Git
 
-#endif //GITKLIENT_CACHE_H

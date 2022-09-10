@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef FILEBLAMEDIALOG_H
-#define FILEBLAMEDIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_fileblamedialog.h"
@@ -30,4 +29,3 @@ private slots:
     void on_plainTextEdit_blockSelected();
 };
 
-#endif // FILEBLAMEDIALOG_H

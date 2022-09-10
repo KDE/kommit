@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef BRANCHESCACHE_H
-#define BRANCHESCACHE_H
+#pragma once
 
 #include "abstractgititemsmodel.h"
 
@@ -50,4 +49,3 @@ private:
 
 } // namespace Git
 
-#endif // BRANCHESCACHE_H

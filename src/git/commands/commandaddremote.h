@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef COMMANDADDREMOTE_H
-#define COMMANDADDREMOTE_H
+#pragma once
 
 #include "abstractcommand.h"
 
@@ -45,4 +44,3 @@ private:
 
 }
 
-#endif // COMMANDADDREMOTE_H

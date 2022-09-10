@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef FILESMODEL_H
-#define FILESMODEL_H
+#pragma once
 
 #include "git/filestatus.h"
 #include <QtCore/QAbstractListModel>
@@ -31,4 +30,3 @@ public:
     void addFile(const FileStatus &file);
 };
 
-#endif // FILESMODEL_H

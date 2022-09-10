@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef HISTORYMODEL_H
-#define HISTORYMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include "git/gitmanager.h"
@@ -37,4 +36,3 @@ private:
     Git::LogList mLogs;
 };
 
-#endif // HISTORYMODEL_H

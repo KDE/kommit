@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef GITKLIENTCONFIG_H
-#define GITKLIENTCONFIG_H
+#pragma once
 
 namespace Git {
 class Manager;
@@ -19,4 +18,3 @@ public:
     void apply();
 };
 
-#endif // GITKLIENTCONFIG_H

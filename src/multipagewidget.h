@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef MULTIPAGEWIDGET_H
-#define MULTIPAGEWIDGET_H
+#pragma once
 
 #include "ui_multipagewidget.h"
 
@@ -40,4 +39,3 @@ private slots:
     void on_actionGroup_triggered(QAction *action);
 };
 
-#endif // MULTIPAGEWIDGET_H

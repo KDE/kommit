@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef BRANCH_H
-#define BRANCH_H
+#pragma once
 
 #include <QString>
 
@@ -23,4 +22,3 @@ private:
     QString _remoteName;
 };
 
-#endif // BRANCH_H

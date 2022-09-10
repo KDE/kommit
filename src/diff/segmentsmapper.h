@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef SEGMENTSMAPPER_H
-#define SEGMENTSMAPPER_H
+#pragma once
 
 #include "diff/diff.h"
 #include <QMap>
@@ -47,4 +46,3 @@ private:
     QMap<QObject *, CodeEditor *> _scrollBars;
 };
 
-#endif // SEGMENTSMAPPER_H

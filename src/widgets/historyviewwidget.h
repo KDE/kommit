@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef HISTORYVIEWWIDGET_H
-#define HISTORYVIEWWIDGET_H
+#pragma once
 
 #include "ui_historyviewwidget.h"
 #include "widgetbase.h"
@@ -40,4 +39,3 @@ private:
     GraphPainter *mGraphPainter = nullptr;
 };
 
-#endif // HISTORYVIEWWIDGET_H

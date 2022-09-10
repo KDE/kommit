@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef CLOSEEVENTDIALOG_H
-#define CLOSEEVENTDIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_mergecloseeventdialog.h"
@@ -27,4 +26,3 @@ private slots:
     void on_commandLinkButtonDontExit_clicked();
 };
 
-#endif // CLOSEEVENTDIALOG_H

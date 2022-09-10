@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef BUTTONSGROUP_H
-#define BUTTONSGROUP_H
+#pragma once
 
 #include <QtCore/QObject>
 
@@ -32,4 +31,3 @@ signals:
     void clicked(int index);
 };
 
-#endif // BUTTONSGROUP_H

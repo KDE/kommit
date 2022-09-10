@@ -1,8 +1,7 @@
 // Copyright (C) 2020 Hamed Masafi <hamed.masafi@gmail.com>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#ifndef GitKlientMergeWindow_H
-#define GitKlientMergeWindow_H
+#pragma once
 
 #include "GitKlientSettings.h"
 #include "core/appmainwindow.h"
@@ -87,4 +86,3 @@ protected:
     void closeEvent(QCloseEvent *event) override;
 };
 
-#endif // GitKlientMergeWindow_H

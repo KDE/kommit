@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef STATUSCACHE_H
-#define STATUSCACHE_H
+#pragma once
 
 #include <QMap>
 #include "filestatus.h"
@@ -33,4 +32,3 @@ private:
     QMap<QString, FileStatus::Status> mStatuses;
 };
 
-#endif // STATUSCACHE_H

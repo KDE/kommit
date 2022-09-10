@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef GRAPHPAINTER_H
-#define GRAPHPAINTER_H
+#pragma once
 
 #include <QStyledItemDelegate>
 #include "git/gitgraphlane.h"
@@ -31,4 +30,3 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
-#endif // GRAPHPAINTER_H

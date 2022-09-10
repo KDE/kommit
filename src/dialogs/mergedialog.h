@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef MERGEDIALOG_H
-#define MERGEDIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_mergedialog.h"
@@ -27,4 +26,3 @@ private:
     void init(Git::Manager *git);
 };
 
-#endif // MERGEDIALOG_H

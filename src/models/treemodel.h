@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef TREEMODEL_H
-#define TREEMODEL_H
+#pragma once
 
 #include <QtCore/QAbstractItemModel>
 
@@ -102,4 +101,3 @@ protected:
     void sortNode(Node *node);
 };
 
-#endif // TREEMODEL_H

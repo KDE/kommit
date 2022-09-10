@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef REMOTEDETAILSWIDGET_H
-#define REMOTEDETAILSWIDGET_H
+#pragma once
 
 #include "ui_remotedetailswidget.h"
 
@@ -32,4 +31,3 @@ private slots:
 //    void on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 };
 
-#endif // REMOTEDETAILSWIDGET_H

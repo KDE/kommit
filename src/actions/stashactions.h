@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef STASHACTIONS_H
-#define STASHACTIONS_H
+#pragma once
 
 
 #include "abstractactions.h"
@@ -36,4 +35,3 @@ private:
     DEFINE_ACTION(actionNew)
 };
 
-#endif // STASHACTIONS_H

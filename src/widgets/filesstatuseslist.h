@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef FILESSTATUSESLIST_H
-#define FILESSTATUSESLIST_H
+#pragma once
 
 #include <QTreeWidget>
 #include "git/filestatus.h"
@@ -26,4 +25,3 @@ private:
     bool _showCheckboxes{false};
 };
 
-#endif // FILESSTATUSESLIST_H

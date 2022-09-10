@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef SUBMODULEINFODIALOG_H
-#define SUBMODULEINFODIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_submoduleinfodialog.h"
@@ -39,4 +38,3 @@ private slots:
     void on_toolButtonBrowseLocalPath_clicked();
 };
 
-#endif // SUBMODULEINFODIALOG_H

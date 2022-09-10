@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef EDITACTIONSMAPPER_H
-#define EDITACTIONSMAPPER_H
+#pragma once
 
 #include <QObject>
 
@@ -47,4 +46,3 @@ private:
     QPlainTextEdit *mActiveControl{nullptr};
 };
 
-#endif // EDITACTIONSMAPPER_H

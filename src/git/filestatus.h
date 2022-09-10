@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef FILESTATUS_H
-#define FILESTATUS_H
+#pragma once
 
 #include <QString>
 #include <QObject>
@@ -53,4 +52,3 @@ Q_DECLARE_METATYPE(FileStatus)
 Q_DECLARE_TYPEINFO(FileStatus, Q_MOVABLE_TYPE);
 bool operator==(const FileStatus &f1, const FileStatus &f2);
 
-#endif // FILESTATUS_H

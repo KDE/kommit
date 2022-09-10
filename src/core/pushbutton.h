@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef PUSHBUTTON_H
-#define PUSHBUTTON_H
+#pragma once
 
 #include <QPushButton>
 
@@ -23,4 +22,3 @@ private:
     QAction *_action{nullptr};
 };
 
-#endif // PUSHBUTTON_H

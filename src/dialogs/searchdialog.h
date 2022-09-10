@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef SEARCHDIALOG_H
-#define SEARCHDIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_searchdialog.h"
@@ -46,4 +45,3 @@ protected:
     void timerEvent(QTimerEvent *event) override;
 };
 
-#endif // SEARCHDIALOG_H

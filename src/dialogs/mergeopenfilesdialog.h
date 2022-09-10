@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef OPENFILESDIALOG_H
-#define OPENFILESDIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_mergeopenfilesdialog.h"
@@ -32,4 +31,3 @@ private slots:
     void on_toolButtonSelectBaseFile_clicked();
 };
 
-#endif // OPENFILESDIALOG_H

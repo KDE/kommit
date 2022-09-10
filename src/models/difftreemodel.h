@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef DIFFTREEMODEL_H
-#define DIFFTREEMODEL_H
+#pragma once
 
 #include "diff/diff.h"
 #include "git/filestatus.h"
@@ -33,4 +32,3 @@ private:
     Diff::DiffType toDiffType(const FileStatus::Status &status);
 };
 
-#endif // DIFFTREEMODEL_H

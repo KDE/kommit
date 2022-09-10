@@ -1,8 +1,7 @@
 // Copyright (C) 2020 Hamed Masafi <hamed.masafi@gmail.com>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#ifndef GITMANAGER_H
-#define GITMANAGER_H
+#pragma once
 
 #include "gitloglist.h"
 #include "commands/abstractcommand.h"
@@ -195,4 +194,3 @@ private:
 
 } // namespace Git
 
-#endif // GITMANAGER_H

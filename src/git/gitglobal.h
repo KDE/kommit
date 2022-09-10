@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef GITGLOBAL_H
-#define GITGLOBAL_H
+#pragma once
 
 #include "commands/abstractcommand.h"
 
@@ -19,4 +18,3 @@ QByteArray runGit(const QString &workingDir, const QStringList &args);
 QStringList readAllNonEmptyOutput(const QString &workingDir, const QStringList &cmd, bool trim = true);
 } // namespace Git
 
-#endif // GITGLOBAL_H

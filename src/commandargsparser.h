@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef COMMANDARGSPARSER_H
-#define COMMANDARGSPARSER_H
+#pragma once
 
 #include <QMap>
 #include <QObject>
@@ -94,4 +93,3 @@ public slots:
     ArgParserReturn main(const QString &path);
 };
 
-#endif // COMMANDARGSPARSER_H

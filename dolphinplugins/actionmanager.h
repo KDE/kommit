@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef ACTIONMANAGER_H
-#define ACTIONMANAGER_H
+#pragma once
 
 #include <KIOWidgets/KAbstractFileItemActionPlugin>
 #include <KIOCore/kfileitem.h>
@@ -39,4 +38,3 @@ private:
 };
 
 
-#endif // ACTIONMANAGER_H

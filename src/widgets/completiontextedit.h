@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef COMPLETIONTEXTEDIT_H
-#define COMPLETIONTEXTEDIT_H
+#pragma once
 
 #include <QTextEdit>
 
@@ -45,4 +44,3 @@ private:
     QCompleter *const mCompleter;
 };
 
-#endif // COMPLETIONTEXTEDIT_H

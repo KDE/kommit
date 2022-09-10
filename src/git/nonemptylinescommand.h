@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef NONEMPTYLINESCOMMAND_H
-#define NONEMPTYLINESCOMMAND_H
+#pragma once
 
 #include "parameterescommand.h"
 
@@ -24,4 +23,3 @@ public:
 
 } // namespace Git
 
-#endif // NONEMPTYLINESCOMMAND_H

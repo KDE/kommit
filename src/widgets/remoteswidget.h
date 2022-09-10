@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef REMOTESWIDGET_H
-#define REMOTESWIDGET_H
+#pragma once
 
 #include "ui_remoteswidget.h"
 #include "widgetbase.h"
@@ -38,4 +37,3 @@ private:
     void init(Git::Manager *git);
 };
 
-#endif // REMOTESWIDGET_H

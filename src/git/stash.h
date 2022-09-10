@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef STASH_H
-#define STASH_H
+#pragma once
 
 #include <QDateTime>
 #include <QString>
@@ -42,4 +41,3 @@ public:
 
 } // namespace Git
 
-#endif // STASH_H

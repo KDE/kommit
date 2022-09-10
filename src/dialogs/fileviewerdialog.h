@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef FILEVIEWERDIALOG_H
-#define FILEVIEWERDIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_fileviewerdialog.h"
@@ -43,4 +42,3 @@ private:
     KService::Ptr getInternalViewer(const QString &mimeType);
 };
 
-#endif // FILEVIEWERDIALOG_H

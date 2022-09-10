@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef PULLDIALOG_H
-#define PULLDIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_pulldialog.h"
@@ -24,4 +23,3 @@ private slots:
     void on_buttonBox_accepted();
 };
 
-#endif // PULLDIALOG_H

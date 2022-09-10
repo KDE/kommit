@@ -24,8 +24,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef GITKLIENTWINDOW_H
-#define GITKLIENTWINDOW_H
+#pragma once
 
 #include "core/appmainwindow.h"
 
@@ -98,4 +97,3 @@ private:
     void init();
 };
 
-#endif // GITKLIENTWINDOW_H

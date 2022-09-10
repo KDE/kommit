@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef COMMANDCHANGEDFILES_H
-#define COMMANDCHANGEDFILES_H
+#pragma once
 
 #include "abstractcommand.h"
 #include "../filestatus.h"
@@ -40,4 +39,3 @@ private:
 
 } // namespace Git
 
-#endif // COMMANDCHANGEDFILES_H

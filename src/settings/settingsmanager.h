@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef SETTINGSMANAGER_H
-#define SETTINGSMANAGER_H
+#pragma once
 
 #include <QObject>
 #include "ui_settingspagebase.h"
@@ -35,4 +34,3 @@ private:
     QWidget *createDiffPage();
 };
 
-#endif // SETTINGSMANAGER_H

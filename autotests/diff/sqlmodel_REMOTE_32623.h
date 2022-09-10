@@ -24,8 +24,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 **
 **************************************************************************/
 
-#ifndef SQLMODEL_H
-#define SQLMODEL_H
+#pragma once
 
 #include <QtCore/QAbstractTableModel>
 #include "defines.h"
@@ -88,4 +87,3 @@ Q_OUTOFLINE_TEMPLATE void SqlModel::setTable(RowList<T> rows)
 
 NUT_END_NAMESPACE
 
-#endif // SQLMODEL_H

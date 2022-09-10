@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef MODIFICATIONSDIALOG_H
-#define MODIFICATIONSDIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_modificationsdialog.h"
@@ -18,4 +17,3 @@ public:
     explicit ModificationsDialog(QWidget *parent = nullptr);
 };
 
-#endif // MODIFICATIONSDIALOG_H

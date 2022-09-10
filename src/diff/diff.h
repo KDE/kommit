@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef DIFF_H
-#define DIFF_H
+#pragma once
 
 #include <QtCore/QStringList>
 
@@ -133,4 +132,3 @@ QList<MergeSegment *> diff3(const QStringList &base,
 QMap<QString, DiffType> diffDirs(const QString &dir1, const QString &dir2);
 } // namespace Diff
 
-#endif // DIFF_H

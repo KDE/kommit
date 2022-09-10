@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef DIFFOPENDIALOG_H
-#define DIFFOPENDIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_diffopendialog.h"
@@ -35,4 +34,3 @@ private slots:
     void on_toolButtonBrowseOldDirectory_clicked();
 };
 
-#endif // DIFFOPENDIALOG_H

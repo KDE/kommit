@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef DIFFWIDGET_H
-#define DIFFWIDGET_H
+#pragma once
 
 #include "ui_diffwidget.h"
 #include <QTextOption>
@@ -73,4 +72,3 @@ private:
 
 };
 
-#endif // DIFFWIDGET_H

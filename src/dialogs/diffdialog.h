@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef DIFFDIALOG_H
-#define DIFFDIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_diffdialog.h"
@@ -39,4 +38,3 @@ private:
     void compare(const QStringList &oldData, const QStringList &newData);
 };
 
-#endif // DIFFDIALOG_H

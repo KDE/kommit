@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef COMMANDPUSH_H
-#define COMMANDPUSH_H
+#pragma once
 
 #include "abstractcommand.h"
 
@@ -39,4 +38,3 @@ private:
 
 } // namespace Git
 
-#endif // COMMANDPUSH_H

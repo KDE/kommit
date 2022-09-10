@@ -24,8 +24,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 **
 **************************************************************************/
 
-#ifndef SQLMODEL_H
-#define SQLMODEL_H
+#pragma once
 
 #include <QtCore/QAbstractTableModel>
 #include <QtCore/QExplicitlySharedDataPointer>
@@ -84,4 +83,3 @@ NUT_END_NAMESPACE
 
 QT_END_NAMESPACE
 
-#endif // SQLMODEL_H

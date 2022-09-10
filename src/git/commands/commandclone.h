@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef CLONECOMMAND_H
-#define CLONECOMMAND_H
+#pragma once
 
 #include "abstractcommand.h"
 
@@ -48,4 +47,3 @@ public:
 
 } // namespace Git
 
-#endif // CLONECOMMAND_H

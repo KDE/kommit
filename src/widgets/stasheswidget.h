@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef STASHESWIDGET_H
-#define STASHESWIDGET_H
+#pragma once
 
 #include "ui_stasheswidget.h"
 #include "widgetbase.h"
@@ -36,4 +35,3 @@ private:
     void init(Git::Manager *git);
 };
 
-#endif // STASHESWIDGET_H

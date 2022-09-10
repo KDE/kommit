@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef NOTEDIALOG_H
-#define NOTEDIALOG_H
+#pragma once
 
 #include "ui_notedialog.h"
 
@@ -23,4 +22,3 @@ private slots:
     void on_buttonBox_accepted();
 };
 
-#endif // NOTEDIALOG_H

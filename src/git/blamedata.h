@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef BLAMEDATA_H
-#define BLAMEDATA_H
+#pragma once
 
 #include <QString>
 #include "gitloglist.h"
@@ -29,4 +28,3 @@ public:
 
 } // namespace Git
 
-#endif // BLAMEDATA_H

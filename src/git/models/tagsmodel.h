@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef TAGSMODEL_H
-#define TAGSMODEL_H
+#pragma once
 
 #include "abstractgititemsmodel.h"
 
@@ -33,4 +32,3 @@ protected:
 
 } // namespace Git
 
-#endif // TAGSMODEL_H

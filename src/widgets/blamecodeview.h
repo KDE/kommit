@@ -1,8 +1,7 @@
 // Copyright (C) 2020 Hamed Masafi <hamed.masafi@gmail.com>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#ifndef BLAMECODEVIEW_H
-#define BLAMECODEVIEW_H
+#pragma once
 
 #include "codeeditor.h"
 #include "git/blamedata.h"
@@ -27,4 +26,3 @@ private:
     QMap<int, Git::BlameDataRow> mBlames;
 };
 
-#endif // BLAMECODEVIEW_H

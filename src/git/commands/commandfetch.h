@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef CommandFetch_H
-#define CommandFetch_H
+#pragma once
 
 #include "abstractcommand.h"
 
@@ -53,4 +52,3 @@ private:
 
 } // namespace Git
 
-#endif // CommandFetch_H

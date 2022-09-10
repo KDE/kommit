@@ -8,8 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 // Created by hamed on 25.03.22.
 //
 
-#ifndef GITKLIENT_REMOTESCACHE_H
-#define GITKLIENT_REMOTESCACHE_H
+#pragma once
 
 #include "abstractgititemsmodel.h"
 
@@ -37,4 +36,3 @@ protected:
 };
 } // namespace Git
 
-#endif //GITKLIENT_REMOTESCACHE_H

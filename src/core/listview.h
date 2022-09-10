@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef LISTVIEW_H
-#define LISTVIEW_H
+#pragma once
 
 #include <QListView>
 
@@ -23,4 +22,3 @@ signals:
     void itemActivated(const QModelIndex &index);
 };
 
-#endif // LISTVIEW_H

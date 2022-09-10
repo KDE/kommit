@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef GITGRAPHLANE_H
-#define GITGRAPHLANE_H
+#pragma once
 
 #include <QList>
 
@@ -52,4 +51,3 @@ bool operator==(const GraphLane &, const GraphLane &);
 
 }
 
-#endif // GITGRAPHLANE_H

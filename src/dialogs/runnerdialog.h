@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef RUNNERDIALOG_H
-#define RUNNERDIALOG_H
+#pragma once
 
 #include "../core/appdialog.h"
 #include "ui_runnerdialog.h"
@@ -41,4 +40,3 @@ private slots:
     void git_finished(int exitCode, QProcess::ExitStatus exitStatus);
 };
 
-#endif // RUNNERDIALOG_H

@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef CODEEDITOR_H
-#define CODEEDITOR_H
+#pragma once
 
 #include <KSyntaxHighlighting/Repository>
 #include <QMap>
@@ -88,4 +87,3 @@ private:
     QPair<int, int> mCurrentSegment{-1, -1};
 };
 
-#endif // CODEEDITOR_H

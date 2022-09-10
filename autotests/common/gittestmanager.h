@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef GITTESTMANAGER_H
-#define GITTESTMANAGER_H
+#pragma once
 
 #include <QString>
 
@@ -34,4 +33,3 @@ private:
     QString runGit(const QStringList &args);
 };
 
-#endif // GITTESTMANAGER_H

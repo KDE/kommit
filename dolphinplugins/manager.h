@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef MANAGER_H
-#define MANAGER_H
+#pragma once
 
 #include <QString>
 #include <filestatus.h>
@@ -30,4 +29,3 @@ private:
 
 } // namespace Git
 
-#endif // MANAGER_H

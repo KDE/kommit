@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef FILEACTIONS_H
-#define FILEACTIONS_H
+#pragma once
 
 #include "abstractactions.h"
 
@@ -55,4 +54,3 @@ private slots:
     void mergeWithHead();
 };
 
-#endif // FILEACTIONS_H

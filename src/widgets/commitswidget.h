@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef COMMITSWIDGET_H
-#define COMMITSWIDGET_H
+#pragma once
 
 #include "ui_commitswidget.h"
 #include "widgetbase.h"
@@ -36,4 +35,3 @@ private:
     QString mMainBranch;
 };
 
-#endif // COMMITSWIDGET_H

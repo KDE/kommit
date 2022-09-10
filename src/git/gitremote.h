@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef GITREMOTE_H
-#define GITREMOTE_H
+#pragma once
 
 #include <QList>
 #include <QString>
@@ -49,4 +48,3 @@ public:
 
 } // namespace Git
 
-#endif // GITREMOTE_H

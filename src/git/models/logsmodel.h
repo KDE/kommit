@@ -8,8 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 // Created by hamed on 25.03.22.
 //
 
-#ifndef GITKLIENT_LOGS_H
-#define GITKLIENT_LOGS_H
+#pragma once
 
 #include "abstractgititemsmodel.h"
 
@@ -51,4 +50,3 @@ private:
 };
 }
 
-#endif //GITKLIENT_LOGS_H

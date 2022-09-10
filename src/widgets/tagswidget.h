@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef TAGSWIDGET_H
-#define TAGSWIDGET_H
+#pragma once
 
 #include "ui_tagswidget.h"
 #include "widgetbase.h"
@@ -34,4 +33,3 @@ public:
     void restoreState(QSettings &settings) override;
 };
 
-#endif // TAGSWIDGET_H

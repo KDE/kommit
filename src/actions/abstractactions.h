@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef ABSTRACTACTIONS_H
-#define ABSTRACTACTIONS_H
+#pragma once
 
 #include <QAction>
 #include <QMap>
@@ -100,4 +99,3 @@ private:
 signals:
 };
 
-#endif // ABSTRACTACTIONS_H
