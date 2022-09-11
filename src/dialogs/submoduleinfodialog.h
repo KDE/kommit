@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "../core/appdialog.h"
 #include "ui_submoduleinfodialog.h"
 
-namespace Git {
+namespace Git
+{
 class AddSubmoduleCommand;
 class Manager;
 }
@@ -37,4 +38,3 @@ public:
 private Q_SLOTS:
     void on_toolButtonBrowseLocalPath_clicked();
 };
-

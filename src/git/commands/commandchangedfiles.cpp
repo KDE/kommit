@@ -7,11 +7,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "commandchangedfiles.h"
 #include "../gitmanager.h"
 
-namespace Git {
-
-CommandChangedFiles::CommandChangedFiles(Manager *git) : AbstractCommand(git)
+namespace Git
 {
 
+CommandChangedFiles::CommandChangedFiles(Manager *git)
+    : AbstractCommand(git)
+{
 }
 
 const QList<FileStatus> &CommandChangedFiles::files() const
@@ -51,9 +52,7 @@ void CommandChangedFiles::setIgnoreSubmodules(bool newIgnoreSubmodules)
 
 QStringList CommandChangedFiles::generateArgs() const
 {
-    QStringList args{"status",
-                     "--short",
-                     "--porcelain"};
+    QStringList args{"status", "--short", "--porcelain"};
     if (_untracked)
         args.append("--untracked-files=all");
 
@@ -71,7 +70,7 @@ void CommandChangedFiles::parseOutput(const QByteArray &output, const QByteArray
     Q_UNUSED(errorOutput)
     const auto buffer = QString(output).split("\n");
 
-    for (const auto &item: buffer) {
+    for (const auto &item : buffer) {
         if (!item.trimmed().size())
             continue;
         FileStatus fs;

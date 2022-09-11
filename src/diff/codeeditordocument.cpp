@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QPlainTextDocumentLayout>
 #include <QTextFrame>
 
-CodeEditorDocument::CodeEditorDocument(QObject *parent) : QTextDocument(parent)
+CodeEditorDocument::CodeEditorDocument(QObject *parent)
+    : QTextDocument(parent)
 {
     auto stylesheet = QStringLiteral(R"~(
 body {
@@ -27,7 +28,7 @@ p {
     setDocumentLayout(new QPlainTextDocumentLayout(this));
     QTextOption opt;
     opt.setFlags(opt.flags() | QTextOption::IncludeTrailingSpaces | QTextOption::ShowLineAndParagraphSeparators);
-//    setDefaultTextOption(opt);
+    //    setDefaultTextOption(opt);
 }
 
 QTextObject *CodeEditorDocument::createObject(const QTextFormat &f)

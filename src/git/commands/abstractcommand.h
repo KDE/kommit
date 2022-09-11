@@ -9,11 +9,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QByteArray>
 #include <QObject>
 #include <QStringList>
-#include <QStringList>
 
 class QWidget;
 
-namespace Git {
+namespace Git
+{
 
 enum class OptionalBool {
     False,
@@ -21,12 +21,7 @@ enum class OptionalBool {
     True,
 };
 
-enum class FastForwardType {
-    Unset,
-    Yes,
-    No,
-    OnlyFastForward
-};
+enum class FastForwardType { Unset, Yes, No, OnlyFastForward };
 
 OptionalBool checkStateToOptionalBool(Qt::CheckState checkState);
 
@@ -36,7 +31,6 @@ class AbstractCommand : public QObject
     Q_OBJECT
     Q_PROPERTY(int progress READ progress WRITE setProgress NOTIFY progressChanged)
 
-
 protected:
     QStringList _args;
     Manager *_git{nullptr};
@@ -45,14 +39,7 @@ protected:
     void appendBool(bool b, QStringList &cmd, const QString &name) const;
 
 public:
-    enum Status {
-        None,
-        InvalidArgs,
-        Ready,
-        Running,
-        Finished,
-        Error
-    };
+    enum Status { None, InvalidArgs, Ready, Running, Finished, Error };
 
     explicit AbstractCommand(QObject *parent = nullptr);
     explicit AbstractCommand(QStringList args);
@@ -65,8 +52,14 @@ public:
 
     bool isValid() const;
 
-    virtual bool supportWidget() const { return false; }
-    virtual bool supportProgress() const { return false; }
+    virtual bool supportWidget() const
+    {
+        return false;
+    }
+    virtual bool supportProgress() const
+    {
+        return false;
+    }
     virtual QWidget *createWidget();
     int progress() const;
 
@@ -87,4 +80,3 @@ private:
 };
 
 } // namespace Git
-

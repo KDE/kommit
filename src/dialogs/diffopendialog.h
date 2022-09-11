@@ -14,10 +14,7 @@ class DiffOpenDialog : public AppDialog, private Ui::DiffOpenDialog
     Q_OBJECT
 
 public:
-    enum Mode {
-        Files,
-        Dirs
-    };
+    enum Mode { Files, Dirs };
     explicit DiffOpenDialog(QWidget *parent = nullptr);
     ~DiffOpenDialog() override;
 
@@ -33,4 +30,3 @@ private Q_SLOTS:
     void on_toolButtonBrowseNewDirectory_clicked();
     void on_toolButtonBrowseOldDirectory_clicked();
 };
-

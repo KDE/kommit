@@ -9,15 +9,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractcommand.h"
 
 #ifdef GIT_GUI
-namespace Ui{
+namespace Ui
+{
 class CommandPullWidget;
 }
 #endif
 
-namespace Git {
+namespace Git
+{
 
 class CommandPull : public AbstractCommand
-{    
+{
 public:
     CommandPull();
     ~CommandPull() override;
@@ -67,4 +69,3 @@ private:
 };
 
 } // namespace Git
-

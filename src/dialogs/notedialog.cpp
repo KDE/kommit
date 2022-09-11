@@ -8,8 +8,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "git/gitmanager.h"
 
-NoteDialog::NoteDialog(Git::Manager *git, const QString &branchName, QWidget *parent) :
-      AppDialog(git, parent), _branchName{branchName}
+NoteDialog::NoteDialog(Git::Manager *git, const QString &branchName, QWidget *parent)
+    : AppDialog(git, parent)
+    , _branchName{branchName}
 {
     setupUi(this);
 

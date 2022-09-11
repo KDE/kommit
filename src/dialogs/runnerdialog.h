@@ -11,7 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QProcess>
 
-namespace Git {
+namespace Git
+{
 class AbstractCommand;
 }
 class QProcess;
@@ -21,11 +22,7 @@ class RunnerDialog : public AppDialog, private Ui::RunnerDialog
 
     QProcess *_git;
 
-    enum Mode {
-        None,
-        RunByArgs,
-        RunByCommand
-    };
+    enum Mode { None, RunByArgs, RunByCommand };
     Mode _mode{None};
     Git::AbstractCommand *_cmd{nullptr};
 
@@ -39,4 +36,3 @@ private Q_SLOTS:
     void git_readyReadStandardError();
     void git_finished(int exitCode, QProcess::ExitStatus exitStatus);
 };
-

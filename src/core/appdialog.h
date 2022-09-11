@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QDialog>
 
-namespace Git {
+namespace Git
+{
 class Manager;
 }
 
@@ -25,4 +26,3 @@ public:
 
     bool event(QEvent *event) override;
 };
-

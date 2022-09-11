@@ -14,11 +14,9 @@ public:
     Branch();
 
 private:
-    enum class Status
-    {
+    enum class Status {
 
     };
     QString _localName;
     QString _remoteName;
 };
-

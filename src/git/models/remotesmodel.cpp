@@ -9,14 +9,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 //
 
 #include "remotesmodel.h"
-#include "../gitremote.h"
 #include "../gitmanager.h"
+#include "../gitremote.h"
 
-namespace Git {
-
-RemotesModel::RemotesModel(Manager *git, QObject *parent) : AbstractGitItemsModel(git, parent)
+namespace Git
 {
 
+RemotesModel::RemotesModel(Manager *git, QObject *parent)
+    : AbstractGitItemsModel(git, parent)
+{
 }
 
 int RemotesModel::columnCount(const QModelIndex &parent) const
@@ -33,8 +34,7 @@ int RemotesModel::rowCount(const QModelIndex &parent) const
 
 QVariant RemotesModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0
-        || index.row() >= _data.size())
+    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= _data.size())
         return {};
 
     auto remote = _data.at(index.row());
@@ -56,7 +56,7 @@ Remote *RemotesModel::fromIndex(const QModelIndex &index)
 
 Remote *RemotesModel::findByName(const QString &name)
 {
-    for(const auto &d: qAsConst(_data))
+    for (const auto &d : qAsConst(_data))
         if (d->name == name)
             return d;
     return nullptr;
@@ -83,7 +83,7 @@ void RemotesModel::fill()
         return;
 
     auto remotes = _git->remotes();
-    for (const auto &remote: qAsConst(remotes)) {
+    for (const auto &remote : qAsConst(remotes)) {
         auto r = new Remote;
         r->name = remote;
         auto ret = QString(_git->runGit({"remote", "show", remote}));

@@ -5,21 +5,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "stasheswidget.h"
+#include "actions/stashactions.h"
 #include "git/gitmanager.h"
 #include "git/models/stashesmodel.h"
-#include "actions/stashactions.h"
 
-
-
-StashesWidget::StashesWidget(QWidget *parent) :
-      WidgetBase(parent)
+StashesWidget::StashesWidget(QWidget *parent)
+    : WidgetBase(parent)
 {
     setupUi(this);
     init(Git::Manager::instance());
 }
 
-
-StashesWidget::StashesWidget(Git::Manager *git, AppWindow *parent) : WidgetBase(git, parent)
+StashesWidget::StashesWidget(Git::Manager *git, AppWindow *parent)
+    : WidgetBase(git, parent)
 {
     setupUi(this);
     init(git);
@@ -69,4 +67,3 @@ void StashesWidget::restoreState(QSettings &settings)
 {
     restore(settings, treeView);
 }
-

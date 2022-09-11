@@ -23,7 +23,7 @@ private Q_SLOTS:
 
     void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
     void on_listWidget_customContextMenuRequested(const QPoint &pos);
+
 private:
     void reload();
 };
-

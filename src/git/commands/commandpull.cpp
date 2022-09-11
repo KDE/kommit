@@ -8,12 +8,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #ifdef GIT_GUI
 #include "ui_commandpullwidget.h"
-#include <KMessageBox>
 #include <KLocalizedString>
+#include <KMessageBox>
 #endif
 
-
-namespace Git {
+namespace Git
+{
 
 bool CommandPull::squash() const
 {

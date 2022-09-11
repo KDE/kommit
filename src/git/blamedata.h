@@ -6,10 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QString>
 #include "gitloglist.h"
+#include <QString>
 
-namespace Git {
+namespace Git
+{
 
 struct BlameDataRow {
     QString commitHash;
@@ -27,4 +28,3 @@ public:
 };
 
 } // namespace Git
-

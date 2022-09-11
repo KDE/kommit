@@ -5,14 +5,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "commitpushdialog.h"
+#include "GitKlientSettings.h"
+#include "actions/changedfileactions.h"
 #include "dialogs/diffdialog.h"
 #include "git/commands/commandcommit.h"
 #include "git/commands/commandpush.h"
 #include "git/gitfile.h"
 #include "git/gitmanager.h"
 #include "runnerdialog.h"
-#include "actions/changedfileactions.h"
-#include "GitKlientSettings.h"
 
 #include <QPainter>
 
@@ -36,8 +36,9 @@ QIcon createIcon(const QColor &color)
 
     return QIcon(QPixmap::fromImage(image));
 }
-CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent) :
-      AppDialog(parent), _git(git)
+CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
+    : AppDialog(parent)
+    , _git(git)
 {
     setupUi(this);
 
@@ -81,13 +82,13 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent) :
     labelCurrentBranchName->setText(git->currentBranch());
 
     QSet<QString> _words;
-    for (const auto &b: branches)
+    for (const auto &b : branches)
         _words.insert(b);
-    for (const auto &r: remotes)
+    for (const auto &r : remotes)
         _words.insert(r);
     for (auto i = files.begin(); i != files.end(); ++i) {
         const auto parts = i.key().split("/");
-        for (const auto &p: parts)
+        for (const auto &p : parts)
             _words.insert(p);
         _words.insert(i.key());
     }
@@ -132,7 +133,7 @@ void CommitPushDialog::on_pushButtonCommit_clicked()
     cmd.setMessage(textEditMessage->toPlainText());
     cmd.setIncludeStatus(checkBoxIncludeStatus->isChecked());
 
-//    _git->commit(textEditMessage->toPlainText());
+    //    _git->commit(textEditMessage->toPlainText());
     _git->run(cmd);
     accept();
 }
@@ -183,7 +184,6 @@ void CommitPushDialog::on_toolButtonAddNone_clicked()
         item->setCheckState(Qt::Unchecked);
     }
 }
-
 
 void CommitPushDialog::on_toolButtonAddIndexed_clicked()
 {

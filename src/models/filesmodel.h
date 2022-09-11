@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QPair>
 #include <QString>
 
-class FilesModel: public QAbstractListModel
+class FilesModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -29,4 +29,3 @@ public:
 
     void addFile(const FileStatus &file);
 };
-

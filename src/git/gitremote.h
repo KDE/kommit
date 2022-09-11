@@ -9,8 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QList>
 #include <QString>
 
-
-namespace Git {
+namespace Git
+{
 
 class RemoteBranch
 {
@@ -21,13 +21,7 @@ public:
     QString name;
     QString remotePushBranch;
     QString remotePullBranch;
-    enum class Status
-    {
-        Unknown,
-        UpToDate,
-        FastForwardable,
-        LocalOutOfDate
-    };
+    enum class Status { Unknown, UpToDate, FastForwardable, LocalOutOfDate };
     Status status{Status::Unknown};
 
     QString statusText() const;
@@ -47,4 +41,3 @@ public:
 };
 
 } // namespace Git
-

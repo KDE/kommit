@@ -12,9 +12,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KStandardAction>
 
-EditActionsMapper::EditActionsMapper(QObject *parent) : QObject(parent)
+EditActionsMapper::EditActionsMapper(QObject *parent)
+    : QObject(parent)
 {
-
 }
 
 void EditActionsMapper::addTextEdit(QPlainTextEdit *control)
@@ -25,10 +25,7 @@ void EditActionsMapper::addTextEdit(QPlainTextEdit *control)
 
     control->setContextMenuPolicy(Qt::DefaultContextMenu);
     connect(control, &QPlainTextEdit::copyAvailable, this, &EditActionsMapper::control_copyAvailable);
-    connect(control,
-            &QPlainTextEdit::selectionChanged,
-            this,
-            &EditActionsMapper::control_selectionChanged);
+    connect(control, &QPlainTextEdit::selectionChanged, this, &EditActionsMapper::control_selectionChanged);
     connect(control, &QPlainTextEdit::undoAvailable, this, &EditActionsMapper::control_undoAvailable);
     connect(control, &QPlainTextEdit::redoAvailable, this, &EditActionsMapper::control_redoAvailable);
 }
@@ -60,7 +57,6 @@ void EditActionsMapper::control_copyAvailable(bool b)
 
 void EditActionsMapper::control_selectionChanged()
 {
-
 }
 
 void EditActionsMapper::actionUndo_triggered()

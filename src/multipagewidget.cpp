@@ -25,8 +25,8 @@ int MultiPageWidget::count() const
     return actionGroup->actions().size();
 }
 
-MultiPageWidget::MultiPageWidget(QWidget *parent) :
-      QWidget(parent)
+MultiPageWidget::MultiPageWidget(QWidget *parent)
+    : QWidget(parent)
     , actionGroup(new QActionGroup(this))
 {
     Q_SET_OBJECT_NAME(actionGroup);
@@ -64,18 +64,7 @@ MultiPageWidget::MultiPageWidget(QWidget *parent) :
 
 void MultiPageWidget::addPage(const QString &title, const QIcon &icon, WidgetBase *widget)
 {
-    const QList<Qt::Key> keys = {
-        Qt::Key_0,
-        Qt::Key_1,
-        Qt::Key_2,
-        Qt::Key_3,
-        Qt::Key_4,
-        Qt::Key_5,
-        Qt::Key_6,
-        Qt::Key_7,
-        Qt::Key_8,
-        Qt::Key_9
-    };
+    const QList<Qt::Key> keys = {Qt::Key_0, Qt::Key_1, Qt::Key_2, Qt::Key_3, Qt::Key_4, Qt::Key_5, Qt::Key_6, Qt::Key_7, Qt::Key_8, Qt::Key_9};
     auto btn = new QToolButton(this);
     btn->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     btn->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed));
@@ -85,7 +74,7 @@ void MultiPageWidget::addPage(const QString &title, const QIcon &icon, WidgetBas
     action->setIcon(icon);
     action->setCheckable(true);
     action->setData(actionGroup->actions().size());
-    if (actionGroup->actions().size() <10)
+    if (actionGroup->actions().size() < 10)
         action->setShortcut(QKeySequence(Qt::CTRL + keys[actionGroup->actions().size()]));
     btn->setDefaultAction(action);
     actionGroup->addAction(action);

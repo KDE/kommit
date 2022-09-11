@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractcommand.h"
 
-namespace Git {
+namespace Git
+{
 
 class CommandSwitchBranch : public AbstractCommand
 {
@@ -35,8 +36,6 @@ private:
     Mode _mode{Unknown};
     QString _target;
     bool _force{false};
-
 };
 
 } // namespace Git
-

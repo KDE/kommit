@@ -6,23 +6,23 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <KIOWidgets/KAbstractFileItemActionPlugin>
-#include <KIOCore/kfileitem.h>
 #include "statuscache.h"
+#include <KIOCore/kfileitem.h>
+#include <KIOWidgets/KAbstractFileItemActionPlugin>
 
 class ActionManager : public KAbstractFileItemActionPlugin
 {
     Q_OBJECT
 public:
-    explicit ActionManager(QObject *parent, const QList<QVariant>&);
+    explicit ActionManager(QObject *parent, const QList<QVariant> &);
 
     void addMenu(QMenu *menu, const QString &title, const QStringList &args, const QString &icon = QString());
-    QList<QAction*> actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget) override;
+    QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) override;
 
 private:
     void initActions();
 
-    QString getCommonPart(const KFileItemList& fileItems);
+    QString getCommonPart(const KFileItemList &fileItems);
 
     void addMenuToNonGitFile(QMenu *menu, const QString &path);
     void addMenuToGitFile(QMenu *menu, const QString &path, bool isFile, const FileStatus::Status &status);
@@ -36,5 +36,3 @@ private:
     QAction *mLogAction = nullptr;
     QAction *mOpenAppAction = nullptr;
 };
-
-

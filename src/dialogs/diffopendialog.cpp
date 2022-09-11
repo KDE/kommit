@@ -6,12 +6,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "diffopendialog.h"
 
-#include <QFileDialog>
 #include <KLocalizedString>
+#include <QFileDialog>
 #include <QSettings>
 
-DiffOpenDialog::DiffOpenDialog(QWidget *parent) :
-      AppDialog(parent)
+DiffOpenDialog::DiffOpenDialog(QWidget *parent)
+    : AppDialog(parent)
 {
     setupUi(this);
     radioButtonCompareFiles->setChecked(true);

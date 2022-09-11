@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QTreeWidget>
 #include "git/filestatus.h"
+#include <QTreeWidget>
 
 class FilesStatusesList : public QTreeWidget
 {
@@ -24,4 +24,3 @@ private:
     QList<FileStatus> mFiles;
     bool _showCheckboxes{false};
 };
-

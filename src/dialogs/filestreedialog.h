@@ -24,6 +24,4 @@ public:
 private Q_SLOTS:
     void on_treeView_clicked(const QModelIndex &index);
     void on_listWidget_customContextMenuRequested(const QPoint &pos);
-
 };
-

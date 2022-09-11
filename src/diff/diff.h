@@ -8,51 +8,36 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QtCore/QStringList>
 
-namespace Diff {
+namespace Diff
+{
 int matchesCount(const QStringList &base, const QStringList &local, const QStringList &remote);
 QStringList take(QStringList &list, int count);
 int remove(QStringList &list, int count);
 
 #define DiffTypeEnum(x) enum class x { Unchanged, Added, Removed, Modified };
 
-enum class DiffType
-{
-    Unchanged,
-    Added,
-    Removed,
-    Modified
-};
+enum class DiffType { Unchanged, Added, Removed, Modified };
 
-enum MergeType
-{
-    None,
-    KeepLocal,
-    KeepRemote,
-    KeepLocalThenRemote,
-    KeepRemoteThenLocal,
-    MergeCustom
-};
+enum MergeType { None, KeepLocal, KeepRemote, KeepLocalThenRemote, KeepRemoteThenLocal, MergeCustom };
 
-enum class SegmentType
-{
+enum class SegmentType {
     SameOnBoth,
     OnlyOnLeft,
     OnlyOnRight,
     DifferentOnBoth,
 };
 
-enum MergeDiffType
-{
+enum MergeDiffType {
     Unchanged,
     LocalAdd,
     RemoteAdd,
     BothChanged
-/*
-    Unchanged = SegmentType::SameOnBoth,
-    LocalAdd = SegmentType::OnlyOnLeft,
-    RemoteAdd = SegmentType::OnlyOnRight,
-    BothChanged = SegmentType::DifferentOnBoth
-*/
+    /*
+        Unchanged = SegmentType::SameOnBoth,
+        LocalAdd = SegmentType::OnlyOnLeft,
+        RemoteAdd = SegmentType::OnlyOnRight,
+        BothChanged = SegmentType::DifferentOnBoth
+    */
 };
 
 struct Segment {
@@ -74,8 +59,7 @@ struct Segment {
     }
 };
 
-struct DiffSegment : Segment
-{
+struct DiffSegment : Segment {
     ~DiffSegment() override = default;
 
     QStringList get(int index) override
@@ -90,13 +74,12 @@ struct DiffSegment : Segment
     }
 };
 
-struct MergeSegment : Segment
-{
+struct MergeSegment : Segment {
     ~MergeSegment() override = default;
     QStringList base;
     QStringList local;
     QStringList remote;
-//    MergeDiffType type;
+    //    MergeDiffType type;
     MergeType mergeType{None};
 
     QStringList get(int index) override
@@ -117,18 +100,10 @@ struct MergeSegment : Segment
 
 QList<Segment *> diff(const QString &oldText, const QString &newText);
 QList<Segment *> diff(const QStringList &oldText, const QStringList &newText);
-QList<MergeSegment *> diff3_2(const QStringList &base,
-                            const QStringList &local,
-                            const QStringList &remote);
+QList<MergeSegment *> diff3_2(const QStringList &base, const QStringList &local, const QStringList &remote);
 
-
-QList<MergeSegment *> diff3(const QString &base,
-                            const QString &local,
-                            const QString &remote);
-QList<MergeSegment *> diff3(const QStringList &base,
-                            const QStringList &local,
-                            const QStringList &remote);
+QList<MergeSegment *> diff3(const QString &base, const QString &local, const QString &remote);
+QList<MergeSegment *> diff3(const QStringList &base, const QStringList &local, const QStringList &remote);
 
 QMap<QString, DiffType> diffDirs(const QString &dir1, const QString &dir2);
 } // namespace Diff
-

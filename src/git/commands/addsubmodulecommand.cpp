@@ -6,12 +6,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "addsubmodulecommand.h"
 
-namespace Git {
+namespace Git
+{
 
 AddSubmoduleCommand::AddSubmoduleCommand(Manager *git)
     : AbstractCommand{git}
 {
-
 }
 
 QStringList AddSubmoduleCommand::generateArgs() const

@@ -11,11 +11,12 @@
 #include "models/tagsmodel.h"
 
 #include <QDebug>
-#include <QProcess>
 #include <QFile>
+#include <QProcess>
 #include <QtConcurrent>
 
-namespace Git {
+namespace Git
+{
 
 const QString &Manager::path() const
 {
@@ -81,13 +82,7 @@ QStringList Manager::ignoredFiles() const
 
 QList<FileStatus> Manager::repoFilesStatus() const
 {
-    auto buffer = QString(runGit({"status",
-                                  "--untracked-files=all",
-                                  "--ignored",
-                                  "--short",
-                                  "--ignore-submodules",
-                                  "--porcelain"}))
-                      .split("\n");
+    auto buffer = QString(runGit({"status", "--untracked-files=all", "--ignored", "--short", "--ignore-submodules", "--porcelain"})).split("\n");
     QList<FileStatus> files;
     for (auto &item : buffer) {
         if (!item.trimmed().size())
@@ -165,11 +160,9 @@ bool Manager::isIgnored(const QString &path)
     return !tmp.empty();
 }
 
-QPair<int, int> Manager::uniqueCommiteOnBranches(const QString &branch1,
-                                                 const QString &branch2) const
+QPair<int, int> Manager::uniqueCommiteOnBranches(const QString &branch1, const QString &branch2) const
 {
-    auto ret = readAllNonEmptyOutput(
-        {"rev-list", "--left-right", "--count", branch1 + "..." + branch2});
+    auto ret = readAllNonEmptyOutput({"rev-list", "--left-right", "--count", branch1 + "..." + branch2});
 
     if (ret.size() != 1)
         return qMakePair(-1, -1);
@@ -326,7 +319,6 @@ TagsModel *Manager::tagsModel() const
     return _tagsModel;
 }
 
-
 StashesModel *Manager::stashesModel() const
 {
     return _stashesCache;
@@ -374,22 +366,23 @@ void Manager::saveNote(const QString &branchName, const QString &note) const
 
 Manager::Manager()
     : QObject()
-      , _remotesModel{new RemotesModel(this)}
-      , _submodulesModel{new SubmodulesModel(this)}
-      , _branchesModel{new BranchesModel(this)}
-      , _logsCache{new LogsModel(this)}
-      , _stashesCache{new StashesModel(this)}
-      , _tagsModel{new TagsModel(this)}
-{}
+    , _remotesModel{new RemotesModel(this)}
+    , _submodulesModel{new SubmodulesModel(this)}
+    , _branchesModel{new BranchesModel(this)}
+    , _logsCache{new LogsModel(this)}
+    , _stashesCache{new StashesModel(this)}
+    , _tagsModel{new TagsModel(this)}
+{
+}
 
 Manager::Manager(const QString path)
     : QObject()
-      , _remotesModel{new RemotesModel(this)}
-      , _submodulesModel{new SubmodulesModel(this)}
-      , _branchesModel{new BranchesModel(this)}
-      , _logsCache{new LogsModel(this)}
-      , _stashesCache{new StashesModel(this)}
-      , _tagsModel{new TagsModel(this)}
+    , _remotesModel{new RemotesModel(this)}
+    , _submodulesModel{new SubmodulesModel(this)}
+    , _branchesModel{new BranchesModel(this)}
+    , _logsCache{new LogsModel(this)}
+    , _stashesCache{new StashesModel(this)}
+    , _tagsModel{new TagsModel(this)}
 {
     setPath(path);
 }
@@ -402,8 +395,7 @@ Manager *Manager::instance()
 
 QString Manager::currentBranch() const
 {
-    auto ret
-        = QString(runGit({"rev-parse", "--abbrev-ref", "HEAD"})).replace("\n", "").replace("\r", "");
+    auto ret = QString(runGit({"rev-parse", "--abbrev-ref", "HEAD"})).replace("\n", "").replace("\r", "");
     return ret;
 }
 
@@ -426,7 +418,7 @@ bool Manager::isGitDir() const
 
 QByteArray Manager::runGit(const QStringList &args) const
 {
-//    qDebug().noquote() << "Running: git " << args.join(" ");
+    //    qDebug().noquote() << "Running: git " << args.join(" ");
 
     QProcess p;
     p.setProgram("git");
@@ -437,7 +429,7 @@ QByteArray Manager::runGit(const QStringList &args) const
     auto out = p.readAllStandardOutput();
     auto err = p.readAllStandardError();
     Q_UNUSED(err)
-//    qDebug() << err;
+    //    qDebug() << err;
     return out; // + err;
 }
 
@@ -447,7 +439,10 @@ QStringList Manager::ls(const QString &place) const
     QMutableListIterator<QString> it(buffer);
     while (it.hasNext()) {
         auto s = it.next();
-        if (s.startsWith("""") && s.endsWith(""""))
+        if (s.startsWith(""
+                         "")
+            && s.endsWith(""
+                          ""))
             it.setValue(s.mid(1, s.length() - 2));
     }
     return buffer;
@@ -501,7 +496,7 @@ QStringList Manager::remoteBranches() const
             b = b.mid(2);
 
         if (!b.contains("->"))
-        branchesList.append(b.trimmed());
+            branchesList.append(b.trimmed());
     }
     return branchesList;
 }
@@ -526,7 +521,7 @@ QList<Stash> Manager::stashes()
     QList<Stash> ret;
     auto list = readAllNonEmptyOutput({"stash", "list", "--format=format:%s%m%an%m%ae%m%aD"});
     int id{0};
-    for (const auto &item: qAsConst(list)) {
+    for (const auto &item : qAsConst(list)) {
         auto parts = item.split(">");
         if (parts.size() != 4)
             continue;
@@ -538,7 +533,7 @@ QList<Stash> Manager::stashes()
         stash._authorName = parts.at(1);
         stash._authorEmail = parts.at(2);
         stash._pushTime = QDateTime::fromString(parts.at(3), Qt::RFC2822Date);
-        qDebug() << item<< subject<<stash._pushTime;
+        qDebug() << item << subject << stash._pushTime;
 
         ret.append(stash);
         id++;
@@ -588,13 +583,12 @@ bool Manager::removeBranch(const QString &branchName) const
 
 BlameData Manager::blame(const File &file)
 {
-//    auto logList = logs();
+    //    auto logList = logs();
     BlameData b;
     auto lines = readAllNonEmptyOutput({"--no-pager", "blame", "-l", file.fileName()});
     b.reserve(lines.size());
 
-    for (auto &line: lines) {
-
+    for (auto &line : lines) {
         BlameDataRow row;
         row.commitHash = line.mid(0, 40);
 
@@ -635,7 +629,7 @@ QList<Submodule> Manager::submodules() const
 bool Manager::addSubmodule(const Submodule &module)
 {
     Q_UNUSED(module)
-    //TODO:
+    // TODO:
     return true;
 }
 
@@ -646,7 +640,7 @@ void Manager::revertFile(const QString &filePath) const
 
 QMap<QString, Manager::ChangeStatus> Manager::changedFiles() const
 {
-    //status --untracked-files=all --ignored --short --ignore-submodules --porcelain
+    // status --untracked-files=all --ignored --short --ignore-submodules --porcelain
     QMap<QString, Manager::ChangeStatus> statuses;
     auto buffer = QString(runGit({"status", "--short"})).split("\n");
 
@@ -706,7 +700,7 @@ void Manager::removeFile(const QString &file, bool cached) const
 
 QString Manager::getTopLevelPath() const
 {
-    //git rev-parse --show-toplevel
+    // git rev-parse --show-toplevel
     return {};
 }
 

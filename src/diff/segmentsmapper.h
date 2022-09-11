@@ -45,4 +45,3 @@ private:
     QList<CodeEditor *> _editors;
     QMap<QObject *, CodeEditor *> _scrollBars;
 };
-

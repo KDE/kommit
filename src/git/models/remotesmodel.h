@@ -12,7 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractgititemsmodel.h"
 
-namespace Git {
+namespace Git
+{
 class Remote;
 
 class RemotesModel : public AbstractGitItemsModel
@@ -35,4 +36,3 @@ protected:
     void fill() override;
 };
 } // namespace Git
-

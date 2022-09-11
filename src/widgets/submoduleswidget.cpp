@@ -4,15 +4,14 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "dialogs/submoduleinfodialog.h"
 #include "submoduleswidget.h"
+#include "actions/submoduleactions.h"
+#include "dialogs/submoduleinfodialog.h"
 #include "git/gitmanager.h"
 #include "git/models/submodulesmodel.h"
-#include "actions/submoduleactions.h"
 
-
-SubmodulesWidget::SubmodulesWidget(QWidget *parent) :
-      WidgetBase(parent)
+SubmodulesWidget::SubmodulesWidget(QWidget *parent)
+    : WidgetBase(parent)
 {
     setupUi(this);
     _actions = new SubmoduleActions(Git::Manager::instance(), this);
@@ -24,8 +23,8 @@ SubmodulesWidget::SubmodulesWidget(QWidget *parent) :
     treeView->setModel(_model);
 }
 
-SubmodulesWidget::SubmodulesWidget(Git::Manager *git, AppWindow *parent) :
-      WidgetBase(git, parent)
+SubmodulesWidget::SubmodulesWidget(Git::Manager *git, AppWindow *parent)
+    : WidgetBase(git, parent)
 {
     setupUi(this);
     _actions = new SubmoduleActions(git, this);
@@ -49,7 +48,6 @@ void SubmodulesWidget::restoreState(QSettings &settings)
 
 void SubmodulesWidget::reload()
 {
-
 }
 
 void SubmodulesWidget::on_treeView_customContextMenuRequested(const QPoint &pos)

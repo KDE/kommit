@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractcommand.h"
 
-namespace Git {
+namespace Git
+{
 
 class CommandAddRemote : public AbstractCommand
 {
@@ -16,7 +17,6 @@ public:
     explicit CommandAddRemote(QObject *parent = nullptr);
 
     QStringList generateArgs() const override;
-
 
     const QString &remoteName() const;
     void setRemoteName(const QString &newRemoteName);
@@ -43,4 +43,3 @@ private:
 };
 
 }
-

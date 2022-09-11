@@ -7,11 +7,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "fileviewerdialog.h"
 #include "git/gitmanager.h"
 
-#include <KStandardAction>
-#include <KParts/OpenUrlArguments>
+#include <KActionCollection>
 #include <KLocalizedString>
 #include <KMimeTypeTrader>
-#include <KActionCollection>
+#include <KParts/OpenUrlArguments>
+#include <KStandardAction>
 #include <KXMLGUIFactory>
 
 #include <QDebug>
@@ -23,7 +23,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QStyle>
 
 FileViewerDialog::FileViewerDialog(const QString &place, const QString &fileName, QWidget *parent)
-    :  KParts::MainWindow(parent)
+    : KParts::MainWindow(parent)
 {
     setupUi(this);
     showFile(Git::File(place, fileName));
@@ -36,7 +36,8 @@ FileViewerDialog::FileViewerDialog(const QString &place, const QString &fileName
 }
 
 FileViewerDialog::FileViewerDialog(Git::Manager *git, const Git::File &file, QWidget *parent)
-    : KParts::MainWindow(parent), _git(git)
+    : KParts::MainWindow(parent)
+    , _git(git)
 {
     setupUi(this);
     showFile(Git::File(file));
@@ -70,9 +71,9 @@ FileViewerDialog::~FileViewerDialog()
 
         m_part.data()->closeUrl();
 
-//        if (!m_fileName.isEmpty()) {
-//            QFile::remove(m_fileName);
-//        }
+        //        if (!m_fileName.isEmpty()) {
+        //            QFile::remove(m_fileName);
+        //        }
     }
 
     guiFactory()->removeClient(m_part);
@@ -93,9 +94,7 @@ void FileViewerDialog::showFile(const Git::File &file)
     plainTextEdit->setReadOnly(true);
     setWindowTitle(i18nc("@title:window", "View file: %1", file.fileName()));
     setWindowFilePath(file.fileName());
-    labelFileIcon->setPixmap(
-        QIcon::fromTheme(mime.iconName())
-            .pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize)));
+    labelFileIcon->setPixmap(QIcon::fromTheme(mime.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize)));
 
     auto ptr = getInternalViewer(mime.name());
     if (ptr && ptr->isValid()) {
@@ -118,9 +117,7 @@ void FileViewerDialog::showFile(const Git::File &file)
                 showInEditor(file);
         }
     }
-    qDebug() << "mime is" << mime.name() << fn << mimeDatabase.suffixForFileName(fn)
-             << stackedWidget->currentIndex();
-
+    qDebug() << "mime is" << mime.name() << fn << mimeDatabase.suffixForFileName(fn) << stackedWidget->currentIndex();
 }
 
 void FileViewerDialog::showInEditor(const Git::File &file)
@@ -133,13 +130,13 @@ void FileViewerDialog::showInEditor(const Git::File &file)
 void FileViewerDialog::showAsImage(const Git::File &file)
 {
     stackedWidget->setCurrentIndex(1);
-    auto p = QStandardPaths::writableLocation(QStandardPaths::TempLocation) +"/klient_img";
+    auto p = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/klient_img";
     file.save(p);
     QImage img{p};
     labelImage->setPixmap(QPixmap::fromImage(img));
 }
 
-KService::Ptr FileViewerDialog::getInternalViewer(const QString& mimeType)
+KService::Ptr FileViewerDialog::getInternalViewer(const QString &mimeType)
 {
     // No point in even trying to find anything for application/octet-stream
     if (mimeType == QLatin1String("application/octet-stream")) {
@@ -150,7 +147,7 @@ KService::Ptr FileViewerDialog::getInternalViewer(const QString& mimeType)
     KService::List offers = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("KParts/ReadOnlyPart"));
 
     qDebug() << offers.size() << "offer(s) found for" << mimeType;
-    for (const auto &offer: qAsConst(offers))
+    for (const auto &offer : qAsConst(offers))
         qDebug() << " *" << offer->name() << offer->genericName();
     /*auto arkPartIt = std::find_if(offers.begin(), offers.end(), [](KService::Ptr service) {
         return service->storageId() == QLatin1String("ark_part.desktop");
@@ -194,12 +191,12 @@ KService::Ptr FileViewerDialog::getExternalViewer(const QString &mimeType)
     }
 }
 
-bool FileViewerDialog::viewInInternalViewer(const KService::Ptr& viewer, const QString& fileName, const QMimeType &mimeType)
+bool FileViewerDialog::viewInInternalViewer(const KService::Ptr &viewer, const QString &fileName, const QMimeType &mimeType)
 {
     Q_UNUSED(mimeType)
     // Set icon and comment for the mimetype.
-//    m_iconLabel->setPixmap(QIcon::fromTheme(mimeType.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize)));
-//    m_commentLabel->setText(mimeType.comment());
+    //    m_iconLabel->setPixmap(QIcon::fromTheme(mimeType.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize)));
+    //    m_commentLabel->setText(mimeType.comment());
 
     // Create the ReadOnlyPart instance.
     QString error;
@@ -213,23 +210,23 @@ bool FileViewerDialog::viewInInternalViewer(const KService::Ptr& viewer, const Q
     // Insert the KPart into its placeholder.
     kPartLayout->addWidget(m_part.data()->widget());
     stackedWidget->setCurrentIndex(2);
-//    layout()->replaceWidget(plainTextEdit, m_part.data()->widget());
-/*
-    QAction* action = actionCollection()->addAction(QStringLiteral("help_about_kpart"));
-    const KPluginMetaData partMetaData = m_part->metaData();
-    const QString iconName = partMetaData.iconName();
-    if (!iconName.isEmpty()) {
-        action->setIcon(QIcon::fromTheme(iconName));
-    }
-    action->setText(i18nc("@action", "About Viewer Component"));
-    connect(action, &QAction::triggered, this, &ArkViewer::aboutKPart);
-*/
+    //    layout()->replaceWidget(plainTextEdit, m_part.data()->widget());
+    /*
+        QAction* action = actionCollection()->addAction(QStringLiteral("help_about_kpart"));
+        const KPluginMetaData partMetaData = m_part->metaData();
+        const QString iconName = partMetaData.iconName();
+        if (!iconName.isEmpty()) {
+            action->setIcon(QIcon::fromTheme(iconName));
+        }
+        action->setText(i18nc("@action", "About Viewer Component"));
+        connect(action, &QAction::triggered, this, &ArkViewer::aboutKPart);
+    */
     createGUI(m_part.data());
-//    setAutoSaveSettings(QStringLiteral("Viewer"), true);
+    //    setAutoSaveSettings(QStringLiteral("Viewer"), true);
 
     m_part.data()->openUrl(QUrl::fromLocalFile(fileName));
     m_part.data()->widget()->setFocus();
-//    m_fileName = fileName;
+    //    m_fileName = fileName;
 
     return true;
 }

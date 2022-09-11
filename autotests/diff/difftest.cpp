@@ -6,15 +6,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "../../src/diff/diff.cpp"
 #include "../common/gittestmanager.cpp"
-#include <QtTest/QTest>
 #include <QDebug>
 #include <QTextStream>
+#include <QtTest/QTest>
 
 class DiffTest : public QObject
 {
     Q_OBJECT
 
-        void diff2();
+    void diff2();
     void merge();
 
     void mergeSqlModel();
@@ -22,7 +22,6 @@ class DiffTest : public QObject
 private Q_SLOTS:
     void diff();
 };
-
 
 auto segmentTypeText(Diff::SegmentType type) -> QString
 {
@@ -82,8 +81,8 @@ int main()
 
     auto segments = Diff::diff(oldCode.split("\n"), newCode.split("\n"));
 
-//    for (auto &s: segments)
-//        print(s);
+    //    for (auto &s: segments)
+    //        print(s);
 
     QCOMPARE(segments.size(), 5);
     QCOMPARE(segments.at(0)->type, Diff::SegmentType::SameOnBoth);
@@ -113,8 +112,7 @@ void DiffTest::diff2()
 8
 )~"};
 
-    auto lcs = Diff::Impl::longestCommonSubsequence(oldCode.split('\n'),
-                                                    newCode.split('\n'));
+    auto lcs = Diff::Impl::longestCommonSubsequence(oldCode.split('\n'), newCode.split('\n'));
 
     qDebug() << "**" << lcs.size();
 
@@ -130,10 +128,14 @@ void DiffTest::diff2()
 QString diffTypeText(const Diff::DiffType type)
 {
     switch (type) {
-    case Diff::DiffType::Unchanged: return "Unchanged";
-    case Diff::DiffType::Added: return "Added";
-    case Diff::DiffType::Removed: return "Removed";
-    case Diff::DiffType::Modified: return "Modified";
+    case Diff::DiffType::Unchanged:
+        return "Unchanged";
+    case Diff::DiffType::Added:
+        return "Added";
+    case Diff::DiffType::Removed:
+        return "Removed";
+    case Diff::DiffType::Modified:
+        return "Modified";
     }
     return QString();
 }
@@ -157,36 +159,34 @@ two
 five
 )~"};
 
-    auto lcs = Diff::Impl::longestCommonSubsequence(base.split('\n'),
-                                                    mine.split('\n'),
-                                                    their.split('\n'));
+    auto lcs = Diff::Impl::longestCommonSubsequence(base.split('\n'), mine.split('\n'), their.split('\n'));
     QCOMPARE(lcs.size(), 3);
 
     auto segments = Diff::diff3(base, mine, their);
 
-    for (auto &s: segments)
+    for (auto &s : segments)
         print(s);
 
     //    qDebug() <<lcs .size();
-//        print(segments.at(0));
-//    print(segments.at(1));
-//    print(segments.at(2));
+    //        print(segments.at(0));
+    //    print(segments.at(1));
+    //    print(segments.at(2));
 
-//    QCOMPARE(segments.size(), 3);
-//    QCOMPARE(segments.at(0)->type, Diff::SegmentType::SameOnBoth);
-//    QCOMPARE(segments.at(1)->type, Diff::SegmentType::DifferentOnBoth);
+    //    QCOMPARE(segments.size(), 3);
+    //    QCOMPARE(segments.at(0)->type, Diff::SegmentType::SameOnBoth);
+    //    QCOMPARE(segments.at(1)->type, Diff::SegmentType::DifferentOnBoth);
     //    QCOMPARE(segments.at(2)->type, Diff::SegmentType::SameOnBoth);
 }
 
 void DiffTest::mergeSqlModel()
 {
     auto base = Diff::readFileLines("sqlmodel_BASE_32623.h");
-    auto local= Diff::readFileLines("sqlmodel_LOCAL_32623.h");
+    auto local = Diff::readFileLines("sqlmodel_LOCAL_32623.h");
     auto remote = Diff::readFileLines("sqlmodel_REMOTE_32623.h");
 
     auto segments = Diff::diff3(base, local, remote);
 
-    for (auto &s: segments)
+    for (auto &s : segments)
         print(s);
 }
 
@@ -198,6 +198,5 @@ void DiffTest::array()
 }
 
 QTEST_MAIN(DiffTest)
-
 
 #include "difftest.moc"

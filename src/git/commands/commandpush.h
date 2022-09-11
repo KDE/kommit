@@ -8,11 +8,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractcommand.h"
 
-namespace Git {
+namespace Git
+{
 
 class CommandPush : public AbstractCommand
 {
-
 public:
     CommandPush();
     QStringList generateArgs() const override;
@@ -37,4 +37,3 @@ private:
 };
 
 } // namespace Git
-

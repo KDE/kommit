@@ -19,4 +19,3 @@ public:
     QString path() const;
     void setPath(const QString &path);
 };
-

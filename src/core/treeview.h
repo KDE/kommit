@@ -20,4 +20,3 @@ protected Q_SLOTS:
 Q_SIGNALS:
     void itemActivated(const QModelIndex &index);
 };
-

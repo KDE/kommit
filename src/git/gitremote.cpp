@@ -6,10 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitremote.h"
 #include <KLocalizedString>
-#include <QRegularExpression>
 #include <QDebug>
+#include <QRegularExpression>
 
-namespace Git {
+namespace Git
+{
 
 Remote::Remote() = default;
 
@@ -38,19 +39,14 @@ void Remote::parse(const QString &output)
     wip/video_import      pushes to wip/video_import      (up to date)
     wip/video_trimmer     pushes to wip/video_trimmer     (up to date)
 */
-    enum ParseMode {
-        None,
-        GitPull,
-        GitPush
-    };
+    enum ParseMode { None, GitPull, GitPush };
 
     ParseMode mode{None};
     auto lines = output.split('\n');
     QRegularExpression regexPull{R"((\S+)\s+merges with remote\s+(\S+))"};
     QRegularExpression regexPush{R"((\S+)\s+pushes to (\S+)\s+\(([^)]*)\))"};
 
-
-    for (auto &line: lines) {
+    for (auto &line : lines) {
         line = line.trimmed();
 
         if (mode == GitPull) {

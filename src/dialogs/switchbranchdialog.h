@@ -6,10 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "ui_switchbranchdialog.h"
 #include "core/appdialog.h"
+#include "ui_switchbranchdialog.h"
 
-namespace Git{
+namespace Git
+{
 class CommandSwitchBranch;
 }
 class SwitchBranchDialog : public AppDialog, private Ui::SwitchBranchDialog
@@ -22,6 +23,5 @@ public:
     Git::CommandSwitchBranch *command() const;
 
 private Q_SLOTS:
-//    void on_buttonBox_accepted();
+    //    void on_buttonBox_accepted();
 };
-

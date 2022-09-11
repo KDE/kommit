@@ -6,35 +6,31 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include "gitgraphlane.h"
 #include <QDateTime>
 #include <QString>
 #include <QVector>
-#include "gitgraphlane.h"
 
-namespace Git {
+namespace Git
+{
 
 class Log
 {
 public:
-    enum CommitType {
-        NormalCommit,
-        InitialCommit,
-        ForkCommit,
-        MergeCommit
-    };
+    enum CommitType { NormalCommit, InitialCommit, ForkCommit, MergeCommit };
 
     Log();
     Log(QString authorName,
-           QString authorEmail,
-           QDateTime authDate,
-           QString committerName,
-           QString committerEmail,
-           QDateTime commitDate,
-           QString message,
-           QString subject,
-           QString body,
-           QString commitHash,
-           QStringList parentHash);
+        QString authorEmail,
+        QDateTime authDate,
+        QString committerName,
+        QString committerEmail,
+        QDateTime commitDate,
+        QString message,
+        QString subject,
+        QString body,
+        QString commitHash,
+        QStringList parentHash);
     ~Log();
 
     const QString &authorName() const;
@@ -84,4 +80,3 @@ private:
 };
 
 }
-

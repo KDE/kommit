@@ -13,7 +13,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <klocalizedstring.h>
 
 FileBlameDialog::FileBlameDialog(Git::Manager *git, const QString &fileName, QWidget *parent)
-    : AppDialog(parent), _git(git), _fileName(fileName)
+    : AppDialog(parent)
+    , _git(git)
+    , _fileName(fileName)
 {
     setupUi(this);
 
@@ -26,16 +28,18 @@ FileBlameDialog::FileBlameDialog(Git::Manager *git, const QString &fileName, QWi
 }
 
 FileBlameDialog::FileBlameDialog(const Git::File &file, QWidget *parent)
-    : AppDialog(parent), _git(Git::Manager::instance()), _file(file)
+    : AppDialog(parent)
+    , _git(Git::Manager::instance())
+    , _file(file)
 {
     setupUi(this);
     plainTextEdit->setHighlighting(file.fileName());
-//    plainTextEdit->setPlainText(file.content());
+    //    plainTextEdit->setPlainText(file.content());
 
     auto b = file.git()->blame(file);
     plainTextEdit->setBlameData(b);
 
-//    b.initCommits(file.git()->logs());
+    //    b.initCommits(file.git()->logs());
     setWindowTitle(i18nc("@title:window", "Blame file: %1", file.fileName()));
 
     logDetailsWidget->setEnableCommitsLinks(false);

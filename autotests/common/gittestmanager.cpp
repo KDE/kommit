@@ -13,8 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 GitTestManager::GitTestManager()
 {
-    _path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/"
-            + QUuid::createUuid().toString(QUuid::Id128) + "/";
+    _path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/" + QUuid::createUuid().toString(QUuid::Id128) + "/";
     QDir d;
     d.mkpath(_path);
 }
@@ -62,7 +61,7 @@ void GitTestManager::commit(const QString &message)
 
 void GitTestManager::addToIgnore(const QString &pattern)
 {
-    QFile f(_path +"/.gitignore");
+    QFile f(_path + "/.gitignore");
     if (!f.open(QIODevice::Text | QIODevice::Append))
         return;
 
@@ -84,11 +83,12 @@ QString GitTestManager::runGit(const QStringList &args)
     p.start();
     p.waitForFinished();
     auto out = p.readAllStandardOutput();
-    //auto err = p.readAllStandardError();
+    // auto err = p.readAllStandardError();
     return out; // + err;
 }
 
-namespace GitKlientTest {
+namespace GitKlientTest
+{
 bool touch(const QString &fileName)
 {
     QFile f(fileName);
@@ -101,8 +101,7 @@ bool touch(const QString &fileName)
 
 QString getTempPath()
 {
-    auto path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/"
-            + QUuid::createUuid().toString(QUuid::Id128);
+    auto path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/" + QUuid::createUuid().toString(QUuid::Id128);
     QDir d;
     d.mkpath(path);
     return path;

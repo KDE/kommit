@@ -5,11 +5,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "modificationsdialog.h"
-#include "git/gitmanager.h"
 #include "GitKlientSettings.h"
+#include "git/gitmanager.h"
 
-ModificationsDialog::ModificationsDialog(QWidget *parent) :
-      AppDialog(parent)
+ModificationsDialog::ModificationsDialog(QWidget *parent)
+    : AppDialog(parent)
 {
     setupUi(this);
 

@@ -16,4 +16,3 @@ class ModificationsDialog : public AppDialog, private Ui::ModificationsDialog
 public:
     explicit ModificationsDialog(QWidget *parent = nullptr);
 };
-

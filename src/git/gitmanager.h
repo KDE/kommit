@@ -3,19 +3,20 @@
 
 #pragma once
 
-#include "gitloglist.h"
+#include "blamedata.h"
 #include "commands/abstractcommand.h"
 #include "filestatus.h"
+#include "gitfile.h"
+#include "gitloglist.h"
 #include "gitremote.h"
 #include "gitsubmodule.h"
-#include "blamedata.h"
-#include "gitfile.h"
 #include "stash.h"
 
-#include <QString>
 #include <QObject>
+#include <QString>
 
-namespace Git {
+namespace Git
+{
 
 class RemotesModel;
 class SubmodulesModel;
@@ -45,19 +46,7 @@ class Manager : public QObject
     Q_PROPERTY(bool isMerging READ isMerging WRITE setIsMerging NOTIFY isMergingChanged)
 
 public:
-    enum ChangeStatus
-    {
-        Unknown,
-        Unmodified,
-        Modified,
-        Added,
-        Removed,
-        Renamed,
-        Copied,
-        UpdatedButInmerged,
-        Ignored,
-        Untracked
-    };
+    enum ChangeStatus { Unknown, Unmodified, Modified, Added, Removed, Renamed, Copied, UpdatedButInmerged, Ignored, Untracked };
 
     struct Log {
         QString hash;
@@ -134,10 +123,7 @@ public:
     QList<FileStatus> diffBranch(const QString &from) const;
     QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
 
-    enum ConfigType {
-        ConfigGlobal,
-        ConfigLocal
-    };
+    enum ConfigType { ConfigGlobal, ConfigLocal };
 
     QString config(const QString &name, ConfigType type = ConfigLocal) const;
     void setConfig(const QString &name, const QString &value, ConfigType type = ConfigLocal) const;
@@ -156,7 +142,6 @@ public:
     const LoadFlags &loadFlags() const;
     void setLoadFlags(const LoadFlags &newLoadFlags);
 
-
     QString readNote(const QString &branchName) const;
     void saveNote(const QString &branchName, const QString &note) const;
 
@@ -173,7 +158,7 @@ private:
     bool m_isMerging{false};
 
     QStringList readAllNonEmptyOutput(const QStringList &cmd) const;
-    QString escapeFileName(const QString& filePath) const;
+    QString escapeFileName(const QString &filePath) const;
     void loadAsync();
 
     RemotesModel *const _remotesModel;
@@ -193,4 +178,3 @@ private:
 };
 
 } // namespace Git
-

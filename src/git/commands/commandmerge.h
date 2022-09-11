@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractcommand.h"
 
-namespace Git {
+namespace Git
+{
 
 class CommandMerge : public AbstractCommand
 {
@@ -46,4 +47,3 @@ private:
 };
 
 }
-

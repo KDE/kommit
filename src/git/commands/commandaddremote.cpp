@@ -6,9 +6,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commandaddremote.h"
 
-namespace Git {
+namespace Git
+{
 
-CommandAddRemote::CommandAddRemote(QObject *parent) : AbstractCommand{parent} {}
+CommandAddRemote::CommandAddRemote(QObject *parent)
+    : AbstractCommand{parent}
+{
+}
 
 QStringList CommandAddRemote::generateArgs() const
 {

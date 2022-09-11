@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "listview.h"
 
-ListView::ListView(QWidget *parent) : QListView(parent)
+ListView::ListView(QWidget *parent)
+    : QListView(parent)
 {
-
 }
 
 void ListView::currentChanged(const QModelIndex &current, const QModelIndex &previous)

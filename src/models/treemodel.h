@@ -18,8 +18,7 @@ class TreeModel : public QAbstractItemModel
     QIcon _defaultIcon;
 
 public:
-    struct Node
-    {
+    struct Node {
         QString title;
         QList<Node *> childs;
         Node *parent;
@@ -31,10 +30,22 @@ public:
 #ifdef TREEMODEL_NODE_DATA_TYPE
         TREEMODEL_NODE_DATA_TYPE metaData;
 #endif
-        Node() : parent(nullptr), feature(nullptr) {}
-        explicit Node(Node *parent) : parent(parent), feature(nullptr) { row = parent->childs.count(); }
+        Node()
+            : parent(nullptr)
+            , feature(nullptr)
+        {
+        }
+        explicit Node(Node *parent)
+            : parent(parent)
+            , feature(nullptr)
+        {
+            row = parent->childs.count();
+        }
 
-        ~Node() { qDeleteAll(childs); }
+        ~Node()
+        {
+            qDeleteAll(childs);
+        }
 
         Node *createChild()
         {
@@ -61,7 +72,6 @@ public:
             childs.clear();
         }
     };
-
 
     explicit TreeModel(QObject *parent = nullptr);
 
@@ -100,4 +110,3 @@ protected:
     void getFullPath(QString &path, Node *node) const;
     void sortNode(Node *node);
 };
-

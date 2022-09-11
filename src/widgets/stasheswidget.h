@@ -6,11 +6,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include "git/stash.h"
 #include "ui_stasheswidget.h"
 #include "widgetbase.h"
-#include "git/stash.h"
 
-namespace Git {
+namespace Git
+{
 class StashesModel;
 }
 class StashActions;
@@ -34,4 +35,3 @@ private Q_SLOTS:
 private:
     void init(Git::Manager *git);
 };
-

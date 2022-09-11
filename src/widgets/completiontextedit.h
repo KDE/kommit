@@ -43,4 +43,3 @@ private:
     QStringListModel *const mCompletionModel;
     QCompleter *const mCompleter;
 };
-

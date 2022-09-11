@@ -6,14 +6,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QAbstractListModel>
-#include "git/gitmanager.h"
 #include "git/gitloglist.h"
+#include "git/gitmanager.h"
+#include <QAbstractListModel>
 
 class HistoryModel : public QAbstractListModel
 {
     Q_OBJECT
     QString _branch;
+
 public:
     Q_DECL_DEPRECATED
     explicit HistoryModel(QObject *parent = nullptr);
@@ -35,4 +36,3 @@ public Q_SLOTS:
 private:
     Git::LogList mLogs;
 };
-

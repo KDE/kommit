@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "parameterescommand.h"
 
-namespace Git {
+namespace Git
+{
 
 class NonEmptyLinesCommand : public ParameteresCommand
 {
@@ -22,4 +23,3 @@ public:
 };
 
 } // namespace Git
-

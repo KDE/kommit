@@ -11,31 +11,34 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QString>
 
 struct Command {
-    enum Type {
-        Fixed,
-        Named
-    };
+    enum Type { Fixed, Named };
 
     Type type;
     QString s;
     bool isOptional;
 };
 
-enum ParseReturnType {
-    ExecApp,
-    ReturnCode
-};
+enum ParseReturnType { ExecApp, ReturnCode };
 
 struct ArgParserReturn {
     ParseReturnType type;
     int code{0};
 
-    ArgParserReturn()= default;
-    ArgParserReturn(int code) : type{ReturnCode}, code{code} {}
-    ArgParserReturn(ParseReturnType type) : type{type}, code{0} {}
+    ArgParserReturn() = default;
+    ArgParserReturn(int code)
+        : type{ReturnCode}
+        , code{code}
+    {
+    }
+    ArgParserReturn(ParseReturnType type)
+        : type{type}
+        , code{0}
+    {
+    }
 };
 
-namespace Git {
+namespace Git
+{
 class Manager;
 }
 
@@ -53,8 +56,7 @@ class CommandArgsParser : public QObject
 
     HelpText(clone, "Clone an repo")
 
-public:
-    CommandArgsParser();
+        public : CommandArgsParser();
     void add(const QString &name, const CommandList &list);
     void add(const QString &name, const QString &list);
     bool check(const CommandList &commands);
@@ -80,10 +82,7 @@ public Q_SLOTS:
     ArgParserReturn blame(const QString &file);
     ArgParserReturn history(const QString &file);
     ArgParserReturn merge();
-    ArgParserReturn merge(const QString &base,
-              const QString &local,
-              const QString &remote,
-              const QString &result);
+    ArgParserReturn merge(const QString &base, const QString &local, const QString &remote, const QString &result);
     ArgParserReturn ignore(const QString &path);
 
     ArgParserReturn add(const QString &path);
@@ -92,4 +91,3 @@ public Q_SLOTS:
     ArgParserReturn main();
     ArgParserReturn main(const QString &path);
 };
-

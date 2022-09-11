@@ -8,8 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QWhatsThisClickedEvent>
 
-#include "git/gitmanager.h"
 #include "git/commands/commandmerge.h"
+#include "git/gitmanager.h"
 #include "git/models/branchesmodel.h"
 
 void MergeDialog::init(Git::Manager *git)
@@ -21,16 +21,17 @@ void MergeDialog::init(Git::Manager *git)
     checkBoxSquash->setCheckState(Qt::PartiallyChecked);
 }
 
-MergeDialog::MergeDialog(Git::Manager *git, QWidget *parent) :
-      AppDialog(git, parent)
+MergeDialog::MergeDialog(Git::Manager *git, QWidget *parent)
+    : AppDialog(git, parent)
 {
     setupUi(this);
 
     init(git);
 }
 
-MergeDialog::MergeDialog(Git::Manager *git, const QString &sourceBranch, QWidget *parent):
-      AppDialog(git, parent), _sourceBranch(sourceBranch)
+MergeDialog::MergeDialog(Git::Manager *git, const QString &sourceBranch, QWidget *parent)
+    : AppDialog(git, parent)
+    , _sourceBranch(sourceBranch)
 {
     setupUi(this);
 

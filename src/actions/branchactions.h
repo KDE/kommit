@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-
 #include "abstractactions.h"
 
 class BranchActions : public AbstractActions
@@ -44,4 +43,3 @@ private Q_SLOTS:
     void merge();
     void note();
 };
-

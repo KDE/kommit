@@ -15,7 +15,6 @@ class EditActionsMapper : public QObject
 {
     Q_OBJECT
 
-
 public:
     explicit EditActionsMapper(QObject *parent = nullptr);
     ~EditActionsMapper() override = default;
@@ -42,7 +41,6 @@ public:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
-    QList<QPlainTextEdit*> mTextEdits;
+    QList<QPlainTextEdit *> mTextEdits;
     QPlainTextEdit *mActiveControl{nullptr};
 };
-

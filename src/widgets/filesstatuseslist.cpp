@@ -6,7 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "filesstatuseslist.h"
 
-FilesStatusesList::FilesStatusesList(QWidget *parent) : QTreeWidget(parent)
+FilesStatusesList::FilesStatusesList(QWidget *parent)
+    : QTreeWidget(parent)
 {
     setColumnCount(2);
 }

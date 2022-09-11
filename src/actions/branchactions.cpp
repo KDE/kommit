@@ -21,7 +21,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "git/gitmanager.h"
 #include "git/models/branchesmodel.h"
 
-BranchActions::BranchActions(Git::Manager *git, QWidget *parent) : AbstractActions(git, parent)
+BranchActions::BranchActions(Git::Manager *git, QWidget *parent)
+    : AbstractActions(git, parent)
 {
     _actionCreate = addActionHidden(i18n("Create..."), this, &BranchActions::create);
     _actionCreate->setIcon(QIcon::fromTheme("document-new"));
@@ -61,7 +62,6 @@ const QString &BranchActions::otherBranch() const
 void BranchActions::setOtherBranch(const QString &newOtherBranch)
 {
     _otherBranch = newOtherBranch;
-
 }
 
 void BranchActions::fetch()

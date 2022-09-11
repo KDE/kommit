@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDebug>
 #include <utility>
 
-namespace Git {
+namespace Git
+{
 
 const QString &Log::refLog() const
 {
@@ -49,21 +50,29 @@ const QString &Log::commitShortHash() const
 Log::Log() = default;
 
 Log::Log(QString authorName,
-               QString authorEmail,
-               QDateTime authDate,
-               QString committerName,
-               QString committerEmail,
-               QDateTime commitDate,
-               QString message,
-               QString subject,
-               QString body,
-               QString commitHash,
-               QStringList parentHash)
-    : _authorName(std::move(authorName)), _authorEmail(std::move(authorEmail)), _authDate(std::move(authDate)),
-      _committerName(std::move(committerName)), _committerEmail(std::move(committerEmail)), _commitDate(std::move(commitDate)),
-      _message(std::move(message)), _subject(std::move(subject)), _body(std::move(body)), _commitHash(std::move(commitHash)),
-      _parentHash(std::move(parentHash))
-{}
+         QString authorEmail,
+         QDateTime authDate,
+         QString committerName,
+         QString committerEmail,
+         QDateTime commitDate,
+         QString message,
+         QString subject,
+         QString body,
+         QString commitHash,
+         QStringList parentHash)
+    : _authorName(std::move(authorName))
+    , _authorEmail(std::move(authorEmail))
+    , _authDate(std::move(authDate))
+    , _committerName(std::move(committerName))
+    , _committerEmail(std::move(committerEmail))
+    , _commitDate(std::move(commitDate))
+    , _message(std::move(message))
+    , _subject(std::move(subject))
+    , _body(std::move(body))
+    , _commitHash(std::move(commitHash))
+    , _parentHash(std::move(parentHash))
+{
+}
 
 Log::~Log()
 {

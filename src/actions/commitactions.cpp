@@ -13,8 +13,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 
-
-
 const QString &CommitActions::commitHash() const
 {
     return _commitHash;
@@ -30,11 +28,11 @@ void CommitActions::setCommitHash(const QString &newCommitHash)
 }
 
 CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
-: AbstractActions(git, parent)
+    : AbstractActions(git, parent)
 {
-    _actionBrowse = addAction(i18n("Browse..."),this, &CommitActions::browse,  false, true);
-    _actionCheckout = addAction(i18n("Checkout..."),this, &CommitActions::checkout,  false, true);
-    _actionDiff = addAction(i18n("Diff with HEAD..."),this, &CommitActions::diff,  false, true);
+    _actionBrowse = addAction(i18n("Browse..."), this, &CommitActions::browse, false, true);
+    _actionCheckout = addAction(i18n("Checkout..."), this, &CommitActions::checkout, false, true);
+    _actionDiff = addAction(i18n("Diff with HEAD..."), this, &CommitActions::diff, false, true);
 }
 
 void CommitActions::browse()

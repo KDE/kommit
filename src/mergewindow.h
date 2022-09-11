@@ -14,11 +14,7 @@ class MergeWindow : public AppMainWindow
 {
     Q_OBJECT
 public:
-    enum Mode
-    {
-        NoParams,
-        MergeByParams
-    };
+    enum Mode { NoParams, MergeByParams };
 
     explicit MergeWindow(Mode mode = NoParams, QWidget *parent = nullptr);
     ~MergeWindow() override;
@@ -85,4 +81,3 @@ private:
 protected:
     void closeEvent(QCloseEvent *event) override;
 };
-

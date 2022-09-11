@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QTextBrowser>
 
-namespace Git {
+namespace Git
+{
 class Log;
 }
 
@@ -28,15 +29,14 @@ public:
 
 private:
     void createText();
-    static void appendHeading(QString &html, const QString &title, short level = 2) ;
-    static void appendParagraph(QString &html, const QString &text) ;
-    static void appendParagraph(QString &html, const QString &name, const QString &value) ;
-    static void appendParagraph(QString &html, const QString &name, const QStringList &list) ;
+    static void appendHeading(QString &html, const QString &title, short level = 2);
+    static void appendParagraph(QString &html, const QString &text);
+    static void appendParagraph(QString &html, const QString &name, const QString &value);
+    static void appendParagraph(QString &html, const QString &name, const QStringList &list);
     QString createHashLink(const QString &hash) const;
-    static QString createFileLink(const QString &hash) ;
+    static QString createFileLink(const QString &hash);
 
     bool m_enableCommitsLinks{false};
-
 
 private Q_SLOTS:
     void self_anchorClicked(const QUrl &url);
@@ -46,4 +46,3 @@ Q_SIGNALS:
     void fileClicked(const QString &file);
     void enableCommitsLinksChanged();
 };
-

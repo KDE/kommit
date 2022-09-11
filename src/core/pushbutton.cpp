@@ -8,9 +8,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QAction>
 
-PushButton::PushButton(QWidget *parent) : QPushButton(parent)
+PushButton::PushButton(QWidget *parent)
+    : QPushButton(parent)
 {
-
 }
 
 QAction *PushButton::action() const
@@ -20,25 +20,20 @@ QAction *PushButton::action() const
 
 void PushButton::setAction(QAction *newAction)
 {
-
     if (mAction && mAction != newAction) {
-        disconnect(mAction, &QAction::changed,
-                   this, &PushButton::updateButtonStatusFromAction);
-        disconnect(this, &PushButton::clicked,
-                   mAction, &QAction::trigger);
+        disconnect(mAction, &QAction::changed, this, &PushButton::updateButtonStatusFromAction);
+        disconnect(this, &PushButton::clicked, mAction, &QAction::trigger);
     }
     mAction = newAction;
 
-    connect(mAction, &QAction::changed,
-            this, &PushButton::updateButtonStatusFromAction);
-    connect(this, &PushButton::clicked,
-            mAction, &QAction::trigger);
+    connect(mAction, &QAction::changed, this, &PushButton::updateButtonStatusFromAction);
+    connect(this, &PushButton::clicked, mAction, &QAction::trigger);
 
     updateButtonStatusFromAction();
 }
 
-void PushButton::updateButtonStatusFromAction() {
-
+void PushButton::updateButtonStatusFromAction()
+{
     if (!mAction)
         return;
     setText(mAction->text());

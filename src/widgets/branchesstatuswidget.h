@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "ui_branchesstatuswidget.h"
 #include "widgetbase.h"
 
-namespace Git {
+namespace Git
+{
 class Manager;
 class BranchesModel;
 }
@@ -38,4 +39,3 @@ private Q_SLOTS:
 
     void reload() override;
 };
-

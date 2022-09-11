@@ -8,7 +8,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QAbstractButton>
 
-ButtonsGroup::ButtonsGroup(QObject *parent) : QObject(parent) {}
+ButtonsGroup::ButtonsGroup(QObject *parent)
+    : QObject(parent)
+{
+}
 
 void ButtonsGroup::addButton(QAbstractButton *btn, QObject *data)
 {

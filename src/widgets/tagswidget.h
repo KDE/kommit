@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "ui_tagswidget.h"
 #include "widgetbase.h"
 
-namespace Git{
+namespace Git
+{
 class TagsModel;
 }
 
@@ -32,4 +33,3 @@ public:
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
 };
-

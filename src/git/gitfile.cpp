@@ -10,34 +10,43 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QFile>
 #include <utility>
 
-namespace Git {
+namespace Git
+{
 
 File::StorageType File::storage() const
 {
     return _storage;
 }
 
-File::File() : _storage{InValid}
+File::File()
+    : _storage{InValid}
 {
-
 }
 
-File::File(QString filePath) : _place(), _filePath(std::move(filePath)), _storage{Local} {}
+File::File(QString filePath)
+    : _place()
+    , _filePath(std::move(filePath))
+    , _storage{Local}
+{
+}
 
 File::File(QString place, QString filePath, Manager *git)
-    : _place(std::move(place)), _filePath(std::move(filePath)), _git(git), _storage{Git}
+    : _place(std::move(place))
+    , _filePath(std::move(filePath))
+    , _git(git)
+    , _storage{Git}
 {
     if (!_git)
         _git = Manager::instance();
 }
 
 File::File(const File &other)
-     
-= default;
 
-//File::File(File &&other)
-//    : _place(std::move(other._place)), _filePath(std::move(other._filePath)),
-//      _git(std::move(other._git)), _storage(std::move(other._storage))
+    = default;
+
+// File::File(File &&other)
+//     : _place(std::move(other._place)), _filePath(std::move(other._filePath)),
+//       _git(std::move(other._git)), _storage(std::move(other._storage))
 //{
 
 //}
@@ -116,6 +125,5 @@ QString File::content() const
 
     return {};
 }
-
 
 } // namespace Git

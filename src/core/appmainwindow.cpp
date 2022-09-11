@@ -7,17 +7,20 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "appmainwindow.h"
 #include "qdebug.h"
 
-#include <QEventLoop>
 #include <QCloseEvent>
+#include <QEventLoop>
 
-AppMainWindow::AppMainWindow(QWidget *parent, Qt::WindowFlags f) : KXmlGuiWindow(parent, f) {}
+AppMainWindow::AppMainWindow(QWidget *parent, Qt::WindowFlags f)
+    : KXmlGuiWindow(parent, f)
+{
+}
 
 int AppMainWindow::exec()
 {
     QEventLoop eventLoop;
     _loop = &eventLoop;
     showModal();
-    (void) eventLoop.exec(QEventLoop::DialogExec);
+    (void)eventLoop.exec(QEventLoop::DialogExec);
     _loop = nullptr;
     qDebug() << "returnCode=" << _returnCode;
     return _returnCode;
@@ -48,21 +51,21 @@ void AppMainWindow::setVisible(bool visible)
     KXmlGuiWindow::setVisible(visible);
 }
 
-//void AppMainWindow::closeDialog(int resultCode)
+// void AppMainWindow::closeDialog(int resultCode)
 //{
-//    _returnCode = resultCode;
-//    if (_loop && _loop->isRunning())
-//        _loop->quit();
-//}
+//     _returnCode = resultCode;
+//     if (_loop && _loop->isRunning())
+//         _loop->quit();
+// }
 
-//void AppMainWindow::closeEvent(QCloseEvent *event)
+// void AppMainWindow::closeEvent(QCloseEvent *event)
 //{
-//    qDebug() << Q_FUNC_INFO;
-//    Q_UNUSED(event)
-//    if (_loop && _loop->isRunning())
-//        _loop->quit();
-//    KXmlGuiWindow::closeEvent(event);
-//}
+//     qDebug() << Q_FUNC_INFO;
+//     Q_UNUSED(event)
+//     if (_loop && _loop->isRunning())
+//         _loop->quit();
+//     KXmlGuiWindow::closeEvent(event);
+// }
 
 void AppMainWindow::keyPressEvent(QKeyEvent *event)
 {

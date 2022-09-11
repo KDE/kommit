@@ -6,7 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commandcommit.h"
 
-namespace Git {
+namespace Git
+{
 
 CommandCommit::CommandCommit() = default;
 

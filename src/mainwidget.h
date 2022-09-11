@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "ui_mainwidget.h"
 
-namespace Git {
+namespace Git
+{
 class Manager;
 }
 class TreeModel;
@@ -42,4 +43,3 @@ private slots:
     void on_actionDiffBranch_triggered();
     void on_pushButtonAddTag_clicked();
 };
-

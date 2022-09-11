@@ -6,16 +6,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "abstractcommand.h"
 #include "../filestatus.h"
+#include "abstractcommand.h"
 
 #include <QList>
 
-namespace Git {
+namespace Git
+{
 
 class CommandChangedFiles : public AbstractCommand
 {
-
 public:
     explicit CommandChangedFiles(Manager *git);
 
@@ -38,4 +38,3 @@ private:
 };
 
 } // namespace Git
-

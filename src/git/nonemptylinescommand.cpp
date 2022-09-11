@@ -8,16 +8,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QString>
 
-namespace Git {
+namespace Git
+{
 
 const QStringList &NonEmptyLinesCommand::lines() const
 {
     return _lines;
 }
 
-NonEmptyLinesCommand::NonEmptyLinesCommand() : ParameteresCommand()
+NonEmptyLinesCommand::NonEmptyLinesCommand()
+    : ParameteresCommand()
 {
-
 }
 
 void NonEmptyLinesCommand::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
@@ -25,7 +26,7 @@ void NonEmptyLinesCommand::parseOutput(const QByteArray &output, const QByteArra
     Q_UNUSED(errorOutput)
     const auto out = QString(output).split(QLatin1Char('\n'));
 
-    for (const auto &line: out) {
+    for (const auto &line : out) {
         auto b = line.trimmed();
         if (b.isEmpty())
             continue;

@@ -9,12 +9,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "../gitmanager.h"
 
-namespace Git {
+namespace Git
+{
 
 BranchesModel::BranchesModel(Manager *git, QObject *parent)
     : AbstractGitItemsModel{git, parent}
 {
-
 }
 
 int BranchesModel::rowCount(const QModelIndex &parent) const
@@ -31,8 +31,7 @@ int BranchesModel::columnCount(const QModelIndex &parent) const
 
 QVariant BranchesModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0
-        || index.row() >= _data.size())
+    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= _data.size())
         return {};
 
     switch (index.column()) {
@@ -53,12 +52,12 @@ QVariant BranchesModel::headerData(int section, Qt::Orientation orientation, int
         return {};
 
     switch (section) {
-        case 0:
-            return i18n("Name");
-        case 1:
-            return i18n("Commit(s) behind");
-        case 2:
-            return i18n("Commit(s) ahead");
+    case 0:
+        return i18n("Name");
+    case 1:
+        return i18n("Commit(s) behind");
+    case 2:
+        return i18n("Commit(s) ahead");
     }
     return {};
 }
@@ -105,7 +104,7 @@ const QString &BranchesModel::referenceBranch() const
 
 void BranchesModel::calculateCommitStats()
 {
-    for (auto &b: _data) {
+    for (auto &b : _data) {
         auto commitsInfo = _git->uniqueCommiteOnBranches(_referenceBranch, b->name);
         b->commitsBehind = commitsInfo.first;
         b->commitsAhead = commitsInfo.second;

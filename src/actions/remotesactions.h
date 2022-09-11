@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractactions.h"
 
-class RemotesActions: public AbstractActions
+class RemotesActions : public AbstractActions
 {
     Q_OBJECT
 
@@ -34,4 +34,3 @@ private Q_SLOTS:
 private:
     QString mRemoteName;
 };
-

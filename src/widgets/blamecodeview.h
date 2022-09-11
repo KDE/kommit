@@ -25,4 +25,3 @@ private:
     Git::BlameData mBlameData;
     QMap<int, Git::BlameDataRow> mBlames;
 };
-

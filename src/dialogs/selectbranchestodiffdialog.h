@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "../core/appdialog.h"
 #include "ui_selectbranchestodiffdialog.h"
 
-namespace Git {
+namespace Git
+{
 class Manager;
 }
 
@@ -26,4 +27,3 @@ public:
 private Q_SLOTS:
     void on_buttonBox_accepted();
 };
-

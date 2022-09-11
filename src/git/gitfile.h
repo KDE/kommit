@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QString>
 
-namespace Git {
+namespace Git
+{
 
 class Manager;
 class File
@@ -17,11 +18,7 @@ class File
     QString _filePath;
     Manager *_git{};
 
-    enum StorageType {
-        InValid,
-        Git,
-        Local
-    };
+    enum StorageType { InValid, Git, Local };
     StorageType _storage;
 
 public:
@@ -29,7 +26,7 @@ public:
     explicit File(QString filePath);
     File(QString place, QString filePath, Manager *git = nullptr);
     File(const File &other);
-//    File(File &&other);
+    //    File(File &&other);
 
     File &operator=(const File &other);
 
@@ -47,4 +44,3 @@ public:
 };
 
 } // namespace Git
-

@@ -6,30 +6,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "segmentsmapper.h"
 
-#include <QScrollBar>
 #include "widgets/codeeditor.h"
+#include <QScrollBar>
 
-
-
-SegmentsMapper::SegmentsMapper(QObject *parent) : QObject(parent)
+SegmentsMapper::SegmentsMapper(QObject *parent)
+    : QObject(parent)
 {
-
 }
 
 void SegmentsMapper::addEditor(CodeEditor *editor)
 {
     _editors.append(editor);
 
-    connect(editor,
-            &CodeEditor::blockSelected,
-            this,
-            &SegmentsMapper::codeEditor_blockSelected);
+    connect(editor, &CodeEditor::blockSelected, this, &SegmentsMapper::codeEditor_blockSelected);
 
     _scrollBars.insert(editor->verticalScrollBar(), editor);
-    connect(editor->verticalScrollBar(),
-            &QScrollBar::valueChanged,
-            this,
-            &SegmentsMapper::codeEditor_scroll);
+    connect(editor->verticalScrollBar(), &QScrollBar::valueChanged, this, &SegmentsMapper::codeEditor_scroll);
 }
 
 const QList<Diff::Segment *> &SegmentsMapper::segments() const
@@ -39,7 +31,7 @@ const QList<Diff::Segment *> &SegmentsMapper::segments() const
 
 void SegmentsMapper::setSegments(const QList<Diff::MergeSegment *> &newSegments)
 {
-    for (const auto &s: newSegments)
+    for (const auto &s : newSegments)
         _segments.append(s);
 }
 
@@ -52,7 +44,7 @@ int SegmentsMapper::map(int from, int to, int index) const
     int &offsetTo = to == 1 ? offset1 : (to == 2 ? offset2 : offset3);
 
     for (auto &s : _segments) {
-        auto ms = dynamic_cast<Diff::MergeSegment*>(s);
+        auto ms = dynamic_cast<Diff::MergeSegment *>(s);
 
         if (offsetFrom + s->get(from).size() > index) {
             if (s->type != Diff::SegmentType::DifferentOnBoth)
@@ -98,12 +90,10 @@ void SegmentsMapper::codeEditor_scroll(int value)
     auto s = _scrollBars.value(sender());
     if (!s)
         return;
-    for (auto &editor: _editors) {
+    for (auto &editor : _editors) {
         if (s == editor)
             continue;
-        editor->verticalScrollBar()->setValue(
-            (int) (((float) value / (float) s->verticalScrollBar()->maximum())
-                   * (float) s->verticalScrollBar()->maximum()));
+        editor->verticalScrollBar()->setValue((int)(((float)value / (float)s->verticalScrollBar()->maximum()) * (float)s->verticalScrollBar()->maximum()));
     }
     n.deref();
 }
@@ -132,7 +122,7 @@ void SegmentsMapper::setCurrentSegment(Diff::Segment *newCurrentSegment)
 bool SegmentsMapper::isMergeable() const
 {
     for (auto &s : _segments) {
-        auto ms = dynamic_cast<Diff::MergeSegment*>(s);
+        auto ms = dynamic_cast<Diff::MergeSegment *>(s);
         if (ms->mergeType == Diff::MergeType::None)
             return false;
     }
@@ -142,8 +132,8 @@ bool SegmentsMapper::isMergeable() const
 int SegmentsMapper::conflicts() const
 {
     int r{0};
-    for (auto &s: _segments) {
-        auto ms = dynamic_cast<Diff::MergeSegment*>(s);
+    for (auto &s : _segments) {
+        auto ms = dynamic_cast<Diff::MergeSegment *>(s);
         if (ms->mergeType == Diff::None)
             r++;
     }
@@ -178,5 +168,4 @@ void SegmentsMapper::findNext(const Diff::SegmentType &type)
             setCurrentSegment(_segments.at(i));
             return;
         }
-
 }

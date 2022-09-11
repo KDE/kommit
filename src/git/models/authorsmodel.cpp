@@ -7,9 +7,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "authorsmodel.h"
 #include <KLocalizedString>
 
-namespace Git {
+namespace Git
+{
 
-AuthorsModel::AuthorsModel(Manager *git, QObject *parent) : AbstractGitItemsModel{git, parent} {}
+AuthorsModel::AuthorsModel(Manager *git, QObject *parent)
+    : AbstractGitItemsModel{git, parent}
+{
+}
 
 int AuthorsModel::rowCount(const QModelIndex &parent) const
 {
@@ -39,8 +43,7 @@ QVariant AuthorsModel::headerData(int section, Qt::Orientation orientation, int 
 
 QVariant AuthorsModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0
-        || index.row() >= _data.size())
+    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= _data.size())
         return {};
 
     switch (index.column()) {
@@ -55,7 +58,7 @@ QVariant AuthorsModel::data(const QModelIndex &index, int role) const
 
 Author *AuthorsModel::findOrCreate(const QString &name, const QString &email)
 {
-    for (auto &a: _data)
+    for (auto &a : _data)
         if (a->email == email)
             return a;
     auto author = new Author;
@@ -69,7 +72,6 @@ Author *AuthorsModel::findOrCreate(const QString &name, const QString &email)
 
 void AuthorsModel::fill()
 {
-
 }
 
 } // namespace Git

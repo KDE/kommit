@@ -6,9 +6,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "parameterescommand.h"
 
-namespace Git {
+namespace Git
+{
 
-ParameteresCommand::ParameteresCommand() : AbstractCommand() {}
+ParameteresCommand::ParameteresCommand()
+    : AbstractCommand()
+{
+}
 
 const QStringList &ParameteresCommand::args() const
 {

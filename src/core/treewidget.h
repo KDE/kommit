@@ -14,11 +14,9 @@ class TreeWidget : public QTreeWidget
 public:
     explicit TreeWidget(QWidget *parent = nullptr);
 
-
 protected Q_SLOTS:
     void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
 
 Q_SIGNALS:
     void itemActivated(const QModelIndex &index);
 };
-

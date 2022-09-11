@@ -5,20 +5,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "submoduleactions.h"
-#include "dialogs/submoduleinfodialog.h"
 #include "dialogs/runnerdialog.h"
+#include "dialogs/submoduleinfodialog.h"
 #include "git/commands/addsubmodulecommand.h"
-#include "git/models/submodulesmodel.h"
 #include "git/gitmanager.h"
+#include "git/models/submodulesmodel.h"
 
-#include <QDebug>
 #include <QAction>
+#include <QDebug>
 
-#include <kmessagebox.h>
-#include <klocalizedstring.h>
 #include <QDir>
-
-
+#include <klocalizedstring.h>
+#include <kmessagebox.h>
 
 const QString &SubmoduleActions::subModuleName() const
 {
@@ -31,7 +29,7 @@ void SubmoduleActions::setSubModuleName(const QString &newSubModuleName)
 
     setActionEnabled(_actionInit, true);
     setActionEnabled(_actionUpdate, true);
-//    setActionEnabled(_actionDeinit, true);
+    //    setActionEnabled(_actionDeinit, true);
     setActionEnabled(_actionSync, true);
 }
 
@@ -41,7 +39,7 @@ SubmoduleActions::SubmoduleActions(Git::Manager *git, QWidget *parent)
     _actionCreate = addActionHidden(i18n("Add..."), this, &SubmoduleActions::create);
     _actionInit = addAction(i18n("Init..."), this, &SubmoduleActions::init, false);
     _actionUpdate = addAction(i18n("Update..."), this, &SubmoduleActions::update, false);
-//    _actionDeinit = addAction(i18n("Remove..."), this, &SubmoduleActions::deinit, false);
+    //    _actionDeinit = addAction(i18n("Remove..."), this, &SubmoduleActions::deinit, false);
     _actionSync = addAction(i18n("Sync..."), this, &SubmoduleActions::sync, false);
 
     _actionCreate->setIcon(QIcon::fromTheme("list-add"));
@@ -80,14 +78,14 @@ void SubmoduleActions::deinit()
         return;
 
     qDebug() << mGit->runGit({"submodule", "deinit", "-f", "--", mSubModuleName});
-    qDebug()<<mGit->runGit({"rm", mSubModuleName});
+    qDebug() << mGit->runGit({"rm", mSubModuleName});
 
     QDir d(mGit->path() + "/.git/modules/" + mSubModuleName);
     if (!d.removeRecursively()) {
         KMessageBox::error(mParent, i18n("Unable to remove the module directory"));
         return;
     }
-    qDebug()<<d.path();
+    qDebug() << d.path();
     mGit->runGit({"config", "--remove-section", "submodule." + mSubModuleName});
 
     mGit->submodulesModel()->load();

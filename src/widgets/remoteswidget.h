@@ -10,7 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "widgetbase.h"
 
 class RemotesActions;
-namespace Git {
+namespace Git
+{
 class RemotesModel;
 class Manager;
 }
@@ -24,10 +25,8 @@ public:
     explicit RemotesWidget(QWidget *parent = nullptr);
     explicit RemotesWidget(Git::Manager *git, AppWindow *parent = nullptr);
 
-
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
-
 
 private Q_SLOTS:
     void on_listView_itemActivated(const QModelIndex &index);
@@ -36,4 +35,3 @@ private Q_SLOTS:
 private:
     void init(Git::Manager *git);
 };
-

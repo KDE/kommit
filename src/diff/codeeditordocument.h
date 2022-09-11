@@ -18,4 +18,3 @@ public:
 protected:
     QTextObject *createObject(const QTextFormat &f) override;
 };
-

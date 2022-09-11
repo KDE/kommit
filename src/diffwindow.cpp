@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QTreeView>
 #include <dialogs/diffopendialog.h>
 
+#include "git/gitmanager.h"
 #include "models/difftreemodel.h"
 #include "models/filesmodel.h"
 #include "settings/settingsmanager.h"
@@ -21,21 +22,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "widgets/difftreeview.h"
 #include "widgets/diffwidget.h"
 #include "widgets/editactionsmapper.h"
-#include "git/gitmanager.h"
 
-DiffWindow::DiffWindow() : AppMainWindow()
+DiffWindow::DiffWindow()
+    : AppMainWindow()
 {
     init(true);
 }
 
-DiffWindow::DiffWindow(Git::Manager *git) : AppMainWindow()
+DiffWindow::DiffWindow(Git::Manager *git)
+    : AppMainWindow()
 {
     init(true);
 
     _oldBranch = git->currentBranch();
     const auto diffs = git->diffBranch(_oldBranch);
 
-    for (const auto &f: diffs) {
+    for (const auto &f : diffs) {
         _diffModel->addFile(f);
         _filesModel->append(f.name());
     }
@@ -49,7 +51,9 @@ DiffWindow::DiffWindow(Git::Manager *git) : AppMainWindow()
 }
 
 DiffWindow::DiffWindow(const Git::File &oldFile, const Git::File &newFile)
-    : AppMainWindow(), _oldFile(oldFile), _newFile(newFile)
+    : AppMainWindow()
+    , _oldFile(oldFile)
+    , _newFile(newFile)
 {
     init(false);
 
@@ -61,15 +65,17 @@ DiffWindow::DiffWindow(const Git::File &oldFile, const Git::File &newFile)
 }
 
 DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QString &newBranch)
-    : AppMainWindow(), _oldBranch(oldBranch), _newBranch(newBranch)
+    : AppMainWindow()
+    , _oldBranch(oldBranch)
+    , _newBranch(newBranch)
 {
     init(true);
 
     auto diffs = git->diffBranches(oldBranch, newBranch);
 
-    for (auto &f: diffs) {
+    for (auto &f : diffs) {
         _diffModel->addFile(f);
-//        qDebug() << f.name() << f.status();
+        //        qDebug() << f.name() << f.status();
         _filesModel->append(f.name());
     }
     _leftStorage = _rightStorage = Git;
@@ -128,7 +134,6 @@ void DiffWindow::initActions()
 {
     auto actionCollection = this->actionCollection();
 
-
     auto viewHiddenCharsAction = actionCollection->addAction(QStringLiteral("view_hidden_chars"));
     viewHiddenCharsAction->setText(i18n("View hidden chars..."));
     viewHiddenCharsAction->setCheckable(true);
@@ -141,14 +146,12 @@ void DiffWindow::initActions()
     //    viewSameSizeBlocksAction->setText(i18n("Same size blocks"));
     //    viewSameSizeBlocksAction->setCheckable(true);
 
-    auto viewFilesInfo = actionCollection->addAction(QStringLiteral("view_files_info"),
-                                                     _diffWidget,
-                                                     &DiffWidget::showFilesInfo);
+    auto viewFilesInfo = actionCollection->addAction(QStringLiteral("view_files_info"), _diffWidget, &DiffWidget::showFilesInfo);
     viewFilesInfo->setText(i18n("Show files names"));
     viewFilesInfo->setCheckable(true);
     viewFilesInfo->setChecked(true);
 
-    auto showTreeDockAction =_dock->toggleViewAction();
+    auto showTreeDockAction = _dock->toggleViewAction();
     actionCollection->addAction(QStringLiteral("show_tree_dock"), showTreeDockAction);
     showTreeDockAction->setText(i18n("Show Tree"));
 
@@ -208,10 +211,14 @@ void DiffWindow::on_treeView_fileSelected(const QString &file)
 QString diffTypeText(const Diff::DiffType type)
 {
     switch (type) {
-    case Diff::DiffType::Unchanged: return i18n("Unchanged");
-    case Diff::DiffType::Added: return i18n("Added");
-    case Diff::DiffType::Removed: return i18n("Removed");
-    case Diff::DiffType::Modified: return i18n("Modified");
+    case Diff::DiffType::Unchanged:
+        return i18n("Unchanged");
+    case Diff::DiffType::Added:
+        return i18n("Added");
+    case Diff::DiffType::Removed:
+        return i18n("Removed");
+    case Diff::DiffType::Modified:
+        return i18n("Modified");
     }
     return {};
 }

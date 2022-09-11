@@ -7,11 +7,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "selectbranchestodiffdialog.h"
 
 #include "git/gitmanager.h"
-#include <KMessageBox>
 #include <KLocalizedString>
+#include <KMessageBox>
 
-SelectBranchesToDiffDialog::SelectBranchesToDiffDialog(Git::Manager *git, QWidget *parent) :
-      AppDialog(parent)
+SelectBranchesToDiffDialog::SelectBranchesToDiffDialog(Git::Manager *git, QWidget *parent)
+    : AppDialog(parent)
 {
     setupUi(this);
 

@@ -34,10 +34,9 @@ private Q_SLOTS:
 Q_SIGNALS:
     void fileSelected(const QString &file);
     void hideUnchangedsChanged();
+
 private:
     DiffTreeModel *mDiffModel{nullptr};
     QSortFilterProxyModel *const mFilterModel;
     FilesModel *mFilesModel;
-
 };
-

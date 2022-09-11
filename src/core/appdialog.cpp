@@ -7,17 +7,21 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "appdialog.h"
 
 #include "git/gitmanager.h"
+#include <QDesktopServices>
 #include <QEvent>
 #include <QWhatsThisClickedEvent>
-#include <QDesktopServices>
 
 AppDialog::AppDialog(QWidget *parent, Qt::WindowFlags f)
-    : QDialog(parent, f), _git(Git::Manager::instance())
-{}
+    : QDialog(parent, f)
+    , _git(Git::Manager::instance())
+{
+}
 
 AppDialog::AppDialog(Git::Manager *git, QWidget *parent, Qt::WindowFlags f)
-    : QDialog(parent, f), _git(git)
-{}
+    : QDialog(parent, f)
+    , _git(git)
+{
+}
 
 bool AppDialog::event(QEvent *event)
 {

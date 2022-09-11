@@ -7,7 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include <QtWidgets/QWidget>
-namespace Git {
+namespace Git
+{
 class Manager;
 }
 class WidgetBase : public QWidget
@@ -29,4 +30,3 @@ public:
 private slots:
     void git_pathChanged();
 };
-

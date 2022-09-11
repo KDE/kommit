@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QtWidgets/QWidget>
-#include <QtCore/QMap>
 #include "../diff/diff.h"
+#include <QtCore/QMap>
+#include <QtWidgets/QWidget>
 
 class CodeEditor;
 class SegmentConnector : public QWidget
@@ -16,11 +16,10 @@ class SegmentConnector : public QWidget
     Q_OBJECT
     CodeEditor *_left{nullptr};
     CodeEditor *_right{nullptr};
-    QList<Diff::Segment*> _segments;
-    Diff::Segment* _currentSegment{nullptr};
+    QList<Diff::Segment *> _segments;
+    Diff::Segment *_currentSegment{nullptr};
     bool m_sameSize{false};
-    struct SegmentPos
-    {
+    struct SegmentPos {
         int leftStart;
         int leftEnd;
         int rightStart;
@@ -49,9 +48,7 @@ public:
 
 Q_SIGNALS:
 
-
     // QWidget interface
 protected:
     void paintEvent(QPaintEvent *event) override;
 };
-

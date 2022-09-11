@@ -8,9 +8,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "git/gitmanager.h"
 
-#include <klocalizedstring.h>
 #include <QMenu>
 #include <QWidget>
+#include <klocalizedstring.h>
 
 void AbstractActions::setActionEnabled(QAction *action, bool enabled)
 {
@@ -23,7 +23,9 @@ void AbstractActions::setActionEnabled(QAction *action, bool enabled)
 }
 
 AbstractActions::AbstractActions(Git::Manager *git, QWidget *parent)
-    : QObject{parent}, mGit{git} , mParent{parent}
+    : QObject{parent}
+    , mGit{git}
+    , mParent{parent}
 {
     mMenu = new QMenu(parent);
     connect(git, &Git::Manager::pathChanged, this, &AbstractActions::git_reloaded);
@@ -42,7 +44,7 @@ void AbstractActions::popup(const QPoint &pos)
 void AbstractActions::git_reloaded()
 {
     if (!mGit->isValid()) {
-        for (auto &a: qAsConst(mActions))
+        for (auto &a : qAsConst(mActions))
             a->setEnabled(false);
         _actionStatuses.clear();
         return;

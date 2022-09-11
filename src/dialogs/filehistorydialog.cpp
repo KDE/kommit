@@ -6,21 +6,23 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "filehistorydialog.h"
 
-#include "git/gitmanager.h"
 #include "git/gitlog.h"
+#include "git/gitmanager.h"
 #include "git/models/logsmodel.h"
 
 #include <KLocalizedString>
 
-FileHistoryDialog::FileHistoryDialog(QWidget *parent) :
-      AppDialog(parent)
+FileHistoryDialog::FileHistoryDialog(QWidget *parent)
+    : AppDialog(parent)
 {
     setupUi(this);
     _git = Git::Manager::instance();
 }
 
-FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName, QWidget *parent):
-      AppDialog(parent), _git(git), _fileName(fileName)
+FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName, QWidget *parent)
+    : AppDialog(parent)
+    , _git(git)
+    , _fileName(fileName)
 {
     setupUi(this);
 
@@ -28,8 +30,7 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
 
     auto logs = git->logsModel();
 
-
-    for (auto &hash: hashes) {
+    for (auto &hash : hashes) {
         auto log = logs->findLogByHash(hash);
         if (!log)
             continue;
@@ -43,7 +44,8 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
 }
 
 FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const Git::File &file, QWidget *parent)
-    : AppDialog(parent), _git(git)
+    : AppDialog(parent)
+    , _git(git)
 {
     setupUi(this);
 
@@ -52,8 +54,7 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const Git::File &file, Q
 
     auto logs = git->logsModel();
 
-
-    for (const auto &hash: hashes) {
+    for (const auto &hash : hashes) {
         auto log = logs->findLogByHash(hash);
         if (!log)
             continue;

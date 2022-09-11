@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "treeview.h"
 
-TreeView::TreeView(QWidget *parent) : QTreeView(parent)
+TreeView::TreeView(QWidget *parent)
+    : QTreeView(parent)
 {
-
 }
 
 void TreeView::currentChanged(const QModelIndex &current, const QModelIndex &previous)

@@ -11,7 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 class GraphPainter;
 class CommitActions;
-namespace Git {
+namespace Git
+{
 class LogsModel;
 }
 class HistoryViewWidget : public WidgetBase, private Ui::HistoryViewWidget
@@ -33,9 +34,9 @@ private Q_SLOTS:
     void on_treeViewHistory_customContextMenuRequested(const QPoint &pos);
 
     void git_pathChanged();
+
 private:
     CommitActions *mActions = nullptr;
     Git::LogsModel *mHistoryModel = nullptr;
     GraphPainter *mGraphPainter = nullptr;
 };
-

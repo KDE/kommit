@@ -21,4 +21,3 @@ private:
     void updateButtonStatusFromAction();
     QAction *mAction{nullptr};
 };
-

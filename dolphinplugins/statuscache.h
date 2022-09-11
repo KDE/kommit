@@ -6,13 +6,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QMap>
 #include "filestatus.h"
+#include <QMap>
 
-class QFileInfo ;
+class QFileInfo;
 class StatusCache
 {
-
 public:
     StatusCache();
 
@@ -31,4 +30,3 @@ private:
     QString mLastDir;
     QMap<QString, FileStatus::Status> mStatuses;
 };
-

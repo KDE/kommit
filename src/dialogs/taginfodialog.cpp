@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "taginfodialog.h"
 
-TagInfoDialog::TagInfoDialog(QWidget *parent) :
-      AppDialog(parent)
+TagInfoDialog::TagInfoDialog(QWidget *parent)
+    : AppDialog(parent)
 {
     setupUi(this);
 }

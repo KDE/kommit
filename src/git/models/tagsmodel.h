@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractgititemsmodel.h"
 
-namespace Git {
+namespace Git
+{
 
 class Tag;
 class TagsModel : public AbstractGitItemsModel
@@ -31,4 +32,3 @@ protected:
 };
 
 } // namespace Git
-

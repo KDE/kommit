@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QString>
 #include <QObject>
+#include <QString>
 
 class FileStatus
 {
@@ -51,4 +51,3 @@ private:
 Q_DECLARE_METATYPE(FileStatus)
 Q_DECLARE_TYPEINFO(FileStatus, Q_MOVABLE_TYPE);
 bool operator==(const FileStatus &f1, const FileStatus &f2);
-

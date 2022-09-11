@@ -12,7 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractgititemsmodel.h"
 
-namespace Git {
+namespace Git
+{
 
 class Log;
 class Manager;
@@ -34,7 +35,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
-    Log* fromIndex(const QModelIndex &index) const;
+    Log *fromIndex(const QModelIndex &index) const;
     QModelIndex findIndexByHash(const QString &hash) const;
     Git::Log *findLogByHash(const QString &hash) const;
 
@@ -49,4 +50,3 @@ private:
     void initGraph();
 };
 }
-

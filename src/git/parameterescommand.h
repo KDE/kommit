@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commands/abstractcommand.h"
 
-namespace Git {
+namespace Git
+{
 
 class ParameteresCommand : public AbstractCommand
 {
@@ -24,4 +25,3 @@ public:
 };
 
 } // namespace Git
-

@@ -6,10 +6,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commandclone.h"
 
+namespace Git
+{
 
-namespace Git {
-
-CloneCommand::CloneCommand(QObject *parent) : AbstractCommand(parent) {}
+CloneCommand::CloneCommand(QObject *parent)
+    : AbstractCommand(parent)
+{
+}
 
 const QString &CloneCommand::repoUrl() const
 {
@@ -88,14 +91,13 @@ QStringList CloneCommand::generateArgs() const
         args << "--recursive";
 
     return args;
-
 }
 
 void CloneCommand::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
 {
     Q_UNUSED(output)
     auto p = errorOutput.mid(0, errorOutput.lastIndexOf("%"));
-    p  = p.mid(p.lastIndexOf(" ") + 1);
+    p = p.mid(p.lastIndexOf(" ") + 1);
     setProgress(p.toDouble());
 }
 

@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "../core/appdialog.h"
 #include "ui_fetchdialog.h"
 
-namespace Git {
+namespace Git
+{
 class Manager;
 }
 class FetchDialog : public AppDialog, private Ui::FetchDialog
@@ -24,4 +25,3 @@ public:
 private Q_SLOTS:
     void on_buttonBox_accepted();
 };
-

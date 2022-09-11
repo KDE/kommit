@@ -5,16 +5,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "filestreedialog.h"
-#include "models/treemodel.h"
-#include "git/gitmanager.h"
-#include <QFileIconProvider>
-#include "dialogs/fileviewerdialog.h"
-#include "dialogs/filehistorydialog.h"
-#include "dialogs/searchdialog.h"
 #include "actions/fileactions.h"
+#include "dialogs/filehistorydialog.h"
+#include "dialogs/fileviewerdialog.h"
+#include "dialogs/searchdialog.h"
+#include "git/gitmanager.h"
+#include "models/treemodel.h"
+#include <QFileIconProvider>
 
-FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent) :
-      AppDialog(parent), _place(place)
+FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
+    : AppDialog(parent)
+    , _place(place)
 {
     setupUi(this);
 
@@ -38,7 +39,7 @@ FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent) :
 
     listWidget->clear();
 
-    for (const auto &f: _treeModel->rootData()) {
+    for (const auto &f : _treeModel->rootData()) {
         QFileInfo fi(f);
         auto icon = p.icon(fi);
         auto item = new QListWidgetItem(listWidget);
@@ -53,7 +54,7 @@ void FilesTreeDialog::on_treeView_clicked(const QModelIndex &index)
     QFileIconProvider p;
     listWidget->clear();
 
-    for (const auto &f: _treeModel->data(index)) {
+    for (const auto &f : _treeModel->data(index)) {
         QFileInfo fi(f);
         auto icon = p.icon(fi);
         auto item = new QListWidgetItem(listWidget);
@@ -67,7 +68,7 @@ void FilesTreeDialog::on_listWidget_customContextMenuRequested(const QPoint &pos
 {
     auto path = _treeModel->fullPath(treeView->currentIndex());
 
-    if (path=="/")
+    if (path == "/")
         path = listWidget->currentItem()->text();
     else
         path += "/" + listWidget->currentItem()->text();

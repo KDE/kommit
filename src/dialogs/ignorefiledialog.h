@@ -26,4 +26,3 @@ private:
     QString _path, _name, _ext;
     QString getIgnoreFile();
 };
-

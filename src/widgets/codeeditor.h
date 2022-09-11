@@ -23,14 +23,7 @@ class CodeEditor : public QPlainTextEdit
 {
     Q_OBJECT
 public:
-    enum BlockType {
-        Unchanged,
-        Added,
-        Removed,
-        Edited,
-        HighLight,
-        Empty
-    };
+    enum BlockType { Unchanged, Added, Removed, Edited, HighLight, Empty };
 
     explicit CodeEditor(QWidget *parent = nullptr);
     ~CodeEditor();
@@ -83,7 +76,6 @@ private:
 
     KSyntaxHighlighting::Repository m_repository;
     QMap<QTextBlock, BlockType> mLines;
-    QMap<int, Diff::Segment*> mSegments;
+    QMap<int, Diff::Segment *> mSegments;
     QPair<int, int> mCurrentSegment{-1, -1};
 };
-

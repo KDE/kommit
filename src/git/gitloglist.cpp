@@ -5,14 +5,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "gitloglist.h"
+#include "gitgraphlane.h"
 #include "gitlog.h"
 #include "gitmanager.h"
-#include "gitgraphlane.h"
 
 #include <QDateTime>
 #include <utility>
 
-namespace Git {
+namespace Git
+{
 
 struct LanesFactory {
     QStringList _hashes;
@@ -144,7 +145,7 @@ struct LanesFactory {
 
             return;
         }
-        for (int & i : list) {
+        for (int &i : list) {
             if (lanes.size() <= i)
                 lanes.resize(i + 1);
 
@@ -207,22 +208,22 @@ QString LogList::branchName(const QString &refLog)
     if (refLog.isEmpty())
         return {};
 
-//    auto parts = refLog.split(",");
-//    if (parts.size() < 2)
-//        return QString();
+    //    auto parts = refLog.split(",");
+    //    if (parts.size() < 2)
+    //        return QString();
 
-//    return parts.at(1).mid(1, parts.at(1).indexOf(")") - 1);
-for (auto &b: _branches)
-    if (refLog.contains(b))
-        return b;
-return {};
+    //    return parts.at(1).mid(1, parts.at(1).indexOf(")") - 1);
+    for (auto &b : _branches)
+        if (refLog.contains(b))
+            return b;
+    return {};
 }
 
 void LogList::initChilds()
 {
     for (auto i = rbegin(); i != rend(); i++) {
         auto &log = *i;
-        for (auto &p: log->parents())
+        for (auto &p : log->parents())
             _dataByCommitHashLong.value(p)->_childs.append(log->commitHash());
     }
 }
@@ -251,9 +252,16 @@ Log *LogList::findByHash(const QString &hash, int *index) const
     return nullptr;
 }
 
-LogList::LogList() : QList<Log *>() {}
+LogList::LogList()
+    : QList<Log *>()
+{
+}
 
-LogList::LogList(QString branch) : QList<Log *>(), _branch(std::move(branch)) {}
+LogList::LogList(QString branch)
+    : QList<Log *>()
+    , _branch(std::move(branch))
+{
+}
 
 void LogList::load()
 {
@@ -318,9 +326,9 @@ H -- commit hash              c -- committer details        m -- mark           
         _dataByCommitHashLong.insert(d->commitHash(), d);
         _dataByCommitHashLong.insert(d->commitShortHash(), d);
     }
-//    std::sort(begin(), end(), [](GitLog *log1,GitLog *log2){
-//        return log1->commitDate() < log2->commitDate();
-//    });
+    //    std::sort(begin(), end(), [](GitLog *log1,GitLog *log2){
+    //        return log1->commitDate() < log2->commitDate();
+    //    });
     initChilds();
     initGraph();
 }

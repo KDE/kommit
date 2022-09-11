@@ -72,20 +72,21 @@ void FileActions::setFilePath(const QString &newFilePath)
     setActionEnabled(_actionSearch, !mPlace.isEmpty());
 }
 
-FileActions::FileActions(Git::Manager *git, QWidget *parent) : AbstractActions(git, parent)
+FileActions::FileActions(Git::Manager *git, QWidget *parent)
+    : AbstractActions(git, parent)
 {
     _openWithMenu = new QMenu(parent);
 
-    _actionView = addAction(i18n("View..."),this, &FileActions::viewFile,  false, true);
-    _actionOpenWith = addAction(i18n("Open with..."),this, &FileActions::openWith,  false, true);
+    _actionView = addAction(i18n("View..."), this, &FileActions::viewFile, false, true);
+    _actionOpenWith = addAction(i18n("Open with..."), this, &FileActions::openWith, false, true);
 
-    _actionDiffWithHead = addAction(i18n("Diff with HEAD..."),this, &FileActions::diffWithHead,  false, true);
-    _actionMergeWithHead = addAction(i18n("Merge with HEAD..."),this, &FileActions::mergeWithHead,  false, true);
+    _actionDiffWithHead = addAction(i18n("Diff with HEAD..."), this, &FileActions::diffWithHead, false, true);
+    _actionMergeWithHead = addAction(i18n("Merge with HEAD..."), this, &FileActions::mergeWithHead, false, true);
 
-    _actionSaveAs = addAction(i18n("Save as..."),this, &FileActions::saveAsFile,  false, true);
-    _actionHistory = addAction(i18n("Log..."),this, &FileActions::logFile,  false, true);
-    _actionBlame = addAction(i18n("Blame..."),this, &FileActions::blameFile,  false, true);
-    _actionSearch = addAction(i18n("Search..."),this, &FileActions::search,  false, true);
+    _actionSaveAs = addAction(i18n("Save as..."), this, &FileActions::saveAsFile, false, true);
+    _actionHistory = addAction(i18n("Log..."), this, &FileActions::logFile, false, true);
+    _actionBlame = addAction(i18n("Blame..."), this, &FileActions::blameFile, false, true);
+    _actionSearch = addAction(i18n("Search..."), this, &FileActions::search, false, true);
 }
 
 void FileActions::popup(const QPoint &pos)
@@ -142,8 +143,7 @@ KService::Ptr FileActions::getViewer(const QString &mimeType)
     }
 
     // Try to get a read-only kpart for the internal viewer
-    KService::List offers = KMimeTypeTrader::self()->query(mimeType,
-                                                           QStringLiteral("KParts/ReadOnlyPart"));
+    KService::List offers = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("KParts/ReadOnlyPart"));
 
     // If we can't find a kpart, try to get an external application
     if (offers.isEmpty()) {

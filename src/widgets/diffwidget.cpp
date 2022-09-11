@@ -4,8 +4,8 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "codeeditor.h"
 #include "diffwidget.h"
+#include "codeeditor.h"
 #include "diff/diff.h"
 
 #include <QScrollBar>
@@ -55,7 +55,7 @@ void DiffWidget::compare()
     segmentConnector->setSegments(segments);
     segmentConnector->update();
 
-    for (auto &s: segments) {
+    for (auto &s : segments) {
         CodeEditor::BlockType oldBlockType, newBlockType;
         switch (s->type) {
         case Diff::SegmentType::SameOnBoth:
@@ -129,7 +129,10 @@ CodeEditor *DiffWidget::newCodeEditor() const
     return rightCodeEditor;
 }
 
-DiffWidget::DiffWidget(QWidget *parent) : WidgetBase(parent), mOldFile(), mNewFile()
+DiffWidget::DiffWidget(QWidget *parent)
+    : WidgetBase(parent)
+    , mOldFile()
+    , mNewFile()
 {
     setupUi(this);
     segmentConnector->setMinimumWidth(80);
@@ -137,25 +140,13 @@ DiffWidget::DiffWidget(QWidget *parent) : WidgetBase(parent), mOldFile(), mNewFi
     segmentConnector->setLeft(leftCodeEditor);
     segmentConnector->setRight(rightCodeEditor);
 
-    connect(leftCodeEditor,
-            &CodeEditor::blockSelected,
-            this,
-            &DiffWidget::oldCodeEditor_blockSelected);
+    connect(leftCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::oldCodeEditor_blockSelected);
 
-    connect(rightCodeEditor,
-            &CodeEditor::blockSelected,
-            this,
-            &DiffWidget::newCodeEditor_blockSelected);
+    connect(rightCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::newCodeEditor_blockSelected);
 
-    connect(leftCodeEditor->verticalScrollBar(),
-            &QScrollBar::valueChanged,
-            this,
-            &DiffWidget::oldCodeEditor_scroll);
+    connect(leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::oldCodeEditor_scroll);
 
-    connect(rightCodeEditor->verticalScrollBar(),
-            &QScrollBar::valueChanged,
-            this,
-            &DiffWidget::newCodeEditor_scroll);
+    connect(rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::newCodeEditor_scroll);
 
     recalculateInfoPaneSize();
 
@@ -163,7 +154,9 @@ DiffWidget::DiffWidget(QWidget *parent) : WidgetBase(parent), mOldFile(), mNewFi
 }
 
 DiffWidget::DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidget *parent)
-    : WidgetBase(parent), mOldFile(oldFile), mNewFile(newFile)
+    : WidgetBase(parent)
+    , mOldFile(oldFile)
+    , mNewFile(newFile)
 {
     setupUi(this);
     segmentConnector->setMinimumWidth(80);
@@ -171,25 +164,13 @@ DiffWidget::DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidg
     segmentConnector->setLeft(leftCodeEditor);
     segmentConnector->setRight(rightCodeEditor);
 
-    connect(leftCodeEditor,
-            &CodeEditor::blockSelected,
-            this,
-            &DiffWidget::oldCodeEditor_blockSelected);
+    connect(leftCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::oldCodeEditor_blockSelected);
 
-    connect(rightCodeEditor,
-            &CodeEditor::blockSelected,
-            this,
-            &DiffWidget::newCodeEditor_blockSelected);
+    connect(rightCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::newCodeEditor_blockSelected);
 
-    connect(leftCodeEditor->verticalScrollBar(),
-            &QScrollBar::valueChanged,
-            this,
-            &DiffWidget::oldCodeEditor_scroll);
+    connect(leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::oldCodeEditor_scroll);
 
-    connect(rightCodeEditor->verticalScrollBar(),
-            &QScrollBar::valueChanged,
-            this,
-            &DiffWidget::newCodeEditor_scroll);
+    connect(rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::newCodeEditor_scroll);
 
     recalculateInfoPaneSize();
 
@@ -203,8 +184,7 @@ void DiffWidget::oldCodeEditor_scroll(int value)
         return;
     b = true;
     rightCodeEditor->verticalScrollBar()->setValue(
-        (int) (((float) value / (float) rightCodeEditor->verticalScrollBar()->maximum())
-               * (float) rightCodeEditor->verticalScrollBar()->maximum()));
+        (int)(((float)value / (float)rightCodeEditor->verticalScrollBar()->maximum()) * (float)rightCodeEditor->verticalScrollBar()->maximum()));
     b = false;
     segmentConnector->update();
 }
@@ -216,8 +196,7 @@ void DiffWidget::newCodeEditor_scroll(int value)
         return;
     b = true;
     leftCodeEditor->verticalScrollBar()->setValue(
-        (int) (((float) value / (float) leftCodeEditor->verticalScrollBar()->maximum())
-               * (float) leftCodeEditor->verticalScrollBar()->maximum()));
+        (int)(((float)value / (float)leftCodeEditor->verticalScrollBar()->maximum()) * (float)leftCodeEditor->verticalScrollBar()->maximum()));
     b = false;
     segmentConnector->update();
 }
@@ -225,19 +204,19 @@ void DiffWidget::newCodeEditor_scroll(int value)
 void DiffWidget::oldCodeEditor_blockSelected()
 {
     //    auto b = _oldCodeEditor->textCursor().block().blockNumber();
-//    auto b = _oldCodeEditor->currentSegment();
-//    if (b) {
-//        _segmentConnector->setCurrentSegment(b);
-//        _newCodeEditor->highlightSegment(b);
-//    }
+    //    auto b = _oldCodeEditor->currentSegment();
+    //    if (b) {
+    //        _segmentConnector->setCurrentSegment(b);
+    //        _newCodeEditor->highlightSegment(b);
+    //    }
 }
 
 void DiffWidget::newCodeEditor_blockSelected()
 {
-//    auto b = _newCodeEditor->currentSegment();
-//    if (b) {
-//        _segmentConnector->setCurrentSegment(b);
-//        _oldCodeEditor->highlightSegment(b);
+    //    auto b = _newCodeEditor->currentSegment();
+    //    if (b) {
+    //        _segmentConnector->setCurrentSegment(b);
+    //        _oldCodeEditor->highlightSegment(b);
     //    }
 }
 
@@ -249,8 +228,8 @@ void DiffWidget::recalculateInfoPaneSize()
     leftInfoContainer->setVisible(leftCodeEditor->width());
     rightInfoContainer->setVisible(rightCodeEditor->width());
 
-//    label->setMinimumWidth(leftCodeEditor->width());
-//    label_2->setMinimumWidth(rightCodeEditor->width());
+    //    label->setMinimumWidth(leftCodeEditor->width());
+    //    label_2->setMinimumWidth(rightCodeEditor->width());
 }
 
 void DiffWidget::resizeEvent(QResizeEvent *event)
@@ -282,7 +261,7 @@ void DiffWidget::scrollToTop()
 {
     leftCodeEditor->setTextCursor(QTextCursor(leftCodeEditor->document()->findBlockByNumber(0)));
     rightCodeEditor->setTextCursor(QTextCursor(rightCodeEditor->document()->findBlockByNumber(0)));
-//    leftCodeEditor->verticalScrollBar()->setValue(0);
-//    rightCodeEditor->verticalScrollBar()->setValue(0);
+    //    leftCodeEditor->verticalScrollBar()->setValue(0);
+    //    rightCodeEditor->verticalScrollBar()->setValue(0);
     segmentConnector->update();
 }

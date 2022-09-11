@@ -26,11 +26,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QtCore/QAbstractTableModel>
 #include "defines.h"
 #include "sqlmodel_p.h"
 #include <QExplicitlySharedDataPointer>
 #include <QList>
+#include <QtCore/QAbstractTableModel>
 #include <functional>
 
 NUT_BEGIN_NAMESPACE
@@ -44,10 +44,10 @@ class NUT_EXPORT SqlModel : public QAbstractTableModel
 {
     Q_OBJECT
 
-    std::function <QVariant(int, QVariant)> _renderer;
+    std::function<QVariant(int, QVariant)> _renderer;
 
 public:
-//    explicit SqlModel(Query *q);
+    //    explicit SqlModel(Query *q);
     explicit SqlModel(Database *database, TableSetBase *tableSet, QObject *parent = Q_NULLPTR);
 
     int rowCount(const QModelIndex &parent) const override;
@@ -59,11 +59,11 @@ public:
 
     void setRows(RowList<Table> rows);
     void append(Row<Table> table);
-//    void append(Table *table);
+    //    void append(Table *table);
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Row<Nut::Table> at(const int &i) const;
 
-    void setRenderer(const std::function<QVariant (int, QVariant)> &renderer);
+    void setRenderer(const std::function<QVariant(int, QVariant)> &renderer);
 
     void clear();
     QHash<int, QByteArray> roleNames() const override;
@@ -84,6 +84,4 @@ Q_OUTOFLINE_TEMPLATE void SqlModel::setTable(RowList<T> rows)
     setRows(tab);
 }
 
-
 NUT_END_NAMESPACE
-

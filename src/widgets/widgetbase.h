@@ -14,7 +14,8 @@ class QSplitter;
 class QTreeView;
 class AppWindow;
 
-namespace Git {
+namespace Git
+{
 class Manager;
 }
 class WidgetBase : public QWidget
@@ -48,4 +49,3 @@ private Q_SLOTS:
     void git_pathChanged();
     QString stateName(QWidget *w) const;
 };
-

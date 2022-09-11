@@ -6,22 +6,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "fetchdialog.h"
 
-#include "runnerdialog.h"
 #include "git/commands/commandfetch.h"
 #include "git/gitmanager.h"
+#include "runnerdialog.h"
 
-FetchDialog::FetchDialog(Git::Manager *git, QWidget *parent) : AppDialog(parent)
+FetchDialog::FetchDialog(Git::Manager *git, QWidget *parent)
+    : AppDialog(parent)
 {
     setupUi(this);
 
     auto g = git;
-    if(!g)
+    if (!g)
         g = Git::Manager::instance();
     comboBoxRemote->addItems(g->remotes());
     comboBoxBranch->addItems(g->branches());
 
     comboBoxRemote->setCurrentText(g->currentBranch());
-
 }
 
 void FetchDialog::setBranch(const QString &branch)

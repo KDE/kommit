@@ -12,11 +12,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QFileInfo>
 #include <QPushButton>
 
-#include <kmessagebox.h>
 #include <klocalizedstring.h>
+#include <kmessagebox.h>
 
-IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, QWidget *parent) :
-      AppDialog(git, parent)
+IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, QWidget *parent)
+    : AppDialog(git, parent)
 {
     setupUi(this);
 
@@ -81,7 +81,7 @@ void IgnoreFileDialog::on_buttonBox_accepted()
         return;
     }
     QFile f(getIgnoreFile());
-    if (!f.open(QIODevice::Append |QIODevice::Text)) {
+    if (!f.open(QIODevice::Append | QIODevice::Text)) {
         KMessageBox::error(this, i18n("Unable to open file: %1", getIgnoreFile()));
         return;
     }

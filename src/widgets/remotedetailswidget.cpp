@@ -9,7 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "git/gitremote.h"
 #include "git/models/remotesmodel.h"
 
-
 Git::Manager *RemoteDetailsWidget::git() const
 {
     return _git;
@@ -18,30 +17,29 @@ Git::Manager *RemoteDetailsWidget::git() const
 void RemoteDetailsWidget::setGit(Git::Manager *newGit)
 {
     _git = newGit;
-//    listWidget->clear();
+    //    listWidget->clear();
     listView->setModel(_git->remotesModel());
 }
 
 void RemoteDetailsWidget::reload()
 {
-//    listWidget->clear();
-//    listWidget->addItems(_git->remotes());
+    //    listWidget->clear();
+    //    listWidget->addItems(_git->remotes());
 }
 
-//void RemoteDetailsWidget::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
+// void RemoteDetailsWidget::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
 //{
-//    Q_UNUSED(previous)
-//    setBranch(current->text());
-//}
+//     Q_UNUSED(previous)
+//     setBranch(current->text());
+// }
 
-RemoteDetailsWidget::RemoteDetailsWidget(QWidget *parent) :
-      QWidget(parent)
+RemoteDetailsWidget::RemoteDetailsWidget(QWidget *parent)
+    : QWidget(parent)
 {
     setupUi(this);
 
     _git = Git::Manager::instance();
     connect(_git, &Git::Manager::pathChanged, this, &RemoteDetailsWidget::reload);
-
 }
 
 const QString &RemoteDetailsWidget::branch() const
@@ -62,7 +60,7 @@ void RemoteDetailsWidget::setBranch(const QString &newBranch)
     labelPushUrl->setText(info.pushUrl);
     labelDefaultBranch->setText(info.headBranch);
 
-    for (const auto &rb: qAsConst(info.branches)) {
+    for (const auto &rb : qAsConst(info.branches)) {
         auto item = new QTreeWidgetItem(treeWidget);
 
         item->setText(0, rb.name);
@@ -73,4 +71,3 @@ void RemoteDetailsWidget::setBranch(const QString &newBranch)
         treeWidget->addTopLevelItem(item);
     }
 }
-

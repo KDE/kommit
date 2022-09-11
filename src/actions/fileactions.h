@@ -26,13 +26,13 @@ class FileActions : public AbstractActions
     DEFINE_ACTION(actionDiffWithHead)
     DEFINE_ACTION(actionMergeWithHead)
 
-
     QMenu *_openWithMenu;
-//public:
-//    QAction *actionSaveAs();
+    // public:
+    //     QAction *actionSaveAs();
 
     KService::Ptr getExternalViewer(const QString &mimeType);
     KService::Ptr getViewer(const QString &mimeType);
+
 public:
     explicit FileActions(Git::Manager *git, QWidget *parent = nullptr);
     void popup(const QPoint &pos);
@@ -53,4 +53,3 @@ private Q_SLOTS:
     void diffWithHead();
     void mergeWithHead();
 };
-

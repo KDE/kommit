@@ -42,25 +42,16 @@ private:
     DiffTreeModel *_diffModel;
     DiffWidget *_diffWidget;
     DiffTreeView *_treeView;
-    QDockWidget* _dock;
+    QDockWidget *_dock;
 
     void initActions();
     void init(bool showSideBar);
 
-    enum Mode {
-        None,
-        Dirs,
-        Files
-    };
-    enum Storage {
-        NoStorage,
-        FileSystem,
-        Git
-    };
+    enum Mode { None, Dirs, Files };
+    enum Storage { NoStorage, FileSystem, Git };
 
     Mode _mode{None};
     Storage _leftStorage{NoStorage};
     Storage _rightStorage{NoStorage};
     void compareDirs();
 };
-

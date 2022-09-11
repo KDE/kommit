@@ -6,7 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitgraphlane.h"
 
-namespace Git {
+namespace Git
+{
 
 GraphLane::GraphLane()
 {
@@ -39,7 +40,8 @@ const QList<int> &GraphLane::bottomJoins() const
     return _bottomJoins;
 }
 
-GraphLane::GraphLane(GraphLane::Type type) : _type(type)
+GraphLane::GraphLane(GraphLane::Type type)
+    : _type(type)
 {
     generateRandomColor();
 }

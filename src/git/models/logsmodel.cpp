@@ -5,13 +5,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "logsmodel.h"
-#include <KLocalizedString>
-#include "../gitmanager.h"
 #include "../gitlog.h"
+#include "../gitmanager.h"
+#include <KLocalizedString>
 
-namespace Git {
+namespace Git
+{
 
-namespace Impl {
+namespace Impl
+{
 
 void readLine(const QString &line, const QString &separator, QList<QString *> list)
 {
@@ -152,7 +154,7 @@ struct LanesFactory {
 
             return;
         }
-        for (int & i : list) {
+        for (int &i : list) {
             if (lanes.size() <= i)
                 lanes.resize(i + 1);
 
@@ -202,9 +204,9 @@ struct LanesFactory {
 
 } // namespace Impl
 
-Git::LogsModel::LogsModel(Manager *git, QObject *parent) : AbstractGitItemsModel(git, parent)
+Git::LogsModel::LogsModel(Manager *git, QObject *parent)
+    : AbstractGitItemsModel(git, parent)
 {
-
 }
 
 const QString &LogsModel::branch() const
@@ -386,7 +388,7 @@ void LogsModel::initChilds()
 {
     for (auto i = _data.rbegin(); i != _data.rend(); i++) {
         auto &log = *i;
-        for (auto &p: log->parents())
+        for (auto &p : log->parents())
             _dataByCommitHashLong.value(p)->_childs.append(log->commitHash());
     }
 }
@@ -399,6 +401,5 @@ void LogsModel::initGraph()
         log->_lanes = factory.apply(log);
     }
 }
-
 
 }

@@ -16,9 +16,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QCalendar>
 #endif
 
-LogDetailsWidget::LogDetailsWidget(QWidget *parent) : QTextBrowser(parent)
+LogDetailsWidget::LogDetailsWidget(QWidget *parent)
+    : QTextBrowser(parent)
 {
-    connect(this,&QTextBrowser::anchorClicked, this, &LogDetailsWidget::self_anchorClicked);
+    connect(this, &QTextBrowser::anchorClicked, this, &LogDetailsWidget::self_anchorClicked);
 }
 
 Git::Log *LogDetailsWidget::log() const
@@ -28,7 +29,7 @@ Git::Log *LogDetailsWidget::log() const
 
 void LogDetailsWidget::setLog(Git::Log *newLog)
 {
-    if(_log == newLog)
+    if (_log == newLog)
         return;
 
     _log = newLog;
@@ -47,7 +48,6 @@ void LogDetailsWidget::createText()
     for (auto i = files.begin(); i != files.end(); ++i) {
         QString color;
         switch (i.value()) {
-
         case Git::Manager::Modified:
             color = GitKlientSettings::diffModifiedColor().name();
             break;
@@ -67,20 +67,19 @@ void LogDetailsWidget::createText()
         case Git::Manager::Untracked:
             break;
         }
-        filesHtml.append(
-            QStringLiteral("<li><font color=%1>%2</a></li>").arg(color, createFileLink(i.key())));
+        filesHtml.append(QStringLiteral("<li><font color=%1>%2</a></li>").arg(color, createFileLink(i.key())));
     }
     QStringList parentHashHtml;
-    for (const auto &parent: _log->parents())
+    for (const auto &parent : _log->parents())
         parentHashHtml.append(createHashLink(parent));
 
     QStringList childsHashHtml;
-    for (const auto &child: _log->childs())
+    for (const auto &child : _log->childs())
         childsHashHtml.append(createHashLink(child));
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
     QString date;
-    qDebug() << "cal="<<GitKlientSettings::calendarType();
+    qDebug() << "cal=" << GitKlientSettings::calendarType();
     QCalendar cal(GitKlientSettings::calendarType());
     /*switch (GitKlientSettings::calendarType()) {
     case SettingsHelper::CalendarType::Gregorian:
@@ -115,13 +114,9 @@ void LogDetailsWidget::createText()
     appendParagraph(html, i18n("Hash"), _log->commitHash());
 
     if (!_log->parents().empty())
-        appendParagraph(html,
-                        _log->parents().size() == 1 ? i18n("Parent") : i18n("Parents"),
-                        parentHashHtml.join(", "));
+        appendParagraph(html, _log->parents().size() == 1 ? i18n("Parent") : i18n("Parents"), parentHashHtml.join(", "));
     if (!_log->childs().empty())
-        appendParagraph(html,
-                        _log->childs().size() == 1 ? i18n("Child") : i18n("Children"),
-                        childsHashHtml.join(", "));
+        appendParagraph(html, _log->childs().size() == 1 ? i18n("Child") : i18n("Children"), childsHashHtml.join(", "));
 
     appendParagraph(html, i18n("Changed files"), filesHtml);
 
@@ -149,7 +144,7 @@ void LogDetailsWidget::appendParagraph(QString &html, const QString &name, const
         return;
 
     html.append(QStringLiteral("<p><b>%1</b><ul>").arg(name));
-    for (const auto &l: list)
+    for (const auto &l : list)
         html.append(QStringLiteral("<li>%1</li>").arg(l));
     html.append(QStringLiteral("</ul>"));
 }
@@ -161,8 +156,7 @@ QString LogDetailsWidget::createHashLink(const QString &hash) const
         return {};
 
     if (m_enableCommitsLinks)
-        return QStringLiteral(R"(<a href="hash:%1">%2</a> )")
-            .arg(log->commitHash(), log->subject());
+        return QStringLiteral(R"(<a href="hash:%1">%2</a> )").arg(log->commitHash(), log->subject());
 
     return log->subject();
 }
@@ -176,9 +170,9 @@ void LogDetailsWidget::self_anchorClicked(const QUrl &url)
 {
     const auto scheme = url.scheme().toLower();
 
-    if (scheme==QStringLiteral("hash"))
+    if (scheme == QStringLiteral("hash"))
         emit hashClicked(url.path());
-    else if (scheme==QStringLiteral("file"))
+    else if (scheme == QStringLiteral("file"))
         emit fileClicked(url.path());
 }
 

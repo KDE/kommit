@@ -34,9 +34,7 @@ void SettingsManager::settingsChanged()
     auto git = Git::Manager::instance();
 
     if (GitKlientSettings::registerDiffTool()) {
-        git->setConfig(QStringLiteral("difftool.gitklientdiff.cmd"),
-                       QStringLiteral("gitklientdiff \"$LOCAL\" \"$REMOTE\""),
-                       Git::Manager::ConfigGlobal);
+        git->setConfig(QStringLiteral("difftool.gitklientdiff.cmd"), QStringLiteral("gitklientdiff \"$LOCAL\" \"$REMOTE\""), Git::Manager::ConfigGlobal);
     } else {
         git->unsetConfig(QStringLiteral("difftool.gitklientdiff.cmd"), Git::Manager::ConfigGlobal);
     }
@@ -93,9 +91,9 @@ void SettingsManager::exec(QWidget *parentWidget)
         dialog->exec();
         return;
     }
-//    if (KConfigDialog::showDialog(QStringLiteral("settings"))) {
-//        return;
-//    }
+    //    if (KConfigDialog::showDialog(QStringLiteral("settings"))) {
+    //        return;
+    //    }
 
     dialog = new KConfigDialog(parentWidget, name, GitKlientSettings::self());
 

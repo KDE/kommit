@@ -10,11 +10,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <klocalizedstring.h>
 
-namespace Git {
-
-CommandSwitchBranch::CommandSwitchBranch(Manager *git) : AbstractCommand(git)
+namespace Git
 {
 
+CommandSwitchBranch::CommandSwitchBranch(Manager *git)
+    : AbstractCommand(git)
+{
 }
 
 void CommandSwitchBranch::parseOutput(const QByteArray &output, const QByteArray &errorOutput)

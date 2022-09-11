@@ -18,9 +18,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 using namespace Git;
 
-ActionManager::ActionManager(QObject *parent, const QList<QVariant> &) : KAbstractFileItemActionPlugin(parent)
+ActionManager::ActionManager(QObject *parent, const QList<QVariant> &)
+    : KAbstractFileItemActionPlugin(parent)
 {
-
 }
 
 void ActionManager::addMenu(QMenu *menu, const QString &title, const QStringList &args, const QString &icon)
@@ -33,8 +33,7 @@ void ActionManager::addMenu(QMenu *menu, const QString &title, const QStringList
     });
 }
 
-QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemInfos,
-                                        QWidget *parentWidget)
+QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget)
 {
     Q_UNUSED(parentWidget);
 
@@ -61,16 +60,15 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
         } else {
             addMenuToGitFile(menu, path, fileItemInfos.isFile(), status);
         }
-
     }
 
     mainAction->setMenu(menu);
-/*
-    auto openAction = new QAction;
-    openAction->setText("Open git klient");
-    openAction->setIcon(QIcon::fromTheme("gitklient"));
-*/
-    return QList<QAction *>() << /*openAction << */mainAction;
+    /*
+        auto openAction = new QAction;
+        openAction->setText("Open git klient");
+        openAction->setIcon(QIcon::fromTheme("gitklient"));
+    */
+    return QList<QAction *>() << /*openAction << */ mainAction;
 }
 
 QString ActionManager::getCommonPart(const KFileItemList &fileItems)
@@ -79,21 +77,17 @@ QString ActionManager::getCommonPart(const KFileItemList &fileItems)
         return {};
 
     QStringList list;
-    for (auto const &i: fileItems)
+    for (auto const &i : fileItems)
         list.append(i.url().toLocalFile());
 
     QString root = list.front();
-    for(QStringList::const_iterator it = list.cbegin(); it != list.cend(); ++it)
-    {
-        if (root.length() > it->length())
-        {
+    for (QStringList::const_iterator it = list.cbegin(); it != list.cend(); ++it) {
+        if (root.length() > it->length()) {
             root.truncate(it->length());
         }
 
-        for(int i = 0; i < root.length(); ++i)
-        {
-            if (root.at(i) != it->at(i))
-            {
+        for (int i = 0; i < root.length(); ++i) {
+            if (root.at(i) != it->at(i)) {
                 root.truncate(i);
                 break;
             }
@@ -127,10 +121,7 @@ void ActionManager::addMenuToGitFile(QMenu *menu, const QString &path, bool isFi
         }
     }
     addMenu(menu, i18n("Create tag"), {"create-tag", path});
-
 }
 
-K_PLUGIN_FACTORY_WITH_JSON(GitKlientPluginActionFactory,
-                           "gitklientitemaction.json",
-                           registerPlugin<ActionManager>();)
+K_PLUGIN_FACTORY_WITH_JSON(GitKlientPluginActionFactory, "gitklientitemaction.json", registerPlugin<ActionManager>();)
 #include "actionmanager.moc"

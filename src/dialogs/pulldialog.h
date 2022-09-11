@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "../core/appdialog.h"
 #include "ui_pulldialog.h"
 
-namespace Git {
+namespace Git
+{
 class Manager;
 }
 class PullDialog : public AppDialog, private Ui::PullDialog
@@ -22,4 +23,3 @@ public:
 private Q_SLOTS:
     void on_buttonBox_accepted();
 };
-

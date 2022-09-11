@@ -21,4 +21,3 @@ public:
 private Q_SLOTS:
     void on_buttonBox_accepted();
 };
-

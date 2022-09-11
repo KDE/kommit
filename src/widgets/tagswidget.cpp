@@ -6,15 +6,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "tagswidget.h"
 
-#include "git/gittag.h"
 #include "git/gitmanager.h"
+#include "git/gittag.h"
 #include "git/models/tagsmodel.h"
 
-#include "dialogs/taginfodialog.h"
 #include "actions/tagsactions.h"
+#include "dialogs/taginfodialog.h"
 
-TagsWidget::TagsWidget(QWidget *parent) :
-      WidgetBase(parent)
+TagsWidget::TagsWidget(QWidget *parent)
+    : WidgetBase(parent)
 {
     setupUi(this);
     _model = Git::Manager::instance()->tagsModel();
@@ -26,8 +26,8 @@ TagsWidget::TagsWidget(QWidget *parent) :
     pushButtonPush->setAction(_actions->actionPush());
 }
 
-TagsWidget::TagsWidget(Git::Manager *git, AppWindow *parent):
-      WidgetBase(git, parent)
+TagsWidget::TagsWidget(Git::Manager *git, AppWindow *parent)
+    : WidgetBase(git, parent)
 {
     setupUi(this);
     _model = git->tagsModel();
@@ -65,4 +65,3 @@ void TagsWidget::on_treeViewTags_itemActivated(const QModelIndex &index)
     if (item)
         _actions->setTagName(item->name());
 }
-

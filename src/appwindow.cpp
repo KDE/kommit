@@ -12,7 +12,7 @@ modify it under the terms of the GNU General Public License as
 published by the Free Software Foundation; either version 2 of
 the License or (at your option) version 3 or any later version
 accepted by the membership of KDE e.V. (or its successor approved
-by the membership of KDE e.V.), which shall act as a proxy 
+by the membership of KDE e.V.), which shall act as a proxy
 defined in Section 14 of version 3 of the license.
 
 This program is distributed in the hope that it will be useful,
@@ -40,7 +40,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "dialogs/searchdialog.h"
 #include "dialogs/selectbranchestodiffdialog.h"
 #include "dialogs/switchbranchdialog.h"
-#include "dialogs/mergedialog.h"
 #include "diffwindow.h"
 #include "git/commands/commandpull.h"
 #include "git/commands/commandswitchbranch.h"
@@ -103,7 +102,6 @@ AppWindow::AppWindow()
         _git->setPath(p);
         initRecentFiles(p);
         QtConcurrent::run(this, &AppWindow::loadRemotes);
-
     }
 }
 
@@ -117,7 +115,7 @@ AppWindow::AppWindow(const QString &path)
 AppWindow::~AppWindow()
 {
     QSettings s;
-    for (auto &w: _baseWidgets)
+    for (auto &w : _baseWidgets)
         w->saveState(s);
 }
 
@@ -130,18 +128,18 @@ AppWindow *AppWindow::instance()
 void AppWindow::git_pathChanged()
 {
     setWindowFilePath(_git->path());
-//    setWindowTitle(_git->path());
+    //    setWindowTitle(_git->path());
 
     auto statusText = i18n("Current branch: %1", _git->currentBranch());
     if (_git->isMerging())
-        statusText .append(i18n(" (merging)"));
+        statusText.append(i18n(" (merging)"));
 
     _statusCurrentBranchLabel->setText(statusText);
 }
 
 void AppWindow::initActions()
 {
-    KActionCollection* actionCollection = this->actionCollection();
+    KActionCollection *actionCollection = this->actionCollection();
 
     auto repoInitAction = actionCollection->addAction("repo_init", this, &AppWindow::initRepo);
     repoInitAction->setText(i18n("Init..."));
@@ -154,9 +152,7 @@ void AppWindow::initActions()
     auto repoCloneAction = actionCollection->addAction("repo_clone", this, &AppWindow::clone);
     repoCloneAction->setText(i18n("Clone..."));
 
-    auto repoStatusAction = actionCollection->addAction(QStringLiteral("repo_status"),
-                                                        this,
-                                                        &AppWindow::repoStatus);
+    auto repoStatusAction = actionCollection->addAction(QStringLiteral("repo_status"), this, &AppWindow::repoStatus);
     repoStatusAction->setText(i18n("Changed files..."));
     repoStatusAction->setIcon(QIcon::fromTheme("gitklient-changedfiles"));
     actionCollection->setDefaultShortcut(repoStatusAction, QKeySequence("Ctrl+S"));
@@ -201,7 +197,7 @@ void AppWindow::initActions()
 
     KStandardAction::quit(this, &QMainWindow::close, actionCollection);
     KStandardAction::preferences(SettingsManager::instance(), &SettingsManager::show, actionCollection);
-//    KStandardAction::openNew(this, &GitKlientWindow::clone, actionCollection);
+    //    KStandardAction::openNew(this, &GitKlientWindow::clone, actionCollection);
 }
 void AppWindow::initRecentFiles(const QString &newItem)
 {
@@ -215,7 +211,7 @@ void AppWindow::initRecentFiles(const QString &newItem)
         s.setValue("last_repo", newItem);
         s.sync();
     }
-    for (const auto &item: recentList) {
+    for (const auto &item : recentList) {
         auto action = recentAction->menu()->addAction(item);
         action->setData(item);
         connect(action, &QAction::triggered, this, &AppWindow::recentActionTriggered);
@@ -225,7 +221,7 @@ void AppWindow::initRecentFiles(const QString &newItem)
 void AppWindow::loadRemotes()
 {
     auto remotes = _git->remotes();
-    for (const auto &r: remotes)
+    for (const auto &r : remotes)
         volatile auto remote = _git->remoteDetails(r);
 }
 
@@ -253,7 +249,7 @@ void AppWindow::openRepo()
 {
     QFileDialog d;
     d.setFileMode(QFileDialog::Directory);
-    if (d.exec()==QDialog::Accepted) {
+    if (d.exec() == QDialog::Accepted) {
         _git->setPath(d.directoryUrl().toLocalFile());
         //        m_kde_actionsView->reload();
         initRecentFiles(d.directoryUrl().toLocalFile());
@@ -262,7 +258,7 @@ void AppWindow::openRepo()
 
 void AppWindow::recentActionTriggered()
 {
-    auto action = qobject_cast<QAction*>(sender());
+    auto action = qobject_cast<QAction *>(sender());
     if (!action)
         return;
 
@@ -362,18 +358,7 @@ void AppWindow::merge()
 template<class T>
 void AppWindow::addPage(const QString &actionName)
 {
-    const QList<Qt::Key> keys = {
-        Qt::Key_0,
-        Qt::Key_1,
-        Qt::Key_2,
-        Qt::Key_3,
-        Qt::Key_4,
-        Qt::Key_5,
-        Qt::Key_6,
-        Qt::Key_7,
-        Qt::Key_8,
-        Qt::Key_9
-    };
+    const QList<Qt::Key> keys = {Qt::Key_0, Qt::Key_1, Qt::Key_2, Qt::Key_3, Qt::Key_4, Qt::Key_5, Qt::Key_6, Qt::Key_7, Qt::Key_8, Qt::Key_9};
     auto action = actionCollection()->addAction(actionName);
     auto w = new T(_git, this);
     action->setText(w->windowTitle());

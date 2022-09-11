@@ -27,18 +27,16 @@ void DiffTreeView::setModels(DiffTreeModel *newDiffModel, FilesModel *filesModel
     treeView->setModel(mDiffModel);
 }
 
-DiffTreeView::DiffTreeView(QWidget *parent) : QWidget(parent)
-  , mFilterModel(new QSortFilterProxyModel(this))
+DiffTreeView::DiffTreeView(QWidget *parent)
+    : QWidget(parent)
+    , mFilterModel(new QSortFilterProxyModel(this))
 {
     setupUi(this);
     mFilterModel->setFilterKeyColumn(0);
     mFilterModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
     listView->setModel(mFilterModel);
 
-    connect(checkBoxHideUnchangeds,
-            &QAbstractButton::toggled,
-            this,
-            &DiffTreeView::hideUnchangedsChanged);
+    connect(checkBoxHideUnchangeds, &QAbstractButton::toggled, this, &DiffTreeView::hideUnchangedsChanged);
     checkBoxHideUnchangeds->hide();
 
     lineEditFilter->installEventFilter(this);
@@ -80,7 +78,7 @@ void DiffTreeView::setHideUnchangeds(bool newHideUnchangeds)
 bool DiffTreeView::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched == lineEditFilter && event->type() == QEvent::KeyPress) {
-        auto ke = dynamic_cast<QKeyEvent*>(event);
+        auto ke = dynamic_cast<QKeyEvent *>(event);
 
         if (ke->key() == Qt::Key_Down) {
             if (stackedWidget->currentIndex() == 0)
@@ -90,7 +88,7 @@ bool DiffTreeView::eventFilter(QObject *watched, QEvent *event)
         }
     }
     if (watched == listView && event->type() == QEvent::KeyPress) {
-        auto ke = static_cast<QKeyEvent*>(event);
+        auto ke = static_cast<QKeyEvent *>(event);
 
         if (ke->key() == Qt::Key_Up && listView->currentIndex().row() == 0)
             lineEditFilter->setFocus();

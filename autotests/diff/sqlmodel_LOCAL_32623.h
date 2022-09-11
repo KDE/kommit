@@ -48,7 +48,7 @@ class NUT_EXPORT SqlModel : public QAbstractTableModel
     Q_DECLARE_PRIVATE(SqlModel)
 
 public:
-//    explicit SqlModel(Query *q);
+    //    explicit SqlModel(Query *q);
     explicit SqlModel(Database *database, AbstractTableSet *tableSet, QObject *parent = Q_NULLPTR);
 
     int rowCount(const QModelIndex &parent) const override;
@@ -61,10 +61,10 @@ public:
 
     void setRows(RowList<Table> rows);
     void append(Row<Table> table);
-//    void append(Table *table);
+    //    void append(Table *table);
     Row<Table> at(const int &i) const;
 
-    void setRenderer(const std::function<QVariant (int, QVariant)> &renderer);
+    void setRenderer(const std::function<QVariant(int, QVariant)> &renderer);
 
 Q_SIGNALS:
     void beforeShowText(int col, QVariant &value);
@@ -74,7 +74,7 @@ template<class T>
 Q_OUTOFLINE_TEMPLATE void SqlModel::setTable(RowList<T> rows)
 {
     RowList<Table> tab;
-    for (auto t: rows)
+    for (auto t : rows)
         tab.append(t);
     setRows(tab);
 }
@@ -82,4 +82,3 @@ Q_OUTOFLINE_TEMPLATE void SqlModel::setTable(RowList<T> rows)
 NUT_END_NAMESPACE
 
 QT_END_NAMESPACE
-

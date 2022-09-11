@@ -6,20 +6,21 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "diffdialog.h"
 
-#include <git/gitmanager.h>
+#include "models/difftreemodel.h"
 #include <QDebug>
 #include <QFileDialog>
-#include "models/difftreemodel.h"
+#include <git/gitmanager.h>
 
-DiffDialog::DiffDialog(QWidget *parent) :
-      AppDialog(parent)
+DiffDialog::DiffDialog(QWidget *parent)
+    : AppDialog(parent)
 {
     setupUi(this);
 }
 
-DiffDialog::DiffDialog(const Git::File &oldFile, const Git::File &newFile, QWidget *parent) : AppDialog(parent),
-      _oldFile(oldFile),
-      _newFile(newFile)
+DiffDialog::DiffDialog(const Git::File &oldFile, const Git::File &newFile, QWidget *parent)
+    : AppDialog(parent)
+    , _oldFile(oldFile)
+    , _newFile(newFile)
 {
     setupUi(this);
     diffWidget->setOldFile(oldFile);
@@ -33,29 +34,29 @@ DiffDialog::DiffDialog(const Git::File &oldFile, const Git::File &newFile, QWidg
     treeView->hide();
 }
 
-DiffDialog::DiffDialog(const QString &oldBranch, const QString &newBranch, QWidget *parent) : AppDialog(parent)
-      , _oldBranch(oldBranch), _newBranch(newBranch)
+DiffDialog::DiffDialog(const QString &oldBranch, const QString &newBranch, QWidget *parent)
+    : AppDialog(parent)
+    , _oldBranch(oldBranch)
+    , _newBranch(newBranch)
 {
     setupUi(this);
 
     _diffModel = new DiffTreeModel;
     const auto diffs = Git::Manager::instance()->diffBranches(oldBranch, newBranch);
 
-    for (auto &f: diffs)
+    for (auto &f : diffs)
         _diffModel->addFile(f);
     treeView->setModel(_diffModel);
 }
-
 
 void DiffDialog::on_toolButtonShowHiddenChars_clicked(bool checked)
 {
     diffWidget->showHiddenChars(checked);
 }
 
-
 void DiffDialog::on_pushButtonSaveAs_clicked()
 {
-    auto diff = Git::Manager::instance()->diff(_oldFile.fileName(),_newFile.fileName());
+    auto diff = Git::Manager::instance()->diff(_oldFile.fileName(), _newFile.fileName());
     qDebug().noquote() << diff;
     const auto fileName = QFileDialog::getSaveFileName(this, i18n("Save diff"));
     if (!fileName.isEmpty()) {
@@ -67,7 +68,6 @@ void DiffDialog::on_pushButtonSaveAs_clicked()
         f.close();
     }
 }
-
 
 void DiffDialog::on_treeView_clicked(const QModelIndex &index)
 {
@@ -82,4 +82,3 @@ void DiffDialog::on_treeView_clicked(const QModelIndex &index)
     lineEditOldFileName->setText(oldFile.displayName());
     lineEditNewFileName->setText(newFile.displayName());
 }
-

@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QString>
 #include <filestatus.h>
 
-namespace Git {
+namespace Git
+{
 
 class MiniManager
 {
@@ -28,4 +29,3 @@ private:
 };
 
 } // namespace Git
-

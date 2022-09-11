@@ -25,14 +25,12 @@ public:
     void setVisible(bool visible) override;
 
 protected:
-//    void closeDialog(int resultCode);
-//    void closeEvent(QCloseEvent *event) override;
+    //    void closeDialog(int resultCode);
+    //    void closeEvent(QCloseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
 
 private:
     QEventLoop *_loop{nullptr};
     bool _isModal{false};
     int _returnCode{0};
-
 };
-

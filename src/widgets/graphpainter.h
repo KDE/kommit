@@ -6,10 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QStyledItemDelegate>
 #include "git/gitgraphlane.h"
+#include <QStyledItemDelegate>
 
-namespace Git {
+namespace Git
+{
 class LogsModel;
 }
 class GraphPainter : public QStyledItemDelegate
@@ -29,4 +30,3 @@ public:
 public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
-

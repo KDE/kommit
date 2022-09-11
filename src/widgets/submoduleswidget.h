@@ -11,7 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 class SubmoduleActions;
 
-namespace Git {
+namespace Git
+{
 class SubmodulesModel;
 }
 
@@ -25,7 +26,6 @@ public:
     explicit SubmodulesWidget(QWidget *parent = nullptr);
     explicit SubmodulesWidget(Git::Manager *git, AppWindow *parent = nullptr);
 
-
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
 
@@ -34,4 +34,3 @@ private Q_SLOTS:
     void on_treeView_customContextMenuRequested(const QPoint &pos);
     void on_treeView_activated(const QModelIndex &index);
 };
-

@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-
 #include "abstractactions.h"
 
 class StashActions : public AbstractActions
@@ -34,4 +33,3 @@ private:
     DEFINE_ACTION(actionDiff)
     DEFINE_ACTION(actionNew)
 };
-

@@ -16,7 +16,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KService>
 
 class QMimeType;
-namespace Git {
+namespace Git
+{
 class Manager;
 class File;
 }
@@ -37,8 +38,7 @@ private:
     void showAsImage(const Git::File &file);
     QPointer<KParts::ReadOnlyPart> m_part;
 
-    bool viewInInternalViewer(const KService::Ptr& viewer, const QString &fileName, const QMimeType &mimeType);
+    bool viewInInternalViewer(const KService::Ptr &viewer, const QString &fileName, const QMimeType &mimeType);
     KService::Ptr getExternalViewer(const QString &mimeType);
     KService::Ptr getInternalViewer(const QString &mimeType);
 };
-

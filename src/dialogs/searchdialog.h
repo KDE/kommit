@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "../core/appdialog.h"
 #include "ui_searchdialog.h"
 
-namespace Git {
+namespace Git
+{
 class Manager;
 }
 
@@ -44,4 +45,3 @@ private:
 protected:
     void timerEvent(QTimerEvent *event) override;
 };
-

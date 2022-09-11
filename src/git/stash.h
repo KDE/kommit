@@ -9,8 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDateTime>
 #include <QString>
 
-
-namespace Git {
+namespace Git
+{
 
 class Manager;
 class Stash
@@ -22,6 +22,7 @@ class Stash
     QString _subject;
     QString _branch;
     QDateTime _pushTime;
+
 public:
     Stash(Git::Manager *git, QString name);
 
@@ -40,4 +41,3 @@ public:
 };
 
 } // namespace Git
-

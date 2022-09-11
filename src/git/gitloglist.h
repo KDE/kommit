@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QList>
 #include <QMap>
 
-namespace Git {
+namespace Git
+{
 
 class Log;
 class LogList : public QList<Log *>
@@ -37,4 +38,3 @@ private:
     void initChilds();
 };
 } // namespace Git
-

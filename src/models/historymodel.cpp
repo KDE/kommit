@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "git/gitlog.h"
 #include <KLocalizedString>
 
-HistoryModel::HistoryModel(QObject *parent) : QAbstractListModel(parent)
+HistoryModel::HistoryModel(QObject *parent)
+    : QAbstractListModel(parent)
 {
     reload();
     //    _logs = Git::Manager::instance()->logs();
@@ -141,4 +142,3 @@ Git::Log *HistoryModel::findLogByHash(const QString &hash) const
             idx++;
     return nullptr;
 }
-

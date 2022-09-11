@@ -7,13 +7,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "switchbranchdialog.h"
 #include "git/commands/commandswitchbranch.h"
 #include "git/gitmanager.h"
-#include "runnerdialog.h"
 #include "git/models/branchesmodel.h"
 #include "git/models/tagsmodel.h"
+#include "runnerdialog.h"
 
 #include <QDebug>
 
-SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent) : AppDialog(git, parent)
+SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
+    : AppDialog(git, parent)
 {
     setupUi(this);
 
@@ -41,9 +42,9 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
     return cmd;
 }
 
-//void SwitchBranchDialog::on_buttonBox_accepted()
+// void SwitchBranchDialog::on_buttonBox_accepted()
 //{
-//    Git::CommandSwitchBranch cmd(_git);
+//     Git::CommandSwitchBranch cmd(_git);
 
 //    if (radioButtonExistingBranch->isChecked()) {
 //        cmd.setMode(Git::CommandSwitchBranch::ExistingBranch);

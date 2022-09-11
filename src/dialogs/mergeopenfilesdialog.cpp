@@ -6,11 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "mergeopenfilesdialog.h"
 
-#include <QFileDialog>
 #include <KLocalizedString>
+#include <QFileDialog>
 
-MergeOpenFilesDialog::MergeOpenFilesDialog(QWidget *parent) :
-      AppDialog(parent)
+MergeOpenFilesDialog::MergeOpenFilesDialog(QWidget *parent)
+    : AppDialog(parent)
 {
     setupUi(this);
 }
@@ -52,7 +52,6 @@ void MergeOpenFilesDialog::on_toolButtonSelectLocalFile_clicked()
         lineEditLocalFile->setText(fileName);
 }
 
-
 void MergeOpenFilesDialog::on_toolButtonSelectRemoteFile_clicked()
 {
     const auto fileName = QFileDialog::getOpenFileName(this, i18n("Select remote file"));
@@ -60,11 +59,9 @@ void MergeOpenFilesDialog::on_toolButtonSelectRemoteFile_clicked()
         lineEditRemoteFile->setText(fileName);
 }
 
-
 void MergeOpenFilesDialog::on_toolButtonSelectBaseFile_clicked()
 {
     const auto fileName = QFileDialog::getOpenFileName(this, i18n("Select base file"));
     if (!fileName.isEmpty())
         lineEditBaseFile->setText(fileName);
 }
-

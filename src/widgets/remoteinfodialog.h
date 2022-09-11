@@ -7,7 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "ui_remoteinfodialog.h"
-namespace Git {
+namespace Git
+{
 class CommandAddRemote;
 }
 class RemoteInfoDialog : public QDialog, private Ui::RemoteInfoDialog
@@ -21,4 +22,3 @@ public:
     QString remoteUrl() const;
     Git::CommandAddRemote *command();
 };
-

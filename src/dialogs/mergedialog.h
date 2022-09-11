@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "../core/appdialog.h"
 #include "ui_mergedialog.h"
 
-namespace Git {
+namespace Git
+{
 class CommandMerge;
 class Manager;
 }
@@ -25,4 +26,3 @@ private:
     QString _sourceBranch;
     void init(Git::Manager *git);
 };
-

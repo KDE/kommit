@@ -4,19 +4,19 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "buttonsgroup.h"
-#include "diffwindow.h"
 #include "mainwidget.h"
-#include "models/treemodel.h"
+#include "buttonsgroup.h"
 #include "dialogs/taginfodialog.h"
+#include "diffwindow.h"
+#include "models/treemodel.h"
 
-#include <QToolButton>
 #include <QDebug>
 #include <QMenu>
+#include <QToolButton>
 
+#include "dialogs/filestreedialog.h"
 #include "git/gitmanager.h"
 #include "git/gitremote.h"
-#include "dialogs/filestreedialog.h"
 
 Git::Manager *MainWidget::git() const
 {
@@ -26,8 +26,6 @@ Git::Manager *MainWidget::git() const
 void MainWidget::setGit(Git::Manager *newGit)
 {
     _git = newGit;
-
-
 }
 
 void MainWidget::reload()
@@ -42,8 +40,8 @@ void MainWidget::reload()
     listWidgetTags->addItems(_git->tags());
 }
 
-MainWidget::MainWidget(QWidget *parent) :
-      QWidget(parent)
+MainWidget::MainWidget(QWidget *parent)
+    : QWidget(parent)
 {
     auto actionBrowseBranch = new QAction(this);
     auto actionDiffBranch = new QAction(this);
@@ -109,7 +107,7 @@ MainWidget::~MainWidget()
 
 void MainWidget::listButton_clicked()
 {
-    auto btn = qobject_cast<QToolButton*>(sender());
+    auto btn = qobject_cast<QToolButton *>(sender());
     if (!btn)
         return;
 
@@ -127,7 +125,6 @@ void MainWidget::pageButtons_clicked(int index)
     stackedWidget->setCurrentIndex(index);
     return;
 }
-
 
 void MainWidget::on_treeViewRepo_activated(const QModelIndex &index)
 {
@@ -156,13 +153,11 @@ void MainWidget::on_actionDiffBranch_triggered()
     diffWin->showModal();
 }
 
-
 void MainWidget::on_pushButtonAddTag_clicked()
 {
     TagInfoDialog d(this);
     d.setWindowTitle(i18n("New tag"));
-    if (d.exec()==QDialog::Accepted) {
+    if (d.exec() == QDialog::Accepted) {
         _git->createTag(d.tagName(), d.message());
     }
 }
-

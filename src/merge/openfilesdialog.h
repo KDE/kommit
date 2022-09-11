@@ -29,4 +29,3 @@ private slots:
     void on_toolButtonSelectRemoteFile_clicked();
     void on_toolButtonSelectBaseFile_clicked();
 };
-

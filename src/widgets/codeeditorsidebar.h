@@ -23,4 +23,3 @@ protected:
 private:
     CodeEditor *m_codeEditor;
 };
-

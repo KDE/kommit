@@ -23,4 +23,3 @@ public:
 private Q_SLOTS:
     void on_lineEditTagName_textChanged(QString s);
 };
-

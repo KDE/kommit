@@ -10,7 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QIcon>
 
-namespace Git {
+namespace Git
+{
 class Manager;
 }
 class QActionGroup;
@@ -21,12 +22,14 @@ class MultiPageWidget : public QWidget, private Ui::MultiPageWidget
 
     QActionGroup *const actionGroup;
     Git::Manager *_defaultGitManager{};
+
 public:
     explicit MultiPageWidget(QWidget *parent = nullptr);
     void addPage(const QString &title, const QIcon &icon, WidgetBase *widget);
     void addPage(WidgetBase *widget, QAction *action);
     template<class T>
-    void addPage() {
+    void addPage()
+    {
         addPage(new T(_defaultGitManager, this));
     }
     void setCurrentIndex(int index);
@@ -38,4 +41,3 @@ public:
 private Q_SLOTS:
     void on_actionGroup_triggered(QAction *action);
 };
-

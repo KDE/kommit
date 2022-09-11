@@ -8,26 +8,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QList>
 
-namespace Git {
+namespace Git
+{
 
-namespace Impl {
+namespace Impl
+{
 struct LanesFactory;
 }
 
 class GraphLane
 {
-
 public:
-    enum Type
-    {
-        None,
-        Start,
-        Pipe,
-        Node,
-        End,
-        Transparent,
-        Test
-    };
+    enum Type { None, Start, Pipe, Node, End, Transparent, Test };
     GraphLane();
     GraphLane(Type type);
 
@@ -50,4 +42,3 @@ private:
 bool operator==(const GraphLane &, const GraphLane &);
 
 }
-

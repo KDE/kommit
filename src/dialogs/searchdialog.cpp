@@ -4,17 +4,18 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "fileviewerdialog.h"
 #include "searchdialog.h"
+#include "fileviewerdialog.h"
 
-#include <git/gitlog.h>
-#include <git/gitmanager.h>
+#include <KLocalizedString>
 #include <QStandardItemModel>
 #include <QtConcurrent>
-#include <KLocalizedString>
+#include <git/gitlog.h>
+#include <git/gitmanager.h>
 
 SearchDialog::SearchDialog(const QString &path, Git::Manager *git, QWidget *parent)
-    : AppDialog(parent), _git(git)
+    : AppDialog(parent)
+    , _git(git)
 {
     setupUi(this);
     initModel();
@@ -32,10 +33,11 @@ void SearchDialog::initModel()
     _model->setHeaderData(0, Qt::Horizontal, i18n("File name"));
     _model->setHeaderData(1, Qt::Horizontal, i18n("Branch"));
     _model->setHeaderData(2, Qt::Horizontal, i18n("Commit"));
-
 }
 
-SearchDialog::SearchDialog(Git::Manager *git, QWidget *parent) : AppDialog(parent), _git(git)
+SearchDialog::SearchDialog(Git::Manager *git, QWidget *parent)
+    : AppDialog(parent)
+    , _git(git)
 {
     setupUi(this);
     initModel();
@@ -76,7 +78,7 @@ void SearchDialog::beginSearch()
     if (radioButtonSearchBranches->isChecked()) {
         const auto branchesList = _git->branches();
         _progress.total = branchesList.size();
-        for (const auto &branch: branchesList) {
+        for (const auto &branch : branchesList) {
             searchOnPlace(branch, QString());
             _progress.value++;
         }
@@ -85,7 +87,7 @@ void SearchDialog::beginSearch()
         list.load();
 
         _progress.total = list.size();
-        for (auto &branch: list) {
+        for (auto &branch : list) {
             searchOnPlace(QString(), branch->commitHash());
             _progress.value++;
         }
@@ -99,17 +101,13 @@ void SearchDialog::searchOnPlace(const QString &branch, const QString &commit)
     QString place = branch.isEmpty() ? commit : branch;
     auto files = _git->ls(place);
 
-    for (auto &file: files) {
+    for (auto &file : files) {
         if (!lineEditPath->text().isEmpty() && !file.contains(lineEditPath->text()))
             continue;
 
-        bool ok = _git->fileContent(place, file)
-                      .contains(lineEditText->text(),
-                                checkBoxCaseSensetive->isChecked() ? Qt::CaseSensitive
-                                                                   : Qt::CaseInsensitive);
+        bool ok = _git->fileContent(place, file).contains(lineEditText->text(), checkBoxCaseSensetive->isChecked() ? Qt::CaseSensitive : Qt::CaseInsensitive);
         if (ok) {
-            _model->appendRow(
-                {new QStandardItem(file), new QStandardItem(branch), new QStandardItem(commit)});
+            _model->appendRow({new QStandardItem(file), new QStandardItem(branch), new QStandardItem(commit)});
         }
     }
 }

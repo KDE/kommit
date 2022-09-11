@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "treemodel.h"
 
-#include <QModelIndex>
 #include <QDebug>
+#include <QModelIndex>
 
 #include <KLocalizedString>
 
@@ -49,7 +49,9 @@ void TreeModel::clear()
     endRemoveRows();
 }
 
-TreeModel::TreeModel(QObject *parent) : QAbstractItemModel(parent), rootNode(new Node)
+TreeModel::TreeModel(QObject *parent)
+    : QAbstractItemModel(parent)
+    , rootNode(new Node)
 {
 }
 
@@ -70,7 +72,7 @@ int TreeModel::rowCount(const QModelIndex &parent) const
     if (!parent.isValid())
         parentItem = rootNode;
     else
-        parentItem = static_cast<Node*>(parent.internalPointer());
+        parentItem = static_cast<Node *>(parent.internalPointer());
 
     return parentItem->childs.count();
 }
@@ -86,9 +88,8 @@ QVariant TreeModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return {};
 
-
     if (role == Qt::DisplayRole && index.column() == 0) {
-        Node *item = static_cast<Node*>(index.internalPointer());
+        Node *item = static_cast<Node *>(index.internalPointer());
 
         return item->title;
     } else if (role == Qt::DecorationRole) {
@@ -108,7 +109,7 @@ QModelIndex TreeModel::index(int row, int column, const QModelIndex &parent) con
     if (!parent.isValid())
         parentItem = rootNode;
     else
-        parentItem = static_cast<Node*>(parent.internalPointer());
+        parentItem = static_cast<Node *>(parent.internalPointer());
 
     Node *childItem = parentItem->childs.at(row);
     if (childItem)
@@ -121,7 +122,7 @@ QModelIndex TreeModel::parent(const QModelIndex &child) const
     if (!child.isValid())
         return {};
 
-    Node *childItem = static_cast<Node*>(child.internalPointer());
+    Node *childItem = static_cast<Node *>(child.internalPointer());
     Node *parentItem = childItem->parent;
 
     if (parentItem == rootNode)
@@ -152,7 +153,7 @@ QStringList TreeModel::rootData() const
 
 QStringList TreeModel::data(const QModelIndex &index) const
 {
-    return static_cast<Node*>(index.internalPointer())->data;
+    return static_cast<Node *>(index.internalPointer())->data;
 }
 
 QString TreeModel::fullPath(const QModelIndex &index) const
@@ -188,10 +189,9 @@ void TreeModel::sortItems()
     sortNode(rootNode);
 }
 
-
 void TreeModel::addData(const QStringList &data, const QString &prefix, bool split)
 {
-    for (auto &p: data) {
+    for (auto &p : data) {
         auto path = p;
         path = path.replace("\r", "").replace("\n", "").trimmed();
         if (path.isEmpty())
@@ -248,7 +248,7 @@ TreeModel::Node *TreeModel::find(QStringList &path, Node *node)
 TreeModel::Node *TreeModel::createPath(const QStringList &path)
 {
     Node *parent = rootNode;
-    for (auto &p: path) {
+    for (auto &p : path) {
         auto child = parent->find(p);
         if (!child) {
             child = parent->createChild();
@@ -281,6 +281,6 @@ void TreeModel::sortNode(Node *node)
             return true;
         return l->title < r->title;
     });
-    for (auto &n: node->childs)
+    for (auto &n : node->childs)
         sortNode(n);
 }

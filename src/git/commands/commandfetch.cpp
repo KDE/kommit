@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commandfetch.h"
 
-
-namespace Git {
+namespace Git
+{
 
 bool CommandFetch::noFf() const
 {

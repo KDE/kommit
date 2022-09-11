@@ -6,7 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitsubmodule.h"
 
-namespace Git {
+namespace Git
+{
 
 Submodule::Submodule() = default;
 

@@ -6,10 +6,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "ui_diffwidget.h"
-#include <QTextOption>
-#include "widgetbase.h"
 #include "git/gitfile.h"
+#include "ui_diffwidget.h"
+#include "widgetbase.h"
+#include <QTextOption>
 
 class CodeEditor;
 class DiffWidget : public WidgetBase, private Ui::DiffWIdget
@@ -37,11 +37,11 @@ public:
     void setSameSize(bool newSameSize);
 
     void scrollToTop();
-    
+
     void setOldFileText(const Git::File &newOldFile);
-    
+
     void setNewFileText(const Git::File &newNewFile);
-    
+
 public Q_SLOTS:
     void showHiddenChars(bool show);
     void showFilesInfo(bool show);
@@ -69,6 +69,4 @@ private:
     QTextOption mDefaultOption;
 
     void recalculateInfoPaneSize();
-
 };
-

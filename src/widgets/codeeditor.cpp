@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "codeeditor.h"
-#include "codeeditorsidebar.h"
 #include "GitKlientSettings.h"
+#include "codeeditorsidebar.h"
 
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/FoldingRegion>
@@ -22,12 +22,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 class SegmentData : public QTextBlockUserData
 {
-
 public:
-    SegmentData(Diff::Segment *segment, bool empty = false) : mSegment{segment}, mIsEmpty(empty) {}
+    SegmentData(Diff::Segment *segment, bool empty = false)
+        : mSegment{segment}
+        , mIsEmpty(empty)
+    {
+    }
     Diff::Segment *segment() const;
     void setSegment(Diff::Segment *newSegment);
     bool mIsEmpty{false};
+
 private:
     Diff::Segment *mSegment{nullptr};
 };
@@ -44,15 +48,14 @@ void SegmentData::setSegment(Diff::Segment *newSegment)
 
 CodeEditor::CodeEditor(QWidget *parent)
     : QPlainTextEdit(parent)
-      , m_highlighter(new KSyntaxHighlighting::SyntaxHighlighter(document()))
-      , m_sideBar(new CodeEditorSidebar(this))
+    , m_highlighter(new KSyntaxHighlighting::SyntaxHighlighter(document()))
+    , m_sideBar(new CodeEditorSidebar(this))
 {
     setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
     setWordWrapMode(QTextOption::NoWrap);
 
-    setTheme((palette().color(QPalette::Base).lightness() < 128)
-                 ? m_repository.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                 : m_repository.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
+    setTheme((palette().color(QPalette::Base).lightness() < 128) ? m_repository.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                                                                 : m_repository.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
 
     connect(this, &QPlainTextEdit::blockCountChanged, this, &CodeEditor::updateSidebarGeometry);
     connect(this, &QPlainTextEdit::updateRequest, this, &CodeEditor::updateSidebarArea);
@@ -61,8 +64,7 @@ CodeEditor::CodeEditor(QWidget *parent)
     updateSidebarGeometry();
     highlightCurrentLine();
 
-    QTextBlockFormat normalFormat, addedFormat, removedFormat, changedFormat, highlightFormat,
-        emptyFormat;
+    QTextBlockFormat normalFormat, addedFormat, removedFormat, changedFormat, highlightFormat, emptyFormat;
 
     addedFormat.setBackground(GitKlientSettings::diffAddedColor());
     removedFormat.setBackground(GitKlientSettings::diffRemovedColor());
@@ -100,8 +102,7 @@ void CodeEditor::setTheme(const KSyntaxHighlighting::Theme &theme)
     auto pal = qApp->palette();
     if (theme.isValid()) {
         pal.setColor(QPalette::Base, theme.editorColor(KSyntaxHighlighting::Theme::BackgroundColor));
-        pal.setColor(QPalette::Highlight,
-                     theme.editorColor(KSyntaxHighlighting::Theme::TextSelection));
+        pal.setColor(QPalette::Highlight, theme.editorColor(KSyntaxHighlighting::Theme::TextSelection));
     }
     setPalette(pal);
 
@@ -124,8 +125,7 @@ int CodeEditor::sidebarWidth() const
 void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
 {
     QPainter painter(m_sideBar);
-    painter.fillRect(event->rect(),
-                     m_highlighter->theme().editorColor(KSyntaxHighlighting::Theme::IconBorder));
+    painter.fillRect(event->rect(), m_highlighter->theme().editorColor(KSyntaxHighlighting::Theme::IconBorder));
 
     auto block = firstVisibleBlock();
     auto blockNumber = block.blockNumber();
@@ -136,10 +136,9 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
     const auto foldingMarkerSize = fontMetrics().lineSpacing();
     int lineNumber{0};
 
-//    auto &emptyFormat = _formats.value(Empty);
+    //    auto &emptyFormat = _formats.value(Empty);
     while (block.isValid() && top <= event->rect().bottom()) {
         if (block.isVisible() && bottom >= event->rect().top()) {
-
             QBrush bg;
             if (blockNumber >= mCurrentSegment.first && blockNumber <= mCurrentSegment.second)
                 bg = Qt::yellow;
@@ -147,20 +146,14 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
                 bg = document()->findBlockByNumber(blockNumber).blockFormat().background();
             painter.fillRect(QRect{0, top, m_sideBar->width() - 1, fontMetrics().height()}, bg);
 
-            painter.setPen(m_highlighter->theme().editorColor(
-                (blockNumber == currentBlockNumber) ? KSyntaxHighlighting::Theme::CurrentLineNumber
-                                                    : KSyntaxHighlighting::Theme::LineNumbers));
+            painter.setPen(m_highlighter->theme().editorColor((blockNumber == currentBlockNumber) ? KSyntaxHighlighting::Theme::CurrentLineNumber
+                                                                                                  : KSyntaxHighlighting::Theme::LineNumbers));
 
-//            if (block.blockFormat() != emptyFormat)
+            //            if (block.blockFormat() != emptyFormat)
             {
                 ++lineNumber;
                 const auto number = QString::number(blockNumber + 1);
-                painter.drawText(0,
-                                 top,
-                                 m_sideBar->width() - 2 - foldingMarkerSize,
-                                 fontMetrics().height(),
-                                 Qt::AlignRight,
-                                 number);
+                painter.drawText(0, top, m_sideBar->width() - 2 - foldingMarkerSize, fontMetrics().height(), Qt::AlignRight, number);
             }
         }
 
@@ -179,8 +172,7 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
             painter.save();
             painter.setRenderHint(QPainter::Antialiasing);
             painter.setPen(Qt::NoPen);
-            painter.setBrush(QColor(
-                m_highlighter->theme().editorColor(KSyntaxHighlighting::Theme::CodeFolding)));
+            painter.setBrush(QColor(m_highlighter->theme().editorColor(KSyntaxHighlighting::Theme::CodeFolding)));
             painter.translate(m_sideBar->width() - foldingMarkerSize, top);
             painter.drawPolygon(polygon);
             painter.restore();
@@ -281,26 +273,24 @@ void CodeEditor::toggleFold(const QTextBlock &startBlock)
     }
 
     // redraw document
-    document()->markContentsDirty(startBlock.position(),
-                                  endBlock.position() - startBlock.position() + 1);
+    document()->markContentsDirty(startBlock.position(), endBlock.position() - startBlock.position() + 1);
 
     // update scrollbars
-    Q_EMIT document()->documentLayout()->documentSizeChanged(
-        document()->documentLayout()->documentSize());
+    Q_EMIT document()->documentLayout()->documentSizeChanged(document()->documentLayout()->documentSize());
 }
 
 void CodeEditor::paintEvent(QPaintEvent *e)
 {
     QPlainTextEdit::paintEvent(e);
 
-//    QPainter p(viewport());
-//    for (auto i = _lines.begin(); i != _lines.end(); ++i) {
-////        auto b = document()->findBlockByLineNumber(i.key());
-//        auto rc = blockBoundingGeometry(i.key());
-//        rc.moveTop(rc.top() - 2);
-//        rc.setBottom(rc.top() + 2);
-//        p.fillRect(rc, _formats.value(i.value()).background());
-//    }
+    //    QPainter p(viewport());
+    //    for (auto i = _lines.begin(); i != _lines.end(); ++i) {
+    ////        auto b = document()->findBlockByLineNumber(i.key());
+    //        auto rc = blockBoundingGeometry(i.key());
+    //        rc.moveTop(rc.top() - 2);
+    //        rc.setBottom(rc.top() + 2);
+    //        p.fillRect(rc, _formats.value(i.value()).background());
+    //    }
     viewport()->update();
 }
 
@@ -342,10 +332,10 @@ int CodeEditor::append(const QString &code, const QColor &backgroundColor)
 
 void CodeEditor::append(const QStringList &code, const BlockType &type, Diff::Segment *segment, int size)
 {
-//    if (!code.size() && (type == Added || type == Removed)) {
-//        _lines.insert(textCursor().block(), type == Added ? Removed : Added);
-//        return;
-//    }
+    //    if (!code.size() && (type == Added || type == Removed)) {
+    //        _lines.insert(textCursor().block(), type == Added ? Removed : Added);
+    //        return;
+    //    }
     for (auto &e : code)
         append(e, type, segment);
     if (size > code.size())
@@ -358,7 +348,7 @@ QPair<int, int> CodeEditor::blockArea(int from, int to)
 {
     auto firstBlock = document()->findBlockByLineNumber(from);
     auto secondBlock = document()->findBlockByLineNumber(to);
-//    qDebug() << from << " to " << to << firstBlock.text() << secondBlock.text();
+    //    qDebug() << from << " to " << to << firstBlock.text() << secondBlock.text();
 
     int top = qRound(blockBoundingGeometry(firstBlock).translated(contentOffset()).top());
     int bottom;
@@ -425,12 +415,12 @@ void CodeEditor::highlightSegment(Diff::Segment *segment)
             ////            cursor.setBlockFormat(_formats.value(HighLight));
             //            setTextCursor(cursor);
             //            return;
-        } else if (mCurrentSegment.first != -1){
+        } else if (mCurrentSegment.first != -1) {
             mCurrentSegment.second = i.key() - 1;
             break;
         }
     }
-//    _currentSegment = segment;
+    //    _currentSegment = segment;
     m_sideBar->update();
     qDebug() << mCurrentSegment;
     return;
@@ -444,4 +434,3 @@ void CodeEditor::clearAll()
     mLines.clear();
     clear();
 }
-

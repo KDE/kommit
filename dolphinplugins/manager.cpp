@@ -6,10 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "manager.h"
 
-#include <gitglobal.h>
 #include <QProcess>
+#include <gitglobal.h>
 
-namespace Git {
+namespace Git
+{
 
 MiniManager::MiniManager(const QString &path)
 {
@@ -50,30 +51,22 @@ bool MiniManager::isValid() const
 
 QList<FileStatus> MiniManager::repoFilesStatus() const
 {
-    const auto buffer = Git::readAllNonEmptyOutput(mPath,
-                                             {"status",
-                                              "--untracked-files=all",
-                                              "--ignored",
-                                              "--short",
-                                              "--ignore-submodules",
-                                              "--porcelain"}, false);
+    const auto buffer =
+        Git::readAllNonEmptyOutput(mPath, {"status", "--untracked-files=all", "--ignored", "--short", "--ignore-submodules", "--porcelain"}, false);
 
     QList<FileStatus> files;
-    //TODO: read untrackeds
+    // TODO: read untrackeds
     for (const auto &item : buffer) {
         if (!item.trimmed().size())
             continue;
 
-        if (item.startsWith("??")) {
-
-        }
+        if (item.startsWith("??")) { }
 
         FileStatus fs;
         fs.parseStatusLine(item);
         fs.setFullPath(mPath + QLatin1Char('/') + fs.name());
-        if (fs.status() != FileStatus::Untracked)// && !files.contains(fs))
+        if (fs.status() != FileStatus::Untracked) // && !files.contains(fs))
             files.append(fs);
-
     }
     return files;
 }

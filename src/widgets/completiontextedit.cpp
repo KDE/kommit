@@ -5,22 +5,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "completiontextedit.h"
+#include <QAbstractItemView>
 #include <QCompleter>
 #include <QKeyEvent>
-#include <QAbstractItemView>
 #include <QScrollBar>
 #include <QStringListModel>
 
-CompletionTextEdit::CompletionTextEdit(QWidget *parent) : QTextEdit(parent)
-  , mCompletionModel(new QStringListModel(this))
-  , mCompleter(new QCompleter(this))
+CompletionTextEdit::CompletionTextEdit(QWidget *parent)
+    : QTextEdit(parent)
+    , mCompletionModel(new QStringListModel(this))
+    , mCompleter(new QCompleter(this))
 {
     mCompleter->setWidget(this);
     mCompleter->setModel(mCompletionModel);
     mCompleter->setCompletionMode(QCompleter::PopupCompletion);
     mCompleter->setCaseSensitivity(Qt::CaseInsensitive);
-    QObject::connect(mCompleter, QOverload<const QString &>::of(&QCompleter::activated),
-                     this, &CompletionTextEdit::insertCompletion);
+    QObject::connect(mCompleter, QOverload<const QString &>::of(&QCompleter::activated), this, &CompletionTextEdit::insertCompletion);
 }
 
 void CompletionTextEdit::setCompleter(QCompleter *completer)
@@ -91,25 +91,24 @@ void CompletionTextEdit::keyPressEvent(QKeyEvent *e)
 {
     if (mCompleter && mCompleter->popup()->isVisible()) {
         // The following keys are forwarded by the completer to the widget
-       switch (e->key()) {
-       case Qt::Key_Enter:
-       case Qt::Key_Return:
-       case Qt::Key_Escape:
-       case Qt::Key_Tab:
-       case Qt::Key_Backtab:
+        switch (e->key()) {
+        case Qt::Key_Enter:
+        case Qt::Key_Return:
+        case Qt::Key_Escape:
+        case Qt::Key_Tab:
+        case Qt::Key_Backtab:
             e->ignore();
             return; // let the completer do default behavior
-       default:
-           break;
-       }
+        default:
+            break;
+        }
     }
 
     const bool isShortcut = (e->modifiers().testFlag(Qt::ControlModifier) && e->key() == Qt::Key_E); // CTRL+E
     if (!mCompleter || !isShortcut) // do not process the shortcut when we have a completer
         QTextEdit::keyPressEvent(e);
 
-    const bool ctrlOrShift = e->modifiers().testFlag(Qt::ControlModifier) ||
-                             e->modifiers().testFlag(Qt::ShiftModifier);
+    const bool ctrlOrShift = e->modifiers().testFlag(Qt::ControlModifier) || e->modifiers().testFlag(Qt::ShiftModifier);
     if (!mCompleter || (ctrlOrShift && e->text().isEmpty()))
         return;
 
@@ -117,8 +116,7 @@ void CompletionTextEdit::keyPressEvent(QKeyEvent *e)
     const bool hasModifier = (e->modifiers() != Qt::NoModifier) && !ctrlOrShift;
     QString completionPrefix = textUnderCursor();
 
-    if (!isShortcut && (hasModifier || e->text().isEmpty()|| completionPrefix.length() < 3
-                      || eow.contains(e->text().right(1)))) {
+    if (!isShortcut && (hasModifier || e->text().isEmpty() || completionPrefix.length() < 3 || eow.contains(e->text().right(1)))) {
         mCompleter->popup()->hide();
         return;
     }
@@ -128,7 +126,6 @@ void CompletionTextEdit::keyPressEvent(QKeyEvent *e)
         mCompleter->popup()->setCurrentIndex(mCompleter->completionModel()->index(0, 0));
     }
     QRect cr = cursorRect();
-    cr.setWidth(mCompleter->popup()->sizeHintForColumn(0)
-                + mCompleter->popup()->verticalScrollBar()->sizeHint().width());
+    cr.setWidth(mCompleter->popup()->sizeHintForColumn(0) + mCompleter->popup()->verticalScrollBar()->sizeHint().width());
     mCompleter->complete(cr); // popup it up!
 }

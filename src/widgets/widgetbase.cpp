@@ -8,22 +8,25 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "git/gitmanager.h"
 
+#include "appwindow.h"
 #include <QDialog>
+#include <QHeaderView>
 #include <QPushButton>
 #include <QSplitter>
-#include <QHeaderView>
 #include <QTreeView>
 #include <QVBoxLayout>
-#include "appwindow.h"
 
-WidgetBase::WidgetBase(QWidget *parent) : QWidget(parent)
+WidgetBase::WidgetBase(QWidget *parent)
+    : QWidget(parent)
 {
     _git = Git::Manager::instance();
     connect(_git, &Git::Manager::pathChanged, this, &WidgetBase::git_pathChanged);
 }
 
-WidgetBase::WidgetBase(Git::Manager *git, AppWindow *parent) : QWidget(parent),
-      _git(git), _parent{parent}
+WidgetBase::WidgetBase(Git::Manager *git, AppWindow *parent)
+    : QWidget(parent)
+    , _git(git)
+    , _parent{parent}
 {
     if (!_git)
         _git = Git::Manager::instance();
@@ -42,7 +45,6 @@ void WidgetBase::setGit(Git::Manager *newGit)
 
 void WidgetBase::reload()
 {
-
 }
 
 int WidgetBase::exec(QWidget *parent)
@@ -52,11 +54,10 @@ int WidgetBase::exec(QWidget *parent)
     QVBoxLayout layout(&d);
     this->setParent(&d);
     layout.addWidget(this);
-//    layout.addWidget(new QPushButton(&d));
+    //    layout.addWidget(new QPushButton(&d));
     int ret = d.exec();
     setParent(oldParent);
     return ret;
-
 }
 
 void WidgetBase::saveState(QSettings &settings) const

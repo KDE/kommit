@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "../core/appdialog.h"
 #include "ui_filehistorydialog.h"
 
-namespace Git {
+namespace Git
+{
 class Manager;
 class File;
 }
@@ -28,4 +29,3 @@ public:
 private Q_SLOTS:
     void on_listWidget_itemClicked(QListWidgetItem *item);
 };
-

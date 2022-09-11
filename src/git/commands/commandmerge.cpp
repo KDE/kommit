@@ -6,17 +6,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commandmerge.h"
 
-namespace Git {
+namespace Git
+{
 
 CommandMerge::CommandMerge(Manager *git)
     : AbstractCommand{git}
 {
-
 }
 
 QStringList CommandMerge::generateArgs() const
 {
-    QStringList  cmd{QStringLiteral("merge")};
+    QStringList cmd{QStringLiteral("merge")};
     switch (_ff) {
     case FastForwardType::Unset:
         break;

@@ -5,16 +5,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "submodulesmodel.h"
-#include <KLocalizedString>
-#include "../gitsubmodule.h"
 #include "../gitmanager.h"
+#include "../gitsubmodule.h"
+#include <KLocalizedString>
 
-namespace Git {
+namespace Git
+{
 
 SubmodulesModel::SubmodulesModel(Git::Manager *git, QObject *parent)
     : AbstractGitItemsModel{git, parent}
 {
-
 }
 
 int SubmodulesModel::rowCount(const QModelIndex &parent) const
@@ -31,8 +31,7 @@ int SubmodulesModel::columnCount(const QModelIndex &parent) const
 
 QVariant SubmodulesModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0
-        || index.row() >= _data.size())
+    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= _data.size())
         return {};
 
     auto submodule = _data.at(index.row());
@@ -89,7 +88,7 @@ void SubmodulesModel::fill()
         m->setCommitHash(line.mid(0, 40));
         auto n = line.lastIndexOf(" ");
         if (line.count(QLatin1Char(' ')) == 1)
-            n = line.size() ;
+            n = line.size();
         m->setPath(line.mid(41, n - 41));
 
         if (line.count(QLatin1Char(' ')) == 2)

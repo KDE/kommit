@@ -15,8 +15,8 @@ class QAbstractButton;
 class ButtonsGroup : public QObject
 {
     Q_OBJECT
-    QList<QAbstractButton*> _buttons;
-    QMap<QAbstractButton*, QObject*> _data;
+    QList<QAbstractButton *> _buttons;
+    QMap<QAbstractButton *, QObject *> _data;
 
 public:
     explicit ButtonsGroup(QObject *parent = nullptr);
@@ -30,4 +30,3 @@ private Q_SLOTS:
 Q_SIGNALS:
     void clicked(int index);
 };
-

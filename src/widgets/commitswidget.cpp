@@ -8,17 +8,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actions/branchactions.h"
 #include "dialogs/filestreedialog.h"
-#include "models/treemodel.h"
 #include "git/gitmanager.h"
+#include "models/treemodel.h"
 
-
-CommitsWidget::CommitsWidget(QWidget *parent) : WidgetBase(parent)
+CommitsWidget::CommitsWidget(QWidget *parent)
+    : WidgetBase(parent)
 {
     setupUi(this);
     init();
 }
 
-CommitsWidget::CommitsWidget(Git::Manager *git, AppWindow *parent) : WidgetBase(git, parent)
+CommitsWidget::CommitsWidget(Git::Manager *git, AppWindow *parent)
+    : WidgetBase(git, parent)
 {
     setupUi(this);
     init();

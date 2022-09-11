@@ -37,4 +37,3 @@ private Q_SLOTS:
 private:
     void compare(const QStringList &oldData, const QStringList &newData);
 };
-

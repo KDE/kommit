@@ -14,9 +14,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QFileDialog>
 
-
-SubmoduleInfoDialog::SubmoduleInfoDialog(Git::Manager *git, QWidget *parent) :
-      AppDialog(git, parent)
+SubmoduleInfoDialog::SubmoduleInfoDialog(Git::Manager *git, QWidget *parent)
+    : AppDialog(git, parent)
 {
     setupUi(this);
 }

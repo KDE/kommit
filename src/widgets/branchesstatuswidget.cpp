@@ -12,15 +12,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "git/gitmanager.h"
 #include "git/models/branchesmodel.h"
 
-BranchesStatusWidget::BranchesStatusWidget(QWidget *parent) : WidgetBase(parent)
+BranchesStatusWidget::BranchesStatusWidget(QWidget *parent)
+    : WidgetBase(parent)
 {
     setupUi(this);
     init(Git::Manager::instance());
 }
 
-
-BranchesStatusWidget::BranchesStatusWidget(Git::Manager *git, AppWindow *parent) :
-      WidgetBase(git, parent)
+BranchesStatusWidget::BranchesStatusWidget(Git::Manager *git, AppWindow *parent)
+    : WidgetBase(git, parent)
 
 {
     setupUi(this);
@@ -60,18 +60,18 @@ void BranchesStatusWidget::on_comboBoxReferenceBranch_currentIndexChanged(const 
 
 void BranchesStatusWidget::on_pushButtonRemoveSelected_clicked()
 {
-//    if (!treeWidgetBranches->currentItem())
-//        return;
+    //    if (!treeWidgetBranches->currentItem())
+    //        return;
 
-//    auto r = KMessageBox::questionYesNo(this, i18n("Are you sure to remove the selected branch?"));
+    //    auto r = KMessageBox::questionYesNo(this, i18n("Are you sure to remove the selected branch?"));
 
-//    if (r == KMessageBox::No)
-//        return;
+    //    if (r == KMessageBox::No)
+    //        return;
 
-//    git()->removeBranch(treeWidgetBranches->currentItem()->text(0));
-//    auto tmp = treeWidgetBranches->takeTopLevelItem(treeWidgetBranches->currentIndex().row());
-//    if (tmp)
-//        delete tmp;
+    //    git()->removeBranch(treeWidgetBranches->currentItem()->text(0));
+    //    auto tmp = treeWidgetBranches->takeTopLevelItem(treeWidgetBranches->currentIndex().row());
+    //    if (tmp)
+    //        delete tmp;
 }
 
 void BranchesStatusWidget::on_treeView_customContextMenuRequested(const QPoint &pos)

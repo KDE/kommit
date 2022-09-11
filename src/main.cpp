@@ -12,7 +12,7 @@ modify it under the terms of the GNU General Public License as
 published by the Free Software Foundation; either version 2 of
 the License or (at your option) version 3 or any later version
 accepted by the membership of KDE e.V. (or its successor approved
-by the membership of KDE e.V.), which shall act as a proxy 
+by the membership of KDE e.V.), which shall act as a proxy
 defined in Section 14 of version 3 of the license.
 
 This program is distributed in the hope that it will be useful,
@@ -56,16 +56,14 @@ int main(int argc, char **argv)
     KLocalizedString::setApplicationDomain("gitklient");
     KCrash::initialize();
 
-    KAboutData aboutData( QStringLiteral("gitklient"),
-                          i18n("GitKlient"),
-                          QStringLiteral(GK_VERSION),
-                          i18n("Git client gui for KDE"),
-                          KAboutLicense::GPL,
-                          i18n("Copyright 2021, Hamed Masafi <hamed.masafi@gmail.com>"));
+    KAboutData aboutData(QStringLiteral("gitklient"),
+                         i18n("GitKlient"),
+                         QStringLiteral(GK_VERSION),
+                         i18n("Git client gui for KDE"),
+                         KAboutLicense::GPL,
+                         i18n("Copyright 2021, Hamed Masafi <hamed.masafi@gmail.com>"));
 
-    aboutData.addAuthor(i18n("Hamed Masafi"),
-                        i18n("Author"),
-                        QStringLiteral("hamed.masafi@gmail.com"));
+    aboutData.addAuthor(i18n("Hamed Masafi"), i18n("Author"), QStringLiteral("hamed.masafi@gmail.com"));
     aboutData.setDesktopFileName(QStringLiteral("org.kde.gitklient"));
 
     KAboutData::setApplicationData(aboutData);

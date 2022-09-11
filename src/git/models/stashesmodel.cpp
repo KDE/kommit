@@ -8,14 +8,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "../gitmanager.h"
 
-
 //#include <klocalizedstring.h>
 
 #define i18n(x) x
 
-namespace Git {
+namespace Git
+{
 
-StashesModel::StashesModel(Manager *git, QObject *parent) : AbstractGitItemsModel(git, parent) {}
+StashesModel::StashesModel(Manager *git, QObject *parent)
+    : AbstractGitItemsModel(git, parent)
+{
+}
 
 int StashesModel::rowCount(const QModelIndex &parent) const
 {
@@ -31,8 +34,7 @@ int StashesModel::columnCount(const QModelIndex &parent) const
 
 QVariant StashesModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0
-        || index.row() >= _data.size())
+    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= _data.size())
         return {};
 
     auto remote = _data.at(index.row());
@@ -56,11 +58,15 @@ QVariant StashesModel::headerData(int section, Qt::Orientation orientation, int 
         return {};
 
     if (orientation == Qt::Horizontal)
-        switch (section){
-            case 0: return i18n("Subject");
-            case 1: return i18n("Author name");
-            case 2: return i18n("Author email");
-            case 3: return i18n("Time");
+        switch (section) {
+        case 0:
+            return i18n("Subject");
+        case 1:
+            return i18n("Author name");
+        case 2:
+            return i18n("Author email");
+        case 3:
+            return i18n("Time");
         }
 
     return {};
@@ -81,7 +87,7 @@ void StashesModel::fill()
 
     auto list = _git->readAllNonEmptyOutput({"stash", "list", "--format=format:%s%m%an%m%ae%m%aD"});
     int id{0};
-    for (const auto &item: qAsConst(list)) {
+    for (const auto &item : qAsConst(list)) {
         auto parts = item.split(">");
         if (parts.size() != 4)
             continue;

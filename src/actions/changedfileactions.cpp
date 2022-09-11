@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "changedfileactions.h"
-#include "git/gitmanager.h"
 #include "diffwindow.h"
+#include "git/gitmanager.h"
 
 #include <QAction>
 
@@ -15,8 +15,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 ChangedFileActions::ChangedFileActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
-    _actionDiff = addAction(i18n("Diff..."),this, &ChangedFileActions::diff,  false, true);
-    _actionRevert = addAction(i18n("Revert..."),this, &ChangedFileActions::revert,  false, true);
+    _actionDiff = addAction(i18n("Diff..."), this, &ChangedFileActions::diff, false, true);
+    _actionRevert = addAction(i18n("Revert..."), this, &ChangedFileActions::revert, false, true);
 
     auto f = _actionDiff->font();
     f.setBold(true);

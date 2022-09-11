@@ -7,11 +7,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractgititemsmodel.h"
 #include "../gitmanager.h"
 
-namespace Git {
-
-AbstractGitItemsModel::AbstractGitItemsModel(Manager *git, QObject *parent) : QAbstractListModel(parent), _git(git)
+namespace Git
 {
-//    connect(git, &Manager::pathChanged, this, &Cache::load);
+
+AbstractGitItemsModel::AbstractGitItemsModel(Manager *git, QObject *parent)
+    : QAbstractListModel(parent)
+    , _git(git)
+{
+    //    connect(git, &Manager::pathChanged, this, &Cache::load);
 }
 
 bool AbstractGitItemsModel::isLoaded() const

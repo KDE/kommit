@@ -8,8 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QFileDialog>
 
-OpenFilesDialog::OpenFilesDialog(QWidget *parent) :
-      QDialog(parent)
+OpenFilesDialog::OpenFilesDialog(QWidget *parent)
+    : QDialog(parent)
 {
     setupUi(this);
 }
@@ -51,7 +51,6 @@ void OpenFilesDialog::on_toolButtonSelectLocalFile_clicked()
         lineEditLocalFile->setText(fileName);
 }
 
-
 void OpenFilesDialog::on_toolButtonSelectRemoteFile_clicked()
 {
     auto fileName = QFileDialog::getOpenFileName(this, i18n("Select remote file"));
@@ -59,11 +58,9 @@ void OpenFilesDialog::on_toolButtonSelectRemoteFile_clicked()
         lineEditRemoteFile->setText(fileName);
 }
 
-
 void OpenFilesDialog::on_toolButtonSelectBaseFile_clicked()
 {
     auto fileName = QFileDialog::getOpenFileName(this, i18n("Select base file"));
     if (!fileName.isEmpty())
         lineEditBaseFile->setText(fileName);
 }
-

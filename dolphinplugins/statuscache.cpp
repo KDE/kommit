@@ -9,8 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "manager.h"
 #include <QFileInfo>
 
-StatusCache::StatusCache()
-= default;
+StatusCache::StatusCache() = default;
 bool StatusCache::addPath(const QString &path)
 {
     Git::MiniManager git(path);
@@ -19,7 +18,7 @@ bool StatusCache::addPath(const QString &path)
 
     auto statuses = git.repoFilesStatus();
 
-    for (const auto &s: qAsConst(statuses)) {
+    for (const auto &s : qAsConst(statuses)) {
         mStatuses.insert(git.path() + QLatin1Char('/') + s.name(), s.status());
     }
     return true;
@@ -42,7 +41,6 @@ FileStatus::Status StatusCache::fileStatus(const QFileInfo &fileInfo)
         } else
             return FileStatus::Unknown;
     }
-
 
     if (!addPath(fileInfo.absolutePath()))
         return FileStatus::NoGit;
@@ -74,7 +72,7 @@ FileStatus::Status StatusCache::pathStatus(const QString &path)
     auto statuses = git.repoFilesStatus();
     FileStatus::Status status = FileStatus::Unmodified;
 
-    for (const auto &s: qAsConst(statuses)) {
+    for (const auto &s : qAsConst(statuses)) {
         const auto filePath = git.path() + QLatin1Char('/') + s.name();
 
         if (!filePath.startsWith(path)) {

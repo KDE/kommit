@@ -5,16 +5,20 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tagsmodel.h"
-#include "../gittag.h"
 #include "../gitmanager.h"
+#include "../gittag.h"
 
 #include <QDebug>
 
 #include <klocalizedstring.h>
 
-namespace Git {
+namespace Git
+{
 
-TagsModel::TagsModel(Manager *git, QObject *parent) : AbstractGitItemsModel(git, parent) {}
+TagsModel::TagsModel(Manager *git, QObject *parent)
+    : AbstractGitItemsModel(git, parent)
+{
+}
 
 int TagsModel::rowCount(const QModelIndex &parent) const
 {
@@ -30,8 +34,7 @@ int TagsModel::columnCount(const QModelIndex &parent) const
 
 QVariant TagsModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0
-        || index.row() >= _data.size())
+    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= _data.size())
         return {};
 
     auto remote = _data.at(index.row());
@@ -53,10 +56,13 @@ QVariant TagsModel::headerData(int section, Qt::Orientation orientation, int rol
         return {};
 
     if (orientation == Qt::Horizontal)
-        switch (section){
-        case 0: return i18n("Name");
-        case 1: return i18n("Subject");
-        case 2: return i18n("Author email");
+        switch (section) {
+        case 0:
+            return i18n("Name");
+        case 1:
+            return i18n("Subject");
+        case 2:
+            return i18n("Author email");
         }
 
     return {};
@@ -74,9 +80,9 @@ void TagsModel::fill()
 {
     qDeleteAll(_data);
     _data.clear();
-    auto list = _git->readAllNonEmptyOutput({"--no-pager","tag", "--list", "--format=%(subject)>%(tag)>%(taggername)"});
+    auto list = _git->readAllNonEmptyOutput({"--no-pager", "tag", "--list", "--format=%(subject)>%(tag)>%(taggername)"});
     qDebug() << list;
-    for (auto &i: list) {
+    for (auto &i : list) {
         auto parts = i.split(">");
         if (parts.size() != 3)
             continue;
@@ -86,7 +92,6 @@ void TagsModel::fill()
         tag->setTaggerEmail(parts.at(2));
         _data.append(tag);
     }
-
 }
 
 } // namespace Git

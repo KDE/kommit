@@ -23,8 +23,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "git/models/logsmodel.h"
 #include "mergewindow.h"
 
-#include <QDebug>
 #include <QApplication>
+#include <QDebug>
 #include <QDir>
 #include <QFileInfo>
 #include <QMetaMethod>
@@ -32,18 +32,21 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KMessageBox>
 #include <klocalizedstring.h>
 
-#define checkGitPath(path)                                                                         \
-    do { QFileInfo fi(path);                                                                            \
-    if (fi.isFile())                                                                               \
-        git->setPath(fi.absolutePath());                                                           \
-    else                                                                                           \
-        git->setPath(path);                                                                        \
-    if (!git->isValid()) {                                                                         \
-        KMessageBox::error(nullptr, i18n("The path is not git repo: %1", path));                   \
-        return 1;                                                                                  \
-    } } while(false)
+#define checkGitPath(path)                                                                                                                                     \
+    do {                                                                                                                                                       \
+        QFileInfo fi(path);                                                                                                                                    \
+        if (fi.isFile())                                                                                                                                       \
+            git->setPath(fi.absolutePath());                                                                                                                   \
+        else                                                                                                                                                   \
+            git->setPath(path);                                                                                                                                \
+        if (!git->isValid()) {                                                                                                                                 \
+            KMessageBox::error(nullptr, i18n("The path is not git repo: %1", path));                                                                           \
+            return 1;                                                                                                                                          \
+        }                                                                                                                                                      \
+    } while (false)
 
-CommandArgsParser::CommandArgsParser() : QObject()
+CommandArgsParser::CommandArgsParser()
+    : QObject()
 {
     git = Git::Manager::instance();
 }
@@ -57,7 +60,7 @@ void CommandArgsParser::add(const QString &name, const QString &list)
 {
     CommandList cmdList;
     const auto parts = list.split(QLatin1Char(' '));
-    for (const auto &pp: parts) {
+    for (const auto &pp : parts) {
         auto p = pp;
         bool isOptional{false};
         if (p.startsWith("[") && p.endsWith("]")) {
@@ -81,7 +84,7 @@ bool CommandArgsParser::check(const CommandList &commands)
     auto appArgs = qApp->arguments();
 
     int idx{1};
-    for (const auto &cmd: commands) {
+    for (const auto &cmd : commands) {
         switch (cmd.type) {
         case Command::Fixed:
             if (appArgs[idx] != cmd.s)
@@ -117,7 +120,7 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
     auto name = QString(args.at(1)).replace("-", "_").toLocal8Bit();
     auto c = metaObject()->methodCount();
     qDebug() << "Running" << args;
-    for(int i = 0; i < c; i++) {
+    for (int i = 0; i < c; i++) {
         auto method = metaObject()->method(i);
 
         if (method.name().compare(name, Qt::CaseInsensitive) == 0) {
@@ -170,7 +173,7 @@ ArgParserReturn CommandArgsParser::help()
         _helpTexts.insert(name, value);
     }
     qDebug() << "Git Klient command line interface help:";
-    for(int i = metaObject()->methodOffset(); i < c; i++) {
+    for (int i = metaObject()->methodOffset(); i < c; i++) {
         auto method = metaObject()->method(i);
         qDebug().noquote() << "    " << method.name() << method.parameterNames().join(" ");
         qDebug().noquote() << _helpTexts.value(method.name());
@@ -202,9 +205,7 @@ ArgParserReturn CommandArgsParser::init(const QString &path)
     if (d.exec() == QDialog::Accepted) {
         QDir dir;
         if (!dir.mkpath(d.path())) {
-            KMessageBox::error(nullptr,
-                               i18n("Unable to create path: %1", d.path()),
-                               i18n("Init repo"));
+            KMessageBox::error(nullptr, i18n("Unable to create path: %1", d.path()), i18n("Init repo"));
             return 1;
         }
 
@@ -424,9 +425,7 @@ ArgParserReturn CommandArgsParser::remove(const QString &path)
 {
     checkGitPath(path);
 
-
-    auto r = KMessageBox::questionYesNo(nullptr,
-                                        i18n("Would you like to leave file(s) on disk?"));
+    auto r = KMessageBox::questionYesNo(nullptr, i18n("Would you like to leave file(s) on disk?"));
 
     bool cached = r == KMessageBox::Yes;
 

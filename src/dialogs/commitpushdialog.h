@@ -9,7 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "../core/appdialog.h"
 #include "ui_commitpushdialog.h"
 
-namespace Git {
+namespace Git
+{
 class Manager;
 }
 class ChangedFileActions;
@@ -37,4 +38,3 @@ private Q_SLOTS:
 private:
     void addFiles();
 };
-

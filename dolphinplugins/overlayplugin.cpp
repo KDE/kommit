@@ -7,12 +7,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "overlayplugin.h"
 
 #include "../src/git/gitmanager.h"
-#include <QUrl>
 #include <QDebug>
 #include <QFileInfo>
+#include <QUrl>
 
-OverlayPlugin::OverlayPlugin(QObject *parent) : KOverlayIconPlugin(parent)
-{}
+OverlayPlugin::OverlayPlugin(QObject *parent)
+    : KOverlayIconPlugin(parent)
+{
+}
 
 QString icon(const FileStatus::Status &status)
 {

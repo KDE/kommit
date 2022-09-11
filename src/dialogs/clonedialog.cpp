@@ -6,13 +6,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "clonedialog.h"
 
-#include <QFileDialog>
 #include <KLocalizedString>
-#include <QStandardPaths>
+#include <QFileDialog>
 #include <QSettings>
+#include <QStandardPaths>
 
-CloneDialog::CloneDialog(QWidget *parent) :
-      AppDialog(parent)
+CloneDialog::CloneDialog(QWidget *parent)
+    : AppDialog(parent)
 {
     setupUi(this);
     mFixedPath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
@@ -35,7 +35,7 @@ Git::CloneCommand *CloneDialog::command()
     cmd->setLocalPath(lineEditPath->text());
     if (checkBoxBranch->isChecked())
         cmd->setBranch(lineEditBranch->text());
-    if(checkBoxDepth->isChecked())
+    if (checkBoxDepth->isChecked())
         cmd->setDepth(spinBoxDepth->value());
     cmd->setRecursive(checkBoxRecursive->isChecked());
     return cmd;

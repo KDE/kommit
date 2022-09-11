@@ -13,8 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QDebug>
 
-RunnerDialog::RunnerDialog(QWidget *parent) :
-      AppDialog(parent)
+RunnerDialog::RunnerDialog(QWidget *parent)
+    : AppDialog(parent)
 {
     setupUi(this);
 
@@ -22,19 +22,10 @@ RunnerDialog::RunnerDialog(QWidget *parent) :
     _git->setProgram(QStringLiteral("git"));
     _git->setWorkingDirectory(Git::Manager::instance()->path());
 
-    connect(_git,
-            &QProcess::readyReadStandardOutput,
-            this,
-            &RunnerDialog::git_readyReadStandardOutput);
-    connect(_git,
-            &QProcess::readyReadStandardError,
-            this,
-            &RunnerDialog::git_readyReadStandardError);
+    connect(_git, &QProcess::readyReadStandardOutput, this, &RunnerDialog::git_readyReadStandardOutput);
+    connect(_git, &QProcess::readyReadStandardError, this, &RunnerDialog::git_readyReadStandardError);
 
-    connect(_git,
-            QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
-            this,
-            &RunnerDialog::git_finished);
+    connect(_git, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &RunnerDialog::git_finished);
 }
 
 void RunnerDialog::run(const QStringList &args)
@@ -74,7 +65,7 @@ void RunnerDialog::git_readyReadStandardOutput()
 {
     auto buffer = _git->readAllStandardOutput();
     qDebug() << "OUT" << buffer;
-//    textBrowser->setTextColor(Qt::black);
+    //    textBrowser->setTextColor(Qt::black);
     textBrowser->append(buffer);
 
     if (_cmd)
@@ -85,7 +76,7 @@ void RunnerDialog::git_readyReadStandardError()
 {
     auto buffer = _git->readAllStandardError();
     qDebug() << "ERROR" << buffer;
-//    textBrowser->setTextColor(Qt::red);
+    //    textBrowser->setTextColor(Qt::red);
     textBrowser->append(buffer);
 
     if (_cmd)

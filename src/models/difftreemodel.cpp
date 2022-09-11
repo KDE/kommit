@@ -8,14 +8,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <GitKlientSettings.h>
 
-DiffTreeModel::DiffTreeModel(QObject *parent) : TreeModel(parent)
+DiffTreeModel::DiffTreeModel(QObject *parent)
+    : TreeModel(parent)
 {
     setLastPartAsData(true);
 }
 
 void DiffTreeModel::addFile(const FileStatus &file)
 {
-    const auto& nodePath = file.name();
+    const auto &nodePath = file.name();
 
     const auto parts = nodePath.split(separator());
     auto node = createPath(parts, toDiffType(file.status()));
@@ -34,7 +35,7 @@ void DiffTreeModel::addFile(const QString &file, const Diff::DiffType &type)
 TreeModel::Node *DiffTreeModel::createPath(const QStringList &path, const Diff::DiffType &status)
 {
     Node *parent = rootNode;
-    for (auto &p: path) {
+    for (auto &p : path) {
         auto child = parent->find(p);
         if (!child) {
             child = parent->createChild();
@@ -52,13 +53,13 @@ TreeModel::Node *DiffTreeModel::createPath(const QStringList &path, const Diff::
 QString icon(const Diff::DiffType &status)
 {
     switch (status) {
-    case  Diff::DiffType::Added:
+    case Diff::DiffType::Added:
         return QStringLiteral("git-status-added");
-    case  Diff::DiffType::Modified:
+    case Diff::DiffType::Modified:
         return QStringLiteral("git-status-modified");
-    case  Diff::DiffType::Removed:
+    case Diff::DiffType::Removed:
         return QStringLiteral("git-status-removed");
-    case  Diff::DiffType::Unchanged:
+    case Diff::DiffType::Unchanged:
         return QStringLiteral("git-status-update");
     }
     return QStringLiteral("git-status-update");
@@ -67,13 +68,13 @@ QString icon(const Diff::DiffType &status)
 QColor textColor(const Diff::DiffType &status)
 {
     switch (status) {
-    case  Diff::DiffType::Added:
+    case Diff::DiffType::Added:
         return GitKlientSettings::self()->diffAddedColor();
-    case  Diff::DiffType::Modified:
+    case Diff::DiffType::Modified:
         return GitKlientSettings::self()->diffModifiedColor();
-    case  Diff::DiffType::Removed:
+    case Diff::DiffType::Removed:
         return GitKlientSettings::self()->diffRemovedColor();
-    case  Diff::DiffType::Unchanged:
+    case Diff::DiffType::Unchanged:
         return {};
     }
     return {};
@@ -122,36 +123,35 @@ QVariant DiffTreeModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return {};
 
-
     if (role == Qt::DisplayRole) {
-        Node *item = static_cast<Node*>(index.internalPointer());
+        Node *item = static_cast<Node *>(index.internalPointer());
 
-        switch (index.column() ) {
+        switch (index.column()) {
         case 0:
             return item->title;
         case 1:
             return (int)item->metaData;
         }
     } else if (role == Qt::DecorationRole) {
-        Node *item = static_cast<Node*>(index.internalPointer());
+        Node *item = static_cast<Node *>(index.internalPointer());
 
         //        return statusColor(item->metaData);
 
-//        switch (item->metaData) {
-//        case Diff::DiffType::Added:
-//            return QColor(Qt::green);
-//        case Diff::DiffType::Removed:
-//            return QColor(Qt::red);
-//        case Diff::DiffType::Modified:
-//            return QColor(Qt::blue);
-//        case Diff::DiffType::Unchanged:
-//            return QColor(Qt::black);
-//        }
+        //        switch (item->metaData) {
+        //        case Diff::DiffType::Added:
+        //            return QColor(Qt::green);
+        //        case Diff::DiffType::Removed:
+        //            return QColor(Qt::red);
+        //        case Diff::DiffType::Modified:
+        //            return QColor(Qt::blue);
+        //        case Diff::DiffType::Unchanged:
+        //            return QColor(Qt::black);
+        //        }
 
         return QIcon::fromTheme(icon(item->metaData));
     } else if (role == Qt::ForegroundRole) {
-//        Node *item = static_cast<Node *>(index.internalPointer());
-//        return textColor(item->metaData);
+        //        Node *item = static_cast<Node *>(index.internalPointer());
+        //        return textColor(item->metaData);
     }
 
     return {};

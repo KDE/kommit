@@ -8,8 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QString>
 
-
-namespace Git {
+namespace Git
+{
 
 class Tag
 {
@@ -32,4 +32,3 @@ private:
 };
 
 } // namespace Git
-

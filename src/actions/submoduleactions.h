@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractactions.h"
 
-class SubmoduleActions: public AbstractActions
+class SubmoduleActions : public AbstractActions
 {
     Q_OBJECT
 
@@ -32,4 +32,3 @@ private:
     DEFINE_ACTION(actionDeinit)
     DEFINE_ACTION(actionSync)
 };
-

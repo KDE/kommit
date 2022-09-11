@@ -8,17 +8,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractgititemsmodel.h"
 
-
-namespace Git {
+namespace Git
+{
 
 class Manager;
 class BranchesModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 
-
 public:
-    struct BranchData{
+    struct BranchData {
         QString name;
         int commitsAhead;
         int commitsBehind;
@@ -40,12 +39,10 @@ protected:
     void fill() override;
 
 private:
-    QList<BranchData*> _data;
+    QList<BranchData *> _data;
     QString _currentBranch;
     QString _referenceBranch;
     void calculateCommitStats();
-
 };
 
 } // namespace Git
-

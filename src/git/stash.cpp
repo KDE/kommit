@@ -6,10 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "stash.h"
 
-#include <utility>
 #include "gitmanager.h"
+#include <utility>
 
-namespace Git {
+namespace Git
+{
 
 const QString &Stash::name() const
 {
@@ -41,7 +42,11 @@ const QDateTime &Stash::pushTime() const
     return _pushTime;
 }
 
-Stash::Stash(Manager *git, QString name) : _git(git), _name(std::move(name)) {}
+Stash::Stash(Manager *git, QString name)
+    : _git(git)
+    , _name(std::move(name))
+{
+}
 
 void Stash::apply()
 {

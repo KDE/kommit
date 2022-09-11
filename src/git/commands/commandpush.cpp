@@ -6,9 +6,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commandpush.h"
 
-namespace Git {
+namespace Git
+{
 
-CommandPush::CommandPush() : AbstractCommand() {}
+CommandPush::CommandPush()
+    : AbstractCommand()
+{
+}
 
 const QString &CommandPush::remote() const
 {

@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "filesmodel.h"
 
-FilesModel::FilesModel(QObject *parent) : QAbstractListModel(parent)
+FilesModel::FilesModel(QObject *parent)
+    : QAbstractListModel(parent)
 {
-
 }
 
 int FilesModel::rowCount(const QModelIndex &parent) const

@@ -12,7 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QAbstractListModel>
 
-namespace Git {
+namespace Git
+{
 
 class Manager;
 class AbstractGitItemsModel : public QAbstractListModel
@@ -44,4 +45,3 @@ private:
     Status m_status{NotLoaded};
 };
 } // namespace Git
-

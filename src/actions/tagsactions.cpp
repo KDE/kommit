@@ -17,8 +17,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "diffwindow.h"
 #include <klocalizedstring.h>
 
-
-TagsActions::TagsActions(Git::Manager *git, QWidget *parent) : AbstractActions(git, parent)
+TagsActions::TagsActions(Git::Manager *git, QWidget *parent)
+    : AbstractActions(git, parent)
 {
     _actionCreate = addActionHidden(i18n("New tag..."), this, &TagsActions::create);
     _actionRemove = addActionDisabled(i18n("Remove..."), this, &TagsActions::remove);

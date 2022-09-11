@@ -4,9 +4,9 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "widgets/codeeditor.h"
 #include "segmentconnector.h"
 #include "GitKlientSettings.h"
+#include "widgets/codeeditor.h"
 
 #include <QPainter>
 #include <QPainterPath>
@@ -28,24 +28,18 @@ void SegmentConnector::setSegments(const QList<Diff::Segment *> &newSegments)
         if (m_sameSize) {
             auto sizeMax = qMax(s->oldText.size(), s->newText.size());
 
-            SegmentPos pos{oldIndex,
-                           oldIndex + s->oldText.size() - 1,
-                           newIndex,
-                           newIndex + s->newText.size() - 1};
+            SegmentPos pos{oldIndex, oldIndex + s->oldText.size() - 1, newIndex, newIndex + s->newText.size() - 1};
 
-//            if (s->oldText.isEmpty())
-//                pos.leftEnd = -1;
-//            if (s->newText.isEmpty())
-//                pos.rightEnd = -1;
+            //            if (s->oldText.isEmpty())
+            //                pos.leftEnd = -1;
+            //            if (s->newText.isEmpty())
+            //                pos.rightEnd = -1;
             _segmentPos.insert(s, pos);
 
             oldIndex += sizeMax;
             newIndex += sizeMax;
         } else {
-            SegmentPos pos{oldIndex,
-                           oldIndex + s->oldText.size() - 1,
-                           newIndex,
-                           newIndex + s->newText.size() - 1};
+            SegmentPos pos{oldIndex, oldIndex + s->oldText.size() - 1, newIndex, newIndex + s->newText.size() - 1};
 
             if (s->oldText.isEmpty())
                 pos.leftEnd = -1;
@@ -80,9 +74,9 @@ void SegmentConnector::setSameSize(bool newSameSize)
     m_sameSize = newSameSize;
 }
 
-SegmentConnector::SegmentConnector(QWidget *parent) : QWidget(parent)
+SegmentConnector::SegmentConnector(QWidget *parent)
+    : QWidget(parent)
 {
-
 }
 
 CodeEditor *SegmentConnector::left() const
@@ -139,19 +133,15 @@ void SegmentConnector::paintEvent(QPaintEvent *event)
         case Diff::SegmentType::DifferentOnBoth:
             painter.setBrush(GitKlientSettings::diffModifiedColor());
             break;
-            }
+        }
 
         QPainterPath poly;
         poly.moveTo(0, leftArea.first);
 
-        poly.cubicTo(QPointF(30, leftArea.first),
-                     QPointF(width() - 30, rightArea.first),
-                     QPointF(width() - 1, rightArea.first));
+        poly.cubicTo(QPointF(30, leftArea.first), QPointF(width() - 30, rightArea.first), QPointF(width() - 1, rightArea.first));
         poly.lineTo(width() - 1, rightArea.second);
 
-        poly.cubicTo(QPoint(width() - 30, rightArea.second),
-                     QPoint(30, leftArea.second),
-                     QPoint(0, leftArea.second));
+        poly.cubicTo(QPoint(width() - 30, rightArea.second), QPoint(30, leftArea.second), QPoint(0, leftArea.second));
         painter.setPen(Qt::NoPen);
         painter.drawPath(poly);
     }

@@ -4,21 +4,21 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "remoteinfodialog.h"
 #include "remoteswidget.h"
+#include "actions/remotesactions.h"
 #include "git/gitmanager.h"
 #include "git/models/remotesmodel.h"
-#include "actions/remotesactions.h"
+#include "remoteinfodialog.h"
 
-
-RemotesWidget::RemotesWidget(QWidget *parent) : WidgetBase(parent)
+RemotesWidget::RemotesWidget(QWidget *parent)
+    : WidgetBase(parent)
 {
     setupUi(this);
     init(Git::Manager::instance());
 }
 
-RemotesWidget::RemotesWidget(Git::Manager *git, AppWindow *parent) :
-      WidgetBase(git, parent)
+RemotesWidget::RemotesWidget(Git::Manager *git, AppWindow *parent)
+    : WidgetBase(git, parent)
 {
     setupUi(this);
 
@@ -50,7 +50,7 @@ void RemotesWidget::on_listView_itemActivated(const QModelIndex &index)
     labelDefaultBranch->setText(remote->headBranch);
     treeWidget->clear();
 
-    for (const auto &rb: qAsConst(remote->branches)) {
+    for (const auto &rb : qAsConst(remote->branches)) {
         auto item = new QTreeWidgetItem(treeWidget);
 
         item->setText(0, rb.name);

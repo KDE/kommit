@@ -4,14 +4,13 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "../common/gittestmanager.cpp"
+#include "../../dolphinplugins/manager.cpp"
 #include "../../dolphinplugins/statuscache.cpp"
 #include "../../src/git/filestatus.cpp"
-#include "../../dolphinplugins/manager.cpp"
+#include "../common/gittestmanager.cpp"
 #include "gitglobal.cpp"
 
 #include <QtTest/QTest>
-
 
 class OverlayTest : public QObject
 {
@@ -20,7 +19,6 @@ class OverlayTest : public QObject
 private Q_SLOTS:
     void test1();
 };
-
 
 void OverlayTest::test1()
 {

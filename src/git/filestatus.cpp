@@ -10,9 +10,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 FileStatus::FileStatus() = default;
 
-FileStatus::FileStatus(QString name, FileStatus::Status status) : _name(std::move(name)),
-      _status(status)
-{}
+FileStatus::FileStatus(QString name, FileStatus::Status status)
+    : _name(std::move(name))
+    , _status(status)
+{
+}
 
 const QString &FileStatus::name() const
 {
@@ -33,7 +35,7 @@ void FileStatus::parseStatusLine(const QString &line)
 
     setStatus(statusX, statusY);
 
-//    qDebug() << "***=" << line << _status << statusX << statusY;
+    //    qDebug() << "***=" << line << _status << statusX << statusY;
 }
 
 const QString &FileStatus::fullPath() const

@@ -8,7 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <utility>
 
-namespace Git {
+namespace Git
+{
 
 bool AbstractCommand::isValid() const
 {
@@ -45,11 +46,22 @@ void AbstractCommand::setErrorMessage(const QString &newErrorMessage)
     _errorMessage = newErrorMessage;
 }
 
-AbstractCommand::AbstractCommand(QObject *parent) : QObject(parent) {}
+AbstractCommand::AbstractCommand(QObject *parent)
+    : QObject(parent)
+{
+}
 
-AbstractCommand::AbstractCommand(QStringList args) : QObject(), _args(std::move(args)) {}
+AbstractCommand::AbstractCommand(QStringList args)
+    : QObject()
+    , _args(std::move(args))
+{
+}
 
-AbstractCommand::AbstractCommand(Manager *git) : QObject(), _git(git) {}
+AbstractCommand::AbstractCommand(Manager *git)
+    : QObject()
+    , _git(git)
+{
+}
 
 AbstractCommand::~AbstractCommand() = default;
 
@@ -101,6 +113,5 @@ OptionalBool checkStateToOptionalBool(Qt::CheckState checkState)
     }
     return OptionalBool::Unset;
 }
-
 
 } // namespace Git

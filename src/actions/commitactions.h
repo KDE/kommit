@@ -29,4 +29,3 @@ private Q_SLOTS:
     void checkout();
     void diff();
 };
-

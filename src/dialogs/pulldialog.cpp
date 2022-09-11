@@ -7,23 +7,23 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "pulldialog.h"
 #include "runnerdialog.h"
 
-#include "git/gitmanager.h"
 #include "git/commands/commandpull.h"
+#include "git/gitmanager.h"
 
-PullDialog::PullDialog(QWidget *parent, Git::Manager *git) :
-      AppDialog(parent)
+PullDialog::PullDialog(QWidget *parent, Git::Manager *git)
+    : AppDialog(parent)
 {
     setupUi(this);
 
     auto g = git;
-    if(!g)
+    if (!g)
         g = Git::Manager::instance();
     comboBoxRemote->addItems(g->remotes());
     comboBoxBranch->addItems(g->branches());
 
     comboBoxRemote->setCurrentText(g->currentBranch());
 
-    //git pull --squash --no-ff --ff-only --no-commit --prune --tags
+    // git pull --squash --no-ff --ff-only --no-commit --prune --tags
 }
 
 void PullDialog::on_buttonBox_accepted()

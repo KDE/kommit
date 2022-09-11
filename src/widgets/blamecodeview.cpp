@@ -6,15 +6,16 @@
 #include "codeeditorsidebar.h"
 #include "git/gitlog.h"
 
+#include <KLocalizedString>
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/FoldingRegion>
 #include <KSyntaxHighlighting/SyntaxHighlighter>
 #include <KSyntaxHighlighting/Theme>
-#include <KLocalizedString>
 
 #include <QPainter>
 
-BlameCodeView::BlameCodeView(QWidget *parent) : CodeEditor(parent)
+BlameCodeView::BlameCodeView(QWidget *parent)
+    : CodeEditor(parent)
 {
     setReadOnly(true);
 }
@@ -30,7 +31,7 @@ void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
     int currentColor{0};
     mBlameData = newBlameData;
     QString lastCommit;
-    for (const auto &blame: newBlameData) {
+    for (const auto &blame : newBlameData) {
         const QString commitHash = blame.log ? blame.log->commitHash() : QString();
 
         if (lastCommit != commitHash)
@@ -52,7 +53,7 @@ int BlameCodeView::sidebarWidth() const
     int max{0};
 
     const auto fm = fontMetrics();
-    for (const auto &b: mBlameData) {
+    for (const auto &b : mBlameData) {
         const QString text = b.log ? b.log->authorName() : i18n("Uncommited");
 
         max = qMax(max, fm.horizontalAdvance(text));
@@ -81,10 +82,8 @@ void BlameCodeView::sidebarPaintEvent(QPaintEvent *event)
                 break;
             auto &&d = mBlameData.at(blockNumber);
 
-
-            painter.setPen(m_highlighter->theme().editorColor(
-                (blockNumber == currentBlockNumber) ? KSyntaxHighlighting::Theme::CurrentLineNumber
-                                                    : KSyntaxHighlighting::Theme::LineNumbers));
+            painter.setPen(m_highlighter->theme().editorColor((blockNumber == currentBlockNumber) ? KSyntaxHighlighting::Theme::CurrentLineNumber
+                                                                                                  : KSyntaxHighlighting::Theme::LineNumbers));
 
             painter.drawText(0,
                              top,

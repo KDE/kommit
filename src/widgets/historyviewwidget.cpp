@@ -13,28 +13,24 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/historymodel.h"
 #include "widgets/graphpainter.h"
 
-
-HistoryViewWidget::HistoryViewWidget(QWidget *parent) :
-      WidgetBase(parent)
+HistoryViewWidget::HistoryViewWidget(QWidget *parent)
+    : WidgetBase(parent)
 {
     setupUi(this);
     mHistoryModel = new Git::LogsModel(Git::Manager::instance(), this);
-//        Git::Manager::instance()->logsCache();
+    //        Git::Manager::instance()->logsCache();
     treeViewHistory->setModel(mHistoryModel);
 
     mGraphPainter = new GraphPainter(mHistoryModel, this);
     treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
 
-    connect(Git::Manager::instance(),
-            &Git::Manager::pathChanged,
-            this,
-            &HistoryViewWidget::git_pathChanged);
+    connect(Git::Manager::instance(), &Git::Manager::pathChanged, this, &HistoryViewWidget::git_pathChanged);
 
     mActions = new CommitActions(Git::Manager::instance(), this);
 }
 
-HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent):
-      WidgetBase(git, parent)
+HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
+    : WidgetBase(git, parent)
 {
     setupUi(this);
     mHistoryModel = git->logsModel();
@@ -43,10 +39,7 @@ HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent):
     mGraphPainter = new GraphPainter(mHistoryModel, this);
     treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
 
-    connect(Git::Manager::instance(),
-            &Git::Manager::pathChanged,
-            this,
-            &HistoryViewWidget::git_pathChanged);
+    connect(Git::Manager::instance(), &Git::Manager::pathChanged, this, &HistoryViewWidget::git_pathChanged);
 
     mActions = new CommitActions(git, this);
 }
@@ -113,8 +106,7 @@ void HistoryViewWidget::on_treeViewHistory_customContextMenuRequested(const QPoi
 
 void HistoryViewWidget::git_pathChanged()
 {
-//    _historyModel->reload();
-//    if (_historyModel->rowCount(QModelIndex()))
-//        treeViewHistory->setCurrentIndex(_historyModel->index(0));
+    //    _historyModel->reload();
+    //    if (_historyModel->rowCount(QModelIndex()))
+    //        treeViewHistory->setCurrentIndex(_historyModel->index(0));
 }
-
