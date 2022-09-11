@@ -213,7 +213,7 @@ QString diffTypeText(const Diff::DiffType type)
     case Diff::DiffType::Removed: return i18n("Removed");
     case Diff::DiffType::Modified: return i18n("Modified");
     }
-    return QString();
+    return {};
 }
 
 void DiffWindow::compareDirs()

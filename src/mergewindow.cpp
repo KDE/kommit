@@ -51,7 +51,7 @@ QStringList readFile(const QString &filePath)
 //    QStringList buffer;
     QFile f{filePath};
     if (!f.open(QIODevice::ReadOnly))
-        return QStringList();
+        return {};
 
 //    while (!f.atEnd()) {
 //        buffer << f.readLine();

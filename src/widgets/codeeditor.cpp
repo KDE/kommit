@@ -82,7 +82,7 @@ CodeEditor::CodeEditor(QWidget *parent)
     setLineWrapMode(QPlainTextEdit::NoWrap);
 }
 
-CodeEditor::~CodeEditor() {}
+CodeEditor::~CodeEditor() = default;
 
 void CodeEditor::resizeEvent(QResizeEvent *event)
 {
@@ -227,7 +227,7 @@ QTextBlock CodeEditor::blockAtPosition(int y) const
 {
     auto block = firstVisibleBlock();
     if (!block.isValid())
-        return QTextBlock();
+        return {};
 
     auto top = blockBoundingGeometry(block).translated(contentOffset()).top();
     int bottom = top + blockBoundingRect(block).height();
@@ -238,7 +238,7 @@ QTextBlock CodeEditor::blockAtPosition(int y) const
         top = bottom;
         bottom = top + blockBoundingRect(block).height();
     } while (block.isValid());
-    return QTextBlock();
+    return {};
 }
 
 bool CodeEditor::isFoldable(const QTextBlock &block) const

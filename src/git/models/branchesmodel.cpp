@@ -33,7 +33,7 @@ QVariant BranchesModel::data(const QModelIndex &index, int role) const
 {
     if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0
         || index.row() >= _data.size())
-        return QVariant();
+        return {};
 
     switch (index.column()) {
     case 0:
@@ -44,13 +44,13 @@ QVariant BranchesModel::data(const QModelIndex &index, int role) const
         return _data.at(index.row())->commitsAhead;
     }
 
-    return QVariant();
+    return {};
 }
 
 QVariant BranchesModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (orientation != Qt::Horizontal || role != Qt::DisplayRole)
-        return QVariant();
+        return {};
 
     switch (section) {
         case 0:
@@ -60,7 +60,7 @@ QVariant BranchesModel::headerData(int section, Qt::Orientation orientation, int
         case 2:
             return i18n("Commit(s) ahead");
     }
-    return QVariant();
+    return {};
 }
 
 BranchesModel::BranchData *BranchesModel::fromindex(const QModelIndex &index) const

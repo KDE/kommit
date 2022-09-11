@@ -74,7 +74,7 @@ QColor textColor(const Diff::DiffType &status)
     case  Diff::DiffType::Removed:
         return GitKlientSettings::self()->diffRemovedColor();
     case  Diff::DiffType::Unchanged:
-        return QColor();
+        return {};
     }
     return {};
 }
@@ -120,7 +120,7 @@ Diff::DiffType DiffTreeModel::toDiffType(const FileStatus::Status &status)
 QVariant DiffTreeModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
-        return QVariant();
+        return {};
 
 
     if (role == Qt::DisplayRole) {
@@ -154,7 +154,7 @@ QVariant DiffTreeModel::data(const QModelIndex &index, int role) const
 //        return textColor(item->metaData);
     }
 
-    return QVariant();
+    return {};
 }
 
 void DiffTreeModel::emitAll()

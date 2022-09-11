@@ -116,7 +116,7 @@ QList<Manager::Log *> Manager::log(const QString &branch) const
             log->hash = line.mid(7).trimmed();
         } else {
             if (!log)
-                return QList<Log *>(); // There is an error
+                return {}; // There is an error
             if (line.startsWith("Author:")) {
                 log->author = line.mid(8).trimmed();
             } else if (line.startsWith("Date: ")) {
@@ -244,7 +244,7 @@ QString Manager::config(const QString &name, ConfigType type) const
     if (!list.empty())
         return list.first();
 
-    return QString();
+    return {};
 }
 
 void Manager::setConfig(const QString &name, const QString &value, ConfigType type) const
@@ -707,7 +707,7 @@ void Manager::removeFile(const QString &file, bool cached) const
 QString Manager::getTopLevelPath() const
 {
     //git rev-parse --show-toplevel
-    return QString();
+    return {};
 }
 
 bool Manager::isMerging() const

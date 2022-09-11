@@ -35,7 +35,7 @@ QVariant RemotesModel::data(const QModelIndex &index, int role) const
 {
     if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0
         || index.row() >= _data.size())
-        return QVariant();
+        return {};
 
     auto remote = _data.at(index.row());
 
@@ -43,7 +43,7 @@ QVariant RemotesModel::data(const QModelIndex &index, int role) const
     case 0:
         return remote->name;
     }
-    return QVariant();
+    return {};
 }
 
 Remote *RemotesModel::fromIndex(const QModelIndex &index)

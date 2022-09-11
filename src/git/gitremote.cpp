@@ -125,7 +125,7 @@ QString RemoteBranch::statusText() const
     case Status::LocalOutOfDate:
         return i18n("Local out of date");
     }
-    return QString();
+    return {};
 }
 
 } // namespace Git

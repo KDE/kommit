@@ -55,7 +55,7 @@ QString SubmoduleInfoDialog::branch() const
 {
     if (checkBoxBranch->isChecked())
         return lineEditBranch->text();
-    return QString();
+    return {};
 }
 
 void SubmoduleInfoDialog::setBranch(const QString &newBranch)

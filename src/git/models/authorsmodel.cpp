@@ -26,7 +26,7 @@ int AuthorsModel::columnCount(const QModelIndex &parent) const
 QVariant AuthorsModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (orientation != Qt::Horizontal || role != Qt::DisplayRole)
-        return QVariant();
+        return {};
 
     switch (section) {
     case 0:
@@ -34,14 +34,14 @@ QVariant AuthorsModel::headerData(int section, Qt::Orientation orientation, int 
     case 1:
         return i18n("Email");
     }
-    return QVariant();
+    return {};
 }
 
 QVariant AuthorsModel::data(const QModelIndex &index, int role) const
 {
     if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0
         || index.row() >= _data.size())
-        return QVariant();
+        return {};
 
     switch (index.column()) {
     case 0:
@@ -50,7 +50,7 @@ QVariant AuthorsModel::data(const QModelIndex &index, int role) const
         return _data.at(index.row())->email;
     }
 
-    return QVariant();
+    return {};
 }
 
 Author *AuthorsModel::findOrCreate(const QString &name, const QString &email)

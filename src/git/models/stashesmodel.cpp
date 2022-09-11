@@ -33,7 +33,7 @@ QVariant StashesModel::data(const QModelIndex &index, int role) const
 {
     if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0
         || index.row() >= _data.size())
-        return QVariant();
+        return {};
 
     auto remote = _data.at(index.row());
 
@@ -47,13 +47,13 @@ QVariant StashesModel::data(const QModelIndex &index, int role) const
     case 3:
         return remote->pushTime();
     }
-    return QVariant();
+    return {};
 }
 
 QVariant StashesModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role != Qt::DisplayRole)
-        return QVariant();
+        return {};
 
     if (orientation == Qt::Horizontal)
         switch (section){
@@ -63,7 +63,7 @@ QVariant StashesModel::headerData(int section, Qt::Orientation orientation, int 
             case 3: return i18n("Time");
         }
 
-    return QVariant();
+    return {};
 }
 
 Stash *StashesModel::fromIndex(const QModelIndex &index) const

@@ -84,7 +84,7 @@ int TreeModel::columnCount(const QModelIndex &parent) const
 QVariant TreeModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
-        return QVariant();
+        return {};
 
 
     if (role == Qt::DisplayRole && index.column() == 0) {
@@ -95,13 +95,13 @@ QVariant TreeModel::data(const QModelIndex &index, int role) const
         return _defaultIcon;
     }
 
-    return QVariant();
+    return {};
 }
 
 QModelIndex TreeModel::index(int row, int column, const QModelIndex &parent) const
 {
     if (!hasIndex(row, column, parent))
-        return QModelIndex();
+        return {};
 
     Node *parentItem;
 
@@ -133,7 +133,7 @@ QModelIndex TreeModel::parent(const QModelIndex &child) const
 QVariant TreeModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role != Qt::DisplayRole)
-        return QVariant();
+        return {};
 
     if (orientation == Qt::Horizontal) {
         if (section == 0)
@@ -172,7 +172,7 @@ QString TreeModel::key(const QModelIndex &index) const
     auto node = static_cast<Node *>(index.internalPointer());
     if (node)
         return node->key;
-    return QString();
+    return {};
 }
 
 QString TreeModel::section(const QModelIndex &index) const
@@ -180,7 +180,7 @@ QString TreeModel::section(const QModelIndex &index) const
     auto node = static_cast<Node *>(index.internalPointer());
     if (node)
         return node->prefix;
-    return QString();
+    return {};
 }
 
 void TreeModel::sortItems()

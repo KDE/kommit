@@ -101,7 +101,7 @@ QString CommandArgsParser::checkAll()
     for (auto i = _commands.begin(); i != _commands.end(); ++i)
         if (check(i.value()))
             return i.key();
-    return QString();
+    return {};
 }
 
 QString CommandArgsParser::param(const QString &name) const

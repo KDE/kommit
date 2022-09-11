@@ -123,7 +123,7 @@ AppWindow::~AppWindow()
 
 AppWindow *AppWindow::instance()
 {
-    static AppWindow *instance = new AppWindow;
+    static auto *instance = new AppWindow;
     return instance;
 }
 

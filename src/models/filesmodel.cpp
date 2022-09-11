@@ -26,7 +26,7 @@ int FilesModel::columnCount(const QModelIndex &parent) const
 QVariant FilesModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= _files.size())
-        return QVariant();
+        return {};
 
     if (role == Qt::DisplayRole || role == Qt::EditRole) {
         auto row = _files[index.row()];
@@ -36,7 +36,7 @@ QVariant FilesModel::data(const QModelIndex &index, int role) const
         return row.first;
     }
 
-    return QVariant();
+    return {};
 }
 
 void FilesModel::append(const QString &data)

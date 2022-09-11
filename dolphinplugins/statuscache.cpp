@@ -10,9 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QFileInfo>
 
 StatusCache::StatusCache()
-{
-
-}
+= default;
 bool StatusCache::addPath(const QString &path)
 {
     Git::MiniManager git(path);

@@ -43,7 +43,7 @@ struct LanesFactory {
     QVector<GraphLane> initLanes(const QString &myHash, int &myIndex)
     {
         if (_hashes.empty())
-            return QVector<GraphLane>();
+            return {};
 
         while (!_hashes.empty() && _hashes.last() == QString())
             _hashes.removeLast();
@@ -205,7 +205,7 @@ void readLine(const QString &line, const QString &seprator, QList<QString *> lis
 QString LogList::branchName(const QString &refLog)
 {
     if (refLog.isEmpty())
-        return QString();
+        return {};
 
 //    auto parts = refLog.split(",");
 //    if (parts.size() < 2)
@@ -215,7 +215,7 @@ QString LogList::branchName(const QString &refLog)
 for (auto &b: _branches)
     if (refLog.contains(b))
         return b;
-return QString();
+return {};
 }
 
 void LogList::initChilds()

@@ -57,9 +57,9 @@ int HistoryModel::columnCount(const QModelIndex &parent) const
 QVariant HistoryModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mLogs.size())
-        return QVariant();
+        return {};
     if (role != Qt::DisplayRole)
-        return QVariant();
+        return {};
 
     auto log = mLogs.at(index.row());
 
@@ -81,13 +81,13 @@ QVariant HistoryModel::data(const QModelIndex &index, int role) const
         }
     }
 
-    return QVariant();
+    return {};
 }
 
 QVariant HistoryModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role != Qt::DisplayRole)
-        return QVariant();
+        return {};
 
     if (orientation == Qt::Vertical)
         return section + 1;
@@ -109,7 +109,7 @@ QVariant HistoryModel::headerData(int section, Qt::Orientation orientation, int 
             return i18n("Author");
         }
     }
-    return QVariant();
+    return {};
 }
 
 Git::Log *HistoryModel::log(const QModelIndex &index) const

@@ -33,7 +33,7 @@ QVariant SubmodulesModel::data(const QModelIndex &index, int role) const
 {
     if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0
         || index.row() >= _data.size())
-        return QVariant();
+        return {};
 
     auto submodule = _data.at(index.row());
 
@@ -43,13 +43,13 @@ QVariant SubmodulesModel::data(const QModelIndex &index, int role) const
     case 1:
         return submodule->refName();
     }
-    return QVariant();
+    return {};
 }
 
 QVariant SubmodulesModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (orientation != Qt::Horizontal || role != Qt::DisplayRole)
-        return QVariant();
+        return {};
 
     switch (section) {
     case 0:
@@ -60,7 +60,7 @@ QVariant SubmodulesModel::headerData(int section, Qt::Orientation orientation, i
         return i18n("Status");
     }
 
-    return QVariant();
+    return {};
 }
 
 bool SubmodulesModel::append(Submodule *module)

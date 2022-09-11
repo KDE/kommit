@@ -32,10 +32,8 @@ File::File(QString place, QString filePath, Manager *git)
 }
 
 File::File(const File &other)
-    : _place(other._place), _filePath(other._filePath), _git(other._git), _storage(other._storage)
-{
-
-}
+     
+= default;
 
 //File::File(File &&other)
 //    : _place(std::move(other._place)), _filePath(std::move(other._filePath)),
@@ -80,14 +78,14 @@ QString File::displayName() const
 {
     switch (_storage) {
     case InValid:
-        return QString();
+        return {};
     case Local:
         return _filePath;
     case Git:
         return _place + ":" + _filePath;
     }
 
-    return QString();
+    return {};
 }
 
 bool File::save(const QString &path) const
@@ -105,18 +103,18 @@ QString File::content() const
 {
     switch (_storage) {
     case InValid:
-        return QString();
+        return {};
     case Local: {
         QFile f(_filePath);
         if (!f.open(QIODevice::ReadOnly))
-            return QString();
+            return {};
         return f.readAll();
     }
     case Git:
         return _git->runGit({"show", _place + ":" + _filePath});
     }
 
-    return QString();
+    return {};
 }
 
 

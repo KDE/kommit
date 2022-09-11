@@ -158,7 +158,7 @@ QString LogDetailsWidget::createHashLink(const QString &hash) const
 {
     auto log = Git::Manager::instance()->logsModel()->findLogByHash(hash);
     if (!log)
-        return QString();
+        return {};
 
     if (m_enableCommitsLinks)
         return QStringLiteral(R"(<a href="hash:%1">%2</a> )")

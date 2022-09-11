@@ -30,7 +30,7 @@ struct ArgParserReturn {
     ParseReturnType type;
     int code{0};
 
-    ArgParserReturn(){}
+    ArgParserReturn()= default;
     ArgParserReturn(int code) : type{ReturnCode}, code{code} {}
     ArgParserReturn(ParseReturnType type) : type{type}, code{0} {}
 };

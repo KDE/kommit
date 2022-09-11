@@ -70,7 +70,7 @@ struct Segment {
         case 1:
             return newText;
         }
-        return QStringList();
+        return {};
     }
 };
 
@@ -86,7 +86,7 @@ struct DiffSegment : Segment
         case 1:
             return newText;
         }
-        return QStringList();
+        return {};
     }
 };
 
@@ -109,7 +109,7 @@ struct MergeSegment : Segment
         case 2:
             return remote;
         }
-        return QStringList();
+        return {};
     }
     MergeSegment();
     MergeSegment(const QStringList &base, const QStringList &local, const QStringList &remote);

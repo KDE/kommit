@@ -76,7 +76,7 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
 QString ActionManager::getCommonPart(const KFileItemList &fileItems)
 {
     if (!fileItems.size())
-        return QString();
+        return {};
 
     QStringList list;
     for (auto const &i: fileItems)

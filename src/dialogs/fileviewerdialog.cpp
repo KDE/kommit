@@ -143,7 +143,7 @@ KService::Ptr FileViewerDialog::getInternalViewer(const QString& mimeType)
 {
     // No point in even trying to find anything for application/octet-stream
     if (mimeType == QLatin1String("application/octet-stream")) {
-        return KService::Ptr();
+        return {};
     }
 
     // Try to get a read-only kpart for the internal viewer
@@ -178,7 +178,7 @@ KService::Ptr FileViewerDialog::getInternalViewer(const QString& mimeType)
     if (!offers.isEmpty()) {
         return offers.first();
     } else {
-        return KService::Ptr();
+        return {};
     }
 }
 
@@ -190,7 +190,7 @@ KService::Ptr FileViewerDialog::getExternalViewer(const QString &mimeType)
     if (!offers.isEmpty()) {
         return offers.first();
     } else {
-        return KService::Ptr();
+        return {};
     }
 }
 

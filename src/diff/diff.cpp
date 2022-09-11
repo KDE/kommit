@@ -15,7 +15,7 @@ namespace Diff
 
 namespace Impl {
 
-typedef QPair<int, int> Pair2;
+using Pair2 = QPair<int, int>;
 struct Pair3 {
     int first;
     int second;
@@ -38,8 +38,8 @@ QDebug operator<<(QDebug d, const Pair3 &p)
     return d;
 }
 
-typedef QList<Pair2> Solution;
-typedef QList<Pair3> Solution3;
+using Solution = QList<Pair2>;
+using Solution3 = QList<Pair3>;
 /*
 QSet<Solution> findLCS(QStringList first, QStringList second, int m, int n)
 {
@@ -385,7 +385,7 @@ QStringList readFileLines(const QString &filePath)
     //    QStringList buffer;
     QFile f{filePath};
     if (!f.open(QIODevice::ReadOnly))
-        return QStringList();
+        return {};
 
     //    while (!f.atEnd()) {
     //        buffer << f.readLine();

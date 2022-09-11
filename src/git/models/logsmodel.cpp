@@ -51,7 +51,7 @@ struct LanesFactory {
     QVector<GraphLane> initLanes(const QString &myHash, int &myIndex)
     {
         if (_hashes.empty())
-            return QVector<GraphLane>();
+            return {};
 
         while (!_hashes.empty() && _hashes.last() == QString())
             _hashes.removeLast();
@@ -236,7 +236,7 @@ int LogsModel::columnCount(const QModelIndex &parent) const
 QVariant LogsModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role != Qt::DisplayRole)
-        return QVariant();
+        return {};
 
     if (orientation == Qt::Vertical)
         return section + 1;
@@ -258,16 +258,16 @@ QVariant LogsModel::headerData(int section, Qt::Orientation orientation, int rol
             return i18n("Author");
         }
     }
-    return QVariant();
+    return {};
 }
 
 QVariant LogsModel::data(const QModelIndex &index, int role) const
 {
     if (role != Qt::DisplayRole)
-        return QVariant();
+        return {};
     auto log = fromIndex(index);
     if (!log)
-        return QVariant();
+        return {};
 
     if (_branch.isEmpty()) {
         switch (index.column()) {
@@ -287,7 +287,7 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
         }
     }
 
-    return QVariant();
+    return {};
 }
 
 Log *LogsModel::fromIndex(const QModelIndex &index) const
@@ -306,7 +306,7 @@ QModelIndex LogsModel::findIndexByHash(const QString &hash) const
             return index(idx);
         else
             idx++;
-    return QModelIndex();
+    return {};
 }
 
 Log *LogsModel::findLogByHash(const QString &hash) const

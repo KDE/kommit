@@ -20,12 +20,12 @@ void AppConfig::apply()
                     Git::Manager::ConfigGlobal);
 
     _git->setConfig("mergetool.gitklientmerge.cmd",
-                    "gitklientmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"",
+                    R"(gitklientmerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED")",
                     Git::Manager::ConfigGlobal);
     _git->setConfig("mergetool.gitklientmerge.trustExitCode", "true", Git::Manager::ConfigGlobal);
 
     _git->setConfig("difftool.gitklientdiff.cmd",
-                    "gitklientdiff \"$LOCAL\" \"$REMOTE\"",
+                    R"(gitklientdiff "$LOCAL" "$REMOTE")",
                     Git::Manager::ConfigGlobal);
 
 }

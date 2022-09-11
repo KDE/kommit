@@ -32,7 +32,7 @@ QVariant TagsModel::data(const QModelIndex &index, int role) const
 {
     if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0
         || index.row() >= _data.size())
-        return QVariant();
+        return {};
 
     auto remote = _data.at(index.row());
 
@@ -44,13 +44,13 @@ QVariant TagsModel::data(const QModelIndex &index, int role) const
     case 2:
         return remote->taggerEmail();
     }
-    return QVariant();
+    return {};
 }
 
 QVariant TagsModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role != Qt::DisplayRole)
-        return QVariant();
+        return {};
 
     if (orientation == Qt::Horizontal)
         switch (section){
@@ -59,7 +59,7 @@ QVariant TagsModel::headerData(int section, Qt::Orientation orientation, int rol
         case 2: return i18n("Author email");
         }
 
-    return QVariant();
+    return {};
 }
 
 Tag *TagsModel::fromIndex(const QModelIndex &index) const

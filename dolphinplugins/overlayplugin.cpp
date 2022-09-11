@@ -35,7 +35,7 @@ QString icon(const FileStatus::Status &status)
     case FileStatus::Unmodified:
         return QStringLiteral("git-status-update");
     case FileStatus::NoGit:
-        return QString();
+        return {};
     default:
         qWarning() << "Unknown icon" << status;
     }
