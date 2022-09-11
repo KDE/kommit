@@ -1,3 +1,5 @@
+[![pipeline](https://invent.kde.org/sdk/gitklient/badges/master/pipeline.svg)](https://invent.kde.org/sdk/gitklient/-/pipelines)
+
 # GitKlient
 
 Git gui client for KDE
