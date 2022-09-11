@@ -51,7 +51,13 @@ void CommandSwitchBranch::setMode(Mode newMode)
 
 QStringList CommandSwitchBranch::generateArgs() const
 {
-    QStringList cmd{QStringLiteral("switch"), _target};
+    QStringList cmd;
+
+    if (_mode == NewBranch)
+        cmd << QStringLiteral("checkout") << QStringLiteral("-b") << _target;
+    else
+        cmd << QStringLiteral("switch") << _target;
+
     if (_force)
         cmd.append(QStringLiteral("--force"));
     return cmd;
