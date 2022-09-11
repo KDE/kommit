@@ -25,7 +25,7 @@ public:
     QString filePathBase() const;
     void setFilePathBase(const QString &newFilePathBase);
 
-private slots:
+private Q_SLOTS:
     void on_toolButtonSelectLocalFile_clicked();
     void on_toolButtonSelectRemoteFile_clicked();
     void on_toolButtonSelectBaseFile_clicked();

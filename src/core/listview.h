@@ -15,10 +15,10 @@ class ListView : public QListView
 public:
     explicit ListView(QWidget *parent = nullptr);
 
-protected slots:
+protected Q_SLOTS:
     void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
 
-signals:
+Q_SIGNALS:
     void itemActivated(const QModelIndex &index);
 };
 

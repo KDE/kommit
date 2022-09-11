@@ -43,7 +43,7 @@ public:
     const QString &filePath() const;
     void setFilePath(const QString &newFilePath);
 
-private slots:
+private Q_SLOTS:
     void viewFile();
     void saveAsFile();
     void logFile();

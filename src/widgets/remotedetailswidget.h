@@ -26,7 +26,7 @@ public:
     Git::Manager *git() const;
     void setGit(Git::Manager *newGit);
 
-private slots:
+private Q_SLOTS:
     void reload();
 //    void on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 };

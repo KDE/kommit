@@ -26,12 +26,12 @@ public:
     void setHideUnchangeds(bool newHideUnchangeds);
     bool eventFilter(QObject *watched, QEvent *event) override;
 
-private slots:
+private Q_SLOTS:
     void on_lineEditFilter_textChanged(const QString &text);
     void on_treeView_clicked(const QModelIndex &index);
     void on_listView_clicked(const QModelIndex &index);
 
-signals:
+Q_SIGNALS:
     void fileSelected(const QString &file);
     void hideUnchangedsChanged();
 private:

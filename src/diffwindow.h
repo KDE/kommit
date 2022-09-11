@@ -24,7 +24,7 @@ public:
     DiffWindow(Git::Manager *git, const QString &oldBranch, const QString &newBranch);
     DiffWindow(const QString &oldDir, const QString &newDir);
 
-private slots:
+private Q_SLOTS:
     void fileOpen();
     void settings();
     void on_treeView_fileSelected(const QString &file);

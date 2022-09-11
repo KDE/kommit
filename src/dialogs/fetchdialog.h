@@ -21,7 +21,7 @@ public:
 
     void setBranch(const QString &branch);
 
-private slots:
+private Q_SLOTS:
     void on_buttonBox_accepted();
 };
 

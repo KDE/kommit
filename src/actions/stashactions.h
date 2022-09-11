@@ -19,7 +19,7 @@ public:
     const QString &stashName() const;
     void setStashName(const QString &newStashName);
 
-public slots:
+public Q_SLOTS:
     void apply();
     void drop();
     void pop();

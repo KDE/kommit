@@ -35,7 +35,7 @@ public:
     void findPrevious(const Diff::SegmentType &type);
     void findNext(const Diff::SegmentType &type);
 
-private slots:
+private Q_SLOTS:
     void codeEditor_blockSelected();
     void codeEditor_scroll(int value);
 

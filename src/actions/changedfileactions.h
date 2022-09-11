@@ -23,11 +23,11 @@ public:
     const QString &filePath() const;
     void setFilePath(const QString &newFilePath);
 
-public slots:
+public Q_SLOTS:
     void diff();
     void revert();
 
-signals:
+Q_SIGNALS:
     void reloadNeeded();
 };
 

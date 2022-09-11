@@ -20,7 +20,7 @@ public:
     QString message() const;
     void setMessage(const QString &newMessage);
 
-private slots:
+private Q_SLOTS:
     void on_lineEditTagName_textChanged(QString s);
 };
 

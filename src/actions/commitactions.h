@@ -24,7 +24,7 @@ public:
     const QString &commitHash() const;
     void setCommitHash(const QString &newCommitHash);
 
-private slots:
+private Q_SLOTS:
     void browse();
     void checkout();
     void diff();

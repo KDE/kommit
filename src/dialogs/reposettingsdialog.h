@@ -22,7 +22,7 @@ class RepoSettingsDialog : public AppDialog, private Ui::RepoSettingsDialog
 public:
     explicit RepoSettingsDialog(Git::Manager *git, QWidget *parent = nullptr);
 
-private slots:
+private Q_SLOTS:
     void on_buttonBox_accepted();
 };
 

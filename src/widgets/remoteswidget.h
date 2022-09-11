@@ -29,7 +29,7 @@ public:
     void restoreState(QSettings &settings) override;
 
 
-private slots:
+private Q_SLOTS:
     void on_listView_itemActivated(const QModelIndex &index);
     void on_listView_customContextMenuRequested(const QPoint &pos);
 

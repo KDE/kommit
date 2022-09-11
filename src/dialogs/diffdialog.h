@@ -27,7 +27,7 @@ public:
     Q_DECL_DEPRECATED DiffDialog(const Git::File &oldFile, const Git::File &newFile, QWidget *parent = nullptr);
     Q_DECL_DEPRECATED DiffDialog(const QString &oldBranch, const QString &newBranch, QWidget *parent = nullptr);
 
-private slots:
+private Q_SLOTS:
     void on_toolButtonShowHiddenChars_clicked(bool checked);
 
     void on_pushButtonSaveAs_clicked();

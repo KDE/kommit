@@ -20,7 +20,7 @@ public:
         DontExit
     };
     explicit MergeCloseEventDialog(QWidget *parent = nullptr);
-private slots:
+private Q_SLOTS:
     void on_commandLinkButtonMarkResolved_clicked();
     void on_commandLinkButtonLeaveAsIs_clicked();
     void on_commandLinkButtonDontExit_clicked();

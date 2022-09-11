@@ -28,7 +28,7 @@ public:
     bool isLoaded() const;
     Status status() const;
 
-public slots:
+public Q_SLOTS:
     void load();
 
 protected:
@@ -36,7 +36,7 @@ protected:
     Manager *_git{nullptr};
     virtual void fill() = 0;
 
-signals:
+Q_SIGNALS:
     void loaded();
     void statusChanged();
 

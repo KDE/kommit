@@ -47,7 +47,7 @@ public:
     bool sameSize() const;
     void setSameSize(bool newSameSize);
 
-signals:
+Q_SIGNALS:
 
 
     // QWidget interface

@@ -42,15 +42,15 @@ public:
     
     void setNewFileText(const Git::File &newNewFile);
     
-public slots:
+public Q_SLOTS:
     void showHiddenChars(bool show);
     void showFilesInfo(bool show);
     void showSameSize(bool show);
 
-signals:
+Q_SIGNALS:
     void sameSizeChanged();
 
-private slots:
+private Q_SLOTS:
     void on_splitter_splitterMoved(int, int);
     void oldCodeEditor_scroll(int value);
     void newCodeEditor_scroll(int value);

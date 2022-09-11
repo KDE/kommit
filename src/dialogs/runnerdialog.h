@@ -34,7 +34,7 @@ public:
     void run(const QStringList &args);
     void run(Git::AbstractCommand *command);
 
-private slots:
+private Q_SLOTS:
     void git_readyReadStandardOutput();
     void git_readyReadStandardError();
     void git_finished(int exitCode, QProcess::ExitStatus exitStatus);

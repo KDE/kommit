@@ -24,7 +24,7 @@ public:
     const QString &remoteName() const;
     void setRemoteName(const QString &newRemoteName);
 
-private slots:
+private Q_SLOTS:
     void create();
     void remove();
     void changeUrl();

@@ -34,7 +34,7 @@ public:
 
     Git::AddSubmoduleCommand *command() const;
 
-private slots:
+private Q_SLOTS:
     void on_toolButtonBrowseLocalPath_clicked();
 };
 

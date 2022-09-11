@@ -32,7 +32,7 @@ public:
 
     void initModel();
 
-public slots:
+public Q_SLOTS:
     void on_pushButtonSearch_clicked();
     void on_treeView_doubleClicked(QModelIndex index);
 

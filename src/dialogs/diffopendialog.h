@@ -27,7 +27,7 @@ public:
     QString newDir() const;
     Mode mode() const;
 
-private slots:
+private Q_SLOTS:
     void on_toolButtonBrowseNewFile_clicked();
     void on_toolButtonBrowseOldFile_clicked();
     void on_toolButtonBrowseNewDirectory_clicked();

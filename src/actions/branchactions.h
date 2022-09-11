@@ -34,7 +34,7 @@ public:
     const QString &otherBranch() const;
     void setOtherBranch(const QString &newOtherBranch);
 
-private slots:
+private Q_SLOTS:
     void fetch();
     void create();
     void browse();

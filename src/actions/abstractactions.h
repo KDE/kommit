@@ -90,7 +90,7 @@ public:
     void popup();
     void popup(const QPoint &pos);
 
-private slots:
+private Q_SLOTS:
     void git_reloaded();
 
 private:

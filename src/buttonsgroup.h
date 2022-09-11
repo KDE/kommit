@@ -24,10 +24,10 @@ public:
     QAbstractButton *at(int i) const;
     void simulateClickOn(int index);
 
-private slots:
+private Q_SLOTS:
     void buttonClicked();
 
-signals:
+Q_SIGNALS:
     void clicked(int index);
 };
 

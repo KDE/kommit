@@ -21,7 +21,7 @@ public:
 
     Git::CommandSwitchBranch *command() const;
 
-private slots:
+private Q_SLOTS:
 //    void on_buttonBox_accepted();
 };
 

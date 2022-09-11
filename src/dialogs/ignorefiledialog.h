@@ -17,7 +17,7 @@ class IgnoreFileDialog : public AppDialog, private Ui::IgnoreFileDialog
 public:
     explicit IgnoreFileDialog(Git::Manager *git, const QString &filePath, QWidget *parent = nullptr);
 
-private slots:
+private Q_SLOTS:
     void generateIgnorePattern();
     void on_buttonBox_accepted();
 

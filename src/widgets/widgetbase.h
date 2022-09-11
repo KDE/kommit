@@ -44,7 +44,7 @@ public:
     void save(QSettings &settings, QTreeView *treeView) const;
     void restore(QSettings &settings, QTreeView *treeView);
 
-private slots:
+private Q_SLOTS:
     void git_pathChanged();
     QString stateName(QWidget *w) const;
 };

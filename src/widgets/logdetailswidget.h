@@ -38,10 +38,10 @@ private:
     bool m_enableCommitsLinks{false};
 
 
-private slots:
+private Q_SLOTS:
     void self_anchorClicked(const QUrl &url);
 
-signals:
+Q_SIGNALS:
     void hashClicked(const QString &hash);
     void fileClicked(const QString &file);
     void enableCommitsLinksChanged();

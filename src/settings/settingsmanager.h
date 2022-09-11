@@ -21,7 +21,7 @@ public:
     void exec(QWidget *parentWidget);
 
 
-public slots:
+public Q_SLOTS:
     void show();
 
 private:

@@ -24,7 +24,7 @@ public:
     const QString &tagName() const;
     void setTagName(const QString &newTagName);
 
-private slots:
+private Q_SLOTS:
     void create();
     void remove();
     void checkout();

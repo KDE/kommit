@@ -76,7 +76,7 @@ public:
     const QString &errorMessage() const;
     void setErrorMessage(const QString &newErrorMessage);
 
-signals:
+Q_SIGNALS:
     void progressChanged(int progress);
 
 private:

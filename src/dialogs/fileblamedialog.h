@@ -25,7 +25,7 @@ public:
     explicit FileBlameDialog(Git::Manager *git, const QString &fileName, QWidget *parent = nullptr);
     explicit FileBlameDialog(const Git::File &file, QWidget *parent = nullptr);
 
-private slots:
+private Q_SLOTS:
     void on_plainTextEdit_blockSelected();
 };
 

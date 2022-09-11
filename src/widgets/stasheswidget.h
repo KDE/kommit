@@ -27,7 +27,7 @@ public:
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
 
-private slots:
+private Q_SLOTS:
     void on_treeView_customContextMenuRequested(const QPoint &pos);
     void on_treeView_itemActivated(const QModelIndex &index);
 

@@ -160,7 +160,7 @@ public:
     QString readNote(const QString &branchName) const;
     void saveNote(const QString &branchName, const QString &note) const;
 
-signals:
+Q_SIGNALS:
     void pathChanged();
 
     void isMergingChanged();

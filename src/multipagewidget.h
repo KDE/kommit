@@ -35,7 +35,7 @@ public:
     void setDefaultGitManager(Git::Manager *newDefaultGitManager);
 
     int count() const;
-private slots:
+private Q_SLOTS:
     void on_actionGroup_triggered(QAction *action);
 };
 

@@ -23,7 +23,7 @@ public:
     QString oldBranch() const;
     QString newBranch() const;
 
-private slots:
+private Q_SLOTS:
     void on_buttonBox_accepted();
 };
 

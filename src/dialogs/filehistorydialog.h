@@ -25,7 +25,7 @@ public:
     FileHistoryDialog(Git::Manager *git, const QString &fileName, QWidget *parent = nullptr);
     FileHistoryDialog(Git::Manager *git, const Git::File &file, QWidget *parent = nullptr);
 
-private slots:
+private Q_SLOTS:
     void on_listWidget_itemClicked(QListWidgetItem *item);
 };
 

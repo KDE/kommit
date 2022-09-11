@@ -26,7 +26,7 @@ public:
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
 
-private slots:
+private Q_SLOTS:
     void on_treeViewHistory_itemActivated(const QModelIndex &index);
     void on_textBrowser_hashClicked(const QString &hash);
     void on_textBrowser_fileClicked(const QString &file);

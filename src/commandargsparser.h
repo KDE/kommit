@@ -62,7 +62,7 @@ public:
     QString param(const QString &name) const;
     ArgParserReturn run(const QStringList &args);
 
-public slots:
+public Q_SLOTS:
     ArgParserReturn help();
 
     ArgParserReturn clone(const QString &path);
