@@ -1,12 +1,158 @@
-#aux_source_directory(git GIT_SRC)
-aux_source_directory(diff DIFF_SRC)
-aux_source_directory(common COMMON_SRC)
-aux_source_directory(models MODELS_SRC)
-aux_source_directory(widgets WIDGETS_SRC)
-aux_source_directory(dialogs DIALOGS_SRC)
-aux_source_directory(actions ACTIONS_SRC)
-aux_source_directory(core CORE_SRC)
 include_directories(${CMAKE_SOURCE_DIR}/core)
+
+set(CORE_SRC
+    core/appdialog.cpp
+    core/appdialog.h
+    core/appmainwindow.cpp
+    core/appmainwindow.h
+    core/listview.cpp
+    core/listview.h
+    core/pushbutton.cpp
+    core/pushbutton.h
+    core/treeview.cpp
+    core/treeview.h
+    core/treewidget.cpp
+    core/treewidget.h
+)
+
+set(ACTIONS_SRC
+    actions/abstractactions.cpp
+    actions/abstractactions.h
+    actions/branchactions.cpp
+    actions/branchactions.h
+    actions/changedfileactions.cpp
+    actions/changedfileactions.h
+    actions/commitactions.cpp
+    actions/commitactions.h
+    actions/fileactions.cpp
+    actions/fileactions.h
+    actions/remotesactions.cpp
+    actions/remotesactions.h
+    actions/stashactions.cpp
+    actions/stashactions.h
+    actions/submoduleactions.cpp
+    actions/submoduleactions.h
+    actions/tagsactions.cpp
+    actions/tagsactions.h
+)
+
+set(WIDGETS_SRC
+    widgets/blamecodeview.cpp
+    widgets/blamecodeview.h
+    widgets/branchesstatuswidget.cpp
+    widgets/branchesstatuswidget.h
+    widgets/codeeditor.cpp
+    widgets/codeeditor.h
+    widgets/codeeditorsidebar.cpp
+    widgets/codeeditorsidebar.h
+    widgets/commitswidget.cpp
+    widgets/commitswidget.h
+    widgets/completiontextedit.cpp
+    widgets/completiontextedit.h
+    widgets/difftreeview.cpp
+    widgets/difftreeview.h
+    widgets/diffwidget.cpp
+    widgets/diffwidget.h
+    widgets/editactionsmapper.cpp
+    widgets/editactionsmapper.h
+    widgets/filesstatuseslist.cpp
+    widgets/filesstatuseslist.h
+    widgets/graphpainter.cpp
+    widgets/graphpainter.h
+    widgets/historyviewwidget.cpp
+    widgets/historyviewwidget.h
+    widgets/logdetailswidget.cpp
+    widgets/logdetailswidget.h
+    widgets/remotedetailswidget.cpp
+    widgets/remotedetailswidget.h
+    widgets/remoteinfodialog.cpp
+    widgets/remoteinfodialog.h
+    widgets/remoteswidget.cpp
+    widgets/remoteswidget.h
+    widgets/segmentconnector.cpp
+    widgets/segmentconnector.h
+    widgets/stasheswidget.cpp
+    widgets/stasheswidget.h
+    widgets/submoduleswidget.cpp
+    widgets/submoduleswidget.h
+    widgets/tagswidget.cpp
+    widgets/tagswidget.h
+    widgets/widgetbase.cpp
+    widgets/widgetbase.h
+)
+
+set(MODELS_SRC
+    models/difftreemodel.cpp
+    models/difftreemodel.h
+    models/filesmodel.cpp
+    models/filesmodel.h
+    models/historymodel.cpp
+    models/historymodel.h
+    models/treemodel.cpp
+    models/treemodel.h
+)
+
+set(DIFF_SRC
+    diff/codeeditordocument.cpp
+    diff/codeeditordocument.h
+    diff/diff.cpp
+    diff/diff.h
+    diff/segmentsmapper.cpp
+    diff/segmentsmapper.h
+)
+
+set(DIALOGS_SRC
+    dialogs/changedfilesdialog.cpp
+    dialogs/changedfilesdialog.h
+    dialogs/clonedialog.cpp
+    dialogs/clonedialog.h
+    dialogs/commitpushdialog.cpp
+    dialogs/commitpushdialog.h
+    dialogs/diffdialog.cpp
+    dialogs/diffdialog.h
+    dialogs/diffopendialog.cpp
+    dialogs/diffopendialog.h
+    dialogs/fetchdialog.cpp
+    dialogs/fetchdialog.h
+    dialogs/fileblamedialog.cpp
+    dialogs/fileblamedialog.h
+    dialogs/filehistorydialog.cpp
+    dialogs/filehistorydialog.h
+    dialogs/filestreedialog.cpp
+    dialogs/filestreedialog.h
+    dialogs/fileviewerdialog.cpp
+    dialogs/fileviewerdialog.h
+    dialogs/ignorefiledialog.cpp
+    dialogs/ignorefiledialog.h
+    dialogs/initdialog.cpp
+    dialogs/initdialog.h
+    dialogs/mergecloseeventdialog.cpp
+    dialogs/mergecloseeventdialog.h
+    dialogs/mergedialog.cpp
+    dialogs/mergedialog.h
+    dialogs/mergeopenfilesdialog.cpp
+    dialogs/mergeopenfilesdialog.h
+    dialogs/modificationsdialog.cpp
+    dialogs/modificationsdialog.h
+    dialogs/notedialog.cpp
+    dialogs/notedialog.h
+    dialogs/pulldialog.cpp
+    dialogs/pulldialog.h
+    dialogs/reposettingsdialog.cpp
+    dialogs/reposettingsdialog.h
+    dialogs/runnerdialog.cpp
+    dialogs/runnerdialog.h
+    dialogs/searchdialog.cpp
+    dialogs/searchdialog.h
+    dialogs/selectbranchestodiffdialog.cpp
+    dialogs/selectbranchestodiffdialog.h
+    dialogs/submoduleinfodialog.cpp
+    dialogs/submoduleinfodialog.h
+    dialogs/switchbranchdialog.cpp
+    dialogs/switchbranchdialog.h
+    dialogs/taginfodialog.cpp
+    dialogs/taginfodialog.h
+)
 
 set(APP_SRCS
 #    ${GIT_SRC}
