@@ -27,12 +27,12 @@ RemotesActions::RemotesActions(Git::Manager *git, QWidget *parent) : AbstractAct
 
 const QString &RemotesActions::remoteName() const
 {
-    return _remoteName;
+    return mRemoteName;
 }
 
 void RemotesActions::setRemoteName(const QString &newRemoteName)
 {
-    _remoteName = newRemoteName;
+    mRemoteName = newRemoteName;
 
     setActionEnabled(_actionRemove, true);
     setActionEnabled(_actionRename, true);
@@ -41,59 +41,59 @@ void RemotesActions::setRemoteName(const QString &newRemoteName)
 
 void RemotesActions::create()
 {
-    RemoteInfoDialog d{_parent};
+    RemoteInfoDialog d{mParent};
     if (d.exec() == QDialog::Accepted) {
 //        _git->addRemote(d.remoteName(), d.remoteUrl());
 
         RunnerDialog runner;
         runner.run(d.command());
         runner.exec();
-        _git->remotesModel()->load();
+        mGit->remotesModel()->load();
     }
 }
 
 void RemotesActions::remove()
 {
-    auto r = KMessageBox::questionYesNo(_parent,
+    auto r = KMessageBox::questionYesNo(mParent,
                                         i18n("Are you sure to remove the selected remote?"),
                                         i18n("Remove remote?"));
 
     if (r == KMessageBox::Yes) {
-        _git->removeRemote(_remoteName);
-        _git->remotesModel()->load();
+        mGit->removeRemote(mRemoteName);
+        mGit->remotesModel()->load();
     }
 
 }
 
 void RemotesActions::changeUrl()
 {
-    auto remote = _git->remotesModel()->findByName(_remoteName);
+    auto remote = mGit->remotesModel()->findByName(mRemoteName);
 
     if (!remote)
         return;
-    auto newUrl = QInputDialog::getText(_parent,
+    auto newUrl = QInputDialog::getText(mParent,
                                         i18n("Change url"),
                                         i18n("URL"),
                                         QLineEdit::Normal,
                                         remote->pushUrl);
 
     if (!newUrl.isEmpty()) {
-        _git->remotesModel()->setUrl(_remoteName, newUrl);
-        KMessageBox::information(_parent, i18n("Url for remote changed successfully"));
+        mGit->remotesModel()->setUrl(mRemoteName, newUrl);
+        KMessageBox::information(mParent, i18n("Url for remote changed successfully"));
     }
 }
 
 void RemotesActions::rename()
 {
-    const auto newName = QInputDialog::getText(_parent,
+    const auto newName = QInputDialog::getText(mParent,
                                          i18n("Rename"),
                                          i18n("New name"),
                                          QLineEdit::Normal,
-                                         _remoteName);
+                                         mRemoteName);
 
     if (!newName.isEmpty()) {
-        _git->remotesModel()->rename(_remoteName, newName);
-        _remoteName = newName;
+        mGit->remotesModel()->rename(mRemoteName, newName);
+        mRemoteName = newName;
     }
 }
 

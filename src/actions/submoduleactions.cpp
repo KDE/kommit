@@ -22,12 +22,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 const QString &SubmoduleActions::subModuleName() const
 {
-    return _subModuleName;
+    return mSubModuleName;
 }
 
 void SubmoduleActions::setSubModuleName(const QString &newSubModuleName)
 {
-    _subModuleName = newSubModuleName.trimmed();
+    mSubModuleName = newSubModuleName.trimmed();
 
     setActionEnabled(_actionInit, true);
     setActionEnabled(_actionUpdate, true);
@@ -49,54 +49,54 @@ SubmoduleActions::SubmoduleActions(Git::Manager *git, QWidget *parent)
 
 void SubmoduleActions::init()
 {
-    RunnerDialog d(_parent);
-    d.run({"submodule", "init", _subModuleName});
+    RunnerDialog d(mParent);
+    d.run({"submodule", "init", mSubModuleName});
     d.exec();
 }
 
 void SubmoduleActions::update()
 {
-    RunnerDialog d(_parent);
-    d.run({"submodule", "update", _subModuleName});
+    RunnerDialog d(mParent);
+    d.run({"submodule", "update", mSubModuleName});
     d.exec();
 }
 
 void SubmoduleActions::create()
 {
-    SubmoduleInfoDialog d(_git, _parent);
+    SubmoduleInfoDialog d(mGit, mParent);
     if (d.exec() == QDialog::Accepted) {
         RunnerDialog runner;
         runner.run(d.command());
         runner.exec();
-        _git->submodulesModel()->load();
+        mGit->submodulesModel()->load();
     }
 }
 
 void SubmoduleActions::deinit()
 {
-    auto r = KMessageBox::questionYesNo(_parent, i18n("Are you sure to remove the selected submodule?"));
+    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to remove the selected submodule?"));
 
     if (r == KMessageBox::No)
         return;
 
-    qDebug() << _git->runGit({"submodule", "deinit", "-f", "--", _subModuleName});
-    qDebug()<<_git->runGit({"rm", _subModuleName});
+    qDebug() << mGit->runGit({"submodule", "deinit", "-f", "--", mSubModuleName});
+    qDebug()<<mGit->runGit({"rm", mSubModuleName});
 
-    QDir d(_git->path() + "/.git/modules/" + _subModuleName);
+    QDir d(mGit->path() + "/.git/modules/" + mSubModuleName);
     if (!d.removeRecursively()) {
-        KMessageBox::error(_parent, i18n("Unable to remove the module directory"));
+        KMessageBox::error(mParent, i18n("Unable to remove the module directory"));
         return;
     }
     qDebug()<<d.path();
-    _git->runGit({"config", "--remove-section", "submodule." + _subModuleName});
+    mGit->runGit({"config", "--remove-section", "submodule." + mSubModuleName});
 
-    _git->submodulesModel()->load();
-    KMessageBox::information(_parent, i18n("The submodule %1 removed", _subModuleName));
+    mGit->submodulesModel()->load();
+    KMessageBox::information(mParent, i18n("The submodule %1 removed", mSubModuleName));
 }
 
 void SubmoduleActions::sync()
 {
-    RunnerDialog d(_parent);
-    d.run({"submodule", "sync", _subModuleName});
+    RunnerDialog d(mParent);
+    d.run({"submodule", "sync", mSubModuleName});
     d.exec();
 }

@@ -29,12 +29,12 @@ TagsActions::TagsActions(Git::Manager *git, QWidget *parent) : AbstractActions(g
 
 const QString &TagsActions::tagName() const
 {
-    return _tagName;
+    return mTagName;
 }
 
 void TagsActions::setTagName(const QString &newTagName)
 {
-    _tagName = newTagName;
+    mTagName = newTagName;
 
     setActionEnabled(_actionRemove, true);
     setActionEnabled(_actionCheckout, true);
@@ -43,44 +43,44 @@ void TagsActions::setTagName(const QString &newTagName)
 
 void TagsActions::create()
 {
-    TagInfoDialog d(_parent);
+    TagInfoDialog d(mParent);
     d.setWindowTitle(i18nc("@title:window", "New tag"));
     if (d.exec() == QDialog::Accepted) {
-        _git->createTag(d.tagName(), d.message());
-        _git->tagsModel()->load();
+        mGit->createTag(d.tagName(), d.message());
+        mGit->tagsModel()->load();
     }
 }
 
 void TagsActions::remove()
 {
-    auto r = KMessageBox::questionYesNo(_parent, i18n("Are you sure to remove the selected tag?"));
+    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to remove the selected tag?"));
 
     if (r == KMessageBox::No)
         return;
 
-    _git->runGit({"tag", "-d", _tagName});
-    _git->tagsModel()->load();
+    mGit->runGit({"tag", "-d", mTagName});
+    mGit->tagsModel()->load();
 }
 
 void TagsActions::checkout()
 {
-    auto r = KMessageBox::questionYesNo(_parent, i18n("Are you sure to restore to the selected tag?"));
+    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to restore to the selected tag?"));
 
     if (r == KMessageBox::No)
         return;
 
-    _git->runGit({"tag", "checkout", "tags/" + _tagName});
+    mGit->runGit({"tag", "checkout", "tags/" + mTagName});
 }
 
 void TagsActions::diff()
 {
-    auto d = new DiffWindow(_tagName, "HEAD");
+    auto d = new DiffWindow(mTagName, "HEAD");
     d->showModal();
 }
 
 void TagsActions::push()
 {
-    RunnerDialog d(_parent);
+    RunnerDialog d(mParent);
     d.run({"push", "--tags"});
     d.exec();
 }

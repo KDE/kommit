@@ -66,30 +66,30 @@ void BranchActions::setOtherBranch(const QString &newOtherBranch)
 
 void BranchActions::fetch()
 {
-    FetchDialog d(_git, _parent);
+    FetchDialog d(mGit, mParent);
     d.setBranch(_branchName);
     d.exec();
 }
 
 void BranchActions::create()
 {
-    const auto newBranchName = QInputDialog::getText(_parent, i18n("Create new branch"), i18n("Branch name"));
+    const auto newBranchName = QInputDialog::getText(mParent, i18n("Create new branch"), i18n("Branch name"));
 
     if (!newBranchName.isEmpty()) {
-        _git->runGit({"checkout", "-b", newBranchName});
-        _git->branchesModel()->load();
+        mGit->runGit({"checkout", "-b", newBranchName});
+        mGit->branchesModel()->load();
     }
 }
 
 void BranchActions::browse()
 {
-    FilesTreeDialog d(_branchName, _parent);
+    FilesTreeDialog d(_branchName, mParent);
     d.exec();
 }
 
 void BranchActions::checkout()
 {
-    RunnerDialog d(_parent);
+    RunnerDialog d(mParent);
     d.run({"checkout", _branchName});
     d.exec();
 }
@@ -99,7 +99,7 @@ void BranchActions::diff()
     QString mainBranch = _otherBranch;
 
     if (!mainBranch.isEmpty()) {
-        auto branches = _git->branches();
+        auto branches = mGit->branches();
         if (branches.contains(QStringLiteral("master")))
             mainBranch = QStringLiteral("master");
         else if (branches.contains(QStringLiteral("main")))
@@ -108,26 +108,26 @@ void BranchActions::diff()
             return;
     }
 
-    auto d = new DiffWindow(_git, mainBranch, _branchName);
+    auto d = new DiffWindow(mGit, mainBranch, _branchName);
     d->showModal();
 }
 
 void BranchActions::remove()
 {
-    auto r = KMessageBox::questionYesNo(_parent, i18n("Are you sure to remove the selected branch?"), i18n("Remove Branch"));
+    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to remove the selected branch?"), i18n("Remove Branch"));
 
     if (r == KMessageBox::No)
         return;
 
-    _git->removeBranch(_branchName);
+    mGit->removeBranch(_branchName);
 }
 
 void BranchActions::merge()
 {
-    MergeDialog d{_git, _branchName, _parent};
+    MergeDialog d{mGit, _branchName, mParent};
     if (d.exec() == QDialog::Accepted) {
         auto cmd = d.command();
-        RunnerDialog runner(_parent);
+        RunnerDialog runner(mParent);
         runner.run(cmd);
         runner.exec();
     }
@@ -135,6 +135,6 @@ void BranchActions::merge()
 
 void BranchActions::note()
 {
-    NoteDialog d{_git, _branchName, _parent};
+    NoteDialog d{mGit, _branchName, mParent};
     d.exec();
 }

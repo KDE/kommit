@@ -48,10 +48,10 @@ class AbstractActions : public QObject
     Q_OBJECT
 
 protected:
-    Git::Manager *_git;
-    QList<QAction*> _actions;
-    QMenu *_menu;
-    QWidget *_parent;
+    Git::Manager *mGit = nullptr;
+    QList<QAction*> mActions;
+    QMenu *mMenu = nullptr;
+    QWidget *mParent = nullptr;
     void setActionEnabled(QAction *action, bool enabled = true);
 
     template<class Receiver, class Func>
@@ -96,6 +96,5 @@ private slots:
 private:
     QAction *createAction(const QString &text, bool enabled, bool addToMenu);
     QMap<QAction *, bool> _actionStatuses;
-signals:
 };
 

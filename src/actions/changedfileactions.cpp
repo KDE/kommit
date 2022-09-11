@@ -25,12 +25,12 @@ ChangedFileActions::ChangedFileActions(Git::Manager *git, QWidget *parent)
 
 const QString &ChangedFileActions::filePath() const
 {
-    return _filePath;
+    return mFilePath;
 }
 
 void ChangedFileActions::setFilePath(const QString &newFilePath)
 {
-    _filePath = newFilePath;
+    mFilePath = newFilePath;
 
     setActionEnabled(_actionDiff, true);
     setActionEnabled(_actionRevert, true);
@@ -38,8 +38,8 @@ void ChangedFileActions::setFilePath(const QString &newFilePath)
 
 void ChangedFileActions::diff()
 {
-    Git::File original{_git->currentBranch(), _filePath};
-    Git::File changed{_git->path() + QLatin1Char('/') + _filePath};
+    Git::File original{mGit->currentBranch(), mFilePath};
+    Git::File changed{mGit->path() + QLatin1Char('/') + mFilePath};
 
     auto diffWin = new DiffWindow(original, changed);
     diffWin->showModal();
@@ -47,6 +47,6 @@ void ChangedFileActions::diff()
 
 void ChangedFileActions::revert()
 {
-    _git->revertFile(_filePath);
+    mGit->revertFile(mFilePath);
     emit reloadNeeded();
 }

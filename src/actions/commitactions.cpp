@@ -39,19 +39,19 @@ CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
 
 void CommitActions::browse()
 {
-    FilesTreeDialog d(_commitHash, _parent);
+    FilesTreeDialog d(_commitHash, mParent);
     d.exec();
 }
 
 void CommitActions::checkout()
 {
-    RunnerDialog d(_parent);
+    RunnerDialog d(mParent);
     d.run({"checkout", _commitHash});
     d.exec();
 }
 
 void CommitActions::diff()
 {
-    auto d = new DiffWindow(_git, _commitHash, "HEAD");
+    auto d = new DiffWindow(mGit, _commitHash, "HEAD");
     d->showModal();
 }

@@ -14,8 +14,8 @@ class FileActions : public AbstractActions
 {
     Q_OBJECT
 
-    QString _place;
-    QString _filePath;
+    QString mPlace;
+    QString mFilePath;
 
     DEFINE_ACTION(actionSaveAs)
     DEFINE_ACTION(actionView)

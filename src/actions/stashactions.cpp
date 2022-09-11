@@ -44,51 +44,51 @@ void StashActions::setStashName(const QString &newStashName)
 
 void StashActions::apply()
 {
-    auto r = KMessageBox::questionYesNo(_parent,
+    auto r = KMessageBox::questionYesNo(mParent,
                                         i18n("Are you sure to apply the selected stash?"),
                                         i18n("Apply stash %1", _stashName));
 
     if (r == KMessageBox::Yes)
-        _git->applyStash(_stashName);
+        mGit->applyStash(_stashName);
 }
 
 void StashActions::drop()
 {
-    auto r = KMessageBox::questionYesNo(_parent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", _stashName));
+    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", _stashName));
 
     if (r == KMessageBox::Yes) {
-        _git->removeStash(_stashName);
-        _git->stashesModel()->load();
+        mGit->removeStash(_stashName);
+        mGit->stashesModel()->load();
     }
 }
 
 void StashActions::pop()
 {
-    auto r = KMessageBox::questionYesNo(_parent,
+    auto r = KMessageBox::questionYesNo(mParent,
                                         i18n("Are you sure to apply the selected stash?"),
                                         i18n("Apply stash %1", _stashName));
 
     if (r == KMessageBox::Yes) {
-        _git->runGit({"stash", "push", _stashName});
-        _git->stashesModel()->load();
+        mGit->runGit({"stash", "push", _stashName});
+        mGit->stashesModel()->load();
     }
 }
 
 void StashActions::diff()
 {
-    auto d = new DiffWindow(_git, _stashName, "HEAD");
+    auto d = new DiffWindow(mGit, _stashName, "HEAD");
     d->showModal();
 }
 
 void StashActions::create()
 {
-    if (_git->changedFiles().empty()) {
-        KMessageBox::information(_parent, i18n("You don't have any changes!"), i18n("Stash"));
+    if (mGit->changedFiles().empty()) {
+        KMessageBox::information(mParent, i18n("You don't have any changes!"), i18n("Stash"));
         return;
     }
     bool ok;
 
-    const auto name = QInputDialog::getText(_parent,
+    const auto name = QInputDialog::getText(mParent,
                           i18n("Create new stash"),
                           i18n("Name of stash"),
                           QLineEdit::Normal,
@@ -96,6 +96,6 @@ void StashActions::create()
                           &ok);
 
     if (ok) {
-        _git->createStash(name);
+        mGit->createStash(name);
     }
 }

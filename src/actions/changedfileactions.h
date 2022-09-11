@@ -12,7 +12,7 @@ class ChangedFileActions : public AbstractActions
 {
     Q_OBJECT
 
-    QString _filePath;
+    QString mFilePath;
 
     DEFINE_ACTION(actionDiff)
     DEFINE_ACTION(actionRevert)

@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 void AbstractActions::setActionEnabled(QAction *action, bool enabled)
 {
-    if (_git->isValid()) {
+    if (mGit->isValid()) {
         action->setEnabled(enabled);
     } else {
         action->setEnabled(false);
@@ -23,26 +23,26 @@ void AbstractActions::setActionEnabled(QAction *action, bool enabled)
 }
 
 AbstractActions::AbstractActions(Git::Manager *git, QWidget *parent)
-    : QObject{parent}, _git{git} , _parent{parent}
+    : QObject{parent}, mGit{git} , mParent{parent}
 {
-    _menu = new QMenu(parent);
+    mMenu = new QMenu(parent);
     connect(git, &Git::Manager::pathChanged, this, &AbstractActions::git_reloaded);
 }
 
 void AbstractActions::popup()
 {
-    _menu->popup(QCursor::pos());
+    mMenu->popup(QCursor::pos());
 }
 
 void AbstractActions::popup(const QPoint &pos)
 {
-    _menu->popup(pos);
+    mMenu->popup(pos);
 }
 
 void AbstractActions::git_reloaded()
 {
-    if (!_git->isValid()) {
-        for (auto &a: qAsConst(_actions))
+    if (!mGit->isValid()) {
+        for (auto &a: qAsConst(mActions))
             a->setEnabled(false);
         _actionStatuses.clear();
         return;
@@ -61,7 +61,7 @@ QAction *AbstractActions::createAction(const QString &text, bool enabled, bool a
     a->setText(text);
     setActionEnabled(a, enabled);
     if (addToMenu)
-        _menu->addAction(a);
-    _actions.append(a);
+        mMenu->addAction(a);
+    mActions.append(a);
     return a;
 }

@@ -15,7 +15,7 @@ CloneDialog::CloneDialog(QWidget *parent) :
       AppDialog(parent)
 {
     setupUi(this);
-    _fixedPath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+    mFixedPath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
 
     QSettings s;
     lineEditUrl->setText(s.value("lastClonedRepo").toString());
@@ -44,9 +44,9 @@ Git::CloneCommand *CloneDialog::command()
 void CloneDialog::setLocalPath(const QString &path)
 {
     if (path.endsWith("/"))
-        _fixedPath = path.mid(0, path.length() - 1);
+        mFixedPath = path.mid(0, path.length() - 1);
     else
-        _fixedPath = path;
+        mFixedPath = path;
     lineEditPath->setText(path);
 }
 
@@ -58,7 +58,7 @@ void CloneDialog::on_lineEditUrl_textChanged(const QString &text)
         if (local.endsWith(QStringLiteral(".git"), Qt::CaseInsensitive))
             local = local.mid(0, local.size() - 4);
 
-        lineEditPath->setText(_fixedPath + QLatin1Char('/') + local);
+        lineEditPath->setText(mFixedPath + QLatin1Char('/') + local);
     }
 }
 

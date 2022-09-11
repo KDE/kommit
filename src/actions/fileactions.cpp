@@ -36,40 +36,40 @@ KService::Ptr FileActions::getExternalViewer(const QString &mimeType)
 
 const QString &FileActions::place() const
 {
-    return _place;
+    return mPlace;
 }
 
 void FileActions::setPlace(const QString &newPlace)
 {
-    _place = newPlace;
+    mPlace = newPlace;
 
-    setActionEnabled(_actionView, !_filePath.isEmpty());
-    setActionEnabled(_actionOpenWith, !_filePath.isEmpty());
-    setActionEnabled(_actionDiffWithHead, !_filePath.isEmpty());
-    setActionEnabled(_actionMergeWithHead, !_filePath.isEmpty());
-    setActionEnabled(_actionSaveAs, !_filePath.isEmpty());
-    setActionEnabled(_actionHistory, !_filePath.isEmpty());
-    setActionEnabled(_actionBlame, !_filePath.isEmpty());
-    setActionEnabled(_actionSearch, !_filePath.isEmpty());
+    setActionEnabled(_actionView, !mFilePath.isEmpty());
+    setActionEnabled(_actionOpenWith, !mFilePath.isEmpty());
+    setActionEnabled(_actionDiffWithHead, !mFilePath.isEmpty());
+    setActionEnabled(_actionMergeWithHead, !mFilePath.isEmpty());
+    setActionEnabled(_actionSaveAs, !mFilePath.isEmpty());
+    setActionEnabled(_actionHistory, !mFilePath.isEmpty());
+    setActionEnabled(_actionBlame, !mFilePath.isEmpty());
+    setActionEnabled(_actionSearch, !mFilePath.isEmpty());
 }
 
 const QString &FileActions::filePath() const
 {
-    return _filePath;
+    return mFilePath;
 }
 
 void FileActions::setFilePath(const QString &newFilePath)
 {
-    _filePath = newFilePath;
+    mFilePath = newFilePath;
 
-    setActionEnabled(_actionView, !_place.isEmpty());
-    setActionEnabled(_actionOpenWith, !_place.isEmpty());
-    setActionEnabled(_actionDiffWithHead, !_place.isEmpty());
-    setActionEnabled(_actionMergeWithHead, !_place.isEmpty());
-    setActionEnabled(_actionSaveAs, !_place.isEmpty());
-    setActionEnabled(_actionHistory, !_place.isEmpty());
-    setActionEnabled(_actionBlame, !_place.isEmpty());
-    setActionEnabled(_actionSearch, !_place.isEmpty());
+    setActionEnabled(_actionView, !mPlace.isEmpty());
+    setActionEnabled(_actionOpenWith, !mPlace.isEmpty());
+    setActionEnabled(_actionDiffWithHead, !mPlace.isEmpty());
+    setActionEnabled(_actionMergeWithHead, !mPlace.isEmpty());
+    setActionEnabled(_actionSaveAs, !mPlace.isEmpty());
+    setActionEnabled(_actionHistory, !mPlace.isEmpty());
+    setActionEnabled(_actionBlame, !mPlace.isEmpty());
+    setActionEnabled(_actionSearch, !mPlace.isEmpty());
 }
 
 FileActions::FileActions(Git::Manager *git, QWidget *parent) : AbstractActions(git, parent)
@@ -90,12 +90,12 @@ FileActions::FileActions(Git::Manager *git, QWidget *parent) : AbstractActions(g
 
 void FileActions::popup(const QPoint &pos)
 {
-    _menu->popup(pos);
+    mMenu->popup(pos);
 }
 
 void FileActions::viewFile()
 {
-    auto d = new FileViewerDialog(_place, _filePath, _parent);
+    auto d = new FileViewerDialog(mPlace, mFilePath, mParent);
     d->setWindowModality(Qt::ApplicationModal);
     d->setAttribute(Qt::WA_DeleteOnClose, true);
     d->show();
@@ -103,17 +103,17 @@ void FileActions::viewFile()
 
 void FileActions::saveAsFile()
 {
-    const auto fileName = QFileDialog::getSaveFileName(_parent);
+    const auto fileName = QFileDialog::getSaveFileName(mParent);
     if (!fileName.isEmpty()) {
-        Git::File file{_place, _filePath};
+        Git::File file{mPlace, mFilePath};
         file.save(fileName);
     }
 }
 
 void FileActions::logFile()
 {
-    Git::File file{_place, _filePath};
-    FileHistoryDialog d(_git, file, _parent);
+    Git::File file{mPlace, mFilePath};
+    FileHistoryDialog d(mGit, file, mParent);
     d.exec();
 }
 
@@ -121,8 +121,8 @@ void FileActions::blameFile()
 {
     //    auto path = _treeModel->fullPath(treeView->currentIndex()) + "/"
     //                + listWidget->currentItem()->text();
-    Git::File file(_place, _filePath, _git);
-    FileBlameDialog d(file, _parent);
+    Git::File file(mPlace, mFilePath, mGit);
+    FileBlameDialog d(file, mParent);
     d.exec();
 }
 
@@ -130,7 +130,7 @@ void FileActions::search()
 {
     //    auto path = _treeModel->fullPath(treeView->currentIndex()) + "/"
     //                + listWidget->currentItem()->text();
-    SearchDialog d(_filePath, Git::Manager::instance(), _parent);
+    SearchDialog d(mFilePath, Git::Manager::instance(), mParent);
     d.exec();
 }
 
@@ -157,7 +157,7 @@ KService::Ptr FileActions::getViewer(const QString &mimeType)
 
 void FileActions::openWith()
 {
-    auto fileName = _git->path() + QLatin1Char('/') + _filePath;
+    auto fileName = mGit->path() + QLatin1Char('/') + mFilePath;
     const QList<QUrl> fileUrlList = {QUrl::fromLocalFile(fileName)};
     QMimeDatabase db;
     QMimeType mimeType = db.mimeTypeForFile(fileName);
@@ -174,8 +174,8 @@ void FileActions::openWith()
 
 void FileActions::diffWithHead()
 {
-    Git::File oldFile{_place, _filePath};
-    Git::File newFile{_git->path() + QLatin1Char('/') + _filePath};
+    Git::File oldFile{mPlace, mFilePath};
+    Git::File newFile{mGit->path() + QLatin1Char('/') + mFilePath};
 
     auto d = new DiffWindow(oldFile, newFile);
     d->showModal();
@@ -186,13 +186,13 @@ void FileActions::mergeWithHead()
     auto d = new MergeWindow(MergeWindow::NoParams);
 
     auto p = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/ggggg";
-    Git::File f{_place, _filePath};
+    Git::File f{mPlace, mFilePath};
     f.save(p);
 
     d->setFilePathBase(p);
-    d->setFilePathLocal(_git->path() + QLatin1Char('/') + _filePath);
+    d->setFilePathLocal(mGit->path() + QLatin1Char('/') + mFilePath);
     d->setFilePathRemote(p);
-    d->setFilePathResult(_git->path() + QLatin1Char('/') + _filePath);
+    d->setFilePathResult(mGit->path() + QLatin1Char('/') + mFilePath);
     d->load();
 
     d->showModal();

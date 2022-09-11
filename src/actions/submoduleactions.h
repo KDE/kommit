@@ -11,7 +11,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 class SubmoduleActions: public AbstractActions
 {
     Q_OBJECT
-        QString _subModuleName;
 
 public:
     SubmoduleActions(Git::Manager *git, QWidget *parent = nullptr);
@@ -26,7 +25,7 @@ public:
     void setSubModuleName(const QString &newSubModuleName);
 
 private:
-    QString _submoduleName;
+    QString mSubModuleName;
     DEFINE_ACTION(actionInit)
     DEFINE_ACTION(actionUpdate)
     DEFINE_ACTION(actionCreate)

@@ -32,6 +32,6 @@ private slots:
     void push();
 
 private:
-    QString _tagName;
+    QString mTagName;
 };
 

@@ -15,37 +15,37 @@ PushButton::PushButton(QWidget *parent) : QPushButton(parent)
 
 QAction *PushButton::action() const
 {
-    return _action;
+    return mAction;
 }
 
 void PushButton::setAction(QAction *newAction)
 {
 
-    if (_action && _action != newAction) {
-        disconnect(_action, &QAction::changed,
+    if (mAction && mAction != newAction) {
+        disconnect(mAction, &QAction::changed,
                    this, &PushButton::updateButtonStatusFromAction);
         disconnect(this, &PushButton::clicked,
-                   _action, &QAction::trigger);
+                   mAction, &QAction::trigger);
     }
-    _action = newAction;
+    mAction = newAction;
 
-    connect(_action, &QAction::changed,
+    connect(mAction, &QAction::changed,
             this, &PushButton::updateButtonStatusFromAction);
     connect(this, &PushButton::clicked,
-            _action, &QAction::trigger);
+            mAction, &QAction::trigger);
 
     updateButtonStatusFromAction();
 }
 
 void PushButton::updateButtonStatusFromAction() {
 
-    if (!_action)
+    if (!mAction)
         return;
-    setText(_action->text());
-    setStatusTip(_action->statusTip());
-    setToolTip(_action->toolTip());
-    setIcon(_action->icon());
-    setEnabled(_action->isEnabled());
-    setCheckable(_action->isCheckable());
-    setChecked(_action->isChecked());
+    setText(mAction->text());
+    setStatusTip(mAction->statusTip());
+    setToolTip(mAction->toolTip());
+    setIcon(mAction->icon());
+    setEnabled(mAction->isEnabled());
+    setCheckable(mAction->isCheckable());
+    setChecked(mAction->isChecked());
 }

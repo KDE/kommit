@@ -14,7 +14,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 class CloneDialog : public AppDialog, private Ui::CloneDialog
 {
     Q_OBJECT
-    QString _fixedPath;
 
 public:
     explicit CloneDialog(QWidget *parent = nullptr);
@@ -28,5 +27,8 @@ private slots:
     void on_lineEditUrl_textChanged(const QString &text);
     void on_toolButtonBrowseLocalPath_clicked();
     void on_buttonBox_accepted();
+
+private:
+    QString mFixedPath;
 };
 

@@ -32,6 +32,6 @@ private slots:
     void update();
 
 private:
-    QString _remoteName;
+    QString mRemoteName;
 };
 
