@@ -13,7 +13,7 @@ class BlameCodeView : public CodeEditor
     Q_OBJECT
 
 public:
-    BlameCodeView(QWidget *parent = nullptr);
+    explicit BlameCodeView(QWidget *parent = nullptr);
     const Git::BlameData &blameData() const;
     void setBlameData(const Git::BlameData &newBlameData);
 

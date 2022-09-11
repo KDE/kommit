@@ -13,7 +13,7 @@ class SubmoduleActions : public AbstractActions
     Q_OBJECT
 
 public:
-    SubmoduleActions(Git::Manager *git, QWidget *parent = nullptr);
+    explicit SubmoduleActions(Git::Manager *git, QWidget *parent = nullptr);
 
     void init();
     void update();

@@ -15,7 +15,7 @@ class CompletionTextEdit : public QTextEdit
     Q_OBJECT
 
 public:
-    CompletionTextEdit(QWidget *parent = nullptr);
+    explicit CompletionTextEdit(QWidget *parent = nullptr);
 
     void setCompleter(QCompleter *c);
     QCompleter *completer() const;

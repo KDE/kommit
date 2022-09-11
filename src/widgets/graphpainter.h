@@ -20,7 +20,7 @@ class GraphPainter : public QStyledItemDelegate
     QVector<QColor> _colors;
 
 public:
-    GraphPainter(Git::LogsModel *model, QObject *parent = nullptr);
+    explicit GraphPainter(Git::LogsModel *model, QObject *parent = nullptr);
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     void paintLane(QPainter *painter, const Git::GraphLane &lane, int index) const;

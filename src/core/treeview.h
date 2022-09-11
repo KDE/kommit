@@ -12,7 +12,7 @@ class TreeView : public QTreeView
 {
     Q_OBJECT
 public:
-    TreeView(QWidget *parent = nullptr);
+    explicit TreeView(QWidget *parent = nullptr);
 
 protected Q_SLOTS:
     void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
