@@ -21,9 +21,7 @@ PullDialog::PullDialog(QWidget *parent, Git::Manager *git)
     comboBoxRemote->addItems(g->remotes());
     comboBoxBranch->addItems(g->branches());
 
-    comboBoxRemote->setCurrentText(g->currentBranch());
-
-    // git pull --squash --no-ff --ff-only --no-commit --prune --tags
+    comboBoxBranch->setCurrentText(g->currentBranch());
 }
 
 void PullDialog::on_buttonBox_accepted()

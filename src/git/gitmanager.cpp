@@ -439,10 +439,7 @@ QStringList Manager::ls(const QString &place) const
     QMutableListIterator<QString> it(buffer);
     while (it.hasNext()) {
         auto s = it.next();
-        if (s.startsWith(""
-                         "")
-            && s.endsWith(""
-                          ""))
+        if (s.startsWith("\"") && s.endsWith("\""))
             it.setValue(s.mid(1, s.length() - 2));
     }
     return buffer;
