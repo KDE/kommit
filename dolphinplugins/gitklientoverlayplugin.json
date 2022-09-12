@@ -1,16 +1,6 @@
 {
     "KPlugin": {
         "Description": "Overlay icon for GitKlient",
-        "Description[ca@valencia]": "Icona de substitució per a GitKlient",
-        "Description[ca]": "Icona de substitució per a l'GitKlient",
-        "Description[en_GB]": "Overlay icon for GitKlient",
-        "Description[es]": "Icono superpuesto para GitKlient",
-        "Description[nl]": "Overlay pictogram voor GitKlient",
-        "Description[pt]": "Ícone sobreposto para o GitKlient",
-        "Description[sl]": "Prekrivna ikona za GitKlient",
-        "Description[tr]": "GitKlient Simgesi",
-        "Description[uk]": "Піктограма-накладка для GitKlient",
-        "Description[x-test]": "xxOverlay icon for GitKlientxx",
         "ServiceTypes": [
             "KOverlayIconPlugin"
         ]
