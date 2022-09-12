@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "statuscache.h"
-#include <KIOCore/kfileitem.h>
-#include <KIOWidgets/KAbstractFileItemActionPlugin>
+#include <kfileitem.h>
+#include <KAbstractFileItemActionPlugin>
 
 class ActionManager : public KAbstractFileItemActionPlugin
 {

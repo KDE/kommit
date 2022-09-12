@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "git/filestatus.h"
-#include <QtCore/QAbstractListModel>
+#include <QAbstractListModel>
 
 #include <QList>
 #include <QPair>

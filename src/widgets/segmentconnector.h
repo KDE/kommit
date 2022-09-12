@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "../diff/diff.h"
-#include <QtCore/QMap>
-#include <QtWidgets/QWidget>
+#include <QMap>
+#include <QWidget>
 
 class CodeEditor;
 class SegmentConnector : public QWidget
