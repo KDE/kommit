@@ -12,8 +12,8 @@ class BranchActions : public AbstractActions
 {
     Q_OBJECT
 
-    QString _branchName;
-    QString _otherBranch;
+    QString mBranchName;
+    QString mOtherBranch;
 
     DEFINE_ACTION(actionFetch)
     DEFINE_ACTION(actionBrowse)

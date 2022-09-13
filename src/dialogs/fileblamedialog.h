@@ -18,9 +18,6 @@ class Manager;
 class FileBlameDialog : public AppDialog, private Ui::FileBlameDialog
 {
     Q_OBJECT
-    Git::Manager *_git;
-    QString _fileName;
-    Git::File _file;
 
 public:
     explicit FileBlameDialog(Git::Manager *git, const QString &fileName, QWidget *parent = nullptr);
@@ -28,4 +25,9 @@ public:
 
 private Q_SLOTS:
     void on_plainTextEdit_blockSelected();
+
+private:
+    Git::Manager *mGit = nullptr;
+    QString mFileName;
+    Git::File mFile;
 };

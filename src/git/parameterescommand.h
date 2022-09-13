@@ -13,7 +13,7 @@ namespace Git
 
 class ParameteresCommand : public AbstractCommand
 {
-    QStringList _args;
+    QStringList mArgs;
 
 public:
     ParameteresCommand();

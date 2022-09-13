@@ -27,9 +27,9 @@ public:
     void setIncludeStatus(bool newIncludeStatus);
 
 private:
-    QString _message;
-    bool _amend{false};
-    bool _includeStatus{false};
+    QString mMessage;
+    bool mAmend{false};
+    bool mIncludeStatus{false};
 };
 
 } // namespace Git

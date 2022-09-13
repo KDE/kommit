@@ -15,7 +15,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 SearchDialog::SearchDialog(const QString &path, Git::Manager *git, QWidget *parent)
     : AppDialog(parent)
-    , _git(git)
+    , mGit(git)
 {
     setupUi(this);
     initModel();
@@ -24,20 +24,20 @@ SearchDialog::SearchDialog(const QString &path, Git::Manager *git, QWidget *pare
 
 void SearchDialog::initModel()
 {
-    if (!_model) {
-        _model = new QStandardItemModel(this);
-        treeView->setModel(_model);
+    if (!mModel) {
+        mModel = new QStandardItemModel(this);
+        treeView->setModel(mModel);
     }
 
-    _model->setColumnCount(3);
-    _model->setHeaderData(0, Qt::Horizontal, i18n("File name"));
-    _model->setHeaderData(1, Qt::Horizontal, i18n("Branch"));
-    _model->setHeaderData(2, Qt::Horizontal, i18n("Commit"));
+    mModel->setColumnCount(3);
+    mModel->setHeaderData(0, Qt::Horizontal, i18n("File name"));
+    mModel->setHeaderData(1, Qt::Horizontal, i18n("Branch"));
+    mModel->setHeaderData(2, Qt::Horizontal, i18n("Commit"));
 }
 
 SearchDialog::SearchDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(parent)
-    , _git(git)
+    , mGit(git)
 {
     setupUi(this);
     initModel();
@@ -45,7 +45,7 @@ SearchDialog::SearchDialog(Git::Manager *git, QWidget *parent)
 
 void SearchDialog::on_pushButtonSearch_clicked()
 {
-    _model->clear();
+    mModel->clear();
     initModel();
     startTimer(500);
     pushButtonSearch->setEnabled(false);
@@ -57,9 +57,9 @@ void SearchDialog::on_treeView_doubleClicked(QModelIndex index)
 {
     if (!index.isValid())
         return;
-    auto file = _model->data(_model->index(index.row(), 0)).toString();
-    auto branch = _model->data(_model->index(index.row(), 1)).toString();
-    auto commit = _model->data(_model->index(index.row(), 2)).toString();
+    auto file = mModel->data(mModel->index(index.row(), 0)).toString();
+    auto branch = mModel->data(mModel->index(index.row(), 1)).toString();
+    auto commit = mModel->data(mModel->index(index.row(), 2)).toString();
 
     QString place;
     if (!commit.isEmpty() && !branch.isEmpty())
@@ -76,7 +76,7 @@ void SearchDialog::on_treeView_doubleClicked(QModelIndex index)
 void SearchDialog::beginSearch()
 {
     if (radioButtonSearchBranches->isChecked()) {
-        const auto branchesList = _git->branches();
+        const auto branchesList = mGit->branches();
         _progress.total = branchesList.size();
         for (const auto &branch : branchesList) {
             searchOnPlace(branch, QString());
@@ -99,15 +99,15 @@ void SearchDialog::beginSearch()
 void SearchDialog::searchOnPlace(const QString &branch, const QString &commit)
 {
     QString place = branch.isEmpty() ? commit : branch;
-    auto files = _git->ls(place);
+    auto files = mGit->ls(place);
 
     for (auto &file : files) {
         if (!lineEditPath->text().isEmpty() && !file.contains(lineEditPath->text()))
             continue;
 
-        bool ok = _git->fileContent(place, file).contains(lineEditText->text(), checkBoxCaseSensetive->isChecked() ? Qt::CaseSensitive : Qt::CaseInsensitive);
+        bool ok = mGit->fileContent(place, file).contains(lineEditText->text(), checkBoxCaseSensetive->isChecked() ? Qt::CaseSensitive : Qt::CaseInsensitive);
         if (ok) {
-            _model->appendRow({new QStandardItem(file), new QStandardItem(branch), new QStandardItem(commit)});
+            mModel->appendRow({new QStandardItem(file), new QStandardItem(branch), new QStandardItem(commit)});
         }
     }
 }

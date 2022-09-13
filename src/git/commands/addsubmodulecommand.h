@@ -33,10 +33,10 @@ public:
     void setLocalPath(const QString &newLocalPath);
 
 private:
-    bool _force{false};
-    QString _branch;
-    QString _url;
-    QString _localPath;
+    bool mForce{false};
+    QString mBranch;
+    QString mUrl;
+    QString mLocalPath;
 };
 
 }

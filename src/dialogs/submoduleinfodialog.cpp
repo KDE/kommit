@@ -70,7 +70,7 @@ void SubmoduleInfoDialog::setBranch(const QString &newBranch)
 
 Git::AddSubmoduleCommand *SubmoduleInfoDialog::command() const
 {
-    auto cmd = new Git::AddSubmoduleCommand(_git);
+    auto cmd = new Git::AddSubmoduleCommand(mGit);
     cmd->setForce(checkBoxForce->isChecked());
 
     if (checkBoxBranch->isChecked())
@@ -84,14 +84,14 @@ Git::AddSubmoduleCommand *SubmoduleInfoDialog::command() const
 
 void SubmoduleInfoDialog::on_toolButtonBrowseLocalPath_clicked()
 {
-    auto localPath = QFileDialog::getExistingDirectory(this, i18n("Local path"), _git->path());
+    auto localPath = QFileDialog::getExistingDirectory(this, i18n("Local path"), mGit->path());
     if (localPath.isEmpty())
         return;
 
-    if (!localPath.startsWith(_git->path())) {
+    if (!localPath.startsWith(mGit->path())) {
         KMessageBox::error(this, i18n("The selected path is outside of working dir"));
         return;
     }
 
-    lineEditPath->setText(localPath.remove(_git->path() + QLatin1Char('/')));
+    lineEditPath->setText(localPath.remove(mGit->path() + QLatin1Char('/')));
 }

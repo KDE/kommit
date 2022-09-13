@@ -90,5 +90,5 @@ private Q_SLOTS:
 
 private:
     QAction *createAction(const QString &text, bool enabled, bool addToMenu);
-    QMap<QAction *, bool> _actionStatuses;
+    QMap<QAction *, bool> mActionStatuses;
 };

@@ -23,6 +23,6 @@ public:
     Git::CommandMerge *command() const;
 
 private:
-    QString _sourceBranch;
+    QString mSourceBranch;
     void init(Git::Manager *git);
 };

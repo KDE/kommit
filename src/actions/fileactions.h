@@ -26,7 +26,7 @@ class FileActions : public AbstractActions
     DEFINE_ACTION(actionDiffWithHead)
     DEFINE_ACTION(actionMergeWithHead)
 
-    QMenu *_openWithMenu;
+    QMenu *mOpenWithMenu;
     // public:
     //     QAction *actionSaveAs();
 

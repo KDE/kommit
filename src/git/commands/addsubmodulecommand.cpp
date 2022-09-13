@@ -16,12 +16,12 @@ AddSubmoduleCommand::AddSubmoduleCommand(Manager *git)
 
 QStringList AddSubmoduleCommand::generateArgs() const
 {
-    QStringList args{QStringLiteral("submodule"), QStringLiteral("add"), _url, _localPath};
+    QStringList args{QStringLiteral("submodule"), QStringLiteral("add"), mUrl, mLocalPath};
 
-    if (!_branch.isEmpty())
-        args << "--branch=" + _branch;
+    if (!mBranch.isEmpty())
+        args << "--branch=" + mBranch;
 
-    if (_force)
+    if (mForce)
         args << "--force";
 
     return args;
@@ -29,42 +29,42 @@ QStringList AddSubmoduleCommand::generateArgs() const
 
 bool AddSubmoduleCommand::force() const
 {
-    return _force;
+    return mForce;
 }
 
 void AddSubmoduleCommand::setForce(bool newForce)
 {
-    _force = newForce;
+    mForce = newForce;
 }
 
 QString AddSubmoduleCommand::branch() const
 {
-    return _branch;
+    return mBranch;
 }
 
 void AddSubmoduleCommand::setbranch(QString newbranch)
 {
-    _branch = newbranch;
+    mBranch = newbranch;
 }
 
 const QString &AddSubmoduleCommand::url() const
 {
-    return _url;
+    return mUrl;
 }
 
 void AddSubmoduleCommand::setUrl(const QString &newUrl)
 {
-    _url = newUrl;
+    mUrl = newUrl;
 }
 
 const QString &AddSubmoduleCommand::localPath() const
 {
-    return _localPath;
+    return mLocalPath;
 }
 
 void AddSubmoduleCommand::setLocalPath(const QString &newLocalPath)
 {
-    _localPath = newLocalPath;
+    mLocalPath = newLocalPath;
 }
 
 } // namespace Git

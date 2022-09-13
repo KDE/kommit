@@ -18,7 +18,7 @@ void AbstractActions::setActionEnabled(QAction *action, bool enabled)
         action->setEnabled(enabled);
     } else {
         action->setEnabled(false);
-        _actionStatuses.insert(action, enabled);
+        mActionStatuses.insert(action, enabled);
     }
 }
 
@@ -46,15 +46,15 @@ void AbstractActions::git_reloaded()
     if (!mGit->isValid()) {
         for (auto &a : qAsConst(mActions))
             a->setEnabled(false);
-        _actionStatuses.clear();
+        mActionStatuses.clear();
         return;
     }
 
-    for (auto i = _actionStatuses.begin(); i != _actionStatuses.end(); ++i) {
+    for (auto i = mActionStatuses.begin(); i != mActionStatuses.end(); ++i) {
         i.key()->setEnabled(i.value());
     }
 
-    _actionStatuses.clear();
+    mActionStatuses.clear();
 }
 
 QAction *AbstractActions::createAction(const QString &text, bool enabled, bool addToMenu)

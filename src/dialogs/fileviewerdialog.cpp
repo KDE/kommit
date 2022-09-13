@@ -27,7 +27,7 @@ FileViewerDialog::FileViewerDialog(const QString &place, const QString &fileName
 {
     setupUi(this);
     showFile(Git::File(place, fileName));
-    _git = Git::Manager::instance();
+    mGit = Git::Manager::instance();
     QSettings s;
     restoreGeometry(s.value("FileViewerDialog_Geometry").toByteArray());
     KStandardAction::close(this, &QMainWindow::close, actionCollection());
@@ -37,7 +37,7 @@ FileViewerDialog::FileViewerDialog(const QString &place, const QString &fileName
 
 FileViewerDialog::FileViewerDialog(Git::Manager *git, const Git::File &file, QWidget *parent)
     : KParts::MainWindow(parent)
-    , _git(git)
+    , mGit(git)
 {
     setupUi(this);
     showFile(Git::File(file));
@@ -53,8 +53,8 @@ FileViewerDialog::~FileViewerDialog()
     QSettings s;
     s.setValue("FileViewerDialog_Geometry", saveGeometry());
 
-    if (!_filePath.isEmpty() && QFile::exists(_filePath))
-        QFile::remove(_filePath);
+    if (!mFilePath.isEmpty() && QFile::exists(mFilePath))
+        QFile::remove(mFilePath);
 
     if (m_part) {
         QProgressDialog progressDialog(this);
@@ -85,9 +85,9 @@ void FileViewerDialog::showFile(const Git::File &file)
     QMimeDatabase mimeDatabase;
     auto fn = file.fileName().mid(file.fileName().lastIndexOf("/") + 1);
     auto mime = mimeDatabase.mimeTypeForFile(fn, QMimeDatabase::MatchExtension);
-    _filePath = file.fileName();
-    _filePath = _filePath.mid(_filePath.lastIndexOf("/") + 1);
-    _filePath.prepend(QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/");
+    mFilePath = file.fileName();
+    mFilePath = mFilePath.mid(mFilePath.lastIndexOf("/") + 1);
+    mFilePath.prepend(QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/");
 
     lineEditBranchName->setText(file.place());
     lineEditFileName->setText(file.fileName());
@@ -98,8 +98,8 @@ void FileViewerDialog::showFile(const Git::File &file)
 
     auto ptr = getInternalViewer(mime.name());
     if (ptr && ptr->isValid()) {
-        file.save(_filePath);
-        if (viewInInternalViewer(ptr, _filePath, mime))
+        file.save(mFilePath);
+        if (viewInInternalViewer(ptr, mFilePath, mime))
             return;
     }
 
@@ -112,8 +112,8 @@ void FileViewerDialog::showFile(const Git::File &file)
             showInEditor(file);
             qDebug() << "fallback to text mode";
         } else {
-            file.save(_filePath);
-            if (!viewInInternalViewer(ptr, _filePath, mime))
+            file.save(mFilePath);
+            if (!viewInInternalViewer(ptr, mFilePath, mime))
                 showInEditor(file);
         }
     }

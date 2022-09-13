@@ -18,8 +18,6 @@ class File;
 class FileHistoryDialog : public AppDialog, private Ui::FileHistoryDialog
 {
     Q_OBJECT
-    Git::Manager *_git;
-    QString _fileName;
 
 public:
     explicit FileHistoryDialog(QWidget *parent = nullptr);
@@ -28,4 +26,8 @@ public:
 
 private Q_SLOTS:
     void on_listWidget_itemClicked(QListWidgetItem *item);
+
+private:
+    Git::Manager *mGit = nullptr;
+    QString _fileName;
 };

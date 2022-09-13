@@ -30,12 +30,12 @@ StashActions::StashActions(Git::Manager *git, QWidget *parent)
 
 const QString &StashActions::stashName() const
 {
-    return _stashName;
+    return mStashName;
 }
 
 void StashActions::setStashName(const QString &newStashName)
 {
-    _stashName = newStashName;
+    mStashName = newStashName;
 
     setActionEnabled(_actionApply, true);
     setActionEnabled(_actionDiff, true);
@@ -45,35 +45,35 @@ void StashActions::setStashName(const QString &newStashName)
 
 void StashActions::apply()
 {
-    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", _stashName));
+    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStashName));
 
     if (r == KMessageBox::Yes)
-        mGit->applyStash(_stashName);
+        mGit->applyStash(mStashName);
 }
 
 void StashActions::drop()
 {
-    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", _stashName));
+    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStashName));
 
     if (r == KMessageBox::Yes) {
-        mGit->removeStash(_stashName);
+        mGit->removeStash(mStashName);
         mGit->stashesModel()->load();
     }
 }
 
 void StashActions::pop()
 {
-    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", _stashName));
+    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStashName));
 
     if (r == KMessageBox::Yes) {
-        mGit->runGit({"stash", "push", _stashName});
+        mGit->runGit({"stash", "push", mStashName});
         mGit->stashesModel()->load();
     }
 }
 
 void StashActions::diff()
 {
-    auto d = new DiffWindow(mGit, _stashName, "HEAD");
+    auto d = new DiffWindow(mGit, mStashName, "HEAD");
     d->showModal();
 }
 

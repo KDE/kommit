@@ -17,12 +17,12 @@ class Manager;
 class RepoSettingsDialog : public AppDialog, private Ui::RepoSettingsDialog
 {
     Q_OBJECT
-
-    Git::Manager *_git;
-
 public:
     explicit RepoSettingsDialog(Git::Manager *git, QWidget *parent = nullptr);
 
 private Q_SLOTS:
     void on_buttonBox_accepted();
+
+private:
+    Git::Manager *mGit = nullptr;
 };

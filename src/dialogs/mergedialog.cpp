@@ -31,7 +31,7 @@ MergeDialog::MergeDialog(Git::Manager *git, QWidget *parent)
 
 MergeDialog::MergeDialog(Git::Manager *git, const QString &sourceBranch, QWidget *parent)
     : AppDialog(git, parent)
-    , _sourceBranch(sourceBranch)
+    , mSourceBranch(sourceBranch)
 {
     setupUi(this);
 
@@ -42,7 +42,7 @@ MergeDialog::MergeDialog(Git::Manager *git, const QString &sourceBranch, QWidget
 
 Git::CommandMerge *MergeDialog::command() const
 {
-    auto cmd = new Git::CommandMerge(_git);
+    auto cmd = new Git::CommandMerge(mGit);
 
     cmd->setAllowUnrelatedHistories(Git::checkStateToOptionalBool(checkBoxAllowUnrelatedHistories->checkState()));
     cmd->setSquash(checkBoxSquash->isChecked());

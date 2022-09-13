@@ -16,78 +16,78 @@ CloneCommand::CloneCommand(QObject *parent)
 
 const QString &CloneCommand::repoUrl() const
 {
-    return _repoUrl;
+    return mRepoUrl;
 }
 
 void CloneCommand::setRepoUrl(const QString &newRepoUrl)
 {
-    _repoUrl = newRepoUrl;
+    mRepoUrl = newRepoUrl;
 }
 
 const QString &CloneCommand::localPath() const
 {
-    return _localPath;
+    return mLocalPath;
 }
 
 void CloneCommand::setLocalPath(const QString &newLocalPath)
 {
-    _localPath = newLocalPath;
+    mLocalPath = newLocalPath;
 }
 
 const QString &CloneCommand::branch() const
 {
-    return _branch;
+    return mBranch;
 }
 
 void CloneCommand::setBranch(const QString &newBranch)
 {
-    _branch = newBranch;
+    mBranch = newBranch;
 }
 
 int CloneCommand::depth() const
 {
-    return _depth;
+    return mDepth;
 }
 
 void CloneCommand::setDepth(int newDepth)
 {
-    _depth = newDepth;
+    mDepth = newDepth;
 }
 
 const QString &CloneCommand::origin() const
 {
-    return _origin;
+    return mOrigin;
 }
 
 void CloneCommand::setOrigin(const QString &newOrigin)
 {
-    _origin = newOrigin;
+    mOrigin = newOrigin;
 }
 
 bool CloneCommand::recursive() const
 {
-    return _recursive;
+    return mRecursive;
 }
 
 void CloneCommand::setRecursive(bool newRecursive)
 {
-    _recursive = newRecursive;
+    mRecursive = newRecursive;
 }
 
 QStringList CloneCommand::generateArgs() const
 {
-    QStringList args{"clone", "--progress", _repoUrl, _localPath};
+    QStringList args{"clone", "--progress", mRepoUrl, mLocalPath};
 
-    if (!_branch.isEmpty())
-        args << "--branch=" + _branch;
+    if (!mBranch.isEmpty())
+        args << "--branch=" + mBranch;
 
-    if (_depth != -1)
-        args << "--depth" << QString::number(_depth);
+    if (mDepth != -1)
+        args << "--depth" << QString::number(mDepth);
 
-    if (!_origin.isEmpty())
-        args << "--origin=" << _origin;
+    if (!mOrigin.isEmpty())
+        args << "--origin=" << mOrigin;
 
-    if (_recursive)
+    if (mRecursive)
         args << "--recursive";
 
     return args;

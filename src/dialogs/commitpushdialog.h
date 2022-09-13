@@ -17,8 +17,6 @@ class ChangedFileActions;
 class CommitPushDialog : public AppDialog, private Ui::CommitPushDialog
 {
     Q_OBJECT
-    ChangedFileActions *_actions;
-    Git::Manager *_git;
 
 public:
     explicit CommitPushDialog(Git::Manager *git, QWidget *parent = nullptr);
@@ -37,4 +35,6 @@ private Q_SLOTS:
 
 private:
     void addFiles();
+    ChangedFileActions *mActions = nullptr;
+    Git::Manager *mGit = nullptr;
 };

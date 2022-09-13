@@ -13,7 +13,6 @@ class ChangedFileActions;
 class ChangedFilesDialog : public AppDialog, private Ui::ChangedFilesDialog
 {
     Q_OBJECT
-    ChangedFileActions *_actions;
 
 public:
     explicit ChangedFilesDialog(Git::Manager *git, QWidget *parent = nullptr);
@@ -26,4 +25,5 @@ private Q_SLOTS:
 
 private:
     void reload();
+    ChangedFileActions *mActions = nullptr;
 };

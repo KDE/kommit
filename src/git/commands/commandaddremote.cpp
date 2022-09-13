@@ -18,37 +18,37 @@ QStringList CommandAddRemote::generateArgs() const
 {
     QStringList args{"remote", "add"};
 
-    if (_fetch)
+    if (mFetch)
         args << "--fetch";
-    if (_mirror)
+    if (mMirror)
         args << "--mirrot";
-    appendBool(_tags, args, "tags");
+    appendBool(mTags, args, "tags");
 
-    if (!_master.isEmpty())
-        args << "--master=" + _master;
+    if (!mMaster.isEmpty())
+        args << "--master=" + mMaster;
 
-    args << _remoteName << _url;
+    args << mRemoteName << mUrl;
     return args;
 }
 
 const QString &CommandAddRemote::remoteName() const
 {
-    return _remoteName;
+    return mRemoteName;
 }
 
 void CommandAddRemote::setRemoteName(const QString &newRemoteName)
 {
-    _remoteName = newRemoteName;
+    mRemoteName = newRemoteName;
 }
 
 OptionalBool CommandAddRemote::tags() const
 {
-    return _tags;
+    return mTags;
 }
 
 void CommandAddRemote::setTags(OptionalBool newTags)
 {
-    _tags = newTags;
+    mTags = newTags;
 }
 
 void CommandAddRemote::setTags(Qt::CheckState newTags)
@@ -58,42 +58,42 @@ void CommandAddRemote::setTags(Qt::CheckState newTags)
 
 bool CommandAddRemote::mirror() const
 {
-    return _mirror;
+    return mMirror;
 }
 
 void CommandAddRemote::setMirror(bool newMirror)
 {
-    _mirror = newMirror;
+    mMirror = newMirror;
 }
 
 const QString &CommandAddRemote::master() const
 {
-    return _master;
+    return mMaster;
 }
 
 void CommandAddRemote::setMaster(const QString &newMaster)
 {
-    _master = newMaster;
+    mMaster = newMaster;
 }
 
 bool CommandAddRemote::fetch() const
 {
-    return _fetch;
+    return mFetch;
 }
 
 void CommandAddRemote::setFetch(bool newFetch)
 {
-    _fetch = newFetch;
+    mFetch = newFetch;
 }
 
 const QString &CommandAddRemote::url() const
 {
-    return _url;
+    return mUrl;
 }
 
 void CommandAddRemote::setUrl(const QString &newUrl)
 {
-    _url = newUrl;
+    mUrl = newUrl;
 }
 
 } // namespace Git

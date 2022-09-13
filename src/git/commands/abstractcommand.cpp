@@ -13,7 +13,7 @@ namespace Git
 
 bool AbstractCommand::isValid() const
 {
-    return _isValid;
+    return mIsValid;
 }
 
 QWidget *AbstractCommand::createWidget()
@@ -28,22 +28,22 @@ int AbstractCommand::progress() const
 
 AbstractCommand::Status AbstractCommand::status() const
 {
-    return _status;
+    return mStatus;
 }
 
 void AbstractCommand::setStatus(Status newStatus)
 {
-    _status = newStatus;
+    mStatus = newStatus;
 }
 
 const QString &AbstractCommand::errorMessage() const
 {
-    return _errorMessage;
+    return mErrorMessage;
 }
 
 void AbstractCommand::setErrorMessage(const QString &newErrorMessage)
 {
-    _errorMessage = newErrorMessage;
+    mErrorMessage = newErrorMessage;
 }
 
 AbstractCommand::AbstractCommand(QObject *parent)
@@ -53,13 +53,13 @@ AbstractCommand::AbstractCommand(QObject *parent)
 
 AbstractCommand::AbstractCommand(QStringList args)
     : QObject()
-    , _args(std::move(args))
+    , mArgs(std::move(args))
 {
 }
 
 AbstractCommand::AbstractCommand(Manager *git)
     : QObject()
-    , _git(git)
+    , mGit(git)
 {
 }
 

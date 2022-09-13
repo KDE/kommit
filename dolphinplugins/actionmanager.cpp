@@ -49,9 +49,9 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
         auto path = item.url().toLocalFile();
         FileStatus::Status status;
         if (item.isFile())
-            status = _cache.fileStatus(path);
+            status = mCache.fileStatus(path);
         else
-            status = _cache.pathStatus(path);
+            status = mCache.pathStatus(path);
 
         if (status == FileStatus::NoGit) {
             if (fileItemInfos.isDirectory()) {

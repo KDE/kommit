@@ -18,17 +18,17 @@ AppMainWindow::AppMainWindow(QWidget *parent, Qt::WindowFlags f)
 int AppMainWindow::exec()
 {
     QEventLoop eventLoop;
-    _loop = &eventLoop;
+    mLoop = &eventLoop;
     showModal();
     (void)eventLoop.exec(QEventLoop::DialogExec);
-    _loop = nullptr;
-    qDebug() << "returnCode=" << _returnCode;
-    return _returnCode;
+    mLoop = nullptr;
+    qDebug() << "returnCode=" << mReturnCode;
+    return mReturnCode;
 }
 
 void AppMainWindow::showModal()
 {
-    _isModal = true;
+    mIsModal = true;
     setWindowModality(Qt::ApplicationModal);
     setAttribute(Qt::WA_DeleteOnClose, true);
     show();
@@ -36,18 +36,18 @@ void AppMainWindow::showModal()
 
 void AppMainWindow::accept()
 {
-    _returnCode = Accepted;
+    mReturnCode = Accepted;
 }
 
 void AppMainWindow::reject()
 {
-    _returnCode = Rejected;
+    mReturnCode = Rejected;
 }
 
 void AppMainWindow::setVisible(bool visible)
 {
-    if (!visible && _loop)
-        _loop->exit();
+    if (!visible && mLoop)
+        mLoop->exit();
     KXmlGuiWindow::setVisible(visible);
 }
 
@@ -69,7 +69,7 @@ void AppMainWindow::setVisible(bool visible)
 
 void AppMainWindow::keyPressEvent(QKeyEvent *event)
 {
-    if (event->key() == Qt::Key_Escape && _isModal)
+    if (event->key() == Qt::Key_Escape && mIsModal)
         close();
 
     KXmlGuiWindow::keyPressEvent(event);

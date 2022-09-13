@@ -20,12 +20,6 @@ class RunnerDialog : public AppDialog, private Ui::RunnerDialog
 {
     Q_OBJECT
 
-    QProcess *_git;
-
-    enum Mode { None, RunByArgs, RunByCommand };
-    Mode _mode{None};
-    Git::AbstractCommand *_cmd{nullptr};
-
 public:
     explicit RunnerDialog(QWidget *parent = nullptr);
     void run(const QStringList &args);
@@ -35,4 +29,11 @@ private Q_SLOTS:
     void git_readyReadStandardOutput();
     void git_readyReadStandardError();
     void git_finished(int exitCode, QProcess::ExitStatus exitStatus);
+
+private:
+    QProcess *mGit = nullptr;
+
+    enum Mode { None, RunByArgs, RunByCommand };
+    Mode _mode{None};
+    Git::AbstractCommand *mCmd{nullptr};
 };

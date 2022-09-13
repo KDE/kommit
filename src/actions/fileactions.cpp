@@ -75,7 +75,7 @@ void FileActions::setFilePath(const QString &newFilePath)
 FileActions::FileActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
-    _openWithMenu = new QMenu(parent);
+    mOpenWithMenu = new QMenu(parent);
 
     _actionView = addAction(i18n("View..."), this, &FileActions::viewFile, false, true);
     _actionOpenWith = addAction(i18n("Open with..."), this, &FileActions::openWith, false, true);

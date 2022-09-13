@@ -32,8 +32,8 @@ class AbstractCommand : public QObject
     Q_PROPERTY(int progress READ progress WRITE setProgress NOTIFY progressChanged)
 
 protected:
-    QStringList _args;
-    Manager *_git{nullptr};
+    QStringList mArgs;
+    Manager *mGit{nullptr};
     void setProgress(int newProgress);
     void appendBool(OptionalBool b, QStringList &cmd, const QString &name) const;
     void appendBool(bool b, QStringList &cmd, const QString &name) const;
@@ -73,10 +73,10 @@ Q_SIGNALS:
     void progressChanged(int progress);
 
 private:
-    bool _isValid{false};
+    bool mIsValid{false};
     int m_progress{0};
-    Status _status{None};
-    QString _errorMessage;
+    Status mStatus{None};
+    QString mErrorMessage;
 };
 
 } // namespace Git

@@ -18,14 +18,14 @@ RunnerDialog::RunnerDialog(QWidget *parent)
 {
     setupUi(this);
 
-    _git = new QProcess{this};
-    _git->setProgram(QStringLiteral("git"));
-    _git->setWorkingDirectory(Git::Manager::instance()->path());
+    mGit = new QProcess{this};
+    mGit->setProgram(QStringLiteral("git"));
+    mGit->setWorkingDirectory(Git::Manager::instance()->path());
 
-    connect(_git, &QProcess::readyReadStandardOutput, this, &RunnerDialog::git_readyReadStandardOutput);
-    connect(_git, &QProcess::readyReadStandardError, this, &RunnerDialog::git_readyReadStandardError);
+    connect(mGit, &QProcess::readyReadStandardOutput, this, &RunnerDialog::git_readyReadStandardOutput);
+    connect(mGit, &QProcess::readyReadStandardError, this, &RunnerDialog::git_readyReadStandardError);
 
-    connect(_git, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &RunnerDialog::git_finished);
+    connect(mGit, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &RunnerDialog::git_finished);
 }
 
 void RunnerDialog::run(const QStringList &args)
@@ -34,8 +34,8 @@ void RunnerDialog::run(const QStringList &args)
     _mode = RunByArgs;
     lineEditCommand->setText("git " + args.join(QLatin1Char(' ')));
     textBrowser->append("$ " + lineEditCommand->text());
-    _git->setArguments(args);
-    _git->start();
+    mGit->setArguments(args);
+    mGit->start();
 }
 
 void RunnerDialog::run(Git::AbstractCommand *command)
@@ -56,31 +56,31 @@ void RunnerDialog::run(Git::AbstractCommand *command)
     } else {
         progressBar->hide();
     }
-    _git->setArguments(args);
-    _git->start();
-    _cmd = command;
+    mGit->setArguments(args);
+    mGit->start();
+    mCmd = command;
 }
 
 void RunnerDialog::git_readyReadStandardOutput()
 {
-    auto buffer = _git->readAllStandardOutput();
+    auto buffer = mGit->readAllStandardOutput();
     qDebug() << "OUT" << buffer;
     //    textBrowser->setTextColor(Qt::black);
     textBrowser->append(buffer);
 
-    if (_cmd)
-        _cmd->parseOutput(buffer, QByteArray());
+    if (mCmd)
+        mCmd->parseOutput(buffer, QByteArray());
 }
 
 void RunnerDialog::git_readyReadStandardError()
 {
-    auto buffer = _git->readAllStandardError();
+    auto buffer = mGit->readAllStandardError();
     qDebug() << "ERROR" << buffer;
     //    textBrowser->setTextColor(Qt::red);
     textBrowser->append(buffer);
 
-    if (_cmd)
-        _cmd->parseOutput(QByteArray(), buffer);
+    if (mCmd)
+        mCmd->parseOutput(QByteArray(), buffer);
 }
 
 void RunnerDialog::git_finished(int exitCode, QProcess::ExitStatus exitStatus)
@@ -91,6 +91,6 @@ void RunnerDialog::git_finished(int exitCode, QProcess::ExitStatus exitStatus)
     if (exitStatus == QProcess::CrashExit)
         KMessageBox::error(this, i18n("The git process crashed"));
 
-    if (_cmd && _cmd->status() == Git::AbstractCommand::Error)
-        KMessageBox::error(this, _cmd->errorMessage());
+    if (mCmd && mCmd->status() == Git::AbstractCommand::Error)
+        KMessageBox::error(this, mCmd->errorMessage());
 }

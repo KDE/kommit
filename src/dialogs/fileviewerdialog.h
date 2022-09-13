@@ -24,8 +24,6 @@ class File;
 class FileViewerDialog : public KParts::MainWindow, private Ui::FileViewerDialog
 {
     Q_OBJECT
-    Git::Manager *_git;
-    QString _filePath;
 
 public:
     explicit FileViewerDialog(const QString &place, const QString &fileName, QWidget *parent = nullptr);
@@ -33,6 +31,9 @@ public:
     ~FileViewerDialog();
 
 private:
+    Git::Manager *mGit = nullptr;
+    QString mFilePath;
+
     void showFile(const Git::File &file);
     void showInEditor(const Git::File &file);
     void showAsImage(const Git::File &file);

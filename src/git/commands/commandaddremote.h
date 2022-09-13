@@ -34,12 +34,12 @@ public:
     void setUrl(const QString &newUrl);
 
 private:
-    QString _remoteName;
-    OptionalBool _tags{OptionalBool::False};
-    bool _mirror{false};
-    QString _master;
-    bool _fetch{false};
-    QString _url;
+    QString mRemoteName;
+    OptionalBool mTags{OptionalBool::False};
+    bool mMirror{false};
+    QString mMaster;
+    bool mFetch{false};
+    QString mUrl;
 };
 
 }

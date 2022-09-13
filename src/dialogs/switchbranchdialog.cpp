@@ -26,7 +26,7 @@ SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
 
 Git::CommandSwitchBranch *SwitchBranchDialog::command() const
 {
-    auto cmd = new Git::CommandSwitchBranch(_git);
+    auto cmd = new Git::CommandSwitchBranch(mGit);
 
     if (radioButtonExistingBranch->isChecked()) {
         cmd->setMode(Git::CommandSwitchBranch::ExistingBranch);

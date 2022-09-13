@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 RepoSettingsDialog::RepoSettingsDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(parent)
-    , _git(git)
+    , mGit(git)
 {
     setupUi(this);
 
@@ -20,7 +20,7 @@ RepoSettingsDialog::RepoSettingsDialog(Git::Manager *git, QWidget *parent)
 
 void RepoSettingsDialog::on_buttonBox_accepted()
 {
-    _git->setConfig(QStringLiteral("user.name"), lineEditUserName->text());
-    _git->setConfig(QStringLiteral("user.email"), lineEditUserEmail->text());
+    mGit->setConfig(QStringLiteral("user.name"), lineEditUserName->text());
+    mGit->setConfig(QStringLiteral("user.email"), lineEditUserEmail->text());
     accept();
 }

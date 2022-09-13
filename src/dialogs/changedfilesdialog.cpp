@@ -17,13 +17,13 @@ ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
 {
     setupUi(this);
     reload();
-    _actions = new ChangedFileActions(git, this);
-    connect(_actions, &ChangedFileActions::reloadNeeded, this, &ChangedFilesDialog::reload);
+    mActions = new ChangedFileActions(git, this);
+    connect(mActions, &ChangedFileActions::reloadNeeded, this, &ChangedFilesDialog::reload);
 }
 
 void ChangedFilesDialog::on_pushButtonCommitPush_clicked()
 {
-    CommitPushDialog d(_git, this);
+    CommitPushDialog d(mGit, this);
     d.exec();
     reload();
 }
@@ -31,7 +31,7 @@ void ChangedFilesDialog::on_pushButtonCommitPush_clicked()
 void ChangedFilesDialog::reload()
 {
     listWidget->clear();
-    auto files = _git->changedFiles();
+    auto files = mGit->changedFiles();
 
     for (auto i = files.begin(); i != files.end(); ++i) {
         auto item = new QListWidgetItem(listWidget);
@@ -52,8 +52,8 @@ void ChangedFilesDialog::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 {
     if (!item)
         return;
-    _actions->setFilePath(listWidget->currentItem()->text());
-    _actions->diff();
+    mActions->setFilePath(listWidget->currentItem()->text());
+    mActions->diff();
 }
 
 void ChangedFilesDialog::on_listWidget_customContextMenuRequested(const QPoint &pos)
@@ -62,6 +62,6 @@ void ChangedFilesDialog::on_listWidget_customContextMenuRequested(const QPoint &
     if (listWidget->currentRow() == -1)
         return;
 
-    _actions->setFilePath(listWidget->currentItem()->text());
-    _actions->popup();
+    mActions->setFilePath(listWidget->currentItem()->text());
+    mActions->popup();
 }

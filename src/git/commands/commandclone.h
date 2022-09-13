@@ -32,12 +32,12 @@ public:
     void setRecursive(bool newRecursive);
 
 private:
-    QString _repoUrl;
-    QString _localPath;
-    QString _branch;
-    int _depth{-1};
-    QString _origin;
-    bool _recursive{false};
+    QString mRepoUrl;
+    QString mLocalPath;
+    QString mBranch;
+    int mDepth{-1};
+    QString mOrigin;
+    bool mRecursive{false};
 
     // AbstractCommand interface
 public:

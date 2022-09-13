@@ -16,22 +16,22 @@ ParameteresCommand::ParameteresCommand()
 
 const QStringList &ParameteresCommand::args() const
 {
-    return _args;
+    return mArgs;
 }
 
 void ParameteresCommand::setArgs(const QStringList &newArgs)
 {
-    _args = newArgs;
+    mArgs = newArgs;
 }
 
 void ParameteresCommand::appendArg(const QString &arg)
 {
-    _args.append(arg);
+    mArgs.append(arg);
 }
 
 QStringList ParameteresCommand::generateArgs() const
 {
-    return _args;
+    return mArgs;
 }
 
 } // namespace Git

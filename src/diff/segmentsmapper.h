@@ -41,7 +41,7 @@ private Q_SLOTS:
 
 private:
     Diff::Segment *_currentSegment{nullptr};
-    QList<Diff::Segment *> _segments;
-    QList<CodeEditor *> _editors;
-    QMap<QObject *, CodeEditor *> _scrollBars;
+    QList<Diff::Segment *> mSegments;
+    QList<CodeEditor *> mEditors;
+    QMap<QObject *, CodeEditor *> mScrollBars;
 };

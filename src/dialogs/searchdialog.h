@@ -18,14 +18,6 @@ class QStandardItemModel;
 class SearchDialog : public AppDialog, private Ui::SearchDialog
 {
     Q_OBJECT
-    Git::Manager *_git;
-
-    struct {
-        int value;
-        int total;
-        QString message;
-    } _progress;
-    QStandardItemModel *_model{nullptr};
 
 public:
     explicit SearchDialog(const QString &path, Git::Manager *git, QWidget *parent = nullptr);
@@ -44,4 +36,14 @@ private:
     // QObject interface
 protected:
     void timerEvent(QTimerEvent *event) override;
+
+private:
+    Git::Manager *mGit = nullptr;
+
+    struct {
+        int value;
+        int total;
+        QString message;
+    } _progress;
+    QStandardItemModel *mModel{nullptr};
 };

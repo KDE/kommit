@@ -15,23 +15,23 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
     : AppDialog(parent)
-    , _place(place)
+    , mPlace(place)
 {
     setupUi(this);
 
-    _actions = new FileActions(Git::Manager::instance(), this);
-    _actions->setPlace(place);
+    mActions = new FileActions(Git::Manager::instance(), this);
+    mActions->setPlace(place);
 
-    _treeModel = new TreeModel(this);
-    _treeModel->setSeparator("/");
+    mTreeModel = new TreeModel(this);
+    mTreeModel->setSeparator("/");
 
     auto files = Git::Manager::instance()->ls(place);
 
-    _treeModel->setLastPartAsData(true);
+    mTreeModel->setLastPartAsData(true);
     QFileIconProvider p;
-    _treeModel->setDefaultIcon(p.icon(QFileIconProvider::Folder));
-    _treeModel->addData(files);
-    treeView->setModel(_treeModel);
+    mTreeModel->setDefaultIcon(p.icon(QFileIconProvider::Folder));
+    mTreeModel->addData(files);
+    treeView->setModel(mTreeModel);
 
     setWindowTitle(i18nc("@title:window", "Browse files: %1", place));
 
@@ -39,7 +39,7 @@ FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
 
     listWidget->clear();
 
-    for (const auto &f : _treeModel->rootData()) {
+    for (const auto &f : mTreeModel->rootData()) {
         QFileInfo fi(f);
         auto icon = p.icon(fi);
         auto item = new QListWidgetItem(listWidget);
@@ -54,7 +54,7 @@ void FilesTreeDialog::on_treeView_clicked(const QModelIndex &index)
     QFileIconProvider p;
     listWidget->clear();
 
-    for (const auto &f : _treeModel->data(index)) {
+    for (const auto &f : mTreeModel->data(index)) {
         QFileInfo fi(f);
         auto icon = p.icon(fi);
         auto item = new QListWidgetItem(listWidget);
@@ -66,13 +66,13 @@ void FilesTreeDialog::on_treeView_clicked(const QModelIndex &index)
 
 void FilesTreeDialog::on_listWidget_customContextMenuRequested(const QPoint &pos)
 {
-    auto path = _treeModel->fullPath(treeView->currentIndex());
+    auto path = mTreeModel->fullPath(treeView->currentIndex());
 
     if (path == "/")
         path = listWidget->currentItem()->text();
     else
         path += "/" + listWidget->currentItem()->text();
 
-    _actions->setFilePath(path);
-    _actions->popup(listWidget->mapToGlobal(pos));
+    mActions->setFilePath(path);
+    mActions->popup(listWidget->mapToGlobal(pos));
 }

@@ -28,7 +28,7 @@ private:
     void addMenuToGitFile(QMenu *menu, const QString &path, bool isFile, const FileStatus::Status &status);
 
 private:
-    StatusCache _cache;
+    StatusCache mCache;
 
     QAction *mPullAction = nullptr;
     QAction *mPushAction = nullptr;

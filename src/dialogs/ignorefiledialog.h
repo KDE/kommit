@@ -22,7 +22,9 @@ private Q_SLOTS:
     void on_buttonBox_accepted();
 
 private:
-    bool _isIgnoredAlready{false};
-    QString _path, _name, _ext;
-    QString getIgnoreFile();
+    QString getIgnoreFile() const;
+    bool mIsIgnoredAlready{false};
+    QString mPath;
+    QString mName;
+    QString mExt;
 };

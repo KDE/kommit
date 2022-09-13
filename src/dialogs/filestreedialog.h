@@ -14,9 +14,6 @@ class TreeModel;
 class FilesTreeDialog : public AppDialog, private Ui::FilesTreeDialog
 {
     Q_OBJECT
-    TreeModel *_treeModel;
-    QString _place;
-    FileActions *_actions;
 
 public:
     explicit FilesTreeDialog(const QString &place, QWidget *parent = nullptr);
@@ -24,4 +21,9 @@ public:
 private Q_SLOTS:
     void on_treeView_clicked(const QModelIndex &index);
     void on_listWidget_customContextMenuRequested(const QPoint &pos);
+
+private:
+    TreeModel *mTreeModel = nullptr;
+    QString mPlace;
+    FileActions *mActions = nullptr;
 };

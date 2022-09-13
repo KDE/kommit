@@ -15,12 +15,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 const QString &CommitActions::commitHash() const
 {
-    return _commitHash;
+    return mCommitHash;
 }
 
 void CommitActions::setCommitHash(const QString &newCommitHash)
 {
-    _commitHash = newCommitHash;
+    mCommitHash = newCommitHash;
 
     setActionEnabled(_actionBrowse, true);
     setActionEnabled(_actionCheckout, true);
@@ -37,19 +37,19 @@ CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
 
 void CommitActions::browse()
 {
-    FilesTreeDialog d(_commitHash, mParent);
+    FilesTreeDialog d(mCommitHash, mParent);
     d.exec();
 }
 
 void CommitActions::checkout()
 {
     RunnerDialog d(mParent);
-    d.run({"checkout", _commitHash});
+    d.run({"checkout", mCommitHash});
     d.exec();
 }
 
 void CommitActions::diff()
 {
-    auto d = new DiffWindow(mGit, _commitHash, "HEAD");
+    auto d = new DiffWindow(mGit, mCommitHash, "HEAD");
     d->showModal();
 }

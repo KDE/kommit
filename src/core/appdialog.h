@@ -18,7 +18,7 @@ class AppDialog : public QDialog
     Q_OBJECT
 
 protected:
-    Git::Manager *_git;
+    Git::Manager *mGit = nullptr;
 
 public:
     explicit AppDialog(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());

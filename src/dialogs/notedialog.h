@@ -13,11 +13,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 class NoteDialog : public AppDialog, private Ui::NoteDialog
 {
     Q_OBJECT
-    QString _branchName;
 
 public:
     explicit NoteDialog(Git::Manager *git, const QString &branchName, QWidget *parent = nullptr);
 
 private Q_SLOTS:
     void on_buttonBox_accepted();
+
+private:
+    QString mBranchName;
 };

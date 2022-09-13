@@ -38,7 +38,7 @@ QIcon createIcon(const QColor &color)
 }
 CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(parent)
-    , _git(git)
+    , mGit(git)
 {
     setupUi(this);
 
@@ -95,7 +95,7 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     textEditMessage->addWords(_words.values());
     textEditMessage->begin();
 
-    _actions = new ChangedFileActions(_git, this);
+    mActions = new ChangedFileActions(mGit, this);
 }
 
 void CommitPushDialog::checkButtonsEnable()
@@ -134,7 +134,7 @@ void CommitPushDialog::on_pushButtonCommit_clicked()
     cmd.setIncludeStatus(checkBoxIncludeStatus->isChecked());
 
     //    _git->commit(textEditMessage->toPlainText());
-    _git->run(cmd);
+    mGit->run(cmd);
     accept();
 }
 
@@ -153,7 +153,7 @@ void CommitPushDialog::on_pushButtonPush_clicked()
         cmd.setLocalBranch(lineEditNewBranchName->text());
     cmd.setForce(checkBoxForce->isChecked());
 
-    _git->commit(textEditMessage->toPlainText());
+    mGit->commit(textEditMessage->toPlainText());
     RunnerDialog d(this);
     d.run(&cmd);
     d.exec();
@@ -173,7 +173,7 @@ void CommitPushDialog::addFiles()
     for (auto i = 0; i < listWidget->count(); ++i) {
         auto item = listWidget->item(i);
         if (item->checkState() == Qt::Checked)
-            _git->addFile(item->text());
+            mGit->addFile(item->text());
     }
 }
 
@@ -197,8 +197,8 @@ void CommitPushDialog::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 {
     if (!item)
         return;
-    _actions->setFilePath(listWidget->currentItem()->text());
-    _actions->diff();
+    mActions->setFilePath(listWidget->currentItem()->text());
+    mActions->diff();
 }
 void CommitPushDialog::on_listWidget_itemClicked(QListWidgetItem *)
 {
@@ -216,6 +216,6 @@ void CommitPushDialog::on_listWidget_customContextMenuRequested(const QPoint &po
     if (listWidget->currentRow() == -1)
         return;
 
-    _actions->setFilePath(listWidget->currentItem()->text());
-    _actions->popup();
+    mActions->setFilePath(listWidget->currentItem()->text());
+    mActions->popup();
 }

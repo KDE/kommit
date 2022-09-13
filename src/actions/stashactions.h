@@ -26,7 +26,7 @@ public Q_SLOTS:
     void create();
 
 private:
-    QString _stashName;
+    QString mStashName;
     DEFINE_ACTION(actionPop)
     DEFINE_ACTION(actionApply)
     DEFINE_ACTION(actionDrop)

@@ -17,49 +17,49 @@ CommandChangedFiles::CommandChangedFiles(Manager *git)
 
 const QList<FileStatus> &CommandChangedFiles::files() const
 {
-    return _files;
+    return mFiles;
 }
 
 bool CommandChangedFiles::ignored() const
 {
-    return _ignored;
+    return mIgnored;
 }
 
 void CommandChangedFiles::setIgnored(bool newIgnored)
 {
-    _ignored = newIgnored;
+    mIgnored = newIgnored;
 }
 
 bool CommandChangedFiles::untracked() const
 {
-    return _untracked;
+    return mUntracked;
 }
 
 void CommandChangedFiles::setUntracked(bool newUntracked)
 {
-    _untracked = newUntracked;
+    mUntracked = newUntracked;
 }
 
 bool CommandChangedFiles::ignoreSubmodules() const
 {
-    return _ignoreSubmodules;
+    return mIgnoreSubmodules;
 }
 
 void CommandChangedFiles::setIgnoreSubmodules(bool newIgnoreSubmodules)
 {
-    _ignoreSubmodules = newIgnoreSubmodules;
+    mIgnoreSubmodules = newIgnoreSubmodules;
 }
 
 QStringList CommandChangedFiles::generateArgs() const
 {
     QStringList args{"status", "--short", "--porcelain"};
-    if (_untracked)
+    if (mUntracked)
         args.append("--untracked-files=all");
 
-    if (_ignoreSubmodules)
+    if (mIgnoreSubmodules)
         args.append("--ignore-submodules");
 
-    if (_ignored)
+    if (mIgnored)
         args.append("--ignored");
 
     return args;
@@ -75,8 +75,8 @@ void CommandChangedFiles::parseOutput(const QByteArray &output, const QByteArray
             continue;
         FileStatus fs;
         fs.parseStatusLine(item);
-        fs.setFullPath(_git->path() + fs.name());
-        _files.append(fs);
+        fs.setFullPath(mGit->path() + fs.name());
+        mFiles.append(fs);
     }
 }
 

@@ -38,12 +38,12 @@ BranchActions::BranchActions(Git::Manager *git, QWidget *parent)
 
 const QString &BranchActions::branchName() const
 {
-    return _branchName;
+    return mBranchName;
 }
 
 void BranchActions::setBranchName(const QString &newBranchName)
 {
-    _branchName = newBranchName;
+    mBranchName = newBranchName;
 
     setActionEnabled(_actionFetch, true);
     setActionEnabled(_actionBrowse, true);
@@ -56,18 +56,18 @@ void BranchActions::setBranchName(const QString &newBranchName)
 
 const QString &BranchActions::otherBranch() const
 {
-    return _otherBranch;
+    return mOtherBranch;
 }
 
 void BranchActions::setOtherBranch(const QString &newOtherBranch)
 {
-    _otherBranch = newOtherBranch;
+    mOtherBranch = newOtherBranch;
 }
 
 void BranchActions::fetch()
 {
     FetchDialog d(mGit, mParent);
-    d.setBranch(_branchName);
+    d.setBranch(mBranchName);
     d.exec();
 }
 
@@ -83,20 +83,20 @@ void BranchActions::create()
 
 void BranchActions::browse()
 {
-    FilesTreeDialog d(_branchName, mParent);
+    FilesTreeDialog d(mBranchName, mParent);
     d.exec();
 }
 
 void BranchActions::checkout()
 {
     RunnerDialog d(mParent);
-    d.run({"checkout", _branchName});
+    d.run({"checkout", mBranchName});
     d.exec();
 }
 
 void BranchActions::diff()
 {
-    QString mainBranch = _otherBranch;
+    QString mainBranch = mOtherBranch;
 
     if (!mainBranch.isEmpty()) {
         auto branches = mGit->branches();
@@ -108,7 +108,7 @@ void BranchActions::diff()
             return;
     }
 
-    auto d = new DiffWindow(mGit, mainBranch, _branchName);
+    auto d = new DiffWindow(mGit, mainBranch, mBranchName);
     d->showModal();
 }
 
@@ -119,12 +119,12 @@ void BranchActions::remove()
     if (r == KMessageBox::No)
         return;
 
-    mGit->removeBranch(_branchName);
+    mGit->removeBranch(mBranchName);
 }
 
 void BranchActions::merge()
 {
-    MergeDialog d{mGit, _branchName, mParent};
+    MergeDialog d{mGit, mBranchName, mParent};
     if (d.exec() == QDialog::Accepted) {
         auto cmd = d.command();
         RunnerDialog runner(mParent);
@@ -135,6 +135,6 @@ void BranchActions::merge()
 
 void BranchActions::note()
 {
-    NoteDialog d{mGit, _branchName, mParent};
+    NoteDialog d{mGit, mBranchName, mParent};
     d.exec();
 }

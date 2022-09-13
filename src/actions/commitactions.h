@@ -12,7 +12,6 @@ class CommitActions : public AbstractActions
 {
     Q_OBJECT
 
-    QString _commitHash;
 
     DEFINE_ACTION(actionBrowse)
     DEFINE_ACTION(actionCheckout)
@@ -28,4 +27,6 @@ private Q_SLOTS:
     void browse();
     void checkout();
     void diff();
+private:
+    QString mCommitHash;
 };

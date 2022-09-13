@@ -16,23 +16,23 @@ SegmentsMapper::SegmentsMapper(QObject *parent)
 
 void SegmentsMapper::addEditor(CodeEditor *editor)
 {
-    _editors.append(editor);
+    mEditors.append(editor);
 
     connect(editor, &CodeEditor::blockSelected, this, &SegmentsMapper::codeEditor_blockSelected);
 
-    _scrollBars.insert(editor->verticalScrollBar(), editor);
+    mScrollBars.insert(editor->verticalScrollBar(), editor);
     connect(editor->verticalScrollBar(), &QScrollBar::valueChanged, this, &SegmentsMapper::codeEditor_scroll);
 }
 
 const QList<Diff::Segment *> &SegmentsMapper::segments() const
 {
-    return _segments;
+    return mSegments;
 }
 
 void SegmentsMapper::setSegments(const QList<Diff::MergeSegment *> &newSegments)
 {
     for (const auto &s : newSegments)
-        _segments.append(s);
+        mSegments.append(s);
 }
 
 int SegmentsMapper::map(int from, int to, int index) const
@@ -43,7 +43,7 @@ int SegmentsMapper::map(int from, int to, int index) const
     int &offsetFrom = from == 1 ? offset1 : (from == 2 ? offset2 : offset3);
     int &offsetTo = to == 1 ? offset1 : (to == 2 ? offset2 : offset3);
 
-    for (auto &s : _segments) {
+    for (auto &s : mSegments) {
         auto ms = dynamic_cast<Diff::MergeSegment *>(s);
 
         if (offsetFrom + s->get(from).size() > index) {
@@ -67,7 +67,7 @@ void SegmentsMapper::codeEditor_blockSelected()
     _currentSegment = s->currentSegment();
     s->highlightSegment(_currentSegment);
 
-    for (auto &editor : _editors) {
+    for (auto &editor : mEditors) {
         editor->highlightSegment(_currentSegment);
         editor->gotoSegment(_currentSegment);
         /*if (s == editor)
@@ -87,10 +87,10 @@ void SegmentsMapper::codeEditor_scroll(int value)
     if (n)
         return;
     n.ref();
-    auto s = _scrollBars.value(sender());
+    auto s = mScrollBars.value(sender());
     if (!s)
         return;
-    for (auto &editor : _editors) {
+    for (auto &editor : mEditors) {
         if (s == editor)
             continue;
         editor->verticalScrollBar()->setValue((int)(((float)value / (float)s->verticalScrollBar()->maximum()) * (float)s->verticalScrollBar()->maximum()));
@@ -107,7 +107,7 @@ void SegmentsMapper::refresh()
 {
     if (!_currentSegment)
         return;
-    for (auto &editor : _editors) {
+    for (auto &editor : mEditors) {
         editor->highlightSegment(_currentSegment);
         editor->gotoSegment(_currentSegment);
     }
@@ -121,7 +121,7 @@ void SegmentsMapper::setCurrentSegment(Diff::Segment *newCurrentSegment)
 
 bool SegmentsMapper::isMergeable() const
 {
-    for (auto &s : _segments) {
+    for (auto &s : mSegments) {
         auto ms = dynamic_cast<Diff::MergeSegment *>(s);
         if (ms->mergeType == Diff::MergeType::None)
             return false;
@@ -132,7 +132,7 @@ bool SegmentsMapper::isMergeable() const
 int SegmentsMapper::conflicts() const
 {
     int r{0};
-    for (auto &s : _segments) {
+    for (auto &s : mSegments) {
         auto ms = dynamic_cast<Diff::MergeSegment *>(s);
         if (ms->mergeType == Diff::None)
             r++;
@@ -144,13 +144,13 @@ void SegmentsMapper::findPrevious(const Diff::SegmentType &type)
 {
     int index;
     if (_currentSegment)
-        index = _segments.indexOf(dynamic_cast<Diff::MergeSegment *>(_currentSegment)) - 1;
+        index = mSegments.indexOf(dynamic_cast<Diff::MergeSegment *>(_currentSegment)) - 1;
     else
-        index = _segments.size() - 1;
+        index = mSegments.size() - 1;
 
     for (auto i = index; i; i--)
-        if (_segments.at(i)->type == type) {
-            setCurrentSegment(_segments.at(i));
+        if (mSegments.at(i)->type == type) {
+            setCurrentSegment(mSegments.at(i));
             return;
         }
 }
@@ -159,13 +159,13 @@ void SegmentsMapper::findNext(const Diff::SegmentType &type)
 {
     int index;
     if (_currentSegment)
-        index = _segments.indexOf(dynamic_cast<Diff::MergeSegment *>(_currentSegment)) + 1;
+        index = mSegments.indexOf(dynamic_cast<Diff::MergeSegment *>(_currentSegment)) + 1;
     else
         index = 0;
 
-    for (auto i = index; i < _segments.size(); i++)
-        if (_segments.at(i)->type == type) {
-            setCurrentSegment(_segments.at(i));
+    for (auto i = index; i < mSegments.size(); i++)
+        if (mSegments.at(i)->type == type) {
+            setCurrentSegment(mSegments.at(i));
             return;
         }
 }

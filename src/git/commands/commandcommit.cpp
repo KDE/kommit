@@ -13,12 +13,12 @@ CommandCommit::CommandCommit() = default;
 
 QStringList CommandCommit::generateArgs() const
 {
-    QStringList args{QStringLiteral("commit"), QStringLiteral("--message"), _message};
+    QStringList args{QStringLiteral("commit"), QStringLiteral("--message"), mMessage};
 
-    if (_amend)
+    if (mAmend)
         args.append(QStringLiteral("--amend"));
 
-    if (_includeStatus)
+    if (mIncludeStatus)
         args.append(QStringLiteral("--status"));
     else
         args.append(QStringLiteral("--no-status"));
@@ -28,32 +28,32 @@ QStringList CommandCommit::generateArgs() const
 
 const QString &CommandCommit::message() const
 {
-    return _message;
+    return mMessage;
 }
 
 void CommandCommit::setMessage(const QString &newMessage)
 {
-    _message = newMessage;
+    mMessage = newMessage;
 }
 
 bool CommandCommit::amend() const
 {
-    return _amend;
+    return mAmend;
 }
 
 void CommandCommit::setAmend(bool newAmend)
 {
-    _amend = newAmend;
+    mAmend = newAmend;
 }
 
 bool CommandCommit::includeStatus() const
 {
-    return _includeStatus;
+    return mIncludeStatus;
 }
 
 void CommandCommit::setIncludeStatus(bool newIncludeStatus)
 {
-    _includeStatus = newIncludeStatus;
+    mIncludeStatus = newIncludeStatus;
 }
 
 } // namespace Git

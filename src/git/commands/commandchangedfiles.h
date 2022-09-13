@@ -31,10 +31,10 @@ public:
     void parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
 
 private:
-    QList<FileStatus> _files;
-    bool _ignored{false};
-    bool _untracked{false};
-    bool _ignoreSubmodules{true};
+    QList<FileStatus> mFiles;
+    bool mIgnored{false};
+    bool mUntracked{false};
+    bool mIgnoreSubmodules{true};
 };
 
 } // namespace Git

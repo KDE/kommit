@@ -14,13 +14,7 @@ class DiffTreeModel;
 class DiffDialog : public AppDialog, private Ui::DiffDialog
 {
     Q_OBJECT
-    Git::File _oldFile;
-    Git::File _newFile;
 
-    QString _oldBranch;
-    QString _newBranch;
-
-    DiffTreeModel *_diffModel{};
 
 public:
     Q_DECL_DEPRECATED explicit DiffDialog(QWidget *parent = nullptr);
@@ -36,4 +30,11 @@ private Q_SLOTS:
 
 private:
     void compare(const QStringList &oldData, const QStringList &newData);
+    Git::File mOldFile;
+    Git::File mNewFile;
+
+    QString mOldBranch;
+    QString mNewBranch;
+
+    DiffTreeModel *mDiffModel{};
 };

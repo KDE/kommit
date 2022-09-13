@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 NoteDialog::NoteDialog(Git::Manager *git, const QString &branchName, QWidget *parent)
     : AppDialog(git, parent)
-    , _branchName{branchName}
+    , mBranchName{branchName}
 {
     setupUi(this);
 
@@ -19,6 +19,6 @@ NoteDialog::NoteDialog(Git::Manager *git, const QString &branchName, QWidget *pa
 
 void NoteDialog::on_buttonBox_accepted()
 {
-    _git->saveNote(_branchName, textEdit->toPlainText());
+    mGit->saveNote(mBranchName, textEdit->toPlainText());
     close();
 }

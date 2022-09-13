@@ -30,7 +30,7 @@ protected:
     void keyPressEvent(QKeyEvent *event) override;
 
 private:
-    QEventLoop *_loop{nullptr};
-    bool _isModal{false};
-    int _returnCode{0};
+    QEventLoop *mLoop{nullptr};
+    bool mIsModal{false};
+    int mReturnCode{0};
 };

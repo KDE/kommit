@@ -14,13 +14,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 FileBlameDialog::FileBlameDialog(Git::Manager *git, const QString &fileName, QWidget *parent)
     : AppDialog(parent)
-    , _git(git)
-    , _fileName(fileName)
+    , mGit(git)
+    , mFileName(fileName)
 {
     setupUi(this);
 
     plainTextEdit->setHighlighting(fileName);
-    auto content = _git->fileContent("", _fileName);
+    auto content = mGit->fileContent("", mFileName);
     plainTextEdit->setPlainText(content);
 
     setWindowTitle(i18nc("@title:window", "Blame file: %1", fileName));
@@ -29,8 +29,8 @@ FileBlameDialog::FileBlameDialog(Git::Manager *git, const QString &fileName, QWi
 
 FileBlameDialog::FileBlameDialog(const Git::File &file, QWidget *parent)
     : AppDialog(parent)
-    , _git(Git::Manager::instance())
-    , _file(file)
+    , mGit(Git::Manager::instance())
+    , mFile(file)
 {
     setupUi(this);
     plainTextEdit->setHighlighting(file.fileName());
@@ -48,5 +48,5 @@ FileBlameDialog::FileBlameDialog(const Git::File &file, QWidget *parent)
 void FileBlameDialog::on_plainTextEdit_blockSelected()
 {
     auto b = plainTextEdit->blameData(plainTextEdit->textCursor().block().blockNumber());
-    logDetailsWidget->setLog(_git->logsModel()->findLogByHash(b.commitHash));
+    logDetailsWidget->setLog(mGit->logsModel()->findLogByHash(b.commitHash));
 }

@@ -19,8 +19,8 @@ DiffDialog::DiffDialog(QWidget *parent)
 
 DiffDialog::DiffDialog(const Git::File &oldFile, const Git::File &newFile, QWidget *parent)
     : AppDialog(parent)
-    , _oldFile(oldFile)
-    , _newFile(newFile)
+    , mOldFile(oldFile)
+    , mNewFile(newFile)
 {
     setupUi(this);
     diffWidget->setOldFile(oldFile);
@@ -36,17 +36,17 @@ DiffDialog::DiffDialog(const Git::File &oldFile, const Git::File &newFile, QWidg
 
 DiffDialog::DiffDialog(const QString &oldBranch, const QString &newBranch, QWidget *parent)
     : AppDialog(parent)
-    , _oldBranch(oldBranch)
-    , _newBranch(newBranch)
+    , mOldBranch(oldBranch)
+    , mNewBranch(newBranch)
 {
     setupUi(this);
 
-    _diffModel = new DiffTreeModel;
+    mDiffModel = new DiffTreeModel;
     const auto diffs = Git::Manager::instance()->diffBranches(oldBranch, newBranch);
 
     for (auto &f : diffs)
-        _diffModel->addFile(f);
-    treeView->setModel(_diffModel);
+        mDiffModel->addFile(f);
+    treeView->setModel(mDiffModel);
 }
 
 void DiffDialog::on_toolButtonShowHiddenChars_clicked(bool checked)
@@ -56,7 +56,7 @@ void DiffDialog::on_toolButtonShowHiddenChars_clicked(bool checked)
 
 void DiffDialog::on_pushButtonSaveAs_clicked()
 {
-    auto diff = Git::Manager::instance()->diff(_oldFile.fileName(), _newFile.fileName());
+    auto diff = Git::Manager::instance()->diff(mOldFile.fileName(), mNewFile.fileName());
     qDebug().noquote() << diff;
     const auto fileName = QFileDialog::getSaveFileName(this, i18n("Save diff"));
     if (!fileName.isEmpty()) {
@@ -71,10 +71,10 @@ void DiffDialog::on_pushButtonSaveAs_clicked()
 
 void DiffDialog::on_treeView_clicked(const QModelIndex &index)
 {
-    const auto fileName = _diffModel->fullPath(index);
+    const auto fileName = mDiffModel->fullPath(index);
 
-    Git::File oldFile(_oldBranch, fileName);
-    Git::File newFile(_newBranch, fileName);
+    Git::File oldFile(mOldBranch, fileName);
+    Git::File newFile(mNewBranch, fileName);
     diffWidget->setOldFile(oldFile);
     diffWidget->setNewFile(newFile);
     diffWidget->compare();

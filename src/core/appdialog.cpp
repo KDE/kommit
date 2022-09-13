@@ -13,13 +13,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 AppDialog::AppDialog(QWidget *parent, Qt::WindowFlags f)
     : QDialog(parent, f)
-    , _git(Git::Manager::instance())
+    , mGit(Git::Manager::instance())
 {
 }
 
 AppDialog::AppDialog(Git::Manager *git, QWidget *parent, Qt::WindowFlags f)
     : QDialog(parent, f)
-    , _git(git)
+    , mGit(git)
 {
 }
 

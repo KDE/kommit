@@ -25,24 +25,24 @@ IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, Q
     if (fi.isDir())
         groupBoxFileName->hide();
 
-    _path = fi.absolutePath() + QLatin1Char('/');
-    _path = _path.remove(git->path());
-    _name = fi.baseName();
-    _ext = fi.completeSuffix();
+    mPath = fi.absolutePath() + QLatin1Char('/');
+    mPath = mPath.remove(git->path());
+    mName = fi.baseName();
+    mExt = fi.completeSuffix();
 
-    if (_path == "/")
+    if (mPath == "/")
         radioButtonDirIgnoreFile->setEnabled(false);
 
     generateIgnorePattern();
 
-    auto isIgnored = git->isIgnored(_name + QLatin1Char('.') + _ext);
+    auto isIgnored = git->isIgnored(mName + QLatin1Char('.') + mExt);
 
     if (isIgnored) {
         groupBoxFileName->setEnabled(false);
         groupBoxIgnoreFile->setEnabled(false);
         groupBoxPath->setEnabled(false);
         KMessageBox::error(this, i18n("The file is ignored already"));
-        _isIgnoredAlready = true;
+        mIsIgnoredAlready = true;
         buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
 }
@@ -51,18 +51,18 @@ void IgnoreFileDialog::generateIgnorePattern()
 {
     QString s;
     if (radioButtonName->isChecked())
-        s = _name + ".*";
+        s = mName + ".*";
     else if (radioButtonExt->isChecked())
-        s = "*." + _ext;
+        s = "*." + mExt;
     else {
-        if (_ext.isEmpty())
-            s = _name;
+        if (mExt.isEmpty())
+            s = mName;
         else
-            s = _name + QLatin1Char('.') + _ext;
+            s = mName + QLatin1Char('.') + mExt;
     }
 
     if (radioButtonExactPath->isChecked())
-        s = _path + s;
+        s = mPath + s;
 
     lineEdit->setText(s);
     qDebug() << getIgnoreFile();
@@ -70,7 +70,7 @@ void IgnoreFileDialog::generateIgnorePattern()
 
 void IgnoreFileDialog::on_buttonBox_accepted()
 {
-    if (_isIgnoredAlready) {
+    if (mIsIgnoredAlready) {
         accept();
         close();
         return;
@@ -93,12 +93,12 @@ void IgnoreFileDialog::on_buttonBox_accepted()
     close();
 }
 
-QString IgnoreFileDialog::getIgnoreFile()
+QString IgnoreFileDialog::getIgnoreFile() const
 {
     if (radioButtonRootIgnoreFile->isChecked())
-        return _git->path() + QStringLiteral("/.gitignore");
+        return mGit->path() + QStringLiteral("/.gitignore");
     else if (radioButtonDirIgnoreFile->isChecked())
-        return _git->path() + _path + QStringLiteral(".gitignore");
+        return mGit->path() + mPath + QStringLiteral(".gitignore");
     else
-        return _git->path() + QStringLiteral("/.git/info/exclude");
+        return mGit->path() + QStringLiteral("/.git/info/exclude");
 }
