@@ -109,7 +109,7 @@ void BranchesModel::calculateCommitStats()
         b->commitsBehind = commitsInfo.first;
         b->commitsAhead = commitsInfo.second;
     }
-    emit dataChanged(index(0, 1), index(mData.size() - 1, 2));
+    Q_EMIT dataChanged(index(0, 1), index(mData.size() - 1, 2));
 }
 
 void BranchesModel::setReferenceBranch(const QString &newReferenceBranch)

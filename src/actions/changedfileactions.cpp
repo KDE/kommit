@@ -48,5 +48,5 @@ void ChangedFileActions::diff()
 void ChangedFileActions::revert()
 {
     mGit->revertFile(mFilePath);
-    emit reloadNeeded();
+    Q_EMIT reloadNeeded();
 }

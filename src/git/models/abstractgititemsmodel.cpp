@@ -46,9 +46,9 @@ void AbstractGitItemsModel::setStatus(Status newStatus)
     m_status = newStatus;
 
     if (m_status == Loaded)
-        emit loaded();
+        Q_EMIT loaded();
 
-    emit statusChanged();
+    Q_EMIT statusChanged();
 }
 
 } // namespace Git

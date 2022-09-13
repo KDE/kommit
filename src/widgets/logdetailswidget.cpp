@@ -171,9 +171,9 @@ void LogDetailsWidget::self_anchorClicked(const QUrl &url)
     const auto scheme = url.scheme().toLower();
 
     if (scheme == QStringLiteral("hash"))
-        emit hashClicked(url.path());
+        Q_EMIT hashClicked(url.path());
     else if (scheme == QStringLiteral("file"))
-        emit fileClicked(url.path());
+        Q_EMIT fileClicked(url.path());
 }
 
 bool LogDetailsWidget::enableCommitsLinks() const
@@ -186,5 +186,5 @@ void LogDetailsWidget::setEnableCommitsLinks(bool newEnableCommitsLinks)
     if (m_enableCommitsLinks == newEnableCommitsLinks)
         return;
     m_enableCommitsLinks = newEnableCommitsLinks;
-    emit enableCommitsLinksChanged();
+    Q_EMIT enableCommitsLinksChanged();
 }

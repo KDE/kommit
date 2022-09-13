@@ -254,7 +254,7 @@ void DiffWidget::setSameSize(bool newSameSize)
     if (m_sameSize == newSameSize)
         return;
     m_sameSize = newSameSize;
-    emit sameSizeChanged();
+    Q_EMIT sameSizeChanged();
 }
 
 void DiffWidget::scrollToTop()

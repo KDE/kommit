@@ -52,14 +52,14 @@ void DiffTreeView::on_lineEditFilter_textChanged(const QString &text)
 void DiffTreeView::on_treeView_clicked(const QModelIndex &index)
 {
     const auto fileName = mDiffModel->fullPath(index);
-    emit fileSelected(fileName);
+    Q_EMIT fileSelected(fileName);
 }
 
 void DiffTreeView::on_listView_clicked(const QModelIndex &index)
 {
     const auto row = mFilterModel->mapToSource(index).row();
     const auto fileName = mFilesModel->data(mFilesModel->index(row, 1), Qt::DisplayRole);
-    emit fileSelected(fileName.toString());
+    Q_EMIT fileSelected(fileName.toString());
 }
 
 bool DiffTreeView::hideUnchangeds() const
@@ -72,7 +72,7 @@ void DiffTreeView::setHideUnchangeds(bool newHideUnchangeds)
     if (checkBoxHideUnchangeds->isChecked() == newHideUnchangeds)
         return;
     checkBoxHideUnchangeds->setChecked(newHideUnchangeds);
-    emit hideUnchangedsChanged();
+    Q_EMIT hideUnchangedsChanged();
 }
 
 bool DiffTreeView::eventFilter(QObject *watched, QEvent *event)

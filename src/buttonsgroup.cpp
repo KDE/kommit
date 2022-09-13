@@ -30,7 +30,7 @@ QAbstractButton *ButtonsGroup::at(int i) const
 
 void ButtonsGroup::simulateClickOn(int index)
 {
-    emit clicked(index);
+    Q_EMIT clicked(index);
 }
 
 void ButtonsGroup::buttonClicked()
@@ -43,5 +43,5 @@ void ButtonsGroup::buttonClicked()
         b->setChecked(b == btn);
 
     auto index = mButtons.indexOf(btn);
-    emit clicked(index);
+    Q_EMIT clicked(index);
 }

@@ -711,7 +711,7 @@ void Manager::setIsMerging(bool newIsMerging)
     if (m_isMerging == newIsMerging)
         return;
     m_isMerging = newIsMerging;
-    emit isMergingChanged();
+    Q_EMIT isMergingChanged();
 }
 
 } // namespace Git

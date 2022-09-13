@@ -76,7 +76,7 @@ void AbstractCommand::setProgress(int newProgress)
     if (m_progress == newProgress)
         return;
     m_progress = newProgress;
-    emit progressChanged(newProgress);
+    Q_EMIT progressChanged(newProgress);
 }
 
 void AbstractCommand::appendBool(OptionalBool b, QStringList &cmd, const QString &name) const
