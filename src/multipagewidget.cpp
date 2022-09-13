@@ -12,12 +12,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 Git::Manager *MultiPageWidget::defaultGitManager() const
 {
-    return _defaultGitManager;
+    return mDefaultGitManager;
 }
 
 void MultiPageWidget::setDefaultGitManager(Git::Manager *newDefaultGitManager)
 {
-    _defaultGitManager = newDefaultGitManager;
+    mDefaultGitManager = newDefaultGitManager;
 }
 
 int MultiPageWidget::count() const

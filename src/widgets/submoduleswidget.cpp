@@ -14,10 +14,10 @@ SubmodulesWidget::SubmodulesWidget(QWidget *parent)
     : WidgetBase(parent)
 {
     setupUi(this);
-    _actions = new SubmoduleActions(Git::Manager::instance(), this);
+    mActions = new SubmoduleActions(Git::Manager::instance(), this);
 
-    pushButtonAddNew->setAction(_actions->actionCreate());
-    pushButtonUpdate->setAction(_actions->actionUpdate());
+    pushButtonAddNew->setAction(mActions->actionCreate());
+    pushButtonUpdate->setAction(mActions->actionUpdate());
 
     _model = Git::Manager::instance()->submodulesModel();
     treeView->setModel(_model);
@@ -27,10 +27,10 @@ SubmodulesWidget::SubmodulesWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
 {
     setupUi(this);
-    _actions = new SubmoduleActions(git, this);
+    mActions = new SubmoduleActions(git, this);
 
-    pushButtonAddNew->setAction(_actions->actionCreate());
-    pushButtonUpdate->setAction(_actions->actionUpdate());
+    pushButtonAddNew->setAction(mActions->actionCreate());
+    pushButtonUpdate->setAction(mActions->actionUpdate());
 
     _model = git->submodulesModel();
     treeView->setModel(_model);
@@ -60,8 +60,8 @@ void SubmodulesWidget::on_treeView_customContextMenuRequested(const QPoint &pos)
     auto s = _model->fromIndex(treeView->currentIndex());
     if (!s)
         return;
-    _actions->setSubModuleName(s->path());
-    _actions->popup();
+    mActions->setSubModuleName(s->path());
+    mActions->popup();
 }
 
 void SubmodulesWidget::on_treeView_activated(const QModelIndex &index)
@@ -69,5 +69,5 @@ void SubmodulesWidget::on_treeView_activated(const QModelIndex &index)
     auto s = _model->fromIndex(index);
     if (!s)
         return;
-    _actions->setSubModuleName(s->path());
+    mActions->setSubModuleName(s->path());
 }

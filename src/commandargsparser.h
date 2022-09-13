@@ -49,7 +49,7 @@ class CommandArgsParser : public QObject
 {
     Q_OBJECT
 
-    QMap<QString, CommandList> _commands;
+    QMap<QString, CommandList> mCommands;
     QMap<QString, QString> _params;
     Git::Manager *git;
     QMap<QString, QString> _helpTexts;

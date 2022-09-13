@@ -15,8 +15,8 @@ class QAbstractButton;
 class ButtonsGroup : public QObject
 {
     Q_OBJECT
-    QList<QAbstractButton *> _buttons;
-    QMap<QAbstractButton *, QObject *> _data;
+    QList<QAbstractButton *> mButtons;
+    QMap<QAbstractButton *, QObject *> mData;
 
 public:
     explicit ButtonsGroup(QObject *parent = nullptr);

@@ -14,7 +14,7 @@ FilesModel::FilesModel(QObject *parent)
 int FilesModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return _files.size();
+    return mFiles.size();
 }
 
 int FilesModel::columnCount(const QModelIndex &parent) const
@@ -25,11 +25,11 @@ int FilesModel::columnCount(const QModelIndex &parent) const
 
 QVariant FilesModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= _files.size())
+    if (index.row() < 0 || index.row() >= mFiles.size())
         return {};
 
     if (role == Qt::DisplayRole || role == Qt::EditRole) {
-        auto row = _files[index.row()];
+        auto row = mFiles[index.row()];
 
         if (index.column() == 1)
             return row.second;
@@ -43,9 +43,9 @@ void FilesModel::append(const QString &data)
 {
     const auto i = data.lastIndexOf(QLatin1Char('/'));
     if (i != -1)
-        _files.append({data.mid(i + 1), data});
+        mFiles.append({data.mid(i + 1), data});
     else
-        _files.append({data, data});
+        mFiles.append({data, data});
 }
 
 void FilesModel::addFile(const FileStatus &file)

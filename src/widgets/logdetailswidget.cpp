@@ -24,25 +24,25 @@ LogDetailsWidget::LogDetailsWidget(QWidget *parent)
 
 Git::Log *LogDetailsWidget::log() const
 {
-    return _log;
+    return mLog;
 }
 
 void LogDetailsWidget::setLog(Git::Log *newLog)
 {
-    if (_log == newLog)
+    if (mLog == newLog)
         return;
 
-    _log = newLog;
+    mLog = newLog;
     createText();
 }
 
 void LogDetailsWidget::createText()
 {
-    if (!_log) {
+    if (!mLog) {
         clear();
         return;
     }
-    auto files = Git::Manager::instance()->changedFiles(_log->commitHash());
+    auto files = Git::Manager::instance()->changedFiles(mLog->commitHash());
     QStringList filesHtml;
 
     for (auto i = files.begin(); i != files.end(); ++i) {
@@ -70,11 +70,11 @@ void LogDetailsWidget::createText()
         filesHtml.append(QStringLiteral("<li><font color=%1>%2</a></li>").arg(color, createFileLink(i.key())));
     }
     QStringList parentHashHtml;
-    for (const auto &parent : _log->parents())
+    for (const auto &parent : mLog->parents())
         parentHashHtml.append(createHashLink(parent));
 
     QStringList childsHashHtml;
-    for (const auto &child : _log->childs())
+    for (const auto &child : mLog->childs())
         childsHashHtml.append(createHashLink(child));
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
@@ -96,27 +96,27 @@ void LogDetailsWidget::createText()
         break;
     }*/
     if (cal.isValid())
-        date = _log->commitDate().toLocalTime().toString("yyyy-MM-dd HH:mm:ss", cal);
+        date = mLog->commitDate().toLocalTime().toString("yyyy-MM-dd HH:mm:ss", cal);
     else
-        date = _log->commitDate().toLocalTime().toString();
+        date = mLog->commitDate().toLocalTime().toString();
 #else
-    auto date = _log->commitDate().toLocalTime().toString();
+    auto date = mLog->commitDate().toLocalTime().toString();
 #endif
 
     clear();
     QString html;
-    appendHeading(html, _log->subject());
-    if (!_log->refLog().isEmpty())
-        appendParagraph(html, i18n("Ref"), _log->refLog());
-    appendParagraph(html, i18n("Committer"), QStringLiteral("%1 &lt;%2&gt;").arg(_log->committerName(), _log->committerEmail()));
-    appendParagraph(html, i18n("Author"), QStringLiteral("%1 &lt;%2&gt;").arg(_log->authorName(), _log->authorEmail()));
+    appendHeading(html, mLog->subject());
+    if (!mLog->refLog().isEmpty())
+        appendParagraph(html, i18n("Ref"), mLog->refLog());
+    appendParagraph(html, i18n("Committer"), QStringLiteral("%1 &lt;%2&gt;").arg(mLog->committerName(), mLog->committerEmail()));
+    appendParagraph(html, i18n("Author"), QStringLiteral("%1 &lt;%2&gt;").arg(mLog->authorName(), mLog->authorEmail()));
     appendParagraph(html, i18n("Date"), date);
-    appendParagraph(html, i18n("Hash"), _log->commitHash());
+    appendParagraph(html, i18n("Hash"), mLog->commitHash());
 
-    if (!_log->parents().empty())
-        appendParagraph(html, _log->parents().size() == 1 ? i18n("Parent") : i18n("Parents"), parentHashHtml.join(", "));
-    if (!_log->childs().empty())
-        appendParagraph(html, _log->childs().size() == 1 ? i18n("Child") : i18n("Children"), childsHashHtml.join(", "));
+    if (!mLog->parents().empty())
+        appendParagraph(html, mLog->parents().size() == 1 ? i18n("Parent") : i18n("Parents"), parentHashHtml.join(", "));
+    if (!mLog->childs().empty())
+        appendParagraph(html, mLog->childs().size() == 1 ? i18n("Child") : i18n("Children"), childsHashHtml.join(", "));
 
     appendParagraph(html, i18n("Changed files"), filesHtml);
 

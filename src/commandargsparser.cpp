@@ -53,7 +53,7 @@ CommandArgsParser::CommandArgsParser()
 
 void CommandArgsParser::add(const QString &name, const CommandList &list)
 {
-    _commands.insert(name, list);
+    mCommands.insert(name, list);
 }
 
 void CommandArgsParser::add(const QString &name, const QString &list)
@@ -101,7 +101,7 @@ bool CommandArgsParser::check(const CommandList &commands)
 
 QString CommandArgsParser::checkAll()
 {
-    for (auto i = _commands.begin(); i != _commands.end(); ++i)
+    for (auto i = mCommands.begin(); i != mCommands.end(); ++i)
         if (check(i.value()))
             return i.key();
     return {};

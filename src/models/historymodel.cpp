@@ -17,16 +17,16 @@ HistoryModel::HistoryModel(QObject *parent)
 
 const QString &HistoryModel::branch() const
 {
-    return _branch;
+    return mBranch;
 }
 
 void HistoryModel::setBranch(const QString &newBranch)
 {
-    if (_branch == newBranch)
+    if (mBranch == newBranch)
         return;
 
-    _branch = newBranch;
-    mLogs.setBranch(_branch);
+    mBranch = newBranch;
+    mLogs.setBranch(mBranch);
     reload();
 }
 
@@ -52,7 +52,7 @@ int HistoryModel::rowCount(const QModelIndex &parent) const
 int HistoryModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return _branch.isEmpty() ? 1 : 3;
+    return mBranch.isEmpty() ? 1 : 3;
 }
 
 QVariant HistoryModel::data(const QModelIndex &index, int role) const
@@ -64,7 +64,7 @@ QVariant HistoryModel::data(const QModelIndex &index, int role) const
 
     auto log = mLogs.at(index.row());
 
-    if (_branch.isEmpty()) {
+    if (mBranch.isEmpty()) {
         switch (index.column()) {
         case 0:
             return "";
@@ -93,7 +93,7 @@ QVariant HistoryModel::headerData(int section, Qt::Orientation orientation, int 
     if (orientation == Qt::Vertical)
         return section + 1;
 
-    if (_branch.isEmpty()) {
+    if (mBranch.isEmpty()) {
         switch (section) {
         case 0:
             return i18n("Graph");

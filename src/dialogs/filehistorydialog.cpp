@@ -22,7 +22,7 @@ FileHistoryDialog::FileHistoryDialog(QWidget *parent)
 FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName, QWidget *parent)
     : AppDialog(parent)
     , mGit(git)
-    , _fileName(fileName)
+    , mFileName(fileName)
 {
     setupUi(this);
 
@@ -49,7 +49,7 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const Git::File &file, Q
 {
     setupUi(this);
 
-    _fileName = file.fileName();
+    mFileName = file.fileName();
     const auto hashes = git->fileLog(file.fileName());
 
     auto logs = git->logsModel();
@@ -69,6 +69,6 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const Git::File &file, Q
 
 void FileHistoryDialog::on_listWidget_itemClicked(QListWidgetItem *item)
 {
-    auto content = mGit->fileContent(item->data(Qt::UserRole + 1).toString(), _fileName);
+    auto content = mGit->fileContent(item->data(Qt::UserRole + 1).toString(), mFileName);
     plainTextEdit->setPlainText(content);
 }

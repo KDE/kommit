@@ -25,37 +25,37 @@ StashesWidget::StashesWidget(Git::Manager *git, AppWindow *parent)
 
 void StashesWidget::init(Git::Manager *git)
 {
-    _actions = new StashActions(git, this);
+    mActions = new StashActions(git, this);
 
-    pushButtonApply->setAction(_actions->actionApply());
-    pushButtonRemoveSelected->setAction(_actions->actionDrop());
-    pushButtonCreateNew->setAction(_actions->actionNew());
+    pushButtonApply->setAction(mActions->actionApply());
+    pushButtonRemoveSelected->setAction(mActions->actionDrop());
+    pushButtonCreateNew->setAction(mActions->actionNew());
 
-    _model = git->stashesModel();
-    treeView->setModel(_model);
+    mModel = git->stashesModel();
+    treeView->setModel(mModel);
 }
 
 void StashesWidget::on_treeView_customContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
 
-    auto stash = _model->fromIndex(treeView->currentIndex());
+    auto stash = mModel->fromIndex(treeView->currentIndex());
 
     if (!stash)
         return;
 
-    _actions->setStashName(stash->name());
-    _actions->popup();
+    mActions->setStashName(stash->name());
+    mActions->popup();
 }
 
 void StashesWidget::on_treeView_itemActivated(const QModelIndex &index)
 {
-    auto stash = _model->fromIndex(index);
+    auto stash = mModel->fromIndex(index);
 
     if (!stash)
         return;
 
-    _actions->setStashName(stash->name());
+    mActions->setStashName(stash->name());
 }
 
 void StashesWidget::saveState(QSettings &settings) const

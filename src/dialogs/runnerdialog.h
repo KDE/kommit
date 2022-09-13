@@ -34,6 +34,6 @@ private:
     QProcess *mGit = nullptr;
 
     enum Mode { None, RunByArgs, RunByCommand };
-    Mode _mode{None};
+    Mode mMode{None};
     Git::AbstractCommand *mCmd{nullptr};
 };

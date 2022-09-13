@@ -16,16 +16,16 @@ ButtonsGroup::ButtonsGroup(QObject *parent)
 void ButtonsGroup::addButton(QAbstractButton *btn, QObject *data)
 {
     btn->setCheckable(true);
-    btn->setChecked(!_buttons.size());
+    btn->setChecked(!mButtons.size());
     connect(btn, &QAbstractButton::clicked, this, &ButtonsGroup::buttonClicked);
     if (data)
-        _data.insert(btn, data);
-    _buttons.append(btn);
+        mData.insert(btn, data);
+    mButtons.append(btn);
 }
 
 QAbstractButton *ButtonsGroup::at(int i) const
 {
-    return _buttons.at(i);
+    return mButtons.at(i);
 }
 
 void ButtonsGroup::simulateClickOn(int index)
@@ -39,9 +39,9 @@ void ButtonsGroup::buttonClicked()
     if (!btn)
         return;
 
-    for (auto &b : qAsConst(_buttons))
+    for (auto &b : qAsConst(mButtons))
         b->setChecked(b == btn);
 
-    auto index = _buttons.indexOf(btn);
+    auto index = mButtons.indexOf(btn);
     emit clicked(index);
 }

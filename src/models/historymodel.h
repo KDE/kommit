@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 class HistoryModel : public QAbstractListModel
 {
     Q_OBJECT
-    QString _branch;
+    QString mBranch;
 
 public:
     Q_DECL_DEPRECATED

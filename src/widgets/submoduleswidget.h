@@ -19,7 +19,7 @@ class SubmodulesModel;
 class SubmodulesWidget : public WidgetBase, private Ui::SubmodulesWidget
 {
     Q_OBJECT
-    SubmoduleActions *_actions;
+    SubmoduleActions *mActions;
     Git::SubmodulesModel *_model;
 
 public:

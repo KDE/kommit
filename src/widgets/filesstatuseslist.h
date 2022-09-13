@@ -22,5 +22,5 @@ public:
 
 private:
     QList<FileStatus> mFiles;
-    bool _showCheckboxes{false};
+    bool mShowCheckboxes{false};
 };

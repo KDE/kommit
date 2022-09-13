@@ -29,5 +29,5 @@ private Q_SLOTS:
 
 private:
     Git::Manager *mGit = nullptr;
-    QString _fileName;
+    QString mFileName;
 };

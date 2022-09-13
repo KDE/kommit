@@ -34,8 +34,8 @@ DiffWindow::DiffWindow(Git::Manager *git)
 {
     init(true);
 
-    _oldBranch = git->currentBranch();
-    const auto diffs = git->diffBranch(_oldBranch);
+    mOldBranch = git->currentBranch();
+    const auto diffs = git->diffBranch(mOldBranch);
 
     for (const auto &f : diffs) {
         _diffModel->addFile(f);
@@ -66,7 +66,7 @@ DiffWindow::DiffWindow(const Git::File &oldFile, const Git::File &newFile)
 
 DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QString &newBranch)
     : AppMainWindow()
-    , _oldBranch(oldBranch)
+    , mOldBranch(oldBranch)
     , _newBranch(newBranch)
 {
     init(true);
@@ -190,7 +190,7 @@ void DiffWindow::on_treeView_fileSelected(const QString &file)
         _diffWidget->setOldFile(Git::File{_leftDir + QLatin1Char('/') + file});
         break;
     case Git:
-        _diffWidget->setOldFile({_oldBranch, file});
+        _diffWidget->setOldFile({mOldBranch, file});
         break;
     case NoStorage:
         return;

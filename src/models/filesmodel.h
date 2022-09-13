@@ -17,7 +17,7 @@ class FilesModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    QList<QPair<QString, QString>> _files;
+    QList<QPair<QString, QString>> mFiles;
 
 public:
     explicit FilesModel(QObject *parent = nullptr);

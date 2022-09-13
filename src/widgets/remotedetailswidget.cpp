@@ -11,14 +11,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 Git::Manager *RemoteDetailsWidget::git() const
 {
-    return _git;
+    return mGit;
 }
 
 void RemoteDetailsWidget::setGit(Git::Manager *newGit)
 {
-    _git = newGit;
+    mGit = newGit;
     //    listWidget->clear();
-    listView->setModel(_git->remotesModel());
+    listView->setModel(mGit->remotesModel());
 }
 
 void RemoteDetailsWidget::reload()
@@ -38,8 +38,8 @@ RemoteDetailsWidget::RemoteDetailsWidget(QWidget *parent)
 {
     setupUi(this);
 
-    _git = Git::Manager::instance();
-    connect(_git, &Git::Manager::pathChanged, this, &RemoteDetailsWidget::reload);
+    mGit = Git::Manager::instance();
+    connect(mGit, &Git::Manager::pathChanged, this, &RemoteDetailsWidget::reload);
 }
 
 const QString &RemoteDetailsWidget::branch() const
@@ -51,9 +51,9 @@ void RemoteDetailsWidget::setBranch(const QString &newBranch)
 {
     _branch = newBranch;
 
-    if (!_git)
-        _git = Git::Manager::instance();
-    auto info = _git->remoteDetails(newBranch);
+    if (!mGit)
+        mGit = Git::Manager::instance();
+    auto info = mGit->remoteDetails(newBranch);
 
     labelRemoteName->setText(info.name);
     labelFetchUrl->setText(info.fetchUrl);

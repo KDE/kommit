@@ -18,8 +18,8 @@ class StashActions;
 class StashesWidget : public WidgetBase, private Ui::StashesWidget
 {
     Q_OBJECT
-    StashActions *_actions;
-    Git::StashesModel *_model;
+    StashActions *mActions;
+    Git::StashesModel *mModel;
 
 public:
     explicit StashesWidget(QWidget *parent = nullptr);

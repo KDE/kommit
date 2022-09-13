@@ -16,7 +16,7 @@ class SegmentConnector : public QWidget
     Q_OBJECT
     CodeEditor *_left{nullptr};
     CodeEditor *_right{nullptr};
-    QList<Diff::Segment *> _segments;
+    QList<Diff::Segment *> mSegments;
     Diff::Segment *_currentSegment{nullptr};
     bool m_sameSize{false};
     struct SegmentPos {
@@ -26,7 +26,7 @@ class SegmentConnector : public QWidget
         int rightEnd;
     };
 
-    QMap<Diff::Segment *, SegmentPos> _segmentPos;
+    QMap<Diff::Segment *, SegmentPos> mSegmentPos;
 
 public:
     explicit SegmentConnector(QWidget *parent = nullptr);

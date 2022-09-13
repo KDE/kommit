@@ -29,17 +29,17 @@ BranchesStatusWidget::BranchesStatusWidget(Git::Manager *git, AppWindow *parent)
 
 void BranchesStatusWidget::init(Git::Manager *git)
 {
-    _actions = new BranchActions(git, this);
+    mActions = new BranchActions(git, this);
     _model = git->branchesModel();
     treeView->setModel(_model);
 
     comboBoxReferenceBranch->setModel(_model);
 
-    pushButtonNew->setAction(_actions->actionCreate());
-    pushButtonBrowse->setAction(_actions->actionBrowse());
-    pushButtonCheckout->setAction(_actions->actionCheckout());
-    pushButtonDiff->setAction(_actions->actionDiff());
-    pushButtonRemoveSelected->setAction(_actions->actionRemove());
+    pushButtonNew->setAction(mActions->actionCreate());
+    pushButtonBrowse->setAction(mActions->actionBrowse());
+    pushButtonCheckout->setAction(mActions->actionCheckout());
+    pushButtonDiff->setAction(mActions->actionDiff());
+    pushButtonRemoveSelected->setAction(mActions->actionRemove());
 }
 
 void BranchesStatusWidget::saveState(QSettings &settings) const
@@ -55,7 +55,7 @@ void BranchesStatusWidget::restoreState(QSettings &settings)
 void BranchesStatusWidget::on_comboBoxReferenceBranch_currentIndexChanged(const QString &selectedBranch)
 {
     _model->setReferenceBranch(selectedBranch);
-    _actions->setOtherBranch(selectedBranch);
+    mActions->setOtherBranch(selectedBranch);
 }
 
 void BranchesStatusWidget::on_pushButtonRemoveSelected_clicked()
@@ -80,8 +80,8 @@ void BranchesStatusWidget::on_treeView_customContextMenuRequested(const QPoint &
     auto b = _model->fromindex(treeView->currentIndex());
     if (!b)
         return;
-    _actions->setBranchName(b->name);
-    _actions->popup();
+    mActions->setBranchName(b->name);
+    mActions->popup();
 }
 
 void BranchesStatusWidget::reload()

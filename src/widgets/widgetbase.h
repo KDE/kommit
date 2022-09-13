@@ -23,7 +23,7 @@ class WidgetBase : public QWidget
     Q_OBJECT
 
 protected:
-    Git::Manager *_git{nullptr};
+    Git::Manager *mGit{nullptr};
     AppWindow *_parent{nullptr};
 
 public:

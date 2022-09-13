@@ -73,5 +73,5 @@ void CommitsWidget::init()
     mRepoModel = new TreeModel(this);
     treeViewRepo->setModel(mRepoModel);
 
-    mActions = new BranchActions(_git, this);
+    mActions = new BranchActions(mGit, this);
 }

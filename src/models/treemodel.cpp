@@ -13,32 +13,32 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 const QString &TreeModel::separator() const
 {
-    return _seprator;
+    return mSeparator;
 }
 
 void TreeModel::setSeparator(const QString &newSeparator)
 {
-    _seprator = newSeparator;
+    mSeparator = newSeparator;
 }
 
 bool TreeModel::lastPartAsData() const
 {
-    return _lastPartAsData;
+    return mLastPartAsData;
 }
 
 void TreeModel::setLastPartAsData(bool newLastPartAsData)
 {
-    _lastPartAsData = newLastPartAsData;
+    mLastPartAsData = newLastPartAsData;
 }
 
 const QIcon &TreeModel::defaultIcon() const
 {
-    return _defaultIcon;
+    return mDefaultIcon;
 }
 
 void TreeModel::setDefaultIcon(const QIcon &newDefaultIcon)
 {
-    _defaultIcon = newDefaultIcon;
+    mDefaultIcon = newDefaultIcon;
 }
 
 void TreeModel::clear()
@@ -93,7 +93,7 @@ QVariant TreeModel::data(const QModelIndex &index, int role) const
 
         return item->title;
     } else if (role == Qt::DecorationRole) {
-        return _defaultIcon;
+        return mDefaultIcon;
     }
 
     return {};
@@ -202,16 +202,16 @@ void TreeModel::addData(const QStringList &data, const QString &prefix, bool spl
         if (split) {
             auto nodePath = path;
             if (!prefix.isEmpty())
-                nodePath.prepend(prefix + _seprator);
+                nodePath.prepend(prefix + mSeparator);
 
-            auto parts = nodePath.split(_seprator);
-            if (_lastPartAsData) {
+            auto parts = nodePath.split(mSeparator);
+            if (mLastPartAsData) {
                 auto data = parts.takeLast();
                 node = createPath(parts);
                 node->data.append(data);
-                auto nodePathParts = nodePath.split(_seprator);
+                auto nodePathParts = nodePath.split(mSeparator);
                 nodePathParts.takeLast();
-                node->key = nodePathParts.join(_seprator);
+                node->key = nodePathParts.join(mSeparator);
             } else {
                 node = createPath(parts);
                 node->key = path;
@@ -265,7 +265,7 @@ void TreeModel::getFullPath(QString &path, Node *node) const
         path.prepend(node->title);
 
         if (node->parent != rootNode) {
-            path.prepend(_seprator);
+            path.prepend(mSeparator);
             getFullPath(path, node->parent);
         }
     }

@@ -13,9 +13,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 class TreeModel : public QAbstractItemModel
 {
     Q_OBJECT
-    QString _seprator{"/"};
-    bool _lastPartAsData{false};
-    QIcon _defaultIcon;
+    QString mSeparator{"/"};
+    bool mLastPartAsData{false};
+    QIcon mDefaultIcon;
 
 public:
     struct Node {

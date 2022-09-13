@@ -12,7 +12,7 @@ class Manager;
 }
 class AppConfig
 {
-    Git::Manager *_git;
+    Git::Manager *mGit;
 
 public:
     explicit AppConfig(Git::Manager *git);

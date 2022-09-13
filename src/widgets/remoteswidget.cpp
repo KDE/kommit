@@ -39,11 +39,11 @@ void RemotesWidget::restoreState(QSettings &settings)
 
 void RemotesWidget::on_listView_itemActivated(const QModelIndex &index)
 {
-    auto remote = _model->fromIndex(index);
+    auto remote = mModel->fromIndex(index);
     if (!remote)
         return;
 
-    _actions->setRemoteName(remote->name);
+    mActions->setRemoteName(remote->name);
     labelRemoteName->setText(remote->name);
     labelFetchUrl->setText(remote->fetchUrl);
     labelPushUrl->setText(remote->pushUrl);
@@ -65,21 +65,21 @@ void RemotesWidget::on_listView_itemActivated(const QModelIndex &index)
 void RemotesWidget::on_listView_customContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
-    auto remote = _model->fromIndex(listView->currentIndex());
+    auto remote = mModel->fromIndex(listView->currentIndex());
     if (!remote)
         return;
 
-    _actions->setRemoteName(remote->name);
-    _actions->popup();
+    mActions->setRemoteName(remote->name);
+    mActions->popup();
 }
 
 void RemotesWidget::init(Git::Manager *git)
 {
-    _model = git->remotesModel();
+    mModel = git->remotesModel();
     listView->setModelColumn(0);
-    listView->setModel(_model);
+    listView->setModel(mModel);
 
-    _actions = new RemotesActions(git, this);
-    pushButtonAdd->setAction(_actions->actionCreate());
-    pushButtonRemove->setAction(_actions->actionRemove());
+    mActions = new RemotesActions(git, this);
+    pushButtonAdd->setAction(mActions->actionCreate());
+    pushButtonRemove->setAction(mActions->actionRemove());
 }

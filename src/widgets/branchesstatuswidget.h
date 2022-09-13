@@ -20,7 +20,7 @@ class BranchesStatusWidget : public WidgetBase, private Ui::BranchesStatusWidget
     Q_OBJECT
 
     QStringList _branches;
-    BranchActions *_actions;
+    BranchActions *mActions;
     Git::BranchesModel *_model;
 
 public:

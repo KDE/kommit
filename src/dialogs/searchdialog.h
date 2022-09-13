@@ -44,6 +44,6 @@ private:
         int value;
         int total;
         QString message;
-    } _progress;
+    } mProgress;
     QStandardItemModel *mModel{nullptr};
 };

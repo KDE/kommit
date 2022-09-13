@@ -16,7 +16,7 @@ class Log;
 class LogDetailsWidget : public QTextBrowser
 {
     Q_OBJECT
-    Git::Log *_log{};
+    Git::Log *mLog{};
     Q_PROPERTY(bool enableCommitsLinks READ enableCommitsLinks WRITE setEnableCommitsLinks NOTIFY enableCommitsLinksChanged)
 
 public:

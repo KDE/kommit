@@ -19,28 +19,28 @@ SPDX-License-Identifier: GPL-3.0-or-later
 WidgetBase::WidgetBase(QWidget *parent)
     : QWidget(parent)
 {
-    _git = Git::Manager::instance();
-    connect(_git, &Git::Manager::pathChanged, this, &WidgetBase::git_pathChanged);
+    mGit = Git::Manager::instance();
+    connect(mGit, &Git::Manager::pathChanged, this, &WidgetBase::git_pathChanged);
 }
 
 WidgetBase::WidgetBase(Git::Manager *git, AppWindow *parent)
     : QWidget(parent)
-    , _git(git)
+    , mGit(git)
     , _parent{parent}
 {
-    if (!_git)
-        _git = Git::Manager::instance();
-    connect(_git, &Git::Manager::pathChanged, this, &WidgetBase::git_pathChanged);
+    if (!mGit)
+        mGit = Git::Manager::instance();
+    connect(mGit, &Git::Manager::pathChanged, this, &WidgetBase::git_pathChanged);
 }
 
 Git::Manager *WidgetBase::git() const
 {
-    return _git;
+    return mGit;
 }
 
 void WidgetBase::setGit(Git::Manager *newGit)
 {
-    _git = newGit;
+    mGit = newGit;
 }
 
 void WidgetBase::reload()

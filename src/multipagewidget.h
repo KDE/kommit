@@ -21,7 +21,7 @@ class MultiPageWidget : public QWidget, private Ui::MultiPageWidget
     Q_OBJECT
 
     QActionGroup *const actionGroup;
-    Git::Manager *_defaultGitManager{};
+    Git::Manager *mDefaultGitManager{};
 
 public:
     explicit MultiPageWidget(QWidget *parent = nullptr);
@@ -30,7 +30,7 @@ public:
     template<class T>
     void addPage()
     {
-        addPage(new T(_defaultGitManager, this));
+        addPage(new T(mDefaultGitManager, this));
     }
     void setCurrentIndex(int index);
     QList<QAction *> actions() const;

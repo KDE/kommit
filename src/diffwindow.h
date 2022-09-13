@@ -33,7 +33,7 @@ private:
     Git::File _oldFile;
     Git::File _newFile;
 
-    QString _oldBranch;
+    QString mOldBranch;
     QString _newBranch;
 
     QString _leftDir, _rightDir;

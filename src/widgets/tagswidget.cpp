@@ -17,26 +17,26 @@ TagsWidget::TagsWidget(QWidget *parent)
     : WidgetBase(parent)
 {
     setupUi(this);
-    _model = Git::Manager::instance()->tagsModel();
-    treeViewTags->setModel(_model);
-    _actions = new TagsActions(Git::Manager::instance(), this);
-    pushButtonAddTag->setAction(_actions->actionCreate());
-    pushButtonRemove->setAction(_actions->actionRemove());
-    pushButtonCheckout->setAction(_actions->actionCheckout());
-    pushButtonPush->setAction(_actions->actionPush());
+    mModel = Git::Manager::instance()->tagsModel();
+    treeViewTags->setModel(mModel);
+    mActions = new TagsActions(Git::Manager::instance(), this);
+    pushButtonAddTag->setAction(mActions->actionCreate());
+    pushButtonRemove->setAction(mActions->actionRemove());
+    pushButtonCheckout->setAction(mActions->actionCheckout());
+    pushButtonPush->setAction(mActions->actionPush());
 }
 
 TagsWidget::TagsWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
 {
     setupUi(this);
-    _model = git->tagsModel();
-    treeViewTags->setModel(_model);
-    _actions = new TagsActions(git, this);
-    pushButtonAddTag->setAction(_actions->actionCreate());
-    pushButtonRemove->setAction(_actions->actionRemove());
-    pushButtonCheckout->setAction(_actions->actionCheckout());
-    pushButtonPush->setAction(_actions->actionPush());
+    mModel = git->tagsModel();
+    treeViewTags->setModel(mModel);
+    mActions = new TagsActions(git, this);
+    pushButtonAddTag->setAction(mActions->actionCreate());
+    pushButtonRemove->setAction(mActions->actionRemove());
+    pushButtonCheckout->setAction(mActions->actionCheckout());
+    pushButtonPush->setAction(mActions->actionPush());
 }
 
 void TagsWidget::saveState(QSettings &settings) const
@@ -52,16 +52,16 @@ void TagsWidget::restoreState(QSettings &settings)
 void TagsWidget::on_treeViewTags_customContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
-    auto item = _model->fromIndex(treeViewTags->currentIndex());
+    auto item = mModel->fromIndex(treeViewTags->currentIndex());
     if (item) {
-        _actions->setTagName(item->name());
-        _actions->popup();
+        mActions->setTagName(item->name());
+        mActions->popup();
     }
 }
 
 void TagsWidget::on_treeViewTags_itemActivated(const QModelIndex &index)
 {
-    auto item = _model->fromIndex(index);
+    auto item = mModel->fromIndex(index);
     if (item)
-        _actions->setTagName(item->name());
+        mActions->setTagName(item->name());
 }

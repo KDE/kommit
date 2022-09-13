@@ -49,7 +49,7 @@ void SearchDialog::on_pushButtonSearch_clicked()
     initModel();
     startTimer(500);
     pushButtonSearch->setEnabled(false);
-    _progress.total = _progress.value = 0;
+    mProgress.total = mProgress.value = 0;
     auto f = QtConcurrent::run(this, &SearchDialog::beginSearch);
 }
 
@@ -77,19 +77,19 @@ void SearchDialog::beginSearch()
 {
     if (radioButtonSearchBranches->isChecked()) {
         const auto branchesList = mGit->branches();
-        _progress.total = branchesList.size();
+        mProgress.total = branchesList.size();
         for (const auto &branch : branchesList) {
             searchOnPlace(branch, QString());
-            _progress.value++;
+            mProgress.value++;
         }
     } else {
         Git::LogList list;
         list.load();
 
-        _progress.total = list.size();
+        mProgress.total = list.size();
         for (auto &branch : list) {
             searchOnPlace(QString(), branch->commitHash());
-            _progress.value++;
+            mProgress.value++;
         }
     }
 
@@ -115,6 +115,6 @@ void SearchDialog::searchOnPlace(const QString &branch, const QString &commit)
 void SearchDialog::timerEvent(QTimerEvent *event)
 {
     Q_UNUSED(event)
-    progressBar->setMaximum(_progress.total);
-    progressBar->setValue(_progress.value);
+    progressBar->setMaximum(mProgress.total);
+    progressBar->setValue(mProgress.value);
 }

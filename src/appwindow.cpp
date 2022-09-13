@@ -67,12 +67,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 void AppWindow::init()
 {
-    _git = Git::Manager::instance();
-    connect(_git, &Git::Manager::pathChanged, this, &AppWindow::git_pathChanged);
+    mGit = Git::Manager::instance();
+    connect(mGit, &Git::Manager::pathChanged, this, &AppWindow::git_pathChanged);
 
     initActions();
-    _mainWidget = new MultiPageWidget(this);
-    _mainWidget->setDefaultGitManager(_git);
+    mMainWidget = new MultiPageWidget(this);
+    mMainWidget->setDefaultGitManager(mGit);
     addPage<HistoryViewWidget>(QStringLiteral("view_overview"));
     addPage<BranchesStatusWidget>(QStringLiteral("view_branches"));
     addPage<CommitsWidget>(QStringLiteral("view_commits"));
@@ -82,13 +82,13 @@ void AppWindow::init()
     addPage<TagsWidget>(QStringLiteral("view_tags"));
 
     setupGUI(StandardWindowOption::Default, "gitklientui.rc");
-    _mainWidget->setCurrentIndex(0);
+    mMainWidget->setCurrentIndex(0);
 
-    setCentralWidget(_mainWidget);
+    setCentralWidget(mMainWidget);
 
-    _statusCurrentBranchLabel = new QLabel(statusBar());
-    statusBar()->addPermanentWidget(_statusCurrentBranchLabel);
-    _statusCurrentBranchLabel->setText(i18n("No repo selected"));
+    mStatusCurrentBranchLabel = new QLabel(statusBar());
+    statusBar()->addPermanentWidget(mStatusCurrentBranchLabel);
+    mStatusCurrentBranchLabel->setText(i18n("No repo selected"));
 }
 
 AppWindow::AppWindow()
@@ -99,7 +99,7 @@ AppWindow::AppWindow()
     if (GitKlientSettings::openLastRepo()) {
         QSettings s;
         auto p = s.value("last_repo").toString();
-        _git->setPath(p);
+        mGit->setPath(p);
         initRecentFiles(p);
         QtConcurrent::run(this, &AppWindow::loadRemotes);
     }
@@ -108,7 +108,7 @@ AppWindow::AppWindow()
 AppWindow::AppWindow(const QString &path)
 {
     init();
-    _git->setPath(path);
+    mGit->setPath(path);
     QtConcurrent::run(this, &AppWindow::loadRemotes);
 }
 
@@ -127,14 +127,14 @@ AppWindow *AppWindow::instance()
 
 void AppWindow::git_pathChanged()
 {
-    setWindowFilePath(_git->path());
+    setWindowFilePath(mGit->path());
     //    setWindowTitle(_git->path());
 
-    auto statusText = i18n("Current branch: %1", _git->currentBranch());
-    if (_git->isMerging())
+    auto statusText = i18n("Current branch: %1", mGit->currentBranch());
+    if (mGit->isMerging())
         statusText.append(i18n(" (merging)"));
 
-    _statusCurrentBranchLabel->setText(statusText);
+    mStatusCurrentBranchLabel->setText(statusText);
 }
 
 void AppWindow::initActions()
@@ -220,28 +220,28 @@ void AppWindow::initRecentFiles(const QString &newItem)
 
 void AppWindow::loadRemotes()
 {
-    auto remotes = _git->remotes();
+    auto remotes = mGit->remotes();
     for (const auto &r : remotes)
-        volatile auto remote = _git->remoteDetails(r);
+        volatile auto remote = mGit->remoteDetails(r);
 }
 
 void AppWindow::repoStatus()
 {
-    ChangedFilesDialog d(_git, this);
+    ChangedFilesDialog d(mGit, this);
     d.exec();
 }
 
 void AppWindow::initRepo()
 {
-    InitDialog d(_git, this);
+    InitDialog d(mGit, this);
     if (d.exec() == QDialog::Accepted) {
         QDir dir;
         if (!dir.mkpath(d.path())) {
             KMessageBox::error(this, i18n("Unable to create path: %1", d.path()), i18n("Init repo"));
             return;
         }
-        _git->init(d.path());
-        _git->setPath(d.path());
+        mGit->init(d.path());
+        mGit->setPath(d.path());
     }
 }
 
@@ -250,7 +250,7 @@ void AppWindow::openRepo()
     QFileDialog d;
     d.setFileMode(QFileDialog::Directory);
     if (d.exec() == QDialog::Accepted) {
-        _git->setPath(d.directoryUrl().toLocalFile());
+        mGit->setPath(d.directoryUrl().toLocalFile());
         //        m_kde_actionsView->reload();
         initRecentFiles(d.directoryUrl().toLocalFile());
     }
@@ -263,7 +263,7 @@ void AppWindow::recentActionTriggered()
         return;
 
     auto p = action->data().toString();
-    _git->setPath(p);
+    mGit->setPath(p);
 
     initRecentFiles(p);
 
@@ -272,9 +272,9 @@ void AppWindow::recentActionTriggered()
 
 void AppWindow::commitPushAction()
 {
-    CommitPushDialog d(_git, this);
+    CommitPushDialog d(mGit, this);
     if (d.exec() == QDialog::Accepted)
-        _git->logsModel()->load();
+        mGit->logsModel()->load();
 }
 
 void AppWindow::pull()
@@ -285,13 +285,13 @@ void AppWindow::pull()
 
 void AppWindow::fetch()
 {
-    FetchDialog d(_git, this);
+    FetchDialog d(mGit, this);
     d.exec();
 }
 
 void AppWindow::showBranchesStatus()
 {
-    MergeDialog d(_git, this);
+    MergeDialog d(mGit, this);
     d.exec();
 }
 
@@ -310,32 +310,32 @@ void AppWindow::clone()
 
 void AppWindow::diffBranches()
 {
-    SelectBranchesToDiffDialog d(_git, this);
+    SelectBranchesToDiffDialog d(mGit, this);
     if (d.exec() == QDialog::Accepted) {
-        auto diffWin = new DiffWindow(_git, d.oldBranch(), d.newBranch());
+        auto diffWin = new DiffWindow(mGit, d.oldBranch(), d.newBranch());
         diffWin->showModal();
     }
 }
 
 void AppWindow::search()
 {
-    SearchDialog d(_git, this);
+    SearchDialog d(mGit, this);
     d.exec();
 }
 
 void AppWindow::repoSettings()
 {
-    RepoSettingsDialog d(_git, this);
+    RepoSettingsDialog d(mGit, this);
     d.exec();
 }
 
 void AppWindow::repoSwitch()
 {
-    if (_git->isMerging()) {
+    if (mGit->isMerging()) {
         KMessageBox::error(this, i18n("Cannot switch branch while merging"), i18n("Switch branch"));
         return;
     }
-    SwitchBranchDialog d(_git, this);
+    SwitchBranchDialog d(mGit, this);
     if (d.exec() == QDialog::Accepted) {
         RunnerDialog runner(this);
         runner.run(d.command());
@@ -345,13 +345,13 @@ void AppWindow::repoSwitch()
 
 void AppWindow::repoDiffTree()
 {
-    auto w = new DiffWindow(_git);
+    auto w = new DiffWindow(mGit);
     w->showModal();
 }
 
 void AppWindow::merge()
 {
-    MergeDialog d(_git, this);
+    MergeDialog d(mGit, this);
     d.exec();
 }
 
@@ -360,13 +360,13 @@ void AppWindow::addPage(const QString &actionName)
 {
     const QList<Qt::Key> keys = {Qt::Key_0, Qt::Key_1, Qt::Key_2, Qt::Key_3, Qt::Key_4, Qt::Key_5, Qt::Key_6, Qt::Key_7, Qt::Key_8, Qt::Key_9};
     auto action = actionCollection()->addAction(actionName);
-    auto w = new T(_git, this);
+    auto w = new T(mGit, this);
     action->setText(w->windowTitle());
     action->setIcon(QIcon::fromTheme(actionName));
-    if (_mainWidget->count() < 10)
-        actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL + keys[_mainWidget->count()]));
+    if (mMainWidget->count() < 10)
+        actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL + keys[mMainWidget->count()]));
 
-    _mainWidget->addPage(w, action);
+    mMainWidget->addPage(w, action);
     QSettings s;
     w->restoreState(s);
     _baseWidgets.append(w);

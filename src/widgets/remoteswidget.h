@@ -18,8 +18,8 @@ class Manager;
 class RemotesWidget : public WidgetBase, private Ui::RemotesWidget
 {
     Q_OBJECT
-    Git::RemotesModel *_model;
-    RemotesActions *_actions;
+    Git::RemotesModel *mModel;
+    RemotesActions *mActions;
 
 public:
     explicit RemotesWidget(QWidget *parent = nullptr);

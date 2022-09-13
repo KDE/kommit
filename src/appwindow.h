@@ -30,7 +30,7 @@ class Manager;
 class AppWindow : public AppMainWindow
 {
     Q_OBJECT
-    Git::Manager *_git;
+    Git::Manager *mGit;
 
 public:
     /**
@@ -66,9 +66,9 @@ private Q_SLOTS:
 
 private:
     QAction *recentAction;
-    MultiPageWidget *_mainWidget;
+    MultiPageWidget *mMainWidget;
     QList<WidgetBase *> _baseWidgets;
-    QLabel *_statusCurrentBranchLabel;
+    QLabel *mStatusCurrentBranchLabel;
 
     void initActions();
     void initRecentFiles(const QString &newItem = QString());

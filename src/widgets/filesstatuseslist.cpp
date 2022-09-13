@@ -24,10 +24,10 @@ void FilesStatusesList::setFiles(const QList<FileStatus> &newFiles)
 
 bool FilesStatusesList::showCheckboxes() const
 {
-    return _showCheckboxes;
+    return mShowCheckboxes;
 }
 
 void FilesStatusesList::setShowCheckboxes(bool newShowCheckboxes)
 {
-    _showCheckboxes = newShowCheckboxes;
+    mShowCheckboxes = newShowCheckboxes;
 }

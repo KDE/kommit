@@ -13,18 +13,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 const QList<Diff::Segment *> &SegmentConnector::segments() const
 {
-    return _segments;
+    return mSegments;
 }
 
 void SegmentConnector::setSegments(const QList<Diff::Segment *> &newSegments)
 {
-    _segments = newSegments;
+    mSegments = newSegments;
 
     int oldIndex{0};
     int newIndex{0};
-    _segmentPos.clear();
+    mSegmentPos.clear();
 
-    for (auto &s : _segments) {
+    for (auto &s : mSegments) {
         if (m_sameSize) {
             auto sizeMax = qMax(s->oldText.size(), s->newText.size());
 
@@ -34,7 +34,7 @@ void SegmentConnector::setSegments(const QList<Diff::Segment *> &newSegments)
             //                pos.leftEnd = -1;
             //            if (s->newText.isEmpty())
             //                pos.rightEnd = -1;
-            _segmentPos.insert(s, pos);
+            mSegmentPos.insert(s, pos);
 
             oldIndex += sizeMax;
             newIndex += sizeMax;
@@ -45,7 +45,7 @@ void SegmentConnector::setSegments(const QList<Diff::Segment *> &newSegments)
                 pos.leftEnd = -1;
             if (s->newText.isEmpty())
                 pos.rightEnd = -1;
-            _segmentPos.insert(s, pos);
+            mSegmentPos.insert(s, pos);
 
             oldIndex += s->oldText.size();
             newIndex += s->newText.size();
@@ -111,7 +111,7 @@ void SegmentConnector::paintEvent(QPaintEvent *event)
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.fillRect(rect(), Qt::white);
 
-    for (auto s = _segmentPos.begin(); s != _segmentPos.end(); ++s) {
+    for (auto s = mSegmentPos.begin(); s != mSegmentPos.end(); ++s) {
         if (s.key()->type == Diff::SegmentType::SameOnBoth)
             continue;
         auto leftArea = _left->blockArea(s->leftStart, s->leftEnd);

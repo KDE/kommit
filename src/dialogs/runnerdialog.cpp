@@ -31,7 +31,7 @@ RunnerDialog::RunnerDialog(QWidget *parent)
 void RunnerDialog::run(const QStringList &args)
 {
     progressBar->hide();
-    _mode = RunByArgs;
+    mMode = RunByArgs;
     lineEditCommand->setText("git " + args.join(QLatin1Char(' ')));
     textBrowser->append("$ " + lineEditCommand->text());
     mGit->setArguments(args);
@@ -40,7 +40,7 @@ void RunnerDialog::run(const QStringList &args)
 
 void RunnerDialog::run(Git::AbstractCommand *command)
 {
-    _mode = RunByCommand;
+    mMode = RunByCommand;
     if (command->supportWidget()) {
         auto w = command->createWidget();
         tabWidget->insertTab(0, w, i18n("View"));
