@@ -21,11 +21,6 @@ class LogsModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 
-    QString _branch;
-    QList<Log *> _data;
-    QStringList _branches;
-    QMap<QString, Log *> _dataByCommitHashLong;
-    QMap<QString, Log *> _dataByCommitHashShort;
 
 public:
     explicit LogsModel(Manager *git, QObject *parent = nullptr);
@@ -48,5 +43,11 @@ protected:
 private:
     void initChilds();
     void initGraph();
+
+    QString mBranch;
+    QList<Log *> mData;
+    QStringList mBranches;
+    QMap<QString, Log *> mDataByCommitHashLong;
+    QMap<QString, Log *> mDataByCommitHashShort;
 };
 }

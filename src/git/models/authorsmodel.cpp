@@ -18,7 +18,7 @@ AuthorsModel::AuthorsModel(Manager *git, QObject *parent)
 int AuthorsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return _data.size();
+    return mData.size();
 }
 
 int AuthorsModel::columnCount(const QModelIndex &parent) const
@@ -43,14 +43,14 @@ QVariant AuthorsModel::headerData(int section, Qt::Orientation orientation, int 
 
 QVariant AuthorsModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= _data.size())
+    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return {};
 
     switch (index.column()) {
     case 0:
-        return _data.at(index.row())->name;
+        return mData.at(index.row())->name;
     case 1:
-        return _data.at(index.row())->email;
+        return mData.at(index.row())->email;
     }
 
     return {};
@@ -58,14 +58,14 @@ QVariant AuthorsModel::data(const QModelIndex &index, int role) const
 
 Author *AuthorsModel::findOrCreate(const QString &name, const QString &email)
 {
-    for (auto &a : _data)
+    for (auto &a : mData)
         if (a->email == email)
             return a;
     auto author = new Author;
     author->name = name;
     author->email = email;
-    beginInsertRows(QModelIndex(), _data.size(), _data.size());
-    _data.append(author);
+    beginInsertRows(QModelIndex(), mData.size(), mData.size());
+    mData.append(author);
     endInsertRows();
     return author;
 }

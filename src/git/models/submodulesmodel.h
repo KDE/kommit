@@ -16,8 +16,6 @@ class SubmodulesModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 
-    QList<Submodule *> _data;
-
 public:
     explicit SubmodulesModel(Git::Manager *git, QObject *parent = nullptr);
 
@@ -31,6 +29,8 @@ public:
 
 protected:
     void fill() override;
+private:
+    QList<Submodule *> mData;
 };
 
 } // namespace Git

@@ -41,10 +41,9 @@ public:
     void setName(const QString &newName);
 
 private:
-    QString _fullPath;
-    QString _name;
-    QString _newName;
-    Status _status;
+    QString mFullPath;
+    QString mName;
+    Status mStatus;
 
     friend class Manager;
 };

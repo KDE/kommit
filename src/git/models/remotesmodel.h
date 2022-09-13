@@ -19,7 +19,6 @@ class Remote;
 class RemotesModel : public AbstractGitItemsModel
 {
     Q_OBJECT
-    QList<Remote *> _data;
 
 public:
     explicit RemotesModel(Manager *git, QObject *parent = nullptr);
@@ -34,5 +33,7 @@ public:
 
 protected:
     void fill() override;
+private:
+    QList<Remote *> mData;
 };
 } // namespace Git

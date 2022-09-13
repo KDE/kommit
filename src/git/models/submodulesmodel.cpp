@@ -20,7 +20,7 @@ SubmodulesModel::SubmodulesModel(Git::Manager *git, QObject *parent)
 int SubmodulesModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return _data.size();
+    return mData.size();
 }
 
 int SubmodulesModel::columnCount(const QModelIndex &parent) const
@@ -31,10 +31,10 @@ int SubmodulesModel::columnCount(const QModelIndex &parent) const
 
 QVariant SubmodulesModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= _data.size())
+    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return {};
 
-    auto submodule = _data.at(index.row());
+    auto submodule = mData.at(index.row());
 
     switch (index.column()) {
     case 0:
@@ -64,25 +64,25 @@ QVariant SubmodulesModel::headerData(int section, Qt::Orientation orientation, i
 
 bool SubmodulesModel::append(Submodule *module)
 {
-    beginInsertRows(QModelIndex(), _data.size(), _data.size());
-    _data.append(module);
+    beginInsertRows(QModelIndex(), mData.size(), mData.size());
+    mData.append(module);
     endInsertRows();
     return true;
 }
 
 Submodule *SubmodulesModel::fromIndex(const QModelIndex &index)
 {
-    if (!index.isValid() || index.row() < 0 || index.row() >= _data.size())
+    if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
 
-    return _data.at(index.row());
+    return mData.at(index.row());
 }
 
 void SubmodulesModel::fill()
 {
-    qDeleteAll(_data);
-    _data.clear();
-    const auto modulesList = _git->readAllNonEmptyOutput({"submodule", "status"});
+    qDeleteAll(mData);
+    mData.clear();
+    const auto modulesList = mGit->readAllNonEmptyOutput({"submodule", "status"});
     for (const auto &line : modulesList) {
         auto m = new Submodule;
         m->setCommitHash(line.mid(0, 40));
@@ -93,7 +93,7 @@ void SubmodulesModel::fill()
 
         if (line.count(QLatin1Char(' ')) == 2)
             m->setRefName(line.mid(n));
-        _data.append(m);
+        mData.append(m);
     }
 }
 

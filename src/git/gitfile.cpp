@@ -15,29 +15,29 @@ namespace Git
 
 File::StorageType File::storage() const
 {
-    return _storage;
+    return mStorage;
 }
 
 File::File()
-    : _storage{InValid}
+    : mStorage{InValid}
 {
 }
 
 File::File(QString filePath)
-    : _place()
-    , _filePath(std::move(filePath))
-    , _storage{Local}
+    : mPlace()
+    , mFilePath(std::move(filePath))
+    , mStorage{Local}
 {
 }
 
 File::File(QString place, QString filePath, Manager *git)
-    : _place(std::move(place))
-    , _filePath(std::move(filePath))
-    , _git(git)
-    , _storage{Git}
+    : mPlace(std::move(place))
+    , mFilePath(std::move(filePath))
+    , mGit(git)
+    , mStorage{Git}
 {
-    if (!_git)
-        _git = Manager::instance();
+    if (!mGit)
+        mGit = Manager::instance();
 }
 
 File::File(const File &other)
@@ -55,43 +55,43 @@ File &File::operator=(const File &other) = default;
 
 const QString &File::place() const
 {
-    return _place;
+    return mPlace;
 }
 
 void File::setPlace(const QString &newPlace)
 {
-    _place = newPlace;
+    mPlace = newPlace;
 }
 
 const QString &File::fileName() const
 {
-    return _filePath;
+    return mFilePath;
 }
 
 void File::setFileName(const QString &newFileName)
 {
-    _filePath = newFileName;
+    mFilePath = newFileName;
 }
 
 Manager *File::git() const
 {
-    return _git;
+    return mGit;
 }
 
 void File::setGit(Manager *newGit)
 {
-    _git = newGit;
+    mGit = newGit;
 }
 
 QString File::displayName() const
 {
-    switch (_storage) {
+    switch (mStorage) {
     case InValid:
         return {};
     case Local:
-        return _filePath;
+        return mFilePath;
     case Git:
-        return _place + ":" + _filePath;
+        return mPlace + ":" + mFilePath;
     }
 
     return {};
@@ -102,7 +102,7 @@ bool File::save(const QString &path) const
     QFile f{path};
     if (!f.open(QIODevice::WriteOnly))
         return false;
-    auto buffer = _git->runGit({"show", _place + ":" + _filePath});
+    auto buffer = mGit->runGit({"show", mPlace + ":" + mFilePath});
     f.write(buffer);
     f.close();
     return true;
@@ -110,17 +110,17 @@ bool File::save(const QString &path) const
 
 QString File::content() const
 {
-    switch (_storage) {
+    switch (mStorage) {
     case InValid:
         return {};
     case Local: {
-        QFile f(_filePath);
+        QFile f(mFilePath);
         if (!f.open(QIODevice::ReadOnly))
             return {};
         return f.readAll();
     }
     case Git:
-        return _git->runGit({"show", _place + ":" + _filePath});
+        return mGit->runGit({"show", mPlace + ":" + mFilePath});
     }
 
     return {};

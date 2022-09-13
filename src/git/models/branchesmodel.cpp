@@ -20,7 +20,7 @@ BranchesModel::BranchesModel(Manager *git, QObject *parent)
 int BranchesModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return _data.size();
+    return mData.size();
 }
 
 int BranchesModel::columnCount(const QModelIndex &parent) const
@@ -31,16 +31,16 @@ int BranchesModel::columnCount(const QModelIndex &parent) const
 
 QVariant BranchesModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= _data.size())
+    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return {};
 
     switch (index.column()) {
     case 0:
-        return _data.at(index.row())->name;
+        return mData.at(index.row())->name;
     case 1:
-        return _data.at(index.row())->commitsBehind;
+        return mData.at(index.row())->commitsBehind;
     case 2:
-        return _data.at(index.row())->commitsAhead;
+        return mData.at(index.row())->commitsAhead;
     }
 
     return {};
@@ -64,19 +64,19 @@ QVariant BranchesModel::headerData(int section, Qt::Orientation orientation, int
 
 BranchesModel::BranchData *BranchesModel::fromindex(const QModelIndex &index) const
 {
-    if (!index.isValid() || index.row() < 0 || index.row() >= _data.size())
+    if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
 
-    return _data.at(index.row());
+    return mData.at(index.row());
 }
 
 void BranchesModel::fill()
 {
-    qDeleteAll(_data);
-    _data.clear();
+    qDeleteAll(mData);
+    mData.clear();
 
     QStringList branchesList;
-    auto out = _git->readAllNonEmptyOutput({"branch", "--list"});
+    auto out = mGit->readAllNonEmptyOutput({"branch", "--list"});
 
     for (auto &line : out) {
         auto b = line.trimmed();
@@ -84,7 +84,7 @@ void BranchesModel::fill()
             continue;
         if (b.startsWith("* ")) {
             b = b.mid(2);
-            _referenceBranch = _currentBranch = b.trimmed();
+            mReferenceBranch = mCurrentBranch = b.trimmed();
         }
 
         branchesList.append(b.trimmed());
@@ -92,36 +92,36 @@ void BranchesModel::fill()
         auto branch = new BranchData;
         branch->name = b.trimmed();
         branch->commitsAhead = branch->commitsBehind = 0;
-        _data.append(branch);
+        mData.append(branch);
     }
     calculateCommitStats();
 }
 
 const QString &BranchesModel::referenceBranch() const
 {
-    return _referenceBranch;
+    return mReferenceBranch;
 }
 
 void BranchesModel::calculateCommitStats()
 {
-    for (auto &b : _data) {
-        auto commitsInfo = _git->uniqueCommiteOnBranches(_referenceBranch, b->name);
+    for (auto &b : mData) {
+        auto commitsInfo = mGit->uniqueCommiteOnBranches(mReferenceBranch, b->name);
         b->commitsBehind = commitsInfo.first;
         b->commitsAhead = commitsInfo.second;
     }
-    emit dataChanged(index(0, 1), index(_data.size() - 1, 2));
+    emit dataChanged(index(0, 1), index(mData.size() - 1, 2));
 }
 
 void BranchesModel::setReferenceBranch(const QString &newReferenceBranch)
 {
-    _referenceBranch = newReferenceBranch;
+    mReferenceBranch = newReferenceBranch;
 
     calculateCommitStats();
 }
 
 const QString &BranchesModel::currentBranch() const
 {
-    return _currentBranch;
+    return mCurrentBranch;
 }
 
 } // namespace Git

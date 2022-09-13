@@ -19,7 +19,6 @@ struct Author {
 class AuthorsModel : public AbstractGitItemsModel
 {
     Q_OBJECT
-    QList<Author *> _data;
 
 public:
     explicit AuthorsModel(Manager *git, QObject *parent = nullptr);
@@ -33,6 +32,8 @@ public:
 
 protected:
     void fill() override;
+private:
+    QList<Author *> mData;
 };
 
 } // namespace Git

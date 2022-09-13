@@ -31,9 +31,9 @@ public:
 private:
     void generateRandomColor();
 
-    Type _type{None};
-    QList<int> _bottomJoins;
-    QList<int> _upJoins;
+    Type mType{None};
+    QList<int> mBottomJoins;
+    QList<int> mUpJoins;
 
     friend class LogList;
     friend struct LanesFactory;

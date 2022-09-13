@@ -14,12 +14,13 @@ namespace Git
 class Manager;
 class File
 {
-    QString _place;
-    QString _filePath;
-    Manager *_git{};
+private:
+    QString mPlace;
+    QString mFilePath;
+    Manager *mGit = nullptr;
 
     enum StorageType { InValid, Git, Local };
-    StorageType _storage;
+    StorageType mStorage;
 
 public:
     File();

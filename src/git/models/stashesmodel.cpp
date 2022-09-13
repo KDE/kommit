@@ -23,7 +23,7 @@ StashesModel::StashesModel(Manager *git, QObject *parent)
 int StashesModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return _data.size();
+    return mData.size();
 }
 
 int StashesModel::columnCount(const QModelIndex &parent) const
@@ -34,10 +34,10 @@ int StashesModel::columnCount(const QModelIndex &parent) const
 
 QVariant StashesModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= _data.size())
+    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return {};
 
-    auto remote = _data.at(index.row());
+    auto remote = mData.at(index.row());
 
     switch (index.column()) {
     case 0:
@@ -74,18 +74,18 @@ QVariant StashesModel::headerData(int section, Qt::Orientation orientation, int 
 
 Stash *StashesModel::fromIndex(const QModelIndex &index) const
 {
-    if (!index.isValid() || index.row() < 0 || index.row() >= _data.size())
+    if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
 
-    return _data.at(index.row());
+    return mData.at(index.row());
 }
 
 void StashesModel::fill()
 {
-    qDeleteAll(_data);
-    _data.clear();
+    qDeleteAll(mData);
+    mData.clear();
 
-    auto list = _git->readAllNonEmptyOutput({"stash", "list", "--format=format:%s%m%an%m%ae%m%aD"});
+    auto list = mGit->readAllNonEmptyOutput({"stash", "list", "--format=format:%s%m%an%m%ae%m%aD"});
     int id{0};
     for (const auto &item : qAsConst(list)) {
         auto parts = item.split(">");
@@ -93,14 +93,14 @@ void StashesModel::fill()
             continue;
 
         auto subject = parts.first();
-        auto stash = new Stash(_git, QStringLiteral("stash@{%1}").arg(id));
+        auto stash = new Stash(mGit, QStringLiteral("stash@{%1}").arg(id));
 
         stash->_subject = subject;
         stash->_authorName = parts.at(1);
         stash->_authorEmail = parts.at(2);
         stash->_pushTime = QDateTime::fromString(parts.at(3), Qt::RFC2822Date);
 
-        _data.append(stash);
+        mData.append(stash);
         id++;
     }
 }

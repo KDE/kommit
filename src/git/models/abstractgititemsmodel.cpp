@@ -12,7 +12,7 @@ namespace Git
 
 AbstractGitItemsModel::AbstractGitItemsModel(Manager *git, QObject *parent)
     : QAbstractListModel(parent)
-    , _git(git)
+    , mGit(git)
 {
     //    connect(git, &Manager::pathChanged, this, &Cache::load);
 }
@@ -29,7 +29,7 @@ AbstractGitItemsModel::Status AbstractGitItemsModel::status() const
 
 void AbstractGitItemsModel::load()
 {
-    if (!_git->isValid())
+    if (!mGit->isValid())
         return;
 
     setStatus(Loading);

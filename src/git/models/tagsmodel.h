@@ -16,8 +16,6 @@ class TagsModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 
-    QList<Tag *> _data;
-
 public:
     explicit TagsModel(Manager *git, QObject *parent = nullptr);
 
@@ -29,6 +27,8 @@ public:
 
 protected:
     void fill() override;
+private:
+    QList<Tag *> mData;
 };
 
 } // namespace Git

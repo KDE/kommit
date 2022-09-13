@@ -39,9 +39,9 @@ protected:
     void fill() override;
 
 private:
-    QList<BranchData *> _data;
-    QString _currentBranch;
-    QString _referenceBranch;
+    QList<BranchData *> mData;
+    QString mCurrentBranch;
+    QString mReferenceBranch;
     void calculateCommitStats();
 };
 

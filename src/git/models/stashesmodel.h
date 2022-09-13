@@ -16,7 +16,6 @@ class Stash;
 class StashesModel : public AbstractGitItemsModel
 {
     Q_OBJECT
-    QList<Stash *> _data;
 
 public:
     explicit StashesModel(Manager *git, QObject *parent = nullptr);
@@ -29,6 +28,8 @@ public:
 
 protected:
     void fill() override;
+private:
+    QList<Stash *> mData;
 };
 
 }

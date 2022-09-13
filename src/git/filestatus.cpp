@@ -11,19 +11,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
 FileStatus::FileStatus() = default;
 
 FileStatus::FileStatus(QString name, FileStatus::Status status)
-    : _name(std::move(name))
-    , _status(status)
+    : mName(std::move(name))
+    , mStatus(status)
 {
 }
 
 const QString &FileStatus::name() const
 {
-    return _name;
+    return mName;
 }
 
 FileStatus::Status FileStatus::status() const
 {
-    return _status;
+    return mStatus;
 }
 
 void FileStatus::parseStatusLine(const QString &line)
@@ -31,7 +31,7 @@ void FileStatus::parseStatusLine(const QString &line)
     auto statusX = line.at(0);
     auto statusY = line.at(1);
     auto fileName = line.mid(3);
-    _name = fileName;
+    mName = fileName;
 
     setStatus(statusX, statusY);
 
@@ -40,39 +40,39 @@ void FileStatus::parseStatusLine(const QString &line)
 
 const QString &FileStatus::fullPath() const
 {
-    return _fullPath;
+    return mFullPath;
 }
 
 void FileStatus::setFullPath(const QString &newFullPath)
 {
-    _fullPath = newFullPath;
+    mFullPath = newFullPath;
 }
 
 void FileStatus::setStatus(const QString &x, const QString &y)
 {
     if (x == "M" || y == "M")
-        _status = Modified;
+        mStatus = Modified;
     else if (x == "A")
-        _status = Added;
+        mStatus = Added;
     else if (x == "D")
-        _status = Removed;
+        mStatus = Removed;
     else if (x == "R")
-        _status = Renamed;
+        mStatus = Renamed;
     else if (x == "C")
-        _status = Copied;
+        mStatus = Copied;
     else if (x == "U")
-        _status = UpdatedButInmerged;
+        mStatus = UpdatedButInmerged;
     else if (x == "?")
-        _status = Untracked;
+        mStatus = Untracked;
     else if (x == "!")
-        _status = Ignored;
+        mStatus = Ignored;
     else
-        _status = Unknown;
+        mStatus = Unknown;
 }
 
 void FileStatus::setName(const QString &newName)
 {
-    _name = newName;
+    mName = newName;
 }
 
 bool operator==(const FileStatus &f1, const FileStatus &f2)

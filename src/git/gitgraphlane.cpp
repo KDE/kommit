@@ -16,7 +16,7 @@ GraphLane::GraphLane()
 
 GraphLane::Type GraphLane::type() const
 {
-    return _type;
+    return mType;
 }
 
 void GraphLane::generateRandomColor()
@@ -27,21 +27,21 @@ void GraphLane::generateRandomColor()
 
 void GraphLane::setType(Type newType)
 {
-    _type = newType;
+    mType = newType;
 }
 
 const QList<int> &GraphLane::upJoins() const
 {
-    return _upJoins;
+    return mUpJoins;
 }
 
 const QList<int> &GraphLane::bottomJoins() const
 {
-    return _bottomJoins;
+    return mBottomJoins;
 }
 
 GraphLane::GraphLane(GraphLane::Type type)
-    : _type(type)
+    : mType(type)
 {
     generateRandomColor();
 }

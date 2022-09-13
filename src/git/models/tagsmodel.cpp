@@ -23,7 +23,7 @@ TagsModel::TagsModel(Manager *git, QObject *parent)
 int TagsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return _data.size();
+    return mData.size();
 }
 
 int TagsModel::columnCount(const QModelIndex &parent) const
@@ -34,10 +34,10 @@ int TagsModel::columnCount(const QModelIndex &parent) const
 
 QVariant TagsModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= _data.size())
+    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return {};
 
-    auto remote = _data.at(index.row());
+    auto remote = mData.at(index.row());
 
     switch (index.column()) {
     case 0:
@@ -70,17 +70,17 @@ QVariant TagsModel::headerData(int section, Qt::Orientation orientation, int rol
 
 Tag *TagsModel::fromIndex(const QModelIndex &index) const
 {
-    if (!index.isValid() || index.row() < 0 || index.row() >= _data.size())
+    if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
 
-    return _data.at(index.row());
+    return mData.at(index.row());
 }
 
 void TagsModel::fill()
 {
-    qDeleteAll(_data);
-    _data.clear();
-    auto list = _git->readAllNonEmptyOutput({"--no-pager", "tag", "--list", "--format=%(subject)>%(tag)>%(taggername)"});
+    qDeleteAll(mData);
+    mData.clear();
+    auto list = mGit->readAllNonEmptyOutput({"--no-pager", "tag", "--list", "--format=%(subject)>%(tag)>%(taggername)"});
     qDebug() << list;
     for (auto &i : list) {
         auto parts = i.split(">");
@@ -90,7 +90,7 @@ void TagsModel::fill()
         tag->setMessage(parts.at(0));
         tag->setName(parts.at(1));
         tag->setTaggerEmail(parts.at(2));
-        _data.append(tag);
+        mData.append(tag);
     }
 }
 

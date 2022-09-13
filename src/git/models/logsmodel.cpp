@@ -121,8 +121,8 @@ struct LanesFactory {
                 set(*i, list.contains(myIndex) ? GraphLane::Node : GraphLane::End, lanes);
             } else {
                 auto lane = lanes.at(*i);
-                lane._bottomJoins.append(firstIndex);
-                lane._type = GraphLane::Transparent;
+                lane.mBottomJoins.append(firstIndex);
+                lane.mType = GraphLane::Transparent;
                 set(*i, lane, lanes);
             }
             _hashes.replace(*i, QString());
@@ -144,12 +144,12 @@ struct LanesFactory {
 
             if (list.first() == myInedx) {
                 if (l.type() == GraphLane::None)
-                    l._type = GraphLane::Transparent;
+                    l.mType = GraphLane::Transparent;
                 if (l.type() == GraphLane::End)
-                    l._type = GraphLane::Node;
+                    l.mType = GraphLane::Node;
             } else {
-                l._upJoins.append(myInedx);
-                lanes[myInedx]._type = GraphLane::End;
+                l.mUpJoins.append(myInedx);
+                lanes[myInedx].mType = GraphLane::End;
             }
 
             return;
@@ -160,14 +160,14 @@ struct LanesFactory {
 
             auto &l = lanes[i];
             if (i == myInedx) {
-                l._type = GraphLane::Node;
+                l.mType = GraphLane::Node;
             } else {
                 if (l.type() == GraphLane::None)
-                    l._type = GraphLane::Transparent;
+                    l.mType = GraphLane::Transparent;
                 if (l.type() == GraphLane::End)
-                    l._type = GraphLane::Node;
+                    l.mType = GraphLane::Node;
 
-                l._upJoins.append(myInedx);
+                l.mUpJoins.append(myInedx);
             }
             _hashes.replace(i, children.takeFirst());
         }
@@ -195,7 +195,7 @@ struct LanesFactory {
         if (!log->childs().empty()) {
             fork(log->childs(), lanes, myIndex);
         } else if (myIndex != -1) {
-            lanes[myIndex]._type = GraphLane::End;
+            lanes[myIndex].mType = GraphLane::End;
         }
 
         return lanes;
@@ -211,12 +211,12 @@ Git::LogsModel::LogsModel(Manager *git, QObject *parent)
 
 const QString &LogsModel::branch() const
 {
-    return _branch;
+    return mBranch;
 }
 
 void LogsModel::setBranch(const QString &newBranch)
 {
-    _branch = newBranch;
+    mBranch = newBranch;
 
     beginResetModel();
     fill();
@@ -226,13 +226,13 @@ void LogsModel::setBranch(const QString &newBranch)
 int LogsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return _data.size();
+    return mData.size();
 }
 
 int LogsModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return _branch.isEmpty() ? 1 : 3;
+    return mBranch.isEmpty() ? 1 : 3;
 }
 
 QVariant LogsModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -243,7 +243,7 @@ QVariant LogsModel::headerData(int section, Qt::Orientation orientation, int rol
     if (orientation == Qt::Vertical)
         return section + 1;
 
-    if (_branch.isEmpty()) {
+    if (mBranch.isEmpty()) {
         switch (section) {
         case 0:
             return i18n("Graph");
@@ -271,7 +271,7 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
     if (!log)
         return {};
 
-    if (_branch.isEmpty()) {
+    if (mBranch.isEmpty()) {
         switch (index.column()) {
         case 0:
             return "";
@@ -294,16 +294,16 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
 
 Log *LogsModel::fromIndex(const QModelIndex &index) const
 {
-    if (!index.isValid() || index.row() < 0 || index.row() >= _data.size())
+    if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
 
-    return _data.at(index.row());
+    return mData.at(index.row());
 }
 
 QModelIndex LogsModel::findIndexByHash(const QString &hash) const
 {
     int idx{0};
-    for (auto &log : _data)
+    for (auto &log : mData)
         if (log->commitHash() == hash)
             return index(idx);
         else
@@ -314,7 +314,7 @@ QModelIndex LogsModel::findIndexByHash(const QString &hash) const
 Log *LogsModel::findLogByHash(const QString &hash) const
 {
     int idx{0};
-    for (auto &log : _data)
+    for (auto &log : mData)
         if (log->commitHash() == hash)
             return log;
         else
@@ -324,11 +324,11 @@ Log *LogsModel::findLogByHash(const QString &hash) const
 
 void LogsModel::fill()
 {
-    qDeleteAll(_data);
-    _data.clear();
-    _dataByCommitHashLong.clear();
+    qDeleteAll(mData);
+    mData.clear();
+    mDataByCommitHashLong.clear();
 
-    _branches = _git->branches();
+    mBranches = mGit->branches();
 
     QStringList args{"--no-pager",
                      "log",
@@ -344,8 +344,8 @@ void LogsModel::fill()
                      "%s%n"
                      "%b%n'"};
 
-    if (_branch.size())
-        args.insert(2, _branch);
+    if (mBranch.size())
+        args.insert(2, mBranch);
 
     auto ret = QString(Manager::instance()->runGit(args));
     if (ret.startsWith("fatal:"))
@@ -373,9 +373,9 @@ void LogsModel::fill()
         d->_commitDate = QDateTime::fromString(commitDate, Qt::ISODate);
         d->_authDate = QDateTime::fromString(authDate, Qt::ISODate);
         d->_body = lines.mid(5).join("\n");
-        _data.append(d);
-        _dataByCommitHashLong.insert(d->commitHash(), d);
-        _dataByCommitHashShort.insert(d->commitShortHash(), d);
+        mData.append(d);
+        mDataByCommitHashLong.insert(d->commitHash(), d);
+        mDataByCommitHashShort.insert(d->commitShortHash(), d);
     }
     //    std::sort(begin(), end(), [](GitLog *log1,GitLog *log2){
     //        return log1->commitDate() < log2->commitDate();
@@ -386,17 +386,17 @@ void LogsModel::fill()
 
 void LogsModel::initChilds()
 {
-    for (auto i = _data.rbegin(); i != _data.rend(); i++) {
+    for (auto i = mData.rbegin(); i != mData.rend(); i++) {
         auto &log = *i;
         for (auto &p : log->parents())
-            _dataByCommitHashLong.value(p)->_childs.append(log->commitHash());
+            mDataByCommitHashLong.value(p)->_childs.append(log->commitHash());
     }
 }
 
 void LogsModel::initGraph()
 {
     Impl::LanesFactory factory;
-    for (auto i = _data.rbegin(); i != _data.rend(); i++) {
+    for (auto i = mData.rbegin(); i != mData.rend(); i++) {
         auto &log = *i;
         log->_lanes = factory.apply(log);
     }

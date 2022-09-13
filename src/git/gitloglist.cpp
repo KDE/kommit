@@ -112,8 +112,8 @@ struct LanesFactory {
                 set(*i, list.contains(myIndex) ? GraphLane::Node : GraphLane::End, lanes);
             } else {
                 auto lane = lanes.at(*i);
-                lane._bottomJoins.append(firstIndex);
-                lane._type = GraphLane::Transparent;
+                lane.mBottomJoins.append(firstIndex);
+                lane.mType = GraphLane::Transparent;
                 set(*i, lane, lanes);
             }
             _hashes.replace(*i, QString());
@@ -135,12 +135,12 @@ struct LanesFactory {
 
             if (list.first() == myInedx) {
                 if (l.type() == GraphLane::None)
-                    l._type = GraphLane::Transparent;
+                    l.mType = GraphLane::Transparent;
                 if (l.type() == GraphLane::End)
-                    l._type = GraphLane::Node;
+                    l.mType = GraphLane::Node;
             } else {
-                l._upJoins.append(myInedx);
-                lanes[myInedx]._type = GraphLane::End;
+                l.mUpJoins.append(myInedx);
+                lanes[myInedx].mType = GraphLane::End;
             }
 
             return;
@@ -151,14 +151,14 @@ struct LanesFactory {
 
             auto &l = lanes[i];
             if (i == myInedx) {
-                l._type = GraphLane::Node;
+                l.mType = GraphLane::Node;
             } else {
                 if (l.type() == GraphLane::None)
-                    l._type = GraphLane::Transparent;
+                    l.mType = GraphLane::Transparent;
                 if (l.type() == GraphLane::End)
-                    l._type = GraphLane::Node;
+                    l.mType = GraphLane::Node;
 
-                l._upJoins.append(myInedx);
+                l.mUpJoins.append(myInedx);
             }
             _hashes.replace(i, children.takeFirst());
         }
@@ -186,7 +186,7 @@ struct LanesFactory {
         if (!log->childs().empty()) {
             fork(log->childs(), lanes, myIndex);
         } else if (myIndex != -1) {
-            lanes[myIndex]._type = GraphLane::End;
+            lanes[myIndex].mType = GraphLane::End;
         }
 
         return lanes;

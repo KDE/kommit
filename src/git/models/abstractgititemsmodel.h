@@ -34,7 +34,7 @@ public Q_SLOTS:
 
 protected:
     void setStatus(Status newStatus);
-    Manager *_git{nullptr};
+    Manager *mGit{nullptr};
     virtual void fill() = 0;
 
 Q_SIGNALS:
