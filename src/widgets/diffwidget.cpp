@@ -45,7 +45,7 @@ void DiffWidget::setNewFile(const Git::File &newNewFile)
 
 void DiffWidget::compare()
 {
-    auto segments = Diff::diff(mOldFile.content(), mNewFile.content());
+    const auto segments = Diff::diff(mOldFile.content(), mNewFile.content());
 
     leftCodeEditor->clearAll();
     rightCodeEditor->clearAll();
@@ -55,7 +55,7 @@ void DiffWidget::compare()
     segmentConnector->setSegments(segments);
     segmentConnector->update();
 
-    for (auto &s : segments) {
+    for (const auto &s : segments) {
         CodeEditor::BlockType oldBlockType, newBlockType;
         switch (s->type) {
         case Diff::SegmentType::SameOnBoth:
