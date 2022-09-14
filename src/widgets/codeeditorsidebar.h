@@ -21,5 +21,5 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
 
 private:
-    CodeEditor *m_codeEditor;
+    CodeEditor *const m_codeEditor;
 };
