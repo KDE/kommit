@@ -30,19 +30,19 @@ private Q_SLOTS:
     void on_treeView_fileSelected(const QString &file);
 
 private:
-    Git::File _oldFile;
-    Git::File _newFile;
+    Git::File mOldFile;
+    Git::File mNewFile;
 
     QString mOldBranch;
     QString _newBranch;
 
-    QString _leftDir, _rightDir;
+    QString _leftDir, mRightDir;
 
-    FilesModel *_filesModel;
-    DiffTreeModel *_diffModel;
-    DiffWidget *_diffWidget;
-    DiffTreeView *_treeView;
-    QDockWidget *_dock;
+    FilesModel *mFilesModel;
+    DiffTreeModel *mDiffModel;
+    DiffWidget *mDiffWidget;
+    DiffTreeView *mTreeView;
+    QDockWidget *mDock;
 
     void initActions();
     void init(bool showSideBar);
@@ -51,7 +51,7 @@ private:
     enum Storage { NoStorage, FileSystem, Git };
 
     Mode _mode{None};
-    Storage _leftStorage{NoStorage};
-    Storage _rightStorage{NoStorage};
+    Storage mLeftStorage{NoStorage};
+    Storage mRightStorage{NoStorage};
     void compareDirs();
 };

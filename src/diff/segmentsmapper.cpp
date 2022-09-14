@@ -64,12 +64,12 @@ void SegmentsMapper::codeEditor_blockSelected()
 {
     auto s = qobject_cast<CodeEditor *>(sender());
 
-    _currentSegment = s->currentSegment();
-    s->highlightSegment(_currentSegment);
+    mCurrentSegment = s->currentSegment();
+    s->highlightSegment(mCurrentSegment);
 
     for (auto &editor : mEditors) {
-        editor->highlightSegment(_currentSegment);
-        editor->gotoSegment(_currentSegment);
+        editor->highlightSegment(mCurrentSegment);
+        editor->gotoSegment(mCurrentSegment);
         /*if (s == editor)
             continue;
         auto n = map(myIndx, _editors.indexOf(editor), l);
@@ -100,22 +100,22 @@ void SegmentsMapper::codeEditor_scroll(int value)
 
 Diff::Segment *SegmentsMapper::currentSegment() const
 {
-    return _currentSegment;
+    return mCurrentSegment;
 }
 
 void SegmentsMapper::refresh()
 {
-    if (!_currentSegment)
+    if (!mCurrentSegment)
         return;
     for (auto &editor : mEditors) {
-        editor->highlightSegment(_currentSegment);
-        editor->gotoSegment(_currentSegment);
+        editor->highlightSegment(mCurrentSegment);
+        editor->gotoSegment(mCurrentSegment);
     }
 }
 
 void SegmentsMapper::setCurrentSegment(Diff::Segment *newCurrentSegment)
 {
-    _currentSegment = newCurrentSegment;
+    mCurrentSegment = newCurrentSegment;
     refresh();
 }
 
@@ -143,8 +143,8 @@ int SegmentsMapper::conflicts() const
 void SegmentsMapper::findPrevious(const Diff::SegmentType &type)
 {
     int index;
-    if (_currentSegment)
-        index = mSegments.indexOf(dynamic_cast<Diff::MergeSegment *>(_currentSegment)) - 1;
+    if (mCurrentSegment)
+        index = mSegments.indexOf(dynamic_cast<Diff::MergeSegment *>(mCurrentSegment)) - 1;
     else
         index = mSegments.size() - 1;
 
@@ -158,8 +158,8 @@ void SegmentsMapper::findPrevious(const Diff::SegmentType &type)
 void SegmentsMapper::findNext(const Diff::SegmentType &type)
 {
     int index;
-    if (_currentSegment)
-        index = mSegments.indexOf(dynamic_cast<Diff::MergeSegment *>(_currentSegment)) + 1;
+    if (mCurrentSegment)
+        index = mSegments.indexOf(dynamic_cast<Diff::MergeSegment *>(mCurrentSegment)) + 1;
     else
         index = 0;
 

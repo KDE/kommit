@@ -40,7 +40,7 @@ private Q_SLOTS:
     void codeEditor_scroll(int value);
 
 private:
-    Diff::Segment *_currentSegment{nullptr};
+    Diff::Segment *mCurrentSegment{nullptr};
     QList<Diff::Segment *> mSegments;
     QList<CodeEditor *> mEditors;
     QMap<QObject *, CodeEditor *> mScrollBars;

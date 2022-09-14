@@ -166,7 +166,7 @@ ArgParserReturn CommandArgsParser::help()
         auto name = QString(metaObject()->classInfo(i).name());
         auto value = QString(metaObject()->classInfo(i).value());
 
-        if (!name.startsWith("help."))
+        if (!name.startsWith(QStringLiteral("help.")))
             continue;
         name = name.mid(5);
 
@@ -222,7 +222,7 @@ ArgParserReturn CommandArgsParser::pull(const QString &path)
     if (d.exec() == QDialog::Accepted) {
         RunnerDialog r;
         auto branch = git->currentBranch();
-        r.run({"pull", "origin", branch});
+        r.run({QStringLiteral("pull"), QStringLiteral("origin"), branch});
         r.exec();
     }
     return 0;
@@ -362,7 +362,7 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
 
 ArgParserReturn CommandArgsParser::history(const QString &file)
 {
-    git->setPath(file.mid(0, file.lastIndexOf("/")));
+    git->setPath(file.mid(0, file.lastIndexOf(QLatin1Char('/'))));
     auto fileCopy = file;
     fileCopy = file.mid(git->path().size() + 1);
     FileHistoryDialog d(git, fileCopy);
