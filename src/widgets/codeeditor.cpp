@@ -24,8 +24,8 @@ class SegmentData : public QTextBlockUserData
 {
 public:
     SegmentData(Diff::Segment *segment, bool empty = false)
-        : mSegment{segment}
-        , mIsEmpty(empty)
+        : mIsEmpty(empty)
+        , mSegment{segment}
     {
     }
     Diff::Segment *segment() const;
