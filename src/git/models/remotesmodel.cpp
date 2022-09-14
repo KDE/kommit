@@ -64,13 +64,13 @@ Remote *RemotesModel::findByName(const QString &name)
 
 void RemotesModel::rename(const QString &oldName, const QString &newName)
 {
-    mGit->runGit({"remote", "rename", oldName, newName});
+    mGit->runGit({QStringLiteral("remote"), QStringLiteral("rename"), oldName, newName});
     load();
 }
 
 void RemotesModel::setUrl(const QString &remoteName, const QString &newUrl)
 {
-    mGit->runGit({"remote", "set-url", remoteName, newUrl});
+    mGit->runGit({QStringLiteral("remote"), QStringLiteral("set-url"), remoteName, newUrl});
     load();
 }
 
@@ -86,7 +86,7 @@ void RemotesModel::fill()
     for (const auto &remote : qAsConst(remotes)) {
         auto r = new Remote;
         r->name = remote;
-        auto ret = QString(mGit->runGit({"remote", "show", remote}));
+        auto ret = QString(mGit->runGit({QStringLiteral("remote"), QStringLiteral("show"), remote}));
         r->parse(ret);
         mData.append(r);
     }

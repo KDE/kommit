@@ -82,7 +82,7 @@ void SubmodulesModel::fill()
 {
     qDeleteAll(mData);
     mData.clear();
-    const auto modulesList = mGit->readAllNonEmptyOutput({"submodule", "status"});
+    const auto modulesList = mGit->readAllNonEmptyOutput({QStringLiteral("submodule"), QStringLiteral("status")});
     for (const auto &line : modulesList) {
         auto m = new Submodule;
         m->setCommitHash(line.mid(0, 40));

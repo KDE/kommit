@@ -19,10 +19,10 @@ QStringList AddSubmoduleCommand::generateArgs() const
     QStringList args{QStringLiteral("submodule"), QStringLiteral("add"), mUrl, mLocalPath};
 
     if (!mBranch.isEmpty())
-        args << "--branch=" + mBranch;
+        args << QStringLiteral("--branch=") + mBranch;
 
     if (mForce)
-        args << "--force";
+        args << QStringLiteral("--force");
 
     return args;
 }

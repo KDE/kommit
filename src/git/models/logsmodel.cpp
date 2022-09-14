@@ -348,13 +348,13 @@ void LogsModel::fill()
         args.insert(2, mBranch);
 
     auto ret = QString(Manager::instance()->runGit(args));
-    if (ret.startsWith("fatal:"))
+    if (ret.startsWith(QStringLiteral("fatal:")))
         return;
 
-    auto parts = ret.split("SEP>");
+    const auto parts = ret.split(QStringLiteral("SEP>"));
 
-    for (auto &p : parts) {
-        auto lines = p.split("\n");
+    for (const auto &p : parts) {
+        auto lines = p.split(QLatin1Char('\n'));
         if (lines.size() < 4)
             continue;
 
