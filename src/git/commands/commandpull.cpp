@@ -17,62 +17,62 @@ namespace Git
 
 bool CommandPull::squash() const
 {
-    return _squash;
+    return mSquash;
 }
 
 void CommandPull::setSquash(bool newSquash)
 {
-    _squash = newSquash;
+    mSquash = newSquash;
 }
 
 bool CommandPull::noFf() const
 {
-    return _noFf;
+    return mNoFf;
 }
 
 void CommandPull::setNoFf(bool newNoFf)
 {
-    _noFf = newNoFf;
+    mNoFf = newNoFf;
 }
 
 bool CommandPull::ffOnly() const
 {
-    return _ffOnly;
+    return mFfOnly;
 }
 
 void CommandPull::setFfOnly(bool newFfOnly)
 {
-    _ffOnly = newFfOnly;
+    mFfOnly = newFfOnly;
 }
 
 bool CommandPull::noCommit() const
 {
-    return _noCommit;
+    return mNoCommit;
 }
 
 void CommandPull::setNoCommit(bool newNoCommit)
 {
-    _noCommit = newNoCommit;
+    mNoCommit = newNoCommit;
 }
 
 bool CommandPull::prune() const
 {
-    return _prune;
+    return mPrune;
 }
 
 void CommandPull::setPrune(bool newPrune)
 {
-    _prune = newPrune;
+    mPrune = newPrune;
 }
 
 bool CommandPull::tags() const
 {
-    return _tags;
+    return mTags;
 }
 
 void CommandPull::setTags(bool newTags)
 {
-    _tags = newTags;
+    mTags = newTags;
 }
 
 void CommandPull::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
@@ -84,7 +84,7 @@ void CommandPull::parseOutput(const QByteArray &output, const QByteArray &errorO
     }
     if (errorOutput.startsWith("fatal:")) {
         _ui->labelStatus->setText(errorOutput.mid(6));
-        KMessageBox::error(_widget, errorOutput.mid(6), i18n("Error"));
+        KMessageBox::error(mWidget, errorOutput.mid(6), i18n("Error"));
     }
 #endif
 }
@@ -97,10 +97,10 @@ bool CommandPull::supportWidget() const
 QWidget *CommandPull::createWidget()
 {
 #ifdef GIT_GUI
-    _widget = new QWidget;
+    mWidget = new QWidget;
     _ui = new Ui::CommandPullWidget;
-    _ui->setupUi(_widget);
-    return _widget;
+    _ui->setupUi(mWidget);
+    return mWidget;
 #else
     return nullptr;
 #endif
@@ -108,38 +108,38 @@ QWidget *CommandPull::createWidget()
 
 const QString &CommandPull::remote() const
 {
-    return _remote;
+    return mRemote;
 }
 
 void CommandPull::setRemote(const QString &newRemote)
 {
-    _remote = newRemote;
+    mRemote = newRemote;
 }
 
 const QString &CommandPull::branch() const
 {
-    return _branch;
+    return mBranch;
 }
 
 void CommandPull::setBranch(const QString &newBranch)
 {
-    _branch = newBranch;
+    mBranch = newBranch;
 }
 
 QStringList CommandPull::generateArgs() const
 {
-    QStringList args{QStringLiteral("pull"), _remote, _branch};
-    if (_squash)
+    QStringList args{QStringLiteral("pull"), mRemote, mBranch};
+    if (mSquash)
         args.append(QStringLiteral("--squash"));
-    if (_noFf)
+    if (mNoFf)
         args.append(QStringLiteral("--no-ff"));
-    if (_ffOnly)
+    if (mFfOnly)
         args.append(QStringLiteral("--ff-only"));
-    if (_noCommit)
+    if (mNoCommit)
         args.append(QStringLiteral("--no-commit"));
-    if (_prune)
+    if (mPrune)
         args.append(QStringLiteral("--prune"));
-    if (_tags)
+    if (mTags)
         args.append(QStringLiteral("--tags"));
     return args;
 }
@@ -149,8 +149,8 @@ CommandPull::CommandPull() = default;
 CommandPull::~CommandPull()
 {
 #ifdef GIT_GUI
-    if (_widget)
-        _widget->deleteLater();
+    if (mWidget)
+        mWidget->deleteLater();
 
     delete _ui;
 #endif

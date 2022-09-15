@@ -54,16 +54,16 @@ public:
     void setBranch(const QString &newBranch);
 
 private:
-    bool _squash{false};
-    bool _noFf{false};
-    bool _ffOnly{false};
-    bool _noCommit{false};
-    bool _prune{false};
-    bool _tags{false};
-    QString _remote;
-    QString _branch;
+    bool mSquash{false};
+    bool mNoFf{false};
+    bool mFfOnly{false};
+    bool mNoCommit{false};
+    bool mPrune{false};
+    bool mTags{false};
+    QString mRemote;
+    QString mBranch;
 #ifdef GIT_GUI
-    QWidget *_widget;
+    QWidget *mWidget;
     Ui::CommandPullWidget *_ui;
 #endif
 };

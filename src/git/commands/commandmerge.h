@@ -38,12 +38,12 @@ public:
     void setStrategy(const QString &newStrategy);
 
 private:
-    OptionalBool _commit{OptionalBool::Unset};
-    OptionalBool _allowUnrelatedHistories{OptionalBool::Unset};
+    OptionalBool mCommit{OptionalBool::Unset};
+    OptionalBool mAllowUnrelatedHistories{OptionalBool::Unset};
     FastForwardType _ff{FastForwardType::Unset};
-    bool _squash{false};
-    QString _fromBranch;
-    QString _strategy;
+    bool mSquash{false};
+    QString mFromBranch;
+    QString mStrategy;
 };
 
 }

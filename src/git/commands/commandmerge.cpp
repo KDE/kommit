@@ -31,34 +31,34 @@ QStringList CommandMerge::generateArgs() const
         break;
     }
 
-    appendBool(_commit, cmd, "commit");
-    appendBool(_squash, cmd, "squash");
-    appendBool(_allowUnrelatedHistories, cmd, "allow-unrelated-histories");
+    appendBool(mCommit, cmd, "commit");
+    appendBool(mSquash, cmd, "squash");
+    appendBool(mAllowUnrelatedHistories, cmd, "allow-unrelated-histories");
 
-    if (!_strategy.isEmpty())
-        cmd.append("--strategy=" + _strategy);
+    if (!mStrategy.isEmpty())
+        cmd.append("--strategy=" + mStrategy);
 
     return cmd;
 }
 
 OptionalBool CommandMerge::commit() const
 {
-    return _commit;
+    return mCommit;
 }
 
 void CommandMerge::setCommit(OptionalBool newCommit)
 {
-    _commit = newCommit;
+    mCommit = newCommit;
 }
 
 OptionalBool CommandMerge::allowUnrelatedHistories() const
 {
-    return _allowUnrelatedHistories;
+    return mAllowUnrelatedHistories;
 }
 
 void CommandMerge::setAllowUnrelatedHistories(OptionalBool newAllowUnrelatedHistories)
 {
-    _allowUnrelatedHistories = newAllowUnrelatedHistories;
+    mAllowUnrelatedHistories = newAllowUnrelatedHistories;
 }
 
 FastForwardType CommandMerge::ff() const
@@ -73,32 +73,32 @@ void CommandMerge::setFf(FastForwardType newFf)
 
 bool CommandMerge::squash() const
 {
-    return _squash;
+    return mSquash;
 }
 
 void CommandMerge::setSquash(bool newSquash)
 {
-    _squash = newSquash;
+    mSquash = newSquash;
 }
 
 const QString &CommandMerge::fromBranch() const
 {
-    return _fromBranch;
+    return mFromBranch;
 }
 
 void CommandMerge::setFromBranch(const QString &newFromBranch)
 {
-    _fromBranch = newFromBranch;
+    mFromBranch = newFromBranch;
 }
 
 const QString &CommandMerge::strategy() const
 {
-    return _strategy;
+    return mStrategy;
 }
 
 void CommandMerge::setStrategy(const QString &newStrategy)
 {
-    _strategy = newStrategy;
+    mStrategy = newStrategy;
 }
 
 } // namespace Git

@@ -11,52 +11,52 @@ namespace Git
 
 bool CommandFetch::noFf() const
 {
-    return _noFf;
+    return mNoFf;
 }
 
 void CommandFetch::setNoFf(bool newNoFf)
 {
-    _noFf = newNoFf;
+    mNoFf = newNoFf;
 }
 
 bool CommandFetch::ffOnly() const
 {
-    return _ffOnly;
+    return mFfOnly;
 }
 
 void CommandFetch::setFfOnly(bool newFfOnly)
 {
-    _ffOnly = newFfOnly;
+    mFfOnly = newFfOnly;
 }
 
 bool CommandFetch::noCommit() const
 {
-    return _noCommit;
+    return mNoCommit;
 }
 
 void CommandFetch::setNoCommit(bool newNoCommit)
 {
-    _noCommit = newNoCommit;
+    mNoCommit = newNoCommit;
 }
 
 bool CommandFetch::prune() const
 {
-    return _prune;
+    return mPrune;
 }
 
 void CommandFetch::setPrune(bool newPrune)
 {
-    _prune = newPrune;
+    mPrune = newPrune;
 }
 
 bool CommandFetch::tags() const
 {
-    return _tags;
+    return mTags;
 }
 
 void CommandFetch::setTags(bool newTags)
 {
-    _tags = newTags;
+    mTags = newTags;
 }
 
 void CommandFetch::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
@@ -67,38 +67,38 @@ void CommandFetch::parseOutput(const QByteArray &output, const QByteArray &error
 
 const QString &CommandFetch::remote() const
 {
-    return _remote;
+    return mRemote;
 }
 
 void CommandFetch::setRemote(const QString &newRemote)
 {
-    _remote = newRemote;
+    mRemote = newRemote;
 }
 
 const QString &CommandFetch::branch() const
 {
-    return _branch;
+    return mBranch;
 }
 
 void CommandFetch::setBranch(const QString &newBranch)
 {
-    _branch = newBranch;
+    mBranch = newBranch;
 }
 
 QStringList CommandFetch::generateArgs() const
 {
-    QStringList args{QStringLiteral("fetch"), _remote};
-    if (!_branch.isEmpty())
-        args.append(_branch);
-    if (_noFf)
+    QStringList args{QStringLiteral("fetch"), mRemote};
+    if (!mBranch.isEmpty())
+        args.append(mBranch);
+    if (mNoFf)
         args.append(QStringLiteral("--no-ff"));
-    if (_ffOnly)
+    if (mFfOnly)
         args.append(QStringLiteral("--ff-only"));
-    if (_noCommit)
+    if (mNoCommit)
         args.append(QStringLiteral("--no-commit"));
-    if (_prune)
+    if (mPrune)
         args.append(QStringLiteral("--prune"));
-    if (_tags)
+    if (mTags)
         args.append(QStringLiteral("--tags"));
     return args;
 }

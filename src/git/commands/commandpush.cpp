@@ -16,54 +16,54 @@ CommandPush::CommandPush()
 
 const QString &CommandPush::remote() const
 {
-    return _remote;
+    return mRemote;
 }
 
 void CommandPush::setRemote(const QString &newRemote)
 {
-    _remote = newRemote;
+    mRemote = newRemote;
 }
 
 const QString &CommandPush::localBranch() const
 {
-    return _localBranch;
+    return mLocalBranch;
 }
 
 void CommandPush::setLocalBranch(const QString &newBranch)
 {
-    _localBranch = newBranch;
+    mLocalBranch = newBranch;
 }
 
 const QString &CommandPush::remoteBranch() const
 {
-    return _remoteBranch;
+    return mRemoteBranch;
 }
 
 void CommandPush::setRemoteBranch(const QString &newRemoteBranch)
 {
-    _remoteBranch = newRemoteBranch;
+    mRemoteBranch = newRemoteBranch;
 }
 
 bool CommandPush::force() const
 {
-    return _force;
+    return mForce;
 }
 
 void CommandPush::setForce(bool newForce)
 {
-    _force = newForce;
+    mForce = newForce;
 }
 
 QStringList CommandPush::generateArgs() const
 {
-    QStringList args{QStringLiteral("push"), _remote};
+    QStringList args{QStringLiteral("push"), mRemote};
 
-    if (_remoteBranch.isEmpty())
-        args.append(_localBranch);
+    if (mRemoteBranch.isEmpty())
+        args.append(mLocalBranch);
     else
-        args.append(_localBranch + ":" + _remoteBranch);
+        args.append(mLocalBranch + ":" + mRemoteBranch);
 
-    if (_force)
+    if (mForce)
         args.append(QStringLiteral("--force"));
 
     return args;

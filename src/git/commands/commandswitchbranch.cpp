@@ -32,46 +32,46 @@ void CommandSwitchBranch::parseOutput(const QByteArray &output, const QByteArray
 
 const QString &CommandSwitchBranch::target() const
 {
-    return _target;
+    return mTarget;
 }
 
 void CommandSwitchBranch::setTarget(const QString &newTarget)
 {
-    _target = newTarget;
+    mTarget = newTarget;
 }
 
 CommandSwitchBranch::Mode CommandSwitchBranch::mode() const
 {
-    return _mode;
+    return mMode;
 }
 
 void CommandSwitchBranch::setMode(Mode newMode)
 {
-    _mode = newMode;
+    mMode = newMode;
 }
 
 QStringList CommandSwitchBranch::generateArgs() const
 {
     QStringList cmd;
 
-    if (_mode == NewBranch)
-        cmd << QStringLiteral("checkout") << QStringLiteral("-b") << _target;
+    if (mMode == NewBranch)
+        cmd << QStringLiteral("checkout") << QStringLiteral("-b") << mTarget;
     else
-        cmd << QStringLiteral("switch") << _target;
+        cmd << QStringLiteral("switch") << mTarget;
 
-    if (_force)
+    if (mForce)
         cmd.append(QStringLiteral("--force"));
     return cmd;
 }
 
 bool CommandSwitchBranch::force() const
 {
-    return _force;
+    return mForce;
 }
 
 void CommandSwitchBranch::setForce(bool newForce)
 {
-    _force = newForce;
+    mForce = newForce;
 }
 
 } // namespace Git

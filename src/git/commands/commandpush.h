@@ -30,10 +30,10 @@ public:
     void setRemoteBranch(const QString &newRemoteBranch);
 
 private:
-    QString _remote;
-    QString _localBranch;
-    QString _remoteBranch;
-    bool _force{false};
+    QString mRemote;
+    QString mLocalBranch;
+    QString mRemoteBranch;
+    bool mForce{false};
 };
 
 } // namespace Git

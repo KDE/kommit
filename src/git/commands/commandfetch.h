@@ -42,13 +42,13 @@ public:
     void setBranch(const QString &newBranch);
 
 private:
-    bool _noFf{false};
-    bool _ffOnly{false};
-    bool _noCommit{false};
-    bool _prune{false};
-    bool _tags{false};
-    QString _remote;
-    QString _branch;
+    bool mNoFf{false};
+    bool mFfOnly{false};
+    bool mNoCommit{false};
+    bool mPrune{false};
+    bool mTags{false};
+    QString mRemote;
+    QString mBranch;
 };
 
 } // namespace Git

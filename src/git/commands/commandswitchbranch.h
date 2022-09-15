@@ -33,9 +33,9 @@ public:
     void setForce(bool newForce);
 
 private:
-    Mode _mode{Unknown};
-    QString _target;
-    bool _force{false};
+    Mode mMode{Unknown};
+    QString mTarget;
+    bool mForce{false};
 };
 
 } // namespace Git
