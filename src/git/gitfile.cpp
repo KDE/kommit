@@ -40,9 +40,7 @@ File::File(QString place, QString filePath, Manager *git)
         mGit = Manager::instance();
 }
 
-File::File(const File &other)
-
-    = default;
+File::File(const File &other) = default;
 
 // File::File(File &&other)
 //     : _place(std::move(other._place)), _filePath(std::move(other._filePath)),

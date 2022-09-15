@@ -16,13 +16,13 @@ namespace Git
 {
 
 struct LanesFactory {
-    QStringList _hashes;
+    QStringList mHashes;
 
     QList<int> findByChild(const QString &hash)
     {
         int index{0};
         QList<int> ret;
-        for (auto const &h : qAsConst(_hashes)) {
+        for (auto const &h : qAsConst(mHashes)) {
             if (hash == h)
                 ret.append(index);
             index++;
@@ -33,7 +33,7 @@ struct LanesFactory {
     int indexOfChild(const QString &hash)
     {
         int index{0};
-        for (auto const &h : qAsConst(_hashes)) {
+        for (auto const &h : qAsConst(mHashes)) {
             if (hash == h)
                 return index;
             index++;
@@ -43,16 +43,16 @@ struct LanesFactory {
 
     QVector<GraphLane> initLanes(const QString &myHash, int &myIndex)
     {
-        if (_hashes.empty())
+        if (mHashes.empty())
             return {};
 
-        while (!_hashes.empty() && _hashes.last() == QString())
-            _hashes.removeLast();
+        while (!mHashes.empty() && mHashes.last() == QString())
+            mHashes.removeLast();
 
         int index{0};
         QVector<GraphLane> lanes;
-        lanes.reserve(_hashes.size());
-        for (const auto &hash : qAsConst(_hashes)) {
+        lanes.reserve(mHashes.size());
+        for (const auto &hash : qAsConst(mHashes)) {
             if (hash == QString()) {
                 lanes.append(GraphLane::Transparent);
             } else {
@@ -84,10 +84,10 @@ struct LanesFactory {
                 index = indexOfChild(QString());
 
             if (index == -1) {
-                _hashes.append(h);
-                index = _hashes.size() - 1;
+                mHashes.append(h);
+                index = mHashes.size() - 1;
             } else {
-                _hashes.replace(index, h);
+                mHashes.replace(index, h);
             }
             ret.append(index);
         }
@@ -97,8 +97,8 @@ struct LanesFactory {
     void start(const QString &hash, QVector<GraphLane> &lanes)
     {
         Q_UNUSED(hash)
-        _hashes.append(QString());
-        set(_hashes.size() - 1, GraphLane::Start, lanes);
+        mHashes.append(QString());
+        set(mHashes.size() - 1, GraphLane::Start, lanes);
     }
 
     void join(const QString &hash, QVector<GraphLane> &lanes, int &myIndex)
@@ -116,7 +116,7 @@ struct LanesFactory {
                 lane.mType = GraphLane::Transparent;
                 set(*i, lane, lanes);
             }
-            _hashes.replace(*i, QString());
+            mHashes.replace(*i, QString());
         }
         myIndex = firstIndex;
     }
@@ -125,7 +125,7 @@ struct LanesFactory {
     {
         auto list = setHashes(childrenList, -1);
         auto children = childrenList;
-        lanes.reserve(_hashes.size());
+        lanes.reserve(mHashes.size());
 
         if (myInedx != -1 && lanes.size() <= myInedx)
             lanes.resize(myInedx + 1);
@@ -160,7 +160,7 @@ struct LanesFactory {
 
                 l.mUpJoins.append(myInedx);
             }
-            _hashes.replace(i, children.takeFirst());
+            mHashes.replace(i, children.takeFirst());
         }
     }
 
@@ -180,7 +180,7 @@ struct LanesFactory {
             join(log->commitHash(), lanes, myIndex);
         else if (!log->childs().empty()) {
             start(log->childs().first(), lanes);
-            myIndex = _hashes.size() - 1;
+            myIndex = mHashes.size() - 1;
         }
 
         if (!log->childs().empty()) {
@@ -224,7 +224,7 @@ void LogList::initChilds()
     for (auto i = rbegin(); i != rend(); i++) {
         auto &log = *i;
         for (auto &p : log->parents())
-            _dataByCommitHashLong.value(p)->_childs.append(log->commitHash());
+            _dataByCommitHashLong.value(p)->mChilds.append(log->commitHash());
     }
 }
 
@@ -311,17 +311,17 @@ H -- commit hash              c -- committer details        m -- mark           
         QString commitDate;
         QString authDate;
         QString parentHash;
-        readLine(lines.at(0), "X", {&d->_commitHash, &d->_commitShortHash, &parentHash});
-        readLine(lines.at(1), "X", {&d->_committerName, &d->_committerEmail, &commitDate});
-        readLine(lines.at(2), "X", {&d->_authorName, &d->_authorEmail, &authDate});
+        readLine(lines.at(0), "X", {&d->mCommitHash, &d->mCommitShortHash, &parentHash});
+        readLine(lines.at(1), "X", {&d->mCommitterName, &d->mCommitterEmail, &commitDate});
+        readLine(lines.at(2), "X", {&d->mAuthorName, &d->mAuthorEmail, &authDate});
 
         if (!parentHash.isEmpty())
-            d->_parentHash = parentHash.split(" ");
-        d->_refLog = lines.at(3);
-        d->_subject = lines.at(5);
-        d->_commitDate = QDateTime::fromString(commitDate, Qt::ISODate);
-        d->_authDate = QDateTime::fromString(authDate, Qt::ISODate);
-        d->_body = lines.mid(5).join("\n");
+            d->mParentHash = parentHash.split(" ");
+        d->mRefLog = lines.at(3);
+        d->mSubject = lines.at(5);
+        d->mCommitDate = QDateTime::fromString(commitDate, Qt::ISODate);
+        d->mAuthDate = QDateTime::fromString(authDate, Qt::ISODate);
+        d->mBody = lines.mid(5).join("\n");
         append(d);
         _dataByCommitHashLong.insert(d->commitHash(), d);
         _dataByCommitHashLong.insert(d->commitShortHash(), d);
@@ -338,7 +338,7 @@ void LogList::initGraph()
     LanesFactory factory;
     for (auto i = rbegin(); i != rend(); i++) {
         auto &log = *i;
-        log->_lanes = factory.apply(log);
+        log->mLanes = factory.apply(log);
     }
 }
 

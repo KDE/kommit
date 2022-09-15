@@ -20,12 +20,12 @@ namespace Git
 
 const QString &Manager::path() const
 {
-    return _path;
+    return mPath;
 }
 
 void Manager::setPath(const QString &newPath)
 {
-    if (_path == newPath)
+    if (mPath == newPath)
         return;
 
     QProcess p;
@@ -37,14 +37,14 @@ void Manager::setPath(const QString &newPath)
     auto ret = p.readAllStandardOutput() + p.readAllStandardError();
 
     if (ret.contains("fatal")) {
-        _path = QString();
+        mPath = QString();
         _isValid = false;
     } else {
-        _path = ret.replace("\n", "");
+        mPath = ret.replace("\n", "");
         _isValid = true;
         loadAsync();
 
-        setIsMerging(QFile::exists(_path + "/.git/MERGE_HEAD"));
+        setIsMerging(QFile::exists(mPath + "/.git/MERGE_HEAD"));
     }
 
     Q_EMIT pathChanged();
@@ -90,7 +90,7 @@ QList<FileStatus> Manager::repoFilesStatus() const
         FileStatus fs;
         fs.parseStatusLine(item);
         //        qDebug() << "[STATUS]" << fs.name() << fs.status();
-        fs.setFullPath(_path + QLatin1Char('/') + fs.name());
+        fs.setFullPath(mPath + QLatin1Char('/') + fs.name());
         files.append(fs);
     }
     return files;
@@ -406,7 +406,7 @@ QString Manager::run(const AbstractCommand &cmd) const
 
 void Manager::init(const QString &path)
 {
-    _path = path;
+    mPath = path;
     runGit({"init"});
 }
 
@@ -423,7 +423,7 @@ QByteArray Manager::runGit(const QStringList &args) const
     QProcess p;
     p.setProgram("git");
     p.setArguments(args);
-    p.setWorkingDirectory(_path);
+    p.setWorkingDirectory(mPath);
     p.start();
     p.waitForFinished();
     auto out = p.readAllStandardOutput();

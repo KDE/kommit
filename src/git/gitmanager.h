@@ -151,7 +151,7 @@ Q_SIGNALS:
     void isMergingChanged();
 
 private:
-    QString _path;
+    QString mPath;
     bool _isValid{false};
     QMap<QString, Remote> _remotes;
     LoadFlags _loadFlags{LoadAll};

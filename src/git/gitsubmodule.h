@@ -24,9 +24,9 @@ public:
     void setRefName(const QString &newRefName);
 
 private:
-    QString _path;
-    QString _commitHash;
-    QString _refName;
+    QString mPath;
+    QString mCommitHash;
+    QString mRefName;
 };
 
 } // namespace Git

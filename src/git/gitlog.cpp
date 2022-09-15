@@ -14,37 +14,37 @@ namespace Git
 
 const QString &Log::refLog() const
 {
-    return _refLog;
+    return mRefLog;
 }
 
 const QString &Log::branch() const
 {
-    return _branch;
+    return mBranch;
 }
 
 const QString &Log::extraData() const
 {
-    return _extraData;
+    return mExtraData;
 }
 
 Log::CommitType Log::type() const
 {
-    return _type;
+    return mType;
 }
 
 const QVector<GraphLane> &Log::lanes() const
 {
-    return _lanes;
+    return mLanes;
 }
 
 const QStringList &Log::childs() const
 {
-    return _childs;
+    return mChilds;
 }
 
 const QString &Log::commitShortHash() const
 {
-    return _commitShortHash;
+    return mCommitShortHash;
 }
 
 Log::Log() = default;
@@ -60,17 +60,17 @@ Log::Log(QString authorName,
          QString body,
          QString commitHash,
          QStringList parentHash)
-    : _authorName(std::move(authorName))
-    , _authorEmail(std::move(authorEmail))
-    , _authDate(std::move(authDate))
-    , _committerName(std::move(committerName))
-    , _committerEmail(std::move(committerEmail))
-    , _commitDate(std::move(commitDate))
-    , _message(std::move(message))
-    , _subject(std::move(subject))
-    , _body(std::move(body))
-    , _commitHash(std::move(commitHash))
-    , _parentHash(std::move(parentHash))
+    : mAuthorName(std::move(authorName))
+    , mAuthorEmail(std::move(authorEmail))
+    , mAuthDate(std::move(authDate))
+    , mCommitterName(std::move(committerName))
+    , mCommitterEmail(std::move(committerEmail))
+    , mCommitDate(std::move(commitDate))
+    , mMessage(std::move(message))
+    , mSubject(std::move(subject))
+    , mBody(std::move(body))
+    , mCommitHash(std::move(commitHash))
+    , mParentHash(std::move(parentHash))
 {
 }
 
@@ -81,57 +81,57 @@ Log::~Log()
 
 const QString &Log::authorName() const
 {
-    return _authorName;
+    return mAuthorName;
 }
 
 const QString &Log::authorEmail() const
 {
-    return _authorEmail;
+    return mAuthorEmail;
 }
 
 const QDateTime &Log::authDate() const
 {
-    return _authDate;
+    return mAuthDate;
 }
 
 const QString &Log::committerName() const
 {
-    return _committerName;
+    return mCommitterName;
 }
 
 const QString &Log::committerEmail() const
 {
-    return _committerEmail;
+    return mCommitterEmail;
 }
 
 const QDateTime &Log::commitDate() const
 {
-    return _commitDate;
+    return mCommitDate;
 }
 
 const QString &Log::message() const
 {
-    return _message;
+    return mMessage;
 }
 
 const QString &Log::subject() const
 {
-    return _subject;
+    return mSubject;
 }
 
 const QString &Log::body() const
 {
-    return _body;
+    return mBody;
 }
 
 const QString &Log::commitHash() const
 {
-    return _commitHash;
+    return mCommitHash;
 }
 
 const QStringList &Log::parents() const
 {
-    return _parentHash;
+    return mParentHash;
 }
 
 }

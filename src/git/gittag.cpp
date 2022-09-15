@@ -13,32 +13,32 @@ Tag::Tag() = default;
 
 const QString &Tag::name() const
 {
-    return _name;
+    return mName;
 }
 
 void Tag::setName(const QString &newName)
 {
-    _name = newName;
+    mName = newName;
 }
 
 const QString &Tag::message() const
 {
-    return _message;
+    return mMessage;
 }
 
 void Tag::setMessage(const QString &newMessage)
 {
-    _message = newMessage;
+    mMessage = newMessage;
 }
 
 const QString &Tag::taggerEmail() const
 {
-    return _taggerEmail;
+    return mTaggerEmail;
 }
 
 void Tag::setTaggerEmail(const QString &newTaggerEmail)
 {
-    _taggerEmail = newTaggerEmail;
+    mTaggerEmail = newTaggerEmail;
 }
 
 }

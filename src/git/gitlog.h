@@ -55,24 +55,24 @@ public:
     const QString &commitShortHash() const;
 
 private:
-    QString _authorName;
-    QString _authorEmail;
-    QDateTime _authDate;
-    QString _committerName;
-    QString _committerEmail;
-    QDateTime _commitDate;
-    QString _message;
-    QString _subject;
-    QString _body;
-    QString _commitHash;
-    QString _commitShortHash;
-    QStringList _parentHash;
-    QString _refLog;
-    QString _branch;
-    QString _extraData;
-    CommitType _type;
-    QVector<GraphLane> _lanes;
-    QStringList _childs;
+    QString mAuthorName;
+    QString mAuthorEmail;
+    QDateTime mAuthDate;
+    QString mCommitterName;
+    QString mCommitterEmail;
+    QDateTime mCommitDate;
+    QString mMessage;
+    QString mSubject;
+    QString mBody;
+    QString mCommitHash;
+    QString mCommitShortHash;
+    QStringList mParentHash;
+    QString mRefLog;
+    QString mBranch;
+    QString mExtraData;
+    CommitType mType;
+    QVector<GraphLane> mLanes;
+    QStringList mChilds;
 
     friend class LogList;
     friend class GitManager;

@@ -362,17 +362,17 @@ void LogsModel::fill()
         QString commitDate;
         QString authDate;
         QString parentHash;
-        Impl::readLine(lines.at(0), "X", {&d->_commitHash, &d->_commitShortHash, &parentHash});
-        Impl::readLine(lines.at(1), "X", {&d->_committerName, &d->_committerEmail, &commitDate});
-        Impl::readLine(lines.at(2), "X", {&d->_authorName, &d->_authorEmail, &authDate});
+        Impl::readLine(lines.at(0), "X", {&d->mCommitHash, &d->mCommitShortHash, &parentHash});
+        Impl::readLine(lines.at(1), "X", {&d->mCommitterName, &d->mCommitterEmail, &commitDate});
+        Impl::readLine(lines.at(2), "X", {&d->mAuthorName, &d->mAuthorEmail, &authDate});
 
         if (!parentHash.isEmpty())
-            d->_parentHash = parentHash.split(" ");
-        d->_refLog = lines.at(3);
-        d->_subject = lines.at(5);
-        d->_commitDate = QDateTime::fromString(commitDate, Qt::ISODate);
-        d->_authDate = QDateTime::fromString(authDate, Qt::ISODate);
-        d->_body = lines.mid(5).join("\n");
+            d->mParentHash = parentHash.split(" ");
+        d->mRefLog = lines.at(3);
+        d->mSubject = lines.at(5);
+        d->mCommitDate = QDateTime::fromString(commitDate, Qt::ISODate);
+        d->mAuthDate = QDateTime::fromString(authDate, Qt::ISODate);
+        d->mBody = lines.mid(5).join("\n");
         mData.append(d);
         mDataByCommitHashLong.insert(d->commitHash(), d);
         mDataByCommitHashShort.insert(d->commitShortHash(), d);
@@ -389,7 +389,7 @@ void LogsModel::initChilds()
     for (auto i = mData.rbegin(); i != mData.rend(); i++) {
         auto &log = *i;
         for (auto &p : log->parents())
-            mDataByCommitHashLong.value(p)->_childs.append(log->commitHash());
+            mDataByCommitHashLong.value(p)->mChilds.append(log->commitHash());
     }
 }
 
@@ -398,7 +398,7 @@ void LogsModel::initGraph()
     Impl::LanesFactory factory;
     for (auto i = mData.rbegin(); i != mData.rend(); i++) {
         auto &log = *i;
-        log->_lanes = factory.apply(log);
+        log->mLanes = factory.apply(log);
     }
 }
 

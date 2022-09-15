@@ -26,9 +26,9 @@ public:
     void setTaggerEmail(const QString &newTaggerEmail);
 
 private:
-    QString _name;
-    QString _message;
-    QString _taggerEmail;
+    QString mName;
+    QString mMessage;
+    QString mTaggerEmail;
 };
 
 } // namespace Git

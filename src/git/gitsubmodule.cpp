@@ -13,32 +13,32 @@ Submodule::Submodule() = default;
 
 const QString &Submodule::path() const
 {
-    return _path;
+    return mPath;
 }
 
 void Submodule::setPath(const QString &newPath)
 {
-    _path = newPath;
+    mPath = newPath;
 }
 
 const QString &Submodule::commitHash() const
 {
-    return _commitHash;
+    return mCommitHash;
 }
 
 void Submodule::setCommitHash(const QString &newCommitHash)
 {
-    _commitHash = newCommitHash;
+    mCommitHash = newCommitHash;
 }
 
 const QString &Submodule::refName() const
 {
-    return _refName;
+    return mRefName;
 }
 
 void Submodule::setRefName(const QString &newRefName)
 {
-    _refName = newRefName;
+    mRefName = newRefName;
 }
 
 } // namespace Git
