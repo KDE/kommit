@@ -191,9 +191,9 @@ void TreeModel::sortItems()
 
 void TreeModel::addData(const QStringList &data, const QString &prefix, bool split)
 {
-    for (auto &p : data) {
+    for (const auto &p : data) {
         auto path = p;
-        path = path.replace("\r", "").replace("\n", "").trimmed();
+        path = path.remove(QLatin1Char('\r')).remove(QLatin1Char('\n')).trimmed();
         if (path.isEmpty())
             continue;
 
