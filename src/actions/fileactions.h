@@ -13,11 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 class FileActions : public AbstractActions
 {
     Q_OBJECT
-
-    QString mPlace;
-    QString mFilePath;
-
     DEFINE_ACTION(actionSaveAs)
+
     DEFINE_ACTION(actionView)
     DEFINE_ACTION(actionHistory)
     DEFINE_ACTION(actionBlame)
@@ -26,12 +23,6 @@ class FileActions : public AbstractActions
     DEFINE_ACTION(actionDiffWithHead)
     DEFINE_ACTION(actionMergeWithHead)
 
-    QMenu *mOpenWithMenu;
-    // public:
-    //     QAction *actionSaveAs();
-
-    KService::Ptr getExternalViewer(const QString &mimeType);
-    KService::Ptr getViewer(const QString &mimeType);
 
 public:
     explicit FileActions(Git::Manager *git, QWidget *parent = nullptr);
@@ -52,4 +43,12 @@ private Q_SLOTS:
     void openWith();
     void diffWithHead();
     void mergeWithHead();
+
+private:
+    QString mPlace;
+    QString mFilePath;
+    QMenu *mOpenWithMenu;
+
+    KService::Ptr getExternalViewer(const QString &mimeType);
+    KService::Ptr getViewer(const QString &mimeType);
 };

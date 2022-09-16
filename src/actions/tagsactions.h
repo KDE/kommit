@@ -12,12 +12,6 @@ class TagsActions : public AbstractActions
 {
     Q_OBJECT
 
-    DEFINE_ACTION(actionCreate)
-    DEFINE_ACTION(actionRemove)
-    DEFINE_ACTION(actionCheckout)
-    DEFINE_ACTION(actionDiff)
-    DEFINE_ACTION(actionPush)
-
 public:
     explicit TagsActions(Git::Manager *git, QWidget *parent = nullptr);
 
@@ -32,5 +26,10 @@ private Q_SLOTS:
     void push();
 
 private:
+    DEFINE_ACTION(actionCreate)
+    DEFINE_ACTION(actionRemove)
+    DEFINE_ACTION(actionCheckout)
+    DEFINE_ACTION(actionDiff)
+    DEFINE_ACTION(actionPush)
     QString mTagName;
 };
