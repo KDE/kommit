@@ -51,9 +51,9 @@ void IgnoreFileDialog::generateIgnorePattern()
 {
     QString s;
     if (radioButtonName->isChecked())
-        s = mName + ".*";
+        s = mName + QStringLiteral(".*");
     else if (radioButtonExt->isChecked())
-        s = "*." + mExt;
+        s = QStringLiteral("*.") + mExt;
     else {
         if (mExt.isEmpty())
             s = mName;

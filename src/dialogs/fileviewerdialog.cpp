@@ -32,7 +32,7 @@ FileViewerDialog::FileViewerDialog(const QString &place, const QString &fileName
     restoreGeometry(s.value("FileViewerDialog_Geometry").toByteArray());
     KStandardAction::close(this, &QMainWindow::close, actionCollection());
 
-    setupGUI(ToolBar, "gitklientfileviewerui.rc");
+    setupGUI(ToolBar, QStringLiteral("gitklientfileviewerui.rc"));
 }
 
 FileViewerDialog::FileViewerDialog(Git::Manager *git, const Git::File &file, QWidget *parent)
@@ -45,7 +45,7 @@ FileViewerDialog::FileViewerDialog(Git::Manager *git, const Git::File &file, QWi
     restoreGeometry(s.value("FileViewerDialog_Geometry").toByteArray());
     KStandardAction::close(this, &QMainWindow::close, actionCollection());
 
-    setupGUI(ToolBar, "gitklientfileviewerui.rc");
+    setupGUI(ToolBar, QStringLiteral("gitklientfileviewerui.rc"));
 }
 
 FileViewerDialog::~FileViewerDialog()
@@ -87,7 +87,7 @@ void FileViewerDialog::showFile(const Git::File &file)
     auto mime = mimeDatabase.mimeTypeForFile(fn, QMimeDatabase::MatchExtension);
     mFilePath = file.fileName();
     mFilePath = mFilePath.mid(mFilePath.lastIndexOf("/") + 1);
-    mFilePath.prepend(QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/");
+    mFilePath.prepend(QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/'));
 
     lineEditBranchName->setText(file.place());
     lineEditFileName->setText(file.fileName());
@@ -103,9 +103,9 @@ void FileViewerDialog::showFile(const Git::File &file)
             return;
     }
 
-    if (mime.name().startsWith("text/"))
+    if (mime.name().startsWith(QStringLiteral("text/")))
         showInEditor(file);
-    else if (mime.name().startsWith("image/"))
+    else if (mime.name().startsWith(QStringLiteral("image/")))
         showAsImage(file);
     else {
         if (!ptr || !ptr->isValid()) {
@@ -130,7 +130,7 @@ void FileViewerDialog::showInEditor(const Git::File &file)
 void FileViewerDialog::showAsImage(const Git::File &file)
 {
     stackedWidget->setCurrentIndex(1);
-    auto p = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/klient_img";
+    auto p = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/klient_img");
     file.save(p);
     QImage img{p};
     labelImage->setPixmap(QPixmap::fromImage(img));

@@ -61,7 +61,7 @@ QStringList CommandPush::generateArgs() const
     if (mRemoteBranch.isEmpty())
         args.append(mLocalBranch);
     else
-        args.append(mLocalBranch + ":" + mRemoteBranch);
+        args.append(mLocalBranch + QLatin1Char(':') + mRemoteBranch);
 
     if (mForce)
         args.append(QStringLiteral("--force"));

@@ -76,19 +76,19 @@ void CloneCommand::setRecursive(bool newRecursive)
 
 QStringList CloneCommand::generateArgs() const
 {
-    QStringList args{"clone", "--progress", mRepoUrl, mLocalPath};
+    QStringList args{QStringLiteral("clone"), QStringLiteral("--progress"), mRepoUrl, mLocalPath};
 
     if (!mBranch.isEmpty())
-        args << "--branch=" + mBranch;
+        args << QStringLiteral("--branch=") + mBranch;
 
     if (mDepth != -1)
-        args << "--depth" << QString::number(mDepth);
+        args << QStringLiteral("--depth") << QString::number(mDepth);
 
     if (!mOrigin.isEmpty())
-        args << "--origin=" << mOrigin;
+        args << QStringLiteral("--origin=") << mOrigin;
 
     if (mRecursive)
-        args << "--recursive";
+        args << QStringLiteral("--recursive");
 
     return args;
 }

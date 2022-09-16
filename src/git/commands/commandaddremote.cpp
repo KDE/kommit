@@ -16,16 +16,16 @@ CommandAddRemote::CommandAddRemote(QObject *parent)
 
 QStringList CommandAddRemote::generateArgs() const
 {
-    QStringList args{"remote", "add"};
+    QStringList args{QStringLiteral("remote"), QStringLiteral("add")};
 
     if (mFetch)
-        args << "--fetch";
+        args << QStringLiteral("--fetch");
     if (mMirror)
-        args << "--mirrot";
-    appendBool(mTags, args, "tags");
+        args << QStringLiteral("--mirrot");
+    appendBool(mTags, args, QStringLiteral("tags"));
 
     if (!mMaster.isEmpty())
-        args << "--master=" + mMaster;
+        args << QStringLiteral("--master=") + mMaster;
 
     args << mRemoteName << mUrl;
     return args;

@@ -31,12 +31,12 @@ QStringList CommandMerge::generateArgs() const
         break;
     }
 
-    appendBool(mCommit, cmd, "commit");
-    appendBool(mSquash, cmd, "squash");
-    appendBool(mAllowUnrelatedHistories, cmd, "allow-unrelated-histories");
+    appendBool(mCommit, cmd, QStringLiteral("commit"));
+    appendBool(mSquash, cmd, QStringLiteral("squash"));
+    appendBool(mAllowUnrelatedHistories, cmd, QStringLiteral("allow-unrelated-histories"));
 
     if (!mStrategy.isEmpty())
-        cmd.append("--strategy=" + mStrategy);
+        cmd.append(QStringLiteral("--strategy=") + mStrategy);
 
     return cmd;
 }

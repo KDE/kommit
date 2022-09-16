@@ -52,15 +52,15 @@ void CommandChangedFiles::setIgnoreSubmodules(bool newIgnoreSubmodules)
 
 QStringList CommandChangedFiles::generateArgs() const
 {
-    QStringList args{"status", "--short", "--porcelain"};
+    QStringList args{QStringLiteral("status"), QStringLiteral("--short"), QStringLiteral("--porcelain")};
     if (mUntracked)
-        args.append("--untracked-files=all");
+        args.append(QStringLiteral("--untracked-files=all"));
 
     if (mIgnoreSubmodules)
-        args.append("--ignore-submodules");
+        args.append(QStringLiteral("--ignore-submodules"));
 
     if (mIgnored)
-        args.append("--ignored");
+        args.append(QStringLiteral("--ignored"));
 
     return args;
 }
@@ -68,7 +68,7 @@ QStringList CommandChangedFiles::generateArgs() const
 void CommandChangedFiles::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
 {
     Q_UNUSED(errorOutput)
-    const auto buffer = QString(output).split("\n");
+    const auto buffer = QString(output).split(QLatin1Char('\n'));
 
     for (const auto &item : buffer) {
         if (!item.trimmed().size())

@@ -23,7 +23,7 @@ FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
     mActions->setPlace(place);
 
     mTreeModel = new TreeModel(this);
-    mTreeModel->setSeparator("/");
+    mTreeModel->setSeparator(QStringLiteral("/"));
 
     auto files = Git::Manager::instance()->ls(place);
 
@@ -71,7 +71,7 @@ void FilesTreeDialog::on_listWidget_customContextMenuRequested(const QPoint &pos
     if (path == "/")
         path = listWidget->currentItem()->text();
     else
-        path += "/" + listWidget->currentItem()->text();
+        path += QLatin1Char('/') + listWidget->currentItem()->text();
 
     mActions->setFilePath(path);
     mActions->popup(listWidget->mapToGlobal(pos));
