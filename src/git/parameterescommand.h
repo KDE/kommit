@@ -13,7 +13,6 @@ namespace Git
 
 class ParameteresCommand : public AbstractCommand
 {
-    QStringList mArgs;
 
 public:
     ParameteresCommand();
@@ -22,6 +21,8 @@ public:
     void appendArg(const QString &arg);
 
     QStringList generateArgs() const override;
+private:
+    QStringList mArgs;
 };
 
 } // namespace Git

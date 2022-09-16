@@ -95,10 +95,10 @@ void StashesModel::fill()
         auto subject = parts.first();
         auto stash = new Stash(mGit, QStringLiteral("stash@{%1}").arg(id));
 
-        stash->_subject = subject;
-        stash->_authorName = parts.at(1);
-        stash->_authorEmail = parts.at(2);
-        stash->_pushTime = QDateTime::fromString(parts.at(3), Qt::RFC2822Date);
+        stash->mSubject = subject;
+        stash->mAuthorName = parts.at(1);
+        stash->mAuthorEmail = parts.at(2);
+        stash->mPushTime = QDateTime::fromString(parts.at(3), Qt::RFC2822Date);
 
         mData.append(stash);
         id++;

@@ -526,11 +526,11 @@ QList<Stash> Manager::stashes()
         auto subject = parts.first();
         Stash stash(this, QStringLiteral("stash@{%1}").arg(id));
 
-        stash._subject = subject;
-        stash._authorName = parts.at(1);
-        stash._authorEmail = parts.at(2);
-        stash._pushTime = QDateTime::fromString(parts.at(3), Qt::RFC2822Date);
-        qDebug() << item << subject << stash._pushTime;
+        stash.mSubject = subject;
+        stash.mAuthorName = parts.at(1);
+        stash.mAuthorEmail = parts.at(2);
+        stash.mPushTime = QDateTime::fromString(parts.at(3), Qt::RFC2822Date);
+        qDebug() << item << subject << stash.mPushTime;
 
         ret.append(stash);
         id++;

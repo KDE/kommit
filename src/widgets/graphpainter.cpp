@@ -78,14 +78,14 @@ QPoint centerGuide(int x, const Qt::Edge &edge)
 
 GraphPainter::GraphPainter(Git::LogsModel *model, QObject *parent)
     : QStyledItemDelegate(parent)
-    , _model(model)
+    , mModel(model)
 {
-    _colors = {Qt::red, Qt::blue, Qt::darkGreen, Qt::magenta, Qt::darkMagenta, Qt::darkBlue, Qt::darkBlue, Qt::darkRed, Qt::darkYellow, Qt::darkGreen};
+    mColors = {Qt::red, Qt::blue, Qt::darkGreen, Qt::magenta, Qt::darkMagenta, Qt::darkBlue, Qt::darkBlue, Qt::darkRed, Qt::darkYellow, Qt::darkGreen};
 }
 
 void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    auto log = _model->fromIndex(index);
+    auto log = mModel->fromIndex(index);
 
     painter->setRenderHints(QPainter::Antialiasing);
 
@@ -109,12 +109,12 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
         if (l.type() == Git::GraphLane::None)
             continue;
 
-        if (x >= _colors.size()) {
+        if (x >= mColors.size()) {
             painter->setPen(Qt::black);
             painter->setBrush(Qt::black);
         } else {
-            painter->setPen(_colors.at(x));
-            painter->setBrush(_colors.at(x));
+            painter->setPen(mColors.at(x));
+            painter->setBrush(mColors.at(x));
         }
         //        painter->setPen(l.color());
         //        painter->setBrush(l.color());

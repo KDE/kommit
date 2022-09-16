@@ -16,8 +16,6 @@ class LogsModel;
 class GraphPainter : public QStyledItemDelegate
 {
     Q_OBJECT
-    Git::LogsModel *_model;
-    QVector<QColor> _colors;
 
 public:
     explicit GraphPainter(Git::LogsModel *model, QObject *parent = nullptr);
@@ -29,4 +27,8 @@ public:
     // QAbstractItemDelegate interface
 public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+
+private:
+    Git::LogsModel *mModel;
+    QVector<QColor> mColors;
 };

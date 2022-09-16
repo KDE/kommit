@@ -15,13 +15,6 @@ namespace Git
 class Manager;
 class Stash
 {
-    Git::Manager *_git;
-    QString _name;
-    QString _authorName;
-    QString _authorEmail;
-    QString _subject;
-    QString _branch;
-    QDateTime _pushTime;
 
 public:
     Stash(Git::Manager *git, QString name);
@@ -38,6 +31,14 @@ public:
 
     friend class Manager;
     friend class StashesModel;
+private:
+    Git::Manager *mGit = nullptr;
+    QString mName;
+    QString mAuthorName;
+    QString mAuthorEmail;
+    QString mSubject;
+    QString mBranch;
+    QDateTime mPushTime;
 };
 
 } // namespace Git

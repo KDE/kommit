@@ -14,53 +14,53 @@ namespace Git
 
 const QString &Stash::name() const
 {
-    return _name;
+    return mName;
 }
 
 const QString &Stash::authorName() const
 {
-    return _authorName;
+    return mAuthorName;
 }
 
 const QString &Stash::authorEmail() const
 {
-    return _authorEmail;
+    return mAuthorEmail;
 }
 
 const QString &Stash::subject() const
 {
-    return _subject;
+    return mSubject;
 }
 
 const QString &Stash::branch() const
 {
-    return _branch;
+    return mBranch;
 }
 
 const QDateTime &Stash::pushTime() const
 {
-    return _pushTime;
+    return mPushTime;
 }
 
 Stash::Stash(Manager *git, QString name)
-    : _git(git)
-    , _name(std::move(name))
+    : mGit(git)
+    , mName(std::move(name))
 {
 }
 
 void Stash::apply()
 {
-    _git->runGit({"stash", "apply", _name});
+    mGit->runGit({"stash", "apply", mName});
 }
 
 void Stash::drop()
 {
-    _git->runGit({"stash", "drop", _name});
+    mGit->runGit({"stash", "drop", mName});
 }
 
 void Stash::pop()
 {
-    _git->runGit({"stash", "pop", _name});
+    mGit->runGit({"stash", "pop", mName});
 }
 
 } // namespace Git

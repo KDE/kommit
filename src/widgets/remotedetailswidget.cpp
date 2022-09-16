@@ -44,12 +44,12 @@ RemoteDetailsWidget::RemoteDetailsWidget(QWidget *parent)
 
 const QString &RemoteDetailsWidget::branch() const
 {
-    return _branch;
+    return mBranch;
 }
 
 void RemoteDetailsWidget::setBranch(const QString &newBranch)
 {
-    _branch = newBranch;
+    mBranch = newBranch;
 
     if (!mGit)
         mGit = Git::Manager::instance();

@@ -13,8 +13,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 class HistoryModel : public QAbstractListModel
 {
     Q_OBJECT
-    QString mBranch;
-
 public:
     Q_DECL_DEPRECATED
     explicit HistoryModel(QObject *parent = nullptr);
@@ -34,5 +32,6 @@ public Q_SLOTS:
     void reload();
 
 private:
+    QString mBranch;
     Git::LogList mLogs;
 };

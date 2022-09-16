@@ -16,7 +16,6 @@ class Log;
 class LogDetailsWidget : public QTextBrowser
 {
     Q_OBJECT
-    Git::Log *mLog{};
     Q_PROPERTY(bool enableCommitsLinks READ enableCommitsLinks WRITE setEnableCommitsLinks NOTIFY enableCommitsLinksChanged)
 
 public:
@@ -36,6 +35,7 @@ private:
     QString createHashLink(const QString &hash) const;
     static QString createFileLink(const QString &hash);
 
+    Git::Log *mLog = nullptr;
     bool m_enableCommitsLinks{false};
 
 private Q_SLOTS:

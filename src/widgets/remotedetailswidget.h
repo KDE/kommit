@@ -18,7 +18,7 @@ class RemoteDetailsWidget : public QWidget, private Ui::RemoteDetailsWidget
 {
     Q_OBJECT
     Git::Manager *mGit{nullptr};
-    QString _branch;
+    QString mBranch;
 
 public:
     explicit RemoteDetailsWidget(QWidget *parent = nullptr);

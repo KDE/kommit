@@ -19,10 +19,6 @@ class BranchesStatusWidget : public WidgetBase, private Ui::BranchesStatusWidget
 {
     Q_OBJECT
 
-    QStringList _branches;
-    BranchActions *mActions;
-    Git::BranchesModel *_model;
-
 public:
     explicit BranchesStatusWidget(QWidget *parent = nullptr);
     explicit BranchesStatusWidget(Git::Manager *git, AppWindow *parent = nullptr);
@@ -38,4 +34,8 @@ private Q_SLOTS:
     void on_treeView_customContextMenuRequested(const QPoint &pos);
 
     void reload() override;
+
+private:
+    BranchActions *mActions = nullptr;
+    Git::BranchesModel *mModel = nullptr;
 };
