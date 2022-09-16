@@ -29,6 +29,6 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
-    Git::LogsModel *mModel;
+    Git::LogsModel *const mModel;
     QVector<QColor> mColors;
 };

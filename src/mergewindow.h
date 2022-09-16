@@ -63,20 +63,17 @@ private:
     void doMergeAction(Diff::MergeType type);
     bool isFullyResolved();
 
-    bool _scrollLockMine{false};
-    bool _scrollLockTheir{false};
-    QList<Diff::MergeSegment *> _diffs;
-    QMenu *_codeEditorContextMenu;
-    SegmentsMapper *_mapper;
+    QList<Diff::MergeSegment *> mDiffs;
+    QMenu *mCodeEditorContextMenu = nullptr;
+    SegmentsMapper *mMapper = nullptr;
 
-    QString _filePathLocal;
-    QString _filePathRemote;
-    QString _filePathBase;
-    QString _filePathResult;
-    Mode _mode;
-    QLabel *_conflictsLabel;
-    QAction *_actionBlocksView;
-    QAction *_actionFilesView;
+    QString mFilePathLocal;
+    QString mFilePathRemote;
+    QString mFilePathBase;
+    QString mFilePathResult;
+    QLabel *mConflictsLabel = nullptr;
+    QAction *mActionBlocksView = nullptr;
+    QAction *mActionFilesView = nullptr;
 
 protected:
     void closeEvent(QCloseEvent *event) override;

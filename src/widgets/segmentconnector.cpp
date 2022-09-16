@@ -55,12 +55,12 @@ void SegmentConnector::setSegments(const QList<Diff::Segment *> &newSegments)
 
 Diff::Segment *SegmentConnector::currentSegment() const
 {
-    return _currentSegment;
+    return mCurrentSegment;
 }
 
 void SegmentConnector::setCurrentSegment(Diff::Segment *newCurrentSegment)
 {
-    _currentSegment = newCurrentSegment;
+    mCurrentSegment = newCurrentSegment;
     update();
 }
 
@@ -81,29 +81,29 @@ SegmentConnector::SegmentConnector(QWidget *parent)
 
 CodeEditor *SegmentConnector::left() const
 {
-    return _left;
+    return mLeft;
 }
 
 void SegmentConnector::setLeft(CodeEditor *newLeft)
 {
-    _left = newLeft;
+    mLeft = newLeft;
 }
 
 CodeEditor *SegmentConnector::right() const
 {
-    return _right;
+    return mRight;
 }
 
 void SegmentConnector::setRight(CodeEditor *newRight)
 {
-    _right = newRight;
+    mRight = newRight;
 }
 
 void SegmentConnector::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
-    if (!_left || !_right)
+    if (!mLeft || !mRight)
         return;
 
     QPainter painter(this);
@@ -114,8 +114,8 @@ void SegmentConnector::paintEvent(QPaintEvent *event)
     for (auto s = mSegmentPos.begin(); s != mSegmentPos.end(); ++s) {
         if (s.key()->type == Diff::SegmentType::SameOnBoth)
             continue;
-        auto leftArea = _left->blockArea(s->leftStart, s->leftEnd);
-        auto rightArea = _right->blockArea(s->rightStart, s->rightEnd);
+        auto leftArea = mLeft->blockArea(s->leftStart, s->leftEnd);
+        auto rightArea = mRight->blockArea(s->rightStart, s->rightEnd);
 
         //        if (s == _currentSegment)
         //            painter.setBrush(Qt::yellow);

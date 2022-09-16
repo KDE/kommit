@@ -17,7 +17,7 @@ CommandMerge::CommandMerge(Manager *git)
 QStringList CommandMerge::generateArgs() const
 {
     QStringList cmd{QStringLiteral("merge")};
-    switch (_ff) {
+    switch (mFf) {
     case FastForwardType::Unset:
         break;
     case FastForwardType::Yes:
@@ -63,12 +63,12 @@ void CommandMerge::setAllowUnrelatedHistories(OptionalBool newAllowUnrelatedHist
 
 FastForwardType CommandMerge::ff() const
 {
-    return _ff;
+    return mFf;
 }
 
 void CommandMerge::setFf(FastForwardType newFf)
 {
-    _ff = newFf;
+    mFf = newFf;
 }
 
 bool CommandMerge::squash() const

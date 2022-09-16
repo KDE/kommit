@@ -18,8 +18,6 @@ class Manager;
 class RemotesWidget : public WidgetBase, private Ui::RemotesWidget
 {
     Q_OBJECT
-    Git::RemotesModel *mModel;
-    RemotesActions *mActions;
 
 public:
     explicit RemotesWidget(QWidget *parent = nullptr);
@@ -34,4 +32,6 @@ private Q_SLOTS:
 
 private:
     void init(Git::Manager *git);
+    Git::RemotesModel *mModel = nullptr;
+    RemotesActions *mActions = nullptr;
 };

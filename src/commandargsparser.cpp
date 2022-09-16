@@ -78,7 +78,7 @@ void CommandArgsParser::add(const QString &name, const QString &list)
 
 bool CommandArgsParser::check(const CommandList &commands)
 {
-    _params.clear();
+    mParams.clear();
     if (qApp->arguments().size() != commands.size() + 1)
         return false;
     auto appArgs = qApp->arguments();
@@ -91,7 +91,7 @@ bool CommandArgsParser::check(const CommandList &commands)
                 return false;
             break;
         case Command::Named:
-            _params.insert(cmd.s, appArgs[idx]);
+            mParams.insert(cmd.s, appArgs[idx]);
             break;
         }
         idx++;
@@ -109,7 +109,7 @@ QString CommandArgsParser::checkAll()
 
 QString CommandArgsParser::param(const QString &name) const
 {
-    return _params.value(name);
+    return mParams.value(name);
 }
 
 ArgParserReturn CommandArgsParser::run(const QStringList &args)
@@ -170,13 +170,13 @@ ArgParserReturn CommandArgsParser::help()
             continue;
         name = name.mid(5);
 
-        _helpTexts.insert(name, value);
+        mHelpTexts.insert(name, value);
     }
     qDebug() << "Git Klient command line interface help:";
     for (int i = metaObject()->methodOffset(); i < c; i++) {
         auto method = metaObject()->method(i);
         qDebug().noquote() << "    " << method.name() << method.parameterNames().join(" ");
-        qDebug().noquote() << _helpTexts.value(method.name());
+        qDebug().noquote() << mHelpTexts.value(method.name());
     }
     return 0;
 }

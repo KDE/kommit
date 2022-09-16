@@ -34,9 +34,9 @@ private:
     Git::File mNewFile;
 
     QString mOldBranch;
-    QString _newBranch;
+    QString mNewBranch;
 
-    QString _leftDir, mRightDir;
+    QString mLeftDir, mRightDir;
 
     FilesModel *mFilesModel;
     DiffTreeModel *mDiffModel;
@@ -50,7 +50,6 @@ private:
     enum Mode { None, Dirs, Files };
     enum Storage { NoStorage, FileSystem, Git };
 
-    Mode _mode{None};
     Storage mLeftStorage{NoStorage};
     Storage mRightStorage{NoStorage};
     void compareDirs();

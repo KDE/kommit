@@ -40,7 +40,7 @@ public:
 private:
     OptionalBool mCommit{OptionalBool::Unset};
     OptionalBool mAllowUnrelatedHistories{OptionalBool::Unset};
-    FastForwardType _ff{FastForwardType::Unset};
+    FastForwardType mFf{FastForwardType::Unset};
     bool mSquash{false};
     QString mFromBranch;
     QString mStrategy;

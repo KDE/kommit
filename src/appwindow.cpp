@@ -96,7 +96,7 @@ AppWindow::AppWindow(const QString &path)
 AppWindow::~AppWindow()
 {
     QSettings s;
-    for (auto &w : _baseWidgets)
+    for (auto &w : mBaseWidgets)
         w->saveState(s);
 }
 
@@ -139,9 +139,9 @@ void AppWindow::initActions()
     actionCollection->setDefaultShortcut(repoStatusAction, QKeySequence("Ctrl+S"));
 
     {
-        recentAction = actionCollection->addAction("recent");
-        recentAction->setText(i18n("Recent repos"));
-        recentAction->setMenu(new QMenu(this));
+        mRecentAction = actionCollection->addAction("recent");
+        mRecentAction->setText(i18n("Recent repos"));
+        mRecentAction->setMenu(new QMenu(this));
         initRecentFiles();
     }
 
@@ -182,7 +182,7 @@ void AppWindow::initActions()
 }
 void AppWindow::initRecentFiles(const QString &newItem)
 {
-    recentAction->menu()->clear();
+    mRecentAction->menu()->clear();
     QSettings s;
     auto recentList = s.value("recent_files").toStringList();
     if (!newItem.isEmpty()) {
@@ -193,7 +193,7 @@ void AppWindow::initRecentFiles(const QString &newItem)
         s.sync();
     }
     for (const auto &item : recentList) {
-        auto action = recentAction->menu()->addAction(item);
+        auto action = mRecentAction->menu()->addAction(item);
         action->setData(item);
         connect(action, &QAction::triggered, this, &AppWindow::recentActionTriggered);
     }
@@ -350,5 +350,5 @@ void AppWindow::addPage(const QString &actionName)
     mMainWidget->addPage(w, action);
     QSettings s;
     w->restoreState(s);
-    _baseWidgets.append(w);
+    mBaseWidgets.append(w);
 }

@@ -73,7 +73,7 @@ MergeWindow::~MergeWindow()
 {
     QSettings s;
     s.beginGroup("MergeWindow");
-    s.setValue("actionType", _actionFilesView->isChecked() ? "file" : "block");
+    s.setValue("actionType", mActionFilesView->isChecked() ? "file" : "block");
 }
 
 void MergeWindow::init()
@@ -89,12 +89,12 @@ void MergeWindow::init()
     mapper->addTextEdit(m_ui.plainTextEditTheir);
     mapper->addTextEdit(m_ui.plainTextEditResult);
 
-    _mapper = new SegmentsMapper;
+    mMapper = new SegmentsMapper;
 
-    _mapper->addEditor(m_ui.plainTextEditBase);
-    _mapper->addEditor(m_ui.plainTextEditMine);
-    _mapper->addEditor(m_ui.plainTextEditTheir);
-    _mapper->addEditor(m_ui.plainTextEditResult);
+    mMapper->addEditor(m_ui.plainTextEditBase);
+    mMapper->addEditor(m_ui.plainTextEditMine);
+    mMapper->addEditor(m_ui.plainTextEditTheir);
+    mMapper->addEditor(m_ui.plainTextEditResult);
 
     m_ui.plainTextEditMine->setContextMenuPolicy(Qt::CustomContextMenu);
     m_ui.plainTextEditTheir->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -105,8 +105,8 @@ void MergeWindow::init()
 
     connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::on_plainTextEditResult_blockSelected);
 
-    _conflictsLabel = new QLabel(this);
-    statusBar()->addPermanentWidget(_conflictsLabel);
+    mConflictsLabel = new QLabel(this);
+    statusBar()->addPermanentWidget(mConflictsLabel);
 
     actionViewBlocks_clicked();
 
@@ -120,21 +120,21 @@ void MergeWindow::load()
     m_ui.plainTextEditResult->clear();
     m_ui.plainTextEditBase->clear();
 
-    auto baseList = readFile(_filePathBase);
-    auto localList = readFile(_filePathLocal);
-    auto remoteList = readFile(_filePathRemote);
+    auto baseList = readFile(mFilePathBase);
+    auto localList = readFile(mFilePathLocal);
+    auto remoteList = readFile(mFilePathRemote);
 
-    m_ui.plainTextEditBase->setHighlighting(_filePathBase);
-    m_ui.plainTextEditMine->setHighlighting(_filePathLocal);
-    m_ui.plainTextEditTheir->setHighlighting(_filePathRemote);
-    m_ui.plainTextEditResult->setHighlighting(_filePathResult);
-    m_ui.codeEditorMyBlock->setHighlighting(_filePathLocal);
-    m_ui.codeEditorTheirBlock->setHighlighting(_filePathRemote);
+    m_ui.plainTextEditBase->setHighlighting(mFilePathBase);
+    m_ui.plainTextEditMine->setHighlighting(mFilePathLocal);
+    m_ui.plainTextEditTheir->setHighlighting(mFilePathRemote);
+    m_ui.plainTextEditResult->setHighlighting(mFilePathResult);
+    m_ui.codeEditorMyBlock->setHighlighting(mFilePathLocal);
+    m_ui.codeEditorTheirBlock->setHighlighting(mFilePathRemote);
 
-    _diffs = Diff::diff3(baseList, localList, remoteList);
-    _mapper->setSegments(_diffs);
+    mDiffs = Diff::diff3(baseList, localList, remoteList);
+    mMapper->setSegments(mDiffs);
     QList<Diff::Segment *> segments;
-    for (auto &s : _diffs) {
+    for (auto &s : mDiffs) {
         segments.append(s);
     }
     m_ui.widgetSegmentsConnector->setSegments(segments);
@@ -144,7 +144,7 @@ void MergeWindow::load()
 
     //    m_ui.plainTextEditResult->setVisible(false);
 
-    for (auto &d : _diffs) {
+    for (auto &d : mDiffs) {
         switch (d->type) {
         case Diff::SegmentType::SameOnBoth: {
             m_ui.plainTextEditMine->append(d->base, CodeEditor::Unchanged, d);
@@ -188,10 +188,10 @@ void MergeWindow::load()
     updateResult();
 
     QFileInfo fi;
-    if (_filePathResult.isEmpty())
-        fi.setFile(_filePathBase);
+    if (mFilePathResult.isEmpty())
+        fi.setFile(mFilePathBase);
     else
-        fi.setFile(_filePathResult);
+        fi.setFile(mFilePathResult);
 
     setWindowTitle(fi.fileName() + "[*]");
     setWindowModified(true);
@@ -200,7 +200,7 @@ void MergeWindow::load()
 void MergeWindow::updateResult()
 {
     m_ui.plainTextEditResult->clearAll();
-    for (auto &d : _diffs) {
+    for (auto &d : mDiffs) {
         if (d->type == Diff::SegmentType::SameOnBoth) {
             m_ui.plainTextEditResult->append(d->base, CodeEditor::Unchanged, d);
             continue;
@@ -257,7 +257,7 @@ void MergeWindow::updateResult()
             break;
         }
     }
-    _conflictsLabel->setText(i18n("Conflicts: %1", _mapper->conflicts()));
+    mConflictsLabel->setText(i18n("Conflicts: %1", mMapper->conflicts()));
 }
 
 void MergeWindow::initActions()
@@ -298,13 +298,13 @@ void MergeWindow::initActions()
     actionKeepTheirFile->setIcon(QIcon::fromTheme("diff-keep-their-file"));
     actionCollection->setDefaultShortcut(actionKeepTheirFile, QKeySequence("Ctrl+Alt+R"));
 
-    _actionBlocksView = actionCollection->addAction("view_blocks", this, &MergeWindow::actionViewBlocks_clicked);
-    _actionBlocksView->setText(i18n("Blocks"));
-    _actionBlocksView->setCheckable(true);
+    mActionBlocksView = actionCollection->addAction("view_blocks", this, &MergeWindow::actionViewBlocks_clicked);
+    mActionBlocksView->setText(i18n("Blocks"));
+    mActionBlocksView->setCheckable(true);
 
-    _actionFilesView = actionCollection->addAction("view_files", this, &MergeWindow::actionViewFiles_clicked);
-    _actionFilesView->setText(i18n("Files"));
-    _actionFilesView->setCheckable(true);
+    mActionFilesView = actionCollection->addAction("view_files", this, &MergeWindow::actionViewFiles_clicked);
+    mActionFilesView->setText(i18n("Files"));
+    mActionFilesView->setCheckable(true);
 
     if (s.value("actionType", "file").toString() == "file")
         actionViewFiles_clicked();
@@ -326,17 +326,17 @@ void MergeWindow::initActions()
     KStandardAction::quit(qApp, &QApplication::closeAllWindows, actionCollection);
     KStandardAction::preferences(this, &MergeWindow::preferences, actionCollection);
 
-    _codeEditorContextMenu = new QMenu(this);
-    _codeEditorContextMenu->addActions({actionKeepMine, actionKeepTheir});
-    _codeEditorContextMenu->addSeparator();
-    _codeEditorContextMenu->addActions({actionKeepMineBeforeTheir, actionKeepTheirBeforeMine});
-    _codeEditorContextMenu->addSeparator();
-    _codeEditorContextMenu->addActions({actionKeepMyFile, actionKeepTheirFile});
+    mCodeEditorContextMenu = new QMenu(this);
+    mCodeEditorContextMenu->addActions({actionKeepMine, actionKeepTheir});
+    mCodeEditorContextMenu->addSeparator();
+    mCodeEditorContextMenu->addActions({actionKeepMineBeforeTheir, actionKeepTheirBeforeMine});
+    mCodeEditorContextMenu->addSeparator();
+    mCodeEditorContextMenu->addActions({actionKeepMyFile, actionKeepTheirFile});
 }
 
 void MergeWindow::doMergeAction(Diff::MergeType type)
 {
-    auto s = _mapper->currentSegment();
+    auto s = mMapper->currentSegment();
 
     if (!s)
         return;
@@ -349,12 +349,12 @@ void MergeWindow::doMergeAction(Diff::MergeType type)
     updateResult();
     //    m_ui.plainTextEditResult->highlightSegment(s);
 
-    _mapper->setCurrentSegment(s);
+    mMapper->setCurrentSegment(s);
 }
 
 bool MergeWindow::isFullyResolved()
 {
-    for (auto &d : _diffs)
+    for (auto &d : mDiffs)
         if (d->mergeType == Diff::None && d->type == Diff::SegmentType::DifferentOnBoth)
             return false;
     return true;
@@ -384,19 +384,19 @@ void MergeWindow::closeEvent(QCloseEvent *event)
 
 const QString &MergeWindow::filePathResult() const
 {
-    return _filePathResult;
+    return mFilePathResult;
 }
 
 void MergeWindow::setFilePathResult(const QString &newFilePathResult)
 {
-    _filePathResult = newFilePathResult;
+    mFilePathResult = newFilePathResult;
 }
 
 void MergeWindow::fileSave()
 {
-    QFile f(_filePathResult);
+    QFile f(mFilePathResult);
     if (!f.open(QIODevice::Text | QIODevice::WriteOnly)) {
-        KMessageBox::information(this, i18n("Unable to open the file") + _filePathResult);
+        KMessageBox::information(this, i18n("Unable to open the file") + mFilePathResult);
         return;
     }
     f.write(m_ui.plainTextEditResult->toPlainText().toUtf8());
@@ -452,28 +452,28 @@ void MergeWindow::actionKeepTheirFile_clicked()
 
 void MergeWindow::actionGotoPrevDiff_clicked()
 {
-    _mapper->findPrevious(Diff::SegmentType::DifferentOnBoth);
+    mMapper->findPrevious(Diff::SegmentType::DifferentOnBoth);
     on_plainTextEditResult_blockSelected();
 }
 
 void MergeWindow::actionGotoNextDiff_clicked()
 {
-    _mapper->findNext(Diff::SegmentType::DifferentOnBoth);
+    mMapper->findNext(Diff::SegmentType::DifferentOnBoth);
     on_plainTextEditResult_blockSelected();
 }
 
 void MergeWindow::actionViewFiles_clicked()
 {
-    _actionBlocksView->setChecked(false);
-    _actionFilesView->setChecked(true);
+    mActionBlocksView->setChecked(false);
+    mActionFilesView->setChecked(true);
     m_ui.widgetBlockView->hide();
     m_ui.widgetCodeView->show();
 }
 
 void MergeWindow::actionViewBlocks_clicked()
 {
-    _actionBlocksView->setChecked(true);
-    _actionFilesView->setChecked(false);
+    mActionBlocksView->setChecked(true);
+    mActionFilesView->setChecked(false);
     m_ui.widgetBlockView->show();
     m_ui.widgetCodeView->hide();
 }
@@ -481,37 +481,37 @@ void MergeWindow::actionViewBlocks_clicked()
 void MergeWindow::codeEditors_customContextMenuRequested(QPoint pos)
 {
     Q_UNUSED(pos)
-    _codeEditorContextMenu->popup(QCursor::pos());
+    mCodeEditorContextMenu->popup(QCursor::pos());
 }
 
 const QString &MergeWindow::filePathBase() const
 {
-    return _filePathBase;
+    return mFilePathBase;
 }
 
 void MergeWindow::setFilePathBase(const QString &newFilePathBase)
 {
-    _filePathBase = newFilePathBase;
+    mFilePathBase = newFilePathBase;
 }
 
 const QString &MergeWindow::filePathRemote() const
 {
-    return _filePathRemote;
+    return mFilePathRemote;
 }
 
 void MergeWindow::setFilePathRemote(const QString &newFilePathRemote)
 {
-    _filePathRemote = newFilePathRemote;
+    mFilePathRemote = newFilePathRemote;
 }
 
 const QString &MergeWindow::filePathLocal() const
 {
-    return _filePathLocal;
+    return mFilePathLocal;
 }
 
 void MergeWindow::setFilePathLocal(const QString &newFilePathLocal)
 {
-    _filePathLocal = newFilePathLocal;
+    mFilePathLocal = newFilePathLocal;
 }
 
 void MergeWindow::on_plainTextEditResult_textChanged()

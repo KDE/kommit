@@ -67,7 +67,7 @@ DiffWindow::DiffWindow(const Git::File &oldFile, const Git::File &newFile)
 DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QString &newBranch)
     : AppMainWindow()
     , mOldBranch(oldBranch)
-    , _newBranch(newBranch)
+    , mNewBranch(newBranch)
 {
     init(true);
 
@@ -88,7 +88,7 @@ DiffWindow::DiffWindow(const QString &oldDir, const QString &newDir)
 {
     init(true);
 
-    _leftDir = oldDir;
+    mLeftDir = oldDir;
     mRightDir = newDir;
     compareDirs();
 
@@ -168,7 +168,7 @@ void DiffWindow::fileOpen()
 
     mLeftStorage = mRightStorage = FileSystem;
     if (d.mode() == DiffOpenDialog::Dirs) {
-        _leftDir = d.oldDir();
+        mLeftDir = d.oldDir();
         mRightDir = d.newDir();
         compareDirs();
     } else {
@@ -187,7 +187,7 @@ void DiffWindow::on_treeView_fileSelected(const QString &file)
 {
     switch (mLeftStorage) {
     case FileSystem:
-        mDiffWidget->setOldFile(Git::File{_leftDir + QLatin1Char('/') + file});
+        mDiffWidget->setOldFile(Git::File{mLeftDir + QLatin1Char('/') + file});
         break;
     case Git:
         mDiffWidget->setOldFile({mOldBranch, file});
@@ -200,7 +200,7 @@ void DiffWindow::on_treeView_fileSelected(const QString &file)
         mDiffWidget->setNewFile(Git::File{mRightDir + QLatin1Char('/') + file});
         break;
     case Git:
-        mDiffWidget->setNewFile({_newBranch, file});
+        mDiffWidget->setNewFile({mNewBranch, file});
         break;
     case NoStorage:
         return;
@@ -225,7 +225,7 @@ QString diffTypeText(const Diff::DiffType type)
 
 void DiffWindow::compareDirs()
 {
-    auto map = Diff::diffDirs(_leftDir, mRightDir);
+    auto map = Diff::diffDirs(mLeftDir, mRightDir);
     for (auto i = map.begin(); i != map.end(); ++i) {
         mDiffModel->addFile(i.key(), i.value());
     }

@@ -50,9 +50,9 @@ class CommandArgsParser : public QObject
     Q_OBJECT
 
     QMap<QString, CommandList> mCommands;
-    QMap<QString, QString> _params;
-    Git::Manager *git;
-    QMap<QString, QString> _helpTexts;
+    QMap<QString, QString> mParams;
+    Git::Manager *git = nullptr;
+    QMap<QString, QString> mHelpTexts;
 
     HelpText(clone, "Clone an repo")
 

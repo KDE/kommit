@@ -14,19 +14,6 @@ class CodeEditor;
 class SegmentConnector : public QWidget
 {
     Q_OBJECT
-    CodeEditor *_left{nullptr};
-    CodeEditor *_right{nullptr};
-    QList<Diff::Segment *> mSegments;
-    Diff::Segment *_currentSegment{nullptr};
-    bool m_sameSize{false};
-    struct SegmentPos {
-        int leftStart;
-        int leftEnd;
-        int rightStart;
-        int rightEnd;
-    };
-
-    QMap<Diff::Segment *, SegmentPos> mSegmentPos;
 
 public:
     explicit SegmentConnector(QWidget *parent = nullptr);
@@ -51,4 +38,19 @@ Q_SIGNALS:
     // QWidget interface
 protected:
     void paintEvent(QPaintEvent *event) override;
+
+private:
+    CodeEditor *mLeft{nullptr};
+    CodeEditor *mRight{nullptr};
+    QList<Diff::Segment *> mSegments;
+    Diff::Segment *mCurrentSegment{nullptr};
+    bool m_sameSize{false};
+    struct SegmentPos {
+        int leftStart;
+        int leftEnd;
+        int rightStart;
+        int rightEnd;
+    };
+
+    QMap<Diff::Segment *, SegmentPos> mSegmentPos;
 };
