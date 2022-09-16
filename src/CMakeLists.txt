@@ -132,8 +132,6 @@ set(DIALOGS_SRC
     dialogs/mergedialog.h
     dialogs/mergeopenfilesdialog.cpp
     dialogs/mergeopenfilesdialog.h
-    dialogs/modificationsdialog.cpp
-    dialogs/modificationsdialog.h
     dialogs/notedialog.cpp
     dialogs/notedialog.h
     dialogs/pulldialog.cpp
@@ -228,7 +226,6 @@ ki18n_wrap_ui(
     dialogs/diffdialog.ui
     dialogs/clonedialog.ui
     dialogs/submoduleinfodialog.ui
-    dialogs/modificationsdialog.ui
     dialogs/taginfodialog.ui
     dialogs/diffopendialog.ui
     dialogs/selectbranchestodiffdialog.ui
