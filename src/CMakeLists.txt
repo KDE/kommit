@@ -63,8 +63,6 @@ set(WIDGETS_SRC
     widgets/historyviewwidget.h
     widgets/logdetailswidget.cpp
     widgets/logdetailswidget.h
-    widgets/remotedetailswidget.cpp
-    widgets/remotedetailswidget.h
     widgets/remoteinfodialog.cpp
     widgets/remoteinfodialog.h
     widgets/remoteswidget.cpp
@@ -202,7 +200,6 @@ ki18n_wrap_ui(
     commandpullwidget.ui
 
     widgets/branchesstatuswidget.ui
-    widgets/remotedetailswidget.ui
     widgets/remoteinfodialog.ui
     widgets/remoteswidget.ui
     widgets/stasheswidget.ui
