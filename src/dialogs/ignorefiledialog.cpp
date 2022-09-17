@@ -30,7 +30,7 @@ IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, Q
     mName = fi.baseName();
     mExt = fi.completeSuffix();
 
-    if (mPath == "/")
+    if (mPath == QLatin1Char('/'))
         radioButtonDirIgnoreFile->setEnabled(false);
 
     generateIgnorePattern();

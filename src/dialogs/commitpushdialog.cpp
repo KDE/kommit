@@ -87,7 +87,7 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     for (const auto &r : remotes)
         _words.insert(r);
     for (auto i = files.begin(); i != files.end(); ++i) {
-        const auto parts = i.key().split("/");
+        const auto parts = i.key().split(QLatin1Char('/'));
         for (const auto &p : parts)
             _words.insert(p);
         _words.insert(i.key());

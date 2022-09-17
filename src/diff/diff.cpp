@@ -770,11 +770,11 @@ QMap<QString, DiffType> diffDirs(const QString &dir1, const QString &dir2)
     auto d2 = dir2;
     QMap<QString, DiffType> map;
 
-    if (!d1.endsWith("/"))
-        d1.append("/");
+    if (!d1.endsWith(QLatin1Char('/')))
+        d1.append(QLatin1Char('/'));
 
-    if (!d2.endsWith("/"))
-        d2.append("/");
+    if (!d2.endsWith(QLatin1Char('/')))
+        d2.append(QLatin1Char('/'));
 
     QStringList files1, files2;
     browseDir(files1, "", d1);

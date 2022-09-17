@@ -68,7 +68,7 @@ void FilesTreeDialog::on_listWidget_customContextMenuRequested(const QPoint &pos
 {
     auto path = mTreeModel->fullPath(treeView->currentIndex());
 
-    if (path == "/")
+    if (path == QLatin1Char('/'))
         path = listWidget->currentItem()->text();
     else
         path += QLatin1Char('/') + listWidget->currentItem()->text();

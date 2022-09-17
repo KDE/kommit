@@ -83,10 +83,10 @@ FileViewerDialog::~FileViewerDialog()
 void FileViewerDialog::showFile(const Git::File &file)
 {
     QMimeDatabase mimeDatabase;
-    auto fn = file.fileName().mid(file.fileName().lastIndexOf("/") + 1);
+    auto fn = file.fileName().mid(file.fileName().lastIndexOf(QLatin1Char('/')) + 1);
     auto mime = mimeDatabase.mimeTypeForFile(fn, QMimeDatabase::MatchExtension);
     mFilePath = file.fileName();
-    mFilePath = mFilePath.mid(mFilePath.lastIndexOf("/") + 1);
+    mFilePath = mFilePath.mid(mFilePath.lastIndexOf(QLatin1Char('/')) + 1);
     mFilePath.prepend(QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/'));
 
     lineEditBranchName->setText(file.place());
