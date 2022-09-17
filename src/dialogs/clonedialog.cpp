@@ -43,7 +43,7 @@ Git::CloneCommand *CloneDialog::command()
 
 void CloneDialog::setLocalPath(const QString &path)
 {
-    if (path.endsWith("/"))
+    if (path.endsWith(QLatin1Char('/')))
         mFixedPath = path.mid(0, path.length() - 1);
     else
         mFixedPath = path;
