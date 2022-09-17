@@ -11,8 +11,6 @@ set(CORE_SRC
     core/pushbutton.h
     core/treeview.cpp
     core/treeview.h
-    core/treewidget.cpp
-    core/treewidget.h
 )
 
 set(ACTIONS_SRC
