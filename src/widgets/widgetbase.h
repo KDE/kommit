@@ -24,7 +24,7 @@ class WidgetBase : public QWidget
 
 protected:
     Git::Manager *mGit{nullptr};
-    AppWindow *_parent{nullptr};
+    AppWindow *mParent{nullptr};
 
 public:
     explicit WidgetBase(QWidget *parent = nullptr);

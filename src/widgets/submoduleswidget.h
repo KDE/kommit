@@ -19,8 +19,6 @@ class SubmodulesModel;
 class SubmodulesWidget : public WidgetBase, private Ui::SubmodulesWidget
 {
     Q_OBJECT
-    SubmoduleActions *mActions;
-    Git::SubmodulesModel *_model;
 
 public:
     explicit SubmodulesWidget(QWidget *parent = nullptr);
@@ -33,4 +31,7 @@ public:
 private Q_SLOTS:
     void on_treeView_customContextMenuRequested(const QPoint &pos);
     void on_treeView_activated(const QModelIndex &index);
+private:
+    SubmoduleActions *mActions = nullptr;
+    Git::SubmodulesModel *mModel = nullptr;
 };

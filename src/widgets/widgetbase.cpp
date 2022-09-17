@@ -26,7 +26,7 @@ WidgetBase::WidgetBase(QWidget *parent)
 WidgetBase::WidgetBase(Git::Manager *git, AppWindow *parent)
     : QWidget(parent)
     , mGit(git)
-    , _parent{parent}
+    , mParent{parent}
 {
     if (!mGit)
         mGit = Git::Manager::instance();
