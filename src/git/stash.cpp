@@ -50,17 +50,17 @@ Stash::Stash(Manager *git, QString name)
 
 void Stash::apply()
 {
-    mGit->runGit({"stash", "apply", mName});
+    mGit->runGit({QStringLiteral("stash"), QStringLiteral("apply"), mName});
 }
 
 void Stash::drop()
 {
-    mGit->runGit({"stash", "drop", mName});
+    mGit->runGit({QStringLiteral("stash"), QStringLiteral("drop"), mName});
 }
 
 void Stash::pop()
 {
-    mGit->runGit({"stash", "pop", mName});
+    mGit->runGit({QStringLiteral("stash"), QStringLiteral("pop"), mName});
 }
 
 } // namespace Git

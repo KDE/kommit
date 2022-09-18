@@ -80,10 +80,10 @@ void TagsModel::fill()
 {
     qDeleteAll(mData);
     mData.clear();
-    auto list = mGit->readAllNonEmptyOutput({"--no-pager", "tag", "--list", "--format=%(subject)>%(tag)>%(taggername)"});
+    const auto list = mGit->readAllNonEmptyOutput({QStringLiteral("--no-pager"), QStringLiteral("tag"), QStringLiteral("--list"), QStringLiteral("--format=%(subject)>%(tag)>%(taggername)")});
     qDebug() << list;
-    for (auto &i : list) {
-        auto parts = i.split(">");
+    for (const auto &i : list) {
+        auto parts = i.split(QLatin1Char('>'));
         if (parts.size() != 3)
             continue;
         auto tag = new Tag;

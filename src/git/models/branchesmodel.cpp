@@ -76,7 +76,7 @@ void BranchesModel::fill()
     mData.clear();
 
     QStringList branchesList;
-    auto out = mGit->readAllNonEmptyOutput({"branch", "--list"});
+    auto out = mGit->readAllNonEmptyOutput({QStringLiteral("branch"), QStringLiteral("--list")});
 
     for (auto &line : out) {
         auto b = line.trimmed();

@@ -85,7 +85,7 @@ void StashesModel::fill()
     qDeleteAll(mData);
     mData.clear();
 
-    const auto list = mGit->readAllNonEmptyOutput({"stash", "list", "--format=format:%s%m%an%m%ae%m%aD"});
+    const auto list = mGit->readAllNonEmptyOutput({QStringLiteral("stash"), QStringLiteral("list"), QStringLiteral("--format=format:%s%m%an%m%ae%m%aD")});
     int id{0};
     for (const auto &item : qAsConst(list)) {
         auto parts = item.split(QLatin1Char('>'));

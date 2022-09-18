@@ -297,7 +297,7 @@ H -- commit hash              c -- committer details        m -- mark           
         args.insert(2, _branch);
 
     auto ret = QString(Manager::instance()->runGit(args));
-    if (ret.startsWith("fatal:"))
+    if (ret.startsWith(QStringLiteral("fatal:")))
         return;
 
     auto parts = ret.split("SEP>");

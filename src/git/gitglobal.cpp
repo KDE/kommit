@@ -14,7 +14,7 @@ namespace Git
 void run(const QString &workingDir, const QStringList &args)
 {
     QProcess p;
-    p.setProgram("git");
+    p.setProgram(QStringLiteral("git"));
     p.setArguments(args);
     p.setWorkingDirectory(workingDir);
     p.start();
