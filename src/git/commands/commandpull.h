@@ -64,7 +64,7 @@ private:
     QString mBranch;
 #ifdef GIT_GUI
     QWidget *mWidget;
-    Ui::CommandPullWidget *_ui;
+    Ui::CommandPullWidget *mUi;
 #endif
 };
 

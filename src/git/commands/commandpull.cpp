@@ -80,10 +80,10 @@ void CommandPull::parseOutput(const QByteArray &output, const QByteArray &errorO
     Q_UNUSED(errorOutput)
 #ifdef GIT_GUI
     if (output.contains("Already up to date.")) {
-        _ui->labelStatus->setText(i18n("Already up to date."));
+        mUi->labelStatus->setText(i18n("Already up to date."));
     }
     if (errorOutput.startsWith("fatal:")) {
-        _ui->labelStatus->setText(errorOutput.mid(6));
+        mUi->labelStatus->setText(errorOutput.mid(6));
         KMessageBox::error(mWidget, errorOutput.mid(6), i18n("Error"));
     }
 #endif
@@ -98,8 +98,8 @@ QWidget *CommandPull::createWidget()
 {
 #ifdef GIT_GUI
     mWidget = new QWidget;
-    _ui = new Ui::CommandPullWidget;
-    _ui->setupUi(mWidget);
+    mUi = new Ui::CommandPullWidget;
+    mUi->setupUi(mWidget);
     return mWidget;
 #else
     return nullptr;
@@ -152,7 +152,7 @@ CommandPull::~CommandPull()
     if (mWidget)
         mWidget->deleteLater();
 
-    delete _ui;
+    delete mUi;
 #endif
 }
 
