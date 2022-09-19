@@ -88,11 +88,11 @@ void StashesModel::fill()
     const auto list = mGit->readAllNonEmptyOutput({QStringLiteral("stash"), QStringLiteral("list"), QStringLiteral("--format=format:%s%m%an%m%ae%m%aD")});
     int id{0};
     for (const auto &item : qAsConst(list)) {
-        auto parts = item.split(QLatin1Char('>'));
+        const auto parts = item.split(QLatin1Char('>'));
         if (parts.size() != 4)
             continue;
 
-        auto subject = parts.first();
+        const auto subject = parts.first();
         auto stash = new Stash(mGit, QStringLiteral("stash@{%1}").arg(id));
 
         stash->mSubject = subject;

@@ -89,7 +89,7 @@ QString File::displayName() const
     case Local:
         return mFilePath;
     case Git:
-        return mPlace + ":" + mFilePath;
+        return mPlace + QLatin1Char(':') + mFilePath;
     }
 
     return {};
