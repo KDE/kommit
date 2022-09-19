@@ -17,9 +17,7 @@ class NoteDialog : public AppDialog, private Ui::NoteDialog
 public:
     explicit NoteDialog(Git::Manager *git, const QString &branchName, QWidget *parent = nullptr);
 
-private Q_SLOTS:
-    void on_buttonBox_accepted();
-
 private:
+    void slotAccepted();
     QString mBranchName;
 };
