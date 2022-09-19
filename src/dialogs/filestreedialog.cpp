@@ -15,6 +15,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
     : AppDialog(parent)
+    , mTreeModel(new TreeModel(this))
     , mPlace(place)
 {
     setupUi(this);
@@ -22,7 +23,6 @@ FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
     mActions = new FileActions(Git::Manager::instance(), this);
     mActions->setPlace(place);
 
-    mTreeModel = new TreeModel(this);
     mTreeModel->setSeparator(QStringLiteral("/"));
 
     auto files = Git::Manager::instance()->ls(place);

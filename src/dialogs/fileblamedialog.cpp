@@ -20,7 +20,7 @@ FileBlameDialog::FileBlameDialog(Git::Manager *git, const QString &fileName, QWi
     setupUi(this);
 
     plainTextEdit->setHighlighting(fileName);
-    auto content = mGit->fileContent("", mFileName);
+    const auto content = mGit->fileContent("", mFileName);
     plainTextEdit->setPlainText(content);
 
     setWindowTitle(i18nc("@title:window", "Blame file: %1", fileName));

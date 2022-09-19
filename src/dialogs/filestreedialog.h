@@ -23,7 +23,7 @@ private Q_SLOTS:
     void on_listWidget_customContextMenuRequested(const QPoint &pos);
 
 private:
-    TreeModel *mTreeModel = nullptr;
+    TreeModel *const mTreeModel;
     QString mPlace;
     FileActions *mActions = nullptr;
 };

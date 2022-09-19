@@ -710,9 +710,9 @@ QList<Segment *> diff(const QString &oldText, const QString &newText)
 {
     QStringList oldList, newList;
     if (!oldText.isEmpty())
-        oldList = oldText.split("\n");
+        oldList = oldText.split(QLatin1Char('\n'));
     if (!newText.isEmpty())
-        newList = newText.split("\n");
+        newList = newText.split(QLatin1Char('\n'));
 
     return diff(oldList, newList);
 }
@@ -780,7 +780,7 @@ QMap<QString, DiffType> diffDirs(const QString &dir1, const QString &dir2)
     browseDir(files1, "", d1);
     browseDir(files2, "", d2);
 
-    for (auto &file : files1) {
+    for (const auto &file : qAsConst(files1)) {
         if (!files2.contains(file)) {
             map.insert(file, DiffType::Removed);
         } else {
@@ -789,7 +789,7 @@ QMap<QString, DiffType> diffDirs(const QString &dir1, const QString &dir2)
         }
     }
 
-    for (auto &file : files2)
+    for (const auto &file : qAsConst(files2))
         map.insert(file, DiffType::Added);
 
     return map;
@@ -799,11 +799,11 @@ QList<MergeSegment *> diff3(const QString &base, const QString &local, const QSt
 {
     QStringList baseList, localList, remoteList;
     if (!base.isEmpty())
-        baseList = base.split("\n");
+        baseList = base.split(QLatin1Char('\n'));
     if (!local.isEmpty())
-        localList = local.split("\n");
+        localList = local.split(QLatin1Char('\n'));
     if (!remote.isEmpty())
-        remoteList = remote.split("\n");
+        remoteList = remote.split(QLatin1Char('\n'));
 
     return diff3(baseList, localList, remoteList);
 }
