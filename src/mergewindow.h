@@ -56,7 +56,7 @@ private Q_SLOTS:
     void on_plainTextEditResult_blockSelected();
 
 private:
-    Ui::Form m_ui;
+    Ui::MainMergeWidget m_ui;
     void updateResult();
     void initActions();
     void init();
