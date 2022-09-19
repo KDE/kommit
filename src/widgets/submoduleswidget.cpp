@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "submoduleswidget.h"
 #include "actions/submoduleactions.h"
-#include "dialogs/submoduleinfodialog.h"
 #include "git/gitmanager.h"
 #include "git/models/submodulesmodel.h"
 

@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "historyviewwidget.h"
 #include "actions/commitactions.h"
-#include "dialogs/filestreedialog.h"
 #include "diffwindow.h"
 #include "git/gitlog.h"
 #include "git/models/logsmodel.h"
