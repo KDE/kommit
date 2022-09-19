@@ -2,6 +2,7 @@
 Name=Git Klient Merge
 Name[ca]=Git Klient Merge
 Name[ca@valencia]=Git Klient Merge
+Name[en_GB]=Git Klient Merge
 Name[es]=Fusión de Git Klient
 Name[fr]=Fusion pour client « Git »
 Name[nl]=Git Klient Merge
@@ -17,6 +18,7 @@ X-DocPath=gitklient/index.html
 GenericName=Git client gui for KDE
 GenericName[ca]=Client gràfic del Git per al KDE
 GenericName[ca@valencia]=Client gràfic de Git per a KDE
+GenericName[en_GB]=Git client GUI for KDE
 GenericName[es]=Interfaz gráfica de cliente git para KDE
 GenericName[fr]=Client « Git » avec interface utilisateur pour KDE
 GenericName[nl]=Git-client-gui voor KDE

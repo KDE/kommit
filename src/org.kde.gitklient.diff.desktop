@@ -2,6 +2,7 @@
 Name=Git Klient Diff
 Name[ca]=Git Klient Diff
 Name[ca@valencia]=Git Klient Diff
+Name[en_GB]=Git Klient Diff
 Name[es]=Diferencias de Git Klient
 Name[fr]=Comparateur pour client « Git »
 Name[nl]=Git Klient Diff
@@ -17,6 +18,7 @@ X-DocPath=gitklient/index.html
 GenericName=Git client gui for KDE
 GenericName[ca]=Client gràfic del Git per al KDE
 GenericName[ca@valencia]=Client gràfic de Git per a KDE
+GenericName[en_GB]=Git client GUI for KDE
 GenericName[es]=Interfaz gráfica de cliente git para KDE
 GenericName[fr]=Client « Git » avec interface utilisateur pour KDE
 GenericName[nl]=Git-client-gui voor KDE
