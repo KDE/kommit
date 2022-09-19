@@ -125,7 +125,8 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
 
     painter->setPen(option.palette.color(QPalette::Text));
     if (!log->refLog().isEmpty()) {
-        auto ref = "ref: " + log->refLog();
+        const QString refStr{QStringLiteral("ref: ")};
+        const auto ref = refStr + log->refLog();
         QRect rcBox(log->lanes().size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(ref) + 8, painter->fontMetrics().height() + 4);
         rcBox.moveTop((HEIGHT - rcBox.height()) / 2);
 
@@ -134,11 +135,11 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
         linearGrad.setColorAt(0, Qt::white);
         linearGrad.setColorAt(1, QColor(100, 100, 255));
 
-        painter->fillRect(rcBox.left(), rcBox.top(), painter->fontMetrics().horizontalAdvance("ref: ") + 2, rcBox.height(), QBrush(linearGrad));
+        painter->fillRect(rcBox.left(), rcBox.top(), painter->fontMetrics().horizontalAdvance(refStr) + 2, rcBox.height(), QBrush(linearGrad));
 
-        painter->fillRect(rcBox.left() + painter->fontMetrics().horizontalAdvance("ref: ") + 2,
+        painter->fillRect(rcBox.left() + painter->fontMetrics().horizontalAdvance(refStr) + 2,
                           rcBox.top(),
-                          rcBox.width() - painter->fontMetrics().horizontalAdvance("ref: ") - 2,
+                          rcBox.width() - painter->fontMetrics().horizontalAdvance(refStr) - 2,
                           rcBox.height(),
                           Qt::white);
 

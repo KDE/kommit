@@ -81,7 +81,7 @@ bool CommandArgsParser::check(const CommandList &commands)
     mParams.clear();
     if (qApp->arguments().size() != commands.size() + 1)
         return false;
-    auto appArgs = qApp->arguments();
+    const auto appArgs = qApp->arguments();
 
     int idx{1};
     for (const auto &cmd : commands) {
