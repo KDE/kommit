@@ -29,7 +29,7 @@ bool isEmpty(const QStringList &list)
     if (list.isEmpty())
         return true;
 
-    for (auto &s : list)
+    for (const auto &s : list)
         if (!s.trimmed().isEmpty())
             return false;
     return true;
@@ -55,7 +55,7 @@ QStringList readFile(const QString &filePath)
     //    while (!f.atEnd()) {
     //        buffer << f.readLine();
     //    }
-    auto buf = QString(f.readAll()).split('\n');
+    const auto buf = QString(f.readAll()).split('\n');
     f.close();
     return buf;
 }

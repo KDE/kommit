@@ -71,7 +71,7 @@ DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QStrin
 {
     init(true);
 
-    auto diffs = git->diffBranches(oldBranch, newBranch);
+    const auto diffs = git->diffBranches(oldBranch, newBranch);
 
     for (auto &f : diffs) {
         mDiffModel->addFile(f);

@@ -29,7 +29,7 @@ void CodeEditorSidebar::paintEvent(QPaintEvent *event)
 void CodeEditorSidebar::mouseReleaseEvent(QMouseEvent *event)
 {
     if (event->x() >= width() - m_codeEditor->fontMetrics().lineSpacing()) {
-        auto block = m_codeEditor->blockAtPosition(event->y());
+        const auto block = m_codeEditor->blockAtPosition(event->y());
         if (!block.isValid() || !m_codeEditor->isFoldable(block))
             return;
         m_codeEditor->toggleFold(block);
