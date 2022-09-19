@@ -20,9 +20,6 @@ class MultiPageWidget : public QWidget, private Ui::MultiPageWidget
 {
     Q_OBJECT
 
-    QActionGroup *const m_actionGroup;
-    Git::Manager *mDefaultGitManager{};
-
 public:
     explicit MultiPageWidget(QWidget *parent = nullptr);
     void addPage(const QString &title, const QIcon &icon, WidgetBase *widget);
@@ -38,6 +35,8 @@ public:
     void setDefaultGitManager(Git::Manager *newDefaultGitManager);
 
     int count() const;
-private Q_SLOTS:
-    void on_actionGroup_triggered(QAction *action);
+private:
+    void slotPageSelected(QAction *action);
+    QActionGroup *const m_actionGroup;
+    Git::Manager *mDefaultGitManager = nullptr;
 };

@@ -33,6 +33,7 @@ MultiPageWidget::MultiPageWidget(QWidget *parent)
 
     setupUi(this);
 
+    connect(m_actionGroup, &QActionGroup::triggered, this, &MultiPageWidget::slotPageSelected);
     auto styleSheet = QString(R"CSS(
         #scrollAreaWidgetContents {
             background-color: #%1;
@@ -118,7 +119,7 @@ QList<QAction *> MultiPageWidget::actions() const
     return m_actionGroup->actions();
 }
 
-void MultiPageWidget::on_actionGroup_triggered(QAction *action)
+void MultiPageWidget::slotPageSelected(QAction *action)
 {
     stackedWidget->setCurrentIndex(action->data().toInt());
     labelTitle->setText(action->text().remove(QLatin1Char('&')));
