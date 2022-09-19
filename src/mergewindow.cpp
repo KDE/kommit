@@ -64,6 +64,9 @@ MergeWindow::MergeWindow(Mode mode, QWidget *parent)
     : AppMainWindow(parent)
 {
     Q_UNUSED(mode)
+    auto w = new QWidget(this);
+    m_ui.setupUi(w);
+    setCentralWidget(w);
 
     initActions();
     init();
@@ -81,9 +84,6 @@ void MergeWindow::init()
     auto mapper = new EditActionsMapper;
     mapper->init(actionCollection());
 
-    auto w = new QWidget(this);
-    m_ui.setupUi(w);
-    setCentralWidget(w);
 
     mapper->addTextEdit(m_ui.plainTextEditMine);
     mapper->addTextEdit(m_ui.plainTextEditTheir);
