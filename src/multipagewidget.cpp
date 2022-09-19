@@ -22,14 +22,14 @@ void MultiPageWidget::setDefaultGitManager(Git::Manager *newDefaultGitManager)
 
 int MultiPageWidget::count() const
 {
-    return actionGroup->actions().size();
+    return m_actionGroup->actions().size();
 }
 
 MultiPageWidget::MultiPageWidget(QWidget *parent)
     : QWidget(parent)
-    , actionGroup(new QActionGroup(this))
+    , m_actionGroup(new QActionGroup(this))
 {
-    Q_SET_OBJECT_NAME(actionGroup);
+    Q_SET_OBJECT_NAME(m_actionGroup);
 
     setupUi(this);
 
@@ -73,17 +73,17 @@ void MultiPageWidget::addPage(const QString &title, const QIcon &icon, WidgetBas
     action->setText(title);
     action->setIcon(icon);
     action->setCheckable(true);
-    action->setData(actionGroup->actions().size());
-    if (actionGroup->actions().size() < 10)
-        action->setShortcut(QKeySequence(Qt::CTRL + keys[actionGroup->actions().size()]));
+    action->setData(m_actionGroup->actions().size());
+    if (m_actionGroup->actions().size() < 10)
+        action->setShortcut(QKeySequence(Qt::CTRL + keys[m_actionGroup->actions().size()]));
     btn->setDefaultAction(action);
-    actionGroup->addAction(action);
+    m_actionGroup->addAction(action);
 
     stackedWidget->addWidget(widget);
 
     widget->layout()->setContentsMargins(0, 0, 0, 0);
 
-    verticalLayoutButtons->insertWidget(actionGroup->actions().size() - 1, btn);
+    verticalLayoutButtons->insertWidget(m_actionGroup->actions().size() - 1, btn);
 }
 
 void MultiPageWidget::addPage(WidgetBase *widget, QAction *action)
@@ -97,25 +97,25 @@ void MultiPageWidget::addPage(WidgetBase *widget, QAction *action)
     action->setText(widget->windowTitle());
     action->setIcon(widget->windowIcon());
     action->setCheckable(true);
-    action->setData(actionGroup->actions().size());
+    action->setData(m_actionGroup->actions().size());
     btn->setDefaultAction(action);
-    actionGroup->addAction(action);
+    m_actionGroup->addAction(action);
 
     stackedWidget->addWidget(widget);
 
     widget->layout()->setContentsMargins(0, 0, 0, 0);
 
-    verticalLayoutButtons->insertWidget(actionGroup->actions().size() - 1, btn);
+    verticalLayoutButtons->insertWidget(m_actionGroup->actions().size() - 1, btn);
 }
 
 void MultiPageWidget::setCurrentIndex(int index)
 {
-    actionGroup->actions().at(index)->trigger();
+    m_actionGroup->actions().at(index)->trigger();
 }
 
 QList<QAction *> MultiPageWidget::actions() const
 {
-    return actionGroup->actions();
+    return m_actionGroup->actions();
 }
 
 void MultiPageWidget::on_actionGroup_triggered(QAction *action)

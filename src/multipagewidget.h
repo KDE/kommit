@@ -20,7 +20,7 @@ class MultiPageWidget : public QWidget, private Ui::MultiPageWidget
 {
     Q_OBJECT
 
-    QActionGroup *const actionGroup;
+    QActionGroup *const m_actionGroup;
     Git::Manager *mDefaultGitManager{};
 
 public:
