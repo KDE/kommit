@@ -11,7 +11,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "git/models/tagsmodel.h"
 
 #include "actions/tagsactions.h"
-#include "dialogs/taginfodialog.h"
 
 TagsWidget::TagsWidget(QWidget *parent)
     : WidgetBase(parent)
