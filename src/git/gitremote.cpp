@@ -73,11 +73,11 @@ void Remote::parse(const QString &output)
 
                 branch.configuredPush = true;
                 branch.name = match.captured(1);
-                if (match.captured(3) == "fast-forwardable")
+                if (match.captured(3) == QStringLiteral("fast-forwardable"))
                     branch.status = RemoteBranch::Status::FastForwardable;
-                else if (match.captured(3) == "up to date")
+                else if (match.captured(3) == QStringLiteral("up to date"))
                     branch.status = RemoteBranch::Status::UpToDate;
-                else if (match.captured(3) == "local out of date")
+                else if (match.captured(3) == QStringLiteral("local out of date"))
                     branch.status = RemoteBranch::Status::LocalOutOfDate;
                 else
                     qDebug() << "Unknown status" << match.captured(3);
@@ -90,18 +90,18 @@ void Remote::parse(const QString &output)
                     branches.replace(index, branch);
             }
         }
-        if (line.startsWith("* remote")) {
-            name = line.replace("* remote ", "").trimmed();
-        } else if (line.startsWith("HEAD branch: ")) {
-            headBranch = line.replace("HEAD branch: ", "").trimmed();
-        } else if (line.startsWith("Push  URL:")) {
-            pushUrl = line.replace("Push  URL:", "").trimmed();
-        } else if (line.startsWith("Fetch URL:")) {
-            fetchUrl = line.replace("Fetch URL:", "").trimmed();
-        } else if (line == "Local branches configured for 'git pull':") {
+        if (line.startsWith(QStringLiteral("* remote"))) {
+            name = line.remove(QStringLiteral("* remote ")).trimmed();
+        } else if (line.startsWith(QStringLiteral("HEAD branch: "))) {
+            headBranch = line.remove(QStringLiteral("HEAD branch: ")).trimmed();
+        } else if (line.startsWith(QStringLiteral("Push  URL:"))) {
+            pushUrl = line.remove(QStringLiteral("Push  URL:")).trimmed();
+        } else if (line.startsWith(QStringLiteral("Fetch URL:"))) {
+            fetchUrl = line.remove(QStringLiteral("Fetch URL:")).trimmed();
+        } else if (line == QStringLiteral("Local branches configured for 'git pull':")) {
             mode = GitPull;
             continue;
-        } else if (line == "Local refs configured for 'git push':") {
+        } else if (line == QStringLiteral("Local refs configured for 'git push':")) {
             mode = GitPush;
             continue;
         }
