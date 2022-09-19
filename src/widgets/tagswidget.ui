@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>372</width>
+    <width>699</width>
     <height>325</height>
    </rect>
   </property>
@@ -22,6 +22,9 @@
     <widget class="TreeView" name="treeViewTags">
      <property name="contextMenuPolicy">
       <enum>Qt::CustomContextMenu</enum>
+     </property>
+     <property name="rootIsDecorated">
+      <bool>false</bool>
      </property>
     </widget>
    </item>
