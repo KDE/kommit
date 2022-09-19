@@ -18,8 +18,8 @@ class TagsActions;
 class TagsWidget : public WidgetBase, private Ui::TagsWidget
 {
     Q_OBJECT
-    TagsActions *mActions;
-    Git::TagsModel *mModel;
+    TagsActions *mActions = nullptr;
+    Git::TagsModel *mModel = nullptr;
 
 public:
     explicit TagsWidget(QWidget *parent = nullptr);
