@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "../core/appdialog.h"
+#include "core/appdialog.h"
 #include "ui_diffopendialog.h"
 
 class DiffOpenDialog : public AppDialog, private Ui::DiffOpenDialog

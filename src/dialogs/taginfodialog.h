@@ -21,5 +21,5 @@ public:
     void setMessage(const QString &newMessage);
 
 private Q_SLOTS:
-    void on_lineEditTagName_textChanged(QString s);
+    void on_lineEditTagName_textChanged(const QString &s);
 };

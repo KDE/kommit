@@ -21,7 +21,4 @@ public:
     explicit SwitchBranchDialog(Git::Manager *git, QWidget *parent = nullptr);
 
     Git::CommandSwitchBranch *command() const;
-
-private Q_SLOTS:
-    //    void on_buttonBox_accepted();
 };
