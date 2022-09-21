@@ -17,6 +17,7 @@
         "Name[tr]": "Git Klient",
         "Name[uk]": "Git Klient",
         "Name[x-test]": "xxGit Klientxx",
+        "Name[zh_CN]": "Git Klient",
         "ServiceTypes": [
             "KFileItemAction/Plugin"
         ]
