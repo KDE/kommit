@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "git/commands/commandpull.h"
 #include "git/gitmanager.h"
+#include <QDialogButtonBox>
 
 PullDialog::PullDialog(QWidget *parent, Git::Manager *git)
     : AppDialog(parent)
@@ -22,9 +23,10 @@ PullDialog::PullDialog(QWidget *parent, Git::Manager *git)
     comboBoxBranch->addItems(g->branches());
 
     comboBoxBranch->setCurrentText(g->currentBranch());
+    connect(buttonBox->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &PullDialog::slotAccepted);
 }
 
-void PullDialog::on_buttonBox_accepted()
+void PullDialog::slotAccepted()
 {
     Git::CommandPull cmd;
 

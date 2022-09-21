@@ -35,7 +35,7 @@ IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, Q
 
     generateIgnorePattern();
 
-    auto isIgnored = git->isIgnored(mName + QLatin1Char('.') + mExt);
+    const auto isIgnored = git->isIgnored(mName + QLatin1Char('.') + mExt);
 
     if (isIgnored) {
         groupBoxFileName->setEnabled(false);

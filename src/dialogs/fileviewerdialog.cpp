@@ -83,8 +83,8 @@ FileViewerDialog::~FileViewerDialog()
 void FileViewerDialog::showFile(const Git::File &file)
 {
     QMimeDatabase mimeDatabase;
-    auto fn = file.fileName().mid(file.fileName().lastIndexOf(QLatin1Char('/')) + 1);
-    auto mime = mimeDatabase.mimeTypeForFile(fn, QMimeDatabase::MatchExtension);
+    const auto fn = file.fileName().mid(file.fileName().lastIndexOf(QLatin1Char('/')) + 1);
+    const auto mime = mimeDatabase.mimeTypeForFile(fn, QMimeDatabase::MatchExtension);
     mFilePath = file.fileName();
     mFilePath = mFilePath.mid(mFilePath.lastIndexOf(QLatin1Char('/')) + 1);
     mFilePath.prepend(QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/'));
@@ -130,7 +130,7 @@ void FileViewerDialog::showInEditor(const Git::File &file)
 void FileViewerDialog::showAsImage(const Git::File &file)
 {
     stackedWidget->setCurrentIndex(1);
-    auto p = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/klient_img");
+    const auto p = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/klient_img");
     file.save(p);
     QImage img{p};
     labelImage->setPixmap(QPixmap::fromImage(img));
@@ -182,7 +182,7 @@ KService::Ptr FileViewerDialog::getInternalViewer(const QString &mimeType)
 KService::Ptr FileViewerDialog::getExternalViewer(const QString &mimeType)
 {
     qDebug() << mimeType;
-    KService::List offers = KMimeTypeTrader::self()->query(mimeType);
+    const KService::List offers = KMimeTypeTrader::self()->query(mimeType);
 
     if (!offers.isEmpty()) {
         return offers.first();

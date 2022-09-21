@@ -25,7 +25,7 @@ FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
 
     mTreeModel->setSeparator(QStringLiteral("/"));
 
-    auto files = Git::Manager::instance()->ls(place);
+    const auto files = Git::Manager::instance()->ls(place);
 
     mTreeModel->setLastPartAsData(true);
     QFileIconProvider p;

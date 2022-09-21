@@ -36,7 +36,7 @@ FileBlameDialog::FileBlameDialog(const Git::File &file, QWidget *parent)
     plainTextEdit->setHighlighting(file.fileName());
     //    plainTextEdit->setPlainText(file.content());
 
-    auto b = file.git()->blame(file);
+    const auto b = file.git()->blame(file);
     plainTextEdit->setBlameData(b);
 
     //    b.initCommits(file.git()->logs());
@@ -47,6 +47,6 @@ FileBlameDialog::FileBlameDialog(const Git::File &file, QWidget *parent)
 
 void FileBlameDialog::on_plainTextEdit_blockSelected()
 {
-    auto b = plainTextEdit->blameData(plainTextEdit->textCursor().block().blockNumber());
+    const auto b = plainTextEdit->blameData(plainTextEdit->textCursor().block().blockNumber());
     logDetailsWidget->setLog(mGit->logsModel()->findLogByHash(b.commitHash));
 }

@@ -26,11 +26,11 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
 {
     setupUi(this);
 
-    auto hashes = git->fileLog(fileName);
+    const auto hashes = git->fileLog(fileName);
 
-    auto logs = git->logsModel();
+    const auto logs = git->logsModel();
 
-    for (auto &hash : hashes) {
+    for (const auto &hash : hashes) {
         auto log = logs->findLogByHash(hash);
         if (!log)
             continue;

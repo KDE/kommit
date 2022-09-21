@@ -47,7 +47,7 @@ void RunnerDialog::run(Git::AbstractCommand *command)
         tabWidget->setCurrentIndex(0);
     }
 
-    auto args = command->generateArgs();
+    const auto args = command->generateArgs();
     lineEditCommand->setText("git " + args.join(QLatin1Char(' ')));
 
     if (command->supportProgress()) {
