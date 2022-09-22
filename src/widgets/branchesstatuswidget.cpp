@@ -7,8 +7,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "branchesstatuswidget.h"
 
 #include "actions/branchactions.h"
-#include "dialogs/filestreedialog.h"
-#include "dialogs/runnerdialog.h"
 #include "git/gitmanager.h"
 #include "git/models/branchesmodel.h"
 

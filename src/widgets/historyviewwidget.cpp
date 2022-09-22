@@ -8,8 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "actions/commitactions.h"
 #include "diffwindow.h"
 #include "git/gitlog.h"
+#include "git/gitmanager.h"
 #include "git/models/logsmodel.h"
-#include "models/historymodel.h"
 #include "widgets/graphpainter.h"
 
 HistoryViewWidget::HistoryViewWidget(QWidget *parent)

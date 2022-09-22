@@ -7,7 +7,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 // application headers
 #include "appwindow.h"
-#include "appdebug.h"
 #include "dialogs/changedfilesdialog.h"
 #include "dialogs/clonedialog.h"
 #include "dialogs/commitpushdialog.h"
