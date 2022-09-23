@@ -124,7 +124,7 @@ Git::Log *HistoryModel::log(const QModelIndex &index) const
 QModelIndex HistoryModel::findIndexByHash(const QString &hash) const
 {
     int idx{0};
-    for (auto &log : mLogs)
+    for (const auto &log : mLogs)
         if (log->commitHash() == hash)
             return index(idx);
         else
@@ -135,7 +135,7 @@ QModelIndex HistoryModel::findIndexByHash(const QString &hash) const
 Git::Log *HistoryModel::findLogByHash(const QString &hash) const
 {
     int idx{0};
-    for (auto &log : qAsConst(mLogs))
+    for (const auto &log : qAsConst(mLogs))
         if (log->commitHash() == hash)
             return log;
         else
