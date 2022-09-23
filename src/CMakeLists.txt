@@ -176,6 +176,7 @@ set(APP_SRCS
     commandargsparser.h
     appconfig.h
     settings/settingsmanager.h
+    gitklient.qrc
 )
 
 ecm_qt_declare_logging_category(APP_SRCS
@@ -299,7 +300,3 @@ install(PROGRAMS org.kde.gitklient.desktop        DESTINATION ${KDE_INSTALL_APPD
 install(PROGRAMS org.kde.gitklient.diff.desktop   DESTINATION ${KDE_INSTALL_APPDIR})
 install(PROGRAMS org.kde.gitklient.merge.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.gitklient.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-install(FILES gitklientui.rc      DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/gitklient)
-install(FILES gitklientdiffui.rc  DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/gitklient)
-install(FILES gitklientmergeui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/gitklient)
-install(FILES gitklientfileviewerui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/gitklient)
