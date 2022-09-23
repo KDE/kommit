@@ -15,7 +15,6 @@ namespace Git
 {
 class AbstractCommand;
 }
-class QProcess;
 class RunnerDialog : public AppDialog, private Ui::RunnerDialog
 {
     Q_OBJECT
