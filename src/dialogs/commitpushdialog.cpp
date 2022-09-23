@@ -16,10 +16,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QPainter>
 
-#include <KTextEditor/CodeCompletionModel>
-#include <KTextEditor/Document>
 #include <KTextEditor/Editor>
-#include <KTextEditor/View>
 
 // TODO: improve this method
 QIcon createIcon(const QColor &color)

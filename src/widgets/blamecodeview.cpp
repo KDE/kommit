@@ -10,8 +10,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "git/gitlog.h"
 
 #include <KLocalizedString>
-#include <KSyntaxHighlighting/Definition>
-#include <KSyntaxHighlighting/FoldingRegion>
 #include <KSyntaxHighlighting/SyntaxHighlighter>
 #include <KSyntaxHighlighting/Theme>
 

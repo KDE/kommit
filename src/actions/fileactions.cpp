@@ -15,7 +15,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "git/gitmanager.h"
 #include "mergewindow.h"
 
-#include <KIO/AccessManager>
 #include <KLocalizedString>
 #include <KMimeTypeTrader>
 #include <KRun>

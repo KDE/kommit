@@ -10,7 +10,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KActionCollection>
 #include <KLocalizedString>
 #include <KMimeTypeTrader>
-#include <KParts/OpenUrlArguments>
 #include <KStandardAction>
 #include <KXMLGUIFactory>
 
