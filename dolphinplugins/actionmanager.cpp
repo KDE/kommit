@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actionmanager.h"
 
-#include "../src/git/gitmanager.h"
 #include <KFileItem>
 #include <KFileItemListProperties>
 #include <KLocalizedString>
@@ -15,8 +14,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KProcess>
 #include <QAction>
 #include <QMenu>
-
-using namespace Git;
 
 ActionManager::ActionManager(QObject *parent, const QList<QVariant> &)
     : KAbstractFileItemActionPlugin(parent)
