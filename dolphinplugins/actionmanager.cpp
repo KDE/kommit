@@ -26,7 +26,7 @@ void ActionManager::addMenu(QMenu *menu, const QString &title, const QStringList
     if (!icon.isEmpty())
         action->setIcon(QIcon::fromTheme(icon));
     connect(action, &QAction::triggered, [args]() {
-        KProcess::startDetached("gitklient", args);
+        KProcess::startDetached(QStringLiteral("gitklient"), args);
     });
 }
 
@@ -103,21 +103,21 @@ void ActionManager::addMenuToNonGitFile(QMenu *menu, const QString &path)
 void ActionManager::addMenuToGitFile(QMenu *menu, const QString &path, bool isFile, const FileStatus::Status &status)
 {
     addMenu(menu, i18n("Open"), {path});
-    addMenu(menu, i18n("Pull"), {"pull", path}, QStringLiteral("git-pull"));
-    addMenu(menu, i18n("Push"), {"push", path}, QStringLiteral("git-push"));
-    addMenu(menu, i18n("Modifications"), {"changes", path}, QStringLiteral("gitklient-changedfiles"));
-    addMenu(menu, i18n("Diff"), {"diff", path});
-    addMenu(menu, i18n("Ignore file"), {"ignore", path}, QStringLiteral("git-ignore"));
+    addMenu(menu, i18n("Pull"), {QStringLiteral("pull"), path}, QStringLiteral("git-pull"));
+    addMenu(menu, i18n("Push"), {QStringLiteral("push"), path}, QStringLiteral("git-push"));
+    addMenu(menu, i18n("Modifications"), {QStringLiteral("changes"), path}, QStringLiteral("gitklient-changedfiles"));
+    addMenu(menu, i18n("Diff"), {QStringLiteral("diff"), path});
+    addMenu(menu, i18n("Ignore file"), {QStringLiteral("ignore"), path}, QStringLiteral("git-ignore"));
     if (isFile) {
-        addMenu(menu, i18n("History"), {"history", path});
-        addMenu(menu, i18n("Blame"), {"blame", path});
+        addMenu(menu, i18n("History"), {QStringLiteral("history"), path});
+        addMenu(menu, i18n("Blame"), {QStringLiteral("blame"), path});
         if (status == FileStatus::Untracked) {
-            addMenu(menu, i18n("Add"), {"add", path});
+            addMenu(menu, i18n("Add"), {QStringLiteral("add"), path});
         } else {
-            addMenu(menu, i18n("Remove"), {"remove", path});
+            addMenu(menu, i18n("Remove"), {QStringLiteral("remove"), path});
         }
     }
-    addMenu(menu, i18n("Create tag"), {"create-tag", path});
+    addMenu(menu, i18n("Create tag"), {QStringLiteral("create-tag"), path});
 }
 
 K_PLUGIN_FACTORY_WITH_JSON(GitKlientPluginActionFactory, "gitklientitemaction.json", registerPlugin<ActionManager>();)

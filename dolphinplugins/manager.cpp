@@ -29,7 +29,7 @@ void MiniManager::setPath(const QString &newPath)
 
     QProcess p;
     p.setProgram("git");
-    p.setArguments({"rev-parse", "--show-toplevel"});
+    p.setArguments({QStringLiteral("rev-parse"), QStringLiteral("--show-toplevel")});
     p.setWorkingDirectory(newPath);
     p.start();
     p.waitForFinished();
@@ -52,15 +52,17 @@ bool MiniManager::isValid() const
 QList<FileStatus> MiniManager::repoFilesStatus() const
 {
     const auto buffer =
-        Git::readAllNonEmptyOutput(mPath, {"status", "--untracked-files=all", "--ignored", "--short", "--ignore-submodules", "--porcelain"}, false);
+        Git::readAllNonEmptyOutput(mPath, {QStringLiteral("status"), QStringLiteral("--untracked-files=all"), QStringLiteral("--ignored")
+                                           , QStringLiteral("--short"), QStringLiteral("--ignore-submodules"),
+                                           QStringLiteral("--porcelain")}, false);
 
     QList<FileStatus> files;
     // TODO: read untrackeds
     for (const auto &item : buffer) {
-        if (!item.trimmed().size())
+        if (item.trimmed().isEmpty())
             continue;
 
-        if (item.startsWith("??")) { }
+        if (item.startsWith(QStringLiteral("??"))) { }
 
         FileStatus fs;
         fs.parseStatusLine(item);
