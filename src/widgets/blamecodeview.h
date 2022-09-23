@@ -1,5 +1,8 @@
-// Copyright (C) 2020 Hamed Masafi <hamed.masafi@gmail.com>
-// SPDX-License-Identifier: GPL-3.0-or-later
+/*
+SPDX-FileCopyrightText: 2020-2022 Hamed Masafi <hamed.masfi@gmail.com>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+*/
 
 #pragma once
 
