@@ -33,6 +33,9 @@ public:
     bool sameSize() const;
     void setSameSize(bool newSameSize);
 
+    int topMargin() const;
+    void setTopMargin(int newTopMargin);
+
 Q_SIGNALS:
 
     // QWidget interface
@@ -45,6 +48,7 @@ private:
     QList<Diff::Segment *> mSegments;
     Diff::Segment *mCurrentSegment{nullptr};
     bool m_sameSize{false};
+    int m_topMargin = 0;
     struct SegmentPos {
         int leftStart;
         int leftEnd;

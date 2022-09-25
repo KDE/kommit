@@ -11,6 +11,53 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QScrollBar>
 #include <QTextBlock>
 
+
+DiffWidget::DiffWidget(QWidget *parent)
+    : WidgetBase(parent)
+      , mOldFile()
+      , mNewFile()
+{
+    setupUi(this);
+    segmentConnector->setMinimumWidth(80);
+    segmentConnector->setMaximumWidth(80);
+    segmentConnector->setLeft(leftCodeEditor);
+    segmentConnector->setRight(rightCodeEditor);
+
+    connect(leftCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::oldCodeEditor_blockSelected);
+    connect(rightCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::newCodeEditor_blockSelected);
+    connect(leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::oldCodeEditor_scroll);
+    connect(rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::newCodeEditor_scroll);
+
+    recalculateInfoPaneSize();
+
+    mDefaultOption = leftCodeEditor->document()->defaultTextOption();
+
+    showFilesInfo(true);
+}
+
+DiffWidget::DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidget *parent)
+    : WidgetBase(parent)
+      , mOldFile(oldFile)
+      , mNewFile(newFile)
+{
+    setupUi(this);
+    segmentConnector->setMinimumWidth(80);
+    segmentConnector->setMaximumWidth(80);
+    segmentConnector->setLeft(leftCodeEditor);
+    segmentConnector->setRight(rightCodeEditor);
+
+    connect(leftCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::oldCodeEditor_blockSelected);
+    connect(rightCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::newCodeEditor_blockSelected);
+    connect(leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::oldCodeEditor_scroll);
+    connect(rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::newCodeEditor_scroll);
+
+    recalculateInfoPaneSize();
+
+    mDefaultOption = leftCodeEditor->document()->defaultTextOption();
+
+    showFilesInfo(true);
+}
+
 const Git::File &DiffWidget::oldFile() const
 {
     return mOldFile;
@@ -18,7 +65,7 @@ const Git::File &DiffWidget::oldFile() const
 
 void DiffWidget::setOldFileText(const Git::File &newOldFile)
 {
-    lineEditOldFileName->setText(newOldFile.displayName());
+    leftCodeEditor->setTitle(newOldFile.displayName());
 }
 
 void DiffWidget::setOldFile(const Git::File &newOldFile)
@@ -34,7 +81,7 @@ const Git::File &DiffWidget::newFile() const
 
 void DiffWidget::setNewFileText(const Git::File &newNewFile)
 {
-    lineEditNewFileName->setText(newNewFile.displayName());
+    rightCodeEditor->setTitle(newNewFile.displayName());
 }
 
 void DiffWidget::setNewFile(const Git::File &newNewFile)
@@ -74,7 +121,7 @@ void DiffWidget::compare()
             break;
         }
 
-        if (m_sameSize) {
+        if (mSameSize) {
             int size = qMax(s->oldText.size(), s->newText.size());
             leftCodeEditor->append(s->oldText, oldBlockType, s, size);
             rightCodeEditor->append(s->newText, newBlockType, s, size);
@@ -104,12 +151,14 @@ void DiffWidget::showHiddenChars(bool show)
 
 void DiffWidget::showFilesInfo(bool show)
 {
-    filesInfoWidget->setVisible(show);
+    leftCodeEditor->setShowTitleBar(show);
+    rightCodeEditor->setShowTitleBar(show);
+    segmentConnector->setTopMargin(show ? leftCodeEditor->titlebarHeight() : 0);
 }
 
 void DiffWidget::showSameSize(bool show)
 {
-    m_sameSize = show;
+    mSameSize = show;
     segmentConnector->setSameSize(show);
     compare();
 }
@@ -127,54 +176,6 @@ CodeEditor *DiffWidget::oldCodeEditor() const
 CodeEditor *DiffWidget::newCodeEditor() const
 {
     return rightCodeEditor;
-}
-
-DiffWidget::DiffWidget(QWidget *parent)
-    : WidgetBase(parent)
-    , mOldFile()
-    , mNewFile()
-{
-    setupUi(this);
-    segmentConnector->setMinimumWidth(80);
-    segmentConnector->setMaximumWidth(80);
-    segmentConnector->setLeft(leftCodeEditor);
-    segmentConnector->setRight(rightCodeEditor);
-
-    connect(leftCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::oldCodeEditor_blockSelected);
-
-    connect(rightCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::newCodeEditor_blockSelected);
-
-    connect(leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::oldCodeEditor_scroll);
-
-    connect(rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::newCodeEditor_scroll);
-
-    recalculateInfoPaneSize();
-
-    mDefaultOption = leftCodeEditor->document()->defaultTextOption();
-}
-
-DiffWidget::DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidget *parent)
-    : WidgetBase(parent)
-    , mOldFile(oldFile)
-    , mNewFile(newFile)
-{
-    setupUi(this);
-    segmentConnector->setMinimumWidth(80);
-    segmentConnector->setMaximumWidth(80);
-    segmentConnector->setLeft(leftCodeEditor);
-    segmentConnector->setRight(rightCodeEditor);
-
-    connect(leftCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::oldCodeEditor_blockSelected);
-
-    connect(rightCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::newCodeEditor_blockSelected);
-
-    connect(leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::oldCodeEditor_scroll);
-
-    connect(rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::newCodeEditor_scroll);
-
-    recalculateInfoPaneSize();
-
-    mDefaultOption = leftCodeEditor->document()->defaultTextOption();
 }
 
 void DiffWidget::oldCodeEditor_scroll(int value)
@@ -222,11 +223,11 @@ void DiffWidget::newCodeEditor_blockSelected()
 
 void DiffWidget::recalculateInfoPaneSize()
 {
-    leftInfoContainer->setMinimumWidth(leftCodeEditor->width());
-    rightInfoContainer->setMinimumWidth(rightCodeEditor->width());
+//    leftInfoContainer->setMinimumWidth(leftCodeEditor->width());
+//    rightInfoContainer->setMinimumWidth(rightCodeEditor->width());
 
-    leftInfoContainer->setVisible(leftCodeEditor->width());
-    rightInfoContainer->setVisible(rightCodeEditor->width());
+//    leftInfoContainer->setVisible(leftCodeEditor->width());
+//    rightInfoContainer->setVisible(rightCodeEditor->width());
 
     //    label->setMinimumWidth(leftCodeEditor->width());
     //    label_2->setMinimumWidth(rightCodeEditor->width());
@@ -246,14 +247,14 @@ void DiffWidget::showEvent(QShowEvent *event)
 
 bool DiffWidget::sameSize() const
 {
-    return m_sameSize;
+    return mSameSize;
 }
 
 void DiffWidget::setSameSize(bool newSameSize)
 {
-    if (m_sameSize == newSameSize)
+    if (mSameSize == newSameSize)
         return;
-    m_sameSize = newSameSize;
+    mSameSize = newSameSize;
     Q_EMIT sameSizeChanged();
 }
 

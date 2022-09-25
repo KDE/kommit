@@ -16,6 +16,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QApplication>
 #include <QDebug>
 #include <QFontDatabase>
+#include <QLabel>
 #include <QPainter>
 #include <QPalette>
 
@@ -49,6 +50,7 @@ CodeEditor::CodeEditor(QWidget *parent)
     : QPlainTextEdit(parent)
     , m_highlighter(new KSyntaxHighlighting::SyntaxHighlighter(document()))
     , m_sideBar(new CodeEditorSidebar(this))
+    , mTitleBar(new QLabel(this))
 {
     setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
     setWordWrapMode(QTextOption::NoWrap);
@@ -56,11 +58,10 @@ CodeEditor::CodeEditor(QWidget *parent)
     setTheme((palette().color(QPalette::Base).lightness() < 128) ? m_repository.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
                                                                  : m_repository.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
 
-    connect(this, &QPlainTextEdit::blockCountChanged, this, &CodeEditor::updateSidebarGeometry);
+    connect(this, &QPlainTextEdit::blockCountChanged, this, &CodeEditor::updateViewPortGeometry);
     connect(this, &QPlainTextEdit::updateRequest, this, &CodeEditor::updateSidebarArea);
     connect(this, &QPlainTextEdit::cursorPositionChanged, this, &CodeEditor::highlightCurrentLine);
 
-    updateSidebarGeometry();
     highlightCurrentLine();
 
     QTextBlockFormat normalFormat, addedFormat, removedFormat, changedFormat, highlightFormat, emptyFormat;
@@ -81,6 +82,10 @@ CodeEditor::CodeEditor(QWidget *parent)
     mFormats.insert(Empty, emptyFormat);
 
     setLineWrapMode(QPlainTextEdit::NoWrap);
+
+    mTitleBar->setAlignment(Qt::AlignCenter);
+    mTitlebarDefaultHeight = mTitleBar->fontMetrics().height() + 4;
+    updateViewPortGeometry();
 }
 
 CodeEditor::~CodeEditor() = default;
@@ -88,7 +93,7 @@ CodeEditor::~CodeEditor() = default;
 void CodeEditor::resizeEvent(QResizeEvent *event)
 {
     QPlainTextEdit::resizeEvent(event);
-    updateSidebarGeometry();
+    updateViewPortGeometry();
 }
 
 void CodeEditor::mousePressEvent(QMouseEvent *event)
@@ -108,6 +113,10 @@ void CodeEditor::setTheme(const KSyntaxHighlighting::Theme &theme)
     m_highlighter->setTheme(theme);
     m_highlighter->rehighlight();
     highlightCurrentLine();
+
+    mTitleBar->setPalette(pal);
+    mTitleBar->setStyleSheet(QStringLiteral("border: 1px solid %1; border-width: 0 0 1 0;")
+                                  .arg(QColor(theme.editorColor(KSyntaxHighlighting::Theme::IconBorder)).darker(200).name()));
 }
 
 int CodeEditor::sidebarWidth() const
@@ -119,6 +128,11 @@ int CodeEditor::sidebarWidth() const
         count /= 10;
     }
     return 4 + fontMetrics().horizontalAdvance(QLatin1Char('9')) * digits + fontMetrics().lineSpacing();
+}
+
+int CodeEditor::titlebarHeight() const
+{
+    return mShowTitlebar ? mTitlebarDefaultHeight : 0;
 }
 
 void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
@@ -184,11 +198,16 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
     }
 }
 
-void CodeEditor::updateSidebarGeometry()
+void CodeEditor::updateViewPortGeometry()
 {
-    setViewportMargins(this->sidebarWidth(), 0, 0, 0);
+    auto th = this->titlebarHeight();
+    setViewportMargins(this->sidebarWidth(), th, 0, 0);
     const auto r = contentsRect();
-    m_sideBar->setGeometry(QRect(r.left(), r.top(), sidebarWidth(), r.height()));
+    m_sideBar->setGeometry(QRect(r.left(), r.top() + th, sidebarWidth(), r.height()));
+
+    if (th)
+        mTitleBar->setGeometry(QRect(r.left(), r.top(), r.width(), th));
+    mTitleBar->setVisible(th);
 }
 
 void CodeEditor::updateSidebarArea(const QRect &rect, int dy)
@@ -278,6 +297,29 @@ void CodeEditor::toggleFold(const QTextBlock &startBlock)
     Q_EMIT document()->documentLayout()->documentSizeChanged(document()->documentLayout()->documentSize());
 }
 
+bool CodeEditor::showTitleBar() const
+{
+    return mShowTitlebar;
+}
+
+void CodeEditor::setShowTitleBar(bool newShowTitleBar)
+{
+    mShowTitlebar = newShowTitleBar;
+    mTitleBar->setVisible(newShowTitleBar);
+    updateViewPortGeometry();
+}
+
+QString CodeEditor::title() const
+{
+    return mTitleBar->text();
+}
+
+void CodeEditor::setTitle(const QString &title)
+{
+    mTitleBar->setText(title);
+    updateViewPortGeometry();
+}
+
 void CodeEditor::paintEvent(QPaintEvent *e)
 {
     QPlainTextEdit::paintEvent(e);
@@ -297,6 +339,7 @@ void CodeEditor::setHighlighting(const QString &fileName)
 {
     const auto def = m_repository.definitionForFileName(fileName);
     m_highlighter->setDefinition(def);
+    mTitleBar->setText(fileName);
 }
 
 void CodeEditor::append(const QString &code, const BlockType &type, Diff::Segment *segment, bool isEmpty)

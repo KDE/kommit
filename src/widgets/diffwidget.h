@@ -62,7 +62,7 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
-    bool m_sameSize{false};
+    bool mSameSize{false};
     Git::File mOldFile;
     Git::File mNewFile;
 

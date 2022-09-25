@@ -108,6 +108,9 @@ void SegmentConnector::paintEvent(QPaintEvent *event)
 
     QPainter painter(this);
 
+    if (m_topMargin)
+        painter.translate(QPoint(0, m_topMargin));
+
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.fillRect(rect(), Qt::white);
 
@@ -145,4 +148,15 @@ void SegmentConnector::paintEvent(QPaintEvent *event)
         painter.setPen(Qt::NoPen);
         painter.drawPath(poly);
     }
+}
+
+int SegmentConnector::topMargin() const
+{
+    return m_topMargin;
+}
+
+void SegmentConnector::setTopMargin(int newTopMargin)
+{
+    m_topMargin = newTopMargin;
+    update();
 }

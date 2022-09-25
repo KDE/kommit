@@ -12,6 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QTextBlockFormat>
 #include <diff/diff.h>
 
+class QLabel;
+
 namespace KSyntaxHighlighting
 {
 class SyntaxHighlighter;
@@ -45,6 +47,14 @@ public:
 
     void clearAll();
 
+    bool showTitleBar() const;
+    void setShowTitleBar(bool newShowTitleBar);
+
+    QString title() const;
+    void setTitle(const QString &title);
+
+    int titlebarHeight() const;
+
 Q_SIGNALS:
     void blockSelected();
 
@@ -65,7 +75,7 @@ private:
     QMap<BlockType, QTextBlockFormat> mFormats;
     void setTheme(const KSyntaxHighlighting::Theme &theme);
 
-    void updateSidebarGeometry();
+    void updateViewPortGeometry();
     void updateSidebarArea(const QRect &rect, int dy);
     void highlightCurrentLine();
 
@@ -78,4 +88,8 @@ private:
     QMap<QTextBlock, BlockType> mLines;
     QMap<int, Diff::Segment *> mSegments;
     QPair<int, int> mCurrentSegment{-1, -1};
+
+    QLabel *mTitleBar;
+    bool mShowTitlebar = true;
+    int mTitlebarDefaultHeight;
 };
