@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "overlayplugin.h"
 
-#include "../src/git/gitmanager.h"
 #include <QDebug>
 #include <QFileInfo>
 #include <QUrl>

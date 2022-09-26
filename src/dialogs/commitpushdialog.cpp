@@ -7,10 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "commitpushdialog.h"
 #include "GitKlientSettings.h"
 #include "actions/changedfileactions.h"
-#include "dialogs/diffdialog.h"
 #include "git/commands/commandcommit.h"
 #include "git/commands/commandpush.h"
-#include "git/gitfile.h"
 #include "git/gitmanager.h"
 #include "runnerdialog.h"
 
