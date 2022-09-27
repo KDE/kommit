@@ -82,7 +82,7 @@ void BranchesModel::fill()
         auto b = line.trimmed();
         if (b.isEmpty())
             continue;
-        if (b.startsWith("* ")) {
+        if (b.startsWith(QStringLiteral("* "))) {
             b = b.mid(2);
             mReferenceBranch = mCurrentBranch = b.trimmed();
         }

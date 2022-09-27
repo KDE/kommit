@@ -86,7 +86,7 @@ void SubmodulesModel::fill()
     for (const auto &line : modulesList) {
         auto m = new Submodule;
         m->setCommitHash(line.mid(0, 40));
-        auto n = line.lastIndexOf(" ");
+        auto n = line.lastIndexOf(QLatin1Char(' '));
         if (line.count(QLatin1Char(' ')) == 1)
             n = line.size();
         m->setPath(line.mid(41, n - 41));

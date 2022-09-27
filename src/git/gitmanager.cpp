@@ -29,8 +29,8 @@ void Manager::setPath(const QString &newPath)
         return;
 
     QProcess p;
-    p.setProgram("git");
-    p.setArguments({"rev-parse", "--show-toplevel"});
+    p.setProgram(QStringLiteral("git"));
+    p.setArguments({QStringLiteral("rev-parse"), QStringLiteral("--show-toplevel")});
     p.setWorkingDirectory(newPath);
     p.start();
     p.waitForFinished();
@@ -82,9 +82,9 @@ QStringList Manager::ignoredFiles() const
 
 QList<FileStatus> Manager::repoFilesStatus() const
 {
-    auto buffer = QString(runGit({"status", "--untracked-files=all", "--ignored", "--short", "--ignore-submodules", "--porcelain"})).split("\n");
+    const auto buffer = QString(runGit({"status", "--untracked-files=all", "--ignored", "--short", "--ignore-submodules", "--porcelain"})).split("\n");
     QList<FileStatus> files;
-    for (auto &item : buffer) {
+    for (const auto &item : buffer) {
         if (!item.trimmed().size())
             continue;
         FileStatus fs;

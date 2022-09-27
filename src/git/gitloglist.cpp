@@ -296,11 +296,11 @@ H -- commit hash              c -- committer details        m -- mark           
     if (_branch.size())
         args.insert(2, _branch);
 
-    auto ret = QString(Manager::instance()->runGit(args));
+    const auto ret = QString(Manager::instance()->runGit(args));
     if (ret.startsWith(QStringLiteral("fatal:")))
         return;
 
-    auto parts = ret.split("SEP>");
+    const auto parts = ret.split(QStringLiteral("SEP>"));
 
     for (auto &p : parts) {
         auto lines = p.split("\n");

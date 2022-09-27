@@ -274,7 +274,7 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
     if (mBranch.isEmpty()) {
         switch (index.column()) {
         case 0:
-            return "";
+            return QString();
         case 1:
             return log->subject();
         }
@@ -367,7 +367,7 @@ void LogsModel::fill()
         Impl::readLine(lines.at(2), "X", {&d->mAuthorName, &d->mAuthorEmail, &authDate});
 
         if (!parentHash.isEmpty())
-            d->mParentHash = parentHash.split(" ");
+            d->mParentHash = parentHash.split(QLatin1Char(' '));
         d->mRefLog = lines.at(3);
         d->mSubject = lines.at(5);
         d->mCommitDate = QDateTime::fromString(commitDate, Qt::ISODate);
