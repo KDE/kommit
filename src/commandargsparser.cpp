@@ -221,7 +221,7 @@ ArgParserReturn CommandArgsParser::pull(const QString &path)
     PullDialog d;
     if (d.exec() == QDialog::Accepted) {
         RunnerDialog r;
-        auto branch = git->currentBranch();
+        const auto branch = git->currentBranch();
         r.run({QStringLiteral("pull"), QStringLiteral("origin"), branch});
         r.exec();
     }
