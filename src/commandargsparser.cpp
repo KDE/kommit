@@ -68,7 +68,7 @@ void CommandArgsParser::add(const QString &name, const QString &list)
             p = p.mid(1, p.length() - 2);
         }
 
-        if (p.startsWith("<") && p.endsWith(">"))
+        if (p.startsWith(QLatin1Char('<')) && p.endsWith(QLatin1Char('>')))
             cmdList.append({Command::Named, p.mid(1, p.length() - 2), isOptional});
         else
             cmdList.append({Command::Fixed, p, isOptional});

@@ -28,12 +28,12 @@ CommitsWidget::CommitsWidget(Git::Manager *git, AppWindow *parent)
 void CommitsWidget::reload()
 {
     mRepoModel->clear();
-    auto branches = git()->branches();
+    const auto branches = git()->branches();
     mRepoModel->addData(branches);
 
-    if (branches.contains("master"))
+    if (branches.contains(QStringLiteral("master")))
         mMainBranch = QStringLiteral("master");
-    else if (branches.contains("main"))
+    else if (branches.contains(QStringLiteral("main")))
         mMainBranch = QStringLiteral("main");
 
     widgetCommitsView->setBranch(QString());
