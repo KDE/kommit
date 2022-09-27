@@ -27,12 +27,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // application header
 #include "commandargsparser.h"
 #include "dialogs/changedfilesdialog.h"
-#include "dialogs/fileblamedialog.h"
-#include "dialogs/pulldialog.h"
-#include "dialogs/runnerdialog.h"
-#include "diffwindow.h"
-#include "git/gitfile.h"
-#include "git/gitmanager.h"
 
 // KF headers
 #include <KAboutData>
