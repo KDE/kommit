@@ -23,8 +23,6 @@ CloneDialog::CloneDialog(QWidget *parent)
 
 CloneDialog::~CloneDialog()
 {
-    QSettings s;
-    s.setValue("lastClonedRepo", lineEditUrl->text());
 }
 
 Git::CloneCommand *CloneDialog::command()
@@ -48,6 +46,7 @@ void CloneDialog::setLocalPath(const QString &path)
     else
         mFixedPath = path;
     lineEditPath->setText(path);
+    on_lineEditUrl_textChanged(path);
 }
 
 void CloneDialog::on_lineEditUrl_textChanged(const QString &text)
@@ -71,5 +70,8 @@ void CloneDialog::on_toolButtonBrowseLocalPath_clicked()
 
 void CloneDialog::on_buttonBox_accepted()
 {
+    QSettings s;
+    s.setValue("lastClonedRepo", lineEditUrl->text());
+
     accept();
 }
