@@ -28,7 +28,7 @@ const Git::BlameData &BlameCodeView::blameData() const
 
 void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
 {
-    QVector<QColor> colors{QColor(200, 150, 150, 100), QColor(150, 200, 150, 100)};
+    const QVector<QColor> colors{QColor(200, 150, 150, 100), QColor(150, 200, 150, 100)};
     int currentColor{0};
     mBlameData = newBlameData;
     QString lastCommit;
