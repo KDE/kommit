@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tagsmodel.h"
-#include "../gitmanager.h"
-#include "../gittag.h"
+#include "git/gitmanager.h"
+#include "git/gittag.h"
 
 #include <QDebug>
 

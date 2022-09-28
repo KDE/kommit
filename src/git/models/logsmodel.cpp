@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "logsmodel.h"
-#include "../gitlog.h"
-#include "../gitmanager.h"
+#include "git/gitlog.h"
+#include "git/gitmanager.h"
 #include <KLocalizedString>
 
 namespace Git

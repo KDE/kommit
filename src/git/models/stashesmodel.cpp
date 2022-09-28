@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "stashesmodel.h"
 
-#include "../gitmanager.h"
+#include "git/gitmanager.h"
 
 //#include <klocalizedstring.h>
 

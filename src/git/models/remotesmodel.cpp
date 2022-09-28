@@ -9,8 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 //
 
 #include "remotesmodel.h"
-#include "../gitmanager.h"
-#include "../gitremote.h"
+#include "git/gitmanager.h"
+#include "git/gitremote.h"
 
 namespace Git
 {

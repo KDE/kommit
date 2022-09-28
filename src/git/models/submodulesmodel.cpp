@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "submodulesmodel.h"
-#include "../gitmanager.h"
-#include "../gitsubmodule.h"
+#include "git/gitmanager.h"
+#include "git/gitsubmodule.h"
 #include <KLocalizedString>
 
 namespace Git
