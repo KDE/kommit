@@ -303,7 +303,7 @@ H -- commit hash              c -- committer details        m -- mark           
     const auto parts = ret.split(QStringLiteral("SEP>"));
 
     for (auto &p : parts) {
-        auto lines = p.split("\n");
+        auto lines = p.split(QLatin1Char('\n'));
         if (lines.size() < 4)
             continue;
 

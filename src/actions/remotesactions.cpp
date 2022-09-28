@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "remotesactions.h"
 
 #include <QInputDialog>
+#include <QDebug>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
 
@@ -69,8 +70,7 @@ void RemotesActions::changeUrl()
 
     if (!remote)
         return;
-    auto newUrl = QInputDialog::getText(mParent, i18n("Change url"), i18n("URL"), QLineEdit::Normal, remote->pushUrl);
-
+    const auto newUrl = QInputDialog::getText(mParent, i18n("Change url"), i18n("URL"), QLineEdit::Normal, remote->pushUrl);
     if (!newUrl.isEmpty()) {
         mGit->remotesModel()->setUrl(mRemoteName, newUrl);
         KMessageBox::information(mParent, i18n("Url for remote changed successfully"));
