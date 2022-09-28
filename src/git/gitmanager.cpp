@@ -518,7 +518,7 @@ QList<Stash> Manager::stashes()
     QList<Stash> ret;
     auto list = readAllNonEmptyOutput({"stash", "list", "--format=format:%s%m%an%m%ae%m%aD"});
     int id{0};
-    for (const auto &item : qAsConst(list)) {
+    for (const auto &item : std::as_const(list)) {
         auto parts = item.split(">");
         if (parts.size() != 4)
             continue;

@@ -22,7 +22,7 @@ struct LanesFactory {
     {
         int index{0};
         QList<int> ret;
-        for (auto const &h : qAsConst(mHashes)) {
+        for (auto const &h : std::as_const(mHashes)) {
             if (hash == h)
                 ret.append(index);
             index++;
@@ -33,7 +33,7 @@ struct LanesFactory {
     int indexOfChild(const QString &hash)
     {
         int index{0};
-        for (auto const &h : qAsConst(mHashes)) {
+        for (auto const &h : std::as_const(mHashes)) {
             if (hash == h)
                 return index;
             index++;
@@ -52,7 +52,7 @@ struct LanesFactory {
         int index{0};
         QVector<GraphLane> lanes;
         lanes.reserve(mHashes.size());
-        for (const auto &hash : qAsConst(mHashes)) {
+        for (const auto &hash : std::as_const(mHashes)) {
             if (hash == QString()) {
                 lanes.append(GraphLane::Transparent);
             } else {

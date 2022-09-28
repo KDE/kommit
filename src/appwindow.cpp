@@ -189,7 +189,7 @@ void AppWindow::initRecentFiles(const QString &newItem)
         s.setValue("last_repo", newItem);
         s.sync();
     }
-    for (const auto &item : recentList) {
+    for (const auto &item : std::as_const(recentList)) {
         auto action = mRecentAction->menu()->addAction(item);
         action->setData(item);
         connect(action, &QAction::triggered, this, &AppWindow::recentActionTriggered);
@@ -198,7 +198,7 @@ void AppWindow::initRecentFiles(const QString &newItem)
 
 void AppWindow::loadRemotes()
 {
-    auto remotes = mGit->remotes();
+    const auto remotes = mGit->remotes();
     for (const auto &r : remotes)
         volatile auto remote = mGit->remoteDetails(r);
 }

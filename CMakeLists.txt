@@ -27,7 +27,7 @@ include(ECMAddAppIcon)
 include(ECMSetupVersion)
 include(ECMAddTests)
 
-set (CMAKE_CXX_STANDARD 14)
+set (CMAKE_CXX_STANDARD 17)
 
 if(NOT DEFINED ${QT_MAJOR_VERSION})
   set(QT_MAJOR_VERSION 5)

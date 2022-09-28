@@ -87,7 +87,7 @@ void StashesModel::fill()
 
     const auto list = mGit->readAllNonEmptyOutput({QStringLiteral("stash"), QStringLiteral("list"), QStringLiteral("--format=format:%s%m%an%m%ae%m%aD")});
     int id{0};
-    for (const auto &item : qAsConst(list)) {
+    for (const auto &item : std::as_const(list)) {
         const auto parts = item.split(QLatin1Char('>'));
         if (parts.size() != 4)
             continue;
