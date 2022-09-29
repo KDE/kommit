@@ -13,6 +13,8 @@ MergeOpenFilesDialog::MergeOpenFilesDialog(QWidget *parent)
     : AppDialog(parent)
 {
     setupUi(this);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &MergeOpenFilesDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &MergeOpenFilesDialog::reject);
 }
 
 QString MergeOpenFilesDialog::filePathLocal() const
