@@ -18,12 +18,11 @@ public:
     explicit ChangedFilesDialog(Git::Manager *git, QWidget *parent = nullptr);
 
 private Q_SLOTS:
-    void on_pushButtonCommitPush_clicked();
-
     void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
     void on_listWidget_customContextMenuRequested(const QPoint &pos);
 
 private:
+    void slotPushCommit();
     void reload();
     ChangedFileActions *mActions = nullptr;
 };
