@@ -6,15 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>368</width>
-    <height>200</height>
+    <width>385</width>
+    <height>232</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Repo settings</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="gitklient"/>
+   <iconset theme="gitklient">
+    <normaloff>.</normaloff>.</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -38,6 +39,20 @@
      </item>
      <item row="1" column="1">
       <widget class="QLineEdit" name="lineEditUserEmail"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QCheckBox" name="checkBoxAutoCrlf">
+       <property name="text">
+        <string>Auto crlf</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QCheckBox" name="checkBoxAutoFileMode">
+       <property name="text">
+        <string>Auto file mode</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

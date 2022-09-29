@@ -240,6 +240,13 @@ QString Manager::config(const QString &name, ConfigType type) const
     return {};
 }
 
+bool Manager::configBool(const QString &name, ConfigType type) const
+{
+    auto buffer = config(name, type);
+    return buffer == QStringLiteral("true") || buffer == QStringLiteral("yes")
+           || buffer == QStringLiteral("on");
+}
+
 void Manager::setConfig(const QString &name, const QString &value, ConfigType type) const
 {
     QStringList cmd;

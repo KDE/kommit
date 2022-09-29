@@ -126,6 +126,7 @@ public:
     enum ConfigType { ConfigGlobal, ConfigLocal };
 
     QString config(const QString &name, ConfigType type = ConfigLocal) const;
+    bool configBool(const QString &name, ConfigType type = ConfigLocal) const;
     void setConfig(const QString &name, const QString &value, ConfigType type = ConfigLocal) const;
     void unsetConfig(const QString &name, ConfigType type = ConfigLocal) const;
 
