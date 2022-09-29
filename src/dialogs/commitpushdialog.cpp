@@ -32,8 +32,7 @@ QIcon createIcon(const QColor &color)
     return QIcon(QPixmap::fromImage(image));
 }
 CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
-    : AppDialog(parent)
-    , mGit(git)
+    : AppDialog(git, parent)
 {
     setupUi(this);
 
