@@ -16,9 +16,10 @@ RepoSettingsDialog::RepoSettingsDialog(Git::Manager *git, QWidget *parent)
 
     lineEditUserName->setText(git->config(QStringLiteral("user.name")));
     lineEditUserEmail->setText(git->config(QStringLiteral("user.email")));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &RepoSettingsDialog::slotAccepted);
 }
 
-void RepoSettingsDialog::on_buttonBox_accepted()
+void RepoSettingsDialog::slotAccepted()
 {
     mGit->setConfig(QStringLiteral("user.name"), lineEditUserName->text());
     mGit->setConfig(QStringLiteral("user.email"), lineEditUserEmail->text());
