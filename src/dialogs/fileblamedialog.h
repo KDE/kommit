@@ -27,7 +27,6 @@ private Q_SLOTS:
     void on_plainTextEdit_blockSelected();
 
 private:
-    Git::Manager *mGit = nullptr;
     QString mFileName;
     Git::File mFile;
 };
