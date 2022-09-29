@@ -226,7 +226,7 @@ void AppWindow::initRepo()
 void AppWindow::openRepo()
 {
     QFileDialog d;
-    d.setFileMode(QFileDialog::Directory);
+    d.setOption(QFileDialog::ShowDirsOnly, true);
     if (d.exec() == QDialog::Accepted) {
         mGit->setPath(d.directoryUrl().toLocalFile());
         //        m_kde_actionsView->reload();
