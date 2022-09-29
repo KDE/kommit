@@ -44,7 +44,6 @@ find_package(
         Test
 )
 
-#find_package(Qt5Test ${QT_MIN_VERSION} CONFIG QUIET)
 set_package_properties(
     Qt${QT_VERSION_MAJOR} PROPERTIES
     PURPOSE "Required for tests"
