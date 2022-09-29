@@ -101,6 +101,7 @@ void DiffWindow::init(bool showSideBar)
 {
     auto mapper = new EditActionsMapper;
     mDiffWidget = new DiffWidget(this);
+    mDiffWidget->showSameSize(true);
 
     mapper->init(actionCollection());
 
@@ -139,12 +140,13 @@ void DiffWindow::initActions()
     viewHiddenCharsAction->setCheckable(true);
     connect(viewHiddenCharsAction, &QAction::triggered, mDiffWidget, &DiffWidget::showHiddenChars);
 
-    //    auto viewSameSizeBlocksAction = actionCollection->addAction(QStringLiteral(
-    //                                                                    "view_same_size_blocks"),
-    //                                                                _diffWidget,
-    //                                                                &DiffWidget::showSameSize);
-    //    viewSameSizeBlocksAction->setText(i18n("Same size blocks"));
-    //    viewSameSizeBlocksAction->setCheckable(true);
+    auto viewSameSizeBlocksAction = actionCollection->addAction(QStringLiteral(
+                                                                    "view_same_size_blocks"),
+                                                                mDiffWidget,
+                                                                &DiffWidget::showSameSize);
+    viewSameSizeBlocksAction->setText(i18n("Same size blocks"));
+    viewSameSizeBlocksAction->setCheckable(true);
+    viewSameSizeBlocksAction->setChecked(true);
 
     auto viewFilesInfo = actionCollection->addAction(QStringLiteral("view_files_info"), mDiffWidget, &DiffWidget::showFilesInfo);
     viewFilesInfo->setText(i18n("Show files names"));

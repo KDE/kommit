@@ -67,7 +67,7 @@ void BlameCodeView::sidebarPaintEvent(QPaintEvent *event)
 {
     CodeEditor::sidebarPaintEvent(event);
 
-    QPainter painter(m_sideBar);
+    QPainter painter(mSideBar);
 
     auto block = firstVisibleBlock();
     auto blockNumber = block.blockNumber();
@@ -83,12 +83,12 @@ void BlameCodeView::sidebarPaintEvent(QPaintEvent *event)
                 break;
             auto &&d = mBlameData.at(blockNumber);
 
-            painter.setPen(m_highlighter->theme().editorColor((blockNumber == currentBlockNumber) ? KSyntaxHighlighting::Theme::CurrentLineNumber
+            painter.setPen(mHighlighter->theme().editorColor((blockNumber == currentBlockNumber) ? KSyntaxHighlighting::Theme::CurrentLineNumber
                                                                                                   : KSyntaxHighlighting::Theme::LineNumbers));
 
             painter.drawText(0,
                              top,
-                             m_sideBar->width() - 2 - foldingMarkerSize,
+                             mSideBar->width() - 2 - foldingMarkerSize,
                              fontMetrics().height(),
                              Qt::AlignLeft,
                              d.log ? d.log->committerName() : i18n("Uncommited"));

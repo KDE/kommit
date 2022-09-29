@@ -32,9 +32,15 @@ public:
 
     void setHighlighting(const QString &fileName);
 
-    void append(const QString &code, const BlockType &type = Unchanged, Diff::Segment *segment = nullptr, bool isEmpty = false);
+    void append(const QString &code,
+                const BlockType &type = Unchanged,
+                Diff::Segment *segment = nullptr,
+                bool isEmpty = false);
     int append(const QString &code, const QColor &backgroundColor);
-    void append(const QStringList &code, const BlockType &type = Unchanged, Diff::Segment *segment = nullptr, int size = -1);
+    void append(const QStringList &code,
+                const BlockType &type = Unchanged,
+                Diff::Segment *segment = nullptr,
+                int size = -1);
 
     QPair<int, int> blockArea(int from, int to);
 
@@ -64,8 +70,8 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
     virtual int sidebarWidth() const;
     virtual void sidebarPaintEvent(QPaintEvent *event);
-    KSyntaxHighlighting::SyntaxHighlighter *m_highlighter;
-    CodeEditorSidebar *m_sideBar;
+    KSyntaxHighlighting::SyntaxHighlighter *mHighlighter;
+    CodeEditorSidebar *mSideBar;
 
 protected:
     void paintEvent(QPaintEvent *e) override;
@@ -87,9 +93,12 @@ private:
     KSyntaxHighlighting::Repository m_repository;
     QMap<QTextBlock, BlockType> mLines;
     QMap<int, Diff::Segment *> mSegments;
+    QMap<QTextBlock, int> mSegmentsLineNumbers;
     QPair<int, int> mCurrentSegment{-1, -1};
 
     QLabel *mTitleBar;
     bool mShowTitlebar = true;
     int mTitlebarDefaultHeight;
+
+    int mLastLineNumber{0};
 };
