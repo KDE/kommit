@@ -7,7 +7,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "remotesactions.h"
 
 #include <QInputDialog>
-#include <QDebug>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
 
