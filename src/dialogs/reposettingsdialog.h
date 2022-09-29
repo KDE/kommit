@@ -9,11 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "core/appdialog.h"
 #include "ui_reposettingsdialog.h"
 
-namespace Git
-{
-class Manager;
-}
-
 class RepoSettingsDialog : public AppDialog, private Ui::RepoSettingsDialog
 {
     Q_OBJECT
@@ -22,5 +17,4 @@ public:
 
 private:
     void slotAccepted();
-    Git::Manager *mGit = nullptr;
 };
