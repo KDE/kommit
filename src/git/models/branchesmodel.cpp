@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "branchesmodel.h"
 #include <KLocalizedString>
 
-#include "../gitmanager.h"
+#include "git/gitmanager.h"
 
 namespace Git
 {
@@ -82,7 +82,7 @@ void BranchesModel::fill()
         auto b = line.trimmed();
         if (b.isEmpty())
             continue;
-        if (b.startsWith("* ")) {
+        if (b.startsWith(QStringLiteral("* "))) {
             b = b.mid(2);
             mReferenceBranch = mCurrentBranch = b.trimmed();
         }

@@ -113,7 +113,7 @@ void DiffWindow::init(bool showSideBar)
 
     mDock = new QDockWidget(this);
     mDock->setWindowTitle(i18nc("@title:window", "Tree"));
-    mDock->setObjectName("treeViewDock");
+    mDock->setObjectName(QStringLiteral("treeViewDock"));
 
     mTreeView = new DiffTreeView(this);
     connect(mTreeView, &DiffTreeView::fileSelected, this, &DiffWindow::on_treeView_fileSelected);

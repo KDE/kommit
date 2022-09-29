@@ -22,7 +22,7 @@ struct LanesFactory {
     {
         int index{0};
         QList<int> ret;
-        for (auto const &h : qAsConst(mHashes)) {
+        for (auto const &h : std::as_const(mHashes)) {
             if (hash == h)
                 ret.append(index);
             index++;
@@ -33,7 +33,7 @@ struct LanesFactory {
     int indexOfChild(const QString &hash)
     {
         int index{0};
-        for (auto const &h : qAsConst(mHashes)) {
+        for (auto const &h : std::as_const(mHashes)) {
             if (hash == h)
                 return index;
             index++;
@@ -52,7 +52,7 @@ struct LanesFactory {
         int index{0};
         QVector<GraphLane> lanes;
         lanes.reserve(mHashes.size());
-        for (const auto &hash : qAsConst(mHashes)) {
+        for (const auto &hash : std::as_const(mHashes)) {
             if (hash == QString()) {
                 lanes.append(GraphLane::Transparent);
             } else {
@@ -296,14 +296,14 @@ H -- commit hash              c -- committer details        m -- mark           
     if (_branch.size())
         args.insert(2, _branch);
 
-    auto ret = QString(Manager::instance()->runGit(args));
+    const auto ret = QString(Manager::instance()->runGit(args));
     if (ret.startsWith(QStringLiteral("fatal:")))
         return;
 
-    auto parts = ret.split("SEP>");
+    const auto parts = ret.split(QStringLiteral("SEP>"));
 
     for (auto &p : parts) {
-        auto lines = p.split("\n");
+        auto lines = p.split(QLatin1Char('\n'));
         if (lines.size() < 4)
             continue;
 

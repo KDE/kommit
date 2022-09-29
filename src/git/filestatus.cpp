@@ -50,21 +50,21 @@ void FileStatus::setFullPath(const QString &newFullPath)
 
 void FileStatus::setStatus(const QString &x, const QString &y)
 {
-    if (x == "M" || y == "M")
+    if (x == QLatin1Char('M') || y == QLatin1Char('M'))
         mStatus = Modified;
-    else if (x == "A")
+    else if (x == QLatin1Char('A'))
         mStatus = Added;
-    else if (x == "D")
+    else if (x == QLatin1Char('D'))
         mStatus = Removed;
-    else if (x == "R")
+    else if (x == QLatin1Char('R'))
         mStatus = Renamed;
-    else if (x == "C")
+    else if (x == QLatin1Char('C'))
         mStatus = Copied;
-    else if (x == "U")
+    else if (x == QLatin1Char('U'))
         mStatus = UpdatedButInmerged;
-    else if (x == "?")
+    else if (x == QLatin1Char('?'))
         mStatus = Untracked;
-    else if (x == "!")
+    else if (x == QLatin1Char('!'))
         mStatus = Ignored;
     else
         mStatus = Unknown;

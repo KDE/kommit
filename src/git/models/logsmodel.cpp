@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "logsmodel.h"
-#include "../gitlog.h"
-#include "../gitmanager.h"
+#include "git/gitlog.h"
+#include "git/gitmanager.h"
 #include <KLocalizedString>
 
 namespace Git
@@ -31,7 +31,7 @@ struct LanesFactory {
     {
         int index{0};
         QList<int> ret;
-        for (auto const &h : qAsConst(_hashes)) {
+        for (auto const &h : std::as_const(_hashes)) {
             if (hash == h)
                 ret.append(index);
             index++;
@@ -42,7 +42,7 @@ struct LanesFactory {
     int indexOfChild(const QString &hash)
     {
         int index{0};
-        for (auto const &h : qAsConst(_hashes)) {
+        for (auto const &h : std::as_const(_hashes)) {
             if (hash == h)
                 return index;
             index++;
@@ -61,7 +61,7 @@ struct LanesFactory {
         int index{0};
         QVector<GraphLane> lanes;
         lanes.reserve(_hashes.size());
-        for (const auto &hash : qAsConst(_hashes)) {
+        for (const auto &hash : std::as_const(_hashes)) {
             if (hash == QString()) {
                 lanes.append(GraphLane::Transparent);
             } else {
@@ -274,7 +274,7 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
     if (mBranch.isEmpty()) {
         switch (index.column()) {
         case 0:
-            return "";
+            return QString();
         case 1:
             return log->subject();
         }
@@ -367,7 +367,7 @@ void LogsModel::fill()
         Impl::readLine(lines.at(2), "X", {&d->mAuthorName, &d->mAuthorEmail, &authDate});
 
         if (!parentHash.isEmpty())
-            d->mParentHash = parentHash.split(" ");
+            d->mParentHash = parentHash.split(QLatin1Char(' '));
         d->mRefLog = lines.at(3);
         d->mSubject = lines.at(5);
         d->mCommitDate = QDateTime::fromString(commitDate, Qt::ISODate);

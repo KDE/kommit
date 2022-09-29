@@ -36,5 +36,4 @@ private Q_SLOTS:
 private:
     void addFiles();
     ChangedFileActions *mActions = nullptr;
-    Git::Manager *mGit = nullptr;
 };

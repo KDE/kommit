@@ -17,9 +17,12 @@ ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
     reload();
     mActions = new ChangedFileActions(git, this);
     connect(mActions, &ChangedFileActions::reloadNeeded, this, &ChangedFilesDialog::reload);
+    buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Commit/Push"));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ChangedFilesDialog::slotPushCommit);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ChangedFilesDialog::reject);
 }
 
-void ChangedFilesDialog::on_pushButtonCommitPush_clicked()
+void ChangedFilesDialog::slotPushCommit()
 {
     CommitPushDialog d(mGit, this);
     d.exec();

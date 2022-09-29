@@ -14,8 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git/gitmanager.h>
 
 SearchDialog::SearchDialog(const QString &path, Git::Manager *git, QWidget *parent)
-    : AppDialog(parent)
-    , mGit(git)
+    : AppDialog(git, parent)
 {
     setupUi(this);
     initModel();
@@ -36,8 +35,7 @@ void SearchDialog::initModel()
 }
 
 SearchDialog::SearchDialog(Git::Manager *git, QWidget *parent)
-    : AppDialog(parent)
-    , mGit(git)
+    : AppDialog(git, parent)
 {
     setupUi(this);
     initModel();

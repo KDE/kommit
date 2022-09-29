@@ -135,7 +135,7 @@ QModelIndex HistoryModel::findIndexByHash(const QString &hash) const
 Git::Log *HistoryModel::findLogByHash(const QString &hash) const
 {
     int idx{0};
-    for (const auto &log : qAsConst(mLogs))
+    for (const auto &log : std::as_const(mLogs))
         if (log->commitHash() == hash)
             return log;
         else

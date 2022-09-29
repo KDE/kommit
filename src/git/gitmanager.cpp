@@ -29,8 +29,8 @@ void Manager::setPath(const QString &newPath)
         return;
 
     QProcess p;
-    p.setProgram("git");
-    p.setArguments({"rev-parse", "--show-toplevel"});
+    p.setProgram(QStringLiteral("git"));
+    p.setArguments({QStringLiteral("rev-parse"), QStringLiteral("--show-toplevel")});
     p.setWorkingDirectory(newPath);
     p.start();
     p.waitForFinished();
@@ -53,21 +53,21 @@ void Manager::setPath(const QString &newPath)
 QMap<QString, Manager::ChangeStatus> Manager::changedFiles(const QString &hash) const
 {
     QMap<QString, Manager::ChangeStatus> statuses;
-    auto buffer = QString(runGit({"show", "--name-status", hash})).split("\n");
+    auto buffer = QString(runGit({"show", "--name-status", hash})).split(QLatin1Char('\n'));
 
     for (auto &line : buffer) {
         if (!line.trimmed().size())
             continue;
 
-        auto parts = line.split("\t");
+        auto parts = line.split(QLatin1Char('\t'));
         if (parts.size() != 2)
             continue;
 
-        if (parts.at(0) == "A")
+        if (parts.at(0) == QLatin1Char('A'))
             statuses.insert(parts.at(1), Added);
-        else if (parts.at(0) == "M")
+        else if (parts.at(0) == QLatin1Char('M'))
             statuses.insert(parts.at(1), Modified);
-        else if (parts.at(0) == "D")
+        else if (parts.at(0) == QLatin1Char('D'))
             statuses.insert(parts.at(1), Removed);
         else
             qDebug() << "Unknown file status" << parts.at(0);
@@ -82,9 +82,9 @@ QStringList Manager::ignoredFiles() const
 
 QList<FileStatus> Manager::repoFilesStatus() const
 {
-    auto buffer = QString(runGit({"status", "--untracked-files=all", "--ignored", "--short", "--ignore-submodules", "--porcelain"})).split("\n");
+    const auto buffer = QString(runGit({"status", "--untracked-files=all", "--ignored", "--short", "--ignore-submodules", "--porcelain"})).split(QLatin1Char('\n'));
     QList<FileStatus> files;
-    for (auto &item : buffer) {
+    for (const auto &item : buffer) {
         if (!item.trimmed().size())
             continue;
         FileStatus fs;
@@ -98,7 +98,7 @@ QList<FileStatus> Manager::repoFilesStatus() const
 
 QList<Manager::Log *> Manager::log(const QString &branch) const
 {
-    auto lines = QString(runGit({"--no-pager", "log", branch})).split("\n");
+    auto lines = QString(runGit({"--no-pager", "log", branch})).split(QLatin1Char('\n'));
 
     QList<Log *> logs;
     Log *log{nullptr};
@@ -186,7 +186,7 @@ QString Manager::diff(const QString &from, const QString &to) const
 
 QList<FileStatus> Manager::diffBranch(const QString &from) const
 {
-    auto buffer = QString(runGit({"diff", from, "--name-status"})).split("\n");
+    auto buffer = QString(runGit({"diff", from, "--name-status"})).split(QLatin1Char('\n'));
     QList<FileStatus> files;
     for (auto &item : buffer) {
         if (!item.trimmed().size())
@@ -205,7 +205,7 @@ QList<FileStatus> Manager::diffBranch(const QString &from) const
 
 QList<FileStatus> Manager::diffBranches(const QString &from, const QString &to) const
 {
-    auto buffer = QString(runGit({"diff", from + ".." + to, "--name-status"})).split("\n");
+    auto buffer = QString(runGit({"diff", from + ".." + to, "--name-status"})).split(QLatin1Char('\n'));
     QList<FileStatus> files;
     for (auto &item : buffer) {
         if (!item.trimmed().size())
@@ -277,7 +277,7 @@ void Manager::unsetConfig(const QString &name, ConfigType type) const
 QStringList Manager::readAllNonEmptyOutput(const QStringList &cmd) const
 {
     QStringList list;
-    auto out = QString(runGit(cmd)).split("\n");
+    auto out = QString(runGit(cmd)).split(QLatin1Char('\n'));
 
     for (auto &line : out) {
         auto b = line.trimmed();
@@ -470,7 +470,7 @@ void Manager::saveFile(const QString &place, const QString &fileName, const QStr
 QStringList Manager::branches() const
 {
     QStringList branchesList;
-    auto out = QString(runGit({"branch", "--list"})).split("\n");
+    auto out = QString(runGit({"branch", "--list"})).split(QLatin1Char('\n'));
 
     for (auto &line : out) {
         auto b = line.trimmed();
@@ -490,7 +490,7 @@ QStringList Manager::branches() const
 QStringList Manager::remoteBranches() const
 {
     QStringList branchesList;
-    auto out = QString(runGit({"branch", "--remote", "--list"})).split("\n");
+    auto out = QString(runGit({"branch", "--remote", "--list"})).split(QLatin1Char('\n'));
 
     for (auto &line : out) {
         auto b = line.trimmed();
@@ -525,7 +525,7 @@ QList<Stash> Manager::stashes()
     QList<Stash> ret;
     auto list = readAllNonEmptyOutput({"stash", "list", "--format=format:%s%m%an%m%ae%m%aD"});
     int id{0};
-    for (const auto &item : qAsConst(list)) {
+    for (const auto &item : std::as_const(list)) {
         auto parts = item.split(">");
         if (parts.size() != 4)
             continue;
@@ -646,7 +646,7 @@ QMap<QString, Manager::ChangeStatus> Manager::changedFiles() const
 {
     // status --untracked-files=all --ignored --short --ignore-submodules --porcelain
     QMap<QString, Manager::ChangeStatus> statuses;
-    auto buffer = QString(runGit({"status", "--short"})).split("\n");
+    auto buffer = QString(runGit({"status", "--short"})).split(QLatin1Char('\n'));
 
     for (auto &line : buffer) {
         if (!line.trimmed().size())

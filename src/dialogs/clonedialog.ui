@@ -61,20 +61,21 @@
    </item>
    <item>
     <layout class="QFormLayout" name="formLayout_2">
-     <property name="fieldGrowthPolicy">
-      <enum>QFormLayout::FieldsStayAtSizeHint</enum>
-     </property>
-     <property name="labelAlignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
      <item row="0" column="0">
+      <widget class="QCheckBox" name="checkBoxRecursive">
+       <property name="text">
+        <string>Recursive</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
       <widget class="QCheckBox" name="checkBoxDepth">
        <property name="text">
         <string>Depth</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
+     <item row="1" column="1">
       <widget class="QSpinBox" name="spinBoxDepth">
        <property name="enabled">
         <bool>false</bool>
@@ -84,13 +85,6 @@
        </property>
        <property name="value">
         <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QCheckBox" name="checkBoxRecursive">
-       <property name="text">
-        <string>Recursive</string>
        </property>
       </widget>
      </item>

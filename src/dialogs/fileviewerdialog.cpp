@@ -146,7 +146,7 @@ KService::Ptr FileViewerDialog::getInternalViewer(const QString &mimeType)
     KService::List offers = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("KParts/ReadOnlyPart"));
 
     qDebug() << offers.size() << "offer(s) found for" << mimeType;
-    for (const auto &offer : qAsConst(offers))
+    for (const auto &offer : std::as_const(offers))
         qDebug() << " *" << offer->name() << offer->genericName();
     /*auto arkPartIt = std::find_if(offers.begin(), offers.end(), [](KService::Ptr service) {
         return service->storageId() == QLatin1String("ark_part.desktop");
