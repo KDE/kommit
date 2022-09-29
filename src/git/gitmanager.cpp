@@ -44,7 +44,7 @@ void Manager::setPath(const QString &newPath)
         _isValid = true;
         loadAsync();
 
-        setIsMerging(QFile::exists(mPath + "/.git/MERGE_HEAD"));
+        setIsMerging(QFile::exists(mPath + QStringLiteral("/.git/MERGE_HEAD")));
     }
 
     Q_EMIT pathChanged();
@@ -53,7 +53,7 @@ void Manager::setPath(const QString &newPath)
 QMap<QString, Manager::ChangeStatus> Manager::changedFiles(const QString &hash) const
 {
     QMap<QString, Manager::ChangeStatus> statuses;
-    auto buffer = QString(runGit({"show", "--name-status", hash})).split(QLatin1Char('\n'));
+    auto buffer = QString(runGit({QStringLiteral("show"), QStringLiteral("--name-status"), hash})).split(QLatin1Char('\n'));
 
     for (auto &line : buffer) {
         if (!line.trimmed().size())
@@ -137,19 +137,19 @@ bool Manager::isValid() const
 
 bool Manager::addRemote(const QString &name, const QString &url) const
 {
-    runGit({"remote", "add", name, url});
+    runGit({QStringLiteral("remote"), QStringLiteral("add"), name, url});
     return true;
 }
 
 bool Manager::removeRemote(const QString &name) const
 {
-    runGit({"remote", "remove", name});
+    runGit({QStringLiteral("remote"), QStringLiteral("remove"), name});
     return true;
 }
 
 bool Manager::renameRemote(const QString &name, const QString &newName) const
 {
-    runGit({"remote", "rename", name, newName});
+    runGit({QStringLiteral("remote"), QStringLiteral("rename"), name, newName});
     return true;
 }
 
