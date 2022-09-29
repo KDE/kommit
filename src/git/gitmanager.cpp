@@ -98,11 +98,11 @@ QList<FileStatus> Manager::repoFilesStatus() const
 
 QList<Manager::Log *> Manager::log(const QString &branch) const
 {
-    auto lines = QString(runGit({"--no-pager", "log", branch})).split(QLatin1Char('\n'));
+    const auto lines = QString(runGit({QStringLiteral("--no-pager"), QStringLiteral("log"), branch})).split(QLatin1Char('\n'));
 
     QList<Log *> logs;
     Log *log{nullptr};
-    for (auto &line : lines) {
+    for (const auto &line : lines) {
         if (line.startsWith("commit ")) {
             if (log)
                 logs.append(log);
