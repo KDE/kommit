@@ -38,7 +38,7 @@ void run(const QString &workingDir, AbstractCommand &cmd)
 
 QByteArray runGit(const QString &workingDir, const QStringList &args)
 {
-    //    qCDebug(GITKLIENT_LOG).noquote() << "Running: git " << args.join(" ");
+    //    qCDebug(GITKLIENTLIB_LOG).noquote() << "Running: git " << args.join(" ");
 
     QProcess p;
     p.setProgram(QStringLiteral("git"));

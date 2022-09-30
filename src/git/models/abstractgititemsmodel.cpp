@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "abstractgititemsmodel.h"
-#include "git/gitmanager.h"
+#include "gitmanager.h"
 
 namespace Git
 {

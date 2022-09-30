@@ -7,11 +7,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "abstractcommand.h"
+#include "libgitklient_export.h"
 
 namespace Git
 {
 
-class CommandMerge : public AbstractCommand
+class LIBGITKLIENT_EXPORT CommandMerge : public AbstractCommand
 {
     Q_OBJECT
 

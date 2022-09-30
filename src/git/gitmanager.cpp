@@ -10,7 +10,7 @@
 #include "models/submodulesmodel.h"
 #include "models/tagsmodel.h"
 
-#include "gitklient_appdebug.h"
+#include "libgitklient_debug.h"
 #include <QFile>
 #include <QProcess>
 #include <QtConcurrent>
@@ -70,7 +70,7 @@ QMap<QString, Manager::ChangeStatus> Manager::changedFiles(const QString &hash) 
         else if (parts.at(0) == QLatin1Char('D'))
             statuses.insert(parts.at(1), Removed);
         else
-            qCDebug(GITKLIENT_LOG) << "Unknown file status" << parts.at(0);
+            qCDebug(GITKLIENTLIB_LOG) << "Unknown file status" << parts.at(0);
     }
     return statuses;
 }
@@ -89,7 +89,7 @@ QList<FileStatus> Manager::repoFilesStatus() const
             continue;
         FileStatus fs;
         fs.parseStatusLine(item);
-        //        qCDebug(GITKLIENT_LOG) << "[STATUS]" << fs.name() << fs.status();
+        //        qCDebug(GITKLIENTLIB_LOG) << "[STATUS]" << fs.name() << fs.status();
         fs.setFullPath(mPath + QLatin1Char('/') + fs.name());
         files.append(fs);
     }
@@ -156,7 +156,7 @@ bool Manager::renameRemote(const QString &name, const QString &newName) const
 bool Manager::isIgnored(const QString &path)
 {
     auto tmp = readAllNonEmptyOutput({"check-ignore", path});
-    qCDebug(GITKLIENT_LOG) << Q_FUNC_INFO << tmp;
+    qCDebug(GITKLIENTLIB_LOG) << Q_FUNC_INFO << tmp;
     return !tmp.empty();
 }
 
@@ -425,7 +425,7 @@ bool Manager::isGitDir() const
 
 QByteArray Manager::runGit(const QStringList &args) const
 {
-    //    qCDebug(GITKLIENT_LOG).noquote() << "Running: git " << args.join(" ");
+    //    qCDebug(GITKLIENTLIB_LOG).noquote() << "Running: git " << args.join(" ");
 
     QProcess p;
     p.setProgram("git");
@@ -436,7 +436,7 @@ QByteArray Manager::runGit(const QStringList &args) const
     auto out = p.readAllStandardOutput();
     auto err = p.readAllStandardError();
     Q_UNUSED(err)
-    //    qCDebug(GITKLIENT_LOG) << err;
+    //    qCDebug(GITKLIENTLIB_LOG) << err;
     return out; // + err;
 }
 
@@ -537,7 +537,7 @@ QList<Stash> Manager::stashes()
         stash.mAuthorName = parts.at(1);
         stash.mAuthorEmail = parts.at(2);
         stash.mPushTime = QDateTime::fromString(parts.at(3), Qt::RFC2822Date);
-        qCDebug(GITKLIENT_LOG) << item << subject << stash.mPushTime;
+        qCDebug(GITKLIENTLIB_LOG) << item << subject << stash.mPushTime;
 
         ret.append(stash);
         id++;
@@ -553,7 +553,7 @@ void Manager::createStash(const QString &name) const
         args.append({"--message", name});
 
     auto ret = runGit(args);
-    qCDebug(GITKLIENT_LOG) << ret;
+    qCDebug(GITKLIENTLIB_LOG) << ret;
 }
 
 bool Manager::removeStash(const QString &name) const
@@ -604,7 +604,7 @@ BlameData Manager::blame(const File &file)
             hash = hash.remove(0, 1);
         auto log = _logsCache->findLogByHash(hash);
         //        if (!log)
-        //            qCDebug(GITKLIENT_LOG) << "Log not found" << hash;
+        //            qCDebug(GITKLIENTLIB_LOG) << "Log not found" << hash;
         row.log = log;
         auto parts = line.split("\t");
         b.append(row);

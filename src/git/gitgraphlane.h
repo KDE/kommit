@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-
+#include "libgitklient_export.h"
 #include <QList>
 
 namespace Git
@@ -16,7 +16,7 @@ namespace Impl
 struct LanesFactory;
 }
 
-class GraphLane
+class LIBGITKLIENT_EXPORT GraphLane
 {
 public:
     enum Type { None, Start, Pipe, Node, End, Transparent, Test };

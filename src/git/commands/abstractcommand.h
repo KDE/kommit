@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-
+#include "libgitklient_export.h"
 #include <QByteArray>
 #include <QObject>
 #include <QStringList>
@@ -23,10 +23,10 @@ enum class OptionalBool {
 
 enum class FastForwardType { Unset, Yes, No, OnlyFastForward };
 
-OptionalBool checkStateToOptionalBool(Qt::CheckState checkState);
+LIBGITKLIENT_EXPORT OptionalBool checkStateToOptionalBool(Qt::CheckState checkState);
 
 class Manager;
-class AbstractCommand : public QObject
+class LIBGITKLIENT_EXPORT AbstractCommand : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int progress READ progress WRITE setProgress NOTIFY progressChanged)

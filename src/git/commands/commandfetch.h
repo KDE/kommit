@@ -7,11 +7,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "abstractcommand.h"
-
+#include "libgitklient_export.h"
 namespace Git
 {
 
-class CommandFetch : public AbstractCommand
+class LIBGITKLIENT_EXPORT CommandFetch : public AbstractCommand
 {
 public:
     CommandFetch();

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.16)
 
 project(gitklient)
 set(PROJECT_VERSION 5)
@@ -6,8 +6,14 @@ set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 3)
 set(PROJECT_VERSION_PATCH 1)
 
+set (RELEASE_SERVICE_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
+
+set(LIBGITKLIENT_LIB_VERSION "${RELEASE_SERVICE_VERSION}")
+set(LIBGITKLIENT_LIB_SOVERSION "0")
+
+
 add_definitions(-DGK_VERSION="${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
-set(REQUIRED_KF5_VERSION "5.18")
+set(REQUIRED_KF5_VERSION "5.80")
 
 find_package(ECM ${REQUIRED_KF5_VERSION} REQUIRED NO_MODULE)
 set(
@@ -26,6 +32,7 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
 include(ECMAddTests)
+include(GenerateExportHeader)
 
 set (CMAKE_CXX_STANDARD 17)
 

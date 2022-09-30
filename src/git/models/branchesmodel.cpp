@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "branchesmodel.h"
 #include <KLocalizedString>
 
-#include "git/gitmanager.h"
+#include "gitmanager.h"
 
 namespace Git
 {

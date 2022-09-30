@@ -1,82 +1,98 @@
-set(
-    GIT_SOURCE
-    ${CMAKE_CURRENT_LIST_DIR}/branch.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/gitglobal.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/gitloglist.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/gitsubmodule.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/stash.cpp
-        ${CMAKE_CURRENT_LIST_DIR}/filestatus.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/gitgraphlane.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/gitmanager.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/nonemptylinescommand.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/blamedata.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/gitfile.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/gitlog.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/gitremote.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/parameterescommand.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/gittag.cpp
+add_library(libgitklient SHARED)
 
-    ${CMAKE_CURRENT_LIST_DIR}/models/abstractgititemsmodel.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/models/logsmodel.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/models/remotesmodel.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/models/submodulesmodel.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/models/branchesmodel.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/models/stashesmodel.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/models/tagsmodel.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/models/authorsmodel.cpp
+target_sources(libgitklient PRIVATE
+    branch.cpp
+    gitglobal.cpp
+    gitloglist.cpp
+    gitsubmodule.cpp
+    stash.cpp
+    filestatus.cpp
+    gitgraphlane.cpp
+    gitmanager.cpp
+    nonemptylinescommand.cpp
+    blamedata.cpp
+    gitfile.cpp
+    gitlog.cpp
+    gitremote.cpp
+    parameterescommand.cpp
+    gittag.cpp
 
-    ${CMAKE_CURRENT_LIST_DIR}/commands/abstractcommand.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandchangedfiles.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandclone.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandcommit.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandfetch.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandpull.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandpush.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandswitchbranch.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandmerge.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/commands/addsubmodulecommand.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandaddremote.cpp
+    models/abstractgititemsmodel.cpp
+    models/logsmodel.cpp
+    models/remotesmodel.cpp
+    models/submodulesmodel.cpp
+    models/branchesmodel.cpp
+    models/stashesmodel.cpp
+    models/tagsmodel.cpp
+    models/authorsmodel.cpp
 
-    ${CMAKE_CURRENT_LIST_DIR}/branch.h
-    ${CMAKE_CURRENT_LIST_DIR}/gitglobal.h
-    ${CMAKE_CURRENT_LIST_DIR}/gitloglist.h
-    ${CMAKE_CURRENT_LIST_DIR}/gitsubmodule.h
-    ${CMAKE_CURRENT_LIST_DIR}/stash.h
-        ${CMAKE_CURRENT_LIST_DIR}/filestatus.h
-    ${CMAKE_CURRENT_LIST_DIR}/gitgraphlane.h
-    ${CMAKE_CURRENT_LIST_DIR}/gitmanager.h
-    ${CMAKE_CURRENT_LIST_DIR}/nonemptylinescommand.h
-    ${CMAKE_CURRENT_LIST_DIR}/blamedata.h
-    ${CMAKE_CURRENT_LIST_DIR}/gitfile.h
-    ${CMAKE_CURRENT_LIST_DIR}/gitlog.h
-    ${CMAKE_CURRENT_LIST_DIR}/gitremote.h
-    ${CMAKE_CURRENT_LIST_DIR}/parameterescommand.h
-    ${CMAKE_CURRENT_LIST_DIR}/gittag.h
+    commands/abstractcommand.cpp
+    commands/commandchangedfiles.cpp
+    commands/commandclone.cpp
+    commands/commandcommit.cpp
+    commands/commandfetch.cpp
+    commands/commandpull.cpp
+    commands/commandpush.cpp
+    commands/commandswitchbranch.cpp
+    commands/commandmerge.cpp
+    commands/addsubmodulecommand.cpp
+    commands/commandaddremote.cpp
 
-    ${CMAKE_CURRENT_LIST_DIR}/models/abstractgititemsmodel.h
-    ${CMAKE_CURRENT_LIST_DIR}/models/logsmodel.h
-    ${CMAKE_CURRENT_LIST_DIR}/models/remotesmodel.h
-    ${CMAKE_CURRENT_LIST_DIR}/models/submodulesmodel.h
-    ${CMAKE_CURRENT_LIST_DIR}/models/branchesmodel.h
-    ${CMAKE_CURRENT_LIST_DIR}/models/stashesmodel.h
-    ${CMAKE_CURRENT_LIST_DIR}/models/tagsmodel.h
-    ${CMAKE_CURRENT_LIST_DIR}/models/authorsmodel.h
+    branch.h
+    gitglobal.h
+    gitloglist.h
+    gitsubmodule.h
+    stash.h
+    filestatus.h
+    gitgraphlane.h
+    gitmanager.h
+    nonemptylinescommand.h
+    blamedata.h
+    gitfile.h
+    gitlog.h
+    gitremote.h
+    parameterescommand.h
+    gittag.h
 
-    ${CMAKE_CURRENT_LIST_DIR}/commands/abstractcommand.h
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandchangedfiles.h
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandclone.h
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandcommit.h
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandfetch.h
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandpull.h
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandpush.h
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandswitchbranch.h
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandmerge.h
-    ${CMAKE_CURRENT_LIST_DIR}/commands/addsubmodulecommand.h
-    ${CMAKE_CURRENT_LIST_DIR}/commands/commandaddremote.h
+    models/abstractgititemsmodel.h
+    models/logsmodel.h
+    models/remotesmodel.h
+    models/submodulesmodel.h
+    models/branchesmodel.h
+    models/stashesmodel.h
+    models/tagsmodel.h
+    models/authorsmodel.h
+
+    commands/abstractcommand.h
+    commands/commandchangedfiles.h
+    commands/commandclone.h
+    commands/commandcommit.h
+    commands/commandfetch.h
+    commands/commandpull.h
+    commands/commandpush.h
+    commands/commandswitchbranch.h
+    commands/commandmerge.h
+    commands/addsubmodulecommand.h
+    commands/commandaddremote.h
 )
 
-#include(${CMAKE_CURRENT_LIST_DIR}/models/CMakeLists.txt)
-#include(${CMAKE_CURRENT_LIST_DIR}/commands/CMakeLists.txt)
+generate_export_header(libgitklient BASE_NAME libgitklient)
 
-#set(gitklient_SRCS ${SOURCE} PARENT_SCOPE)
-#target_sources(gitklient PUBLIC ${SOURCE})
+ecm_qt_declare_logging_category(libgitklient
+    HEADER libgitklient_debug.h
+    IDENTIFIER GITKLIENTLIB_LOG
+    CATEGORY_NAME "org.kde.gitklient.libgitklient" DESCRIPTION "libgitklient" EXPORT GITKLIENT
+)
+
+set_target_properties(libgitklient
+    PROPERTIES OUTPUT_NAME gitklient VERSION ${LIBGITKLIENT_LIB_VERSION} SOVERSION ${LIBGITKLIENT_LIB_SOVERSION}
+)
+
+target_link_libraries(libgitklient
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Concurrent
+    KF5::I18n
+)
+
+install(TARGETS libgitklient ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

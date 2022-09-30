@@ -9,14 +9,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 //
 
 #pragma once
-
+#include "libgitklient_export.h"
 #include <QAbstractListModel>
 
 namespace Git
 {
 
 class Manager;
-class AbstractGitItemsModel : public QAbstractListModel
+class LIBGITKLIENT_EXPORT AbstractGitItemsModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(Status status READ status WRITE setStatus NOTIFY statusChanged)

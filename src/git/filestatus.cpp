@@ -35,7 +35,7 @@ void FileStatus::parseStatusLine(const QString &line)
 
     setStatus(statusX, statusY);
 
-    //    qCDebug(GITKLIENT_LOG) << "***=" << line << _status << statusX << statusY;
+    //    qCDebug(GITKLIENTLIB_LOG) << "***=" << line << _status << statusX << statusY;
 }
 
 const QString &FileStatus::fullPath() const

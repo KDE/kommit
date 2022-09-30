@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-
+#include "libgitklient_export.h"
 #include <QList>
 #include <QMap>
 
@@ -13,7 +13,7 @@ namespace Git
 {
 
 class Log;
-class LogList : public QList<Log *>
+class LIBGITKLIENT_EXPORT LogList : public QList<Log *>
 {
     QString _branch;
     QList<Log *> _data;
