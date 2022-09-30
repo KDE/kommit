@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KStandardAction>
 #include <KXMLGUIFactory>
 
-#include <QDebug>
+#include "gitklient_appdebug.h"
 #include <QMimeData>
 #include <QMimeDatabase>
 #include <QProgressDialog>
@@ -109,14 +109,14 @@ void FileViewerDialog::showFile(const Git::File &file)
     else {
         if (!ptr || !ptr->isValid()) {
             showInEditor(file);
-            qDebug() << "fallback to text mode";
+            qCDebug(GITKLIENT_LOG) << "fallback to text mode";
         } else {
             file.save(mFilePath);
             if (!viewInInternalViewer(ptr, mFilePath, mime))
                 showInEditor(file);
         }
     }
-    qDebug() << "mime is" << mime.name() << fn << mimeDatabase.suffixForFileName(fn) << stackedWidget->currentIndex();
+    qCDebug(GITKLIENT_LOG) << "mime is" << mime.name() << fn << mimeDatabase.suffixForFileName(fn) << stackedWidget->currentIndex();
 }
 
 void FileViewerDialog::showInEditor(const Git::File &file)
@@ -145,9 +145,9 @@ KService::Ptr FileViewerDialog::getInternalViewer(const QString &mimeType)
     // Try to get a read-only kpart for the internal viewer
     KService::List offers = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("KParts/ReadOnlyPart"));
 
-    qDebug() << offers.size() << "offer(s) found for" << mimeType;
+    qCDebug(GITKLIENT_LOG) << offers.size() << "offer(s) found for" << mimeType;
     for (const auto &offer : std::as_const(offers))
-        qDebug() << " *" << offer->name() << offer->genericName();
+        qCDebug(GITKLIENT_LOG) << " *" << offer->name() << offer->genericName();
     /*auto arkPartIt = std::find_if(offers.begin(), offers.end(), [](KService::Ptr service) {
         return service->storageId() == QLatin1String("ark_part.desktop");
     });
@@ -180,7 +180,7 @@ KService::Ptr FileViewerDialog::getInternalViewer(const QString &mimeType)
 
 KService::Ptr FileViewerDialog::getExternalViewer(const QString &mimeType)
 {
-    qDebug() << mimeType;
+    qCDebug(GITKLIENT_LOG) << mimeType;
     const KService::List offers = KMimeTypeTrader::self()->query(mimeType);
 
     if (!offers.isEmpty()) {
@@ -202,7 +202,7 @@ bool FileViewerDialog::viewInInternalViewer(const KService::Ptr &viewer, const Q
     m_part = viewer->createInstance<KParts::ReadOnlyPart>(widgetContainer, widgetContainer, QVariantList(), &error);
 
     if (!m_part.data()) {
-        qDebug() << "m_part is null" << error;
+        qCDebug(GITKLIENT_LOG) << "m_part is null" << error;
         return false;
     }
 

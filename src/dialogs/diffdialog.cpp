@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "diffdialog.h"
 
 #include "models/difftreemodel.h"
-#include <QDebug>
+#include "gitklient_appdebug.h"
 #include <QFileDialog>
 #include <git/gitmanager.h>
 
@@ -57,7 +57,7 @@ void DiffDialog::on_toolButtonShowHiddenChars_clicked(bool checked)
 void DiffDialog::on_pushButtonSaveAs_clicked()
 {
     auto diff = Git::Manager::instance()->diff(mOldFile.fileName(), mNewFile.fileName());
-    qDebug().noquote() << diff;
+    qCDebug(GITKLIENT_LOG).noquote() << diff;
     const auto fileName = QFileDialog::getSaveFileName(this, i18n("Save diff"));
     if (!fileName.isEmpty()) {
         QFile f(fileName);

@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commandswitchbranch.h"
 
-#include <QDebug>
+#include "gitklient_appdebug.h"
 
 #include <klocalizedstring.h>
 
@@ -26,8 +26,8 @@ void CommandSwitchBranch::parseOutput(const QByteArray &output, const QByteArray
             i18n("Your local changes to the following files would be overwritten by checkout. "
                  "Please commit your changes or stash them before you switch branches."));
     }
-    qDebug() << "Error" << errorOutput;
-    qDebug() << "out" << output;
+    qCDebug(GITKLIENT_LOG) << "Error" << errorOutput;
+    qCDebug(GITKLIENT_LOG) << "out" << output;
 }
 
 const QString &CommandSwitchBranch::target() const

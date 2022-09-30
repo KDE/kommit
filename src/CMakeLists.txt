@@ -1,5 +1,5 @@
 include_directories(${CMAKE_SOURCE_DIR}/core)
-
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 set(CORE_SRC
     core/appdialog.cpp
     core/appdialog.h
@@ -180,10 +180,11 @@ set(APP_SRCS
 )
 
 ecm_qt_declare_logging_category(APP_SRCS
-    HEADER appdebug.h
-    IDENTIFIER GITKLIENT
-    CATEGORY_NAME "gitklient"
+    HEADER gitklient_appdebug.h
+    IDENTIFIER GITKLIENT_LOG
+    CATEGORY_NAME "org.kde.gitklient" DESCRIPTION "gitklient" EXPORT GITKLIENT
 )
+
 kconfig_add_kcfg_files(APP_SRCS settings/GitKlientSettings.kcfgc)
 
 add_compile_definitions(GIT_GUI)

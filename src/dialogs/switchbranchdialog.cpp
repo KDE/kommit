@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "git/models/tagsmodel.h"
 #include "runnerdialog.h"
 
-#include <QDebug>
+#include "gitklient_appdebug.h"
 
 SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
@@ -57,7 +57,7 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
 //        cmd.setTarget(lineEditNewBranchName->text());
 //    }
 
-//    qDebug() << cmd.target();
+//    qCDebug(GITKLIENT_LOG) << cmd.target();
 //    return;
 
 //    cmd.setForce(checkBoxForce->isChecked());

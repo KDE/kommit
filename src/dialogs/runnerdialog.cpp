@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include <QDebug>
+#include "gitklient_appdebug.h"
 
 RunnerDialog::RunnerDialog(QWidget *parent)
     : AppDialog(parent)
@@ -64,7 +64,7 @@ void RunnerDialog::run(Git::AbstractCommand *command)
 void RunnerDialog::git_readyReadStandardOutput()
 {
     auto buffer = mGitProcess->readAllStandardOutput();
-    qDebug() << "OUT" << buffer;
+    qCDebug(GITKLIENT_LOG) << "OUT" << buffer;
     //    textBrowser->setTextColor(Qt::black);
     textBrowser->append(buffer);
 
@@ -75,7 +75,7 @@ void RunnerDialog::git_readyReadStandardOutput()
 void RunnerDialog::git_readyReadStandardError()
 {
     auto buffer = mGitProcess->readAllStandardError();
-    qDebug() << "ERROR" << buffer;
+    qCDebug(GITKLIENT_LOG) << "ERROR" << buffer;
     //    textBrowser->setTextColor(Qt::red);
     textBrowser->append(buffer);
 

@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitremote.h"
 #include <KLocalizedString>
-#include <QDebug>
+#include "gitklient_appdebug.h"
 #include <QRegularExpression>
 
 namespace Git
@@ -80,7 +80,7 @@ void Remote::parse(const QString &output)
                 else if (match.captured(3) == QStringLiteral("local out of date"))
                     branch.status = RemoteBranch::Status::LocalOutOfDate;
                 else
-                    qDebug() << "Unknown status" << match.captured(3);
+                    qCDebug(GITKLIENT_LOG) << "Unknown status" << match.captured(3);
 
                 branch.remotePushBranch = match.captured(2);
 
@@ -106,7 +106,7 @@ void Remote::parse(const QString &output)
             continue;
         }
     }
-    qDebug() << branches.size();
+    qCDebug(GITKLIENT_LOG) << branches.size();
 }
 
 QString RemoteBranch::statusText() const

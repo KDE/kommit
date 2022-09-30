@@ -14,7 +14,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include <QDebug>
+#include "gitklient_appdebug.h"
 #include <QFile>
 #include <QFileInfo>
 #include <QLabel>
@@ -516,7 +516,7 @@ void MergeWindow::setFilePathLocal(const QString &newFilePathLocal)
 
 void MergeWindow::on_plainTextEditResult_textChanged()
 {
-    qDebug() << "**********************";
+    qCDebug(GITKLIENT_LOG) << "**********************";
     //    auto segment = static_cast<Diff::MergeSegment *>(_mapper->currentSegment());
     //    if (segment) {
     //        segment->mergeType = Diff::MergeCustom;

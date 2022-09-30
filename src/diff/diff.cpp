@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "diff.h"
 
-#include <QDebug>
+#include "gitklient_appdebug.h"
 #include <QDir>
 #include <set>
 

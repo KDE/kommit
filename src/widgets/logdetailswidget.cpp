@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "git/gitlog.h"
 #include "git/gitmanager.h"
 #include "git/models/logsmodel.h"
+#include "gitklient_appdebug.h"
 
 #include <KLocalizedString>
 
@@ -79,7 +80,7 @@ void LogDetailsWidget::createText()
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
     QString date;
-    qDebug() << "cal=" << GitKlientSettings::calendarType();
+    qCDebug(GITKLIENT_LOG) << "cal=" << GitKlientSettings::calendarType();
     QCalendar cal(GitKlientSettings::calendarType());
     /*switch (GitKlientSettings::calendarType()) {
     case SettingsHelper::CalendarType::Gregorian:

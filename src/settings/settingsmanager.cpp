@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "GitKlientSettings.h"
 #include "appwindow.h"
 #include "git/gitmanager.h"
+#include "gitklient_appdebug.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
 #include <QCalendar>
@@ -28,7 +29,7 @@ SettingsManager *SettingsManager::instance()
 
 void SettingsManager::settingsChanged()
 {
-    qDebug() << GitKlientSettings::calendarType() << pageBase.kcfg_calendarType->currentText();
+    qCDebug(GITKLIENT_LOG) << GitKlientSettings::calendarType() << pageBase.kcfg_calendarType->currentText();
     GitKlientSettings::setCalendarType(pageBase.kcfg_calendarType->currentText());
 
     auto git = Git::Manager::instance();

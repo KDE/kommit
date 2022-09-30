@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KActionCollection>
 #include <KLocalizedString>
 
-#include <QDebug>
+#include "gitklient_appdebug.h"
 #include <QDockWidget>
 #include <QTreeView>
 #include <dialogs/diffopendialog.h>
@@ -75,7 +75,7 @@ DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QStrin
 
     for (auto &f : diffs) {
         mDiffModel->addFile(f);
-        //        qDebug() << f.name() << f.status();
+        //        qCDebug(GITKLIENT_LOG) << f.name() << f.status();
         mFilesModel->append(f.name());
     }
     mLeftStorage = mRightStorage = Git;

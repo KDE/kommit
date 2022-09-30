@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KSyntaxHighlighting/Theme>
 
 #include <QApplication>
-#include <QDebug>
+#include "gitklient_appdebug.h"
 #include <QFontDatabase>
 #include <QLabel>
 #include <QPainter>
@@ -410,7 +410,7 @@ QPair<int, int> CodeEditor::blockArea(int from, int to)
 {
     auto firstBlock = document()->findBlockByLineNumber(from);
     auto secondBlock = document()->findBlockByLineNumber(to);
-    //    qDebug() << from << " to " << to << firstBlock.text() << secondBlock.text();
+    //    qCDebug(GITKLIENT_LOG) << from << " to " << to << firstBlock.text() << secondBlock.text();
 
     int top = qRound(blockBoundingGeometry(firstBlock).translated(contentOffset()).top());
     int bottom;
@@ -484,9 +484,9 @@ void CodeEditor::highlightSegment(Diff::Segment *segment)
     }
     //    _currentSegment = segment;
     mSideBar->update();
-    qDebug() << mCurrentSegment;
+    qCDebug(GITKLIENT_LOG) << mCurrentSegment;
     return;
-    qDebug() << "Segment not found";
+    qCDebug(GITKLIENT_LOG) << "Segment not found";
 }
 
 void CodeEditor::clearAll()
