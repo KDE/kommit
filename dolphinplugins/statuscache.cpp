@@ -33,7 +33,7 @@ bool StatusCache::isInDir(const QString &dirPath, const QString &filePath)
 
 FileStatus::Status StatusCache::fileStatus(const QFileInfo &fileInfo)
 {
-    auto filePath = fileInfo.absoluteFilePath();
+    const auto filePath = fileInfo.absoluteFilePath();
 
     if (!mLastDir.isEmpty() && isInDir(mLastDir, filePath)) {
         if (mStatuses.contains(filePath)) {
@@ -54,7 +54,7 @@ FileStatus::Status StatusCache::fileStatus(const QFileInfo &fileInfo)
 
 bool StatusCache::isGitDir(const QString &path)
 {
-    Git::MiniManager git(path);
+    const Git::MiniManager git(path);
     return git.isValid();
 }
 
