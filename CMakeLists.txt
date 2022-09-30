@@ -92,6 +92,12 @@ if (UNIX)
 endif (UNIX)
 
 
+ecm_qt_install_logging_categories(
+        EXPORT GITKLIENT
+        FILE gitklient.categories
+        DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+        )
+
 if (GITKLIENT_BUILD_DIR)
     file(WRITE ${GITKLIENT_BUILD_DIR}/version "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
     message("-- Version in file ${GITKLIENT_BUILD_DIR}/version saved")
