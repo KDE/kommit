@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "remoteinfodialog.h"
 #include "git/commands/commandaddremote.h"
+#include <QPushButton>
 
 RemoteInfoDialog::RemoteInfoDialog(QWidget *parent)
     : QDialog(parent)
@@ -13,6 +14,12 @@ RemoteInfoDialog::RemoteInfoDialog(QWidget *parent)
     setupUi(this);
 
     checkBoxTags->setCheckState(Qt::PartiallyChecked);
+    auto button = buttonBox->button(QDialogButtonBox::Ok);
+    connect(lineEditName, &QLineEdit::textChanged, this, [button](const QString &str) {
+       button->setEnabled(!str.trimmed().isEmpty());
+    });
+    // Disable as lineEditName is empty
+    button->setEnabled(false);
 }
 
 QString RemoteInfoDialog::remoteName() const
