@@ -15,13 +15,9 @@ namespace Git
 class Log;
 class LIBGITKLIENT_EXPORT LogList : public QList<Log *>
 {
-    QString _branch;
-    QList<Log *> _data;
-    QStringList _branches;
-    QMap<QString, Log *> _dataByCommitHashLong;
-    QMap<QString, Log *> _dataByCommitHashShort;
 
 public:
+
     LogList();
     explicit LogList(QString branch);
 
@@ -36,5 +32,10 @@ public:
 private:
     QString branchName(const QString &refLog);
     void initChilds();
+    QString _branch;
+    QList<Log *> _data;
+    QStringList _branches;
+    QMap<QString, Log *> _dataByCommitHashLong;
+    QMap<QString, Log *> _dataByCommitHashShort;
 };
 } // namespace Git

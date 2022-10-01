@@ -15,15 +15,9 @@ namespace Git
 class Manager;
 class LIBGITKLIENT_EXPORT File
 {
-private:
-    QString mPlace;
-    QString mFilePath;
-    Manager *mGit = nullptr;
-
-    enum StorageType { InValid, Git, Local };
-    StorageType mStorage;
 
 public:
+    enum StorageType { InValid, Git, Local };
     File();
     explicit File(QString filePath);
     File(QString place, QString filePath, Manager *git = nullptr);
@@ -43,6 +37,13 @@ public:
 
     QString displayName() const;
     StorageType storage() const;
+
+private:
+    QString mPlace;
+    QString mFilePath;
+    Manager *mGit = nullptr;
+
+    StorageType mStorage;
 };
 
 } // namespace Git
