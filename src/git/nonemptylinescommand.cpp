@@ -13,7 +13,7 @@ namespace Git
 
 const QStringList &NonEmptyLinesCommand::lines() const
 {
-    return _lines;
+    return mLines;
 }
 
 NonEmptyLinesCommand::NonEmptyLinesCommand()
@@ -31,7 +31,7 @@ void NonEmptyLinesCommand::parseOutput(const QByteArray &output, const QByteArra
         if (b.isEmpty())
             continue;
 
-        _lines.append(b.trimmed());
+        mLines.append(b.trimmed());
     }
 }
 
