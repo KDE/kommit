@@ -50,7 +50,7 @@ void Remote::parse(const QString &output)
         line = line.trimmed();
 
         if (mode == GitPull) {
-            auto match = regexPull.match(line); // clazy:exclude=use-static-qregularexpression
+            const auto match = regexPull.match(line); // clazy:exclude=use-static-qregularexpression
             if (match.hasMatch()) {
                 RemoteBranch branch;
                 branch.configuredPull = true;
@@ -59,7 +59,7 @@ void Remote::parse(const QString &output)
                 branches.append(branch);
             }
         } else if (mode == GitPush) {
-            auto match = regexPush.match(line); // clazy:exclude=use-static-qregularexpression
+            const auto match = regexPush.match(line); // clazy:exclude=use-static-qregularexpression
             if (match.hasMatch()) {
                 int index{-1};
                 RemoteBranch branch;

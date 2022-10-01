@@ -27,7 +27,7 @@ void NonEmptyLinesCommand::parseOutput(const QByteArray &output, const QByteArra
     const auto out = QString(output).split(QLatin1Char('\n'));
 
     for (const auto &line : out) {
-        auto b = line.trimmed();
+        const auto b = line.trimmed();
         if (b.isEmpty())
             continue;
 
