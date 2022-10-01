@@ -1,7 +1,6 @@
 add_library(libgitklient SHARED)
 
 target_sources(libgitklient PRIVATE
-    branch.cpp
     gitglobal.cpp
     gitloglist.cpp
     gitsubmodule.cpp
@@ -38,7 +37,6 @@ target_sources(libgitklient PRIVATE
     commands/addsubmodulecommand.cpp
     commands/commandaddremote.cpp
 
-    branch.h
     gitglobal.h
     gitloglist.h
     gitsubmodule.h
