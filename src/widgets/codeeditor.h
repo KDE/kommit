@@ -43,6 +43,7 @@ public:
                 int size = -1);
 
     QPair<int, int> blockArea(int from, int to);
+    QPair<int, int> visibleLines() const;
 
     int currentLineNumber() const;
     void gotoLineNumber(int lineNumber);

@@ -11,6 +11,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QPainter>
 #include <QPainterPath>
 
+SegmentConnector::SegmentConnector(QWidget *parent)
+    : QWidget(parent)
+{
+}
+
 const QList<Diff::Segment *> &SegmentConnector::segments() const
 {
     return mSegments;
@@ -51,6 +56,7 @@ void SegmentConnector::setSegments(const QList<Diff::Segment *> &newSegments)
             newIndex += s->newText.size();
         }
     }
+    Q_EMIT segmentsChanged();
 }
 
 Diff::Segment *SegmentConnector::currentSegment() const
@@ -72,11 +78,8 @@ bool SegmentConnector::sameSize() const
 void SegmentConnector::setSameSize(bool newSameSize)
 {
     m_sameSize = newSameSize;
-}
+    Q_EMIT sameSizeChanged();
 
-SegmentConnector::SegmentConnector(QWidget *parent)
-    : QWidget(parent)
-{
 }
 
 CodeEditor *SegmentConnector::left() const

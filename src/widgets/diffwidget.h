@@ -69,4 +69,5 @@ private:
     QTextOption mDefaultOption;
 
     void recalculateInfoPaneSize();
+    void init();
 };

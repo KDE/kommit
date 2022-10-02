@@ -75,6 +75,8 @@ set(WIDGETS_SRC
     widgets/tagswidget.h
     widgets/widgetbase.cpp
     widgets/widgetbase.h
+    widgets/segmentsscrollbar.h
+    widgets/segmentsscrollbar.cpp
 )
 
 set(MODELS_SRC

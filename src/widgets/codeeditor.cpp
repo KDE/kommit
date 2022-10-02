@@ -155,11 +155,8 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
     const auto foldingMarkerSize = fontMetrics().lineSpacing();
     int lineNumber{0};
 
-    auto &emptyFormat = mFormats.value(Empty);
     while (block.isValid() && top <= event->rect().bottom()) {
         if (block.isVisible() && bottom >= event->rect().top()) {
-            auto data = static_cast<SegmentData*>(block.userData());
-
             QBrush bg;
             if (blockNumber >= mCurrentSegment.first && blockNumber <= mCurrentSegment.second)
                 bg = Qt::yellow;
@@ -421,6 +418,19 @@ QPair<int, int> CodeEditor::blockArea(int from, int to)
         bottom = qRound(blockBoundingGeometry(secondBlock).translated(contentOffset()).bottom());
 
     return qMakePair(top, bottom);
+}
+
+QPair<int, int> CodeEditor::visibleLines() const
+{
+    auto block = firstVisibleBlock();
+    auto ret = qMakePair(block.blockNumber(), 0);
+
+//    while (block.isVisible() && block.isValid()) {
+//        ret.second++;// = mSegmentsLineNumbers.value(block);
+//        block = block.next();
+//    }
+    ret.second = (height() - titlebarHeight()) / blockBoundingRect(block).height();
+    return ret;
 }
 
 int CodeEditor::currentLineNumber() const

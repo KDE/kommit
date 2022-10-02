@@ -12,16 +12,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QTextBlock>
 
 
-DiffWidget::DiffWidget(QWidget *parent)
-    : WidgetBase(parent)
-      , mOldFile()
-      , mNewFile()
+void DiffWidget::init()
 {
-    setupUi(this);
     segmentConnector->setMinimumWidth(80);
     segmentConnector->setMaximumWidth(80);
     segmentConnector->setLeft(leftCodeEditor);
     segmentConnector->setRight(rightCodeEditor);
+
+    widgetSegmentsScrollBar->setSegmentConnector(segmentConnector);
 
     connect(leftCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::oldCodeEditor_blockSelected);
     connect(rightCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::newCodeEditor_blockSelected);
@@ -31,7 +29,15 @@ DiffWidget::DiffWidget(QWidget *parent)
     recalculateInfoPaneSize();
 
     mDefaultOption = leftCodeEditor->document()->defaultTextOption();
+}
 
+DiffWidget::DiffWidget(QWidget *parent)
+    : WidgetBase(parent)
+      , mOldFile()
+      , mNewFile()
+{
+    setupUi(this);
+    init();
     showFilesInfo(true);
 }
 
@@ -41,20 +47,7 @@ DiffWidget::DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidg
       , mNewFile(newFile)
 {
     setupUi(this);
-    segmentConnector->setMinimumWidth(80);
-    segmentConnector->setMaximumWidth(80);
-    segmentConnector->setLeft(leftCodeEditor);
-    segmentConnector->setRight(rightCodeEditor);
-
-    connect(leftCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::oldCodeEditor_blockSelected);
-    connect(rightCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::newCodeEditor_blockSelected);
-    connect(leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::oldCodeEditor_scroll);
-    connect(rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::newCodeEditor_scroll);
-
-    recalculateInfoPaneSize();
-
-    mDefaultOption = leftCodeEditor->document()->defaultTextOption();
-
+    init();
     showFilesInfo(true);
 }
 
@@ -188,6 +181,7 @@ void DiffWidget::oldCodeEditor_scroll(int value)
         (int)(((float)value / (float)rightCodeEditor->verticalScrollBar()->maximum()) * (float)rightCodeEditor->verticalScrollBar()->maximum()));
     b = false;
     segmentConnector->update();
+    widgetSegmentsScrollBar->update();
 }
 
 void DiffWidget::newCodeEditor_scroll(int value)
@@ -200,6 +194,7 @@ void DiffWidget::newCodeEditor_scroll(int value)
         (int)(((float)value / (float)leftCodeEditor->verticalScrollBar()->maximum()) * (float)leftCodeEditor->verticalScrollBar()->maximum()));
     b = false;
     segmentConnector->update();
+    widgetSegmentsScrollBar->update();
 }
 
 void DiffWidget::oldCodeEditor_blockSelected()

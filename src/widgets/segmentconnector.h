@@ -37,8 +37,9 @@ public:
     void setTopMargin(int newTopMargin);
 
 Q_SIGNALS:
+    void sameSizeChanged();
+    void segmentsChanged();
 
-    // QWidget interface
 protected:
     void paintEvent(QPaintEvent *event) override;
 
