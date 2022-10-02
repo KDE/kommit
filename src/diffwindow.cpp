@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KActionCollection>
 #include <KLocalizedString>
 
-#include <QDebug>
+#include "gitklient_appdebug.h"
 #include <QDockWidget>
 #include <QTreeView>
 #include <dialogs/diffopendialog.h>
@@ -75,7 +75,7 @@ DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QStrin
 
     for (auto &f : diffs) {
         mDiffModel->addFile(f);
-        //        qDebug() << f.name() << f.status();
+        //        qCDebug(GITKLIENT_LOG) << f.name() << f.status();
         mFilesModel->append(f.name());
     }
     mLeftStorage = mRightStorage = Git;
@@ -113,7 +113,7 @@ void DiffWindow::init(bool showSideBar)
 
     mDock = new QDockWidget(this);
     mDock->setWindowTitle(i18nc("@title:window", "Tree"));
-    mDock->setObjectName("treeViewDock");
+    mDock->setObjectName(QStringLiteral("treeViewDock"));
 
     mTreeView = new DiffTreeView(this);
     connect(mTreeView, &DiffTreeView::fileSelected, this, &DiffWindow::on_treeView_fileSelected);

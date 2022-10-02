@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "overlayplugin.h"
+#include "gitklient_dolphinplugins_debug.h"
 
-#include "../src/git/gitmanager.h"
 #include <QDebug>
 #include <QFileInfo>
 #include <QUrl>
@@ -39,7 +39,7 @@ QString icon(const FileStatus::Status &status)
     case FileStatus::NoGit:
         return {};
     default:
-        qWarning() << "Unknown icon" << status;
+        qCWarning(GIKLIENT_DOLPHIN_PLUGINS_LOG) << "Unknown icon" << status;
     }
     return QStringLiteral("git-status-update");
 }

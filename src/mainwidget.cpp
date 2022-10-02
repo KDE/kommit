@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "diffwindow.h"
 #include "models/treemodel.h"
 
-#include <QDebug>
+#include "gitklient_appdebug.h"
 #include <QMenu>
 #include <QToolButton>
 
@@ -112,7 +112,7 @@ void MainWidget::listButton_clicked()
         return;
 
     int index = btn->property("listIndex").toInt();
-    qDebug() << index << "clicked";
+    qCDebug(GITKLIENT_LOG) << index << "clicked";
     btn->setChecked(true);
     stackedWidget->setCurrentIndex(index);
 }

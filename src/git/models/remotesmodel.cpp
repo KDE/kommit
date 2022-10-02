@@ -9,8 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 //
 
 #include "remotesmodel.h"
-#include "../gitmanager.h"
-#include "../gitremote.h"
+#include "gitmanager.h"
+#include "gitremote.h"
 
 namespace Git
 {
@@ -56,7 +56,7 @@ Remote *RemotesModel::fromIndex(const QModelIndex &index)
 
 Remote *RemotesModel::findByName(const QString &name)
 {
-    for (const auto &d : qAsConst(mData))
+    for (const auto &d : std::as_const(mData))
         if (d->name == name)
             return d;
     return nullptr;
@@ -83,7 +83,7 @@ void RemotesModel::fill()
         return;
 
     auto remotes = mGit->remotes();
-    for (const auto &remote : qAsConst(remotes)) {
+    for (const auto &remote : std::as_const(remotes)) {
         auto r = new Remote;
         r->name = remote;
         auto ret = QString(mGit->runGit({QStringLiteral("remote"), QStringLiteral("show"), remote}));

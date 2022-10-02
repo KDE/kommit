@@ -49,7 +49,7 @@ void RemotesWidget::on_listView_itemActivated(const QModelIndex &index)
     labelDefaultBranch->setText(remote->headBranch);
     treeWidget->clear();
 
-    for (const auto &rb : qAsConst(remote->branches)) {
+    for (const auto &rb : std::as_const(remote->branches)) {
         auto item = new QTreeWidgetItem(treeWidget);
 
         item->setText(0, rb.name);

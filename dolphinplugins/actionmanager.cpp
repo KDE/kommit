@@ -36,7 +36,7 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
 
     auto mainAction = new QAction;
     mainAction->setText(i18n("Git Klient"));
-    mainAction->setIcon(QIcon::fromTheme("gitklient"));
+    mainAction->setIcon(QIcon::fromTheme(QStringLiteral("gitklient")));
 
     auto menu = new QMenu;
 
@@ -96,8 +96,8 @@ QString ActionManager::getCommonPart(const KFileItemList &fileItems)
 
 void ActionManager::addMenuToNonGitFile(QMenu *menu, const QString &path)
 {
-    addMenu(menu, i18n("Clone"), {"clone", path});
-    addMenu(menu, i18n("Init"), {"init", path});
+    addMenu(menu, i18n("Clone"), {QStringLiteral("clone"), path});
+    addMenu(menu, i18n("Init"), {QStringLiteral("init"), path});
 }
 
 void ActionManager::addMenuToGitFile(QMenu *menu, const QString &path, bool isFile, const FileStatus::Status &status)

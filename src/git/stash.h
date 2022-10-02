@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-
+#include "libgitklient_export.h"
 #include <QDateTime>
 #include <QString>
 
@@ -13,7 +13,7 @@ namespace Git
 {
 
 class Manager;
-class Stash
+class LIBGITKLIENT_EXPORT Stash
 {
 
 public:

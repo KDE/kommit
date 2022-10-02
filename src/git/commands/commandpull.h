@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-
+#include "libgitklient_export.h"
 #include "abstractcommand.h"
 
 #ifdef GIT_GUI
@@ -18,7 +18,7 @@ class CommandPullWidget;
 namespace Git
 {
 
-class CommandPull : public AbstractCommand
+class LIBGITKLIENT_EXPORT CommandPull : public AbstractCommand
 {
 public:
     CommandPull();

@@ -30,7 +30,7 @@ private Q_SLOTS:
     void git_finished(int exitCode, QProcess::ExitStatus exitStatus);
 
 private:
-    QProcess *mGit = nullptr;
+    QProcess *mGitProcess = nullptr;
 
     enum Mode { None, RunByArgs, RunByCommand };
     Mode mMode{None};

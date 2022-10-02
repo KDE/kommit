@@ -9,8 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "git/gitmanager.h"
 
 RepoSettingsDialog::RepoSettingsDialog(Git::Manager *git, QWidget *parent)
-    : AppDialog(parent)
-    , mGit(git)
+    : AppDialog(git, parent)
 {
     setupUi(this);
 
@@ -18,9 +17,11 @@ RepoSettingsDialog::RepoSettingsDialog(Git::Manager *git, QWidget *parent)
     lineEditUserEmail->setText(git->config(QStringLiteral("user.email")));
     checkBoxAutoCrlf->setChecked(git->configBool(QStringLiteral("core.autocrlf")));
     checkBoxAutoFileMode->setChecked(git->configBool(QStringLiteral("core.fileMode")));
+
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &RepoSettingsDialog::slotAccepted);
 }
 
-void RepoSettingsDialog::on_buttonBox_accepted()
+void RepoSettingsDialog::slotAccepted()
 {
     mGit->setConfig(QStringLiteral("user.name"), lineEditUserName->text());
     mGit->setConfig(QStringLiteral("user.email"), lineEditUserEmail->text());

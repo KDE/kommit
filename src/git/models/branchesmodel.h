@@ -7,12 +7,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "abstractgititemsmodel.h"
-
+#include "libgitklient_export.h"
 namespace Git
 {
 
 class Manager;
-class BranchesModel : public AbstractGitItemsModel
+class LIBGITKLIENT_EXPORT BranchesModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 

@@ -28,7 +28,7 @@ void MiniManager::setPath(const QString &newPath)
         return;
 
     QProcess p;
-    p.setProgram("git");
+    p.setProgram(QStringLiteral("git"));
     p.setArguments({QStringLiteral("rev-parse"), QStringLiteral("--show-toplevel")});
     p.setWorkingDirectory(newPath);
     p.start();

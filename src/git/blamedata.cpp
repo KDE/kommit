@@ -17,7 +17,7 @@ void BlameData::initCommits(const LogList &logs)
     //    for (auto &l: *this) {
     //        l.log = logs.findByHash(l.commitHash);
     //        if (!l.log ) {
-    //            qDebug() << "No log found";
+    //            qCDebug(GITKLIENTLIB_LOG) << "No log found";
     //        }
     //    }
 }

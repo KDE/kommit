@@ -39,7 +39,7 @@ void ButtonsGroup::buttonClicked()
     if (!btn)
         return;
 
-    for (auto &b : qAsConst(mButtons))
+    for (auto &b : std::as_const(mButtons))
         b->setChecked(b == btn);
 
     auto index = mButtons.indexOf(btn);

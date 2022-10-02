@@ -13,15 +13,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 
 FileHistoryDialog::FileHistoryDialog(QWidget *parent)
-    : AppDialog(parent)
+    : AppDialog(Git::Manager::instance(), parent)
 {
     setupUi(this);
-    mGit = Git::Manager::instance();
 }
 
 FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName, QWidget *parent)
-    : AppDialog(parent)
-    , mGit(git)
+    : AppDialog(git, parent)
     , mFileName(fileName)
 {
     setupUi(this);
@@ -44,8 +42,7 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
 }
 
 FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const Git::File &file, QWidget *parent)
-    : AppDialog(parent)
-    , mGit(git)
+    : AppDialog(git, parent)
 {
     setupUi(this);
 

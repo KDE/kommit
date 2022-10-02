@@ -44,7 +44,7 @@ void AbstractActions::popup(const QPoint &pos)
 void AbstractActions::git_reloaded()
 {
     if (!mGit->isValid()) {
-        for (auto &a : qAsConst(mActions))
+        for (auto &a : std::as_const(mActions))
             a->setEnabled(false);
         mActionStatuses.clear();
         return;

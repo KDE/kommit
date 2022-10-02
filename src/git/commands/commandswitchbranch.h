@@ -5,13 +5,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-
+#include "libgitklient_export.h"
 #include "abstractcommand.h"
 
 namespace Git
 {
 
-class CommandSwitchBranch : public AbstractCommand
+class LIBGITKLIENT_EXPORT CommandSwitchBranch : public AbstractCommand
 {
     Q_OBJECT
 

@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "libgitklient_export.h"
 #include "blamedata.h"
 #include "commands/abstractcommand.h"
 #include "filestatus.h"
@@ -38,7 +39,7 @@ enum LoadFlag {
 Q_DECLARE_FLAGS(LoadFlags, LoadFlag)
 Q_DECLARE_OPERATORS_FOR_FLAGS(LoadFlags)
 
-class Manager : public QObject
+class LIBGITKLIENT_EXPORT Manager : public QObject
 {
     Q_OBJECT
 

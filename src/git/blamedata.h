@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-
+#include "libgitklient_export.h"
 #include "gitloglist.h"
 #include <QString>
 
@@ -19,7 +19,7 @@ struct BlameDataRow {
     Log *log;
 };
 
-class BlameData : public QList<BlameDataRow>
+class LIBGITKLIENT_EXPORT BlameData : public QList<BlameDataRow>
 {
 public:
     BlameData();

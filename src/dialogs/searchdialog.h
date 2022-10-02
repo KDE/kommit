@@ -38,8 +38,6 @@ protected:
     void timerEvent(QTimerEvent *event) override;
 
 private:
-    Git::Manager *mGit = nullptr;
-
     struct {
         int value;
         int total;

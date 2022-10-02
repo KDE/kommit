@@ -1,12 +1,10 @@
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS KIO)
-include_directories(../src ../src/git)
-include(../src/git/CMakeLists.txt)
 
-set(
-    GIT_EXTRA_SOURCE
-    ../src/git/filestatus.cpp
-    ../src/git/gitglobal.cpp
+set(GIT_EXTRA_SOURCE
 )
+
+ecm_qt_declare_logging_category(GIT_EXTRA_SOURCE HEADER gitklient_dolphinplugins_debug.h
+    IDENTIFIER GIKLIENT_DOLPHIN_PLUGINS_LOG CATEGORY_NAME org.kde.gitklient.dolphinplugins DESCRIPTION "gitklient dolphin plugins" EXPORT GITKLIENT)
 
 #---ACTION PLUGIN---
 set(ACTIONS_PLUGIN gitklientitemaction)
@@ -34,6 +32,7 @@ target_link_libraries(
     KF5::WidgetsAddons
     KF5::KIOCore
     KF5::KIOWidgets
+    libgitklient
 )
 
 #---OVERLAY PLUGIN---
@@ -61,4 +60,5 @@ target_link_libraries(
     KF5::CoreAddons
     KF5::KIOCore
     KF5::KIOWidgets
+    libgitklient
 )

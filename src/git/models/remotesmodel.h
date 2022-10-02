@@ -9,14 +9,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 //
 
 #pragma once
-
+#include "libgitklient_export.h"
 #include "abstractgititemsmodel.h"
 
 namespace Git
 {
 class Remote;
 
-class RemotesModel : public AbstractGitItemsModel
+class LIBGITKLIENT_EXPORT RemotesModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 

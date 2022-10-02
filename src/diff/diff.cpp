@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "diff.h"
 
-#include <QDebug>
+#include "gitklient_appdebug.h"
 #include <QDir>
 #include <set>
 
@@ -72,7 +72,7 @@ QSet<Solution> findLCS(QStringList first, QStringList second, int m, int n)
         auto tmp = findLCS(first, second, m - 1, n - 1);
         // append current character to all possible LCS
         // of substring X[0..m-2] and Y[0..n-2].
-        for (auto &str : qAsConst(tmp)) {
+        for (auto &str : std::as_const(tmp)) {
             auto buffer = str;
             buffer.push_back(qMakePair(m - 1, n - 1));
             s.insert(buffer);
@@ -780,7 +780,7 @@ QMap<QString, DiffType> diffDirs(const QString &dir1, const QString &dir2)
     browseDir(files1, "", d1);
     browseDir(files2, "", d2);
 
-    for (const auto &file : qAsConst(files1)) {
+    for (const auto &file : std::as_const(files1)) {
         if (!files2.contains(file)) {
             map.insert(file, DiffType::Removed);
         } else {
@@ -789,7 +789,7 @@ QMap<QString, DiffType> diffDirs(const QString &dir1, const QString &dir2)
         }
     }
 
-    for (const auto &file : qAsConst(files2))
+    for (const auto &file : std::as_const(files2))
         map.insert(file, DiffType::Added);
 
     return map;

@@ -1,4 +1,6 @@
 include_directories(${CMAKE_SOURCE_DIR}/core)
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+add_subdirectory(git)
 
 set(CORE_SRC
     core/appdialog.cpp
@@ -182,10 +184,11 @@ set(APP_SRCS
 )
 
 ecm_qt_declare_logging_category(APP_SRCS
-    HEADER appdebug.h
-    IDENTIFIER GITKLIENT
-    CATEGORY_NAME "gitklient"
+    HEADER gitklient_appdebug.h
+    IDENTIFIER GITKLIENT_LOG
+    CATEGORY_NAME "org.kde.gitklient" DESCRIPTION "gitklient" EXPORT GITKLIENT
 )
+
 kconfig_add_kcfg_files(APP_SRCS settings/GitKlientSettings.kcfgc)
 
 add_compile_definitions(GIT_GUI)
@@ -237,23 +240,22 @@ ki18n_wrap_ui(
     dialogs/notedialog.ui
 )
 
-include(git/CMakeLists.txt)
-
-
 if(QT_VERSION_MAJOR GREATER_EQUAL 6)
     qt_add_executable(
         gitklient
         MANUAL_FINALIZATION
-        ${APP_SRCS} ${GIT_SOURCE}
+        ${APP_SRCS}
     )
 else()
-    add_executable(gitklient ${APP_SRCS} ${GIT_SOURCE})
+    add_executable(gitklient ${APP_SRCS})
 endif()
 
 target_link_libraries(gitklient
     Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Concurrent
+
+    libgitklient
 
     KF5::CoreAddons
     KF5::I18n

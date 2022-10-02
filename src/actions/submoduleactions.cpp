@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "git/models/submodulesmodel.h"
 
 #include <QAction>
-#include <QDebug>
+#include "gitklient_appdebug.h"
 
 #include <QDir>
 #include <klocalizedstring.h>
@@ -77,15 +77,15 @@ void SubmoduleActions::deinit()
     if (r == KMessageBox::No)
         return;
 
-    qDebug() << mGit->runGit({"submodule", "deinit", "-f", "--", mSubModuleName});
-    qDebug() << mGit->runGit({"rm", mSubModuleName});
+    qCDebug(GITKLIENT_LOG) << mGit->runGit({"submodule", "deinit", "-f", "--", mSubModuleName});
+    qCDebug(GITKLIENT_LOG) << mGit->runGit({"rm", mSubModuleName});
 
     QDir d(mGit->path() + "/.git/modules/" + mSubModuleName);
     if (!d.removeRecursively()) {
         KMessageBox::error(mParent, i18n("Unable to remove the module directory"));
         return;
     }
-    qDebug() << d.path();
+    qCDebug(GITKLIENT_LOG) << d.path();
     mGit->runGit({"config", "--remove-section", "submodule." + mSubModuleName});
 
     mGit->submodulesModel()->load();

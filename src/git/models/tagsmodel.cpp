@@ -5,10 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tagsmodel.h"
-#include "../gitmanager.h"
-#include "../gittag.h"
+#include "gitmanager.h"
+#include "gittag.h"
 
-#include <QDebug>
+#include "libgitklient_debug.h"
 
 #include <klocalizedstring.h>
 
@@ -81,7 +81,7 @@ void TagsModel::fill()
     qDeleteAll(mData);
     mData.clear();
     const auto list = mGit->readAllNonEmptyOutput({QStringLiteral("--no-pager"), QStringLiteral("tag"), QStringLiteral("--list"), QStringLiteral("--format=%(subject)>%(tag)>%(taggername)")});
-    qDebug() << list;
+    qCDebug(GITKLIENTLIB_LOG) << list;
     for (const auto &i : list) {
         auto parts = i.split(QLatin1Char('>'));
         if (parts.size() != 3)

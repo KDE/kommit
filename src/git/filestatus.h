@@ -8,8 +8,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QObject>
 #include <QString>
+#include "libgitklient_export.h"
 
-class FileStatus
+class LIBGITKLIENT_EXPORT FileStatus
 {
 public:
     enum Status {

@@ -13,8 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <klocalizedstring.h>
 
 FileBlameDialog::FileBlameDialog(Git::Manager *git, const QString &fileName, QWidget *parent)
-    : AppDialog(parent)
-    , mGit(git)
+    : AppDialog(git, parent)
     , mFileName(fileName)
 {
     setupUi(this);
@@ -28,8 +27,7 @@ FileBlameDialog::FileBlameDialog(Git::Manager *git, const QString &fileName, QWi
 }
 
 FileBlameDialog::FileBlameDialog(const Git::File &file, QWidget *parent)
-    : AppDialog(parent)
-    , mGit(Git::Manager::instance())
+    : AppDialog(Git::Manager::instance(), parent)
     , mFile(file)
 {
     setupUi(this);

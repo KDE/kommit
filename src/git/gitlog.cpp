@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitlog.h"
 
-#include <QDebug>
+#include "libgitklient_debug.h"
 #include <utility>
 
 namespace Git
@@ -76,7 +76,7 @@ Log::Log(QString authorName,
 
 Log::~Log()
 {
-    qDebug() << "~";
+    qCDebug(GITKLIENTLIB_LOG) << "~";
 }
 
 const QString &Log::authorName() const

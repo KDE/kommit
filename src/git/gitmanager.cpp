@@ -10,7 +10,7 @@
 #include "models/submodulesmodel.h"
 #include "models/tagsmodel.h"
 
-#include <QDebug>
+#include "libgitklient_debug.h"
 #include <QFile>
 #include <QProcess>
 #include <QtConcurrent>
@@ -29,8 +29,8 @@ void Manager::setPath(const QString &newPath)
         return;
 
     QProcess p;
-    p.setProgram("git");
-    p.setArguments({"rev-parse", "--show-toplevel"});
+    p.setProgram(QStringLiteral("git"));
+    p.setArguments({QStringLiteral("rev-parse"), QStringLiteral("--show-toplevel")});
     p.setWorkingDirectory(newPath);
     p.start();
     p.waitForFinished();
@@ -44,7 +44,7 @@ void Manager::setPath(const QString &newPath)
         _isValid = true;
         loadAsync();
 
-        setIsMerging(QFile::exists(mPath + "/.git/MERGE_HEAD"));
+        setIsMerging(QFile::exists(mPath + QStringLiteral("/.git/MERGE_HEAD")));
     }
 
     Q_EMIT pathChanged();
@@ -53,24 +53,24 @@ void Manager::setPath(const QString &newPath)
 QMap<QString, Manager::ChangeStatus> Manager::changedFiles(const QString &hash) const
 {
     QMap<QString, Manager::ChangeStatus> statuses;
-    auto buffer = QString(runGit({"show", "--name-status", hash})).split("\n");
+    auto buffer = QString(runGit({QStringLiteral("show"), QStringLiteral("--name-status"), hash})).split(QLatin1Char('\n'));
 
     for (auto &line : buffer) {
         if (!line.trimmed().size())
             continue;
 
-        auto parts = line.split("\t");
+        auto parts = line.split(QLatin1Char('\t'));
         if (parts.size() != 2)
             continue;
 
-        if (parts.at(0) == "A")
+        if (parts.at(0) == QLatin1Char('A'))
             statuses.insert(parts.at(1), Added);
-        else if (parts.at(0) == "M")
+        else if (parts.at(0) == QLatin1Char('M'))
             statuses.insert(parts.at(1), Modified);
-        else if (parts.at(0) == "D")
+        else if (parts.at(0) == QLatin1Char('D'))
             statuses.insert(parts.at(1), Removed);
         else
-            qDebug() << "Unknown file status" << parts.at(0);
+            qCDebug(GITKLIENTLIB_LOG) << "Unknown file status" << parts.at(0);
     }
     return statuses;
 }
@@ -82,14 +82,14 @@ QStringList Manager::ignoredFiles() const
 
 QList<FileStatus> Manager::repoFilesStatus() const
 {
-    auto buffer = QString(runGit({"status", "--untracked-files=all", "--ignored", "--short", "--ignore-submodules", "--porcelain"})).split("\n");
+    const auto buffer = QString(runGit({"status", "--untracked-files=all", "--ignored", "--short", "--ignore-submodules", "--porcelain"})).split(QLatin1Char('\n'));
     QList<FileStatus> files;
-    for (auto &item : buffer) {
+    for (const auto &item : buffer) {
         if (!item.trimmed().size())
             continue;
         FileStatus fs;
         fs.parseStatusLine(item);
-        //        qDebug() << "[STATUS]" << fs.name() << fs.status();
+        //        qCDebug(GITKLIENTLIB_LOG) << "[STATUS]" << fs.name() << fs.status();
         fs.setFullPath(mPath + QLatin1Char('/') + fs.name());
         files.append(fs);
     }
@@ -98,11 +98,11 @@ QList<FileStatus> Manager::repoFilesStatus() const
 
 QList<Manager::Log *> Manager::log(const QString &branch) const
 {
-    auto lines = QString(runGit({"--no-pager", "log", branch})).split("\n");
+    const auto lines = QString(runGit({QStringLiteral("--no-pager"), QStringLiteral("log"), branch})).split(QLatin1Char('\n'));
 
     QList<Log *> logs;
     Log *log{nullptr};
-    for (auto &line : lines) {
+    for (const auto &line : lines) {
         if (line.startsWith("commit ")) {
             if (log)
                 logs.append(log);
@@ -137,26 +137,26 @@ bool Manager::isValid() const
 
 bool Manager::addRemote(const QString &name, const QString &url) const
 {
-    runGit({"remote", "add", name, url});
+    runGit({QStringLiteral("remote"), QStringLiteral("add"), name, url});
     return true;
 }
 
 bool Manager::removeRemote(const QString &name) const
 {
-    runGit({"remote", "remove", name});
+    runGit({QStringLiteral("remote"), QStringLiteral("remove"), name});
     return true;
 }
 
 bool Manager::renameRemote(const QString &name, const QString &newName) const
 {
-    runGit({"remote", "rename", name, newName});
+    runGit({QStringLiteral("remote"), QStringLiteral("rename"), name, newName});
     return true;
 }
 
 bool Manager::isIgnored(const QString &path)
 {
     auto tmp = readAllNonEmptyOutput({"check-ignore", path});
-    qDebug() << Q_FUNC_INFO << tmp;
+    qCDebug(GITKLIENTLIB_LOG) << Q_FUNC_INFO << tmp;
     return !tmp.empty();
 }
 
@@ -186,7 +186,7 @@ QString Manager::diff(const QString &from, const QString &to) const
 
 QList<FileStatus> Manager::diffBranch(const QString &from) const
 {
-    auto buffer = QString(runGit({"diff", from, "--name-status"})).split("\n");
+    auto buffer = QString(runGit({"diff", from, "--name-status"})).split(QLatin1Char('\n'));
     QList<FileStatus> files;
     for (auto &item : buffer) {
         if (!item.trimmed().size())
@@ -205,7 +205,7 @@ QList<FileStatus> Manager::diffBranch(const QString &from) const
 
 QList<FileStatus> Manager::diffBranches(const QString &from, const QString &to) const
 {
-    auto buffer = QString(runGit({"diff", from + ".." + to, "--name-status"})).split("\n");
+    auto buffer = QString(runGit({"diff", from + ".." + to, "--name-status"})).split(QLatin1Char('\n'));
     QList<FileStatus> files;
     for (auto &item : buffer) {
         if (!item.trimmed().size())
@@ -277,7 +277,7 @@ void Manager::unsetConfig(const QString &name, ConfigType type) const
 QStringList Manager::readAllNonEmptyOutput(const QStringList &cmd) const
 {
     QStringList list;
-    auto out = QString(runGit(cmd)).split("\n");
+    auto out = QString(runGit(cmd)).split(QLatin1Char('\n'));
 
     for (auto &line : out) {
         auto b = line.trimmed();
@@ -425,7 +425,7 @@ bool Manager::isGitDir() const
 
 QByteArray Manager::runGit(const QStringList &args) const
 {
-    //    qDebug().noquote() << "Running: git " << args.join(" ");
+    //    qCDebug(GITKLIENTLIB_LOG).noquote() << "Running: git " << args.join(" ");
 
     QProcess p;
     p.setProgram("git");
@@ -436,7 +436,7 @@ QByteArray Manager::runGit(const QStringList &args) const
     auto out = p.readAllStandardOutput();
     auto err = p.readAllStandardError();
     Q_UNUSED(err)
-    //    qDebug() << err;
+    //    qCDebug(GITKLIENTLIB_LOG) << err;
     return out; // + err;
 }
 
@@ -470,7 +470,7 @@ void Manager::saveFile(const QString &place, const QString &fileName, const QStr
 QStringList Manager::branches() const
 {
     QStringList branchesList;
-    auto out = QString(runGit({"branch", "--list"})).split("\n");
+    auto out = QString(runGit({"branch", "--list"})).split(QLatin1Char('\n'));
 
     for (auto &line : out) {
         auto b = line.trimmed();
@@ -490,7 +490,7 @@ QStringList Manager::branches() const
 QStringList Manager::remoteBranches() const
 {
     QStringList branchesList;
-    auto out = QString(runGit({"branch", "--remote", "--list"})).split("\n");
+    auto out = QString(runGit({"branch", "--remote", "--list"})).split(QLatin1Char('\n'));
 
     for (auto &line : out) {
         auto b = line.trimmed();
@@ -525,7 +525,7 @@ QList<Stash> Manager::stashes()
     QList<Stash> ret;
     auto list = readAllNonEmptyOutput({"stash", "list", "--format=format:%s%m%an%m%ae%m%aD"});
     int id{0};
-    for (const auto &item : qAsConst(list)) {
+    for (const auto &item : std::as_const(list)) {
         auto parts = item.split(">");
         if (parts.size() != 4)
             continue;
@@ -537,7 +537,7 @@ QList<Stash> Manager::stashes()
         stash.mAuthorName = parts.at(1);
         stash.mAuthorEmail = parts.at(2);
         stash.mPushTime = QDateTime::fromString(parts.at(3), Qt::RFC2822Date);
-        qDebug() << item << subject << stash.mPushTime;
+        qCDebug(GITKLIENTLIB_LOG) << item << subject << stash.mPushTime;
 
         ret.append(stash);
         id++;
@@ -553,7 +553,7 @@ void Manager::createStash(const QString &name) const
         args.append({"--message", name});
 
     auto ret = runGit(args);
-    qDebug() << ret;
+    qCDebug(GITKLIENTLIB_LOG) << ret;
 }
 
 bool Manager::removeStash(const QString &name) const
@@ -604,7 +604,7 @@ BlameData Manager::blame(const File &file)
             hash = hash.remove(0, 1);
         auto log = _logsCache->findLogByHash(hash);
         //        if (!log)
-        //            qDebug() << "Log not found" << hash;
+        //            qCDebug(GITKLIENTLIB_LOG) << "Log not found" << hash;
         row.log = log;
         auto parts = line.split("\t");
         b.append(row);
@@ -646,7 +646,7 @@ QMap<QString, Manager::ChangeStatus> Manager::changedFiles() const
 {
     // status --untracked-files=all --ignored --short --ignore-submodules --porcelain
     QMap<QString, Manager::ChangeStatus> statuses;
-    auto buffer = QString(runGit({"status", "--short"})).split("\n");
+    auto buffer = QString(runGit({"status", "--short"})).split(QLatin1Char('\n'));
 
     for (auto &line : buffer) {
         if (!line.trimmed().size())

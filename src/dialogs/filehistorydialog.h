@@ -28,6 +28,5 @@ private Q_SLOTS:
     void on_listWidget_itemClicked(QListWidgetItem *item);
 
 private:
-    Git::Manager *mGit = nullptr;
     QString mFileName;
 };

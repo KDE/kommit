@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitremote.h"
 #include <KLocalizedString>
-#include <QDebug>
+#include "libgitklient_debug.h"
 #include <QRegularExpression>
 
 namespace Git
@@ -50,7 +50,7 @@ void Remote::parse(const QString &output)
         line = line.trimmed();
 
         if (mode == GitPull) {
-            auto match = regexPull.match(line); // clazy:exclude=use-static-qregularexpression
+            const auto match = regexPull.match(line); // clazy:exclude=use-static-qregularexpression
             if (match.hasMatch()) {
                 RemoteBranch branch;
                 branch.configuredPull = true;
@@ -59,7 +59,7 @@ void Remote::parse(const QString &output)
                 branches.append(branch);
             }
         } else if (mode == GitPush) {
-            auto match = regexPush.match(line); // clazy:exclude=use-static-qregularexpression
+            const auto match = regexPush.match(line); // clazy:exclude=use-static-qregularexpression
             if (match.hasMatch()) {
                 int index{-1};
                 RemoteBranch branch;
@@ -80,7 +80,7 @@ void Remote::parse(const QString &output)
                 else if (match.captured(3) == QStringLiteral("local out of date"))
                     branch.status = RemoteBranch::Status::LocalOutOfDate;
                 else
-                    qDebug() << "Unknown status" << match.captured(3);
+                    qCDebug(GITKLIENTLIB_LOG) << "Unknown status" << match.captured(3);
 
                 branch.remotePushBranch = match.captured(2);
 
@@ -106,7 +106,7 @@ void Remote::parse(const QString &output)
             continue;
         }
     }
-    qDebug() << branches.size();
+    qCDebug(GITKLIENTLIB_LOG) << branches.size();
 }
 
 QString RemoteBranch::statusText() const
