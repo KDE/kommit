@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "actions/branchactions.h"
 #include "git/gitmanager.h"
 #include "git/models/branchesmodel.h"
+#include <QDebug>
 
 BranchesStatusWidget::BranchesStatusWidget(QWidget *parent)
     : WidgetBase(parent)
@@ -58,6 +59,7 @@ void BranchesStatusWidget::on_comboBoxReferenceBranch_currentIndexChanged(const 
 
 void BranchesStatusWidget::on_pushButtonRemoveSelected_clicked()
 {
+    qWarning() << " Unimplemented";
     //    if (!treeWidgetBranches->currentItem())
     //        return;
 
@@ -84,6 +86,7 @@ void BranchesStatusWidget::on_treeView_customContextMenuRequested(const QPoint &
 
 void BranchesStatusWidget::reload()
 {
+    qWarning() << " Unimplemented";
     /*comboBoxReferenceBranch->clear();
 
     _branches = this->git()->branches();
