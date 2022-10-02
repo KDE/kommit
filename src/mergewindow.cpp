@@ -134,7 +134,7 @@ void MergeWindow::load()
     mDiffs = Diff::diff3(baseList, localList, remoteList);
     mMapper->setSegments(mDiffs);
     QList<Diff::Segment *> segments;
-    for (auto &s : mDiffs) {
+    for (const auto &s : std::as_const(mDiffs)) {
         segments.append(s);
     }
     m_ui.widgetSegmentsConnector->setSegments(segments);
@@ -144,7 +144,7 @@ void MergeWindow::load()
 
     //    m_ui.plainTextEditResult->setVisible(false);
 
-    for (auto &d : mDiffs) {
+    for (const auto &d : std::as_const(mDiffs)) {
         switch (d->type) {
         case Diff::SegmentType::SameOnBoth: {
             m_ui.plainTextEditMine->append(d->base, CodeEditor::Unchanged, d);
@@ -200,7 +200,7 @@ void MergeWindow::load()
 void MergeWindow::updateResult()
 {
     m_ui.plainTextEditResult->clearAll();
-    for (auto &d : mDiffs) {
+    for (const auto &d : std::as_const(mDiffs)) {
         if (d->type == Diff::SegmentType::SameOnBoth) {
             m_ui.plainTextEditResult->append(d->base, CodeEditor::Unchanged, d);
             continue;
@@ -352,9 +352,9 @@ void MergeWindow::doMergeAction(Diff::MergeType type)
     mMapper->setCurrentSegment(s);
 }
 
-bool MergeWindow::isFullyResolved()
+bool MergeWindow::isFullyResolved() const
 {
-    for (auto &d : mDiffs)
+    for (const auto &d : std::as_const(mDiffs))
         if (d->mergeType == Diff::None && d->type == Diff::SegmentType::DifferentOnBoth)
             return false;
     return true;

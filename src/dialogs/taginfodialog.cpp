@@ -10,6 +10,7 @@ TagInfoDialog::TagInfoDialog(QWidget *parent)
     : AppDialog(parent)
 {
     setupUi(this);
+    setWindowTitle(i18nc("@title:window", "New tag"));
 }
 
 QString TagInfoDialog::tagName() const

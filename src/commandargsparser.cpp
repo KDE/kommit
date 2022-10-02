@@ -164,7 +164,7 @@ ArgParserReturn CommandArgsParser::help()
 
     for (auto i = metaObject()->classInfoOffset(); i < metaObject()->classInfoCount(); i++) {
         auto name = QString(metaObject()->classInfo(i).name());
-        auto value = QString(metaObject()->classInfo(i).value());
+        const auto value = QString(metaObject()->classInfo(i).value());
 
         if (!name.startsWith(QStringLiteral("help.")))
             continue;
@@ -268,7 +268,7 @@ ArgParserReturn CommandArgsParser::create_tag(const QString &path)
     checkGitPath(path);
 
     TagInfoDialog d(nullptr);
-    d.setWindowTitle(i18nc("@title:window", "New tag"));
+
     if (d.exec() == QDialog::Accepted) {
         git->createTag(d.tagName(), d.message());
     }

@@ -61,7 +61,7 @@ private:
     void initActions();
     void init();
     void doMergeAction(Diff::MergeType type);
-    bool isFullyResolved();
+    bool isFullyResolved() const;
 
     QList<Diff::MergeSegment *> mDiffs;
     QMenu *mCodeEditorContextMenu = nullptr;
