@@ -59,6 +59,7 @@ void BranchesStatusWidget::on_comboBoxReferenceBranch_currentIndexChanged(const 
 
 void BranchesStatusWidget::on_pushButtonRemoveSelected_clicked()
 {
+    // TODO implement remove .
     qWarning() << " Unimplemented";
     //    if (!treeWidgetBranches->currentItem())
     //        return;
@@ -86,6 +87,7 @@ void BranchesStatusWidget::on_treeView_customContextMenuRequested(const QPoint &
 
 void BranchesStatusWidget::reload()
 {
+    // TODO implement reload method.
     qWarning() << " Unimplemented";
     /*comboBoxReferenceBranch->clear();
 
