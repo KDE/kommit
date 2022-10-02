@@ -84,7 +84,7 @@ QWidget *SettingsManager::createGitPage()
 
 void SettingsManager::exec(QWidget *parentWidget)
 {
-    auto name = QStringLiteral("settings");
+    const auto name = QStringLiteral("settings");
     auto dialog = KConfigDialog::exists(name);
 
     if (dialog) {
