@@ -153,7 +153,6 @@ set(DIALOGS_SRC
 )
 
 set(APP_SRCS
-#    ${GIT_SRC}
     ${DIFF_SRC}
     ${CORE_WIDGETS_SRC}
     ${MODELS_SRC}
