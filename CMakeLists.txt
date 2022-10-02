@@ -110,6 +110,8 @@ if (GITKLIENT_BUILD_DIR)
     message("-- Version in file ${GITKLIENT_BUILD_DIR}/version saved")
 endif()
 
+ki18n_install(po)
+
 #CPack
 set(CPACK_PACKAGE_NAME ${PROJECT_NAME}
     CACHE STRING "The resulting package name"
