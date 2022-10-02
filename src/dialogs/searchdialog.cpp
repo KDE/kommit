@@ -61,7 +61,7 @@ void SearchDialog::on_treeView_doubleClicked(QModelIndex index)
 
     QString place;
     if (!commit.isEmpty() && !branch.isEmpty())
-        place = branch + ":" + commit;
+        place = branch + QLatin1Char(':') + commit;
     else
         place = branch.isEmpty() ? commit : branch;
 

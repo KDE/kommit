@@ -253,7 +253,7 @@ void MergeWindow::updateResult()
             break;
 
         default:
-            m_ui.plainTextEditResult->append("***", CodeEditor::Edited, d);
+            m_ui.plainTextEditResult->append(QStringLiteral("***"), CodeEditor::Edited, d);
             break;
         }
     }
@@ -318,7 +318,7 @@ void MergeWindow::initActions()
 
     auto actionGotoNextDiff = actionCollection->addAction("goto_next_diff", this, &MergeWindow::actionGotoNextDiff_clicked);
     actionGotoNextDiff->setText(i18n("Next diff"));
-    actionGotoNextDiff->setIcon(QIcon::fromTheme("diff-goto-next-diff"));
+    actionGotoNextDiff->setIcon(QIcon::fromTheme(QStringLiteral("diff-goto-next-diff")));
     actionCollection->setDefaultShortcut(actionGotoNextDiff, QKeySequence(Qt::Key_PageDown));
 
     KStandardAction::open(this, &MergeWindow::fileOpen, actionCollection);

@@ -126,7 +126,7 @@ void DiffWindow::init(bool showSideBar)
     //_treeView->setDiffModel(_diffModel, _filesModel);
 
     initActions();
-    setupGUI(StandardWindowOption::Default, "gitklientdiffui.rc");
+    setupGUI(StandardWindowOption::Default, QStringLiteral("gitklientdiffui.rc"));
 
     mDock->setVisible(showSideBar);
 }

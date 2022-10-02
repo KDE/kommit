@@ -50,7 +50,7 @@ FileViewerDialog::FileViewerDialog(Git::Manager *git, const Git::File &file, QWi
 FileViewerDialog::~FileViewerDialog()
 {
     QSettings s;
-    s.setValue("FileViewerDialog_Geometry", saveGeometry());
+    s.setValue(QStringLiteral("FileViewerDialog_Geometry"), saveGeometry());
 
     if (!mFilePath.isEmpty() && QFile::exists(mFilePath))
         QFile::remove(mFilePath);
