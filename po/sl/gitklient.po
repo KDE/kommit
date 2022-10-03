@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-01 00:51+0000\n"
+"POT-Creation-Date: 2022-10-03 00:51+0000\n"
 "PO-Revision-Date: 2022-10-01 06:33+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -374,7 +374,7 @@ msgstr "Nova oznaka..."
 msgid "Push..."
 msgstr "Porini..."
 
-#: src/actions/tagsactions.cpp:47 src/commandargsparser.cpp:271
+#: src/actions/tagsactions.cpp:47 src/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-01 00:51+0000\n"
+"POT-Creation-Date: 2022-10-03 00:51+0000\n"
 "PO-Revision-Date: 2022-09-18 18:37+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -372,7 +372,7 @@ msgstr "Nueva etiqueta..."
 msgid "Push..."
 msgstr "Enviar..."
 
-#: src/actions/tagsactions.cpp:47 src/commandargsparser.cpp:271
+#: src/actions/tagsactions.cpp:47 src/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
