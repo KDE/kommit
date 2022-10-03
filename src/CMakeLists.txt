@@ -1,6 +1,6 @@
 include_directories(${CMAKE_SOURCE_DIR}/core)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-add_subdirectory(git)
+add_subdirectory(libgitklient)
 
 set(CORE_SRC
     core/appdialog.cpp
