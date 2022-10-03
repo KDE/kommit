@@ -42,20 +42,20 @@ SubmoduleActions::SubmoduleActions(Git::Manager *git, QWidget *parent)
     //    _actionDeinit = addAction(i18n("Remove..."), this, &SubmoduleActions::deinit, false);
     _actionSync = addAction(i18n("Sync..."), this, &SubmoduleActions::sync, false);
 
-    _actionCreate->setIcon(QIcon::fromTheme("list-add"));
+    _actionCreate->setIcon(QIcon::fromTheme(QStringLiteral("list-add")));
 }
 
 void SubmoduleActions::init()
 {
     RunnerDialog d(mParent);
-    d.run({"submodule", "init", mSubModuleName});
+    d.run({QStringLiteral("submodule"), QStringLiteral("init"), mSubModuleName});
     d.exec();
 }
 
 void SubmoduleActions::update()
 {
     RunnerDialog d(mParent);
-    d.run({"submodule", "update", mSubModuleName});
+    d.run({QStringLiteral("submodule"), QStringLiteral("update"), mSubModuleName});
     d.exec();
 }
 
@@ -78,7 +78,7 @@ void SubmoduleActions::deinit()
         return;
 
     qCDebug(GITKLIENT_LOG) << mGit->runGit({"submodule", "deinit", "-f", "--", mSubModuleName});
-    qCDebug(GITKLIENT_LOG) << mGit->runGit({"rm", mSubModuleName});
+    qCDebug(GITKLIENT_LOG) << mGit->runGit({QStringLiteral("rm"), mSubModuleName});
 
     QDir d(mGit->path() + "/.git/modules/" + mSubModuleName);
     if (!d.removeRecursively()) {
@@ -86,7 +86,7 @@ void SubmoduleActions::deinit()
         return;
     }
     qCDebug(GITKLIENT_LOG) << d.path();
-    mGit->runGit({"config", "--remove-section", "submodule." + mSubModuleName});
+    mGit->runGit({QStringLiteral("config"), QStringLiteral("--remove-section"), QStringLiteral("submodule.") + mSubModuleName});
 
     mGit->submodulesModel()->load();
     KMessageBox::information(mParent, i18n("The submodule %1 removed", mSubModuleName));
@@ -95,6 +95,6 @@ void SubmoduleActions::deinit()
 void SubmoduleActions::sync()
 {
     RunnerDialog d(mParent);
-    d.run({"submodule", "sync", mSubModuleName});
+    d.run({QStringLiteral("submodule"), QStringLiteral("sync"), mSubModuleName});
     d.exec();
 }

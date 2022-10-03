@@ -184,7 +184,7 @@ void FileActions::mergeWithHead()
 {
     auto d = new MergeWindow(MergeWindow::NoParams);
 
-    auto p = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/ggggg";
+    auto p = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/ggggg");
     Git::File f{mPlace, mFilePath};
     f.save(p);
 

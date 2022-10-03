@@ -67,7 +67,7 @@ QVariant HistoryModel::data(const QModelIndex &index, int role) const
     if (mBranch.isEmpty()) {
         switch (index.column()) {
         case 0:
-            return "";
+            return QString();
         case 1:
             return log->subject();
         }

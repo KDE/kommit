@@ -58,7 +58,7 @@ void TagsActions::remove()
     if (r == KMessageBox::No)
         return;
 
-    mGit->runGit({"tag", "-d", mTagName});
+    mGit->runGit({QStringLiteral("tag"), QStringLiteral("-d"), mTagName});
     mGit->tagsModel()->load();
 }
 
@@ -69,18 +69,18 @@ void TagsActions::checkout()
     if (r == KMessageBox::No)
         return;
 
-    mGit->runGit({"tag", "checkout", "tags/" + mTagName});
+    mGit->runGit({QStringLiteral("tag"), QStringLiteral("checkout"), QStringLiteral("tags/") + mTagName});
 }
 
 void TagsActions::diff()
 {
-    auto d = new DiffWindow(mTagName, "HEAD");
+    auto d = new DiffWindow(mTagName, QStringLiteral("HEAD"));
     d->showModal();
 }
 
 void TagsActions::push()
 {
     RunnerDialog d(mParent);
-    d.run({"push", "--tags"});
+    d.run({QStringLiteral("push"), QStringLiteral("--tags")});
     d.exec();
 }

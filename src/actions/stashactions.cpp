@@ -66,14 +66,14 @@ void StashActions::pop()
     auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStashName));
 
     if (r == KMessageBox::Yes) {
-        mGit->runGit({"stash", "push", mStashName});
+        mGit->runGit({QStringLiteral("stash"), QStringLiteral("push"), mStashName});
         mGit->stashesModel()->load();
     }
 }
 
 void StashActions::diff()
 {
-    auto d = new DiffWindow(mGit, mStashName, "HEAD");
+    auto d = new DiffWindow(mGit, mStashName, QStringLiteral("HEAD"));
     d->showModal();
 }
 

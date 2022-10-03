@@ -44,12 +44,12 @@ void CommitActions::browse()
 void CommitActions::checkout()
 {
     RunnerDialog d(mParent);
-    d.run({"checkout", mCommitHash});
+    d.run({QStringLiteral("checkout"), mCommitHash});
     d.exec();
 }
 
 void CommitActions::diff()
 {
-    auto d = new DiffWindow(mGit, mCommitHash, "HEAD");
+    auto d = new DiffWindow(mGit, mCommitHash, QStringLiteral("HEAD"));
     d->showModal();
 }

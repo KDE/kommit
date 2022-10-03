@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "remotesactions.h"
+#include "gitklient_appdebug.h"
 
 #include <QInputDialog>
 #include <klocalizedstring.h>
@@ -88,4 +89,6 @@ void RemotesActions::rename()
 
 void RemotesActions::update()
 {
+    // TODO implement it.
+    qCWarning(GITKLIENT_LOG) << "RemotesActions::update not implemented";
 }

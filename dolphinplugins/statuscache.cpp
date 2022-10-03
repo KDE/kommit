@@ -16,9 +16,9 @@ bool StatusCache::addPath(const QString &path)
     if (!git.isValid())
         return false;
 
-    auto statuses = git.repoFilesStatus();
+    const auto statuses = git.repoFilesStatus();
 
-    for (const auto &s : std::as_const(statuses)) {
+    for (const auto &s : statuses) {
         mStatuses.insert(git.path() + QLatin1Char('/') + s.name(), s.status());
     }
     return true;
