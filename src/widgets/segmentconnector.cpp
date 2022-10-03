@@ -120,8 +120,8 @@ void SegmentConnector::paintEvent(QPaintEvent *event)
     for (auto s = mSegmentPos.begin(); s != mSegmentPos.end(); ++s) {
         if (s.key()->type == Diff::SegmentType::SameOnBoth)
             continue;
-        auto leftArea = mLeft->blockArea(s->leftStart, s->leftEnd);
-        auto rightArea = mRight->blockArea(s->rightStart, s->rightEnd);
+        const auto leftArea = mLeft->blockArea(s->leftStart, s->leftEnd);
+        const auto rightArea = mRight->blockArea(s->rightStart, s->rightEnd);
 
         //        if (s == _currentSegment)
         //            painter.setBrush(Qt::yellow);

@@ -43,10 +43,10 @@ void LogDetailsWidget::createText()
         clear();
         return;
     }
-    auto files = Git::Manager::instance()->changedFiles(mLog->commitHash());
+    const auto files = Git::Manager::instance()->changedFiles(mLog->commitHash());
     QStringList filesHtml;
 
-    for (auto i = files.begin(); i != files.end(); ++i) {
+    for (auto i = files.constBegin(); i != files.constEnd(); ++i) {
         QString color;
         switch (i.value()) {
         case Git::Manager::Modified:

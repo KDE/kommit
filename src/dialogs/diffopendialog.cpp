@@ -18,7 +18,7 @@ DiffOpenDialog::DiffOpenDialog(QWidget *parent)
     widgetSelectDirectories->hide();
 
     QSettings s;
-    s.beginGroup("diff");
+    s.beginGroup(QStringLiteral("diff"));
     lineEditOldFile->setText(s.value("oldFile").toString());
     lineEditNewFile->setText(s.value("newFile").toString());
     lineEditOldDirectory->setText(s.value("oldDir").toString());
@@ -29,7 +29,7 @@ DiffOpenDialog::DiffOpenDialog(QWidget *parent)
 DiffOpenDialog::~DiffOpenDialog()
 {
     QSettings s;
-    s.beginGroup("diff");
+    s.beginGroup(QStringLiteral("diff"));
     s.setValue("oldFile", lineEditOldFile->text());
     s.setValue("newFile", lineEditNewFile->text());
     s.setValue("oldDir", lineEditOldDirectory->text());

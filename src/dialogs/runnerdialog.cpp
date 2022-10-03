@@ -15,10 +15,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 RunnerDialog::RunnerDialog(QWidget *parent)
     : AppDialog(parent)
+    , mGitProcess(new QProcess{this})
 {
     setupUi(this);
 
-    mGitProcess = new QProcess{this};
     mGitProcess->setProgram(QStringLiteral("git"));
     mGitProcess->setWorkingDirectory(Git::Manager::instance()->path());
 
@@ -48,7 +48,7 @@ void RunnerDialog::run(Git::AbstractCommand *command)
     }
 
     const auto args = command->generateArgs();
-    lineEditCommand->setText("git " + args.join(QLatin1Char(' ')));
+    lineEditCommand->setText(QStringLiteral("git ") + args.join(QLatin1Char(' ')));
 
     if (command->supportProgress()) {
         progressBar->show();

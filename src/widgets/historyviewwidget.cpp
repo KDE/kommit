@@ -14,31 +14,31 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 HistoryViewWidget::HistoryViewWidget(QWidget *parent)
     : WidgetBase(parent)
+    , mHistoryModel(new Git::LogsModel(Git::Manager::instance(), this))
 {
     setupUi(this);
-    mHistoryModel = new Git::LogsModel(Git::Manager::instance(), this);
     //        Git::Manager::instance()->logsCache();
     treeViewHistory->setModel(mHistoryModel);
 
     mGraphPainter = new GraphPainter(mHistoryModel, this);
     treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
 
-    connect(Git::Manager::instance(), &Git::Manager::pathChanged, this, &HistoryViewWidget::git_pathChanged);
+    connect(Git::Manager::instance(), &Git::Manager::pathChanged, this, &HistoryViewWidget::slotGitPathChanged);
 
     mActions = new CommitActions(Git::Manager::instance(), this);
 }
 
 HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
+    , mHistoryModel(git->logsModel())
 {
     setupUi(this);
-    mHistoryModel = git->logsModel();
     treeViewHistory->setModel(mHistoryModel);
 
     mGraphPainter = new GraphPainter(mHistoryModel, this);
     treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
 
-    connect(Git::Manager::instance(), &Git::Manager::pathChanged, this, &HistoryViewWidget::git_pathChanged);
+    connect(Git::Manager::instance(), &Git::Manager::pathChanged, this, &HistoryViewWidget::slotGitPathChanged);
 
     mActions = new CommitActions(git, this);
 }
@@ -84,7 +84,7 @@ void HistoryViewWidget::on_textBrowser_fileClicked(const QString &file)
     auto log = textBrowser->log();
 
     Git::File oldFile;
-    Git::File newFile(log->commitHash(), file);
+    const Git::File newFile(log->commitHash(), file);
     if (!log->parents().empty()) {
         oldFile = {log->parents().first(), file};
     }
@@ -103,7 +103,7 @@ void HistoryViewWidget::on_treeViewHistory_customContextMenuRequested(const QPoi
     mActions->popup();
 }
 
-void HistoryViewWidget::git_pathChanged()
+void HistoryViewWidget::slotGitPathChanged()
 {
     //    _historyModel->reload();
     //    if (_historyModel->rowCount(QModelIndex()))

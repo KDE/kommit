@@ -33,7 +33,7 @@ private Q_SLOTS:
     void on_textBrowser_fileClicked(const QString &file);
     void on_treeViewHistory_customContextMenuRequested(const QPoint &pos);
 
-    void git_pathChanged();
+    void slotGitPathChanged();
 
 private:
     CommitActions *mActions = nullptr;

@@ -41,7 +41,7 @@ FileViewerDialog::FileViewerDialog(Git::Manager *git, const Git::File &file, QWi
     setupUi(this);
     showFile(Git::File(file));
     QSettings s;
-    restoreGeometry(s.value("FileViewerDialog_Geometry").toByteArray());
+    restoreGeometry(s.value(QStringLiteral("FileViewerDialog_Geometry")).toByteArray());
     KStandardAction::close(this, &QMainWindow::close, actionCollection());
 
     setupGUI(ToolBar, QStringLiteral("gitklientfileviewerui.rc"));

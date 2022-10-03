@@ -39,7 +39,7 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     const auto files = git->changedFiles();
     QMap<Git::Manager::ChangeStatus, QIcon> icons;
 
-    for (auto i = files.begin(); i != files.end(); ++i) {
+    for (auto i = files.constBegin(); i != files.constEnd(); ++i) {
         auto item = new QListWidgetItem(listWidget);
         item->setText(i.key());
 
@@ -80,7 +80,7 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
         _words.insert(b);
     for (const auto &r : remotes)
         _words.insert(r);
-    for (auto i = files.begin(); i != files.end(); ++i) {
+    for (auto i = files.constBegin(); i != files.constEnd(); ++i) {
         const auto parts = i.key().split(QLatin1Char('/'));
         for (const auto &p : parts)
             _words.insert(p);
