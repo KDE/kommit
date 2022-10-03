@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include "libgitklient_export.h"
 #include <QObject>
 #include <QString>
-#include "libgitklient_export.h"
 
 class LIBGITKLIENT_EXPORT FileStatus
 {

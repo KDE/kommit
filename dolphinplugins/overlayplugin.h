@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "../src/git/filestatus.h"
 #include "statuscache.h"
 #include <KOverlayIconPlugin>
 #include <QCache>

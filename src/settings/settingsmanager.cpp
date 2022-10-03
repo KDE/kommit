@@ -8,8 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "GitKlientSettings.h"
 #include "appwindow.h"
-#include "git/gitmanager.h"
 #include "gitklient_appdebug.h"
+#include "gitmanager.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
 #include <QCalendar>

@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QTreeView>
 #include <dialogs/diffopendialog.h>
 
-#include "git/gitmanager.h"
+#include "gitmanager.h"
 #include "models/difftreemodel.h"
 #include "models/filesmodel.h"
 #include "settings/settingsmanager.h"

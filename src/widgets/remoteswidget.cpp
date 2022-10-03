@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "remoteswidget.h"
 #include "actions/remotesactions.h"
-#include "git/gitmanager.h"
-#include "git/models/remotesmodel.h"
+#include "gitmanager.h"
+#include "models/remotesmodel.h"
 
 RemotesWidget::RemotesWidget(QWidget *parent)
     : WidgetBase(parent)

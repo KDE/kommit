@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "GitKlientSettings.h"
 #include "actions/changedfileactions.h"
 #include "commitpushdialog.h"
-#include "git/gitmanager.h"
+#include "gitmanager.h"
 
 ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)

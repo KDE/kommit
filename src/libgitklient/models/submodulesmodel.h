@@ -5,35 +5,33 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-
 #include "abstractgititemsmodel.h"
+#include "libgitklient_export.h"
 
 namespace Git
 {
 
-struct Author {
-    QString email;
-    QString name;
-};
-
-class AuthorsModel : public AbstractGitItemsModel
+class Submodule;
+class LIBGITKLIENT_EXPORT SubmodulesModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 
 public:
-    explicit AuthorsModel(Manager *git, QObject *parent = nullptr);
+    explicit SubmodulesModel(Git::Manager *git, QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent) const override;
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     QVariant data(const QModelIndex &index, int role) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
-    Author *findOrCreate(const QString &name, const QString &email);
+    bool append(Submodule *module);
+    Submodule *fromIndex(const QModelIndex &index);
 
 protected:
     void fill() override;
+
 private:
-    QList<Author *> mData;
+    QList<Submodule *> mData;
 };
 
 } // namespace Git

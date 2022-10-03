@@ -5,10 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "switchbranchdialog.h"
-#include "git/commands/commandswitchbranch.h"
-#include "git/gitmanager.h"
-#include "git/models/branchesmodel.h"
-#include "git/models/tagsmodel.h"
+#include "commands/commandswitchbranch.h"
+#include "gitmanager.h"
+#include "models/branchesmodel.h"
+#include "models/tagsmodel.h"
 #include "runnerdialog.h"
 
 #include "gitklient_appdebug.h"

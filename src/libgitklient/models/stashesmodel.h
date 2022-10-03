@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-#include "libgitklient_export.h"
 #include "abstractgititemsmodel.h"
+#include "libgitklient_export.h"
 
 namespace Git
 {
@@ -28,6 +28,7 @@ public:
 
 protected:
     void fill() override;
+
 private:
     QList<Stash *> mData;
 };

@@ -15,7 +15,6 @@ namespace Git
 class Manager;
 class LIBGITKLIENT_EXPORT Stash
 {
-
 public:
     Stash(Git::Manager *git, QString name);
 
@@ -31,6 +30,7 @@ public:
 
     friend class Manager;
     friend class StashesModel;
+
 private:
     Git::Manager *mGit = nullptr;
     QString mName;

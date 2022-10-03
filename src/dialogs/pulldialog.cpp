@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "pulldialog.h"
 #include "runnerdialog.h"
 
-#include "git/commands/commandpull.h"
-#include "git/gitmanager.h"
+#include "commands/commandpull.h"
+#include "gitmanager.h"
 #include <QDialogButtonBox>
 
 PullDialog::PullDialog(QWidget *parent, Git::Manager *git)

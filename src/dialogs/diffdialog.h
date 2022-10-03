@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "core/appdialog.h"
 #include "ui_diffdialog.h"
-#include <git/gitfile.h>
+#include <gitfile.h>
 
 class DiffTreeModel;
 class DiffDialog : public AppDialog, private Ui::DiffDialog

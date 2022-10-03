@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "ignorefiledialog.h"
 
-#include "git/gitmanager.h"
+#include "gitmanager.h"
 
 #include "gitklient_appdebug.h"
 #include <QFileInfo>

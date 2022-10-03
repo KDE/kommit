@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "fetchdialog.h"
 
-#include "git/commands/commandfetch.h"
-#include "git/gitmanager.h"
+#include "commands/commandfetch.h"
+#include "gitmanager.h"
 #include "runnerdialog.h"
 
 FetchDialog::FetchDialog(Git::Manager *git, QWidget *parent)

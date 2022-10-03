@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "historymodel.h"
-#include "git/gitlog.h"
+#include "gitlog.h"
 #include <KLocalizedString>
 
 HistoryModel::HistoryModel(QObject *parent)

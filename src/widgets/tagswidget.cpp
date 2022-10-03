@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "tagswidget.h"
 
-#include "git/gitmanager.h"
-#include "git/gittag.h"
-#include "git/models/tagsmodel.h"
+#include "gitmanager.h"
+#include "gittag.h"
+#include "models/tagsmodel.h"
 
 #include "actions/tagsactions.h"
 

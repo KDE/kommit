@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "stasheswidget.h"
 #include "actions/stashactions.h"
-#include "git/gitmanager.h"
-#include "git/models/stashesmodel.h"
+#include "gitmanager.h"
+#include "models/stashesmodel.h"
 
 StashesWidget::StashesWidget(QWidget *parent)
     : WidgetBase(parent)

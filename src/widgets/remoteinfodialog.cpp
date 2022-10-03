@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "remoteinfodialog.h"
-#include "git/commands/commandaddremote.h"
+#include "commands/commandaddremote.h"
 #include <QPushButton>
 
 RemoteInfoDialog::RemoteInfoDialog(QWidget *parent)

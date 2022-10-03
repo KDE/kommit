@@ -5,11 +5,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "submoduleactions.h"
+#include "commands/addsubmodulecommand.h"
 #include "dialogs/runnerdialog.h"
 #include "dialogs/submoduleinfodialog.h"
-#include "git/commands/addsubmodulecommand.h"
-#include "git/gitmanager.h"
-#include "git/models/submodulesmodel.h"
+#include "gitmanager.h"
+#include "models/submodulesmodel.h"
 
 #include <QAction>
 #include "gitklient_appdebug.h"

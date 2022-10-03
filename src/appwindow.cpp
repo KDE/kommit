@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 // application headers
 #include "appwindow.h"
+#include "commands/commandswitchbranch.h"
 #include "dialogs/changedfilesdialog.h"
 #include "dialogs/clonedialog.h"
 #include "dialogs/commitpushdialog.h"
@@ -20,9 +21,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/selectbranchestodiffdialog.h"
 #include "dialogs/switchbranchdialog.h"
 #include "diffwindow.h"
-#include "git/commands/commandswitchbranch.h"
-#include "git/gitmanager.h"
-#include "git/models/logsmodel.h"
+#include "gitmanager.h"
+#include "models/logsmodel.h"
 #include "multipagewidget.h"
 #include "settings/settingsmanager.h"
 #include "widgets/branchesstatuswidget.h"

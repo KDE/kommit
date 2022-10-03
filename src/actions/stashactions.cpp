@@ -12,8 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QInputDialog>
 
 #include "diffwindow.h"
-#include "git/gitmanager.h"
-#include "git/models/stashesmodel.h"
+#include "gitmanager.h"
+#include "models/stashesmodel.h"
 
 StashActions::StashActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)

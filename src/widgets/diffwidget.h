@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "git/gitfile.h"
+#include "gitfile.h"
 #include "ui_diffwidget.h"
 #include "widgetbase.h"
 #include <QTextOption>

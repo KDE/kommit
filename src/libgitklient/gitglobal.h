@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-#include "libgitklient_export.h"
 #include "commands/abstractcommand.h"
+#include "libgitklient_export.h"
 
 #include <QStringList>
 

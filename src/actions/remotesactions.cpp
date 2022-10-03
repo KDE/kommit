@@ -10,10 +10,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
 
+#include "commands/commandaddremote.h"
 #include "dialogs/runnerdialog.h"
-#include "git/commands/commandaddremote.h"
-#include "git/gitmanager.h"
-#include "git/models/remotesmodel.h"
+#include "gitmanager.h"
+#include "models/remotesmodel.h"
 #include "widgets/remoteinfodialog.h"
 
 RemotesActions::RemotesActions(Git::Manager *git, QWidget *parent)

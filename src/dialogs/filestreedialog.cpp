@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "filestreedialog.h"
 #include "actions/fileactions.h"
-#include "git/gitmanager.h"
+#include "gitmanager.h"
 #include "models/treemodel.h"
 #include <QFileIconProvider>
 

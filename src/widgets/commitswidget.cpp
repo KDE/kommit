@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actions/branchactions.h"
 #include "dialogs/filestreedialog.h"
-#include "git/gitmanager.h"
+#include "gitmanager.h"
 #include "models/treemodel.h"
 
 CommitsWidget::CommitsWidget(QWidget *parent)

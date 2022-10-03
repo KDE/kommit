@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "core/appdialog.h"
-#include "git/gitfile.h"
+#include "gitfile.h"
 #include "ui_fileblamedialog.h"
 
 namespace Git

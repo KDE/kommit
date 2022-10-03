@@ -82,7 +82,8 @@ QStringList Manager::ignoredFiles() const
 
 QList<FileStatus> Manager::repoFilesStatus() const
 {
-    const auto buffer = QString(runGit({"status", "--untracked-files=all", "--ignored", "--short", "--ignore-submodules", "--porcelain"})).split(QLatin1Char('\n'));
+    const auto buffer =
+        QString(runGit({"status", "--untracked-files=all", "--ignored", "--short", "--ignore-submodules", "--porcelain"})).split(QLatin1Char('\n'));
     QList<FileStatus> files;
     for (const auto &item : buffer) {
         if (!item.trimmed().size())
@@ -243,8 +244,7 @@ QString Manager::config(const QString &name, ConfigType type) const
 bool Manager::configBool(const QString &name, ConfigType type) const
 {
     auto buffer = config(name, type);
-    return buffer == QStringLiteral("true") || buffer == QStringLiteral("yes")
-           || buffer == QStringLiteral("on");
+    return buffer == QStringLiteral("true") || buffer == QStringLiteral("yes") || buffer == QStringLiteral("on");
 }
 
 void Manager::setConfig(const QString &name, const QString &value, ConfigType type) const

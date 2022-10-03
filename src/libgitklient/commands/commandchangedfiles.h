@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "filestatus.h"
 #include "abstractcommand.h"
+#include "filestatus.h"
 
 #include <QList>
 

@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "submoduleinfodialog.h"
 
-#include "git/commands/addsubmodulecommand.h"
-#include "git/gitmanager.h"
+#include "commands/addsubmodulecommand.h"
+#include "gitmanager.h"
 
 #include <klocalizedstring.h>
 #include <kmessagebox.h>

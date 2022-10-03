@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "selectbranchestodiffdialog.h"
 
-#include "git/gitmanager.h"
+#include "gitmanager.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 

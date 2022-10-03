@@ -15,9 +15,7 @@ namespace Git
 class Log;
 class LIBGITKLIENT_EXPORT LogList : public QList<Log *>
 {
-
 public:
-
     LogList();
     explicit LogList(QString branch);
 

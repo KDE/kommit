@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "core/appmainwindow.h"
-#include <git/gitfile.h>
+#include <gitfile.h>
 
 class DiffTreeModel;
 class DiffWidget;

@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "core/appdialog.h"
 #include "ui_clonedialog.h"
 
-#include <git/commands/commandclone.h>
+#include "commands/commandclone.h"
 
 class CloneDialog : public AppDialog, private Ui::CloneDialog
 {

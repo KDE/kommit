@@ -13,12 +13,12 @@ namespace Git
 
 class NonEmptyLinesCommand : public ParameteresCommand
 {
-
 public:
     NonEmptyLinesCommand();
 
     void parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
     const QStringList &lines() const;
+
 private:
     QStringList mLines;
 };

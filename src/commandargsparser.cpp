@@ -18,10 +18,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/runnerdialog.h"
 #include "dialogs/taginfodialog.h"
 #include "diffwindow.h"
-#include "git/gitfile.h"
-#include "git/gitmanager.h"
-#include "git/models/logsmodel.h"
+#include "gitfile.h"
+#include "gitmanager.h"
 #include "mergewindow.h"
+#include "models/logsmodel.h"
 
 #include <QApplication>
 #include "gitklient_appdebug.h"

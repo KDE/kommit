@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include "libgitklient_export.h"
 #include "blamedata.h"
 #include "commands/abstractcommand.h"
 #include "filestatus.h"
@@ -11,6 +10,7 @@
 #include "gitloglist.h"
 #include "gitremote.h"
 #include "gitsubmodule.h"
+#include "libgitklient_export.h"
 #include "stash.h"
 
 #include <QObject>

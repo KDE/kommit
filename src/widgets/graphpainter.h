@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "git/gitgraphlane.h"
+#include "gitgraphlane.h"
 #include <QStyledItemDelegate>
 
 namespace Git

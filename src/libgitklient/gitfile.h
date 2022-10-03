@@ -15,7 +15,6 @@ namespace Git
 class Manager;
 class LIBGITKLIENT_EXPORT File
 {
-
 public:
     enum StorageType { InValid, Git, Local };
     File();

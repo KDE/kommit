@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "widgetbase.h"
 
-#include "git/gitmanager.h"
+#include "gitmanager.h"
 
 #include "appwindow.h"
 #include <QDialog>

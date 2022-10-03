@@ -6,10 +6,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "diffdialog.h"
 
-#include "models/difftreemodel.h"
 #include "gitklient_appdebug.h"
+#include "models/difftreemodel.h"
 #include <QFileDialog>
-#include <git/gitmanager.h>
+#include <gitmanager.h>
 
 DiffDialog::DiffDialog(QWidget *parent)
     : AppDialog(parent)

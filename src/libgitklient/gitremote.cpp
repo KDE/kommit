@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "gitremote.h"
-#include <KLocalizedString>
 #include "libgitklient_debug.h"
+#include <KLocalizedString>
 #include <QRegularExpression>
 
 namespace Git

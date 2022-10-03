@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "branchesstatuswidget.h"
 
 #include "actions/branchactions.h"
-#include "git/gitmanager.h"
-#include "git/models/branchesmodel.h"
+#include "gitmanager.h"
+#include "models/branchesmodel.h"
 #include <QDebug>
 
 BranchesStatusWidget::BranchesStatusWidget(QWidget *parent)

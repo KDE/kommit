@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "git/gitloglist.h"
-#include "git/gitmanager.h"
+#include "gitloglist.h"
+#include "gitmanager.h"
 #include <QAbstractListModel>
 
 class HistoryModel : public QAbstractListModel

@@ -11,8 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/fileviewerdialog.h"
 #include "dialogs/searchdialog.h"
 #include "diffwindow.h"
-#include "git/gitfile.h"
-#include "git/gitmanager.h"
+#include "gitfile.h"
+#include "gitmanager.h"
 #include "mergewindow.h"
 
 #include <KLocalizedString>

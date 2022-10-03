@@ -11,15 +11,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QInputDialog>
 
+#include "commands/commandmerge.h"
 #include "dialogs/fetchdialog.h"
 #include "dialogs/filestreedialog.h"
 #include "dialogs/mergedialog.h"
 #include "dialogs/notedialog.h"
 #include "dialogs/runnerdialog.h"
 #include "diffwindow.h"
-#include "git/commands/commandmerge.h"
-#include "git/gitmanager.h"
-#include "git/models/branchesmodel.h"
+#include "gitmanager.h"
+#include "models/branchesmodel.h"
 
 BranchActions::BranchActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)

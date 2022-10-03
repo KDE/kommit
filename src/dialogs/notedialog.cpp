@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "notedialog.h"
+#include "gitmanager.h"
 #include <QPushButton>
-#include "git/gitmanager.h"
 
 NoteDialog::NoteDialog(Git::Manager *git, const QString &branchName, QWidget *parent)
     : AppDialog(git, parent)

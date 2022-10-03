@@ -8,9 +8,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QWhatsThisClickedEvent>
 
-#include "git/commands/commandmerge.h"
-#include "git/gitmanager.h"
-#include "git/models/branchesmodel.h"
+#include "commands/commandmerge.h"
+#include "gitmanager.h"
+#include "models/branchesmodel.h"
 
 void MergeDialog::init(Git::Manager *git)
 {
