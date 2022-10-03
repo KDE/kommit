@@ -33,6 +33,9 @@ include(ECMAddAppIcon)
 include(ECMSetupVersion)
 include(ECMAddTests)
 include(GenerateExportHeader)
+include(KDEGitCommitHooks)
+include(KDEClangFormat)
+
 
 set (CMAKE_CXX_STANDARD 17)
 
@@ -110,6 +113,7 @@ if (GITKLIENT_BUILD_DIR)
     message("-- Version in file ${GITKLIENT_BUILD_DIR}/version saved")
 endif()
 
+kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 ki18n_install(po)
 
 #CPack
