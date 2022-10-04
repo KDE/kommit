@@ -86,8 +86,6 @@ set(MODELS_SRC
     models/difftreemodel.h
     models/filesmodel.cpp
     models/filesmodel.h
-    models/historymodel.cpp
-    models/historymodel.h
     models/treemodel.cpp
     models/treemodel.h
 )
