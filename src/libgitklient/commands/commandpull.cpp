@@ -77,6 +77,7 @@ void CommandPull::setTags(bool newTags)
 
 void CommandPull::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
 {
+    Q_UNUSED(output)
     Q_UNUSED(errorOutput)
 #ifdef GIT_GUI
     if (output.contains("Already up to date.")) {

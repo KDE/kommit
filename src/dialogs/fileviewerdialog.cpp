@@ -21,6 +21,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QStandardPaths>
 #include <QStyle>
 
+// TODO: This file need to be refactored
 FileViewerDialog::FileViewerDialog(const QString &place, const QString &fileName, QWidget *parent)
     : KParts::MainWindow(parent)
 {

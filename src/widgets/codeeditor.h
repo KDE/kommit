@@ -32,15 +32,9 @@ public:
 
     void setHighlighting(const QString &fileName);
 
-    void append(const QString &code,
-                const BlockType &type = Unchanged,
-                Diff::Segment *segment = nullptr,
-                bool isEmpty = false);
+    void append(const QString &code, const BlockType &type = Unchanged, Diff::Segment *segment = nullptr);
     int append(const QString &code, const QColor &backgroundColor);
-    void append(const QStringList &code,
-                const BlockType &type = Unchanged,
-                Diff::Segment *segment = nullptr,
-                int size = -1);
+    void append(const QStringList &code, const BlockType &type = Unchanged, Diff::Segment *segment = nullptr, int size = -1);
 
     QPair<int, int> blockArea(int from, int to);
     QPair<int, int> visibleLines() const;

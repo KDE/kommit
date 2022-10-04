@@ -14,6 +14,15 @@ int matchesCount(const QStringList &base, const QStringList &local, const QStrin
 QStringList take(QStringList &list, int count);
 int remove(QStringList &list, int count);
 
+struct Text {
+    enum LineEnding { None, Cr, Lf, CrLf };
+
+    QList<QString> lines; // TODO: convert to QList<QstringRef> if it's possible
+    LineEnding lineEnding;
+};
+
+Text readLines(const QString &text);
+
 #define DiffTypeEnum(x) enum class x { Unchanged, Added, Removed, Modified };
 
 enum class DiffType { Unchanged, Added, Removed, Modified };

@@ -7,7 +7,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "diff.h"
 
 #include "gitklient_appdebug.h"
+
+#include <QDebug>
 #include <QDir>
+
 #include <set>
 
 namespace Diff
@@ -379,6 +382,50 @@ Solution longestCommonSubsequence(const QStringList &source, const QStringList &
 }
 
 }
+
+Text readLines(const QString &text)
+{
+    Text::LineEnding le{Text::None};
+    QString seprator;
+    for (const auto &ch : text) {
+        if (le == Text::Cr) {
+            if (ch == '\n') {
+                le = Text::CrLf;
+                seprator = "\r\n";
+            }
+            break;
+        }
+        if (ch == '\r') {
+            le = Text::Cr;
+            seprator = "\r";
+            continue;
+        }
+        if (ch == '\n') {
+            seprator = "\n";
+            le = Text::Lf;
+            break;
+        }
+    }
+
+    if (le == Text::None) {
+        qWarning() << "Unable to detect line ending";
+        return {};
+    }
+
+    int i{0};
+    Text t;
+    t.lineEnding = le;
+    while (i != -1) {
+        auto n = text.indexOf(seprator, i);
+        if (n == -1)
+            break;
+        t.lines.append(text.mid(i, n - i));
+        i = n + seprator.size();
+    }
+
+    return t;
+}
+
 struct Tuple {
     int base;
     int local;
@@ -708,13 +755,13 @@ QList<Segment *> diff(const QStringList &oldText, const QStringList &newText)
 
 QList<Segment *> diff(const QString &oldText, const QString &newText)
 {
-    QStringList oldList, newList;
+    Text oldList, newList;
     if (!oldText.isEmpty())
-        oldList = oldText.split(QLatin1Char('\n'));
+        oldList = readLines(oldText); //.split(QLatin1Char('\n'));
     if (!newText.isEmpty())
-        newList = newText.split(QLatin1Char('\n'));
+        newList = readLines(newText); //.split(QLatin1Char('\n'));
 
-    return diff(oldList, newList);
+    return diff(oldList.lines, newList.lines);
 }
 
 void browseDir(QStringList &filesList, const QString &dirPath, const QString &basePath)

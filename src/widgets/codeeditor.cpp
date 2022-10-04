@@ -13,8 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KSyntaxHighlighting/SyntaxHighlighter>
 #include <KSyntaxHighlighting/Theme>
 
-#include <QApplication>
 #include "gitklient_appdebug.h"
+#include <QApplication>
 #include <QFontDatabase>
 #include <QLabel>
 #include <QPainter>
@@ -36,8 +36,8 @@ private:
 
 SegmentData::SegmentData(Diff::Segment *segment, int lineNumber, bool empty)
     : mLineNumber(lineNumber)
-      , mIsEmpty(empty)
-      , mSegment(segment)
+    , mIsEmpty(empty)
+    , mSegment(segment)
 {
 }
 
@@ -46,7 +46,6 @@ Diff::Segment *SegmentData::segment() const
     return mSegment;
 }
 
-
 void SegmentData::setSegment(Diff::Segment *newSegment)
 {
     mSegment = newSegment;
@@ -54,7 +53,7 @@ void SegmentData::setSegment(Diff::Segment *newSegment)
 
 CodeEditor::CodeEditor(QWidget *parent)
     : QPlainTextEdit(parent)
-      , mHighlighter(new KSyntaxHighlighting::SyntaxHighlighter(document()))
+    , mHighlighter(new KSyntaxHighlighting::SyntaxHighlighter(document()))
     , mSideBar(new CodeEditorSidebar(this))
     , mTitleBar(new QLabel(this))
 {
@@ -122,7 +121,7 @@ void CodeEditor::setTheme(const KSyntaxHighlighting::Theme &theme)
 
     mTitleBar->setPalette(pal);
     mTitleBar->setStyleSheet(QStringLiteral("border: 1px solid %1; border-width: 0 0 1 0;")
-                                  .arg(QColor(theme.editorColor(KSyntaxHighlighting::Theme::IconBorder)).darker(200).name()));
+                                 .arg(QColor(theme.editorColor(KSyntaxHighlighting::Theme::IconBorder)).darker(200).name()));
 }
 
 int CodeEditor::sidebarWidth() const
@@ -164,19 +163,13 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
                 bg = document()->findBlockByNumber(blockNumber).blockFormat().background();
             painter.fillRect(QRect{0, top, mSideBar->width() - 1, fontMetrics().height()}, bg);
 
-            painter.setPen(mHighlighter->theme().editorColor(
-                (blockNumber == currentBlockNumber) ? KSyntaxHighlighting::Theme::CurrentLineNumber
-                                                    : KSyntaxHighlighting::Theme::LineNumbers));
+            painter.setPen(mHighlighter->theme().editorColor((blockNumber == currentBlockNumber) ? KSyntaxHighlighting::Theme::CurrentLineNumber
+                                                                                                 : KSyntaxHighlighting::Theme::LineNumbers));
 
             lineNumber = mSegmentsLineNumbers.value(block, -1);
             if (lineNumber != -1) {
                 const auto number = QString::number(lineNumber);
-                painter.drawText(0,
-                                 top,
-                                 mSideBar->width() - 2 - foldingMarkerSize,
-                                 fontMetrics().height(),
-                                 Qt::AlignRight,
-                                 number);
+                painter.drawText(0, top, mSideBar->width() - 2 - foldingMarkerSize, fontMetrics().height(), Qt::AlignRight, number);
             }
         }
 
@@ -354,7 +347,7 @@ void CodeEditor::setHighlighting(const QString &fileName)
     mTitleBar->setText(fileName);
 }
 
-void CodeEditor::append(const QString &code, const BlockType &type, Diff::Segment *segment, bool isEmpty)
+void CodeEditor::append(const QString &code, const BlockType &type, Diff::Segment *segment)
 {
     auto t = textCursor();
 
@@ -386,21 +379,15 @@ int CodeEditor::append(const QString &code, const QColor &backgroundColor)
     t.setBlockFormat(fmt);
     mSegments.insert(t.block().blockNumber(), nullptr);
 
-//    t.block().setUserData(new SegmentData{nullptr, mLastLineNumber++, false});
-
     return t.block().blockNumber();
 }
 
 void CodeEditor::append(const QStringList &code, const BlockType &type, Diff::Segment *segment, int size)
 {
-    //    if (!code.size() && (type == Added || type == Removed)) {
-    //        _lines.insert(textCursor().block(), type == Added ? Removed : Added);
-    //        return;
-    //    }
     for (auto &e : code)
         append(e, type, segment);
     for (int var = 0; var < size - code.size(); ++var)
-        append(QString(), Empty, segment, true);
+        append(QString(), Empty, segment);
 }
 
 QPair<int, int> CodeEditor::blockArea(int from, int to)
@@ -425,10 +412,10 @@ QPair<int, int> CodeEditor::visibleLines() const
     auto block = firstVisibleBlock();
     auto ret = qMakePair(block.blockNumber(), 0);
 
-//    while (block.isVisible() && block.isValid()) {
-//        ret.second++;// = mSegmentsLineNumbers.value(block);
-//        block = block.next();
-//    }
+    //    while (block.isVisible() && block.isValid()) {
+    //        ret.second++;// = mSegmentsLineNumbers.value(block);
+    //        block = block.next();
+    //    }
     ret.second = (height() - titlebarHeight()) / blockBoundingRect(block).height();
     return ret;
 }

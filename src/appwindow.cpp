@@ -4,11 +4,10 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-
 // application headers
 #include "appwindow.h"
-#include "commands/commandswitchbranch.h"
 #include "commands/commandmerge.h"
+#include "commands/commandswitchbranch.h"
 #include "dialogs/changedfilesdialog.h"
 #include "dialogs/clonedialog.h"
 #include "dialogs/commitpushdialog.h"
@@ -226,12 +225,11 @@ void AppWindow::initRepo()
 
 void AppWindow::openRepo()
 {
-    QFileDialog d;
-    d.setOption(QFileDialog::ShowDirsOnly, true);
-    if (d.exec() == QDialog::Accepted) {
-        mGit->setPath(d.directoryUrl().toLocalFile());
-        //        m_kde_actionsView->reload();
-        initRecentFiles(d.directoryUrl().toLocalFile());
+    auto dir = QFileDialog::getExistingDirectory(this, i18n("Open repository"));
+
+    if (dir != QString()) {
+        mGit->setPath(dir);
+        initRecentFiles(dir);
     }
 }
 
