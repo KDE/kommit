@@ -9,6 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commands/commandpull.h"
 #include "gitmanager.h"
+#include "models/branchesmodel.h"
+#include "models/remotesmodel.h"
 #include <QDialogButtonBox>
 
 PullDialog::PullDialog(QWidget *parent, Git::Manager *git)
@@ -19,6 +21,7 @@ PullDialog::PullDialog(QWidget *parent, Git::Manager *git)
     auto g = git;
     if (!g)
         g = Git::Manager::instance();
+
     comboBoxRemote->addItems(g->remotes());
     comboBoxBranch->addItems(g->branches());
 

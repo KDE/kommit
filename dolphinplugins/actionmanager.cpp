@@ -105,6 +105,7 @@ void ActionManager::addMenuToGitFile(QMenu *menu, const QString &path, bool isFi
     addMenu(menu, i18n("Open"), {path});
     addMenu(menu, i18n("Pull"), {QStringLiteral("pull"), path}, QStringLiteral("git-pull"));
     addMenu(menu, i18n("Push"), {QStringLiteral("push"), path}, QStringLiteral("git-push"));
+    addMenu(menu, i18n("Merge"), {QStringLiteral("merge"), path}, QStringLiteral("git-merge"));
     addMenu(menu, i18n("Modifications"), {QStringLiteral("changes"), path}, QStringLiteral("gitklient-changedfiles"));
     addMenu(menu, i18n("Diff"), {QStringLiteral("diff"), path});
     addMenu(menu, i18n("Ignore file"), {QStringLiteral("ignore"), path}, QStringLiteral("git-ignore"));

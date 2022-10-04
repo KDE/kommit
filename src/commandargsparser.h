@@ -71,6 +71,7 @@ public Q_SLOTS:
     ArgParserReturn init(const QString &path);
     ArgParserReturn pull(const QString &path);
     ArgParserReturn push(const QString &path);
+    ArgParserReturn merge(const QString &path);
     ArgParserReturn changes();
     ArgParserReturn changes(const QString &path);
 

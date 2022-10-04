@@ -385,29 +385,32 @@ Solution longestCommonSubsequence(const QStringList &source, const QStringList &
 
 Text readLines(const QString &text)
 {
-    Text::LineEnding le{Text::None};
+    if (text.isEmpty())
+        return {};
+
+    LineEnding le{LineEnding::None};
     QString seprator;
-    for (const auto &ch : text) {
-        if (le == Text::Cr) {
+    for (const auto &ch : std::as_const(text)) {
+        if (le == LineEnding::Cr) {
             if (ch == '\n') {
-                le = Text::CrLf;
+                le = LineEnding::CrLf;
                 seprator = "\r\n";
             }
             break;
         }
         if (ch == '\r') {
-            le = Text::Cr;
+            le = LineEnding::Cr;
             seprator = "\r";
             continue;
         }
         if (ch == '\n') {
             seprator = "\n";
-            le = Text::Lf;
+            le = LineEnding::Lf;
             break;
         }
     }
 
-    if (le == Text::None) {
+    if (le == LineEnding::None) {
         qWarning() << "Unable to detect line ending";
         return {};
     }
@@ -587,68 +590,6 @@ QList<MergeSegment *> diff3(const QStringList &baseList, const QStringList &loca
     return ret;
 }
 
-QList<MergeSegment *> diff3_2(const QStringList &baseList, const QStringList &localList, const QStringList &remoteList)
-{
-    QList<MergeSegment *> segments;
-    auto base = baseList;
-    auto local = localList;
-    auto remote = remoteList;
-    while (true) {
-        if (base.empty()) {
-            segments.append(new MergeSegment{base, local, remote});
-            break;
-        }
-
-        int sameSize = matchesCount(base, local, remote);
-        /*      int matchWithLocal = matchesCount(base, local);
-        int matchWithRemote = matchesCount(base, remote);
-
-        if (matchWithLocal == 0 && matchWithRemote == 0) {
-            auto unmatchWithLocal = unmatchesCount(base, local);
-            auto unmatchWithRemote= unmatchesCount(base, remote);
-
-            auto baseSubList = take(base, qMin(unmatchWithLocal.first, unmatchWithRemote.first));
-            auto localSubList = take(local, unmatchWithLocal.second);
-            auto remoteSubList = take(remote, unmatchWithRemote.second);
-            segments.append(new DiffSegment{baseSubList, localSubList, remoteSubList});
-            continue;
-        }
-        auto baseSubList = take(base, qMin(matchWithLocal, matchWithRemote));
-        auto localSubList = take(local, matchWithLocal);
-        auto remoteSubList = take(remote, matchWithRemote);
-        segments.append(new DiffSegment{baseSubList, localSubList, remoteSubList});
-        */
-        if (sameSize) {
-            auto segment = new MergeSegment;
-            segment->type = SegmentType::SameOnBoth; // Unchanged;
-            segment->base = take(base, sameSize);
-            remove(local, sameSize);
-            remove(remote, sameSize);
-            segments.append(segment);
-            continue;
-        } else {
-            auto common = firstCommonItem(base, local, remote);
-
-            if (common.base == -1) {
-                segments.append(new MergeSegment{base, local, remote});
-                break;
-            }
-            if (common.base == 0) {
-                auto localSubList = take(local, common.local);
-                auto remoteSubList = take(remote, common.remote);
-                segments.append(new MergeSegment{QStringList(), localSubList, remoteSubList});
-                continue;
-            }
-            auto baseSubList = take(base, common.base);
-            auto localSubList = take(local, common.local);
-            auto remoteSubList = take(remote, common.remote);
-            segments.append(new MergeSegment{baseSubList, localSubList, remoteSubList});
-            continue;
-        }
-    }
-    return segments;
-}
-
 MergeSegment::MergeSegment() = default;
 
 MergeSegment::MergeSegment(const QStringList &base, const QStringList &local, const QStringList &remote)
@@ -757,11 +698,26 @@ QList<Segment *> diff(const QString &oldText, const QString &newText)
 {
     Text oldList, newList;
     if (!oldText.isEmpty())
-        oldList = readLines(oldText); //.split(QLatin1Char('\n'));
+        oldList = readLines(oldText);
     if (!newText.isEmpty())
-        newList = readLines(newText); //.split(QLatin1Char('\n'));
+        newList = readLines(newText);
 
     return diff(oldList.lines, newList.lines);
+}
+
+Diff2Result diff2(const QString &oldText, const QString &newText)
+{
+    Text oldList, newList;
+    if (!oldText.isEmpty())
+        oldList = readLines(oldText);
+    if (!newText.isEmpty())
+        newList = readLines(newText);
+
+    Diff2Result result;
+    result.oldTextLineEnding = oldList.lineEnding;
+    result.newTextLineEnding = newList.lineEnding;
+    result.segments = diff(oldList.lines, newList.lines);
+    return result;
 }
 
 void browseDir(QStringList &filesList, const QString &dirPath, const QString &basePath)
@@ -801,8 +757,11 @@ bool isFilesSame(const QString &file1, const QString &file2)
     while (!f1.atEnd() && !f2.atEnd()) {
         auto buffer1 = f1.read(100);
         auto buffer2 = f2.read(100);
-        if (buffer1 != buffer2)
+        if (buffer1 != buffer2) {
+            f1.close();
+            f2.close();
             return false;
+        }
     }
 
     f1.close();
@@ -846,13 +805,12 @@ QList<MergeSegment *> diff3(const QString &base, const QString &local, const QSt
 {
     QStringList baseList, localList, remoteList;
     if (!base.isEmpty())
-        baseList = base.split(QLatin1Char('\n'));
+        baseList = readLines(base).lines;
     if (!local.isEmpty())
-        localList = local.split(QLatin1Char('\n'));
+        localList = readLines(local).lines;
     if (!remote.isEmpty())
-        remoteList = remote.split(QLatin1Char('\n'));
+        remoteList = readLines(remote).lines;
 
     return diff3(baseList, localList, remoteList);
 }
-
 }

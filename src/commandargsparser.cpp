@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "commandargsparser.h"
 
 #include "appwindow.h"
+#include "commands/commandmerge.h"
 #include "dialogs/changedfilesdialog.h"
 #include "dialogs/clonedialog.h"
 #include "dialogs/commitpushdialog.h"
@@ -14,6 +15,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/filehistorydialog.h"
 #include "dialogs/ignorefiledialog.h"
 #include "dialogs/initdialog.h"
+#include "dialogs/mergedialog.h"
 #include "dialogs/pulldialog.h"
 #include "dialogs/runnerdialog.h"
 #include "dialogs/taginfodialog.h"
@@ -31,6 +33,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KMessageBox>
 #include <klocalizedstring.h>
+
+namespace Errors
+{
+constexpr int InvalidPath = 1;
+};
 
 #define checkGitPath(path)                                                                                                                                     \
     do {                                                                                                                                                       \
@@ -241,6 +248,25 @@ ArgParserReturn CommandArgsParser::push(const QString &path)
         git->setPath(fi.absoluteFilePath());
     CommitPushDialog d(git);
     d.exec();
+    return 0;
+}
+
+ArgParserReturn CommandArgsParser::merge(const QString &path)
+{
+    git->setPath(path);
+
+    if (!git->isValid())
+        return Errors::InvalidPath;
+
+    MergeDialog d(git);
+    if (d.exec() == QDialog::Accepted) {
+        RunnerDialog r;
+
+        auto cmd = d.command();
+        r.run(cmd);
+        r.exec();
+        cmd->deleteLater();
+    }
     return 0;
 }
 
