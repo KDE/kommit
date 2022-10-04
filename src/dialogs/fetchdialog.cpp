@@ -22,6 +22,7 @@ FetchDialog::FetchDialog(Git::Manager *git, QWidget *parent)
     comboBoxBranch->addItems(g->branches());
 
     comboBoxRemote->setCurrentText(g->currentBranch());
+    connect(buttonBox, &FetchDialog::accepted, this, &FetchDialog::slotAccept);
 }
 
 void FetchDialog::setBranch(const QString &branch)
@@ -29,7 +30,7 @@ void FetchDialog::setBranch(const QString &branch)
     comboBoxBranch->setCurrentText(branch);
 }
 
-void FetchDialog::on_buttonBox_accepted()
+void FetchDialog::slotAccept()
 {
     Git::CommandFetch cmd;
 
