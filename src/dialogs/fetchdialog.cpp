@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "runnerdialog.h"
 
+#include <QDialogButtonBox>
 FetchDialog::FetchDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(parent)
 {
@@ -22,7 +23,7 @@ FetchDialog::FetchDialog(Git::Manager *git, QWidget *parent)
     comboBoxBranch->addItems(g->branches());
 
     comboBoxRemote->setCurrentText(g->currentBranch());
-    connect(buttonBox, &FetchDialog::accepted, this, &FetchDialog::slotAccept);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &FetchDialog::slotAccept);
 }
 
 void FetchDialog::setBranch(const QString &branch)
