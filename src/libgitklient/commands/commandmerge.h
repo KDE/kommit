@@ -18,24 +18,24 @@ class LIBGITKLIENT_EXPORT CommandMerge : public AbstractCommand
 
 public:
     explicit CommandMerge(Manager *git);
-    QStringList generateArgs() const override;
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
 
-    OptionalBool commit() const;
+    Q_REQUIRED_RESULT OptionalBool commit() const;
     void setCommit(OptionalBool newCommit);
 
-    OptionalBool allowUnrelatedHistories() const;
+    Q_REQUIRED_RESULT OptionalBool allowUnrelatedHistories() const;
     void setAllowUnrelatedHistories(OptionalBool newAllowUnrelatedHistories);
 
     FastForwardType ff() const;
     void setFf(FastForwardType newFf);
 
-    bool squash() const;
+    Q_REQUIRED_RESULT bool squash() const;
     void setSquash(bool newSquash);
 
-    const QString &fromBranch() const;
+    Q_REQUIRED_RESULT const QString &fromBranch() const;
     void setFromBranch(const QString &newFromBranch);
 
-    const QString &strategy() const;
+    Q_REQUIRED_RESULT const QString &strategy() const;
     void setStrategy(const QString &newStrategy);
 
 private:

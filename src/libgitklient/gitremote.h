@@ -24,7 +24,7 @@ public:
     enum class Status { Unknown, UpToDate, FastForwardable, LocalOutOfDate };
     Status status{Status::Unknown};
 
-    QString statusText() const;
+    Q_REQUIRED_RESULT QString statusText() const;
 };
 
 class Remote

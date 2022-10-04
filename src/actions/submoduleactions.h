@@ -21,7 +21,7 @@ public:
     void deinit();
     void sync();
 
-    const QString &subModuleName() const;
+    Q_REQUIRED_RESULT const QString &subModuleName() const;
     void setSubModuleName(const QString &newSubModuleName);
 
 private:

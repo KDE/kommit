@@ -16,11 +16,11 @@ class LIBGITKLIENT_EXPORT Submodule
 public:
     Submodule();
 
-    const QString &path() const;
+    Q_REQUIRED_RESULT const QString &path() const;
     void setPath(const QString &newPath);
-    const QString &commitHash() const;
+    Q_REQUIRED_RESULT const QString &commitHash() const;
     void setCommitHash(const QString &newCommitHash);
-    const QString &refName() const;
+    Q_REQUIRED_RESULT const QString &refName() const;
     void setRefName(const QString &newRefName);
 
 private:

@@ -15,11 +15,11 @@ class ParameteresCommand : public AbstractCommand
 {
 public:
     ParameteresCommand();
-    const QStringList &args() const;
+    Q_REQUIRED_RESULT const QStringList &args() const;
     void setArgs(const QStringList &newArgs);
     void appendArg(const QString &arg);
 
-    QStringList generateArgs() const override;
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
 
 private:
     QStringList mArgs;

@@ -31,10 +31,10 @@ public:
     FileStatus(QString name, Status status);
 
     const QString &name() const;
-    Status status() const;
+    Q_REQUIRED_RESULT Status status() const;
 
     void parseStatusLine(const QString &line);
-    const QString &fullPath() const;
+    Q_REQUIRED_RESULT const QString &fullPath() const;
 
     void setFullPath(const QString &newFullPath);
 

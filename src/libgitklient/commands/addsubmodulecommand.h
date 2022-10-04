@@ -18,18 +18,18 @@ class LIBGITKLIENT_EXPORT AddSubmoduleCommand : public AbstractCommand
 public:
     explicit AddSubmoduleCommand(Manager *git);
 
-    QStringList generateArgs() const override;
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
 
-    bool force() const;
+    Q_REQUIRED_RESULT bool force() const;
     void setForce(bool newForce);
 
-    QString branch() const;
+    Q_REQUIRED_RESULT QString branch() const;
     void setbranch(QString newbranch);
 
-    const QString &url() const;
+    Q_REQUIRED_RESULT const QString &url() const;
     void setUrl(const QString &newUrl);
 
-    const QString &localPath() const;
+    Q_REQUIRED_RESULT const QString &localPath() const;
     void setLocalPath(const QString &newLocalPath);
 
 private:

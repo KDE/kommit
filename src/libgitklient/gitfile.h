@@ -26,16 +26,16 @@ public:
     File &operator=(const File &other);
 
     bool save(const QString &path) const;
-    QString content() const;
-    const QString &place() const;
+    Q_REQUIRED_RESULT QString content() const;
+    Q_REQUIRED_RESULT const QString &place() const;
     void setPlace(const QString &newPlace);
-    const QString &fileName() const;
+    Q_REQUIRED_RESULT const QString &fileName() const;
     void setFileName(const QString &newFileName);
     Manager *git() const;
     void setGit(Manager *newGit);
 
-    QString displayName() const;
-    StorageType storage() const;
+    Q_REQUIRED_RESULT QString displayName() const;
+    Q_REQUIRED_RESULT StorageType storage() const;
 
 private:
     QString mPlace;

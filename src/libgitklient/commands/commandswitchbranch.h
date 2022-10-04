@@ -21,13 +21,13 @@ public:
 
     enum Mode { Unknown, NewBranch, ExistingBranch, Tag };
 
-    const QString &target() const;
+    Q_REQUIRED_RESULT const QString &target() const;
     void setTarget(const QString &newTarget);
 
-    Mode mode() const;
+    Q_REQUIRED_RESULT Mode mode() const;
     void setMode(Mode newMode);
 
-    QStringList generateArgs() const override;
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
 
     bool force() const;
     void setForce(bool newForce);

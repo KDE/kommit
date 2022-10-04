@@ -15,7 +15,7 @@ class StashActions : public AbstractActions
 public:
     explicit StashActions(Git::Manager *git, QWidget *parent = nullptr);
 
-    const QString &stashName() const;
+    Q_REQUIRED_RESULT const QString &stashName() const;
     void setStashName(const QString &newStashName);
 
 public Q_SLOTS:

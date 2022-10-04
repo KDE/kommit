@@ -27,10 +27,10 @@ class BranchActions : public AbstractActions
 public:
     explicit BranchActions(Git::Manager *git, QWidget *parent = nullptr);
 
-    const QString &branchName() const;
+    Q_REQUIRED_RESULT const QString &branchName() const;
     void setBranchName(const QString &newBranchName);
 
-    const QString &otherBranch() const;
+    Q_REQUIRED_RESULT const QString &otherBranch() const;
     void setOtherBranch(const QString &newOtherBranch);
 
 private Q_SLOTS:

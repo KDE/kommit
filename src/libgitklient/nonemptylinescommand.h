@@ -17,7 +17,7 @@ public:
     NonEmptyLinesCommand();
 
     void parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
-    const QStringList &lines() const;
+    Q_REQUIRED_RESULT const QStringList &lines() const;
 
 private:
     QStringList mLines;

@@ -20,7 +20,7 @@ class ChangedFileActions : public AbstractActions
 public:
     explicit ChangedFileActions(Git::Manager *git, QWidget *parent = nullptr);
 
-    const QString &filePath() const;
+    Q_REQUIRED_RESULT const QString &filePath() const;
     void setFilePath(const QString &newFilePath);
 
 public Q_SLOTS:

@@ -22,13 +22,13 @@ public:
     void load();
     void initGraph();
 
-    const QString &branch() const;
+    Q_REQUIRED_RESULT const QString &branch() const;
     void setBranch(const QString &newBranch);
 
     Log *findByHash(const QString &hash, int *index = nullptr) const;
 
 private:
-    QString branchName(const QString &refLog);
+    Q_REQUIRED_RESULT QString branchName(const QString &refLog);
     void initChilds();
     QString _branch;
     QList<Log *> _data;

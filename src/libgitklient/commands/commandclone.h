@@ -18,17 +18,17 @@ class LIBGITKLIENT_EXPORT CloneCommand : public AbstractCommand
 public:
     explicit CloneCommand(QObject *parent = nullptr);
 
-    const QString &repoUrl() const;
+    Q_REQUIRED_RESULT const QString &repoUrl() const;
     void setRepoUrl(const QString &newRepoUrl);
-    const QString &localPath() const;
+    Q_REQUIRED_RESULT const QString &localPath() const;
     void setLocalPath(const QString &newLocalPath);
-    const QString &branch() const;
+    Q_REQUIRED_RESULT const QString &branch() const;
     void setBranch(const QString &newBranch);
-    int depth() const;
+    Q_REQUIRED_RESULT int depth() const;
     void setDepth(int newDepth);
-    const QString &origin() const;
+    Q_REQUIRED_RESULT const QString &origin() const;
     void setOrigin(const QString &newOrigin);
-    bool recursive() const;
+    Q_REQUIRED_RESULT bool recursive() const;
     void setRecursive(bool newRecursive);
 
 private:

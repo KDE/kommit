@@ -17,16 +17,16 @@ public:
     CommandPush();
     QStringList generateArgs() const override;
 
-    bool force() const;
+    Q_REQUIRED_RESULT bool force() const;
     void setForce(bool newForce);
 
-    const QString &remote() const;
+    Q_REQUIRED_RESULT const QString &remote() const;
     void setRemote(const QString &newRemote);
 
-    const QString &localBranch() const;
+    Q_REQUIRED_RESULT const QString &localBranch() const;
     void setLocalBranch(const QString &newBranch);
 
-    const QString &remoteBranch() const;
+    Q_REQUIRED_RESULT const QString &remoteBranch() const;
     void setRemoteBranch(const QString &newRemoteBranch);
 
 private:

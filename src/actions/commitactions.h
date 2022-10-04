@@ -20,7 +20,7 @@ class CommitActions : public AbstractActions
 public:
     explicit CommitActions(Git::Manager *git, QWidget *parent = nullptr);
 
-    const QString &commitHash() const;
+    Q_REQUIRED_RESULT const QString &commitHash() const;
     void setCommitHash(const QString &newCommitHash);
 
 private Q_SLOTS:

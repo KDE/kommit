@@ -28,10 +28,10 @@ public:
     explicit FileActions(Git::Manager *git, QWidget *parent = nullptr);
     void popup(const QPoint &pos);
 
-    const QString &place() const;
+    Q_REQUIRED_RESULT const QString &place() const;
     void setPlace(const QString &newPlace);
 
-    const QString &filePath() const;
+    Q_REQUIRED_RESULT const QString &filePath() const;
     void setFilePath(const QString &newFilePath);
 
 private Q_SLOTS:

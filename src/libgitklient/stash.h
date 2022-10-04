@@ -21,12 +21,12 @@ public:
     void apply();
     void drop();
     void pop();
-    const QString &name() const;
-    const QString &authorName() const;
-    const QString &authorEmail() const;
-    const QString &subject() const;
-    const QString &branch() const;
-    const QDateTime &pushTime() const;
+    Q_REQUIRED_RESULT const QString &name() const;
+    Q_REQUIRED_RESULT const QString &authorName() const;
+    Q_REQUIRED_RESULT const QString &authorEmail() const;
+    Q_REQUIRED_RESULT const QString &subject() const;
+    Q_REQUIRED_RESULT const QString &branch() const;
+    Q_REQUIRED_RESULT const QDateTime &pushTime() const;
 
     friend class Manager;
     friend class StashesModel;

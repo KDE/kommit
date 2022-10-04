@@ -16,13 +16,13 @@ class LIBGITKLIENT_EXPORT Tag
 public:
     Tag();
 
-    const QString &name() const;
+    Q_REQUIRED_RESULT const QString &name() const;
     void setName(const QString &newName);
 
-    const QString &message() const;
+    Q_REQUIRED_RESULT const QString &message() const;
     void setMessage(const QString &newMessage);
 
-    const QString &taggerEmail() const;
+    Q_REQUIRED_RESULT const QString &taggerEmail() const;
     void setTaggerEmail(const QString &newTaggerEmail);
 
 private:
