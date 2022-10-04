@@ -13,7 +13,6 @@ target_sources(libgitklient PRIVATE
     gitfile.cpp
     gitlog.cpp
     gitremote.cpp
-    parameterescommand.cpp
     gittag.cpp
 
     models/abstractgititemsmodel.cpp
@@ -36,6 +35,7 @@ target_sources(libgitklient PRIVATE
     commands/commandmerge.cpp
     commands/addsubmodulecommand.cpp
     commands/commandaddremote.cpp
+    commands/parameterescommand.cpp
 
     gitglobal.h
     gitloglist.h
@@ -49,7 +49,6 @@ target_sources(libgitklient PRIVATE
     gitfile.h
     gitlog.h
     gitremote.h
-    parameterescommand.h
     gittag.h
 
     models/abstractgititemsmodel.h
@@ -72,6 +71,7 @@ target_sources(libgitklient PRIVATE
     commands/commandmerge.h
     commands/addsubmodulecommand.h
     commands/commandaddremote.h
+    commands/parameterescommand.h
 )
 
 generate_export_header(libgitklient BASE_NAME libgitklient)

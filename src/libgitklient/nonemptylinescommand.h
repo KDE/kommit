@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "parameterescommand.h"
+#include "commands/parameterescommand.h"
 
 namespace Git
 {
