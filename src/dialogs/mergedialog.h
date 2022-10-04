@@ -22,6 +22,9 @@ public:
     explicit MergeDialog(Git::Manager *git, const QString &sourceBranch, QWidget *parent = nullptr);
     Git::CommandMerge *command() const;
 
+private slots:
+    void on_comboBoxStrategy_currentIndexChanged(int index);
+
 private:
     QString mSourceBranch;
     void init(Git::Manager *git);

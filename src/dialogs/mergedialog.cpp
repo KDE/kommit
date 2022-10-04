@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "mergedialog.h"
 
 #include <QWhatsThisClickedEvent>
+#include <QDebug>
 
 #include "commands/commandmerge.h"
 #include "gitmanager.h"
@@ -19,6 +20,11 @@ void MergeDialog::init(Git::Manager *git)
 
     checkBoxAllowUnrelatedHistories->setCheckState(Qt::PartiallyChecked);
     checkBoxSquash->setCheckState(Qt::PartiallyChecked);
+
+    stackedWidget->setCurrentWidget(pageEmpty);
+
+    initComboBox<Git::CommandMerge::Strategy>(comboBoxStrategy);
+    initComboBox<Git::CommandMerge::DiffAlgorithm>(comboBoxDiffAlgoritm);
 }
 
 MergeDialog::MergeDialog(Git::Manager *git, QWidget *parent)
@@ -45,19 +51,53 @@ Git::CommandMerge *MergeDialog::command() const
     auto cmd = new Git::CommandMerge(mGit);
 
     cmd->setAllowUnrelatedHistories(Git::checkStateToOptionalBool(checkBoxAllowUnrelatedHistories->checkState()));
-    cmd->setSquash(checkBoxSquash->isChecked());
+    cmd->setSquash(Git::checkStateToOptionalBool(checkBoxSquash->checkState()));
 
-    if (radioButtonAllowFastForward->isChecked())
-        cmd->setFf(Git::FastForwardType::Yes);
-    else if (radioButtonFastForwardOnly->isChecked())
-        cmd->setFf(Git::FastForwardType::OnlyFastForward);
-    else if (radioButtonNofastForward->isChecked())
-        cmd->setFf(Git::FastForwardType::No);
-    else
+    switch (comboBoxFastForward->currentIndex()) {
+    case 0:
         cmd->setFf(Git::FastForwardType::Unset);
+        break;
+    case 1:
+        cmd->setFf(Git::FastForwardType::Yes);
+        break;
+    case 2:
+        cmd->setFf(Git::FastForwardType::OnlyFastForward);
+        break;
+    case 3:
+        cmd->setFf(Git::FastForwardType::No);
+        break;
+    }
+    cmd->setStrategy(comboBoxCurrentValue<Git::CommandMerge::Strategy>(comboBoxStrategy));
+    cmd->setIgnoreAllSpace(checkBoxIgnoreAllSpace->isChecked());
+    cmd->setIgnoreSpaceAtEol(checkBoxIgnoreSpaceAtEol->isChecked());
+    cmd->setIgnoreSpaceChange(checkBoxIgnoreSpaceChanges->isChecked());
+    cmd->setIgnoreCrAtEol(checkBoxIgnoreCrAtEol->isChecked());
+    cmd->setRenormalize(checkBoxRenormalize->isChecked());
 
-    if (comboBoxStrategy->currentIndex() > 0)
-        cmd->setStrategy(comboBoxStrategy->currentText().toLower());
+    cmd->setOurs(radioButtonOurs->isChecked());
+    cmd->setTheirs(radioButtonTheirs->isChecked());
+    cmd->setFromBranch(comboBoxBranchName->currentText());
+    cmd->setNoRenames(checkBoxNoRenames->isChecked());
+    cmd->setDiffAlgorithm(comboBoxCurrentValue<Git::CommandMerge::DiffAlgorithm>(comboBoxDiffAlgoritm));
 
     return cmd;
+}
+
+void MergeDialog::on_comboBoxStrategy_currentIndexChanged(int index)
+{
+    Q_UNUSED(index)
+
+    auto strategy = comboBoxCurrentValue<Git::CommandMerge::Strategy>(comboBoxStrategy);
+
+    switch (strategy) {
+    case Git::CommandMerge::Ort:
+        stackedWidget->setCurrentWidget(pageStrategyOrt);
+        break;
+    case Git::CommandMerge::Recursive:
+        stackedWidget->setCurrentWidget(pageStrategyRecursive);
+        break;
+    default:
+        stackedWidget->setCurrentWidget(pageEmpty);
+        break;
+    }
 }

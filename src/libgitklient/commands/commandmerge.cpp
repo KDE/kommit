@@ -6,6 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commandmerge.h"
 
+#include <QMetaEnum>
+
 namespace Git
 {
 
@@ -35,8 +37,50 @@ QStringList CommandMerge::generateArgs() const
     appendBool(mSquash, cmd, QStringLiteral("squash"));
     appendBool(mAllowUnrelatedHistories, cmd, QStringLiteral("allow-unrelated-histories"));
 
-    if (!mStrategy.isEmpty())
-        cmd.append(QStringLiteral("--strategy=") + mStrategy);
+    switch (mStrategy) {
+    case Ort:
+        cmd << QStringLiteral("--strategy=ort");
+        if (mIgnoreSpaceChange)
+            cmd << "--ignore-space-change";
+        if (mIgnoreAllSpace)
+            cmd << "--ignore-all-space";
+        if (mIgnoreSpaceAtEol)
+            cmd << "--ignore-space-at-eol";
+        if (mIgnoreCrAtEol)
+            cmd << "--ignore-cr-at-eol";
+        if (mRenormalize)
+            cmd << "--renormalize";
+        if (mOurs)
+            cmd << "--ours";
+        if (mTheirs)
+            cmd << "--theirs";
+        break;
+    case Recursive: {
+        auto e = QMetaEnum::fromType<DiffAlgorithm>();
+        cmd << QStringLiteral("diff-algorithm=") + QString(e.valueToKey(mDiffAlgorithm)).toLower();
+        if (mNoRenames)
+            cmd << "--no-renames";
+        cmd << QStringLiteral("--strategy=recursive");
+        break;
+    }
+    case Resolve:
+        cmd << QStringLiteral("--strategy=resolve");
+        break;
+    case Octopus:
+        cmd << QStringLiteral("--strategy=octopus");
+        break;
+    case Ours:
+        cmd << QStringLiteral("--strategy=ours");
+        break;
+    case Subtree:
+        cmd << QStringLiteral("--strategy=subtree");
+        break;
+    case Default:
+        // Just to avoid compiler warning
+        break;
+    }
+
+    cmd << mFromBranch;
 
     return cmd;
 }
@@ -71,12 +115,12 @@ void CommandMerge::setFf(FastForwardType newFf)
     mFf = newFf;
 }
 
-bool CommandMerge::squash() const
+OptionalBool CommandMerge::squash() const
 {
     return mSquash;
 }
 
-void CommandMerge::setSquash(bool newSquash)
+void CommandMerge::setSquash(OptionalBool newSquash)
 {
     mSquash = newSquash;
 }
@@ -91,14 +135,104 @@ void CommandMerge::setFromBranch(const QString &newFromBranch)
     mFromBranch = newFromBranch;
 }
 
-const QString &CommandMerge::strategy() const
+const CommandMerge::Strategy &CommandMerge::strategy() const
 {
     return mStrategy;
 }
 
-void CommandMerge::setStrategy(const QString &newStrategy)
+void CommandMerge::setStrategy(const Strategy &newStrategy)
 {
     mStrategy = newStrategy;
+}
+
+bool CommandMerge::ignoreSpaceChange() const
+{
+    return mIgnoreSpaceChange;
+}
+
+void CommandMerge::setIgnoreSpaceChange(bool newIgnoreSpaceChange)
+{
+    mIgnoreSpaceChange = newIgnoreSpaceChange;
+}
+
+bool CommandMerge::ignoreAllSpace() const
+{
+    return mIgnoreAllSpace;
+}
+
+void CommandMerge::setIgnoreAllSpace(bool newIgnoreAllSpace)
+{
+    mIgnoreAllSpace = newIgnoreAllSpace;
+}
+
+bool CommandMerge::ignoreSpaceAtEol() const
+{
+    return mIgnoreSpaceAtEol;
+}
+
+void CommandMerge::setIgnoreSpaceAtEol(bool newIgnoreSpaceAtEol)
+{
+    mIgnoreSpaceAtEol = newIgnoreSpaceAtEol;
+}
+
+bool CommandMerge::ignoreCrAtEol() const
+{
+    return mIgnoreCrAtEol;
+}
+
+void CommandMerge::setIgnoreCrAtEol(bool newIgnoreCrAtEol)
+{
+    mIgnoreCrAtEol = newIgnoreCrAtEol;
+}
+
+bool CommandMerge::renormalize() const
+{
+    return mRenormalize;
+}
+
+void CommandMerge::setRenormalize(bool newRenormalize)
+{
+    mRenormalize = newRenormalize;
+}
+
+bool CommandMerge::noRenames() const
+{
+    return mNoRenames;
+}
+
+void CommandMerge::setNoRenames(bool newNoRenames)
+{
+    mNoRenames = newNoRenames;
+}
+
+CommandMerge::DiffAlgorithm CommandMerge::diffAlgorithm() const
+{
+    return mDiffAlgorithm;
+}
+
+void CommandMerge::setDiffAlgorithm(DiffAlgorithm newDiffAlgorithm)
+{
+    mDiffAlgorithm = newDiffAlgorithm;
+}
+
+bool CommandMerge::ours() const
+{
+    return mOurs;
+}
+
+void CommandMerge::setOurs(bool newOurs)
+{
+    mOurs = newOurs;
+}
+
+bool CommandMerge::theirs() const
+{
+    return mTheirs;
+}
+
+void CommandMerge::setTheirs(bool newTheirs)
+{
+    mTheirs = newTheirs;
 }
 
 } // namespace Git
