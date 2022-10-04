@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 // application headers
 #include "appwindow.h"
 #include "commands/commandswitchbranch.h"
+#include "commands/commandmerge.h"
 #include "dialogs/changedfilesdialog.h"
 #include "dialogs/clonedialog.h"
 #include "dialogs/commitpushdialog.h"
@@ -270,7 +271,14 @@ void AppWindow::fetch()
 void AppWindow::showBranchesStatus()
 {
     MergeDialog d(mGit, this);
-    d.exec();
+    if (d.exec() == QDialog::Accepted) {
+        RunnerDialog r(this);
+
+        auto cmd = d.command();
+        r.run(cmd);
+        r.exec();
+        cmd->deleteLater();
+    }
 }
 
 void AppWindow::clone()
