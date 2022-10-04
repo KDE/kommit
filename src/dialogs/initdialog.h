@@ -16,6 +16,6 @@ class InitDialog : public AppDialog, private Ui::InitDialog
 
 public:
     explicit InitDialog(Git::Manager *git, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
-    QString path() const;
+    Q_REQUIRED_RESULT QString path() const;
     void setPath(const QString &path);
 };

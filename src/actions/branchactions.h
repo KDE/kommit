@@ -12,18 +12,6 @@ class BranchActions : public AbstractActions
 {
     Q_OBJECT
 
-    QString mBranchName;
-    QString mOtherBranch;
-
-    DEFINE_ACTION(actionFetch)
-    DEFINE_ACTION(actionBrowse)
-    DEFINE_ACTION(actionCheckout)
-    DEFINE_ACTION(actionDiff)
-    DEFINE_ACTION(actionMerge)
-    DEFINE_ACTION(actionCreate)
-    DEFINE_ACTION(actionRemove)
-    DEFINE_ACTION(actionNote)
-
 public:
     explicit BranchActions(Git::Manager *git, QWidget *parent = nullptr);
 
@@ -42,4 +30,17 @@ private Q_SLOTS:
     void remove();
     void merge();
     void note();
+
+private:
+    QString mBranchName;
+    QString mOtherBranch;
+
+    DEFINE_ACTION(actionFetch)
+    DEFINE_ACTION(actionBrowse)
+    DEFINE_ACTION(actionCheckout)
+    DEFINE_ACTION(actionDiff)
+    DEFINE_ACTION(actionMerge)
+    DEFINE_ACTION(actionCreate)
+    DEFINE_ACTION(actionRemove)
+    DEFINE_ACTION(actionNote)
 };

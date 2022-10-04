@@ -12,11 +12,6 @@ class CommitActions : public AbstractActions
 {
     Q_OBJECT
 
-
-    DEFINE_ACTION(actionBrowse)
-    DEFINE_ACTION(actionCheckout)
-    DEFINE_ACTION(actionDiff)
-
 public:
     explicit CommitActions(Git::Manager *git, QWidget *parent = nullptr);
 
@@ -28,5 +23,8 @@ private Q_SLOTS:
     void checkout();
     void diff();
 private:
+    DEFINE_ACTION(actionBrowse)
+    DEFINE_ACTION(actionCheckout)
+    DEFINE_ACTION(actionDiff)
     QString mCommitHash;
 };

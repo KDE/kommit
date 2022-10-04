@@ -12,11 +12,6 @@ class ChangedFileActions : public AbstractActions
 {
     Q_OBJECT
 
-    QString mFilePath;
-
-    DEFINE_ACTION(actionDiff)
-    DEFINE_ACTION(actionRevert)
-
 public:
     explicit ChangedFileActions(Git::Manager *git, QWidget *parent = nullptr);
 
@@ -29,4 +24,10 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void reloadNeeded();
+
+private:
+    QString mFilePath;
+
+    DEFINE_ACTION(actionDiff)
+    DEFINE_ACTION(actionRevert)
 };

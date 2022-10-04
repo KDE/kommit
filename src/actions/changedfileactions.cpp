@@ -38,8 +38,8 @@ void ChangedFileActions::setFilePath(const QString &newFilePath)
 
 void ChangedFileActions::diff()
 {
-    Git::File original{mGit->currentBranch(), mFilePath};
-    Git::File changed{mGit->path() + QLatin1Char('/') + mFilePath};
+    const Git::File original{mGit->currentBranch(), mFilePath};
+    const Git::File changed{mGit->path() + QLatin1Char('/') + mFilePath};
 
     auto diffWin = new DiffWindow(original, changed);
     diffWin->showModal();

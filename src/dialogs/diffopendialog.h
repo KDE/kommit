@@ -18,11 +18,11 @@ public:
     explicit DiffOpenDialog(QWidget *parent = nullptr);
     ~DiffOpenDialog() override;
 
-    QString oldFile() const;
-    QString newFile() const;
-    QString oldDir() const;
-    QString newDir() const;
-    Mode mode() const;
+    Q_REQUIRED_RESULT QString oldFile() const;
+    Q_REQUIRED_RESULT QString newFile() const;
+    Q_REQUIRED_RESULT QString oldDir() const;
+    Q_REQUIRED_RESULT QString newDir() const;
+    Q_REQUIRED_RESULT Mode mode() const;
 
 private Q_SLOTS:
     void on_toolButtonBrowseNewFile_clicked();

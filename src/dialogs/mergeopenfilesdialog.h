@@ -16,13 +16,13 @@ class MergeOpenFilesDialog : public AppDialog, private Ui::MergeOpenFilesDialog
 public:
     explicit MergeOpenFilesDialog(QWidget *parent = nullptr);
 
-    QString filePathLocal() const;
+    Q_REQUIRED_RESULT QString filePathLocal() const;
     void setFilePathLocal(const QString &newFilePathLocal);
 
-    QString filePathRemote() const;
+    Q_REQUIRED_RESULT QString filePathRemote() const;
     void setFilePathRemote(const QString &newFilePathRemote);
 
-    QString filePathBase() const;
+    Q_REQUIRED_RESULT QString filePathBase() const;
     void setFilePathBase(const QString &newFilePathBase);
 
 private Q_SLOTS:

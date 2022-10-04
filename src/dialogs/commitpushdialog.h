@@ -22,7 +22,6 @@ public:
     explicit CommitPushDialog(Git::Manager *git, QWidget *parent = nullptr);
 
 private Q_SLOTS:
-    void checkButtonsEnable();
     void on_pushButtonCommit_clicked();
     void on_pushButtonPush_clicked();
     void on_toolButtonAddAll_clicked();
@@ -34,6 +33,7 @@ private Q_SLOTS:
     void on_listWidget_customContextMenuRequested(const QPoint &pos);
 
 private:
+    void checkButtonsEnable();
     void addFiles();
     ChangedFileActions *mActions = nullptr;
 };
