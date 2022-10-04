@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-03 00:51+0000\n"
+"POT-Creation-Date: 2022-10-04 00:47+0000\n"
 "PO-Revision-Date: 2022-09-30 12:04+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -140,7 +140,7 @@ msgstr "Omschakelen"
 msgid "Merge..."
 msgstr "Merge..."
 
-#: src/actions/branchactions.cpp:35 src/actions/remotesactions.cpp:23
+#: src/actions/branchactions.cpp:35 src/actions/remotesactions.cpp:24
 #: src/actions/stashactions.cpp:25 src/actions/tagsactions.cpp:24
 #, kde-format
 msgid "Remove..."
@@ -227,52 +227,52 @@ msgstr "Annotatie..."
 msgid "Search..."
 msgstr "Zoeken..."
 
-#: src/actions/remotesactions.cpp:22
+#: src/actions/remotesactions.cpp:23
 #, kde-format
 msgid "New..."
 msgstr "Nieuw..."
 
-#: src/actions/remotesactions.cpp:24
+#: src/actions/remotesactions.cpp:25
 #, kde-format
 msgid "Rename..."
 msgstr "Hernoemen..."
 
-#: src/actions/remotesactions.cpp:25
+#: src/actions/remotesactions.cpp:26
 #, kde-format
 msgid "Change url..."
 msgstr "URL wijzigen..."
 
-#: src/actions/remotesactions.cpp:58
+#: src/actions/remotesactions.cpp:59
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
 msgstr "Wilt u de geselecteerde remote verwijderen?"
 
-#: src/actions/remotesactions.cpp:58
+#: src/actions/remotesactions.cpp:59
 #, kde-format
 msgid "Remove remote?"
 msgstr "Remote verwijderen?"
 
-#: src/actions/remotesactions.cpp:72
+#: src/actions/remotesactions.cpp:73
 #, kde-format
 msgid "Change url"
 msgstr "URL wijzigen"
 
-#: src/actions/remotesactions.cpp:72
+#: src/actions/remotesactions.cpp:73
 #, kde-format
 msgid "URL"
 msgstr "URL"
 
-#: src/actions/remotesactions.cpp:75
+#: src/actions/remotesactions.cpp:76
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "Url voor remote met succes gewijzigd"
 
-#: src/actions/remotesactions.cpp:81
+#: src/actions/remotesactions.cpp:82
 #, kde-format
 msgid "Rename"
 msgstr "Hernoemen"
 
-#: src/actions/remotesactions.cpp:81
+#: src/actions/remotesactions.cpp:82
 #, kde-format
 msgid "New name"
 msgstr "Nieuwe naam"
@@ -999,9 +999,11 @@ msgstr "Patroon:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/dialogs/ignorefiledialog.ui:37 src/git/models/authorsmodel.cpp:37
-#: src/git/models/branchesmodel.cpp:56 src/git/models/tagsmodel.cpp:61
-#: src/models/treemodel.cpp:141 src/widgets/remoteswidget.ui:161
+#: src/dialogs/ignorefiledialog.ui:37
+#: src/libgitklient/models/authorsmodel.cpp:37
+#: src/libgitklient/models/branchesmodel.cpp:56
+#: src/libgitklient/models/tagsmodel.cpp:61 src/models/treemodel.cpp:141
+#: src/widgets/remoteswidget.ui:161
 #, kde-format
 msgid "Name"
 msgstr "Naam"
@@ -1025,7 +1027,8 @@ msgid "All files by this name"
 msgstr "Alle bestanden met deze naam"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
-#: src/dialogs/ignorefiledialog.ui:70 src/git/models/submodulesmodel.cpp:55
+#: src/dialogs/ignorefiledialog.ui:70
+#: src/libgitklient/models/submodulesmodel.cpp:55
 #, kde-format
 msgid "Path"
 msgstr "Pad"
@@ -1584,116 +1587,6 @@ msgstr "Verwijderd"
 msgid "Modified"
 msgstr "Gewijzigd"
 
-#: src/git/commands/commandpull.cpp:83
-#, kde-format
-msgid "Already up to date."
-msgstr "Al bijgewerkt."
-
-#: src/git/commands/commandpull.cpp:87
-#, kde-format
-msgid "Error"
-msgstr "Fout"
-
-#: src/git/commands/commandswitchbranch.cpp:26
-#, kde-format
-msgid ""
-"Your local changes to the following files would be overwritten by checkout. "
-"Please commit your changes or stash them before you switch branches."
-msgstr ""
-"Uw lokale wijzigen aan de volgende bestanden zouden overschreven worden door "
-"de checkout. Commit uw wijzigingen of stapel ze voordat u branches "
-"omschakelt."
-
-#: src/git/gitremote.cpp:116
-#, kde-format
-msgid "Unknown"
-msgstr "Onbekend"
-
-#: src/git/gitremote.cpp:118
-#, kde-format
-msgid "Up to date"
-msgstr "Bijgewerkt"
-
-#: src/git/gitremote.cpp:120
-#, kde-format
-msgid "Fast forwardable"
-msgstr "Fast forward is mogelijk"
-
-#: src/git/gitremote.cpp:122
-#, kde-format
-msgid "Local out of date"
-msgstr "Lokaal niet bijgewerkt"
-
-#: src/git/models/authorsmodel.cpp:39
-#, kde-format
-msgid "Email"
-msgstr "E-mail"
-
-#: src/git/models/branchesmodel.cpp:58
-#, kde-format
-msgid "Commit(s) behind"
-msgstr "Commit(s) lopen achter"
-
-#: src/git/models/branchesmodel.cpp:60
-#, kde-format
-msgid "Commit(s) ahead"
-msgstr "Commit(s) lopen vooruit"
-
-#: src/git/models/logsmodel.cpp:249 src/models/historymodel.cpp:99
-#, kde-format
-msgid "Graph"
-msgstr "Grafiek"
-
-#: src/git/models/logsmodel.cpp:251 src/git/models/logsmodel.cpp:256
-#: src/models/historymodel.cpp:101 src/models/historymodel.cpp:106
-#, kde-format
-msgid "Message"
-msgstr "Bericht"
-
-#: src/git/models/logsmodel.cpp:258 src/models/historymodel.cpp:108
-#: src/widgets/logdetailswidget.cpp:114
-#, kde-format
-msgid "Date"
-msgstr "Datum"
-
-#: src/git/models/logsmodel.cpp:260 src/main.cpp:60
-#: src/models/historymodel.cpp:110 src/widgets/logdetailswidget.cpp:113
-#, kde-format
-msgid "Author"
-msgstr "Auteur"
-
-#: src/git/models/stashesmodel.cpp:61 src/git/models/tagsmodel.cpp:63
-#, kde-format
-msgid "Subject"
-msgstr "Onderwerp"
-
-#: src/git/models/stashesmodel.cpp:63
-#, kde-format
-msgid "Author name"
-msgstr "Naam van de auteur"
-
-#: src/git/models/stashesmodel.cpp:65 src/git/models/tagsmodel.cpp:65
-#, kde-format
-msgid "Author email"
-msgstr "E-mailadres van auteur"
-
-#: src/git/models/stashesmodel.cpp:67
-#, kde-format
-msgid "Time"
-msgstr "Tijd"
-
-#: src/git/models/submodulesmodel.cpp:57
-#, kde-format
-msgid "Head"
-msgstr "Kop"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/git/models/submodulesmodel.cpp:59 src/models/treemodel.cpp:143
-#: src/widgets/remoteswidget.ui:176
-#, kde-format
-msgid "Status"
-msgstr "Status"
-
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gitklientdiffui.rc:20 src/gitklientmergeui.rc:31 src/gitklientui.rc:44
 #, kde-format
@@ -1706,6 +1599,119 @@ msgstr "Hoofdwerkbalk"
 #, kde-format
 msgid "Repo"
 msgstr "Repo"
+
+#: src/libgitklient/commands/commandpull.cpp:83
+#, kde-format
+msgid "Already up to date."
+msgstr "Al bijgewerkt."
+
+#: src/libgitklient/commands/commandpull.cpp:87
+#, kde-format
+msgid "Error"
+msgstr "Fout"
+
+#: src/libgitklient/commands/commandswitchbranch.cpp:26
+#, kde-format
+msgid ""
+"Your local changes to the following files would be overwritten by checkout. "
+"Please commit your changes or stash them before you switch branches."
+msgstr ""
+"Uw lokale wijzigen aan de volgende bestanden zouden overschreven worden door "
+"de checkout. Commit uw wijzigingen of stapel ze voordat u branches "
+"omschakelt."
+
+#: src/libgitklient/gitremote.cpp:116
+#, kde-format
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: src/libgitklient/gitremote.cpp:118
+#, kde-format
+msgid "Up to date"
+msgstr "Bijgewerkt"
+
+#: src/libgitklient/gitremote.cpp:120
+#, kde-format
+msgid "Fast forwardable"
+msgstr "Fast forward is mogelijk"
+
+#: src/libgitklient/gitremote.cpp:122
+#, kde-format
+msgid "Local out of date"
+msgstr "Lokaal niet bijgewerkt"
+
+#: src/libgitklient/models/authorsmodel.cpp:39
+#, kde-format
+msgid "Email"
+msgstr "E-mail"
+
+#: src/libgitklient/models/branchesmodel.cpp:58
+#, kde-format
+msgid "Commit(s) behind"
+msgstr "Commit(s) lopen achter"
+
+#: src/libgitklient/models/branchesmodel.cpp:60
+#, kde-format
+msgid "Commit(s) ahead"
+msgstr "Commit(s) lopen vooruit"
+
+#: src/libgitklient/models/logsmodel.cpp:249 src/models/historymodel.cpp:99
+#, kde-format
+msgid "Graph"
+msgstr "Grafiek"
+
+#: src/libgitklient/models/logsmodel.cpp:251
+#: src/libgitklient/models/logsmodel.cpp:256 src/models/historymodel.cpp:101
+#: src/models/historymodel.cpp:106
+#, kde-format
+msgid "Message"
+msgstr "Bericht"
+
+#: src/libgitklient/models/logsmodel.cpp:258 src/models/historymodel.cpp:108
+#: src/widgets/logdetailswidget.cpp:114
+#, kde-format
+msgid "Date"
+msgstr "Datum"
+
+#: src/libgitklient/models/logsmodel.cpp:260 src/main.cpp:60
+#: src/models/historymodel.cpp:110 src/widgets/logdetailswidget.cpp:113
+#, kde-format
+msgid "Author"
+msgstr "Auteur"
+
+#: src/libgitklient/models/stashesmodel.cpp:61
+#: src/libgitklient/models/tagsmodel.cpp:63
+#, kde-format
+msgid "Subject"
+msgstr "Onderwerp"
+
+#: src/libgitklient/models/stashesmodel.cpp:63
+#, kde-format
+msgid "Author name"
+msgstr "Naam van de auteur"
+
+#: src/libgitklient/models/stashesmodel.cpp:65
+#: src/libgitklient/models/tagsmodel.cpp:65
+#, kde-format
+msgid "Author email"
+msgstr "E-mailadres van auteur"
+
+#: src/libgitklient/models/stashesmodel.cpp:67
+#, kde-format
+msgid "Time"
+msgstr "Tijd"
+
+#: src/libgitklient/models/submodulesmodel.cpp:57
+#, kde-format
+msgid "Head"
+msgstr "Kop"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libgitklient/models/submodulesmodel.cpp:59 src/models/treemodel.cpp:143
+#: src/widgets/remoteswidget.ui:176
+#, kde-format
+msgid "Status"
+msgstr "Status"
 
 #: src/main.cpp:54
 #, kde-format

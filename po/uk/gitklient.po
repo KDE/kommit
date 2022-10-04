@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-03 00:51+0000\n"
+"POT-Creation-Date: 2022-10-04 00:47+0000\n"
 "PO-Revision-Date: 2022-09-30 07:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -141,7 +141,7 @@ msgstr "Перемкнутися"
 msgid "Merge..."
 msgstr "Об'єднати…"
 
-#: src/actions/branchactions.cpp:35 src/actions/remotesactions.cpp:23
+#: src/actions/branchactions.cpp:35 src/actions/remotesactions.cpp:24
 #: src/actions/stashactions.cpp:25 src/actions/tagsactions.cpp:24
 #, kde-format
 msgid "Remove..."
@@ -228,52 +228,52 @@ msgstr "Визначити автора…"
 msgid "Search..."
 msgstr "Шукати…"
 
-#: src/actions/remotesactions.cpp:22
+#: src/actions/remotesactions.cpp:23
 #, kde-format
 msgid "New..."
 msgstr "Створити…"
 
-#: src/actions/remotesactions.cpp:24
+#: src/actions/remotesactions.cpp:25
 #, kde-format
 msgid "Rename..."
 msgstr "Перейменувати…"
 
-#: src/actions/remotesactions.cpp:25
+#: src/actions/remotesactions.cpp:26
 #, kde-format
 msgid "Change url..."
 msgstr "Змінити адресу…"
 
-#: src/actions/remotesactions.cpp:58
+#: src/actions/remotesactions.cpp:59
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
 msgstr "Ви справді хочете вилучити вибране віддалене сховище?"
 
-#: src/actions/remotesactions.cpp:58
+#: src/actions/remotesactions.cpp:59
 #, kde-format
 msgid "Remove remote?"
 msgstr "Вилучити віддалене?"
 
-#: src/actions/remotesactions.cpp:72
+#: src/actions/remotesactions.cpp:73
 #, kde-format
 msgid "Change url"
 msgstr "Змінити адресу"
 
-#: src/actions/remotesactions.cpp:72
+#: src/actions/remotesactions.cpp:73
 #, kde-format
 msgid "URL"
 msgstr "Адреса"
 
-#: src/actions/remotesactions.cpp:75
+#: src/actions/remotesactions.cpp:76
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "Адресу віддаленого сховища успішно змінено"
 
-#: src/actions/remotesactions.cpp:81
+#: src/actions/remotesactions.cpp:82
 #, kde-format
 msgid "Rename"
 msgstr "Перейменувати"
 
-#: src/actions/remotesactions.cpp:81
+#: src/actions/remotesactions.cpp:82
 #, kde-format
 msgid "New name"
 msgstr "Нова назва"
@@ -999,9 +999,11 @@ msgstr "Взірець:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/dialogs/ignorefiledialog.ui:37 src/git/models/authorsmodel.cpp:37
-#: src/git/models/branchesmodel.cpp:56 src/git/models/tagsmodel.cpp:61
-#: src/models/treemodel.cpp:141 src/widgets/remoteswidget.ui:161
+#: src/dialogs/ignorefiledialog.ui:37
+#: src/libgitklient/models/authorsmodel.cpp:37
+#: src/libgitklient/models/branchesmodel.cpp:56
+#: src/libgitklient/models/tagsmodel.cpp:61 src/models/treemodel.cpp:141
+#: src/widgets/remoteswidget.ui:161
 #, kde-format
 msgid "Name"
 msgstr "Назва"
@@ -1025,7 +1027,8 @@ msgid "All files by this name"
 msgstr "Усі файли з цією назвою"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
-#: src/dialogs/ignorefiledialog.ui:70 src/git/models/submodulesmodel.cpp:55
+#: src/dialogs/ignorefiledialog.ui:70
+#: src/libgitklient/models/submodulesmodel.cpp:55
 #, kde-format
 msgid "Path"
 msgstr "Шлях"
@@ -1582,116 +1585,6 @@ msgstr "Вилучено"
 msgid "Modified"
 msgstr "Змінено"
 
-#: src/git/commands/commandpull.cpp:83
-#, kde-format
-msgid "Already up to date."
-msgstr "Вже актуальне."
-
-#: src/git/commands/commandpull.cpp:87
-#, kde-format
-msgid "Error"
-msgstr "Помилка"
-
-#: src/git/commands/commandswitchbranch.cpp:26
-#, kde-format
-msgid ""
-"Your local changes to the following files would be overwritten by checkout. "
-"Please commit your changes or stash them before you switch branches."
-msgstr ""
-"Ваші локальні зміни до вказаних нижче файлів буде перезаписано при отриманні "
-"даних. Будь ласка, створіть внесок або накопичення з ваших змін, перш ніж "
-"перемикати гілки."
-
-#: src/git/gitremote.cpp:116
-#, kde-format
-msgid "Unknown"
-msgstr "Невідоме"
-
-#: src/git/gitremote.cpp:118
-#, kde-format
-msgid "Up to date"
-msgstr "Не потребує оновлення"
-
-#: src/git/gitremote.cpp:120
-#, kde-format
-msgid "Fast forwardable"
-msgstr "Придатне до швидкого переспрямування"
-
-#: src/git/gitremote.cpp:122
-#, kde-format
-msgid "Local out of date"
-msgstr "Локальна є застарілою"
-
-#: src/git/models/authorsmodel.cpp:39
-#, kde-format
-msgid "Email"
-msgstr "Ел. пошта"
-
-#: src/git/models/branchesmodel.cpp:58
-#, kde-format
-msgid "Commit(s) behind"
-msgstr "Відсталі внески"
-
-#: src/git/models/branchesmodel.cpp:60
-#, kde-format
-msgid "Commit(s) ahead"
-msgstr "Випереджальні внески"
-
-#: src/git/models/logsmodel.cpp:249 src/models/historymodel.cpp:99
-#, kde-format
-msgid "Graph"
-msgstr "Граф"
-
-#: src/git/models/logsmodel.cpp:251 src/git/models/logsmodel.cpp:256
-#: src/models/historymodel.cpp:101 src/models/historymodel.cpp:106
-#, kde-format
-msgid "Message"
-msgstr "Повідомлення"
-
-#: src/git/models/logsmodel.cpp:258 src/models/historymodel.cpp:108
-#: src/widgets/logdetailswidget.cpp:114
-#, kde-format
-msgid "Date"
-msgstr "Дата"
-
-#: src/git/models/logsmodel.cpp:260 src/main.cpp:60
-#: src/models/historymodel.cpp:110 src/widgets/logdetailswidget.cpp:113
-#, kde-format
-msgid "Author"
-msgstr "Автор"
-
-#: src/git/models/stashesmodel.cpp:61 src/git/models/tagsmodel.cpp:63
-#, kde-format
-msgid "Subject"
-msgstr "Тема"
-
-#: src/git/models/stashesmodel.cpp:63
-#, kde-format
-msgid "Author name"
-msgstr "Імʼя автора"
-
-#: src/git/models/stashesmodel.cpp:65 src/git/models/tagsmodel.cpp:65
-#, kde-format
-msgid "Author email"
-msgstr "Електронна пошта автора"
-
-#: src/git/models/stashesmodel.cpp:67
-#, kde-format
-msgid "Time"
-msgstr "Час"
-
-#: src/git/models/submodulesmodel.cpp:57
-#, kde-format
-msgid "Head"
-msgstr "Голова"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/git/models/submodulesmodel.cpp:59 src/models/treemodel.cpp:143
-#: src/widgets/remoteswidget.ui:176
-#, kde-format
-msgid "Status"
-msgstr "Стан"
-
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gitklientdiffui.rc:20 src/gitklientmergeui.rc:31 src/gitklientui.rc:44
 #, kde-format
@@ -1704,6 +1597,119 @@ msgstr "Головна панель"
 #, kde-format
 msgid "Repo"
 msgstr "Схов."
+
+#: src/libgitklient/commands/commandpull.cpp:83
+#, kde-format
+msgid "Already up to date."
+msgstr "Вже актуальне."
+
+#: src/libgitklient/commands/commandpull.cpp:87
+#, kde-format
+msgid "Error"
+msgstr "Помилка"
+
+#: src/libgitklient/commands/commandswitchbranch.cpp:26
+#, kde-format
+msgid ""
+"Your local changes to the following files would be overwritten by checkout. "
+"Please commit your changes or stash them before you switch branches."
+msgstr ""
+"Ваші локальні зміни до вказаних нижче файлів буде перезаписано при отриманні "
+"даних. Будь ласка, створіть внесок або накопичення з ваших змін, перш ніж "
+"перемикати гілки."
+
+#: src/libgitklient/gitremote.cpp:116
+#, kde-format
+msgid "Unknown"
+msgstr "Невідоме"
+
+#: src/libgitklient/gitremote.cpp:118
+#, kde-format
+msgid "Up to date"
+msgstr "Не потребує оновлення"
+
+#: src/libgitklient/gitremote.cpp:120
+#, kde-format
+msgid "Fast forwardable"
+msgstr "Придатне до швидкого переспрямування"
+
+#: src/libgitklient/gitremote.cpp:122
+#, kde-format
+msgid "Local out of date"
+msgstr "Локальна є застарілою"
+
+#: src/libgitklient/models/authorsmodel.cpp:39
+#, kde-format
+msgid "Email"
+msgstr "Ел. пошта"
+
+#: src/libgitklient/models/branchesmodel.cpp:58
+#, kde-format
+msgid "Commit(s) behind"
+msgstr "Відсталі внески"
+
+#: src/libgitklient/models/branchesmodel.cpp:60
+#, kde-format
+msgid "Commit(s) ahead"
+msgstr "Випереджальні внески"
+
+#: src/libgitklient/models/logsmodel.cpp:249 src/models/historymodel.cpp:99
+#, kde-format
+msgid "Graph"
+msgstr "Граф"
+
+#: src/libgitklient/models/logsmodel.cpp:251
+#: src/libgitklient/models/logsmodel.cpp:256 src/models/historymodel.cpp:101
+#: src/models/historymodel.cpp:106
+#, kde-format
+msgid "Message"
+msgstr "Повідомлення"
+
+#: src/libgitklient/models/logsmodel.cpp:258 src/models/historymodel.cpp:108
+#: src/widgets/logdetailswidget.cpp:114
+#, kde-format
+msgid "Date"
+msgstr "Дата"
+
+#: src/libgitklient/models/logsmodel.cpp:260 src/main.cpp:60
+#: src/models/historymodel.cpp:110 src/widgets/logdetailswidget.cpp:113
+#, kde-format
+msgid "Author"
+msgstr "Автор"
+
+#: src/libgitklient/models/stashesmodel.cpp:61
+#: src/libgitklient/models/tagsmodel.cpp:63
+#, kde-format
+msgid "Subject"
+msgstr "Тема"
+
+#: src/libgitklient/models/stashesmodel.cpp:63
+#, kde-format
+msgid "Author name"
+msgstr "Імʼя автора"
+
+#: src/libgitklient/models/stashesmodel.cpp:65
+#: src/libgitklient/models/tagsmodel.cpp:65
+#, kde-format
+msgid "Author email"
+msgstr "Електронна пошта автора"
+
+#: src/libgitklient/models/stashesmodel.cpp:67
+#, kde-format
+msgid "Time"
+msgstr "Час"
+
+#: src/libgitklient/models/submodulesmodel.cpp:57
+#, kde-format
+msgid "Head"
+msgstr "Голова"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libgitklient/models/submodulesmodel.cpp:59 src/models/treemodel.cpp:143
+#: src/widgets/remoteswidget.ui:176
+#, kde-format
+msgid "Status"
+msgstr "Стан"
 
 #: src/main.cpp:54
 #, kde-format
