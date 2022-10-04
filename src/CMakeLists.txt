@@ -106,8 +106,6 @@ set(DIALOGS_SRC
     dialogs/clonedialog.h
     dialogs/commitpushdialog.cpp
     dialogs/commitpushdialog.h
-    dialogs/diffdialog.cpp
-    dialogs/diffdialog.h
     dialogs/diffopendialog.cpp
     dialogs/diffopendialog.h
     dialogs/fetchdialog.cpp
@@ -221,7 +219,6 @@ ki18n_wrap_ui(
     dialogs/mergedialog.ui
     dialogs/runnerdialog.ui
     dialogs/fileviewerdialog.ui
-    dialogs/diffdialog.ui
     dialogs/clonedialog.ui
     dialogs/submoduleinfodialog.ui
     dialogs/taginfodialog.ui
