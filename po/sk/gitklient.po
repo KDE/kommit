@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-04 00:47+0000\n"
+"POT-Creation-Date: 2022-10-05 00:48+0000\n"
 "PO-Revision-Date: 2022-09-08 22:13+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -59,14 +59,20 @@ msgstr "Ťahať"
 msgid "Push"
 msgstr "Tlačiť"
 
-#: dolphinplugins/actionmanager.cpp:108
+#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
+#: dolphinplugins/actionmanager.cpp:108 src/dialogs/mergedialog.ui:14
+#, kde-format
+msgid "Merge"
+msgstr "Spojiť"
+
+#: dolphinplugins/actionmanager.cpp:109
 #, kde-format
 msgid "Modifications"
 msgstr "Úpravy"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: dolphinplugins/actionmanager.cpp:109 src/actions/branchactions.cpp:34
+#: dolphinplugins/actionmanager.cpp:110 src/actions/branchactions.cpp:34
 #: src/gitklientmergeui.rc:15 src/settings/settingsmanager.cpp:102
 #: src/widgets/branchesstatuswidget.ui:120
 #, kde-format
@@ -75,18 +81,18 @@ msgstr "Diff"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
-#: dolphinplugins/actionmanager.cpp:110 src/dialogs/ignorefiledialog.ui:14
+#: dolphinplugins/actionmanager.cpp:111 src/dialogs/ignorefiledialog.ui:14
 #: src/dialogs/ignorefiledialog.ui:96
 #, kde-format
 msgid "Ignore file"
 msgstr "Ignorovať súbor"
 
-#: dolphinplugins/actionmanager.cpp:112
+#: dolphinplugins/actionmanager.cpp:113
 #, kde-format
 msgid "History"
 msgstr "História"
 
-#: dolphinplugins/actionmanager.cpp:113
+#: dolphinplugins/actionmanager.cpp:114
 #, kde-format
 msgid "Blame"
 msgstr "Obviňovať"
@@ -94,7 +100,7 @@ msgstr "Obviňovať"
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: dolphinplugins/actionmanager.cpp:115 src/mainwidget.ui:474
+#: dolphinplugins/actionmanager.cpp:116 src/mainwidget.ui:474
 #: src/widgets/remoteswidget.ui:53 src/widgets/tagswidget.ui:49
 #, kde-format
 msgid "Add"
@@ -102,13 +108,13 @@ msgstr "Pridať"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: dolphinplugins/actionmanager.cpp:117 src/widgets/branchesstatuswidget.ui:100
+#: dolphinplugins/actionmanager.cpp:118 src/widgets/branchesstatuswidget.ui:100
 #: src/widgets/remoteswidget.ui:63
 #, kde-format
 msgid "Remove"
 msgstr "Odstrániť"
 
-#: dolphinplugins/actionmanager.cpp:120
+#: dolphinplugins/actionmanager.cpp:121
 #, kde-format
 msgid "Create tag"
 msgstr "Vytvoriť značku"
@@ -447,47 +453,52 @@ msgstr ""
 msgid "Diff tree"
 msgstr ""
 
-#: src/appwindow.cpp:218 src/commandargsparser.cpp:208
+#: src/appwindow.cpp:218 src/commandargsparser.cpp:215
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr ""
 
-#: src/appwindow.cpp:218 src/commandargsparser.cpp:208
+#: src/appwindow.cpp:218 src/commandargsparser.cpp:215
 #, kde-format
 msgid "Init repo"
 msgstr ""
 
-#: src/appwindow.cpp:313
+#: src/appwindow.cpp:228
+#, kde-format
+msgid "Open repository"
+msgstr ""
+
+#: src/appwindow.cpp:319
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/appwindow.cpp:313
+#: src/appwindow.cpp:319
 #, kde-format
 msgid "Switch branch"
 msgstr "Prepnúť vetvu"
 
-#: src/commandargsparser.cpp:43
+#: src/commandargsparser.cpp:50
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr ""
 
-#: src/commandargsparser.cpp:213
+#: src/commandargsparser.cpp:220
 #, kde-format
 msgid "The repo inited successfully"
 msgstr ""
 
-#: src/commandargsparser.cpp:420
+#: src/commandargsparser.cpp:446
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr ""
 
-#: src/commandargsparser.cpp:428
+#: src/commandargsparser.cpp:454
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr ""
 
-#: src/commandargsparser.cpp:433
+#: src/commandargsparser.cpp:459
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr ""
@@ -575,9 +586,8 @@ msgstr "Adresár:"
 msgid "..."
 msgstr "..."
 
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxStrategy)
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRecursive)
-#: src/dialogs/clonedialog.ui:67 src/dialogs/mergedialog.ui:48
+#: src/dialogs/clonedialog.ui:67
 #, kde-format
 msgid "Recursive"
 msgstr "Rekurzívne"
@@ -736,41 +746,6 @@ msgstr "Žiadne"
 msgid "Commit"
 msgstr "Začleniť"
 
-#: src/dialogs/diffdialog.cpp:61
-#, kde-format
-msgid "Save diff"
-msgstr "Uložiť diff"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, DiffDialog)
-#: src/dialogs/diffdialog.ui:14
-#, kde-format
-msgid "Diff view"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/diffdialog.ui:36
-#, kde-format
-msgid "Left:"
-msgstr "Vľavo:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/diffdialog.ui:49
-#, kde-format
-msgid "Right:"
-msgstr "Vpravo:"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonShowHiddenChars)
-#: src/dialogs/diffdialog.ui:74
-#, kde-format
-msgid "Show hidden chars"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonSaveAs)
-#: src/dialogs/diffdialog.ui:84
-#, kde-format
-msgid "Save diff as..."
-msgstr ""
-
 #: src/dialogs/diffopendialog.cpp:68
 #, kde-format
 msgid "Select new file"
@@ -868,8 +843,8 @@ msgid "Options"
 msgstr "Voľby"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoFastForward)
-#. i18n: ectx: property (text), widget (QRadioButton, radioButtonNofastForward)
-#: src/dialogs/fetchdialog.ui:94 src/dialogs/mergedialog.ui:131
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/dialogs/fetchdialog.ui:94 src/dialogs/mergedialog.ui:86
 #: src/dialogs/pulldialog.ui:64
 #, kde-format
 msgid "No fast forward"
@@ -892,8 +867,8 @@ msgid "Tags"
 msgstr "Značky"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
-#. i18n: ectx: property (text), widget (QRadioButton, radioButtonFastForwardOnly)
-#: src/dialogs/fetchdialog.ui:115 src/dialogs/mergedialog.ui:121
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/dialogs/fetchdialog.ui:115 src/dialogs/mergedialog.ui:81
 #: src/dialogs/pulldialog.ui:109
 #, kde-format
 msgid "Fast forward only"
@@ -932,19 +907,19 @@ msgstr "Prehliadať súbory: %1"
 msgid "Branch:"
 msgstr "Vetva:"
 
-#: src/dialogs/fileviewerdialog.cpp:60
+#: src/dialogs/fileviewerdialog.cpp:61
 #, fuzzy, kde-format
 #| msgid "Closing preview"
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Zatvára sa náhľad"
 
-#: src/dialogs/fileviewerdialog.cpp:61
+#: src/dialogs/fileviewerdialog.cpp:62
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Čakajte, prosím kým sa uzavrie náhľad..."
 
-#: src/dialogs/fileviewerdialog.cpp:94
+#: src/dialogs/fileviewerdialog.cpp:95
 #, fuzzy, kde-format
 #| msgid "View file: %1"
 msgctxt "@title:window"
@@ -1082,12 +1057,6 @@ msgstr "Nechať tak"
 msgid "Don't exit"
 msgstr ""
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
-#: src/dialogs/mergedialog.ui:14
-#, kde-format
-msgid "Merge"
-msgstr "Spojiť"
-
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/dialogs/mergedialog.ui:22
 #, kde-format
@@ -1109,107 +1078,55 @@ msgid ""
 "strategies can also take their own options, which can be passed by giving -"
 "X&lt;option&gt; arguments to git merge and/or git pull.</p><p><a href="
 "\"https://git-scm.com/docs/merge-strategies\"><span style=\" text-"
-"decoration: underline; color:#2980b9;\">More information</span></a></p></"
+"decoration: underline; color:#2980b9;\">More informations</span></a></p></"
 "body></html>"
 msgstr ""
 
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxStrategy)
-#: src/dialogs/mergedialog.ui:43
-#, kde-format
-msgid "(Default)"
-msgstr "(Predvolené)"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxStrategy)
-#: src/dialogs/mergedialog.ui:53
-#, kde-format
-msgid "Resolve"
-msgstr "Vyriešiť"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxStrategy)
-#: src/dialogs/mergedialog.ui:58
-#, kde-format
-msgid "Octopus"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxStrategy)
-#: src/dialogs/mergedialog.ui:63
-#, kde-format
-msgid "Ours"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxStrategy)
-#: src/dialogs/mergedialog.ui:68
-#, kde-format
-msgid "Subtree"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/dialogs/mergedialog.ui:76
+#: src/dialogs/mergedialog.ui:46
 #, kde-format
 msgid "To:"
 msgstr "Pre:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
-#: src/dialogs/mergedialog.ui:83
+#: src/dialogs/mergedialog.ui:53
 #, kde-format
 msgid "-"
 msgstr "-"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/dialogs/mergedialog.ui:92
-#, kde-format
-msgid "Fast forward"
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/dialogs/mergedialog.ui:60
+#, fuzzy, kde-format
+#| msgid "Fast forward"
+msgid "Fast forward:"
 msgstr "Pretočiť dopredu"
 
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton)
-#: src/dialogs/mergedialog.ui:98
-#, kde-format
-msgid "Default"
-msgstr "Predvolené"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, radioButtonAllowFastForward)
-#: src/dialogs/mergedialog.ui:108
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFastForward)
+#: src/dialogs/mergedialog.ui:67
 #, kde-format
 msgid ""
-"<html><head/><body><p>When possible resolve the merge as a fast-forward "
-"(only update the branch pointer to match the merged branch; do not create a "
-"merge commit). When not possible (when the merged-in history is not a "
-"descendant of the current history), create a merge commit.</p><p><a href="
-"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
+"<html><head/><body><p>Specifies how a merge is handled when the merged-in "
+"history is already a descendant of the current history.</p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
 "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllowFastForward)
-#: src/dialogs/mergedialog.ui:111
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
+#: src/dialogs/mergedialog.ui:71 src/dialogs/mergedialog.ui:130
+#, kde-format
+msgid "Default"
+msgstr "Predvolené"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/dialogs/mergedialog.ui:76
 #, kde-format
 msgid "Allow fast forward"
 msgstr ""
 
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, radioButtonFastForwardOnly)
-#: src/dialogs/mergedialog.ui:118
-#, kde-format
-msgid ""
-"<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
-"When not possible, refuse to merge and exit with a non-zero status.</"
-"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
-"git-merge.txt---ff-only\"><span style=\" text-decoration: underline; color:"
-"#007af4;\">More information</span></a></p></body></html>"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, radioButtonNofastForward)
-#: src/dialogs/mergedialog.ui:128
-#, kde-format
-msgid ""
-"<html><head/><body><p>Create a merge commit in all cases, even when the "
-"merge could instead be resolved as a fast-forward.</p><p><a href=\"https://"
-"git-scm.com/docs/git-merge#Documentation/git-merge.txt---no-ff\"><span style="
-"\" text-decoration: underline; color:#007af4;\">More information</span></a></"
-"p></body></html>"
-msgstr ""
-
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
-#: src/dialogs/mergedialog.ui:141
+#: src/dialogs/mergedialog.ui:94
 #, kde-format
 msgid ""
 "<html><head/><body><p>By default, git merge command refuses to merge "
@@ -1223,13 +1140,13 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
-#: src/dialogs/mergedialog.ui:144
+#: src/dialogs/mergedialog.ui:97
 #, kde-format
 msgid "Allow unrelated histories"
 msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxSquash)
-#: src/dialogs/mergedialog.ui:154
+#: src/dialogs/mergedialog.ui:107
 #, kde-format
 msgid ""
 "<html><head/><body><p>Produce the working tree and index state as if a real "
@@ -1244,10 +1161,106 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
-#: src/dialogs/mergedialog.ui:157 src/dialogs/pulldialog.ui:57
+#: src/dialogs/mergedialog.ui:110 src/dialogs/pulldialog.ui:57
 #, kde-format
 msgid "Squash"
 msgstr "Rozpučiť"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonOurs)
+#: src/dialogs/mergedialog.ui:140
+#, kde-format
+msgid "Oure"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonTheirs)
+#: src/dialogs/mergedialog.ui:147
+#, kde-format
+msgid "Theirs"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreAllSpace)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreCrAtEol)
+#: src/dialogs/mergedialog.ui:154 src/dialogs/mergedialog.ui:164
+#: src/dialogs/mergedialog.ui:174 src/dialogs/mergedialog.ui:184
+#, kde-format
+msgid ""
+"<html><head/><body><p>Treats lines with the indicated type of whitespace "
+"change as unchanged for the sake of a three-way merge. Whitespace changes "
+"mixed with other changes to a line are not ignored. </p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-ignore-"
+"space-change\"><span style=\" text-decoration: underline; color:#007af4;"
+"\">More information</span></a></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
+#: src/dialogs/mergedialog.ui:157
+#, kde-format
+msgid "Ignore space change"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreAllSpace)
+#: src/dialogs/mergedialog.ui:167
+#, fuzzy, kde-format
+#| msgid "Ignore file"
+msgid "Ignore all space"
+msgstr "Ignorovať súbor"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
+#: src/dialogs/mergedialog.ui:177
+#, kde-format
+msgid "Ignore space at eol"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreCrAtEol)
+#: src/dialogs/mergedialog.ui:187
+#, kde-format
+msgid "Ignore cr at eol"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxRenormalize)
+#: src/dialogs/mergedialog.ui:194
+#, kde-format
+msgid ""
+"<html><head/><body><p>This runs a virtual check-out and check-in of all "
+"three stages of a file when resolving a three-way merge. This option is "
+"meant to be used when merging branches with different clean filters or end-"
+"of-line normalization rules.</p><p><br/></p><p><a href=\"https://git-scm.com/"
+"docs/git-merge#Documentation/git-merge.txt-renormalize\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">More information</span></a></p></"
+"body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
+#: src/dialogs/mergedialog.ui:197
+#, kde-format
+msgid "Renormalize"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: src/dialogs/mergedialog.ui:211
+#, kde-format
+msgid "Diff algorithm:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxDiffAlgoritm)
+#: src/dialogs/mergedialog.ui:218
+#, kde-format
+msgid ""
+"<html><head/><body><p>Use a different diff algorithm while merging, which "
+"can help avoid mismerges that occur due to unimportant matching lines (such "
+"as braces from distinct functions).</p><p><br/></p><p><a href=\"https://git-"
+"scm.com/docs/git-merge#Documentation/git-merge.txt-diff-"
+"algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">More information</span></a></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
+#: src/dialogs/mergedialog.ui:225
+#, kde-format
+msgid "Turn off rename detection"
+msgstr ""
 
 #: src/dialogs/mergeopenfilesdialog.cpp:52 src/merge/openfilesdialog.cpp:49
 #, kde-format
@@ -1538,12 +1551,12 @@ msgstr "Hlavný panel nástrojov"
 msgid "Repo"
 msgstr "Repo"
 
-#: src/libgitklient/commands/commandpull.cpp:83
+#: src/libgitklient/commands/commandpull.cpp:84
 #, kde-format
 msgid "Already up to date."
 msgstr ""
 
-#: src/libgitklient/commands/commandpull.cpp:87
+#: src/libgitklient/commands/commandpull.cpp:88
 #, kde-format
 msgid "Error"
 msgstr "Chyba"
@@ -1590,26 +1603,25 @@ msgstr ""
 msgid "Commit(s) ahead"
 msgstr ""
 
-#: src/libgitklient/models/logsmodel.cpp:249 src/models/historymodel.cpp:99
+#: src/libgitklient/models/logsmodel.cpp:249
 #, kde-format
 msgid "Graph"
 msgstr "Graf"
 
 #: src/libgitklient/models/logsmodel.cpp:251
-#: src/libgitklient/models/logsmodel.cpp:256 src/models/historymodel.cpp:101
-#: src/models/historymodel.cpp:106
+#: src/libgitklient/models/logsmodel.cpp:256
 #, kde-format
 msgid "Message"
 msgstr "Správa"
 
-#: src/libgitklient/models/logsmodel.cpp:258 src/models/historymodel.cpp:108
+#: src/libgitklient/models/logsmodel.cpp:258
 #: src/widgets/logdetailswidget.cpp:114
 #, kde-format
 msgid "Date"
 msgstr "Dátum"
 
 #: src/libgitklient/models/logsmodel.cpp:260 src/main.cpp:60
-#: src/models/historymodel.cpp:110 src/widgets/logdetailswidget.cpp:113
+#: src/widgets/logdetailswidget.cpp:113
 #, kde-format
 msgid "Author"
 msgstr "Autor"
@@ -2075,3 +2087,18 @@ msgstr "Aktualizovať"
 #, kde-format
 msgid "Checkout to selected"
 msgstr ""
+
+#~ msgid "Save diff"
+#~ msgstr "Uložiť diff"
+
+#~ msgid "Left:"
+#~ msgstr "Vľavo:"
+
+#~ msgid "Right:"
+#~ msgstr "Vpravo:"
+
+#~ msgid "(Default)"
+#~ msgstr "(Predvolené)"
+
+#~ msgid "Resolve"
+#~ msgstr "Vyriešiť"

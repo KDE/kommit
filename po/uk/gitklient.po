@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-04 00:47+0000\n"
+"POT-Creation-Date: 2022-10-05 00:48+0000\n"
 "PO-Revision-Date: 2022-09-30 07:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -61,14 +61,20 @@ msgstr "Отримати"
 msgid "Push"
 msgstr "Надіслати"
 
-#: dolphinplugins/actionmanager.cpp:108
+#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
+#: dolphinplugins/actionmanager.cpp:108 src/dialogs/mergedialog.ui:14
+#, kde-format
+msgid "Merge"
+msgstr "Об'єднання"
+
+#: dolphinplugins/actionmanager.cpp:109
 #, kde-format
 msgid "Modifications"
 msgstr "Зміни"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: dolphinplugins/actionmanager.cpp:109 src/actions/branchactions.cpp:34
+#: dolphinplugins/actionmanager.cpp:110 src/actions/branchactions.cpp:34
 #: src/gitklientmergeui.rc:15 src/settings/settingsmanager.cpp:102
 #: src/widgets/branchesstatuswidget.ui:120
 #, kde-format
@@ -77,18 +83,18 @@ msgstr "Різниця"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
-#: dolphinplugins/actionmanager.cpp:110 src/dialogs/ignorefiledialog.ui:14
+#: dolphinplugins/actionmanager.cpp:111 src/dialogs/ignorefiledialog.ui:14
 #: src/dialogs/ignorefiledialog.ui:96
 #, kde-format
 msgid "Ignore file"
 msgstr "Ігнорувати файл"
 
-#: dolphinplugins/actionmanager.cpp:112
+#: dolphinplugins/actionmanager.cpp:113
 #, kde-format
 msgid "History"
 msgstr "Журнал"
 
-#: dolphinplugins/actionmanager.cpp:113
+#: dolphinplugins/actionmanager.cpp:114
 #, kde-format
 msgid "Blame"
 msgstr "Визначити автора"
@@ -96,7 +102,7 @@ msgstr "Визначити автора"
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: dolphinplugins/actionmanager.cpp:115 src/mainwidget.ui:474
+#: dolphinplugins/actionmanager.cpp:116 src/mainwidget.ui:474
 #: src/widgets/remoteswidget.ui:53 src/widgets/tagswidget.ui:49
 #, kde-format
 msgid "Add"
@@ -104,13 +110,13 @@ msgstr "Додати"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: dolphinplugins/actionmanager.cpp:117 src/widgets/branchesstatuswidget.ui:100
+#: dolphinplugins/actionmanager.cpp:118 src/widgets/branchesstatuswidget.ui:100
 #: src/widgets/remoteswidget.ui:63
 #, kde-format
 msgid "Remove"
 msgstr "Вилучити"
 
-#: dolphinplugins/actionmanager.cpp:120
+#: dolphinplugins/actionmanager.cpp:121
 #, kde-format
 msgid "Create tag"
 msgstr "Створити мітку"
@@ -447,47 +453,53 @@ msgstr "Перемкнутися/Отримати…"
 msgid "Diff tree"
 msgstr "Ієрархія різниці"
 
-#: src/appwindow.cpp:218 src/commandargsparser.cpp:208
+#: src/appwindow.cpp:218 src/commandargsparser.cpp:215
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Не вдалося створити шлях: %1"
 
-#: src/appwindow.cpp:218 src/commandargsparser.cpp:208
+#: src/appwindow.cpp:218 src/commandargsparser.cpp:215
 #, kde-format
 msgid "Init repo"
 msgstr "Ініціалізувати сховище"
 
-#: src/appwindow.cpp:313
+#: src/appwindow.cpp:228
+#, fuzzy, kde-format
+#| msgid "Clone a repository"
+msgid "Open repository"
+msgstr "Клонувати сховище"
+
+#: src/appwindow.cpp:319
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Неможливо перемикатися на гілку у процесі об'єднання"
 
-#: src/appwindow.cpp:313
+#: src/appwindow.cpp:319
 #, kde-format
 msgid "Switch branch"
 msgstr "Перемкнути гілку"
 
-#: src/commandargsparser.cpp:43
+#: src/commandargsparser.cpp:50
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Шлях не є шляхом до сховища git: %1"
 
-#: src/commandargsparser.cpp:213
+#: src/commandargsparser.cpp:220
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Сховище успішно ініціалізовано"
 
-#: src/commandargsparser.cpp:420
+#: src/commandargsparser.cpp:446
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Файли успішно додано до git"
 
-#: src/commandargsparser.cpp:428
+#: src/commandargsparser.cpp:454
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Хочете лишити файли на диску?"
 
-#: src/commandargsparser.cpp:433
+#: src/commandargsparser.cpp:459
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Файли успішно вилучено з git"
@@ -575,9 +587,8 @@ msgstr "Каталог:"
 msgid "..."
 msgstr "…"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxStrategy)
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRecursive)
-#: src/dialogs/clonedialog.ui:67 src/dialogs/mergedialog.ui:48
+#: src/dialogs/clonedialog.ui:67
 #, kde-format
 msgid "Recursive"
 msgstr "Рекурсивно"
@@ -760,41 +771,6 @@ msgstr "Немає"
 msgid "Commit"
 msgstr "Внести"
 
-#: src/dialogs/diffdialog.cpp:61
-#, kde-format
-msgid "Save diff"
-msgstr "Зберегти відмінності"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, DiffDialog)
-#: src/dialogs/diffdialog.ui:14
-#, kde-format
-msgid "Diff view"
-msgstr "Перегляд різниці"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/diffdialog.ui:36
-#, kde-format
-msgid "Left:"
-msgstr "Ліворуч:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/diffdialog.ui:49
-#, kde-format
-msgid "Right:"
-msgstr "Праворуч:"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonShowHiddenChars)
-#: src/dialogs/diffdialog.ui:74
-#, kde-format
-msgid "Show hidden chars"
-msgstr "Показати приховані символи"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonSaveAs)
-#: src/dialogs/diffdialog.ui:84
-#, kde-format
-msgid "Save diff as..."
-msgstr "Зберегти різницю як…"
-
 #: src/dialogs/diffopendialog.cpp:68
 #, kde-format
 msgid "Select new file"
@@ -892,8 +868,8 @@ msgid "Options"
 msgstr "Параметри"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoFastForward)
-#. i18n: ectx: property (text), widget (QRadioButton, radioButtonNofastForward)
-#: src/dialogs/fetchdialog.ui:94 src/dialogs/mergedialog.ui:131
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/dialogs/fetchdialog.ui:94 src/dialogs/mergedialog.ui:86
 #: src/dialogs/pulldialog.ui:64
 #, kde-format
 msgid "No fast forward"
@@ -916,8 +892,8 @@ msgid "Tags"
 msgstr "Мітки"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
-#. i18n: ectx: property (text), widget (QRadioButton, radioButtonFastForwardOnly)
-#: src/dialogs/fetchdialog.ui:115 src/dialogs/mergedialog.ui:121
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/dialogs/fetchdialog.ui:115 src/dialogs/mergedialog.ui:81
 #: src/dialogs/pulldialog.ui:109
 #, kde-format
 msgid "Fast forward only"
@@ -953,18 +929,18 @@ msgstr "Перегляд файлів: %1"
 msgid "Branch:"
 msgstr "Гілка:"
 
-#: src/dialogs/fileviewerdialog.cpp:60
+#: src/dialogs/fileviewerdialog.cpp:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Закриття попереднього перегляду"
 
-#: src/dialogs/fileviewerdialog.cpp:61
+#: src/dialogs/fileviewerdialog.cpp:62
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Будь ласка, зачекайте доки вікно попереднього перегляду буде закрито…"
 
-#: src/dialogs/fileviewerdialog.cpp:94
+#: src/dialogs/fileviewerdialog.cpp:95
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -1101,12 +1077,6 @@ msgstr "Залишити як є"
 msgid "Don't exit"
 msgstr "Не існує"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
-#: src/dialogs/mergedialog.ui:14
-#, kde-format
-msgid "Merge"
-msgstr "Об'єднання"
-
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/dialogs/mergedialog.ui:22
 #, kde-format
@@ -1121,14 +1091,22 @@ msgstr "Стратегія:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxStrategy)
 #: src/dialogs/mergedialog.ui:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>The merge mechanism (git merge and git pull "
+#| "commands) allows the backend merge strategies to be chosen with -s "
+#| "option. Some strategies can also take their own options, which can be "
+#| "passed by giving -X&lt;option&gt; arguments to git merge and/or git pull."
+#| "</p><p><a href=\"https://git-scm.com/docs/merge-strategies\"><span style="
+#| "\" text-decoration: underline; color:#2980b9;\">More information</span></"
+#| "a></p></body></html>"
 msgid ""
 "<html><head/><body><p>The merge mechanism (git merge and git pull commands) "
 "allows the backend merge strategies to be chosen with -s option. Some "
 "strategies can also take their own options, which can be passed by giving -"
 "X&lt;option&gt; arguments to git merge and/or git pull.</p><p><a href="
 "\"https://git-scm.com/docs/merge-strategies\"><span style=\" text-"
-"decoration: underline; color:#2980b9;\">More information</span></a></p></"
+"decoration: underline; color:#2980b9;\">More informations</span></a></p></"
 "body></html>"
 msgstr ""
 "<html><head/><body><p>Механізм об'єднання (команди git merge і git pull) "
@@ -1139,112 +1117,40 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#2980b9;\">Докладніше…</"
 "span></a></p></body></html>"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxStrategy)
-#: src/dialogs/mergedialog.ui:43
-#, kde-format
-msgid "(Default)"
-msgstr "(Типовий)"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxStrategy)
-#: src/dialogs/mergedialog.ui:53
-#, kde-format
-msgid "Resolve"
-msgstr "Розв’язати"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxStrategy)
-#: src/dialogs/mergedialog.ui:58
-#, kde-format
-msgid "Octopus"
-msgstr "Восьминіг"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxStrategy)
-#: src/dialogs/mergedialog.ui:63
-#, kde-format
-msgid "Ours"
-msgstr "Ваше"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxStrategy)
-#: src/dialogs/mergedialog.ui:68
-#, kde-format
-msgid "Subtree"
-msgstr "Підієрархія"
-
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/dialogs/mergedialog.ui:76
+#: src/dialogs/mergedialog.ui:46
 #, kde-format
 msgid "To:"
 msgstr "До:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
-#: src/dialogs/mergedialog.ui:83
+#: src/dialogs/mergedialog.ui:53
 #, kde-format
 msgid "-"
 msgstr "-"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/dialogs/mergedialog.ui:92
-#, kde-format
-msgid "Fast forward"
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/dialogs/mergedialog.ui:60
+#, fuzzy, kde-format
+#| msgid "Fast forward"
+msgid "Fast forward:"
 msgstr "Швидке переспрямування"
 
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton)
-#: src/dialogs/mergedialog.ui:98
-#, kde-format
-msgid "Default"
-msgstr "Типове"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, radioButtonAllowFastForward)
-#: src/dialogs/mergedialog.ui:108
-#, kde-format
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFastForward)
+#: src/dialogs/mergedialog.ui:67
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Create a merge commit in all cases, even when the "
+#| "merge could instead be resolved as a fast-forward.</p><p><a href="
+#| "\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---no-ff"
+#| "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
+#| "information</span></a></p></body></html>"
 msgid ""
-"<html><head/><body><p>When possible resolve the merge as a fast-forward "
-"(only update the branch pointer to match the merged branch; do not create a "
-"merge commit). When not possible (when the merged-in history is not a "
-"descendant of the current history), create a merge commit.</p><p><a href="
-"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
+"<html><head/><body><p>Specifies how a merge is handled when the merged-in "
+"history is already a descendant of the current history.</p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
 "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
-msgstr ""
-"<html><head/><body><p>Якщо можливо, розв'язувати об'єднання як швидке "
-"переспрямування (оновлювати лише вказівник гілки так, щоб він відповідав "
-"об'єднаній гілці; не створювати внесок об'єднання). Якщо це неможливо (якщо "
-"журнал об'єднання не є похідним від поточного журналу), створити внесок "
-"об'єднання.</p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
-"git-merge.txt---ff\"><span style=\" text-decoration: underline; color:"
-"#007af4;\">Докладніше…</span></a></p></body></html>"
-
-#. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllowFastForward)
-#: src/dialogs/mergedialog.ui:111
-#, kde-format
-msgid "Allow fast forward"
-msgstr "Дозволити швидке переспрямування"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, radioButtonFastForwardOnly)
-#: src/dialogs/mergedialog.ui:118
-#, kde-format
-msgid ""
-"<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
-"When not possible, refuse to merge and exit with a non-zero status.</"
-"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
-"git-merge.txt---ff-only\"><span style=\" text-decoration: underline; color:"
-"#007af4;\">More information</span></a></p></body></html>"
-msgstr ""
-"<html><head/><body><p>Розв'язати об'єднання як швидке переспрямування, якщо "
-"це можливо. Якщо це неможливо, відмовитися від об'єднання і вийти із "
-"ненульовим станом.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-"merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
-"decoration: underline; color:#007af4;\">Докладніше…</span></a></p></body></"
-"html>"
-
-#. i18n: ectx: property (whatsThis), widget (QRadioButton, radioButtonNofastForward)
-#: src/dialogs/mergedialog.ui:128
-#, kde-format
-msgid ""
-"<html><head/><body><p>Create a merge commit in all cases, even when the "
-"merge could instead be resolved as a fast-forward.</p><p><a href=\"https://"
-"git-scm.com/docs/git-merge#Documentation/git-merge.txt---no-ff\"><span style="
-"\" text-decoration: underline; color:#007af4;\">More information</span></a></"
-"p></body></html>"
 msgstr ""
 "<html><head/><body><p>Створювати внесок об'єднання завжди, навіть якщо можна "
 "розв'язати об'єднання як швидке переспрямування.</p><p><a href=\"https://git-"
@@ -1252,8 +1158,21 @@ msgstr ""
 "text-decoration: underline; color:#007af4;\">Докладніше…</span></a></p></"
 "body></html>"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
+#: src/dialogs/mergedialog.ui:71 src/dialogs/mergedialog.ui:130
+#, kde-format
+msgid "Default"
+msgstr "Типове"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/dialogs/mergedialog.ui:76
+#, kde-format
+msgid "Allow fast forward"
+msgstr "Дозволити швидке переспрямування"
+
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
-#: src/dialogs/mergedialog.ui:141
+#: src/dialogs/mergedialog.ui:94
 #, kde-format
 msgid ""
 "<html><head/><body><p>By default, git merge command refuses to merge "
@@ -1276,13 +1195,13 @@ msgstr ""
 "a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
-#: src/dialogs/mergedialog.ui:144
+#: src/dialogs/mergedialog.ui:97
 #, kde-format
 msgid "Allow unrelated histories"
 msgstr "Дозволити непов'язані журнали"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxSquash)
-#: src/dialogs/mergedialog.ui:154
+#: src/dialogs/mergedialog.ui:107
 #, kde-format
 msgid ""
 "<html><head/><body><p>Produce the working tree and index state as if a real "
@@ -1306,10 +1225,145 @@ msgstr ""
 "#007af4;\">Докладніше…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
-#: src/dialogs/mergedialog.ui:157 src/dialogs/pulldialog.ui:57
+#: src/dialogs/mergedialog.ui:110 src/dialogs/pulldialog.ui:57
 #, kde-format
 msgid "Squash"
 msgstr "Складування"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonOurs)
+#: src/dialogs/mergedialog.ui:140
+#, kde-format
+msgid "Oure"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonTheirs)
+#: src/dialogs/mergedialog.ui:147
+#, kde-format
+msgid "Theirs"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreAllSpace)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreCrAtEol)
+#: src/dialogs/mergedialog.ui:154 src/dialogs/mergedialog.ui:164
+#: src/dialogs/mergedialog.ui:174 src/dialogs/mergedialog.ui:184
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
+#| "When not possible, refuse to merge and exit with a non-zero status.</"
+#| "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+#| "merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
+#| "decoration: underline; color:#007af4;\">More information</span></a></p></"
+#| "body></html>"
+msgid ""
+"<html><head/><body><p>Treats lines with the indicated type of whitespace "
+"change as unchanged for the sake of a three-way merge. Whitespace changes "
+"mixed with other changes to a line are not ignored. </p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-ignore-"
+"space-change\"><span style=\" text-decoration: underline; color:#007af4;"
+"\">More information</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>Розв'язати об'єднання як швидке переспрямування, якщо "
+"це можливо. Якщо це неможливо, відмовитися від об'єднання і вийти із "
+"ненульовим станом.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">Докладніше…</span></a></p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
+#: src/dialogs/mergedialog.ui:157
+#, kde-format
+msgid "Ignore space change"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreAllSpace)
+#: src/dialogs/mergedialog.ui:167
+#, fuzzy, kde-format
+#| msgid "Ignore file"
+msgid "Ignore all space"
+msgstr "Ігнорувати файл"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
+#: src/dialogs/mergedialog.ui:177
+#, kde-format
+msgid "Ignore space at eol"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreCrAtEol)
+#: src/dialogs/mergedialog.ui:187
+#, kde-format
+msgid "Ignore cr at eol"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxRenormalize)
+#: src/dialogs/mergedialog.ui:194
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
+#| "When not possible, refuse to merge and exit with a non-zero status.</"
+#| "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+#| "merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
+#| "decoration: underline; color:#007af4;\">More information</span></a></p></"
+#| "body></html>"
+msgid ""
+"<html><head/><body><p>This runs a virtual check-out and check-in of all "
+"three stages of a file when resolving a three-way merge. This option is "
+"meant to be used when merging branches with different clean filters or end-"
+"of-line normalization rules.</p><p><br/></p><p><a href=\"https://git-scm.com/"
+"docs/git-merge#Documentation/git-merge.txt-renormalize\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">More information</span></a></p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Розв'язати об'єднання як швидке переспрямування, якщо "
+"це можливо. Якщо це неможливо, відмовитися від об'єднання і вийти із "
+"ненульовим станом.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">Докладніше…</span></a></p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
+#: src/dialogs/mergedialog.ui:197
+#, kde-format
+msgid "Renormalize"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: src/dialogs/mergedialog.ui:211
+#, kde-format
+msgid "Diff algorithm:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxDiffAlgoritm)
+#: src/dialogs/mergedialog.ui:218
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
+#| "When not possible, refuse to merge and exit with a non-zero status.</"
+#| "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+#| "merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
+#| "decoration: underline; color:#007af4;\">More information</span></a></p></"
+#| "body></html>"
+msgid ""
+"<html><head/><body><p>Use a different diff algorithm while merging, which "
+"can help avoid mismerges that occur due to unimportant matching lines (such "
+"as braces from distinct functions).</p><p><br/></p><p><a href=\"https://git-"
+"scm.com/docs/git-merge#Documentation/git-merge.txt-diff-"
+"algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">More information</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>Розв'язати об'єднання як швидке переспрямування, якщо "
+"це можливо. Якщо це неможливо, відмовитися від об'єднання і вийти із "
+"ненульовим станом.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">Докладніше…</span></a></p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
+#: src/dialogs/mergedialog.ui:225
+#, kde-format
+msgid "Turn off rename detection"
+msgstr ""
 
 #: src/dialogs/mergeopenfilesdialog.cpp:52 src/merge/openfilesdialog.cpp:49
 #, kde-format
@@ -1598,12 +1652,12 @@ msgstr "Головна панель"
 msgid "Repo"
 msgstr "Схов."
 
-#: src/libgitklient/commands/commandpull.cpp:83
+#: src/libgitklient/commands/commandpull.cpp:84
 #, kde-format
 msgid "Already up to date."
 msgstr "Вже актуальне."
 
-#: src/libgitklient/commands/commandpull.cpp:87
+#: src/libgitklient/commands/commandpull.cpp:88
 #, kde-format
 msgid "Error"
 msgstr "Помилка"
@@ -1653,26 +1707,25 @@ msgstr "Відсталі внески"
 msgid "Commit(s) ahead"
 msgstr "Випереджальні внески"
 
-#: src/libgitklient/models/logsmodel.cpp:249 src/models/historymodel.cpp:99
+#: src/libgitklient/models/logsmodel.cpp:249
 #, kde-format
 msgid "Graph"
 msgstr "Граф"
 
 #: src/libgitklient/models/logsmodel.cpp:251
-#: src/libgitklient/models/logsmodel.cpp:256 src/models/historymodel.cpp:101
-#: src/models/historymodel.cpp:106
+#: src/libgitklient/models/logsmodel.cpp:256
 #, kde-format
 msgid "Message"
 msgstr "Повідомлення"
 
-#: src/libgitklient/models/logsmodel.cpp:258 src/models/historymodel.cpp:108
+#: src/libgitklient/models/logsmodel.cpp:258
 #: src/widgets/logdetailswidget.cpp:114
 #, kde-format
 msgid "Date"
 msgstr "Дата"
 
 #: src/libgitklient/models/logsmodel.cpp:260 src/main.cpp:60
-#: src/models/historymodel.cpp:110 src/widgets/logdetailswidget.cpp:113
+#: src/widgets/logdetailswidget.cpp:113
 #, kde-format
 msgid "Author"
 msgstr "Автор"
@@ -2150,6 +2203,56 @@ msgstr "Оновити"
 #, kde-format
 msgid "Checkout to selected"
 msgstr "Отримати до позначеного"
+
+#~ msgid "Save diff"
+#~ msgstr "Зберегти відмінності"
+
+#~ msgid "Diff view"
+#~ msgstr "Перегляд різниці"
+
+#~ msgid "Left:"
+#~ msgstr "Ліворуч:"
+
+#~ msgid "Right:"
+#~ msgstr "Праворуч:"
+
+#~ msgid "Show hidden chars"
+#~ msgstr "Показати приховані символи"
+
+#~ msgid "Save diff as..."
+#~ msgstr "Зберегти різницю як…"
+
+#~ msgid "(Default)"
+#~ msgstr "(Типовий)"
+
+#~ msgid "Resolve"
+#~ msgstr "Розв’язати"
+
+#~ msgid "Octopus"
+#~ msgstr "Восьминіг"
+
+#~ msgid "Ours"
+#~ msgstr "Ваше"
+
+#~ msgid "Subtree"
+#~ msgstr "Підієрархія"
+
+#~ msgid ""
+#~ "<html><head/><body><p>When possible resolve the merge as a fast-forward "
+#~ "(only update the branch pointer to match the merged branch; do not create "
+#~ "a merge commit). When not possible (when the merged-in history is not a "
+#~ "descendant of the current history), create a merge commit.</p><p><a href="
+#~ "\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
+#~ "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
+#~ "information</span></a></p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Якщо можливо, розв'язувати об'єднання як швидке "
+#~ "переспрямування (оновлювати лише вказівник гілки так, щоб він відповідав "
+#~ "об'єднаній гілці; не створювати внесок об'єднання). Якщо це неможливо "
+#~ "(якщо журнал об'єднання не є похідним від поточного журналу), створити "
+#~ "внесок об'єднання.</p><p><a href=\"https://git-scm.com/docs/git-"
+#~ "merge#Documentation/git-merge.txt---ff\"><span style=\" text-decoration: "
+#~ "underline; color:#007af4;\">Докладніше…</span></a></p></body></html>"
 
 #~ msgid "Ignoer file"
 #~ msgstr "Ігнорувати файл"
