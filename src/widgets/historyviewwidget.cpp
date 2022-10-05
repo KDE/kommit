@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "historyviewwidget.h"
 #include "actions/commitactions.h"
+#include "core/commitsfiltermodel.h"
 #include "diffwindow.h"
 #include "gitlog.h"
 #include "gitmanager.h"
@@ -23,8 +24,6 @@ HistoryViewWidget::HistoryViewWidget(QWidget *parent)
     mGraphPainter = new GraphPainter(mHistoryModel, this);
     treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
 
-    connect(Git::Manager::instance(), &Git::Manager::pathChanged, this, &HistoryViewWidget::slotGitPathChanged);
-
     mActions = new CommitActions(Git::Manager::instance(), this);
 }
 
@@ -37,8 +36,6 @@ HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
 
     mGraphPainter = new GraphPainter(mHistoryModel, this);
     treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
-
-    connect(Git::Manager::instance(), &Git::Manager::pathChanged, this, &HistoryViewWidget::slotGitPathChanged);
 
     mActions = new CommitActions(git, this);
 }
@@ -101,11 +98,4 @@ void HistoryViewWidget::on_treeViewHistory_customContextMenuRequested(const QPoi
     mActions->setCommitHash(log->commitHash());
 
     mActions->popup();
-}
-
-void HistoryViewWidget::slotGitPathChanged()
-{
-    //    _historyModel->reload();
-    //    if (_historyModel->rowCount(QModelIndex()))
-    //        treeViewHistory->setCurrentIndex(_historyModel->index(0));
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>471</width>
-    <height>452</height>
+    <width>542</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <iconset theme="git-commit">
     <normaloff>.</normaloff>.</iconset>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <widget class="QSplitter" name="splitter">
+    <widget class="QSplitter" name="splitter_2">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -31,22 +31,51 @@
        <bool>false</bool>
       </attribute>
      </widget>
-     <widget class="HistoryViewWidget" name="widgetCommitsView" native="true"/>
+     <widget class="QWidget" name="">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLineEdit" name="lineEditFilter">
+         <property name="placeholderText">
+          <string>Filter...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSplitter" name="splitter">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <widget class="TreeView" name="treeViewHistory">
+          <property name="contextMenuPolicy">
+           <enum>Qt::CustomContextMenu</enum>
+          </property>
+          <property name="rootIsDecorated">
+           <bool>false</bool>
+          </property>
+         </widget>
+         <widget class="LogDetailsWidget" name="textBrowser">
+          <property name="openLinks">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>HistoryViewWidget</class>
-   <extends>QWidget</extends>
-   <header>widgets/historyviewwidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>TreeView</class>
    <extends>QTreeView</extends>
    <header>core/treeview.h</header>
+  </customwidget>
+  <customwidget>
+   <class>LogDetailsWidget</class>
+   <extends>QTextBrowser</extends>
+   <header>widgets/logdetailswidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

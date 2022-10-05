@@ -29,6 +29,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
+    Log *at(int index) const;
     Log *fromIndex(const QModelIndex &index) const;
     QModelIndex findIndexByHash(const QString &hash) const;
     Git::Log *findLogByHash(const QString &hash) const;
@@ -36,10 +37,14 @@ public:
     const QString &branch() const;
     void setBranch(const QString &newBranch);
 
+    bool fullDetails() const;
+    void setFullDetails(bool newFullDetails);
+
 protected:
     void fill() override;
 
 private:
+    bool mFullDetails{false};
     void initChilds();
     void initGraph();
 

@@ -9,12 +9,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "ui_historyviewwidget.h"
 #include "widgetbase.h"
 
-class GraphPainter;
-class CommitActions;
 namespace Git
 {
 class LogsModel;
-}
+};
+
+class CommitsFilterModel;
+class GraphPainter;
+class CommitActions;
 class HistoryViewWidget : public WidgetBase, private Ui::HistoryViewWidget
 {
     Q_OBJECT
@@ -33,10 +35,9 @@ private Q_SLOTS:
     void on_textBrowser_fileClicked(const QString &file);
     void on_treeViewHistory_customContextMenuRequested(const QPoint &pos);
 
-    void slotGitPathChanged();
-
 private:
-    CommitActions *mActions = nullptr;
-    Git::LogsModel *mHistoryModel = nullptr;
-    GraphPainter *mGraphPainter = nullptr;
+    CommitActions *mActions{nullptr};
+    Git::LogsModel *mHistoryModel{nullptr};
+    CommitsFilterModel *filterModel{nullptr};
+    GraphPainter *mGraphPainter{nullptr};
 };

@@ -232,7 +232,7 @@ int LogsModel::rowCount(const QModelIndex &parent) const
 int LogsModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return mBranch.isEmpty() ? 1 : 3;
+    return mFullDetails ? 3 : 1;
 }
 
 QVariant LogsModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -243,14 +243,7 @@ QVariant LogsModel::headerData(int section, Qt::Orientation orientation, int rol
     if (orientation == Qt::Vertical)
         return section + 1;
 
-    if (mBranch.isEmpty()) {
-        switch (section) {
-        case 0:
-            return i18n("Graph");
-        case 1:
-            return i18n("Message");
-        }
-    } else {
+    if (mFullDetails) {
         switch (section) {
         case 0:
             return i18n("Message");
@@ -259,8 +252,23 @@ QVariant LogsModel::headerData(int section, Qt::Orientation orientation, int rol
         case 2:
             return i18n("Author");
         }
+    } else {
+        switch (section) {
+        case 0:
+            return i18n("Graph");
+        case 1:
+            return i18n("Message");
+        }
     }
     return {};
+}
+
+Log *LogsModel::at(int index) const
+{
+    if (index < 0 || index >= mData.size())
+        return nullptr;
+
+    return mData.at(index);
 }
 
 QVariant LogsModel::data(const QModelIndex &index, int role) const
@@ -271,14 +279,7 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
     if (!log)
         return {};
 
-    if (mBranch.isEmpty()) {
-        switch (index.column()) {
-        case 0:
-            return QString();
-        case 1:
-            return log->subject();
-        }
-    } else {
+    if (mFullDetails) {
         switch (index.column()) {
         case 0:
             return log->subject();
@@ -286,6 +287,13 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
             return log->commitDate();
         case 2:
             return log->authorName();
+        }
+    } else {
+        switch (index.column()) {
+        case 0:
+            return QString();
+        case 1:
+            return log->subject();
         }
     }
 
@@ -382,6 +390,18 @@ void LogsModel::fill()
     //    });
     initChilds();
     initGraph();
+}
+
+bool LogsModel::fullDetails() const
+{
+    return mFullDetails;
+}
+
+void LogsModel::setFullDetails(bool newFullDetails)
+{
+    beginResetModel();
+    mFullDetails = newFullDetails;
+    endResetModel();
 }
 
 void LogsModel::initChilds()

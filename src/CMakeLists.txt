@@ -13,6 +13,8 @@ set(CORE_SRC
     core/pushbutton.h
     core/treeview.cpp
     core/treeview.h
+    core/commitsfiltermodel.h
+    core/commitsfiltermodel.cpp
 )
 
 set(ACTIONS_SRC
