@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef COMMITSFILTERMODEL_H
-#define COMMITSFILTERMODEL_H
+#pragma once
 
 #include <QSortFilterProxyModel>
 
@@ -20,7 +19,7 @@ class CommitsFilterModel : public QSortFilterProxyModel
 public:
     explicit CommitsFilterModel(Git::LogsModel *sourceModel, QObject *parent = nullptr);
 
-    const QString &filterTerm() const;
+    Q_REQUIRED_RESULT const QString &filterTerm() const;
     void setFilterTerm(const QString &newFilterTerm);
 
 protected:
@@ -28,7 +27,5 @@ protected:
 
 private:
     QString mFilterTerm;
-    Git::LogsModel *mSourceModel;
+    Git::LogsModel *const mSourceModel;
 };
-
-#endif // COMMITSFILTERMODEL_H
