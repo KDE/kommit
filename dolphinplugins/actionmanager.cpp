@@ -43,7 +43,7 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
     auto items = fileItemInfos.items();
     if (items.size() == 1) {
         KFileItem &item = items.first();
-        auto path = item.url().toLocalFile();
+        const auto path = item.url().toLocalFile();
         FileStatus::Status status;
         if (item.isFile())
             status = mCache.fileStatus(path);

@@ -41,19 +41,19 @@ QStringList CommandMerge::generateArgs() const
     case Ort:
         cmd << QStringLiteral("--strategy=ort");
         if (mIgnoreSpaceChange)
-            cmd << "--ignore-space-change";
+            cmd << QStringLiteral("--ignore-space-change");
         if (mIgnoreAllSpace)
-            cmd << "--ignore-all-space";
+            cmd << QStringLiteral("--ignore-all-space");
         if (mIgnoreSpaceAtEol)
-            cmd << "--ignore-space-at-eol";
+            cmd << QStringLiteral("--ignore-space-at-eol");
         if (mIgnoreCrAtEol)
-            cmd << "--ignore-cr-at-eol";
+            cmd << QStringLiteral("--ignore-cr-at-eol");
         if (mRenormalize)
-            cmd << "--renormalize";
+            cmd << QStringLiteral("--renormalize");
         if (mOurs)
-            cmd << "--ours";
+            cmd << QStringLiteral("--ours");
         if (mTheirs)
-            cmd << "--theirs";
+            cmd << QStringLiteral("--theirs");
         break;
     case Recursive: {
         auto e = QMetaEnum::fromType<DiffAlgorithm>();

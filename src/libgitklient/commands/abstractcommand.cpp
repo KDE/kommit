@@ -83,10 +83,10 @@ void AbstractCommand::appendBool(OptionalBool b, QStringList &cmd, const QString
 {
     switch (b) {
     case OptionalBool::True:
-        cmd.append("--" + name);
+        cmd.append(QStringLiteral("--") + name);
         break;
     case OptionalBool::False:
-        cmd.append("--no-" + name);
+        cmd.append(QStringLiteral("--no-") + name);
         break;
     case OptionalBool::Unset:
         break;
@@ -96,9 +96,9 @@ void AbstractCommand::appendBool(OptionalBool b, QStringList &cmd, const QString
 void AbstractCommand::appendBool(bool b, QStringList &cmd, const QString &name) const
 {
     if (b)
-        cmd.append("--" + name);
+        cmd.append(QStringLiteral("--") + name);
     else
-        cmd.append("--no-" + name);
+        cmd.append(QStringLiteral("--no-") + name);
 }
 
 OptionalBool checkStateToOptionalBool(Qt::CheckState checkState)
