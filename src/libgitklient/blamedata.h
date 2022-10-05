@@ -16,7 +16,7 @@ struct BlameDataRow {
     QString commitHash;
     QString code;
 
-    Log *log;
+    Log *log = nullptr;
 };
 
 class LIBGITKLIENT_EXPORT BlameData : public QList<BlameDataRow>
