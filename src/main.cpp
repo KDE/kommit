@@ -38,6 +38,7 @@ int main(int argc, char **argv)
                          i18n("Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"));
 
     aboutData.addAuthor(i18n("Hamed Masafi"), i18n("Author"), QStringLiteral("hamed.masafi@gmail.com"));
+    aboutData.addCredit(i18n("Laurent Montel"), i18n("Bug fixing"), QStringLiteral("montel@kde.org"));
     aboutData.setDesktopFileName(QStringLiteral("org.kde.gitklient"));
 
     KAboutData::setApplicationData(aboutData);
