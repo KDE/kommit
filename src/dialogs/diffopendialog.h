@@ -29,4 +29,8 @@ private Q_SLOTS:
     void on_toolButtonBrowseOldFile_clicked();
     void on_toolButtonBrowseNewDirectory_clicked();
     void on_toolButtonBrowseOldDirectory_clicked();
+
+private:
+    void readSettings();
+    void saveSettings();
 };

@@ -16,17 +16,16 @@ DiffOpenDialog::DiffOpenDialog(QWidget *parent)
     setupUi(this);
     radioButtonCompareFiles->setChecked(true);
     widgetSelectDirectories->hide();
-
-    QSettings s;
-    s.beginGroup(QStringLiteral("diff"));
-    lineEditOldFile->setText(s.value("oldFile").toString());
-    lineEditNewFile->setText(s.value("newFile").toString());
-    lineEditOldDirectory->setText(s.value("oldDir").toString());
-    lineEditNewDirectory->setText(s.value("newDir").toString());
-    s.endGroup();
+    readSettings();
+    // TODO update ok button enabled
 }
 
 DiffOpenDialog::~DiffOpenDialog()
+{
+    readSettings();
+}
+
+void DiffOpenDialog::readSettings()
 {
     QSettings s;
     s.beginGroup(QStringLiteral("diff"));
@@ -36,6 +35,17 @@ DiffOpenDialog::~DiffOpenDialog()
     s.setValue("newDir", lineEditNewDirectory->text());
     s.endGroup();
     s.sync();
+}
+
+void DiffOpenDialog::saveSettings()
+{
+    QSettings s;
+    s.beginGroup(QStringLiteral("diff"));
+    lineEditOldFile->setText(s.value("oldFile").toString());
+    lineEditNewFile->setText(s.value("newFile").toString());
+    lineEditOldDirectory->setText(s.value("oldDir").toString());
+    lineEditNewDirectory->setText(s.value("newDir").toString());
+    s.endGroup();
 }
 
 QString DiffOpenDialog::oldFile() const
