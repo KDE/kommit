@@ -31,9 +31,9 @@ private Q_SLOTS:
     void on_listWidget_itemClicked(QListWidgetItem *item);
     void on_groupBoxMakeCommit_toggled(bool);
     void on_listWidget_customContextMenuRequested(const QPoint &pos);
+    void checkButtonsEnable();
 
 private:
-    void checkButtonsEnable();
     void addFiles();
     ChangedFileActions *mActions = nullptr;
 };
