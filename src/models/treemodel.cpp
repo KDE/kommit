@@ -248,7 +248,7 @@ TreeModel::Node *TreeModel::find(QStringList &path, Node *node)
 TreeModel::Node *TreeModel::createPath(const QStringList &path)
 {
     Node *parent = rootNode;
-    for (auto &p : path) {
+    for (const auto &p : path) {
         auto child = parent->find(p);
         if (!child) {
             child = parent->createChild();
