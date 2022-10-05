@@ -90,7 +90,7 @@ void BranchActions::browse()
 void BranchActions::checkout()
 {
     RunnerDialog d(mParent);
-    d.run({"checkout", mBranchName});
+    d.run({QStringLiteral("checkout"), mBranchName});
     d.exec();
 }
 

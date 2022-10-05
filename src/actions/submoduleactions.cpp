@@ -77,10 +77,10 @@ void SubmoduleActions::deinit()
     if (r == KMessageBox::No)
         return;
 
-    qCDebug(GITKLIENT_LOG) << mGit->runGit({"submodule", "deinit", "-f", "--", mSubModuleName});
+    qCDebug(GITKLIENT_LOG) << mGit->runGit({QStringLiteral("submodule"), QStringLiteral("deinit"), QStringLiteral("-f"), QStringLiteral("--"), mSubModuleName});
     qCDebug(GITKLIENT_LOG) << mGit->runGit({QStringLiteral("rm"), mSubModuleName});
 
-    QDir d(mGit->path() + "/.git/modules/" + mSubModuleName);
+    QDir d(mGit->path() + QStringLiteral("/.git/modules/") + mSubModuleName);
     if (!d.removeRecursively()) {
         KMessageBox::error(mParent, i18n("Unable to remove the module directory"));
         return;
