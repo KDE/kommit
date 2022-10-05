@@ -42,7 +42,7 @@ void Remote::parse(const QString &output)
     enum ParseMode { None, GitPull, GitPush };
 
     ParseMode mode{None};
-    auto lines = output.split('\n');
+    auto lines = output.split(QLatin1Char('\n'));
     QRegularExpression regexPull{R"((\S+)\s+merges with remote\s+(\S+))"};
     QRegularExpression regexPush{R"((\S+)\s+pushes to (\S+)\s+\(([^)]*)\))"};
 
