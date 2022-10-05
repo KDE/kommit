@@ -36,7 +36,7 @@
      <item row="5" column="1">
       <widget class="QComboBox" name="comboBoxStrategy">
        <property name="whatsThis">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The merge mechanism (git merge and git pull commands) allows the backend merge strategies to be chosen with -s option. Some strategies can also take their own options, which can be passed by giving -X&amp;lt;option&amp;gt; arguments to git merge and/or git pull.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://git-scm.com/docs/merge-strategies&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#2980b9;&quot;&gt;More informations&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The merge mechanism (git merge and git pull commands) allows the backend merge strategies to be chosen with -s option. Some strategies can also take their own options, which can be passed by giving -X&amp;lt;option&amp;gt; arguments to git merge and/or git pull.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://git-scm.com/docs/merge-strategies&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#2980b9;&quot;&gt;More information&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -137,7 +137,7 @@
        <item>
         <widget class="QRadioButton" name="radioButtonOurs">
          <property name="text">
-          <string>Oure</string>
+          <string>Ours</string>
          </property>
         </widget>
        </item>
