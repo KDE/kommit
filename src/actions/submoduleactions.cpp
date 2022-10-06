@@ -72,7 +72,7 @@ void SubmoduleActions::create()
 
 void SubmoduleActions::deinit()
 {
-    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to remove the selected submodule?"));
+    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to remove the selected submodule?"), i18n("Remove Submodule"));
 
     if (r == KMessageBox::No)
         return;

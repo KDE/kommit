@@ -64,7 +64,7 @@ void TagsActions::remove()
 
 void TagsActions::checkout()
 {
-    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to restore to the selected tag?"));
+    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to restore to the selected tag?"), i18n("Remove Tag"));
 
     if (r == KMessageBox::No)
         return;
