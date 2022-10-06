@@ -92,7 +92,7 @@ void CommitsWidget::init()
 
 void CommitsWidget::on_treeViewHistory_itemActivated(const QModelIndex &index)
 {
-    auto log = mHistoryModel->fromIndex(index);
+    auto log = mHistoryModel->fromIndex(mFilterModel->mapToSource(index));
     if (!log)
         return;
 
