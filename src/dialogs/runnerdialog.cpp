@@ -50,6 +50,7 @@ void RunnerDialog::run(Git::AbstractCommand *command)
     const auto args = command->generateArgs();
     lineEditCommand->setText(QStringLiteral("git ") + args.join(QLatin1Char(' ')));
 
+    textBrowser->append(lineEditCommand->text());
     if (command->supportProgress()) {
         progressBar->show();
         connect(command, &Git::AbstractCommand::progressChanged, progressBar, &QProgressBar::setValue);
@@ -59,6 +60,8 @@ void RunnerDialog::run(Git::AbstractCommand *command)
     mGitProcess->setArguments(args);
     mGitProcess->start();
     mCmd = command;
+
+    mTimer.start();
 }
 
 void RunnerDialog::git_readyReadStandardOutput()
@@ -93,4 +96,6 @@ void RunnerDialog::git_finished(int exitCode, QProcess::ExitStatus exitStatus)
 
     if (mCmd && mCmd->status() == Git::AbstractCommand::Error)
         KMessageBox::error(this, mCmd->errorMessage());
+
+    textBrowser->append(QStringLiteral("Process finished: (Elapsed time: %1)").arg(QTime::fromMSecsSinceStartOfDay(mTimer.elapsed()).toString("HH:mm:ss")));
 }

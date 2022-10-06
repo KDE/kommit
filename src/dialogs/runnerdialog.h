@@ -6,6 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include <QElapsedTimer>
+
 #include "core/appdialog.h"
 #include "ui_runnerdialog.h"
 
@@ -35,4 +37,6 @@ private:
     enum Mode { None, RunByArgs, RunByCommand };
     Mode mMode{None};
     Git::AbstractCommand *mCmd{nullptr};
+
+    QElapsedTimer mTimer;
 };
