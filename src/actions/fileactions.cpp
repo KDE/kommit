@@ -159,7 +159,7 @@ void FileActions::openWith()
     auto fileName = mGit->path() + QLatin1Char('/') + mFilePath;
     const QList<QUrl> fileUrlList = {QUrl::fromLocalFile(fileName)};
     QMimeDatabase db;
-    QMimeType mimeType = db.mimeTypeForFile(fileName);
+    const QMimeType mimeType = db.mimeTypeForFile(fileName);
     auto viewer = getViewer(mimeType.name());
     KRun::runService(*viewer, fileUrlList, nullptr, true);
 
@@ -173,8 +173,8 @@ void FileActions::openWith()
 
 void FileActions::diffWithHead()
 {
-    Git::File oldFile{mPlace, mFilePath};
-    Git::File newFile{mGit->path() + QLatin1Char('/') + mFilePath};
+    const Git::File oldFile{mPlace, mFilePath};
+    const Git::File newFile{mGit->path() + QLatin1Char('/') + mFilePath};
 
     auto d = new DiffWindow(oldFile, newFile);
     d->showModal();

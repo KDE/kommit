@@ -51,7 +51,7 @@ void CompletionTextEdit::insertCompletion(const QString &completion)
     if (mCompleter->widget() != this)
         return;
     QTextCursor tc = textCursor();
-    int extra = completion.length() - mCompleter->completionPrefix().length();
+    const int extra = completion.length() - mCompleter->completionPrefix().length();
     tc.movePosition(QTextCursor::Left);
     tc.movePosition(QTextCursor::EndOfWord);
     tc.insertText(completion.right(extra));
