@@ -23,8 +23,8 @@ SettingsManager::SettingsManager() = default;
 
 SettingsManager *SettingsManager::instance()
 {
-    static auto *instance = new SettingsManager;
-    return instance;
+    static SettingsManager s_self;
+    return &s_self;
 }
 
 void SettingsManager::settingsChanged()
