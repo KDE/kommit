@@ -404,7 +404,7 @@ Manager *Manager::instance()
 
 QString Manager::currentBranch() const
 {
-    auto ret = QString(runGit({"rev-parse", "--abbrev-ref", "HEAD"})).replace("\n", "").replace("\r", "");
+    const auto ret = QString(runGit({"rev-parse", "--abbrev-ref", "HEAD"})).replace("\n", "").replace("\r", "");
     return ret;
 }
 
@@ -549,10 +549,10 @@ QList<Stash> Manager::stashes()
 
 void Manager::createStash(const QString &name) const
 {
-    QStringList args{"stash", "push"};
+    QStringList args{QStringLiteral("stash"), QStringLiteral("push")};
 
     if (!name.isEmpty())
-        args.append({"--message", name});
+        args.append({QStringLiteral("--message"), name});
 
     auto ret = runGit(args);
     qCDebug(GITKLIENTLIB_LOG) << ret;
@@ -560,13 +560,13 @@ void Manager::createStash(const QString &name) const
 
 bool Manager::removeStash(const QString &name) const
 {
-    runGit({"stash", "drop", name});
+    runGit({QStringLiteral("stash"), QStringLiteral("drop"), name});
     return true;
 }
 
 bool Manager::applyStash(const QString &name) const
 {
-    runGit({"stash", "apply", name});
+    runGit({QStringLiteral("stash"), QStringLiteral("apply"), name});
     return true;
 }
 
@@ -575,7 +575,7 @@ Remote Manager::remoteDetails(const QString &remoteName)
     if (_remotes.contains(remoteName))
         return _remotes.value(remoteName);
     Remote r;
-    auto ret = QString(runGit({"remote", "show", remoteName}));
+    auto ret = QString(runGit({QStringLiteral("remote"), QStringLiteral("show"), remoteName}));
     r.parse(ret);
     _remotes.insert(remoteName, r);
     return r;
@@ -583,7 +583,7 @@ Remote Manager::remoteDetails(const QString &remoteName)
 
 bool Manager::removeBranch(const QString &branchName) const
 {
-    auto ret = readAllNonEmptyOutput({"branch", "-D", branchName});
+    auto ret = readAllNonEmptyOutput({QStringLiteral("branch"), QStringLiteral("-D"), branchName});
     return true;
 }
 
@@ -591,7 +591,7 @@ BlameData Manager::blame(const File &file)
 {
     //    auto logList = logs();
     BlameData b;
-    auto lines = readAllNonEmptyOutput({"--no-pager", "blame", "-l", file.fileName()});
+    auto lines = readAllNonEmptyOutput({QStringLiteral("--no-pager"), QStringLiteral("blame"), QStringLiteral("-l"), file.fileName()});
     b.reserve(lines.size());
 
     for (auto &line : lines) {
@@ -618,14 +618,14 @@ BlameData Manager::blame(const File &file)
 QList<Submodule> Manager::submodules() const
 {
     QList<Submodule> modules;
-    auto modulesList = readAllNonEmptyOutput({"submodule", "status"});
-    for (auto &line : modulesList) {
+    const auto modulesList = readAllNonEmptyOutput({QStringLiteral("submodule"), QStringLiteral("status")});
+    for (const auto &line : modulesList) {
         Submodule m;
         m.setCommitHash(line.mid(0, 40));
         auto n = line.lastIndexOf(" ");
         m.setPath(line.mid(41, n - 41));
 
-        if (line.count(' ') == 2)
+        if (line.count(QLatin1Char(' ')) == 2)
             m.setRefName(line.mid(n));
         modules.append(m);
     }
@@ -641,16 +641,16 @@ bool Manager::addSubmodule(const Submodule &module)
 
 void Manager::revertFile(const QString &filePath) const
 {
-    runGit({"checkout", "--", filePath});
+    runGit({QStringLiteral("checkout"), QStringLiteral("--"), filePath});
 }
 
 QMap<QString, Manager::ChangeStatus> Manager::changedFiles() const
 {
     // status --untracked-files=all --ignored --short --ignore-submodules --porcelain
     QMap<QString, Manager::ChangeStatus> statuses;
-    auto buffer = QString(runGit({"status", "--short"})).split(QLatin1Char('\n'));
+    const auto buffer = QString(runGit({"status", "--short"})).split(QLatin1Char('\n'));
 
-    for (auto &line : buffer) {
+    for (const auto &line : buffer) {
         if (!line.trimmed().size())
             continue;
 
@@ -681,25 +681,25 @@ QMap<QString, Manager::ChangeStatus> Manager::changedFiles() const
 
 void Manager::commit(const QString &message) const
 {
-    runGit({"commit", "-m", message});
+    runGit({QStringLiteral("commit"), QStringLiteral("-m"), message});
 }
 
 void Manager::push() const
 {
-    runGit({"push", "origin", "master"});
+    runGit({QStringLiteral("push"), QStringLiteral("origin"), QStringLiteral("master")});
 }
 
 void Manager::addFile(const QString &file) const
 {
-    runGit({"add", file});
+    runGit({QStringLiteral("add"), file});
 }
 
 void Manager::removeFile(const QString &file, bool cached) const
 {
     QStringList args;
-    args.append("rm");
+    args.append(QStringLiteral("rm"));
     if (cached)
-        args.append("--cached");
+        args.append(QStringLiteral("--cached"));
     args.append(file);
     runGit(args);
 }
