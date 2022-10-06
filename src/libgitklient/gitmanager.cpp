@@ -59,18 +59,19 @@ QMap<QString, Manager::ChangeStatus> Manager::changedFiles(const QString &hash) 
         if (!line.trimmed().size())
             continue;
 
-        auto parts = line.split(QLatin1Char('\t'));
+        const auto parts = line.split(QLatin1Char('\t'));
         if (parts.size() != 2)
             continue;
 
-        if (parts.at(0) == QLatin1Char('A'))
+        const auto partFirst{parts.first()};
+        if (partFirst == QLatin1Char('A'))
             statuses.insert(parts.at(1), Added);
-        else if (parts.at(0) == QLatin1Char('M'))
+        else if (partFirst == QLatin1Char('M'))
             statuses.insert(parts.at(1), Modified);
-        else if (parts.at(0) == QLatin1Char('D'))
+        else if (partFirst == QLatin1Char('D'))
             statuses.insert(parts.at(1), Removed);
         else
-            qCDebug(GITKLIENTLIB_LOG) << "Unknown file status" << parts.at(0);
+            qCDebug(GITKLIENTLIB_LOG) << "Unknown file status" << partFirst;
     }
     return statuses;
 }
@@ -104,7 +105,7 @@ QList<Manager::Log *> Manager::log(const QString &branch) const
     QList<Log *> logs;
     Log *log{nullptr};
     for (const auto &line : lines) {
-        if (line.startsWith("commit ")) {
+        if (line.startsWith(QStringLiteral("commit "))) {
             if (log)
                 logs.append(log);
             log = new Log;
@@ -113,14 +114,14 @@ QList<Manager::Log *> Manager::log(const QString &branch) const
         } else {
             if (!log)
                 return {}; // There is an error
-            if (line.startsWith("Author:")) {
+            if (line.startsWith(QStringLiteral("Author:"))) {
                 log->author = line.mid(8).trimmed();
-            } else if (line.startsWith("Date: ")) {
+            } else if (line.startsWith(QStringLiteral("Date: "))) {
                 log->date = line.mid(5).trimmed();
             } else {
-                auto l = line.trimmed();
-                if (l.size())
-                    log->message.append(l + "\n");
+                const auto l = line.trimmed();
+                if (!l.isEmpty())
+                    log->message.append(l + QLatin1Char('\n'));
             }
         }
     }
@@ -156,19 +157,20 @@ bool Manager::renameRemote(const QString &name, const QString &newName) const
 
 bool Manager::isIgnored(const QString &path)
 {
-    auto tmp = readAllNonEmptyOutput({"check-ignore", path});
+    auto tmp = readAllNonEmptyOutput({QStringLiteral("check-ignore"), path});
     qCDebug(GITKLIENTLIB_LOG) << Q_FUNC_INFO << tmp;
     return !tmp.empty();
 }
 
 QPair<int, int> Manager::uniqueCommiteOnBranches(const QString &branch1, const QString &branch2) const
 {
-    auto ret = readAllNonEmptyOutput({"rev-list", "--left-right", "--count", branch1 + "..." + branch2});
+    auto ret = readAllNonEmptyOutput(
+        {QStringLiteral("rev-list"), QStringLiteral("--left-right"), QStringLiteral("--count"), branch1 + QStringLiteral("...") + branch2});
 
     if (ret.size() != 1)
         return qMakePair(-1, -1);
 
-    auto parts = ret.first().split('\t');
+    const auto parts = ret.first().split('\t');
     if (parts.size() != 2)
         return qMakePair(-1, -1);
 
@@ -177,17 +179,17 @@ QPair<int, int> Manager::uniqueCommiteOnBranches(const QString &branch1, const Q
 
 QStringList Manager::fileLog(const QString &fileName) const
 {
-    return readAllNonEmptyOutput({"log", "--format=format:%H", "--", fileName});
+    return readAllNonEmptyOutput({QStringLiteral("log"), QStringLiteral("--format=format:%H"), QStringLiteral("--"), fileName});
 }
 
 QString Manager::diff(const QString &from, const QString &to) const
 {
-    return runGit({"diff", from, to});
+    return runGit({QStringLiteral("diff"), from, to});
 }
 
 QList<FileStatus> Manager::diffBranch(const QString &from) const
 {
-    auto buffer = QString(runGit({"diff", from, "--name-status"})).split(QLatin1Char('\n'));
+    auto buffer = QString(runGit({QStringLiteral("diff"), from, QStringLiteral("--name-status")})).split(QLatin1Char('\n'));
     QList<FileStatus> files;
     for (auto &item : buffer) {
         if (!item.trimmed().size())
@@ -206,12 +208,12 @@ QList<FileStatus> Manager::diffBranch(const QString &from) const
 
 QList<FileStatus> Manager::diffBranches(const QString &from, const QString &to) const
 {
-    auto buffer = QString(runGit({"diff", from + ".." + to, "--name-status"})).split(QLatin1Char('\n'));
+    const auto buffer = QString(runGit({QStringLiteral("diff"), from + QStringLiteral("..") + to, QStringLiteral("--name-status")})).split(QLatin1Char('\n'));
     QList<FileStatus> files;
-    for (auto &item : buffer) {
+    for (const auto &item : buffer) {
         if (!item.trimmed().size())
             continue;
-        auto parts = item.split("\t");
+        auto parts = item.split(QLatin1Char('\t'));
         if (parts.size() != 2)
             continue;
 
@@ -228,10 +230,10 @@ QString Manager::config(const QString &name, ConfigType type) const
     QStringList cmd;
     switch (type) {
     case ConfigLocal:
-        cmd = QStringList{"config", name};
+        cmd = QStringList{QStringLiteral("config"), name};
         break;
     case ConfigGlobal:
-        cmd = QStringList{"config", "--global", name};
+        cmd = QStringList{QStringLiteral("config"), QStringLiteral("--global"), name};
         break;
     }
     auto list = readAllNonEmptyOutput(cmd);
@@ -252,10 +254,10 @@ void Manager::setConfig(const QString &name, const QString &value, ConfigType ty
     QStringList cmd;
     switch (type) {
     case ConfigLocal:
-        cmd = QStringList{"config", name, value};
+        cmd = QStringList{QStringLiteral("config"), name, value};
         break;
     case ConfigGlobal:
-        cmd = QStringList{"config", "--global", name, value};
+        cmd = QStringList{QStringLiteral("config"), QStringLiteral("--global"), name, value};
         break;
     }
 
@@ -264,10 +266,10 @@ void Manager::setConfig(const QString &name, const QString &value, ConfigType ty
 
 void Manager::unsetConfig(const QString &name, ConfigType type) const
 {
-    QStringList cmd{"config", "--unset"};
+    QStringList cmd{QStringLiteral("config"), QStringLiteral("--unset")};
 
     if (type == ConfigGlobal)
-        cmd.append("--global");
+        cmd.append(QStringLiteral("--global"));
 
     cmd.append(name);
 
@@ -277,10 +279,10 @@ void Manager::unsetConfig(const QString &name, ConfigType type) const
 QStringList Manager::readAllNonEmptyOutput(const QStringList &cmd) const
 {
     QStringList list;
-    auto out = QString(runGit(cmd)).split(QLatin1Char('\n'));
+    const auto out = QString(runGit(cmd)).split(QLatin1Char('\n'));
 
-    for (auto &line : out) {
-        auto b = line.trimmed();
+    for (const auto &line : out) {
+        const auto b = line.trimmed();
         if (b.isEmpty())
             continue;
 
@@ -291,8 +293,8 @@ QStringList Manager::readAllNonEmptyOutput(const QStringList &cmd) const
 
 QString Manager::escapeFileName(const QString &filePath) const
 {
-    if (filePath.contains(" "))
-        return "'" + filePath + "'";
+    if (filePath.contains(QLatin1Char(' ')))
+        return QLatin1Char('\'') + filePath + QLatin1Char('\'');
     return filePath;
 }
 
@@ -363,12 +365,12 @@ void Manager::setLoadFlags(const LoadFlags &newLoadFlags)
 
 QString Manager::readNote(const QString &branchName) const
 {
-    return runGit({"notes", "show", branchName});
+    return runGit({QStringLiteral("notes"), QStringLiteral("show"), branchName});
 }
 
 void Manager::saveNote(const QString &branchName, const QString &note) const
 {
-    runGit({"notes", "add", branchName, "-f", "--message=" + note});
+    runGit({QStringLiteral("notes"), QStringLiteral("add"), branchName, QStringLiteral("-f"), QStringLiteral("--message=") + note});
 }
 
 Manager::Manager()
@@ -414,12 +416,12 @@ QString Manager::run(const AbstractCommand &cmd) const
 void Manager::init(const QString &path)
 {
     mPath = path;
-    runGit({"init"});
+    runGit({QStringLiteral("init")});
 }
 
 bool Manager::isGitDir() const
 {
-    auto out = runGit(QStringList() << "status");
+    auto out = runGit(QStringList() << QStringLiteral("status"));
     return !out.contains("fatal: not a git repository");
 }
 
@@ -428,7 +430,7 @@ QByteArray Manager::runGit(const QStringList &args) const
     //    qCDebug(GITKLIENTLIB_LOG).noquote() << "Running: git " << args.join(" ");
 
     QProcess p;
-    p.setProgram("git");
+    p.setProgram(QStringLiteral("git"));
     p.setArguments(args);
     p.setWorkingDirectory(mPath);
     p.start();
@@ -454,12 +456,12 @@ QStringList Manager::ls(const QString &place) const
 
 QString Manager::fileContent(const QString &place, const QString &fileName) const
 {
-    return runGit({"show", place + ":" + fileName});
+    return runGit({QStringLiteral("show"), place + QLatin1Char(':') + fileName});
 }
 
 void Manager::saveFile(const QString &place, const QString &fileName, const QString &localFile) const
 {
-    auto buffer = runGit({"show", place + ":" + fileName});
+    auto buffer = runGit({QStringLiteral("show"), place + ":" + fileName});
     QFile f{localFile};
     if (!f.open(QIODevice::WriteOnly))
         return;
@@ -470,7 +472,7 @@ void Manager::saveFile(const QString &place, const QString &fileName, const QStr
 QStringList Manager::branches() const
 {
     QStringList branchesList;
-    auto out = QString(runGit({"branch", "--list"})).split(QLatin1Char('\n'));
+    auto out = QString(runGit({QStringLiteral("branch"), QStringLiteral("--list")})).split(QLatin1Char('\n'));
 
     for (auto &line : out) {
         auto b = line.trimmed();
@@ -490,9 +492,9 @@ QStringList Manager::branches() const
 QStringList Manager::remoteBranches() const
 {
     QStringList branchesList;
-    auto out = QString(runGit({"branch", "--remote", "--list"})).split(QLatin1Char('\n'));
+    const auto out = QString(runGit({"branch", "--remote", "--list"})).split(QLatin1Char('\n'));
 
-    for (auto &line : out) {
+    for (const auto &line : out) {
         auto b = line.trimmed();
         if (b.isEmpty())
             continue;
