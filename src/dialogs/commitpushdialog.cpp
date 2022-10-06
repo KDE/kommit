@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KTextEditor/Editor>
 
-// TODO: improve this method
+// TODO: improve this method (Add cache)
 QIcon createIcon(const QColor &color)
 {
     QPixmap pixmap(32, 32);
@@ -76,9 +76,9 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     labelCurrentBranchName->setText(git->currentBranch());
 
     QSet<QString> _words;
-    for (const auto &b : branches)
+    for (const auto &b : std::as_const(branches))
         _words.insert(b);
-    for (const auto &r : remotes)
+    for (const auto &r : std::as_const(remotes))
         _words.insert(r);
     for (auto i = files.constBegin(); i != files.constEnd(); ++i) {
         const auto parts = i.key().split(QLatin1Char('/'));
@@ -135,6 +135,14 @@ void CommitPushDialog::on_pushButtonCommit_clicked()
 void CommitPushDialog::on_pushButtonPush_clicked()
 {
     addFiles();
+
+    if (groupBoxMakeCommit->isChecked()) {
+        Git::CommandCommit commitCommand;
+        commitCommand.setAmend(checkBoxAmend->isChecked());
+        commitCommand.setMessage(textEditMessage->toPlainText());
+        commitCommand.setIncludeStatus(checkBoxIncludeStatus->isChecked());
+        mGit->run(commitCommand);
+    }
 
     Git::CommandPush cmd;
     cmd.setRemote(comboBoxRemote->currentText());
