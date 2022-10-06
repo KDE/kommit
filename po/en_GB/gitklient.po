@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-05 00:48+0000\n"
+"POT-Creation-Date: 2022-10-06 00:48+0000\n"
 "PO-Revision-Date: 2022-09-18 12:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -768,22 +768,22 @@ msgstr "None"
 msgid "Commit"
 msgstr "Commit"
 
-#: src/dialogs/diffopendialog.cpp:68
+#: src/dialogs/diffopendialog.cpp:78
 #, kde-format
 msgid "Select new file"
 msgstr "Select new file"
 
-#: src/dialogs/diffopendialog.cpp:75
+#: src/dialogs/diffopendialog.cpp:85
 #, kde-format
 msgid "Select old file"
 msgstr "Select old file"
 
-#: src/dialogs/diffopendialog.cpp:82
+#: src/dialogs/diffopendialog.cpp:92
 #, kde-format
 msgid "Select new directory"
 msgstr "Select new directory"
 
-#: src/dialogs/diffopendialog.cpp:89
+#: src/dialogs/diffopendialog.cpp:99
 #, kde-format
 msgid "Select old directory"
 msgstr "Select old directory"
@@ -1103,7 +1103,7 @@ msgid ""
 "strategies can also take their own options, which can be passed by giving -"
 "X&lt;option&gt; arguments to git merge and/or git pull.</p><p><a href="
 "\"https://git-scm.com/docs/merge-strategies\"><span style=\" text-"
-"decoration: underline; color:#2980b9;\">More informations</span></a></p></"
+"decoration: underline; color:#2980b9;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
 "<html><head/><body><p>The merge mechanism (git merge and git pull commands) "
@@ -1229,8 +1229,8 @@ msgstr "Squash"
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonOurs)
 #: src/dialogs/mergedialog.ui:140
 #, kde-format
-msgid "Oure"
-msgstr ""
+msgid "Ours"
+msgstr "Ours"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTheirs)
 #: src/dialogs/mergedialog.ui:147
@@ -1701,27 +1701,27 @@ msgid "Commit(s) ahead"
 msgstr "Commit(s) ahead"
 
 #: src/libgitklient/models/logsmodel.cpp:249
-#, kde-format
-msgid "Graph"
-msgstr "Graph"
-
-#: src/libgitklient/models/logsmodel.cpp:251
-#: src/libgitklient/models/logsmodel.cpp:256
+#: src/libgitklient/models/logsmodel.cpp:260
 #, kde-format
 msgid "Message"
 msgstr "Message"
 
-#: src/libgitklient/models/logsmodel.cpp:258
+#: src/libgitklient/models/logsmodel.cpp:251
 #: src/widgets/logdetailswidget.cpp:114
 #, kde-format
 msgid "Date"
 msgstr "Date"
 
-#: src/libgitklient/models/logsmodel.cpp:260 src/main.cpp:60
+#: src/libgitklient/models/logsmodel.cpp:253 src/main.cpp:40
 #: src/widgets/logdetailswidget.cpp:113
 #, kde-format
 msgid "Author"
 msgstr "Author"
+
+#: src/libgitklient/models/logsmodel.cpp:258
+#, kde-format
+msgid "Graph"
+msgstr "Graph"
 
 #: src/libgitklient/models/stashesmodel.cpp:61
 #: src/libgitklient/models/tagsmodel.cpp:63
@@ -1757,25 +1757,35 @@ msgstr "Head"
 msgid "Status"
 msgstr "Status"
 
-#: src/main.cpp:54
+#: src/main.cpp:34
 #, kde-format
 msgid "GitKlient"
 msgstr "GitKlient"
 
-#: src/main.cpp:56
+#: src/main.cpp:36
 #, kde-format
 msgid "Git client gui for KDE"
 msgstr "Git client GUI for KDE"
 
-#: src/main.cpp:58
+#: src/main.cpp:38
 #, kde-format
 msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/main.cpp:60
+#: src/main.cpp:40
 #, kde-format
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Bug fixing"
+msgstr ""
 
 #: src/mainwidget.cpp:101
 #, kde-format
@@ -2022,6 +2032,12 @@ msgid "Browse"
 msgstr "Browse"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
+#: src/widgets/commitswidget.ui:39
+#, kde-format
+msgid "Filter..."
+msgstr ""
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/widgets/difftreeview.ui:17
 #, kde-format
 msgid "Type to filter"
@@ -2222,9 +2238,6 @@ msgstr "Checkout to selected"
 
 #~ msgid "Octopus"
 #~ msgstr "Octopus"
-
-#~ msgid "Ours"
-#~ msgstr "Ours"
 
 #~ msgid "Subtree"
 #~ msgstr "Subtree"
