@@ -34,7 +34,7 @@ int main(int argc, char **argv)
                          i18n("GitKlient"),
                          QStringLiteral(GK_VERSION),
                          i18n("Git client gui for KDE"),
-                         KAboutLicense::GPL,
+                         KAboutLicense::GPL_V3,
                          i18n("Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"));
 
     aboutData.addAuthor(i18n("Hamed Masafi"), i18n("Author"), QStringLiteral("hamed.masafi@gmail.com"));
