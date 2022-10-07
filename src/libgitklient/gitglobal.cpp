@@ -23,7 +23,7 @@ void run(const QString &workingDir, const QStringList &args)
 
     //    return ret;
 }
-void run(const QString &workingDir, AbstractCommand &cmd)
+void run(const QString &workingDir, const AbstractCommand &cmd)
 {
     QProcess p;
     p.setProgram(QStringLiteral("git"));

@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 void run(const QString &workingDir, const QStringList &args);
-void run(const QString &workingDir, AbstractCommand &cmd);
+void run(const QString &workingDir, const AbstractCommand &cmd);
 
 LIBGITKLIENT_EXPORT QByteArray runGit(const QString &workingDir, const QStringList &args);
 LIBGITKLIENT_EXPORT QStringList readAllNonEmptyOutput(const QString &workingDir, const QStringList &cmd, bool trim = true);
