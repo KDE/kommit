@@ -77,8 +77,6 @@ void CommandPull::setTags(bool newTags)
 
 void CommandPull::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
 {
-    Q_UNUSED(output)
-    Q_UNUSED(errorOutput)
 #ifdef GIT_GUI
     if (output.contains("Already up to date.")) {
         mUi->labelStatus->setText(i18n("Already up to date."));
@@ -87,6 +85,9 @@ void CommandPull::parseOutput(const QByteArray &output, const QByteArray &errorO
         mUi->labelStatus->setText(errorOutput.mid(6));
         KMessageBox::error(mWidget, errorOutput.mid(6), i18n("Error"));
     }
+#else
+    Q_UNUSED(output)
+    Q_UNUSED(errorOutput)
 #endif
 }
 
