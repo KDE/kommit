@@ -22,6 +22,7 @@ private Q_SLOTS:
     void browse();
     void checkout();
     void diff();
+
 private:
     DEFINE_ACTION(actionBrowse)
     DEFINE_ACTION(actionCheckout)

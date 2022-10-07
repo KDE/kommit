@@ -35,6 +35,7 @@ public:
     void setDefaultGitManager(Git::Manager *newDefaultGitManager);
 
     int count() const;
+
 private:
     void slotPageSelected(QAction *action);
     QActionGroup *const m_actionGroup;

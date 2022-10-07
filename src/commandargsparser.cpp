@@ -25,8 +25,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "mergewindow.h"
 #include "models/logsmodel.h"
 
-#include <QApplication>
 #include "gitklient_appdebug.h"
+#include <QApplication>
 #include <QDir>
 #include <QFileInfo>
 #include <QMetaMethod>
@@ -354,18 +354,18 @@ ArgParserReturn CommandArgsParser::diff(const QString &file1, const QString &fil
 
 ArgParserReturn CommandArgsParser::diff(const QString &path, const QString &file1, const QString &file2)
 {
-  if (file1.count(QLatin1Char(':')) != 1 || file2.count(QLatin1Char(':')) != 1)
-    return 1;
-  git->setPath(path);
-  if (!git->isValid())
-    return 1;
-  auto parts1 = file1.split(QLatin1Char(':'));
-  auto parts2 = file2.split(QLatin1Char(':'));
-  Git::File fileLeft(parts1.first(), parts1.at(1));
-  Git::File fileRight(parts2.first(), parts2.at(1));
-  auto d = new DiffWindow(fileLeft, fileRight);
-  d->exec();
-  return ExecApp;
+    if (file1.count(QLatin1Char(':')) != 1 || file2.count(QLatin1Char(':')) != 1)
+        return 1;
+    git->setPath(path);
+    if (!git->isValid())
+        return 1;
+    auto parts1 = file1.split(QLatin1Char(':'));
+    auto parts2 = file2.split(QLatin1Char(':'));
+    Git::File fileLeft(parts1.first(), parts1.at(1));
+    Git::File fileRight(parts2.first(), parts2.at(1));
+    auto d = new DiffWindow(fileLeft, fileRight);
+    d->exec();
+    return ExecApp;
 }
 
 ArgParserReturn CommandArgsParser::blame(const QString &file)

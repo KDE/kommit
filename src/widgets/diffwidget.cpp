@@ -11,7 +11,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QScrollBar>
 #include <QTextBlock>
 
-
 void DiffWidget::init()
 {
     segmentConnector->setMinimumWidth(80);
@@ -33,8 +32,8 @@ void DiffWidget::init()
 
 DiffWidget::DiffWidget(QWidget *parent)
     : WidgetBase(parent)
-      , mOldFile()
-      , mNewFile()
+    , mOldFile()
+    , mNewFile()
 {
     setupUi(this);
     init();
@@ -43,8 +42,8 @@ DiffWidget::DiffWidget(QWidget *parent)
 
 DiffWidget::DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidget *parent)
     : WidgetBase(parent)
-      , mOldFile(oldFile)
-      , mNewFile(newFile)
+    , mOldFile(oldFile)
+    , mNewFile(newFile)
 {
     setupUi(this);
     init();
@@ -218,11 +217,11 @@ void DiffWidget::newCodeEditor_blockSelected()
 
 void DiffWidget::recalculateInfoPaneSize()
 {
-//    leftInfoContainer->setMinimumWidth(leftCodeEditor->width());
-//    rightInfoContainer->setMinimumWidth(rightCodeEditor->width());
+    //    leftInfoContainer->setMinimumWidth(leftCodeEditor->width());
+    //    rightInfoContainer->setMinimumWidth(rightCodeEditor->width());
 
-//    leftInfoContainer->setVisible(leftCodeEditor->width());
-//    rightInfoContainer->setVisible(rightCodeEditor->width());
+    //    leftInfoContainer->setVisible(leftCodeEditor->width());
+    //    rightInfoContainer->setVisible(rightCodeEditor->width());
 
     //    label->setMinimumWidth(leftCodeEditor->width());
     //    label_2->setMinimumWidth(rightCodeEditor->width());

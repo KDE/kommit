@@ -79,7 +79,6 @@ void SegmentConnector::setSameSize(bool newSameSize)
 {
     m_sameSize = newSameSize;
     Q_EMIT sameSizeChanged();
-
 }
 
 CodeEditor *SegmentConnector::left() const

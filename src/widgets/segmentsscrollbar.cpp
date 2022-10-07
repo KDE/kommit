@@ -6,18 +6,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "segmentsscrollbar.h"
 
-#include "segmentconnector.h"
 #include "GitKlientSettings.h"
+#include "segmentconnector.h"
 #include "widgets/codeeditor.h"
 
-#include <QScrollBar>
 #include <QPaintEvent>
 #include <QPainter>
+#include <QScrollBar>
 
 SegmentsScrollBar::SegmentsScrollBar(QWidget *parent)
     : QWidget{parent}
 {
-
 }
 
 SegmentConnector *SegmentsScrollBar::segmentConnector() const
@@ -27,25 +26,13 @@ SegmentConnector *SegmentsScrollBar::segmentConnector() const
 
 void SegmentsScrollBar::setSegmentConnector(SegmentConnector *newSegmentConnector)
 {
-    if (mSegmentConnector){
-        disconnect(newSegmentConnector,
-                   &SegmentConnector::segmentsChanged,
-                   this,
-                   &SegmentsScrollBar::reload);
-        disconnect(newSegmentConnector,
-                   &SegmentConnector::sameSizeChanged,
-                   this,
-                   &SegmentsScrollBar::reload);
+    if (mSegmentConnector) {
+        disconnect(newSegmentConnector, &SegmentConnector::segmentsChanged, this, &SegmentsScrollBar::reload);
+        disconnect(newSegmentConnector, &SegmentConnector::sameSizeChanged, this, &SegmentsScrollBar::reload);
     }
     mSegmentConnector = newSegmentConnector;
-    connect(newSegmentConnector,
-            &SegmentConnector::segmentsChanged,
-            this,
-            &SegmentsScrollBar::reload);
-    connect(newSegmentConnector,
-            &SegmentConnector::sameSizeChanged,
-            this,
-            &SegmentsScrollBar::reload);
+    connect(newSegmentConnector, &SegmentConnector::segmentsChanged, this, &SegmentsScrollBar::reload);
+    connect(newSegmentConnector, &SegmentConnector::sameSizeChanged, this, &SegmentsScrollBar::reload);
     update();
 }
 
@@ -60,7 +47,7 @@ void SegmentsScrollBar::paintEvent(QPaintEvent *event)
     int countLeft{0};
     int countRight{0};
 
-    for (const auto &segment: qAsConst(mSegmentConnector->segments())) {
+    for (const auto &segment : qAsConst(mSegmentConnector->segments())) {
         QBrush brush;
         switch (segment->type) {
         case Diff::SegmentType::OnlyOnLeft:
@@ -85,16 +72,8 @@ void SegmentsScrollBar::paintEvent(QPaintEvent *event)
         if (mSegmentConnector->sameSize()) {
             auto m = qMax(segment->oldText.size(), segment->newText.size());
 
-            paintSection(painter,
-                         Left,
-                         countLeft + segment->oldText.size(),
-                         m - segment->oldText.size(),
-                         Qt::darkGray);
-            paintSection(painter,
-                         Right,
-                         countRight + segment->newText.size(),
-                         m - segment->newText.size(),
-                         Qt::darkGray);
+            paintSection(painter, Left, countLeft + segment->oldText.size(), m - segment->oldText.size(), Qt::darkGray);
+            paintSection(painter, Right, countRight + segment->newText.size(), m - segment->newText.size(), Qt::darkGray);
 
             countLeft += m;
             countRight += m;
@@ -118,13 +97,12 @@ void SegmentsScrollBar::paintEvent(QPaintEvent *event)
     paintSection(painter, Right, rightArea.first, rightArea.second, br, true);
     painter.setOpacity(1);
     painter.drawRect(QRect{0, 0, width() - 1, height() - 1});
-
 }
 
 void SegmentsScrollBar::reload()
 {
     leftCount = rightCount = 0;
-    for (const auto &segment: qAsConst(mSegmentConnector->segments())) {
+    for (const auto &segment : qAsConst(mSegmentConnector->segments())) {
         if (mSegmentConnector->sameSize()) {
             auto m = qMax(segment->oldText.size(), segment->newText.size());
             leftCount += m;
@@ -137,8 +115,7 @@ void SegmentsScrollBar::reload()
     update();
 }
 
-void SegmentsScrollBar::paintSection(
-    QPainter &painter, const Side &side, int from, int len, const QBrush &brush, bool drawRect)
+void SegmentsScrollBar::paintSection(QPainter &painter, const Side &side, int from, int len, const QBrush &brush, bool drawRect)
 {
     if (len <= 0)
         return;
@@ -146,10 +123,7 @@ void SegmentsScrollBar::paintSection(
     int l = side == Left ? 0 : width() - w;
     int &c = side == Left ? leftCount : rightCount;
 
-    QRect rc{l,
-             static_cast<int>((from / (double) c) * height()) - 1,
-             w,
-             static_cast<int>((len / (double) c) * height())};
+    QRect rc{l, static_cast<int>((from / (double)c) * height()) - 1, w, static_cast<int>((len / (double)c) * height())};
     painter.fillRect(rc, brush);
     if (drawRect)
         painter.drawRect(rc);

@@ -84,7 +84,7 @@ void BlameCodeView::sidebarPaintEvent(QPaintEvent *event)
             auto &&d = mBlameData.at(blockNumber);
 
             painter.setPen(mHighlighter->theme().editorColor((blockNumber == currentBlockNumber) ? KSyntaxHighlighting::Theme::CurrentLineNumber
-                                                                                                  : KSyntaxHighlighting::Theme::LineNumbers));
+                                                                                                 : KSyntaxHighlighting::Theme::LineNumbers));
 
             painter.drawText(0,
                              top,

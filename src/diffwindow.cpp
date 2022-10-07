@@ -140,10 +140,7 @@ void DiffWindow::initActions()
     viewHiddenCharsAction->setCheckable(true);
     connect(viewHiddenCharsAction, &QAction::triggered, mDiffWidget, &DiffWidget::showHiddenChars);
 
-    auto viewSameSizeBlocksAction = actionCollection->addAction(QStringLiteral(
-                                                                    "view_same_size_blocks"),
-                                                                mDiffWidget,
-                                                                &DiffWidget::showSameSize);
+    auto viewSameSizeBlocksAction = actionCollection->addAction(QStringLiteral("view_same_size_blocks"), mDiffWidget, &DiffWidget::showSameSize);
     viewSameSizeBlocksAction->setText(i18n("Same size blocks"));
     viewSameSizeBlocksAction->setCheckable(true);
     viewSameSizeBlocksAction->setChecked(true);

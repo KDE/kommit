@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include <QComboBox>
 #include <QDialog>
 #include <QMetaEnum>
-#include <QComboBox>
 
 namespace Git
 {
@@ -23,11 +23,13 @@ public:
     explicit AppDialog(Git::Manager *git, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
 
     bool event(QEvent *event) override;
+
 protected:
     Git::Manager *mGit = nullptr;
 
     template<typename _Enum>
-    void initComboBox(QComboBox *comboBox) {
+    void initComboBox(QComboBox *comboBox)
+    {
         comboBox->clear();
         QMetaEnum e = QMetaEnum::fromType<_Enum>();
         for (auto i = 0; i < e.keyCount(); i++) {
@@ -37,7 +39,8 @@ protected:
     }
 
     template<typename _Enum>
-    _Enum comboBoxCurrentValue(QComboBox *comboBox) const {
+    _Enum comboBoxCurrentValue(QComboBox *comboBox) const
+    {
         return static_cast<_Enum>(comboBox->currentData().toInt());
     }
 };

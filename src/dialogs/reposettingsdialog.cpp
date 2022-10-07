@@ -25,11 +25,7 @@ void RepoSettingsDialog::slotAccepted()
 {
     mGit->setConfig(QStringLiteral("user.name"), lineEditUserName->text());
     mGit->setConfig(QStringLiteral("user.email"), lineEditUserEmail->text());
-    mGit->setConfig(QStringLiteral("core.fileMode"),
-                    checkBoxAutoFileMode->isChecked() ? QStringLiteral("true")
-                                                      : QStringLiteral("false"));
-    mGit->setConfig(QStringLiteral("core.autocrlf"),
-                    checkBoxAutoCrlf->isChecked() ? QStringLiteral("true")
-                                                      : QStringLiteral("false"));
+    mGit->setConfig(QStringLiteral("core.fileMode"), checkBoxAutoFileMode->isChecked() ? QStringLiteral("true") : QStringLiteral("false"));
+    mGit->setConfig(QStringLiteral("core.autocrlf"), checkBoxAutoCrlf->isChecked() ? QStringLiteral("true") : QStringLiteral("false"));
     accept();
 }

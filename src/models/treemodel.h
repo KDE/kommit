@@ -106,6 +106,7 @@ protected:
     Node *find(QStringList &path, Node *node = nullptr);
     void getFullPath(QString &path, Node *node) const;
     void sortNode(Node *node);
+
 private:
     QString mSeparator{"/"};
     bool mLastPartAsData{false};

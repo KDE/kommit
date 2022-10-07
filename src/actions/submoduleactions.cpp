@@ -11,8 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "models/submodulesmodel.h"
 
-#include <QAction>
 #include "gitklient_appdebug.h"
+#include <QAction>
 
 #include <QDir>
 #include <klocalizedstring.h>

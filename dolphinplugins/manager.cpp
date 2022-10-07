@@ -51,10 +51,14 @@ bool MiniManager::isValid() const
 
 QList<FileStatus> MiniManager::repoFilesStatus() const
 {
-    const auto buffer =
-        Git::readAllNonEmptyOutput(mPath, {QStringLiteral("status"), QStringLiteral("--untracked-files=all"), QStringLiteral("--ignored")
-                                           , QStringLiteral("--short"), QStringLiteral("--ignore-submodules"),
-                                           QStringLiteral("--porcelain")}, false);
+    const auto buffer = Git::readAllNonEmptyOutput(mPath,
+                                                   {QStringLiteral("status"),
+                                                    QStringLiteral("--untracked-files=all"),
+                                                    QStringLiteral("--ignored"),
+                                                    QStringLiteral("--short"),
+                                                    QStringLiteral("--ignore-submodules"),
+                                                    QStringLiteral("--porcelain")},
+                                                   false);
 
     QList<FileStatus> files;
     // TODO: read untrackeds

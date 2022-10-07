@@ -31,6 +31,7 @@ public:
 private Q_SLOTS:
     void on_treeView_customContextMenuRequested(const QPoint &pos);
     void on_treeView_activated(const QModelIndex &index);
+
 private:
     SubmoduleActions *mActions = nullptr;
     Git::SubmodulesModel *mModel = nullptr;

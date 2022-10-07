@@ -26,21 +26,13 @@ private Q_SLOTS:
     void reload();
 
 private:
-    enum Side {
-        Left,
-        Right
-    };
+    enum Side { Left, Right };
 
     int leftCount{0};
     int rightCount{0};
     SegmentConnector *mSegmentConnector{nullptr};
 
-    inline void paintSection(QPainter &painter,
-                             const Side &side,
-                             int from,
-                             int len,
-                             const QBrush &brush,
-                             bool drawRect = false);
+    inline void paintSection(QPainter &painter, const Side &side, int from, int len, const QBrush &brush, bool drawRect = false);
 };
 
 #endif // SEGMENTSSCROLLBAR_H

@@ -16,7 +16,7 @@ RemoteInfoDialog::RemoteInfoDialog(QWidget *parent)
     checkBoxTags->setCheckState(Qt::PartiallyChecked);
     auto button = buttonBox->button(QDialogButtonBox::Ok);
     connect(lineEditName, &QLineEdit::textChanged, this, [button](const QString &str) {
-       button->setEnabled(!str.trimmed().isEmpty());
+        button->setEnabled(!str.trimmed().isEmpty());
     });
     // Disable as lineEditName is empty
     button->setEnabled(false);

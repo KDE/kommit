@@ -46,8 +46,7 @@ DiffTreeView::DiffTreeView(QWidget *parent)
 void DiffTreeView::on_lineEditFilter_textChanged(const QString &text)
 {
     stackedWidget->setCurrentIndex(text.isEmpty() ? 0 : 1);
-    mFilterModel->setFilterRegularExpression(QStringLiteral(".*") + text +
-                                             QStringLiteral(".*"));
+    mFilterModel->setFilterRegularExpression(QStringLiteral(".*") + text + QStringLiteral(".*"));
 }
 
 void DiffTreeView::on_treeView_clicked(const QModelIndex &index)

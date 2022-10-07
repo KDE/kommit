@@ -84,7 +84,6 @@ void MergeWindow::init()
     auto mapper = new EditActionsMapper;
     mapper->init(actionCollection());
 
-
     mapper->addTextEdit(m_ui.plainTextEditMine);
     mapper->addTextEdit(m_ui.plainTextEditTheir);
     mapper->addTextEdit(m_ui.plainTextEditResult);
