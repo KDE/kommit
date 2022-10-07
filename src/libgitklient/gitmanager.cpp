@@ -398,8 +398,8 @@ Manager::Manager(const QString path)
 
 Manager *Manager::instance()
 {
-    static auto i = new Manager;
-    return i;
+    static Manager instance;
+    return &instance;
 }
 
 QString Manager::currentBranch() const
