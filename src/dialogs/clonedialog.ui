@@ -43,12 +43,9 @@
      <item row="1" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
-        <widget class="QLineEdit" name="lineEditPath"/>
-       </item>
-       <item>
-        <widget class="QToolButton" name="toolButtonBrowseLocalPath">
-         <property name="text">
-          <string>...</string>
+        <widget class="KUrlRequester" name="lineEditPath">
+         <property name="mode">
+          <set>KFile::Directory|KFile::LocalOnly</set>
          </property>
         </widget>
        </item>
@@ -140,10 +137,15 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KUrlRequester</class>
+   <extends>QWidget</extends>
+   <header>kurlrequester.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>lineEditUrl</tabstop>
-  <tabstop>lineEditPath</tabstop>
-  <tabstop>toolButtonBrowseLocalPath</tabstop>
   <tabstop>checkBoxDepth</tabstop>
   <tabstop>spinBoxDepth</tabstop>
   <tabstop>checkBoxRecursive</tabstop>
