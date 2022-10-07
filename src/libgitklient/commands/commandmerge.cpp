@@ -59,7 +59,7 @@ QStringList CommandMerge::generateArgs() const
         auto e = QMetaEnum::fromType<DiffAlgorithm>();
         cmd << QStringLiteral("diff-algorithm=") + QString(e.valueToKey(mDiffAlgorithm)).toLower();
         if (mNoRenames)
-            cmd << "--no-renames";
+            cmd << QStringLiteral("--no-renames");
         cmd << QStringLiteral("--strategy=recursive");
         break;
     }

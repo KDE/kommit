@@ -404,7 +404,7 @@ Manager *Manager::instance()
 
 QString Manager::currentBranch() const
 {
-    const auto ret = QString(runGit({"rev-parse", "--abbrev-ref", "HEAD"})).replace("\n", "").replace("\r", "");
+    const auto ret = QString(runGit({QStringLiteral("rev-parse"), QStringLiteral("--abbrev-ref"), QStringLiteral("HEAD")})).replace("\n", "").replace("\r", "");
     return ret;
 }
 
@@ -444,7 +444,7 @@ QByteArray Manager::runGit(const QStringList &args) const
 
 QStringList Manager::ls(const QString &place) const
 {
-    auto buffer = readAllNonEmptyOutput({"ls-tree", "--name-only", "-r", place});
+    auto buffer = readAllNonEmptyOutput({QStringLiteral("ls-tree"), QStringLiteral("--name-only"), QStringLiteral("-r"), place});
     QMutableListIterator<QString> it(buffer);
     while (it.hasNext()) {
         auto s = it.next();
@@ -492,7 +492,7 @@ QStringList Manager::branches() const
 QStringList Manager::remoteBranches() const
 {
     QStringList branchesList;
-    const auto out = QString(runGit({"branch", "--remote", "--list"})).split(QLatin1Char('\n'));
+    const auto out = QString(runGit({QStringLiteral("branch"), QStringLiteral("--remote"), QStringLiteral("--list")})).split(QLatin1Char('\n'));
 
     for (const auto &line : out) {
         auto b = line.trimmed();
@@ -648,7 +648,7 @@ QMap<QString, Manager::ChangeStatus> Manager::changedFiles() const
 {
     // status --untracked-files=all --ignored --short --ignore-submodules --porcelain
     QMap<QString, Manager::ChangeStatus> statuses;
-    const auto buffer = QString(runGit({"status", "--short"})).split(QLatin1Char('\n'));
+    const auto buffer = QString(runGit({QStringLiteral("status"), QStringLiteral("--short")})).split(QLatin1Char('\n'));
 
     for (const auto &line : buffer) {
         if (!line.trimmed().size())
@@ -657,21 +657,21 @@ QMap<QString, Manager::ChangeStatus> Manager::changedFiles() const
         auto status = line.mid(1, 2).trimmed();
         auto fileName = line.mid(3);
 
-        if (status == "M")
+        if (status == QLatin1Char('M'))
             statuses.insert(fileName, Modified);
-        else if (status == "A")
+        else if (status == QLatin1Char('A'))
             statuses.insert(fileName, Added);
-        else if (status == "D")
+        else if (status == QLatin1Char('D'))
             statuses.insert(fileName, Removed);
-        else if (status == "R")
+        else if (status == QLatin1Char('R'))
             statuses.insert(fileName, Renamed);
-        else if (status == "C")
+        else if (status == QLatin1Char('C'))
             statuses.insert(fileName, Copied);
-        else if (status == "U")
+        else if (status == QLatin1Char('U'))
             statuses.insert(fileName, UpdatedButInmerged);
-        else if (status == "?")
+        else if (status == QLatin1Char('?'))
             statuses.insert(fileName, Untracked);
-        else if (status == "!")
+        else if (status == QLatin1Char('!'))
             statuses.insert(fileName, Ignored);
         else
             statuses.insert(fileName, Unknown);

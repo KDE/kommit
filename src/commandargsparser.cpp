@@ -136,7 +136,7 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
                 ArgParserReturn r;
                 qCDebug(GITKLIENT_LOG) << "Running:" << method.name();
                 auto b = metaObject()->invokeMethod(this,
-                                                    method.name(),
+                                                    method.name().constData(),
                                                     Q_RETURN_ARG(ArgParserReturn, r),
                                                     GET_OP(0),
                                                     GET_OP(1),

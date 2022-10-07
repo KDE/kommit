@@ -28,7 +28,7 @@ bool AppDialog::event(QEvent *event)
     if (event->type() == QEvent::WhatsThisClicked) {
         event->accept();
         auto whatsThisEvent = static_cast<QWhatsThisClickedEvent *>(event);
-        QDesktopServices::openUrl(whatsThisEvent->href());
+        QDesktopServices::openUrl(QUrl(whatsThisEvent->href()));
         return true;
     }
     return QDialog::event(event);
