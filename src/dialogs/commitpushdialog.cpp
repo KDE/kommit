@@ -70,6 +70,7 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     }
     if (files.empty()) {
         pushButtonCommit->setEnabled(false);
+        pushButtonPush->setEnabled(true);
         groupBoxMakeCommit->setEnabled(false);
         pushButtonPush->setText(i18n("Push"));
     } else {
@@ -101,7 +102,7 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
 
 void CommitPushDialog::checkButtonsEnable()
 {
-    if (!groupBoxMakeCommit->isChecked()) {
+    if (groupBoxMakeCommit->isEnabled() && !groupBoxMakeCommit->isChecked()) {
         pushButtonCommit->setEnabled(false);
         pushButtonPush->setEnabled(true);
         return;
