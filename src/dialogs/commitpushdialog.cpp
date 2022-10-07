@@ -68,6 +68,13 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
         item->setCheckState(Qt::Unchecked);
         listWidget->addItem(item);
     }
+    if (files.empty()) {
+        pushButtonCommit->setEnabled(false);
+        groupBoxMakeCommit->setEnabled(false);
+        pushButtonPush->setText(i18n("Push"));
+    } else {
+        pushButtonPush->setText(i18n("Commit and push"));
+    }
 
     auto branches = git->branches();
     auto remotes = git->remotes();
@@ -207,9 +214,10 @@ void CommitPushDialog::on_listWidget_itemClicked(QListWidgetItem *)
     checkButtonsEnable();
 }
 
-void CommitPushDialog::on_groupBoxMakeCommit_toggled(bool)
+void CommitPushDialog::on_groupBoxMakeCommit_toggled(bool checked)
 {
     checkButtonsEnable();
+    pushButtonPush->setText(checked ? i18n("Commit and push") : i18n("Push"));
 }
 
 void CommitPushDialog::on_listWidget_customContextMenuRequested(const QPoint &pos)
