@@ -13,17 +13,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 CloneDialog::CloneDialog(QWidget *parent)
     : AppDialog(parent)
+    , mFixedPath(QStandardPaths::writableLocation(QStandardPaths::HomeLocation))
 {
     setupUi(this);
-    mFixedPath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
 
     QSettings s;
-    lineEditUrl->setText(s.value("lastClonedRepo").toString());
+    lineEditUrl->setText(s.value(QStringLiteral("lastClonedRepo")).toString());
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &CloneDialog::slotAccepted);
+    connect(lineEditUrl, &QLineEdit::textChanged, this, &CloneDialog::slotUrlChanged);
 }
 
-CloneDialog::~CloneDialog()
-{
-}
+CloneDialog::~CloneDialog() = default;
 
 Git::CloneCommand *CloneDialog::command()
 {
@@ -46,10 +46,10 @@ void CloneDialog::setLocalPath(const QString &path)
     else
         mFixedPath = path;
     lineEditPath->setText(path);
-    on_lineEditUrl_textChanged(path);
+    slotUrlChanged(path);
 }
 
-void CloneDialog::on_lineEditUrl_textChanged(const QString &text)
+void CloneDialog::slotUrlChanged(const QString &text)
 {
     const auto parts = text.split(QLatin1Char('/'));
     if (!parts.isEmpty()) {
@@ -61,17 +61,10 @@ void CloneDialog::on_lineEditUrl_textChanged(const QString &text)
     }
 }
 
-void CloneDialog::on_toolButtonBrowseLocalPath_clicked()
-{
-    const auto localPath = QFileDialog::getExistingDirectory(this, i18n("Local path"));
-    if (!localPath.isEmpty())
-        lineEditPath->setText(localPath);
-}
-
-void CloneDialog::on_buttonBox_accepted()
+void CloneDialog::slotAccepted()
 {
     QSettings s;
-    s.setValue("lastClonedRepo", lineEditUrl->text());
+    s.setValue(QStringLiteral("lastClonedRepo"), lineEditUrl->text());
 
     accept();
 }
