@@ -22,6 +22,8 @@ SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
     comboBoxBranchSelect->addItems(git->remoteBranches());
 
     comboBoxTags->setModel(git->tagsModel());
+
+    radioButtonTag->setEnabled(comboBoxTags->count());
 }
 
 Git::CommandSwitchBranch *SwitchBranchDialog::command() const
