@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-06 00:48+0000\n"
-"PO-Revision-Date: 2022-10-05 21:33+0200\n"
+"POT-Creation-Date: 2022-10-07 00:49+0000\n"
+"PO-Revision-Date: 2022-10-06 12:12+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -359,6 +359,12 @@ msgstr "Sincronitza..."
 msgid "Are you sure to remove the selected submodule?"
 msgstr "Esteu segur d'eliminar el submòdul seleccionat?"
 
+#: src/actions/submoduleactions.cpp:75
+#, fuzzy, kde-format
+#| msgid "Submodules"
+msgid "Remove Submodule"
+msgstr "Submòduls"
+
 #: src/actions/submoduleactions.cpp:85
 #, kde-format
 msgid "Unable to remove the module directory"
@@ -394,6 +400,12 @@ msgstr "Esteu segur d'eliminar l'etiqueta seleccionada?"
 #, kde-format
 msgid "Are you sure to restore to the selected tag?"
 msgstr "Esteu segur de restaurar a l'etiqueta seleccionada?"
+
+#: src/actions/tagsactions.cpp:67
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgid "Remove Tag"
+msgstr "Elimina"
 
 #: src/appwindow.cpp:69
 #, kde-format
@@ -796,12 +808,11 @@ msgstr "Seleccioneu el directori antic"
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
 #: src/dialogs/diffopendialog.ui:14 src/dialogs/fileblamedialog.ui:14
 #: src/dialogs/filehistorydialog.ui:14 src/dialogs/filestreedialog.ui:14
-#: src/dialogs/searchdialog.ui:14 src/dialogs/taginfodialog.ui:14
+#: src/dialogs/taginfodialog.ui:14
 #, kde-format
 msgid "Dialog"
 msgstr "Diàleg"
@@ -1049,7 +1060,7 @@ msgstr "Inicialitza el repositori Git"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
-#: src/dialogs/mergecloseeventdialog.ui:14 src/dialogs/runnerdialog.cpp:89
+#: src/dialogs/mergecloseeventdialog.ui:14 src/dialogs/runnerdialog.cpp:94
 #: src/merge/closeeventdialog.ui:14
 #, kde-format
 msgid "Close"
@@ -1093,15 +1104,7 @@ msgstr "Estratègia:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxStrategy)
 #: src/dialogs/mergedialog.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The merge mechanism (git merge and git pull "
-#| "commands) allows the backend merge strategies to be chosen with -s "
-#| "option. Some strategies can also take their own options, which can be "
-#| "passed by giving -X&lt;option&gt; arguments to git merge and/or git pull."
-#| "</p><p><a href=\"https://git-scm.com/docs/merge-strategies\"><span style="
-#| "\" text-decoration: underline; color:#2980b9;\">More informations</span></"
-#| "a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The merge mechanism (git merge and git pull commands) "
 "allows the backend merge strategies to be chosen with -s option. Some "
@@ -1425,12 +1428,12 @@ msgstr "CRLF automàtic"
 msgid "Auto file mode"
 msgstr "Mode automàtic del fitxer"
 
-#: src/dialogs/runnerdialog.cpp:46
+#: src/dialogs/runnerdialog.cpp:48
 #, kde-format
 msgid "View"
 msgstr "Visualitza"
 
-#: src/dialogs/runnerdialog.cpp:92
+#: src/dialogs/runnerdialog.cpp:97
 #, kde-format
 msgid "The git process crashed"
 msgstr "El procés «git» ha fallat"
@@ -1448,7 +1451,7 @@ msgid "Output"
 msgstr "Sortida"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButton)
-#: src/dialogs/runnerdialog.ui:83
+#: src/dialogs/runnerdialog.ui:86
 #, kde-format
 msgid "Stop"
 msgstr "Atura"
@@ -1458,38 +1461,45 @@ msgstr "Atura"
 msgid "File name"
 msgstr "Nom del fitxer"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
+#: src/dialogs/searchdialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Recent repos"
+msgid "Search in repo"
+msgstr "Repositoris recents"
+
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/searchdialog.ui:22
+#: src/dialogs/searchdialog.ui:25
 #, kde-format
 msgid "Path:"
 msgstr "Camí:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/searchdialog.ui:32
+#: src/dialogs/searchdialog.ui:35
 #, kde-format
 msgid "Text:"
 msgstr "Text:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchBranches)
-#: src/dialogs/searchdialog.ui:42
+#: src/dialogs/searchdialog.ui:45
 #, kde-format
 msgid "Search all branches"
 msgstr "Cerca totes les branques"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
-#: src/dialogs/searchdialog.ui:52
+#: src/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
 msgstr "Cerca totes les comissions"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
-#: src/dialogs/searchdialog.ui:59
+#: src/dialogs/searchdialog.ui:62
 #, kde-format
 msgid "Case sensitive"
 msgstr "Distingeix entre majúscules i minúscules"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonSearch)
-#: src/dialogs/searchdialog.ui:83
+#: src/dialogs/searchdialog.ui:86
 #, kde-format
 msgid "Search"
 msgstr "Cerca"
@@ -1764,12 +1774,12 @@ msgstr "Hamed Masafi"
 #: src/main.cpp:41
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/main.cpp:41
 #, kde-format
 msgid "Bug fixing"
-msgstr ""
+msgstr "Correcció d'errors"
 
 #: src/mainwidget.cpp:101
 #, kde-format
@@ -2019,7 +2029,7 @@ msgstr "Navega"
 #: src/widgets/commitswidget.ui:39
 #, kde-format
 msgid "Filter..."
-msgstr ""
+msgstr "Filtra..."
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/widgets/difftreeview.ui:17
@@ -2195,57 +2205,3 @@ msgstr "Actualitza"
 #, kde-format
 msgid "Checkout to selected"
 msgstr "Agafa als seleccionats"
-
-#~ msgid "Oure"
-#~ msgstr "Nostres"
-
-#~ msgid "Save diff"
-#~ msgstr "Desa el diff"
-
-#~ msgid "Diff view"
-#~ msgstr "Vista de diff"
-
-#~ msgid "Left:"
-#~ msgstr "Esquerra:"
-
-#~ msgid "Right:"
-#~ msgstr "Dreta:"
-
-#~ msgid "Show hidden chars"
-#~ msgstr "Mostra els caràcters ocults"
-
-#~ msgid "Save diff as..."
-#~ msgstr "Desa el diff com a..."
-
-#~ msgid "(Default)"
-#~ msgstr "(Predeterminada)"
-
-#~ msgid "Resolve"
-#~ msgstr "Resol"
-
-#~ msgid "Octopus"
-#~ msgstr "Octopus"
-
-#~ msgid "Subtree"
-#~ msgstr "Subarbre"
-
-#~ msgid ""
-#~ "<html><head/><body><p>When possible resolve the merge as a fast-forward "
-#~ "(only update the branch pointer to match the merged branch; do not create "
-#~ "a merge commit). When not possible (when the merged-in history is not a "
-#~ "descendant of the current history), create a merge commit.</p><p><a href="
-#~ "\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
-#~ "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
-#~ "information</span></a></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Quan sigui possible, resol la fusió com a "
-#~ "avançament ràpid (només actualitza el punter de branca per a coincidir "
-#~ "amb la branca fusionada; no crea una comissió de fusió). Quan no sigui "
-#~ "possible (quan l'historial fusionat no és un descendent de l'historial "
-#~ "actual), crea una comissió de fusió.</p><p><a href=\"https://git-scm.com/"
-#~ "docs/git-merge#Documentation/git-merge.txt---ff\"><span style=\" text-"
-#~ "decoration: underline; color:#007af4;\">Més informació</span></a></p></"
-#~ "body></html>"
-
-#~ msgid "Ignoer file"
-#~ msgstr "Ignora el fitxer"

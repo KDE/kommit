@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-06 00:48+0000\n"
-"PO-Revision-Date: 2022-10-05 07:15+0300\n"
+"POT-Creation-Date: 2022-10-07 00:49+0000\n"
+"PO-Revision-Date: 2022-10-06 19:23+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -357,6 +357,12 @@ msgstr "Синхронізувати…"
 msgid "Are you sure to remove the selected submodule?"
 msgstr "Ви справді хочете вилучити позначений підмодуль?"
 
+#: src/actions/submoduleactions.cpp:75
+#, fuzzy, kde-format
+#| msgid "Submodules"
+msgid "Remove Submodule"
+msgstr "Підмодулі"
+
 #: src/actions/submoduleactions.cpp:85
 #, kde-format
 msgid "Unable to remove the module directory"
@@ -392,6 +398,12 @@ msgstr "Ви справді хочете вилучити позначену м�
 #, kde-format
 msgid "Are you sure to restore to the selected tag?"
 msgstr "Ви справді хочете відновити позначену мітку?"
+
+#: src/actions/tagsactions.cpp:67
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgid "Remove Tag"
+msgstr "Вилучити"
 
 #: src/appwindow.cpp:69
 #, kde-format
@@ -793,12 +805,11 @@ msgstr "Виберіть старий каталог"
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
 #: src/dialogs/diffopendialog.ui:14 src/dialogs/fileblamedialog.ui:14
 #: src/dialogs/filehistorydialog.ui:14 src/dialogs/filestreedialog.ui:14
-#: src/dialogs/searchdialog.ui:14 src/dialogs/taginfodialog.ui:14
+#: src/dialogs/taginfodialog.ui:14
 #, kde-format
 msgid "Dialog"
 msgstr "Діалогове вікно"
@@ -1046,7 +1057,7 @@ msgstr "Ініціалізувати сховище git"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
-#: src/dialogs/mergecloseeventdialog.ui:14 src/dialogs/runnerdialog.cpp:89
+#: src/dialogs/mergecloseeventdialog.ui:14 src/dialogs/runnerdialog.cpp:94
 #: src/merge/closeeventdialog.ui:14
 #, kde-format
 msgid "Close"
@@ -1090,15 +1101,7 @@ msgstr "Стратегія:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxStrategy)
 #: src/dialogs/mergedialog.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The merge mechanism (git merge and git pull "
-#| "commands) allows the backend merge strategies to be chosen with -s "
-#| "option. Some strategies can also take their own options, which can be "
-#| "passed by giving -X&lt;option&gt; arguments to git merge and/or git pull."
-#| "</p><p><a href=\"https://git-scm.com/docs/merge-strategies\"><span style="
-#| "\" text-decoration: underline; color:#2980b9;\">More informations</span></"
-#| "a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The merge mechanism (git merge and git pull commands) "
 "allows the backend merge strategies to be chosen with -s option. Some "
@@ -1421,12 +1424,12 @@ msgstr "Автоматично crlf"
 msgid "Auto file mode"
 msgstr "Автоматичний режим файлів"
 
-#: src/dialogs/runnerdialog.cpp:46
+#: src/dialogs/runnerdialog.cpp:48
 #, kde-format
 msgid "View"
 msgstr "Перегляд"
 
-#: src/dialogs/runnerdialog.cpp:92
+#: src/dialogs/runnerdialog.cpp:97
 #, kde-format
 msgid "The git process crashed"
 msgstr "Процес git завершив роботу в аварійному режимі"
@@ -1444,7 +1447,7 @@ msgid "Output"
 msgstr "Виведення"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButton)
-#: src/dialogs/runnerdialog.ui:83
+#: src/dialogs/runnerdialog.ui:86
 #, kde-format
 msgid "Stop"
 msgstr "Зупинити"
@@ -1454,38 +1457,45 @@ msgstr "Зупинити"
 msgid "File name"
 msgstr "Назва файла"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
+#: src/dialogs/searchdialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Recent repos"
+msgid "Search in repo"
+msgstr "Нещодавні сховища"
+
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/searchdialog.ui:22
+#: src/dialogs/searchdialog.ui:25
 #, kde-format
 msgid "Path:"
 msgstr "Шлях:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/searchdialog.ui:32
+#: src/dialogs/searchdialog.ui:35
 #, kde-format
 msgid "Text:"
 msgstr "Текст:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchBranches)
-#: src/dialogs/searchdialog.ui:42
+#: src/dialogs/searchdialog.ui:45
 #, kde-format
 msgid "Search all branches"
 msgstr "Шукати в усіх гілках"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
-#: src/dialogs/searchdialog.ui:52
+#: src/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
 msgstr "Шукати в усіх внесках"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
-#: src/dialogs/searchdialog.ui:59
+#: src/dialogs/searchdialog.ui:62
 #, kde-format
 msgid "Case sensitive"
 msgstr "З врахуванням регістру"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonSearch)
-#: src/dialogs/searchdialog.ui:83
+#: src/dialogs/searchdialog.ui:86
 #, kde-format
 msgid "Search"
 msgstr "Шукати"
@@ -1759,12 +1769,12 @@ msgstr "Hamed Masafi"
 #: src/main.cpp:41
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/main.cpp:41
 #, kde-format
 msgid "Bug fixing"
-msgstr ""
+msgstr "Виправлення вад"
 
 #: src/mainwidget.cpp:101
 #, kde-format
@@ -2014,7 +2024,7 @@ msgstr "Вибрати"
 #: src/widgets/commitswidget.ui:39
 #, kde-format
 msgid "Filter..."
-msgstr ""
+msgstr "Фільтрувати…"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/widgets/difftreeview.ui:17

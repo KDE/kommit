@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-06 00:48+0000\n"
-"PO-Revision-Date: 2022-10-01 06:33+0200\n"
+"POT-Creation-Date: 2022-10-07 00:49+0000\n"
+"PO-Revision-Date: 2022-10-06 09:00+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -360,6 +360,12 @@ msgstr "Uskladi …"
 msgid "Are you sure to remove the selected submodule?"
 msgstr "Ali ste prepričani, da želite odstraniti izbran submodul?"
 
+#: src/actions/submoduleactions.cpp:75
+#, fuzzy, kde-format
+#| msgid "Submodules"
+msgid "Remove Submodule"
+msgstr "Podmoduli"
+
 #: src/actions/submoduleactions.cpp:85
 #, kde-format
 msgid "Unable to remove the module directory"
@@ -395,6 +401,12 @@ msgstr "Ali ste prepričani za odstranjevanje izbrane oznake?"
 #, kde-format
 msgid "Are you sure to restore to the selected tag?"
 msgstr "Ali ste prepričani za obnovo izbrane oznake?"
+
+#: src/actions/tagsactions.cpp:67
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgid "Remove Tag"
+msgstr "Odstrani"
 
 #: src/appwindow.cpp:69
 #, kde-format
@@ -467,10 +479,9 @@ msgid "Init repo"
 msgstr "Inicializiraj skladišče"
 
 #: src/appwindow.cpp:228
-#, fuzzy, kde-format
-#| msgid "Clone a repository"
+#, kde-format
 msgid "Open repository"
-msgstr "Klonirajte skladišče"
+msgstr "Odpri skladišče"
 
 #: src/appwindow.cpp:319
 #, kde-format
@@ -795,12 +806,11 @@ msgstr "Izberi stari imenik"
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
 #: src/dialogs/diffopendialog.ui:14 src/dialogs/fileblamedialog.ui:14
 #: src/dialogs/filehistorydialog.ui:14 src/dialogs/filestreedialog.ui:14
-#: src/dialogs/searchdialog.ui:14 src/dialogs/taginfodialog.ui:14
+#: src/dialogs/taginfodialog.ui:14
 #, kde-format
 msgid "Dialog"
 msgstr "Dialog"
@@ -1048,7 +1058,7 @@ msgstr "Inicializiraj skladišče git"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
-#: src/dialogs/mergecloseeventdialog.ui:14 src/dialogs/runnerdialog.cpp:89
+#: src/dialogs/mergecloseeventdialog.ui:14 src/dialogs/runnerdialog.cpp:94
 #: src/merge/closeeventdialog.ui:14
 #, kde-format
 msgid "Close"
@@ -1092,15 +1102,7 @@ msgstr "Strategija:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxStrategy)
 #: src/dialogs/mergedialog.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The merge mechanism (git merge and git pull "
-#| "commands) allows the backend merge strategies to be chosen with -s "
-#| "option. Some strategies can also take their own options, which can be "
-#| "passed by giving -X&lt;option&gt; arguments to git merge and/or git pull."
-#| "</p><p><a href=\"https://git-scm.com/docs/merge-strategies\"><span style="
-#| "\" text-decoration: underline; color:#2980b9;\">More information</span></"
-#| "a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The merge mechanism (git merge and git pull commands) "
 "allows the backend merge strategies to be chosen with -s option. Some "
@@ -1132,20 +1134,13 @@ msgstr "-"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/dialogs/mergedialog.ui:60
-#, fuzzy, kde-format
-#| msgid "Fast forward"
+#, kde-format
 msgid "Fast forward:"
-msgstr "Hitro naprej"
+msgstr "Hitro naprej:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFastForward)
 #: src/dialogs/mergedialog.ui:67
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Create a merge commit in all cases, even when the "
-#| "merge could instead be resolved as a fast-forward.</p><p><a href="
-#| "\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---no-ff"
-#| "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
-#| "information</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Specifies how a merge is handled when the merged-in "
 "history is already a descendant of the current history.</p><p><br/></p><p><a "
@@ -1154,10 +1149,10 @@ msgid ""
 "information</span></a></p></body></html>"
 msgstr ""
 "<html><head/><body><p>Ustvarite spajanje v vseh primerih, tudi ko je mogoče "
-"združitev namesto tega razrešiti kot hitro naprej.</p><p><a href=\"https://"
-"git-scm.com/docs/git-merge#Documentation/git-merge.txt---no-ff\"><span style="
-"\" text-decoration: underline; color:#007af4;\">Več informacij …</span></a></"
-"p></body></html>"
+"združitev namesto tega razrešiti kot hitro naprej.</p><p><br/></p><p><a href="
+"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">Več "
+"informacij …</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
@@ -1241,7 +1236,7 @@ msgstr "Naše"
 #: src/dialogs/mergedialog.ui:147
 #, kde-format
 msgid "Theirs"
-msgstr ""
+msgstr "Njihove"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreAllSpace)
@@ -1249,14 +1244,7 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreCrAtEol)
 #: src/dialogs/mergedialog.ui:154 src/dialogs/mergedialog.ui:164
 #: src/dialogs/mergedialog.ui:174 src/dialogs/mergedialog.ui:184
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
-#| "When not possible, refuse to merge and exit with a non-zero status.</"
-#| "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-#| "merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
-#| "decoration: underline; color:#007af4;\">More information</span></a></p></"
-#| "body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Treats lines with the indicated type of whitespace "
 "change as unchanged for the sake of a three-way merge. Whitespace changes "
@@ -1265,47 +1253,40 @@ msgid ""
 "space-change\"><span style=\" text-decoration: underline; color:#007af4;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>Če je mogoče, razrešite spajanje kot hitro naprej. Če "
-"ni mogoče, zavrnite spajanje in izstopite z ne ničelnim stanjem.</p><p><br/"
-"></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
-"txt---ff-only\"><span style=\" text-decoration: underline; color:#007af4;"
-"\">Več informacij …</span></a></p></body></html>"
+"<html><head/><body><p>Obdeluje vrsto z navedeno vrsto preslednega prostora "
+"kot nespremenjeno zaradi tristranskega spajanja. Spremembe preslednega "
+"prostora zmešane z drugimi spremembami vrste niso prezrte.</p><p><br/></"
+"p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
+"txt-ignore-space-change\"><span style=\" text-decoration: underline; color:"
+"#007af4;\">Več informacij</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #: src/dialogs/mergedialog.ui:157
 #, kde-format
 msgid "Ignore space change"
-msgstr ""
+msgstr "Prezri spremembe presledkov"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreAllSpace)
 #: src/dialogs/mergedialog.ui:167
-#, fuzzy, kde-format
-#| msgid "Ignore file"
+#, kde-format
 msgid "Ignore all space"
-msgstr "Prezri datoteko"
+msgstr "Prezri vse presledke"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
 #: src/dialogs/mergedialog.ui:177
 #, kde-format
 msgid "Ignore space at eol"
-msgstr ""
+msgstr "Prezri presledek na koncu vrstice"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreCrAtEol)
 #: src/dialogs/mergedialog.ui:187
 #, kde-format
 msgid "Ignore cr at eol"
-msgstr ""
+msgstr "Prezri cr na koncu vrstice"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxRenormalize)
 #: src/dialogs/mergedialog.ui:194
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
-#| "When not possible, refuse to merge and exit with a non-zero status.</"
-#| "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-#| "merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
-#| "decoration: underline; color:#007af4;\">More information</span></a></p></"
-#| "body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>This runs a virtual check-out and check-in of all "
 "three stages of a file when resolving a three-way merge. This option is "
@@ -1315,34 +1296,29 @@ msgid ""
 "decoration: underline; color:#007af4;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Če je mogoče, razrešite spajanje kot hitro naprej. Če "
-"ni mogoče, zavrnite spajanje in izstopite z ne ničelnim stanjem.</p><p><br/"
-"></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
-"txt---ff-only\"><span style=\" text-decoration: underline; color:#007af4;"
-"\">Več informacij …</span></a></p></body></html>"
+"<html><head/><body><p>o izvaja virtualno odjavo in prijavo vseh treh stopenj "
+"datoteke pri reševanju tristranskega spajanja. Ta možnost je namenjena "
+"uporabi pri spajanju vej z različnimi čistilnimi filtri ali pravili o "
+"normalizaciji konca vrstic.</p><p><br/></p><p><a href=\"https://git-scm.com/"
+"docs/git-merge#Documentation/git-merge.txt-renormalize\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">Več informacij</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
 #: src/dialogs/mergedialog.ui:197
 #, kde-format
 msgid "Renormalize"
-msgstr ""
+msgstr "Ponovno normaliziraj"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/dialogs/mergedialog.ui:211
 #, kde-format
 msgid "Diff algorithm:"
-msgstr ""
+msgstr "Algoritem razlik:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxDiffAlgoritm)
 #: src/dialogs/mergedialog.ui:218
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
-#| "When not possible, refuse to merge and exit with a non-zero status.</"
-#| "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-#| "merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
-#| "decoration: underline; color:#007af4;\">More information</span></a></p></"
-#| "body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Use a different diff algorithm while merging, which "
 "can help avoid mismerges that occur due to unimportant matching lines (such "
@@ -1351,17 +1327,19 @@ msgid ""
 "algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>Če je mogoče, razrešite spajanje kot hitro naprej. Če "
-"ni mogoče, zavrnite spajanje in izstopite z ne ničelnim stanjem.</p><p><br/"
-"></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
-"txt---ff-only\"><span style=\" text-decoration: underline; color:#007af4;"
-"\">Več informacij …</span></a></p></body></html>"
+"<html><head/><body><p>Med združevanjem uporabi drugačen algoritem razlik, ki "
+"lahko pomaga preprečevati napake, ki se pojavijo zaradi nepomembnih "
+"ujemajočih se vrstic (take kot so oklepaji različnih funkcij).</p><p><br/></"
+"p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
+"txt-diff-algorithmpatienceminimalhistogrammyers\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">Več informacij</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
 #: src/dialogs/mergedialog.ui:225
 #, kde-format
 msgid "Turn off rename detection"
-msgstr ""
+msgstr "Izklopi zaznavanje preimenovanj"
 
 #: src/dialogs/mergeopenfilesdialog.cpp:52 src/merge/openfilesdialog.cpp:49
 #, kde-format
@@ -1447,12 +1425,12 @@ msgstr "Samodejno crlf"
 msgid "Auto file mode"
 msgstr "Samodejni datotečni način"
 
-#: src/dialogs/runnerdialog.cpp:46
+#: src/dialogs/runnerdialog.cpp:48
 #, kde-format
 msgid "View"
 msgstr "Pogled"
 
-#: src/dialogs/runnerdialog.cpp:92
+#: src/dialogs/runnerdialog.cpp:97
 #, kde-format
 msgid "The git process crashed"
 msgstr "Proces git se je sesul"
@@ -1470,7 +1448,7 @@ msgid "Output"
 msgstr "Izhod"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButton)
-#: src/dialogs/runnerdialog.ui:83
+#: src/dialogs/runnerdialog.ui:86
 #, kde-format
 msgid "Stop"
 msgstr "Ustavi"
@@ -1480,38 +1458,45 @@ msgstr "Ustavi"
 msgid "File name"
 msgstr "Ime datoteke"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
+#: src/dialogs/searchdialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Recent repos"
+msgid "Search in repo"
+msgstr "Nedavna skladišča"
+
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/searchdialog.ui:22
+#: src/dialogs/searchdialog.ui:25
 #, kde-format
 msgid "Path:"
 msgstr "Pot:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/searchdialog.ui:32
+#: src/dialogs/searchdialog.ui:35
 #, kde-format
 msgid "Text:"
 msgstr "Besedilo:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchBranches)
-#: src/dialogs/searchdialog.ui:42
+#: src/dialogs/searchdialog.ui:45
 #, kde-format
 msgid "Search all branches"
 msgstr "Preišči vse veje"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
-#: src/dialogs/searchdialog.ui:52
+#: src/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
 msgstr "Preišči vse objave"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
-#: src/dialogs/searchdialog.ui:59
+#: src/dialogs/searchdialog.ui:62
 #, kde-format
 msgid "Case sensitive"
 msgstr "Razlikuj velike in male črke"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonSearch)
-#: src/dialogs/searchdialog.ui:83
+#: src/dialogs/searchdialog.ui:86
 #, kde-format
 msgid "Search"
 msgstr "Iskanje"
@@ -1784,12 +1769,12 @@ msgstr "Hamed Masafi"
 #: src/main.cpp:41
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/main.cpp:41
 #, kde-format
 msgid "Bug fixing"
-msgstr ""
+msgstr "Popravljanje napak"
 
 #: src/mainwidget.cpp:101
 #, kde-format
@@ -2039,7 +2024,7 @@ msgstr "Prebrskaj"
 #: src/widgets/commitswidget.ui:39
 #, kde-format
 msgid "Filter..."
-msgstr ""
+msgstr "Filter..."
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/widgets/difftreeview.ui:17

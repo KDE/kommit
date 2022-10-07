@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-06 00:48+0000\n"
+"POT-Creation-Date: 2022-10-07 00:49+0000\n"
 "PO-Revision-Date: 2022-10-02 15:50\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -356,6 +356,12 @@ msgstr "同步..."
 msgid "Are you sure to remove the selected submodule?"
 msgstr "您确定要删除选定的子模块吗？"
 
+#: src/actions/submoduleactions.cpp:75
+#, fuzzy, kde-format
+#| msgid "Submodules"
+msgid "Remove Submodule"
+msgstr "子模块"
+
 #: src/actions/submoduleactions.cpp:85
 #, kde-format
 msgid "Unable to remove the module directory"
@@ -391,6 +397,12 @@ msgstr "您确定要删除选中的标签吗？"
 #, kde-format
 msgid "Are you sure to restore to the selected tag?"
 msgstr "您确定要还原到选中的标签吗？"
+
+#: src/actions/tagsactions.cpp:67
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgid "Remove Tag"
+msgstr "移除"
 
 #: src/appwindow.cpp:69
 #, kde-format
@@ -788,12 +800,11 @@ msgstr "选择旧目录"
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
 #: src/dialogs/diffopendialog.ui:14 src/dialogs/fileblamedialog.ui:14
 #: src/dialogs/filehistorydialog.ui:14 src/dialogs/filestreedialog.ui:14
-#: src/dialogs/searchdialog.ui:14 src/dialogs/taginfodialog.ui:14
+#: src/dialogs/taginfodialog.ui:14
 #, kde-format
 msgid "Dialog"
 msgstr "对话框"
@@ -1041,7 +1052,7 @@ msgstr "初始化 git 仓库"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
-#: src/dialogs/mergecloseeventdialog.ui:14 src/dialogs/runnerdialog.cpp:89
+#: src/dialogs/mergecloseeventdialog.ui:14 src/dialogs/runnerdialog.cpp:94
 #: src/merge/closeeventdialog.ui:14
 #, kde-format
 msgid "Close"
@@ -1429,12 +1440,12 @@ msgstr ""
 msgid "Auto file mode"
 msgstr ""
 
-#: src/dialogs/runnerdialog.cpp:46
+#: src/dialogs/runnerdialog.cpp:48
 #, kde-format
 msgid "View"
 msgstr "查看"
 
-#: src/dialogs/runnerdialog.cpp:92
+#: src/dialogs/runnerdialog.cpp:97
 #, kde-format
 msgid "The git process crashed"
 msgstr "git 进程已崩溃"
@@ -1452,7 +1463,7 @@ msgid "Output"
 msgstr "输出"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButton)
-#: src/dialogs/runnerdialog.ui:83
+#: src/dialogs/runnerdialog.ui:86
 #, kde-format
 msgid "Stop"
 msgstr "停止"
@@ -1462,38 +1473,45 @@ msgstr "停止"
 msgid "File name"
 msgstr "文件名"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
+#: src/dialogs/searchdialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Recent repos"
+msgid "Search in repo"
+msgstr "最近仓库"
+
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/searchdialog.ui:22
+#: src/dialogs/searchdialog.ui:25
 #, kde-format
 msgid "Path:"
 msgstr "路径："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/searchdialog.ui:32
+#: src/dialogs/searchdialog.ui:35
 #, kde-format
 msgid "Text:"
 msgstr "文本："
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchBranches)
-#: src/dialogs/searchdialog.ui:42
+#: src/dialogs/searchdialog.ui:45
 #, kde-format
 msgid "Search all branches"
 msgstr "搜索所有分支"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
-#: src/dialogs/searchdialog.ui:52
+#: src/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
 msgstr "搜索所有提交"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
-#: src/dialogs/searchdialog.ui:59
+#: src/dialogs/searchdialog.ui:62
 #, kde-format
 msgid "Case sensitive"
 msgstr "区分大小写"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonSearch)
-#: src/dialogs/searchdialog.ui:83
+#: src/dialogs/searchdialog.ui:86
 #, kde-format
 msgid "Search"
 msgstr "搜索"
