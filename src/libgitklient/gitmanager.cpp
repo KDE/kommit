@@ -509,12 +509,12 @@ QStringList Manager::remoteBranches() const
 
 QStringList Manager::remotes() const
 {
-    return readAllNonEmptyOutput({"remote"});
+    return readAllNonEmptyOutput({QStringLiteral("remote")});
 }
 
 QStringList Manager::tags() const
 {
-    return readAllNonEmptyOutput({"tag", "--list"});
+    return readAllNonEmptyOutput({QStringLiteral("tag"), QStringLiteral("--list")});
 }
 
 void Manager::createTag(const QString &name, const QString &message) const
@@ -525,7 +525,7 @@ void Manager::createTag(const QString &name, const QString &message) const
 QList<Stash> Manager::stashes()
 {
     QList<Stash> ret;
-    auto list = readAllNonEmptyOutput({"stash", "list", "--format=format:%s%m%an%m%ae%m%aD"});
+    auto list = readAllNonEmptyOutput({QStringLiteral("stash"), QStringLiteral("list"), QStringLiteral("--format=format:%s%m%an%m%ae%m%aD")});
     int id{0};
     for (const auto &item : std::as_const(list)) {
         auto parts = item.split(">");
@@ -608,7 +608,7 @@ BlameData Manager::blame(const File &file)
         //        if (!log)
         //            qCDebug(GITKLIENTLIB_LOG) << "Log not found" << hash;
         row.log = log;
-        auto parts = line.split("\t");
+        // const auto parts = line.split("\t");
         b.append(row);
     }
 
