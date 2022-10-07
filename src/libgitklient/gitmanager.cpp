@@ -213,7 +213,7 @@ QList<FileStatus> Manager::diffBranches(const QString &from, const QString &to) 
     for (const auto &item : buffer) {
         if (!item.trimmed().size())
             continue;
-        auto parts = item.split(QLatin1Char('\t'));
+        const auto parts = item.split(QLatin1Char('\t'));
         if (parts.size() != 2)
             continue;
 
@@ -236,7 +236,7 @@ QString Manager::config(const QString &name, ConfigType type) const
         cmd = QStringList{QStringLiteral("config"), QStringLiteral("--global"), name};
         break;
     }
-    auto list = readAllNonEmptyOutput(cmd);
+    const auto list = readAllNonEmptyOutput(cmd);
     if (!list.empty())
         return list.first();
 
@@ -245,7 +245,7 @@ QString Manager::config(const QString &name, ConfigType type) const
 
 bool Manager::configBool(const QString &name, ConfigType type) const
 {
-    auto buffer = config(name, type);
+    const auto buffer = config(name, type);
     return buffer == QStringLiteral("true") || buffer == QStringLiteral("yes") || buffer == QStringLiteral("on");
 }
 
@@ -655,7 +655,7 @@ QMap<QString, Manager::ChangeStatus> Manager::changedFiles() const
             continue;
 
         auto status = line.mid(1, 2).trimmed();
-        auto fileName = line.mid(3);
+        const auto fileName = line.mid(3);
 
         if (status == QLatin1Char('M'))
             statuses.insert(fileName, Modified);
