@@ -41,9 +41,9 @@ private:
 
     // AbstractCommand interface
 public:
-    QStringList generateArgs() const override;
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
     void parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
-    bool supportProgress() const override;
+    Q_REQUIRED_RESULT bool supportProgress() const override;
 };
 
 } // namespace Git
