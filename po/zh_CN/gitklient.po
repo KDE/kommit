@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-07 00:49+0000\n"
+"POT-Creation-Date: 2022-10-08 00:51+0000\n"
 "PO-Revision-Date: 2022-10-02 15:50\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -54,7 +54,8 @@ msgstr "拉取"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: dolphinplugins/actionmanager.cpp:107 src/dialogs/commitpushdialog.ui:263
+#: dolphinplugins/actionmanager.cpp:107 src/dialogs/commitpushdialog.cpp:75
+#: src/dialogs/commitpushdialog.cpp:221 src/dialogs/commitpushdialog.ui:263
 #: src/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
@@ -552,11 +553,6 @@ msgstr "更改的文件"
 msgid "Changed files:"
 msgstr "已更改文件："
 
-#: src/dialogs/clonedialog.cpp:66 src/dialogs/submoduleinfodialog.cpp:87
-#, kde-format
-msgid "Local path"
-msgstr "本地路径"
-
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloneDialog)
 #: src/dialogs/clonedialog.ui:14
 #, kde-format
@@ -578,34 +574,14 @@ msgstr "Url："
 msgid "Directory:"
 msgstr "目录："
 
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonSelectLocalFile)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonSelectRemoteFile)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonSelectBaseFile)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseOldFile)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseNewFile)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseOldDirectory)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseNewDirectory)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseLocalPath)
-#. i18n: ectx: property (text), widget (QToolButton, toolButton)
-#: src/dialogs/clonedialog.ui:51 src/dialogs/diffopendialog.ui:50
-#: src/dialogs/diffopendialog.ui:67 src/dialogs/diffopendialog.ui:93
-#: src/dialogs/diffopendialog.ui:110 src/dialogs/mergeopenfilesdialog.ui:37
-#: src/dialogs/mergeopenfilesdialog.ui:58
-#: src/dialogs/mergeopenfilesdialog.ui:79 src/dialogs/submoduleinfodialog.ui:47
-#: src/merge/openfilesdialog.ui:34 src/merge/openfilesdialog.ui:55
-#: src/merge/openfilesdialog.ui:76 src/settings/settingspagebase.ui:63
-#, kde-format
-msgid "..."
-msgstr "..."
-
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRecursive)
-#: src/dialogs/clonedialog.ui:67
+#: src/dialogs/clonedialog.ui:64
 #, kde-format
 msgid "Recursive"
 msgstr "递归"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxDepth)
-#: src/dialogs/clonedialog.ui:74
+#: src/dialogs/clonedialog.ui:71
 #, kde-format
 msgid "Depth"
 msgstr "深度"
@@ -613,18 +589,24 @@ msgstr "深度"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxBranch)
-#: src/dialogs/clonedialog.ui:94 src/dialogs/commitpushdialog.ui:34
+#: src/dialogs/clonedialog.ui:91 src/dialogs/commitpushdialog.ui:34
 #: src/dialogs/fetchdialog.ui:75 src/dialogs/pulldialog.ui:36
-#: src/dialogs/searchdialog.cpp:33 src/dialogs/submoduleinfodialog.ui:73
+#: src/dialogs/searchdialog.cpp:33 src/dialogs/submoduleinfodialog.ui:70
 #, kde-format
 msgid "Branch"
 msgstr "分支"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxOriginName)
-#: src/dialogs/clonedialog.ui:108
+#: src/dialogs/clonedialog.ui:105
 #, kde-format
 msgid "Origin name"
 msgstr "原始名称"
+
+#: src/dialogs/commitpushdialog.cpp:77 src/dialogs/commitpushdialog.cpp:221
+#, fuzzy, kde-format
+#| msgid "Commit/Push"
+msgid "Commit and push"
+msgstr "提交/推送"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/dialogs/commitpushdialog.ui:22
@@ -672,7 +654,7 @@ msgstr ""
 "span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
-#: src/dialogs/commitpushdialog.ui:91 src/dialogs/submoduleinfodialog.ui:66
+#: src/dialogs/commitpushdialog.ui:91 src/dialogs/submoduleinfodialog.ui:63
 #: src/dialogs/switchbranchdialog.ui:75
 #, kde-format
 msgid "Force"
@@ -826,6 +808,25 @@ msgstr "比较目录"
 #, kde-format
 msgid "Old file:"
 msgstr "旧文件："
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonSelectLocalFile)
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonSelectRemoteFile)
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonSelectBaseFile)
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseOldFile)
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseNewFile)
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseOldDirectory)
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseNewDirectory)
+#. i18n: ectx: property (text), widget (QToolButton, toolButton)
+#: src/dialogs/diffopendialog.ui:50 src/dialogs/diffopendialog.ui:67
+#: src/dialogs/diffopendialog.ui:93 src/dialogs/diffopendialog.ui:110
+#: src/dialogs/mergeopenfilesdialog.ui:37
+#: src/dialogs/mergeopenfilesdialog.ui:58
+#: src/dialogs/mergeopenfilesdialog.ui:79 src/merge/openfilesdialog.ui:34
+#: src/merge/openfilesdialog.ui:55 src/merge/openfilesdialog.ui:76
+#: src/settings/settingspagebase.ui:63
+#, kde-format
+msgid "..."
+msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/dialogs/diffopendialog.ui:57
@@ -1555,6 +1556,11 @@ msgstr "HEAD"
 msgid "Right"
 msgstr "右侧"
 
+#: src/dialogs/submoduleinfodialog.cpp:87
+#, kde-format
+msgid "Local path"
+msgstr "本地路径"
+
 #: src/dialogs/submoduleinfodialog.cpp:92
 #, kde-format
 msgid "The selected path is outside of working dir"
@@ -1602,37 +1608,37 @@ msgstr "树"
 msgid "View hidden chars..."
 msgstr "显示不可见字符..."
 
-#: src/diffwindow.cpp:147
+#: src/diffwindow.cpp:144
 #, kde-format
 msgid "Same size blocks"
 msgstr ""
 
-#: src/diffwindow.cpp:152
+#: src/diffwindow.cpp:149
 #, kde-format
 msgid "Show files names"
 msgstr "显示文件名"
 
-#: src/diffwindow.cpp:158
+#: src/diffwindow.cpp:155
 #, kde-format
 msgid "Show Tree"
 msgstr "显示树"
 
-#: src/diffwindow.cpp:217
+#: src/diffwindow.cpp:214
 #, kde-format
 msgid "Unchanged"
 msgstr "未更改"
 
-#: src/diffwindow.cpp:219
+#: src/diffwindow.cpp:216
 #, kde-format
 msgid "Added"
 msgstr "已添加"
 
-#: src/diffwindow.cpp:221
+#: src/diffwindow.cpp:218
 #, kde-format
 msgid "Removed"
 msgstr "已删除"
 
-#: src/diffwindow.cpp:223
+#: src/diffwindow.cpp:220
 #, kde-format
 msgid "Modified"
 msgstr "已修改"
@@ -1650,12 +1656,12 @@ msgstr "主工具栏"
 msgid "Repo"
 msgstr "仓库"
 
-#: src/libgitklient/commands/commandpull.cpp:84
+#: src/libgitklient/commands/commandpull.cpp:82
 #, kde-format
 msgid "Already up to date."
 msgstr "已经是最新的。"
 
-#: src/libgitklient/commands/commandpull.cpp:88
+#: src/libgitklient/commands/commandpull.cpp:86
 #, kde-format
 msgid "Error"
 msgstr "错误"
@@ -1726,24 +1732,24 @@ msgstr "作者"
 msgid "Graph"
 msgstr "图"
 
-#: src/libgitklient/models/stashesmodel.cpp:61
+#: src/libgitklient/models/stashesmodel.cpp:60
 #: src/libgitklient/models/tagsmodel.cpp:63
 #, kde-format
 msgid "Subject"
 msgstr "主题"
 
-#: src/libgitklient/models/stashesmodel.cpp:63
+#: src/libgitklient/models/stashesmodel.cpp:62
 #, kde-format
 msgid "Author name"
 msgstr "作者姓名"
 
-#: src/libgitklient/models/stashesmodel.cpp:65
+#: src/libgitklient/models/stashesmodel.cpp:64
 #: src/libgitklient/models/tagsmodel.cpp:65
 #, kde-format
 msgid "Author email"
 msgstr "作者邮箱"
 
-#: src/libgitklient/models/stashesmodel.cpp:67
+#: src/libgitklient/models/stashesmodel.cpp:66
 #, kde-format
 msgid "Time"
 msgstr "时间"
@@ -1850,62 +1856,62 @@ msgstr "子模块"
 msgid "Remotes"
 msgstr "远端"
 
-#: src/mergewindow.cpp:260
+#: src/mergewindow.cpp:259
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "冲突：%1"
 
-#: src/mergewindow.cpp:271
+#: src/mergewindow.cpp:270
 #, kde-format
 msgid "Keep mine"
 msgstr "保留我的"
 
-#: src/mergewindow.cpp:276
+#: src/mergewindow.cpp:275
 #, kde-format
 msgid "Keep their"
 msgstr "保留他们的"
 
-#: src/mergewindow.cpp:282
+#: src/mergewindow.cpp:281
 #, kde-format
 msgid "Keep mine before their"
 msgstr "在他们的之前优先保留我的"
 
-#: src/mergewindow.cpp:287
+#: src/mergewindow.cpp:286
 #, kde-format
 msgid "Keep their before mine"
 msgstr "在我的之前优先保留他们的"
 
-#: src/mergewindow.cpp:292
+#: src/mergewindow.cpp:291
 #, kde-format
 msgid "Keep my file"
 msgstr "保留我的文件"
 
-#: src/mergewindow.cpp:297
+#: src/mergewindow.cpp:296
 #, kde-format
 msgid "Keep their file"
 msgstr "保留他们的文件"
 
-#: src/mergewindow.cpp:302
+#: src/mergewindow.cpp:301
 #, kde-format
 msgid "Blocks"
 msgstr "块"
 
-#: src/mergewindow.cpp:306
+#: src/mergewindow.cpp:305
 #, kde-format
 msgid "Files"
 msgstr "文件"
 
-#: src/mergewindow.cpp:315
+#: src/mergewindow.cpp:314
 #, kde-format
 msgid "Previous diff"
 msgstr "上一个差异"
 
-#: src/mergewindow.cpp:320
+#: src/mergewindow.cpp:319
 #, kde-format
 msgid "Next diff"
 msgstr "下一个差异"
 
-#: src/mergewindow.cpp:399
+#: src/mergewindow.cpp:398
 #, kde-format
 msgid "Unable to open the file"
 msgstr "无法打开文件"
