@@ -11,25 +11,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QScrollBar>
 #include <QTextBlock>
 
-void DiffWidget::init()
-{
-    segmentConnector->setMinimumWidth(80);
-    segmentConnector->setMaximumWidth(80);
-    segmentConnector->setLeft(leftCodeEditor);
-    segmentConnector->setRight(rightCodeEditor);
-
-    widgetSegmentsScrollBar->setSegmentConnector(segmentConnector);
-
-    connect(leftCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::oldCodeEditor_blockSelected);
-    connect(rightCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::newCodeEditor_blockSelected);
-    connect(leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::oldCodeEditor_scroll);
-    connect(rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::newCodeEditor_scroll);
-
-    recalculateInfoPaneSize();
-
-    mDefaultOption = leftCodeEditor->document()->defaultTextOption();
-}
-
 DiffWidget::DiffWidget(QWidget *parent)
     : WidgetBase(parent)
     , mOldFile()
@@ -50,6 +31,24 @@ DiffWidget::DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidg
     showFilesInfo(true);
 }
 
+void DiffWidget::init()
+{
+    segmentConnector->setMinimumWidth(80);
+    segmentConnector->setMaximumWidth(80);
+    segmentConnector->setLeft(leftCodeEditor);
+    segmentConnector->setRight(rightCodeEditor);
+
+    widgetSegmentsScrollBar->setSegmentConnector(segmentConnector);
+
+    connect(leftCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::oldCodeEditor_blockSelected);
+    connect(rightCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::newCodeEditor_blockSelected);
+    connect(leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::oldCodeEditor_scroll);
+    connect(rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::newCodeEditor_scroll);
+
+    recalculateInfoPaneSize();
+
+    mDefaultOption = leftCodeEditor->document()->defaultTextOption();
+}
 const Git::File &DiffWidget::oldFile() const
 {
     return mOldFile;
