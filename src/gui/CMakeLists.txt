@@ -288,9 +288,4 @@ if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(gitklient)
 endif()
 
-
-#set_property(TARGET KI18n APPEND PROPERTY
-#  INTERFACE_AUTOUIC_OPTIONS ${autouic_options}
-#)
-
 install(TARGETS gitklient ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
