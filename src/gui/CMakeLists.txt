@@ -1,7 +1,9 @@
 include_directories(${CMAKE_SOURCE_DIR}/core)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-set(CORE_SRC
+add_library(libgitklientgui SHARED)
+generate_export_header(libgitklientgui BASE_NAME libgitklientgui)
+target_sources(libgitklientgui PRIVATE
     core/appdialog.cpp
     core/appdialog.h
     core/appmainwindow.cpp
@@ -14,9 +16,6 @@ set(CORE_SRC
     core/treeview.h
     core/commitsfiltermodel.h
     core/commitsfiltermodel.cpp
-)
-
-set(ACTIONS_SRC
     actions/abstractactions.cpp
     actions/abstractactions.h
     actions/branchactions.cpp
@@ -35,9 +34,6 @@ set(ACTIONS_SRC
     actions/submoduleactions.h
     actions/tagsactions.cpp
     actions/tagsactions.h
-)
-
-set(WIDGETS_SRC
     widgets/blamecodeview.cpp
     widgets/blamecodeview.h
     widgets/branchesstatuswidget.cpp
@@ -80,27 +76,18 @@ set(WIDGETS_SRC
     widgets/widgetbase.h
     widgets/segmentsscrollbar.h
     widgets/segmentsscrollbar.cpp
-)
-
-set(MODELS_SRC
     models/difftreemodel.cpp
     models/difftreemodel.h
     models/filesmodel.cpp
     models/filesmodel.h
     models/treemodel.cpp
     models/treemodel.h
-)
-
-set(DIFF_SRC
     diff/codeeditordocument.cpp
     diff/codeeditordocument.h
     diff/diff.cpp
     diff/diff.h
     diff/segmentsmapper.cpp
     diff/segmentsmapper.h
-)
-
-set(DIALOGS_SRC
     dialogs/changedfilesdialog.cpp
     dialogs/changedfilesdialog.h
     dialogs/clonedialog.cpp
@@ -147,19 +134,6 @@ set(DIALOGS_SRC
     dialogs/switchbranchdialog.h
     dialogs/taginfodialog.cpp
     dialogs/taginfodialog.h
-)
-
-set(APP_SRCS
-    ${DIFF_SRC}
-    ${CORE_WIDGETS_SRC}
-    ${MODELS_SRC}
-    ${WIDGETS_SRC}
-    ${DIALOGS_SRC}
-    ${COMMON_SRC}
-    ${ACTIONS_SRC}
-    ${CORE_SRC}
-
-    apps/main.cpp
 
     appwindow.cpp
     buttonsgroup.cpp
@@ -180,10 +154,6 @@ set(APP_SRCS
     gitklient.qrc
 )
 
-add_library(libgitklientgui SHARED)
-generate_export_header(libgitklientgui BASE_NAME libgitklientgui)
-target_sources(libgitklientgui PRIVATE
-)
 
 set_target_properties(libgitklientgui
     PROPERTIES OUTPUT_NAME gitklientgui VERSION ${LIBGITKLIENT_LIB_VERSION} SOVERSION ${LIBGITKLIENT_LIB_SOVERSION}
@@ -198,18 +168,18 @@ target_link_libraries(libgitklientgui
 
 install(TARGETS libgitklientgui ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
-ecm_qt_declare_logging_category(APP_SRCS
+ecm_qt_declare_logging_category(libgitklientgui
     HEADER gitklient_appdebug.h
     IDENTIFIER GITKLIENT_LOG
     CATEGORY_NAME "org.kde.gitklient" DESCRIPTION "gitklient" EXPORT GITKLIENT
 )
 
-kconfig_add_kcfg_files(APP_SRCS settings/GitKlientSettings.kcfgc)
+kconfig_add_kcfg_files(libgitklientgui settings/GitKlientSettings.kcfgc)
 
 add_compile_definitions(GIT_GUI)
 
 ki18n_wrap_ui(
-    APP_SRCS
+    libgitklientgui
 
     settings/settingspagebase.ui
     settings/settingspagediff.ui
@@ -254,17 +224,7 @@ ki18n_wrap_ui(
     dialogs/notedialog.ui
 )
 
-if(QT_VERSION_MAJOR GREATER_EQUAL 6)
-    qt_add_executable(
-        gitklient
-        MANUAL_FINALIZATION
-        ${APP_SRCS}
-    )
-else()
-    add_executable(gitklient ${APP_SRCS})
-endif()
-
-target_link_libraries(gitklient
+target_link_libraries(libgitklientgui
     Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Concurrent
@@ -289,12 +249,12 @@ target_link_libraries(gitklient
 )
 
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
-    set_target_properties(gitklient PROPERTIES UNITY_BUILD ON)
+    set_target_properties(libgitklientgui PROPERTIES UNITY_BUILD ON)
 endif()
 
 
 set_target_properties(
-    gitklient PROPERTIES
+    libgitklientgui PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER org.kde.gitklient
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -302,8 +262,3 @@ set_target_properties(
     WIN32_EXECUTABLE TRUE
 )
 
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(gitklient)
-endif()
-
-install(TARGETS gitklient ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
