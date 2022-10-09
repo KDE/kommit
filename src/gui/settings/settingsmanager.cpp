@@ -11,9 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitklient_appdebug.h"
 #include "gitmanager.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
 #include <QCalendar>
-#endif
 
 #include <KConfigDialog>
 
@@ -60,13 +58,8 @@ QWidget *SettingsManager::createBasePage()
     auto w = new QWidget;
     pageBase.setupUi(w);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     pageBase.kcfg_calendarType->addItems(QCalendar::availableCalendars());
     pageBase.kcfg_calendarType->setCurrentText(GitKlientSettings::calendarType());
-#else
-    pageBase.labelDefaultCalendar->hide();
-    pageBase.kcfg_calendarType->hide();
-#endif
     return w;
 }
 QWidget *SettingsManager::createDiffPage()

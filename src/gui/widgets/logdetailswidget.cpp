@@ -13,9 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
 #include <QCalendar>
-#endif
 
 LogDetailsWidget::LogDetailsWidget(QWidget *parent)
     : QTextBrowser(parent)
@@ -78,7 +76,6 @@ void LogDetailsWidget::createText()
     for (const auto &child : mLog->childs())
         childsHashHtml.append(createHashLink(child));
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
     QString date;
     qCDebug(GITKLIENT_LOG) << "cal=" << GitKlientSettings::calendarType();
     QCalendar cal(GitKlientSettings::calendarType());
@@ -100,9 +97,6 @@ void LogDetailsWidget::createText()
         date = mLog->commitDate().toLocalTime().toString("yyyy-MM-dd HH:mm:ss", cal);
     else
         date = mLog->commitDate().toLocalTime().toString();
-#else
-    auto date = mLog->commitDate().toLocalTime().toString();
-#endif
 
     clear();
     QString html;
