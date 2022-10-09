@@ -180,6 +180,24 @@ set(APP_SRCS
     gitklient.qrc
 )
 
+add_library(libgitklientgui SHARED)
+generate_export_header(libgitklientgui BASE_NAME libgitklientgui)
+target_sources(libgitklientgui PRIVATE
+)
+
+set_target_properties(libgitklientgui
+    PROPERTIES OUTPUT_NAME gitklientgui VERSION ${LIBGITKLIENT_LIB_VERSION} SOVERSION ${LIBGITKLIENT_LIB_SOVERSION}
+)
+
+target_link_libraries(libgitklientgui
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Concurrent
+    KF5::I18n
+)
+
+install(TARGETS libgitklientgui ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+
 ecm_qt_declare_logging_category(APP_SRCS
     HEADER gitklient_appdebug.h
     IDENTIFIER GITKLIENT_LOG
