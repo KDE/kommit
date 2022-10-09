@@ -18,7 +18,32 @@ SPDX-License-Identifier: GPL-3.0-or-later
 ActionManager::ActionManager(QObject *parent, const QList<QVariant> &)
     : KAbstractFileItemActionPlugin(parent)
 {
+    mMainAction = new QAction;
+    mMainAction->setText(i18n("Git Klient"));
+    mMainAction->setIcon(QIcon::fromTheme(QStringLiteral("gitklient")));
+
+    auto menu = new QMenu;
+
+#define f(name, text, args, icon)                                                                                                                              \
+    name = menu->addAction(i18n(text));                                                                                                                        \
+    if (!icon.isEmpty())                                                                                                                                       \
+        name->setIcon(QIcon::fromTheme(icon));                                                                                                                 \
+    connect(name, &QAction::triggered, this, &ActionManager::name##Clicked);
+
+    ACTIONS_FOR_EACH(f)
+#undef f
+
+    mMainAction->setMenu(menu);
 }
+
+#define f(name, text, args, icon)                                                                                                                              \
+    void ActionManager::name##Clicked()                                                                                                                        \
+    {                                                                                                                                                          \
+        KProcess::startDetached(QStringLiteral("gitklient"), args);                                                                                            \
+    }
+
+ACTIONS_FOR_EACH(f)
+#undef f
 
 void ActionManager::addMenu(QMenu *menu, const QString &title, const QStringList &args, const QString &icon)
 {
@@ -34,16 +59,18 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
 {
     Q_UNUSED(parentWidget);
 
-    auto mainAction = new QAction;
-    mainAction->setText(i18n("Git Klient"));
-    mainAction->setIcon(QIcon::fromTheme(QStringLiteral("gitklient")));
-
-    auto menu = new QMenu;
-
     auto items = fileItemInfos.items();
+    //    bool oneFileIsSelected = items.size() == 1;
+    bool isGit{false};
+    bool isDir{false};
+    bool isFile{false};
+
+    actionAdd->setVisible(false);
+    actionRemove->setVisible(false);
     if (items.size() == 1) {
         KFileItem &item = items.first();
         const auto path = item.url().toLocalFile();
+        mPath = path;
         FileStatus::Status status;
         if (item.isFile())
             status = mCache.fileStatus(path);
@@ -51,21 +78,32 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
             status = mCache.pathStatus(path);
 
         if (status == FileStatus::NoGit) {
-            if (fileItemInfos.isDirectory()) {
-                addMenuToNonGitFile(menu, path);
-            }
         } else {
-            addMenuToGitFile(menu, path, fileItemInfos.isFile(), status);
+            actionAdd->setVisible(status == FileStatus::Untracked);
+            actionRemove->setVisible(status != FileStatus::Untracked);
         }
+        isGit = status != FileStatus::NoGit;
+        isDir = item.isDir();
+        isFile = item.isFile();
     }
 
-    mainAction->setMenu(menu);
-    /*
-        auto openAction = new QAction;
-        openAction->setText("Open git klient");
-        openAction->setIcon(QIcon::fromTheme("gitklient"));
-    */
-    return QList<QAction *>() << /*openAction << */ mainAction;
+    actionClone->setVisible(!isGit);
+    actionInit->setVisible(!isGit);
+
+    actionOpen->setVisible(isGit);
+    actionPull->setVisible(isGit);
+    actionPush->setVisible(isGit);
+    actionMerge->setVisible(isGit);
+    actionModifications->setVisible(isGit);
+    actionDiff->setVisible(isGit);
+    actionIgnoreFile->setVisible(isGit);
+    actionHistory->setVisible(isFile);
+    actionBlame->setVisible(isFile);
+
+    actionCreateTag->setVisible(isGit);
+    actionCleanup->setVisible(isGit);
+
+    return QList<QAction *>() << mMainAction;
 }
 
 QString ActionManager::getCommonPart(const KFileItemList &fileItems)
@@ -92,33 +130,6 @@ QString ActionManager::getCommonPart(const KFileItemList &fileItems)
     }
 
     return root;
-}
-
-void ActionManager::addMenuToNonGitFile(QMenu *menu, const QString &path)
-{
-    addMenu(menu, i18n("Clone"), {QStringLiteral("clone"), path});
-    addMenu(menu, i18n("Init"), {QStringLiteral("init"), path});
-}
-
-void ActionManager::addMenuToGitFile(QMenu *menu, const QString &path, bool isFile, const FileStatus::Status &status)
-{
-    addMenu(menu, i18n("Open"), {path});
-    addMenu(menu, i18n("Pull"), {QStringLiteral("pull"), path}, QStringLiteral("git-pull"));
-    addMenu(menu, i18n("Push"), {QStringLiteral("push"), path}, QStringLiteral("git-push"));
-    addMenu(menu, i18n("Merge"), {QStringLiteral("merge"), path}, QStringLiteral("git-merge"));
-    addMenu(menu, i18n("Modifications"), {QStringLiteral("changes"), path}, QStringLiteral("gitklient-changedfiles"));
-    addMenu(menu, i18n("Diff"), {QStringLiteral("diff"), path});
-    addMenu(menu, i18n("Ignore file"), {QStringLiteral("ignore"), path}, QStringLiteral("git-ignore"));
-    if (isFile) {
-        addMenu(menu, i18n("History"), {QStringLiteral("history"), path});
-        addMenu(menu, i18n("Blame"), {QStringLiteral("blame"), path});
-        if (status == FileStatus::Untracked) {
-            addMenu(menu, i18n("Add"), {QStringLiteral("add"), path});
-        } else {
-            addMenu(menu, i18n("Remove"), {QStringLiteral("remove"), path});
-        }
-    }
-    addMenu(menu, i18n("Create tag"), {QStringLiteral("create-tag"), path});
 }
 
 K_PLUGIN_FACTORY_WITH_JSON(GitKlientPluginActionFactory, "gitklientitemaction.json", registerPlugin<ActionManager>();)

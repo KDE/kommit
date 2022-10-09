@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include "actions.h"
 #include "statuscache.h"
 #include <KAbstractFileItemActionPlugin>
 #include <kfileitem.h>
@@ -24,15 +25,18 @@ private:
 
     QString getCommonPart(const KFileItemList &fileItems);
 
-    void addMenuToNonGitFile(QMenu *menu, const QString &path);
-    void addMenuToGitFile(QMenu *menu, const QString &path, bool isFile, const FileStatus::Status &status);
-
+private Q_SLOTS:
+#define f(name, text, args, icon) void name##Clicked()
+    ACTIONS_FOR_EACH(f)
+#undef f
 private:
     StatusCache mCache;
 
-    QAction *mPullAction = nullptr;
-    QAction *mPushAction = nullptr;
-    QAction *mDiffAction = nullptr;
-    QAction *mLogAction = nullptr;
-    QAction *mOpenAppAction = nullptr;
+#define decl(name, text, args, icon) QAction *name;
+    ACTIONS_FOR_EACH(decl)
+#undef decl
+
+    QAction *mMainAction;
+
+    QString mPath;
 };

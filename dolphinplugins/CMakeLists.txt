@@ -17,6 +17,7 @@ set(
     actionmanager.h
     statuscache.h
     manager.h
+    actions.h
     ${GIT_EXTRA_SOURCE}
 )
 kcoreaddons_add_plugin(
