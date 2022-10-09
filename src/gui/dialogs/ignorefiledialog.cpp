@@ -76,7 +76,7 @@ void IgnoreFileDialog::on_buttonBox_accepted()
         return;
     }
 
-    if (lineEdit->text().isEmpty()) {
+    if (lineEdit->text().trimmed().isEmpty()) {
         KMessageBox::error(this, i18n("Please enter the pattern"));
         return;
     }
