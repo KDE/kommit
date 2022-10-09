@@ -87,9 +87,9 @@ set_target_properties(libgitklient
 )
 
 target_link_libraries(libgitklient
-    Qt${QT_VERSION_MAJOR}::Core
-    Qt${QT_VERSION_MAJOR}::Widgets
-    Qt${QT_VERSION_MAJOR}::Concurrent
+    Qt::Core
+    Qt::Widgets
+    Qt::Concurrent
     KF5::I18n
 )
 

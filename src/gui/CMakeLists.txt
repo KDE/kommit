@@ -160,9 +160,9 @@ set_target_properties(libgitklientgui
 )
 
 target_link_libraries(libgitklientgui
-    Qt${QT_VERSION_MAJOR}::Core
-    Qt${QT_VERSION_MAJOR}::Widgets
-    Qt${QT_VERSION_MAJOR}::Concurrent
+    Qt::Core
+    Qt::Widgets
+    Qt::Concurrent
     KF5::I18n
 )
 
@@ -225,9 +225,9 @@ ki18n_wrap_ui(
 )
 
 target_link_libraries(libgitklientgui
-    Qt${QT_VERSION_MAJOR}::Core
-    Qt${QT_VERSION_MAJOR}::Widgets
-    Qt${QT_VERSION_MAJOR}::Concurrent
+    Qt::Core
+    Qt::Widgets
+    Qt::Concurrent
 
     libgitklient
 
