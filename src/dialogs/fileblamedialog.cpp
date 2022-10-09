@@ -24,6 +24,7 @@ FileBlameDialog::FileBlameDialog(Git::Manager *git, const QString &fileName, QWi
 
     setWindowTitle(i18nc("@title:window", "Blame file: %1", fileName));
     logDetailsWidget->setEnableCommitsLinks(false);
+    plainTextEdit->setShowTitleBar(false);
 }
 
 FileBlameDialog::FileBlameDialog(const Git::File &file, QWidget *parent)
@@ -39,6 +40,7 @@ FileBlameDialog::FileBlameDialog(const Git::File &file, QWidget *parent)
     setWindowTitle(i18nc("@title:window", "Blame file: %1", file.fileName()));
 
     logDetailsWidget->setEnableCommitsLinks(false);
+    plainTextEdit->setShowTitleBar(false);
 }
 
 void FileBlameDialog::on_plainTextEdit_blockSelected()
