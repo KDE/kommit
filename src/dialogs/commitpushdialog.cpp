@@ -98,6 +98,8 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     textEditMessage->begin();
 
     mActions = new ChangedFileActions(mGit, this);
+
+    checkBoxIncludeStatus->setCheckState(Qt::PartiallyChecked);
 }
 
 void CommitPushDialog::checkButtonsEnable()
@@ -133,9 +135,8 @@ void CommitPushDialog::on_pushButtonCommit_clicked()
     Git::CommandCommit cmd;
     cmd.setAmend(checkBoxAmend->isChecked());
     cmd.setMessage(textEditMessage->toPlainText());
-    cmd.setIncludeStatus(checkBoxIncludeStatus->isChecked());
+    cmd.setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
 
-    //    _git->commit(textEditMessage->toPlainText());
     mGit->run(cmd);
     accept();
 }
@@ -145,10 +146,11 @@ void CommitPushDialog::on_pushButtonPush_clicked()
     addFiles();
 
     if (groupBoxMakeCommit->isChecked()) {
+        addFiles();
         Git::CommandCommit commitCommand;
         commitCommand.setAmend(checkBoxAmend->isChecked());
         commitCommand.setMessage(textEditMessage->toPlainText());
-        commitCommand.setIncludeStatus(checkBoxIncludeStatus->isChecked());
+        commitCommand.setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
         mGit->run(commitCommand);
     }
 
@@ -176,6 +178,7 @@ void CommitPushDialog::on_toolButtonAddAll_clicked()
         auto item = listWidget->item(i);
         item->setCheckState(Qt::Checked);
     }
+    checkButtonsEnable();
 }
 
 void CommitPushDialog::addFiles()
@@ -193,6 +196,7 @@ void CommitPushDialog::on_toolButtonAddNone_clicked()
         auto item = listWidget->item(i);
         item->setCheckState(Qt::Unchecked);
     }
+    checkButtonsEnable();
 }
 
 void CommitPushDialog::on_toolButtonAddIndexed_clicked()
@@ -201,6 +205,7 @@ void CommitPushDialog::on_toolButtonAddIndexed_clicked()
         auto item = listWidget->item(i);
         item->setCheckState(Qt::Checked);
     }
+    checkButtonsEnable();
 }
 
 void CommitPushDialog::on_listWidget_itemDoubleClicked(QListWidgetItem *item)

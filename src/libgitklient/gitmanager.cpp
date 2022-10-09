@@ -437,8 +437,12 @@ QByteArray Manager::runGit(const QStringList &args) const
     p.waitForFinished();
     auto out = p.readAllStandardOutput();
     auto err = p.readAllStandardError();
-    Q_UNUSED(err)
-    //    qCDebug(GITKLIENTLIB_LOG) << err;
+
+    if (p.exitStatus() == QProcess::CrashExit) {
+        qWarning() << "=== Crash on git process ===";
+        qWarning() << "====\nERROR:\n====\n" << err;
+        qWarning() << "====\nOUTPUR:\n====\n" << out;
+    }
     return out; // + err;
 }
 

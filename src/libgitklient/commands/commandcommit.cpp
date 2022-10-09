@@ -18,11 +18,16 @@ QStringList CommandCommit::generateArgs() const
     if (mAmend)
         args.append(QStringLiteral("--amend"));
 
-    if (mIncludeStatus)
+    switch (mIncludeStatus) {
+    case OptionalBool::True:
         args.append(QStringLiteral("--status"));
-    else
+        break;
+    case OptionalBool::False:
         args.append(QStringLiteral("--no-status"));
-
+        break;
+    case OptionalBool::Unset:
+        break;
+    }
     return args;
 }
 
@@ -46,12 +51,12 @@ void CommandCommit::setAmend(bool newAmend)
     mAmend = newAmend;
 }
 
-bool CommandCommit::includeStatus() const
+OptionalBool CommandCommit::includeStatus() const
 {
     return mIncludeStatus;
 }
 
-void CommandCommit::setIncludeStatus(bool newIncludeStatus)
+void CommandCommit::setIncludeStatus(OptionalBool newIncludeStatus)
 {
     mIncludeStatus = newIncludeStatus;
 }

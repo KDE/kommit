@@ -23,13 +23,13 @@ public:
     bool amend() const;
     void setAmend(bool newAmend);
 
-    bool includeStatus() const;
-    void setIncludeStatus(bool newIncludeStatus);
+    OptionalBool includeStatus() const;
+    void setIncludeStatus(OptionalBool newIncludeStatus);
 
 private:
     QString mMessage;
     bool mAmend{false};
-    bool mIncludeStatus{false};
+    OptionalBool mIncludeStatus{false};
 };
 
 } // namespace Git
