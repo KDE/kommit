@@ -60,9 +60,7 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
     Q_UNUSED(parentWidget);
 
     auto items = fileItemInfos.items();
-    //    bool oneFileIsSelected = items.size() == 1;
     bool isGit{false};
-    bool isDir{false};
     bool isFile{false};
 
     actionAdd->setVisible(false);
@@ -83,7 +81,6 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
             actionRemove->setVisible(status != FileStatus::Untracked);
         }
         isGit = status != FileStatus::NoGit;
-        isDir = item.isDir();
         isFile = item.isFile();
     }
 
