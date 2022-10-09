@@ -264,3 +264,7 @@ set_target_properties(
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
+
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+endif()
