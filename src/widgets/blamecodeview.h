@@ -22,7 +22,8 @@ public:
 
     Git::BlameDataRow blameData(const int &blockNumber) const;
 
+    Git::Log *currentLog() const;
+
 private:
     Git::BlameData mBlameData;
-    QMap<int, Git::BlameDataRow> mBlames;
 };

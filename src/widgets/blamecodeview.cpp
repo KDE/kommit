@@ -44,15 +44,17 @@ void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
 
         auto data = new BlockData{-1, nullptr, type};
         data->extraText = blame.log ? blame.log->committerName() : i18n("Uncommited");
+        data->data = blame.log ? blame.log : nullptr;
 
-        auto blockNumber = append(blame.code, type, data);
-        //        auto blockNumber = append(blame.code, colors.at(currentColor));
-        mBlames.insert(blockNumber, blame);
+        append(blame.code, type, data);
         lastCommit = commitHash;
     }
 }
 
-Git::BlameDataRow BlameCodeView::blameData(const int &blockNumber) const
+Git::Log *BlameCodeView::currentLog() const
 {
-    return mBlames.value(blockNumber);
+    auto tmp = currentBlockData();
+    if (tmp)
+        return static_cast<Git::Log *>(tmp->data);
+    return nullptr;
 }

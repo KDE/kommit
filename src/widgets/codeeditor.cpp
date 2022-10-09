@@ -212,6 +212,11 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
     }
 }
 
+CodeEditor::BlockData *CodeEditor::currentBlockData() const
+{
+    return mBlocksData.value(textCursor().block(), nullptr);
+}
+
 void CodeEditor::updateViewPortGeometry()
 {
     auto th = this->titlebarHeight();

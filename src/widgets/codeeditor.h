@@ -69,6 +69,8 @@ public:
     bool showFoldMarks() const;
     void setShowFoldMarks(bool newShowFoldMarks);
 
+    BlockData *currentBlockData() const;
+
 Q_SIGNALS:
     void blockSelected();
 

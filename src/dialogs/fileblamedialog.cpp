@@ -43,6 +43,6 @@ FileBlameDialog::FileBlameDialog(const Git::File &file, QWidget *parent)
 
 void FileBlameDialog::on_plainTextEdit_blockSelected()
 {
-    const auto b = plainTextEdit->blameData(plainTextEdit->textCursor().block().blockNumber());
-    logDetailsWidget->setLog(mGit->logsModel()->findLogByHash(b.commitHash));
+    auto data = plainTextEdit->currentBlockData();
+    logDetailsWidget->setLog(data ? static_cast<Git::Log *>(data->data) : nullptr);
 }
