@@ -114,7 +114,7 @@ void DiffWidget::compare()
         }
 
         if (mSameSize) {
-            int size = qMax(s->oldText.size(), s->newText.size());
+            const int size = qMax(s->oldText.size(), s->newText.size());
             leftCodeEditor->append(s->oldText, oldBlockType, s, size);
             rightCodeEditor->append(s->newText, newBlockType, s, size);
         } else {
