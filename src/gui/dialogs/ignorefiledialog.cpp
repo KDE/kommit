@@ -90,7 +90,6 @@ void IgnoreFileDialog::on_buttonBox_accepted()
     f.close();
 
     accept();
-    close();
 }
 
 QString IgnoreFileDialog::getIgnoreFile() const
