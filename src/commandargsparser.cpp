@@ -376,9 +376,9 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
         return 0;
     }
 
+    git->setLoadFlags(Git::LoadLogs);
     git->setPath(fi.absolutePath());
-    git->setLoadFlags(Git::LoadNone);
-    git->logsModel()->load();
+    //    git->logsModel()->load();
 
     Git::File f(git->currentBranch(), file, git);
     FileBlameDialog d(f);
