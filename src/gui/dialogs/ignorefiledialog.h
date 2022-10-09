@@ -19,9 +19,9 @@ public:
 
 private Q_SLOTS:
     void generateIgnorePattern();
-    void on_buttonBox_accepted();
 
 private:
+    void slotAccept();
     QString getIgnoreFile() const;
     bool mIsIgnoredAlready{false};
     QString mPath;

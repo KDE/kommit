@@ -45,6 +45,7 @@ IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, Q
         mIsIgnoredAlready = true;
         buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &IgnoreFileDialog::slotAccept);
 }
 
 void IgnoreFileDialog::generateIgnorePattern()
@@ -68,11 +69,10 @@ void IgnoreFileDialog::generateIgnorePattern()
     qCDebug(GITKLIENT_LOG) << getIgnoreFile();
 }
 
-void IgnoreFileDialog::on_buttonBox_accepted()
+void IgnoreFileDialog::slotAccept()
 {
     if (mIsIgnoredAlready) {
         accept();
-        close();
         return;
     }
 
