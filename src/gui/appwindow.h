@@ -62,6 +62,7 @@ private Q_SLOTS:
     void repoSwitch();
     void repoDiffTree();
     void merge();
+    void cleanup();
 
 private:
     QAction *mRecentAction = nullptr;

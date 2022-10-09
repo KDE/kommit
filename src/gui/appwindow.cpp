@@ -6,9 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 // application headers
 #include "appwindow.h"
+#include "commands/commandclean.h"
 #include "commands/commandmerge.h"
 #include "commands/commandswitchbranch.h"
 #include "dialogs/changedfilesdialog.h"
+#include "dialogs/cleanupdialog.h"
 #include "dialogs/clonedialog.h"
 #include "dialogs/commitpushdialog.h"
 #include "dialogs/fetchdialog.h"
@@ -141,6 +143,9 @@ void AppWindow::initActions()
         mRecentAction->setMenu(new QMenu(this));
         initRecentFiles();
     }
+
+    auto repoCleanupAction = actionCollection->addAction("repo_cleanup", this, &AppWindow::cleanup);
+    repoCleanupAction->setText(i18n("Cleanup..."));
 
     auto repoPullAction = actionCollection->addAction("repo_pull", this, &AppWindow::pull);
     repoPullAction->setText(i18n("Pull..."));
@@ -337,6 +342,16 @@ void AppWindow::merge()
 {
     MergeDialog d(mGit, this);
     d.exec();
+}
+
+void AppWindow::cleanup()
+{
+    CleanupDialog d;
+    if (d.exec() == QDialog::Accepted) {
+        RunnerDialog runner;
+        runner.run(d.command());
+        runner.exec();
+    }
 }
 
 template<class T>
