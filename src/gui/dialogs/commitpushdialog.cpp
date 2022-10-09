@@ -14,8 +14,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QPainter>
 
-#include <KTextEditor/Editor>
-
 // TODO: improve this method (Add cache)
 QIcon createIcon(const QColor &color)
 {

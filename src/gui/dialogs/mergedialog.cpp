@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "mergedialog.h"
 
-#include <QDebug>
 #include <QWhatsThisClickedEvent>
 
 #include "commands/commandmerge.h"

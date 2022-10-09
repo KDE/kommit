@@ -12,7 +12,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QPaintEvent>
 #include <QPainter>
-#include <QScrollBar>
 
 SegmentsScrollBar::SegmentsScrollBar(QWidget *parent)
     : QWidget{parent}

@@ -9,8 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "blamedata.h"
 #include "codeeditor.h"
 
-#include <QMap>
-
 class BlameCodeView : public CodeEditor
 {
     Q_OBJECT

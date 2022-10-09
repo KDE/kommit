@@ -5,7 +5,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "filestatus.h"
-#include <QDebug>
 #include <utility>
 
 FileStatus::FileStatus() = default;

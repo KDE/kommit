@@ -12,9 +12,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 #include <KSyntaxHighlighting/SyntaxHighlighter>
-#include <KSyntaxHighlighting/Theme>
-
-#include <QPainter>
 
 BlameCodeView::BlameCodeView(QWidget *parent)
     : CodeEditor(parent)
