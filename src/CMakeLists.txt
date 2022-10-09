@@ -160,7 +160,8 @@ set(APP_SRCS
     ${ACTIONS_SRC}
     ${CORE_SRC}
 
-    main.cpp
+    apps/main.cpp
+
     appwindow.cpp
     buttonsgroup.cpp
     multipagewidget.cpp
