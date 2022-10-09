@@ -25,7 +25,16 @@ class CodeEditor : public QPlainTextEdit
 {
     Q_OBJECT
 public:
-    enum BlockType { Unchanged, Added, Removed, Edited, HighLight, Empty };
+    enum BlockType { Unchanged, Added, Removed, Edited, HighLight, Odd, Even, Empty };
+    struct BlockData {
+        int lineNumber;
+        Diff::Segment *segment;
+        BlockType type;
+        QString extraText;
+        void *data;
+
+        BlockData(int lineNumber, Diff::Segment *segment, const BlockType &type);
+    };
 
     explicit CodeEditor(QWidget *parent = nullptr);
     ~CodeEditor();
@@ -35,6 +44,7 @@ public:
     void append(const QString &code, const BlockType &type = Unchanged, Diff::Segment *segment = nullptr);
     int append(const QString &code, const QColor &backgroundColor);
     void append(const QStringList &code, const BlockType &type = Unchanged, Diff::Segment *segment = nullptr, int size = -1);
+    int append(const QString &code, const BlockType &type, BlockData *data);
 
     QPair<int, int> blockArea(int from, int to);
     QPair<int, int> visibleLines() const;
@@ -56,6 +66,9 @@ public:
 
     int titlebarHeight() const;
 
+    bool showFoldMarks() const;
+    void setShowFoldMarks(bool newShowFoldMarks);
+
 Q_SIGNALS:
     void blockSelected();
 
@@ -63,8 +76,8 @@ protected:
     void resizeEvent(QResizeEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
-    virtual int sidebarWidth() const;
-    virtual void sidebarPaintEvent(QPaintEvent *event);
+    int sidebarWidth() const;
+    void sidebarPaintEvent(QPaintEvent *event);
     KSyntaxHighlighting::SyntaxHighlighter *mHighlighter;
     CodeEditorSidebar *mSideBar;
 
@@ -72,7 +85,8 @@ protected:
     void paintEvent(QPaintEvent *e) override;
 
 private:
-    friend class CodeEditorSidebar;
+    int lineNumberOfBlock(const QTextBlock &block) const;
+
     QMap<BlockType, QTextBlockFormat> mFormats;
     void setTheme(const KSyntaxHighlighting::Theme &theme);
 
@@ -85,10 +99,9 @@ private:
     bool isFolded(const QTextBlock &block) const;
     void toggleFold(const QTextBlock &block);
 
-    KSyntaxHighlighting::Repository m_repository;
-    QMap<QTextBlock, BlockType> mLines;
+    KSyntaxHighlighting::Repository mRepository;
     QMap<int, Diff::Segment *> mSegments;
-    QMap<QTextBlock, int> mSegmentsLineNumbers;
+    QMap<QTextBlock, BlockData *> mBlocksData;
     QPair<int, int> mCurrentSegment{-1, -1};
 
     QLabel *mTitleBar;
@@ -96,4 +109,8 @@ private:
     int mTitlebarDefaultHeight;
 
     int mLastLineNumber{0};
+    bool mShowFoldMarks{false};
+    bool mLastOddEven{false};
+
+    friend class CodeEditorSidebar;
 };

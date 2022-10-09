@@ -32,12 +32,10 @@ FileBlameDialog::FileBlameDialog(const Git::File &file, QWidget *parent)
 {
     setupUi(this);
     plainTextEdit->setHighlighting(file.fileName());
-    //    plainTextEdit->setPlainText(file.content());
 
     const auto b = file.git()->blame(file);
     plainTextEdit->setBlameData(b);
 
-    //    b.initCommits(file.git()->logs());
     setWindowTitle(i18nc("@title:window", "Blame file: %1", file.fileName()));
 
     logDetailsWidget->setEnableCommitsLinks(false);

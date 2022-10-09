@@ -21,10 +21,8 @@ public:
     void setBlameData(const Git::BlameData &newBlameData);
 
     Git::BlameDataRow blameData(const int &blockNumber) const;
-    // CodeEditor interface
+
 private:
-    int sidebarWidth() const override;
-    void sidebarPaintEvent(QPaintEvent *event) override;
     Git::BlameData mBlameData;
     QMap<int, Git::BlameDataRow> mBlames;
 };
