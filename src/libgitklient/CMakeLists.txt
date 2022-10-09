@@ -36,6 +36,7 @@ target_sources(libgitklient PRIVATE
     commands/addsubmodulecommand.cpp
     commands/commandaddremote.cpp
     commands/parameterescommand.cpp
+    commands/commandclean.cpp
 
     gitglobal.h
     gitloglist.h
@@ -72,6 +73,7 @@ target_sources(libgitklient PRIVATE
     commands/addsubmodulecommand.h
     commands/commandaddremote.h
     commands/parameterescommand.h
+    commands/commandclean.h
 )
 
 generate_export_header(libgitklient BASE_NAME libgitklient)

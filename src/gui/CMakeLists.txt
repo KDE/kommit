@@ -134,6 +134,8 @@ target_sources(libgitklientgui PRIVATE
     dialogs/switchbranchdialog.h
     dialogs/taginfodialog.cpp
     dialogs/taginfodialog.h
+    dialogs/cleanupdialog.cpp
+    dialogs/cleanupdialog.h
 
     appwindow.cpp
     buttonsgroup.cpp
@@ -222,6 +224,7 @@ ki18n_wrap_ui(
     dialogs/switchbranchdialog.ui
     dialogs/initdialog.ui
     dialogs/notedialog.ui
+    dialogs/cleanupdialog.ui
 )
 
 target_link_libraries(libgitklientgui
@@ -261,4 +264,3 @@ set_target_properties(
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
-

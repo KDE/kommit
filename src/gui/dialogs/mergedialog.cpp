@@ -6,8 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "mergedialog.h"
 
-#include <QWhatsThisClickedEvent>
-
 #include "commands/commandmerge.h"
 #include "gitmanager.h"
 #include "models/branchesmodel.h"

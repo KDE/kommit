@@ -7,8 +7,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "commandargsparser.h"
 
 #include "appwindow.h"
+#include "commands/commandclean.h"
 #include "commands/commandmerge.h"
 #include "dialogs/changedfilesdialog.h"
+#include "dialogs/cleanupdialog.h"
 #include "dialogs/clonedialog.h"
 #include "dialogs/commitpushdialog.h"
 #include "dialogs/fileblamedialog.h"
@@ -435,6 +437,19 @@ ArgParserReturn CommandArgsParser::ignore(const QString &path)
 
     IgnoreFileDialog d(git, path);
     d.exec();
+    return 0;
+}
+
+ArgParserReturn CommandArgsParser::cleanup(const QString &path)
+{
+    checkGitPath(path);
+
+    CleanupDialog d;
+    if (d.exec() == QDialog::Accepted) {
+        RunnerDialog runner;
+        runner.run(d.command());
+        runner.exec();
+    }
     return 0;
 }
 

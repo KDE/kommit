@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
+
 #include "libgitklientgui_export.h"
 #include <QMap>
 #include <QObject>
@@ -85,6 +86,7 @@ public Q_SLOTS:
     ArgParserReturn merge();
     ArgParserReturn merge(const QString &base, const QString &local, const QString &remote, const QString &result);
     ArgParserReturn ignore(const QString &path);
+    ArgParserReturn cleanup(const QString &path);
 
     ArgParserReturn add(const QString &path);
     ArgParserReturn remove(const QString &path);
