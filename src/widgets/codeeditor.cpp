@@ -379,6 +379,8 @@ int CodeEditor::append(const QString &code, const QColor &backgroundColor)
     t.setBlockFormat(fmt);
     mSegments.insert(t.block().blockNumber(), nullptr);
 
+    mSegmentsLineNumbers.insert(t.block(), ++mLastLineNumber);
+
     return t.block().blockNumber();
 }
 
