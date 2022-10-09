@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-08 00:51+0000\n"
-"PO-Revision-Date: 2022-10-07 18:10+0200\n"
+"PO-Revision-Date: 2022-10-08 11:56+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -603,10 +603,9 @@ msgid "Origin name"
 msgstr "Nom d'origen"
 
 #: src/dialogs/commitpushdialog.cpp:77 src/dialogs/commitpushdialog.cpp:221
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgid "Commit and push"
-msgstr "Comet/Puja"
+msgstr "Comet i puja"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/dialogs/commitpushdialog.ui:22

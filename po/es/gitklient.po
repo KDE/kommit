@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-08 00:51+0000\n"
-"PO-Revision-Date: 2022-10-07 04:38+0200\n"
+"PO-Revision-Date: 2022-10-08 18:47+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -858,7 +858,7 @@ msgstr "Opciones"
 #: src/dialogs/pulldialog.ui:64
 #, kde-format
 msgid "No fast forward"
-msgstr ""
+msgstr "Sin avance rápido"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
 #: src/dialogs/fetchdialog.ui:101 src/dialogs/pulldialog.ui:102
@@ -882,7 +882,7 @@ msgstr "Etiquetas"
 #: src/dialogs/pulldialog.ui:109
 #, kde-format
 msgid "Fast forward only"
-msgstr ""
+msgstr "Solo avance rápido"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
 #: src/dialogs/fetchdialog.ui:122 src/dialogs/pulldialog.ui:78
@@ -999,7 +999,7 @@ msgstr "Ruta"
 #: src/dialogs/ignorefiledialog.ui:76
 #, kde-format
 msgid "Exact the path"
-msgstr ""
+msgstr "La ruta exacta"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonEveryWhere)
 #: src/dialogs/ignorefiledialog.ui:86
@@ -1105,7 +1105,7 @@ msgstr "-"
 #: src/dialogs/mergedialog.ui:60
 #, kde-format
 msgid "Fast forward:"
-msgstr ""
+msgstr "Avance rápido:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFastForward)
 #: src/dialogs/mergedialog.ui:67
@@ -1117,6 +1117,11 @@ msgid ""
 "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Indica cómo se realiza una fusión cuando el historial "
+"fusionado ya es descendiente del historial actual.</p><p><br/></p><p><a href="
+"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">Más "
+"información</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
@@ -1129,7 +1134,7 @@ msgstr "Predeterminado"
 #: src/dialogs/mergedialog.ui:76
 #, kde-format
 msgid "Allow fast forward"
-msgstr ""
+msgstr "Permitir avance rápido"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/dialogs/mergedialog.ui:94
@@ -1176,13 +1181,13 @@ msgstr ""
 #: src/dialogs/mergedialog.ui:140
 #, kde-format
 msgid "Ours"
-msgstr ""
+msgstr "Nuestro"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTheirs)
 #: src/dialogs/mergedialog.ui:147
 #, kde-format
 msgid "Theirs"
-msgstr ""
+msgstr "Suyo"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreAllSpace)
@@ -1260,6 +1265,13 @@ msgid ""
 "algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Usar un algoritmo de diferencias distinto durante la "
+"fusión, lo que puede ayudar a evitar fusiones erróneas que se producen "
+"debido a líneas coincidentes sin importancia (como llaves de funciones "
+"distintas).</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt-diff-algorithmpatienceminimalhistogrammyers"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">Más "
+"información</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
 #: src/dialogs/mergedialog.ui:225
@@ -1595,7 +1607,7 @@ msgstr "Actualizado"
 #: src/libgitklient/gitremote.cpp:120
 #, kde-format
 msgid "Fast forwardable"
-msgstr ""
+msgstr "Se puede avanzar rápidamente"
 
 #: src/libgitklient/gitremote.cpp:122
 #, kde-format
