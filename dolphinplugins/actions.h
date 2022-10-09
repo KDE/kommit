@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef ACTIONS_H
-#define ACTIONS_H
+#pragma once
 
 #define PACK(...)                                                                                                                                              \
     {                                                                                                                                                          \
@@ -29,5 +28,3 @@ SPDX-License-Identifier: GPL-3.0-or-later
     f(actionRemove, "Remove", PACK(QStringLiteral("remove"), mPath), QLatin1String());                                                                         \
     f(actionCreateTag, "Create tag", PACK(QStringLiteral("create-tag"), mPath), QLatin1String());                                                              \
     f(actionCleanup, "Cleanup", PACK(QStringLiteral("cleanup"), mPath), QLatin1String());
-
-#endif // ACTIONS_H

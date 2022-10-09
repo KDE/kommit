@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef COMMANDCLEAN_H
-#define COMMANDCLEAN_H
+#pragma once
 
 #include "abstractcommand.h"
 
@@ -36,5 +35,3 @@ private:
 };
 
 }
-
-#endif // COMMANDCLEAN_H

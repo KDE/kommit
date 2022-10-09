@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef SEGMENTSSCROLLBAR_H
-#define SEGMENTSSCROLLBAR_H
+#pragma once
 
 #include <QWidget>
 
@@ -34,5 +33,3 @@ private:
 
     inline void paintSection(QPainter &painter, const Side &side, int from, int len, const QBrush &brush, bool drawRect = false);
 };
-
-#endif // SEGMENTSSCROLLBAR_H

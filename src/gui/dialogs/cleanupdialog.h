@@ -4,8 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef CLEANUPDIALOG_H
-#define CLEANUPDIALOG_H
+#pragma once
 
 #include "core/appdialog.h"
 #include "ui_cleanupdialog.h"
@@ -23,5 +22,3 @@ public:
 
     Git::CommandClean *command() const;
 };
-
-#endif // CLEANUPDIALOG_H
