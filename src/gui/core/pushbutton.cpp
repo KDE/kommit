@@ -20,7 +20,7 @@ QAction *PushButton::action() const
 
 void PushButton::setAction(QAction *newAction)
 {
-    if (mAction && mAction != newAction) {
+    if (mAction) {
         disconnect(mAction, &QAction::changed, this, &PushButton::updateButtonStatusFromAction);
         disconnect(this, &PushButton::clicked, mAction, &QAction::trigger);
     }
