@@ -262,13 +262,15 @@ void AppWindow::commitPushAction()
 void AppWindow::pull()
 {
     PullDialog d(this);
-    d.exec();
+    if (d.exec() == QDialog::Accepted)
+        mGit->logsModel()->load();
 }
 
 void AppWindow::fetch()
 {
     FetchDialog d(mGit, this);
-    d.exec();
+    if (d.exec() == QDialog::Accepted)
+        mGit->logsModel()->load();
 }
 
 void AppWindow::showBranchesStatus()
