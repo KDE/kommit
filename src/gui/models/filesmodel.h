@@ -17,8 +17,6 @@ class FilesModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    QList<QPair<QString, QString>> mFiles;
-
 public:
     explicit FilesModel(QObject *parent = nullptr);
 
@@ -28,4 +26,7 @@ public:
     void append(const QString &data);
 
     void addFile(const FileStatus &file);
+
+private:
+    QList<QPair<QString, QString>> mFiles;
 };
