@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "appwindow.h"
 #include "commands/commandclean.h"
 #include "commands/commandmerge.h"
+#include "commands/commandswitchbranch.h"
 #include "dialogs/changedfilesdialog.h"
 #include "dialogs/cleanupdialog.h"
 #include "dialogs/clonedialog.h"
@@ -20,6 +21,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/mergedialog.h"
 #include "dialogs/pulldialog.h"
 #include "dialogs/runnerdialog.h"
+#include "dialogs/switchbranchdialog.h"
 #include "dialogs/taginfodialog.h"
 #include "diffwindow.h"
 #include "gitfile.h"
@@ -445,6 +447,23 @@ ArgParserReturn CommandArgsParser::cleanup(const QString &path)
     checkGitPath(path);
 
     CleanupDialog d;
+    if (d.exec() == QDialog::Accepted) {
+        RunnerDialog runner;
+        runner.run(d.command());
+        runner.exec();
+    }
+    return 0;
+}
+
+ArgParserReturn CommandArgsParser::switch_checkout(const QString &path)
+{
+    checkGitPath(path);
+
+    if (git->isMerging()) {
+        KMessageBox::error(nullptr, i18n("Cannot switch branch while merging"), i18n("Switch branch"));
+        return 1;
+    }
+    SwitchBranchDialog d(git);
     if (d.exec() == QDialog::Accepted) {
         RunnerDialog runner;
         runner.run(d.command());

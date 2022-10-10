@@ -19,6 +19,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
     f(actionPull, "Pull", PACK(QStringLiteral("pull"), mPath), QStringLiteral("git-pull"));                                                                    \
     f(actionPush, "Push", PACK(QStringLiteral("push"), mPath), QStringLiteral("git-push"));                                                                    \
     f(actionMerge, "Merge", PACK(QStringLiteral("merge"), mPath), QStringLiteral("git-merge"));                                                                \
+    f(actionSwitchCheckout, "Switch/Checkout", PACK(QStringLiteral("switch-checkout"), mPath), QLatin1String());                                               \
     f(actionModifications, "Modifications", PACK(QStringLiteral("changes"), mPath), QStringLiteral("gitklient-changedfiles"));                                 \
     f(actionDiff, "Diff", PACK(QStringLiteral("diff"), mPath), QLatin1String());                                                                               \
     f(actionIgnoreFile, "Ignore file", PACK(QStringLiteral("ignore"), mPath), QStringLiteral("git-ignore"));                                                   \

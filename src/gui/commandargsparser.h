@@ -87,6 +87,7 @@ public Q_SLOTS:
     ArgParserReturn merge(const QString &base, const QString &local, const QString &remote, const QString &result);
     ArgParserReturn ignore(const QString &path);
     ArgParserReturn cleanup(const QString &path);
+    ArgParserReturn switch_checkout(const QString &path);
 
     ArgParserReturn add(const QString &path);
     ArgParserReturn remove(const QString &path);
