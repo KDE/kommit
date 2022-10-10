@@ -24,7 +24,7 @@ void DiffTreeModel::addFile(const FileStatus &file)
     node->metaData = toDiffType(file.status());
 }
 
-void DiffTreeModel::addFile(const QString &file, const Diff::DiffType &type)
+void DiffTreeModel::addFile(const QString &file, Diff::DiffType type)
 {
     const auto parts = file.split(separator());
     auto node = createPath(parts, type);
@@ -50,7 +50,7 @@ TreeModel::Node *DiffTreeModel::createPath(const QStringList &path, const Diff::
     return parent;
 }
 
-QString icon(const Diff::DiffType &status)
+QString icon(Diff::DiffType status)
 {
     switch (status) {
     case Diff::DiffType::Added:
@@ -65,7 +65,7 @@ QString icon(const Diff::DiffType &status)
     return QStringLiteral("git-status-update");
 }
 
-QColor textColor(const Diff::DiffType &status)
+QColor textColor(Diff::DiffType status)
 {
     switch (status) {
     case Diff::DiffType::Added:
@@ -80,7 +80,7 @@ QColor textColor(const Diff::DiffType &status)
     return {};
 }
 
-QColor DiffTreeModel::statusColor(const Diff::DiffType &status) const
+QColor DiffTreeModel::statusColor(Diff::DiffType status) const
 {
     switch (status) {
     case Diff::DiffType::Unchanged:
@@ -95,7 +95,7 @@ QColor DiffTreeModel::statusColor(const Diff::DiffType &status) const
     return {};
 }
 
-Diff::DiffType DiffTreeModel::toDiffType(const FileStatus::Status &status)
+Diff::DiffType DiffTreeModel::toDiffType(FileStatus::Status status)
 {
     switch (status) {
     case FileStatus::NoGit:

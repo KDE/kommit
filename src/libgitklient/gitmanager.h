@@ -57,7 +57,7 @@ public:
     };
 
     Manager();
-    explicit Manager(QString path);
+    explicit Manager(const QString &path);
     static Manager *instance();
 
     QString currentBranch() const;
@@ -141,7 +141,7 @@ public:
     void setIsMerging(bool newIsMerging);
 
     const LoadFlags &loadFlags() const;
-    void setLoadFlags(const LoadFlags &newLoadFlags);
+    void setLoadFlags(Git::LoadFlags newLoadFlags);
 
     QString readNote(const QString &branchName) const;
     void saveNote(const QString &branchName, const QString &note) const;

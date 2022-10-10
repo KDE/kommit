@@ -19,14 +19,14 @@ public:
     explicit DiffTreeModel(QObject *parent = nullptr);
 
     void addFile(const FileStatus &file);
-    void addFile(const QString &file, const Diff::DiffType &type);
+    void addFile(const QString &file, Diff::DiffType type);
 
     QVariant data(const QModelIndex &index, int role) const override;
 
     void emitAll();
 
 private:
-    Node *createPath(const QStringList &path, const Diff::DiffType &status);
-    QColor statusColor(const Diff::DiffType &status) const;
-    Diff::DiffType toDiffType(const FileStatus::Status &status);
+    Node *createPath(const QStringList &path, Diff::DiffType status);
+    QColor statusColor(Diff::DiffType status) const;
+    Diff::DiffType toDiffType(FileStatus::Status status);
 };

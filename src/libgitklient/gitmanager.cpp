@@ -358,7 +358,7 @@ const LoadFlags &Manager::loadFlags() const
     return _loadFlags;
 }
 
-void Manager::setLoadFlags(const LoadFlags &newLoadFlags)
+void Manager::setLoadFlags(Git::LoadFlags newLoadFlags)
 {
     _loadFlags = newLoadFlags;
 }
@@ -384,7 +384,7 @@ Manager::Manager()
 {
 }
 
-Manager::Manager(const QString path)
+Manager::Manager(const QString &path)
     : QObject()
     , _remotesModel{new RemotesModel(this)}
     , _submodulesModel{new SubmodulesModel(this)}

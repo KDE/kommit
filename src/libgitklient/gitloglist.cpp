@@ -68,7 +68,7 @@ struct LanesFactory {
         return lanes;
     }
 
-    QList<int> setHashes(const QStringList &children, const int &myIndex)
+    QList<int> setHashes(const QStringList &children, int myIndex)
     {
         QList<int> ret;
         bool myIndexSet{myIndex == -1};
@@ -121,7 +121,7 @@ struct LanesFactory {
         myIndex = firstIndex;
     }
 
-    void fork(const QStringList &childrenList, QVector<GraphLane> &lanes, const int &myInedx)
+    void fork(const QStringList &childrenList, QVector<GraphLane> &lanes, int myInedx)
     {
         auto list = setHashes(childrenList, -1);
         auto children = childrenList;
@@ -164,7 +164,7 @@ struct LanesFactory {
         }
     }
 
-    void set(const int &index, const GraphLane &lane, QVector<GraphLane> &lanes)
+    void set(int index, const GraphLane &lane, QVector<GraphLane> &lanes)
     {
         if (index < lanes.size())
             lanes.replace(index, lane);
