@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-08 00:51+0000\n"
+"POT-Creation-Date: 2022-10-10 00:48+0000\n"
 "PO-Revision-Date: 2022-10-08 11:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -27,494 +27,455 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "emir_sari@icloud.com"
 
-#: dolphinplugins/actionmanager.cpp:38
+#: dolphinplugins/actionmanager.cpp:22
 #, kde-format
 msgid "Git Klient"
 msgstr "Git Klient"
 
-#: dolphinplugins/actionmanager.cpp:99
+#: src/apps/main.cpp:34
 #, kde-format
-msgid "Clone"
-msgstr "Klonla"
+msgid "GitKlient"
+msgstr "GitKlient"
 
-#: dolphinplugins/actionmanager.cpp:100
+#: src/apps/main.cpp:36
 #, kde-format
-msgid "Init"
-msgstr "İlklendir"
+msgid "Git client gui for KDE"
+msgstr "KDE için Git Grafik Kullanıcı Arayüzü"
 
-#: dolphinplugins/actionmanager.cpp:105
+#: src/apps/main.cpp:38
 #, kde-format
-msgid "Open"
-msgstr "Aç"
+msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
+msgstr "Telif hakkı 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: dolphinplugins/actionmanager.cpp:106
+#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:107
+#: src/libgitklient/models/logsmodel.cpp:253
 #, kde-format
-msgid "Pull"
-msgstr "Çek"
+msgid "Author"
+msgstr "Yazar"
 
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: dolphinplugins/actionmanager.cpp:107 src/dialogs/commitpushdialog.cpp:75
-#: src/dialogs/commitpushdialog.cpp:221 src/dialogs/commitpushdialog.ui:263
-#: src/widgets/tagswidget.ui:70
+#: src/apps/main.cpp:40
 #, kde-format
-msgid "Push"
-msgstr "İt"
+msgid "Hamed Masafi"
+msgstr "Hamed Masafi"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
-#: dolphinplugins/actionmanager.cpp:108 src/dialogs/mergedialog.ui:14
+#: src/apps/main.cpp:41
 #, kde-format
-msgid "Merge"
-msgstr "Birleştir"
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
 
-#: dolphinplugins/actionmanager.cpp:109
+#: src/apps/main.cpp:41
 #, kde-format
-msgid "Modifications"
-msgstr "Değişiklikler"
+msgid "Bug fixing"
+msgstr "Hata düzeltme"
 
-#. i18n: ectx: Menu (diff)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: dolphinplugins/actionmanager.cpp:110 src/actions/branchactions.cpp:34
-#: src/gitklientmergeui.rc:15 src/settings/settingsmanager.cpp:102
-#: src/widgets/branchesstatuswidget.ui:120
-#, kde-format
-msgid "Diff"
-msgstr "Diff"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
-#: dolphinplugins/actionmanager.cpp:111 src/dialogs/ignorefiledialog.ui:14
-#: src/dialogs/ignorefiledialog.ui:96
-#, kde-format
-msgid "Ignore file"
-msgstr "Dosyayı Yok Say"
-
-#: dolphinplugins/actionmanager.cpp:113
-#, kde-format
-msgid "History"
-msgstr "Geçmiş"
-
-#: dolphinplugins/actionmanager.cpp:114
-#, kde-format
-msgid "Blame"
-msgstr "Suçla"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: dolphinplugins/actionmanager.cpp:116 src/mainwidget.ui:474
-#: src/widgets/remoteswidget.ui:53 src/widgets/tagswidget.ui:49
-#, kde-format
-msgid "Add"
-msgstr "Ekle"
-
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: dolphinplugins/actionmanager.cpp:118 src/widgets/branchesstatuswidget.ui:100
-#: src/widgets/remoteswidget.ui:63
-#, kde-format
-msgid "Remove"
-msgstr "Kaldır"
-
-#: dolphinplugins/actionmanager.cpp:121
-#, kde-format
-msgid "Create tag"
-msgstr "Etiket Oluştur"
-
-#: src/actions/branchactions.cpp:27
+#: src/gui/actions/branchactions.cpp:27
 #, kde-format
 msgid "Create..."
 msgstr "Oluştur..."
 
-#: src/actions/branchactions.cpp:30 src/appwindow.cpp:150
+#: src/gui/actions/branchactions.cpp:30 src/gui/appwindow.cpp:155
 #, kde-format
 msgid "Fetch..."
 msgstr "Getir..."
 
-#: src/actions/branchactions.cpp:31 src/actions/commitactions.cpp:33
-#: src/mainwidget.cpp:100
+#: src/gui/actions/branchactions.cpp:31 src/gui/actions/commitactions.cpp:33
+#: src/gui/mainwidget.cpp:100
 #, kde-format
 msgid "Browse..."
 msgstr "Göz At..."
 
-#: src/actions/branchactions.cpp:32
+#: src/gui/actions/branchactions.cpp:32
 #, kde-format
 msgid "Switch"
 msgstr "Değiştir"
 
-#: src/actions/branchactions.cpp:33 src/appwindow.cpp:158
+#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:163
 #, kde-format
 msgid "Merge..."
 msgstr "Birleştir..."
 
-#: src/actions/branchactions.cpp:35 src/actions/remotesactions.cpp:24
-#: src/actions/stashactions.cpp:25 src/actions/tagsactions.cpp:24
+#. i18n: ectx: Menu (diff)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
+#: src/gui/actions/branchactions.cpp:34 src/gui/gitklientmergeui.rc:15
+#: src/gui/settings/settingsmanager.cpp:95
+#: src/gui/widgets/branchesstatuswidget.ui:120
+#, kde-format
+msgid "Diff"
+msgstr "Diff"
+
+#: src/gui/actions/branchactions.cpp:35 src/gui/actions/remotesactions.cpp:24
+#: src/gui/actions/stashactions.cpp:25 src/gui/actions/tagsactions.cpp:24
 #, kde-format
 msgid "Remove..."
 msgstr "Kaldır..."
 
-#: src/actions/branchactions.cpp:36
+#: src/gui/actions/branchactions.cpp:36
 #, kde-format
 msgid "Note..."
 msgstr "Not..."
 
-#: src/actions/branchactions.cpp:76
+#: src/gui/actions/branchactions.cpp:76
 #, kde-format
 msgid "Create new branch"
 msgstr "Yeni Dal Oluştur"
 
-#: src/actions/branchactions.cpp:76
+#: src/gui/actions/branchactions.cpp:76
 #, kde-format
 msgid "Branch name"
 msgstr "Dal adı"
 
-#: src/actions/branchactions.cpp:117
+#: src/gui/actions/branchactions.cpp:117
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Seçili dalı kaldırmak istediğinize emin misiniz?"
 
-#: src/actions/branchactions.cpp:117
+#: src/gui/actions/branchactions.cpp:117
 #, kde-format
 msgid "Remove Branch"
 msgstr "Dalı Kaldır"
 
-#: src/actions/changedfileactions.cpp:18
+#: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
 msgid "Diff..."
 msgstr "Diff..."
 
-#: src/actions/changedfileactions.cpp:19
+#: src/gui/actions/changedfileactions.cpp:19
 #, kde-format
 msgid "Revert..."
 msgstr "Geri Al..."
 
-#: src/actions/commitactions.cpp:34 src/actions/tagsactions.cpp:25
+#: src/gui/actions/commitactions.cpp:34 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Checkout..."
 msgstr "Çıkış Yap..."
 
-#: src/actions/commitactions.cpp:35 src/actions/fileactions.cpp:82
-#: src/actions/stashactions.cpp:22 src/actions/tagsactions.cpp:26
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/stashactions.cpp:22 src/gui/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "HEAD Diff'i..."
 
-#: src/actions/fileactions.cpp:79
+#: src/gui/actions/fileactions.cpp:79
 #, kde-format
 msgid "View..."
 msgstr "Görüntüle..."
 
-#: src/actions/fileactions.cpp:80
+#: src/gui/actions/fileactions.cpp:80
 #, kde-format
 msgid "Open with..."
 msgstr "Birlikte Aç..."
 
-#: src/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "HEAD ile Birleştir..."
 
-#: src/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:85
 #, kde-format
 msgid "Save as..."
 msgstr "Farklı Kaydet..."
 
-#: src/actions/fileactions.cpp:86
+#: src/gui/actions/fileactions.cpp:86
 #, kde-format
 msgid "Log..."
 msgstr "Günlük..."
 
-#: src/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Blame..."
 msgstr "Suçla..."
 
-#: src/actions/fileactions.cpp:88 src/appwindow.cpp:165
+#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Search..."
 msgstr "Ara..."
 
-#: src/actions/remotesactions.cpp:23
+#: src/gui/actions/remotesactions.cpp:23
 #, kde-format
 msgid "New..."
 msgstr "Yeni..."
 
-#: src/actions/remotesactions.cpp:25
+#: src/gui/actions/remotesactions.cpp:25
 #, kde-format
 msgid "Rename..."
 msgstr "Yeniden Adlandır..."
 
-#: src/actions/remotesactions.cpp:26
+#: src/gui/actions/remotesactions.cpp:26
 #, kde-format
 msgid "Change url..."
 msgstr "URL Değiştir..."
 
-#: src/actions/remotesactions.cpp:59
+#: src/gui/actions/remotesactions.cpp:59
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
 msgstr "Seçili uzak konumu kaldırmak istediğnize emin misiniz?"
 
-#: src/actions/remotesactions.cpp:59
+#: src/gui/actions/remotesactions.cpp:59
 #, kde-format
 msgid "Remove remote?"
 msgstr "Uzak konum kaldırılsın mı?"
 
-#: src/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:73
 #, kde-format
 msgid "Change url"
 msgstr "URL Değiştir"
 
-#: src/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:73
 #, kde-format
 msgid "URL"
 msgstr "URL"
 
-#: src/actions/remotesactions.cpp:76
+#: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "Uzak konum URL'si, başarıyla değiştirildi"
 
-#: src/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:82
 #, kde-format
 msgid "Rename"
 msgstr "Yeniden Adlandır"
 
-#: src/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:82
 #, kde-format
 msgid "New name"
 msgstr "Yeni ad"
 
-#: src/actions/stashactions.cpp:21
+#: src/gui/actions/stashactions.cpp:21
 #, kde-format
 msgid "New stash..."
 msgstr "Yeni Zula..."
 
-#: src/actions/stashactions.cpp:23
+#: src/gui/actions/stashactions.cpp:23
 #, kde-format
 msgid "Pop..."
 msgstr "Patlat..."
 
-#: src/actions/stashactions.cpp:24
+#: src/gui/actions/stashactions.cpp:24
 #, kde-format
 msgid "Apply..."
 msgstr "Uygula..."
 
-#: src/actions/stashactions.cpp:48 src/actions/stashactions.cpp:56
-#: src/actions/stashactions.cpp:66
+#: src/gui/actions/stashactions.cpp:48 src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:66
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "Seçili zulayı uygulamak istediğinize emin misiniz?"
 
-#: src/actions/stashactions.cpp:48 src/actions/stashactions.cpp:56
-#: src/actions/stashactions.cpp:66
+#: src/gui/actions/stashactions.cpp:48 src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:66
 #, kde-format
 msgid "Apply stash %1"
 msgstr "%1 zulasını uygula"
 
-#: src/actions/stashactions.cpp:83
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Bir değişikliğiniz yok!"
 
-#: src/actions/stashactions.cpp:83
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "Stash"
 msgstr "Zulala"
 
-#: src/actions/stashactions.cpp:88
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Create new stash"
 msgstr "Yeni Zula Oluştur"
 
-#: src/actions/stashactions.cpp:88
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Name of stash"
 msgstr "Zulanın adı"
 
-#: src/actions/submoduleactions.cpp:39
+#: src/gui/actions/submoduleactions.cpp:39
 #, kde-format
 msgid "Add..."
 msgstr "Ekle..."
 
-#: src/actions/submoduleactions.cpp:40 src/appwindow.cpp:123
+#: src/gui/actions/submoduleactions.cpp:40 src/gui/appwindow.cpp:125
 #, kde-format
 msgid "Init..."
 msgstr "İlklendir..."
 
-#: src/actions/submoduleactions.cpp:41
+#: src/gui/actions/submoduleactions.cpp:41
 #, kde-format
 msgid "Update..."
 msgstr "Güncelle..."
 
 #. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
-#: src/actions/submoduleactions.cpp:43
+#: src/gui/actions/submoduleactions.cpp:43
 #, kde-format
 msgid "Sync..."
 msgstr "Eşzamanla..."
 
-#: src/actions/submoduleactions.cpp:75
+#: src/gui/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
 msgstr "Seçili altmodülü kaldırmak istediğinize emin misiniz?"
 
-#: src/actions/submoduleactions.cpp:75
+#: src/gui/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Remove Submodule"
 msgstr "Altmodülü Kaldır"
 
-#: src/actions/submoduleactions.cpp:85
+#: src/gui/actions/submoduleactions.cpp:85
 #, kde-format
 msgid "Unable to remove the module directory"
 msgstr "Modül dizini kaldırılamıyor"
 
-#: src/actions/submoduleactions.cpp:92
+#: src/gui/actions/submoduleactions.cpp:92
 #, kde-format
 msgid "The submodule %1 removed"
 msgstr "%1 altmodülü kaldırıldı"
 
-#: src/actions/tagsactions.cpp:23
+#: src/gui/actions/tagsactions.cpp:23
 #, kde-format
 msgid "New tag..."
 msgstr "Yeni Etiket..."
 
-#: src/actions/tagsactions.cpp:27 src/appwindow.cpp:154
+#: src/gui/actions/tagsactions.cpp:27 src/gui/appwindow.cpp:159
 #, kde-format
 msgid "Push..."
 msgstr "İt..."
 
-#: src/actions/tagsactions.cpp:47 src/dialogs/taginfodialog.cpp:13
+#: src/gui/actions/tagsactions.cpp:47 src/gui/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
 msgstr "Yeni Etiket"
 
-#: src/actions/tagsactions.cpp:56
+#: src/gui/actions/tagsactions.cpp:56
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
 msgstr "Seçili etiketi kaldırmak istediğinize emin misiniz?"
 
-#: src/actions/tagsactions.cpp:67
+#: src/gui/actions/tagsactions.cpp:67
 #, kde-format
 msgid "Are you sure to restore to the selected tag?"
 msgstr "Seçili etikete geri yüklemek istediğinize emin misiniz?"
 
-#: src/actions/tagsactions.cpp:67
+#: src/gui/actions/tagsactions.cpp:67
 #, kde-format
 msgid "Remove Tag"
 msgstr "Etiketi Kaldır"
 
-#: src/appwindow.cpp:69
+#: src/gui/appwindow.cpp:71
 #, kde-format
 msgid "No repo selected"
 msgstr "Seçili depo yok"
 
-#: src/appwindow.cpp:111
+#: src/gui/appwindow.cpp:113
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Geçerli dal: %1"
 
-#: src/appwindow.cpp:113
+#: src/gui/appwindow.cpp:115
 #, kde-format
 msgid " (merging)"
 msgstr " (birleştiriliyor)"
 
-#: src/appwindow.cpp:126
+#: src/gui/appwindow.cpp:128
 #, kde-format
 msgid "Open..."
 msgstr "Aç..."
 
-#: src/appwindow.cpp:131
+#: src/gui/appwindow.cpp:133
 #, kde-format
 msgid "Clone..."
 msgstr "Klonla..."
 
-#: src/appwindow.cpp:134
+#: src/gui/appwindow.cpp:136
 #, kde-format
 msgid "Changed files..."
 msgstr "Değiştirilen Dosyalar..."
 
-#: src/appwindow.cpp:140
+#: src/gui/appwindow.cpp:142
 #, kde-format
 msgid "Recent repos"
 msgstr "Son kullanılan depolar"
 
-#: src/appwindow.cpp:146
+#: src/gui/appwindow.cpp:148
+#, kde-format
+msgid "Cleanup..."
+msgstr ""
+
+#: src/gui/appwindow.cpp:151
 #, kde-format
 msgid "Pull..."
 msgstr "Çek..."
 
-#: src/appwindow.cpp:162
+#: src/gui/appwindow.cpp:167
 #, kde-format
 msgid "Diff branches..."
 msgstr "Dalları Diff'le..."
 
-#: src/appwindow.cpp:168
+#: src/gui/appwindow.cpp:173
 #, kde-format
 msgid "Repo settings..."
 msgstr "Depo Ayarları..."
 
-#: src/appwindow.cpp:171
+#: src/gui/appwindow.cpp:176
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Değiştir/Çıkış Yap..."
 
-#: src/appwindow.cpp:174
+#: src/gui/appwindow.cpp:179
 #, kde-format
 msgid "Diff tree"
 msgstr "Diff ağacı"
 
-#: src/appwindow.cpp:218 src/commandargsparser.cpp:215
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:217
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Yol oluşturulamıyor: %1"
 
-#: src/appwindow.cpp:218 src/commandargsparser.cpp:215
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:217
 #, kde-format
 msgid "Init repo"
 msgstr "Depo İlklendir"
 
-#: src/appwindow.cpp:228
+#: src/gui/appwindow.cpp:233
 #, kde-format
 msgid "Open repository"
 msgstr "Depo Aç"
 
-#: src/appwindow.cpp:319
+#: src/gui/appwindow.cpp:324
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Birleştirme sırasında dal değiştirilemiyor"
 
-#: src/appwindow.cpp:319
+#: src/gui/appwindow.cpp:324
 #, kde-format
 msgid "Switch branch"
 msgstr "Dal Değiştir"
 
-#: src/commandargsparser.cpp:50
+#: src/gui/commandargsparser.cpp:52
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Yol, bir git deposu değil: %1"
 
-#: src/commandargsparser.cpp:220
+#: src/gui/commandargsparser.cpp:222
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Depo, başarıyla ilklendirildi"
 
-#: src/commandargsparser.cpp:446
+#: src/gui/commandargsparser.cpp:461
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Dosya(lar), başarıyla git'e eklendi"
 
-#: src/commandargsparser.cpp:454
+#: src/gui/commandargsparser.cpp:469
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Dosya(lar)ı, diskte bırakmak ister misiniz?"
 
-#: src/commandargsparser.cpp:459
+#: src/gui/commandargsparser.cpp:474
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Dosya(lar), Git'ten başarıyla kaldırıldı"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus_2)
-#: src/commandpullwidget.ui:19
+#: src/gui/commandpullwidget.ui:19
 #, kde-format
 msgid "Status:"
 msgstr "Durum:"
@@ -525,60 +486,101 @@ msgstr "Durum:"
 #. i18n: ectx: property (text), widget (QLabel, labelFetchUrl)
 #. i18n: ectx: property (text), widget (QLabel, labelPushUrl)
 #. i18n: ectx: property (text), widget (QLabel, labelRemoteName)
-#: src/commandpullwidget.ui:26 src/dialogs/commitpushdialog.ui:78
-#: src/widgets/remoteswidget.ui:89 src/widgets/remoteswidget.ui:106
-#: src/widgets/remoteswidget.ui:123 src/widgets/remoteswidget.ui:140
+#: src/gui/commandpullwidget.ui:26 src/gui/dialogs/commitpushdialog.ui:78
+#: src/gui/widgets/remoteswidget.ui:89 src/gui/widgets/remoteswidget.ui:106
+#: src/gui/widgets/remoteswidget.ui:123 src/gui/widgets/remoteswidget.ui:140
 #, kde-format
 msgid "---"
 msgstr "---"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
-#: src/dialogs/changedfilesdialog.cpp:20 src/dialogs/commitpushdialog.ui:14
+#: src/gui/dialogs/changedfilesdialog.cpp:20
+#: src/gui/dialogs/commitpushdialog.ui:14
 #, kde-format
 msgid "Commit/Push"
 msgstr "İşle/İt"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
-#: src/dialogs/changedfilesdialog.ui:14 src/widgets/logdetailswidget.cpp:122
+#: src/gui/dialogs/changedfilesdialog.ui:14
+#: src/gui/widgets/logdetailswidget.cpp:116
 #, kde-format
 msgid "Changed files"
 msgstr "Değiştirilen dosyalar"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/changedfilesdialog.ui:20
+#: src/gui/dialogs/changedfilesdialog.ui:20
 #, kde-format
 msgid "Changed files:"
 msgstr "Değiştirilen dosyalar:"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
+#: src/gui/dialogs/cleanupdialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Search in repo"
+msgid "Cleanup repo"
+msgstr "Depoda Ara"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gui/dialogs/cleanupdialog.ui:23
+#, kde-format
+msgid "Clean type"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonNonIgnoredUntrackedFiles)
+#: src/gui/dialogs/cleanupdialog.ui:29
+#, kde-format
+msgid "Remove non-ignored untracked files"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllUntrackedFiles)
+#: src/gui/dialogs/cleanupdialog.ui:39
+#, kde-format
+msgid "Remove all untracked files"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
+#: src/gui/dialogs/cleanupdialog.ui:46
+#, fuzzy, kde-format
+#| msgid "Ignore file"
+msgid "Remove ignored files"
+msgstr "Dosyayı Yok Say"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
+#: src/gui/dialogs/cleanupdialog.ui:56
+#, fuzzy, kde-format
+#| msgid "Compare directories"
+msgid "Remove untracked directories"
+msgstr "Dizinleri Karşılaştır"
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloneDialog)
-#: src/dialogs/clonedialog.ui:14
+#: src/gui/dialogs/clonedialog.ui:14
 #, kde-format
 msgid "Clone a repository"
 msgstr "Bir Depo Klonla"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/clonedialog.ui:32 src/dialogs/submoduleinfodialog.ui:28
-#: src/widgets/remoteinfodialog.ui:35
+#: src/gui/dialogs/clonedialog.ui:32 src/gui/dialogs/submoduleinfodialog.ui:28
+#: src/gui/widgets/remoteinfodialog.ui:35
 #, kde-format
 msgid "Url:"
 msgstr "URL:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/clonedialog.ui:39 src/dialogs/initdialog.ui:26
-#: src/dialogs/submoduleinfodialog.ui:35
+#: src/gui/dialogs/clonedialog.ui:39 src/gui/dialogs/initdialog.ui:26
+#: src/gui/dialogs/submoduleinfodialog.ui:35
 #, kde-format
 msgid "Directory:"
 msgstr "Dizin:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRecursive)
-#: src/dialogs/clonedialog.ui:64
+#: src/gui/dialogs/clonedialog.ui:64
 #, kde-format
 msgid "Recursive"
 msgstr "Özyineli"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxDepth)
-#: src/dialogs/clonedialog.ui:71
+#: src/gui/dialogs/clonedialog.ui:71
 #, kde-format
 msgid "Depth"
 msgstr "Derinlik"
@@ -586,50 +588,63 @@ msgstr "Derinlik"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxBranch)
-#: src/dialogs/clonedialog.ui:91 src/dialogs/commitpushdialog.ui:34
-#: src/dialogs/fetchdialog.ui:75 src/dialogs/pulldialog.ui:36
-#: src/dialogs/searchdialog.cpp:33 src/dialogs/submoduleinfodialog.ui:70
+#: src/gui/dialogs/clonedialog.ui:91 src/gui/dialogs/commitpushdialog.ui:34
+#: src/gui/dialogs/fetchdialog.ui:75 src/gui/dialogs/pulldialog.ui:36
+#: src/gui/dialogs/searchdialog.cpp:33
+#: src/gui/dialogs/submoduleinfodialog.ui:70
 #, kde-format
 msgid "Branch"
 msgstr "Dal"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxOriginName)
-#: src/dialogs/clonedialog.ui:105
+#: src/gui/dialogs/clonedialog.ui:105
 #, kde-format
 msgid "Origin name"
 msgstr "Köken adı"
 
-#: src/dialogs/commitpushdialog.cpp:77 src/dialogs/commitpushdialog.cpp:221
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
+#: src/gui/dialogs/commitpushdialog.cpp:73
+#: src/gui/dialogs/commitpushdialog.cpp:224
+#: src/gui/dialogs/commitpushdialog.ui:266 src/gui/widgets/tagswidget.ui:70
+#, kde-format
+msgid "Push"
+msgstr "İt"
+
+#: src/gui/dialogs/commitpushdialog.cpp:75
+#: src/gui/dialogs/commitpushdialog.cpp:224
 #, kde-format
 msgid "Commit and push"
 msgstr "İşle ve İt"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
-#: src/dialogs/commitpushdialog.ui:22
+#: src/gui/dialogs/commitpushdialog.ui:22
 #, kde-format
 msgid "Remote:"
 msgstr "Uzak konum:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCurrentBranch)
-#: src/dialogs/commitpushdialog.ui:40
+#: src/gui/dialogs/commitpushdialog.ui:40
 #, kde-format
 msgid "Current branch"
 msgstr "Geçerli dal"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExistingBranch)
-#: src/dialogs/commitpushdialog.ui:50 src/dialogs/switchbranchdialog.ui:26
+#: src/gui/dialogs/commitpushdialog.ui:50
+#: src/gui/dialogs/switchbranchdialog.ui:26
 #, kde-format
 msgid "Existing branch"
 msgstr "Var olan dal"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNewBranch)
-#: src/dialogs/commitpushdialog.ui:64 src/dialogs/switchbranchdialog.ui:39
+#: src/gui/dialogs/commitpushdialog.ui:64
+#: src/gui/dialogs/switchbranchdialog.ui:39
 #, kde-format
 msgid "New branch"
 msgstr "Yeni dal"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxForce)
-#: src/dialogs/commitpushdialog.ui:88
+#: src/gui/dialogs/commitpushdialog.ui:88
 #, kde-format
 msgid ""
 "<html><head/><body><p>Usually, the command refuses to update a remote ref "
@@ -652,20 +667,21 @@ msgstr ""
 "span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
-#: src/dialogs/commitpushdialog.ui:91 src/dialogs/submoduleinfodialog.ui:63
-#: src/dialogs/switchbranchdialog.ui:75
+#: src/gui/dialogs/commitpushdialog.ui:91
+#: src/gui/dialogs/submoduleinfodialog.ui:63
+#: src/gui/dialogs/switchbranchdialog.ui:75
 #, kde-format
 msgid "Force"
 msgstr "Zorla"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxMakeCommit)
-#: src/dialogs/commitpushdialog.ui:98
+#: src/gui/dialogs/commitpushdialog.ui:98
 #, kde-format
 msgid "Create a commit"
 msgstr "Bir İşleme Oluştur"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIncludeStatus)
-#: src/dialogs/commitpushdialog.ui:107
+#: src/gui/dialogs/commitpushdialog.ui:107
 #, kde-format
 msgid ""
 "<html><head/><body><p>Include the output of &quot;git status&quot; in the "
@@ -681,13 +697,13 @@ msgstr ""
 "#2980b9;\">Daha Fazla Bilgi...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
-#: src/dialogs/commitpushdialog.ui:110
+#: src/gui/dialogs/commitpushdialog.ui:110
 #, kde-format
 msgid "Include status to the message"
 msgstr "Durumu İletide İçer"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAmend)
-#: src/dialogs/commitpushdialog.ui:117
+#: src/gui/dialogs/commitpushdialog.ui:120
 #, kde-format
 msgid ""
 "<html><head/><body><p>Replace the tip of the current branch by creating a "
@@ -703,20 +719,20 @@ msgstr ""
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAmend)
-#: src/dialogs/commitpushdialog.ui:120
+#: src/gui/dialogs/commitpushdialog.ui:123
 #, kde-format
 msgid "Amend to previous commit"
 msgstr "Bir Önceki İşlemeyi Değiştir"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/commitpushdialog.ui:146 src/dialogs/taginfodialog.ui:32
+#: src/gui/dialogs/commitpushdialog.ui:149 src/gui/dialogs/taginfodialog.ui:32
 #, kde-format
 msgid "Message:"
 msgstr "İleti:"
 
 #. i18n: ectx: property (whatsThis), widget (CompletionTextEdit, textEditMessage)
-#: src/dialogs/commitpushdialog.ui:156
+#: src/gui/dialogs/commitpushdialog.ui:159
 #, kde-format
 msgid ""
 "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
@@ -730,51 +746,51 @@ msgstr ""
 "\">Daha Fazla Bilgi...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/commitpushdialog.ui:169
+#: src/gui/dialogs/commitpushdialog.ui:172
 #, kde-format
 msgid "Files:"
 msgstr "Dosyalar:"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
-#: src/dialogs/commitpushdialog.ui:189
+#: src/gui/dialogs/commitpushdialog.ui:192
 #, kde-format
 msgid "All"
 msgstr "Tümü"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddIndexed)
-#: src/dialogs/commitpushdialog.ui:199
+#: src/gui/dialogs/commitpushdialog.ui:202
 #, kde-format
 msgid "Indexed"
 msgstr "İndekslenmiş"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddNone)
-#: src/dialogs/commitpushdialog.ui:209
+#: src/gui/dialogs/commitpushdialog.ui:212
 #, kde-format
 msgid "None"
 msgstr "Hiçbiri"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#: src/dialogs/commitpushdialog.ui:253 src/dialogs/searchdialog.cpp:34
+#: src/gui/dialogs/commitpushdialog.ui:256 src/gui/dialogs/searchdialog.cpp:34
 #, kde-format
 msgid "Commit"
 msgstr "İşle"
 
-#: src/dialogs/diffopendialog.cpp:78
+#: src/gui/dialogs/diffopendialog.cpp:78
 #, kde-format
 msgid "Select new file"
 msgstr "Yeni Dosyayı Seç"
 
-#: src/dialogs/diffopendialog.cpp:85
+#: src/gui/dialogs/diffopendialog.cpp:85
 #, kde-format
 msgid "Select old file"
 msgstr "Eski Dosyayı Seç"
 
-#: src/dialogs/diffopendialog.cpp:92
+#: src/gui/dialogs/diffopendialog.cpp:92
 #, kde-format
 msgid "Select new directory"
 msgstr "Yeni Dizini Seç"
 
-#: src/dialogs/diffopendialog.cpp:99
+#: src/gui/dialogs/diffopendialog.cpp:99
 #, kde-format
 msgid "Select old directory"
 msgstr "Eski Dizini Seç"
@@ -784,27 +800,27 @@ msgstr "Eski Dizini Seç"
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
-#: src/dialogs/diffopendialog.ui:14 src/dialogs/fileblamedialog.ui:14
-#: src/dialogs/filehistorydialog.ui:14 src/dialogs/filestreedialog.ui:14
-#: src/dialogs/taginfodialog.ui:14
+#: src/gui/dialogs/diffopendialog.ui:14 src/gui/dialogs/fileblamedialog.ui:14
+#: src/gui/dialogs/filehistorydialog.ui:14
+#: src/gui/dialogs/filestreedialog.ui:14 src/gui/dialogs/taginfodialog.ui:14
 #, kde-format
 msgid "Dialog"
 msgstr "İletişim Kutusu"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
-#: src/dialogs/diffopendialog.ui:20
+#: src/gui/dialogs/diffopendialog.ui:20
 #, kde-format
 msgid "Compare files"
 msgstr "Dosyaları Karşılaştır"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFolders)
-#: src/dialogs/diffopendialog.ui:27
+#: src/gui/dialogs/diffopendialog.ui:27
 #, kde-format
 msgid "Compare directories"
 msgstr "Dizinleri Karşılaştır"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/diffopendialog.ui:40
+#: src/gui/dialogs/diffopendialog.ui:40
 #, kde-format
 msgid "Old file:"
 msgstr "Eski dosya:"
@@ -817,72 +833,72 @@ msgstr "Eski dosya:"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseOldDirectory)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseNewDirectory)
 #. i18n: ectx: property (text), widget (QToolButton, toolButton)
-#: src/dialogs/diffopendialog.ui:50 src/dialogs/diffopendialog.ui:67
-#: src/dialogs/diffopendialog.ui:93 src/dialogs/diffopendialog.ui:110
-#: src/dialogs/mergeopenfilesdialog.ui:37
-#: src/dialogs/mergeopenfilesdialog.ui:58
-#: src/dialogs/mergeopenfilesdialog.ui:79 src/merge/openfilesdialog.ui:34
-#: src/merge/openfilesdialog.ui:55 src/merge/openfilesdialog.ui:76
-#: src/settings/settingspagebase.ui:63
+#: src/gui/dialogs/diffopendialog.ui:50 src/gui/dialogs/diffopendialog.ui:67
+#: src/gui/dialogs/diffopendialog.ui:93 src/gui/dialogs/diffopendialog.ui:110
+#: src/gui/dialogs/mergeopenfilesdialog.ui:37
+#: src/gui/dialogs/mergeopenfilesdialog.ui:58
+#: src/gui/dialogs/mergeopenfilesdialog.ui:79
+#: src/gui/merge/openfilesdialog.ui:34 src/gui/merge/openfilesdialog.ui:55
+#: src/gui/merge/openfilesdialog.ui:76 src/gui/settings/settingspagebase.ui:63
 #, kde-format
 msgid "..."
 msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/diffopendialog.ui:57
+#: src/gui/dialogs/diffopendialog.ui:57
 #, kde-format
 msgid "New file:"
 msgstr "Yeni dosya:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/dialogs/diffopendialog.ui:83
+#: src/gui/dialogs/diffopendialog.ui:83
 #, kde-format
 msgid "Old directory:"
 msgstr "Eski dizin:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/dialogs/diffopendialog.ui:100
+#: src/gui/dialogs/diffopendialog.ui:100
 #, kde-format
 msgid "New directory:"
 msgstr "Yeni dizin:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
-#: src/dialogs/fetchdialog.ui:14
+#: src/gui/dialogs/fetchdialog.ui:14
 #, kde-format
 msgid "Fetch from origin"
 msgstr "Kökenden Getir"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/fetchdialog.ui:31 src/dialogs/pulldialog.ui:20
-#: src/dialogs/pulldialog.ui:26
+#: src/gui/dialogs/fetchdialog.ui:31 src/gui/dialogs/pulldialog.ui:20
+#: src/gui/dialogs/pulldialog.ui:26
 #, kde-format
 msgid "Remote"
 msgstr "Uzak Konum"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllBranches)
-#: src/dialogs/fetchdialog.ui:43
+#: src/gui/dialogs/fetchdialog.ui:43
 #, kde-format
 msgid "All branches"
 msgstr "Tüm dallar"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/dialogs/fetchdialog.ui:88 src/dialogs/pulldialog.ui:49
-#: src/dialogs/switchbranchdialog.ui:69
+#: src/gui/dialogs/fetchdialog.ui:88 src/gui/dialogs/pulldialog.ui:49
+#: src/gui/dialogs/switchbranchdialog.ui:69
 #, kde-format
 msgid "Options"
 msgstr "Seçenekler"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoFastForward)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
-#: src/dialogs/fetchdialog.ui:94 src/dialogs/mergedialog.ui:86
-#: src/dialogs/pulldialog.ui:64
+#: src/gui/dialogs/fetchdialog.ui:94 src/gui/dialogs/mergedialog.ui:86
+#: src/gui/dialogs/pulldialog.ui:64
 #, kde-format
 msgid "No fast forward"
 msgstr "İleri sarım yok"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
-#: src/dialogs/fetchdialog.ui:101 src/dialogs/pulldialog.ui:102
+#: src/gui/dialogs/fetchdialog.ui:101 src/gui/dialogs/pulldialog.ui:102
 #, kde-format
 msgid "No commit"
 msgstr "İşleme yok"
@@ -890,214 +906,234 @@ msgstr "İşleme yok"
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTags)
 #. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
-#: src/dialogs/fetchdialog.ui:108 src/dialogs/pulldialog.ui:71
-#: src/mainwidget.ui:263 src/widgets/remoteinfodialog.ui:54
-#: src/widgets/tagswidget.ui:14
+#: src/gui/dialogs/fetchdialog.ui:108 src/gui/dialogs/pulldialog.ui:71
+#: src/gui/mainwidget.ui:263 src/gui/widgets/remoteinfodialog.ui:54
+#: src/gui/widgets/tagswidget.ui:14
 #, kde-format
 msgid "Tags"
 msgstr "Etiketler"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
-#: src/dialogs/fetchdialog.ui:115 src/dialogs/mergedialog.ui:81
-#: src/dialogs/pulldialog.ui:109
+#: src/gui/dialogs/fetchdialog.ui:115 src/gui/dialogs/mergedialog.ui:81
+#: src/gui/dialogs/pulldialog.ui:109
 #, kde-format
 msgid "Fast forward only"
 msgstr "Yalnızca ileri sarım"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
-#: src/dialogs/fetchdialog.ui:122 src/dialogs/pulldialog.ui:78
+#: src/gui/dialogs/fetchdialog.ui:122 src/gui/dialogs/pulldialog.ui:78
 #, kde-format
 msgid "Prune"
 msgstr "Buda"
 
-#: src/dialogs/fileblamedialog.cpp:25 src/dialogs/fileblamedialog.cpp:41
+#: src/gui/dialogs/fileblamedialog.cpp:24
+#: src/gui/dialogs/fileblamedialog.cpp:39
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
 msgstr "Dosyayı suçla: %1"
 
-#: src/dialogs/filehistorydialog.cpp:41 src/dialogs/filehistorydialog.cpp:64
+#: src/gui/dialogs/filehistorydialog.cpp:41
+#: src/gui/dialogs/filehistorydialog.cpp:64
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
 msgstr "Dosya günlüğü: %1"
 
-#: src/dialogs/filestreedialog.cpp:33
+#: src/gui/dialogs/filestreedialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
 msgstr "Dosyalara göz at: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/filestreedialog.ui:31
+#: src/gui/dialogs/filestreedialog.ui:31
 #, kde-format
 msgid "Branch:"
 msgstr "Dal:"
 
-#: src/dialogs/fileviewerdialog.cpp:61
+#: src/gui/dialogs/fileviewerdialog.cpp:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Önizleme kapatılıyor"
 
-#: src/dialogs/fileviewerdialog.cpp:62
+#: src/gui/dialogs/fileviewerdialog.cpp:62
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Önizleme kapatılırken lütfen bekleyin..."
 
-#: src/dialogs/fileviewerdialog.cpp:95
+#: src/gui/dialogs/fileviewerdialog.cpp:95
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
 msgstr "Dosyayı görüntüle: %1"
 
 #. i18n: ectx: property (windowTitle), widget (QMainWindow, FileViewerDialog)
-#: src/dialogs/fileviewerdialog.ui:14
+#: src/gui/dialogs/fileviewerdialog.ui:14
 #, kde-format
 msgid "MainWindow"
 msgstr "AnaPencere"
 
-#: src/dialogs/ignorefiledialog.cpp:44
+#: src/gui/dialogs/ignorefiledialog.cpp:44
 #, kde-format
 msgid "The file is ignored already"
 msgstr "Dosya zaten yok sayılıyor"
 
-#: src/dialogs/ignorefiledialog.cpp:80
+#: src/gui/dialogs/ignorefiledialog.cpp:80
 #, kde-format
 msgid "Please enter the pattern"
 msgstr "Lütfen dizgiyi girin"
 
-#: src/dialogs/ignorefiledialog.cpp:85
+#: src/gui/dialogs/ignorefiledialog.cpp:85
 #, kde-format
 msgid "Unable to open file: %1"
 msgstr "Dosya açılamıyor: %1"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
+#: src/gui/dialogs/ignorefiledialog.ui:14
+#: src/gui/dialogs/ignorefiledialog.ui:96
+#, kde-format
+msgid "Ignore file"
+msgstr "Dosyayı Yok Say"
+
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/ignorefiledialog.ui:25
+#: src/gui/dialogs/ignorefiledialog.ui:25
 #, kde-format
 msgid "Pattern:"
 msgstr "Dizgi:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/dialogs/ignorefiledialog.ui:37
+#: src/gui/dialogs/ignorefiledialog.ui:37 src/gui/models/treemodel.cpp:141
+#: src/gui/widgets/remoteswidget.ui:161
 #: src/libgitklient/models/authorsmodel.cpp:37
 #: src/libgitklient/models/branchesmodel.cpp:56
-#: src/libgitklient/models/tagsmodel.cpp:61 src/models/treemodel.cpp:141
-#: src/widgets/remoteswidget.ui:161
+#: src/libgitklient/models/tagsmodel.cpp:61
 #, kde-format
 msgid "Name"
 msgstr "Ad"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNameAndExt)
-#: src/dialogs/ignorefiledialog.ui:43
+#: src/gui/dialogs/ignorefiledialog.ui:43
 #, kde-format
 msgid "Name and extension"
 msgstr "Ad ve uzantı"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExt)
-#: src/dialogs/ignorefiledialog.ui:53
+#: src/gui/dialogs/ignorefiledialog.ui:53
 #, kde-format
 msgid "All files by this extension"
 msgstr "Bu uzantıya iye tüm dosyalar"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonName)
-#: src/dialogs/ignorefiledialog.ui:60
+#: src/gui/dialogs/ignorefiledialog.ui:60
 #, kde-format
 msgid "All files by this name"
 msgstr "Bu ada iye tüm dosyalar"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
-#: src/dialogs/ignorefiledialog.ui:70
+#: src/gui/dialogs/ignorefiledialog.ui:70
 #: src/libgitklient/models/submodulesmodel.cpp:55
 #, kde-format
 msgid "Path"
 msgstr "Yol"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExactPath)
-#: src/dialogs/ignorefiledialog.ui:76
+#: src/gui/dialogs/ignorefiledialog.ui:76
 #, kde-format
 msgid "Exact the path"
 msgstr "Yolu Kesinleştir"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonEveryWhere)
-#: src/dialogs/ignorefiledialog.ui:86
+#: src/gui/dialogs/ignorefiledialog.ui:86
 #, kde-format
 msgid "File in everywhere"
 msgstr "Her yerdeki dosya"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRootIgnoreFile)
-#: src/dialogs/ignorefiledialog.ui:102
+#: src/gui/dialogs/ignorefiledialog.ui:102
 #, kde-format
 msgid ".gitignore in the repository root"
 msgstr "Depo kökündeki .gitignore"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDirIgnoreFile)
-#: src/dialogs/ignorefiledialog.ui:112
+#: src/gui/dialogs/ignorefiledialog.ui:112
 #, kde-format
 msgid ".gitignore in the containing directory"
 msgstr "İçeren dizindeki .gitignore"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExcludeFile)
-#: src/dialogs/ignorefiledialog.ui:119
+#: src/gui/dialogs/ignorefiledialog.ui:119
 #, kde-format
 msgid ".git/info/exclude"
 msgstr ".git/info/exclude"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, InitDialog)
-#: src/dialogs/initdialog.ui:14
+#: src/gui/dialogs/initdialog.ui:14
 #, kde-format
 msgid "Init git repo"
 msgstr "Git Deposunu İlklendir"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
-#: src/dialogs/mergecloseeventdialog.ui:14 src/dialogs/runnerdialog.cpp:94
-#: src/merge/closeeventdialog.ui:14
+#: src/gui/dialogs/mergecloseeventdialog.ui:14
+#: src/gui/dialogs/runnerdialog.cpp:94 src/gui/merge/closeeventdialog.ui:14
 #, kde-format
 msgid "Close"
 msgstr "Kapat"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/mergecloseeventdialog.ui:20 src/merge/closeeventdialog.ui:20
+#: src/gui/dialogs/mergecloseeventdialog.ui:20
+#: src/gui/merge/closeeventdialog.ui:20
 #, kde-format
 msgid "The changes to file are not saved to the disk. What you want to do?"
 msgstr ""
 "Dosyaya yapılan değişiklikler diske kaydedilmedi. Ne yapmak istiyorsunuz?"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonMarkResolved)
-#: src/dialogs/mergecloseeventdialog.ui:49 src/merge/closeeventdialog.ui:49
+#: src/gui/dialogs/mergecloseeventdialog.ui:49
+#: src/gui/merge/closeeventdialog.ui:49
 #, kde-format
 msgid "Mark as resolved"
 msgstr "Çözüldü Olarak İmle"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonLeaveAsIs)
-#: src/dialogs/mergecloseeventdialog.ui:62 src/merge/closeeventdialog.ui:62
+#: src/gui/dialogs/mergecloseeventdialog.ui:62
+#: src/gui/merge/closeeventdialog.ui:62
 #, kde-format
 msgid "Leave as is"
 msgstr "Olduğu Gibi Bırak"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonDontExit)
-#: src/dialogs/mergecloseeventdialog.ui:75 src/merge/closeeventdialog.ui:75
+#: src/gui/dialogs/mergecloseeventdialog.ui:75
+#: src/gui/merge/closeeventdialog.ui:75
 #, kde-format
 msgid "Don't exit"
 msgstr "Çıkma"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
+#: src/gui/dialogs/mergedialog.ui:14
+#, kde-format
+msgid "Merge"
+msgstr "Birleştir"
+
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/mergedialog.ui:22
+#: src/gui/dialogs/mergedialog.ui:22
 #, kde-format
 msgid "From:"
 msgstr "Nereden:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/mergedialog.ui:32
+#: src/gui/dialogs/mergedialog.ui:32
 #, kde-format
 msgid "Strategy:"
 msgstr "Strateji:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxStrategy)
-#: src/dialogs/mergedialog.ui:39
+#: src/gui/dialogs/mergedialog.ui:39
 #, kde-format
 msgid ""
 "<html><head/><body><p>The merge mechanism (git merge and git pull commands) "
@@ -1117,25 +1153,25 @@ msgstr ""
 "p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/dialogs/mergedialog.ui:46
+#: src/gui/dialogs/mergedialog.ui:46
 #, kde-format
 msgid "To:"
 msgstr "Nereye:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
-#: src/dialogs/mergedialog.ui:53
+#: src/gui/dialogs/mergedialog.ui:53
 #, kde-format
 msgid "-"
 msgstr "-"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/dialogs/mergedialog.ui:60
+#: src/gui/dialogs/mergedialog.ui:60
 #, kde-format
 msgid "Fast forward:"
 msgstr "İleri sar:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFastForward)
-#: src/dialogs/mergedialog.ui:67
+#: src/gui/dialogs/mergedialog.ui:67
 #, kde-format
 msgid ""
 "<html><head/><body><p>Specifies how a merge is handled when the merged-in "
@@ -1152,19 +1188,19 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
-#: src/dialogs/mergedialog.ui:71 src/dialogs/mergedialog.ui:130
+#: src/gui/dialogs/mergedialog.ui:71 src/gui/dialogs/mergedialog.ui:130
 #, kde-format
 msgid "Default"
 msgstr "Öntanımlı"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
-#: src/dialogs/mergedialog.ui:76
+#: src/gui/dialogs/mergedialog.ui:76
 #, kde-format
 msgid "Allow fast forward"
 msgstr "İleri Sarıma İzin Ver"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
-#: src/dialogs/mergedialog.ui:94
+#: src/gui/dialogs/mergedialog.ui:94
 #, kde-format
 msgid ""
 "<html><head/><body><p>By default, git merge command refuses to merge "
@@ -1187,13 +1223,13 @@ msgstr ""
 "Fazla Bilgi...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
-#: src/dialogs/mergedialog.ui:97
+#: src/gui/dialogs/mergedialog.ui:97
 #, kde-format
 msgid "Allow unrelated histories"
 msgstr "İlgisiz Geçmişlere İzin Ver"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxSquash)
-#: src/dialogs/mergedialog.ui:107
+#: src/gui/dialogs/mergedialog.ui:107
 #, kde-format
 msgid ""
 "<html><head/><body><p>Produce the working tree and index state as if a real "
@@ -1217,19 +1253,19 @@ msgstr ""
 "underline; color:#007af4;\">Daha Fazla Bilgi...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
-#: src/dialogs/mergedialog.ui:110 src/dialogs/pulldialog.ui:57
+#: src/gui/dialogs/mergedialog.ui:110 src/gui/dialogs/pulldialog.ui:57
 #, kde-format
 msgid "Squash"
 msgstr "Tıkıştır"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonOurs)
-#: src/dialogs/mergedialog.ui:140
+#: src/gui/dialogs/mergedialog.ui:140
 #, kde-format
 msgid "Ours"
 msgstr "Bizimki"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTheirs)
-#: src/dialogs/mergedialog.ui:147
+#: src/gui/dialogs/mergedialog.ui:147
 #, kde-format
 msgid "Theirs"
 msgstr "Onlarınki"
@@ -1238,8 +1274,8 @@ msgstr "Onlarınki"
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreAllSpace)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreCrAtEol)
-#: src/dialogs/mergedialog.ui:154 src/dialogs/mergedialog.ui:164
-#: src/dialogs/mergedialog.ui:174 src/dialogs/mergedialog.ui:184
+#: src/gui/dialogs/mergedialog.ui:154 src/gui/dialogs/mergedialog.ui:164
+#: src/gui/dialogs/mergedialog.ui:174 src/gui/dialogs/mergedialog.ui:184
 #, kde-format
 msgid ""
 "<html><head/><body><p>Treats lines with the indicated type of whitespace "
@@ -1257,31 +1293,31 @@ msgstr ""
 "Bilgi</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
-#: src/dialogs/mergedialog.ui:157
+#: src/gui/dialogs/mergedialog.ui:157
 #, kde-format
 msgid "Ignore space change"
 msgstr "Boşluk değişikliklerini yok say"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreAllSpace)
-#: src/dialogs/mergedialog.ui:167
+#: src/gui/dialogs/mergedialog.ui:167
 #, kde-format
 msgid "Ignore all space"
 msgstr "Tüm Boşlukları Yok Say"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
-#: src/dialogs/mergedialog.ui:177
+#: src/gui/dialogs/mergedialog.ui:177
 #, kde-format
 msgid "Ignore space at eol"
 msgstr "Satır sonunda boşluğu yok say"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreCrAtEol)
-#: src/dialogs/mergedialog.ui:187
+#: src/gui/dialogs/mergedialog.ui:187
 #, kde-format
 msgid "Ignore cr at eol"
 msgstr "Satır sonunda satır başını yok say"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxRenormalize)
-#: src/dialogs/mergedialog.ui:194
+#: src/gui/dialogs/mergedialog.ui:194
 #, kde-format
 msgid ""
 "<html><head/><body><p>This runs a virtual check-out and check-in of all "
@@ -1301,19 +1337,19 @@ msgstr ""
 "Bilgi</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
-#: src/dialogs/mergedialog.ui:197
+#: src/gui/dialogs/mergedialog.ui:197
 #, kde-format
 msgid "Renormalize"
 msgstr "Yeniden olağanlaştır"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: src/dialogs/mergedialog.ui:211
+#: src/gui/dialogs/mergedialog.ui:211
 #, kde-format
 msgid "Diff algorithm:"
 msgstr "Diff algoritması:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxDiffAlgoritm)
-#: src/dialogs/mergedialog.ui:218
+#: src/gui/dialogs/mergedialog.ui:218
 #, kde-format
 msgid ""
 "<html><head/><body><p>Use a different diff algorithm while merging, which "
@@ -1332,308 +1368,773 @@ msgstr ""
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
-#: src/dialogs/mergedialog.ui:225
+#: src/gui/dialogs/mergedialog.ui:225
 #, kde-format
 msgid "Turn off rename detection"
 msgstr "Yeniden Adlandırma Algılamasını Kapat"
 
-#: src/dialogs/mergeopenfilesdialog.cpp:52 src/merge/openfilesdialog.cpp:49
+#: src/gui/dialogs/mergeopenfilesdialog.cpp:52
+#: src/gui/merge/openfilesdialog.cpp:49
 #, kde-format
 msgid "Select local file"
 msgstr "Yerel Dosyayı Seç"
 
-#: src/dialogs/mergeopenfilesdialog.cpp:59 src/merge/openfilesdialog.cpp:56
+#: src/gui/dialogs/mergeopenfilesdialog.cpp:59
+#: src/gui/merge/openfilesdialog.cpp:56
 #, kde-format
 msgid "Select remote file"
 msgstr "Uzak Dosyayı Seç"
 
-#: src/dialogs/mergeopenfilesdialog.cpp:66 src/merge/openfilesdialog.cpp:63
+#: src/gui/dialogs/mergeopenfilesdialog.cpp:66
+#: src/gui/merge/openfilesdialog.cpp:63
 #, kde-format
 msgid "Select base file"
 msgstr "Taban Dosyayı Seç"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, OpenFilesDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeOpenFilesDialog)
-#: src/dialogs/mergeopenfilesdialog.ui:14 src/merge/openfilesdialog.ui:14
+#: src/gui/dialogs/mergeopenfilesdialog.ui:14
+#: src/gui/merge/openfilesdialog.ui:14
 #, kde-format
 msgid "Select files to merge"
 msgstr "Birleştirilecek dosyaları seçin"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/mergeopenfilesdialog.ui:25 src/merge/openfilesdialog.ui:22
+#: src/gui/dialogs/mergeopenfilesdialog.ui:25
+#: src/gui/merge/openfilesdialog.ui:22
 #, kde-format
 msgid "Local file:"
 msgstr "Yerel dosya:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/mergeopenfilesdialog.ui:46 src/merge/openfilesdialog.ui:43
+#: src/gui/dialogs/mergeopenfilesdialog.ui:46
+#: src/gui/merge/openfilesdialog.ui:43
 #, kde-format
 msgid "Remote file:"
 msgstr "Uzak dosya:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/dialogs/mergeopenfilesdialog.ui:67 src/merge/openfilesdialog.ui:64
+#: src/gui/dialogs/mergeopenfilesdialog.ui:67
+#: src/gui/merge/openfilesdialog.ui:64
 #, kde-format
 msgid "Base file:"
 msgstr "Taban dosya:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
-#: src/dialogs/notedialog.ui:14
+#: src/gui/dialogs/notedialog.ui:14
 #, kde-format
 msgid "Note"
 msgstr "Not"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PullDialog)
-#: src/dialogs/pulldialog.ui:14
+#: src/gui/dialogs/pulldialog.ui:14
 #, kde-format
 msgid "Pull changes"
 msgstr "Değişiklikleri Çek"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RepoSettingsDialog)
-#: src/dialogs/reposettingsdialog.ui:14
+#: src/gui/dialogs/reposettingsdialog.ui:14
 #, kde-format
 msgid "Repo settings"
 msgstr "Depo Ayarları"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: src/dialogs/reposettingsdialog.ui:26 src/widgets/remoteinfodialog.ui:25
-#: src/widgets/remoteswidget.ui:133
+#: src/gui/dialogs/reposettingsdialog.ui:26
+#: src/gui/widgets/remoteinfodialog.ui:25 src/gui/widgets/remoteswidget.ui:133
 #, kde-format
 msgid "Name:"
 msgstr "Ad:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/reposettingsdialog.ui:36
+#: src/gui/dialogs/reposettingsdialog.ui:36
 #, kde-format
 msgid "Email:"
 msgstr "E-posta:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAutoCrlf)
-#: src/dialogs/reposettingsdialog.ui:46
+#: src/gui/dialogs/reposettingsdialog.ui:46
 #, kde-format
 msgid "Auto crlf"
 msgstr "Otomatik CRLF"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAutoFileMode)
-#: src/dialogs/reposettingsdialog.ui:53
+#: src/gui/dialogs/reposettingsdialog.ui:53
 #, kde-format
 msgid "Auto file mode"
 msgstr "Otomatik dosya kipi"
 
-#: src/dialogs/runnerdialog.cpp:48
+#: src/gui/dialogs/runnerdialog.cpp:48
 #, kde-format
 msgid "View"
 msgstr "Görüntüle"
 
-#: src/dialogs/runnerdialog.cpp:97
+#: src/gui/dialogs/runnerdialog.cpp:97
 #, kde-format
 msgid "The git process crashed"
 msgstr "Git süreci çöktü"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
-#: src/dialogs/runnerdialog.ui:14
+#: src/gui/dialogs/runnerdialog.ui:14
 #, kde-format
 msgid "Run command"
 msgstr "Komut Çalıştır"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: src/dialogs/runnerdialog.ui:45
+#: src/gui/dialogs/runnerdialog.ui:45
 #, kde-format
 msgid "Output"
 msgstr "Çıktı"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButton)
-#: src/dialogs/runnerdialog.ui:86
+#: src/gui/dialogs/runnerdialog.ui:86
 #, kde-format
 msgid "Stop"
 msgstr "Durdur"
 
-#: src/dialogs/searchdialog.cpp:32
+#: src/gui/dialogs/searchdialog.cpp:32
 #, kde-format
 msgid "File name"
 msgstr "Dosya adı"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
-#: src/dialogs/searchdialog.ui:14
+#: src/gui/dialogs/searchdialog.ui:14
 #, kde-format
 msgid "Search in repo"
 msgstr "Depoda Ara"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/searchdialog.ui:25
+#: src/gui/dialogs/searchdialog.ui:25
 #, kde-format
 msgid "Path:"
 msgstr "Yol:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/dialogs/searchdialog.ui:35
+#: src/gui/dialogs/searchdialog.ui:35
 #, kde-format
 msgid "Text:"
 msgstr "Metin:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchBranches)
-#: src/dialogs/searchdialog.ui:45
+#: src/gui/dialogs/searchdialog.ui:45
 #, kde-format
 msgid "Search all branches"
 msgstr "Tüm Dalları Ara"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
-#: src/dialogs/searchdialog.ui:55
+#: src/gui/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
 msgstr "Tüm İşlemeleri Ara"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
-#: src/dialogs/searchdialog.ui:62
+#: src/gui/dialogs/searchdialog.ui:62
 #, kde-format
 msgid "Case sensitive"
 msgstr "BÜYÜK/küçük Harf Duyarlı"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonSearch)
-#: src/dialogs/searchdialog.ui:86
+#: src/gui/dialogs/searchdialog.ui:86
 #, kde-format
 msgid "Search"
 msgstr "Ara"
 
-#: src/dialogs/selectbranchestodiffdialog.cpp:41
+#: src/gui/dialogs/selectbranchestodiffdialog.cpp:41
 #, kde-format
 msgid "The selected branches must be different!"
 msgstr "Seçili dallar farklı olmalı!"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
-#: src/dialogs/selectbranchestodiffdialog.ui:14
+#: src/gui/dialogs/selectbranchestodiffdialog.ui:14
 #, kde-format
 msgid "Select branches"
 msgstr "Dalları seç"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/dialogs/selectbranchestodiffdialog.ui:26
+#: src/gui/dialogs/selectbranchestodiffdialog.ui:26
 #, kde-format
 msgid "Left"
 msgstr "Sol"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectLeftBranch)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
-#: src/dialogs/selectbranchestodiffdialog.ui:32
-#: src/dialogs/selectbranchestodiffdialog.ui:61
+#: src/gui/dialogs/selectbranchestodiffdialog.ui:32
+#: src/gui/dialogs/selectbranchestodiffdialog.ui:61
 #, kde-format
 msgid "Select branch"
 msgstr "Dalı Seç"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLeftIsHead)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRightIsHead)
-#: src/dialogs/selectbranchestodiffdialog.ui:45
-#: src/dialogs/selectbranchestodiffdialog.ui:74
+#: src/gui/dialogs/selectbranchestodiffdialog.ui:45
+#: src/gui/dialogs/selectbranchestodiffdialog.ui:74
 #, kde-format
 msgid "HEAD"
 msgstr "HEAD"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/dialogs/selectbranchestodiffdialog.ui:55
+#: src/gui/dialogs/selectbranchestodiffdialog.ui:55
 #, kde-format
 msgid "Right"
 msgstr "Sağ"
 
-#: src/dialogs/submoduleinfodialog.cpp:87
+#: src/gui/dialogs/submoduleinfodialog.cpp:87
 #, kde-format
 msgid "Local path"
 msgstr "Yerel yol"
 
-#: src/dialogs/submoduleinfodialog.cpp:92
+#: src/gui/dialogs/submoduleinfodialog.cpp:92
 #, kde-format
 msgid "The selected path is outside of working dir"
 msgstr "Seçili yol, çalışma dizini dışında"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
-#: src/dialogs/submoduleinfodialog.ui:14 src/widgets/submoduleswidget.ui:46
+#: src/gui/dialogs/submoduleinfodialog.ui:14
+#: src/gui/widgets/submoduleswidget.ui:46
 #, kde-format
 msgid "Add new submodule"
 msgstr "Yeni Altmodül Ekle"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
-#: src/dialogs/switchbranchdialog.ui:14
+#: src/gui/dialogs/switchbranchdialog.ui:14
 #, kde-format
 msgid "Switch/Checkout"
 msgstr "Değiştir/Çıkış Yap"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
-#: src/dialogs/switchbranchdialog.ui:53
+#: src/gui/dialogs/switchbranchdialog.ui:53
 #, kde-format
 msgid "Tag"
 msgstr "Etiketle"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/dialogs/taginfodialog.ui:22
+#: src/gui/dialogs/taginfodialog.ui:22
 #, kde-format
 msgid "Tag name:"
 msgstr "Etiket adı:"
 
-#: src/diffwindow.cpp:112
+#: src/gui/diffwindow.cpp:112
 #, kde-format
 msgctxt "@title:window"
 msgid "GitKlient Diff[*]"
 msgstr "GitKlient Diff'i[*]"
 
-#: src/diffwindow.cpp:115
+#: src/gui/diffwindow.cpp:115
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Ağaç"
 
-#: src/diffwindow.cpp:139
+#: src/gui/diffwindow.cpp:139
 #, kde-format
 msgid "View hidden chars..."
 msgstr "Gizli Karakterleri Görüntüle..."
 
-#: src/diffwindow.cpp:144
+#: src/gui/diffwindow.cpp:144
 #, kde-format
 msgid "Same size blocks"
 msgstr "Aynı boyutlu bloklar"
 
-#: src/diffwindow.cpp:149
+#: src/gui/diffwindow.cpp:149
 #, kde-format
 msgid "Show files names"
 msgstr "Dosya Adlarını Göster"
 
-#: src/diffwindow.cpp:155
+#: src/gui/diffwindow.cpp:155
 #, kde-format
 msgid "Show Tree"
 msgstr "Ağacı Göster"
 
-#: src/diffwindow.cpp:214
+#: src/gui/diffwindow.cpp:214
 #, kde-format
 msgid "Unchanged"
 msgstr "Değiştirilmemiş"
 
-#: src/diffwindow.cpp:216
+#: src/gui/diffwindow.cpp:216
 #, kde-format
 msgid "Added"
 msgstr "Eklenmiş"
 
-#: src/diffwindow.cpp:218
+#: src/gui/diffwindow.cpp:218
 #, kde-format
 msgid "Removed"
 msgstr "Kaldırılmış"
 
-#: src/diffwindow.cpp:220
+#: src/gui/diffwindow.cpp:220
 #, kde-format
 msgid "Modified"
 msgstr "Değiştirilmiş"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/gitklientdiffui.rc:20 src/gitklientmergeui.rc:31 src/gitklientui.rc:44
+#: src/gui/gitklientdiffui.rc:20 src/gui/gitklientmergeui.rc:31
+#: src/gui/gitklientui.rc:45
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Ana Araç Çubuğu"
 
 #. i18n: ectx: Menu (file)
 #. i18n: ectx: Menu (repo)
-#: src/gitklientui.rc:10 src/gitklientui.rc:26
+#: src/gui/gitklientui.rc:10 src/gui/gitklientui.rc:26
 #, kde-format
 msgid "Repo"
 msgstr "Depo"
+
+#: src/gui/mainwidget.cpp:101
+#, kde-format
+msgid "Diff with master..."
+msgstr "Ana Dal ile Diff..."
+
+#: src/gui/mainwidget.cpp:159
+#, kde-format
+msgid "New tag"
+msgstr "Yeni Etiket"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, MainWidget)
+#: src/gui/mainwidget.ui:14
+#, kde-format
+msgid "Form"
+msgstr "Form"
+
+#. i18n: ectx: property (text), widget (QLabel, labelTitle)
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonOverview)
+#. i18n: ectx: property (windowTitle), widget (QWidget, HistoryViewWidget)
+#: src/gui/mainwidget.ui:89 src/gui/mainwidget.ui:337
+#: src/gui/multipagewidget.ui:131 src/gui/widgets/historyviewwidget.ui:14
+#, kde-format
+msgid "Overview"
+msgstr "Genel Görünüm"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonBranches)
+#. i18n: ectx: property (windowTitle), widget (QWidget, BranchesStatusWidget)
+#: src/gui/mainwidget.ui:118 src/gui/widgets/branchesstatuswidget.ui:14
+#, kde-format
+msgid "Branches"
+msgstr "Dallar"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonCommits)
+#. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
+#: src/gui/mainwidget.ui:147 src/gui/widgets/commitswidget.ui:14
+#, kde-format
+msgid "Commits"
+msgstr "İşlemeler"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonStashes)
+#. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
+#: src/gui/mainwidget.ui:176 src/gui/widgets/stasheswidget.ui:14
+#, kde-format
+msgid "Stashes"
+msgstr "Zulalar"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonSubmodules)
+#. i18n: ectx: property (windowTitle), widget (QWidget, SubmodulesWidget)
+#: src/gui/mainwidget.ui:205 src/gui/widgets/submoduleswidget.ui:14
+#, kde-format
+msgid "Submodules"
+msgstr "Altmodüller"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonRemotes)
+#. i18n: ectx: property (windowTitle), widget (QWidget, RemotesWidget)
+#: src/gui/mainwidget.ui:234 src/gui/widgets/remoteswidget.ui:14
+#, kde-format
+msgid "Remotes"
+msgstr "Uzak Konumlar"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
+#: src/gui/mainwidget.ui:474 src/gui/widgets/remoteswidget.ui:53
+#: src/gui/widgets/tagswidget.ui:49
+#, kde-format
+msgid "Add"
+msgstr "Ekle"
+
+#: src/gui/mergewindow.cpp:259
+#, kde-format
+msgid "Conflicts: %1"
+msgstr "Çakışmalar: %1"
+
+#: src/gui/mergewindow.cpp:270
+#, kde-format
+msgid "Keep mine"
+msgstr "Benimkini Tut"
+
+#: src/gui/mergewindow.cpp:275
+#, kde-format
+msgid "Keep their"
+msgstr "Onlarınkini Tut"
+
+#: src/gui/mergewindow.cpp:281
+#, kde-format
+msgid "Keep mine before their"
+msgstr "Benimkileri Onlarınkinden Önce Tut"
+
+#: src/gui/mergewindow.cpp:286
+#, kde-format
+msgid "Keep their before mine"
+msgstr "Onlarınkileri Benimkilerden Önce Tut"
+
+#: src/gui/mergewindow.cpp:291
+#, kde-format
+msgid "Keep my file"
+msgstr "Benim Dosyamı Tut"
+
+#: src/gui/mergewindow.cpp:296
+#, kde-format
+msgid "Keep their file"
+msgstr "Onların Dosyasını Tut"
+
+#: src/gui/mergewindow.cpp:301
+#, kde-format
+msgid "Blocks"
+msgstr "Bloklar"
+
+#: src/gui/mergewindow.cpp:305
+#, kde-format
+msgid "Files"
+msgstr "Dosyalar"
+
+#: src/gui/mergewindow.cpp:314
+#, kde-format
+msgid "Previous diff"
+msgstr "Önceki Dİff"
+
+#: src/gui/mergewindow.cpp:319
+#, kde-format
+msgid "Next diff"
+msgstr "Sonraki Diff"
+
+#: src/gui/mergewindow.cpp:398
+#, kde-format
+msgid "Unable to open the file"
+msgstr "Dosya açılamıyor"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/models/treemodel.cpp:143 src/gui/widgets/remoteswidget.ui:176
+#: src/libgitklient/models/submodulesmodel.cpp:59
+#, kde-format
+msgid "Status"
+msgstr "Durum"
+
+#. i18n: ectx: label, entry (diffAddedColor), group (Preferences)
+#: src/gui/settings/GitKlientSettings.kcfg:9
+#, kde-format
+msgid "Added color"
+msgstr "Eklenen renk"
+
+#. i18n: ectx: label, entry (diffRemovedColor), group (Preferences)
+#: src/gui/settings/GitKlientSettings.kcfg:13
+#, kde-format
+msgid "Removed color"
+msgstr "Kaldırılan renk"
+
+#. i18n: ectx: label, entry (diffModifiedColor), group (Preferences)
+#: src/gui/settings/GitKlientSettings.kcfg:17
+#, kde-format
+msgid "Modified color"
+msgstr "Değiştirilen renk"
+
+#. i18n: ectx: label, entry (colorForeground), group (Preferences)
+#: src/gui/settings/GitKlientSettings.kcfg:21
+#, kde-format
+msgid "color of the foreground"
+msgstr "Ön planın rengi"
+
+#. i18n: ectx: label, entry (gitBinPath), group (Preferences)
+#: src/gui/settings/GitKlientSettings.kcfg:26
+#, kde-format
+msgid "age of the project"
+msgstr "Projenin yaşı"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_openLastRepo)
+#. i18n: ectx: label, entry (openLastRepo), group (Preferences)
+#: src/gui/settings/GitKlientSettings.kcfg:31
+#: src/gui/settings/settingspagebase.ui:29
+#, kde-format
+msgid "Open last repo at startup"
+msgstr "Başlangıçta son depoyu aç"
+
+#: src/gui/settings/settingsmanager.cpp:94
+#, kde-format
+msgid "General"
+msgstr "Genel"
+
+#: src/gui/settings/settingsmanager.cpp:96
+#, kde-format
+msgid "Git"
+msgstr "Git"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gui/settings/settingspagebase.ui:23
+#, kde-format
+msgid "Startup"
+msgstr "Başlangıç"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDefaultCalendar)
+#: src/gui/settings/settingspagebase.ui:41
+#, kde-format
+msgid "Default calendar:"
+msgstr "Öntanımlı takvim:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/gui/settings/settingspagebase.ui:51
+#, kde-format
+msgid "Git binary path:"
+msgstr "Git ikilisi yolu:"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundLabel)
+#: src/gui/settings/settingspagediff.ui:17
+#, kde-format
+msgid "Added diff color:"
+msgstr "Eklenen diff rengi:"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundLabel_2)
+#: src/gui/settings/settingspagediff.ui:27
+#, kde-format
+msgid "Removed diff color:"
+msgstr "Kaldırılan diff rengi:"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundLabel_3)
+#: src/gui/settings/settingspagediff.ui:37
+#, kde-format
+msgid "Modified diff color:"
+msgstr "Değiştirilen diff rengi:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerDiffTool)
+#: src/gui/settings/settingspagegit.ui:19
+#, kde-format
+msgid "Register GitKlient diff tool"
+msgstr "GitKlient Diff Aracını Kaydet"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
+#: src/gui/settings/settingspagegit.ui:26
+#, kde-format
+msgid "Register GitKlient merge tool"
+msgstr "GitKlient Birleştirme Aracını Kaydet"
+
+#: src/gui/widgets/blamecodeview.cpp:43
+#, kde-format
+msgid "Uncommited"
+msgstr "İşlenmemiş"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/widgets/branchesstatuswidget.ui:26
+#, kde-format
+msgid "Reference branch:"
+msgstr "Başvuru dalı:"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonNew)
+#: src/gui/widgets/branchesstatuswidget.ui:76
+#, kde-format
+msgid "New"
+msgstr "Yeni"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
+#: src/gui/widgets/branchesstatuswidget.ui:90
+#, kde-format
+msgid "Checkout"
+msgstr "Çıkış Yap"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
+#: src/gui/widgets/branchesstatuswidget.ui:100
+#: src/gui/widgets/remoteswidget.ui:63
+#, kde-format
+msgid "Remove"
+msgstr "Kaldır"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
+#: src/gui/widgets/branchesstatuswidget.ui:110
+#, kde-format
+msgid "Browse"
+msgstr "Göz At"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
+#: src/gui/widgets/commitswidget.ui:39
+#, kde-format
+msgid "Filter..."
+msgstr "Süz..."
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
+#: src/gui/widgets/difftreeview.ui:17
+#, kde-format
+msgid "Type to filter"
+msgstr "Süzmek için yaz"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
+#: src/gui/widgets/difftreeview.ui:53
+#, kde-format
+msgid "Hide unchangeds"
+msgstr "Değiştirilmemişleri Gizle"
+
+#: src/gui/widgets/logdetailswidget.cpp:105
+#, kde-format
+msgid "Ref"
+msgstr "Başvuru"
+
+#: src/gui/widgets/logdetailswidget.cpp:106
+#, kde-format
+msgid "Committer"
+msgstr "İşleyen"
+
+#: src/gui/widgets/logdetailswidget.cpp:108
+#: src/libgitklient/models/logsmodel.cpp:251
+#, kde-format
+msgid "Date"
+msgstr "Tarih"
+
+#: src/gui/widgets/logdetailswidget.cpp:109
+#, kde-format
+msgid "Hash"
+msgstr "Sağlama"
+
+#: src/gui/widgets/logdetailswidget.cpp:112
+#, kde-format
+msgid "Parent"
+msgstr "Üst Öge"
+
+#: src/gui/widgets/logdetailswidget.cpp:112
+#, kde-format
+msgid "Parents"
+msgstr "Üst Ögeler"
+
+#: src/gui/widgets/logdetailswidget.cpp:114
+#, kde-format
+msgid "Child"
+msgstr "Alt Öge"
+
+#: src/gui/widgets/logdetailswidget.cpp:114
+#, kde-format
+msgid "Children"
+msgstr "Alt Ögeler"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteInfoDialog)
+#: src/gui/widgets/remoteinfodialog.ui:14
+#, kde-format
+msgid "New remote"
+msgstr "Yeni Uzak Konum"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxMirror)
+#: src/gui/widgets/remoteinfodialog.ui:47
+#, kde-format
+msgid "Mirror"
+msgstr "Yansıla"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
+#: src/gui/widgets/remoteinfodialog.ui:64
+#, kde-format
+msgid "Fetch"
+msgstr "Getir"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gui/widgets/remoteswidget.ui:76
+#, kde-format
+msgid "Information"
+msgstr "Bilgi"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/widgets/remoteswidget.ui:82
+#, kde-format
+msgid "Default branch:"
+msgstr "Öntanımlı dal:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/gui/widgets/remoteswidget.ui:99
+#, kde-format
+msgid "Fetch url:"
+msgstr "Getirme URL'si:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/gui/widgets/remoteswidget.ui:116
+#, kde-format
+msgid "Push url:"
+msgstr "İtme URL'si:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/gui/widgets/remoteswidget.ui:153
+#, kde-format
+msgid "Branches:"
+msgstr "Dallar:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/widgets/remoteswidget.ui:166
+#, kde-format
+msgid "Push to"
+msgstr "Şuraya İt"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/widgets/remoteswidget.ui:171
+#, kde-format
+msgid "Pull from"
+msgstr "Şuradan Çek"
+
+#. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
+#. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
+#: src/gui/widgets/stasheswidget.ui:49 src/gui/widgets/submoduleswidget.ui:53
+#, kde-format
+msgid ""
+"<html><head/><body><p>Save your local modifications to a new stash entry and "
+"roll them back to HEAD (in the working tree and in the index). The part is "
+"optional and gives the description along with the stashed state.</p><p><br/"
+"></p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
+"txt-push-p--patch-k--no-keep-index-u--include-untracked-a--all-q--quiet-m--"
+"messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--"
+"ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">More information...</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>Yerel değişikliklerinizi yeni bir zula girdisine "
+"kaydedin ve onları HEAD'e geri sarın (çalışma ağacında ve indekste). Bu "
+"kısım isteğe bağlıdır ve açıklamayı zulalanan durum ile birlikte verir.</"
+"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/"
+"git-stash.txt-push-p--patch-k--no-keep-index-u--include-untracked-a--all-q--"
+"quiet-m--messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--"
+"ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">Daha Fazla Bilgi...</span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
+#: src/gui/widgets/stasheswidget.ui:52
+#, kde-format
+msgid "Create new"
+msgstr "Yeni Oluştur"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
+#: src/gui/widgets/stasheswidget.ui:59 src/gui/widgets/tagswidget.ui:56
+#, kde-format
+msgid "Remove selected"
+msgstr "Seçiliyi Kaldır"
+
+#. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonApply)
+#: src/gui/widgets/stasheswidget.ui:66
+#, kde-format
+msgid ""
+"<html><head/><body><p>Apply stash to top of current working directory</"
+"p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
+"txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">More information...</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>Zulayı, geçerli çalışma dizininin üzerine uygula</"
+"p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
+"txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">Daha Fazla Bilgi...</span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
+#: src/gui/widgets/stasheswidget.ui:69
+#, kde-format
+msgid "Apply selected"
+msgstr "Seçiliyi Uygula"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
+#: src/gui/widgets/submoduleswidget.ui:56
+#, kde-format
+msgid "Update"
+msgstr "Güncelle"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
+#: src/gui/widgets/tagswidget.ui:63
+#, kde-format
+msgid "Checkout to selected"
+msgstr "Seçiliye Çıkış Yap"
 
 #: src/libgitklient/commands/commandpull.cpp:82
 #, kde-format
@@ -1695,18 +2196,6 @@ msgstr "Öndeki İşleme(ler)"
 msgid "Message"
 msgstr "İleti"
 
-#: src/libgitklient/models/logsmodel.cpp:251
-#: src/widgets/logdetailswidget.cpp:114
-#, kde-format
-msgid "Date"
-msgstr "Tarih"
-
-#: src/libgitklient/models/logsmodel.cpp:253 src/main.cpp:40
-#: src/widgets/logdetailswidget.cpp:113
-#, kde-format
-msgid "Author"
-msgstr "Yazar"
-
 #: src/libgitklient/models/logsmodel.cpp:258
 #, kde-format
 msgid "Graph"
@@ -1739,467 +2228,29 @@ msgstr "Zaman"
 msgid "Head"
 msgstr "Dal ucu"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/libgitklient/models/submodulesmodel.cpp:59 src/models/treemodel.cpp:143
-#: src/widgets/remoteswidget.ui:176
-#, kde-format
-msgid "Status"
-msgstr "Durum"
+#~ msgid "Clone"
+#~ msgstr "Klonla"
 
-#: src/main.cpp:34
-#, kde-format
-msgid "GitKlient"
-msgstr "GitKlient"
+#~ msgid "Init"
+#~ msgstr "İlklendir"
 
-#: src/main.cpp:36
-#, kde-format
-msgid "Git client gui for KDE"
-msgstr "KDE için Git Grafik Kullanıcı Arayüzü"
+#~ msgid "Open"
+#~ msgstr "Aç"
 
-#: src/main.cpp:38
-#, kde-format
-msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr "Telif hakkı 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
+#~ msgid "Pull"
+#~ msgstr "Çek"
 
-#: src/main.cpp:40
-#, kde-format
-msgid "Hamed Masafi"
-msgstr "Hamed Masafi"
+#~ msgid "Modifications"
+#~ msgstr "Değişiklikler"
 
-#: src/main.cpp:41
-#, kde-format
-msgid "Laurent Montel"
-msgstr "Laurent Montel"
+#~ msgid "History"
+#~ msgstr "Geçmiş"
 
-#: src/main.cpp:41
-#, kde-format
-msgid "Bug fixing"
-msgstr "Hata düzeltme"
+#~ msgid "Blame"
+#~ msgstr "Suçla"
 
-#: src/mainwidget.cpp:101
-#, kde-format
-msgid "Diff with master..."
-msgstr "Ana Dal ile Diff..."
-
-#: src/mainwidget.cpp:159
-#, kde-format
-msgid "New tag"
-msgstr "Yeni Etiket"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, MainWidget)
-#: src/mainwidget.ui:14
-#, kde-format
-msgid "Form"
-msgstr "Form"
-
-#. i18n: ectx: property (text), widget (QLabel, labelTitle)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonOverview)
-#. i18n: ectx: property (windowTitle), widget (QWidget, HistoryViewWidget)
-#: src/mainwidget.ui:89 src/mainwidget.ui:337 src/multipagewidget.ui:131
-#: src/widgets/historyviewwidget.ui:14
-#, kde-format
-msgid "Overview"
-msgstr "Genel Görünüm"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonBranches)
-#. i18n: ectx: property (windowTitle), widget (QWidget, BranchesStatusWidget)
-#: src/mainwidget.ui:118 src/widgets/branchesstatuswidget.ui:14
-#, kde-format
-msgid "Branches"
-msgstr "Dallar"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonCommits)
-#. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
-#: src/mainwidget.ui:147 src/widgets/commitswidget.ui:14
-#, kde-format
-msgid "Commits"
-msgstr "İşlemeler"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonStashes)
-#. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
-#: src/mainwidget.ui:176 src/widgets/stasheswidget.ui:14
-#, kde-format
-msgid "Stashes"
-msgstr "Zulalar"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonSubmodules)
-#. i18n: ectx: property (windowTitle), widget (QWidget, SubmodulesWidget)
-#: src/mainwidget.ui:205 src/widgets/submoduleswidget.ui:14
-#, kde-format
-msgid "Submodules"
-msgstr "Altmodüller"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonRemotes)
-#. i18n: ectx: property (windowTitle), widget (QWidget, RemotesWidget)
-#: src/mainwidget.ui:234 src/widgets/remoteswidget.ui:14
-#, kde-format
-msgid "Remotes"
-msgstr "Uzak Konumlar"
-
-#: src/mergewindow.cpp:259
-#, kde-format
-msgid "Conflicts: %1"
-msgstr "Çakışmalar: %1"
-
-#: src/mergewindow.cpp:270
-#, kde-format
-msgid "Keep mine"
-msgstr "Benimkini Tut"
-
-#: src/mergewindow.cpp:275
-#, kde-format
-msgid "Keep their"
-msgstr "Onlarınkini Tut"
-
-#: src/mergewindow.cpp:281
-#, kde-format
-msgid "Keep mine before their"
-msgstr "Benimkileri Onlarınkinden Önce Tut"
-
-#: src/mergewindow.cpp:286
-#, kde-format
-msgid "Keep their before mine"
-msgstr "Onlarınkileri Benimkilerden Önce Tut"
-
-#: src/mergewindow.cpp:291
-#, kde-format
-msgid "Keep my file"
-msgstr "Benim Dosyamı Tut"
-
-#: src/mergewindow.cpp:296
-#, kde-format
-msgid "Keep their file"
-msgstr "Onların Dosyasını Tut"
-
-#: src/mergewindow.cpp:301
-#, kde-format
-msgid "Blocks"
-msgstr "Bloklar"
-
-#: src/mergewindow.cpp:305
-#, kde-format
-msgid "Files"
-msgstr "Dosyalar"
-
-#: src/mergewindow.cpp:314
-#, kde-format
-msgid "Previous diff"
-msgstr "Önceki Dİff"
-
-#: src/mergewindow.cpp:319
-#, kde-format
-msgid "Next diff"
-msgstr "Sonraki Diff"
-
-#: src/mergewindow.cpp:398
-#, kde-format
-msgid "Unable to open the file"
-msgstr "Dosya açılamıyor"
-
-#. i18n: ectx: label, entry (diffAddedColor), group (Preferences)
-#: src/settings/GitKlientSettings.kcfg:9
-#, kde-format
-msgid "Added color"
-msgstr "Eklenen renk"
-
-#. i18n: ectx: label, entry (diffRemovedColor), group (Preferences)
-#: src/settings/GitKlientSettings.kcfg:13
-#, kde-format
-msgid "Removed color"
-msgstr "Kaldırılan renk"
-
-#. i18n: ectx: label, entry (diffModifiedColor), group (Preferences)
-#: src/settings/GitKlientSettings.kcfg:17
-#, kde-format
-msgid "Modified color"
-msgstr "Değiştirilen renk"
-
-#. i18n: ectx: label, entry (colorForeground), group (Preferences)
-#: src/settings/GitKlientSettings.kcfg:21
-#, kde-format
-msgid "color of the foreground"
-msgstr "Ön planın rengi"
-
-#. i18n: ectx: label, entry (gitBinPath), group (Preferences)
-#: src/settings/GitKlientSettings.kcfg:26
-#, kde-format
-msgid "age of the project"
-msgstr "Projenin yaşı"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_openLastRepo)
-#. i18n: ectx: label, entry (openLastRepo), group (Preferences)
-#: src/settings/GitKlientSettings.kcfg:31 src/settings/settingspagebase.ui:29
-#, kde-format
-msgid "Open last repo at startup"
-msgstr "Başlangıçta son depoyu aç"
-
-#: src/settings/settingsmanager.cpp:101
-#, kde-format
-msgid "General"
-msgstr "Genel"
-
-#: src/settings/settingsmanager.cpp:103
-#, kde-format
-msgid "Git"
-msgstr "Git"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/settings/settingspagebase.ui:23
-#, kde-format
-msgid "Startup"
-msgstr "Başlangıç"
-
-#. i18n: ectx: property (text), widget (QLabel, labelDefaultCalendar)
-#: src/settings/settingspagebase.ui:41
-#, kde-format
-msgid "Default calendar:"
-msgstr "Öntanımlı takvim:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/settings/settingspagebase.ui:51
-#, kde-format
-msgid "Git binary path:"
-msgstr "Git ikilisi yolu:"
-
-#. i18n: ectx: property (text), widget (QLabel, backgroundLabel)
-#: src/settings/settingspagediff.ui:17
-#, kde-format
-msgid "Added diff color:"
-msgstr "Eklenen diff rengi:"
-
-#. i18n: ectx: property (text), widget (QLabel, backgroundLabel_2)
-#: src/settings/settingspagediff.ui:27
-#, kde-format
-msgid "Removed diff color:"
-msgstr "Kaldırılan diff rengi:"
-
-#. i18n: ectx: property (text), widget (QLabel, backgroundLabel_3)
-#: src/settings/settingspagediff.ui:37
-#, kde-format
-msgid "Modified diff color:"
-msgstr "Değiştirilen diff rengi:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerDiffTool)
-#: src/settings/settingspagegit.ui:19
-#, kde-format
-msgid "Register GitKlient diff tool"
-msgstr "GitKlient Diff Aracını Kaydet"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
-#: src/settings/settingspagegit.ui:26
-#, kde-format
-msgid "Register GitKlient merge tool"
-msgstr "GitKlient Birleştirme Aracını Kaydet"
-
-#: src/widgets/blamecodeview.cpp:58 src/widgets/blamecodeview.cpp:94
-#, kde-format
-msgid "Uncommited"
-msgstr "İşlenmemiş"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/widgets/branchesstatuswidget.ui:26
-#, kde-format
-msgid "Reference branch:"
-msgstr "Başvuru dalı:"
-
-#. i18n: ectx: property (text), widget (PushButton, pushButtonNew)
-#: src/widgets/branchesstatuswidget.ui:76
-#, kde-format
-msgid "New"
-msgstr "Yeni"
-
-#. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
-#: src/widgets/branchesstatuswidget.ui:90
-#, kde-format
-msgid "Checkout"
-msgstr "Çıkış Yap"
-
-#. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
-#: src/widgets/branchesstatuswidget.ui:110
-#, kde-format
-msgid "Browse"
-msgstr "Göz At"
-
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
-#: src/widgets/commitswidget.ui:39
-#, kde-format
-msgid "Filter..."
-msgstr "Süz..."
-
-#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
-#: src/widgets/difftreeview.ui:17
-#, kde-format
-msgid "Type to filter"
-msgstr "Süzmek için yaz"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
-#: src/widgets/difftreeview.ui:53
-#, kde-format
-msgid "Hide unchangeds"
-msgstr "Değiştirilmemişleri Gizle"
-
-#: src/widgets/logdetailswidget.cpp:111
-#, kde-format
-msgid "Ref"
-msgstr "Başvuru"
-
-#: src/widgets/logdetailswidget.cpp:112
-#, kde-format
-msgid "Committer"
-msgstr "İşleyen"
-
-#: src/widgets/logdetailswidget.cpp:115
-#, kde-format
-msgid "Hash"
-msgstr "Sağlama"
-
-#: src/widgets/logdetailswidget.cpp:118
-#, kde-format
-msgid "Parent"
-msgstr "Üst Öge"
-
-#: src/widgets/logdetailswidget.cpp:118
-#, kde-format
-msgid "Parents"
-msgstr "Üst Ögeler"
-
-#: src/widgets/logdetailswidget.cpp:120
-#, kde-format
-msgid "Child"
-msgstr "Alt Öge"
-
-#: src/widgets/logdetailswidget.cpp:120
-#, kde-format
-msgid "Children"
-msgstr "Alt Ögeler"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteInfoDialog)
-#: src/widgets/remoteinfodialog.ui:14
-#, kde-format
-msgid "New remote"
-msgstr "Yeni Uzak Konum"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxMirror)
-#: src/widgets/remoteinfodialog.ui:47
-#, kde-format
-msgid "Mirror"
-msgstr "Yansıla"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
-#: src/widgets/remoteinfodialog.ui:64
-#, kde-format
-msgid "Fetch"
-msgstr "Getir"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/widgets/remoteswidget.ui:76
-#, kde-format
-msgid "Information"
-msgstr "Bilgi"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/widgets/remoteswidget.ui:82
-#, kde-format
-msgid "Default branch:"
-msgstr "Öntanımlı dal:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/widgets/remoteswidget.ui:99
-#, kde-format
-msgid "Fetch url:"
-msgstr "Getirme URL'si:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/widgets/remoteswidget.ui:116
-#, kde-format
-msgid "Push url:"
-msgstr "İtme URL'si:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/widgets/remoteswidget.ui:153
-#, kde-format
-msgid "Branches:"
-msgstr "Dallar:"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/widgets/remoteswidget.ui:166
-#, kde-format
-msgid "Push to"
-msgstr "Şuraya İt"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/widgets/remoteswidget.ui:171
-#, kde-format
-msgid "Pull from"
-msgstr "Şuradan Çek"
-
-#. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
-#. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
-#: src/widgets/stasheswidget.ui:49 src/widgets/submoduleswidget.ui:53
-#, kde-format
-msgid ""
-"<html><head/><body><p>Save your local modifications to a new stash entry and "
-"roll them back to HEAD (in the working tree and in the index). The part is "
-"optional and gives the description along with the stashed state.</p><p><br/"
-"></p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
-"txt-push-p--patch-k--no-keep-index-u--include-untracked-a--all-q--quiet-m--"
-"messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--"
-"ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
-"#2980b9;\">More information...</span></a></p></body></html>"
-msgstr ""
-"<html><head/><body><p>Yerel değişikliklerinizi yeni bir zula girdisine "
-"kaydedin ve onları HEAD'e geri sarın (çalışma ağacında ve indekste). Bu "
-"kısım isteğe bağlıdır ve açıklamayı zulalanan durum ile birlikte verir.</"
-"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/"
-"git-stash.txt-push-p--patch-k--no-keep-index-u--include-untracked-a--all-q--"
-"quiet-m--messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--"
-"ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
-"#2980b9;\">Daha Fazla Bilgi...</span></a></p></body></html>"
-
-#. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
-#: src/widgets/stasheswidget.ui:52
-#, kde-format
-msgid "Create new"
-msgstr "Yeni Oluştur"
-
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
-#: src/widgets/stasheswidget.ui:59 src/widgets/tagswidget.ui:56
-#, kde-format
-msgid "Remove selected"
-msgstr "Seçiliyi Kaldır"
-
-#. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonApply)
-#: src/widgets/stasheswidget.ui:66
-#, kde-format
-msgid ""
-"<html><head/><body><p>Apply stash to top of current working directory</"
-"p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
-"txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
-"underline; color:#2980b9;\">More information...</span></a></p></body></html>"
-msgstr ""
-"<html><head/><body><p>Zulayı, geçerli çalışma dizininin üzerine uygula</"
-"p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
-"txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
-"underline; color:#2980b9;\">Daha Fazla Bilgi...</span></a></p></body></html>"
-
-#. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
-#: src/widgets/stasheswidget.ui:69
-#, kde-format
-msgid "Apply selected"
-msgstr "Seçiliyi Uygula"
-
-#. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
-#: src/widgets/submoduleswidget.ui:56
-#, kde-format
-msgid "Update"
-msgstr "Güncelle"
-
-#. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
-#: src/widgets/tagswidget.ui:63
-#, kde-format
-msgid "Checkout to selected"
-msgstr "Seçiliye Çıkış Yap"
+#~ msgid "Create tag"
+#~ msgstr "Etiket Oluştur"
 
 #~ msgid "Oure"
 #~ msgstr "Bizimki"
