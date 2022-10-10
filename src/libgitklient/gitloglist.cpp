@@ -311,17 +311,17 @@ H -- commit hash              c -- committer details        m -- mark           
         QString commitDate;
         QString authDate;
         QString parentHash;
-        readLine(lines.at(0), "X", {&d->mCommitHash, &d->mCommitShortHash, &parentHash});
-        readLine(lines.at(1), "X", {&d->mCommitterName, &d->mCommitterEmail, &commitDate});
-        readLine(lines.at(2), "X", {&d->mAuthorName, &d->mAuthorEmail, &authDate});
+        readLine(lines.at(0), QStringLiteral("X"), {&d->mCommitHash, &d->mCommitShortHash, &parentHash});
+        readLine(lines.at(1), QStringLiteral("X"), {&d->mCommitterName, &d->mCommitterEmail, &commitDate});
+        readLine(lines.at(2), QStringLiteral("X"), {&d->mAuthorName, &d->mAuthorEmail, &authDate});
 
         if (!parentHash.isEmpty())
-            d->mParentHash = parentHash.split(" ");
+            d->mParentHash = parentHash.split(QStringLiteral(" "));
         d->mRefLog = lines.at(3);
         d->mSubject = lines.at(5);
         d->mCommitDate = QDateTime::fromString(commitDate, Qt::ISODate);
         d->mAuthDate = QDateTime::fromString(authDate, Qt::ISODate);
-        d->mBody = lines.mid(5).join("\n");
+        d->mBody = lines.mid(5).join(QStringLiteral("\n"));
         append(d);
         _dataByCommitHashLong.insert(d->commitHash(), d);
         _dataByCommitHashLong.insert(d->commitShortHash(), d);

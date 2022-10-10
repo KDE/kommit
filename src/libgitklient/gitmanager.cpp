@@ -404,7 +404,9 @@ Manager *Manager::instance()
 
 QString Manager::currentBranch() const
 {
-    const auto ret = QString(runGit({QStringLiteral("rev-parse"), QStringLiteral("--abbrev-ref"), QStringLiteral("HEAD")})).replace("\n", "").replace("\r", "");
+    const auto ret = QString(runGit({QStringLiteral("rev-parse"), QStringLiteral("--abbrev-ref"), QStringLiteral("HEAD")}))
+                         .remove(QLatin1Char('\n'))
+                         .remove(QLatin1Char('\r'));
     return ret;
 }
 
@@ -482,10 +484,10 @@ QStringList Manager::branches() const
         auto b = line.trimmed();
         if (b.isEmpty())
             continue;
-        if (b.startsWith("* "))
+        if (b.startsWith(QLatin1String("* ")))
             b = b.mid(2);
 
-        if (b.startsWith("(HEAD detached at"))
+        if (b.startsWith(QLatin1String("(HEAD detached at")))
             continue;
 
         branchesList.append(b.trimmed());
@@ -502,10 +504,10 @@ QStringList Manager::remoteBranches() const
         auto b = line.trimmed();
         if (b.isEmpty())
             continue;
-        if (b.startsWith("* "))
+        if (b.startsWith(QStringLiteral("* ")))
             b = b.mid(2);
 
-        if (!b.contains("->"))
+        if (!b.contains(QStringLiteral("->")))
             branchesList.append(b.trimmed());
     }
     return branchesList;
@@ -523,7 +525,7 @@ QStringList Manager::tags() const
 
 void Manager::createTag(const QString &name, const QString &message) const
 {
-    runGit({"tag", "-a", name, "--message", message});
+    runGit({QStringLiteral("tag"), QStringLiteral("-a"), name, QStringLiteral("--message"), message});
 }
 
 QList<Stash> Manager::stashes()
@@ -532,7 +534,7 @@ QList<Stash> Manager::stashes()
     auto list = readAllNonEmptyOutput({QStringLiteral("stash"), QStringLiteral("list"), QStringLiteral("--format=format:%s%m%an%m%ae%m%aD")});
     int id{0};
     for (const auto &item : std::as_const(list)) {
-        auto parts = item.split(">");
+        auto parts = item.split(QStringLiteral(">"));
         if (parts.size() != 4)
             continue;
 
@@ -602,11 +604,11 @@ BlameData Manager::blame(const File &file)
         BlameDataRow row;
         row.commitHash = line.mid(0, 40);
 
-        auto metaIndex = line.indexOf(")");
+        auto metaIndex = line.indexOf(QLatin1Char(')'));
         row.code = line.mid(metaIndex + 1);
 
         auto hash = row.commitHash;
-        if (hash.startsWith("^"))
+        if (hash.startsWith(QLatin1Char('^')))
             hash = hash.remove(0, 1);
         auto log = _logsCache->findLogByHash(hash);
         //        if (!log)
@@ -626,7 +628,7 @@ QList<Submodule> Manager::submodules() const
     for (const auto &line : modulesList) {
         Submodule m;
         m.setCommitHash(line.mid(0, 40));
-        auto n = line.lastIndexOf(" ");
+        auto n = line.lastIndexOf(QLatin1Char(' '));
         m.setPath(line.mid(41, n - 41));
 
         if (line.count(QLatin1Char(' ')) == 2)
