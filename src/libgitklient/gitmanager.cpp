@@ -708,12 +708,6 @@ void Manager::removeFile(const QString &file, bool cached) const
     runGit(args);
 }
 
-QString Manager::getTopLevelPath() const
-{
-    // git rev-parse --show-toplevel
-    return {};
-}
-
 bool Manager::isMerging() const
 {
     return m_isMerging;

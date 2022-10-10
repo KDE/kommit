@@ -97,7 +97,6 @@ public:
     void push() const;
     void addFile(const QString &file) const;
     void removeFile(const QString &file, bool cached) const;
-    QString getTopLevelPath() const;
 
     const QString &path() const;
     void setPath(const QString &newPath);
