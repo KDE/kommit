@@ -55,9 +55,9 @@ void SearchDialog::on_treeView_doubleClicked(QModelIndex index)
 {
     if (!index.isValid())
         return;
-    auto file = mModel->data(mModel->index(index.row(), 0)).toString();
-    auto branch = mModel->data(mModel->index(index.row(), 1)).toString();
-    auto commit = mModel->data(mModel->index(index.row(), 2)).toString();
+    const auto file = mModel->data(mModel->index(index.row(), 0)).toString();
+    const auto branch = mModel->data(mModel->index(index.row(), 1)).toString();
+    const auto commit = mModel->data(mModel->index(index.row(), 2)).toString();
 
     QString place;
     if (!commit.isEmpty() && !branch.isEmpty())
