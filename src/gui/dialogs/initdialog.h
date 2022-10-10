@@ -6,11 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include "core/appdialog.h"
+#include "libgitklientgui_private_export.h"
 #include "ui_initdialog.h"
 
-#include "core/appdialog.h"
-
-class InitDialog : public AppDialog, private Ui::InitDialog
+class LIBGITKLIENTGUI_TESTS_EXPORT InitDialog : public AppDialog, private Ui::InitDialog
 {
     Q_OBJECT
 
