@@ -100,7 +100,7 @@ public:
     void clear();
 
 protected:
-    Node *rootNode;
+    Node *mRootNode = nullptr;
 
     Node *createPath(const QStringList &path);
     Node *find(QStringList &path, Node *node = nullptr);

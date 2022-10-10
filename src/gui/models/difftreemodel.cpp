@@ -32,9 +32,9 @@ void DiffTreeModel::addFile(const QString &file, Diff::DiffType type)
     node->metaData = type;
 }
 
-TreeModel::Node *DiffTreeModel::createPath(const QStringList &path, const Diff::DiffType &status)
+TreeModel::Node *DiffTreeModel::createPath(const QStringList &path, Diff::DiffType status)
 {
-    Node *parent = rootNode;
+    Node *parent = mRootNode;
     for (auto &p : path) {
         auto child = parent->find(p);
         if (!child) {
