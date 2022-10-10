@@ -24,7 +24,7 @@ public:
     void setForce(bool newForce);
 
     Q_REQUIRED_RESULT QString branch() const;
-    void setbranch(QString newbranch);
+    void setbranch(const QString &newbranch);
 
     Q_REQUIRED_RESULT const QString &url() const;
     void setUrl(const QString &newUrl);

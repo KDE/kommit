@@ -42,7 +42,7 @@ QString AddSubmoduleCommand::branch() const
     return mBranch;
 }
 
-void AddSubmoduleCommand::setbranch(QString newbranch)
+void AddSubmoduleCommand::setbranch(const QString &newbranch)
 {
     mBranch = newbranch;
 }
