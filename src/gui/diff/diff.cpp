@@ -394,17 +394,17 @@ Text readLines(const QString &text)
         if (le == LineEnding::Cr) {
             if (ch == '\n') {
                 le = LineEnding::CrLf;
-                seprator = "\r\n";
+                seprator = QStringLiteral("\r\n");
             }
             break;
         }
         if (ch == '\r') {
             le = LineEnding::Cr;
-            seprator = "\r";
+            seprator = QStringLiteral("\r");
             continue;
         }
         if (ch == '\n') {
-            seprator = "\n";
+            seprator = QStringLiteral("\n");
             le = LineEnding::Lf;
             break;
         }
@@ -783,8 +783,8 @@ QMap<QString, DiffType> diffDirs(const QString &dir1, const QString &dir2)
         d2.append(QLatin1Char('/'));
 
     QStringList files1, files2;
-    browseDir(files1, "", d1);
-    browseDir(files2, "", d2);
+    browseDir(files1, {}, d1);
+    browseDir(files2, {}, d2);
 
     for (const auto &file : std::as_const(files1)) {
         if (!files2.contains(file)) {

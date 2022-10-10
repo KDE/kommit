@@ -194,7 +194,7 @@ QList<FileStatus> Manager::diffBranch(const QString &from) const
     for (auto &item : buffer) {
         if (!item.trimmed().size())
             continue;
-        auto parts = item.split("\t");
+        auto parts = item.split(QStringLiteral("\t"));
         if (parts.size() != 2)
             continue;
 
@@ -454,7 +454,7 @@ QStringList Manager::ls(const QString &place) const
     QMutableListIterator<QString> it(buffer);
     while (it.hasNext()) {
         auto s = it.next();
-        if (s.startsWith("\"") && s.endsWith("\""))
+        if (s.startsWith(QLatin1String("\"")) && s.endsWith(QLatin1String("\"")))
             it.setValue(s.mid(1, s.length() - 2));
     }
     return buffer;

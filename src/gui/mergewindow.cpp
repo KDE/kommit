@@ -76,7 +76,7 @@ MergeWindow::~MergeWindow()
 {
     QSettings s;
     s.beginGroup(QStringLiteral("MergeWindow"));
-    s.setValue("actionType", mActionFilesView->isChecked() ? QStringLiteral("file") : QStringLiteral("block"));
+    s.setValue(QStringLiteral("actionType"), mActionFilesView->isChecked() ? QStringLiteral("file") : QStringLiteral("block"));
 }
 
 void MergeWindow::init()

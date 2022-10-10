@@ -61,7 +61,7 @@ void AppWindow::init()
     addPage<RemotesWidget>(QStringLiteral("view_remotes"));
     addPage<TagsWidget>(QStringLiteral("view_tags"));
 
-    setupGUI(StandardWindowOption::Default, "gitklientui.rc");
+    setupGUI(StandardWindowOption::Default, QStringLiteral("gitklientui.rc"));
     mMainWidget->setCurrentIndex(0);
 
     setCentralWidget(mMainWidget);
@@ -78,7 +78,7 @@ AppWindow::AppWindow()
 
     if (GitKlientSettings::openLastRepo()) {
         QSettings s;
-        auto p = s.value("last_repo").toString();
+        auto p = s.value(QStringLiteral("last_repo")).toString();
         mGit->setPath(p);
         initRecentFiles(p);
         QtConcurrent::run(this, &AppWindow::loadRemotes);
@@ -121,24 +121,24 @@ void AppWindow::initActions()
 {
     KActionCollection *actionCollection = this->actionCollection();
 
-    auto repoInitAction = actionCollection->addAction("repo_init", this, &AppWindow::initRepo);
+    auto repoInitAction = actionCollection->addAction(QStringLiteral("repo_init"), this, &AppWindow::initRepo);
     repoInitAction->setText(i18n("Init..."));
 
-    auto repoOpenAction = actionCollection->addAction("repo_open", this, &AppWindow::openRepo);
+    auto repoOpenAction = actionCollection->addAction(QStringLiteral("repo_open"), this, &AppWindow::openRepo);
     repoOpenAction->setText(i18n("Open..."));
-    actionCollection->setDefaultShortcut(repoOpenAction, QKeySequence("Ctrl+O"));
+    actionCollection->setDefaultShortcut(repoOpenAction, QKeySequence(QStringLiteral("Ctrl+O")));
     repoOpenAction->setIcon(QIcon::fromTheme(QStringLiteral("folder-open")));
 
-    auto repoCloneAction = actionCollection->addAction("repo_clone", this, &AppWindow::clone);
+    auto repoCloneAction = actionCollection->addAction(QStringLiteral("repo_clone"), this, &AppWindow::clone);
     repoCloneAction->setText(i18n("Clone..."));
 
     auto repoStatusAction = actionCollection->addAction(QStringLiteral("repo_status"), this, &AppWindow::repoStatus);
     repoStatusAction->setText(i18n("Changed files..."));
-    repoStatusAction->setIcon(QIcon::fromTheme("gitklient-changedfiles"));
-    actionCollection->setDefaultShortcut(repoStatusAction, QKeySequence("Ctrl+S"));
+    repoStatusAction->setIcon(QIcon::fromTheme(QStringLiteral("gitklient-changedfiles")));
+    actionCollection->setDefaultShortcut(repoStatusAction, QKeySequence(QStringLiteral("Ctrl+S")));
 
     {
-        mRecentAction = actionCollection->addAction("recent");
+        mRecentAction = actionCollection->addAction(QStringLiteral("recent"));
         mRecentAction->setText(i18n("Recent repos"));
         mRecentAction->setMenu(new QMenu(this));
         initRecentFiles();
@@ -147,7 +147,7 @@ void AppWindow::initActions()
     auto repoCleanupAction = actionCollection->addAction(QStringLiteral("repo_cleanup"), this, &AppWindow::cleanup);
     repoCleanupAction->setText(i18n("Cleanup..."));
 
-    auto repoPullAction = actionCollection->addAction("repo_pull", this, &AppWindow::pull);
+    auto repoPullAction = actionCollection->addAction(QStringLiteral("repo_pull"), this, &AppWindow::pull);
     repoPullAction->setText(i18n("Pull..."));
     repoPullAction->setIcon(QIcon::fromTheme(QStringLiteral("git-pull")));
 
