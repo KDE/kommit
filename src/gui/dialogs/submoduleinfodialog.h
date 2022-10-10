@@ -21,16 +21,16 @@ class SubmoduleInfoDialog : public AppDialog, private Ui::SubmoduleInfoDialog
 public:
     explicit SubmoduleInfoDialog(Git::Manager *git, QWidget *parent = nullptr);
 
-    bool force() const;
+    Q_REQUIRED_RESULT bool force() const;
     void setForce(bool newForce);
 
-    QString url() const;
+    Q_REQUIRED_RESULT QString url() const;
     void setUrl(const QString &newUrl);
 
-    QString path() const;
+    Q_REQUIRED_RESULT QString path() const;
     void setPath(const QString &newPath);
 
-    QString branch() const;
+    Q_REQUIRED_RESULT QString branch() const;
     void setBranch(const QString &newBranch);
 
     Git::AddSubmoduleCommand *command() const;

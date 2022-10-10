@@ -15,9 +15,9 @@ class TagInfoDialog : public AppDialog, private Ui::TagInfoDialog
 
 public:
     explicit TagInfoDialog(QWidget *parent = nullptr);
-    QString tagName() const;
+    Q_REQUIRED_RESULT QString tagName() const;
     void setTagName(const QString &newTagName);
-    QString message() const;
+    Q_REQUIRED_RESULT QString message() const;
     void setMessage(const QString &newMessage);
 
 private Q_SLOTS:
