@@ -15,10 +15,11 @@ SelectBranchesToDiffDialog::SelectBranchesToDiffDialog(Git::Manager *git, QWidge
 {
     setupUi(this);
 
-    auto branches = git->branches();
+    const auto branches = git->branches();
 
     comboBoxOldBranch->addItems(branches);
     comboBoxNewBranch->addItems(branches);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &SelectBranchesToDiffDialog::slotAccepted);
 }
 
 QString SelectBranchesToDiffDialog::oldBranch() const
@@ -35,7 +36,7 @@ QString SelectBranchesToDiffDialog::newBranch() const
     return comboBoxNewBranch->currentText();
 }
 
-void SelectBranchesToDiffDialog::on_buttonBox_accepted()
+void SelectBranchesToDiffDialog::slotAccepted()
 {
     if (oldBranch() == newBranch()) {
         KMessageBox::error(this, i18n("The selected branches must be different!"));

@@ -21,9 +21,9 @@ class SelectBranchesToDiffDialog : public AppDialog, private Ui::SelectBranchesT
 public:
     explicit SelectBranchesToDiffDialog(Git::Manager *git, QWidget *parent = nullptr);
 
-    QString oldBranch() const;
-    QString newBranch() const;
+    Q_REQUIRED_RESULT QString oldBranch() const;
+    Q_REQUIRED_RESULT QString newBranch() const;
 
-private Q_SLOTS:
-    void on_buttonBox_accepted();
+private:
+    void slotAccepted();
 };
