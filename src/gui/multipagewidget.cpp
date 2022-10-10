@@ -35,7 +35,7 @@ MultiPageWidget::MultiPageWidget(QWidget *parent)
     setupUi(this);
 
     connect(m_actionGroup, &QActionGroup::triggered, this, &MultiPageWidget::slotPageSelected);
-    auto styleSheet = QString(R"CSS(
+    auto styleSheet = QString(QStringLiteral(R"CSS(
         #scrollAreaWidgetContents {
             background-color: #%1;
         }
@@ -56,7 +56,7 @@ MultiPageWidget::MultiPageWidget(QWidget *parent)
             color: white;
         }
 
-)CSS")
+)CSS"))
                           .arg(palette().color(QPalette::Base).rgba(), 0, 16)
                           .arg(palette().color(QPalette::Highlight).lighter().rgba(), 0, 16)
                           .arg(palette().color(QPalette::Highlight).rgba(), 0, 16);
