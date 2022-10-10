@@ -41,10 +41,6 @@ include(KDEClangFormat)
 
 set (CMAKE_CXX_STANDARD 17)
 
-if(NOT DEFINED ${QT_MAJOR_VERSION})
-  set(QT_MAJOR_VERSION 5)
-endif()
-
 find_package(
     Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION}
     CONFIG REQUIRED

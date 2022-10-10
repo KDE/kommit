@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "widgetbase.h"
 
 #include <QAction>
+#include <QActionGroup>
 #include <QToolButton>
 
 Git::Manager *MultiPageWidget::defaultGitManager() const
