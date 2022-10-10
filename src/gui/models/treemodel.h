@@ -108,7 +108,7 @@ protected:
     void sortNode(Node *node);
 
 private:
-    QString mSeparator{"/"};
+    QString mSeparator{QStringLiteral("/")};
     bool mLastPartAsData{false};
     QIcon mDefaultIcon;
 };
