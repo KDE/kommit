@@ -78,13 +78,18 @@ QMap<QString, Manager::ChangeStatus> Manager::changedFiles(const QString &hash) 
 
 QStringList Manager::ignoredFiles() const
 {
-    return readAllNonEmptyOutput({"check-ignore", "*"});
+    return readAllNonEmptyOutput({QStringLiteral("check-ignore"), QStringLiteral("*")});
 }
 
 QList<FileStatus> Manager::repoFilesStatus() const
 {
-    const auto buffer =
-        QString(runGit({"status", "--untracked-files=all", "--ignored", "--short", "--ignore-submodules", "--porcelain"})).split(QLatin1Char('\n'));
+    const auto buffer = QString(runGit({QStringLiteral("status"),
+                                        QStringLiteral("--untracked-files=all"),
+                                        QStringLiteral("--ignored"),
+                                        QStringLiteral("--short"),
+                                        QStringLiteral("--ignore-submodules"),
+                                        QStringLiteral("--porcelain")}))
+                            .split(QLatin1Char('\n'));
     QList<FileStatus> files;
     for (const auto &item : buffer) {
         if (!item.trimmed().size())
@@ -170,7 +175,7 @@ QPair<int, int> Manager::uniqueCommiteOnBranches(const QString &branch1, const Q
     if (ret.size() != 1)
         return qMakePair(-1, -1);
 
-    const auto parts = ret.first().split('\t');
+    const auto parts = ret.first().split(QLatin1Char('\t'));
     if (parts.size() != 2)
         return qMakePair(-1, -1);
 
@@ -467,7 +472,7 @@ QString Manager::fileContent(const QString &place, const QString &fileName) cons
 
 void Manager::saveFile(const QString &place, const QString &fileName, const QString &localFile) const
 {
-    auto buffer = runGit({QStringLiteral("show"), place + ":" + fileName});
+    auto buffer = runGit({QStringLiteral("show"), place + QLatin1Char(':') + fileName});
     QFile f{localFile};
     if (!f.open(QIODevice::WriteOnly))
         return;

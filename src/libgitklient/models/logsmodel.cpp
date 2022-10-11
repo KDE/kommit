@@ -370,9 +370,9 @@ void LogsModel::fill()
         QString commitDate;
         QString authDate;
         QString parentHash;
-        Impl::readLine(lines.at(0), "X", {&d->mCommitHash, &d->mCommitShortHash, &parentHash});
-        Impl::readLine(lines.at(1), "X", {&d->mCommitterName, &d->mCommitterEmail, &commitDate});
-        Impl::readLine(lines.at(2), "X", {&d->mAuthorName, &d->mAuthorEmail, &authDate});
+        Impl::readLine(lines.at(0), QStringLiteral("X"), {&d->mCommitHash, &d->mCommitShortHash, &parentHash});
+        Impl::readLine(lines.at(1), QStringLiteral("X"), {&d->mCommitterName, &d->mCommitterEmail, &commitDate});
+        Impl::readLine(lines.at(2), QStringLiteral("X"), {&d->mAuthorName, &d->mAuthorEmail, &authDate});
 
         if (!parentHash.isEmpty())
             d->mParentHash = parentHash.split(QLatin1Char(' '));
@@ -380,7 +380,7 @@ void LogsModel::fill()
         d->mSubject = lines.at(5);
         d->mCommitDate = QDateTime::fromString(commitDate, Qt::ISODate);
         d->mAuthDate = QDateTime::fromString(authDate, Qt::ISODate);
-        d->mBody = lines.mid(5).join("\n");
+        d->mBody = lines.mid(5).join(QLatin1Char('\n'));
         mData.append(d);
         mDataByCommitHashLong.insert(d->commitHash(), d);
         mDataByCommitHashShort.insert(d->commitShortHash(), d);
