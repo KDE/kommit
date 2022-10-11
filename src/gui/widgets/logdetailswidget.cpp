@@ -94,7 +94,7 @@ void LogDetailsWidget::createText()
         break;
     }*/
     if (cal.isValid())
-        date = mLog->commitDate().toLocalTime().toString("yyyy-MM-dd HH:mm:ss", cal);
+        date = mLog->commitDate().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal);
     else
         date = mLog->commitDate().toLocalTime().toString();
 
@@ -109,9 +109,9 @@ void LogDetailsWidget::createText()
     appendParagraph(html, i18n("Hash"), mLog->commitHash());
 
     if (!mLog->parents().empty())
-        appendParagraph(html, mLog->parents().size() == 1 ? i18n("Parent") : i18n("Parents"), parentHashHtml.join(", "));
+        appendParagraph(html, mLog->parents().size() == 1 ? i18n("Parent") : i18n("Parents"), parentHashHtml.join(QStringLiteral(", ")));
     if (!mLog->childs().empty())
-        appendParagraph(html, mLog->childs().size() == 1 ? i18n("Child") : i18n("Children"), childsHashHtml.join(", "));
+        appendParagraph(html, mLog->childs().size() == 1 ? i18n("Child") : i18n("Children"), childsHashHtml.join(QStringLiteral(", ")));
 
     appendParagraph(html, i18n("Changed files"), filesHtml);
 

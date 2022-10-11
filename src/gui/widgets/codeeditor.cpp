@@ -380,7 +380,7 @@ void CodeEditor::setHighlighting(const QString &fileName)
     mTitleBar->setText(fileName);
 }
 
-void CodeEditor::append(const QString &code, const BlockType &type, Diff::Segment *segment)
+void CodeEditor::append(const QString &code, CodeEditor::BlockType type, Diff::Segment *segment)
 {
     auto t = textCursor();
 
@@ -418,7 +418,7 @@ int CodeEditor::append(const QString &code, const QColor &backgroundColor)
     return t.block().blockNumber();
 }
 
-void CodeEditor::append(const QStringList &code, const BlockType &type, Diff::Segment *segment, int size)
+void CodeEditor::append(const QStringList &code, CodeEditor::BlockType type, Diff::Segment *segment, int size)
 {
     for (auto &e : code)
         append(e, type, segment);
@@ -426,7 +426,7 @@ void CodeEditor::append(const QStringList &code, const BlockType &type, Diff::Se
         append(QString(), Empty, segment);
 }
 
-int CodeEditor::append(const QString &code, const BlockType &type, BlockData *data)
+int CodeEditor::append(const QString &code, CodeEditor::BlockType type, BlockData *data)
 {
     auto t = textCursor();
 
@@ -552,7 +552,7 @@ void CodeEditor::clearAll()
     mBlocksData.clear();
 }
 
-CodeEditor::BlockData::BlockData(int lineNumber, Diff::Segment *segment, const BlockType &type)
+CodeEditor::BlockData::BlockData(int lineNumber, Diff::Segment *segment, CodeEditor::BlockType type)
     : lineNumber{lineNumber}
     , segment{segment}
     , type{type}

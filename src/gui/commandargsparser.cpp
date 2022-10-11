@@ -27,7 +27,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitfile.h"
 #include "gitmanager.h"
 #include "mergewindow.h"
-#include "models/logsmodel.h"
 
 #include "gitklient_appdebug.h"
 #include <QApplication>
@@ -74,7 +73,7 @@ void CommandArgsParser::add(const QString &name, const QString &list)
     for (const auto &pp : parts) {
         auto p = pp;
         bool isOptional{false};
-        if (p.startsWith("[") && p.endsWith("]")) {
+        if (p.startsWith(QLatin1String("[")) && p.endsWith(QLatin1String("]"))) {
             isOptional = true;
             p = p.mid(1, p.length() - 2);
         }
@@ -128,7 +127,7 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
 #define GET_OP(x) params.size() > x ? Q_ARG(QString, params.at(x)) : QGenericArgument()
     if (args.size() == 1)
         return main();
-    auto name = QString(args.at(1)).replace("-", "_").toLocal8Bit();
+    auto name = QString(args.at(1)).replace(QLatin1String("-"), QLatin1String("_")).toLocal8Bit();
     auto c = metaObject()->methodCount();
     qCDebug(GITKLIENT_LOG) << "Running" << args;
     for (int i = 0; i < c; i++) {

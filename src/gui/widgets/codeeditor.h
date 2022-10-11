@@ -33,7 +33,7 @@ public:
         QString extraText;
         void *data;
 
-        BlockData(int lineNumber, Diff::Segment *segment, const BlockType &type);
+        BlockData(int lineNumber, Diff::Segment *segment, CodeEditor::BlockType type);
     };
 
     explicit CodeEditor(QWidget *parent = nullptr);
@@ -41,10 +41,10 @@ public:
 
     void setHighlighting(const QString &fileName);
 
-    void append(const QString &code, const BlockType &type = Unchanged, Diff::Segment *segment = nullptr);
+    void append(const QString &code, CodeEditor::BlockType type = Unchanged, Diff::Segment *segment = nullptr);
     int append(const QString &code, const QColor &backgroundColor);
-    void append(const QStringList &code, const BlockType &type = Unchanged, Diff::Segment *segment = nullptr, int size = -1);
-    int append(const QString &code, const BlockType &type, BlockData *data);
+    void append(const QStringList &code, CodeEditor::BlockType type = Unchanged, Diff::Segment *segment = nullptr, int size = -1);
+    int append(const QString &code, CodeEditor::BlockType type, BlockData *data);
 
     QPair<int, int> blockArea(int from, int to);
     QPair<int, int> visibleLines() const;

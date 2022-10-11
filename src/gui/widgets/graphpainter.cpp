@@ -18,7 +18,7 @@ QPoint center(int x)
 {
     return {(x * WIDTH) + (WIDTH / 2), HEIGHT / 2};
 }
-QPoint centerEdge(int x, const Qt::Edge &edge)
+QPoint centerEdge(int x, Qt::Edge edge)
 {
     switch (edge) {
     case Qt::TopEdge:
@@ -33,7 +33,7 @@ QPoint centerEdge(int x, const Qt::Edge &edge)
     return {};
 }
 
-QPoint point(int col, const Qt::Alignment &align = Qt::AlignCenter)
+QPoint point(int col, Qt::Alignment align = Qt::AlignCenter)
 {
     int y;
     int x = col * WIDTH;
@@ -54,7 +54,7 @@ QPoint point(int col, const Qt::Alignment &align = Qt::AlignCenter)
 
     return {x, y};
 }
-QPoint centerGuide(int x, const Qt::Edge &edge)
+QPoint centerGuide(int x, Qt::Edge edge)
 {
     constexpr const int tel{5};
 
@@ -204,7 +204,7 @@ void GraphPainter::paintLane(QPainter *painter, const Git::GraphLane &lane, int 
     }
 }
 
-int GraphPainter::colX(const int &col) const
+int GraphPainter::colX(int col) const
 {
     return col * WIDTH;
 }

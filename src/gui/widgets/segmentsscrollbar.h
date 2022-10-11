@@ -31,5 +31,5 @@ private:
     int rightCount{0};
     SegmentConnector *mSegmentConnector{nullptr};
 
-    inline void paintSection(QPainter &painter, const Side &side, int from, int len, const QBrush &brush, bool drawRect = false);
+    inline void paintSection(QPainter &painter, SegmentsScrollBar::Side side, int from, int len, const QBrush &brush, bool drawRect = false);
 };

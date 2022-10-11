@@ -9,7 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KActionCollection>
 #include <KLocalizedString>
 
-#include "gitklient_appdebug.h"
 #include <QDockWidget>
 #include <QTreeView>
 #include <dialogs/diffopendialog.h>

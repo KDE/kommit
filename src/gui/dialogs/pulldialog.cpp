@@ -9,8 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commands/commandpull.h"
 #include "gitmanager.h"
-#include "models/branchesmodel.h"
-#include "models/remotesmodel.h"
 #include <QDialogButtonBox>
 
 PullDialog::PullDialog(QWidget *parent, Git::Manager *git)

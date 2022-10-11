@@ -29,10 +29,10 @@ void DiffOpenDialog::readSettings()
 {
     QSettings s;
     s.beginGroup(QStringLiteral("diff"));
-    s.setValue("oldFile", lineEditOldFile->text());
-    s.setValue("newFile", lineEditNewFile->text());
-    s.setValue("oldDir", lineEditOldDirectory->text());
-    s.setValue("newDir", lineEditNewDirectory->text());
+    s.setValue(QStringLiteral("oldFile"), lineEditOldFile->text());
+    s.setValue(QStringLiteral("newFile"), lineEditNewFile->text());
+    s.setValue(QStringLiteral("oldDir"), lineEditOldDirectory->text());
+    s.setValue(QStringLiteral("newDir"), lineEditNewDirectory->text());
     s.endGroup();
     s.sync();
 }
@@ -41,10 +41,10 @@ void DiffOpenDialog::saveSettings()
 {
     QSettings s;
     s.beginGroup(QStringLiteral("diff"));
-    lineEditOldFile->setText(s.value("oldFile").toString());
-    lineEditNewFile->setText(s.value("newFile").toString());
-    lineEditOldDirectory->setText(s.value("oldDir").toString());
-    lineEditNewDirectory->setText(s.value("newDir").toString());
+    lineEditOldFile->setText(s.value(QStringLiteral("oldFile")).toString());
+    lineEditNewFile->setText(s.value(QStringLiteral("newFile")).toString());
+    lineEditOldDirectory->setText(s.value(QStringLiteral("oldDir")).toString());
+    lineEditNewDirectory->setText(s.value(QStringLiteral("newDir")).toString());
     s.endGroup();
 }
 

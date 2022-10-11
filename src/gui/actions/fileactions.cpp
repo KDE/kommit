@@ -112,7 +112,7 @@ void FileActions::saveAsFile()
 
 void FileActions::logFile()
 {
-    Git::File file{mPlace, mFilePath};
+    const Git::File file{mPlace, mFilePath};
     FileHistoryDialog d(mGit, file, mParent);
     d.exec();
 }
@@ -121,7 +121,7 @@ void FileActions::blameFile()
 {
     //    auto path = _treeModel->fullPath(treeView->currentIndex()) + "/"
     //                + listWidget->currentItem()->text();
-    Git::File file(mPlace, mFilePath, mGit);
+    const Git::File file(mPlace, mFilePath, mGit);
     FileBlameDialog d(file, mParent);
     d.exec();
 }

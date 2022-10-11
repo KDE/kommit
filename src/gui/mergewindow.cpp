@@ -529,8 +529,8 @@ void MergeWindow::on_plainTextEditResult_blockSelected()
     auto segment = static_cast<Diff::MergeSegment *>(m_ui.plainTextEditResult->currentSegment());
 
     if (segment->type == Diff::SegmentType::DifferentOnBoth) {
-        m_ui.codeEditorMyBlock->setPlainText(segment->local.join("\n"));
-        m_ui.codeEditorTheirBlock->setPlainText(segment->remote.join("\n"));
+        m_ui.codeEditorMyBlock->setPlainText(segment->local.join(QStringLiteral("\n")));
+        m_ui.codeEditorTheirBlock->setPlainText(segment->remote.join(QStringLiteral("\n")));
     } else {
         m_ui.codeEditorMyBlock->clear();
         m_ui.codeEditorTheirBlock->clear();

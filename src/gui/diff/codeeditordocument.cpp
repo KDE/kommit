@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 CodeEditorDocument::CodeEditorDocument(QObject *parent)
     : QTextDocument(parent)
 {
-    auto stylesheet = QStringLiteral(R"~(
+    const auto stylesheet = QStringLiteral(R"~(
 body {
     margin-left: 30px;
     padding-left: 40px;

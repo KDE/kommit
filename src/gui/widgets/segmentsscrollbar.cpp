@@ -114,7 +114,7 @@ void SegmentsScrollBar::reload()
     update();
 }
 
-void SegmentsScrollBar::paintSection(QPainter &painter, const Side &side, int from, int len, const QBrush &brush, bool drawRect)
+void SegmentsScrollBar::paintSection(QPainter &painter, SegmentsScrollBar::Side side, int from, int len, const QBrush &brush, bool drawRect)
 {
     if (len <= 0)
         return;

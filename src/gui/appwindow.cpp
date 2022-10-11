@@ -186,12 +186,12 @@ void AppWindow::initRecentFiles(const QString &newItem)
 {
     mRecentAction->menu()->clear();
     QSettings s;
-    auto recentList = s.value("recent_files").toStringList();
+    auto recentList = s.value(QStringLiteral("recent_files")).toStringList();
     if (!newItem.isEmpty()) {
         recentList.removeOne(newItem);
         recentList.prepend(newItem);
-        s.setValue("recent_files", recentList);
-        s.setValue("last_repo", newItem);
+        s.setValue(QStringLiteral("recent_files"), recentList);
+        s.setValue(QStringLiteral("last_repo"), newItem);
         s.sync();
     }
     for (const auto &item : std::as_const(recentList)) {

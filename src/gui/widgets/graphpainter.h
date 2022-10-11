@@ -22,7 +22,7 @@ public:
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     void paintLane(QPainter *painter, const Git::GraphLane &lane, int index) const;
-    int colX(const int &col) const;
+    int colX(int col) const;
 
     // QAbstractItemDelegate interface
 public:

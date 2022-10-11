@@ -99,5 +99,6 @@ void RunnerDialog::git_finished(int exitCode, QProcess::ExitStatus exitStatus)
     if (mCmd && mCmd->status() == Git::AbstractCommand::Error)
         KMessageBox::error(this, mCmd->errorMessage());
 
-    textBrowser->append(QStringLiteral("Process finished: (Elapsed time: %1)").arg(QTime::fromMSecsSinceStartOfDay(mTimer.elapsed()).toString("HH:mm:ss")));
+    textBrowser->append(
+        QStringLiteral("Process finished: (Elapsed time: %1)").arg(QTime::fromMSecsSinceStartOfDay(mTimer.elapsed()).toString(QStringLiteral("HH:mm:ss"))));
 }

@@ -140,7 +140,7 @@ int SegmentsMapper::conflicts() const
     return r;
 }
 
-void SegmentsMapper::findPrevious(const Diff::SegmentType &type)
+void SegmentsMapper::findPrevious(Diff::SegmentType type)
 {
     int index;
     if (mCurrentSegment)
@@ -155,7 +155,7 @@ void SegmentsMapper::findPrevious(const Diff::SegmentType &type)
         }
 }
 
-void SegmentsMapper::findNext(const Diff::SegmentType &type)
+void SegmentsMapper::findNext(Diff::SegmentType type)
 {
     int index;
     if (mCurrentSegment)

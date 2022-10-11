@@ -32,8 +32,8 @@ public:
 
     int conflicts() const;
 
-    void findPrevious(const Diff::SegmentType &type);
-    void findNext(const Diff::SegmentType &type);
+    void findPrevious(Diff::SegmentType type);
+    void findNext(Diff::SegmentType type);
 
 private Q_SLOTS:
     void codeEditor_blockSelected();
