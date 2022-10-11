@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-10 00:48+0000\n"
-"PO-Revision-Date: 2022-10-08 08:44+0300\n"
+"POT-Creation-Date: 2022-10-11 00:49+0000\n"
+"PO-Revision-Date: 2022-10-10 18:39+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -398,7 +398,7 @@ msgstr "Нещодавні сховища"
 #: src/gui/appwindow.cpp:148
 #, kde-format
 msgid "Cleanup..."
-msgstr ""
+msgstr "Очищення…"
 
 #: src/gui/appwindow.cpp:151
 #, kde-format
@@ -425,12 +425,12 @@ msgstr "Перемкнутися/Отримати…"
 msgid "Diff tree"
 msgstr "Ієрархія різниці"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:217
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Не вдалося створити шлях: %1"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:217
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Init repo"
 msgstr "Ініціалізувати сховище"
@@ -440,37 +440,37 @@ msgstr "Ініціалізувати сховище"
 msgid "Open repository"
 msgstr "Відкрити сховище"
 
-#: src/gui/appwindow.cpp:324
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Неможливо перемикатися на гілку у процесі об'єднання"
 
-#: src/gui/appwindow.cpp:324
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr "Перемкнути гілку"
 
-#: src/gui/commandargsparser.cpp:52
+#: src/gui/commandargsparser.cpp:54
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Шлях не є шляхом до сховища git: %1"
 
-#: src/gui/commandargsparser.cpp:222
+#: src/gui/commandargsparser.cpp:224
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Сховище успішно ініціалізовано"
 
-#: src/gui/commandargsparser.cpp:461
+#: src/gui/commandargsparser.cpp:480
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Файли успішно додано до git"
 
-#: src/gui/commandargsparser.cpp:469
+#: src/gui/commandargsparser.cpp:488
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Хочете лишити файли на диску?"
 
-#: src/gui/commandargsparser.cpp:474
+#: src/gui/commandargsparser.cpp:493
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Файли успішно вилучено з git"
@@ -516,42 +516,39 @@ msgstr "Змінені файли:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/gui/dialogs/cleanupdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Search in repo"
+#, kde-format
 msgid "Cleanup repo"
-msgstr "Шукати у сховищі"
+msgstr "Чищення сховища"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/cleanupdialog.ui:23
 #, kde-format
 msgid "Clean type"
-msgstr ""
+msgstr "Тип чищення"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNonIgnoredUntrackedFiles)
 #: src/gui/dialogs/cleanupdialog.ui:29
 #, kde-format
 msgid "Remove non-ignored untracked files"
-msgstr ""
+msgstr "Вилучити неігноровані файли, за якими не стежить система"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllUntrackedFiles)
 #: src/gui/dialogs/cleanupdialog.ui:39
 #, kde-format
 msgid "Remove all untracked files"
-msgstr ""
+msgstr "Вилучити усі файли, за якими не стежить система"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
 #: src/gui/dialogs/cleanupdialog.ui:46
-#, fuzzy, kde-format
-#| msgid "Ignore file"
+#, kde-format
 msgid "Remove ignored files"
-msgstr "Ігнорувати файл"
+msgstr "Вилучити ігноровані файли"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
 #: src/gui/dialogs/cleanupdialog.ui:56
-#, fuzzy, kde-format
-#| msgid "Compare directories"
+#, kde-format
 msgid "Remove untracked directories"
-msgstr "Порівняти каталоги"
+msgstr "Вилучити каталоги, за якими не стежить система"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloneDialog)
 #: src/gui/dialogs/clonedialog.ui:14
@@ -955,18 +952,18 @@ msgstr "Перегляд файлів: %1"
 msgid "Branch:"
 msgstr "Гілка:"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:61
+#: src/gui/dialogs/fileviewerdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Закриття попереднього перегляду"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:62
+#: src/gui/dialogs/fileviewerdialog.cpp:63
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Будь ласка, зачекайте доки вікно попереднього перегляду буде закрито…"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:95
+#: src/gui/dialogs/fileviewerdialog.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -1540,7 +1537,7 @@ msgstr "З врахуванням регістру"
 msgid "Search"
 msgstr "Шукати"
 
-#: src/gui/dialogs/selectbranchestodiffdialog.cpp:41
+#: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
 msgid "The selected branches must be different!"
 msgstr "Вибрані гілки мають бути різними!"
@@ -1765,47 +1762,47 @@ msgstr "Зберегти ваш"
 msgid "Keep their"
 msgstr "Зберегти зовнішній"
 
-#: src/gui/mergewindow.cpp:281
+#: src/gui/mergewindow.cpp:282
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Зберегти ваш до зовнішнього"
 
-#: src/gui/mergewindow.cpp:286
+#: src/gui/mergewindow.cpp:288
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Зберегти зовнішній до вашого"
 
-#: src/gui/mergewindow.cpp:291
+#: src/gui/mergewindow.cpp:293
 #, kde-format
 msgid "Keep my file"
 msgstr "Зберегти ваш файл"
 
-#: src/gui/mergewindow.cpp:296
+#: src/gui/mergewindow.cpp:298
 #, kde-format
 msgid "Keep their file"
 msgstr "Зберегти зовнішній файл"
 
-#: src/gui/mergewindow.cpp:301
+#: src/gui/mergewindow.cpp:303
 #, kde-format
 msgid "Blocks"
 msgstr "Блоки"
 
-#: src/gui/mergewindow.cpp:305
+#: src/gui/mergewindow.cpp:307
 #, kde-format
 msgid "Files"
 msgstr "Файли"
 
-#: src/gui/mergewindow.cpp:314
+#: src/gui/mergewindow.cpp:316
 #, kde-format
 msgid "Previous diff"
 msgstr "Попередня відмінність"
 
-#: src/gui/mergewindow.cpp:319
+#: src/gui/mergewindow.cpp:321
 #, kde-format
 msgid "Next diff"
 msgstr "Наступна відмінність"
 
-#: src/gui/mergewindow.cpp:398
+#: src/gui/mergewindow.cpp:400
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Не вдалося відкрити файл"

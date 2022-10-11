@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-10 00:48+0000\n"
+"POT-Creation-Date: 2022-10-11 00:49+0000\n"
 "PO-Revision-Date: 2022-09-08 22:13+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -428,12 +428,12 @@ msgstr ""
 msgid "Diff tree"
 msgstr ""
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:217
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:217
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Init repo"
 msgstr ""
@@ -443,37 +443,37 @@ msgstr ""
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:324
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:324
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr "Prepnúť vetvu"
 
-#: src/gui/commandargsparser.cpp:52
+#: src/gui/commandargsparser.cpp:54
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:222
+#: src/gui/commandargsparser.cpp:224
 #, kde-format
 msgid "The repo inited successfully"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:461
+#: src/gui/commandargsparser.cpp:480
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:469
+#: src/gui/commandargsparser.cpp:488
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:474
+#: src/gui/commandargsparser.cpp:493
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr ""
@@ -937,19 +937,19 @@ msgstr "Prehliadať súbory: %1"
 msgid "Branch:"
 msgstr "Vetva:"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:61
+#: src/gui/dialogs/fileviewerdialog.cpp:62
 #, fuzzy, kde-format
 #| msgid "Closing preview"
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Zatvára sa náhľad"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:62
+#: src/gui/dialogs/fileviewerdialog.cpp:63
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Čakajte, prosím kým sa uzavrie náhľad..."
 
-#: src/gui/dialogs/fileviewerdialog.cpp:95
+#: src/gui/dialogs/fileviewerdialog.cpp:96
 #, fuzzy, kde-format
 #| msgid "View file: %1"
 msgctxt "@title:window"
@@ -1477,7 +1477,7 @@ msgstr "Rozlišovať veľkosť písmen"
 msgid "Search"
 msgstr "Hľadať"
 
-#: src/gui/dialogs/selectbranchestodiffdialog.cpp:41
+#: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
 msgid "The selected branches must be different!"
 msgstr ""
@@ -1704,47 +1704,47 @@ msgstr ""
 msgid "Keep their"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:281
+#: src/gui/mergewindow.cpp:282
 #, kde-format
 msgid "Keep mine before their"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:286
+#: src/gui/mergewindow.cpp:288
 #, kde-format
 msgid "Keep their before mine"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:291
+#: src/gui/mergewindow.cpp:293
 #, kde-format
 msgid "Keep my file"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:296
+#: src/gui/mergewindow.cpp:298
 #, kde-format
 msgid "Keep their file"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:301
+#: src/gui/mergewindow.cpp:303
 #, kde-format
 msgid "Blocks"
 msgstr "Bloky"
 
-#: src/gui/mergewindow.cpp:305
+#: src/gui/mergewindow.cpp:307
 #, kde-format
 msgid "Files"
 msgstr "Súbory"
 
-#: src/gui/mergewindow.cpp:314
+#: src/gui/mergewindow.cpp:316
 #, kde-format
 msgid "Previous diff"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:319
+#: src/gui/mergewindow.cpp:321
 #, kde-format
 msgid "Next diff"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:398
+#: src/gui/mergewindow.cpp:400
 #, kde-format
 msgid "Unable to open the file"
 msgstr ""

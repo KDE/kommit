@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-10 00:48+0000\n"
+"POT-Creation-Date: 2022-10-11 00:49+0000\n"
 "PO-Revision-Date: 2022-10-08 10:47+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -424,12 +424,12 @@ msgstr "Omschakelen/checkout..."
 msgid "Diff tree"
 msgstr "Diff tree"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:217
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Kan pad '%1' niet aanmaken"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:217
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Init repo"
 msgstr "Repo initialiseren"
@@ -439,37 +439,37 @@ msgstr "Repo initialiseren"
 msgid "Open repository"
 msgstr "Opslagruimte openen"
 
-#: src/gui/appwindow.cpp:324
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Kan branch niet omschakelen tijdens samenvoegen"
 
-#: src/gui/appwindow.cpp:324
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr "Branch omschakelen"
 
-#: src/gui/commandargsparser.cpp:52
+#: src/gui/commandargsparser.cpp:54
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Het pad is geen git-repo: %1"
 
-#: src/gui/commandargsparser.cpp:222
+#: src/gui/commandargsparser.cpp:224
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "De repo is met succes geïnitialiseerd"
 
-#: src/gui/commandargsparser.cpp:461
+#: src/gui/commandargsparser.cpp:480
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Bestand(en) met succes toegevoegd aan git "
 
-#: src/gui/commandargsparser.cpp:469
+#: src/gui/commandargsparser.cpp:488
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Wilt u bestand(en) op schijf laten?"
 
-#: src/gui/commandargsparser.cpp:474
+#: src/gui/commandargsparser.cpp:493
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Bestand(en) met succes verwijderd uit git "
@@ -955,18 +955,18 @@ msgstr "Door bestanden bladeren: %1"
 msgid "Branch:"
 msgstr "Branch:"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:61
+#: src/gui/dialogs/fileviewerdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Voorbeeld sluiten"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:62
+#: src/gui/dialogs/fileviewerdialog.cpp:63
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Even geduld terwijl het voorbeeld sluit..."
 
-#: src/gui/dialogs/fileviewerdialog.cpp:95
+#: src/gui/dialogs/fileviewerdialog.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -1544,7 +1544,7 @@ msgstr "Hoofdlettergevoelig"
 msgid "Search"
 msgstr "Zoeken"
 
-#: src/gui/dialogs/selectbranchestodiffdialog.cpp:41
+#: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
 msgid "The selected branches must be different!"
 msgstr "De geselecteerde branches moeten verschillend zijn!"
@@ -1769,47 +1769,47 @@ msgstr "De mijne behouden"
 msgid "Keep their"
 msgstr "De hunne behouden"
 
-#: src/gui/mergewindow.cpp:281
+#: src/gui/mergewindow.cpp:282
 #, kde-format
 msgid "Keep mine before their"
 msgstr "De mijne behouden boven de hunne"
 
-#: src/gui/mergewindow.cpp:286
+#: src/gui/mergewindow.cpp:288
 #, kde-format
 msgid "Keep their before mine"
 msgstr "De hunne behouden voor de mijne"
 
-#: src/gui/mergewindow.cpp:291
+#: src/gui/mergewindow.cpp:293
 #, kde-format
 msgid "Keep my file"
 msgstr "Mijn bestand behouden"
 
-#: src/gui/mergewindow.cpp:296
+#: src/gui/mergewindow.cpp:298
 #, kde-format
 msgid "Keep their file"
 msgstr "Hun bestand behouden"
 
-#: src/gui/mergewindow.cpp:301
+#: src/gui/mergewindow.cpp:303
 #, kde-format
 msgid "Blocks"
 msgstr "Blokken"
 
-#: src/gui/mergewindow.cpp:305
+#: src/gui/mergewindow.cpp:307
 #, kde-format
 msgid "Files"
 msgstr "Bestanden"
 
-#: src/gui/mergewindow.cpp:314
+#: src/gui/mergewindow.cpp:316
 #, kde-format
 msgid "Previous diff"
 msgstr "Vorige diff"
 
-#: src/gui/mergewindow.cpp:319
+#: src/gui/mergewindow.cpp:321
 #, kde-format
 msgid "Next diff"
 msgstr "Volgende diff"
 
-#: src/gui/mergewindow.cpp:398
+#: src/gui/mergewindow.cpp:400
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Kan het bestand niet openen"

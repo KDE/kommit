@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-10 00:48+0000\n"
-"PO-Revision-Date: 2022-10-08 18:47+0200\n"
+"POT-Creation-Date: 2022-10-11 00:49+0000\n"
+"PO-Revision-Date: 2022-10-10 23:56+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -426,12 +426,12 @@ msgstr "Cambiar/cambiar rama..."
 msgid "Diff tree"
 msgstr "Árbol de diferencias"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:217
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "No se ha podido crear la ruta: %1"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:217
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Init repo"
 msgstr "Iniciar repositorio"
@@ -441,37 +441,37 @@ msgstr "Iniciar repositorio"
 msgid "Open repository"
 msgstr "Abrir repositorio"
 
-#: src/gui/appwindow.cpp:324
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No se puede cambiar de rama durante la fusión"
 
-#: src/gui/appwindow.cpp:324
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr "Cambiar rama"
 
-#: src/gui/commandargsparser.cpp:52
+#: src/gui/commandargsparser.cpp:54
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "La ruta no es un repositorio de git: %1"
 
-#: src/gui/commandargsparser.cpp:222
+#: src/gui/commandargsparser.cpp:224
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Repositorio iniciado correctamente"
 
-#: src/gui/commandargsparser.cpp:461
+#: src/gui/commandargsparser.cpp:480
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Archivos añadidos a git correctamente"
 
-#: src/gui/commandargsparser.cpp:469
+#: src/gui/commandargsparser.cpp:488
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "¿Desea dejar los archivos en el disco?"
 
-#: src/gui/commandargsparser.cpp:474
+#: src/gui/commandargsparser.cpp:493
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Archivos eliminados de git correctamente"
@@ -517,10 +517,9 @@ msgstr "Archivos cambiados:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/gui/dialogs/cleanupdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Search in repo"
+#, kde-format
 msgid "Cleanup repo"
-msgstr "Buscar en repositorio"
+msgstr "Limpiar el repositorio"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/cleanupdialog.ui:23
@@ -542,10 +541,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
 #: src/gui/dialogs/cleanupdialog.ui:46
-#, fuzzy, kde-format
-#| msgid "Ignore file"
+#, kde-format
 msgid "Remove ignored files"
-msgstr "Ignorar archivo"
+msgstr "Eliminar archivos ignorados"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
 #: src/gui/dialogs/cleanupdialog.ui:56
@@ -933,18 +931,18 @@ msgstr "Explorar archivos: %1"
 msgid "Branch:"
 msgstr "Rama:"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:61
+#: src/gui/dialogs/fileviewerdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Cerrando vista previa"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:62
+#: src/gui/dialogs/fileviewerdialog.cpp:63
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Espere mientras se cierra la vista previa..."
 
-#: src/gui/dialogs/fileviewerdialog.cpp:95
+#: src/gui/dialogs/fileviewerdialog.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -1481,7 +1479,7 @@ msgstr "Distinguir mayúsculas y minúsculas"
 msgid "Search"
 msgstr "Buscar"
 
-#: src/gui/dialogs/selectbranchestodiffdialog.cpp:41
+#: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
 msgid "The selected branches must be different!"
 msgstr "Las ramas seleccionadas deben ser diferentes"
@@ -1706,47 +1704,47 @@ msgstr "Mantener el mío"
 msgid "Keep their"
 msgstr "Mantener el suyo"
 
-#: src/gui/mergewindow.cpp:281
+#: src/gui/mergewindow.cpp:282
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Mantener el mío antes que el suyo"
 
-#: src/gui/mergewindow.cpp:286
+#: src/gui/mergewindow.cpp:288
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Mantener el suyo antes que el mío"
 
-#: src/gui/mergewindow.cpp:291
+#: src/gui/mergewindow.cpp:293
 #, kde-format
 msgid "Keep my file"
 msgstr "Mantener mi archivo"
 
-#: src/gui/mergewindow.cpp:296
+#: src/gui/mergewindow.cpp:298
 #, kde-format
 msgid "Keep their file"
 msgstr "Mantener su archivo"
 
-#: src/gui/mergewindow.cpp:301
+#: src/gui/mergewindow.cpp:303
 #, kde-format
 msgid "Blocks"
 msgstr "Bloques"
 
-#: src/gui/mergewindow.cpp:305
+#: src/gui/mergewindow.cpp:307
 #, kde-format
 msgid "Files"
 msgstr "Archivos"
 
-#: src/gui/mergewindow.cpp:314
+#: src/gui/mergewindow.cpp:316
 #, kde-format
 msgid "Previous diff"
 msgstr "Diferencia anterior"
 
-#: src/gui/mergewindow.cpp:319
+#: src/gui/mergewindow.cpp:321
 #, kde-format
 msgid "Next diff"
 msgstr "Diferencia siguiente"
 
-#: src/gui/mergewindow.cpp:398
+#: src/gui/mergewindow.cpp:400
 #, kde-format
 msgid "Unable to open the file"
 msgstr "No se puede abrir el archivo"
@@ -1875,7 +1873,7 @@ msgstr "Nuevo"
 #: src/gui/widgets/branchesstatuswidget.ui:90
 #, kde-format
 msgid "Checkout"
-msgstr ""
+msgstr "Cambiar rama"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
@@ -1895,7 +1893,7 @@ msgstr "Explorar"
 #: src/gui/widgets/commitswidget.ui:39
 #, kde-format
 msgid "Filter..."
-msgstr ""
+msgstr "Filtrar..."
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/gui/widgets/difftreeview.ui:17
