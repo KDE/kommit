@@ -49,7 +49,7 @@ public:
     void setFromBranch(const QString &newFromBranch);
 
     Q_REQUIRED_RESULT const Strategy &strategy() const;
-    void setStrategy(const Strategy &newStrategy);
+    void setStrategy(Git::CommandMerge::Strategy newStrategy);
 
     bool ignoreSpaceChange() const;
     void setIgnoreSpaceChange(bool newIgnoreSpaceChange);
