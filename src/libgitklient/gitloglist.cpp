@@ -279,19 +279,19 @@ H -- commit hash              c -- committer details        m -- mark           
 
     _branches = Manager::instance()->branches();
 
-    QStringList args{"--no-pager",
-                     "log",
-                     "--topo-order",
-                     "--no-color",
-                     "--parents",
-                     "--boundary",
-                     "--pretty=format:'SEP%m%HX%hX%P%n"
-                     "%cnX%ceX%cI%n"
-                     "%anX%aeX%aI%n"
-                     "%d%n"
-                     "%at%n"
-                     "%s%n"
-                     "%b%n'"};
+    QStringList args{QStringLiteral("--no-pager"),
+                     QStringLiteral("log"),
+                     QStringLiteral("--topo-order"),
+                     QStringLiteral("--no-color"),
+                     QStringLiteral("--parents"),
+                     QStringLiteral("--boundary"),
+                     QStringLiteral("--pretty=format:'SEP%m%HX%hX%P%n"
+                                    "%cnX%ceX%cI%n"
+                                    "%anX%aeX%aI%n"
+                                    "%d%n"
+                                    "%at%n"
+                                    "%s%n"
+                                    "%b%n'")};
 
     if (_branch.size())
         args.insert(2, _branch);
