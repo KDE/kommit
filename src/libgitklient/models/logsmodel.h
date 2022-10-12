@@ -23,6 +23,7 @@ class LIBGITKLIENT_EXPORT LogsModel : public AbstractGitItemsModel
 
 public:
     explicit LogsModel(Manager *git, QObject *parent = nullptr);
+    ~LogsModel() override;
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent) const override;

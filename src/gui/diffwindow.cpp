@@ -98,7 +98,7 @@ DiffWindow::DiffWindow(const QString &oldDir, const QString &newDir)
 
 void DiffWindow::init(bool showSideBar)
 {
-    auto mapper = new EditActionsMapper;
+    auto mapper = new EditActionsMapper(this);
     mDiffWidget = new DiffWidget(this);
     mDiffWidget->showSameSize(true);
 

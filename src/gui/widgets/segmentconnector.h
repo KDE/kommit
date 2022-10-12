@@ -17,6 +17,7 @@ class SegmentConnector : public QWidget
 
 public:
     explicit SegmentConnector(QWidget *parent = nullptr);
+    ~SegmentConnector() override;
 
     CodeEditor *left() const;
     void setLeft(CodeEditor *newLeft);

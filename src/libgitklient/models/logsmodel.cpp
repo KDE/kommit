@@ -204,9 +204,15 @@ struct LanesFactory {
 
 } // namespace Impl
 
-Git::LogsModel::LogsModel(Manager *git, QObject *parent)
+LogsModel::LogsModel(Manager *git, QObject *parent)
     : AbstractGitItemsModel(git, parent)
 {
+}
+
+LogsModel::~LogsModel()
+{
+    qDeleteAll(mData);
+    mData.clear();
 }
 
 const QString &LogsModel::branch() const

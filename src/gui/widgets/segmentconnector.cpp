@@ -16,6 +16,11 @@ SegmentConnector::SegmentConnector(QWidget *parent)
 {
 }
 
+SegmentConnector::~SegmentConnector()
+{
+    qDeleteAll(mSegments);
+}
+
 const QList<Diff::Segment *> &SegmentConnector::segments() const
 {
     return mSegments;
