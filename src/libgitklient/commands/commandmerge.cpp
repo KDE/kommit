@@ -56,7 +56,7 @@ QStringList CommandMerge::generateArgs() const
             cmd << QStringLiteral("--theirs");
         break;
     case Recursive: {
-        auto e = QMetaEnum::fromType<DiffAlgorithm>();
+        const auto e = QMetaEnum::fromType<DiffAlgorithm>();
         cmd << QStringLiteral("diff-algorithm=") + QString(e.valueToKey(mDiffAlgorithm)).toLower();
         if (mNoRenames)
             cmd << QStringLiteral("--no-renames");
@@ -140,7 +140,7 @@ const CommandMerge::Strategy &CommandMerge::strategy() const
     return mStrategy;
 }
 
-void CommandMerge::setStrategy(const Strategy &newStrategy)
+void CommandMerge::setStrategy(Git::CommandMerge::Strategy newStrategy)
 {
     mStrategy = newStrategy;
 }
