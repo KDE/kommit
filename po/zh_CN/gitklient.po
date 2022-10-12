@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-11 00:49+0000\n"
+"POT-Creation-Date: 2022-10-12 00:49+0000\n"
 "PO-Revision-Date: 2022-10-02 15:50\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -426,12 +426,12 @@ msgstr "切换/检出..."
 msgid "Diff tree"
 msgstr "查看树差异"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:218
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "无法创建路径：%1"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:218
 #, kde-format
 msgid "Init repo"
 msgstr "初始化仓库"
@@ -442,37 +442,37 @@ msgstr "初始化仓库"
 msgid "Open repository"
 msgstr "克隆一个仓库"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:462
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "合并时无法切换分支"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:462
 #, kde-format
 msgid "Switch branch"
 msgstr "切换分支"
 
-#: src/gui/commandargsparser.cpp:54
+#: src/gui/commandargsparser.cpp:53
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "此路径不是 git 仓库：%1"
 
-#: src/gui/commandargsparser.cpp:224
+#: src/gui/commandargsparser.cpp:223
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "仓库初始化成功"
 
-#: src/gui/commandargsparser.cpp:480
+#: src/gui/commandargsparser.cpp:479
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "文件已成功添加到 git"
 
-#: src/gui/commandargsparser.cpp:488
+#: src/gui/commandargsparser.cpp:487
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "您想要保留磁盘上的文件吗？"
 
-#: src/gui/commandargsparser.cpp:493
+#: src/gui/commandargsparser.cpp:492
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "文件已成功从 git 中删除"
@@ -1635,54 +1635,54 @@ msgstr "标签"
 msgid "Tag name:"
 msgstr "标签名称："
 
-#: src/gui/diffwindow.cpp:112
+#: src/gui/diffwindow.cpp:111
 #, kde-format
 msgctxt "@title:window"
 msgid "GitKlient Diff[*]"
 msgstr "GitKlient 差异[*]"
 
-#: src/gui/diffwindow.cpp:115
+#: src/gui/diffwindow.cpp:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "树"
 
-#: src/gui/diffwindow.cpp:139
+#: src/gui/diffwindow.cpp:138
 #, kde-format
 msgid "View hidden chars..."
 msgstr "显示不可见字符..."
 
-#: src/gui/diffwindow.cpp:144
+#: src/gui/diffwindow.cpp:143
 #, kde-format
 msgid "Same size blocks"
 msgstr ""
 
-#: src/gui/diffwindow.cpp:149
+#: src/gui/diffwindow.cpp:148
 #, kde-format
 msgid "Show files names"
 msgstr "显示文件名"
 
-#: src/gui/diffwindow.cpp:155
+#: src/gui/diffwindow.cpp:154
 #, kde-format
 msgid "Show Tree"
 msgstr "显示树"
 
-#: src/gui/diffwindow.cpp:214
+#: src/gui/diffwindow.cpp:213
 #, kde-format
 msgid "Unchanged"
 msgstr "未更改"
 
-#: src/gui/diffwindow.cpp:216
+#: src/gui/diffwindow.cpp:215
 #, kde-format
 msgid "Added"
 msgstr "已添加"
 
-#: src/gui/diffwindow.cpp:218
+#: src/gui/diffwindow.cpp:217
 #, kde-format
 msgid "Removed"
 msgstr "已删除"
 
-#: src/gui/diffwindow.cpp:220
+#: src/gui/diffwindow.cpp:219
 #, kde-format
 msgid "Modified"
 msgstr "已修改"

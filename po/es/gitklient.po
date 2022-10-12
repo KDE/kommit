@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-11 00:49+0000\n"
+"POT-Creation-Date: 2022-10-12 00:49+0000\n"
 "PO-Revision-Date: 2022-10-10 23:56+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -426,12 +426,12 @@ msgstr "Cambiar/cambiar rama..."
 msgid "Diff tree"
 msgstr "Árbol de diferencias"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:218
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "No se ha podido crear la ruta: %1"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:218
 #, kde-format
 msgid "Init repo"
 msgstr "Iniciar repositorio"
@@ -441,37 +441,37 @@ msgstr "Iniciar repositorio"
 msgid "Open repository"
 msgstr "Abrir repositorio"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:462
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No se puede cambiar de rama durante la fusión"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:462
 #, kde-format
 msgid "Switch branch"
 msgstr "Cambiar rama"
 
-#: src/gui/commandargsparser.cpp:54
+#: src/gui/commandargsparser.cpp:53
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "La ruta no es un repositorio de git: %1"
 
-#: src/gui/commandargsparser.cpp:224
+#: src/gui/commandargsparser.cpp:223
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Repositorio iniciado correctamente"
 
-#: src/gui/commandargsparser.cpp:480
+#: src/gui/commandargsparser.cpp:479
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Archivos añadidos a git correctamente"
 
-#: src/gui/commandargsparser.cpp:488
+#: src/gui/commandargsparser.cpp:487
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "¿Desea dejar los archivos en el disco?"
 
-#: src/gui/commandargsparser.cpp:493
+#: src/gui/commandargsparser.cpp:492
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Archivos eliminados de git correctamente"
@@ -1554,54 +1554,54 @@ msgstr "Etiqueta"
 msgid "Tag name:"
 msgstr "Nombre de la etiqueta:"
 
-#: src/gui/diffwindow.cpp:112
+#: src/gui/diffwindow.cpp:111
 #, kde-format
 msgctxt "@title:window"
 msgid "GitKlient Diff[*]"
 msgstr "Diferencias de GitKlient [*]"
 
-#: src/gui/diffwindow.cpp:115
+#: src/gui/diffwindow.cpp:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Árbol"
 
-#: src/gui/diffwindow.cpp:139
+#: src/gui/diffwindow.cpp:138
 #, kde-format
 msgid "View hidden chars..."
 msgstr "Ver caracteres ocultos..."
 
-#: src/gui/diffwindow.cpp:144
+#: src/gui/diffwindow.cpp:143
 #, kde-format
 msgid "Same size blocks"
 msgstr "Bloques del mismo tamaño"
 
-#: src/gui/diffwindow.cpp:149
+#: src/gui/diffwindow.cpp:148
 #, kde-format
 msgid "Show files names"
 msgstr "Mostrar nombres de archivos"
 
-#: src/gui/diffwindow.cpp:155
+#: src/gui/diffwindow.cpp:154
 #, kde-format
 msgid "Show Tree"
 msgstr "Mostrar árbol"
 
-#: src/gui/diffwindow.cpp:214
+#: src/gui/diffwindow.cpp:213
 #, kde-format
 msgid "Unchanged"
 msgstr "Sin cambios"
 
-#: src/gui/diffwindow.cpp:216
+#: src/gui/diffwindow.cpp:215
 #, kde-format
 msgid "Added"
 msgstr "Añadido"
 
-#: src/gui/diffwindow.cpp:218
+#: src/gui/diffwindow.cpp:217
 #, kde-format
 msgid "Removed"
 msgstr "Eliminado"
 
-#: src/gui/diffwindow.cpp:220
+#: src/gui/diffwindow.cpp:219
 #, kde-format
 msgid "Modified"
 msgstr "Modificado"

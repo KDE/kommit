@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-11 00:49+0000\n"
-"PO-Revision-Date: 2022-10-08 11:02+0100\n"
+"POT-Creation-Date: 2022-10-12 00:49+0000\n"
+"PO-Revision-Date: 2022-10-11 17:14+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -405,7 +405,7 @@ msgstr "Repositórios recentes"
 #: src/gui/appwindow.cpp:148
 #, kde-format
 msgid "Cleanup..."
-msgstr ""
+msgstr "Limpar..."
 
 #: src/gui/appwindow.cpp:151
 #, kde-format
@@ -432,12 +432,12 @@ msgstr "Mudar/Seleccionar..."
 msgid "Diff tree"
 msgstr "Diferenças da árvore"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:218
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Não é possível criar a localização: %1"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:218
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializar o repositório"
@@ -447,37 +447,37 @@ msgstr "Inicializar o repositório"
 msgid "Open repository"
 msgstr "Abrir um repositório"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:462
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Não é possível mudar de ramificação durante uma junção"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:462
 #, kde-format
 msgid "Switch branch"
 msgstr "Mudar de ramificação"
 
-#: src/gui/commandargsparser.cpp:54
+#: src/gui/commandargsparser.cpp:53
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "A localização não é de um repositório Git: %1"
 
-#: src/gui/commandargsparser.cpp:224
+#: src/gui/commandargsparser.cpp:223
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "O repositório foi inicializado com sucesso"
 
-#: src/gui/commandargsparser.cpp:480
+#: src/gui/commandargsparser.cpp:479
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Os ficheiros foram adicionados com sucesso ao Git"
 
-#: src/gui/commandargsparser.cpp:488
+#: src/gui/commandargsparser.cpp:487
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Deseja deixar os ficheiros no disco?"
 
-#: src/gui/commandargsparser.cpp:493
+#: src/gui/commandargsparser.cpp:492
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Os ficheiros foram removidos com sucesso do Git"
@@ -523,42 +523,39 @@ msgstr "Ficheiros modificados:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/gui/dialogs/cleanupdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Search in repo"
+#, kde-format
 msgid "Cleanup repo"
-msgstr "Procurar no repositório"
+msgstr "Limpeza do repositório"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/cleanupdialog.ui:23
 #, kde-format
 msgid "Clean type"
-msgstr ""
+msgstr "Tipo de limpeza"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNonIgnoredUntrackedFiles)
 #: src/gui/dialogs/cleanupdialog.ui:29
 #, kde-format
 msgid "Remove non-ignored untracked files"
-msgstr ""
+msgstr "Remover os ficheiros não seguidos e não-ignorados"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllUntrackedFiles)
 #: src/gui/dialogs/cleanupdialog.ui:39
 #, kde-format
 msgid "Remove all untracked files"
-msgstr ""
+msgstr "Remover todos os ficheiros não seguidos"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
 #: src/gui/dialogs/cleanupdialog.ui:46
-#, fuzzy, kde-format
-#| msgid "Ignore file"
+#, kde-format
 msgid "Remove ignored files"
-msgstr "Ignorar o ficheiro"
+msgstr "Remover os ficheiros ignorados"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
 #: src/gui/dialogs/cleanupdialog.ui:56
-#, fuzzy, kde-format
-#| msgid "Compare directories"
+#, kde-format
 msgid "Remove untracked directories"
-msgstr "Comparar as pastas"
+msgstr "Remover as pastas não seguidas"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloneDialog)
 #: src/gui/dialogs/clonedialog.ui:14
@@ -1625,54 +1622,54 @@ msgstr "Marca"
 msgid "Tag name:"
 msgstr "Nome da marca:"
 
-#: src/gui/diffwindow.cpp:112
+#: src/gui/diffwindow.cpp:111
 #, kde-format
 msgctxt "@title:window"
 msgid "GitKlient Diff[*]"
 msgstr "Diferenças do GitKlient[*]"
 
-#: src/gui/diffwindow.cpp:115
+#: src/gui/diffwindow.cpp:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Árvore"
 
-#: src/gui/diffwindow.cpp:139
+#: src/gui/diffwindow.cpp:138
 #, kde-format
 msgid "View hidden chars..."
 msgstr "Ver os caracteres escondidos..."
 
-#: src/gui/diffwindow.cpp:144
+#: src/gui/diffwindow.cpp:143
 #, kde-format
 msgid "Same size blocks"
 msgstr "Blocos do mesmo tamanho"
 
-#: src/gui/diffwindow.cpp:149
+#: src/gui/diffwindow.cpp:148
 #, kde-format
 msgid "Show files names"
 msgstr "Mostrar os nomes dos ficheiros"
 
-#: src/gui/diffwindow.cpp:155
+#: src/gui/diffwindow.cpp:154
 #, kde-format
 msgid "Show Tree"
 msgstr "Mostrar a Árvore"
 
-#: src/gui/diffwindow.cpp:214
+#: src/gui/diffwindow.cpp:213
 #, kde-format
 msgid "Unchanged"
 msgstr "Inalterado"
 
-#: src/gui/diffwindow.cpp:216
+#: src/gui/diffwindow.cpp:215
 #, kde-format
 msgid "Added"
 msgstr "Adicionado"
 
-#: src/gui/diffwindow.cpp:218
+#: src/gui/diffwindow.cpp:217
 #, kde-format
 msgid "Removed"
 msgstr "Removido"
 
-#: src/gui/diffwindow.cpp:220
+#: src/gui/diffwindow.cpp:219
 #, kde-format
 msgid "Modified"
 msgstr "Modificado"
@@ -2240,27 +2237,3 @@ msgstr "Hora"
 #, kde-format
 msgid "Head"
 msgstr "Última versão"
-
-#~ msgid "Clone"
-#~ msgstr "Clonar"
-
-#~ msgid "Init"
-#~ msgstr "Inicializar"
-
-#~ msgid "Open"
-#~ msgstr "Abrir"
-
-#~ msgid "Pull"
-#~ msgstr "Receber"
-
-#~ msgid "Modifications"
-#~ msgstr "Modificações"
-
-#~ msgid "History"
-#~ msgstr "Histórico"
-
-#~ msgid "Blame"
-#~ msgstr "Anotar"
-
-#~ msgid "Create tag"
-#~ msgstr "Criar uma marca"
