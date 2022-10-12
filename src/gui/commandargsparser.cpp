@@ -127,11 +127,11 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
 #define GET_OP(x) params.size() > x ? Q_ARG(QString, params.at(x)) : QGenericArgument()
     if (args.size() == 1)
         return main();
-    auto name = QString(args.at(1)).replace(QLatin1String("-"), QLatin1String("_")).toLocal8Bit();
-    auto c = metaObject()->methodCount();
+    const auto name = QString(args.at(1)).replace(QLatin1String("-"), QLatin1String("_")).toLocal8Bit();
+    const auto c = metaObject()->methodCount();
     qCDebug(GITKLIENT_LOG) << "Running" << args;
     for (int i = 0; i < c; i++) {
-        auto method = metaObject()->method(i);
+        const auto method = metaObject()->method(i);
 
         if (method.name().compare(name, Qt::CaseInsensitive) == 0) {
             if (method.parameterCount() != args.size() - 1) {
@@ -170,7 +170,7 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
 
 ArgParserReturn CommandArgsParser::help()
 {
-    auto c = metaObject()->methodCount();
+    const auto c = metaObject()->methodCount();
 
     for (auto i = metaObject()->classInfoOffset(); i < metaObject()->classInfoCount(); i++) {
         auto name = QString(metaObject()->classInfo(i).name());
@@ -317,9 +317,9 @@ ArgParserReturn CommandArgsParser::diff(const QString &file)
 
     if (fi.isFile()) {
         git->setPath(fi.absolutePath());
-        QDir dir(git->path());
-        Git::File headFile(file);
-        Git::File changedFile(git->currentBranch(), dir.relativeFilePath(file), git);
+        const QDir dir(git->path());
+        const Git::File headFile(file);
+        const Git::File changedFile(git->currentBranch(), dir.relativeFilePath(file), git);
         auto d = new DiffWindow(headFile, changedFile);
         d->exec();
         return ExecApp;
@@ -340,8 +340,8 @@ ArgParserReturn CommandArgsParser::diff(const QString &file1, const QString &fil
 
     if (fi1.isFile() && fi2.isFile()) {
         qCDebug(GITKLIENT_LOG) << fi1.absoluteFilePath() << fi2.absoluteFilePath();
-        Git::File fileLeft(fi1.absoluteFilePath());
-        Git::File fileRight(fi2.absoluteFilePath());
+        const Git::File fileLeft(fi1.absoluteFilePath());
+        const Git::File fileRight(fi2.absoluteFilePath());
         auto d = new DiffWindow(fileLeft, fileRight);
         d->exec();
         return ExecApp;
@@ -362,10 +362,10 @@ ArgParserReturn CommandArgsParser::diff(const QString &path, const QString &file
     git->setPath(path);
     if (!git->isValid())
         return 1;
-    auto parts1 = file1.split(QLatin1Char(':'));
-    auto parts2 = file2.split(QLatin1Char(':'));
-    Git::File fileLeft(parts1.first(), parts1.at(1));
-    Git::File fileRight(parts2.first(), parts2.at(1));
+    const auto parts1 = file1.split(QLatin1Char(':'));
+    const auto parts2 = file2.split(QLatin1Char(':'));
+    const Git::File fileLeft(parts1.first(), parts1.at(1));
+    const Git::File fileRight(parts2.first(), parts2.at(1));
     auto d = new DiffWindow(fileLeft, fileRight);
     d->exec();
     return ExecApp;
@@ -383,7 +383,7 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
     git->setPath(fi.absolutePath());
     //    git->logsModel()->load();
 
-    Git::File f(git->currentBranch(), file, git);
+    const Git::File f(git->currentBranch(), file, git);
     FileBlameDialog d(f);
     d.exec();
     return 0;
