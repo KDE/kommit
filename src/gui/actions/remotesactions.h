@@ -18,14 +18,12 @@ public:
     Q_REQUIRED_RESULT const QString &remoteName() const;
     void setRemoteName(const QString &newRemoteName);
 
-private Q_SLOTS:
+private:
     void create();
     void remove();
     void changeUrl();
     void rename();
     void update();
-
-private:
     DEFINE_ACTION(actionCreate)
     DEFINE_ACTION(actionRemove)
     DEFINE_ACTION(actionRename)

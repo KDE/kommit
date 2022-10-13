@@ -18,14 +18,12 @@ public:
     Q_REQUIRED_RESULT const QString &tagName() const;
     void setTagName(const QString &newTagName);
 
-private Q_SLOTS:
+private:
     void create();
     void remove();
     void checkout();
     void diff();
     void push();
-
-private:
     DEFINE_ACTION(actionCreate)
     DEFINE_ACTION(actionRemove)
     DEFINE_ACTION(actionCheckout)

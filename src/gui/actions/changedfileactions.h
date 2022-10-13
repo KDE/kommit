@@ -17,9 +17,9 @@ public:
 
     Q_REQUIRED_RESULT const QString &filePath() const;
     void setFilePath(const QString &newFilePath);
-
-public Q_SLOTS:
     void diff();
+
+private:
     void revert();
 
 Q_SIGNALS:

@@ -18,12 +18,10 @@ public:
     Q_REQUIRED_RESULT const QString &commitHash() const;
     void setCommitHash(const QString &newCommitHash);
 
-private Q_SLOTS:
+private:
     void browse();
     void checkout();
     void diff();
-
-private:
     DEFINE_ACTION(actionBrowse)
     DEFINE_ACTION(actionCheckout)
     DEFINE_ACTION(actionDiff)

@@ -24,7 +24,7 @@ public:
     Q_REQUIRED_RESULT const QString &filePath() const;
     void setFilePath(const QString &newFilePath);
 
-private Q_SLOTS:
+private:
     void viewFile();
     void saveAsFile();
     void logFile();
@@ -34,7 +34,6 @@ private Q_SLOTS:
     void diffWithHead();
     void mergeWithHead();
 
-private:
     DEFINE_ACTION(actionSaveAs)
 
     DEFINE_ACTION(actionView)
