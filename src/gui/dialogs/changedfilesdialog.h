@@ -17,11 +17,9 @@ class ChangedFilesDialog : public AppDialog, private Ui::ChangedFilesDialog
 public:
     explicit ChangedFilesDialog(Git::Manager *git, QWidget *parent = nullptr);
 
-private Q_SLOTS:
-    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
-    void on_listWidget_customContextMenuRequested(const QPoint &pos);
-
 private:
+    void slotItemDoubleClicked(QListWidgetItem *item);
+    void slotCustomContextMenuRequested(const QPoint &pos);
     void slotPushCommit();
     void reload();
     ChangedFileActions *mActions = nullptr;

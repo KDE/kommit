@@ -20,6 +20,8 @@ ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
     buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Commit/Push"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ChangedFilesDialog::slotPushCommit);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ChangedFilesDialog::reject);
+    connect(listWidget, &QListWidget::itemDoubleClicked, this, &ChangedFilesDialog::slotItemDoubleClicked);
+    connect(listWidget, &QListWidget::customContextMenuRequested, this, &ChangedFilesDialog::slotCustomContextMenuRequested);
 }
 
 void ChangedFilesDialog::slotPushCommit()
@@ -49,7 +51,7 @@ void ChangedFilesDialog::reload()
     }
 }
 
-void ChangedFilesDialog::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
+void ChangedFilesDialog::slotItemDoubleClicked(QListWidgetItem *item)
 {
     if (!item)
         return;
@@ -57,7 +59,7 @@ void ChangedFilesDialog::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
     mActions->diff();
 }
 
-void ChangedFilesDialog::on_listWidget_customContextMenuRequested(const QPoint &pos)
+void ChangedFilesDialog::slotCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
     if (listWidget->currentRow() == -1)
