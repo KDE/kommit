@@ -49,7 +49,7 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const Git::File &file, Q
     mFileName = file.fileName();
     const auto hashes = git->fileLog(file.fileName());
 
-    auto logs = git->logsModel();
+    const auto logs = git->logsModel();
 
     for (const auto &hash : hashes) {
         auto log = logs->findLogByHash(hash);
