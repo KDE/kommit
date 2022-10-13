@@ -33,26 +33,26 @@ public:
         QStringList parentHash);
     ~Log();
 
-    const QString &authorName() const;
-    const QString &authorEmail() const;
-    const QDateTime &authDate() const;
-    const QString &committerName() const;
-    const QString &committerEmail() const;
-    const QDateTime &commitDate() const;
-    const QString &message() const;
-    const QString &subject() const;
-    const QString &body() const;
-    const QString &commitHash() const;
-    const QStringList &parents() const;
-    const QString &refLog() const;
-    const QString &branch() const;
-    const QString &extraData() const;
-    CommitType type() const;
+    Q_REQUIRED_RESULT const QString &authorName() const;
+    Q_REQUIRED_RESULT const QString &authorEmail() const;
+    Q_REQUIRED_RESULT const QDateTime &authDate() const;
+    Q_REQUIRED_RESULT const QString &committerName() const;
+    Q_REQUIRED_RESULT const QString &committerEmail() const;
+    Q_REQUIRED_RESULT const QDateTime &commitDate() const;
+    Q_REQUIRED_RESULT const QString &message() const;
+    Q_REQUIRED_RESULT const QString &subject() const;
+    Q_REQUIRED_RESULT const QString &body() const;
+    Q_REQUIRED_RESULT const QString &commitHash() const;
+    Q_REQUIRED_RESULT const QStringList &parents() const;
+    Q_REQUIRED_RESULT const QString &refLog() const;
+    Q_REQUIRED_RESULT const QString &branch() const;
+    Q_REQUIRED_RESULT const QString &extraData() const;
+    Q_REQUIRED_RESULT CommitType type() const;
     const QVector<GraphLane> &lanes() const;
 
-    const QStringList &childs() const;
+    Q_REQUIRED_RESULT const QStringList &childs() const;
 
-    const QString &commitShortHash() const;
+    Q_REQUIRED_RESULT const QString &commitShortHash() const;
 
 private:
     QString mAuthorName;

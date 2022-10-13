@@ -10,15 +10,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
+NonEmptyLinesCommand::NonEmptyLinesCommand()
+    : ParameteresCommand()
+{
+}
 
 const QStringList &NonEmptyLinesCommand::lines() const
 {
     return mLines;
-}
-
-NonEmptyLinesCommand::NonEmptyLinesCommand()
-    : ParameteresCommand()
-{
 }
 
 void NonEmptyLinesCommand::parseOutput(const QByteArray &output, const QByteArray &errorOutput)

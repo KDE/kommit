@@ -11,6 +11,26 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
+Stash::Stash(Manager *git, QString name)
+    : mGit(git)
+    , mName(std::move(name))
+{
+}
+
+void Stash::apply()
+{
+    mGit->runGit({QStringLiteral("stash"), QStringLiteral("apply"), mName});
+}
+
+void Stash::drop()
+{
+    mGit->runGit({QStringLiteral("stash"), QStringLiteral("drop"), mName});
+}
+
+void Stash::pop()
+{
+    mGit->runGit({QStringLiteral("stash"), QStringLiteral("pop"), mName});
+}
 
 const QString &Stash::name() const
 {
@@ -40,27 +60,6 @@ const QString &Stash::branch() const
 const QDateTime &Stash::pushTime() const
 {
     return mPushTime;
-}
-
-Stash::Stash(Manager *git, QString name)
-    : mGit(git)
-    , mName(std::move(name))
-{
-}
-
-void Stash::apply()
-{
-    mGit->runGit({QStringLiteral("stash"), QStringLiteral("apply"), mName});
-}
-
-void Stash::drop()
-{
-    mGit->runGit({QStringLiteral("stash"), QStringLiteral("drop"), mName});
-}
-
-void Stash::pop()
-{
-    mGit->runGit({QStringLiteral("stash"), QStringLiteral("pop"), mName});
 }
 
 } // namespace Git

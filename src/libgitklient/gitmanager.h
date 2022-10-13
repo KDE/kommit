@@ -47,7 +47,18 @@ class LIBGITKLIENT_EXPORT Manager : public QObject
     Q_PROPERTY(bool isMerging READ isMerging WRITE setIsMerging NOTIFY isMergingChanged)
 
 public:
-    enum ChangeStatus { Unknown, Unmodified, Modified, Added, Removed, Renamed, Copied, UpdatedButInmerged, Ignored, Untracked };
+    enum ChangeStatus {
+        Unknown,
+        Unmodified,
+        Modified,
+        Added,
+        Removed,
+        Renamed,
+        Copied,
+        UpdatedButInmerged,
+        Ignored,
+        Untracked,
+    };
 
     struct Log {
         QString hash;
@@ -60,7 +71,7 @@ public:
     explicit Manager(const QString &path);
     static Manager *instance();
 
-    QString currentBranch() const;
+    Q_REQUIRED_RESULT QString currentBranch() const;
 
     QString run(const AbstractCommand &cmd) const;
 
@@ -68,14 +79,14 @@ public:
 
     bool isGitDir() const;
     QByteArray runGit(const QStringList &args) const;
-    QStringList ls(const QString &place) const;
+    Q_REQUIRED_RESULT QStringList ls(const QString &place) const;
     QString fileContent(const QString &place, const QString &fileName) const;
     void saveFile(const QString &place, const QString &fileName, const QString &localFile) const;
-    QStringList branches() const;
-    QStringList remoteBranches() const;
-    QStringList remotes() const;
+    Q_REQUIRED_RESULT QStringList branches() const;
+    Q_REQUIRED_RESULT QStringList remoteBranches() const;
+    Q_REQUIRED_RESULT QStringList remotes() const;
 
-    QStringList tags() const;
+    Q_REQUIRED_RESULT QStringList tags() const;
     void createTag(const QString &name, const QString &message) const;
 
     QList<Stash> stashes();

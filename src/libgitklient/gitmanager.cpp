@@ -536,14 +536,14 @@ void Manager::createTag(const QString &name, const QString &message) const
 QList<Stash> Manager::stashes()
 {
     QList<Stash> ret;
-    auto list = readAllNonEmptyOutput({QStringLiteral("stash"), QStringLiteral("list"), QStringLiteral("--format=format:%s%m%an%m%ae%m%aD")});
+    const auto list = readAllNonEmptyOutput({QStringLiteral("stash"), QStringLiteral("list"), QStringLiteral("--format=format:%s%m%an%m%ae%m%aD")});
     int id{0};
     for (const auto &item : std::as_const(list)) {
-        auto parts = item.split(QStringLiteral(">"));
+        const auto parts = item.split(QStringLiteral(">"));
         if (parts.size() != 4)
             continue;
 
-        auto subject = parts.first();
+        const auto subject = parts.first();
         Stash stash(this, QStringLiteral("stash@{%1}").arg(id));
 
         stash.mSubject = subject;
@@ -565,7 +565,7 @@ void Manager::createStash(const QString &name) const
     if (!name.isEmpty())
         args.append({QStringLiteral("--message"), name});
 
-    auto ret = runGit(args);
+    const auto ret = runGit(args);
     qCDebug(GITKLIENTLIB_LOG) << ret;
 }
 

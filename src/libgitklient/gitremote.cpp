@@ -39,7 +39,11 @@ void Remote::parse(const QString &output)
     wip/video_import      pushes to wip/video_import      (up to date)
     wip/video_trimmer     pushes to wip/video_trimmer     (up to date)
 */
-    enum ParseMode { None, GitPull, GitPush };
+    enum ParseMode {
+        None,
+        GitPull,
+        GitPush,
+    };
 
     ParseMode mode{None};
     auto lines = output.split(QLatin1Char('\n'));
