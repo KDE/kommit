@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-12 00:49+0000\n"
+"POT-Creation-Date: 2022-10-13 00:49+0000\n"
 "PO-Revision-Date: 2022-09-18 12:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -48,7 +48,7 @@ msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:107
-#: src/libgitklient/models/logsmodel.cpp:253
+#: src/libgitklient/models/logsmodel.cpp:259
 #, kde-format
 msgid "Author"
 msgstr "Author"
@@ -2013,7 +2013,7 @@ msgid "Committer"
 msgstr "Committer"
 
 #: src/gui/widgets/logdetailswidget.cpp:108
-#: src/libgitklient/models/logsmodel.cpp:251
+#: src/libgitklient/models/logsmodel.cpp:257
 #, kde-format
 msgid "Date"
 msgstr "Date"
@@ -2225,13 +2225,13 @@ msgstr "Commit(s) behind"
 msgid "Commit(s) ahead"
 msgstr "Commit(s) ahead"
 
-#: src/libgitklient/models/logsmodel.cpp:249
-#: src/libgitklient/models/logsmodel.cpp:260
+#: src/libgitklient/models/logsmodel.cpp:255
+#: src/libgitklient/models/logsmodel.cpp:266
 #, kde-format
 msgid "Message"
 msgstr "Message"
 
-#: src/libgitklient/models/logsmodel.cpp:258
+#: src/libgitklient/models/logsmodel.cpp:264
 #, kde-format
 msgid "Graph"
 msgstr "Graph"
