@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 
 #include <QCalendar>
+#include <QDesktopServices>
 
 LogDetailsWidget::LogDetailsWidget(QWidget *parent)
     : QTextBrowser(parent)
@@ -103,8 +104,8 @@ void LogDetailsWidget::createText()
     appendHeading(html, mLog->subject());
     if (!mLog->refLog().isEmpty())
         appendParagraph(html, i18n("Ref"), mLog->refLog());
-    appendParagraph(html, i18n("Committer"), QStringLiteral("%1 &lt;%2&gt;").arg(mLog->committerName(), mLog->committerEmail()));
-    appendParagraph(html, i18n("Author"), QStringLiteral("%1 &lt;%2&gt;").arg(mLog->authorName(), mLog->authorEmail()));
+    appendParagraph(html, i18n("Committer"), QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->committerName(), mLog->committerEmail()));
+    appendParagraph(html, i18n("Author"), QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->authorName(), mLog->authorEmail()));
     appendParagraph(html, i18n("Date"), date);
     appendParagraph(html, i18n("Hash"), mLog->commitHash());
 
@@ -169,6 +170,8 @@ void LogDetailsWidget::self_anchorClicked(const QUrl &url)
         Q_EMIT hashClicked(url.path());
     else if (scheme == QStringLiteral("file"))
         Q_EMIT fileClicked(url.path());
+    else if (scheme == QStringLiteral("mailto"))
+        QDesktopServices::openUrl(url);
 }
 
 bool LogDetailsWidget::enableCommitsLinks() const
