@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-13 00:49+0000\n"
+"POT-Creation-Date: 2022-10-14 00:49+0000\n"
 "PO-Revision-Date: 2022-10-10 21:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -829,14 +829,13 @@ msgstr "Eski dosya:"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseNewFile)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseOldDirectory)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseNewDirectory)
-#. i18n: ectx: property (text), widget (QToolButton, toolButton)
 #: src/gui/dialogs/diffopendialog.ui:50 src/gui/dialogs/diffopendialog.ui:67
 #: src/gui/dialogs/diffopendialog.ui:93 src/gui/dialogs/diffopendialog.ui:110
 #: src/gui/dialogs/mergeopenfilesdialog.ui:37
 #: src/gui/dialogs/mergeopenfilesdialog.ui:58
 #: src/gui/dialogs/mergeopenfilesdialog.ui:79
 #: src/gui/merge/openfilesdialog.ui:34 src/gui/merge/openfilesdialog.ui:55
-#: src/gui/merge/openfilesdialog.ui:76 src/gui/settings/settingspagebase.ui:63
+#: src/gui/merge/openfilesdialog.ui:76
 #, kde-format
 msgid "..."
 msgstr "..."
@@ -2152,22 +2151,22 @@ msgstr ""
 "Aşağıdaki dosyalardaki yerel değişikliklerin çıkış ile üzerine yazılacaktır. "
 "Dal değiştirmeden önce lütfen değişikliklerinizi işleyin veya zulalayın."
 
-#: src/libgitklient/gitremote.cpp:116
+#: src/libgitklient/gitremote.cpp:120
 #, kde-format
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
-#: src/libgitklient/gitremote.cpp:118
+#: src/libgitklient/gitremote.cpp:122
 #, kde-format
 msgid "Up to date"
 msgstr "Güncel"
 
-#: src/libgitklient/gitremote.cpp:120
+#: src/libgitklient/gitremote.cpp:124
 #, kde-format
 msgid "Fast forwardable"
 msgstr "İleri sarılabilir"
 
-#: src/libgitklient/gitremote.cpp:122
+#: src/libgitklient/gitremote.cpp:126
 #, kde-format
 msgid "Local out of date"
 msgstr "Yerel dal güncel değil"
