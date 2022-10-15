@@ -20,6 +20,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "diffwindow.h"
 #include "gitmanager.h"
 #include "models/branchesmodel.h"
+#include <kwidgetsaddons_version.h>
 
 BranchActions::BranchActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
@@ -114,9 +115,21 @@ void BranchActions::diff()
 
 void BranchActions::remove()
 {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    auto r = KMessageBox::questionTwoActions(mParent,
+                                             i18n("Are you sure to remove the selected branch?"),
+                                             i18n("Remove Branch"),
+                                             KStandardGuiItem::remove(),
+                                             KStandardGuiItem::cancel());
+#else
     auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to remove the selected branch?"), i18n("Remove Branch"));
+#endif
 
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (r == KMessageBox::ButtonCode::SecondaryAction)
+#else
     if (r == KMessageBox::No)
+#endif
         return;
 
     mGit->removeBranch(mBranchName);

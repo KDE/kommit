@@ -17,6 +17,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDir>
 #include <klocalizedstring.h>
 #include <kmessagebox.h>
+#include <kwidgetsaddons_version.h>
 
 const QString &SubmoduleActions::subModuleName() const
 {
@@ -72,9 +73,21 @@ void SubmoduleActions::create()
 
 void SubmoduleActions::deinit()
 {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    auto r = KMessageBox::questionTwoActions(mParent,
+                                             i18n("Are you sure to remove the selected submodule?"),
+                                             i18n("Remove Submodule"),
+                                             KStandardGuiItem::remove(),
+                                             KStandardGuiItem::cancel());
+#else
     auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to remove the selected submodule?"), i18n("Remove Submodule"));
+#endif
 
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (r == KMessageBox::ButtonCode::SecondaryAction)
+#else
     if (r == KMessageBox::No)
+#endif
         return;
 
     qCDebug(GITKLIENT_LOG) << mGit->runGit({QStringLiteral("submodule"), QStringLiteral("deinit"), QStringLiteral("-f"), QStringLiteral("--"), mSubModuleName});

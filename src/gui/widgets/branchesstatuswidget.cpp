@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "models/branchesmodel.h"
 #include <QDebug>
+#include <kwidgetsaddons_version.h>
 
 BranchesStatusWidget::BranchesStatusWidget(QWidget *parent)
     : WidgetBase(parent)
@@ -64,9 +65,17 @@ void BranchesStatusWidget::on_pushButtonRemoveSelected_clicked()
     //    if (!treeWidgetBranches->currentItem())
     //        return;
 
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    //    auto r = KMessageBox::questionTwoActions(this, i18n("Are you sure to remove the selected branch?"));
+#else
     //    auto r = KMessageBox::questionYesNo(this, i18n("Are you sure to remove the selected branch?"));
+#endif
 
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    //    if (r == KMessageBox::ButtonCode::SecondaryAction)
+#else
     //    if (r == KMessageBox::No)
+#endif
     //        return;
 
     //    git()->removeBranch(treeWidgetBranches->currentItem()->text(0));
