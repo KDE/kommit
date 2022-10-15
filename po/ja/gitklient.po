@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:49+0000\n"
+"POT-Creation-Date: 2022-10-15 00:49+0000\n"
 "PO-Revision-Date: 2022-09-07 22:16-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr ""
 
-#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:107
+#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:108
 #: src/libgitklient/models/logsmodel.cpp:259
 #, kde-format
 msgid "Author"
@@ -499,7 +499,7 @@ msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
-#: src/gui/widgets/logdetailswidget.cpp:116
+#: src/gui/widgets/logdetailswidget.cpp:117
 #, kde-format
 msgid "Changed files"
 msgstr ""
@@ -1886,43 +1886,43 @@ msgstr ""
 msgid "Hide unchangeds"
 msgstr ""
 
-#: src/gui/widgets/logdetailswidget.cpp:105
+#: src/gui/widgets/logdetailswidget.cpp:106
 #, kde-format
 msgid "Ref"
 msgstr ""
 
-#: src/gui/widgets/logdetailswidget.cpp:106
+#: src/gui/widgets/logdetailswidget.cpp:107
 #, kde-format
 msgid "Committer"
 msgstr ""
 
-#: src/gui/widgets/logdetailswidget.cpp:108
+#: src/gui/widgets/logdetailswidget.cpp:109
 #: src/libgitklient/models/logsmodel.cpp:257
 #, kde-format
 msgid "Date"
 msgstr ""
 
-#: src/gui/widgets/logdetailswidget.cpp:109
+#: src/gui/widgets/logdetailswidget.cpp:110
 #, kde-format
 msgid "Hash"
 msgstr ""
 
-#: src/gui/widgets/logdetailswidget.cpp:112
+#: src/gui/widgets/logdetailswidget.cpp:113
 #, kde-format
 msgid "Parent"
 msgstr ""
 
-#: src/gui/widgets/logdetailswidget.cpp:112
+#: src/gui/widgets/logdetailswidget.cpp:113
 #, kde-format
 msgid "Parents"
 msgstr ""
 
-#: src/gui/widgets/logdetailswidget.cpp:114
+#: src/gui/widgets/logdetailswidget.cpp:115
 #, kde-format
 msgid "Child"
 msgstr ""
 
-#: src/gui/widgets/logdetailswidget.cpp:114
+#: src/gui/widgets/logdetailswidget.cpp:115
 #, kde-format
 msgid "Children"
 msgstr ""

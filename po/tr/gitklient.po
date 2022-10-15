@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:49+0000\n"
+"POT-Creation-Date: 2022-10-15 00:49+0000\n"
 "PO-Revision-Date: 2022-10-10 21:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -47,7 +47,7 @@ msgstr "KDE için Git Grafik Kullanıcı Arayüzü"
 msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Telif hakkı 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:107
+#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:108
 #: src/libgitklient/models/logsmodel.cpp:259
 #, kde-format
 msgid "Author"
@@ -502,7 +502,7 @@ msgstr "İşle/İt"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
-#: src/gui/widgets/logdetailswidget.cpp:116
+#: src/gui/widgets/logdetailswidget.cpp:117
 #, kde-format
 msgid "Changed files"
 msgstr "Değiştirilen dosyalar"
@@ -1963,43 +1963,43 @@ msgstr "Süzmek için yaz"
 msgid "Hide unchangeds"
 msgstr "Değiştirilmemişleri Gizle"
 
-#: src/gui/widgets/logdetailswidget.cpp:105
+#: src/gui/widgets/logdetailswidget.cpp:106
 #, kde-format
 msgid "Ref"
 msgstr "Başvuru"
 
-#: src/gui/widgets/logdetailswidget.cpp:106
+#: src/gui/widgets/logdetailswidget.cpp:107
 #, kde-format
 msgid "Committer"
 msgstr "İşleyen"
 
-#: src/gui/widgets/logdetailswidget.cpp:108
+#: src/gui/widgets/logdetailswidget.cpp:109
 #: src/libgitklient/models/logsmodel.cpp:257
 #, kde-format
 msgid "Date"
 msgstr "Tarih"
 
-#: src/gui/widgets/logdetailswidget.cpp:109
+#: src/gui/widgets/logdetailswidget.cpp:110
 #, kde-format
 msgid "Hash"
 msgstr "Sağlama"
 
-#: src/gui/widgets/logdetailswidget.cpp:112
+#: src/gui/widgets/logdetailswidget.cpp:113
 #, kde-format
 msgid "Parent"
 msgstr "Üst Öge"
 
-#: src/gui/widgets/logdetailswidget.cpp:112
+#: src/gui/widgets/logdetailswidget.cpp:113
 #, kde-format
 msgid "Parents"
 msgstr "Üst Ögeler"
 
-#: src/gui/widgets/logdetailswidget.cpp:114
+#: src/gui/widgets/logdetailswidget.cpp:115
 #, kde-format
 msgid "Child"
 msgstr "Alt Öge"
 
-#: src/gui/widgets/logdetailswidget.cpp:114
+#: src/gui/widgets/logdetailswidget.cpp:115
 #, kde-format
 msgid "Children"
 msgstr "Alt Ögeler"

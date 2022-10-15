@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:49+0000\n"
+"POT-Creation-Date: 2022-10-15 00:49+0000\n"
 "PO-Revision-Date: 2022-10-10 09:50+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -50,7 +50,7 @@ msgstr "Client gràfic de Git per a KDE"
 msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:107
+#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:108
 #: src/libgitklient/models/logsmodel.cpp:259
 #, kde-format
 msgid "Author"
@@ -505,7 +505,7 @@ msgstr "Comet/Puja"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
-#: src/gui/widgets/logdetailswidget.cpp:116
+#: src/gui/widgets/logdetailswidget.cpp:117
 #, kde-format
 msgid "Changed files"
 msgstr "Fitxers canviats"
@@ -1967,43 +1967,43 @@ msgstr "Teclegeu per a filtrar"
 msgid "Hide unchangeds"
 msgstr "Oculta els no canviats"
 
-#: src/gui/widgets/logdetailswidget.cpp:105
+#: src/gui/widgets/logdetailswidget.cpp:106
 #, kde-format
 msgid "Ref"
 msgstr "Ref"
 
-#: src/gui/widgets/logdetailswidget.cpp:106
+#: src/gui/widgets/logdetailswidget.cpp:107
 #, kde-format
 msgid "Committer"
 msgstr "Comitent"
 
-#: src/gui/widgets/logdetailswidget.cpp:108
+#: src/gui/widgets/logdetailswidget.cpp:109
 #: src/libgitklient/models/logsmodel.cpp:257
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
-#: src/gui/widgets/logdetailswidget.cpp:109
+#: src/gui/widgets/logdetailswidget.cpp:110
 #, kde-format
 msgid "Hash"
 msgstr "Resum"
 
-#: src/gui/widgets/logdetailswidget.cpp:112
+#: src/gui/widgets/logdetailswidget.cpp:113
 #, kde-format
 msgid "Parent"
 msgstr "Pare"
 
-#: src/gui/widgets/logdetailswidget.cpp:112
+#: src/gui/widgets/logdetailswidget.cpp:113
 #, kde-format
 msgid "Parents"
 msgstr "Pares"
 
-#: src/gui/widgets/logdetailswidget.cpp:114
+#: src/gui/widgets/logdetailswidget.cpp:115
 #, kde-format
 msgid "Child"
 msgstr "Fill"
 
-#: src/gui/widgets/logdetailswidget.cpp:114
+#: src/gui/widgets/logdetailswidget.cpp:115
 #, kde-format
 msgid "Children"
 msgstr "Fills"

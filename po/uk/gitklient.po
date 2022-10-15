@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:49+0000\n"
+"POT-Creation-Date: 2022-10-15 00:49+0000\n"
 "PO-Revision-Date: 2022-10-10 18:39+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr "Клієнтська графічна оболонка git для KDE"
 msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "© Hamed Masafi <hamed.masafi@gmail.com>, 2021–2022"
 
-#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:107
+#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:108
 #: src/libgitklient/models/logsmodel.cpp:259
 #, kde-format
 msgid "Author"
@@ -503,7 +503,7 @@ msgstr "Внести/Записати"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
-#: src/gui/widgets/logdetailswidget.cpp:116
+#: src/gui/widgets/logdetailswidget.cpp:117
 #, kde-format
 msgid "Changed files"
 msgstr "Змінені файли"
@@ -1964,43 +1964,43 @@ msgstr "Введіть щось для фільтрування"
 msgid "Hide unchangeds"
 msgstr "Приховати незмінене"
 
-#: src/gui/widgets/logdetailswidget.cpp:105
+#: src/gui/widgets/logdetailswidget.cpp:106
 #, kde-format
 msgid "Ref"
 msgstr "Пос."
 
-#: src/gui/widgets/logdetailswidget.cpp:106
+#: src/gui/widgets/logdetailswidget.cpp:107
 #, kde-format
 msgid "Committer"
 msgstr "Відповідальний перекладач"
 
-#: src/gui/widgets/logdetailswidget.cpp:108
+#: src/gui/widgets/logdetailswidget.cpp:109
 #: src/libgitklient/models/logsmodel.cpp:257
 #, kde-format
 msgid "Date"
 msgstr "Дата"
 
-#: src/gui/widgets/logdetailswidget.cpp:109
+#: src/gui/widgets/logdetailswidget.cpp:110
 #, kde-format
 msgid "Hash"
 msgstr "Хеш"
 
-#: src/gui/widgets/logdetailswidget.cpp:112
+#: src/gui/widgets/logdetailswidget.cpp:113
 #, kde-format
 msgid "Parent"
 msgstr "Батьківський"
 
-#: src/gui/widgets/logdetailswidget.cpp:112
+#: src/gui/widgets/logdetailswidget.cpp:113
 #, kde-format
 msgid "Parents"
 msgstr "Батьки"
 
-#: src/gui/widgets/logdetailswidget.cpp:114
+#: src/gui/widgets/logdetailswidget.cpp:115
 #, kde-format
 msgid "Child"
 msgstr "Дочірній"
 
-#: src/gui/widgets/logdetailswidget.cpp:114
+#: src/gui/widgets/logdetailswidget.cpp:115
 #, kde-format
 msgid "Children"
 msgstr "Діти"
