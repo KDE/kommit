@@ -24,6 +24,7 @@ HistoryViewWidget::HistoryViewWidget(QWidget *parent)
     treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
 
     mActions = new CommitActions(Git::Manager::instance(), this);
+    textBrowser->setEnableCommitsLinks(true);
 }
 
 HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
@@ -37,6 +38,7 @@ HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
     treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
 
     mActions = new CommitActions(git, this);
+    textBrowser->setEnableCommitsLinks(true);
 }
 
 void HistoryViewWidget::setBranch(const QString &branchName)
