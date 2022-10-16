@@ -182,7 +182,6 @@ void AppWindow::initActions()
 
     auto settingsManager = new SettingsManager(this);
     KStandardAction::preferences(settingsManager, &SettingsManager::show, actionCollection);
-    //    KStandardAction::openNew(this, &GitKlientWindow::clone, actionCollection);
 }
 void AppWindow::initRecentFiles(const QString &newItem)
 {
