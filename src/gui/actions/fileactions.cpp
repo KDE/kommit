@@ -15,9 +15,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "mergewindow.h"
 
+#include <KIO/ApplicationLauncherJob>
 #include <KLocalizedString>
 #include <KMimeTypeTrader>
-#include <KRun>
+
+#include <kio_version.h>
+#if KIO_VERSION >= QT_VERSION_CHECK(5, 98, 0)
+#include <KIO/JobUiDelegateFactory>
+#else
+#include <KIO/JobUiDelegate>
+#endif
 
 #include <QAction>
 #include <QFileDialog>
@@ -161,14 +168,18 @@ void FileActions::openWith()
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForFile(fileName);
     auto viewer = getViewer(mimeType.name());
-    KRun::runService(*viewer, fileUrlList, nullptr, true);
 
-    //    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(viewer);
-    //    job->setUrls(fileUrlList);
-    //    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
-    //    // The temporary file will be removed when the viewer application exits.
-    //    job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
-    //    job->start();
+    auto job = new KIO::ApplicationLauncherJob(viewer);
+    job->setUrls(fileUrlList);
+
+#if KIO_VERSION >= QT_VERSION_CHECK(5, 98, 0)
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+#else
+    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+#endif
+    // The temporary file will be removed when the viewer application exits.
+    job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
+    job->start();
 }
 
 void FileActions::diffWithHead()
