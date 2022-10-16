@@ -129,5 +129,5 @@ QString ActionManager::getCommonPart(const KFileItemList &fileItems)
     return root;
 }
 
-K_PLUGIN_FACTORY_WITH_JSON(GitKlientPluginActionFactory, "gitklientitemaction.json", registerPlugin<ActionManager>();)
+K_PLUGIN_CLASS_WITH_JSON(ActionManager, "gitklientitemaction.json")
 #include "actionmanager.moc"
