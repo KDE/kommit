@@ -29,7 +29,6 @@ HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
     connect(textBrowser, &LogDetailsWidget::hashClicked, this, &HistoryViewWidget::slotTextBrowserHashClicked);
     connect(textBrowser, &LogDetailsWidget::fileClicked, this, &HistoryViewWidget::slotTextBrowserFileClicked);
     connect(treeViewHistory, &TreeView::customContextMenuRequested, this, &HistoryViewWidget::slotTreeViewHistoryCustomContextMenuRequested);
-
 }
 
 void HistoryViewWidget::setBranch(const QString &branchName)

@@ -17,6 +17,8 @@ class LogDetailsWidget : public QTextBrowser
 {
     Q_OBJECT
     Q_PROPERTY(bool enableCommitsLinks READ enableCommitsLinks WRITE setEnableCommitsLinks NOTIFY enableCommitsLinksChanged)
+    Q_PROPERTY(bool enableEmailsLinks READ enableEmailsLinks WRITE setEnableEmailsLinks NOTIFY enableEmailsLinksChanged)
+    Q_PROPERTY(bool enableFilesLinks READ enableFilesLinks WRITE setEnableFilesLinks NOTIFY enableFilesLinksChanged)
 
 public:
     explicit LogDetailsWidget(QWidget *parent = nullptr);
@@ -25,6 +27,12 @@ public:
 
     bool enableCommitsLinks() const;
     void setEnableCommitsLinks(bool newEnableCommitsLinks);
+
+    bool enableEmailsLinks() const;
+    void setEnableEmailsLinks(bool newEnableEmailsLinks);
+
+    bool enableFilesLinks() const;
+    void setEnableFilesLinks(bool newEnableFilesLinks);
 
 private:
     void createText();
@@ -36,7 +44,10 @@ private:
     static QString createFileLink(const QString &hash);
 
     Git::Log *mLog = nullptr;
-    bool m_enableCommitsLinks{false};
+
+    bool mEnableCommitsLinks{false};
+    bool mEnableEmailsLinks{true};
+    bool mEnableFilesLinks{true};
 
 private Q_SLOTS:
     void self_anchorClicked(const QUrl &url);
@@ -45,4 +56,6 @@ Q_SIGNALS:
     void hashClicked(const QString &hash);
     void fileClicked(const QString &file);
     void enableCommitsLinksChanged();
+    void enableEmailsLinksChanged();
+    void enableFilesLinksChanged();
 };

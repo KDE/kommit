@@ -67,7 +67,10 @@ void LogDetailsWidget::createText()
         case Git::Manager::Untracked:
             break;
         }
-        filesHtml.append(QStringLiteral("<li><font color=%1>%2</a></li>").arg(color, createFileLink(i.key())));
+        if (mEnableFilesLinks)
+            filesHtml.append(QStringLiteral("<li><font color=%1>%2</a></li>").arg(color, createFileLink(i.key())));
+        else
+            filesHtml.append(QStringLiteral("<li><font color=%1>%2</a></li>").arg(color, i.key()));
     }
     QStringList parentHashHtml;
     for (const auto &parent : mLog->parents())
@@ -104,8 +107,14 @@ void LogDetailsWidget::createText()
     appendHeading(html, mLog->subject());
     if (!mLog->refLog().isEmpty())
         appendParagraph(html, i18n("Ref"), mLog->refLog());
-    appendParagraph(html, i18n("Committer"), QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->committerName(), mLog->committerEmail()));
-    appendParagraph(html, i18n("Author"), QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->authorName(), mLog->authorEmail()));
+
+    if (mEnableEmailsLinks) {
+        appendParagraph(html, i18n("Committer"), QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->committerName(), mLog->committerEmail()));
+        appendParagraph(html, i18n("Author"), QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->authorName(), mLog->authorEmail()));
+    } else {
+        appendParagraph(html, i18n("Committer"), QStringLiteral(R"(%1 &lt;%2&gt;)").arg(mLog->committerName(), mLog->committerEmail()));
+        appendParagraph(html, i18n("Author"), QStringLiteral(R"(%1 &lt;%2&gt;)").arg(mLog->authorName(), mLog->authorEmail()));
+    }
     appendParagraph(html, i18n("Date"), date);
     appendParagraph(html, i18n("Hash"), mLog->commitHash());
 
@@ -151,7 +160,7 @@ QString LogDetailsWidget::createHashLink(const QString &hash) const
     if (!log)
         return {};
 
-    if (m_enableCommitsLinks)
+    if (mEnableCommitsLinks)
         return QStringLiteral(R"(<a href="hash:%1">%2</a> )").arg(log->commitHash(), log->subject());
 
     return log->subject();
@@ -176,13 +185,39 @@ void LogDetailsWidget::self_anchorClicked(const QUrl &url)
 
 bool LogDetailsWidget::enableCommitsLinks() const
 {
-    return m_enableCommitsLinks;
+    return mEnableCommitsLinks;
 }
 
 void LogDetailsWidget::setEnableCommitsLinks(bool newEnableCommitsLinks)
 {
-    if (m_enableCommitsLinks == newEnableCommitsLinks)
+    if (mEnableCommitsLinks == newEnableCommitsLinks)
         return;
-    m_enableCommitsLinks = newEnableCommitsLinks;
+    mEnableCommitsLinks = newEnableCommitsLinks;
     Q_EMIT enableCommitsLinksChanged();
+}
+
+bool LogDetailsWidget::enableEmailsLinks() const
+{
+    return mEnableEmailsLinks;
+}
+
+void LogDetailsWidget::setEnableEmailsLinks(bool newEnableEmailsLinks)
+{
+    if (mEnableEmailsLinks == newEnableEmailsLinks)
+        return;
+    mEnableEmailsLinks = newEnableEmailsLinks;
+    Q_EMIT enableEmailsLinksChanged();
+}
+
+bool LogDetailsWidget::enableFilesLinks() const
+{
+    return mEnableFilesLinks;
+}
+
+void LogDetailsWidget::setEnableFilesLinks(bool newEnableFilesLinks)
+{
+    if (mEnableFilesLinks == newEnableFilesLinks)
+        return;
+    mEnableFilesLinks = newEnableFilesLinks;
+    Q_EMIT enableFilesLinksChanged();
 }
