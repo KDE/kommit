@@ -325,7 +325,9 @@ void MergeWindow::initActions()
     KStandardAction::open(this, &MergeWindow::fileOpen, actionCollection);
     KStandardAction::save(this, &MergeWindow::fileSave, actionCollection);
     KStandardAction::quit(qApp, &QApplication::closeAllWindows, actionCollection);
-    KStandardAction::preferences(this, &MergeWindow::preferences, actionCollection);
+
+    auto settingsManager = new SettingsManager(this);
+    KStandardAction::preferences(settingsManager, &SettingsManager::show, actionCollection);
 
     mCodeEditorContextMenu = new QMenu(this);
     mCodeEditorContextMenu->addActions({actionKeepMine, actionKeepTheir});
@@ -414,11 +416,6 @@ void MergeWindow::fileOpen()
         setFilePathRemote(d.filePathRemote());
         load();
     }
-}
-
-void MergeWindow::preferences()
-{
-    SettingsManager::instance()->exec(this);
 }
 
 void MergeWindow::actionKeepMine_clicked()

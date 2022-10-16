@@ -154,8 +154,10 @@ void DiffWindow::initActions()
     showTreeDockAction->setText(i18n("Show Tree"));
 
     KStandardAction::quit(this, &QWidget::close, actionCollection);
-    //    KStandardAction::preferences(this, &DiffWindow::settings, actionCollection);
     KStandardAction::open(this, &DiffWindow::fileOpen, actionCollection);
+
+    auto settingsManager = new SettingsManager(this);
+    KStandardAction::preferences(settingsManager, &SettingsManager::show, actionCollection);
 }
 
 void DiffWindow::fileOpen()
@@ -174,11 +176,6 @@ void DiffWindow::fileOpen()
         mDiffWidget->setNewFile(Git::File{d.newFile()});
         mDiffWidget->compare();
     }
-}
-
-void DiffWindow::settings()
-{
-    SettingsManager::instance()->exec(this);
 }
 
 void DiffWindow::on_treeView_fileSelected(const QString &file)

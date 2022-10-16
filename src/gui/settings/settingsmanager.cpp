@@ -17,18 +17,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QWidget>
 
-SettingsManager::SettingsManager() = default;
-
-SettingsManager *SettingsManager::instance()
+SettingsManager::SettingsManager(QWidget *parentWidget) : QObject(parentWidget), mParentWidget(parentWidget)
 {
-    static SettingsManager s_self;
-    return &s_self;
 }
 
 void SettingsManager::settingsChanged()
 {
     qCDebug(GITKLIENT_LOG) << GitKlientSettings::calendarType() << pageBase.kcfg_calendarType->currentText();
     GitKlientSettings::setCalendarType(pageBase.kcfg_calendarType->currentText());
+    GitKlientSettings::self()->save();
 
     auto git = Git::Manager::instance();
 
@@ -50,7 +47,7 @@ void SettingsManager::settingsChanged()
 
 void SettingsManager::show()
 {
-    exec(AppWindow::instance());
+    exec(mParentWidget);
 }
 
 QWidget *SettingsManager::createBasePage()
@@ -58,7 +55,9 @@ QWidget *SettingsManager::createBasePage()
     auto w = new QWidget;
     pageBase.setupUi(w);
 
-    pageBase.kcfg_calendarType->addItems(QCalendar::availableCalendars());
+    auto availableCalendars = QCalendar::availableCalendars();
+    std::sort(availableCalendars.begin(), availableCalendars.end());
+    pageBase.kcfg_calendarType->addItems(availableCalendars);
     pageBase.kcfg_calendarType->setCurrentText(GitKlientSettings::calendarType());
     return w;
 }
@@ -85,9 +84,6 @@ void SettingsManager::exec(QWidget *parentWidget)
         dialog->exec();
         return;
     }
-    //    if (KConfigDialog::showDialog(QStringLiteral("settings"))) {
-    //        return;
-    //    }
 
     dialog = new KConfigDialog(parentWidget, name, GitKlientSettings::self());
 

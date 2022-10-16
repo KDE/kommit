@@ -16,8 +16,8 @@ class SettingsManager : public QObject
     Q_OBJECT
 
 public:
-    SettingsManager();
-    static SettingsManager *instance();
+    SettingsManager(QWidget *parentWidget);
+
     void exec(QWidget *parentWidget);
 
 public Q_SLOTS:
@@ -31,4 +31,5 @@ private:
     QWidget *createBasePage();
     QWidget *createGitPage();
     QWidget *createDiffPage();
+    QWidget *mParentWidget{nullptr};
 };

@@ -26,7 +26,6 @@ public:
 
 private Q_SLOTS:
     void fileOpen();
-    void settings();
     void on_treeView_fileSelected(const QString &file);
 
 private:

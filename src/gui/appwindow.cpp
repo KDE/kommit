@@ -179,7 +179,9 @@ void AppWindow::initActions()
     repoDiffTreeAction->setText(i18n("Diff tree"));
 
     KStandardAction::quit(this, &QMainWindow::close, actionCollection);
-    KStandardAction::preferences(SettingsManager::instance(), &SettingsManager::show, actionCollection);
+
+    auto settingsManager = new SettingsManager(this);
+    KStandardAction::preferences(settingsManager, &SettingsManager::show, actionCollection);
     //    KStandardAction::openNew(this, &GitKlientWindow::clone, actionCollection);
 }
 void AppWindow::initRecentFiles(const QString &newItem)

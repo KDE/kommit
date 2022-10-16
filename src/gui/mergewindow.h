@@ -36,7 +36,6 @@ public:
 private Q_SLOTS:
     void fileSave();
     void fileOpen();
-    void preferences();
 
     void actionKeepMine_clicked();
     void actionKeepTheir_clicked();
