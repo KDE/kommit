@@ -58,8 +58,8 @@ QVariant AuthorsModel::data(const QModelIndex &index, int role) const
 
 Author *AuthorsModel::findOrCreate(const QString &name, const QString &email)
 {
-    for (auto &a : mData)
-        if (a->email == email)
+    for (const auto &a : std::as_const(mData))
+        if (a->email == email && a->name == name)
             return a;
     auto author = new Author;
     author->name = name;

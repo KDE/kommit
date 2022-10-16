@@ -128,7 +128,7 @@ void CommitsWidget::on_treeViewHistory_customContextMenuRequested(const QPoint &
         return;
     mCommitActions->setCommitHash(log->commitHash());
 
-    mActions->popup();
+    mCommitActions->popup();
 }
 
 void CommitsWidget::setBranch(const QString &branchName)
