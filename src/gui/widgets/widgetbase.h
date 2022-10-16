@@ -25,6 +25,7 @@ class WidgetBase : public QWidget
 protected:
     Git::Manager *mGit{nullptr};
     AppWindow *mParent{nullptr};
+    QString stateName(QWidget *w) const;
 
 public:
     explicit WidgetBase(QWidget *parent = nullptr);
@@ -47,5 +48,4 @@ public:
 
 private Q_SLOTS:
     void git_pathChanged();
-    QString stateName(QWidget *w) const;
 };

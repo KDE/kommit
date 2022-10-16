@@ -22,7 +22,6 @@ class HistoryViewWidget : public WidgetBase, private Ui::HistoryViewWidget
     Q_OBJECT
 
 public:
-    explicit HistoryViewWidget(QWidget *parent = nullptr);
     explicit HistoryViewWidget(Git::Manager *git, AppWindow *parent = nullptr);
     void setBranch(const QString &branchName);
 
@@ -30,10 +29,10 @@ public:
     void restoreState(QSettings &settings) override;
 
 private Q_SLOTS:
-    void on_treeViewHistory_itemActivated(const QModelIndex &index);
-    void on_textBrowser_hashClicked(const QString &hash);
-    void on_textBrowser_fileClicked(const QString &file);
-    void on_treeViewHistory_customContextMenuRequested(const QPoint &pos);
+    void slotTreeViewHistoryItemActivated(const QModelIndex &index);
+    void slotTextBrowserHashClicked(const QString &hash);
+    void slotTextBrowserFileClicked(const QString &file);
+    void slotTreeViewHistoryCustomContextMenuRequested(const QPoint &pos);
 
 private:
     CommitActions *mActions{nullptr};

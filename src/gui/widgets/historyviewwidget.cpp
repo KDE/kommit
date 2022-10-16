@@ -12,21 +12,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/logsmodel.h"
 #include "widgets/graphpainter.h"
 
-HistoryViewWidget::HistoryViewWidget(QWidget *parent)
-    : WidgetBase(parent)
-    , mHistoryModel(new Git::LogsModel(Git::Manager::instance(), this))
-{
-    setupUi(this);
-    //        Git::Manager::instance()->logsCache();
-    treeViewHistory->setModel(mHistoryModel);
-
-    mGraphPainter = new GraphPainter(mHistoryModel, this);
-    treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
-
-    mActions = new CommitActions(Git::Manager::instance(), this);
-    textBrowser->setEnableCommitsLinks(true);
-}
-
 HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
     , mHistoryModel(git->logsModel())
@@ -39,6 +24,12 @@ HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
 
     mActions = new CommitActions(git, this);
     textBrowser->setEnableCommitsLinks(true);
+
+    connect(treeViewHistory, &TreeView::itemActivated, this, &HistoryViewWidget::slotTreeViewHistoryItemActivated);
+    connect(textBrowser, &LogDetailsWidget::hashClicked, this, &HistoryViewWidget::slotTextBrowserHashClicked);
+    connect(textBrowser, &LogDetailsWidget::fileClicked, this, &HistoryViewWidget::slotTextBrowserFileClicked);
+    connect(treeViewHistory, &TreeView::customContextMenuRequested, this, &HistoryViewWidget::slotTreeViewHistoryCustomContextMenuRequested);
+
 }
 
 void HistoryViewWidget::setBranch(const QString &branchName)
@@ -59,7 +50,7 @@ void HistoryViewWidget::restoreState(QSettings &settings)
     restore(settings, splitter);
 }
 
-void HistoryViewWidget::on_treeViewHistory_itemActivated(const QModelIndex &index)
+void HistoryViewWidget::slotTreeViewHistoryItemActivated(const QModelIndex &index)
 {
     auto log = mHistoryModel->fromIndex(index);
     if (!log)
@@ -68,16 +59,16 @@ void HistoryViewWidget::on_treeViewHistory_itemActivated(const QModelIndex &inde
     textBrowser->setLog(log);
 }
 
-void HistoryViewWidget::on_textBrowser_hashClicked(const QString &hash)
+void HistoryViewWidget::slotTextBrowserHashClicked(const QString &hash)
 {
     auto index = mHistoryModel->findIndexByHash(hash);
     if (index.isValid()) {
         treeViewHistory->setCurrentIndex(index);
-        on_treeViewHistory_itemActivated(index);
+        slotTreeViewHistoryItemActivated(index);
     }
 }
 
-void HistoryViewWidget::on_textBrowser_fileClicked(const QString &file)
+void HistoryViewWidget::slotTextBrowserFileClicked(const QString &file)
 {
     auto log = textBrowser->log();
 
@@ -90,7 +81,7 @@ void HistoryViewWidget::on_textBrowser_fileClicked(const QString &file)
     diffWin->showModal();
 }
 
-void HistoryViewWidget::on_treeViewHistory_customContextMenuRequested(const QPoint &pos)
+void HistoryViewWidget::slotTreeViewHistoryCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
     auto log = mHistoryModel->fromIndex(treeViewHistory->currentIndex());
