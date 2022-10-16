@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-15 00:49+0000\n"
+"POT-Creation-Date: 2022-10-16 00:50+0000\n"
 "PO-Revision-Date: 2022-10-10 09:50+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -71,68 +71,68 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Correcció d'errors"
 
-#: src/gui/actions/branchactions.cpp:27
+#: src/gui/actions/branchactions.cpp:28
 #, kde-format
 msgid "Create..."
 msgstr "Crea..."
 
-#: src/gui/actions/branchactions.cpp:30 src/gui/appwindow.cpp:155
+#: src/gui/actions/branchactions.cpp:31 src/gui/appwindow.cpp:155
 #, kde-format
 msgid "Fetch..."
 msgstr "Obtín..."
 
-#: src/gui/actions/branchactions.cpp:31 src/gui/actions/commitactions.cpp:33
+#: src/gui/actions/branchactions.cpp:32 src/gui/actions/commitactions.cpp:33
 #: src/gui/mainwidget.cpp:100
 #, kde-format
 msgid "Browse..."
 msgstr "Navega..."
 
-#: src/gui/actions/branchactions.cpp:32
+#: src/gui/actions/branchactions.cpp:33
 #, kde-format
 msgid "Switch"
 msgstr "Canvia"
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:163
+#: src/gui/actions/branchactions.cpp:34 src/gui/appwindow.cpp:163
 #, kde-format
 msgid "Merge..."
 msgstr "Fusiona..."
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:34 src/gui/gitklientmergeui.rc:15
+#: src/gui/actions/branchactions.cpp:35 src/gui/gitklientmergeui.rc:15
 #: src/gui/settings/settingsmanager.cpp:95
 #: src/gui/widgets/branchesstatuswidget.ui:120
 #, kde-format
 msgid "Diff"
 msgstr "Diferència"
 
-#: src/gui/actions/branchactions.cpp:35 src/gui/actions/remotesactions.cpp:24
-#: src/gui/actions/stashactions.cpp:25 src/gui/actions/tagsactions.cpp:24
+#: src/gui/actions/branchactions.cpp:36 src/gui/actions/remotesactions.cpp:25
+#: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
 msgstr "Elimina..."
 
-#: src/gui/actions/branchactions.cpp:36
+#: src/gui/actions/branchactions.cpp:37
 #, kde-format
 msgid "Note..."
 msgstr "Nota..."
 
-#: src/gui/actions/branchactions.cpp:76
+#: src/gui/actions/branchactions.cpp:77
 #, kde-format
 msgid "Create new branch"
 msgstr "Crea una branca nova"
 
-#: src/gui/actions/branchactions.cpp:76
+#: src/gui/actions/branchactions.cpp:77
 #, kde-format
 msgid "Branch name"
 msgstr "Nom de la branca"
 
-#: src/gui/actions/branchactions.cpp:117
+#: src/gui/actions/branchactions.cpp:120 src/gui/actions/branchactions.cpp:125
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Esteu segur d'eliminar la branca seleccionada?"
 
-#: src/gui/actions/branchactions.cpp:117
+#: src/gui/actions/branchactions.cpp:121 src/gui/actions/branchactions.cpp:125
 #, kde-format
 msgid "Remove Branch"
 msgstr "Elimina la branca"
@@ -147,13 +147,13 @@ msgstr "Diferència..."
 msgid "Revert..."
 msgstr "Revertix..."
 
-#: src/gui/actions/commitactions.cpp:34 src/gui/actions/tagsactions.cpp:25
+#: src/gui/actions/commitactions.cpp:34 src/gui/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Checkout..."
 msgstr "Agafa..."
 
 #: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
-#: src/gui/actions/stashactions.cpp:22 src/gui/actions/tagsactions.cpp:26
+#: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Diff amb HEAD..."
@@ -193,171 +193,175 @@ msgstr "«Blame»..."
 msgid "Search..."
 msgstr "Busca..."
 
-#: src/gui/actions/remotesactions.cpp:23
+#: src/gui/actions/remotesactions.cpp:24
 #, kde-format
 msgid "New..."
 msgstr "Nou..."
 
-#: src/gui/actions/remotesactions.cpp:25
+#: src/gui/actions/remotesactions.cpp:26
 #, kde-format
 msgid "Rename..."
 msgstr "Canvia el nom..."
 
-#: src/gui/actions/remotesactions.cpp:26
+#: src/gui/actions/remotesactions.cpp:27
 #, kde-format
 msgid "Change url..."
 msgstr "Canvia l'URL..."
 
-#: src/gui/actions/remotesactions.cpp:59
+#: src/gui/actions/remotesactions.cpp:62 src/gui/actions/remotesactions.cpp:67
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
 msgstr "Esteu segur d'eliminar el remot seleccionat?"
 
-#: src/gui/actions/remotesactions.cpp:59
+#: src/gui/actions/remotesactions.cpp:63 src/gui/actions/remotesactions.cpp:67
 #, kde-format
 msgid "Remove remote?"
 msgstr "Voleu eliminar el remot?"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:86
 #, kde-format
 msgid "Change url"
 msgstr "Canvia l'URL"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:86
 #, kde-format
 msgid "URL"
 msgstr "URL"
 
-#: src/gui/actions/remotesactions.cpp:76
+#: src/gui/actions/remotesactions.cpp:89
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "L'URL del remot s'ha canviat correctament"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:95
 #, kde-format
 msgid "Rename"
 msgstr "Canvia el nom"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:95
 #, kde-format
 msgid "New name"
 msgstr "Nom nou"
 
-#: src/gui/actions/stashactions.cpp:21
+#: src/gui/actions/stashactions.cpp:22
 #, kde-format
 msgid "New stash..."
 msgstr "«Stash» nou..."
 
-#: src/gui/actions/stashactions.cpp:23
+#: src/gui/actions/stashactions.cpp:24
 #, kde-format
 msgid "Pop..."
 msgstr "«Pop»..."
 
-#: src/gui/actions/stashactions.cpp:24
+#: src/gui/actions/stashactions.cpp:25
 #, kde-format
 msgid "Apply..."
 msgstr "Aplica..."
 
-#: src/gui/actions/stashactions.cpp:48 src/gui/actions/stashactions.cpp:56
-#: src/gui/actions/stashactions.cpp:66
+#: src/gui/actions/stashactions.cpp:51 src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:71 src/gui/actions/stashactions.cpp:76
+#: src/gui/actions/stashactions.cpp:93 src/gui/actions/stashactions.cpp:98
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "Esteu segur d'aplicar l'«stash» seleccionat?"
 
-#: src/gui/actions/stashactions.cpp:48 src/gui/actions/stashactions.cpp:56
-#: src/gui/actions/stashactions.cpp:66
+#: src/gui/actions/stashactions.cpp:52 src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:72 src/gui/actions/stashactions.cpp:76
+#: src/gui/actions/stashactions.cpp:94 src/gui/actions/stashactions.cpp:98
 #, kde-format
 msgid "Apply stash %1"
 msgstr "Aplica l'«stash» %1"
 
-#: src/gui/actions/stashactions.cpp:83
+#: src/gui/actions/stashactions.cpp:120
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "No teniu cap canvi!"
 
-#: src/gui/actions/stashactions.cpp:83
+#: src/gui/actions/stashactions.cpp:120
 #, kde-format
 msgid "Stash"
 msgstr "«Stash»"
 
-#: src/gui/actions/stashactions.cpp:88
+#: src/gui/actions/stashactions.cpp:125
 #, kde-format
 msgid "Create new stash"
 msgstr "Crea un «stash» nou"
 
-#: src/gui/actions/stashactions.cpp:88
+#: src/gui/actions/stashactions.cpp:125
 #, kde-format
 msgid "Name of stash"
 msgstr "Nom de l'«stash»"
 
-#: src/gui/actions/submoduleactions.cpp:39
+#: src/gui/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Add..."
 msgstr "Afig..."
 
-#: src/gui/actions/submoduleactions.cpp:40 src/gui/appwindow.cpp:125
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:125
 #, kde-format
 msgid "Init..."
 msgstr "Restablix..."
 
-#: src/gui/actions/submoduleactions.cpp:41
+#: src/gui/actions/submoduleactions.cpp:42
 #, kde-format
 msgid "Update..."
 msgstr "Actualitza..."
 
 #. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
-#: src/gui/actions/submoduleactions.cpp:43
+#: src/gui/actions/submoduleactions.cpp:44
 #, kde-format
 msgid "Sync..."
 msgstr "Sincronitza..."
 
-#: src/gui/actions/submoduleactions.cpp:75
+#: src/gui/actions/submoduleactions.cpp:78
+#: src/gui/actions/submoduleactions.cpp:83
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
 msgstr "Esteu segur d'eliminar el submòdul seleccionat?"
 
-#: src/gui/actions/submoduleactions.cpp:75
+#: src/gui/actions/submoduleactions.cpp:79
+#: src/gui/actions/submoduleactions.cpp:83
 #, kde-format
 msgid "Remove Submodule"
 msgstr "Elimina un submòdul"
 
-#: src/gui/actions/submoduleactions.cpp:85
+#: src/gui/actions/submoduleactions.cpp:98
 #, kde-format
 msgid "Unable to remove the module directory"
 msgstr "No s'ha pogut eliminar el directori del mòdul"
 
-#: src/gui/actions/submoduleactions.cpp:92
+#: src/gui/actions/submoduleactions.cpp:105
 #, kde-format
 msgid "The submodule %1 removed"
 msgstr "S'ha eliminat el submòdul %1"
 
-#: src/gui/actions/tagsactions.cpp:23
+#: src/gui/actions/tagsactions.cpp:24
 #, kde-format
 msgid "New tag..."
 msgstr "Etiqueta nova..."
 
-#: src/gui/actions/tagsactions.cpp:27 src/gui/appwindow.cpp:159
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:159
 #, kde-format
 msgid "Push..."
 msgstr "Puja..."
 
-#: src/gui/actions/tagsactions.cpp:47 src/gui/dialogs/taginfodialog.cpp:13
+#: src/gui/actions/tagsactions.cpp:48 src/gui/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
 msgstr "Etiqueta nova"
 
-#: src/gui/actions/tagsactions.cpp:56
+#: src/gui/actions/tagsactions.cpp:59 src/gui/actions/tagsactions.cpp:61
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
 msgstr "Esteu segur d'eliminar l'etiqueta seleccionada?"
 
-#: src/gui/actions/tagsactions.cpp:67
+#: src/gui/actions/tagsactions.cpp:79 src/gui/actions/tagsactions.cpp:84
 #, kde-format
 msgid "Are you sure to restore to the selected tag?"
 msgstr "Segur de restaurar a l'etiqueta seleccionada?"
 
-#: src/gui/actions/tagsactions.cpp:67
+#: src/gui/actions/tagsactions.cpp:80 src/gui/actions/tagsactions.cpp:84
 #, kde-format
 msgid "Remove Tag"
 msgstr "Elimina una etiqueta"
@@ -427,12 +431,12 @@ msgstr "Canvia/Agafa..."
 msgid "Diff tree"
 msgstr "Arbre de diferències"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:218
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "No s'ha pogut crear el camí: %1"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:218
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Init repo"
 msgstr "Restablix el repositori"
@@ -442,37 +446,43 @@ msgstr "Restablix el repositori"
 msgid "Open repository"
 msgstr "Obri el repositori"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:462
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No es pot canviar de branca mentre s'està fusionant"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:462
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr "Canvia de branca"
 
-#: src/gui/commandargsparser.cpp:53
+#: src/gui/commandargsparser.cpp:54
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "El camí no és un repositori de Git: %1"
 
-#: src/gui/commandargsparser.cpp:223
+#: src/gui/commandargsparser.cpp:224
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "El repositori s'ha inicialitzat correctament"
 
-#: src/gui/commandargsparser.cpp:479
+#: src/gui/commandargsparser.cpp:480
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Els fitxers s'ha/n afegit correctament"
 
-#: src/gui/commandargsparser.cpp:487
+#: src/gui/commandargsparser.cpp:490 src/gui/commandargsparser.cpp:493
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Voleu deixar els fitxers en el disc?"
 
-#: src/gui/commandargsparser.cpp:492
+#: src/gui/commandargsparser.cpp:490
+#, fuzzy, kde-format
+#| msgid "Leave as is"
+msgid "Leave"
+msgstr "Deixa'l com està"
+
+#: src/gui/commandargsparser.cpp:498
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Els fitxers s'ha/n eliminat correctament de Git"

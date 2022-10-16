@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-15 00:49+0000\n"
+"POT-Creation-Date: 2022-10-16 00:50+0000\n"
 "PO-Revision-Date: 2022-10-02 15:50\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -68,68 +68,68 @@ msgstr ""
 msgid "Bug fixing"
 msgstr ""
 
-#: src/gui/actions/branchactions.cpp:27
+#: src/gui/actions/branchactions.cpp:28
 #, kde-format
 msgid "Create..."
 msgstr "新建..."
 
-#: src/gui/actions/branchactions.cpp:30 src/gui/appwindow.cpp:155
+#: src/gui/actions/branchactions.cpp:31 src/gui/appwindow.cpp:155
 #, kde-format
 msgid "Fetch..."
 msgstr "获取..."
 
-#: src/gui/actions/branchactions.cpp:31 src/gui/actions/commitactions.cpp:33
+#: src/gui/actions/branchactions.cpp:32 src/gui/actions/commitactions.cpp:33
 #: src/gui/mainwidget.cpp:100
 #, kde-format
 msgid "Browse..."
 msgstr "浏览…"
 
-#: src/gui/actions/branchactions.cpp:32
+#: src/gui/actions/branchactions.cpp:33
 #, kde-format
 msgid "Switch"
 msgstr "切换"
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:163
+#: src/gui/actions/branchactions.cpp:34 src/gui/appwindow.cpp:163
 #, kde-format
 msgid "Merge..."
 msgstr "合并..."
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:34 src/gui/gitklientmergeui.rc:15
+#: src/gui/actions/branchactions.cpp:35 src/gui/gitklientmergeui.rc:15
 #: src/gui/settings/settingsmanager.cpp:95
 #: src/gui/widgets/branchesstatuswidget.ui:120
 #, kde-format
 msgid "Diff"
 msgstr "差异"
 
-#: src/gui/actions/branchactions.cpp:35 src/gui/actions/remotesactions.cpp:24
-#: src/gui/actions/stashactions.cpp:25 src/gui/actions/tagsactions.cpp:24
+#: src/gui/actions/branchactions.cpp:36 src/gui/actions/remotesactions.cpp:25
+#: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
 msgstr "移除..."
 
-#: src/gui/actions/branchactions.cpp:36
+#: src/gui/actions/branchactions.cpp:37
 #, kde-format
 msgid "Note..."
 msgstr "注解..."
 
-#: src/gui/actions/branchactions.cpp:76
+#: src/gui/actions/branchactions.cpp:77
 #, kde-format
 msgid "Create new branch"
 msgstr "创建新分支"
 
-#: src/gui/actions/branchactions.cpp:76
+#: src/gui/actions/branchactions.cpp:77
 #, kde-format
 msgid "Branch name"
 msgstr "分支名称"
 
-#: src/gui/actions/branchactions.cpp:117
+#: src/gui/actions/branchactions.cpp:120 src/gui/actions/branchactions.cpp:125
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "确定移除所选分支？"
 
-#: src/gui/actions/branchactions.cpp:117
+#: src/gui/actions/branchactions.cpp:121 src/gui/actions/branchactions.cpp:125
 #, kde-format
 msgid "Remove Branch"
 msgstr "删除分支"
@@ -144,13 +144,13 @@ msgstr "差异..."
 msgid "Revert..."
 msgstr "还原..."
 
-#: src/gui/actions/commitactions.cpp:34 src/gui/actions/tagsactions.cpp:25
+#: src/gui/actions/commitactions.cpp:34 src/gui/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Checkout..."
 msgstr "检出..."
 
 #: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
-#: src/gui/actions/stashactions.cpp:22 src/gui/actions/tagsactions.cpp:26
+#: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "与 HEAD 相差…"
@@ -190,172 +190,176 @@ msgstr "追溯..."
 msgid "Search..."
 msgstr "搜索..."
 
-#: src/gui/actions/remotesactions.cpp:23
+#: src/gui/actions/remotesactions.cpp:24
 #, kde-format
 msgid "New..."
 msgstr "新建…"
 
-#: src/gui/actions/remotesactions.cpp:25
+#: src/gui/actions/remotesactions.cpp:26
 #, kde-format
 msgid "Rename..."
 msgstr "重命名…"
 
-#: src/gui/actions/remotesactions.cpp:26
+#: src/gui/actions/remotesactions.cpp:27
 #, kde-format
 msgid "Change url..."
 msgstr "更改 URL..."
 
-#: src/gui/actions/remotesactions.cpp:59
+#: src/gui/actions/remotesactions.cpp:62 src/gui/actions/remotesactions.cpp:67
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
 msgstr "您确定要删除所选远端吗？"
 
-#: src/gui/actions/remotesactions.cpp:59
+#: src/gui/actions/remotesactions.cpp:63 src/gui/actions/remotesactions.cpp:67
 #, kde-format
 msgid "Remove remote?"
 msgstr "移除远端？"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:86
 #, kde-format
 msgid "Change url"
 msgstr "更改 URL"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:86
 #, kde-format
 msgid "URL"
 msgstr "URL"
 
-#: src/gui/actions/remotesactions.cpp:76
+#: src/gui/actions/remotesactions.cpp:89
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "远端 URL 更改成功"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:95
 #, kde-format
 msgid "Rename"
 msgstr "重命名"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:95
 #, kde-format
 msgid "New name"
 msgstr "新名称"
 
-#: src/gui/actions/stashactions.cpp:21
+#: src/gui/actions/stashactions.cpp:22
 #, kde-format
 msgid "New stash..."
 msgstr "新建暂存…"
 
-#: src/gui/actions/stashactions.cpp:23
+#: src/gui/actions/stashactions.cpp:24
 #, kde-format
 msgid "Pop..."
 msgstr "弹出..."
 
-#: src/gui/actions/stashactions.cpp:24
+#: src/gui/actions/stashactions.cpp:25
 #, kde-format
 msgid "Apply..."
 msgstr "应用..."
 
-#: src/gui/actions/stashactions.cpp:48 src/gui/actions/stashactions.cpp:56
-#: src/gui/actions/stashactions.cpp:66
+#: src/gui/actions/stashactions.cpp:51 src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:71 src/gui/actions/stashactions.cpp:76
+#: src/gui/actions/stashactions.cpp:93 src/gui/actions/stashactions.cpp:98
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "您确定要应用选定的暂存？"
 
-#: src/gui/actions/stashactions.cpp:48 src/gui/actions/stashactions.cpp:56
-#: src/gui/actions/stashactions.cpp:66
+#: src/gui/actions/stashactions.cpp:52 src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:72 src/gui/actions/stashactions.cpp:76
+#: src/gui/actions/stashactions.cpp:94 src/gui/actions/stashactions.cpp:98
 #, kde-format
 msgid "Apply stash %1"
 msgstr "应用暂存 %1"
 
-#: src/gui/actions/stashactions.cpp:83
+#: src/gui/actions/stashactions.cpp:120
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "您没有任何更改！"
 
-#: src/gui/actions/stashactions.cpp:83
+#: src/gui/actions/stashactions.cpp:120
 #, kde-format
 msgid "Stash"
 msgstr "暂存"
 
-#: src/gui/actions/stashactions.cpp:88
+#: src/gui/actions/stashactions.cpp:125
 #, kde-format
 msgid "Create new stash"
 msgstr "建立新暂存"
 
-#: src/gui/actions/stashactions.cpp:88
+#: src/gui/actions/stashactions.cpp:125
 #, kde-format
 msgid "Name of stash"
 msgstr "暂存名称"
 
-#: src/gui/actions/submoduleactions.cpp:39
+#: src/gui/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Add..."
 msgstr "添加..."
 
-#: src/gui/actions/submoduleactions.cpp:40 src/gui/appwindow.cpp:125
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:125
 #, kde-format
 msgid "Init..."
 msgstr "初始化..."
 
-#: src/gui/actions/submoduleactions.cpp:41
+#: src/gui/actions/submoduleactions.cpp:42
 #, kde-format
 msgid "Update..."
 msgstr "更新..."
 
 #. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
-#: src/gui/actions/submoduleactions.cpp:43
+#: src/gui/actions/submoduleactions.cpp:44
 #, kde-format
 msgid "Sync..."
 msgstr "同步..."
 
-#: src/gui/actions/submoduleactions.cpp:75
+#: src/gui/actions/submoduleactions.cpp:78
+#: src/gui/actions/submoduleactions.cpp:83
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
 msgstr "您确定要删除选定的子模块吗？"
 
-#: src/gui/actions/submoduleactions.cpp:75
+#: src/gui/actions/submoduleactions.cpp:79
+#: src/gui/actions/submoduleactions.cpp:83
 #, fuzzy, kde-format
 #| msgid "Submodules"
 msgid "Remove Submodule"
 msgstr "子模块"
 
-#: src/gui/actions/submoduleactions.cpp:85
+#: src/gui/actions/submoduleactions.cpp:98
 #, kde-format
 msgid "Unable to remove the module directory"
 msgstr "无法删除模块目录"
 
-#: src/gui/actions/submoduleactions.cpp:92
+#: src/gui/actions/submoduleactions.cpp:105
 #, kde-format
 msgid "The submodule %1 removed"
 msgstr "子模块 %1 已删除"
 
-#: src/gui/actions/tagsactions.cpp:23
+#: src/gui/actions/tagsactions.cpp:24
 #, kde-format
 msgid "New tag..."
 msgstr "新标签..."
 
-#: src/gui/actions/tagsactions.cpp:27 src/gui/appwindow.cpp:159
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:159
 #, kde-format
 msgid "Push..."
 msgstr "推送..."
 
-#: src/gui/actions/tagsactions.cpp:47 src/gui/dialogs/taginfodialog.cpp:13
+#: src/gui/actions/tagsactions.cpp:48 src/gui/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
 msgstr "新标签"
 
-#: src/gui/actions/tagsactions.cpp:56
+#: src/gui/actions/tagsactions.cpp:59 src/gui/actions/tagsactions.cpp:61
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
 msgstr "您确定要删除选中的标签吗？"
 
-#: src/gui/actions/tagsactions.cpp:67
+#: src/gui/actions/tagsactions.cpp:79 src/gui/actions/tagsactions.cpp:84
 #, kde-format
 msgid "Are you sure to restore to the selected tag?"
 msgstr "您确定要还原到选中的标签吗？"
 
-#: src/gui/actions/tagsactions.cpp:67
+#: src/gui/actions/tagsactions.cpp:80 src/gui/actions/tagsactions.cpp:84
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgid "Remove Tag"
@@ -426,12 +430,12 @@ msgstr "切换/检出..."
 msgid "Diff tree"
 msgstr "查看树差异"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:218
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "无法创建路径：%1"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:218
+#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Init repo"
 msgstr "初始化仓库"
@@ -442,37 +446,43 @@ msgstr "初始化仓库"
 msgid "Open repository"
 msgstr "克隆一个仓库"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:462
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "合并时无法切换分支"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:462
+#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr "切换分支"
 
-#: src/gui/commandargsparser.cpp:53
+#: src/gui/commandargsparser.cpp:54
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "此路径不是 git 仓库：%1"
 
-#: src/gui/commandargsparser.cpp:223
+#: src/gui/commandargsparser.cpp:224
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "仓库初始化成功"
 
-#: src/gui/commandargsparser.cpp:479
+#: src/gui/commandargsparser.cpp:480
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "文件已成功添加到 git"
 
-#: src/gui/commandargsparser.cpp:487
+#: src/gui/commandargsparser.cpp:490 src/gui/commandargsparser.cpp:493
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "您想要保留磁盘上的文件吗？"
 
-#: src/gui/commandargsparser.cpp:492
+#: src/gui/commandargsparser.cpp:490
+#, fuzzy, kde-format
+#| msgid "Leave as is"
+msgid "Leave"
+msgstr "保留原样"
+
+#: src/gui/commandargsparser.cpp:498
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "文件已成功从 git 中删除"
