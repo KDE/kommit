@@ -41,9 +41,10 @@ DiffTreeView::DiffTreeView(QWidget *parent)
 
     lineEditFilter->installEventFilter(this);
     listView->installEventFilter(this);
+    connect(lineEditFilter, &QLineEdit::textEdited, this, &DiffTreeView::lineEditFilterTextChanged);
 }
 
-void DiffTreeView::on_lineEditFilter_textChanged(const QString &text)
+void DiffTreeView::lineEditFilterTextChanged(const QString &text)
 {
     stackedWidget->setCurrentIndex(text.isEmpty() ? 0 : 1);
     mFilterModel->setFilterRegularExpression(QStringLiteral(".*") + text + QStringLiteral(".*"));

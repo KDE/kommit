@@ -27,7 +27,6 @@ public:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 private Q_SLOTS:
-    void on_lineEditFilter_textChanged(const QString &text);
     void on_treeView_clicked(const QModelIndex &index);
     void on_listView_clicked(const QModelIndex &index);
 
@@ -36,6 +35,7 @@ Q_SIGNALS:
     void hideUnchangedsChanged();
 
 private:
+    void lineEditFilterTextChanged(const QString &text);
     DiffTreeModel *mDiffModel{nullptr};
     QSortFilterProxyModel *const mFilterModel;
     FilesModel *mFilesModel;
