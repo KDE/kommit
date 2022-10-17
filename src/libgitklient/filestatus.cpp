@@ -27,9 +27,9 @@ FileStatus::Status FileStatus::status() const
 
 void FileStatus::parseStatusLine(const QString &line)
 {
-    auto statusX = line.at(0);
-    auto statusY = line.at(1);
-    auto fileName = line.mid(3);
+    const auto statusX = line.at(0);
+    const auto statusY = line.at(1);
+    const auto fileName = line.mid(3);
     mName = fileName;
 
     setStatus(statusX, statusY);

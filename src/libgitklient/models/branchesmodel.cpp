@@ -76,7 +76,7 @@ void BranchesModel::fill()
     mData.clear();
 
     QStringList branchesList;
-    auto out = mGit->readAllNonEmptyOutput({QStringLiteral("branch"), QStringLiteral("--list")});
+    const auto out = mGit->readAllNonEmptyOutput({QStringLiteral("branch"), QStringLiteral("--list")});
 
     for (const auto &line : out) {
         auto b = line.trimmed();
@@ -105,7 +105,7 @@ const QString &BranchesModel::referenceBranch() const
 void BranchesModel::calculateCommitStats()
 {
     for (auto &b : mData) {
-        auto commitsInfo = mGit->uniqueCommiteOnBranches(mReferenceBranch, b->name);
+        const auto commitsInfo = mGit->uniqueCommiteOnBranches(mReferenceBranch, b->name);
         b->commitsBehind = commitsInfo.first;
         b->commitsAhead = commitsInfo.second;
     }

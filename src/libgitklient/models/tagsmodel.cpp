@@ -84,7 +84,7 @@ void TagsModel::fill()
         {QStringLiteral("--no-pager"), QStringLiteral("tag"), QStringLiteral("--list"), QStringLiteral("--format=%(subject)>%(tag)>%(taggername)")});
     qCDebug(GITKLIENTLIB_LOG) << list;
     for (const auto &i : list) {
-        auto parts = i.split(QLatin1Char('>'));
+        const auto parts = i.split(QLatin1Char('>'));
         if (parts.size() != 3)
             continue;
         auto tag = new Tag;

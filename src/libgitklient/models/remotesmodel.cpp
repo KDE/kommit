@@ -82,8 +82,8 @@ void RemotesModel::fill()
     if (!mGit)
         return;
 
-    auto remotes = mGit->remotes();
-    for (const auto &remote : std::as_const(remotes)) {
+    const auto remotes = mGit->remotes();
+    for (const auto &remote : remotes) {
         auto r = new Remote;
         r->name = remote;
         auto ret = QString(mGit->runGit({QStringLiteral("remote"), QStringLiteral("show"), remote}));

@@ -113,7 +113,7 @@ struct LanesFactory {
     void join(const QString &hash, QVector<GraphLane> &lanes, int &myIndex)
     {
         int firstIndex{-1};
-        auto list = findByChild(hash);
+        const auto list = findByChild(hash);
 
         for (auto i = list.begin(); i != list.end(); ++i) {
             if (firstIndex == -1) {

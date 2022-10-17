@@ -100,7 +100,7 @@ bool File::save(const QString &path) const
     QFile f{path};
     if (!f.open(QIODevice::WriteOnly))
         return false;
-    auto buffer = mGit->runGit({QStringLiteral("show"), mPlace + QLatin1Char(':') + mFilePath});
+    const auto buffer = mGit->runGit({QStringLiteral("show"), mPlace + QLatin1Char(':') + mFilePath});
     f.write(buffer);
     f.close();
     return true;
