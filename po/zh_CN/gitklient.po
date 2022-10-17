@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-16 00:50+0000\n"
+"POT-Creation-Date: 2022-10-17 00:49+0000\n"
 "PO-Revision-Date: 2022-10-02 15:50\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -47,7 +47,8 @@ msgstr "KDE Git 图形客户端"
 msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr ""
 
-#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:108
+#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:116
 #: src/libgitklient/models/logsmodel.cpp:259
 #, kde-format
 msgid "Author"
@@ -97,7 +98,7 @@ msgstr "合并..."
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
 #: src/gui/actions/branchactions.cpp:35 src/gui/gitklientmergeui.rc:15
-#: src/gui/settings/settingsmanager.cpp:95
+#: src/gui/settings/settingsmanager.cpp:91
 #: src/gui/widgets/branchesstatuswidget.ui:120
 #, kde-format
 msgid "Diff"
@@ -149,43 +150,43 @@ msgstr "还原..."
 msgid "Checkout..."
 msgstr "检出..."
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:89
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "与 HEAD 相差…"
 
-#: src/gui/actions/fileactions.cpp:79
+#: src/gui/actions/fileactions.cpp:86
 #, kde-format
 msgid "View..."
 msgstr "查看..."
 
-#: src/gui/actions/fileactions.cpp:80
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Open with..."
 msgstr "打开方式..."
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "与 HEAD 合并…"
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:92
 #, kde-format
 msgid "Save as..."
 msgstr "另存为..."
 
-#: src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/fileactions.cpp:93
 #, kde-format
 msgid "Log..."
 msgstr "日志…"
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:94
 #, kde-format
 msgid "Blame..."
 msgstr "追溯..."
 
-#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:170
+#: src/gui/actions/fileactions.cpp:95 src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Search..."
 msgstr "搜索..."
@@ -430,28 +431,28 @@ msgstr "切换/检出..."
 msgid "Diff tree"
 msgstr "查看树差异"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:224 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "无法创建路径：%1"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:224 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Init repo"
 msgstr "初始化仓库"
 
-#: src/gui/appwindow.cpp:233
+#: src/gui/appwindow.cpp:234
 #, fuzzy, kde-format
 #| msgid "Clone a repository"
 msgid "Open repository"
 msgstr "克隆一个仓库"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:327 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "合并时无法切换分支"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:327 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr "切换分支"
@@ -515,7 +516,7 @@ msgstr "提交/推送"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
-#: src/gui/widgets/logdetailswidget.cpp:117
+#: src/gui/widgets/logdetailswidget.cpp:126
 #, kde-format
 msgid "Changed files"
 msgstr "更改的文件"
@@ -1676,22 +1677,22 @@ msgstr "显示文件名"
 msgid "Show Tree"
 msgstr "显示树"
 
-#: src/gui/diffwindow.cpp:213
+#: src/gui/diffwindow.cpp:210
 #, kde-format
 msgid "Unchanged"
 msgstr "未更改"
 
-#: src/gui/diffwindow.cpp:215
+#: src/gui/diffwindow.cpp:212
 #, kde-format
 msgid "Added"
 msgstr "已添加"
 
-#: src/gui/diffwindow.cpp:217
+#: src/gui/diffwindow.cpp:214
 #, kde-format
 msgid "Removed"
 msgstr "已删除"
 
-#: src/gui/diffwindow.cpp:219
+#: src/gui/diffwindow.cpp:216
 #, kde-format
 msgid "Modified"
 msgstr "已修改"
@@ -1834,7 +1835,7 @@ msgstr "上一个差异"
 msgid "Next diff"
 msgstr "下一个差异"
 
-#: src/gui/mergewindow.cpp:400
+#: src/gui/mergewindow.cpp:402
 #, kde-format
 msgid "Unable to open the file"
 msgstr "无法打开文件"
@@ -1884,12 +1885,12 @@ msgstr "项目历史"
 msgid "Open last repo at startup"
 msgstr "启动时打开最近仓库"
 
-#: src/gui/settings/settingsmanager.cpp:94
+#: src/gui/settings/settingsmanager.cpp:90
 #, kde-format
 msgid "General"
 msgstr "常规"
 
-#: src/gui/settings/settingsmanager.cpp:96
+#: src/gui/settings/settingsmanager.cpp:92
 #, kde-format
 msgid "Git"
 msgstr "Git"
@@ -1997,43 +1998,44 @@ msgstr "输入筛选条件"
 msgid "Hide unchangeds"
 msgstr "隐藏未更改的"
 
-#: src/gui/widgets/logdetailswidget.cpp:106
+#: src/gui/widgets/logdetailswidget.cpp:109
 #, kde-format
 msgid "Ref"
 msgstr "参考"
 
-#: src/gui/widgets/logdetailswidget.cpp:107
+#: src/gui/widgets/logdetailswidget.cpp:112
+#: src/gui/widgets/logdetailswidget.cpp:115
 #, kde-format
 msgid "Committer"
 msgstr "提交者"
 
-#: src/gui/widgets/logdetailswidget.cpp:109
+#: src/gui/widgets/logdetailswidget.cpp:118
 #: src/libgitklient/models/logsmodel.cpp:257
 #, kde-format
 msgid "Date"
 msgstr "日期"
 
-#: src/gui/widgets/logdetailswidget.cpp:110
+#: src/gui/widgets/logdetailswidget.cpp:119
 #, kde-format
 msgid "Hash"
 msgstr "哈希值"
 
-#: src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:122
 #, kde-format
 msgid "Parent"
 msgstr "父提交"
 
-#: src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:122
 #, kde-format
 msgid "Parents"
 msgstr "父提交"
 
-#: src/gui/widgets/logdetailswidget.cpp:115
+#: src/gui/widgets/logdetailswidget.cpp:124
 #, kde-format
 msgid "Child"
 msgstr "子提交"
 
-#: src/gui/widgets/logdetailswidget.cpp:115
+#: src/gui/widgets/logdetailswidget.cpp:124
 #, kde-format
 msgid "Children"
 msgstr "子提交"

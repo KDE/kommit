@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-16 00:50+0000\n"
+"POT-Creation-Date: 2022-10-17 00:49+0000\n"
 "PO-Revision-Date: 2022-10-11 17:14+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -55,7 +55,8 @@ msgstr "Cliente gráfico de Git para o KDE"
 msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "'Copyright' 2021-2022 de Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:108
+#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:116
 #: src/libgitklient/models/logsmodel.cpp:259
 #, kde-format
 msgid "Author"
@@ -105,7 +106,7 @@ msgstr "Reunir..."
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
 #: src/gui/actions/branchactions.cpp:35 src/gui/gitklientmergeui.rc:15
-#: src/gui/settings/settingsmanager.cpp:95
+#: src/gui/settings/settingsmanager.cpp:91
 #: src/gui/widgets/branchesstatuswidget.ui:120
 #, kde-format
 msgid "Diff"
@@ -157,43 +158,43 @@ msgstr "Reverter..."
 msgid "Checkout..."
 msgstr "Obter..."
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:89
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Diferenças do HEAD..."
 
-#: src/gui/actions/fileactions.cpp:79
+#: src/gui/actions/fileactions.cpp:86
 #, kde-format
 msgid "View..."
 msgstr "Ver..."
 
-#: src/gui/actions/fileactions.cpp:80
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Open with..."
 msgstr "Abrir com..."
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Reunir com o HEAD..."
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:92
 #, kde-format
 msgid "Save as..."
 msgstr "Gravar como..."
 
-#: src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/fileactions.cpp:93
 #, kde-format
 msgid "Log..."
 msgstr "Registo..."
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:94
 #, kde-format
 msgid "Blame..."
 msgstr "Anotar..."
 
-#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:170
+#: src/gui/actions/fileactions.cpp:95 src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Search..."
 msgstr "Procurar..."
@@ -436,27 +437,27 @@ msgstr "Mudar/Seleccionar..."
 msgid "Diff tree"
 msgstr "Diferenças da árvore"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:224 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Não é possível criar a localização: %1"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:224 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializar o repositório"
 
-#: src/gui/appwindow.cpp:233
+#: src/gui/appwindow.cpp:234
 #, kde-format
 msgid "Open repository"
 msgstr "Abrir um repositório"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:327 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Não é possível mudar de ramificação durante uma junção"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:327 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr "Mudar de ramificação"
@@ -482,10 +483,9 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Deseja deixar os ficheiros no disco?"
 
 #: src/gui/commandargsparser.cpp:490
-#, fuzzy, kde-format
-#| msgid "Leave as is"
+#, kde-format
 msgid "Leave"
-msgstr "Deixar como está"
+msgstr "Sair"
 
 #: src/gui/commandargsparser.cpp:498
 #, kde-format
@@ -520,7 +520,7 @@ msgstr "Gravar/Enviar"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
-#: src/gui/widgets/logdetailswidget.cpp:117
+#: src/gui/widgets/logdetailswidget.cpp:126
 #, kde-format
 msgid "Changed files"
 msgstr "Ficheiros modificados"
@@ -1663,22 +1663,22 @@ msgstr "Mostrar os nomes dos ficheiros"
 msgid "Show Tree"
 msgstr "Mostrar a Árvore"
 
-#: src/gui/diffwindow.cpp:213
+#: src/gui/diffwindow.cpp:210
 #, kde-format
 msgid "Unchanged"
 msgstr "Inalterado"
 
-#: src/gui/diffwindow.cpp:215
+#: src/gui/diffwindow.cpp:212
 #, kde-format
 msgid "Added"
 msgstr "Adicionado"
 
-#: src/gui/diffwindow.cpp:217
+#: src/gui/diffwindow.cpp:214
 #, kde-format
 msgid "Removed"
 msgstr "Removido"
 
-#: src/gui/diffwindow.cpp:219
+#: src/gui/diffwindow.cpp:216
 #, kde-format
 msgid "Modified"
 msgstr "Modificado"
@@ -1821,7 +1821,7 @@ msgstr "Diferença anterior"
 msgid "Next diff"
 msgstr "Diferença seguinte"
 
-#: src/gui/mergewindow.cpp:400
+#: src/gui/mergewindow.cpp:402
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Não é possível aceder ao ficheiro"
@@ -1871,12 +1871,12 @@ msgstr "idade do projecto"
 msgid "Open last repo at startup"
 msgstr "Abrir o último repositório no arranque"
 
-#: src/gui/settings/settingsmanager.cpp:94
+#: src/gui/settings/settingsmanager.cpp:90
 #, kde-format
 msgid "General"
 msgstr "Geral"
 
-#: src/gui/settings/settingsmanager.cpp:96
+#: src/gui/settings/settingsmanager.cpp:92
 #, kde-format
 msgid "Git"
 msgstr "Git"
@@ -1984,43 +1984,44 @@ msgstr "Escreva para filtrar"
 msgid "Hide unchangeds"
 msgstr "Esconder os não-modificados"
 
-#: src/gui/widgets/logdetailswidget.cpp:106
+#: src/gui/widgets/logdetailswidget.cpp:109
 #, kde-format
 msgid "Ref"
 msgstr "Referência"
 
-#: src/gui/widgets/logdetailswidget.cpp:107
+#: src/gui/widgets/logdetailswidget.cpp:112
+#: src/gui/widgets/logdetailswidget.cpp:115
 #, kde-format
 msgid "Committer"
 msgstr "Responsável"
 
-#: src/gui/widgets/logdetailswidget.cpp:109
+#: src/gui/widgets/logdetailswidget.cpp:118
 #: src/libgitklient/models/logsmodel.cpp:257
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
-#: src/gui/widgets/logdetailswidget.cpp:110
+#: src/gui/widgets/logdetailswidget.cpp:119
 #, kde-format
 msgid "Hash"
 msgstr "Código"
 
-#: src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:122
 #, kde-format
 msgid "Parent"
 msgstr "Versão-Mãe"
 
-#: src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:122
 #, kde-format
 msgid "Parents"
 msgstr "Versões-Mães"
 
-#: src/gui/widgets/logdetailswidget.cpp:115
+#: src/gui/widgets/logdetailswidget.cpp:124
 #, kde-format
 msgid "Child"
 msgstr "Versão-Filha"
 
-#: src/gui/widgets/logdetailswidget.cpp:115
+#: src/gui/widgets/logdetailswidget.cpp:124
 #, kde-format
 msgid "Children"
 msgstr "Versões-Filhas"

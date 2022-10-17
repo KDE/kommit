@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-16 00:50+0000\n"
-"PO-Revision-Date: 2022-10-10 18:39+0300\n"
+"POT-Creation-Date: 2022-10-17 00:49+0000\n"
+"PO-Revision-Date: 2022-10-16 08:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -48,7 +48,8 @@ msgstr "Клієнтська графічна оболонка git для KDE"
 msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "© Hamed Masafi <hamed.masafi@gmail.com>, 2021–2022"
 
-#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:108
+#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:116
 #: src/libgitklient/models/logsmodel.cpp:259
 #, kde-format
 msgid "Author"
@@ -98,7 +99,7 @@ msgstr "Об'єднати…"
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
 #: src/gui/actions/branchactions.cpp:35 src/gui/gitklientmergeui.rc:15
-#: src/gui/settings/settingsmanager.cpp:95
+#: src/gui/settings/settingsmanager.cpp:91
 #: src/gui/widgets/branchesstatuswidget.ui:120
 #, kde-format
 msgid "Diff"
@@ -150,43 +151,43 @@ msgstr "Повернути…"
 msgid "Checkout..."
 msgstr "Звірити…"
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:89
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Різниця з HEAD…"
 
-#: src/gui/actions/fileactions.cpp:79
+#: src/gui/actions/fileactions.cpp:86
 #, kde-format
 msgid "View..."
 msgstr "Переглянути…"
 
-#: src/gui/actions/fileactions.cpp:80
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Open with..."
 msgstr "Відкрити за допомогою…"
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Об'єднати з HEAD…"
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:92
 #, kde-format
 msgid "Save as..."
 msgstr "Зберегти як…"
 
-#: src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/fileactions.cpp:93
 #, kde-format
 msgid "Log..."
 msgstr "Журнал…"
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:94
 #, kde-format
 msgid "Blame..."
 msgstr "Визначити автора…"
 
-#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:170
+#: src/gui/actions/fileactions.cpp:95 src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Search..."
 msgstr "Шукати…"
@@ -429,27 +430,27 @@ msgstr "Перемкнутися/Отримати…"
 msgid "Diff tree"
 msgstr "Ієрархія різниці"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:224 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Не вдалося створити шлях: %1"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:224 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Init repo"
 msgstr "Ініціалізувати сховище"
 
-#: src/gui/appwindow.cpp:233
+#: src/gui/appwindow.cpp:234
 #, kde-format
 msgid "Open repository"
 msgstr "Відкрити сховище"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:327 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Неможливо перемикатися на гілку у процесі об'єднання"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:327 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr "Перемкнути гілку"
@@ -475,10 +476,9 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Хочете лишити файли на диску?"
 
 #: src/gui/commandargsparser.cpp:490
-#, fuzzy, kde-format
-#| msgid "Leave as is"
+#, kde-format
 msgid "Leave"
-msgstr "Залишити як є"
+msgstr "Залишити"
 
 #: src/gui/commandargsparser.cpp:498
 #, kde-format
@@ -513,7 +513,7 @@ msgstr "Внести/Записати"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
-#: src/gui/widgets/logdetailswidget.cpp:117
+#: src/gui/widgets/logdetailswidget.cpp:126
 #, kde-format
 msgid "Changed files"
 msgstr "Змінені файли"
@@ -1653,22 +1653,22 @@ msgstr "Показувати назви файлів"
 msgid "Show Tree"
 msgstr "Показати ієрархію"
 
-#: src/gui/diffwindow.cpp:213
+#: src/gui/diffwindow.cpp:210
 #, kde-format
 msgid "Unchanged"
 msgstr "Без змін"
 
-#: src/gui/diffwindow.cpp:215
+#: src/gui/diffwindow.cpp:212
 #, kde-format
 msgid "Added"
 msgstr "Додано"
 
-#: src/gui/diffwindow.cpp:217
+#: src/gui/diffwindow.cpp:214
 #, kde-format
 msgid "Removed"
 msgstr "Вилучено"
 
-#: src/gui/diffwindow.cpp:219
+#: src/gui/diffwindow.cpp:216
 #, kde-format
 msgid "Modified"
 msgstr "Змінено"
@@ -1811,7 +1811,7 @@ msgstr "Попередня відмінність"
 msgid "Next diff"
 msgstr "Наступна відмінність"
 
-#: src/gui/mergewindow.cpp:400
+#: src/gui/mergewindow.cpp:402
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Не вдалося відкрити файл"
@@ -1861,12 +1861,12 @@ msgstr "вік проєкту"
 msgid "Open last repo at startup"
 msgstr "Відкривати останнє сховище після запуску"
 
-#: src/gui/settings/settingsmanager.cpp:94
+#: src/gui/settings/settingsmanager.cpp:90
 #, kde-format
 msgid "General"
 msgstr "Загальне"
 
-#: src/gui/settings/settingsmanager.cpp:96
+#: src/gui/settings/settingsmanager.cpp:92
 #, kde-format
 msgid "Git"
 msgstr "Git"
@@ -1974,43 +1974,44 @@ msgstr "Введіть щось для фільтрування"
 msgid "Hide unchangeds"
 msgstr "Приховати незмінене"
 
-#: src/gui/widgets/logdetailswidget.cpp:106
+#: src/gui/widgets/logdetailswidget.cpp:109
 #, kde-format
 msgid "Ref"
 msgstr "Пос."
 
-#: src/gui/widgets/logdetailswidget.cpp:107
+#: src/gui/widgets/logdetailswidget.cpp:112
+#: src/gui/widgets/logdetailswidget.cpp:115
 #, kde-format
 msgid "Committer"
 msgstr "Відповідальний перекладач"
 
-#: src/gui/widgets/logdetailswidget.cpp:109
+#: src/gui/widgets/logdetailswidget.cpp:118
 #: src/libgitklient/models/logsmodel.cpp:257
 #, kde-format
 msgid "Date"
 msgstr "Дата"
 
-#: src/gui/widgets/logdetailswidget.cpp:110
+#: src/gui/widgets/logdetailswidget.cpp:119
 #, kde-format
 msgid "Hash"
 msgstr "Хеш"
 
-#: src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:122
 #, kde-format
 msgid "Parent"
 msgstr "Батьківський"
 
-#: src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:122
 #, kde-format
 msgid "Parents"
 msgstr "Батьки"
 
-#: src/gui/widgets/logdetailswidget.cpp:115
+#: src/gui/widgets/logdetailswidget.cpp:124
 #, kde-format
 msgid "Child"
 msgstr "Дочірній"
 
-#: src/gui/widgets/logdetailswidget.cpp:115
+#: src/gui/widgets/logdetailswidget.cpp:124
 #, kde-format
 msgid "Children"
 msgstr "Діти"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-16 00:50+0000\n"
+"POT-Creation-Date: 2022-10-17 00:49+0000\n"
 "PO-Revision-Date: 2022-10-11 08:49+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -51,7 +51,8 @@ msgstr "Grafični uporabniški vmesnik odjemalca Git za KDE"
 msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:108
+#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:116
 #: src/libgitklient/models/logsmodel.cpp:259
 #, kde-format
 msgid "Author"
@@ -101,7 +102,7 @@ msgstr "Zlij..."
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
 #: src/gui/actions/branchactions.cpp:35 src/gui/gitklientmergeui.rc:15
-#: src/gui/settings/settingsmanager.cpp:95
+#: src/gui/settings/settingsmanager.cpp:91
 #: src/gui/widgets/branchesstatuswidget.ui:120
 #, kde-format
 msgid "Diff"
@@ -153,43 +154,43 @@ msgstr "Povrni …"
 msgid "Checkout..."
 msgstr "Prevzemi ..."
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:89
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Razlika z GLAVO/HEAD ..."
 
-#: src/gui/actions/fileactions.cpp:79
+#: src/gui/actions/fileactions.cpp:86
 #, kde-format
 msgid "View..."
 msgstr "Pogled..."
 
-#: src/gui/actions/fileactions.cpp:80
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Open with..."
 msgstr "Odpri z..."
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Združi z GLAVO/HEAD ..."
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:92
 #, kde-format
 msgid "Save as..."
 msgstr "Shrani kot..."
 
-#: src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/fileactions.cpp:93
 #, kde-format
 msgid "Log..."
 msgstr "Dnevnik..."
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:94
 #, kde-format
 msgid "Blame..."
 msgstr "Odgovornost (blame) ..."
 
-#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:170
+#: src/gui/actions/fileactions.cpp:95 src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Search..."
 msgstr "Išči..."
@@ -432,27 +433,27 @@ msgstr "Preklopi/prevzemi ..."
 msgid "Diff tree"
 msgstr "Drevo razlik"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:224 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ni mogoče ustvariti poti: %1"
 
-#: src/gui/appwindow.cpp:223 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:224 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializiraj skladišče"
 
-#: src/gui/appwindow.cpp:233
+#: src/gui/appwindow.cpp:234
 #, kde-format
 msgid "Open repository"
 msgstr "Odpri skladišče"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:327 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Med spajanjem ni mogoče preklopiti veje"
 
-#: src/gui/appwindow.cpp:326 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:327 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr "Preklopi vejo"
@@ -516,7 +517,7 @@ msgstr "Objavi/potisni"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
-#: src/gui/widgets/logdetailswidget.cpp:117
+#: src/gui/widgets/logdetailswidget.cpp:126
 #, kde-format
 msgid "Changed files"
 msgstr "Spremenjene datoteke"
@@ -1654,22 +1655,22 @@ msgstr "Pokaži imena datotek"
 msgid "Show Tree"
 msgstr "Pokaži drevo"
 
-#: src/gui/diffwindow.cpp:213
+#: src/gui/diffwindow.cpp:210
 #, kde-format
 msgid "Unchanged"
 msgstr "Nespremenjeno"
 
-#: src/gui/diffwindow.cpp:215
+#: src/gui/diffwindow.cpp:212
 #, kde-format
 msgid "Added"
 msgstr "Dodano"
 
-#: src/gui/diffwindow.cpp:217
+#: src/gui/diffwindow.cpp:214
 #, kde-format
 msgid "Removed"
 msgstr "Odstranjeno"
 
-#: src/gui/diffwindow.cpp:219
+#: src/gui/diffwindow.cpp:216
 #, kde-format
 msgid "Modified"
 msgstr "Spremenjena"
@@ -1812,7 +1813,7 @@ msgstr "Prejšnja razlika"
 msgid "Next diff"
 msgstr "Naslednja razlika"
 
-#: src/gui/mergewindow.cpp:400
+#: src/gui/mergewindow.cpp:402
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Datoteke ni mogoče odpreti"
@@ -1862,12 +1863,12 @@ msgstr "starost projekta"
 msgid "Open last repo at startup"
 msgstr "Odpri zadnje skladišče ob zagonu"
 
-#: src/gui/settings/settingsmanager.cpp:94
+#: src/gui/settings/settingsmanager.cpp:90
 #, kde-format
 msgid "General"
 msgstr "Splošno"
 
-#: src/gui/settings/settingsmanager.cpp:96
+#: src/gui/settings/settingsmanager.cpp:92
 #, kde-format
 msgid "Git"
 msgstr "Git"
@@ -1975,43 +1976,44 @@ msgstr "Vrste za filtriranje"
 msgid "Hide unchangeds"
 msgstr "Skrij nespremenjene"
 
-#: src/gui/widgets/logdetailswidget.cpp:106
+#: src/gui/widgets/logdetailswidget.cpp:109
 #, kde-format
 msgid "Ref"
 msgstr "Ref"
 
-#: src/gui/widgets/logdetailswidget.cpp:107
+#: src/gui/widgets/logdetailswidget.cpp:112
+#: src/gui/widgets/logdetailswidget.cpp:115
 #, kde-format
 msgid "Committer"
 msgstr "Objavitelj"
 
-#: src/gui/widgets/logdetailswidget.cpp:109
+#: src/gui/widgets/logdetailswidget.cpp:118
 #: src/libgitklient/models/logsmodel.cpp:257
 #, kde-format
 msgid "Date"
 msgstr "Date"
 
-#: src/gui/widgets/logdetailswidget.cpp:110
+#: src/gui/widgets/logdetailswidget.cpp:119
 #, kde-format
 msgid "Hash"
 msgstr "Zgoščevalna funkcija"
 
-#: src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:122
 #, kde-format
 msgid "Parent"
 msgstr "Nadrejen"
 
-#: src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:122
 #, kde-format
 msgid "Parents"
 msgstr "Nadrejeni"
 
-#: src/gui/widgets/logdetailswidget.cpp:115
+#: src/gui/widgets/logdetailswidget.cpp:124
 #, kde-format
 msgid "Child"
 msgstr "Podrejen"
 
-#: src/gui/widgets/logdetailswidget.cpp:115
+#: src/gui/widgets/logdetailswidget.cpp:124
 #, kde-format
 msgid "Children"
 msgstr "Podrejeni"
