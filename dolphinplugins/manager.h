@@ -17,11 +17,11 @@ class MiniManager
 public:
     explicit MiniManager(const QString &path);
 
-    const QString &path() const;
+    Q_REQUIRED_RESULT const QString &path() const;
     void setPath(const QString &newPath);
 
-    bool isValid() const;
-    QList<FileStatus> repoFilesStatus() const;
+    Q_REQUIRED_RESULT bool isValid() const;
+    Q_REQUIRED_RESULT QList<FileStatus> repoFilesStatus() const;
 
 private:
     QString mPath;

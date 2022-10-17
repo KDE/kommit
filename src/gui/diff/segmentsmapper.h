@@ -28,7 +28,7 @@ public:
     void refresh();
 
     void setCurrentSegment(Diff::Segment *newCurrentSegment);
-    bool isMergeable() const;
+    Q_REQUIRED_RESULT bool isMergeable() const;
 
     int conflicts() const;
 
