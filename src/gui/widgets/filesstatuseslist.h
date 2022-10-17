@@ -7,9 +7,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "filestatus.h"
+#include "libgitklientgui_private_export.h"
 #include <QTreeWidget>
 
-class FilesStatusesList : public QTreeWidget
+class LIBGITKLIENTGUI_TESTS_EXPORT FilesStatusesList : public QTreeWidget
 {
     Q_OBJECT
 public:
