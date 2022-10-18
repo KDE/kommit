@@ -112,7 +112,7 @@ void CompletionTextEdit::keyPressEvent(QKeyEvent *e)
     if (!mCompleter || (ctrlOrShift && e->text().isEmpty()))
         return;
 
-    static QString eow("~!@#$%^&*()_+{}|:\"<>?,./;'[]\\-="); // end of word
+    static QString eow(QStringLiteral("~!@#$%^&*()_+{}|:\"<>?,./;'[]\\-=")); // end of word
     const bool hasModifier = (e->modifiers() != Qt::NoModifier) && !ctrlOrShift;
     QString completionPrefix = textUnderCursor();
 

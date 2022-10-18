@@ -100,7 +100,7 @@ void CommitsWidget::on_treeViewHistory_itemActivated(const QModelIndex &index)
 
 void CommitsWidget::on_textBrowser_hashClicked(const QString &hash)
 {
-    auto index = mHistoryModel->findIndexByHash(hash);
+    const auto index = mHistoryModel->findIndexByHash(hash);
     if (index.isValid()) {
         treeViewHistory->setCurrentIndex(index);
         on_treeViewHistory_itemActivated(index);

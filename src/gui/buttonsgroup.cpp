@@ -42,6 +42,6 @@ void ButtonsGroup::buttonClicked()
     for (auto &b : std::as_const(mButtons))
         b->setChecked(b == btn);
 
-    auto index = mButtons.indexOf(btn);
+    const auto index = mButtons.indexOf(btn);
     Q_EMIT clicked(index);
 }
