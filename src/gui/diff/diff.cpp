@@ -390,20 +390,20 @@ Text readLines(const QString &text)
 
     LineEnding le{LineEnding::None};
     QString seprator;
-    for (const auto &ch : std::as_const(text)) {
+    for (const auto &ch : text) {
         if (le == LineEnding::Cr) {
-            if (ch == '\n') {
+            if (ch == QLatin1Char('\n')) {
                 le = LineEnding::CrLf;
                 seprator = QStringLiteral("\r\n");
             }
             break;
         }
-        if (ch == '\r') {
+        if (ch == QLatin1Char('\r')) {
             le = LineEnding::Cr;
             seprator = QStringLiteral("\r");
             continue;
         }
-        if (ch == '\n') {
+        if (ch == QLatin1Char('\n')) {
             seprator = QStringLiteral("\n");
             le = LineEnding::Lf;
             break;
@@ -460,8 +460,8 @@ Tuple firstCommonItem(const QStringList &base, const QStringList &local, const Q
 {
     Tuple tmp{-1, -1, -1};
     for (int i = 0; i < base.size(); ++i) {
-        auto localIndex = local.indexOf(base.at(i));
-        auto remoteIndex = remote.indexOf(base.at(i));
+        const auto localIndex = local.indexOf(base.at(i));
+        const auto remoteIndex = remote.indexOf(base.at(i));
 
         if (localIndex != -1 && remoteIndex != -1) {
             if (tmp.base == -1) {
