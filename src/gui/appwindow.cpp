@@ -39,11 +39,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KActionCollection>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KStandardShortcut>
 #include <QFileDialog>
 #include <QMenu>
 #include <QSettings>
 #include <QStatusBar>
-#include <QtConcurrent/QtConcurrent>
+#include <QtConcurrent>
 
 void AppWindow::init()
 {
@@ -126,7 +127,7 @@ void AppWindow::initActions()
 
     auto repoOpenAction = actionCollection->addAction(QStringLiteral("repo_open"), this, &AppWindow::openRepo);
     repoOpenAction->setText(i18n("Open..."));
-    actionCollection->setDefaultShortcut(repoOpenAction, QKeySequence(QStringLiteral("Ctrl+O")));
+    actionCollection->setDefaultShortcuts(repoOpenAction, KStandardShortcut::open());
     repoOpenAction->setIcon(QIcon::fromTheme(QStringLiteral("folder-open")));
 
     auto repoCloneAction = actionCollection->addAction(QStringLiteral("repo_clone"), this, &AppWindow::clone);
@@ -135,7 +136,7 @@ void AppWindow::initActions()
     auto repoStatusAction = actionCollection->addAction(QStringLiteral("repo_status"), this, &AppWindow::repoStatus);
     repoStatusAction->setText(i18n("Changed files..."));
     repoStatusAction->setIcon(QIcon::fromTheme(QStringLiteral("gitklient-changedfiles")));
-    actionCollection->setDefaultShortcut(repoStatusAction, QKeySequence(QStringLiteral("Ctrl+S")));
+    actionCollection->setDefaultShortcut(repoStatusAction, QKeySequence(Qt::CTRL | Qt::Key_S));
 
     {
         mRecentAction = actionCollection->addAction(QStringLiteral("recent"));

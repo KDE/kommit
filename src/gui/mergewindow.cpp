@@ -269,12 +269,12 @@ void MergeWindow::initActions()
     auto actionKeepMine = actionCollection->addAction(QStringLiteral("keep_mine"), this, &MergeWindow::actionKeepMine_clicked);
     actionKeepMine->setText(i18n("Keep mine"));
     actionKeepMine->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-mine")));
-    actionCollection->setDefaultShortcut(actionKeepMine, QKeySequence(QStringLiteral("Ctrl+L")));
+    actionCollection->setDefaultShortcut(actionKeepMine, QKeySequence(Qt::CTRL + Qt::Key_L));
 
     auto actionKeepTheir = actionCollection->addAction(QStringLiteral("keep_their"), this, &MergeWindow::actionKeepTheir_clicked);
     actionKeepTheir->setText(i18n("Keep their"));
     actionKeepTheir->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their")));
-    actionCollection->setDefaultShortcut(actionKeepTheir, QKeySequence(QStringLiteral("Ctrl+R")));
+    actionCollection->setDefaultShortcut(actionKeepTheir, QKeySequence(Qt::CTRL + Qt::Key_R));
 
     auto actionKeepMineBeforeTheir =
         actionCollection->addAction(QStringLiteral("keep_mine_before_their"), this, &MergeWindow::actionKeepMineBeforeTheir_clicked);
@@ -287,7 +287,7 @@ void MergeWindow::initActions()
         actionCollection->addAction(QStringLiteral("keep_their_before_mine"), this, &MergeWindow::actionKeepTheirBeforeMine_clicked);
     actionKeepTheirBeforeMine->setText(i18n("Keep their before mine"));
     actionKeepTheirBeforeMine->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their-before-mine")));
-    actionCollection->setDefaultShortcut(actionKeepTheirBeforeMine, QKeySequence(QStringLiteral("Ctrl+Shift+R")));
+    actionCollection->setDefaultShortcut(actionKeepTheirBeforeMine, QKeySequence(Qt::CTRL + Qt::Key_R + Qt::SHIFT));
 
     auto actionKeepMyFile = actionCollection->addAction(QStringLiteral("keep_my_file"), this, &MergeWindow::actionKeepMyFile_clicked);
     actionKeepMyFile->setText(i18n("Keep my file"));
@@ -297,7 +297,7 @@ void MergeWindow::initActions()
     auto actionKeepTheirFile = actionCollection->addAction(QStringLiteral("keep_their_file"), this, &MergeWindow::actionKeepTheirFile_clicked);
     actionKeepTheirFile->setText(i18n("Keep their file"));
     actionKeepTheirFile->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their-file")));
-    actionCollection->setDefaultShortcut(actionKeepTheirFile, QKeySequence(QStringLiteral("Ctrl+Alt+R")));
+    actionCollection->setDefaultShortcut(actionKeepTheirFile, QKeySequence(Qt::CTRL + Qt::Key_L + Qt::ALT));
 
     mActionBlocksView = actionCollection->addAction(QStringLiteral("view_blocks"), this, &MergeWindow::actionViewBlocks_clicked);
     mActionBlocksView->setText(i18n("Blocks"));
