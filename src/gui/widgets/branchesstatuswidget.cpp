@@ -7,9 +7,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "branchesstatuswidget.h"
 
 #include "actions/branchactions.h"
+#include "core/kmessageboxhelper.h"
 #include "gitmanager.h"
 #include "models/branchesmodel.h"
-#include "core/kmessageboxhelper.h"
 
 #include <KLocalizedString>
 #include <QDebug>

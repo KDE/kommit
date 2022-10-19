@@ -99,8 +99,6 @@ public:
 
     BlameData blame(const File &file);
 
-    QList<Git::Submodule> submodules() const;
-    bool addSubmodule(const Git::Submodule &module);
     void revertFile(const QString &filePath) const;
 
     QMap<QString, Manager::ChangeStatus> changedFiles() const;

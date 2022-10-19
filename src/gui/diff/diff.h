@@ -27,7 +27,7 @@ enum class SegmentType {
 enum MergeDiffType { Unchanged, LocalAdd, RemoteAdd, BothChanged };
 
 struct Text {
-    QList<QString> lines; // TODO: convert to QList<QstringRef> if it's possible
+    QList<QString> lines; // TODO: convert to QList<QStringRef> if it's possible
     LineEnding lineEnding;
 };
 

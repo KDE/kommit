@@ -626,30 +626,6 @@ BlameData Manager::blame(const File &file)
     return b;
 }
 
-QList<Submodule> Manager::submodules() const
-{
-    QList<Submodule> modules;
-    const auto modulesList = readAllNonEmptyOutput({QStringLiteral("submodule"), QStringLiteral("status")});
-    for (const auto &line : modulesList) {
-        Submodule m;
-        m.setCommitHash(line.mid(0, 40));
-        auto n = line.lastIndexOf(QLatin1Char(' '));
-        m.setPath(line.mid(41, n - 41));
-
-        if (line.count(QLatin1Char(' ')) == 2)
-            m.setRefName(line.mid(n));
-        modules.append(m);
-    }
-    return modules;
-}
-
-bool Manager::addSubmodule(const Submodule &module)
-{
-    Q_UNUSED(module)
-    // TODO:
-    return true;
-}
-
 void Manager::revertFile(const QString &filePath) const
 {
     runGit({QStringLiteral("checkout"), QStringLiteral("--"), filePath});

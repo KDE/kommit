@@ -41,4 +41,14 @@ void Submodule::setRefName(const QString &newRefName)
     mRefName = newRefName;
 }
 
+const QString &Submodule::url() const
+{
+    return mUrl;
+}
+
+void Submodule::setUrl(const QString &newUrl)
+{
+    mUrl = newUrl;
+}
+
 } // namespace Git

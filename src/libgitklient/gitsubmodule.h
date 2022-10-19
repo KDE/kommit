@@ -23,7 +23,11 @@ public:
     Q_REQUIRED_RESULT const QString &refName() const;
     void setRefName(const QString &newRefName);
 
+    Q_REQUIRED_RESULT const QString &url() const;
+    void setUrl(const QString &newUrl);
+
 private:
+    QString mUrl;
     QString mPath;
     QString mCommitHash;
     QString mRefName;
