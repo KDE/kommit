@@ -51,7 +51,7 @@ void SearchDialog::on_pushButtonSearch_clicked()
     auto f = QtConcurrent::run(this, &SearchDialog::beginSearch);
 }
 
-void SearchDialog::on_treeView_doubleClicked(QModelIndex index)
+void SearchDialog::on_treeView_doubleClicked(const QModelIndex &index)
 {
     if (!index.isValid())
         return;
