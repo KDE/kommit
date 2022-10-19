@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-17 00:49+0000\n"
+"POT-Creation-Date: 2022-10-19 00:48+0000\n"
 "PO-Revision-Date: 2022-10-16 11:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -74,7 +74,7 @@ msgstr "Hata düzeltme"
 msgid "Create..."
 msgstr "Oluştur..."
 
-#: src/gui/actions/branchactions.cpp:31 src/gui/appwindow.cpp:155
+#: src/gui/actions/branchactions.cpp:31 src/gui/appwindow.cpp:156
 #, kde-format
 msgid "Fetch..."
 msgstr "Getir..."
@@ -90,7 +90,7 @@ msgstr "Göz At..."
 msgid "Switch"
 msgstr "Değiştir"
 
-#: src/gui/actions/branchactions.cpp:34 src/gui/appwindow.cpp:163
+#: src/gui/actions/branchactions.cpp:34 src/gui/appwindow.cpp:164
 #, kde-format
 msgid "Merge..."
 msgstr "Birleştir..."
@@ -186,7 +186,7 @@ msgstr "Günlük..."
 msgid "Blame..."
 msgstr "Suçla..."
 
-#: src/gui/actions/fileactions.cpp:95 src/gui/appwindow.cpp:170
+#: src/gui/actions/fileactions.cpp:95 src/gui/appwindow.cpp:171
 #, kde-format
 msgid "Search..."
 msgstr "Ara..."
@@ -295,7 +295,7 @@ msgstr "Zulanın adı"
 msgid "Add..."
 msgstr "Ekle..."
 
-#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:125
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:126
 #, kde-format
 msgid "Init..."
 msgstr "İlklendir..."
@@ -338,7 +338,7 @@ msgstr "%1 altmodülü kaldırıldı"
 msgid "New tag..."
 msgstr "Yeni Etiket..."
 
-#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:159
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:160
 #, kde-format
 msgid "Push..."
 msgstr "İt..."
@@ -364,92 +364,92 @@ msgstr "Seçili etikete geri yüklemek istediğinize emin misiniz?"
 msgid "Remove Tag"
 msgstr "Etiketi Kaldır"
 
-#: src/gui/appwindow.cpp:71
+#: src/gui/appwindow.cpp:72
 #, kde-format
 msgid "No repo selected"
 msgstr "Seçili depo yok"
 
-#: src/gui/appwindow.cpp:113
+#: src/gui/appwindow.cpp:114
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Geçerli dal: %1"
 
-#: src/gui/appwindow.cpp:115
+#: src/gui/appwindow.cpp:116
 #, kde-format
 msgid " (merging)"
 msgstr " (birleştiriliyor)"
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:129
 #, kde-format
 msgid "Open..."
 msgstr "Aç..."
 
-#: src/gui/appwindow.cpp:133
+#: src/gui/appwindow.cpp:134
 #, kde-format
 msgid "Clone..."
 msgstr "Klonla..."
 
-#: src/gui/appwindow.cpp:136
+#: src/gui/appwindow.cpp:137
 #, kde-format
 msgid "Changed files..."
 msgstr "Değiştirilen Dosyalar..."
 
-#: src/gui/appwindow.cpp:142
+#: src/gui/appwindow.cpp:143
 #, kde-format
 msgid "Recent repos"
 msgstr "Son kullanılan depolar"
 
-#: src/gui/appwindow.cpp:148
+#: src/gui/appwindow.cpp:149
 #, kde-format
 msgid "Cleanup..."
 msgstr "Toparla..."
 
-#: src/gui/appwindow.cpp:151
+#: src/gui/appwindow.cpp:152
 #, kde-format
 msgid "Pull..."
 msgstr "Çek..."
 
-#: src/gui/appwindow.cpp:167
+#: src/gui/appwindow.cpp:168
 #, kde-format
 msgid "Diff branches..."
 msgstr "Dalları Diff'le..."
 
-#: src/gui/appwindow.cpp:173
+#: src/gui/appwindow.cpp:174
 #, kde-format
 msgid "Repo settings..."
 msgstr "Depo Ayarları..."
 
-#: src/gui/appwindow.cpp:176
+#: src/gui/appwindow.cpp:177
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Değiştir/Çıkış Yap..."
 
-#: src/gui/appwindow.cpp:179
+#: src/gui/appwindow.cpp:180
 #, kde-format
 msgid "Diff tree"
 msgstr "Diff ağacı"
 
-#: src/gui/appwindow.cpp:224 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:225 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Yol oluşturulamıyor: %1"
 
-#: src/gui/appwindow.cpp:224 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:225 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Init repo"
 msgstr "Depo İlklendir"
 
-#: src/gui/appwindow.cpp:234
+#: src/gui/appwindow.cpp:235
 #, kde-format
 msgid "Open repository"
 msgstr "Depo Aç"
 
-#: src/gui/appwindow.cpp:327 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:328 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Birleştirme sırasında dal değiştirilemiyor"
 
-#: src/gui/appwindow.cpp:327 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:328 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr "Dal Değiştir"

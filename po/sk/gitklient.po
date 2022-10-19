@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-17 00:49+0000\n"
+"POT-Creation-Date: 2022-10-19 00:48+0000\n"
 "PO-Revision-Date: 2022-09-08 22:13+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Create..."
 msgstr "Vytvoriť..."
 
-#: src/gui/actions/branchactions.cpp:31 src/gui/appwindow.cpp:155
+#: src/gui/actions/branchactions.cpp:31 src/gui/appwindow.cpp:156
 #, kde-format
 msgid "Fetch..."
 msgstr "Získať..."
@@ -90,7 +90,7 @@ msgstr "Prechádzať..."
 msgid "Switch"
 msgstr "Prepnúť"
 
-#: src/gui/actions/branchactions.cpp:34 src/gui/appwindow.cpp:163
+#: src/gui/actions/branchactions.cpp:34 src/gui/appwindow.cpp:164
 #, kde-format
 msgid "Merge..."
 msgstr "Zlúčiť..."
@@ -187,7 +187,7 @@ msgstr "Log..."
 msgid "Blame..."
 msgstr "Žalovať..."
 
-#: src/gui/actions/fileactions.cpp:95 src/gui/appwindow.cpp:170
+#: src/gui/actions/fileactions.cpp:95 src/gui/appwindow.cpp:171
 #, kde-format
 msgid "Search..."
 msgstr "Hľadať..."
@@ -296,7 +296,7 @@ msgstr ""
 msgid "Add..."
 msgstr "Pridať..."
 
-#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:125
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:126
 #, kde-format
 msgid "Init..."
 msgstr "Začiatok..."
@@ -340,7 +340,7 @@ msgstr ""
 msgid "New tag..."
 msgstr "Nová značka..."
 
-#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:159
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:160
 #, kde-format
 msgid "Push..."
 msgstr "Tlačiť..."
@@ -368,92 +368,92 @@ msgstr ""
 msgid "Remove Tag"
 msgstr "Odstrániť"
 
-#: src/gui/appwindow.cpp:71
+#: src/gui/appwindow.cpp:72
 #, kde-format
 msgid "No repo selected"
 msgstr ""
 
-#: src/gui/appwindow.cpp:113
+#: src/gui/appwindow.cpp:114
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Aktuálna vetva: %1"
 
-#: src/gui/appwindow.cpp:115
+#: src/gui/appwindow.cpp:116
 #, kde-format
 msgid " (merging)"
 msgstr ""
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:129
 #, kde-format
 msgid "Open..."
 msgstr "Otvoriť..."
 
-#: src/gui/appwindow.cpp:133
+#: src/gui/appwindow.cpp:134
 #, kde-format
 msgid "Clone..."
 msgstr "Klonovať..."
 
-#: src/gui/appwindow.cpp:136
+#: src/gui/appwindow.cpp:137
 #, kde-format
 msgid "Changed files..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:142
+#: src/gui/appwindow.cpp:143
 #, kde-format
 msgid "Recent repos"
 msgstr ""
 
-#: src/gui/appwindow.cpp:148
+#: src/gui/appwindow.cpp:149
 #, kde-format
 msgid "Cleanup..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:151
+#: src/gui/appwindow.cpp:152
 #, kde-format
 msgid "Pull..."
 msgstr "Ťahať..."
 
-#: src/gui/appwindow.cpp:167
+#: src/gui/appwindow.cpp:168
 #, kde-format
 msgid "Diff branches..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:173
+#: src/gui/appwindow.cpp:174
 #, kde-format
 msgid "Repo settings..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:176
+#: src/gui/appwindow.cpp:177
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:179
+#: src/gui/appwindow.cpp:180
 #, kde-format
 msgid "Diff tree"
 msgstr ""
 
-#: src/gui/appwindow.cpp:224 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:225 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:224 src/gui/commandargsparser.cpp:219
+#: src/gui/appwindow.cpp:225 src/gui/commandargsparser.cpp:219
 #, kde-format
 msgid "Init repo"
 msgstr ""
 
-#: src/gui/appwindow.cpp:234
+#: src/gui/appwindow.cpp:235
 #, kde-format
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:327 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:328 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:327 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:328 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr "Prepnúť vetvu"
