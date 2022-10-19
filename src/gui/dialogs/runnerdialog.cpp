@@ -68,7 +68,7 @@ void RunnerDialog::run(Git::AbstractCommand *command)
 
 void RunnerDialog::git_readyReadStandardOutput()
 {
-    auto buffer = mGitProcess->readAllStandardOutput();
+    const auto buffer = mGitProcess->readAllStandardOutput();
     qCDebug(GITKLIENT_LOG) << "OUT" << buffer;
     //    textBrowser->setTextColor(Qt::black);
     textBrowser->append(buffer);
@@ -79,7 +79,7 @@ void RunnerDialog::git_readyReadStandardOutput()
 
 void RunnerDialog::git_readyReadStandardError()
 {
-    auto buffer = mGitProcess->readAllStandardError();
+    const auto buffer = mGitProcess->readAllStandardError();
     qCDebug(GITKLIENT_LOG) << "ERROR" << buffer;
     //    textBrowser->setTextColor(Qt::red);
     textBrowser->append(buffer);
