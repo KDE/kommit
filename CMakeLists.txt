@@ -48,15 +48,7 @@ find_package(
         Gui
         Widgets
         Concurrent
-        Test
 )
-
-set_package_properties(
-    Qt${QT_VERSION_MAJOR} PROPERTIES
-    PURPOSE "Required for tests"
-    TYPE OPTIONAL
-)
-
 
 find_package(
     KF5 ${REQUIRED_KF5_VERSION}
@@ -92,7 +84,8 @@ if (USE_UNITY_CMAKE_SUPPORT)
 endif()
 
 if(BUILD_TESTING)
-   add_definitions(-DBUILD_TESTING)
+    find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Test)
+    add_definitions(-DBUILD_TESTING)
 endif(BUILD_TESTING)
 
 
