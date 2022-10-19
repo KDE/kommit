@@ -26,7 +26,7 @@ BranchActions::BranchActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
     _actionCreate = addActionHidden(i18n("Create..."), this, &BranchActions::create);
-    _actionCreate->setIcon(QIcon::fromTheme("document-new"));
+    _actionCreate->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
 
     _actionFetch = addActionDisabled(i18n("Fetch..."), this, &BranchActions::fetch);
     _actionBrowse = addActionDisabled(i18n("Browse..."), this, &BranchActions::browse);
