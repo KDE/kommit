@@ -23,8 +23,7 @@ SettingsManager::SettingsManager(QWidget *parentWidget) : QObject(parentWidget),
 
 void SettingsManager::settingsChanged()
 {
-    qCDebug(GITKLIENT_LOG) << GitKlientSettings::calendarType() << pageBase.kcfg_calendarType->currentText();
-    GitKlientSettings::setCalendarType(pageBase.kcfg_calendarType->currentText());
+    GitKlientSettings::setCalendarType(pageBase.kcfg_calendarTypeIndex->currentText());
     GitKlientSettings::self()->save();
 
     auto git = Git::Manager::instance();
@@ -57,8 +56,8 @@ QWidget *SettingsManager::createBasePage()
 
     auto availableCalendars = QCalendar::availableCalendars();
     std::sort(availableCalendars.begin(), availableCalendars.end());
-    pageBase.kcfg_calendarType->addItems(availableCalendars);
-    pageBase.kcfg_calendarType->setCurrentText(GitKlientSettings::calendarType());
+    pageBase.kcfg_calendarTypeIndex->addItems(availableCalendars);
+    pageBase.kcfg_calendarTypeIndex->setCurrentText(GitKlientSettings::calendarType());
     return w;
 }
 QWidget *SettingsManager::createDiffPage()
