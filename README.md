@@ -25,6 +25,17 @@ make -j 8
 make install
 ```
 
+## TODO list
+  - Rebase support
+  - Make a new visual graph for doing merge or rebase 
+  - Finalize merge tool (some ui improvment needed)
+  - Authors view
+  - Reports (including chart and data)
+    - Commits per authors
+    - Commits prr weekday and month day
+    - Projects lines count per each author
+  - Custom actions support (e.g. clang-format)
+
 ## Features
 
 <details>
