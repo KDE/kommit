@@ -28,4 +28,5 @@ SPDX-License-Identifier: GPL-3.0-or-later
     f(actionAdd, "Add", PACK(QStringLiteral("add"), mPath), QLatin1String());                                                                                  \
     f(actionRemove, "Remove", PACK(QStringLiteral("remove"), mPath), QLatin1String());                                                                         \
     f(actionCreateTag, "Create tag", PACK(QStringLiteral("create-tag"), mPath), QLatin1String());                                                              \
-    f(actionCleanup, "Cleanup", PACK(QStringLiteral("cleanup"), mPath), QLatin1String());
+    f(actionCleanup, "Cleanup", PACK(QStringLiteral("cleanup"), mPath), QLatin1String());                                                                      \
+    f(actionDiffBranches, "Diff branches", PACK(QStringLiteral("diff_branches"), mPath), QLatin1String());

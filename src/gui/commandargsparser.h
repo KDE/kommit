@@ -88,6 +88,7 @@ public Q_SLOTS:
     ArgParserReturn ignore(const QString &path);
     ArgParserReturn cleanup(const QString &path);
     ArgParserReturn switch_checkout(const QString &path);
+    ArgParserReturn diff_branches(const QString &path);
 
     ArgParserReturn add(const QString &path);
     ArgParserReturn remove(const QString &path);

@@ -22,6 +22,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/mergedialog.h"
 #include "dialogs/pulldialog.h"
 #include "dialogs/runnerdialog.h"
+#include "dialogs/selectbranchestodiffdialog.h"
 #include "dialogs/switchbranchdialog.h"
 #include "dialogs/taginfodialog.h"
 #include "diffwindow.h"
@@ -37,6 +38,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 #include <KMessageBox>
+
 
 namespace Errors
 {
@@ -470,6 +472,18 @@ ArgParserReturn CommandArgsParser::switch_checkout(const QString &path)
         runner.exec();
     }
     return 0;
+}
+
+ArgParserReturn CommandArgsParser::diff_branches(const QString &path)
+{
+    checkGitPath(path);
+    SelectBranchesToDiffDialog d(git);
+    if (d.exec() == QDialog::Accepted) {
+        auto diffWin = new DiffWindow(git, d.oldBranch(), d.newBranch());
+        diffWin->exec();
+        return 0;
+    }
+    return 1;
 }
 
 ArgParserReturn CommandArgsParser::add(const QString &path)
