@@ -98,21 +98,27 @@ void BranchActions::checkout()
 
 void BranchActions::diff()
 {
-    QString mainBranch = mOtherBranch;
+    QString branchToDiff = mOtherBranch;
 
-    if (mainBranch.isEmpty()) {
-        auto branches = mGit->branches();
-        if (branches.contains(QStringLiteral("master")))
-            mainBranch = QStringLiteral("master");
-        else if (branches.contains(QStringLiteral("main")))
-            mainBranch = QStringLiteral("main");
-        else {
+    if (branchToDiff.isEmpty()) {
+        auto currentBranch = mGit->currentBranch();
+
+        if (currentBranch != branchToDiff) {
+            branchToDiff = currentBranch;
+        } else {
+            auto branches = mGit->branches();
+            if (branches.contains(QStringLiteral("master")))
+                branchToDiff = QStringLiteral("master");
+            else if (branches.contains(QStringLiteral("main")))
+                branchToDiff = QStringLiteral("main");
+        }
+        if (branchToDiff.isEmpty()) {
             qWarning() << "Main branch is not set to diff";
             return;
         }
     }
 
-    auto d = new DiffWindow(mGit, mainBranch, mBranchName);
+    auto d = new DiffWindow(mGit, branchToDiff, mBranchName);
     d->showModal();
 }
 
