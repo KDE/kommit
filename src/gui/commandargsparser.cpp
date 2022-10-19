@@ -39,7 +39,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <KMessageBox>
 
-
 namespace Errors
 {
 constexpr int InvalidPath = 1;

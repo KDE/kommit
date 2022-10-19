@@ -30,6 +30,7 @@ make install
   - Make a new visual graph for doing merge or rebase 
   - Finalize merge tool (some ui improvment needed)
   - Authors view
+  - Show file histiry in differential view (like wikipedia)
   - Reports (including chart and data)
     - Commits per authors
     - Commits prr weekday and month day
