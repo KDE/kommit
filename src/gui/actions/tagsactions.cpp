@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "tagsactions.h"
 
+#include "core/kmessageboxhelper.h"
 #include "dialogs/runnerdialog.h"
 #include "dialogs/taginfodialog.h"
 #include "gitmanager.h"
@@ -16,7 +17,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "diffwindow.h"
 #include <KLocalizedString>
-#include <kwidgetsaddons_version.h>
 
 TagsActions::TagsActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
@@ -54,26 +54,15 @@ void TagsActions::create()
 
 void TagsActions::remove()
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    auto r =
-        KMessageBox::questionTwoActions(mParent, i18n("Are you sure to remove the selected tag?"), {}, KStandardGuiItem::remove(), KStandardGuiItem::cancel());
-#else
-    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to remove the selected tag?"));
-#endif
-
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    if (r == KMessageBox::ButtonCode::SecondaryAction)
-#else
-    if (r == KMessageBox::No)
-#endif
-        return;
-
-    mGit->runGit({QStringLiteral("tag"), QStringLiteral("-d"), mTagName});
-    mGit->tagsModel()->load();
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected tag?"), i18n("Remove tag"))) {
+        mGit->runGit({QStringLiteral("tag"), QStringLiteral("-d"), mTagName});
+        mGit->tagsModel()->load();
+    }
 }
 
 void TagsActions::checkout()
 {
+// TODO: this is not a remove action
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     auto r = KMessageBox::questionTwoActions(mParent,
                                              i18n("Are you sure to restore to the selected tag?"),

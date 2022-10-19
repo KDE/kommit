@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "submoduleactions.h"
 #include "commands/addsubmodulecommand.h"
+#include "core/kmessageboxhelper.h"
 #include "dialogs/runnerdialog.h"
 #include "dialogs/submoduleinfodialog.h"
 #include "gitmanager.h"
@@ -17,7 +18,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QDir>
-#include <kwidgetsaddons_version.h>
 
 const QString &SubmoduleActions::subModuleName() const
 {
@@ -73,36 +73,22 @@ void SubmoduleActions::create()
 
 void SubmoduleActions::deinit()
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    auto r = KMessageBox::questionTwoActions(mParent,
-                                             i18n("Are you sure to remove the selected submodule?"),
-                                             i18n("Remove Submodule"),
-                                             KStandardGuiItem::remove(),
-                                             KStandardGuiItem::cancel());
-#else
-    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to remove the selected submodule?"), i18n("Remove Submodule"));
-#endif
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected submodule?"), i18n("Remove Submodule"))) {
+        qCDebug(GITKLIENT_LOG) << mGit->runGit(
+            {QStringLiteral("submodule"), QStringLiteral("deinit"), QStringLiteral("-f"), QStringLiteral("--"), mSubModuleName});
+        qCDebug(GITKLIENT_LOG) << mGit->runGit({QStringLiteral("rm"), mSubModuleName});
 
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    if (r == KMessageBox::ButtonCode::SecondaryAction)
-#else
-    if (r == KMessageBox::No)
-#endif
-        return;
+        QDir d(mGit->path() + QStringLiteral("/.git/modules/") + mSubModuleName);
+        if (!d.removeRecursively()) {
+            KMessageBox::error(mParent, i18n("Unable to remove the module directory"));
+            return;
+        }
+        qCDebug(GITKLIENT_LOG) << d.path();
+        mGit->runGit({QStringLiteral("config"), QStringLiteral("--remove-section"), QStringLiteral("submodule.") + mSubModuleName});
 
-    qCDebug(GITKLIENT_LOG) << mGit->runGit({QStringLiteral("submodule"), QStringLiteral("deinit"), QStringLiteral("-f"), QStringLiteral("--"), mSubModuleName});
-    qCDebug(GITKLIENT_LOG) << mGit->runGit({QStringLiteral("rm"), mSubModuleName});
-
-    QDir d(mGit->path() + QStringLiteral("/.git/modules/") + mSubModuleName);
-    if (!d.removeRecursively()) {
-        KMessageBox::error(mParent, i18n("Unable to remove the module directory"));
-        return;
+        mGit->submodulesModel()->load();
+        KMessageBox::information(mParent, i18n("The submodule %1 removed", mSubModuleName));
     }
-    qCDebug(GITKLIENT_LOG) << d.path();
-    mGit->runGit({QStringLiteral("config"), QStringLiteral("--remove-section"), QStringLiteral("submodule.") + mSubModuleName});
-
-    mGit->submodulesModel()->load();
-    KMessageBox::information(mParent, i18n("The submodule %1 removed", mSubModuleName));
 }
 
 void SubmoduleActions::sync()

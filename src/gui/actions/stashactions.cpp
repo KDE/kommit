@@ -11,10 +11,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QInputDialog>
 
+#include "core/kmessageboxhelper.h"
 #include "diffwindow.h"
 #include "gitmanager.h"
 #include "models/stashesmodel.h"
-#include <kwidgetsaddons_version.h>
 
 StashActions::StashActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
@@ -41,46 +41,19 @@ void StashActions::setStashName(const QString &newStashName)
     setActionEnabled(_actionApply, true);
     setActionEnabled(_actionDiff, true);
     setActionEnabled(_actionDrop, true);
-    setActionEnabled(_actionDrop, true);
+    setActionEnabled(_actionPop, true);
 }
 
 void StashActions::apply()
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    auto r = KMessageBox::questionTwoActions(mParent,
-                                             i18n("Are you sure to apply the selected stash?"),
-                                             i18n("Apply stash %1", mStashName),
-                                             KStandardGuiItem::apply(),
-                                             KStandardGuiItem::cancel());
-#else
-    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStashName));
-#endif
-
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    if (r == KMessageBox::ButtonCode::PrimaryAction)
-#else
-    if (r == KMessageBox::Yes)
-#endif
+    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStashName))) {
         mGit->applyStash(mStashName);
+    }
 }
 
 void StashActions::drop()
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    auto r = KMessageBox::questionTwoActions(mParent,
-                                             i18n("Are you sure to apply the selected stash?"),
-                                             i18n("Apply stash %1", mStashName),
-                                             KStandardGuiItem::apply(),
-                                             KStandardGuiItem::cancel());
-#else
-    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStashName));
-#endif
-
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    if (r == KMessageBox::ButtonCode::PrimaryAction) {
-#else
-    if (r == KMessageBox::Yes) {
-#endif
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to drop the selected stash?"), i18n("Drop stash %1", mStashName))) {
         mGit->removeStash(mStashName);
         mGit->stashesModel()->load();
     }
@@ -88,22 +61,8 @@ void StashActions::drop()
 
 void StashActions::pop()
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    auto r = KMessageBox::questionTwoActions(mParent,
-                                             i18n("Are you sure to apply the selected stash?"),
-                                             i18n("Apply stash %1", mStashName),
-                                             KStandardGuiItem::apply(),
-                                             KStandardGuiItem::cancel());
-#else
-    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStashName));
-#endif
-
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    if (r == KMessageBox::ButtonCode::PrimaryAction) {
-#else
-    if (r == KMessageBox::Yes) {
-#endif
-        mGit->runGit({QStringLiteral("stash"), QStringLiteral("push"), mStashName});
+    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to pop the selected stash?"), i18n("Pop stash %1", mStashName))) {
+        mGit->runGit({QStringLiteral("stash"), QStringLiteral("pop"), mStashName});
         mGit->stashesModel()->load();
     }
 }

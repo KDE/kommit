@@ -16,6 +16,8 @@ target_sources(libgitklientgui PRIVATE
     core/treeview.h
     core/commitsfiltermodel.h
     core/commitsfiltermodel.cpp
+    core/kmessageboxhelper.h
+    core/kmessageboxhelper.cpp
     actions/abstractactions.cpp
     actions/abstractactions.h
     actions/branchactions.cpp

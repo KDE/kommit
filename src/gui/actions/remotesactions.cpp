@@ -9,14 +9,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 #include <KMessageBox>
+
 #include <QInputDialog>
 
 #include "commands/commandaddremote.h"
+#include "core/kmessageboxhelper.h"
 #include "dialogs/runnerdialog.h"
 #include "gitmanager.h"
 #include "models/remotesmodel.h"
 #include "widgets/remoteinfodialog.h"
-#include <kwidgetsaddons_version.h>
 
 RemotesActions::RemotesActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
@@ -57,21 +58,7 @@ void RemotesActions::create()
 
 void RemotesActions::remove()
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    auto r = KMessageBox::questionTwoActions(mParent,
-                                             i18n("Are you sure to remove the selected remote?"),
-                                             i18n("Remove remote?"),
-                                             KStandardGuiItem::remove(),
-                                             KStandardGuiItem::cancel());
-#else
-    auto r = KMessageBox::questionYesNo(mParent, i18n("Are you sure to remove the selected remote?"), i18n("Remove remote?"));
-#endif
-
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    if (r == KMessageBox::ButtonCode::PrimaryAction) {
-#else
-    if (r == KMessageBox::Yes) {
-#endif
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected remote?"), i18n("Remove remote?"))) {
         mGit->removeRemote(mRemoteName);
         mGit->remotesModel()->load();
     }

@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "commands/commandclean.h"
 #include "commands/commandmerge.h"
 #include "commands/commandswitchbranch.h"
+#include "core/kmessageboxhelper.h"
 #include "dialogs/changedfilesdialog.h"
 #include "dialogs/cleanupdialog.h"
 #include "dialogs/clonedialog.h"
@@ -36,7 +37,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <kwidgetsaddons_version.h>
 
 namespace Errors
 {
@@ -485,17 +485,10 @@ ArgParserReturn CommandArgsParser::remove(const QString &path)
 {
     checkGitPath(path);
 
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    auto r =
-        KMessageBox::questionTwoActions(nullptr, i18n("Would you like to leave file(s) on disk?"), {}, KGuiItem(i18n("Leave")), KStandardGuiItem::cancel());
-    bool cached = r == KMessageBox::PrimaryAction;
-#else
-    auto r = KMessageBox::questionYesNo(nullptr, i18n("Would you like to leave file(s) on disk?"));
-    bool cached = r == KMessageBox::Yes;
-#endif
-
+    auto cached = KMessageBoxHelper::removeQuestion(nullptr, i18n("Would you like to leave file(s) on disk?"), i18n("Remove from index"));
     git->removeFile(path, cached);
     KMessageBox::information(nullptr, i18n("File(s) removed from git successfully"));
+
     return 0;
 }
 
