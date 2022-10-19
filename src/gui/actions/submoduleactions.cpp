@@ -14,9 +14,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitklient_appdebug.h"
 #include <QAction>
 
+#include <KLocalizedString>
+#include <KMessageBox>
 #include <QDir>
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
 #include <kwidgetsaddons_version.h>
 
 const QString &SubmoduleActions::subModuleName() const

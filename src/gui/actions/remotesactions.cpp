@@ -7,9 +7,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "remotesactions.h"
 #include "gitklient_appdebug.h"
 
+#include <KLocalizedString>
+#include <KMessageBox>
 #include <QInputDialog>
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
 
 #include "commands/commandaddremote.h"
 #include "dialogs/runnerdialog.h"

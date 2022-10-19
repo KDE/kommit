@@ -9,8 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "commands/addsubmodulecommand.h"
 #include "gitmanager.h"
 
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
+#include <KLocalizedString>
+#include <KMessageBox>
 
 #include <QFileDialog>
 

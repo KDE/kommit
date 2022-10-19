@@ -15,7 +15,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QAction>
 
 #include "diffwindow.h"
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 #include <kwidgetsaddons_version.h>
 
 TagsActions::TagsActions(Git::Manager *git, QWidget *parent)

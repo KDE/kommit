@@ -34,8 +34,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QFileInfo>
 #include <QMetaMethod>
 
+#include <KLocalizedString>
 #include <KMessageBox>
-#include <klocalizedstring.h>
 #include <kwidgetsaddons_version.h>
 
 namespace Errors

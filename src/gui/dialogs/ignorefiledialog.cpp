@@ -12,8 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QFileInfo>
 #include <QPushButton>
 
-#include <klocalizedstring.h>
-#include <kmessagebox.h>
+#include <KLocalizedString>
+#include <KMessageBox>
 
 IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, QWidget *parent)
     : AppDialog(git, parent)

@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "models/logsmodel.h"
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 FileBlameDialog::FileBlameDialog(Git::Manager *git, const QString &fileName, QWidget *parent)
     : AppDialog(git, parent)

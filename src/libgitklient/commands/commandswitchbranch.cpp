@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "libgitklient_debug.h"
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 namespace Git
 {

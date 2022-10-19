@@ -8,9 +8,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitmanager.h"
 
+#include <KLocalizedString>
 #include <QMenu>
 #include <QWidget>
-#include <klocalizedstring.h>
 
 void AbstractActions::setActionEnabled(QAction *action, bool enabled)
 {

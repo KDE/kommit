@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "actions.h"
 #include "statuscache.h"
 #include <KAbstractFileItemActionPlugin>
-#include <kfileitem.h>
+#include <KFileItem>
 
 class ActionManager : public KAbstractFileItemActionPlugin
 {
