@@ -9,10 +9,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KActionCollection>
 #include <KLocalizedString>
 
+#include <QDebug>
 #include <QDockWidget>
 #include <QTreeView>
-#include <dialogs/diffopendialog.h>
 
+#include "dialogs/diffopendialog.h"
 #include "gitmanager.h"
 #include "models/difftreemodel.h"
 #include "models/filesmodel.h"
@@ -122,6 +123,7 @@ void DiffWindow::init(bool showSideBar)
 
     mFilesModel = new FilesModel(this);
     mDiffModel = new DiffTreeModel(this);
+    mDiffModel->setShowRoot(true);
     //_treeView->setDiffModel(_diffModel, _filesModel);
 
     initActions();
@@ -180,6 +182,7 @@ void DiffWindow::fileOpen()
 
 void DiffWindow::on_treeView_fileSelected(const QString &file)
 {
+    qDebug() << file;
     switch (mLeftStorage) {
     case FileSystem:
         mDiffWidget->setOldFile(Git::File{mLeftDir + QLatin1Char('/') + file});

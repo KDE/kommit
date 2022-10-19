@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <KMessageBox>
 
+#include <QDebug>
 #include <QInputDialog>
 
 #include "commands/commandmerge.h"
@@ -99,14 +100,16 @@ void BranchActions::diff()
 {
     QString mainBranch = mOtherBranch;
 
-    if (!mainBranch.isEmpty()) {
+    if (mainBranch.isEmpty()) {
         auto branches = mGit->branches();
         if (branches.contains(QStringLiteral("master")))
             mainBranch = QStringLiteral("master");
         else if (branches.contains(QStringLiteral("main")))
             mainBranch = QStringLiteral("main");
-        else
+        else {
+            qWarning() << "Main branch is not set to diff";
             return;
+        }
     }
 
     auto d = new DiffWindow(mGit, mainBranch, mBranchName);

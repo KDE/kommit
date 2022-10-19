@@ -16,18 +16,18 @@ DiffTreeModel::DiffTreeModel(QObject *parent)
 
 void DiffTreeModel::addFile(const FileStatus &file)
 {
-    const auto &nodePath = file.name();
-
-    const auto parts = nodePath.split(separator());
-    auto node = createPath(parts, toDiffType(file.status()));
-    node->key = file.name();
-    node->metaData = toDiffType(file.status());
+    addFile(file.name(), toDiffType(file.status()));
 }
 
 void DiffTreeModel::addFile(const QString &file, Diff::DiffType type)
 {
     const auto parts = file.split(separator());
-    auto node = createPath(parts, type);
+    TreeModel::Node *node;
+
+    if (showRoot())
+        node = createPath(QStringList() << separator() << parts, type);
+    else
+        node = createPath(parts, type);
     node->key = file;
     node->metaData = type;
 }

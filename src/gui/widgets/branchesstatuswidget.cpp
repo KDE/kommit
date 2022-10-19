@@ -40,6 +40,8 @@ void BranchesStatusWidget::init(Git::Manager *git)
     pushButtonCheckout->setAction(mActions->actionCheckout());
     pushButtonDiff->setAction(mActions->actionDiff());
     pushButtonRemoveSelected->setAction(mActions->actionRemove());
+
+    mActions->setOtherBranch(comboBoxReferenceBranch->currentText());
 }
 
 void BranchesStatusWidget::saveState(QSettings &settings) const
