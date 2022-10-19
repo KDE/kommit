@@ -99,6 +99,9 @@ public:
 
     void clear();
 
+    bool showRoot() const;
+    void setShowRoot(bool newDefaultRoot);
+
 protected:
     Node *mRootNode = nullptr;
 
@@ -111,4 +114,5 @@ private:
     QString mSeparator{QStringLiteral("/")};
     bool mLastPartAsData{false};
     QIcon mDefaultIcon;
+    bool mShowRoot{false};
 };

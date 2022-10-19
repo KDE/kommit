@@ -207,8 +207,13 @@ void TreeModel::addData(const QStringList &data, const QString &prefix, bool spl
             auto parts = nodePath.split(mSeparator);
             if (mLastPartAsData) {
                 auto data = parts.takeLast();
-                node = createPath(parts);
-                node->data.append(data);
+                if (mShowRoot)
+                    node = createPath(QStringList() << mSeparator << parts);
+                else
+                    node = createPath(parts);
+
+                if (mShowRoot && node != mRootNode)
+                    node->data.append(data);
                 auto nodePathParts = nodePath.split(mSeparator);
                 nodePathParts.takeLast();
                 node->key = nodePathParts.join(mSeparator);
@@ -261,10 +266,12 @@ TreeModel::Node *TreeModel::createPath(const QStringList &path)
 
 void TreeModel::getFullPath(QString &path, Node *node) const
 {
+    if (mShowRoot && node == mRootNode)
+        return;
     if (node) {
         path.prepend(node->title);
 
-        if (node->parent != mRootNode) {
+        if ((mShowRoot && node->parent->parent != mRootNode) && node->parent != mRootNode) {
             path.prepend(mSeparator);
             getFullPath(path, node->parent);
         }
@@ -283,4 +290,14 @@ void TreeModel::sortNode(Node *node)
     });
     for (auto &n : node->childs)
         sortNode(n);
+}
+
+bool TreeModel::showRoot() const
+{
+    return mShowRoot;
+}
+
+void TreeModel::setShowRoot(bool newDefaultRoot)
+{
+    mShowRoot = newDefaultRoot;
 }

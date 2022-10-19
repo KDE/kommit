@@ -180,6 +180,14 @@ KService::Ptr FileViewerDialog::getInternalViewer(const QString &mimeType)
     }
 }
 
+void FileViewerDialog::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape)
+        close();
+
+    KParts::MainWindow::keyPressEvent(event);
+}
+
 KService::Ptr FileViewerDialog::getExternalViewer(const QString &mimeType)
 {
     qCDebug(GITKLIENT_LOG) << mimeType;

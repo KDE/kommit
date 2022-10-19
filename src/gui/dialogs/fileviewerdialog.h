@@ -27,6 +27,7 @@ class FileViewerDialog : public KParts::MainWindow, private Ui::FileViewerDialog
 public:
     explicit FileViewerDialog(const QString &place, const QString &fileName, QWidget *parent = nullptr);
     explicit FileViewerDialog(Git::Manager *git, const Git::File &file, QWidget *parent = nullptr);
+
     ~FileViewerDialog();
 
 private:
@@ -41,4 +42,7 @@ private:
     bool viewInInternalViewer(const KService::Ptr &viewer, const QString &fileName, const QMimeType &mimeType);
     KService::Ptr getExternalViewer(const QString &mimeType);
     KService::Ptr getInternalViewer(const QString &mimeType);
+
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 };

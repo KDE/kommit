@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "models/treemodel.h"
 #include <QFileIconProvider>
+#include <klocalizedstring.h>
 
 FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
     : AppDialog(parent)
@@ -24,6 +25,7 @@ FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
 
     const auto files = Git::Manager::instance()->ls(place);
 
+    mTreeModel->setShowRoot(true);
     mTreeModel->setLastPartAsData(true);
     QFileIconProvider p;
     mTreeModel->setDefaultIcon(p.icon(QFileIconProvider::Folder));
@@ -51,7 +53,8 @@ void FilesTreeDialog::on_treeView_clicked(const QModelIndex &index)
     QFileIconProvider p;
     listWidget->clear();
 
-    for (const auto &f : mTreeModel->data(index)) {
+    const auto d = mTreeModel->data(index);
+    for (const auto &f : d) {
         QFileInfo fi(f);
         auto icon = p.icon(fi);
         auto item = new QListWidgetItem(listWidget);
