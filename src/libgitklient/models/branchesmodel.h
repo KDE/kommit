@@ -29,7 +29,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
-    BranchData *fromindex(const QModelIndex &index) const;
+    BranchData *fromIndex(const QModelIndex &index) const;
 
     const QString &currentBranch() const;
     const QString &referenceBranch() const;

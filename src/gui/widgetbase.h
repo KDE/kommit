@@ -23,8 +23,6 @@ public:
     Git::Manager *git() const;
     void setGit(Git::Manager *newGit);
 
-    virtual void reload();
-
     int exec(QWidget *parent = nullptr);
 
 private slots:

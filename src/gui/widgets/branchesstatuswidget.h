@@ -33,8 +33,6 @@ private Q_SLOTS:
     void on_pushButtonRemoveSelected_clicked();
     void on_treeView_customContextMenuRequested(const QPoint &pos);
 
-    void reload() override;
-
 private:
     BranchActions *mActions = nullptr;
     Git::BranchesModel *mModel = nullptr;

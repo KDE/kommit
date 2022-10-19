@@ -38,10 +38,6 @@ void WidgetBase::setGit(Git::Manager *newGit)
     _git = newGit;
 }
 
-void WidgetBase::reload()
-{
-}
-
 int WidgetBase::exec(QWidget *parent)
 {
     auto oldParent = this->parentWidget();

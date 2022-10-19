@@ -62,7 +62,7 @@ QVariant BranchesModel::headerData(int section, Qt::Orientation orientation, int
     return {};
 }
 
-BranchesModel::BranchData *BranchesModel::fromindex(const QModelIndex &index) const
+BranchesModel::BranchData *BranchesModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;

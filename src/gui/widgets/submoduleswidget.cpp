@@ -45,10 +45,6 @@ void SubmodulesWidget::restoreState(QSettings &settings)
     restore(settings, treeView);
 }
 
-void SubmodulesWidget::reload()
-{
-}
-
 void SubmodulesWidget::on_treeView_customContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)

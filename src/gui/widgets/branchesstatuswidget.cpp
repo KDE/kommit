@@ -9,6 +9,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "actions/branchactions.h"
 #include "gitmanager.h"
 #include "models/branchesmodel.h"
+#include "core/kmessageboxhelper.h"
+
+#include <KLocalizedString>
 #include <QDebug>
 
 BranchesStatusWidget::BranchesStatusWidget(QWidget *parent)
@@ -61,54 +64,24 @@ void BranchesStatusWidget::on_comboBoxReferenceBranch_currentIndexChanged(const 
 
 void BranchesStatusWidget::on_pushButtonRemoveSelected_clicked()
 {
-    // TODO implement remove .
-    qWarning() << " Unimplemented";
-    //    if (!treeWidgetBranches->currentItem())
-    //        return;
+    if (!treeView->currentIndex().isValid())
+        return;
 
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    //    auto r = KMessageBox::questionTwoActions(this, i18n("Are you sure to remove the selected branch?"));
-#else
-    //    auto r = KMessageBox::questionYesNo(this, i18n("Are you sure to remove the selected branch?"));
-#endif
-
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
-    //    if (r == KMessageBox::ButtonCode::SecondaryAction)
-#else
-    //    if (r == KMessageBox::No)
-#endif
-    //        return;
-
-    //    git()->removeBranch(treeWidgetBranches->currentItem()->text(0));
-    //    auto tmp = treeWidgetBranches->takeTopLevelItem(treeWidgetBranches->currentIndex().row());
-    //    if (tmp)
-    //        delete tmp;
+    if (KMessageBoxHelper::removeQuestion(this, i18n("Are you sure to remove the selected branch?"))) {
+        auto branchData = mGit->branchesModel()->fromIndex(treeView->currentIndex());
+        if (branchData) {
+            mGit->removeBranch(branchData->name);
+            mGit->branchesModel()->load();
+        }
+    }
 }
 
 void BranchesStatusWidget::on_treeView_customContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
-    auto b = mModel->fromindex(treeView->currentIndex());
+    auto b = mModel->fromIndex(treeView->currentIndex());
     if (!b)
         return;
     mActions->setBranchName(b->name);
     mActions->popup();
-}
-
-void BranchesStatusWidget::reload()
-{
-    // TODO implement reload method.
-    qWarning() << " Unimplemented";
-    /*comboBoxReferenceBranch->clear();
-
-    _branches = this->git()->branches();
-    comboBoxReferenceBranch->addItems(_branches);
-    auto index = _branches.indexOf("master");
-    if (index != -1) {
-        comboBoxReferenceBranch->setCurrentIndex(index);
-    } else {
-        index = _branches.indexOf("main");
-        if (index != -1)
-            comboBoxReferenceBranch->setCurrentIndex(index);
-    }*/
 }
