@@ -39,8 +39,8 @@ FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
     listWidget->clear();
 
     for (const auto &f : mTreeModel->rootData()) {
-        QFileInfo fi(f);
-        auto icon = p.icon(fi);
+        const QFileInfo fi(f);
+        const auto icon = p.icon(fi);
         auto item = new QListWidgetItem(listWidget);
         item->setText(f);
         item->setIcon(icon);
@@ -55,8 +55,8 @@ void FilesTreeDialog::on_treeView_clicked(const QModelIndex &index)
 
     const auto d = mTreeModel->data(index);
     for (const auto &f : d) {
-        QFileInfo fi(f);
-        auto icon = p.icon(fi);
+        const QFileInfo fi(f);
+        const auto icon = p.icon(fi);
         auto item = new QListWidgetItem(listWidget);
         item->setText(f);
         item->setIcon(icon);

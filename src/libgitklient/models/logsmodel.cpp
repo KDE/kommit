@@ -21,7 +21,7 @@ void readLine(const QString &line, const QString &separator, QList<QString *> li
     if (parts.size() != list.size())
         return;
 
-    for (auto i = 0; i < parts.size(); i++)
+    for (auto i = 0; i < parts.size(); ++i)
         *list[i] = parts.at(i);
 }
 struct LanesFactory {
