@@ -7,7 +7,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "settingsmanager.h"
 
 #include "GitKlientSettings.h"
-#include "appwindow.h"
 #include "gitklient_appdebug.h"
 #include "gitmanager.h"
 
