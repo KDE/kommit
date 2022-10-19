@@ -7,11 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "switchbranchdialog.h"
 #include "commands/commandswitchbranch.h"
 #include "gitmanager.h"
-#include "models/branchesmodel.h"
 #include "models/tagsmodel.h"
-#include "runnerdialog.h"
-
-#include "gitklient_appdebug.h"
 
 SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
