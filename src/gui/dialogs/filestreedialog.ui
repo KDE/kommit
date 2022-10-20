@@ -14,7 +14,8 @@
    <string>Dialog</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="gitklient"/>
+   <iconset theme="gitklient">
+    <normaloff>.</normaloff>.</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -45,6 +46,9 @@
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="childrenCollapsible">
+      <bool>false</bool>
      </property>
      <widget class="QTreeView" name="treeView">
       <attribute name="headerVisible">

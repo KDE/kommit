@@ -16,6 +16,9 @@
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
+     <property name="childrenCollapsible">
+      <bool>false</bool>
+     </property>
      <widget class="QWidget" name="widgetBlockView" native="true">
       <layout class="QVBoxLayout" name="verticalLayout">
        <property name="leftMargin">
@@ -34,6 +37,9 @@
         <widget class="QSplitter" name="splitter_2">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="childrenCollapsible">
+          <bool>false</bool>
          </property>
          <widget class="CodeEditor" name="codeEditorMyBlock">
           <property name="contextMenuPolicy">
@@ -79,6 +85,9 @@
         <widget class="QSplitter" name="splitter">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="childrenCollapsible">
+          <bool>false</bool>
          </property>
          <widget class="SegmentConnector" name="widgetSegmentsConnector" native="true">
           <property name="minimumSize">

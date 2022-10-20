@@ -48,8 +48,8 @@ QToolButto2 {
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>118</width>
-        <height>540</height>
+        <width>116</width>
+        <height>544</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -350,7 +350,7 @@ QToolButto2 {
      <item>
       <widget class="QStackedWidget" name="stackedWidget">
        <property name="currentIndex">
-        <number>5</number>
+        <number>2</number>
        </property>
        <widget class="QWidget" name="pageOverView">
         <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -396,6 +396,9 @@ QToolButto2 {
           <widget class="QSplitter" name="splitter">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="childrenCollapsible">
+            <bool>false</bool>
            </property>
            <widget class="QTreeView" name="treeViewRepo">
             <property name="contextMenuPolicy">
