@@ -20,7 +20,11 @@
       <enum>Qt::Horizontal</enum>
      </property>
      <widget class="QListWidget" name="listWidget"/>
-     <widget class="CodeEditor" name="plainTextEdit"/>
+     <widget class="CodeEditor" name="plainTextEdit">
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
     </widget>
    </item>
   </layout>
