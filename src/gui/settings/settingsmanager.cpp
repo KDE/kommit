@@ -26,7 +26,7 @@ void SettingsManager::settingsChanged()
     GitKlientSettings::self()->save();
 
     auto git = Git::Manager::instance();
-    git->setConfig("http.proxy", pageGit.lineEditGitProxy->text(), Git::Manager::ConfigGlobal);
+    git->setConfig(QStringLiteral("http.proxy"), pageGit.lineEditGitProxy->text(), Git::Manager::ConfigGlobal);
 
     if (GitKlientSettings::registerDiffTool()) {
         git->setConfig(QStringLiteral("difftool.gitklientdiff.cmd"), QStringLiteral("gitklientdiff \"$LOCAL\" \"$REMOTE\""), Git::Manager::ConfigGlobal);
@@ -70,7 +70,7 @@ QWidget *SettingsManager::createGitPage()
 {
     auto w = new QWidget;
     pageGit.setupUi(w);
-    pageGit.lineEditGitProxy->setText(Git::Manager::instance()->config("http.proxy", Git::Manager::ConfigGlobal));
+    pageGit.lineEditGitProxy->setText(Git::Manager::instance()->config(QStringLiteral("http.proxy"), Git::Manager::ConfigGlobal));
     return w;
 }
 
