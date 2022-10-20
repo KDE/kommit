@@ -42,26 +42,8 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
 }
 
 FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const Git::File &file, QWidget *parent)
-    : AppDialog(git, parent)
+    : FileHistoryDialog(git, file.fileName(), parent)
 {
-    setupUi(this);
-
-    mFileName = file.fileName();
-    const auto hashes = git->fileLog(file.fileName());
-
-    const auto logs = git->logsModel();
-
-    for (const auto &hash : hashes) {
-        auto log = logs->findLogByHash(hash);
-        if (!log)
-            continue;
-
-        auto item = new QListWidgetItem(log->subject());
-        item->setData(Qt::UserRole + 1, log->commitHash());
-        listWidget->addItem(item);
-    }
-    plainTextEdit->setHighlighting(file.fileName());
-    setWindowTitle(i18nc("@title:window", "File log: %1", file.fileName()));
 }
 
 void FileHistoryDialog::on_listWidget_itemClicked(QListWidgetItem *item)
