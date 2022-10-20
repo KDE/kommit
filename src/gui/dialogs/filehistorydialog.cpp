@@ -48,6 +48,6 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const Git::File &file, Q
 
 void FileHistoryDialog::on_listWidget_itemClicked(QListWidgetItem *item)
 {
-    auto content = mGit->fileContent(item->data(Qt::UserRole + 1).toString(), mFileName);
+    const auto content = mGit->fileContent(item->data(Qt::UserRole + 1).toString(), mFileName);
     plainTextEdit->setPlainText(content);
 }
