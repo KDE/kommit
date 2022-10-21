@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:53+0000\n"
-"PO-Revision-Date: 2022-10-16 22:42+0200\n"
+"POT-Creation-Date: 2022-10-21 00:49+0000\n"
+"PO-Revision-Date: 2022-10-20 10:18+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -98,7 +98,7 @@ msgstr "Merge..."
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
 #: src/gui/actions/branchactions.cpp:36 src/gui/gitklientmergeui.rc:15
-#: src/gui/settings/settingsmanager.cpp:89
+#: src/gui/settings/settingsmanager.cpp:91
 #: src/gui/widgets/branchesstatuswidget.ui:120
 #, kde-format
 msgid "Diff"
@@ -268,28 +268,24 @@ msgid "Apply stash %1"
 msgstr "Stapel toepassen %1"
 
 #: src/gui/actions/stashactions.cpp:56
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Are you sure to drop the selected stash?"
-msgstr "Wilt u de geselecteerde stapel toepassen?"
+msgstr "Wilt u de geselecteerde stapel laten vallen?"
 
 #: src/gui/actions/stashactions.cpp:56
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Drop stash %1"
-msgstr "Stapel toepassen %1"
+msgstr "Stapel %1 laten vallen"
 
 #: src/gui/actions/stashactions.cpp:64
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Are you sure to pop the selected stash?"
-msgstr "Wilt u de geselecteerde stapel toepassen?"
+msgstr "Wilt u de geselecteerde stapel omhoog halen?"
 
 #: src/gui/actions/stashactions.cpp:64
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Pop stash %1"
-msgstr "Stapel toepassen %1"
+msgstr "Stapel %1 omhoog halen"
 
 #: src/gui/actions/stashactions.cpp:79
 #, kde-format
@@ -374,8 +370,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Wilt u de geselecteerde tag verwijderen?"
 
 #: src/gui/actions/tagsactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove Tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "Tag verwijderen"
 
@@ -387,10 +382,9 @@ msgid "Checkout"
 msgstr "Checkout"
 
 #: src/gui/actions/tagsactions.cpp:65
-#, fuzzy, kde-format
-#| msgid "Are you sure to restore to the selected tag?"
+#, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr "Wilt u de geselecteerde tag herstellen?"
+msgstr "Wilt u een checkout doen op de geselecteerde tag?"
 
 #: src/gui/appwindow.cpp:72
 #, kde-format
@@ -503,10 +497,9 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Wilt u bestand(en) op schijf laten?"
 
 #: src/gui/commandargsparser.cpp:501
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove from index"
-msgstr "Remote verwijderen?"
+msgstr "Uit index verwijderen"
 
 #: src/gui/commandargsparser.cpp:503
 #, kde-format
@@ -526,8 +519,8 @@ msgstr "Status:"
 #. i18n: ectx: property (text), widget (QLabel, labelPushUrl)
 #. i18n: ectx: property (text), widget (QLabel, labelRemoteName)
 #: src/gui/commandpullwidget.ui:26 src/gui/dialogs/commitpushdialog.ui:78
-#: src/gui/widgets/remoteswidget.ui:89 src/gui/widgets/remoteswidget.ui:106
-#: src/gui/widgets/remoteswidget.ui:123 src/gui/widgets/remoteswidget.ui:140
+#: src/gui/widgets/remoteswidget.ui:92 src/gui/widgets/remoteswidget.ui:109
+#: src/gui/widgets/remoteswidget.ui:126 src/gui/widgets/remoteswidget.ui:143
 #, kde-format
 msgid "---"
 msgstr "---"
@@ -642,7 +635,7 @@ msgstr "Naam van oorsprong"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #: src/gui/dialogs/commitpushdialog.cpp:73
 #: src/gui/dialogs/commitpushdialog.cpp:224
-#: src/gui/dialogs/commitpushdialog.ui:266 src/gui/widgets/tagswidget.ui:70
+#: src/gui/dialogs/commitpushdialog.ui:269 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
 msgstr "Push"
@@ -764,13 +757,13 @@ msgstr "Wijzig in vorige commit"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/gui/dialogs/commitpushdialog.ui:149 src/gui/dialogs/taginfodialog.ui:32
+#: src/gui/dialogs/commitpushdialog.ui:152 src/gui/dialogs/taginfodialog.ui:32
 #, kde-format
 msgid "Message:"
 msgstr "Bericht:"
 
 #. i18n: ectx: property (whatsThis), widget (CompletionTextEdit, textEditMessage)
-#: src/gui/dialogs/commitpushdialog.ui:159
+#: src/gui/dialogs/commitpushdialog.ui:162
 #, kde-format
 msgid ""
 "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
@@ -784,31 +777,31 @@ msgstr ""
 "#2980b9;\">Meer informatie</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/gui/dialogs/commitpushdialog.ui:172
+#: src/gui/dialogs/commitpushdialog.ui:175
 #, kde-format
 msgid "Files:"
 msgstr "Bestanden:"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
-#: src/gui/dialogs/commitpushdialog.ui:192
+#: src/gui/dialogs/commitpushdialog.ui:195
 #, kde-format
 msgid "All"
 msgstr "Alles"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddIndexed)
-#: src/gui/dialogs/commitpushdialog.ui:202
+#: src/gui/dialogs/commitpushdialog.ui:205
 #, kde-format
 msgid "Indexed"
 msgstr "Geïndexeerd"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddNone)
-#: src/gui/dialogs/commitpushdialog.ui:212
+#: src/gui/dialogs/commitpushdialog.ui:215
 #, kde-format
 msgid "None"
 msgstr "Geen"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#: src/gui/dialogs/commitpushdialog.ui:256 src/gui/dialogs/searchdialog.cpp:34
+#: src/gui/dialogs/commitpushdialog.ui:259 src/gui/dialogs/searchdialog.cpp:34
 #, kde-format
 msgid "Commit"
 msgstr "Commit"
@@ -972,7 +965,6 @@ msgid "Blame file: %1"
 msgstr "Blame-bestand: %1"
 
 #: src/gui/dialogs/filehistorydialog.cpp:41
-#: src/gui/dialogs/filehistorydialog.cpp:64
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
@@ -985,7 +977,7 @@ msgid "Browse files: %1"
 msgstr "Door bestanden bladeren: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/gui/dialogs/filestreedialog.ui:31
+#: src/gui/dialogs/filestreedialog.ui:32
 #, kde-format
 msgid "Branch:"
 msgstr "Branch:"
@@ -1045,7 +1037,7 @@ msgstr "Patroon:"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/dialogs/ignorefiledialog.ui:37 src/gui/models/treemodel.cpp:141
-#: src/gui/widgets/remoteswidget.ui:161
+#: src/gui/widgets/remoteswidget.ui:164
 #: src/libgitklient/models/authorsmodel.cpp:37
 #: src/libgitklient/models/branchesmodel.cpp:56
 #: src/libgitklient/models/tagsmodel.cpp:61
@@ -1481,7 +1473,7 @@ msgstr "Repo-instellingen"
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/gui/dialogs/reposettingsdialog.ui:26
-#: src/gui/widgets/remoteinfodialog.ui:25 src/gui/widgets/remoteswidget.ui:133
+#: src/gui/widgets/remoteinfodialog.ui:25 src/gui/widgets/remoteswidget.ui:136
 #, kde-format
 msgid "Name:"
 msgstr "Naam:"
@@ -1783,7 +1775,7 @@ msgstr "Zaken op afstand"
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: src/gui/mainwidget.ui:474 src/gui/widgets/remoteswidget.ui:53
+#: src/gui/mainwidget.ui:477 src/gui/widgets/remoteswidget.ui:56
 #: src/gui/widgets/tagswidget.ui:49
 #, kde-format
 msgid "Add"
@@ -1850,7 +1842,7 @@ msgid "Unable to open the file"
 msgstr "Kan het bestand niet openen"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/gui/models/treemodel.cpp:143 src/gui/widgets/remoteswidget.ui:176
+#: src/gui/models/treemodel.cpp:143 src/gui/widgets/remoteswidget.ui:179
 #: src/libgitklient/models/submodulesmodel.cpp:59
 #, kde-format
 msgid "Status"
@@ -1894,12 +1886,12 @@ msgstr "leeftijd van het project"
 msgid "Open last repo at startup"
 msgstr "Laatste repo bij opstarten openen"
 
-#: src/gui/settings/settingsmanager.cpp:88
+#: src/gui/settings/settingsmanager.cpp:90
 #, kde-format
 msgid "General"
 msgstr "Algemeen"
 
-#: src/gui/settings/settingsmanager.cpp:90
+#: src/gui/settings/settingsmanager.cpp:92
 #, kde-format
 msgid "Git"
 msgstr "Git"
@@ -1952,6 +1944,12 @@ msgstr "Hulpmiddel diff van GitKlient registreren"
 msgid "Register GitKlient merge tool"
 msgstr "Hulpmiddel merge van GitKlient registreren"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/settings/settingspagegit.ui:37
+#, kde-format
+msgid "Git proxy:"
+msgstr ""
+
 #: src/gui/widgets/blamecodeview.cpp:43
 #, kde-format
 msgid "Uncommited"
@@ -1972,7 +1970,7 @@ msgstr "Nieuw"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
 #: src/gui/widgets/branchesstatuswidget.ui:100
-#: src/gui/widgets/remoteswidget.ui:63
+#: src/gui/widgets/remoteswidget.ui:66
 #, kde-format
 msgid "Remove"
 msgstr "Verwijderen"
@@ -1984,7 +1982,7 @@ msgid "Browse"
 msgstr "Bladeren"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
-#: src/gui/widgets/commitswidget.ui:39
+#: src/gui/widgets/commitswidget.ui:42
 #, kde-format
 msgid "Filter..."
 msgstr "Filteren..."
@@ -2062,43 +2060,43 @@ msgid "Fetch"
 msgstr "Ophalen"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gui/widgets/remoteswidget.ui:76
+#: src/gui/widgets/remoteswidget.ui:79
 #, kde-format
 msgid "Information"
 msgstr "Informatie"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/gui/widgets/remoteswidget.ui:82
+#: src/gui/widgets/remoteswidget.ui:85
 #, kde-format
 msgid "Default branch:"
 msgstr "Standaard branch:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/gui/widgets/remoteswidget.ui:99
+#: src/gui/widgets/remoteswidget.ui:102
 #, kde-format
 msgid "Fetch url:"
 msgstr "URL ophalen:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/gui/widgets/remoteswidget.ui:116
+#: src/gui/widgets/remoteswidget.ui:119
 #, kde-format
 msgid "Push url:"
 msgstr "Push URL:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/gui/widgets/remoteswidget.ui:153
+#: src/gui/widgets/remoteswidget.ui:156
 #, kde-format
 msgid "Branches:"
 msgstr "Branches:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/gui/widgets/remoteswidget.ui:166
+#: src/gui/widgets/remoteswidget.ui:169
 #, kde-format
 msgid "Push to"
 msgstr "Push naar"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/gui/widgets/remoteswidget.ui:171
+#: src/gui/widgets/remoteswidget.ui:174
 #, kde-format
 msgid "Pull from"
 msgstr "Pull vanaf"
