@@ -8,8 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "actions/fileactions.h"
 #include "gitmanager.h"
 #include "models/treemodel.h"
+#include <KLocalizedString>
 #include <QFileIconProvider>
-#include <klocalizedstring.h>
 
 FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
     : AppDialog(parent)
