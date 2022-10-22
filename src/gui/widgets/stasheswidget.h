@@ -20,7 +20,6 @@ class StashesWidget : public WidgetBase, private Ui::StashesWidget
     Q_OBJECT
 
 public:
-    explicit StashesWidget(QWidget *parent = nullptr);
     explicit StashesWidget(Git::Manager *git, AppWindow *parent = nullptr);
 
     void saveState(QSettings &settings) const override;

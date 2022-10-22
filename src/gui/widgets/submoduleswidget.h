@@ -21,7 +21,6 @@ class SubmodulesWidget : public WidgetBase, private Ui::SubmodulesWidget
     Q_OBJECT
 
 public:
-    explicit SubmodulesWidget(QWidget *parent = nullptr);
     explicit SubmodulesWidget(Git::Manager *git, AppWindow *parent = nullptr);
 
     void saveState(QSettings &settings) const override;

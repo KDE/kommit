@@ -12,23 +12,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actions/tagsactions.h"
 
-// TODO: remove ctor without git input
-TagsWidget::TagsWidget(QWidget *parent)
-    : WidgetBase(parent)
-{
-    setupUi(this);
-    mModel = Git::Manager::instance()->tagsModel();
-    treeViewTags->setModel(mModel);
-    mActions = new TagsActions(Git::Manager::instance(), this);
-    pushButtonAddTag->setAction(mActions->actionCreate());
-    pushButtonRemove->setAction(mActions->actionRemove());
-    pushButtonCheckout->setAction(mActions->actionCheckout());
-    pushButtonPush->setAction(mActions->actionPush());
-
-    connect(treeViewTags, &QTreeView::customContextMenuRequested, this, &TagsWidget::slotTreeViewTagsCustomContextMenuRequested);
-    connect(treeViewTags, &TreeView::itemActivated, this, &TagsWidget::slotTreeViewTagsItemActivated);
-}
-
 TagsWidget::TagsWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
 {

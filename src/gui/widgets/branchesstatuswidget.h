@@ -20,7 +20,6 @@ class BranchesStatusWidget : public WidgetBase, private Ui::BranchesStatusWidget
     Q_OBJECT
 
 public:
-    explicit BranchesStatusWidget(QWidget *parent = nullptr);
     explicit BranchesStatusWidget(Git::Manager *git, AppWindow *parent = nullptr);
 
     void saveState(QSettings &settings) const override;
@@ -29,7 +28,7 @@ public:
     void init(Git::Manager *git);
 
 private Q_SLOTS:
-    void slotComboBoxReferenceBranchCurrentTextChanged(const QString &selectedBranch);
+    void slotComboBoxReferenceBranchCurrentIndexChanged(int selectedBranch);
     void slotPushButtonRemoveSelectedClicked();
     void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
 

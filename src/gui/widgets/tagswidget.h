@@ -22,7 +22,6 @@ class TagsWidget : public WidgetBase, private Ui::TagsWidget
     Git::TagsModel *mModel = nullptr;
 
 public:
-    explicit TagsWidget(QWidget *parent = nullptr);
     explicit TagsWidget(Git::Manager *git, AppWindow *parent = nullptr);
 
 private Q_SLOTS:

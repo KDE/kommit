@@ -169,6 +169,9 @@ bool Manager::isIgnored(const QString &path)
 
 QPair<int, int> Manager::uniqueCommiteOnBranches(const QString &branch1, const QString &branch2) const
 {
+    if (branch1 == branch2)
+        return qMakePair(0, 0);
+
     auto ret = readAllNonEmptyOutput(
         {QStringLiteral("rev-list"), QStringLiteral("--left-right"), QStringLiteral("--count"), branch1 + QStringLiteral("...") + branch2});
 

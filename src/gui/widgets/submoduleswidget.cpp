@@ -9,19 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "models/submodulesmodel.h"
 
-SubmodulesWidget::SubmodulesWidget(QWidget *parent)
-    : WidgetBase(parent)
-{
-    setupUi(this);
-    mActions = new SubmoduleActions(Git::Manager::instance(), this);
-
-    pushButtonAddNew->setAction(mActions->actionCreate());
-    pushButtonUpdate->setAction(mActions->actionUpdate());
-
-    mModel = Git::Manager::instance()->submodulesModel();
-    treeView->setModel(mModel);
-}
-
 SubmodulesWidget::SubmodulesWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
 {

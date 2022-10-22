@@ -14,14 +14,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <QDebug>
 
-// TODO: remove ctor without git input
-BranchesStatusWidget::BranchesStatusWidget(QWidget *parent)
-    : WidgetBase(parent)
-{
-    setupUi(this);
-    init(Git::Manager::instance());
-}
-
 BranchesStatusWidget::BranchesStatusWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
 
@@ -46,7 +38,7 @@ void BranchesStatusWidget::init(Git::Manager *git)
 
     mActions->setOtherBranch(comboBoxReferenceBranch->currentText());
 
-    connect(comboBoxReferenceBranch, &QComboBox::currentTextChanged, this, &BranchesStatusWidget::slotComboBoxReferenceBranchCurrentTextChanged);
+    connect(comboBoxReferenceBranch, &QComboBox::currentIndexChanged, this, &BranchesStatusWidget::slotComboBoxReferenceBranchCurrentIndexChanged);
     connect(pushButtonRemoveSelected, &QPushButton::clicked, this, &BranchesStatusWidget::slotPushButtonRemoveSelectedClicked);
     connect(treeView, &QTreeView::customContextMenuRequested, this, &BranchesStatusWidget::slotTreeViewCustomContextMenuRequested);
 }
@@ -61,8 +53,9 @@ void BranchesStatusWidget::restoreState(QSettings &settings)
     restore(settings, treeView);
 }
 
-void BranchesStatusWidget::slotComboBoxReferenceBranchCurrentTextChanged(const QString &selectedBranch)
+void BranchesStatusWidget::slotComboBoxReferenceBranchCurrentIndexChanged(int)
 {
+    auto selectedBranch = comboBoxReferenceBranch->currentText();
     mModel->setReferenceBranch(selectedBranch);
     mActions->setOtherBranch(selectedBranch);
 }

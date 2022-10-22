@@ -23,7 +23,6 @@ class CommitsWidget : public WidgetBase, private Ui::CommitsWidget
     Q_OBJECT
 
 public:
-    explicit CommitsWidget(QWidget *parent = nullptr);
     explicit CommitsWidget(Git::Manager *git, AppWindow *parent = nullptr);
     void reload() override;
 

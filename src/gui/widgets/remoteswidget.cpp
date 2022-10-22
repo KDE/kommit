@@ -9,13 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "models/remotesmodel.h"
 
-RemotesWidget::RemotesWidget(QWidget *parent)
-    : WidgetBase(parent)
-{
-    setupUi(this);
-    init(Git::Manager::instance());
-}
-
 RemotesWidget::RemotesWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
 {

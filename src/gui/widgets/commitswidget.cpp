@@ -15,13 +15,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/logsmodel.h"
 #include "models/treemodel.h"
 
-CommitsWidget::CommitsWidget(QWidget *parent)
-    : WidgetBase(parent)
-{
-    setupUi(this);
-    init();
-}
-
 CommitsWidget::CommitsWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
 {
