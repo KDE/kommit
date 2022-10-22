@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-21 00:49+0000\n"
-"PO-Revision-Date: 2022-10-20 09:25+0100\n"
+"PO-Revision-Date: 2022-10-21 23:43+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -1954,7 +1954,7 @@ msgstr "Registar a ferramenta de junção de versões do GitKlient"
 #: src/gui/settings/settingspagegit.ui:37
 #, kde-format
 msgid "Git proxy:"
-msgstr ""
+msgstr "'Proxy' do Git:"
 
 #: src/gui/widgets/blamecodeview.cpp:43
 #, kde-format

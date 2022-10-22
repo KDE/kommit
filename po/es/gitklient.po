@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-21 00:49+0000\n"
-"PO-Revision-Date: 2022-10-20 18:21+0200\n"
+"PO-Revision-Date: 2022-10-21 16:12+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -285,10 +285,9 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "¿Seguro que desea descartar la reserva seleccionada?"
 
 #: src/gui/actions/stashactions.cpp:64
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Pop stash %1"
-msgstr "Aplicar reserva %1"
+msgstr "Sacar reserva %1"
 
 #: src/gui/actions/stashactions.cpp:79
 #, kde-format
@@ -385,10 +384,9 @@ msgid "Checkout"
 msgstr "Cambiar rama"
 
 #: src/gui/actions/tagsactions.cpp:65
-#, fuzzy, kde-format
-#| msgid "Are you sure to restore to the selected tag?"
+#, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr "¿Seguro que quiere restaurar a la etiqueta seleccionada?"
+msgstr "¿Seguro que quiere cambiar la rama a la etiqueta seleccionada?"
 
 #: src/gui/appwindow.cpp:72
 #, kde-format
@@ -1952,7 +1950,7 @@ msgstr "Registrar la herramienta de fusión de GitKlient"
 #: src/gui/settings/settingspagegit.ui:37
 #, kde-format
 msgid "Git proxy:"
-msgstr ""
+msgstr "Proxy de Git:"
 
 #: src/gui/widgets/blamecodeview.cpp:43
 #, kde-format
