@@ -51,8 +51,8 @@ private Q_SLOTS:
 
     void codeEditors_customContextMenuRequested(QPoint pos);
 
-    void on_plainTextEditResult_textChanged();
-    void on_plainTextEditResult_blockSelected();
+    void slotPlainTextEditResultTextChanged();
+    void slotPlainTextEditResultBlockSelected();
 
 private:
     Ui::MainMergeWidget m_ui;

@@ -28,8 +28,8 @@ public:
     void restoreState(QSettings &settings) override;
 
 private Q_SLOTS:
-    void on_treeView_customContextMenuRequested(const QPoint &pos);
-    void on_treeView_activated(const QModelIndex &index);
+    void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
+    void slotTreeViewActivated(const QModelIndex &index);
 
 private:
     SubmoduleActions *mActions = nullptr;

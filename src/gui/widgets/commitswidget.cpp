@@ -59,14 +59,14 @@ void CommitsWidget::restoreState(QSettings &settings)
     restore(settings, treeViewHistory);
 }
 
-void CommitsWidget::on_treeViewRepo_itemActivated(const QModelIndex &index)
+void CommitsWidget::slotTreeViewRepoItemActivated(const QModelIndex &index)
 {
     auto key = mRepoModel->key(index);
     if (!key.isEmpty())
         setBranch(key);
 }
 
-void CommitsWidget::on_treeViewRepo_customContextMenuRequested(const QPoint &pos)
+void CommitsWidget::slotTreeViewRepoCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
     auto branchName = mRepoModel->fullPath(treeViewRepo->currentIndex());
@@ -87,9 +87,18 @@ void CommitsWidget::init()
 
     mActions = new BranchActions(mGit, this);
     mCommitActions = new CommitActions(mGit, this);
+
+    connect(treeViewRepo, &TreeView::itemActivated, this, &CommitsWidget::slotTreeViewRepoItemActivated);
+    connect(treeViewRepo, &QTreeView::customContextMenuRequested, this, &CommitsWidget::slotTreeViewRepoCustomContextMenuRequested);
+    connect(treeViewHistory, &TreeView::itemActivated, this, &CommitsWidget::slotTreeViewHistoryItemActivated);
+    connect(textBrowser, &LogDetailsWidget::hashClicked, this, &CommitsWidget::slotTextBrowserHashClicked);
+    connect(treeViewHistory, &TreeView::itemActivated, this, &CommitsWidget::slotTreeViewHistoryItemActivated);
+    connect(textBrowser, &LogDetailsWidget::fileClicked, this, &CommitsWidget::slotTextBrowserFileClicked);
+    connect(treeViewHistory, &QTreeView::customContextMenuRequested, this, &CommitsWidget::slotTreeViewHistoryCustomContextMenuRequested);
+    connect(lineEditFilter, &QLineEdit::textChanged, this, &CommitsWidget::slotLineEditFilterTextChanged);
 }
 
-void CommitsWidget::on_treeViewHistory_itemActivated(const QModelIndex &index)
+void CommitsWidget::slotTreeViewHistoryItemActivated(const QModelIndex &index)
 {
     auto log = mHistoryModel->fromIndex(mFilterModel->mapToSource(index));
     if (!log)
@@ -98,16 +107,16 @@ void CommitsWidget::on_treeViewHistory_itemActivated(const QModelIndex &index)
     textBrowser->setLog(log);
 }
 
-void CommitsWidget::on_textBrowser_hashClicked(const QString &hash)
+void CommitsWidget::slotTextBrowserHashClicked(const QString &hash)
 {
     const auto index = mHistoryModel->findIndexByHash(hash);
     if (index.isValid()) {
         treeViewHistory->setCurrentIndex(index);
-        on_treeViewHistory_itemActivated(index);
+        slotTreeViewHistoryItemActivated(index);
     }
 }
 
-void CommitsWidget::on_textBrowser_fileClicked(const QString &file)
+void CommitsWidget::slotTextBrowserFileClicked(const QString &file)
 {
     auto log = textBrowser->log();
 
@@ -120,7 +129,7 @@ void CommitsWidget::on_textBrowser_fileClicked(const QString &file)
     diffWin->showModal();
 }
 
-void CommitsWidget::on_treeViewHistory_customContextMenuRequested(const QPoint &pos)
+void CommitsWidget::slotTreeViewHistoryCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
     auto log = mHistoryModel->fromIndex(treeViewHistory->currentIndex());
@@ -139,7 +148,7 @@ void CommitsWidget::setBranch(const QString &branchName)
         treeViewHistory->setCurrentIndex(mHistoryModel->index(0));
 }
 
-void CommitsWidget::on_lineEditFilter_textChanged(const QString &text)
+void CommitsWidget::slotLineEditFilterTextChanged(const QString &text)
 {
     mFilterModel->setFilterTerm(text);
 }

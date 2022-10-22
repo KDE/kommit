@@ -29,9 +29,9 @@ public:
     void init(Git::Manager *git);
 
 private Q_SLOTS:
-    void on_comboBoxReferenceBranch_currentIndexChanged(const QString &selectedBranch);
-    void on_pushButtonRemoveSelected_clicked();
-    void on_treeView_customContextMenuRequested(const QPoint &pos);
+    void slotComboBoxReferenceBranchCurrentTextChanged(const QString &selectedBranch);
+    void slotPushButtonRemoveSelectedClicked();
+    void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
 
 private:
     BranchActions *mActions = nullptr;

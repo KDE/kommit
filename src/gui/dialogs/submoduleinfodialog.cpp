@@ -81,17 +81,3 @@ Git::AddSubmoduleCommand *SubmoduleInfoDialog::command() const
 
     return cmd;
 }
-
-void SubmoduleInfoDialog::on_toolButtonBrowseLocalPath_clicked()
-{
-    auto localPath = QFileDialog::getExistingDirectory(this, i18n("Local path"), mGit->path());
-    if (localPath.isEmpty())
-        return;
-
-    if (!localPath.startsWith(mGit->path())) {
-        KMessageBox::error(this, i18n("The selected path is outside of working dir"));
-        return;
-    }
-
-    lineEditPath->setText(localPath.remove(mGit->path() + QLatin1Char('/')));
-}

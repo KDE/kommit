@@ -11,6 +11,8 @@ TagInfoDialog::TagInfoDialog(QWidget *parent)
 {
     setupUi(this);
     setWindowTitle(i18nc("@title:window", "New tag"));
+
+    connect(lineEditTagName, &QLineEdit::textChanged, this, &TagInfoDialog::slotLineEditTagNameTextChanged);
 }
 
 QString TagInfoDialog::tagName() const
@@ -33,7 +35,7 @@ void TagInfoDialog::setMessage(const QString &newMessage)
     lineEditMessage->setText(newMessage);
 }
 
-void TagInfoDialog::on_lineEditTagName_textChanged(const QString &s)
+void TagInfoDialog::slotLineEditTagNameTextChanged(const QString &s)
 {
     lineEditMessage->setText(s);
 }

@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <QDebug>
 
+// TODO: remove ctor without git input
 BranchesStatusWidget::BranchesStatusWidget(QWidget *parent)
     : WidgetBase(parent)
 {
@@ -44,6 +45,10 @@ void BranchesStatusWidget::init(Git::Manager *git)
     pushButtonRemoveSelected->setAction(mActions->actionRemove());
 
     mActions->setOtherBranch(comboBoxReferenceBranch->currentText());
+
+    connect(comboBoxReferenceBranch, &QComboBox::currentTextChanged, this, &BranchesStatusWidget::slotComboBoxReferenceBranchCurrentTextChanged);
+    connect(pushButtonRemoveSelected, &QPushButton::clicked, this, &BranchesStatusWidget::slotPushButtonRemoveSelectedClicked);
+    connect(treeView, &QTreeView::customContextMenuRequested, this, &BranchesStatusWidget::slotTreeViewCustomContextMenuRequested);
 }
 
 void BranchesStatusWidget::saveState(QSettings &settings) const
@@ -56,13 +61,13 @@ void BranchesStatusWidget::restoreState(QSettings &settings)
     restore(settings, treeView);
 }
 
-void BranchesStatusWidget::on_comboBoxReferenceBranch_currentIndexChanged(const QString &selectedBranch)
+void BranchesStatusWidget::slotComboBoxReferenceBranchCurrentTextChanged(const QString &selectedBranch)
 {
     mModel->setReferenceBranch(selectedBranch);
     mActions->setOtherBranch(selectedBranch);
 }
 
-void BranchesStatusWidget::on_pushButtonRemoveSelected_clicked()
+void BranchesStatusWidget::slotPushButtonRemoveSelectedClicked()
 {
     if (!treeView->currentIndex().isValid())
         return;
@@ -76,7 +81,7 @@ void BranchesStatusWidget::on_pushButtonRemoveSelected_clicked()
     }
 }
 
-void BranchesStatusWidget::on_treeView_customContextMenuRequested(const QPoint &pos)
+void BranchesStatusWidget::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
     auto b = mModel->fromIndex(treeView->currentIndex());

@@ -27,8 +27,8 @@ public:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 private Q_SLOTS:
-    void on_treeView_clicked(const QModelIndex &index);
-    void on_listView_clicked(const QModelIndex &index);
+    void slotTreeViewClicked(const QModelIndex &index);
+    void slotListViewClicked(const QModelIndex &index);
 
 Q_SIGNALS:
     void fileSelected(const QString &file);

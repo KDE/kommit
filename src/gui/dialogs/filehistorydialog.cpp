@@ -12,10 +12,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 
+// TODO: remove ctor without git input
 FileHistoryDialog::FileHistoryDialog(QWidget *parent)
     : AppDialog(Git::Manager::instance(), parent)
 {
     setupUi(this);
+
+    connect(listWidget, &QListWidget::itemClicked, this, &FileHistoryDialog::slotListWidgetItemClicked);
 }
 
 FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName, QWidget *parent)
@@ -39,6 +42,8 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
     }
     plainTextEdit->setHighlighting(fileName);
     setWindowTitle(i18nc("@title:window", "File log: %1", fileName));
+
+    connect(listWidget, &QListWidget::itemClicked, this, &FileHistoryDialog::slotListWidgetItemClicked);
 }
 
 FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const Git::File &file, QWidget *parent)
@@ -46,7 +51,7 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const Git::File &file, Q
 {
 }
 
-void FileHistoryDialog::on_listWidget_itemClicked(QListWidgetItem *item)
+void FileHistoryDialog::slotListWidgetItemClicked(QListWidgetItem *item)
 {
     const auto content = mGit->fileContent(item->data(Qt::UserRole + 1).toString(), mFileName);
     plainTextEdit->setPlainText(content);

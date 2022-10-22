@@ -22,15 +22,15 @@ public:
     explicit CommitPushDialog(Git::Manager *git, QWidget *parent = nullptr);
 
 private Q_SLOTS:
-    void on_pushButtonCommit_clicked();
-    void on_pushButtonPush_clicked();
-    void on_toolButtonAddAll_clicked();
-    void on_toolButtonAddNone_clicked();
-    void on_toolButtonAddIndexed_clicked();
-    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
-    void on_listWidget_itemClicked(QListWidgetItem *item);
-    void on_groupBoxMakeCommit_toggled(bool);
-    void on_listWidget_customContextMenuRequested(const QPoint &pos);
+    void slotPushButtonCommitClicked();
+    void slotPushButtonPushClicked();
+    void slotToolButtonAddAllClicked();
+    void slotToolButtonAddNoneClicked();
+    void slotToolButtonAddIndexedClicked();
+    void slotListWidgetItemDoubleClicked(QListWidgetItem *item);
+    void slotListWidgetItemClicked(QListWidgetItem *item);
+    void slotGroupBoxMakeCommitToggled(bool);
+    void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
     void checkButtonsEnable();
 
 private:

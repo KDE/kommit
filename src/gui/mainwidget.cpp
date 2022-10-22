@@ -99,6 +99,12 @@ MainWidget::MainWidget(QWidget *parent)
 
     actionBrowseBranch->setText(i18n("Browse..."));
     actionDiffBranch->setText(i18n("Diff with master..."));
+
+    connect(treeViewRepo, &QTreeView::activated, this, &::slotTreeViewRepoActivated);
+    connect(treeViewRepo, &QTreeViewRepo::customContextMenuRequested, this, &::slotTreeViewRepoCustomContextMenuRequested);
+    connect(actionBrowseBranch, &QAction::triggered, this, &::slotActionBrowseBranchTriggered);
+    connect(actionDiffBranch, &QAction::triggered, this, &::slotActionDiffBranchTriggered);
+    connect(pushButtonAddTag, &QPushButton::clicked, this, &::slotPushButtonAddTagClicked);
 }
 
 MainWidget::~MainWidget()
@@ -126,26 +132,26 @@ void MainWidget::pageButtons_clicked(int index)
     return;
 }
 
-void MainWidget::on_treeViewRepo_activated(const QModelIndex &index)
+void MainWidget::slotTreeViewRepoActivated(const QModelIndex &index)
 {
     auto key = _repoModel->key(index);
     if (!key.isEmpty())
         widgetCommitsView->setBranch(key);
 }
 
-void MainWidget::on_treeViewRepo_customContextMenuRequested(const QPoint &pos)
+void MainWidget::slotTreeViewRepoCustomContextMenuRequested(const QPoint &pos)
 {
     _branchesMenu->popup(treeViewRepo->mapToGlobal(pos));
 }
 
-void MainWidget::on_actionBrowseBranch_triggered()
+void MainWidget::slotActionBrowseBranchTriggered()
 {
     auto branchName = _repoModel->fullPath(treeViewRepo->currentIndex());
     FilesTreeDialog d(branchName, this);
     d.exec();
 }
 
-void MainWidget::on_actionDiffBranch_triggered()
+void MainWidget::slotActionDiffBranchTriggered()
 {
     auto branchName = _repoModel->fullPath(treeViewRepo->currentIndex());
 
@@ -153,7 +159,7 @@ void MainWidget::on_actionDiffBranch_triggered()
     diffWin->showModal();
 }
 
-void MainWidget::on_pushButtonAddTag_clicked()
+void MainWidget::slotPushButtonAddTagClicked()
 {
     TagInfoDialog d(this);
     d.setWindowTitle(i18n("New tag"));

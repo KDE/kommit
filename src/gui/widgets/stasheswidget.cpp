@@ -33,9 +33,12 @@ void StashesWidget::init(Git::Manager *git)
 
     mModel = git->stashesModel();
     treeView->setModel(mModel);
+
+    connect(treeView, &QTreeView::customContextMenuRequested, this, &StashesWidget::slotTreeViewCustomContextMenuRequested);
+    connect(treeView, &TreeView::itemActivated, this, &StashesWidget::slotTreeViewItemActivated);
 }
 
-void StashesWidget::on_treeView_customContextMenuRequested(const QPoint &pos)
+void StashesWidget::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
 
@@ -48,7 +51,7 @@ void StashesWidget::on_treeView_customContextMenuRequested(const QPoint &pos)
     mActions->popup();
 }
 
-void StashesWidget::on_treeView_itemActivated(const QModelIndex &index)
+void StashesWidget::slotTreeViewItemActivated(const QModelIndex &index)
 {
     auto stash = mModel->fromIndex(index);
 

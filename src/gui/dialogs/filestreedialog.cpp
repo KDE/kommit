@@ -46,9 +46,12 @@ FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
         item->setIcon(icon);
         listWidget->addItem(item);
     }
+
+    connect(treeView, &QTreeView::clicked, this, &FilesTreeDialog::slotTreeViewClicked);
+    connect(listWidget, &QListWidget::customContextMenuRequested, this, &FilesTreeDialog::slotListWidgetCustomContextMenuRequested);
 }
 
-void FilesTreeDialog::on_treeView_clicked(const QModelIndex &index)
+void FilesTreeDialog::slotTreeViewClicked(const QModelIndex &index)
 {
     QFileIconProvider p;
     listWidget->clear();
@@ -64,7 +67,7 @@ void FilesTreeDialog::on_treeView_clicked(const QModelIndex &index)
     }
 }
 
-void FilesTreeDialog::on_listWidget_customContextMenuRequested(const QPoint &pos)
+void FilesTreeDialog::slotListWidgetCustomContextMenuRequested(const QPoint &pos)
 {
     auto path = mTreeModel->fullPath(treeView->currentIndex());
 

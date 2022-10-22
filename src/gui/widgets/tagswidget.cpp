@@ -12,6 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actions/tagsactions.h"
 
+// TODO: remove ctor without git input
 TagsWidget::TagsWidget(QWidget *parent)
     : WidgetBase(parent)
 {
@@ -23,6 +24,9 @@ TagsWidget::TagsWidget(QWidget *parent)
     pushButtonRemove->setAction(mActions->actionRemove());
     pushButtonCheckout->setAction(mActions->actionCheckout());
     pushButtonPush->setAction(mActions->actionPush());
+
+    connect(treeViewTags, &QTreeView::customContextMenuRequested, this, &TagsWidget::slotTreeViewTagsCustomContextMenuRequested);
+    connect(treeViewTags, &TreeView::itemActivated, this, &TagsWidget::slotTreeViewTagsItemActivated);
 }
 
 TagsWidget::TagsWidget(Git::Manager *git, AppWindow *parent)
@@ -36,6 +40,9 @@ TagsWidget::TagsWidget(Git::Manager *git, AppWindow *parent)
     pushButtonRemove->setAction(mActions->actionRemove());
     pushButtonCheckout->setAction(mActions->actionCheckout());
     pushButtonPush->setAction(mActions->actionPush());
+
+    connect(treeViewTags, &QTreeView::customContextMenuRequested, this, &TagsWidget::slotTreeViewTagsCustomContextMenuRequested);
+    connect(treeViewTags, &TreeView::itemActivated, this, &TagsWidget::slotTreeViewTagsItemActivated);
 }
 
 void TagsWidget::saveState(QSettings &settings) const
@@ -48,7 +55,7 @@ void TagsWidget::restoreState(QSettings &settings)
     restore(settings, treeViewTags);
 }
 
-void TagsWidget::on_treeViewTags_customContextMenuRequested(const QPoint &pos)
+void TagsWidget::slotTreeViewTagsCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
     auto item = mModel->fromIndex(treeViewTags->currentIndex());
@@ -58,7 +65,7 @@ void TagsWidget::on_treeViewTags_customContextMenuRequested(const QPoint &pos)
     }
 }
 
-void TagsWidget::on_treeViewTags_itemActivated(const QModelIndex &index)
+void TagsWidget::slotTreeViewTagsItemActivated(const QModelIndex &index)
 {
     auto item = mModel->fromIndex(index);
     if (item)

@@ -19,6 +19,9 @@ SearchDialog::SearchDialog(const QString &path, Git::Manager *git, QWidget *pare
     setupUi(this);
     initModel();
     lineEditPath->setText(path);
+
+    connect(pushButtonSearch, &QPushButton::clicked, this, &SearchDialog::slotPushButtonSearchClicked);
+    connect(treeView, &QTreeView::doubleClicked, this, &SearchDialog::slotTreeViewDoubleClicked);
 }
 
 void SearchDialog::initModel()
@@ -39,9 +42,12 @@ SearchDialog::SearchDialog(Git::Manager *git, QWidget *parent)
 {
     setupUi(this);
     initModel();
+
+    connect(pushButtonSearch, &QPushButton::clicked, this, &SearchDialog::slotPushButtonSearchClicked);
+    connect(treeView, &QTreeView::doubleClicked, this, &SearchDialog::slotTreeViewDoubleClicked);
 }
 
-void SearchDialog::on_pushButtonSearch_clicked()
+void SearchDialog::slotPushButtonSearchClicked()
 {
     mModel->clear();
     initModel();
@@ -51,7 +57,7 @@ void SearchDialog::on_pushButtonSearch_clicked()
     auto f = QtConcurrent::run(this, &SearchDialog::beginSearch);
 }
 
-void SearchDialog::on_treeView_doubleClicked(const QModelIndex &index)
+void SearchDialog::slotTreeViewDoubleClicked(const QModelIndex &index)
 {
     if (!index.isValid())
         return;

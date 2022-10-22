@@ -25,10 +25,10 @@ public:
     Q_REQUIRED_RESULT Mode mode() const;
 
 private Q_SLOTS:
-    void on_toolButtonBrowseNewFile_clicked();
-    void on_toolButtonBrowseOldFile_clicked();
-    void on_toolButtonBrowseNewDirectory_clicked();
-    void on_toolButtonBrowseOldDirectory_clicked();
+    void slotToolButtonBrowseNewFileClicked();
+    void slotToolButtonBrowseOldFileClicked();
+    void slotToolButtonBrowseNewDirectoryClicked();
+    void slotToolButtonBrowseOldDirectoryClicked();
 
 private:
     void readSettings();

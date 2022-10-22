@@ -26,7 +26,7 @@ public:
 
 private Q_SLOTS:
     void fileOpen();
-    void on_treeView_fileSelected(const QString &file);
+    void slotTreeViewFileSelected(const QString &file);
 
 private:
     Git::File mOldFile;

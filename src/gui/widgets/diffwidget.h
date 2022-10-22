@@ -51,7 +51,7 @@ Q_SIGNALS:
     void sameSizeChanged();
 
 private Q_SLOTS:
-    void on_splitter_splitterMoved(int, int);
+    void slotSplitterSplitterMoved(int, int);
     void oldCodeEditor_scroll(int value);
     void newCodeEditor_scroll(int value);
     void oldCodeEditor_blockSelected();

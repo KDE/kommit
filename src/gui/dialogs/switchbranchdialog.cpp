@@ -40,7 +40,7 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
     return cmd;
 }
 
-// void SwitchBranchDialog::on_buttonBox_accepted()
+// void SwitchBranchDialog::slotButtonBoxAccepted()
 //{
 //     Git::CommandSwitchBranch cmd(_git);
 

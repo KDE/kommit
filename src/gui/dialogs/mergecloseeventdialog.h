@@ -17,7 +17,7 @@ public:
     enum ReturnType { LeaveAsIs = QDialog::Rejected, MarkAsResolved = QDialog::Accepted, DontExit };
     explicit MergeCloseEventDialog(QWidget *parent = nullptr);
 private Q_SLOTS:
-    void on_commandLinkButtonMarkResolved_clicked();
-    void on_commandLinkButtonLeaveAsIs_clicked();
-    void on_commandLinkButtonDontExit_clicked();
+    void slotCommandLinkButtonMarkResolvedClicked();
+    void slotCommandLinkButtonLeaveAsIsClicked();
+    void slotCommandLinkButtonDontExitClicked();
 };

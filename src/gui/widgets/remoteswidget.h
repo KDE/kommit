@@ -27,8 +27,8 @@ public:
     void restoreState(QSettings &settings) override;
 
 private Q_SLOTS:
-    void on_listView_itemActivated(const QModelIndex &index);
-    void on_listView_customContextMenuRequested(const QPoint &pos);
+    void slotListViewItemActivated(const QModelIndex &index);
+    void slotListViewCustomContextMenuRequested(const QPoint &pos);
 
 private:
     void init(Git::Manager *git);

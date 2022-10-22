@@ -10,19 +10,23 @@ CloseEventDialog::CloseEventDialog(QWidget *parent)
     : QDialog(parent)
 {
     setupUi(this);
+
+    connect(commandLinkButtonMarkResolved, &QCommandLinkButton::clicked, this, &::CloseEventDialog::slotCommandLinkButtonLeaveAsIsClicked);
+    connect(commandLinkButtonLeaveAsIs, &QCommandLinkButton::clicked, this, &CloseEventDialog::slotCommandLinkButtonLeaveAsIsClicked);
+    connect(commandLinkButtonDontExit, &QCommandLinkButton::clicked, this, &CloseEventDialog::slotCommandLinkButtonDontExitClicked);
 }
 
-void CloseEventDialog::on_commandLinkButtonMarkResolved_clicked()
+void CloseEventDialog::slotCommandLinkButtonMarkResolvedClicked()
 {
     accept();
 }
 
-void CloseEventDialog::on_commandLinkButtonLeaveAsIs_clicked()
+void CloseEventDialog::slotCommandLinkButtonLeaveAsIsClicked()
 {
     reject();
 }
 
-void CloseEventDialog::on_commandLinkButtonDontExit_clicked()
+void CloseEventDialog::slotCommandLinkButtonDontExitClicked()
 {
     done(DontExit);
 }

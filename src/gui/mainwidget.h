@@ -36,10 +36,10 @@ private slots:
     void listButton_clicked();
     void pageButtons_clicked(int index);
 
-    void on_treeViewRepo_activated(const QModelIndex &index);
-    void on_treeViewRepo_customContextMenuRequested(const QPoint &pos);
+    void slotTreeViewRepoActivated(const QModelIndex &index);
+    void slotTreeViewRepoCustomContextMenuRequested(const QPoint &pos);
 
-    void on_actionBrowseBranch_triggered();
-    void on_actionDiffBranch_triggered();
-    void on_pushButtonAddTag_clicked();
+    void slotActionBrowseBranchTriggered();
+    void slotActionDiffBranchTriggered();
+    void slotPushButtonAddTagClicked();
 };

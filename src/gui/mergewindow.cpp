@@ -99,10 +99,13 @@ void MergeWindow::init()
     m_ui.plainTextEditTheir->setContextMenuPolicy(Qt::CustomContextMenu);
 
     connect(m_ui.plainTextEditMine, &CodeEditor::customContextMenuRequested, this, &MergeWindow::codeEditors_customContextMenuRequested);
-
     connect(m_ui.plainTextEditTheir, &CodeEditor::customContextMenuRequested, this, &MergeWindow::codeEditors_customContextMenuRequested);
-
-    connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::on_plainTextEditResult_blockSelected);
+    connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::slotPlainTextEditResultBlockSelected);
+    connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::slotPlainTextEditResultBlockSelected);
+    connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::slotPlainTextEditResultBlockSelected);
+    connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::slotPlainTextEditResultBlockSelected);
+    connect(m_ui.plainTextEditResult, &CodeEditor::textChanged, this, &MergeWindow::slotPlainTextEditResultTextChanged);
+    connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::slotPlainTextEditResultBlockSelected);
 
     mConflictsLabel = new QLabel(this);
     statusBar()->addPermanentWidget(mConflictsLabel);
@@ -451,13 +454,13 @@ void MergeWindow::actionKeepTheirFile_clicked()
 void MergeWindow::actionGotoPrevDiff_clicked()
 {
     mMapper->findPrevious(Diff::SegmentType::DifferentOnBoth);
-    on_plainTextEditResult_blockSelected();
+    slotPlainTextEditResultBlockSelected();
 }
 
 void MergeWindow::actionGotoNextDiff_clicked()
 {
     mMapper->findNext(Diff::SegmentType::DifferentOnBoth);
-    on_plainTextEditResult_blockSelected();
+    slotPlainTextEditResultBlockSelected();
 }
 
 void MergeWindow::actionViewFiles_clicked()
@@ -512,7 +515,7 @@ void MergeWindow::setFilePathLocal(const QString &newFilePathLocal)
     mFilePathLocal = newFilePathLocal;
 }
 
-void MergeWindow::on_plainTextEditResult_textChanged()
+void MergeWindow::slotPlainTextEditResultTextChanged()
 {
     qCDebug(GITKLIENT_LOG) << "**********************";
     //    auto segment = static_cast<Diff::MergeSegment *>(_mapper->currentSegment());
@@ -521,7 +524,7 @@ void MergeWindow::on_plainTextEditResult_textChanged()
     //    }
 }
 
-void MergeWindow::on_plainTextEditResult_blockSelected()
+void MergeWindow::slotPlainTextEditResultBlockSelected()
 {
     auto segment = static_cast<Diff::MergeSegment *>(m_ui.plainTextEditResult->currentSegment());
 

@@ -31,14 +31,14 @@ public:
     void restoreState(QSettings &settings) override;
 
 private Q_SLOTS:
-    void on_treeViewRepo_itemActivated(const QModelIndex &index);
-    void on_treeViewRepo_customContextMenuRequested(const QPoint &pos);
-    void on_treeViewHistory_itemActivated(const QModelIndex &index);
-    void on_textBrowser_hashClicked(const QString &hash);
-    void on_textBrowser_fileClicked(const QString &file);
-    void on_treeViewHistory_customContextMenuRequested(const QPoint &pos);
+    void slotTreeViewRepoItemActivated(const QModelIndex &index);
+    void slotTreeViewRepoCustomContextMenuRequested(const QPoint &pos);
+    void slotTreeViewHistoryItemActivated(const QModelIndex &index);
+    void slotTextBrowserHashClicked(const QString &hash);
+    void slotTextBrowserFileClicked(const QString &file);
+    void slotTreeViewHistoryCustomContextMenuRequested(const QPoint &pos);
 
-    void on_lineEditFilter_textChanged(const QString &arg1);
+    void slotLineEditFilterTextChanged(const QString &arg1);
 
 private:
     void init();

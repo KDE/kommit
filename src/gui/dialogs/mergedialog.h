@@ -23,7 +23,7 @@ public:
     Git::CommandMerge *command() const;
 
 private slots:
-    void on_comboBoxStrategy_currentIndexChanged(int index);
+    void slotComboBoxStrategyCurrentIndexChanged(int index);
 
 private:
     QString mSourceBranch;

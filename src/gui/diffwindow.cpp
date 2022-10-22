@@ -116,7 +116,7 @@ void DiffWindow::init(bool showSideBar)
     mDock->setObjectName(QStringLiteral("treeViewDock"));
 
     mTreeView = new DiffTreeView(this);
-    connect(mTreeView, &DiffTreeView::fileSelected, this, &DiffWindow::on_treeView_fileSelected);
+    connect(mTreeView, &DiffTreeView::fileSelected, this, &DiffWindow::slotTreeViewFileSelected);
     mDock->setWidget(mTreeView);
     mDock->setAllowedAreas(Qt::AllDockWidgetAreas);
     addDockWidget(Qt::LeftDockWidgetArea, mDock);
@@ -180,7 +180,7 @@ void DiffWindow::fileOpen()
     }
 }
 
-void DiffWindow::on_treeView_fileSelected(const QString &file)
+void DiffWindow::slotTreeViewFileSelected(const QString &file)
 {
     qDebug() << file;
     switch (mLeftStorage) {

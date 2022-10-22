@@ -10,19 +10,23 @@ MergeCloseEventDialog::MergeCloseEventDialog(QWidget *parent)
     : AppDialog(parent)
 {
     setupUi(this);
+
+    connect(commandLinkButtonMarkResolved, &QCommandLinkButton::clicked, this, &MergeCloseEventDialog::slotCommandLinkButtonMarkResolvedClicked);
+    connect(commandLinkButtonLeaveAsIs, &QCommandLinkButton::clicked, this, &MergeCloseEventDialog::slotCommandLinkButtonLeaveAsIsClicked);
+    connect(commandLinkButtonDontExit, &QCommandLinkButton::clicked, this, &MergeCloseEventDialog::slotCommandLinkButtonDontExitClicked);
 }
 
-void MergeCloseEventDialog::on_commandLinkButtonMarkResolved_clicked()
+void MergeCloseEventDialog::slotCommandLinkButtonMarkResolvedClicked()
 {
     accept();
 }
 
-void MergeCloseEventDialog::on_commandLinkButtonLeaveAsIs_clicked()
+void MergeCloseEventDialog::slotCommandLinkButtonLeaveAsIsClicked()
 {
     reject();
 }
 
-void MergeCloseEventDialog::on_commandLinkButtonDontExit_clicked()
+void MergeCloseEventDialog::slotCommandLinkButtonDontExitClicked()
 {
     done(DontExit);
 }

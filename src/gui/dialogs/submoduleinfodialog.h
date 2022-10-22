@@ -34,7 +34,4 @@ public:
     void setBranch(const QString &newBranch);
 
     Git::AddSubmoduleCommand *command() const;
-
-private Q_SLOTS:
-    void on_toolButtonBrowseLocalPath_clicked();
 };

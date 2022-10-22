@@ -27,8 +27,8 @@ public:
     void restoreState(QSettings &settings) override;
 
 private Q_SLOTS:
-    void on_treeView_customContextMenuRequested(const QPoint &pos);
-    void on_treeView_itemActivated(const QModelIndex &index);
+    void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
+    void slotTreeViewItemActivated(const QModelIndex &index);
 
 private:
     void init(Git::Manager *git);

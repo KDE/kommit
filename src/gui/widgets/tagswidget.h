@@ -26,8 +26,8 @@ public:
     explicit TagsWidget(Git::Manager *git, AppWindow *parent = nullptr);
 
 private Q_SLOTS:
-    void on_treeViewTags_customContextMenuRequested(const QPoint &pos);
-    void on_treeViewTags_itemActivated(const QModelIndex &index);
+    void slotTreeViewTagsCustomContextMenuRequested(const QPoint &pos);
+    void slotTreeViewTagsItemActivated(const QModelIndex &index);
 
 public:
     void saveState(QSettings &settings) const override;

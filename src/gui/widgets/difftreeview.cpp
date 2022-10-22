@@ -41,7 +41,10 @@ DiffTreeView::DiffTreeView(QWidget *parent)
 
     lineEditFilter->installEventFilter(this);
     listView->installEventFilter(this);
+
     connect(lineEditFilter, &QLineEdit::textEdited, this, &DiffTreeView::lineEditFilterTextChanged);
+    connect(treeView, &QTreeView::clicked, this, &DiffTreeView::slotTreeViewClicked);
+    connect(listView, &QListView::clicked, this, &DiffTreeView::slotListViewClicked);
 }
 
 void DiffTreeView::lineEditFilterTextChanged(const QString &text)
@@ -50,13 +53,13 @@ void DiffTreeView::lineEditFilterTextChanged(const QString &text)
     mFilterModel->setFilterRegularExpression(QStringLiteral(".*") + text + QStringLiteral(".*"));
 }
 
-void DiffTreeView::on_treeView_clicked(const QModelIndex &index)
+void DiffTreeView::slotTreeViewClicked(const QModelIndex &index)
 {
     const auto fileName = mDiffModel->fullPath(index);
     Q_EMIT fileSelected(fileName);
 }
 
-void DiffTreeView::on_listView_clicked(const QModelIndex &index)
+void DiffTreeView::slotListViewClicked(const QModelIndex &index)
 {
     const auto row = mFilterModel->mapToSource(index).row();
     const auto fileName = mFilesModel->data(mFilesModel->index(row, 1), Qt::DisplayRole);

@@ -33,6 +33,9 @@ SubmodulesWidget::SubmodulesWidget(Git::Manager *git, AppWindow *parent)
 
     mModel = git->submodulesModel();
     treeView->setModel(mModel);
+
+    connect(treeView, &QTreeView::customContextMenuRequested, this, &SubmodulesWidget::slotTreeViewCustomContextMenuRequested);
+    connect(treeView, &QTreeView::activated, this, &SubmodulesWidget::slotTreeViewActivated);
 }
 
 void SubmodulesWidget::saveState(QSettings &settings) const
@@ -45,7 +48,7 @@ void SubmodulesWidget::restoreState(QSettings &settings)
     restore(settings, treeView);
 }
 
-void SubmodulesWidget::on_treeView_customContextMenuRequested(const QPoint &pos)
+void SubmodulesWidget::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
 
@@ -59,7 +62,7 @@ void SubmodulesWidget::on_treeView_customContextMenuRequested(const QPoint &pos)
     mActions->popup();
 }
 
-void SubmodulesWidget::on_treeView_activated(const QModelIndex &index)
+void SubmodulesWidget::slotTreeViewActivated(const QModelIndex &index)
 {
     auto s = mModel->fromIndex(index);
     if (!s)

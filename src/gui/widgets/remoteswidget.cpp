@@ -36,7 +36,7 @@ void RemotesWidget::restoreState(QSettings &settings)
     restore(settings, treeWidget);
 }
 
-void RemotesWidget::on_listView_itemActivated(const QModelIndex &index)
+void RemotesWidget::slotListViewItemActivated(const QModelIndex &index)
 {
     auto remote = mModel->fromIndex(index);
     if (!remote)
@@ -61,7 +61,7 @@ void RemotesWidget::on_listView_itemActivated(const QModelIndex &index)
     }
 }
 
-void RemotesWidget::on_listView_customContextMenuRequested(const QPoint &pos)
+void RemotesWidget::slotListViewCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
     auto remote = mModel->fromIndex(listView->currentIndex());
@@ -81,4 +81,7 @@ void RemotesWidget::init(Git::Manager *git)
     mActions = new RemotesActions(git, this);
     pushButtonAdd->setAction(mActions->actionCreate());
     pushButtonRemove->setAction(mActions->actionRemove());
+
+    connect(listView, &ListView::itemActivated, this, &RemotesWidget::slotListViewItemActivated);
+    connect(listView, &QListView::customContextMenuRequested, this, &RemotesWidget::slotListViewCustomContextMenuRequested);
 }

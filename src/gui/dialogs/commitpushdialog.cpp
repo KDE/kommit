@@ -98,6 +98,16 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     mActions = new ChangedFileActions(mGit, this);
 
     checkBoxIncludeStatus->setCheckState(Qt::PartiallyChecked);
+
+    connect(pushButtonCommit, &QPushButton::clicked, this, &CommitPushDialog::slotPushButtonCommitClicked);
+    connect(pushButtonPush, &QPushButton::clicked, this, &CommitPushDialog::slotPushButtonPushClicked);
+    connect(toolButtonAddAll, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddAllClicked);
+    connect(toolButtonAddNone, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddNoneClicked);
+    connect(toolButtonAddIndexed, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddIndexedClicked);
+    connect(listWidget, &QListWidget::itemDoubleClicked, this, &CommitPushDialog::slotListWidgetItemDoubleClicked);
+    connect(listWidget, &QListWidget::itemClicked, this, &CommitPushDialog::slotListWidgetItemClicked);
+    connect(groupBoxMakeCommit, &QGroupBox::toggled, this, &CommitPushDialog::slotGroupBoxMakeCommitToggled);
+    connect(listWidget, &QListWidget::customContextMenuRequested, this, &CommitPushDialog::slotListWidgetCustomContextMenuRequested);
 }
 
 void CommitPushDialog::checkButtonsEnable()
@@ -127,7 +137,7 @@ void CommitPushDialog::checkButtonsEnable()
     pushButtonPush->setEnabled(enable);
 }
 
-void CommitPushDialog::on_pushButtonCommit_clicked()
+void CommitPushDialog::slotPushButtonCommitClicked()
 {
     addFiles();
     Git::CommandCommit cmd;
@@ -139,7 +149,7 @@ void CommitPushDialog::on_pushButtonCommit_clicked()
     accept();
 }
 
-void CommitPushDialog::on_pushButtonPush_clicked()
+void CommitPushDialog::slotPushButtonPushClicked()
 {
     addFiles();
 
@@ -170,7 +180,7 @@ void CommitPushDialog::on_pushButtonPush_clicked()
     accept();
 }
 
-void CommitPushDialog::on_toolButtonAddAll_clicked()
+void CommitPushDialog::slotToolButtonAddAllClicked()
 {
     for (auto i = 0; i < listWidget->count(); ++i) {
         auto item = listWidget->item(i);
@@ -188,7 +198,7 @@ void CommitPushDialog::addFiles()
     }
 }
 
-void CommitPushDialog::on_toolButtonAddNone_clicked()
+void CommitPushDialog::slotToolButtonAddNoneClicked()
 {
     for (auto i = 0; i < listWidget->count(); ++i) {
         auto item = listWidget->item(i);
@@ -197,7 +207,7 @@ void CommitPushDialog::on_toolButtonAddNone_clicked()
     checkButtonsEnable();
 }
 
-void CommitPushDialog::on_toolButtonAddIndexed_clicked()
+void CommitPushDialog::slotToolButtonAddIndexedClicked()
 {
     for (auto i = 0; i < listWidget->count(); ++i) {
         auto item = listWidget->item(i);
@@ -206,25 +216,25 @@ void CommitPushDialog::on_toolButtonAddIndexed_clicked()
     checkButtonsEnable();
 }
 
-void CommitPushDialog::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
+void CommitPushDialog::slotListWidgetItemDoubleClicked(QListWidgetItem *item)
 {
     if (!item)
         return;
     mActions->setFilePath(listWidget->currentItem()->text());
     mActions->diff();
 }
-void CommitPushDialog::on_listWidget_itemClicked(QListWidgetItem *)
+void CommitPushDialog::slotListWidgetItemClicked(QListWidgetItem *)
 {
     checkButtonsEnable();
 }
 
-void CommitPushDialog::on_groupBoxMakeCommit_toggled(bool checked)
+void CommitPushDialog::slotGroupBoxMakeCommitToggled(bool checked)
 {
     checkButtonsEnable();
     pushButtonPush->setText(checked ? i18n("Commit and push") : i18n("Push"));
 }
 
-void CommitPushDialog::on_listWidget_customContextMenuRequested(const QPoint &pos)
+void CommitPushDialog::slotListWidgetCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
     if (listWidget->currentRow() == -1)

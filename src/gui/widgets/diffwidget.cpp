@@ -44,6 +44,7 @@ void DiffWidget::init()
     connect(rightCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::newCodeEditor_blockSelected);
     connect(leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::oldCodeEditor_scroll);
     connect(rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::newCodeEditor_scroll);
+    connect(splitter, &QSplitter::splitterMoved, this, &DiffWidget::slotSplitterSplitterMoved);
 
     recalculateInfoPaneSize();
 
@@ -154,7 +155,7 @@ void DiffWidget::showSameSize(bool show)
     compare();
 }
 
-void DiffWidget::on_splitter_splitterMoved(int, int)
+void DiffWidget::slotSplitterSplitterMoved(int, int)
 {
     recalculateInfoPaneSize();
 }

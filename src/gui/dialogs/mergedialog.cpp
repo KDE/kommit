@@ -22,6 +22,8 @@ void MergeDialog::init(Git::Manager *git)
 
     initComboBox<Git::CommandMerge::Strategy>(comboBoxStrategy);
     initComboBox<Git::CommandMerge::DiffAlgorithm>(comboBoxDiffAlgoritm);
+
+    connect(comboBoxStrategy, &QComboBox::currentIndexChanged, this, &MergeDialog::slotComboBoxStrategyCurrentIndexChanged);
 }
 
 MergeDialog::MergeDialog(Git::Manager *git, QWidget *parent)
@@ -80,7 +82,7 @@ Git::CommandMerge *MergeDialog::command() const
     return cmd;
 }
 
-void MergeDialog::on_comboBoxStrategy_currentIndexChanged(int index)
+void MergeDialog::slotComboBoxStrategyCurrentIndexChanged(int index)
 {
     Q_UNUSED(index)
 
