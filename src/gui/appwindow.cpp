@@ -196,6 +196,9 @@ void AppWindow::initRecentFiles(const QString &newItem)
         s.setValue(QStringLiteral("last_repo"), newItem);
         s.sync();
     }
+
+    mRecentAction->setVisible(!recentList.isEmpty());
+
     for (const auto &item : std::as_const(recentList)) {
         auto action = mRecentAction->menu()->addAction(item);
         action->setData(item);
