@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:49+0000\n"
-"PO-Revision-Date: 2022-10-21 08:00+0200\n"
+"POT-Creation-Date: 2022-10-23 00:46+0000\n"
+"PO-Revision-Date: 2022-10-22 08:17+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -130,7 +130,7 @@ msgid "Branch name"
 msgstr "Ime veje"
 
 #: src/gui/actions/branchactions.cpp:127
-#: src/gui/widgets/branchesstatuswidget.cpp:70
+#: src/gui/widgets/branchesstatuswidget.cpp:68
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Ali ste prepričani, da želite odstraniti izbrano vejo?"
@@ -272,28 +272,24 @@ msgid "Apply stash %1"
 msgstr "Uveljavi zalogo %1"
 
 #: src/gui/actions/stashactions.cpp:56
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Are you sure to drop the selected stash?"
-msgstr "Ali ste prepričani, da želite uveljaviti izbrano zalogo?"
+msgstr "Ali ste prepričani, da želite spustiti izbrano zalogo?"
 
 #: src/gui/actions/stashactions.cpp:56
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Drop stash %1"
-msgstr "Uveljavi zalogo %1"
+msgstr "Spusti zalogo %1"
 
 #: src/gui/actions/stashactions.cpp:64
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Are you sure to pop the selected stash?"
-msgstr "Ali ste prepričani, da želite uveljaviti izbrano zalogo?"
+msgstr "Ali ste prepričani, da pobrati izbrano zalogo?"
 
 #: src/gui/actions/stashactions.cpp:64
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Pop stash %1"
-msgstr "Uveljavi zalogo %1"
+msgstr "Poberi zalogo %1"
 
 #: src/gui/actions/stashactions.cpp:79
 #, kde-format
@@ -390,10 +386,9 @@ msgid "Checkout"
 msgstr "Prevzemi"
 
 #: src/gui/actions/tagsactions.cpp:65
-#, fuzzy, kde-format
-#| msgid "Are you sure to restore to the selected tag?"
+#, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr "Ali ste prepričani za obnovo izbrane oznake?"
+msgstr "Ali ste prepričani, da bi prevzeli izbrano oznako?"
 
 #: src/gui/appwindow.cpp:72
 #, kde-format
@@ -460,27 +455,27 @@ msgstr "Preklopi/prevzemi ..."
 msgid "Diff tree"
 msgstr "Drevo razlik"
 
-#: src/gui/appwindow.cpp:225 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:228 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ni mogoče ustvariti poti: %1"
 
-#: src/gui/appwindow.cpp:225 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:228 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializiraj skladišče"
 
-#: src/gui/appwindow.cpp:235
+#: src/gui/appwindow.cpp:238
 #, kde-format
 msgid "Open repository"
 msgstr "Odpri skladišče"
 
-#: src/gui/appwindow.cpp:328 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:331 src/gui/commandargsparser.cpp:464
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Med spajanjem ni mogoče preklopiti veje"
 
-#: src/gui/appwindow.cpp:328 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:331 src/gui/commandargsparser.cpp:464
 #, kde-format
 msgid "Switch branch"
 msgstr "Preklopi vejo"
@@ -628,7 +623,7 @@ msgstr "Globina"
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxBranch)
 #: src/gui/dialogs/clonedialog.ui:91 src/gui/dialogs/commitpushdialog.ui:34
 #: src/gui/dialogs/fetchdialog.ui:75 src/gui/dialogs/pulldialog.ui:36
-#: src/gui/dialogs/searchdialog.cpp:33
+#: src/gui/dialogs/searchdialog.cpp:36
 #: src/gui/dialogs/submoduleinfodialog.ui:70
 #, kde-format
 msgid "Branch"
@@ -643,14 +638,14 @@ msgstr "Izvorno ime"
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #: src/gui/dialogs/commitpushdialog.cpp:73
-#: src/gui/dialogs/commitpushdialog.cpp:224
+#: src/gui/dialogs/commitpushdialog.cpp:234
 #: src/gui/dialogs/commitpushdialog.ui:269 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
 msgstr "Porini"
 
 #: src/gui/dialogs/commitpushdialog.cpp:75
-#: src/gui/dialogs/commitpushdialog.cpp:224
+#: src/gui/dialogs/commitpushdialog.cpp:234
 #, kde-format
 msgid "Commit and push"
 msgstr "Objavi in potisni"
@@ -807,27 +802,27 @@ msgid "None"
 msgstr "Nič"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#: src/gui/dialogs/commitpushdialog.ui:259 src/gui/dialogs/searchdialog.cpp:34
+#: src/gui/dialogs/commitpushdialog.ui:259 src/gui/dialogs/searchdialog.cpp:37
 #, kde-format
 msgid "Commit"
 msgstr "Potrdi"
 
-#: src/gui/dialogs/diffopendialog.cpp:78
+#: src/gui/dialogs/diffopendialog.cpp:83
 #, kde-format
 msgid "Select new file"
 msgstr "Izberi novo datoteko"
 
-#: src/gui/dialogs/diffopendialog.cpp:85
+#: src/gui/dialogs/diffopendialog.cpp:90
 #, kde-format
 msgid "Select old file"
 msgstr "Izberi staro datoteko"
 
-#: src/gui/dialogs/diffopendialog.cpp:92
+#: src/gui/dialogs/diffopendialog.cpp:97
 #, kde-format
 msgid "Select new directory"
 msgstr "Izberi novi imenik"
 
-#: src/gui/dialogs/diffopendialog.cpp:99
+#: src/gui/dialogs/diffopendialog.cpp:104
 #, kde-format
 msgid "Select old directory"
 msgstr "Izberi stari imenik"
@@ -964,13 +959,13 @@ msgid "Prune"
 msgstr "Klešči"
 
 #: src/gui/dialogs/fileblamedialog.cpp:24
-#: src/gui/dialogs/fileblamedialog.cpp:39
+#: src/gui/dialogs/fileblamedialog.cpp:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
 msgstr "Datoteka odgovornosti (blame): %1"
 
-#: src/gui/dialogs/filehistorydialog.cpp:41
+#: src/gui/dialogs/filehistorydialog.cpp:44
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
@@ -1407,20 +1402,20 @@ msgstr ""
 msgid "Turn off rename detection"
 msgstr "Izklopi zaznavanje preimenovanj"
 
-#: src/gui/dialogs/mergeopenfilesdialog.cpp:52
-#: src/gui/merge/openfilesdialog.cpp:49
+#: src/gui/dialogs/mergeopenfilesdialog.cpp:56
+#: src/gui/merge/openfilesdialog.cpp:53
 #, kde-format
 msgid "Select local file"
 msgstr "Izberite krajevno datoteko"
 
-#: src/gui/dialogs/mergeopenfilesdialog.cpp:59
-#: src/gui/merge/openfilesdialog.cpp:56
+#: src/gui/dialogs/mergeopenfilesdialog.cpp:63
+#: src/gui/merge/openfilesdialog.cpp:60
 #, kde-format
 msgid "Select remote file"
 msgstr "Izberite oddaljeno datoteko"
 
-#: src/gui/dialogs/mergeopenfilesdialog.cpp:66
-#: src/gui/merge/openfilesdialog.cpp:63
+#: src/gui/dialogs/mergeopenfilesdialog.cpp:70
+#: src/gui/merge/openfilesdialog.cpp:67
 #, kde-format
 msgid "Select base file"
 msgstr "Izberite osnovno datoteko"
@@ -1526,7 +1521,7 @@ msgstr "Izhod"
 msgid "Stop"
 msgstr "Ustavi"
 
-#: src/gui/dialogs/searchdialog.cpp:32
+#: src/gui/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "File name"
 msgstr "Ime datoteke"
@@ -1611,16 +1606,6 @@ msgstr "GLAVA/HEAD"
 #, kde-format
 msgid "Right"
 msgstr "Desno"
-
-#: src/gui/dialogs/submoduleinfodialog.cpp:87
-#, kde-format
-msgid "Local path"
-msgstr "Lokalna pot"
-
-#: src/gui/dialogs/submoduleinfodialog.cpp:92
-#, kde-format
-msgid "The selected path is outside of working dir"
-msgstr "Izbrana pot je zunaj delovne mape"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
@@ -1719,7 +1704,7 @@ msgstr "Skladišče"
 msgid "Diff with master..."
 msgstr "Razlika z glavnim ..."
 
-#: src/gui/mainwidget.cpp:159
+#: src/gui/mainwidget.cpp:165
 #, kde-format
 msgid "New tag"
 msgstr "Nova oznaka"
@@ -1783,62 +1768,62 @@ msgstr "Oddaljeni"
 msgid "Add"
 msgstr "Dodaj"
 
-#: src/gui/mergewindow.cpp:259
+#: src/gui/mergewindow.cpp:262
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Spori: %1"
 
-#: src/gui/mergewindow.cpp:270
+#: src/gui/mergewindow.cpp:273
 #, kde-format
 msgid "Keep mine"
 msgstr "Obdrži moje"
 
-#: src/gui/mergewindow.cpp:275
+#: src/gui/mergewindow.cpp:278
 #, kde-format
 msgid "Keep their"
 msgstr "Obdrži njihovo"
 
-#: src/gui/mergewindow.cpp:282
+#: src/gui/mergewindow.cpp:285
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Obdrži moje pred njihovim"
 
-#: src/gui/mergewindow.cpp:288
+#: src/gui/mergewindow.cpp:291
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Obdrži njihovo pred mojim"
 
-#: src/gui/mergewindow.cpp:293
+#: src/gui/mergewindow.cpp:296
 #, kde-format
 msgid "Keep my file"
 msgstr "Obdrži mojo datoteko"
 
-#: src/gui/mergewindow.cpp:298
+#: src/gui/mergewindow.cpp:301
 #, kde-format
 msgid "Keep their file"
 msgstr "Obdrži njihovo datoteko"
 
-#: src/gui/mergewindow.cpp:303
+#: src/gui/mergewindow.cpp:306
 #, kde-format
 msgid "Blocks"
 msgstr "Bloki"
 
-#: src/gui/mergewindow.cpp:307
+#: src/gui/mergewindow.cpp:310
 #, kde-format
 msgid "Files"
 msgstr "Datoteke"
 
-#: src/gui/mergewindow.cpp:316
+#: src/gui/mergewindow.cpp:319
 #, kde-format
 msgid "Previous diff"
 msgstr "Prejšnja razlika"
 
-#: src/gui/mergewindow.cpp:321
+#: src/gui/mergewindow.cpp:324
 #, kde-format
 msgid "Next diff"
 msgstr "Naslednja razlika"
 
-#: src/gui/mergewindow.cpp:402
+#: src/gui/mergewindow.cpp:405
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Datoteke ni mogoče odpreti"
@@ -2262,6 +2247,12 @@ msgstr "Čas"
 #, kde-format
 msgid "Head"
 msgstr "Glava (head)"
+
+#~ msgid "Local path"
+#~ msgstr "Lokalna pot"
+
+#~ msgid "The selected path is outside of working dir"
+#~ msgstr "Izbrana pot je zunaj delovne mape"
 
 #~ msgid "Leave"
 #~ msgstr "Pusti"

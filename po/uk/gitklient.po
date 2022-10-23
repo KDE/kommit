@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:49+0000\n"
+"POT-Creation-Date: 2022-10-23 00:46+0000\n"
 "PO-Revision-Date: 2022-10-21 09:46+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -127,7 +127,7 @@ msgid "Branch name"
 msgstr "Назва гілки"
 
 #: src/gui/actions/branchactions.cpp:127
-#: src/gui/widgets/branchesstatuswidget.cpp:70
+#: src/gui/widgets/branchesstatuswidget.cpp:68
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Ви справді хочете вилучити позначену гілку?"
@@ -452,27 +452,27 @@ msgstr "Перемкнутися/Отримати…"
 msgid "Diff tree"
 msgstr "Ієрархія різниці"
 
-#: src/gui/appwindow.cpp:225 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:228 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Не вдалося створити шлях: %1"
 
-#: src/gui/appwindow.cpp:225 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:228 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Init repo"
 msgstr "Ініціалізувати сховище"
 
-#: src/gui/appwindow.cpp:235
+#: src/gui/appwindow.cpp:238
 #, kde-format
 msgid "Open repository"
 msgstr "Відкрити сховище"
 
-#: src/gui/appwindow.cpp:328 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:331 src/gui/commandargsparser.cpp:464
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Неможливо перемикатися на гілку у процесі об'єднання"
 
-#: src/gui/appwindow.cpp:328 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:331 src/gui/commandargsparser.cpp:464
 #, kde-format
 msgid "Switch branch"
 msgstr "Перемкнути гілку"
@@ -620,7 +620,7 @@ msgstr "Глибина"
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxBranch)
 #: src/gui/dialogs/clonedialog.ui:91 src/gui/dialogs/commitpushdialog.ui:34
 #: src/gui/dialogs/fetchdialog.ui:75 src/gui/dialogs/pulldialog.ui:36
-#: src/gui/dialogs/searchdialog.cpp:33
+#: src/gui/dialogs/searchdialog.cpp:36
 #: src/gui/dialogs/submoduleinfodialog.ui:70
 #, kde-format
 msgid "Branch"
@@ -635,14 +635,14 @@ msgstr "Назва походження"
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #: src/gui/dialogs/commitpushdialog.cpp:73
-#: src/gui/dialogs/commitpushdialog.cpp:224
+#: src/gui/dialogs/commitpushdialog.cpp:234
 #: src/gui/dialogs/commitpushdialog.ui:269 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
 msgstr "Надіслати"
 
 #: src/gui/dialogs/commitpushdialog.cpp:75
-#: src/gui/dialogs/commitpushdialog.cpp:224
+#: src/gui/dialogs/commitpushdialog.cpp:234
 #, kde-format
 msgid "Commit and push"
 msgstr "Внести і записати"
@@ -801,27 +801,27 @@ msgid "None"
 msgstr "Немає"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#: src/gui/dialogs/commitpushdialog.ui:259 src/gui/dialogs/searchdialog.cpp:34
+#: src/gui/dialogs/commitpushdialog.ui:259 src/gui/dialogs/searchdialog.cpp:37
 #, kde-format
 msgid "Commit"
 msgstr "Внести"
 
-#: src/gui/dialogs/diffopendialog.cpp:78
+#: src/gui/dialogs/diffopendialog.cpp:83
 #, kde-format
 msgid "Select new file"
 msgstr "Виберіть новий файл"
 
-#: src/gui/dialogs/diffopendialog.cpp:85
+#: src/gui/dialogs/diffopendialog.cpp:90
 #, kde-format
 msgid "Select old file"
 msgstr "Виберіть старий файл"
 
-#: src/gui/dialogs/diffopendialog.cpp:92
+#: src/gui/dialogs/diffopendialog.cpp:97
 #, kde-format
 msgid "Select new directory"
 msgstr "Виберіть новий каталог"
 
-#: src/gui/dialogs/diffopendialog.cpp:99
+#: src/gui/dialogs/diffopendialog.cpp:104
 #, kde-format
 msgid "Select old directory"
 msgstr "Виберіть старий каталог"
@@ -958,13 +958,13 @@ msgid "Prune"
 msgstr "Спростити"
 
 #: src/gui/dialogs/fileblamedialog.cpp:24
-#: src/gui/dialogs/fileblamedialog.cpp:39
+#: src/gui/dialogs/fileblamedialog.cpp:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
 msgstr "Авторство файла: %1"
 
-#: src/gui/dialogs/filehistorydialog.cpp:41
+#: src/gui/dialogs/filehistorydialog.cpp:44
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
@@ -1401,20 +1401,20 @@ msgstr ""
 msgid "Turn off rename detection"
 msgstr "Вимкнути виявлення перейменувань"
 
-#: src/gui/dialogs/mergeopenfilesdialog.cpp:52
-#: src/gui/merge/openfilesdialog.cpp:49
+#: src/gui/dialogs/mergeopenfilesdialog.cpp:56
+#: src/gui/merge/openfilesdialog.cpp:53
 #, kde-format
 msgid "Select local file"
 msgstr "Виберіть локальний файл"
 
-#: src/gui/dialogs/mergeopenfilesdialog.cpp:59
-#: src/gui/merge/openfilesdialog.cpp:56
+#: src/gui/dialogs/mergeopenfilesdialog.cpp:63
+#: src/gui/merge/openfilesdialog.cpp:60
 #, kde-format
 msgid "Select remote file"
 msgstr "Виберіть віддалений файл"
 
-#: src/gui/dialogs/mergeopenfilesdialog.cpp:66
-#: src/gui/merge/openfilesdialog.cpp:63
+#: src/gui/dialogs/mergeopenfilesdialog.cpp:70
+#: src/gui/merge/openfilesdialog.cpp:67
 #, kde-format
 msgid "Select base file"
 msgstr "Виберіть базовий файл"
@@ -1520,7 +1520,7 @@ msgstr "Виведення"
 msgid "Stop"
 msgstr "Зупинити"
 
-#: src/gui/dialogs/searchdialog.cpp:32
+#: src/gui/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "File name"
 msgstr "Назва файла"
@@ -1605,16 +1605,6 @@ msgstr "HEAD"
 #, kde-format
 msgid "Right"
 msgstr "Праворуч"
-
-#: src/gui/dialogs/submoduleinfodialog.cpp:87
-#, kde-format
-msgid "Local path"
-msgstr "Локальний шлях"
-
-#: src/gui/dialogs/submoduleinfodialog.cpp:92
-#, kde-format
-msgid "The selected path is outside of working dir"
-msgstr "Вибраний шлях розташовано поза робочим каталогом"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
@@ -1713,7 +1703,7 @@ msgstr "Схов."
 msgid "Diff with master..."
 msgstr "Різниця з master…"
 
-#: src/gui/mainwidget.cpp:159
+#: src/gui/mainwidget.cpp:165
 #, kde-format
 msgid "New tag"
 msgstr "Нова мітка"
@@ -1777,62 +1767,62 @@ msgstr "Віддалені"
 msgid "Add"
 msgstr "Додати"
 
-#: src/gui/mergewindow.cpp:259
+#: src/gui/mergewindow.cpp:262
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Конфлікти: %1"
 
-#: src/gui/mergewindow.cpp:270
+#: src/gui/mergewindow.cpp:273
 #, kde-format
 msgid "Keep mine"
 msgstr "Зберегти ваш"
 
-#: src/gui/mergewindow.cpp:275
+#: src/gui/mergewindow.cpp:278
 #, kde-format
 msgid "Keep their"
 msgstr "Зберегти зовнішній"
 
-#: src/gui/mergewindow.cpp:282
+#: src/gui/mergewindow.cpp:285
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Зберегти ваш до зовнішнього"
 
-#: src/gui/mergewindow.cpp:288
+#: src/gui/mergewindow.cpp:291
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Зберегти зовнішній до вашого"
 
-#: src/gui/mergewindow.cpp:293
+#: src/gui/mergewindow.cpp:296
 #, kde-format
 msgid "Keep my file"
 msgstr "Зберегти ваш файл"
 
-#: src/gui/mergewindow.cpp:298
+#: src/gui/mergewindow.cpp:301
 #, kde-format
 msgid "Keep their file"
 msgstr "Зберегти зовнішній файл"
 
-#: src/gui/mergewindow.cpp:303
+#: src/gui/mergewindow.cpp:306
 #, kde-format
 msgid "Blocks"
 msgstr "Блоки"
 
-#: src/gui/mergewindow.cpp:307
+#: src/gui/mergewindow.cpp:310
 #, kde-format
 msgid "Files"
 msgstr "Файли"
 
-#: src/gui/mergewindow.cpp:316
+#: src/gui/mergewindow.cpp:319
 #, kde-format
 msgid "Previous diff"
 msgstr "Попередня відмінність"
 
-#: src/gui/mergewindow.cpp:321
+#: src/gui/mergewindow.cpp:324
 #, kde-format
 msgid "Next diff"
 msgstr "Наступна відмінність"
 
-#: src/gui/mergewindow.cpp:402
+#: src/gui/mergewindow.cpp:405
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Не вдалося відкрити файл"
@@ -2258,6 +2248,12 @@ msgstr "Час"
 #, kde-format
 msgid "Head"
 msgstr "Голова"
+
+#~ msgid "Local path"
+#~ msgstr "Локальний шлях"
+
+#~ msgid "The selected path is outside of working dir"
+#~ msgstr "Вибраний шлях розташовано поза робочим каталогом"
 
 #~ msgid "Leave"
 #~ msgstr "Залишити"

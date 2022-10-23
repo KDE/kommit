@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:49+0000\n"
+"POT-Creation-Date: 2022-10-23 00:46+0000\n"
 "PO-Revision-Date: 2022-10-17 10:39+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -126,7 +126,7 @@ msgid "Branch name"
 msgstr ""
 
 #: src/gui/actions/branchactions.cpp:127
-#: src/gui/widgets/branchesstatuswidget.cpp:70
+#: src/gui/widgets/branchesstatuswidget.cpp:68
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr ""
@@ -451,27 +451,27 @@ msgstr ""
 msgid "Diff tree"
 msgstr ""
 
-#: src/gui/appwindow.cpp:225 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:228 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:225 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:228 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Init repo"
 msgstr ""
 
-#: src/gui/appwindow.cpp:235
+#: src/gui/appwindow.cpp:238
 #, kde-format
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:328 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:331 src/gui/commandargsparser.cpp:464
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:328 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:331 src/gui/commandargsparser.cpp:464
 #, kde-format
 msgid "Switch branch"
 msgstr ""
@@ -619,7 +619,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxBranch)
 #: src/gui/dialogs/clonedialog.ui:91 src/gui/dialogs/commitpushdialog.ui:34
 #: src/gui/dialogs/fetchdialog.ui:75 src/gui/dialogs/pulldialog.ui:36
-#: src/gui/dialogs/searchdialog.cpp:33
+#: src/gui/dialogs/searchdialog.cpp:36
 #: src/gui/dialogs/submoduleinfodialog.ui:70
 #, kde-format
 msgid "Branch"
@@ -634,14 +634,14 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #: src/gui/dialogs/commitpushdialog.cpp:73
-#: src/gui/dialogs/commitpushdialog.cpp:224
+#: src/gui/dialogs/commitpushdialog.cpp:234
 #: src/gui/dialogs/commitpushdialog.ui:269 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
 msgstr ""
 
 #: src/gui/dialogs/commitpushdialog.cpp:75
-#: src/gui/dialogs/commitpushdialog.cpp:224
+#: src/gui/dialogs/commitpushdialog.cpp:234
 #, kde-format
 msgid "Commit and push"
 msgstr ""
@@ -776,27 +776,27 @@ msgid "None"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#: src/gui/dialogs/commitpushdialog.ui:259 src/gui/dialogs/searchdialog.cpp:34
+#: src/gui/dialogs/commitpushdialog.ui:259 src/gui/dialogs/searchdialog.cpp:37
 #, kde-format
 msgid "Commit"
 msgstr ""
 
-#: src/gui/dialogs/diffopendialog.cpp:78
+#: src/gui/dialogs/diffopendialog.cpp:83
 #, kde-format
 msgid "Select new file"
 msgstr ""
 
-#: src/gui/dialogs/diffopendialog.cpp:85
+#: src/gui/dialogs/diffopendialog.cpp:90
 #, kde-format
 msgid "Select old file"
 msgstr ""
 
-#: src/gui/dialogs/diffopendialog.cpp:92
+#: src/gui/dialogs/diffopendialog.cpp:97
 #, kde-format
 msgid "Select new directory"
 msgstr ""
 
-#: src/gui/dialogs/diffopendialog.cpp:99
+#: src/gui/dialogs/diffopendialog.cpp:104
 #, kde-format
 msgid "Select old directory"
 msgstr ""
@@ -933,13 +933,13 @@ msgid "Prune"
 msgstr ""
 
 #: src/gui/dialogs/fileblamedialog.cpp:24
-#: src/gui/dialogs/fileblamedialog.cpp:39
+#: src/gui/dialogs/fileblamedialog.cpp:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
 msgstr ""
 
-#: src/gui/dialogs/filehistorydialog.cpp:41
+#: src/gui/dialogs/filehistorydialog.cpp:44
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
@@ -1326,20 +1326,20 @@ msgstr ""
 msgid "Turn off rename detection"
 msgstr ""
 
-#: src/gui/dialogs/mergeopenfilesdialog.cpp:52
-#: src/gui/merge/openfilesdialog.cpp:49
+#: src/gui/dialogs/mergeopenfilesdialog.cpp:56
+#: src/gui/merge/openfilesdialog.cpp:53
 #, kde-format
 msgid "Select local file"
 msgstr ""
 
-#: src/gui/dialogs/mergeopenfilesdialog.cpp:59
-#: src/gui/merge/openfilesdialog.cpp:56
+#: src/gui/dialogs/mergeopenfilesdialog.cpp:63
+#: src/gui/merge/openfilesdialog.cpp:60
 #, kde-format
 msgid "Select remote file"
 msgstr ""
 
-#: src/gui/dialogs/mergeopenfilesdialog.cpp:66
-#: src/gui/merge/openfilesdialog.cpp:63
+#: src/gui/dialogs/mergeopenfilesdialog.cpp:70
+#: src/gui/merge/openfilesdialog.cpp:67
 #, kde-format
 msgid "Select base file"
 msgstr ""
@@ -1445,7 +1445,7 @@ msgstr ""
 msgid "Stop"
 msgstr ""
 
-#: src/gui/dialogs/searchdialog.cpp:32
+#: src/gui/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "File name"
 msgstr ""
@@ -1529,16 +1529,6 @@ msgstr ""
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:55
 #, kde-format
 msgid "Right"
-msgstr ""
-
-#: src/gui/dialogs/submoduleinfodialog.cpp:87
-#, kde-format
-msgid "Local path"
-msgstr ""
-
-#: src/gui/dialogs/submoduleinfodialog.cpp:92
-#, kde-format
-msgid "The selected path is outside of working dir"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
@@ -1638,7 +1628,7 @@ msgstr ""
 msgid "Diff with master..."
 msgstr ""
 
-#: src/gui/mainwidget.cpp:159
+#: src/gui/mainwidget.cpp:165
 #, kde-format
 msgid "New tag"
 msgstr ""
@@ -1702,62 +1692,62 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:259
+#: src/gui/mergewindow.cpp:262
 #, kde-format
 msgid "Conflicts: %1"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:270
+#: src/gui/mergewindow.cpp:273
 #, kde-format
 msgid "Keep mine"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:275
+#: src/gui/mergewindow.cpp:278
 #, kde-format
 msgid "Keep their"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:282
+#: src/gui/mergewindow.cpp:285
 #, kde-format
 msgid "Keep mine before their"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:288
+#: src/gui/mergewindow.cpp:291
 #, kde-format
 msgid "Keep their before mine"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:293
+#: src/gui/mergewindow.cpp:296
 #, kde-format
 msgid "Keep my file"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:298
+#: src/gui/mergewindow.cpp:301
 #, kde-format
 msgid "Keep their file"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:303
+#: src/gui/mergewindow.cpp:306
 #, kde-format
 msgid "Blocks"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:307
+#: src/gui/mergewindow.cpp:310
 #, kde-format
 msgid "Files"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:316
+#: src/gui/mergewindow.cpp:319
 #, kde-format
 msgid "Previous diff"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:321
+#: src/gui/mergewindow.cpp:324
 #, kde-format
 msgid "Next diff"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:402
+#: src/gui/mergewindow.cpp:405
 #, kde-format
 msgid "Unable to open the file"
 msgstr ""
