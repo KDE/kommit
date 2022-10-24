@@ -50,6 +50,9 @@
      <property name="contextMenuPolicy">
       <enum>Qt::CustomContextMenu</enum>
      </property>
+     <property name="rootIsDecorated">
+      <bool>false</bool>
+     </property>
     </widget>
    </item>
    <item>
