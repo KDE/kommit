@@ -82,14 +82,14 @@ Tag *TagsModel::fromIndex(const QModelIndex &index) const
 
 void TagsModel::fill()
 {
-    //TODO: remove < and > from email address
-    //TODO: ass objecttype
+    // TODO: remove < and > from email address
+    // TODO: ass objecttype
     qDeleteAll(mData);
     mData.clear();
 
     const auto tagsNames = mGit->readAllNonEmptyOutput({QStringLiteral("--no-pager"), QStringLiteral("tag"), QStringLiteral("--list")});
 
-    for (const auto &tagName: tagsNames) {
+    for (const auto &tagName : tagsNames) {
         auto tag = new Tag;
         mData.append(tag);
         tag->setName(tagName);
@@ -103,7 +103,7 @@ void TagsModel::fill()
                                tagName,
                                QStringLiteral("--format=%(taggername)\r%(taggeremail)\r%(committername)\r%(committeremail)\r%(tag)")});
 
-        auto parts=l.split('\r');
+        auto parts = l.split('\r');
 
         qDebug() << tagName << parts;
         if (parts.size() < 4)

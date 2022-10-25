@@ -70,5 +70,4 @@ void Tag::setCommiterEmail(const QString &newCommiterEmail)
 {
     mCommiterEmail = newCommiterEmail;
 }
-
 }
