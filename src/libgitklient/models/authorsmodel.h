@@ -27,6 +27,13 @@ class AuthorsModel : public AbstractGitItemsModel
     Q_OBJECT
 
 public:
+    enum AuthorsModelsRoles {
+        Name,
+        Email,
+        Commits,
+        LastColumn = Commits,
+    };
+    Q_ENUM(AuthorsModelsRoles)
     explicit AuthorsModel(Manager *git, QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &parent) const override;
@@ -36,12 +43,12 @@ public:
 
     Author *findOrCreate(const QString &name, const QString &email);
 
+protected:
+    void fill() override;
+
 private:
     QList<Author *> mData;
     QMutex mDataMutex;
-
-protected:
-    void fill() override;
 };
 
 } // namespace Git

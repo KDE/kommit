@@ -390,9 +390,9 @@ void Manager::saveNote(const QString &branchName, const QString &note) const
 Manager::Manager()
     : QObject()
     , _remotesModel{new RemotesModel(this)}
+    , _authorsModel{new AuthorsModel(this)}
     , _submodulesModel{new SubmodulesModel(this)}
     , _branchesModel{new BranchesModel(this)}
-    , _authorsModel{new AuthorsModel(this)}
     , _logsCache{new LogsModel(this, _authorsModel)}
     , _stashesCache{new StashesModel(this)}
     , _tagsModel{new TagsModel(this)}
@@ -402,9 +402,9 @@ Manager::Manager()
 Manager::Manager(const QString &path)
     : QObject()
     , _remotesModel{new RemotesModel(this)}
+    , _authorsModel{new AuthorsModel(this)}
     , _submodulesModel{new SubmodulesModel(this)}
     , _branchesModel{new BranchesModel(this)}
-    , _authorsModel{new AuthorsModel(this)}
     , _logsCache{new LogsModel(this, _authorsModel)}
     , _stashesCache{new StashesModel(this)}
     , _tagsModel{new TagsModel(this)}

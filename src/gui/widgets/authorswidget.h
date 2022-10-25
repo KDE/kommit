@@ -1,10 +1,15 @@
-#ifndef AUTHORSWIDGET_H
-#define AUTHORSWIDGET_H
+/*
+SPDX-FileCopyrightText: 2022 Hamed Masafi <hamed.masfi@gmail.com>
 
+SPDX-License-Identifier: GPL-3.0-or-later
+*/
+#pragma once
+
+#include "libgitklientgui_private_export.h"
 #include "ui_authorswidget.h"
 #include "widgetbase.h"
 
-class AuthorsWidget : public WidgetBase, private Ui::AuthorsWidget
+class LIBGITKLIENTGUI_TESTS_EXPORT AuthorsWidget : public WidgetBase, private Ui::AuthorsWidget
 {
     Q_OBJECT
 
@@ -14,5 +19,3 @@ public:
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
 };
-
-#endif // AUTHORSWIDGET_H
