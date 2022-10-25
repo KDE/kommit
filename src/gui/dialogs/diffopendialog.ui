@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>409</width>
-    <height>267</height>
+    <width>443</width>
+    <height>290</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Select files/folders</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="gitklient"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
