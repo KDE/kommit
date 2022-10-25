@@ -41,4 +41,34 @@ void Tag::setTaggerEmail(const QString &newTaggerEmail)
     mTaggerEmail = newTaggerEmail;
 }
 
+const QString &Tag::taggerName() const
+{
+    return mTaggerName;
+}
+
+void Tag::setTaggerName(const QString &newTaggerName)
+{
+    mTaggerName = newTaggerName;
+}
+
+const QString &Tag::commiterName() const
+{
+    return mCommiterName;
+}
+
+void Tag::setCommiterName(const QString &newCommiterName)
+{
+    mCommiterName = newCommiterName;
+}
+
+const QString &Tag::commiterEmail() const
+{
+    return mCommiterEmail;
+}
+
+void Tag::setCommiterEmail(const QString &newCommiterEmail)
+{
+    mCommiterEmail = newCommiterEmail;
+}
+
 }

@@ -25,10 +25,23 @@ public:
     Q_REQUIRED_RESULT const QString &taggerEmail() const;
     void setTaggerEmail(const QString &newTaggerEmail);
 
+    Q_REQUIRED_RESULT const QString &taggerName() const;
+    void setTaggerName(const QString &newTaggerName);
+
+    Q_REQUIRED_RESULT const QString &commiterName() const;
+    void setCommiterName(const QString &newCommiterName);
+
+    Q_REQUIRED_RESULT const QString &commiterEmail() const;
+    void setCommiterEmail(const QString &newCommiterEmail);
+
 private:
     QString mName;
     QString mMessage;
+
+    QString mTaggerName;
     QString mTaggerEmail;
+    QString mCommiterName;
+    QString mCommiterEmail;
 };
 
 } // namespace Git
