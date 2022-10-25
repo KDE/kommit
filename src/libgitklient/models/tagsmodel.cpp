@@ -94,7 +94,6 @@ void TagsModel::fill()
         mData.append(tag);
         tag->setName(tagName);
         auto message = mGit->readAllNonEmptyOutput({QStringLiteral("tag"), QStringLiteral("-n99"), tagName, QStringLiteral("--format=%(subject)")}).join('\n');
-        qDebug() << "message for" << tagName << "is" << message;
         tag->setMessage(message);
 
         auto l = mGit->runGit({QStringLiteral("--no-pager"),
@@ -105,7 +104,6 @@ void TagsModel::fill()
 
         auto parts = l.split('\r');
 
-        qDebug() << tagName << parts;
         if (parts.size() < 4)
             continue;
         tag->setTaggerName(parts.at(0).trimmed());
