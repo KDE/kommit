@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-23 00:46+0000\n"
+"POT-Creation-Date: 2022-10-25 00:49+0000\n"
 "PO-Revision-Date: 2022-10-09 13:41+0200\n"
 "Last-Translator: Thomas Vergnaud <thomas.vergnaud@mailo.eu>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -96,7 +96,7 @@ msgstr "Fusionner…"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
 #: src/gui/actions/branchactions.cpp:36 src/gui/gitklientmergeui.rc:15
 #: src/gui/settings/settingsmanager.cpp:91
-#: src/gui/widgets/branchesstatuswidget.ui:120
+#: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
 msgstr "Différences "
@@ -378,7 +378,7 @@ msgstr "Supprimer une étiquette"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/actions/tagsactions.cpp:65
-#: src/gui/widgets/branchesstatuswidget.ui:90
+#: src/gui/widgets/branchesstatuswidget.ui:93
 #, kde-format
 msgid "Checkout"
 msgstr "Récupérer"
@@ -1958,21 +1958,21 @@ msgid "Reference branch:"
 msgstr "Branche de référence :"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonNew)
-#: src/gui/widgets/branchesstatuswidget.ui:76
+#: src/gui/widgets/branchesstatuswidget.ui:79
 #, kde-format
 msgid "New"
 msgstr "Nouveau"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: src/gui/widgets/branchesstatuswidget.ui:100
+#: src/gui/widgets/branchesstatuswidget.ui:103
 #: src/gui/widgets/remoteswidget.ui:66
 #, kde-format
 msgid "Remove"
 msgstr "Retirer"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
-#: src/gui/widgets/branchesstatuswidget.ui:110
+#: src/gui/widgets/branchesstatuswidget.ui:113
 #, kde-format
 msgid "Browse"
 msgstr "Parcourir"
