@@ -203,8 +203,9 @@ void AppWindow::initRecentFiles(const QString &newItem)
 
     mRecentAction->setVisible(!recentList.isEmpty());
 
+    int index{1};
     for (const auto &item : std::as_const(recentList)) {
-        auto action = mRecentAction->menu()->addAction(item);
+        auto action = mRecentAction->menu()->addAction(QStringLiteral("%1    %2").arg(index++).arg(item));
         action->setData(item);
         connect(action, &QAction::triggered, this, &AppWindow::recentActionTriggered);
     }
