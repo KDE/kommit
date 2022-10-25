@@ -78,6 +78,8 @@ target_sources(libgitklientgui PRIVATE
     widgets/widgetbase.h
     widgets/segmentsscrollbar.h
     widgets/segmentsscrollbar.cpp
+    widgets/authorswidget.h
+    widgets/authorswidget.cpp
     models/difftreemodel.cpp
     models/difftreemodel.h
     models/filesmodel.cpp
@@ -202,8 +204,9 @@ ki18n_wrap_ui(
     widgets/tagswidget.ui
     widgets/difftreeview.ui
     widgets/diffwidget.ui
-    dialogs/ignorefiledialog.ui
+    widgets/authorswidget.ui
 
+    dialogs/ignorefiledialog.ui
     dialogs/mergeopenfilesdialog.ui
     dialogs/mergecloseeventdialog.ui
     dialogs/changedfilesdialog.ui

@@ -5,8 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "logsmodel.h"
+#include "authorsmodel.h"
 #include "gitlog.h"
 #include "gitmanager.h"
+
 #include <KLocalizedString>
 
 namespace Git
@@ -204,8 +206,9 @@ struct LanesFactory {
 
 } // namespace Impl
 
-LogsModel::LogsModel(Manager *git, QObject *parent)
+LogsModel::LogsModel(Manager *git, AuthorsModel *authorsModel, QObject *parent)
     : AbstractGitItemsModel(git, parent)
+    , mAuthorsModel(authorsModel)
 {
 }
 
@@ -390,6 +393,12 @@ void LogsModel::fill()
         mData.append(d);
         mDataByCommitHashLong.insert(d->commitHash(), d);
         mDataByCommitHashShort.insert(d->commitShortHash(), d);
+
+        if (mAuthorsModel) {
+            auto author = mAuthorsModel->findOrCreate(d->committerName(), d->committerEmail());
+            if (author)
+                author->commits++;
+        }
     }
     //    std::sort(begin(), end(), [](GitLog *log1,GitLog *log2){
     //        return log1->commitDate() < log2->commitDate();

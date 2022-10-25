@@ -17,12 +17,13 @@ namespace Git
 
 class Log;
 class Manager;
+class AuthorsModel;
 class LIBGITKLIENT_EXPORT LogsModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 
 public:
-    explicit LogsModel(Manager *git, QObject *parent = nullptr);
+    explicit LogsModel(Manager *git, AuthorsModel *authorsModel = nullptr, QObject *parent = nullptr);
     ~LogsModel() override;
 
     int rowCount(const QModelIndex &parent) const override;
@@ -54,5 +55,6 @@ private:
     QStringList mBranches;
     QMap<QString, Log *> mDataByCommitHashLong;
     QMap<QString, Log *> mDataByCommitHashShort;
+    AuthorsModel *mAuthorsModel;
 };
 }

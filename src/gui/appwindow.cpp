@@ -27,6 +27,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/logsmodel.h"
 #include "multipagewidget.h"
 #include "settings/settingsmanager.h"
+#include "widgets/authorswidget.h"
 #include "widgets/branchesstatuswidget.h"
 #include "widgets/commitswidget.h"
 #include "widgets/historyviewwidget.h"
@@ -61,6 +62,7 @@ void AppWindow::init()
     addPage<SubmodulesWidget>(QStringLiteral("view_submodules"));
     addPage<RemotesWidget>(QStringLiteral("view_remotes"));
     addPage<TagsWidget>(QStringLiteral("view_tags"));
+    addPage<AuthorsWidget>(QStringLiteral("view_tags"));
 
     setupGUI(StandardWindowOption::Default, QStringLiteral("gitklientui.rc"));
     mMainWidget->setCurrentIndex(0);

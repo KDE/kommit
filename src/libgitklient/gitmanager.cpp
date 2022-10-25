@@ -3,6 +3,7 @@
 
 #include "gitmanager.h"
 
+#include "models/authorsmodel.h"
 #include "models/branchesmodel.h"
 #include "models/logsmodel.h"
 #include "models/remotesmodel.h"
@@ -351,6 +352,11 @@ BranchesModel *Manager::branchesModel() const
     return _branchesModel;
 }
 
+AuthorsModel *Manager::authorsModel() const
+{
+    return _authorsModel;
+}
+
 SubmodulesModel *Manager::submodulesModel() const
 {
     return _submodulesModel;
@@ -386,7 +392,8 @@ Manager::Manager()
     , _remotesModel{new RemotesModel(this)}
     , _submodulesModel{new SubmodulesModel(this)}
     , _branchesModel{new BranchesModel(this)}
-    , _logsCache{new LogsModel(this)}
+    , _authorsModel{new AuthorsModel(this)}
+    , _logsCache{new LogsModel(this, _authorsModel)}
     , _stashesCache{new StashesModel(this)}
     , _tagsModel{new TagsModel(this)}
 {
@@ -397,7 +404,8 @@ Manager::Manager(const QString &path)
     , _remotesModel{new RemotesModel(this)}
     , _submodulesModel{new SubmodulesModel(this)}
     , _branchesModel{new BranchesModel(this)}
-    , _logsCache{new LogsModel(this)}
+    , _authorsModel{new AuthorsModel(this)}
+    , _logsCache{new LogsModel(this, _authorsModel)}
     , _stashesCache{new StashesModel(this)}
     , _tagsModel{new TagsModel(this)}
 {

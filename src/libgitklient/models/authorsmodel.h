@@ -8,12 +8,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractgititemsmodel.h"
 
+#include <QMutex>
+
 namespace Git
 {
 
 struct Author {
     QString email;
     QString name;
+
+    int commits{0};
+    int authoredCommits{0};
+    int tags{0};
 };
 
 class AuthorsModel : public AbstractGitItemsModel
@@ -30,11 +36,12 @@ public:
 
     Author *findOrCreate(const QString &name, const QString &email);
 
-protected:
-    void fill() override;
-
 private:
     QList<Author *> mData;
+    QMutex mDataMutex;
+
+protected:
+    void fill() override;
 };
 
 } // namespace Git

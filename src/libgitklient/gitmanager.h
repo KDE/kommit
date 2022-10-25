@@ -25,6 +25,7 @@ class BranchesModel;
 class LogsModel;
 class StashesModel;
 class TagsModel;
+class AuthorsModel;
 
 enum LoadFlag {
     LoadNone = 0,
@@ -142,6 +143,7 @@ public:
     RemotesModel *remotesModel() const;
     SubmodulesModel *submodulesModel() const;
     BranchesModel *branchesModel() const;
+    AuthorsModel *authorsModel() const;
     LogsModel *logsModel() const;
     StashesModel *stashesModel() const;
     TagsModel *tagsModel() const;
@@ -172,6 +174,7 @@ private:
     void loadAsync();
 
     RemotesModel *const _remotesModel;
+    AuthorsModel *const _authorsModel;
     SubmodulesModel *const _submodulesModel;
     BranchesModel *const _branchesModel;
     LogsModel *const _logsCache;

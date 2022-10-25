@@ -69,7 +69,7 @@ void CommitsWidget::slotTreeViewRepoCustomContextMenuRequested(const QPoint &pos
 
 void CommitsWidget::init()
 {
-    mHistoryModel = new Git::LogsModel(mGit, this);
+    mHistoryModel = new Git::LogsModel(mGit, nullptr, this);
     mHistoryModel->setFullDetails(true);
     mFilterModel = new CommitsFilterModel(mHistoryModel, this);
 

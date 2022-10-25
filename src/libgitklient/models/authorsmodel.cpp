@@ -24,7 +24,7 @@ int AuthorsModel::rowCount(const QModelIndex &parent) const
 int AuthorsModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return 2;
+    return 3;
 }
 
 QVariant AuthorsModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -37,6 +37,8 @@ QVariant AuthorsModel::headerData(int section, Qt::Orientation orientation, int 
         return i18n("Name");
     case 1:
         return i18n("Email");
+    case 2:
+        return i18n("Commits");
     }
     return {};
 }
@@ -51,6 +53,8 @@ QVariant AuthorsModel::data(const QModelIndex &index, int role) const
         return mData.at(index.row())->name;
     case 1:
         return mData.at(index.row())->email;
+    case 2:
+        return mData.at(index.row())->commits;
     }
 
     return {};
@@ -58,6 +62,8 @@ QVariant AuthorsModel::data(const QModelIndex &index, int role) const
 
 Author *AuthorsModel::findOrCreate(const QString &name, const QString &email)
 {
+    QMutexLocker locker(&mDataMutex);
+
     for (const auto &a : std::as_const(mData))
         if (a->email == email && a->name == name)
             return a;
