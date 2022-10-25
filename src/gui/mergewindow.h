@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include "GitKlientSettings.h"
 #include "core/appmainwindow.h"
 #include "diff/diff.h"
 #include "ui_gitklientmergeview.h"

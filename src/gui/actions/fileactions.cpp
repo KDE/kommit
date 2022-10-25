@@ -30,6 +30,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QFileDialog>
 #include <QMenu>
 #include <QMimeDatabase>
+#include <QStandardPaths>
 
 KService::Ptr FileActions::getExternalViewer(const QString &mimeType)
 {

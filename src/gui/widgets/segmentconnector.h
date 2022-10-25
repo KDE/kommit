@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "../diff/diff.h"
+#include "diff/diff.h"
 #include <QMap>
 #include <QWidget>
 
