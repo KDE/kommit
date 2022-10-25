@@ -7,10 +7,10 @@ ecm_qt_declare_logging_category(GIT_EXTRA_SOURCE HEADER gitklient_dolphinplugins
     IDENTIFIER GIKLIENT_DOLPHIN_PLUGINS_LOG CATEGORY_NAME org.kde.gitklient.dolphinplugins DESCRIPTION "gitklient dolphin plugins" EXPORT GITKLIENT)
 
 #---ACTION PLUGIN---
-set(ACTIONS_PLUGIN gitklientitemaction)
-
-set(
-    ACTIONS_PLUGIN_SRC
+kcoreaddons_add_plugin(gitklientitemaction
+    INSTALL_NAMESPACE kf${QT_MAJOR_VERSION}/kfileitemaction
+)
+target_sources(gitklientitemaction PRIVATE
     actionmanager.cpp
     statuscache.cpp
     manager.cpp
@@ -20,15 +20,9 @@ set(
     actions.h
     ${GIT_EXTRA_SOURCE}
 )
-kcoreaddons_add_plugin(
-    ${ACTIONS_PLUGIN}
-    SOURCES ${ACTIONS_PLUGIN_SRC}
-    INSTALL_NAMESPACE kf${QT_MAJOR_VERSION}/kfileitemaction
-    JSON ${ACTIONS_PLUGIN}.json
-)
 
 target_link_libraries(
-    ${ACTIONS_PLUGIN}
+    gitklientitemaction
     KF5::I18n
     KF5::WidgetsAddons
     KF5::KIOCore
@@ -37,9 +31,11 @@ target_link_libraries(
 )
 
 #---OVERLAY PLUGIN---
-set(OVERLAY_PLUGIN gitklientoverlayplugin)
-set(
-    OVERLAY_SRC
+kcoreaddons_add_plugin(gitklientoverlayplugin
+    INSTALL_NAMESPACE kf${QT_MAJOR_VERSION}/overlayicon
+)
+
+target_sources(gitklientoverlayplugin PRIVATE
     overlayplugin.cpp
     statuscache.cpp
     manager.cpp
@@ -49,15 +45,9 @@ set(
     ${GIT_EXTRA_SOURCE}
 )
 
-kcoreaddons_add_plugin(
-    ${OVERLAY_PLUGIN}
-    SOURCES ${OVERLAY_SRC}
-    INSTALL_NAMESPACE kf${QT_MAJOR_VERSION}/overlayicon
-    JSON ${OVERLAY_PLUGIN}.json
-)
 
 target_link_libraries(
-    ${OVERLAY_PLUGIN}
+    gitklientoverlayplugin
     KF5::CoreAddons
     KF5::KIOCore
     KF5::KIOWidgets
