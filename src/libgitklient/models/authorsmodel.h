@@ -42,6 +42,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
 
     Author *findOrCreate(const QString &name, const QString &email);
+    void clear();
 
 protected:
     void fill() override;

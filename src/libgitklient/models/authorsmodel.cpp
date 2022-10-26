@@ -76,6 +76,12 @@ Author *AuthorsModel::findOrCreate(const QString &name, const QString &email)
     return author;
 }
 
+void AuthorsModel::clear()
+{
+    qDeleteAll(mData);
+    mData.clear();
+}
+
 void AuthorsModel::fill()
 {
 }
