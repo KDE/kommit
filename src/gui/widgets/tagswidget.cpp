@@ -11,13 +11,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/tagsmodel.h"
 
 #include "actions/tagsactions.h"
+#include <QSortFilterProxyModel>
 
 TagsWidget::TagsWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
 {
     setupUi(this);
+    treeViewTags->setSortingEnabled(true);
     mModel = git->tagsModel();
-    treeViewTags->setModel(mModel);
+    auto sortFilterProxyModel = new QSortFilterProxyModel(this);
+    sortFilterProxyModel->setSourceModel(mModel);
+    treeViewTags->setModel(sortFilterProxyModel);
+
     mActions = new TagsActions(git, this);
     pushButtonAddTag->setAction(mActions->actionCreate());
     pushButtonRemove->setAction(mActions->actionRemove());
@@ -26,6 +31,7 @@ TagsWidget::TagsWidget(Git::Manager *git, AppWindow *parent)
 
     connect(treeViewTags, &QTreeView::customContextMenuRequested, this, &TagsWidget::slotTreeViewTagsCustomContextMenuRequested);
     connect(treeViewTags, &TreeView::itemActivated, this, &TagsWidget::slotTreeViewTagsItemActivated);
+    treeViewTags->sortByColumn(Git::TagsModel::Name, Qt::DescendingOrder);
 }
 
 void TagsWidget::saveState(QSettings &settings) const

@@ -8,8 +8,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "gittag.h"
 
-#include "libgitklient_debug.h"
-
 #include <KLocalizedString>
 
 namespace Git
@@ -29,7 +27,7 @@ int TagsModel::rowCount(const QModelIndex &parent) const
 int TagsModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return 4;
+    return static_cast<int>(TagsModelRoles::LastColumn) + 1;
 }
 
 QVariant TagsModel::data(const QModelIndex &index, int role) const
@@ -40,13 +38,13 @@ QVariant TagsModel::data(const QModelIndex &index, int role) const
     auto tag = mData.at(index.row());
 
     switch (index.column()) {
-    case 0:
+    case Name:
         return tag->name();
-    case 1:
+    case Subject:
         return tag->message();
-    case 2:
+    case Tagger:
         return tag->taggerName() + QStringLiteral(" ") + tag->taggerEmail();
-    case 3:
+    case Committer:
         return tag->commiterName() + QStringLiteral(" ") + tag->commiterEmail();
     }
     return {};
@@ -59,13 +57,13 @@ QVariant TagsModel::headerData(int section, Qt::Orientation orientation, int rol
 
     if (orientation == Qt::Horizontal)
         switch (section) {
-        case 0:
+        case Name:
             return i18n("Name");
-        case 1:
+        case Subject:
             return i18n("Subject");
-        case 2:
+        case Tagger:
             return i18n("Tagger");
-        case 3:
+        case Committer:
             return i18n("Committer");
         }
 

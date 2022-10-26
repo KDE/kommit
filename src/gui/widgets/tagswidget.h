@@ -18,17 +18,15 @@ class TagsActions;
 class TagsWidget : public WidgetBase, private Ui::TagsWidget
 {
     Q_OBJECT
-    TagsActions *mActions = nullptr;
-    Git::TagsModel *mModel = nullptr;
 
 public:
     explicit TagsWidget(Git::Manager *git, AppWindow *parent = nullptr);
-
-private Q_SLOTS:
-    void slotTreeViewTagsCustomContextMenuRequested(const QPoint &pos);
-    void slotTreeViewTagsItemActivated(const QModelIndex &index);
-
-public:
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
+
+private:
+    void slotTreeViewTagsCustomContextMenuRequested(const QPoint &pos);
+    void slotTreeViewTagsItemActivated(const QModelIndex &index);
+    TagsActions *mActions = nullptr;
+    Git::TagsModel *mModel = nullptr;
 };

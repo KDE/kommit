@@ -17,6 +17,14 @@ class LIBGITKLIENT_EXPORT TagsModel : public AbstractGitItemsModel
     Q_OBJECT
 
 public:
+    enum TagsModelRoles {
+        Name,
+        Subject,
+        Tagger,
+        Committer,
+        LastColumn = Committer,
+    };
+    Q_ENUM(TagsModelRoles)
     explicit TagsModel(Manager *git, QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &parent) const override;
