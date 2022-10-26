@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:49+0000\n"
+"POT-Creation-Date: 2022-10-26 00:48+0000\n"
 "PO-Revision-Date: 2022-10-09 13:41+0200\n"
 "Last-Translator: Thomas Vergnaud <thomas.vergnaud@mailo.eu>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:113
 #: src/gui/widgets/logdetailswidget.cpp:116
-#: src/libgitklient/models/logsmodel.cpp:259
+#: src/libgitklient/models/logsmodel.cpp:262
 #, kde-format
 msgid "Author"
 msgstr "Auteur"
@@ -71,7 +71,7 @@ msgstr "Correction de bugs"
 msgid "Create..."
 msgstr "Créer…"
 
-#: src/gui/actions/branchactions.cpp:32 src/gui/appwindow.cpp:156
+#: src/gui/actions/branchactions.cpp:32 src/gui/appwindow.cpp:158
 #, kde-format
 msgid "Fetch..."
 msgstr "Récupérer…"
@@ -87,7 +87,7 @@ msgstr "Parcourir…"
 msgid "Switch"
 msgstr "Basculer…"
 
-#: src/gui/actions/branchactions.cpp:35 src/gui/appwindow.cpp:164
+#: src/gui/actions/branchactions.cpp:35 src/gui/appwindow.cpp:166
 #, kde-format
 msgid "Merge..."
 msgstr "Fusionner…"
@@ -148,43 +148,43 @@ msgstr "Rétablir…"
 msgid "Checkout..."
 msgstr "Récupérer…"
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:89
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:90
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Différences avec HEAD…"
 
-#: src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "View..."
 msgstr "Visualiser…"
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:88
 #, kde-format
 msgid "Open with..."
 msgstr "Ouvrir avec…"
 
-#: src/gui/actions/fileactions.cpp:90
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Fusionner avec HEAD…"
 
-#: src/gui/actions/fileactions.cpp:92
+#: src/gui/actions/fileactions.cpp:93
 #, kde-format
 msgid "Save as..."
 msgstr "Enregistrer sous…"
 
-#: src/gui/actions/fileactions.cpp:93
+#: src/gui/actions/fileactions.cpp:94
 #, kde-format
 msgid "Log..."
 msgstr "Journal…"
 
-#: src/gui/actions/fileactions.cpp:94
+#: src/gui/actions/fileactions.cpp:95
 #, kde-format
 msgid "Blame..."
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:95 src/gui/appwindow.cpp:171
+#: src/gui/actions/fileactions.cpp:96 src/gui/appwindow.cpp:173
 #, kde-format
 msgid "Search..."
 msgstr "Chercher…"
@@ -313,7 +313,7 @@ msgstr "Nom de la remise"
 msgid "Add..."
 msgstr "Ajouter…"
 
-#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:126
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:128
 #, kde-format
 msgid "Init..."
 msgstr "Initialiser…"
@@ -354,7 +354,7 @@ msgstr "Sous-module %1 supprimé"
 msgid "New tag..."
 msgstr "Nouvelle étiquette…"
 
-#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:160
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:162
 #, kde-format
 msgid "Push..."
 msgstr "Pousser"
@@ -389,92 +389,92 @@ msgstr "Récupérer"
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Êtes-vous certain de rétablir l'étiquette sélectionnée ?"
 
-#: src/gui/appwindow.cpp:72
+#: src/gui/appwindow.cpp:74
 #, kde-format
 msgid "No repo selected"
 msgstr "Aucun dépôt sélectionné"
 
-#: src/gui/appwindow.cpp:114
+#: src/gui/appwindow.cpp:116
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Branche courante : %1"
 
-#: src/gui/appwindow.cpp:116
+#: src/gui/appwindow.cpp:118
 #, kde-format
 msgid " (merging)"
 msgstr "(fusion)"
 
-#: src/gui/appwindow.cpp:129
+#: src/gui/appwindow.cpp:131
 #, kde-format
 msgid "Open..."
 msgstr "Ouvrir…"
 
-#: src/gui/appwindow.cpp:134
+#: src/gui/appwindow.cpp:136
 #, kde-format
 msgid "Clone..."
 msgstr "Cloner…"
 
-#: src/gui/appwindow.cpp:137
+#: src/gui/appwindow.cpp:139
 #, kde-format
 msgid "Changed files..."
 msgstr "Fichiers modifiés…"
 
-#: src/gui/appwindow.cpp:143
+#: src/gui/appwindow.cpp:145
 #, kde-format
 msgid "Recent repos"
 msgstr "Dépôts récents"
 
-#: src/gui/appwindow.cpp:149
+#: src/gui/appwindow.cpp:151
 #, kde-format
 msgid "Cleanup..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:152
+#: src/gui/appwindow.cpp:154
 #, kde-format
 msgid "Pull..."
 msgstr "Tirer…"
 
-#: src/gui/appwindow.cpp:168
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Diff branches..."
 msgstr "Différences entre branches…"
 
-#: src/gui/appwindow.cpp:174
+#: src/gui/appwindow.cpp:176
 #, kde-format
 msgid "Repo settings..."
 msgstr "Paramètres des dépôts…"
 
-#: src/gui/appwindow.cpp:177
+#: src/gui/appwindow.cpp:179
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Basculer/Récupérer…"
 
-#: src/gui/appwindow.cpp:180
+#: src/gui/appwindow.cpp:182
 #, kde-format
 msgid "Diff tree"
 msgstr "Arborescence des différences"
 
-#: src/gui/appwindow.cpp:228 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:235 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Impossible de créer le chemin : %1"
 
-#: src/gui/appwindow.cpp:228 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:235 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Init repo"
 msgstr "Initialiser un dépôt"
 
-#: src/gui/appwindow.cpp:238
+#: src/gui/appwindow.cpp:245
 #, kde-format
 msgid "Open repository"
 msgstr "Ouvrir un dépôt"
 
-#: src/gui/appwindow.cpp:331 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:338 src/gui/commandargsparser.cpp:464
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Impossible de changer de branch pendant une fusion"
 
-#: src/gui/appwindow.cpp:331 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:338 src/gui/commandargsparser.cpp:464
 #, kde-format
 msgid "Switch branch"
 msgstr "Changer de branche"
@@ -834,31 +834,26 @@ msgid "Select old directory"
 msgstr "Sélectionner l’ancien dossier"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
-#: src/gui/dialogs/diffopendialog.ui:14 src/gui/dialogs/fileblamedialog.ui:14
-#: src/gui/dialogs/filehistorydialog.ui:14
-#: src/gui/dialogs/filestreedialog.ui:14 src/gui/dialogs/taginfodialog.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Dialogue"
+#: src/gui/dialogs/diffopendialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Select files to merge"
+msgid "Select files/folders"
+msgstr "Choisissez les fichiers à fusionner"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
-#: src/gui/dialogs/diffopendialog.ui:20
+#: src/gui/dialogs/diffopendialog.ui:23
 #, kde-format
 msgid "Compare files"
 msgstr "Comparer les fichiers"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFolders)
-#: src/gui/dialogs/diffopendialog.ui:27
+#: src/gui/dialogs/diffopendialog.ui:30
 #, kde-format
 msgid "Compare directories"
 msgstr "Comparer les dossiers"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/gui/dialogs/diffopendialog.ui:40
+#: src/gui/dialogs/diffopendialog.ui:43
 #, kde-format
 msgid "Old file:"
 msgstr "Ancien fichier :"
@@ -870,8 +865,8 @@ msgstr "Ancien fichier :"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseNewFile)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseOldDirectory)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseNewDirectory)
-#: src/gui/dialogs/diffopendialog.ui:50 src/gui/dialogs/diffopendialog.ui:67
-#: src/gui/dialogs/diffopendialog.ui:93 src/gui/dialogs/diffopendialog.ui:110
+#: src/gui/dialogs/diffopendialog.ui:53 src/gui/dialogs/diffopendialog.ui:70
+#: src/gui/dialogs/diffopendialog.ui:96 src/gui/dialogs/diffopendialog.ui:113
 #: src/gui/dialogs/mergeopenfilesdialog.ui:37
 #: src/gui/dialogs/mergeopenfilesdialog.ui:58
 #: src/gui/dialogs/mergeopenfilesdialog.ui:79
@@ -882,19 +877,19 @@ msgid "..."
 msgstr "…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/gui/dialogs/diffopendialog.ui:57
+#: src/gui/dialogs/diffopendialog.ui:60
 #, kde-format
 msgid "New file:"
 msgstr "Nouveau fichier :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/gui/dialogs/diffopendialog.ui:83
+#: src/gui/dialogs/diffopendialog.ui:86
 #, kde-format
 msgid "Old directory:"
 msgstr "Ancien dossier :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/gui/dialogs/diffopendialog.ui:100
+#: src/gui/dialogs/diffopendialog.ui:103
 #, kde-format
 msgid "New directory:"
 msgstr "Nouveau dossier :"
@@ -970,6 +965,17 @@ msgstr "Élaguer"
 msgctxt "@title:window"
 msgid "Blame file: %1"
 msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
+#: src/gui/dialogs/fileblamedialog.ui:14
+#: src/gui/dialogs/filehistorydialog.ui:14
+#: src/gui/dialogs/filestreedialog.ui:14 src/gui/dialogs/taginfodialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialogue"
 
 #: src/gui/dialogs/filehistorydialog.cpp:44
 #, kde-format
@@ -1047,7 +1053,7 @@ msgstr "Motif :"
 #: src/gui/widgets/remoteswidget.ui:164
 #: src/libgitklient/models/authorsmodel.cpp:37
 #: src/libgitklient/models/branchesmodel.cpp:56
-#: src/libgitklient/models/tagsmodel.cpp:61
+#: src/libgitklient/models/tagsmodel.cpp:63
 #, kde-format
 msgid "Name"
 msgstr "Nom"
@@ -1743,6 +1749,7 @@ msgstr "Branches"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonCommits)
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
 #: src/gui/mainwidget.ui:147 src/gui/widgets/commitswidget.ui:14
+#: src/libgitklient/models/authorsmodel.cpp:41
 #, kde-format
 msgid "Commits"
 msgstr "Validations"
@@ -1946,6 +1953,13 @@ msgstr "Associer un outil de fusion pour GitKlient"
 msgid "Git proxy:"
 msgstr ""
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, AuthorsWidget)
+#: src/gui/widgets/authorswidget.ui:14
+#, fuzzy, kde-format
+#| msgid "Author"
+msgid "Authors"
+msgstr "Auteur"
+
 #: src/gui/widgets/blamecodeview.cpp:43
 #, kde-format
 msgid "Uncommited"
@@ -2002,12 +2016,13 @@ msgstr "Référence"
 
 #: src/gui/widgets/logdetailswidget.cpp:112
 #: src/gui/widgets/logdetailswidget.cpp:115
+#: src/libgitklient/models/tagsmodel.cpp:69
 #, kde-format
 msgid "Committer"
 msgstr "Valideur"
 
 #: src/gui/widgets/logdetailswidget.cpp:118
-#: src/libgitklient/models/logsmodel.cpp:257
+#: src/libgitklient/models/logsmodel.cpp:260
 #, kde-format
 msgid "Date"
 msgstr "Date"
@@ -2221,19 +2236,19 @@ msgstr "Validation(s) derrière"
 msgid "Commit(s) ahead"
 msgstr "Validation(s) devant"
 
-#: src/libgitklient/models/logsmodel.cpp:255
-#: src/libgitklient/models/logsmodel.cpp:266
+#: src/libgitklient/models/logsmodel.cpp:258
+#: src/libgitklient/models/logsmodel.cpp:269
 #, kde-format
 msgid "Message"
 msgstr "Message"
 
-#: src/libgitklient/models/logsmodel.cpp:264
+#: src/libgitklient/models/logsmodel.cpp:267
 #, kde-format
 msgid "Graph"
 msgstr "Graphe"
 
 #: src/libgitklient/models/stashesmodel.cpp:60
-#: src/libgitklient/models/tagsmodel.cpp:63
+#: src/libgitklient/models/tagsmodel.cpp:65
 #, kde-format
 msgid "Subject"
 msgstr "Sujet"
@@ -2244,7 +2259,6 @@ msgid "Author name"
 msgstr "Nom de l’auteur"
 
 #: src/libgitklient/models/stashesmodel.cpp:64
-#: src/libgitklient/models/tagsmodel.cpp:65
 #, kde-format
 msgid "Author email"
 msgstr "Email de l’auteur"
@@ -2258,6 +2272,11 @@ msgstr "Heure"
 #, kde-format
 msgid "Head"
 msgstr "Tête"
+
+#: src/libgitklient/models/tagsmodel.cpp:67
+#, kde-format
+msgid "Tagger"
+msgstr ""
 
 #~ msgid "Local path"
 #~ msgstr "Chemin local"
