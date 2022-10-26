@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <KMessageBox>
 
+#include "gitklient_appdebug.h"
 #include <QDebug>
 #include <QInputDialog>
 
@@ -113,7 +114,7 @@ void BranchActions::diff()
                 branchToDiff = QStringLiteral("main");
         }
         if (branchToDiff.isEmpty()) {
-            qWarning() << "Main branch is not set to diff";
+            qCWarning(GITKLIENT_LOG) << "Main branch is not set to diff";
             return;
         }
     }
