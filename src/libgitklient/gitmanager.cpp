@@ -314,7 +314,6 @@ bool load(AbstractGitItemsModel *cache)
 }
 void Manager::loadAsync()
 {
-
     QList<AbstractGitItemsModel *> models;
     if (_authorsModel)
         _authorsModel->clear();

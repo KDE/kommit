@@ -3,7 +3,7 @@ set(GIT_KLIENT_ICONS
   22-apps-gitklient.png
   32-apps-gitklient.png
   48-apps-gitklient.png
-  sc-apps-gitklient.svgz
+  sc-apps-gitklient.svg
 
   sc-actions-diff-keep-their.svg
   sc-actions-diff-keep-mine.svg
