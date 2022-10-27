@@ -105,7 +105,9 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QWidget" name="widgetContainer" native="true"/>
+         <widget class="QWidget" name="widgetContainer" native="true">
+          <layout class="QVBoxLayout" name="kPartWidgetLayout"/>
+         </widget>
         </item>
        </layout>
       </widget>

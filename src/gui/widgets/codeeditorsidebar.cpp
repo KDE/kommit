@@ -28,8 +28,16 @@ void CodeEditorSidebar::paintEvent(QPaintEvent *event)
 
 void CodeEditorSidebar::mouseReleaseEvent(QMouseEvent *event)
 {
-    if (event->x() >= width() - m_codeEditor->fontMetrics().lineSpacing()) {
-        const auto block = m_codeEditor->blockAtPosition(event->y());
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    auto x = event->position().x();
+    auto y = event->position().y();
+#else
+    auto x = event->x();
+    auto y = event->y();
+#endif
+
+    if (x >= width() - m_codeEditor->fontMetrics().lineSpacing()) {
+        const auto block = m_codeEditor->blockAtPosition(y);
         if (!block.isValid() || !m_codeEditor->isFoldable(block))
             return;
         m_codeEditor->toggleFold(block);

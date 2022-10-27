@@ -32,15 +32,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QMimeDatabase>
 #include <QStandardPaths>
 
-KService::Ptr FileActions::getExternalViewer(const QString &mimeType)
-{
-    KService::List offers = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("Application"));
-
-    if (!offers.isEmpty())
-        return offers.first();
-    return {};
-}
-
 const QString &FileActions::place() const
 {
     return mPlace;

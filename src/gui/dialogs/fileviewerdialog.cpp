@@ -217,7 +217,7 @@ bool FileViewerDialog::viewInInternalViewer(const KService::Ptr &viewer, const Q
     }
 
     // Insert the KPart into its placeholder.
-    kPartLayout->addWidget(m_part.data()->widget());
+    kPartWidgetLayout->addWidget(m_part.data()->widget());
     stackedWidget->setCurrentIndex(2);
     //    layout()->replaceWidget(plainTextEdit, m_part.data()->widget());
     /*

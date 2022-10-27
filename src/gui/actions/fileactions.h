@@ -47,6 +47,5 @@ private:
     QString mFilePath;
     QMenu *mOpenWithMenu = nullptr;
 
-    KService::Ptr getExternalViewer(const QString &mimeType);
     KService::Ptr getViewer(const QString &mimeType);
 };
