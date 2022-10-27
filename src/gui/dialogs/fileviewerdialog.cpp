@@ -139,6 +139,7 @@ void FileViewerDialog::showAsImage(const Git::File &file)
 
 KService::Ptr FileViewerDialog::getInternalViewer(const QString &mimeType)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     // No point in even trying to find anything for application/octet-stream
     if (mimeType == QLatin1String("application/octet-stream")) {
         return {};
@@ -178,6 +179,11 @@ KService::Ptr FileViewerDialog::getInternalViewer(const QString &mimeType)
     } else {
         return {};
     }
+#else
+    qWarning() << "FileViewerDialog::getInternalViewer need to be port to QT6 ";
+    return {};
+
+#endif
 }
 
 void FileViewerDialog::keyPressEvent(QKeyEvent *event)
@@ -190,6 +196,7 @@ void FileViewerDialog::keyPressEvent(QKeyEvent *event)
 
 KService::Ptr FileViewerDialog::getExternalViewer(const QString &mimeType)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     qCDebug(GITKLIENT_LOG) << mimeType;
     const KService::List offers = KMimeTypeTrader::self()->query(mimeType);
 
@@ -198,10 +205,15 @@ KService::Ptr FileViewerDialog::getExternalViewer(const QString &mimeType)
     } else {
         return {};
     }
+#else
+    qWarning() << "FileViewerDialog::getExternalViewer need to be port to QT6 ";
+    return {};
+#endif
 }
 
 bool FileViewerDialog::viewInInternalViewer(const KService::Ptr &viewer, const QString &fileName, const QMimeType &mimeType)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Q_UNUSED(mimeType)
     // Set icon and comment for the mimetype.
     //    m_iconLabel->setPixmap(QIcon::fromTheme(mimeType.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize)));
@@ -236,6 +248,9 @@ bool FileViewerDialog::viewInInternalViewer(const KService::Ptr &viewer, const Q
     m_part.data()->openUrl(QUrl::fromLocalFile(fileName));
     m_part.data()->widget()->setFocus();
     //    m_fileName = fileName;
-
+#else
+    qWarning() << "FileViewerDialog::viewInInternalViewer need to be port to QT6 ";
+    return {};
+#endif
     return true;
 }
