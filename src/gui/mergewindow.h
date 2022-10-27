@@ -37,6 +37,7 @@ public:
 private Q_SLOTS:
     void fileSave();
     void fileOpen();
+    void fillSegments();
 
     void actionKeepMine_clicked();
     void actionKeepTheir_clicked();
@@ -82,6 +83,7 @@ private:
     QAction *actionKeepTheirFile;
     QAction *actionGotoPrevDiff;
     QAction *actionGotoNextDiff;
+    QAction *actionViewSameSizeBlocks;
 
 protected:
     void closeEvent(QCloseEvent *event) override;

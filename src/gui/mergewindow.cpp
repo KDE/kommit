@@ -123,6 +123,56 @@ void MergeWindow::init()
     m_ui.widgetSegmentsConnector->hide();
 }
 
+void MergeWindow::fillSegments()
+{
+    m_ui.plainTextEditMine->clearAll();
+    m_ui.plainTextEditBase->clearAll();
+    m_ui.plainTextEditTheir->clearAll();
+    for (const auto &d : std::as_const(mDiffs)) {
+        auto blockSize = actionViewSameSizeBlocks->isChecked() ? qMax(d->base.size(), qMax(d->remote.size(), d->local.size())) : -1;
+
+        switch (d->type) {
+        case Diff::SegmentType::SameOnBoth: {
+            m_ui.plainTextEditMine->append(d->base, CodeEditor::Unchanged, d, blockSize);
+            m_ui.plainTextEditTheir->append(d->base, CodeEditor::Unchanged, d, blockSize);
+            m_ui.plainTextEditBase->append(d->base, CodeEditor::Unchanged, d, blockSize);
+            d->mergeType = Diff::KeepLocal;
+            break;
+        }
+
+        case Diff::SegmentType::OnlyOnRight:
+            m_ui.plainTextEditMine->append(d->local, CodeEditor::Removed, d, blockSize);
+            m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Added, d, blockSize);
+            m_ui.plainTextEditBase->append(d->base, CodeEditor::Edited, d, blockSize);
+            d->mergeType = Diff::KeepRemote;
+            break;
+        case Diff::SegmentType::OnlyOnLeft:
+            m_ui.plainTextEditMine->append(d->local, CodeEditor::Added, d, blockSize);
+            m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Removed, d, blockSize);
+            m_ui.plainTextEditBase->append(d->base, CodeEditor::Edited, d, blockSize);
+            d->mergeType = Diff::KeepLocal;
+            break;
+
+        case Diff::SegmentType::DifferentOnBoth:
+            if (isEmpty(d->local)) {
+                m_ui.plainTextEditMine->append(d->local, CodeEditor::Edited, d, blockSize);
+                m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Added, d, blockSize);
+                //                d->mergeType = Diff::KeepRemote;
+            } else if (isEmpty(d->remote)) {
+                m_ui.plainTextEditMine->append(d->local, CodeEditor::Added, d, blockSize);
+                m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Edited, d, blockSize);
+                //                d->mergeType = Diff::KeepLocal;
+            } else {
+                m_ui.plainTextEditMine->append(d->local, CodeEditor::Edited, d, blockSize);
+                m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Edited, d, blockSize);
+            }
+            m_ui.plainTextEditBase->append(d->base, CodeEditor::Edited, d, blockSize);
+            d->mergeType = Diff::None;
+            break;
+        }
+    }
+}
+
 void MergeWindow::load()
 {
     m_ui.plainTextEditMine->clear();
@@ -153,49 +203,7 @@ void MergeWindow::load()
     m_ui.widgetSegmentsConnector->setRight(m_ui.plainTextEditTheir);
     m_ui.widgetSegmentsConnector->hide();
 
-    //    m_ui.plainTextEditResult->setVisible(false);
-
-    for (const auto &d : std::as_const(mDiffs)) {
-        switch (d->type) {
-        case Diff::SegmentType::SameOnBoth: {
-            m_ui.plainTextEditMine->append(d->base, CodeEditor::Unchanged, d);
-            m_ui.plainTextEditTheir->append(d->base, CodeEditor::Unchanged, d);
-            m_ui.plainTextEditBase->append(d->base, CodeEditor::Unchanged, d);
-            d->mergeType = Diff::KeepLocal;
-            break;
-        }
-
-        case Diff::SegmentType::OnlyOnRight:
-            m_ui.plainTextEditMine->append(d->local, CodeEditor::Removed, d);
-            m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Added, d);
-            m_ui.plainTextEditBase->append(d->base, CodeEditor::Edited, d);
-            d->mergeType = Diff::KeepRemote;
-            break;
-        case Diff::SegmentType::OnlyOnLeft:
-            m_ui.plainTextEditMine->append(d->local, CodeEditor::Added, d);
-            m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Removed, d);
-            m_ui.plainTextEditBase->append(d->base, CodeEditor::Edited, d);
-            d->mergeType = Diff::KeepLocal;
-            break;
-
-        case Diff::SegmentType::DifferentOnBoth:
-            if (isEmpty(d->local)) {
-                m_ui.plainTextEditMine->append(d->local, CodeEditor::Edited, d);
-                m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Added, d);
-                //                d->mergeType = Diff::KeepRemote;
-            } else if (isEmpty(d->remote)) {
-                m_ui.plainTextEditMine->append(d->local, CodeEditor::Added, d);
-                m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Edited, d);
-                //                d->mergeType = Diff::KeepLocal;
-            } else {
-                m_ui.plainTextEditMine->append(d->local, CodeEditor::Edited, d);
-                m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Edited, d);
-            }
-            m_ui.plainTextEditBase->append(d->base, CodeEditor::Edited, d);
-            d->mergeType = Diff::None;
-            break;
-        }
-    }
+    fillSegments();
     updateResult();
 
     QFileInfo fi;
@@ -206,38 +214,49 @@ void MergeWindow::load()
 
     setWindowTitle(fi.fileName() + QStringLiteral("[*]"));
     setWindowModified(true);
+
+    actionKeepMine->setEnabled(true);
+    actionKeepTheir->setEnabled(true);
+    actionKeepMineBeforeTheir->setEnabled(true);
+    actionKeepTheirBeforeMine->setEnabled(true);
+    actionKeepMyFile->setEnabled(true);
+    actionKeepTheirFile->setEnabled(true);
+    actionGotoPrevDiff->setEnabled(true);
+    actionGotoNextDiff->setEnabled(true);
 }
 
 void MergeWindow::updateResult()
 {
     m_ui.plainTextEditResult->clearAll();
     for (const auto &d : std::as_const(mDiffs)) {
+        auto blockSize = actionViewSameSizeBlocks->isChecked() ? qMax(d->base.size(), qMax(d->remote.size(), d->local.size())) : -1;
+
         if (d->type == Diff::SegmentType::SameOnBoth) {
-            m_ui.plainTextEditResult->append(d->base, CodeEditor::Unchanged, d);
+            m_ui.plainTextEditResult->append(d->base, CodeEditor::Unchanged, d, blockSize);
             continue;
         }
         switch (d->mergeType) {
         case Diff::None: {
             switch (d->type) {
             case Diff::SegmentType::SameOnBoth:
-                m_ui.plainTextEditResult->append(d->base, CodeEditor::Unchanged, d);
+                m_ui.plainTextEditResult->append(d->base, CodeEditor::Unchanged, d, blockSize);
                 break;
 
             case Diff::SegmentType::OnlyOnRight:
-                m_ui.plainTextEditResult->append(d->remote, CodeEditor::Added, d);
+                m_ui.plainTextEditResult->append(d->remote, CodeEditor::Added, d, blockSize);
                 break;
 
             case Diff::SegmentType::OnlyOnLeft:
-                m_ui.plainTextEditResult->append(d->local, CodeEditor::Added, d);
+                m_ui.plainTextEditResult->append(d->local, CodeEditor::Added, d, blockSize);
                 break;
 
             case Diff::SegmentType::DifferentOnBoth:
                 if (d->local == d->remote)
-                    m_ui.plainTextEditResult->append(d->remote, CodeEditor::Added, d); // Not changed
+                    m_ui.plainTextEditResult->append(d->remote, CodeEditor::Added, d, blockSize); // Not changed
                 else if (isEmpty(d->local))
-                    m_ui.plainTextEditResult->append(d->remote, CodeEditor::Added, d);
+                    m_ui.plainTextEditResult->append(d->remote, CodeEditor::Added, d, blockSize);
                 else if (isEmpty(d->remote))
-                    m_ui.plainTextEditResult->append(d->local, CodeEditor::Added, d);
+                    m_ui.plainTextEditResult->append(d->local, CodeEditor::Added, d, blockSize);
                 else
                     m_ui.plainTextEditResult->append(QStringLiteral(" "), CodeEditor::Removed, d);
                 break;
@@ -246,21 +265,21 @@ void MergeWindow::updateResult()
         }
 
         case Diff::KeepLocal:
-            m_ui.plainTextEditResult->append(d->local, CodeEditor::Edited, d);
+            m_ui.plainTextEditResult->append(d->local, CodeEditor::Edited, d, blockSize);
             break;
 
         case Diff::KeepRemote:
-            m_ui.plainTextEditResult->append(d->remote, CodeEditor::Edited, d);
+            m_ui.plainTextEditResult->append(d->remote, CodeEditor::Edited, d, blockSize);
             break;
 
         case Diff::KeepLocalThenRemote:
-            m_ui.plainTextEditResult->append(d->local, CodeEditor::Edited, d);
-            m_ui.plainTextEditResult->append(d->remote, CodeEditor::Edited, d);
+            m_ui.plainTextEditResult->append(d->local, CodeEditor::Edited, d, blockSize);
+            m_ui.plainTextEditResult->append(d->remote, CodeEditor::Edited, d, blockSize);
             break;
 
         case Diff::KeepRemoteThenLocal:
-            m_ui.plainTextEditResult->append(d->remote, CodeEditor::Edited, d);
-            m_ui.plainTextEditResult->append(d->local, CodeEditor::Edited, d);
+            m_ui.plainTextEditResult->append(d->remote, CodeEditor::Edited, d, blockSize);
+            m_ui.plainTextEditResult->append(d->local, CodeEditor::Edited, d, blockSize);
             break;
 
         default:
@@ -325,6 +344,11 @@ void MergeWindow::initActions()
     actionGotoNextDiff->setIcon(QIcon::fromTheme(QStringLiteral("diff-goto-next-diff")));
     actionCollection->setDefaultShortcut(actionGotoNextDiff, QKeySequence(Qt::Key_PageDown));
 
+    actionViewSameSizeBlocks = actionCollection->addAction(QStringLiteral("view_same_size_blocks"), this, &MergeWindow::fillSegments);
+    actionViewSameSizeBlocks->setText(i18n("Same size blocks"));
+    actionViewSameSizeBlocks->setCheckable(true);
+    actionViewSameSizeBlocks->setChecked(true);
+
     KStandardAction::open(this, &MergeWindow::fileOpen, actionCollection);
     KStandardAction::save(this, &MergeWindow::fileSave, actionCollection);
     KStandardAction::quit(qApp, &QApplication::closeAllWindows, actionCollection);
@@ -338,6 +362,15 @@ void MergeWindow::initActions()
     mCodeEditorContextMenu->addActions({actionKeepMineBeforeTheir, actionKeepTheirBeforeMine});
     mCodeEditorContextMenu->addSeparator();
     mCodeEditorContextMenu->addActions({actionKeepMyFile, actionKeepTheirFile});
+
+    actionKeepMine->setEnabled(false);
+    actionKeepTheir->setEnabled(false);
+    actionKeepMineBeforeTheir->setEnabled(false);
+    actionKeepTheirBeforeMine->setEnabled(false);
+    actionKeepMyFile->setEnabled(false);
+    actionKeepTheirFile->setEnabled(false);
+    actionGotoPrevDiff->setEnabled(false);
+    actionGotoNextDiff->setEnabled(false);
 }
 
 void MergeWindow::doMergeAction(Diff::MergeType type)
