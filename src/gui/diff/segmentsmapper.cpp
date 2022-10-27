@@ -148,6 +148,8 @@ void SegmentsMapper::findPrevious(Diff::SegmentType type)
     else
         index = mSegments.size() - 1;
 
+    if (index <= 0)
+        return;
     for (auto i = index; i; i--)
         if (mSegments.at(i)->type == type) {
             setCurrentSegment(mSegments.at(i));

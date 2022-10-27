@@ -801,16 +801,21 @@ QMap<QString, DiffType> diffDirs(const QString &dir1, const QString &dir2)
     return map;
 }
 
-QList<MergeSegment *> diff3(const QString &base, const QString &local, const QString &remote)
+Diff3Result diff3(const QString &base, const QString &local, const QString &remote)
 {
-    QStringList baseList, localList, remoteList;
+    Text baseList, localList, remoteList;
     if (!base.isEmpty())
-        baseList = readLines(base).lines;
+        baseList = readLines(base);
     if (!local.isEmpty())
-        localList = readLines(local).lines;
+        localList = readLines(local);
     if (!remote.isEmpty())
-        remoteList = readLines(remote).lines;
+        remoteList = readLines(remote);
 
-    return diff3(baseList, localList, remoteList);
+    Diff3Result result;
+    result.baseTextLineEnding = baseList.lineEnding;
+    result.localTextLineEnding = localList.lineEnding;
+    result.remoteTextLineEnding = remoteList.lineEnding;
+    result.segments = diff3(baseList.lines, localList.lines, remoteList.lines);
+    return result;
 }
 }

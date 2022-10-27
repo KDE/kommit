@@ -1,5 +1,7 @@
-// Copyright (C) 2020 Hamed Masafi <hamed.masafi@gmail.com>
-// SPDX-License-Identifier: GPL-3.0-or-later
+/*
+Copyright (C) 2020 Hamed Masafi <hamed.masafi@gmail.com>
+SPDX-License-Identifier: GPL-3.0-or-later
+*/
 
 #pragma once
 
@@ -72,6 +74,14 @@ private:
     QLabel *mConflictsLabel = nullptr;
     QAction *mActionBlocksView = nullptr;
     QAction *mActionFilesView = nullptr;
+    QAction *actionKeepMine;
+    QAction *actionKeepTheir;
+    QAction *actionKeepMineBeforeTheir;
+    QAction *actionKeepTheirBeforeMine;
+    QAction *actionKeepMyFile;
+    QAction *actionKeepTheirFile;
+    QAction *actionGotoPrevDiff;
+    QAction *actionGotoNextDiff;
 
 protected:
     void closeEvent(QCloseEvent *event) override;

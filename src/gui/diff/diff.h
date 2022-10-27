@@ -113,7 +113,7 @@ QList<Segment *> diff(const QStringList &oldText, const QStringList &newText);
 
 Diff2Result diff2(const QString &oldText, const QString &newText);
 
-QList<MergeSegment *> diff3(const QString &base, const QString &local, const QString &remote);
+Diff3Result diff3(const QString &base, const QString &local, const QString &remote);
 QList<MergeSegment *> diff3(const QStringList &base, const QStringList &local, const QStringList &remote);
 
 QMap<QString, DiffType> diffDirs(const QString &dir1, const QString &dir2);

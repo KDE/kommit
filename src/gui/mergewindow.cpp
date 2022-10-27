@@ -1,5 +1,7 @@
-// Copyright (C) 2020 Hamed Masafi <hamed.masafi@gmail.com>
-// SPDX-License-Identifier: GPL-3.0-or-later
+/*
+Copyright (C) 2020 Hamed Masafi <hamed.masafi@gmail.com>
+SPDX-License-Identifier: GPL-3.0-or-later
+*/
 
 #include "mergewindow.h"
 
@@ -45,17 +47,13 @@ void compare(QTextEdit *e1, QTextEdit *e2)
         }
     }
 }
-QStringList readFile(const QString &filePath)
+QString readFile(const QString &filePath)
 {
-    //    QStringList buffer;
     QFile f{filePath};
     if (!f.open(QIODevice::ReadOnly))
         return {};
 
-    //    while (!f.atEnd()) {
-    //        buffer << f.readLine();
-    //    }
-    const auto buf = QString(f.readAll()).split('\n');
+    const auto buf = QString(f.readAll());
     f.close();
     return buf;
 }
@@ -70,6 +68,13 @@ MergeWindow::MergeWindow(Mode mode, QWidget *parent)
 
     initActions();
     init();
+
+    QSettings s;
+    s.beginGroup(QStringLiteral("MergeWindow"));
+    if (s.value(QStringLiteral("actionType"), QStringLiteral("file")).toString() == QStringLiteral("file"))
+        actionViewFiles_clicked();
+    else
+        actionViewBlocks_clicked();
 }
 
 MergeWindow::~MergeWindow()
@@ -77,6 +82,7 @@ MergeWindow::~MergeWindow()
     QSettings s;
     s.beginGroup(QStringLiteral("MergeWindow"));
     s.setValue(QStringLiteral("actionType"), mActionFilesView->isChecked() ? QStringLiteral("file") : QStringLiteral("block"));
+    s.sync();
 }
 
 void MergeWindow::init()
@@ -113,6 +119,8 @@ void MergeWindow::init()
     actionViewBlocks_clicked();
 
     setupGUI(Default, QStringLiteral("gitklientmergeui.rc"));
+
+    m_ui.widgetSegmentsConnector->hide();
 }
 
 void MergeWindow::load()
@@ -133,7 +141,8 @@ void MergeWindow::load()
     m_ui.codeEditorMyBlock->setHighlighting(mFilePathLocal);
     m_ui.codeEditorTheirBlock->setHighlighting(mFilePathRemote);
 
-    mDiffs = Diff::diff3(baseList, localList, remoteList);
+    auto result = Diff::diff3(baseList, localList, remoteList);
+    mDiffs = result.segments;
     mMapper->setSegments(mDiffs);
     QList<Diff::Segment *> segments;
     for (const auto &s : std::as_const(mDiffs)) {
@@ -264,43 +273,38 @@ void MergeWindow::updateResult()
 
 void MergeWindow::initActions()
 {
-    QSettings s;
-    s.beginGroup(QStringLiteral("MergeWindow"));
-
     KActionCollection *actionCollection = this->actionCollection();
 
-    auto actionKeepMine = actionCollection->addAction(QStringLiteral("keep_mine"), this, &MergeWindow::actionKeepMine_clicked);
+    actionKeepMine = actionCollection->addAction(QStringLiteral("keep_mine"), this, &MergeWindow::actionKeepMine_clicked);
     actionKeepMine->setText(i18n("Keep mine"));
     actionKeepMine->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-mine")));
     actionCollection->setDefaultShortcut(actionKeepMine, QKeySequence(Qt::CTRL + Qt::Key_L));
 
-    auto actionKeepTheir = actionCollection->addAction(QStringLiteral("keep_their"), this, &MergeWindow::actionKeepTheir_clicked);
+    actionKeepTheir = actionCollection->addAction(QStringLiteral("keep_their"), this, &MergeWindow::actionKeepTheir_clicked);
     actionKeepTheir->setText(i18n("Keep their"));
     actionKeepTheir->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their")));
     actionCollection->setDefaultShortcut(actionKeepTheir, QKeySequence(Qt::CTRL + Qt::Key_R));
 
-    auto actionKeepMineBeforeTheir =
-        actionCollection->addAction(QStringLiteral("keep_mine_before_their"), this, &MergeWindow::actionKeepMineBeforeTheir_clicked);
+    actionKeepMineBeforeTheir = actionCollection->addAction(QStringLiteral("keep_mine_before_their"), this, &MergeWindow::actionKeepMineBeforeTheir_clicked);
 
     actionKeepMineBeforeTheir->setText(i18n("Keep mine before their"));
     actionKeepMineBeforeTheir->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-mine-before-their")));
     actionCollection->setDefaultShortcut(actionKeepMineBeforeTheir, QKeySequence(Qt::CTRL + Qt::Key_L + Qt::SHIFT));
 
-    auto actionKeepTheirBeforeMine =
-        actionCollection->addAction(QStringLiteral("keep_their_before_mine"), this, &MergeWindow::actionKeepTheirBeforeMine_clicked);
+    actionKeepTheirBeforeMine = actionCollection->addAction(QStringLiteral("keep_their_before_mine"), this, &MergeWindow::actionKeepTheirBeforeMine_clicked);
     actionKeepTheirBeforeMine->setText(i18n("Keep their before mine"));
     actionKeepTheirBeforeMine->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their-before-mine")));
     actionCollection->setDefaultShortcut(actionKeepTheirBeforeMine, QKeySequence(Qt::CTRL + Qt::Key_R + Qt::SHIFT));
 
-    auto actionKeepMyFile = actionCollection->addAction(QStringLiteral("keep_my_file"), this, &MergeWindow::actionKeepMyFile_clicked);
+    actionKeepMyFile = actionCollection->addAction(QStringLiteral("keep_my_file"), this, &MergeWindow::actionKeepMyFile_clicked);
     actionKeepMyFile->setText(i18n("Keep my file"));
     actionKeepMyFile->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-mine-file")));
-    actionCollection->setDefaultShortcut(actionKeepMyFile, QKeySequence(Qt::CTRL + Qt::Key_L + Qt::ALT));
+    actionCollection->setDefaultShortcut(actionKeepMyFile, QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_L));
 
-    auto actionKeepTheirFile = actionCollection->addAction(QStringLiteral("keep_their_file"), this, &MergeWindow::actionKeepTheirFile_clicked);
+    actionKeepTheirFile = actionCollection->addAction(QStringLiteral("keep_their_file"), this, &MergeWindow::actionKeepTheirFile_clicked);
     actionKeepTheirFile->setText(i18n("Keep their file"));
     actionKeepTheirFile->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their-file")));
-    actionCollection->setDefaultShortcut(actionKeepTheirFile, QKeySequence(Qt::CTRL + Qt::Key_L + Qt::ALT));
+    actionCollection->setDefaultShortcut(actionKeepTheirFile, QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R));
 
     mActionBlocksView = actionCollection->addAction(QStringLiteral("view_blocks"), this, &MergeWindow::actionViewBlocks_clicked);
     mActionBlocksView->setText(i18n("Blocks"));
@@ -310,17 +314,13 @@ void MergeWindow::initActions()
     mActionFilesView->setText(i18n("Files"));
     mActionFilesView->setCheckable(true);
 
-    if (s.value(QStringLiteral("actionType"), QStringLiteral("file")).toString() == QStringLiteral("file"))
-        actionViewFiles_clicked();
-    else
-        actionViewBlocks_clicked();
-
-    auto actionGotoPrevDiff = actionCollection->addAction(QStringLiteral("goto_prev_diff"), this, &MergeWindow::actionGotoPrevDiff_clicked);
+    actionGotoPrevDiff = actionCollection->addAction(QStringLiteral("goto_prev_diff"), this, &MergeWindow::actionGotoPrevDiff_clicked);
     actionGotoPrevDiff->setText(i18n("Previous diff"));
     actionGotoPrevDiff->setIcon(QIcon::fromTheme(QStringLiteral("diff-goto-prev-diff")));
+    actionGotoPrevDiff->setEnabled(false);
     actionCollection->setDefaultShortcut(actionGotoPrevDiff, QKeySequence(Qt::Key_PageUp));
 
-    auto actionGotoNextDiff = actionCollection->addAction(QStringLiteral("goto_next_diff"), this, &MergeWindow::actionGotoNextDiff_clicked);
+    actionGotoNextDiff = actionCollection->addAction(QStringLiteral("goto_next_diff"), this, &MergeWindow::actionGotoNextDiff_clicked);
     actionGotoNextDiff->setText(i18n("Next diff"));
     actionGotoNextDiff->setIcon(QIcon::fromTheme(QStringLiteral("diff-goto-next-diff")));
     actionCollection->setDefaultShortcut(actionGotoNextDiff, QKeySequence(Qt::Key_PageDown));
@@ -356,6 +356,8 @@ void MergeWindow::doMergeAction(Diff::MergeType type)
     //    m_ui.plainTextEditResult->highlightSegment(s);
 
     mMapper->setCurrentSegment(s);
+
+    setWindowModified(true);
 }
 
 bool MergeWindow::isFullyResolved() const
@@ -528,6 +530,8 @@ void MergeWindow::slotPlainTextEditResultBlockSelected()
 {
     auto segment = static_cast<Diff::MergeSegment *>(m_ui.plainTextEditResult->currentSegment());
 
+    if (!segment)
+        return;
     if (segment->type == Diff::SegmentType::DifferentOnBoth) {
         m_ui.codeEditorMyBlock->setPlainText(segment->local.join(QStringLiteral("\n")));
         m_ui.codeEditorTheirBlock->setPlainText(segment->remote.join(QStringLiteral("\n")));
