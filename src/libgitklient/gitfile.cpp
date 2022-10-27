@@ -8,6 +8,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 
 #include <QFile>
+#include <QFileInfo>
+#include <QStandardPaths>
+#include <QUuid>
 #include <utility>
 
 namespace Git
@@ -104,6 +107,21 @@ bool File::save(const QString &path) const
     f.write(buffer);
     f.close();
     return true;
+}
+
+QString File::saveAsTemp() const
+{
+    QFileInfo fi{mFilePath};
+    QString fileName;
+    auto tempLocation = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
+    if (tempLocation.isEmpty())
+        return {};
+
+    fileName = QStringLiteral("%1/%2-%3.%4").arg(tempLocation, fi.baseName(), QUuid::createUuid().toString(QUuid::Id128), fi.suffix());
+
+    if (save(fileName))
+        return fileName;
+    return {};
 }
 
 QString File::content() const

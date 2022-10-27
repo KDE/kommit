@@ -18,6 +18,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KIO/ApplicationLauncherJob>
 #include <KLocalizedString>
 #include <KMimeTypeTrader>
+#include <kjobtrackerinterface.h>
 
 #include <kio_version.h>
 #if KIO_VERSION >= QT_VERSION_CHECK(5, 98, 0)
@@ -155,22 +156,20 @@ KService::Ptr FileActions::getViewer(const QString &mimeType)
 
 void FileActions::openWith()
 {
-    auto fileName = mGit->path() + QLatin1Char('/') + mFilePath;
-    const QList<QUrl> fileUrlList = {QUrl::fromLocalFile(fileName)};
-    QMimeDatabase db;
-    const QMimeType mimeType = db.mimeTypeForFile(fileName);
-    auto viewer = getViewer(mimeType.name());
+    const Git::File file(mPlace, mFilePath, mGit);
+    auto tempFilePath = file.saveAsTemp();
+    if (tempFilePath.isEmpty())
+        return;
 
-    auto job = new KIO::ApplicationLauncherJob(viewer);
-    job->setUrls(fileUrlList);
+    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob();
+    job->setUrls({QUrl::fromLocalFile(tempFilePath)});
 
 #if KIO_VERSION >= QT_VERSION_CHECK(5, 98, 0)
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
 #else
     job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
 #endif
-    // The temporary file will be removed when the viewer application exits.
-    job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
+
     job->start();
 }
 
