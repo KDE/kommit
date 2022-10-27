@@ -25,8 +25,8 @@ public:
     CodeEditor *right() const;
     void setRight(CodeEditor *newRight);
 
-    const QList<Diff::Segment *> &segments() const;
-    void setSegments(const QList<Diff::Segment *> &newSegments);
+    const QList<Diff::DiffSegment *> &segments() const;
+    void setSegments(const QList<Diff::DiffSegment *> &newSegments);
 
     Diff::Segment *currentSegment() const;
     void setCurrentSegment(Diff::Segment *newCurrentSegment);
@@ -47,7 +47,7 @@ protected:
 private:
     CodeEditor *mLeft{nullptr};
     CodeEditor *mRight{nullptr};
-    QList<Diff::Segment *> mSegments;
+    QList<Diff::DiffSegment *> mSegments;
     Diff::Segment *mCurrentSegment{nullptr};
     bool m_sameSize{false};
     int m_topMargin = 0;

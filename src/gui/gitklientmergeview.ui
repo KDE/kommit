@@ -89,14 +89,6 @@
          <property name="childrenCollapsible">
           <bool>false</bool>
          </property>
-         <widget class="SegmentConnector" name="widgetSegmentsConnector" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>80</width>
-            <height>0</height>
-           </size>
-          </property>
-         </widget>
          <widget class="CodeEditor" name="plainTextEditMine">
           <property name="contextMenuPolicy">
            <enum>Qt::CustomContextMenu</enum>
@@ -151,12 +143,6 @@
    <class>CodeEditor</class>
    <extends>QPlainTextEdit</extends>
    <header location="global">widgets/codeeditor.h</header>
-  </customwidget>
-  <customwidget>
-   <class>SegmentConnector</class>
-   <extends>QWidget</extends>
-   <header>widgets/segmentconnector.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

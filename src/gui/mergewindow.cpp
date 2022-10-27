@@ -119,8 +119,6 @@ void MergeWindow::init()
     actionViewBlocks_clicked();
 
     setupGUI(Default, QStringLiteral("gitklientmergeui.rc"));
-
-    m_ui.widgetSegmentsConnector->hide();
 }
 
 void MergeWindow::fillSegments()
@@ -198,10 +196,6 @@ void MergeWindow::load()
     for (const auto &s : std::as_const(mDiffs)) {
         segments.append(s);
     }
-    m_ui.widgetSegmentsConnector->setSegments(segments);
-    m_ui.widgetSegmentsConnector->setLeft(m_ui.plainTextEditMine);
-    m_ui.widgetSegmentsConnector->setRight(m_ui.plainTextEditTheir);
-    m_ui.widgetSegmentsConnector->hide();
 
     fillSegments();
     updateResult();

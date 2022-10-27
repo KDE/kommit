@@ -21,12 +21,12 @@ SegmentConnector::~SegmentConnector()
     qDeleteAll(mSegments);
 }
 
-const QList<Diff::Segment *> &SegmentConnector::segments() const
+const QList<Diff::DiffSegment *> &SegmentConnector::segments() const
 {
     return mSegments;
 }
 
-void SegmentConnector::setSegments(const QList<Diff::Segment *> &newSegments)
+void SegmentConnector::setSegments(const QList<Diff::DiffSegment *> &newSegments)
 {
     mSegments = newSegments;
 

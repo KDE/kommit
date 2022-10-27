@@ -94,7 +94,7 @@ struct MergeSegment : Segment {
 struct Diff2Result {
     LineEnding oldTextLineEnding;
     LineEnding newTextLineEnding;
-    QList<Segment *> segments;
+    QList<DiffSegment *> segments;
 };
 
 struct Diff3Result {
@@ -108,8 +108,8 @@ int matchesCount(const QStringList &base, const QStringList &local, const QStrin
 QStringList take(QStringList &list, int count);
 int remove(QStringList &list, int count);
 
-QList<Segment *> diff(const QString &oldText, const QString &newText);
-QList<Segment *> diff(const QStringList &oldText, const QStringList &newText);
+QList<DiffSegment *> diff(const QString &oldText, const QString &newText);
+QList<DiffSegment *> diff(const QStringList &oldText, const QStringList &newText);
 
 Diff2Result diff2(const QString &oldText, const QString &newText);
 

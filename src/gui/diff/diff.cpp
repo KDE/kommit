@@ -613,22 +613,22 @@ MergeSegment::MergeSegment(const QStringList &base, const QStringList &local, co
         this->base = this->local;
 }
 
-QList<Segment *> diff(const QStringList &oldText, const QStringList &newText)
+QList<DiffSegment *> diff(const QStringList &oldText, const QStringList &newText)
 {
     if (oldText == newText) {
-        auto segment = new Segment;
+        auto segment = new DiffSegment;
         segment->type = SegmentType::SameOnBoth;
         segment->oldText = oldText;
         segment->newText = newText;
         return {segment};
     } else if (oldText.isEmpty()) {
-        auto segment = new Segment;
+        auto segment = new DiffSegment;
         segment->type = SegmentType::OnlyOnLeft;
         segment->oldText = oldText;
         segment->newText = newText;
         return {segment};
     } else if (newText.isEmpty()) {
-        auto segment = new Segment;
+        auto segment = new DiffSegment;
         segment->type = SegmentType::OnlyOnRight;
         segment->oldText = oldText;
         segment->newText = newText;
@@ -641,7 +641,7 @@ QList<Segment *> diff(const QStringList &oldText, const QStringList &newText)
 
     int oldOffset{0};
     int newOffset{0};
-    QList<Segment *> ret;
+    QList<DiffSegment *> ret;
 
     QPair<int, int> p;
     while (!max.empty()) {
@@ -649,7 +649,7 @@ QList<Segment *> diff(const QStringList &oldText, const QStringList &newText)
             p = max.takeFirst();
 
         if (p.first == oldOffset && p.second == newOffset) {
-            auto segment = new Segment;
+            auto segment = new DiffSegment;
             segment->type = SegmentType::SameOnBoth;
             while (p.first == oldOffset && p.second == newOffset) {
                 oldOffset++;
@@ -678,7 +678,7 @@ QList<Segment *> diff(const QStringList &oldText, const QStringList &newText)
         oldOffset += oldList.size();
         newOffset += newList.size();
 
-        auto segment = new Segment;
+        auto segment = new DiffSegment;
         segment->oldText = oldList;
         segment->newText = newList;
 
@@ -694,7 +694,7 @@ QList<Segment *> diff(const QStringList &oldText, const QStringList &newText)
     return ret;
 }
 
-QList<Segment *> diff(const QString &oldText, const QString &newText)
+QList<DiffSegment *> diff(const QString &oldText, const QString &newText)
 {
     Text oldList, newList;
     if (!oldText.isEmpty())
