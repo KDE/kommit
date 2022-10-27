@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:48+0000\n"
-"PO-Revision-Date: 2022-10-21 13:15+0200\n"
+"POT-Creation-Date: 2022-10-27 00:49+0000\n"
+"PO-Revision-Date: 2022-10-26 07:09+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -72,69 +72,69 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Correcció d'errors"
 
-#: src/gui/actions/branchactions.cpp:29
+#: src/gui/actions/branchactions.cpp:30
 #, kde-format
 msgid "Create..."
 msgstr "Crea..."
 
-#: src/gui/actions/branchactions.cpp:32 src/gui/appwindow.cpp:158
+#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:158
 #, kde-format
 msgid "Fetch..."
 msgstr "Obtén..."
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/actions/commitactions.cpp:33
+#: src/gui/actions/branchactions.cpp:34 src/gui/actions/commitactions.cpp:33
 #: src/gui/mainwidget.cpp:100
 #, kde-format
 msgid "Browse..."
 msgstr "Navega..."
 
-#: src/gui/actions/branchactions.cpp:34
+#: src/gui/actions/branchactions.cpp:35
 #, kde-format
 msgid "Switch"
 msgstr "Canvia"
 
-#: src/gui/actions/branchactions.cpp:35 src/gui/appwindow.cpp:166
+#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:166
 #, kde-format
 msgid "Merge..."
 msgstr "Fusiona..."
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:36 src/gui/gitklientmergeui.rc:15
+#: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:15
 #: src/gui/settings/settingsmanager.cpp:91
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
 msgstr "Diferència"
 
-#: src/gui/actions/branchactions.cpp:37 src/gui/actions/remotesactions.cpp:26
+#: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
 msgstr "Elimina..."
 
-#: src/gui/actions/branchactions.cpp:38
+#: src/gui/actions/branchactions.cpp:39
 #, kde-format
 msgid "Note..."
 msgstr "Nota..."
 
-#: src/gui/actions/branchactions.cpp:78
+#: src/gui/actions/branchactions.cpp:79
 #, kde-format
 msgid "Create new branch"
 msgstr "Crea una branca nova"
 
-#: src/gui/actions/branchactions.cpp:78
+#: src/gui/actions/branchactions.cpp:79
 #, kde-format
 msgid "Branch name"
 msgstr "Nom de la branca"
 
-#: src/gui/actions/branchactions.cpp:127
+#: src/gui/actions/branchactions.cpp:128
 #: src/gui/widgets/branchesstatuswidget.cpp:68
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Esteu segur d'eliminar la branca seleccionada?"
 
-#: src/gui/actions/branchactions.cpp:127
+#: src/gui/actions/branchactions.cpp:128
 #, kde-format
 msgid "Remove Branch"
 msgstr "Elimina la branca"
@@ -831,10 +831,9 @@ msgstr "Seleccioneu el directori antic"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/gui/dialogs/diffopendialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Select files to merge"
+#, kde-format
 msgid "Select files/folders"
-msgstr "Selecció dels fitxers a fusionar"
+msgstr "Selecció de fitxers i carpetes"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
 #: src/gui/dialogs/diffopendialog.ui:23
@@ -1049,7 +1048,7 @@ msgstr "Patró:"
 #: src/gui/widgets/remoteswidget.ui:164
 #: src/libgitklient/models/authorsmodel.cpp:37
 #: src/libgitklient/models/branchesmodel.cpp:56
-#: src/libgitklient/models/tagsmodel.cpp:63
+#: src/libgitklient/models/tagsmodel.cpp:61
 #, kde-format
 msgid "Name"
 msgstr "Nom"
@@ -1949,10 +1948,9 @@ msgstr "Servidor intermediari del Git:"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AuthorsWidget)
 #: src/gui/widgets/authorswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Authors"
-msgstr "Autor"
+msgstr "Autors"
 
 #: src/gui/widgets/blamecodeview.cpp:43
 #, kde-format
@@ -2010,7 +2008,7 @@ msgstr "Ref"
 
 #: src/gui/widgets/logdetailswidget.cpp:112
 #: src/gui/widgets/logdetailswidget.cpp:115
-#: src/libgitklient/models/tagsmodel.cpp:69
+#: src/libgitklient/models/tagsmodel.cpp:67
 #, kde-format
 msgid "Committer"
 msgstr "Comitent"
@@ -2242,7 +2240,7 @@ msgid "Graph"
 msgstr "Graf"
 
 #: src/libgitklient/models/stashesmodel.cpp:60
-#: src/libgitklient/models/tagsmodel.cpp:65
+#: src/libgitklient/models/tagsmodel.cpp:63
 #, kde-format
 msgid "Subject"
 msgstr "Assumpte"
@@ -2267,13 +2265,7 @@ msgstr "Hora"
 msgid "Head"
 msgstr "Head"
 
-#: src/libgitklient/models/tagsmodel.cpp:67
+#: src/libgitklient/models/tagsmodel.cpp:65
 #, kde-format
 msgid "Tagger"
-msgstr ""
-
-#~ msgid "Local path"
-#~ msgstr "Camí local"
-
-#~ msgid "The selected path is outside of working dir"
-#~ msgstr "El camí seleccionat està fora del directori de treball"
+msgstr "Etiquetador"

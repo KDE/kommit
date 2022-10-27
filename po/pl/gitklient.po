@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:48+0000\n"
+"POT-Creation-Date: 2022-10-27 00:49+0000\n"
 "PO-Revision-Date: 2022-10-11 18:36+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -70,69 +70,69 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Naprawa błędów"
 
-#: src/gui/actions/branchactions.cpp:29
+#: src/gui/actions/branchactions.cpp:30
 #, fuzzy, kde-format
 msgid "Create..."
 msgstr "Utwórz"
 
-#: src/gui/actions/branchactions.cpp:32 src/gui/appwindow.cpp:158
+#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:158
 #, fuzzy, kde-format
 msgid "Fetch..."
 msgstr "Pobierz"
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/actions/commitactions.cpp:33
+#: src/gui/actions/branchactions.cpp:34 src/gui/actions/commitactions.cpp:33
 #: src/gui/mainwidget.cpp:100
 #, kde-format
 msgid "Browse..."
 msgstr "Przeglądaj..."
 
-#: src/gui/actions/branchactions.cpp:34
+#: src/gui/actions/branchactions.cpp:35
 #, fuzzy, kde-format
 msgid "Switch"
 msgstr "Przełącz"
 
-#: src/gui/actions/branchactions.cpp:35 src/gui/appwindow.cpp:166
+#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:166
 #, kde-format
 msgid "Merge..."
 msgstr "Scal..."
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:36 src/gui/gitklientmergeui.rc:15
+#: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:15
 #: src/gui/settings/settingsmanager.cpp:91
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
 msgstr "Różnica"
 
-#: src/gui/actions/branchactions.cpp:37 src/gui/actions/remotesactions.cpp:26
+#: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
 msgstr "Usuń..."
 
-#: src/gui/actions/branchactions.cpp:38
+#: src/gui/actions/branchactions.cpp:39
 #, kde-format
 msgid "Note..."
 msgstr "Notatka..."
 
-#: src/gui/actions/branchactions.cpp:78
+#: src/gui/actions/branchactions.cpp:79
 #, kde-format
 msgid "Create new branch"
 msgstr "Utwórz nową gałąź"
 
-#: src/gui/actions/branchactions.cpp:78
+#: src/gui/actions/branchactions.cpp:79
 #, kde-format
 msgid "Branch name"
 msgstr "Nazwa gałęzi"
 
-#: src/gui/actions/branchactions.cpp:127
+#: src/gui/actions/branchactions.cpp:128
 #: src/gui/widgets/branchesstatuswidget.cpp:68
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr ""
 
-#: src/gui/actions/branchactions.cpp:127
+#: src/gui/actions/branchactions.cpp:128
 #, kde-format
 msgid "Remove Branch"
 msgstr ""
@@ -1045,7 +1045,7 @@ msgstr "Wzorzec:"
 #: src/gui/widgets/remoteswidget.ui:164
 #: src/libgitklient/models/authorsmodel.cpp:37
 #: src/libgitklient/models/branchesmodel.cpp:56
-#: src/libgitklient/models/tagsmodel.cpp:63
+#: src/libgitklient/models/tagsmodel.cpp:61
 #, fuzzy, kde-format
 msgid "Name"
 msgstr "Nazwa"
@@ -2006,7 +2006,7 @@ msgstr "#REF!"
 
 #: src/gui/widgets/logdetailswidget.cpp:112
 #: src/gui/widgets/logdetailswidget.cpp:115
-#: src/libgitklient/models/tagsmodel.cpp:69
+#: src/libgitklient/models/tagsmodel.cpp:67
 #, kde-format
 msgid "Committer"
 msgstr ""
@@ -2234,7 +2234,7 @@ msgid "Graph"
 msgstr "Graf"
 
 #: src/libgitklient/models/stashesmodel.cpp:60
-#: src/libgitklient/models/tagsmodel.cpp:65
+#: src/libgitklient/models/tagsmodel.cpp:63
 #, fuzzy, kde-format
 msgid "Subject"
 msgstr "Temat"
@@ -2259,7 +2259,7 @@ msgstr "Czas"
 msgid "Head"
 msgstr "Nagłówek"
 
-#: src/libgitklient/models/tagsmodel.cpp:67
+#: src/libgitklient/models/tagsmodel.cpp:65
 #, kde-format
 msgid "Tagger"
 msgstr ""

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:48+0000\n"
-"PO-Revision-Date: 2022-10-21 09:46+0300\n"
+"POT-Creation-Date: 2022-10-27 00:49+0000\n"
+"PO-Revision-Date: 2022-10-26 16:31+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -70,69 +70,69 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Виправлення вад"
 
-#: src/gui/actions/branchactions.cpp:29
+#: src/gui/actions/branchactions.cpp:30
 #, kde-format
 msgid "Create..."
 msgstr "Створити…"
 
-#: src/gui/actions/branchactions.cpp:32 src/gui/appwindow.cpp:158
+#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:158
 #, kde-format
 msgid "Fetch..."
 msgstr "Отримати…"
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/actions/commitactions.cpp:33
+#: src/gui/actions/branchactions.cpp:34 src/gui/actions/commitactions.cpp:33
 #: src/gui/mainwidget.cpp:100
 #, kde-format
 msgid "Browse..."
 msgstr "Вибрати…"
 
-#: src/gui/actions/branchactions.cpp:34
+#: src/gui/actions/branchactions.cpp:35
 #, kde-format
 msgid "Switch"
 msgstr "Перемкнутися"
 
-#: src/gui/actions/branchactions.cpp:35 src/gui/appwindow.cpp:166
+#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:166
 #, kde-format
 msgid "Merge..."
 msgstr "Об'єднати…"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:36 src/gui/gitklientmergeui.rc:15
+#: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:15
 #: src/gui/settings/settingsmanager.cpp:91
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
 msgstr "Різниця"
 
-#: src/gui/actions/branchactions.cpp:37 src/gui/actions/remotesactions.cpp:26
+#: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
 msgstr "Вилучити…"
 
-#: src/gui/actions/branchactions.cpp:38
+#: src/gui/actions/branchactions.cpp:39
 #, kde-format
 msgid "Note..."
 msgstr "Нотатка…"
 
-#: src/gui/actions/branchactions.cpp:78
+#: src/gui/actions/branchactions.cpp:79
 #, kde-format
 msgid "Create new branch"
 msgstr "Створити гілку"
 
-#: src/gui/actions/branchactions.cpp:78
+#: src/gui/actions/branchactions.cpp:79
 #, kde-format
 msgid "Branch name"
 msgstr "Назва гілки"
 
-#: src/gui/actions/branchactions.cpp:127
+#: src/gui/actions/branchactions.cpp:128
 #: src/gui/widgets/branchesstatuswidget.cpp:68
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Ви справді хочете вилучити позначену гілку?"
 
-#: src/gui/actions/branchactions.cpp:127
+#: src/gui/actions/branchactions.cpp:128
 #, kde-format
 msgid "Remove Branch"
 msgstr "Вилучити гілку"
@@ -828,10 +828,9 @@ msgstr "Виберіть старий каталог"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/gui/dialogs/diffopendialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Select files to merge"
+#, kde-format
 msgid "Select files/folders"
-msgstr "Виберіть файли для об'єднання"
+msgstr "Виберіть файли або теки"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
 #: src/gui/dialogs/diffopendialog.ui:23
@@ -1046,7 +1045,7 @@ msgstr "Взірець:"
 #: src/gui/widgets/remoteswidget.ui:164
 #: src/libgitklient/models/authorsmodel.cpp:37
 #: src/libgitklient/models/branchesmodel.cpp:56
-#: src/libgitklient/models/tagsmodel.cpp:63
+#: src/libgitklient/models/tagsmodel.cpp:61
 #, kde-format
 msgid "Name"
 msgstr "Назва"
@@ -1945,10 +1944,9 @@ msgstr "Проксі git:"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AuthorsWidget)
 #: src/gui/widgets/authorswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Authors"
-msgstr "Автор"
+msgstr "Автори"
 
 #: src/gui/widgets/blamecodeview.cpp:43
 #, kde-format
@@ -2006,7 +2004,7 @@ msgstr "Пос."
 
 #: src/gui/widgets/logdetailswidget.cpp:112
 #: src/gui/widgets/logdetailswidget.cpp:115
-#: src/libgitklient/models/tagsmodel.cpp:69
+#: src/libgitklient/models/tagsmodel.cpp:67
 #, kde-format
 msgid "Committer"
 msgstr "Відповідальний перекладач"
@@ -2238,7 +2236,7 @@ msgid "Graph"
 msgstr "Граф"
 
 #: src/libgitklient/models/stashesmodel.cpp:60
-#: src/libgitklient/models/tagsmodel.cpp:65
+#: src/libgitklient/models/tagsmodel.cpp:63
 #, kde-format
 msgid "Subject"
 msgstr "Тема"
@@ -2263,10 +2261,10 @@ msgstr "Час"
 msgid "Head"
 msgstr "Голова"
 
-#: src/libgitklient/models/tagsmodel.cpp:67
+#: src/libgitklient/models/tagsmodel.cpp:65
 #, kde-format
 msgid "Tagger"
-msgstr ""
+msgstr "Мітки"
 
 #~ msgid "Local path"
 #~ msgstr "Локальний шлях"
