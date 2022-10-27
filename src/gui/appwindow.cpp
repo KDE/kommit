@@ -382,7 +382,7 @@ void AppWindow::merge()
 
 void AppWindow::cleanup()
 {
-    CleanupDialog d;
+    CleanupDialog d(this);
     if (d.exec() == QDialog::Accepted) {
         RunnerDialog runner(mGit);
         runner.run(d.command());
