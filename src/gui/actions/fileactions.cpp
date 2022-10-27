@@ -134,26 +134,6 @@ void FileActions::search()
     d.exec();
 }
 
-KService::Ptr FileActions::getViewer(const QString &mimeType)
-{
-    // No point in even trying to find anything for application/octet-stream
-    if (mimeType == QStringLiteral("application/octet-stream")) {
-        return {};
-    }
-
-    // Try to get a read-only kpart for the internal viewer
-    KService::List offers = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("KParts/ReadOnlyPart"));
-
-    // If we can't find a kpart, try to get an external application
-    if (offers.isEmpty()) {
-        offers = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("Application"));
-    }
-
-    if (!offers.isEmpty())
-        return offers.first();
-    return {};
-}
-
 void FileActions::openWith()
 {
     const Git::File file(mPlace, mFilePath, mGit);

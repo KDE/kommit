@@ -8,8 +8,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractactions.h"
 
-#include <KService>
-
 class FileActions : public AbstractActions
 {
     Q_OBJECT
@@ -46,6 +44,4 @@ private:
     QString mPlace;
     QString mFilePath;
     QMenu *mOpenWithMenu = nullptr;
-
-    KService::Ptr getViewer(const QString &mimeType);
 };
