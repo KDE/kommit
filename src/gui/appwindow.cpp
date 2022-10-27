@@ -84,7 +84,11 @@ AppWindow::AppWindow()
         auto p = s.value(QStringLiteral("last_repo")).toString();
         mGit->setPath(p);
         initRecentFiles(p);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         QtConcurrent::run(this, &AppWindow::loadRemotes);
+#else
+        QtConcurrent::run(&AppWindow::loadRemotes, this);
+#endif
     }
 }
 
@@ -92,7 +96,11 @@ AppWindow::AppWindow(const QString &path)
 {
     init();
     mGit->setPath(path);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QtConcurrent::run(this, &AppWindow::loadRemotes);
+#else
+    QtConcurrent::run(&AppWindow::loadRemotes, this);
+#endif
 }
 
 AppWindow::~AppWindow()
@@ -261,7 +269,11 @@ void AppWindow::recentActionTriggered()
 
     initRecentFiles(p);
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QtConcurrent::run(this, &AppWindow::loadRemotes);
+#else
+    QtConcurrent::run(&AppWindow::loadRemotes, this);
+#endif
 }
 
 void AppWindow::commitPushAction()

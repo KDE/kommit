@@ -54,7 +54,11 @@ void SearchDialog::slotPushButtonSearchClicked()
     startTimer(500);
     pushButtonSearch->setEnabled(false);
     mProgress.total = mProgress.value = 0;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     auto f = QtConcurrent::run(this, &SearchDialog::beginSearch);
+#else
+    auto f = QtConcurrent::run(&SearchDialog::beginSearch, this);
+#endif
 }
 
 void SearchDialog::slotTreeViewDoubleClicked(const QModelIndex &index)
