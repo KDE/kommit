@@ -315,20 +315,20 @@ bool load(AbstractGitItemsModel *cache)
 void Manager::loadAsync()
 {
     QList<AbstractGitItemsModel *> models;
-    if (_authorsModel)
-        _authorsModel->clear();
+    if (mAuthorsModel)
+        mAuthorsModel->clear();
     if (_loadFlags & LoadStashes)
-        models << _stashesCache;
+        models << mStashesCache;
     if (_loadFlags & LoadRemotes)
-        models << _remotesModel;
+        models << mRemotesModel;
     if (_loadFlags & LoadSubmodules)
-        models << _submodulesModel;
+        models << mSubmodulesModel;
     if (_loadFlags & LoadBranches)
-        models << _branchesModel;
+        models << mBranchesModel;
     if (_loadFlags & LoadLogs)
-        models << _logsCache;
+        models << mLogsCache;
     if (_loadFlags & LoadTags)
-        models << _tagsModel;
+        models << mTagsModel;
 
     if (!models.empty())
         QtConcurrent::mapped(models, load);
@@ -336,37 +336,37 @@ void Manager::loadAsync()
 
 TagsModel *Manager::tagsModel() const
 {
-    return _tagsModel;
+    return mTagsModel;
 }
 
 StashesModel *Manager::stashesModel() const
 {
-    return _stashesCache;
+    return mStashesCache;
 }
 
 LogsModel *Manager::logsModel() const
 {
-    return _logsCache;
+    return mLogsCache;
 }
 
 BranchesModel *Manager::branchesModel() const
 {
-    return _branchesModel;
+    return mBranchesModel;
 }
 
 AuthorsModel *Manager::authorsModel() const
 {
-    return _authorsModel;
+    return mAuthorsModel;
 }
 
 SubmodulesModel *Manager::submodulesModel() const
 {
-    return _submodulesModel;
+    return mSubmodulesModel;
 }
 
 RemotesModel *Manager::remotesModel() const
 {
-    return _remotesModel;
+    return mRemotesModel;
 }
 
 const LoadFlags &Manager::loadFlags() const
@@ -391,13 +391,13 @@ void Manager::saveNote(const QString &branchName, const QString &note) const
 
 Manager::Manager()
     : QObject()
-    , _remotesModel{new RemotesModel(this)}
-    , _authorsModel{new AuthorsModel(this)}
-    , _submodulesModel{new SubmodulesModel(this)}
-    , _branchesModel{new BranchesModel(this)}
-    , _logsCache{new LogsModel(this, _authorsModel)}
-    , _stashesCache{new StashesModel(this)}
-    , _tagsModel{new TagsModel(this)}
+    , mRemotesModel{new RemotesModel(this)}
+    , mAuthorsModel{new AuthorsModel(this)}
+    , mSubmodulesModel{new SubmodulesModel(this)}
+    , mBranchesModel{new BranchesModel(this)}
+    , mLogsCache{new LogsModel(this, mAuthorsModel)}
+    , mStashesCache{new StashesModel(this)}
+    , mTagsModel{new TagsModel(this)}
 {
 }
 
@@ -621,7 +621,7 @@ BlameData Manager::blame(const File &file)
         auto hash = row.commitHash;
         if (hash.startsWith(QLatin1Char('^')))
             hash = hash.remove(0, 1);
-        auto log = _logsCache->findLogByHash(hash);
+        auto log = mLogsCache->findLogByHash(hash);
         //        if (!log)
         //            qCDebug(GITKLIENTLIB_LOG) << "Log not found" << hash;
         row.log = log;

@@ -173,13 +173,13 @@ private:
     QString escapeFileName(const QString &filePath) const;
     void loadAsync();
 
-    RemotesModel *const _remotesModel;
-    AuthorsModel *const _authorsModel;
-    SubmodulesModel *const _submodulesModel;
-    BranchesModel *const _branchesModel;
-    LogsModel *const _logsCache;
-    StashesModel *const _stashesCache;
-    TagsModel *const _tagsModel;
+    RemotesModel *const mRemotesModel;
+    AuthorsModel *const mAuthorsModel;
+    SubmodulesModel *const mSubmodulesModel;
+    BranchesModel *const mBranchesModel;
+    LogsModel *const mLogsCache;
+    StashesModel *const mStashesCache;
+    TagsModel *const mTagsModel;
 
     friend class Stash;
     friend class RemotesModel;
