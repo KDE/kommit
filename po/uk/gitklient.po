@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-27 00:49+0000\n"
+"POT-Creation-Date: 2022-10-28 00:48+0000\n"
 "PO-Revision-Date: 2022-10-26 16:31+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -75,7 +75,7 @@ msgstr "Виправлення вад"
 msgid "Create..."
 msgstr "Створити…"
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:158
+#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:166
 #, kde-format
 msgid "Fetch..."
 msgstr "Отримати…"
@@ -91,14 +91,14 @@ msgstr "Вибрати…"
 msgid "Switch"
 msgstr "Перемкнутися"
 
-#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:166
+#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:174
 #, kde-format
 msgid "Merge..."
 msgstr "Об'єднати…"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:15
+#: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:17
 #: src/gui/settings/settingsmanager.cpp:91
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
@@ -152,43 +152,43 @@ msgstr "Повернути…"
 msgid "Checkout..."
 msgstr "Звірити…"
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:90
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Різниця з HEAD…"
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:79
 #, kde-format
 msgid "View..."
 msgstr "Переглянути…"
 
-#: src/gui/actions/fileactions.cpp:88
+#: src/gui/actions/fileactions.cpp:80
 #, kde-format
 msgid "Open with..."
 msgstr "Відкрити за допомогою…"
 
-#: src/gui/actions/fileactions.cpp:91
+#: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Об'єднати з HEAD…"
 
-#: src/gui/actions/fileactions.cpp:93
+#: src/gui/actions/fileactions.cpp:85
 #, kde-format
 msgid "Save as..."
 msgstr "Зберегти як…"
 
-#: src/gui/actions/fileactions.cpp:94
+#: src/gui/actions/fileactions.cpp:86
 #, kde-format
 msgid "Log..."
 msgstr "Журнал…"
 
-#: src/gui/actions/fileactions.cpp:95
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Blame..."
 msgstr "Визначити автора…"
 
-#: src/gui/actions/fileactions.cpp:96 src/gui/appwindow.cpp:173
+#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Search..."
 msgstr "Шукати…"
@@ -313,7 +313,7 @@ msgstr "Назва накопичення"
 msgid "Add..."
 msgstr "Додати…"
 
-#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:128
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:136
 #, kde-format
 msgid "Init..."
 msgstr "Ініціалізація…"
@@ -354,7 +354,7 @@ msgstr "Підмодуль %1 вилучено"
 msgid "New tag..."
 msgstr "Створити мітку…"
 
-#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:162
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Push..."
 msgstr "Записати…"
@@ -392,87 +392,87 @@ msgstr "Ви справді хочете звірити копію із позн
 msgid "No repo selected"
 msgstr "Не вибрано сховища"
 
-#: src/gui/appwindow.cpp:116
+#: src/gui/appwindow.cpp:124
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Поточна гілка: %1"
 
-#: src/gui/appwindow.cpp:118
+#: src/gui/appwindow.cpp:126
 #, kde-format
 msgid " (merging)"
 msgstr " (об'єднання)"
 
-#: src/gui/appwindow.cpp:131
+#: src/gui/appwindow.cpp:139
 #, kde-format
 msgid "Open..."
 msgstr "Відкрити…"
 
-#: src/gui/appwindow.cpp:136
+#: src/gui/appwindow.cpp:144
 #, kde-format
 msgid "Clone..."
 msgstr "Клонувати…"
 
-#: src/gui/appwindow.cpp:139
+#: src/gui/appwindow.cpp:147
 #, kde-format
 msgid "Changed files..."
 msgstr "Змінені файли…"
 
-#: src/gui/appwindow.cpp:145
+#: src/gui/appwindow.cpp:153
 #, kde-format
 msgid "Recent repos"
 msgstr "Нещодавні сховища"
 
-#: src/gui/appwindow.cpp:151
+#: src/gui/appwindow.cpp:159
 #, kde-format
 msgid "Cleanup..."
 msgstr "Очищення…"
 
-#: src/gui/appwindow.cpp:154
+#: src/gui/appwindow.cpp:162
 #, kde-format
 msgid "Pull..."
 msgstr "Отримати…"
 
-#: src/gui/appwindow.cpp:170
+#: src/gui/appwindow.cpp:178
 #, kde-format
 msgid "Diff branches..."
 msgstr "Різниця гілок…"
 
-#: src/gui/appwindow.cpp:176
+#: src/gui/appwindow.cpp:184
 #, kde-format
 msgid "Repo settings..."
 msgstr "Параметри сховища…"
 
-#: src/gui/appwindow.cpp:179
+#: src/gui/appwindow.cpp:187
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Перемкнутися/Отримати…"
 
-#: src/gui/appwindow.cpp:182
+#: src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Diff tree"
 msgstr "Ієрархія різниці"
 
-#: src/gui/appwindow.cpp:235 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:243 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Не вдалося створити шлях: %1"
 
-#: src/gui/appwindow.cpp:235 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:243 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Init repo"
 msgstr "Ініціалізувати сховище"
 
-#: src/gui/appwindow.cpp:245
+#: src/gui/appwindow.cpp:253
 #, kde-format
 msgid "Open repository"
 msgstr "Відкрити сховище"
 
-#: src/gui/appwindow.cpp:338 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:464
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Неможливо перемикатися на гілку у процесі об'єднання"
 
-#: src/gui/appwindow.cpp:338 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:464
 #, kde-format
 msgid "Switch branch"
 msgstr "Перемкнути гілку"
@@ -1519,8 +1519,27 @@ msgstr "Виконати команду"
 msgid "Output"
 msgstr "Виведення"
 
+#. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
+#: src/gui/dialogs/runnerdialog.ui:72
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Monospace'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QPushButton, pushButton)
-#: src/gui/dialogs/runnerdialog.ui:86
+#: src/gui/dialogs/runnerdialog.ui:98
 #, kde-format
 msgid "Stop"
 msgstr "Зупинити"
@@ -1654,7 +1673,7 @@ msgstr "Ієрархія"
 msgid "View hidden chars..."
 msgstr "Переглянути приховані символи…"
 
-#: src/gui/diffwindow.cpp:145
+#: src/gui/diffwindow.cpp:145 src/gui/mergewindow.cpp:342
 #, kde-format
 msgid "Same size blocks"
 msgstr "Однакові розміри блоків"
@@ -1690,7 +1709,7 @@ msgid "Modified"
 msgstr "Змінено"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/gui/gitklientdiffui.rc:20 src/gui/gitklientmergeui.rc:31
+#: src/gui/gitklientdiffui.rc:20 src/gui/gitklientmergeui.rc:33
 #: src/gui/gitklientui.rc:45
 #, kde-format
 msgid "Main Toolbar"
@@ -1773,62 +1792,62 @@ msgstr "Віддалені"
 msgid "Add"
 msgstr "Додати"
 
-#: src/gui/mergewindow.cpp:262
+#: src/gui/mergewindow.cpp:284
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Конфлікти: %1"
 
-#: src/gui/mergewindow.cpp:273
+#: src/gui/mergewindow.cpp:292
 #, kde-format
 msgid "Keep mine"
 msgstr "Зберегти ваш"
 
-#: src/gui/mergewindow.cpp:278
+#: src/gui/mergewindow.cpp:297
 #, kde-format
 msgid "Keep their"
 msgstr "Зберегти зовнішній"
 
-#: src/gui/mergewindow.cpp:285
+#: src/gui/mergewindow.cpp:303
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Зберегти ваш до зовнішнього"
 
-#: src/gui/mergewindow.cpp:291
+#: src/gui/mergewindow.cpp:308
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Зберегти зовнішній до вашого"
 
-#: src/gui/mergewindow.cpp:296
+#: src/gui/mergewindow.cpp:313
 #, kde-format
 msgid "Keep my file"
 msgstr "Зберегти ваш файл"
 
-#: src/gui/mergewindow.cpp:301
+#: src/gui/mergewindow.cpp:318
 #, kde-format
 msgid "Keep their file"
 msgstr "Зберегти зовнішній файл"
 
-#: src/gui/mergewindow.cpp:306
+#: src/gui/mergewindow.cpp:323
 #, kde-format
 msgid "Blocks"
 msgstr "Блоки"
 
-#: src/gui/mergewindow.cpp:310
+#: src/gui/mergewindow.cpp:327
 #, kde-format
 msgid "Files"
 msgstr "Файли"
 
-#: src/gui/mergewindow.cpp:319
+#: src/gui/mergewindow.cpp:331
 #, kde-format
 msgid "Previous diff"
 msgstr "Попередня відмінність"
 
-#: src/gui/mergewindow.cpp:324
+#: src/gui/mergewindow.cpp:337
 #, kde-format
 msgid "Next diff"
 msgstr "Наступна відмінність"
 
-#: src/gui/mergewindow.cpp:405
+#: src/gui/mergewindow.cpp:434
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Не вдалося відкрити файл"

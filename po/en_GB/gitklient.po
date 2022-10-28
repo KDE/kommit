@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-27 00:49+0000\n"
+"POT-Creation-Date: 2022-10-28 00:48+0000\n"
 "PO-Revision-Date: 2022-09-18 12:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Create..."
 msgstr "Create..."
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:158
+#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:166
 #, kde-format
 msgid "Fetch..."
 msgstr "Fetch..."
@@ -90,14 +90,14 @@ msgstr "Browse..."
 msgid "Switch"
 msgstr "Switch"
 
-#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:166
+#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:174
 #, kde-format
 msgid "Merge..."
 msgstr "Merge..."
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:15
+#: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:17
 #: src/gui/settings/settingsmanager.cpp:91
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
@@ -151,43 +151,43 @@ msgstr "Revert..."
 msgid "Checkout..."
 msgstr "Checkout..."
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:90
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Diff with HEAD..."
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:79
 #, kde-format
 msgid "View..."
 msgstr "View..."
 
-#: src/gui/actions/fileactions.cpp:88
+#: src/gui/actions/fileactions.cpp:80
 #, kde-format
 msgid "Open with..."
 msgstr "Open with..."
 
-#: src/gui/actions/fileactions.cpp:91
+#: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Merge with HEAD..."
 
-#: src/gui/actions/fileactions.cpp:93
+#: src/gui/actions/fileactions.cpp:85
 #, kde-format
 msgid "Save as..."
 msgstr "Save as..."
 
-#: src/gui/actions/fileactions.cpp:94
+#: src/gui/actions/fileactions.cpp:86
 #, kde-format
 msgid "Log..."
 msgstr "Log..."
 
-#: src/gui/actions/fileactions.cpp:95
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Blame..."
 msgstr "Blame..."
 
-#: src/gui/actions/fileactions.cpp:96 src/gui/appwindow.cpp:173
+#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Search..."
 msgstr "Search..."
@@ -316,7 +316,7 @@ msgstr "Name of stash"
 msgid "Add..."
 msgstr "Add..."
 
-#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:128
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:136
 #, kde-format
 msgid "Init..."
 msgstr "Init..."
@@ -358,7 +358,7 @@ msgstr "The submodule %1 removed"
 msgid "New tag..."
 msgstr "New tag..."
 
-#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:162
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Push..."
 msgstr "Push..."
@@ -398,88 +398,88 @@ msgstr "Are you sure to restore to the selected tag?"
 msgid "No repo selected"
 msgstr "No repository selected"
 
-#: src/gui/appwindow.cpp:116
+#: src/gui/appwindow.cpp:124
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Current branch: %1"
 
-#: src/gui/appwindow.cpp:118
+#: src/gui/appwindow.cpp:126
 #, kde-format
 msgid " (merging)"
 msgstr " (merging)"
 
-#: src/gui/appwindow.cpp:131
+#: src/gui/appwindow.cpp:139
 #, kde-format
 msgid "Open..."
 msgstr "Open..."
 
-#: src/gui/appwindow.cpp:136
+#: src/gui/appwindow.cpp:144
 #, kde-format
 msgid "Clone..."
 msgstr "Clone..."
 
-#: src/gui/appwindow.cpp:139
+#: src/gui/appwindow.cpp:147
 #, kde-format
 msgid "Changed files..."
 msgstr "Changed files..."
 
-#: src/gui/appwindow.cpp:145
+#: src/gui/appwindow.cpp:153
 #, kde-format
 msgid "Recent repos"
 msgstr "Recent repositories"
 
-#: src/gui/appwindow.cpp:151
+#: src/gui/appwindow.cpp:159
 #, kde-format
 msgid "Cleanup..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:154
+#: src/gui/appwindow.cpp:162
 #, kde-format
 msgid "Pull..."
 msgstr "Pull..."
 
-#: src/gui/appwindow.cpp:170
+#: src/gui/appwindow.cpp:178
 #, kde-format
 msgid "Diff branches..."
 msgstr "Diff branches..."
 
-#: src/gui/appwindow.cpp:176
+#: src/gui/appwindow.cpp:184
 #, kde-format
 msgid "Repo settings..."
 msgstr "Repository settings..."
 
-#: src/gui/appwindow.cpp:179
+#: src/gui/appwindow.cpp:187
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Switch/Checkout..."
 
-#: src/gui/appwindow.cpp:182
+#: src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Diff tree"
 msgstr "Diff tree"
 
-#: src/gui/appwindow.cpp:235 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:243 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Unable to create path: %1"
 
-#: src/gui/appwindow.cpp:235 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:243 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Init repo"
 msgstr "Initialise repository"
 
-#: src/gui/appwindow.cpp:245
+#: src/gui/appwindow.cpp:253
 #, fuzzy, kde-format
 #| msgid "Clone a repository"
 msgid "Open repository"
 msgstr "Clone a repository"
 
-#: src/gui/appwindow.cpp:338 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:464
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Cannot switch branch while merging"
 
-#: src/gui/appwindow.cpp:338 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:464
 #, kde-format
 msgid "Switch branch"
 msgstr "Switch branch"
@@ -1562,8 +1562,27 @@ msgstr "Run command"
 msgid "Output"
 msgstr "Output"
 
+#. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
+#: src/gui/dialogs/runnerdialog.ui:72
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Monospace'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QPushButton, pushButton)
-#: src/gui/dialogs/runnerdialog.ui:86
+#: src/gui/dialogs/runnerdialog.ui:98
 #, kde-format
 msgid "Stop"
 msgstr "Stop"
@@ -1698,7 +1717,7 @@ msgstr "Tree"
 msgid "View hidden chars..."
 msgstr "View hidden characters..."
 
-#: src/gui/diffwindow.cpp:145
+#: src/gui/diffwindow.cpp:145 src/gui/mergewindow.cpp:342
 #, kde-format
 msgid "Same size blocks"
 msgstr ""
@@ -1734,7 +1753,7 @@ msgid "Modified"
 msgstr "Modified"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/gui/gitklientdiffui.rc:20 src/gui/gitklientmergeui.rc:31
+#: src/gui/gitklientdiffui.rc:20 src/gui/gitklientmergeui.rc:33
 #: src/gui/gitklientui.rc:45
 #, kde-format
 msgid "Main Toolbar"
@@ -1817,62 +1836,62 @@ msgstr "Remotes"
 msgid "Add"
 msgstr "Add"
 
-#: src/gui/mergewindow.cpp:262
+#: src/gui/mergewindow.cpp:284
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Conflicts: %1"
 
-#: src/gui/mergewindow.cpp:273
+#: src/gui/mergewindow.cpp:292
 #, kde-format
 msgid "Keep mine"
 msgstr "Keep mine"
 
-#: src/gui/mergewindow.cpp:278
+#: src/gui/mergewindow.cpp:297
 #, kde-format
 msgid "Keep their"
 msgstr "Keep theirs"
 
-#: src/gui/mergewindow.cpp:285
+#: src/gui/mergewindow.cpp:303
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Keep mine before theirs"
 
-#: src/gui/mergewindow.cpp:291
+#: src/gui/mergewindow.cpp:308
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Keep theirs before mine"
 
-#: src/gui/mergewindow.cpp:296
+#: src/gui/mergewindow.cpp:313
 #, kde-format
 msgid "Keep my file"
 msgstr "Keep my file"
 
-#: src/gui/mergewindow.cpp:301
+#: src/gui/mergewindow.cpp:318
 #, kde-format
 msgid "Keep their file"
 msgstr "Keep their file"
 
-#: src/gui/mergewindow.cpp:306
+#: src/gui/mergewindow.cpp:323
 #, kde-format
 msgid "Blocks"
 msgstr "Blocks"
 
-#: src/gui/mergewindow.cpp:310
+#: src/gui/mergewindow.cpp:327
 #, kde-format
 msgid "Files"
 msgstr "Files"
 
-#: src/gui/mergewindow.cpp:319
+#: src/gui/mergewindow.cpp:331
 #, kde-format
 msgid "Previous diff"
 msgstr "Previous diff"
 
-#: src/gui/mergewindow.cpp:324
+#: src/gui/mergewindow.cpp:337
 #, kde-format
 msgid "Next diff"
 msgstr "Next diff"
 
-#: src/gui/mergewindow.cpp:405
+#: src/gui/mergewindow.cpp:434
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Unable to open the file"
