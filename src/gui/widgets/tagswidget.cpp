@@ -15,15 +15,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 TagsWidget::TagsWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
+    , mActions(new TagsActions(git, this))
+    , mModel(git->tagsModel())
 {
     setupUi(this);
     treeViewTags->setSortingEnabled(true);
-    mModel = git->tagsModel();
     auto sortFilterProxyModel = new QSortFilterProxyModel(this);
     sortFilterProxyModel->setSourceModel(mModel);
     treeViewTags->setModel(sortFilterProxyModel);
 
-    mActions = new TagsActions(git, this);
     pushButtonAddTag->setAction(mActions->actionCreate());
     pushButtonRemove->setAction(mActions->actionRemove());
     pushButtonCheckout->setAction(mActions->actionCheckout());

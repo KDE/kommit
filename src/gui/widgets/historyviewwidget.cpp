@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
+    , mActions(new CommitActions(git, this))
     , mHistoryModel(git->logsModel())
 {
     setupUi(this);
@@ -22,7 +23,6 @@ HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
     mGraphPainter = new GraphPainter(mHistoryModel, this);
     treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
 
-    mActions = new CommitActions(git, this);
     textBrowser->setEnableCommitsLinks(true);
 
     connect(treeViewHistory, &TreeView::itemActivated, this, &HistoryViewWidget::slotTreeViewHistoryItemActivated);

@@ -27,6 +27,6 @@ public:
 private:
     void slotTreeViewTagsCustomContextMenuRequested(const QPoint &pos);
     void slotTreeViewTagsItemActivated(const QModelIndex &index);
-    TagsActions *mActions = nullptr;
-    Git::TagsModel *mModel = nullptr;
+    TagsActions *const mActions;
+    Git::TagsModel *const mModel;
 };

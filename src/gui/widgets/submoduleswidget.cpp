@@ -12,9 +12,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 SubmodulesWidget::SubmodulesWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
+    , mActions(new SubmoduleActions(git, this))
 {
     setupUi(this);
-    mActions = new SubmoduleActions(git, this);
 
     pushButtonAddNew->setAction(mActions->actionCreate());
     pushButtonUpdate->setAction(mActions->actionUpdate());

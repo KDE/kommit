@@ -14,7 +14,6 @@ namespace Git
 class LogsModel;
 };
 
-class CommitsFilterModel;
 class GraphPainter;
 class CommitActions;
 class HistoryViewWidget : public WidgetBase, private Ui::HistoryViewWidget
@@ -35,8 +34,7 @@ private Q_SLOTS:
     void slotTreeViewHistoryCustomContextMenuRequested(const QPoint &pos);
 
 private:
-    CommitActions *mActions{nullptr};
-    Git::LogsModel *mHistoryModel{nullptr};
-    CommitsFilterModel *filterModel{nullptr};
+    CommitActions *const mActions;
+    Git::LogsModel *const mHistoryModel;
     GraphPainter *mGraphPainter{nullptr};
 };

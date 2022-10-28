@@ -31,6 +31,6 @@ private Q_SLOTS:
     void slotTreeViewActivated(const QModelIndex &index);
 
 private:
-    SubmoduleActions *mActions = nullptr;
+    SubmoduleActions *const mActions;
     Git::SubmodulesModel *mModel = nullptr;
 };
