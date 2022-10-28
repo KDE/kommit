@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "submoduleswidget.h"
 #include "actions/submoduleactions.h"
 #include "gitmanager.h"
+#include "gitsubmodule.h"
 #include "models/submodulesmodel.h"
 
 SubmodulesWidget::SubmodulesWidget(Git::Manager *git, AppWindow *parent)
