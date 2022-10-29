@@ -313,12 +313,12 @@ bool load(AbstractGitItemsModel *cache)
     cache->load();
     return true;
 }
+
 void Manager::loadAsync()
 {
     QList<AbstractGitItemsModel *> models;
     if (mAuthorsModel) {
         mAuthorsModel->clear();
-        mAuthorsModelFilterProxyModel->invalidate();
     }
     if (_loadFlags & LoadStashes)
         models << mStashesCache;
@@ -335,11 +335,6 @@ void Manager::loadAsync()
 
     if (!models.empty())
         QtConcurrent::mapped(models, load);
-}
-
-QSortFilterProxyModel *Manager::authorsModelFilterProxyModel() const
-{
-    return mAuthorsModelFilterProxyModel;
 }
 
 TagsModel *Manager::tagsModel() const
@@ -406,9 +401,7 @@ Manager::Manager()
     , mLogsCache{new LogsModel(this, mAuthorsModel)}
     , mStashesCache{new StashesModel(this)}
     , mTagsModel{new TagsModel(this)}
-    , mAuthorsModelFilterProxyModel{new QSortFilterProxyModel(this)}
 {
-    mAuthorsModelFilterProxyModel->setSourceModel(mAuthorsModel);
 }
 
 Manager::Manager(const QString &path)

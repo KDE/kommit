@@ -136,6 +136,11 @@ void FileActions::search()
 
 void FileActions::openWith()
 {
+    /*
+     *             KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url);
+            job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, widget()));
+            job->start();
+*/
     const Git::File file(mPlace, mFilePath, mGit);
     auto tempFilePath = file.saveAsTemp();
     if (tempFilePath.isEmpty())

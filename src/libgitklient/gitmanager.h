@@ -7,15 +7,12 @@
 #include "commands/abstractcommand.h"
 #include "filestatus.h"
 #include "gitfile.h"
-#include "gitloglist.h"
 #include "gitremote.h"
 #include "libgitklient_export.h"
 #include "stash.h"
 
 #include <QObject>
 #include <QString>
-
-class QSortFilterProxyModel;
 
 namespace Git
 {
@@ -158,8 +155,6 @@ public:
     QString readNote(const QString &branchName) const;
     void saveNote(const QString &branchName, const QString &note) const;
 
-    QSortFilterProxyModel *authorsModelFilterProxyModel() const;
-
 Q_SIGNALS:
     void pathChanged();
 
@@ -183,8 +178,6 @@ private:
     LogsModel *const mLogsCache;
     StashesModel *const mStashesCache;
     TagsModel *const mTagsModel;
-
-    QSortFilterProxyModel *const mAuthorsModelFilterProxyModel;
 
     friend class Stash;
     friend class RemotesModel;

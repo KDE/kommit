@@ -16,7 +16,7 @@ AuthorsWidget::AuthorsWidget(Git::Manager *git, AppWindow *parent)
 {
     setupUi(this);
     tableViewAuthors->setSortingEnabled(true);
-    tableViewAuthors->setModel(mGit->authorsModelFilterProxyModel());
+    tableViewAuthors->setModel(mGit->authorsModel());
     tableViewAuthors->sortByColumn(Git::AuthorsModel::Commits, Qt::DescendingOrder);
 }
 
