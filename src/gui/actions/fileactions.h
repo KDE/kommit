@@ -24,6 +24,7 @@ public:
 
 private:
     void viewFile();
+    void openFile();
     void saveAsFile();
     void logFile();
     void blameFile();
@@ -35,6 +36,7 @@ private:
     DEFINE_ACTION(actionSaveAs)
 
     DEFINE_ACTION(actionView)
+    DEFINE_ACTION(actionOpen)
     DEFINE_ACTION(actionHistory)
     DEFINE_ACTION(actionBlame)
     DEFINE_ACTION(actionSearch)

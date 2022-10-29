@@ -16,6 +16,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "mergewindow.h"
 
 #include <KIO/ApplicationLauncherJob>
+#include <KIO/OpenUrlJob>
 #include <KLocalizedString>
 #include <KMimeTypeTrader>
 #include <kjobtrackerinterface.h>
@@ -28,6 +29,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #endif
 
 #include <QAction>
+#include <QDesktopServices>
 #include <QFileDialog>
 #include <QMenu>
 #include <QMimeDatabase>
@@ -62,6 +64,7 @@ void FileActions::setFilePath(const QString &newFilePath)
     mFilePath = newFilePath;
 
     setActionEnabled(_actionView, !mPlace.isEmpty());
+    setActionEnabled(_actionOpen, !mPlace.isEmpty());
     setActionEnabled(_actionOpenWith, !mPlace.isEmpty());
     setActionEnabled(_actionDiffWithHead, !mPlace.isEmpty());
     setActionEnabled(_actionMergeWithHead, !mPlace.isEmpty());
@@ -76,7 +79,8 @@ FileActions::FileActions(Git::Manager *git, QWidget *parent)
 {
     mOpenWithMenu = new QMenu(parent);
 
-    _actionView = addAction(i18n("View..."), this, &FileActions::viewFile, false, true);
+    _actionView = addAction(i18n("Preview"), this, &FileActions::viewFile, false, true);
+    _actionOpen = addAction(i18n("Open"), this, &FileActions::openFile, false, true);
     _actionOpenWith = addAction(i18n("Open with..."), this, &FileActions::openWith, false, true);
 
     _actionDiffWithHead = addAction(i18n("Diff with HEAD..."), this, &FileActions::diffWithHead, false, true);
@@ -102,6 +106,7 @@ void FileActions::viewFile()
 }
 
 void FileActions::saveAsFile()
+
 {
     const auto fileName = QFileDialog::getSaveFileName(mParent);
     if (!fileName.isEmpty()) {
@@ -119,8 +124,6 @@ void FileActions::logFile()
 
 void FileActions::blameFile()
 {
-    //    auto path = _treeModel->fullPath(treeView->currentIndex()) + "/"
-    //                + listWidget->currentItem()->text();
     const Git::File file(mPlace, mFilePath, mGit);
     FileBlameDialog d(file, mParent);
     d.exec();
@@ -128,21 +131,41 @@ void FileActions::blameFile()
 
 void FileActions::search()
 {
-    //    auto path = _treeModel->fullPath(treeView->currentIndex()) + "/"
-    //                + listWidget->currentItem()->text();
     SearchDialog d(mFilePath, Git::Manager::instance(), mParent);
     d.exec();
 }
 
+void FileActions::openFile()
+{
+    const Git::File file(mPlace, mFilePath, mGit);
+    auto tempFilePath = file.saveAsTemp(); // TODO: remove temp file after openning
+    if (tempFilePath.isEmpty())
+        return;
+
+    auto url = QUrl::fromLocalFile(tempFilePath);
+    qDebug() << "Openning " << tempFilePath << url;
+    QDesktopServices::openUrl(url);
+
+    // TODO: needs to be checked
+    /*KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url);
+
+#if KIO_VERSION >= QT_VERSION_CHECK(5, 98, 0)
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+#else
+    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+#endif
+    qDebug() << "Starting";
+    if(!job->exec()) {
+        qDebug() << job->errorString();
+        if(!QDesktopServices::openUrl(url))
+            qDebug() << "Could not launch external editor.";
+    }*/
+}
+
 void FileActions::openWith()
 {
-    /*
-     *             KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url);
-            job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, widget()));
-            job->start();
-*/
     const Git::File file(mPlace, mFilePath, mGit);
-    auto tempFilePath = file.saveAsTemp();
+    auto tempFilePath = file.saveAsTemp(); // TODO: remove temp file after openning
     if (tempFilePath.isEmpty())
         return;
 
