@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:48+0000\n"
+"POT-Creation-Date: 2022-10-30 00:48+0000\n"
 "PO-Revision-Date: 2022-10-28 08:51+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -154,43 +154,50 @@ msgstr "Reverteix..."
 msgid "Checkout..."
 msgstr "Agafa..."
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Diff amb HEAD..."
 
-#: src/gui/actions/fileactions.cpp:79
-#, kde-format
-msgid "View..."
-msgstr "Visualitza..."
+#: src/gui/actions/fileactions.cpp:82
+#, fuzzy, kde-format
+#| msgid "Overview"
+msgid "Preview"
+msgstr "Vista general"
 
-#: src/gui/actions/fileactions.cpp:80
+#: src/gui/actions/fileactions.cpp:83
+#, fuzzy, kde-format
+#| msgid "Open..."
+msgid "Open"
+msgstr "Obre..."
+
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open with..."
 msgstr "Obre amb..."
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Fusiona amb HEAD..."
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:89
 #, kde-format
 msgid "Save as..."
 msgstr "Desa com a..."
 
-#: src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Log..."
 msgstr "Registre..."
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Blame..."
 msgstr "«Blame»..."
 
-#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:181
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Search..."
 msgstr "Cerca..."
@@ -2301,3 +2308,6 @@ msgstr "Head"
 #, kde-format
 msgid "Tagger"
 msgstr "Etiquetador"
+
+#~ msgid "View..."
+#~ msgstr "Visualitza..."

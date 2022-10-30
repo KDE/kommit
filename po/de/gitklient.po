@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:48+0000\n"
+"POT-Creation-Date: 2022-10-30 00:48+0000\n"
 "PO-Revision-Date: 2022-10-17 10:39+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -151,43 +151,48 @@ msgstr ""
 msgid "Checkout..."
 msgstr ""
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:79
+#: src/gui/actions/fileactions.cpp:82
 #, kde-format
-msgid "View..."
-msgstr ""
-
-#: src/gui/actions/fileactions.cpp:80
-#, kde-format
-msgid "Open with..."
+msgid "Preview"
 msgstr ""
 
 #: src/gui/actions/fileactions.cpp:83
 #, kde-format
-msgid "Merge with HEAD..."
+msgid "Open"
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
-msgid "Save as..."
-msgstr ""
-
-#: src/gui/actions/fileactions.cpp:86
-#, kde-format
-msgid "Log..."
+msgid "Open with..."
 msgstr ""
 
 #: src/gui/actions/fileactions.cpp:87
 #, kde-format
+msgid "Merge with HEAD..."
+msgstr ""
+
+#: src/gui/actions/fileactions.cpp:89
+#, kde-format
+msgid "Save as..."
+msgstr ""
+
+#: src/gui/actions/fileactions.cpp:90
+#, kde-format
+msgid "Log..."
+msgstr ""
+
+#: src/gui/actions/fileactions.cpp:91
+#, kde-format
 msgid "Blame..."
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:181
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Search..."
 msgstr ""

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:48+0000\n"
+"POT-Creation-Date: 2022-10-30 00:48+0000\n"
 "PO-Revision-Date: 2022-10-22 05:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -151,43 +151,50 @@ msgstr "还原..."
 msgid "Checkout..."
 msgstr "检出..."
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "与 HEAD 相差…"
 
-#: src/gui/actions/fileactions.cpp:79
-#, kde-format
-msgid "View..."
-msgstr "查看..."
+#: src/gui/actions/fileactions.cpp:82
+#, fuzzy, kde-format
+#| msgid "Overview"
+msgid "Preview"
+msgstr "概览"
 
-#: src/gui/actions/fileactions.cpp:80
+#: src/gui/actions/fileactions.cpp:83
+#, fuzzy, kde-format
+#| msgid "Open..."
+msgid "Open"
+msgstr "打开..."
+
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open with..."
 msgstr "打开方式..."
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "与 HEAD 合并…"
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:89
 #, kde-format
 msgid "Save as..."
 msgstr "另存为..."
 
-#: src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Log..."
 msgstr "日志…"
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Blame..."
 msgstr "追溯..."
 
-#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:181
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Search..."
 msgstr "搜索..."
@@ -2239,6 +2246,9 @@ msgstr "头"
 #, kde-format
 msgid "Tagger"
 msgstr ""
+
+#~ msgid "View..."
+#~ msgstr "查看..."
 
 #~ msgid "Local path"
 #~ msgstr "本地路径"

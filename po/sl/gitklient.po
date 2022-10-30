@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:48+0000\n"
-"PO-Revision-Date: 2022-10-27 07:06+0200\n"
+"POT-Creation-Date: 2022-10-30 00:48+0000\n"
+"PO-Revision-Date: 2022-10-29 08:21+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -155,43 +155,49 @@ msgstr "Povrni …"
 msgid "Checkout..."
 msgstr "Prevzemi ..."
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Razlika z GLAVO/HEAD ..."
 
-#: src/gui/actions/fileactions.cpp:79
-#, kde-format
-msgid "View..."
-msgstr "Pogled..."
+#: src/gui/actions/fileactions.cpp:82
+#, fuzzy, kde-format
+#| msgid "Overview"
+msgid "Preview"
+msgstr "Pregled"
 
-#: src/gui/actions/fileactions.cpp:80
+#: src/gui/actions/fileactions.cpp:83
+#, kde-format
+msgid "Open"
+msgstr "Odpri"
+
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open with..."
 msgstr "Odpri z..."
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Združi z GLAVO/HEAD ..."
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:89
 #, kde-format
 msgid "Save as..."
 msgstr "Shrani kot..."
 
-#: src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Log..."
 msgstr "Dnevnik..."
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Blame..."
 msgstr "Odgovornost (blame) ..."
 
-#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:181
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Search..."
 msgstr "Išči..."
@@ -1538,6 +1544,19 @@ msgid ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
 "\"><br /></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Monospace'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButton)
 #: src/gui/dialogs/runnerdialog.ui:98
@@ -2284,6 +2303,9 @@ msgstr "Glava (head)"
 msgid "Tagger"
 msgstr "Označevalnik"
 
+#~ msgid "View..."
+#~ msgstr "Pogled..."
+
 #~ msgid "Local path"
 #~ msgstr "Lokalna pot"
 
@@ -2298,9 +2320,6 @@ msgstr "Označevalnik"
 
 #~ msgid "Init"
 #~ msgstr "Inicializiraj"
-
-#~ msgid "Open"
-#~ msgstr "Odpri"
 
 #~ msgid "Pull"
 #~ msgstr "Potegni"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:48+0000\n"
+"POT-Creation-Date: 2022-10-30 00:48+0000\n"
 "PO-Revision-Date: 2022-10-11 18:36+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -152,43 +152,48 @@ msgstr "Wycofaj"
 msgid "Checkout..."
 msgstr "Sprawdzenie"
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:79
+#: src/gui/actions/fileactions.cpp:82
 #, fuzzy, kde-format
-msgid "View..."
-msgstr "Widok..."
+msgid "Preview"
+msgstr "Przegląd"
 
-#: src/gui/actions/fileactions.cpp:80
+#: src/gui/actions/fileactions.cpp:83
+#, fuzzy, kde-format
+msgid "Open"
+msgstr "Otwórz"
+
+#: src/gui/actions/fileactions.cpp:84
 #, fuzzy, kde-format
 msgid "Open with..."
 msgstr "Otwórz za pomocą..."
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:89
 #, fuzzy, kde-format
 msgid "Save as..."
 msgstr "Zapisz jako..."
 
-#: src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/fileactions.cpp:90
 #, fuzzy, kde-format
 msgid "Log..."
 msgstr "Dziennik"
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Blame..."
 msgstr "Obwiń..."
 
-#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:181
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:181
 #, fuzzy, kde-format
 msgid "Search..."
 msgstr "Znajdź..."
@@ -2282,6 +2287,10 @@ msgstr "Nagłówek"
 #, kde-format
 msgid "Tagger"
 msgstr ""
+
+#, fuzzy
+#~ msgid "View..."
+#~ msgstr "Widok..."
 
 #, fuzzy
 #~ msgid "Local path"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:48+0000\n"
+"POT-Creation-Date: 2022-10-30 00:48+0000\n"
 "PO-Revision-Date: 2022-09-18 12:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -151,43 +151,49 @@ msgstr "Revert..."
 msgid "Checkout..."
 msgstr "Checkout..."
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Diff with HEAD..."
 
-#: src/gui/actions/fileactions.cpp:79
-#, kde-format
-msgid "View..."
-msgstr "View..."
+#: src/gui/actions/fileactions.cpp:82
+#, fuzzy, kde-format
+#| msgid "Overview"
+msgid "Preview"
+msgstr "Overview"
 
-#: src/gui/actions/fileactions.cpp:80
+#: src/gui/actions/fileactions.cpp:83
+#, kde-format
+msgid "Open"
+msgstr "Open"
+
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open with..."
 msgstr "Open with..."
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Merge with HEAD..."
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:89
 #, kde-format
 msgid "Save as..."
 msgstr "Save as..."
 
-#: src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Log..."
 msgstr "Log..."
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Blame..."
 msgstr "Blame..."
 
-#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:181
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Search..."
 msgstr "Search..."
@@ -2328,6 +2334,9 @@ msgstr "Head"
 msgid "Tagger"
 msgstr ""
 
+#~ msgid "View..."
+#~ msgstr "View..."
+
 #~ msgid "Local path"
 #~ msgstr "Local path"
 
@@ -2344,9 +2353,6 @@ msgstr ""
 
 #~ msgid "Init"
 #~ msgstr "Init"
-
-#~ msgid "Open"
-#~ msgstr "Open"
 
 #~ msgid "Pull"
 #~ msgstr "Pull"

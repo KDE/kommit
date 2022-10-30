@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:48+0000\n"
+"POT-Creation-Date: 2022-10-30 00:48+0000\n"
 "PO-Revision-Date: 2022-10-28 11:47+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -161,43 +161,50 @@ msgstr "Reverter..."
 msgid "Checkout..."
 msgstr "Obter..."
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Diferenças do HEAD..."
 
-#: src/gui/actions/fileactions.cpp:79
-#, kde-format
-msgid "View..."
-msgstr "Ver..."
+#: src/gui/actions/fileactions.cpp:82
+#, fuzzy, kde-format
+#| msgid "Overview"
+msgid "Preview"
+msgstr "Introdução"
 
-#: src/gui/actions/fileactions.cpp:80
+#: src/gui/actions/fileactions.cpp:83
+#, fuzzy, kde-format
+#| msgid "Open..."
+msgid "Open"
+msgstr "Abrir..."
+
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open with..."
 msgstr "Abrir com..."
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Reunir com o HEAD..."
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:89
 #, kde-format
 msgid "Save as..."
 msgstr "Gravar como..."
 
-#: src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Log..."
 msgstr "Registo..."
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Blame..."
 msgstr "Anotar..."
 
-#: src/gui/actions/fileactions.cpp:88 src/gui/appwindow.cpp:181
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Search..."
 msgstr "Procurar..."
@@ -2309,3 +2316,6 @@ msgstr "Última versão"
 #, kde-format
 msgid "Tagger"
 msgstr "Marcador"
+
+#~ msgid "View..."
+#~ msgstr "Ver..."
