@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-30 00:48+0000\n"
-"PO-Revision-Date: 2022-10-22 05:29\n"
+"PO-Revision-Date: 2022-10-30 07:49\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -829,10 +829,9 @@ msgstr "选择旧目录"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/gui/dialogs/diffopendialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Select files to merge"
+#, kde-format
 msgid "Select files/folders"
-msgstr "选择要合并的文件"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
 #: src/gui/dialogs/diffopendialog.ui:23
@@ -1928,10 +1927,9 @@ msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AuthorsWidget)
 #: src/gui/widgets/authorswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Authors"
-msgstr "作者"
+msgstr ""
 
 #: src/gui/widgets/blamecodeview.cpp:43
 #, kde-format
@@ -2249,9 +2247,3 @@ msgstr ""
 
 #~ msgid "View..."
 #~ msgstr "查看..."
-
-#~ msgid "Local path"
-#~ msgstr "本地路径"
-
-#~ msgid "The selected path is outside of working dir"
-#~ msgstr "选中的路径不在工作目录内"

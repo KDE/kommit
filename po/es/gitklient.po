@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-30 00:48+0000\n"
-"PO-Revision-Date: 2022-10-29 19:12+0200\n"
+"PO-Revision-Date: 2022-10-30 10:40+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -160,10 +160,9 @@ msgid "Diff with HEAD..."
 msgstr "Diferencias con HEAD..."
 
 #: src/gui/actions/fileactions.cpp:82
-#, fuzzy, kde-format
-#| msgid "Overview"
+#, kde-format
 msgid "Preview"
-msgstr "Resumen"
+msgstr "Vista previa"
 
 #: src/gui/actions/fileactions.cpp:83
 #, kde-format
