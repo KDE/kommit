@@ -36,6 +36,13 @@ void ChangedFilesDialog::reload()
     listWidget->clear();
     auto files = mGit->changedFiles();
 
+    if (!files.size()) {
+        auto item = new QListWidgetItem(listWidget);
+        item->setText(i18n("You don't have any modified file!"));
+        listWidget->addItem(item);
+        listWidget->setDisabled(true);
+        return;
+    }
     for (auto i = files.begin(); i != files.end(); ++i) {
         auto item = new QListWidgetItem(listWidget);
         item->setText(i.key());
