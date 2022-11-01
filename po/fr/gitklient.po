@@ -162,8 +162,7 @@ msgid "Preview"
 msgstr "Vue d'ensemble"
 
 #: src/gui/actions/fileactions.cpp:83
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgid "Open"
 msgstr "Ouvrir "
 

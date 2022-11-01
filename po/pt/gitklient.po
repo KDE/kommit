@@ -168,16 +168,14 @@ msgid "Diff with HEAD..."
 msgstr "Diferenças do HEAD..."
 
 #: src/gui/actions/fileactions.cpp:82
-#, fuzzy, kde-format
-#| msgid "Overview"
+#, kde-format
 msgid "Preview"
-msgstr "Introdução"
+msgstr "Antevisão"
 
 #: src/gui/actions/fileactions.cpp:83
-#, fuzzy, kde-format
-#| msgid "Open..."
+#, kde-format
 msgid "Open"
-msgstr "Abrir..."
+msgstr "Abrir"
 
 #: src/gui/actions/fileactions.cpp:84
 #, kde-format
