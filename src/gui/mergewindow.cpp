@@ -58,8 +58,9 @@ QString readFile(const QString &filePath)
     return buf;
 }
 
-MergeWindow::MergeWindow(Mode mode, QWidget *parent)
+MergeWindow::MergeWindow(Git::Manager *git, Mode mode, QWidget *parent)
     : AppMainWindow(parent)
+    , mGit(git)
 {
     Q_UNUSED(mode)
     auto w = new QWidget(this);
@@ -347,7 +348,7 @@ void MergeWindow::initActions()
     KStandardAction::save(this, &MergeWindow::fileSave, actionCollection);
     KStandardAction::quit(qApp, &QApplication::closeAllWindows, actionCollection);
 
-    auto settingsManager = new SettingsManager(this);
+    auto settingsManager = new SettingsManager(mGit, this);
     KStandardAction::preferences(settingsManager, &SettingsManager::show, actionCollection);
 
     mCodeEditorContextMenu = new QMenu(this);

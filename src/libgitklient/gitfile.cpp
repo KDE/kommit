@@ -39,6 +39,7 @@ File::File(QString place, QString filePath, Manager *git)
     , mGit(git)
     , mStorage{Git}
 {
+    // TODO: do wee need this?
     if (!mGit)
         mGit = Manager::instance();
 }

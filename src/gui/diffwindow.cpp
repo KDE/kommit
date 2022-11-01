@@ -31,6 +31,7 @@ DiffWindow::DiffWindow()
 
 DiffWindow::DiffWindow(Git::Manager *git)
     : AppMainWindow()
+    , mGit(git)
 {
     init(true);
 
@@ -158,7 +159,7 @@ void DiffWindow::initActions()
     KStandardAction::quit(this, &QWidget::close, actionCollection);
     KStandardAction::open(this, &DiffWindow::fileOpen, actionCollection);
 
-    auto settingsManager = new SettingsManager(this);
+    auto settingsManager = new SettingsManager(mGit, this);
     KStandardAction::preferences(settingsManager, &SettingsManager::show, actionCollection);
 }
 

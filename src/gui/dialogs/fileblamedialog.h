@@ -21,7 +21,7 @@ class FileBlameDialog : public AppDialog, private Ui::FileBlameDialog
 
 public:
     explicit FileBlameDialog(Git::Manager *git, const QString &fileName, QWidget *parent = nullptr);
-    explicit FileBlameDialog(const Git::File &file, QWidget *parent = nullptr);
+    explicit FileBlameDialog(Git::Manager *git, const Git::File &file, QWidget *parent = nullptr);
 
 private Q_SLOTS:
     void slotPlainTextEditBlockSelected();

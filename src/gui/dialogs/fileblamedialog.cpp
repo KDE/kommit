@@ -28,8 +28,8 @@ FileBlameDialog::FileBlameDialog(Git::Manager *git, const QString &fileName, QWi
     connect(plainTextEdit, &BlameCodeView::blockSelected, this, &FileBlameDialog::slotPlainTextEditBlockSelected);
 }
 
-FileBlameDialog::FileBlameDialog(const Git::File &file, QWidget *parent)
-    : AppDialog(Git::Manager::instance(), parent)
+FileBlameDialog::FileBlameDialog(Git::Manager *git, const Git::File &file, QWidget *parent)
+    : AppDialog(git, parent)
     , mFile(file)
 {
     setupUi(this);

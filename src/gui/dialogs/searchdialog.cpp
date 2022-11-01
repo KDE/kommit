@@ -75,7 +75,7 @@ void SearchDialog::slotTreeViewDoubleClicked(const QModelIndex &index)
     else
         place = branch.isEmpty() ? commit : branch;
 
-    auto d = new FileViewerDialog(place, file);
+    auto d = new FileViewerDialog(mGit, place, file);
     d->setWindowModality(Qt::ApplicationModal);
     d->setAttribute(Qt::WA_DeleteOnClose, true);
     d->show();
@@ -92,7 +92,7 @@ void SearchDialog::beginSearch()
         }
     } else {
         Git::LogList list;
-        list.load();
+        list.load(mGit);
 
         mProgress.total = list.size();
         for (const auto &branch : std::as_const(list)) {

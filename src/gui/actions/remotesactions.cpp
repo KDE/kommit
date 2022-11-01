@@ -49,7 +49,7 @@ void RemotesActions::create()
     if (d.exec() == QDialog::Accepted) {
         //        _git->addRemote(d.remoteName(), d.remoteUrl());
 
-        RunnerDialog runner;
+        RunnerDialog runner(mGit);
         runner.run(d.command());
         runner.exec();
         mGit->remotesModel()->load();

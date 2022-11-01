@@ -9,6 +9,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "diff/diff.h"
 #include "ui_gitklientmergeview.h"
 
+namespace Git
+{
+class Manager;
+};
+
 class SegmentsMapper;
 class QLabel;
 class MergeWindow : public AppMainWindow
@@ -17,7 +22,7 @@ class MergeWindow : public AppMainWindow
 public:
     enum Mode { NoParams, MergeByParams };
 
-    explicit MergeWindow(Mode mode = NoParams, QWidget *parent = nullptr);
+    explicit MergeWindow(Git::Manager *git, Mode mode = NoParams, QWidget *parent = nullptr);
     ~MergeWindow() override;
 
     void load();
@@ -57,6 +62,7 @@ private Q_SLOTS:
     void slotPlainTextEditResultBlockSelected();
 
 private:
+    Git::Manager *mGit;
     Ui::MainMergeWidget m_ui;
     void updateResult();
     void initActions();

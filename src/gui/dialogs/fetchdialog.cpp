@@ -16,13 +16,10 @@ FetchDialog::FetchDialog(Git::Manager *git, QWidget *parent)
 {
     setupUi(this);
 
-    auto g = git;
-    if (!g)
-        g = Git::Manager::instance();
-    comboBoxRemote->addItems(g->remotes());
-    comboBoxBranch->addItems(g->branches());
+    comboBoxRemote->addItems(git->remotes());
+    comboBoxBranch->addItems(git->branches());
 
-    comboBoxRemote->setCurrentText(g->currentBranch());
+    comboBoxRemote->setCurrentText(git->currentBranch());
     connect(buttonBox, &QDialogButtonBox::accepted, this, &FetchDialog::slotAccept);
 }
 
@@ -45,7 +42,7 @@ void FetchDialog::slotAccept()
     cmd.setPrune(checkBoxPrune->isChecked());
     cmd.setTags(checkBoxTags->isChecked());
 
-    RunnerDialog d(this);
+    RunnerDialog d(mGit, this);
     d.run(&cmd);
     d.exec();
 

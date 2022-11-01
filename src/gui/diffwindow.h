@@ -9,6 +9,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "core/appmainwindow.h"
 #include <gitfile.h>
 
+namespace Git
+{
+class Manager;
+};
+
 class DiffTreeModel;
 class DiffWidget;
 class DiffTreeView;
@@ -29,6 +34,7 @@ private Q_SLOTS:
     void slotTreeViewFileSelected(const QString &file);
 
 private:
+    Git::Manager *mGit;
     Git::File mOldFile;
     Git::File mNewFile;
 

@@ -11,19 +11,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include <QDialogButtonBox>
 
-PullDialog::PullDialog(QWidget *parent, Git::Manager *git)
-    : AppDialog(parent)
+PullDialog::PullDialog(Git::Manager *git, QWidget *parent)
+    : AppDialog(git, parent)
 {
     setupUi(this);
 
-    auto g = git;
-    if (!g)
-        g = Git::Manager::instance();
+    comboBoxRemote->addItems(git->remotes());
+    comboBoxBranch->addItems(git->branches());
 
-    comboBoxRemote->addItems(g->remotes());
-    comboBoxBranch->addItems(g->branches());
-
-    comboBoxBranch->setCurrentText(g->currentBranch());
+    comboBoxBranch->setCurrentText(git->currentBranch());
     connect(buttonBox->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &PullDialog::slotAccepted);
 }
 
@@ -40,7 +36,7 @@ void PullDialog::slotAccepted()
     cmd.setPrune(checkBoxPrune->isChecked());
     cmd.setTags(checkBoxTags->isChecked());
 
-    RunnerDialog d(this);
+    RunnerDialog d(mGit, this);
     d.run(&cmd);
     d.exec();
 

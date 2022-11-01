@@ -174,7 +174,7 @@ void CommitPushDialog::slotPushButtonPushClicked()
     cmd.setForce(checkBoxForce->isChecked());
 
     mGit->commit(textEditMessage->toPlainText());
-    RunnerDialog d(this);
+    RunnerDialog d(mGit, this);
     d.run(&cmd);
     d.exec();
     accept();

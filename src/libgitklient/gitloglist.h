@@ -12,6 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class Manager;
 class Log;
 class LIBGITKLIENT_EXPORT LogList : public QList<Log *>
 {
@@ -19,7 +20,7 @@ public:
     LogList();
     explicit LogList(QString branch);
 
-    void load();
+    void load(Git::Manager *git);
     void initGraph();
 
     Q_REQUIRED_RESULT const QString &branch() const;

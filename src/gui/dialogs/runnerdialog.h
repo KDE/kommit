@@ -16,13 +16,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class AbstractCommand;
+class Manager;
 }
 class RunnerDialog : public AppDialog, private Ui::RunnerDialog
 {
     Q_OBJECT
 
 public:
-    explicit RunnerDialog(QWidget *parent = nullptr);
+    explicit RunnerDialog(Git::Manager *git, QWidget *parent = nullptr);
     void run(const QStringList &args);
     void run(Git::AbstractCommand *command);
 
@@ -33,6 +34,7 @@ private Q_SLOTS:
 
 private:
     QProcess *mGitProcess = nullptr;
+    Git::Manager *mGit;
 
     enum Mode { None, RunByArgs, RunByCommand };
     Mode mMode{None};

@@ -263,7 +263,7 @@ LogList::LogList(QString branch)
 {
 }
 
-void LogList::load()
+void LogList::load(Git::Manager *git)
 {
     /*
 % -- raw %                    N -- notes                    d -- ref name in brackets     n -- newline
@@ -277,7 +277,7 @@ H -- commit hash              c -- committer details        m -- mark           
     clear();
     _dataByCommitHashLong.clear();
 
-    _branches = Manager::instance()->branches();
+    _branches = git->branches();
 
     QStringList args{QStringLiteral("--no-pager"),
                      QStringLiteral("log"),
@@ -296,6 +296,7 @@ H -- commit hash              c -- committer details        m -- mark           
     if (_branch.size())
         args.insert(2, _branch);
 
+    // TODO: remove this singelton call
     const auto ret = QString(Manager::instance()->runGit(args));
     if (ret.startsWith(QStringLiteral("fatal:")))
         return;

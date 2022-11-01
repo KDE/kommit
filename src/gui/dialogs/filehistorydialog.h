@@ -20,7 +20,6 @@ class FileHistoryDialog : public AppDialog, private Ui::FileHistoryDialog
     Q_OBJECT
 
 public:
-    explicit FileHistoryDialog(QWidget *parent = nullptr);
     FileHistoryDialog(Git::Manager *git, const QString &fileName, QWidget *parent = nullptr);
     FileHistoryDialog(Git::Manager *git, const Git::File &file, QWidget *parent = nullptr);
 

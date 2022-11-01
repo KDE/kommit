@@ -330,12 +330,9 @@ QModelIndex LogsModel::findIndexByHash(const QString &hash) const
 
 Log *LogsModel::findLogByHash(const QString &hash) const
 {
-    int idx{0};
     for (auto &log : mData)
         if (log->commitHash() == hash)
             return log;
-        else
-            idx++;
     return nullptr;
 }
 
@@ -364,7 +361,7 @@ void LogsModel::fill()
     if (mBranch.size())
         args.insert(2, mBranch);
 
-    auto ret = QString(Manager::instance()->runGit(args));
+    auto ret = QString(mGit->runGit(args));
     if (ret.startsWith(QStringLiteral("fatal:")))
         return;
 

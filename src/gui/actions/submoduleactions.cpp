@@ -48,14 +48,14 @@ SubmoduleActions::SubmoduleActions(Git::Manager *git, QWidget *parent)
 
 void SubmoduleActions::init()
 {
-    RunnerDialog d(mParent);
+    RunnerDialog d(mGit, mParent);
     d.run({QStringLiteral("submodule"), QStringLiteral("init"), mSubModuleName});
     d.exec();
 }
 
 void SubmoduleActions::update()
 {
-    RunnerDialog d(mParent);
+    RunnerDialog d(mGit, mParent);
     d.run({QStringLiteral("submodule"), QStringLiteral("update"), mSubModuleName});
     d.exec();
 }
@@ -64,7 +64,7 @@ void SubmoduleActions::create()
 {
     SubmoduleInfoDialog d(mGit, mParent);
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog runner;
+        RunnerDialog runner(mGit);
         runner.run(d.command());
         runner.exec();
         mGit->submodulesModel()->load();
@@ -93,7 +93,7 @@ void SubmoduleActions::deinit()
 
 void SubmoduleActions::sync()
 {
-    RunnerDialog d(mParent);
+    RunnerDialog d(mGit, mParent);
     d.run({QStringLiteral("submodule"), QStringLiteral("sync"), mSubModuleName});
     d.exec();
 }

@@ -86,13 +86,13 @@ void BranchActions::create()
 
 void BranchActions::browse()
 {
-    FilesTreeDialog d(mBranchName, mParent);
+    FilesTreeDialog d(mGit, mBranchName, mParent);
     d.exec();
 }
 
 void BranchActions::checkout()
 {
-    RunnerDialog d(mParent);
+    RunnerDialog d(mGit, mParent);
     d.run({QStringLiteral("checkout"), mBranchName});
     d.exec();
 }
@@ -135,7 +135,7 @@ void BranchActions::merge()
     MergeDialog d{mGit, mBranchName, mParent};
     if (d.exec() == QDialog::Accepted) {
         auto cmd = d.command();
-        RunnerDialog runner(mParent);
+        RunnerDialog runner(mGit, mParent);
         runner.run(cmd);
         runner.exec();
     }

@@ -19,6 +19,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 WidgetBase::WidgetBase(QWidget *parent)
     : QWidget(parent)
 {
+    // TODO: remove this singelton call
     mGit = Git::Manager::instance();
     connect(mGit, &Git::Manager::pathChanged, this, &WidgetBase::git_pathChanged);
 }
@@ -28,6 +29,7 @@ WidgetBase::WidgetBase(Git::Manager *git, AppWindow *parent)
     , mGit(git)
     , mParent{parent}
 {
+    // TODO: do wee need this?
     if (!mGit)
         mGit = Git::Manager::instance();
     connect(mGit, &Git::Manager::pathChanged, this, &WidgetBase::git_pathChanged);

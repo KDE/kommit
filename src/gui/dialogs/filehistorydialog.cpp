@@ -12,15 +12,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 
-// TODO: remove ctor without git input
-FileHistoryDialog::FileHistoryDialog(QWidget *parent)
-    : AppDialog(Git::Manager::instance(), parent)
-{
-    setupUi(this);
-
-    connect(listWidget, &QListWidget::itemClicked, this, &FileHistoryDialog::slotListWidgetItemClicked);
-}
-
 FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName, QWidget *parent)
     : AppDialog(git, parent)
     , mFileName(fileName)

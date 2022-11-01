@@ -191,7 +191,7 @@ void AppWindow::initActions()
 
     KStandardAction::quit(this, &QMainWindow::close, actionCollection);
 
-    auto settingsManager = new SettingsManager(this);
+    auto settingsManager = new SettingsManager(mGit, this);
     KStandardAction::preferences(settingsManager, &SettingsManager::show, actionCollection);
 }
 void AppWindow::initRecentFiles(const QString &newItem)
@@ -285,7 +285,7 @@ void AppWindow::commitPushAction()
 
 void AppWindow::pull()
 {
-    PullDialog d(this);
+    PullDialog d(mGit, this);
     if (d.exec() == QDialog::Accepted)
         mGit->logsModel()->load();
 }
@@ -301,7 +301,7 @@ void AppWindow::showBranchesStatus()
 {
     MergeDialog d(mGit, this);
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog r(this);
+        RunnerDialog r(mGit, this);
 
         auto cmd = d.command();
         r.run(cmd);
@@ -314,7 +314,7 @@ void AppWindow::clone()
 {
     CloneDialog d(this);
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog r(this);
+        RunnerDialog r(mGit, this);
 
         auto cmd = d.command();
         r.run(cmd);
@@ -352,7 +352,7 @@ void AppWindow::repoSwitch()
     }
     SwitchBranchDialog d(mGit, this);
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog runner(this);
+        RunnerDialog runner(mGit, this);
         runner.run(d.command());
         runner.exec();
     }
@@ -374,7 +374,7 @@ void AppWindow::cleanup()
 {
     CleanupDialog d;
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog runner;
+        RunnerDialog runner(mGit);
         runner.run(d.command());
         runner.exec();
     }

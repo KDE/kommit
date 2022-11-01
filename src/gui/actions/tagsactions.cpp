@@ -75,7 +75,7 @@ void TagsActions::diff()
 
 void TagsActions::push()
 {
-    RunnerDialog d(mParent);
+    RunnerDialog d(mGit, mParent);
     d.run({QStringLiteral("push"), QStringLiteral("--tags")});
     d.exec();
 }

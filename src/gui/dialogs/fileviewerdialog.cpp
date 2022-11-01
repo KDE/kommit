@@ -23,12 +23,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QStyle>
 
 // TODO: This file need to be refactored
-FileViewerDialog::FileViewerDialog(const QString &place, const QString &fileName, QWidget *parent)
+FileViewerDialog::FileViewerDialog(Git::Manager *git, const QString &place, const QString &fileName, QWidget *parent)
     : KParts::MainWindow(parent)
+    , mGit(git)
 {
     setupUi(this);
     showFile(Git::File(place, fileName));
-    mGit = Git::Manager::instance();
+
     QSettings s;
     restoreGeometry(s.value(QStringLiteral("FileViewerDialog_Geometry")).toByteArray());
     KStandardAction::close(this, &QMainWindow::close, actionCollection());

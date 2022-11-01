@@ -11,19 +11,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <QFileIconProvider>
 
-FilesTreeDialog::FilesTreeDialog(const QString &place, QWidget *parent)
-    : AppDialog(parent)
+FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QString &place, QWidget *parent)
+    : AppDialog(git, parent)
     , mTreeModel(new TreeModel(this))
     , mPlace(place)
 {
     setupUi(this);
 
-    mActions = new FileActions(Git::Manager::instance(), this);
+    mActions = new FileActions(git, this);
     mActions->setPlace(place);
 
     mTreeModel->setSeparator(QStringLiteral("/"));
 
-    const auto files = Git::Manager::instance()->ls(place);
+    const auto files = git->ls(place);
 
     mTreeModel->setShowRoot(true);
     mTreeModel->setLastPartAsData(true);

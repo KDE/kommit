@@ -60,7 +60,7 @@ constexpr int InvalidPath = 1;
 CommandArgsParser::CommandArgsParser()
     : QObject()
 {
-    git = Git::Manager::instance();
+    git = new Git::Manager;
 }
 
 void CommandArgsParser::add(const QString &name, const CommandList &list)
@@ -199,7 +199,7 @@ ArgParserReturn CommandArgsParser::clone(const QString &path)
     d.setLocalPath(path);
 
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog r;
+        RunnerDialog r(git);
 
         auto cmd = d.command();
         r.run(cmd);
@@ -230,7 +230,7 @@ ArgParserReturn CommandArgsParser::init(const QString &path)
 ArgParserReturn CommandArgsParser::pull(const QString &path)
 {
     git->setPath(path);
-    PullDialog d;
+    PullDialog d(git);
     d.exec();
     return 0;
 }
@@ -260,7 +260,7 @@ ArgParserReturn CommandArgsParser::merge(const QString &path)
 
     MergeDialog d(git);
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog r;
+        RunnerDialog r(git);
 
         auto cmd = d.command();
         r.run(cmd);
@@ -381,7 +381,7 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
     //    git->logsModel()->load();
 
     const Git::File f(git->currentBranch(), file, git);
-    FileBlameDialog d(f);
+    FileBlameDialog d(git, f);
     d.exec();
     return 0;
 }
@@ -398,14 +398,14 @@ ArgParserReturn CommandArgsParser::history(const QString &file)
 
 ArgParserReturn CommandArgsParser::merge()
 {
-    auto d = new MergeWindow;
+    auto d = new MergeWindow(git);
     d->exec();
     return ExecApp;
 }
 
 ArgParserReturn CommandArgsParser::merge(const QString &base, const QString &local, const QString &remote, const QString &result)
 {
-    auto d = new MergeWindow;
+    auto d = new MergeWindow(git);
     d->setFilePathLocal(local);
     d->setFilePathBase(base);
     d->setFilePathRemote(remote);
@@ -444,7 +444,7 @@ ArgParserReturn CommandArgsParser::cleanup(const QString &path)
 
     CleanupDialog d;
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog runner;
+        RunnerDialog runner(git);
         runner.run(d.command());
         runner.exec();
     }
@@ -461,7 +461,7 @@ ArgParserReturn CommandArgsParser::switch_checkout(const QString &path)
     }
     SwitchBranchDialog d(git);
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog runner;
+        RunnerDialog runner(git);
         runner.run(d.command());
         runner.exec();
     }

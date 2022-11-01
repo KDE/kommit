@@ -13,14 +13,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitklient_appdebug.h"
 
-RunnerDialog::RunnerDialog(QWidget *parent)
+RunnerDialog::RunnerDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(parent)
     , mGitProcess(new QProcess{this})
+    , mGit(git)
 {
     setupUi(this);
 
     mGitProcess->setProgram(QStringLiteral("git"));
-    mGitProcess->setWorkingDirectory(Git::Manager::instance()->path());
+    mGitProcess->setWorkingDirectory(git->path());
 
     connect(mGitProcess, &QProcess::readyReadStandardOutput, this, &RunnerDialog::git_readyReadStandardOutput);
     connect(mGitProcess, &QProcess::readyReadStandardError, this, &RunnerDialog::git_readyReadStandardError);

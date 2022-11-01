@@ -37,13 +37,13 @@ CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
 
 void CommitActions::browse()
 {
-    FilesTreeDialog d(mCommitHash, mParent);
+    FilesTreeDialog d(mGit, mCommitHash, mParent);
     d.exec();
 }
 
 void CommitActions::checkout()
 {
-    RunnerDialog d(mParent);
+    RunnerDialog d(mGit, mParent);
     d.run({QStringLiteral("checkout"), mCommitHash});
     d.exec();
 }

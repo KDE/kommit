@@ -11,12 +11,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "ui_settingspagegit.h"
 #include <QObject>
 
+namespace Git
+{
+class Manager;
+};
+
 class SettingsManager : public QObject
 {
     Q_OBJECT
 
 public:
-    SettingsManager(QWidget *parentWidget);
+    SettingsManager(Git::Manager *git, QWidget *parentWidget);
 
     void exec(QWidget *parentWidget);
 
@@ -24,6 +29,7 @@ public Q_SLOTS:
     void show();
 
 private:
+    Git::Manager *mGit;
     void settingsChanged();
     Ui::SettingsPageBase pageBase{};
     Ui::SettingsPageDiff pageDiff{};

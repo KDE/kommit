@@ -18,7 +18,7 @@ class PullDialog : public AppDialog, private Ui::PullDialog
     Q_OBJECT
 
 public:
-    explicit PullDialog(QWidget *parent = nullptr, Git::Manager *git = nullptr);
+    explicit PullDialog(Git::Manager *git, QWidget *parent = nullptr);
 
 private:
     void slotAccepted();

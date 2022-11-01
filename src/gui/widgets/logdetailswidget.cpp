@@ -42,6 +42,7 @@ void LogDetailsWidget::createText()
         clear();
         return;
     }
+    // TODO: remove this singelton call
     const auto files = Git::Manager::instance()->changedFiles(mLog->commitHash());
     QStringList filesHtml;
 
@@ -156,6 +157,7 @@ void LogDetailsWidget::appendParagraph(QString &html, const QString &name, const
 
 QString LogDetailsWidget::createHashLink(const QString &hash) const
 {
+    // TODO: remove also this one
     auto log = Git::Manager::instance()->logsModel()->findLogByHash(hash);
     if (!log)
         return {};

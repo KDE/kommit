@@ -99,7 +99,7 @@ void FileActions::popup(const QPoint &pos)
 
 void FileActions::viewFile()
 {
-    auto d = new FileViewerDialog(mPlace, mFilePath, mParent);
+    auto d = new FileViewerDialog(mGit, mPlace, mFilePath, mParent);
     d->setWindowModality(Qt::ApplicationModal);
     d->setAttribute(Qt::WA_DeleteOnClose, true);
     d->show();
@@ -125,13 +125,13 @@ void FileActions::logFile()
 void FileActions::blameFile()
 {
     const Git::File file(mPlace, mFilePath, mGit);
-    FileBlameDialog d(file, mParent);
+    FileBlameDialog d(mGit, file, mParent);
     d.exec();
 }
 
 void FileActions::search()
 {
-    SearchDialog d(mFilePath, Git::Manager::instance(), mParent);
+    SearchDialog d(mFilePath, mGit, mParent);
     d.exec();
 }
 
@@ -192,7 +192,7 @@ void FileActions::diffWithHead()
 
 void FileActions::mergeWithHead()
 {
-    auto d = new MergeWindow(MergeWindow::NoParams);
+    auto d = new MergeWindow(mGit, MergeWindow::NoParams);
 
     auto p = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/ggggg");
     Git::File f{mPlace, mFilePath};
