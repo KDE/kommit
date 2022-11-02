@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-30 00:48+0000\n"
+"POT-Creation-Date: 2022-11-02 00:52+0000\n"
 "PO-Revision-Date: 2022-10-30 07:49\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -47,8 +47,8 @@ msgstr "KDE Git 图形客户端"
 msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr ""
 
-#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:113
-#: src/gui/widgets/logdetailswidget.cpp:116
+#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:114
+#: src/gui/widgets/logdetailswidget.cpp:117
 #: src/libgitklient/models/logsmodel.cpp:262
 #, kde-format
 msgid "Author"
@@ -98,7 +98,7 @@ msgstr "合并..."
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
 #: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:17
-#: src/gui/settings/settingsmanager.cpp:91
+#: src/gui/settings/settingsmanager.cpp:93
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
@@ -473,12 +473,12 @@ msgstr "初始化仓库"
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:459
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "合并时无法切换分支"
 
-#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:459
 #, kde-format
 msgid "Switch branch"
 msgstr "切换分支"
@@ -493,22 +493,22 @@ msgstr "此路径不是 git 仓库：%1"
 msgid "The repo inited successfully"
 msgstr "仓库初始化成功"
 
-#: src/gui/commandargsparser.cpp:493
+#: src/gui/commandargsparser.cpp:488
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "文件已成功添加到 git"
 
-#: src/gui/commandargsparser.cpp:501
+#: src/gui/commandargsparser.cpp:496
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "您想要保留磁盘上的文件吗？"
 
-#: src/gui/commandargsparser.cpp:501
+#: src/gui/commandargsparser.cpp:496
 #, kde-format
 msgid "Remove from index"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:503
+#: src/gui/commandargsparser.cpp:498
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "文件已成功从 git 中删除"
@@ -539,9 +539,15 @@ msgstr "---"
 msgid "Commit/Push"
 msgstr "提交/推送"
 
+#: src/gui/dialogs/changedfilesdialog.cpp:41
+#, fuzzy, kde-format
+#| msgid "You don't have any changes!"
+msgid "You don't have any modified file!"
+msgstr "您没有任何更改！"
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
-#: src/gui/widgets/logdetailswidget.cpp:126
+#: src/gui/widgets/logdetailswidget.cpp:127
 #, kde-format
 msgid "Changed files"
 msgstr "更改的文件"
@@ -970,7 +976,7 @@ msgstr "追溯文件：%1"
 msgid "Dialog"
 msgstr "对话框"
 
-#: src/gui/dialogs/filehistorydialog.cpp:44
+#: src/gui/dialogs/filehistorydialog.cpp:35
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
@@ -988,18 +994,18 @@ msgstr "浏览文件：%1"
 msgid "Branch:"
 msgstr "分支："
 
-#: src/gui/dialogs/fileviewerdialog.cpp:62
+#: src/gui/dialogs/fileviewerdialog.cpp:63
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "关闭预览"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:63
+#: src/gui/dialogs/fileviewerdialog.cpp:64
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "请等待预览窗口关闭..."
 
-#: src/gui/dialogs/fileviewerdialog.cpp:96
+#: src/gui/dialogs/fileviewerdialog.cpp:97
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -1115,7 +1121,7 @@ msgstr "初始化 git 仓库"
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
 #: src/gui/dialogs/mergecloseeventdialog.ui:14
-#: src/gui/dialogs/runnerdialog.cpp:94 src/gui/merge/closeeventdialog.ui:14
+#: src/gui/dialogs/runnerdialog.cpp:95 src/gui/merge/closeeventdialog.ui:14
 #, kde-format
 msgid "Close"
 msgstr "关闭"
@@ -1461,12 +1467,12 @@ msgstr ""
 msgid "Auto file mode"
 msgstr ""
 
-#: src/gui/dialogs/runnerdialog.cpp:48
+#: src/gui/dialogs/runnerdialog.cpp:49
 #, kde-format
 msgid "View"
 msgstr "查看"
 
-#: src/gui/dialogs/runnerdialog.cpp:97
+#: src/gui/dialogs/runnerdialog.cpp:98
 #, kde-format
 msgid "The git process crashed"
 msgstr "git 进程已崩溃"
@@ -1620,54 +1626,54 @@ msgstr "标签"
 msgid "Tag name:"
 msgstr "标签名称："
 
-#: src/gui/diffwindow.cpp:112
+#: src/gui/diffwindow.cpp:113
 #, kde-format
 msgctxt "@title:window"
 msgid "GitKlient Diff[*]"
 msgstr "GitKlient 差异[*]"
 
-#: src/gui/diffwindow.cpp:115
+#: src/gui/diffwindow.cpp:116
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "树"
 
-#: src/gui/diffwindow.cpp:140
+#: src/gui/diffwindow.cpp:141
 #, kde-format
 msgid "View hidden chars..."
 msgstr "显示不可见字符..."
 
-#: src/gui/diffwindow.cpp:145 src/gui/mergewindow.cpp:342
+#: src/gui/diffwindow.cpp:146 src/gui/mergewindow.cpp:343
 #, kde-format
 msgid "Same size blocks"
 msgstr ""
 
-#: src/gui/diffwindow.cpp:150
+#: src/gui/diffwindow.cpp:151
 #, kde-format
 msgid "Show files names"
 msgstr "显示文件名"
 
-#: src/gui/diffwindow.cpp:156
+#: src/gui/diffwindow.cpp:157
 #, kde-format
 msgid "Show Tree"
 msgstr "显示树"
 
-#: src/gui/diffwindow.cpp:213
+#: src/gui/diffwindow.cpp:214
 #, kde-format
 msgid "Unchanged"
 msgstr "未更改"
 
-#: src/gui/diffwindow.cpp:215
+#: src/gui/diffwindow.cpp:216
 #, kde-format
 msgid "Added"
 msgstr "已添加"
 
-#: src/gui/diffwindow.cpp:217
+#: src/gui/diffwindow.cpp:218
 #, kde-format
 msgid "Removed"
 msgstr "已删除"
 
-#: src/gui/diffwindow.cpp:219
+#: src/gui/diffwindow.cpp:220
 #, kde-format
 msgid "Modified"
 msgstr "已修改"
@@ -1756,62 +1762,62 @@ msgstr "远端"
 msgid "Add"
 msgstr "添加"
 
-#: src/gui/mergewindow.cpp:284
+#: src/gui/mergewindow.cpp:285
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "冲突：%1"
 
-#: src/gui/mergewindow.cpp:292
+#: src/gui/mergewindow.cpp:293
 #, kde-format
 msgid "Keep mine"
 msgstr "保留我的"
 
-#: src/gui/mergewindow.cpp:297
+#: src/gui/mergewindow.cpp:298
 #, kde-format
 msgid "Keep their"
 msgstr "保留他们的"
 
-#: src/gui/mergewindow.cpp:303
+#: src/gui/mergewindow.cpp:304
 #, kde-format
 msgid "Keep mine before their"
 msgstr "在他们的之前优先保留我的"
 
-#: src/gui/mergewindow.cpp:308
+#: src/gui/mergewindow.cpp:309
 #, kde-format
 msgid "Keep their before mine"
 msgstr "在我的之前优先保留他们的"
 
-#: src/gui/mergewindow.cpp:313
+#: src/gui/mergewindow.cpp:314
 #, kde-format
 msgid "Keep my file"
 msgstr "保留我的文件"
 
-#: src/gui/mergewindow.cpp:318
+#: src/gui/mergewindow.cpp:319
 #, kde-format
 msgid "Keep their file"
 msgstr "保留他们的文件"
 
-#: src/gui/mergewindow.cpp:323
+#: src/gui/mergewindow.cpp:324
 #, kde-format
 msgid "Blocks"
 msgstr "块"
 
-#: src/gui/mergewindow.cpp:327
+#: src/gui/mergewindow.cpp:328
 #, kde-format
 msgid "Files"
 msgstr "文件"
 
-#: src/gui/mergewindow.cpp:331
+#: src/gui/mergewindow.cpp:332
 #, kde-format
 msgid "Previous diff"
 msgstr "上一个差异"
 
-#: src/gui/mergewindow.cpp:337
+#: src/gui/mergewindow.cpp:338
 #, kde-format
 msgid "Next diff"
 msgstr "下一个差异"
 
-#: src/gui/mergewindow.cpp:434
+#: src/gui/mergewindow.cpp:435
 #, kde-format
 msgid "Unable to open the file"
 msgstr "无法打开文件"
@@ -1861,12 +1867,12 @@ msgstr "项目历史"
 msgid "Open last repo at startup"
 msgstr "启动时打开最近仓库"
 
-#: src/gui/settings/settingsmanager.cpp:90
+#: src/gui/settings/settingsmanager.cpp:92
 #, kde-format
 msgid "General"
 msgstr "常规"
 
-#: src/gui/settings/settingsmanager.cpp:92
+#: src/gui/settings/settingsmanager.cpp:94
 #, kde-format
 msgid "Git"
 msgstr "Git"
@@ -1980,45 +1986,45 @@ msgstr "输入筛选条件"
 msgid "Hide unchangeds"
 msgstr "隐藏未更改的"
 
-#: src/gui/widgets/logdetailswidget.cpp:109
+#: src/gui/widgets/logdetailswidget.cpp:110
 #, kde-format
 msgid "Ref"
 msgstr "参考"
 
-#: src/gui/widgets/logdetailswidget.cpp:112
-#: src/gui/widgets/logdetailswidget.cpp:115
+#: src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:116
 #: src/libgitklient/models/tagsmodel.cpp:67
 #, kde-format
 msgid "Committer"
 msgstr "提交者"
 
-#: src/gui/widgets/logdetailswidget.cpp:118
+#: src/gui/widgets/logdetailswidget.cpp:119
 #: src/libgitklient/models/logsmodel.cpp:260
 #, kde-format
 msgid "Date"
 msgstr "日期"
 
-#: src/gui/widgets/logdetailswidget.cpp:119
+#: src/gui/widgets/logdetailswidget.cpp:120
 #, kde-format
 msgid "Hash"
 msgstr "哈希值"
 
-#: src/gui/widgets/logdetailswidget.cpp:122
+#: src/gui/widgets/logdetailswidget.cpp:123
 #, kde-format
 msgid "Parent"
 msgstr "父提交"
 
-#: src/gui/widgets/logdetailswidget.cpp:122
+#: src/gui/widgets/logdetailswidget.cpp:123
 #, kde-format
 msgid "Parents"
 msgstr "父提交"
 
-#: src/gui/widgets/logdetailswidget.cpp:124
+#: src/gui/widgets/logdetailswidget.cpp:125
 #, kde-format
 msgid "Child"
 msgstr "子提交"
 
-#: src/gui/widgets/logdetailswidget.cpp:124
+#: src/gui/widgets/logdetailswidget.cpp:125
 #, kde-format
 msgid "Children"
 msgstr "子提交"

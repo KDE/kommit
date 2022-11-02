@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-30 00:48+0000\n"
+"POT-Creation-Date: 2022-11-02 00:52+0000\n"
 "PO-Revision-Date: 2022-10-30 10:40+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -49,8 +49,8 @@ msgstr "Interfaz gráfica de cliente git para KDE"
 msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:113
-#: src/gui/widgets/logdetailswidget.cpp:116
+#: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:114
+#: src/gui/widgets/logdetailswidget.cpp:117
 #: src/libgitklient/models/logsmodel.cpp:262
 #, kde-format
 msgid "Author"
@@ -100,7 +100,7 @@ msgstr "Fusionar..."
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
 #: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:17
-#: src/gui/settings/settingsmanager.cpp:91
+#: src/gui/settings/settingsmanager.cpp:93
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
@@ -473,12 +473,12 @@ msgstr "Iniciar repositorio"
 msgid "Open repository"
 msgstr "Abrir repositorio"
 
-#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:459
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No se puede cambiar de rama durante la fusión"
 
-#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:464
+#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:459
 #, kde-format
 msgid "Switch branch"
 msgstr "Cambiar rama"
@@ -493,22 +493,22 @@ msgstr "La ruta no es un repositorio de git: %1"
 msgid "The repo inited successfully"
 msgstr "Repositorio iniciado correctamente"
 
-#: src/gui/commandargsparser.cpp:493
+#: src/gui/commandargsparser.cpp:488
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Archivos añadidos a git correctamente"
 
-#: src/gui/commandargsparser.cpp:501
+#: src/gui/commandargsparser.cpp:496
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "¿Desea dejar los archivos en el disco?"
 
-#: src/gui/commandargsparser.cpp:501
+#: src/gui/commandargsparser.cpp:496
 #, kde-format
 msgid "Remove from index"
 msgstr "Eliminar del índice"
 
-#: src/gui/commandargsparser.cpp:503
+#: src/gui/commandargsparser.cpp:498
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Archivos eliminados de git correctamente"
@@ -539,9 +539,15 @@ msgstr "---"
 msgid "Commit/Push"
 msgstr "Confirmar/enviar"
 
+#: src/gui/dialogs/changedfilesdialog.cpp:41
+#, fuzzy, kde-format
+#| msgid "You don't have any changes!"
+msgid "You don't have any modified file!"
+msgstr "No hay ningún cambio"
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
-#: src/gui/widgets/logdetailswidget.cpp:126
+#: src/gui/widgets/logdetailswidget.cpp:127
 #, kde-format
 msgid "Changed files"
 msgstr "Archivos cambiados"
@@ -977,7 +983,7 @@ msgstr "Archivo de responsables: %1"
 msgid "Dialog"
 msgstr "Diálogo"
 
-#: src/gui/dialogs/filehistorydialog.cpp:44
+#: src/gui/dialogs/filehistorydialog.cpp:35
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
@@ -995,18 +1001,18 @@ msgstr "Explorar archivos: %1"
 msgid "Branch:"
 msgstr "Rama:"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:62
+#: src/gui/dialogs/fileviewerdialog.cpp:63
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Cerrando vista previa"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:63
+#: src/gui/dialogs/fileviewerdialog.cpp:64
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Espere mientras se cierra la vista previa..."
 
-#: src/gui/dialogs/fileviewerdialog.cpp:96
+#: src/gui/dialogs/fileviewerdialog.cpp:97
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -1122,7 +1128,7 @@ msgstr "Iniciar repositorio git"
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
 #: src/gui/dialogs/mergecloseeventdialog.ui:14
-#: src/gui/dialogs/runnerdialog.cpp:94 src/gui/merge/closeeventdialog.ui:14
+#: src/gui/dialogs/runnerdialog.cpp:95 src/gui/merge/closeeventdialog.ui:14
 #, kde-format
 msgid "Close"
 msgstr "Cerrar"
@@ -1508,12 +1514,12 @@ msgstr "«crlf» automático"
 msgid "Auto file mode"
 msgstr "Modo de archivo automático"
 
-#: src/gui/dialogs/runnerdialog.cpp:48
+#: src/gui/dialogs/runnerdialog.cpp:49
 #, kde-format
 msgid "View"
 msgstr "Ver"
 
-#: src/gui/dialogs/runnerdialog.cpp:97
+#: src/gui/dialogs/runnerdialog.cpp:98
 #, kde-format
 msgid "The git process crashed"
 msgstr "El proceso git ha fallado"
@@ -1680,54 +1686,54 @@ msgstr "Etiqueta"
 msgid "Tag name:"
 msgstr "Nombre de la etiqueta:"
 
-#: src/gui/diffwindow.cpp:112
+#: src/gui/diffwindow.cpp:113
 #, kde-format
 msgctxt "@title:window"
 msgid "GitKlient Diff[*]"
 msgstr "Diferencias de GitKlient [*]"
 
-#: src/gui/diffwindow.cpp:115
+#: src/gui/diffwindow.cpp:116
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Árbol"
 
-#: src/gui/diffwindow.cpp:140
+#: src/gui/diffwindow.cpp:141
 #, kde-format
 msgid "View hidden chars..."
 msgstr "Ver caracteres ocultos..."
 
-#: src/gui/diffwindow.cpp:145 src/gui/mergewindow.cpp:342
+#: src/gui/diffwindow.cpp:146 src/gui/mergewindow.cpp:343
 #, kde-format
 msgid "Same size blocks"
 msgstr "Bloques del mismo tamaño"
 
-#: src/gui/diffwindow.cpp:150
+#: src/gui/diffwindow.cpp:151
 #, kde-format
 msgid "Show files names"
 msgstr "Mostrar nombres de archivos"
 
-#: src/gui/diffwindow.cpp:156
+#: src/gui/diffwindow.cpp:157
 #, kde-format
 msgid "Show Tree"
 msgstr "Mostrar árbol"
 
-#: src/gui/diffwindow.cpp:213
+#: src/gui/diffwindow.cpp:214
 #, kde-format
 msgid "Unchanged"
 msgstr "Sin cambios"
 
-#: src/gui/diffwindow.cpp:215
+#: src/gui/diffwindow.cpp:216
 #, kde-format
 msgid "Added"
 msgstr "Añadido"
 
-#: src/gui/diffwindow.cpp:217
+#: src/gui/diffwindow.cpp:218
 #, kde-format
 msgid "Removed"
 msgstr "Eliminado"
 
-#: src/gui/diffwindow.cpp:219
+#: src/gui/diffwindow.cpp:220
 #, kde-format
 msgid "Modified"
 msgstr "Modificado"
@@ -1816,62 +1822,62 @@ msgstr "Remotos"
 msgid "Add"
 msgstr "Añadir"
 
-#: src/gui/mergewindow.cpp:284
+#: src/gui/mergewindow.cpp:285
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Conflictos: %1"
 
-#: src/gui/mergewindow.cpp:292
+#: src/gui/mergewindow.cpp:293
 #, kde-format
 msgid "Keep mine"
 msgstr "Mantener el mío"
 
-#: src/gui/mergewindow.cpp:297
+#: src/gui/mergewindow.cpp:298
 #, kde-format
 msgid "Keep their"
 msgstr "Mantener el suyo"
 
-#: src/gui/mergewindow.cpp:303
+#: src/gui/mergewindow.cpp:304
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Mantener el mío antes que el suyo"
 
-#: src/gui/mergewindow.cpp:308
+#: src/gui/mergewindow.cpp:309
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Mantener el suyo antes que el mío"
 
-#: src/gui/mergewindow.cpp:313
+#: src/gui/mergewindow.cpp:314
 #, kde-format
 msgid "Keep my file"
 msgstr "Mantener mi archivo"
 
-#: src/gui/mergewindow.cpp:318
+#: src/gui/mergewindow.cpp:319
 #, kde-format
 msgid "Keep their file"
 msgstr "Mantener su archivo"
 
-#: src/gui/mergewindow.cpp:323
+#: src/gui/mergewindow.cpp:324
 #, kde-format
 msgid "Blocks"
 msgstr "Bloques"
 
-#: src/gui/mergewindow.cpp:327
+#: src/gui/mergewindow.cpp:328
 #, kde-format
 msgid "Files"
 msgstr "Archivos"
 
-#: src/gui/mergewindow.cpp:331
+#: src/gui/mergewindow.cpp:332
 #, kde-format
 msgid "Previous diff"
 msgstr "Diferencia anterior"
 
-#: src/gui/mergewindow.cpp:337
+#: src/gui/mergewindow.cpp:338
 #, kde-format
 msgid "Next diff"
 msgstr "Diferencia siguiente"
 
-#: src/gui/mergewindow.cpp:434
+#: src/gui/mergewindow.cpp:435
 #, kde-format
 msgid "Unable to open the file"
 msgstr "No se puede abrir el archivo"
@@ -1921,12 +1927,12 @@ msgstr "Antigüedad del proyecto"
 msgid "Open last repo at startup"
 msgstr "Abrir el último repositorio durante el inicio"
 
-#: src/gui/settings/settingsmanager.cpp:90
+#: src/gui/settings/settingsmanager.cpp:92
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: src/gui/settings/settingsmanager.cpp:92
+#: src/gui/settings/settingsmanager.cpp:94
 #, kde-format
 msgid "Git"
 msgstr "Git"
@@ -2040,45 +2046,45 @@ msgstr "Escriba para filtrar"
 msgid "Hide unchangeds"
 msgstr "Ocultar no modificados"
 
-#: src/gui/widgets/logdetailswidget.cpp:109
+#: src/gui/widgets/logdetailswidget.cpp:110
 #, kde-format
 msgid "Ref"
 msgstr "Ref"
 
-#: src/gui/widgets/logdetailswidget.cpp:112
-#: src/gui/widgets/logdetailswidget.cpp:115
+#: src/gui/widgets/logdetailswidget.cpp:113
+#: src/gui/widgets/logdetailswidget.cpp:116
 #: src/libgitklient/models/tagsmodel.cpp:67
 #, kde-format
 msgid "Committer"
 msgstr "Persona que confirmó"
 
-#: src/gui/widgets/logdetailswidget.cpp:118
+#: src/gui/widgets/logdetailswidget.cpp:119
 #: src/libgitklient/models/logsmodel.cpp:260
 #, kde-format
 msgid "Date"
 msgstr "Fecha"
 
-#: src/gui/widgets/logdetailswidget.cpp:119
+#: src/gui/widgets/logdetailswidget.cpp:120
 #, kde-format
 msgid "Hash"
 msgstr "Hash"
 
-#: src/gui/widgets/logdetailswidget.cpp:122
+#: src/gui/widgets/logdetailswidget.cpp:123
 #, kde-format
 msgid "Parent"
 msgstr "Padre"
 
-#: src/gui/widgets/logdetailswidget.cpp:122
+#: src/gui/widgets/logdetailswidget.cpp:123
 #, kde-format
 msgid "Parents"
 msgstr "Padres"
 
-#: src/gui/widgets/logdetailswidget.cpp:124
+#: src/gui/widgets/logdetailswidget.cpp:125
 #, kde-format
 msgid "Child"
 msgstr "Hijo"
 
-#: src/gui/widgets/logdetailswidget.cpp:124
+#: src/gui/widgets/logdetailswidget.cpp:125
 #, kde-format
 msgid "Children"
 msgstr "Hijos"
