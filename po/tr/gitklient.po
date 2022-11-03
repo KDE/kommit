@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-02 00:52+0000\n"
-"PO-Revision-Date: 2022-10-30 20:39+0300\n"
+"PO-Revision-Date: 2022-11-02 10:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -538,10 +538,9 @@ msgid "Commit/Push"
 msgstr "İşle/İt"
 
 #: src/gui/dialogs/changedfilesdialog.cpp:41
-#, fuzzy, kde-format
-#| msgid "You don't have any changes!"
+#, kde-format
 msgid "You don't have any modified file!"
-msgstr "Bir değişikliğiniz yok!"
+msgstr "Değişmiş bir dosyanız yok!"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14

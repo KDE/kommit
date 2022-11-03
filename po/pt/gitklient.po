@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-02 00:52+0000\n"
-"PO-Revision-Date: 2022-10-28 11:47+0100\n"
+"PO-Revision-Date: 2022-11-02 14:06+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -548,10 +548,9 @@ msgid "Commit/Push"
 msgstr "Gravar/Enviar"
 
 #: src/gui/dialogs/changedfilesdialog.cpp:41
-#, fuzzy, kde-format
-#| msgid "You don't have any changes!"
+#, kde-format
 msgid "You don't have any modified file!"
-msgstr "Não tem quaisquer modificações!"
+msgstr "Não tem nenhum ficheiro modificado!"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
@@ -2320,6 +2319,3 @@ msgstr "Última versão"
 #, kde-format
 msgid "Tagger"
 msgstr "Marcador"
-
-#~ msgid "View..."
-#~ msgstr "Ver..."
