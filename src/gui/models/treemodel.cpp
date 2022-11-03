@@ -186,7 +186,9 @@ QString TreeModel::section(const QModelIndex &index) const
 
 void TreeModel::sortItems()
 {
+    beginResetModel();
     sortNode(mRootNode);
+    endResetModel();
 }
 
 void TreeModel::addData(const QStringList &data, const QString &prefix, bool split)

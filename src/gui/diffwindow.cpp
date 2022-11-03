@@ -47,8 +47,6 @@ DiffWindow::DiffWindow(Git::Manager *git)
     mRightStorage = FileSystem;
     mRightDir = git->path();
     mDiffModel->sortItems();
-
-    mTreeView->setModels(mDiffModel, mFilesModel);
 }
 
 DiffWindow::DiffWindow(const Git::File &oldFile, const Git::File &newFile)
@@ -61,8 +59,6 @@ DiffWindow::DiffWindow(const Git::File &oldFile, const Git::File &newFile)
     mDiffWidget->setOldFile(std::move(oldFile));
     mDiffWidget->setNewFile(std::move(newFile));
     mDiffWidget->compare();
-
-    mTreeView->setModels(mDiffModel, mFilesModel);
 }
 
 DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QString &newBranch)
@@ -81,8 +77,6 @@ DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QStrin
     }
     mLeftStorage = mRightStorage = Git;
     mDiffModel->sortItems();
-
-    mTreeView->setModels(mDiffModel, mFilesModel);
 }
 
 DiffWindow::DiffWindow(const QString &oldDir, const QString &newDir)
@@ -94,8 +88,6 @@ DiffWindow::DiffWindow(const QString &oldDir, const QString &newDir)
     compareDirs();
 
     mLeftStorage = mRightStorage = FileSystem;
-
-    mTreeView->setModels(mDiffModel, mFilesModel);
 }
 
 void DiffWindow::init(bool showSideBar)
@@ -131,6 +123,8 @@ void DiffWindow::init(bool showSideBar)
     setupGUI(StandardWindowOption::Default, QStringLiteral("gitklientdiffui.rc"));
 
     mDock->setVisible(showSideBar);
+
+    mTreeView->setModels(mDiffModel, mFilesModel);
 }
 
 void DiffWindow::initActions()
@@ -228,7 +222,7 @@ void DiffWindow::compareDirs()
     for (auto i = map.begin(); i != map.end(); ++i) {
         mDiffModel->addFile(i.key(), i.value());
     }
-    mDiffModel->emitAll();
+    mDiffModel->sortItems();
 
     mDock->show();
 }
