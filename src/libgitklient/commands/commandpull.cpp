@@ -25,26 +25,6 @@ void CommandPull::setSquash(bool newSquash)
     mSquash = newSquash;
 }
 
-bool CommandPull::noFf() const
-{
-    return mNoFf;
-}
-
-void CommandPull::setNoFf(bool newNoFf)
-{
-    mNoFf = newNoFf;
-}
-
-bool CommandPull::ffOnly() const
-{
-    return mFfOnly;
-}
-
-void CommandPull::setFfOnly(bool newFfOnly)
-{
-    mFfOnly = newFfOnly;
-}
-
 bool CommandPull::noCommit() const
 {
     return mNoCommit;
@@ -138,21 +118,41 @@ void CommandPull::setRebase(Rebase newRebase)
     mRebase = newRebase;
 }
 
+CommandPull::FastForward CommandPull::fastForward() const
+{
+    return mFastForward;
+}
+
+void CommandPull::setFastForward(FastForward newFastForward)
+{
+    mFastForward = newFastForward;
+}
+
 QStringList CommandPull::generateArgs() const
 {
     QStringList args{QStringLiteral("pull"), mRemote, mBranch};
     if (mSquash)
         args.append(QStringLiteral("--squash"));
-    if (mNoFf)
-        args.append(QStringLiteral("--no-ff"));
-    if (mFfOnly)
-        args.append(QStringLiteral("--ff-only"));
     if (mNoCommit)
         args.append(QStringLiteral("--no-commit"));
     if (mPrune)
         args.append(QStringLiteral("--prune"));
     if (mTags)
         args.append(QStringLiteral("--tags"));
+
+    switch (mFastForward) {
+    case Unset:
+        break;
+    case Yes:
+        args << QStringLiteral("--ff");
+        break;
+    case No:
+        args << QStringLiteral("--no-ff");
+        break;
+    case OnlyFastForward:
+        args << QStringLiteral("--ff-only");
+        break;
+    }
 
     switch (mRebase) {
     case None:

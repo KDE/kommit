@@ -26,18 +26,15 @@ public:
     enum Rebase { None, False, True, Preserve, Merge };
     Q_ENUM(Rebase)
 
+    enum FastForward { Unset, Yes, No, OnlyFastForward };
+    Q_ENUM(FastForward)
+
     CommandPull();
     ~CommandPull() override;
     QStringList generateArgs() const override;
 
     bool squash() const;
     void setSquash(bool newSquash);
-
-    bool noFf() const;
-    void setNoFf(bool newNoFf);
-
-    bool ffOnly() const;
-    void setFfOnly(bool newFfOnly);
 
     bool noCommit() const;
     void setNoCommit(bool newNoCommit);
@@ -61,16 +58,18 @@ public:
     Rebase rebase() const;
     void setRebase(Rebase newRebase);
 
+    FastForward fastForward() const;
+    void setFastForward(FastForward newFastForward);
+
 private:
     bool mSquash{false};
-    bool mNoFf{false};
-    bool mFfOnly{false};
     bool mNoCommit{false};
     bool mPrune{false};
     bool mTags{false};
     QString mRemote;
     QString mBranch;
     Rebase mRebase{None};
+    FastForward mFastForward{Unset};
 
 #ifdef GIT_GUI
     QWidget *mWidget;

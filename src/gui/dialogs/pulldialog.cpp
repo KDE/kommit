@@ -23,6 +23,7 @@ PullDialog::PullDialog(Git::Manager *git, QWidget *parent)
     connect(buttonBox->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &PullDialog::slotAccepted);
 
     initComboBox<Git::CommandPull::Rebase>(comboBoxRebase);
+    initComboBox<Git::CommandPull::FastForward>(comboBoxFastForward);
 }
 
 void PullDialog::slotAccepted()
@@ -32,11 +33,12 @@ void PullDialog::slotAccepted()
     cmd.setRemote(comboBoxRemote->currentText());
     cmd.setBranch(comboBoxBranch->currentText());
     cmd.setSquash(checkBoxSquash->isChecked());
-    cmd.setNoFf(checkBoxNoFastForward->isChecked());
-    cmd.setFfOnly(checkBoxFastForwardOnly->isChecked());
     cmd.setNoCommit(checkBoxNoCommit->isChecked());
     cmd.setPrune(checkBoxPrune->isChecked());
     cmd.setTags(checkBoxTags->isChecked());
+
+    cmd.setRebase(comboBoxCurrentValue<Git::CommandPull::Rebase>(comboBoxRebase));
+    cmd.setFastForward(comboBoxCurrentValue<Git::CommandPull::FastForward>(comboBoxFastForward));
 
     RunnerDialog d(mGit, this);
     d.run(&cmd);
