@@ -31,7 +31,8 @@ public:
         Name,
         Email,
         Commits,
-        LastColumn = Commits,
+        Tags,
+        LastColumn,
     };
     Q_ENUM(AuthorsModelsRoles)
     explicit AuthorsModel(Manager *git, QObject *parent = nullptr);

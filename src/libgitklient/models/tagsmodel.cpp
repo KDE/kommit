@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tagsmodel.h"
+#include "authorsmodel.h"
 #include "gitmanager.h"
 #include "gittag.h"
 
@@ -108,6 +109,15 @@ void TagsModel::fill()
         tag->setTaggerEmail(parts.at(1).trimmed());
         tag->setCommiterName(parts.at(2).trimmed());
         tag->setCommiterEmail(parts.at(3).trimmed());
+
+        if (tag->taggerName().isEmpty())
+            tag->setTaggerName(tag->commiterName());
+        if (tag->taggerEmail().isEmpty())
+            tag->setTaggerEmail(tag->commiterEmail());
+        if (mGit->authorsModel()) {
+            auto author = mGit->authorsModel()->findOrCreate(tag->taggerName(), tag->taggerEmail());
+            author->tags++;
+        }
     }
 }
 

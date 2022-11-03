@@ -24,7 +24,7 @@ int AuthorsModel::rowCount(const QModelIndex &parent) const
 int AuthorsModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(AuthorsModelsRoles::LastColumn) + 1;
+    return static_cast<int>(AuthorsModelsRoles::LastColumn);
 }
 
 QVariant AuthorsModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -39,6 +39,8 @@ QVariant AuthorsModel::headerData(int section, Qt::Orientation orientation, int 
         return i18n("Email");
     case Commits:
         return i18n("Commits");
+    case Tags:
+        return i18n("Tags");
     }
     return {};
 }
@@ -55,6 +57,8 @@ QVariant AuthorsModel::data(const QModelIndex &index, int role) const
         return mData.at(index.row())->email;
     case Commits:
         return mData.at(index.row())->commits;
+    case Tags:
+        return mData.at(index.row())->tags;
     }
 
     return {};
