@@ -396,9 +396,8 @@ void LogsModel::fill()
         mDataByCommitHashShort.insert(d->commitShortHash(), d);
 
         if (mAuthorsModel) {
-            auto author = mAuthorsModel->findOrCreate(d->committerName(), d->committerEmail());
-            if (author)
-                author->commits++;
+            mAuthorsModel->findOrCreate(d->committerName(), d->committerEmail(), d->commitDate(), AuthorsModel::Commit);
+            mAuthorsModel->findOrCreate(d->authorName(), d->authorEmail(), d->authDate(), AuthorsModel::AuthoredCommit);
         }
     }
     //    std::sort(begin(), end(), [](GitLog *log1,GitLog *log2){

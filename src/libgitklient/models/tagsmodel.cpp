@@ -114,10 +114,9 @@ void TagsModel::fill()
             tag->setTaggerName(tag->commiterName());
         if (tag->taggerEmail().isEmpty())
             tag->setTaggerEmail(tag->commiterEmail());
-        if (mGit->authorsModel()) {
-            auto author = mGit->authorsModel()->findOrCreate(tag->taggerName(), tag->taggerEmail());
-            author->tags++;
-        }
+
+        if (mGit->authorsModel())
+            mGit->authorsModel()->findOrCreate(tag->taggerName(), tag->taggerEmail(), QDateTime(), AuthorsModel::Tag);
     }
 }
 

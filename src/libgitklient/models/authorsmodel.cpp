@@ -39,8 +39,6 @@ QVariant AuthorsModel::headerData(int section, Qt::Orientation orientation, int 
         return i18n("Email");
     case Commits:
         return i18n("Commits");
-    case Tags:
-        return i18n("Tags");
     }
     return {};
 }
@@ -56,9 +54,7 @@ QVariant AuthorsModel::data(const QModelIndex &index, int role) const
     case Email:
         return mData.at(index.row())->email;
     case Commits:
-        return mData.at(index.row())->commits;
-    case Tags:
-        return mData.at(index.row())->tags;
+        return mData.at(index.row())->commits.count;
     }
 
     return {};
@@ -93,6 +89,59 @@ Author *AuthorsModel::findOrCreate(const QString &name, const QString &email)
     return author;
 }
 
+Author *AuthorsModel::findOrCreate(const QString &name, const QString &email, const QDateTime &time, AuthorCreateReason reason)
+{
+    QMutexLocker locker(&mDataMutex);
+
+    auto authorIterator = std::find_if(mData.begin(), mData.end(), [&name, &email](Author *a) {
+        return a->email == email && a->name == name;
+    });
+
+    if (authorIterator != mData.end()) {
+        switch (reason) {
+        case Commit:
+            (*authorIterator)->commits.increase(time);
+            break;
+        case AuthoredCommit:
+            (*authorIterator)->authoredCommits.increase(time);
+            break;
+        case Tag:
+            (*authorIterator)->tags.increase(time);
+            break;
+        }
+        return *authorIterator;
+    }
+
+    auto author = new Author;
+    author->name = name;
+    author->email = email;
+
+    switch (reason) {
+    case Commit:
+        author->commits.begin(time);
+        break;
+    case AuthoredCommit:
+        author->authoredCommits.begin(time);
+        break;
+    case Tag:
+        author->tags.begin(time);
+        break;
+    }
+
+    authorIterator = std::upper_bound(mData.begin(), mData.end(), qMakePair(name, email), [](QPair<QString, QString> data, const Author *a) {
+        auto c = QString::compare(data.first, a->name, Qt::CaseInsensitive);
+        if (!c)
+            return QString::compare(data.second, a->email, Qt::CaseInsensitive) < 0;
+        return c < 0;
+    });
+
+    int idx = authorIterator - mData.begin();
+    beginInsertRows(QModelIndex(), idx, idx);
+    mData.insert(authorIterator, author);
+    endInsertRows();
+    return author;
+}
+
 void AuthorsModel::clear()
 {
     qDeleteAll(mData);
@@ -101,6 +150,18 @@ void AuthorsModel::clear()
 
 void AuthorsModel::fill()
 {
+}
+
+void DatesRange::begin(const QDateTime &time)
+{
+    count = 1;
+    first = time;
+}
+
+void DatesRange::increase(const QDateTime &time)
+{
+    last = time;
+    count++;
 }
 
 } // namespace Git
