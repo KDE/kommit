@@ -46,6 +46,7 @@ public:
     void save(QSettings &settings, QTreeView *treeView) const;
     void restore(QSettings &settings, QTreeView *treeView);
 
+    virtual void settingsUpdated();
 private Q_SLOTS:
     void git_pathChanged();
 };

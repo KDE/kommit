@@ -12,6 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractgititemsmodel.h"
 #include "libgitklient_export.h"
 
+#include <QCalendar>
+
 namespace Git
 {
 
@@ -42,6 +44,9 @@ public:
     bool fullDetails() const;
     void setFullDetails(bool newFullDetails);
 
+    QString calendarType() const;
+    void setCalendarType(const QString &newCalendarType);
+
 protected:
     void fill() override;
 
@@ -56,5 +61,6 @@ private:
     QMap<QString, Log *> mDataByCommitHashLong;
     QMap<QString, Log *> mDataByCommitHashShort;
     AuthorsModel *mAuthorsModel;
+    QCalendar mCalendar;
 };
 }

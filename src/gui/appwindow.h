@@ -47,6 +47,7 @@ public:
 
 private Q_SLOTS:
     void git_pathChanged();
+    void settingsUpdated();
     void repoStatus();
     void initRepo();
     void openRepo();

@@ -92,6 +92,10 @@ void WidgetBase::restore(QSettings &settings, QTreeView *treeView)
     treeView->header()->restoreState(settings.value(stateName(treeView)).toByteArray());
 }
 
+void WidgetBase::settingsUpdated()
+{
+}
+
 void WidgetBase::git_pathChanged()
 {
     reload();

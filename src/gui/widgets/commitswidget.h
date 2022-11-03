@@ -28,6 +28,7 @@ public:
 
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
+    void settingsUpdated() override;
 
 private Q_SLOTS:
     void slotTreeViewRepoItemActivated(const QModelIndex &index);

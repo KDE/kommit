@@ -72,6 +72,8 @@ void AppWindow::init()
     mStatusCurrentBranchLabel = new QLabel(statusBar());
     statusBar()->addPermanentWidget(mStatusCurrentBranchLabel);
     mStatusCurrentBranchLabel->setText(i18n("No repo selected"));
+
+    settingsUpdated();
 }
 
 AppWindow::AppWindow()
@@ -126,6 +128,13 @@ void AppWindow::git_pathChanged()
         statusText.append(i18n(" (merging)"));
 
     mStatusCurrentBranchLabel->setText(statusText);
+}
+
+void AppWindow::settingsUpdated()
+{
+    for (auto &w : mBaseWidgets)
+        w->settingsUpdated();
+    mGit->logsModel()->setCalendarType(GitKlientSettings::calendarType());
 }
 
 void AppWindow::initActions()
@@ -192,6 +201,7 @@ void AppWindow::initActions()
     KStandardAction::quit(this, &QMainWindow::close, actionCollection);
 
     auto settingsManager = new SettingsManager(mGit, this);
+    connect(settingsManager, &SettingsManager::settingsUpdated, this, &AppWindow::settingsUpdated);
     KStandardAction::preferences(settingsManager, &SettingsManager::show, actionCollection);
 }
 void AppWindow::initRecentFiles(const QString &newItem)

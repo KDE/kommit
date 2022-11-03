@@ -292,8 +292,12 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
         switch (index.column()) {
         case 0:
             return log->subject();
-        case 1:
+        case 1: {
+            if (mCalendar.isValid())
+                return log->commitDate().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), mCalendar);
+
             return log->commitDate();
+        }
         case 2:
             return log->authorName();
         }
@@ -434,4 +438,17 @@ void LogsModel::initGraph()
     }
 }
 
+QString LogsModel::calendarType() const
+{
+    return mCalendar.name();
+}
+
+void LogsModel::setCalendarType(const QString &newCalendarType)
+{
+    if (mCalendar.name() != newCalendarType) {
+        beginResetModel();
+        mCalendar = QCalendar(newCalendarType);
+        endResetModel();
+    }
+}
 }

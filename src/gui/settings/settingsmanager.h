@@ -28,6 +28,9 @@ public:
 public Q_SLOTS:
     void show();
 
+Q_SIGNALS:
+    void settingsUpdated();
+
 private:
     Git::Manager *mGit;
     void settingsChanged();

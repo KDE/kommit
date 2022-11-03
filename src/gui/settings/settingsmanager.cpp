@@ -44,6 +44,8 @@ void SettingsManager::settingsChanged()
         mGit->unsetConfig(QStringLiteral("mergetool.gitklientmerge.cmd"), Git::Manager::ConfigGlobal);
         mGit->unsetConfig(QStringLiteral("mergetool.gitklientmerge.trustExitCode"), Git::Manager::ConfigGlobal);
     }
+
+    Q_EMIT settingsUpdated();
 }
 
 void SettingsManager::show()
