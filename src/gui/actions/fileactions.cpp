@@ -194,15 +194,15 @@ void FileActions::mergeWithHead()
 {
     auto d = new MergeWindow(mGit, MergeWindow::NoParams);
 
-    auto p = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/ggggg");
     Git::File f{mPlace, mFilePath};
-    f.save(p);
+    auto tempFile = f.saveAsTemp();
 
-    d->setFilePathBase(p);
+    d->setFilePathBase(tempFile);
     d->setFilePathLocal(mGit->path() + QLatin1Char('/') + mFilePath);
-    d->setFilePathRemote(p);
+    d->setFilePathRemote(tempFile);
     d->setFilePathResult(mGit->path() + QLatin1Char('/') + mFilePath);
     d->load();
 
-    d->showModal();
+    d->exec();
+    QFile::remove(tempFile);
 }
