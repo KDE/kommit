@@ -64,27 +64,27 @@ Author *AuthorsModel::findOrCreate(const QString &name, const QString &email)
 {
     QMutexLocker locker(&mDataMutex);
 
-    auto p = std::find_if(mData.begin(), mData.end(), [&name, &email](Author *a) {
+    auto authorIterator = std::find_if(mData.begin(), mData.end(), [&name, &email](Author *a) {
         return a->email == email && a->name == name;
     });
 
-    if (p != mData.end())
-        return *p;
+    if (authorIterator != mData.end())
+        return *authorIterator;
 
     auto author = new Author;
     author->name = name;
     author->email = email;
 
-    p = std::upper_bound(mData.begin(), mData.end(), qMakePair(name, email), [](QPair<QString, QString> data, const Author *a) {
+    authorIterator = std::upper_bound(mData.begin(), mData.end(), qMakePair(name, email), [](QPair<QString, QString> data, const Author *a) {
         auto c = QString::compare(data.first, a->name, Qt::CaseInsensitive);
         if (!c)
             return QString::compare(data.second, a->email, Qt::CaseInsensitive) < 0;
         return c < 0;
     });
 
-    int idx = p - mData.begin();
+    int idx = authorIterator - mData.begin();
     beginInsertRows(QModelIndex(), idx, idx);
-    mData.insert(p, author);
+    mData.insert(authorIterator, author);
     endInsertRows();
     return author;
 }
