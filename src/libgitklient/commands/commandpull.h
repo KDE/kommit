@@ -20,7 +20,12 @@ namespace Git
 
 class LIBGITKLIENT_EXPORT CommandPull : public AbstractCommand
 {
+    Q_OBJECT
+
 public:
+    enum Rebase { None, False, True, Preserve, Merge };
+    Q_ENUM(Rebase)
+
     CommandPull();
     ~CommandPull() override;
     QStringList generateArgs() const override;
@@ -53,6 +58,9 @@ public:
     const QString &branch() const;
     void setBranch(const QString &newBranch);
 
+    Rebase rebase() const;
+    void setRebase(Rebase newRebase);
+
 private:
     bool mSquash{false};
     bool mNoFf{false};
@@ -62,6 +70,8 @@ private:
     bool mTags{false};
     QString mRemote;
     QString mBranch;
+    Rebase mRebase{None};
+
 #ifdef GIT_GUI
     QWidget *mWidget;
     Ui::CommandPullWidget *mUi;

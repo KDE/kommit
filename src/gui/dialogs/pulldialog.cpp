@@ -21,6 +21,8 @@ PullDialog::PullDialog(Git::Manager *git, QWidget *parent)
 
     comboBoxBranch->setCurrentText(git->currentBranch());
     connect(buttonBox->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &PullDialog::slotAccepted);
+
+    initComboBox<Git::CommandPull::Rebase>(comboBoxRebase);
 }
 
 void PullDialog::slotAccepted()

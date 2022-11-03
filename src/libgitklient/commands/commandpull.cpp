@@ -128,6 +128,16 @@ void CommandPull::setBranch(const QString &newBranch)
     mBranch = newBranch;
 }
 
+CommandPull::Rebase CommandPull::rebase() const
+{
+    return mRebase;
+}
+
+void CommandPull::setRebase(Rebase newRebase)
+{
+    mRebase = newRebase;
+}
+
 QStringList CommandPull::generateArgs() const
 {
     QStringList args{QStringLiteral("pull"), mRemote, mBranch};
@@ -143,6 +153,23 @@ QStringList CommandPull::generateArgs() const
         args.append(QStringLiteral("--prune"));
     if (mTags)
         args.append(QStringLiteral("--tags"));
+
+    switch (mRebase) {
+    case None:
+    case False:
+        args << QStringLiteral("--rebase=false");
+        break;
+    case True:
+        args << QStringLiteral("--rebase=true");
+        break;
+    case Preserve:
+        args << QStringLiteral("--rebase=preserve");
+        break;
+    case Merge:
+        args << QStringLiteral("--rebase=merge");
+        break;
+    }
+
     return args;
 }
 
