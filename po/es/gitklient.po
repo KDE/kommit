@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-02 00:52+0000\n"
+"POT-Creation-Date: 2022-11-04 00:48+0000\n"
 "PO-Revision-Date: 2022-11-02 19:23+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -76,7 +76,7 @@ msgstr "Corrección de errores"
 msgid "Create..."
 msgstr "Crear..."
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:166
+#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:175
 #, kde-format
 msgid "Fetch..."
 msgstr "Extraer..."
@@ -92,7 +92,7 @@ msgstr "Explorar..."
 msgid "Switch"
 msgstr "Cambiar"
 
-#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:174
+#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:183
 #, kde-format
 msgid "Merge..."
 msgstr "Fusionar..."
@@ -100,7 +100,7 @@ msgstr "Fusionar..."
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
 #: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:17
-#: src/gui/settings/settingsmanager.cpp:93
+#: src/gui/settings/settingsmanager.cpp:95
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
@@ -194,7 +194,7 @@ msgstr "Registro..."
 msgid "Blame..."
 msgstr "Responsables..."
 
-#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:181
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Search..."
 msgstr "Buscar..."
@@ -319,7 +319,7 @@ msgstr "Nombre de la reserva"
 msgid "Add..."
 msgstr "Añadir..."
 
-#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:136
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:145
 #, kde-format
 msgid "Init..."
 msgstr "Iniciar..."
@@ -360,7 +360,7 @@ msgstr "Submódulo %1 eliminado"
 msgid "New tag..."
 msgstr "Nueva etiqueta..."
 
-#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:170
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:179
 #, kde-format
 msgid "Push..."
 msgstr "Enviar..."
@@ -398,87 +398,87 @@ msgstr "¿Seguro que quiere cambiar la rama a la etiqueta seleccionada?"
 msgid "No repo selected"
 msgstr "No se ha seleccionado ningún repositorio"
 
-#: src/gui/appwindow.cpp:124
+#: src/gui/appwindow.cpp:126
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Rama actual: %1"
 
-#: src/gui/appwindow.cpp:126
+#: src/gui/appwindow.cpp:128
 #, kde-format
 msgid " (merging)"
 msgstr " (fusionando)"
 
-#: src/gui/appwindow.cpp:139
+#: src/gui/appwindow.cpp:148
 #, kde-format
 msgid "Open..."
 msgstr "Abrir..."
 
-#: src/gui/appwindow.cpp:144
+#: src/gui/appwindow.cpp:153
 #, kde-format
 msgid "Clone..."
 msgstr "Clonar..."
 
-#: src/gui/appwindow.cpp:147
+#: src/gui/appwindow.cpp:156
 #, kde-format
 msgid "Changed files..."
 msgstr "Archivos cambiados..."
 
-#: src/gui/appwindow.cpp:153
+#: src/gui/appwindow.cpp:162
 #, kde-format
 msgid "Recent repos"
 msgstr "Repositorios recientes"
 
-#: src/gui/appwindow.cpp:159
+#: src/gui/appwindow.cpp:168
 #, kde-format
 msgid "Cleanup..."
 msgstr "Limpiar..."
 
-#: src/gui/appwindow.cpp:162
+#: src/gui/appwindow.cpp:171
 #, kde-format
 msgid "Pull..."
 msgstr "Descargar..."
 
-#: src/gui/appwindow.cpp:178
+#: src/gui/appwindow.cpp:187
 #, kde-format
 msgid "Diff branches..."
 msgstr "Diferencias entre ramas..."
 
-#: src/gui/appwindow.cpp:184
+#: src/gui/appwindow.cpp:193
 #, kde-format
 msgid "Repo settings..."
 msgstr "Preferencias del repositorio..."
 
-#: src/gui/appwindow.cpp:187
+#: src/gui/appwindow.cpp:196
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Cambiar/cambiar rama..."
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:199
 #, kde-format
 msgid "Diff tree"
 msgstr "Árbol de diferencias"
 
-#: src/gui/appwindow.cpp:243 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "No se ha podido crear la ruta: %1"
 
-#: src/gui/appwindow.cpp:243 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Init repo"
 msgstr "Iniciar repositorio"
 
-#: src/gui/appwindow.cpp:253
+#: src/gui/appwindow.cpp:263
 #, kde-format
 msgid "Open repository"
 msgstr "Abrir repositorio"
 
-#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:459
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:459
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No se puede cambiar de rama durante la fusión"
 
-#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:459
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:459
 #, kde-format
 msgid "Switch branch"
 msgstr "Cambiar rama"
@@ -929,13 +929,12 @@ msgstr "Opciones"
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoFastForward)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/fetchdialog.ui:94 src/gui/dialogs/mergedialog.ui:86
-#: src/gui/dialogs/pulldialog.ui:64
 #, kde-format
 msgid "No fast forward"
 msgstr "Sin avance rápido"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
-#: src/gui/dialogs/fetchdialog.ui:101 src/gui/dialogs/pulldialog.ui:102
+#: src/gui/dialogs/fetchdialog.ui:101 src/gui/dialogs/pulldialog.ui:100
 #, kde-format
 msgid "No commit"
 msgstr "No confirmar"
@@ -943,7 +942,7 @@ msgstr "No confirmar"
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTags)
 #. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
-#: src/gui/dialogs/fetchdialog.ui:108 src/gui/dialogs/pulldialog.ui:71
+#: src/gui/dialogs/fetchdialog.ui:108 src/gui/dialogs/pulldialog.ui:107
 #: src/gui/mainwidget.ui:263 src/gui/widgets/remoteinfodialog.ui:54
 #: src/gui/widgets/tagswidget.ui:14
 #, kde-format
@@ -953,13 +952,12 @@ msgstr "Etiquetas"
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/fetchdialog.ui:115 src/gui/dialogs/mergedialog.ui:81
-#: src/gui/dialogs/pulldialog.ui:109
 #, kde-format
 msgid "Fast forward only"
 msgstr "Solo avance rápido"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
-#: src/gui/dialogs/fetchdialog.ui:122 src/gui/dialogs/pulldialog.ui:78
+#: src/gui/dialogs/fetchdialog.ui:122 src/gui/dialogs/pulldialog.ui:114
 #, kde-format
 msgid "Prune"
 msgstr "Reducir"
@@ -1058,7 +1056,7 @@ msgstr "Patrón:"
 #: src/gui/widgets/remoteswidget.ui:164
 #: src/libgitklient/models/authorsmodel.cpp:37
 #: src/libgitklient/models/branchesmodel.cpp:56
-#: src/libgitklient/models/tagsmodel.cpp:61
+#: src/libgitklient/models/tagsmodel.cpp:62
 #, kde-format
 msgid "Name"
 msgstr "Nombre"
@@ -1212,7 +1210,7 @@ msgid "-"
 msgstr "-"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/gui/dialogs/mergedialog.ui:60
+#: src/gui/dialogs/mergedialog.ui:60 src/gui/dialogs/pulldialog.ui:79
 #, kde-format
 msgid "Fast forward:"
 msgstr "Avance rápido:"
@@ -1301,7 +1299,7 @@ msgstr ""
 "\">Más información...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
-#: src/gui/dialogs/mergedialog.ui:110 src/gui/dialogs/pulldialog.ui:57
+#: src/gui/dialogs/mergedialog.ui:110 src/gui/dialogs/pulldialog.ui:93
 #, kde-format
 msgid "Squash"
 msgstr "Combinar"
@@ -1480,6 +1478,12 @@ msgstr "Nota"
 #, kde-format
 msgid "Pull changes"
 msgstr "Descargar cambios"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/gui/dialogs/pulldialog.ui:63
+#, kde-format
+msgid "Rebase:"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RepoSettingsDialog)
 #: src/gui/dialogs/reposettingsdialog.ui:14
@@ -1685,54 +1689,54 @@ msgstr "Etiqueta"
 msgid "Tag name:"
 msgstr "Nombre de la etiqueta:"
 
-#: src/gui/diffwindow.cpp:113
+#: src/gui/diffwindow.cpp:105
 #, kde-format
 msgctxt "@title:window"
 msgid "GitKlient Diff[*]"
 msgstr "Diferencias de GitKlient [*]"
 
-#: src/gui/diffwindow.cpp:116
+#: src/gui/diffwindow.cpp:108
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Árbol"
 
-#: src/gui/diffwindow.cpp:141
+#: src/gui/diffwindow.cpp:135
 #, kde-format
 msgid "View hidden chars..."
 msgstr "Ver caracteres ocultos..."
 
-#: src/gui/diffwindow.cpp:146 src/gui/mergewindow.cpp:343
+#: src/gui/diffwindow.cpp:140 src/gui/mergewindow.cpp:343
 #, kde-format
 msgid "Same size blocks"
 msgstr "Bloques del mismo tamaño"
 
-#: src/gui/diffwindow.cpp:151
+#: src/gui/diffwindow.cpp:145
 #, kde-format
 msgid "Show files names"
 msgstr "Mostrar nombres de archivos"
 
-#: src/gui/diffwindow.cpp:157
+#: src/gui/diffwindow.cpp:151
 #, kde-format
 msgid "Show Tree"
 msgstr "Mostrar árbol"
 
-#: src/gui/diffwindow.cpp:214
+#: src/gui/diffwindow.cpp:208
 #, kde-format
 msgid "Unchanged"
 msgstr "Sin cambios"
 
-#: src/gui/diffwindow.cpp:216
+#: src/gui/diffwindow.cpp:210
 #, kde-format
 msgid "Added"
 msgstr "Añadido"
 
-#: src/gui/diffwindow.cpp:218
+#: src/gui/diffwindow.cpp:212
 #, kde-format
 msgid "Removed"
 msgstr "Eliminado"
 
-#: src/gui/diffwindow.cpp:220
+#: src/gui/diffwindow.cpp:214
 #, kde-format
 msgid "Modified"
 msgstr "Modificado"
@@ -1926,12 +1930,12 @@ msgstr "Antigüedad del proyecto"
 msgid "Open last repo at startup"
 msgstr "Abrir el último repositorio durante el inicio"
 
-#: src/gui/settings/settingsmanager.cpp:92
+#: src/gui/settings/settingsmanager.cpp:94
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: src/gui/settings/settingsmanager.cpp:94
+#: src/gui/settings/settingsmanager.cpp:96
 #, kde-format
 msgid "Git"
 msgstr "Git"
@@ -2052,7 +2056,7 @@ msgstr "Ref"
 
 #: src/gui/widgets/logdetailswidget.cpp:113
 #: src/gui/widgets/logdetailswidget.cpp:116
-#: src/libgitklient/models/tagsmodel.cpp:67
+#: src/libgitklient/models/tagsmodel.cpp:68
 #, kde-format
 msgid "Committer"
 msgstr "Persona que confirmó"
@@ -2216,12 +2220,12 @@ msgstr "Actualizar"
 msgid "Checkout to selected"
 msgstr "Cambiar a la rama seleccionada"
 
-#: src/libgitklient/commands/commandpull.cpp:82
+#: src/libgitklient/commands/commandpull.cpp:62
 #, kde-format
 msgid "Already up to date."
 msgstr "Ya está actualizado."
 
-#: src/libgitklient/commands/commandpull.cpp:86
+#: src/libgitklient/commands/commandpull.cpp:66
 #, kde-format
 msgid "Error"
 msgstr "Error"
@@ -2283,7 +2287,7 @@ msgid "Graph"
 msgstr "Gráfico"
 
 #: src/libgitklient/models/stashesmodel.cpp:60
-#: src/libgitklient/models/tagsmodel.cpp:63
+#: src/libgitklient/models/tagsmodel.cpp:64
 #, kde-format
 msgid "Subject"
 msgstr "Asunto"
@@ -2308,7 +2312,7 @@ msgstr "Hora"
 msgid "Head"
 msgstr "Head"
 
-#: src/libgitklient/models/tagsmodel.cpp:65
+#: src/libgitklient/models/tagsmodel.cpp:66
 #, kde-format
 msgid "Tagger"
 msgstr "Etiquetador"

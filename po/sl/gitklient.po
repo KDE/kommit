@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-02 00:52+0000\n"
-"PO-Revision-Date: 2022-10-31 07:13+0100\n"
+"POT-Creation-Date: 2022-11-04 00:48+0000\n"
+"PO-Revision-Date: 2022-11-03 08:24+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -78,7 +78,7 @@ msgstr "Popravljanje napak"
 msgid "Create..."
 msgstr "Ustvari..."
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:166
+#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:175
 #, kde-format
 msgid "Fetch..."
 msgstr "Dobavi..."
@@ -94,7 +94,7 @@ msgstr "Brskaj..."
 msgid "Switch"
 msgstr "Preklopi"
 
-#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:174
+#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:183
 #, kde-format
 msgid "Merge..."
 msgstr "Zlij..."
@@ -102,7 +102,7 @@ msgstr "Zlij..."
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
 #: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:17
-#: src/gui/settings/settingsmanager.cpp:93
+#: src/gui/settings/settingsmanager.cpp:95
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
@@ -196,7 +196,7 @@ msgstr "Dnevnik..."
 msgid "Blame..."
 msgstr "Odgovornost (blame) ..."
 
-#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:181
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Search..."
 msgstr "Išči..."
@@ -321,7 +321,7 @@ msgstr "Ime zaloge"
 msgid "Add..."
 msgstr "Dodaj..."
 
-#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:136
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:145
 #, kde-format
 msgid "Init..."
 msgstr "Inicializiraj …"
@@ -362,7 +362,7 @@ msgstr "Submodul %1 je odstranjen"
 msgid "New tag..."
 msgstr "Nova oznaka..."
 
-#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:170
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:179
 #, kde-format
 msgid "Push..."
 msgstr "Porini..."
@@ -400,87 +400,87 @@ msgstr "Ali ste prepričani, da bi prevzeli izbrano oznako?"
 msgid "No repo selected"
 msgstr "Nobeno skladišče ni izbrano"
 
-#: src/gui/appwindow.cpp:124
+#: src/gui/appwindow.cpp:126
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Trenutna veja: %1"
 
-#: src/gui/appwindow.cpp:126
+#: src/gui/appwindow.cpp:128
 #, kde-format
 msgid " (merging)"
 msgstr " (zlivanje)"
 
-#: src/gui/appwindow.cpp:139
+#: src/gui/appwindow.cpp:148
 #, kde-format
 msgid "Open..."
 msgstr "Odpri..."
 
-#: src/gui/appwindow.cpp:144
+#: src/gui/appwindow.cpp:153
 #, kde-format
 msgid "Clone..."
 msgstr "Kloniraj..."
 
-#: src/gui/appwindow.cpp:147
+#: src/gui/appwindow.cpp:156
 #, kde-format
 msgid "Changed files..."
 msgstr "Spremenjene datoteke..."
 
-#: src/gui/appwindow.cpp:153
+#: src/gui/appwindow.cpp:162
 #, kde-format
 msgid "Recent repos"
 msgstr "Nedavna skladišča"
 
-#: src/gui/appwindow.cpp:159
+#: src/gui/appwindow.cpp:168
 #, kde-format
 msgid "Cleanup..."
 msgstr "Čiščenje..."
 
-#: src/gui/appwindow.cpp:162
+#: src/gui/appwindow.cpp:171
 #, kde-format
 msgid "Pull..."
 msgstr "Potegni..."
 
-#: src/gui/appwindow.cpp:178
+#: src/gui/appwindow.cpp:187
 #, kde-format
 msgid "Diff branches..."
 msgstr "Razlika vej..."
 
-#: src/gui/appwindow.cpp:184
+#: src/gui/appwindow.cpp:193
 #, kde-format
 msgid "Repo settings..."
 msgstr "Nastavitve skladišča ..."
 
-#: src/gui/appwindow.cpp:187
+#: src/gui/appwindow.cpp:196
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Preklopi/prevzemi ..."
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:199
 #, kde-format
 msgid "Diff tree"
 msgstr "Drevo razlik"
 
-#: src/gui/appwindow.cpp:243 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ni mogoče ustvariti poti: %1"
 
-#: src/gui/appwindow.cpp:243 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializiraj skladišče"
 
-#: src/gui/appwindow.cpp:253
+#: src/gui/appwindow.cpp:263
 #, kde-format
 msgid "Open repository"
 msgstr "Odpri skladišče"
 
-#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:459
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:459
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Med spajanjem ni mogoče preklopiti veje"
 
-#: src/gui/appwindow.cpp:350 src/gui/commandargsparser.cpp:459
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:459
 #, kde-format
 msgid "Switch branch"
 msgstr "Preklopi vejo"
@@ -542,10 +542,9 @@ msgid "Commit/Push"
 msgstr "Objavi/potisni"
 
 #: src/gui/dialogs/changedfilesdialog.cpp:41
-#, fuzzy, kde-format
-#| msgid "You don't have any changes!"
+#, kde-format
 msgid "You don't have any modified file!"
-msgstr "Nimate nobenih sprememb!"
+msgstr "Nimate nobene spremenjene datoteke!"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
@@ -928,13 +927,12 @@ msgstr "Možnosti"
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoFastForward)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/fetchdialog.ui:94 src/gui/dialogs/mergedialog.ui:86
-#: src/gui/dialogs/pulldialog.ui:64
 #, kde-format
 msgid "No fast forward"
 msgstr "Brez hitrega napredovanja"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
-#: src/gui/dialogs/fetchdialog.ui:101 src/gui/dialogs/pulldialog.ui:102
+#: src/gui/dialogs/fetchdialog.ui:101 src/gui/dialogs/pulldialog.ui:100
 #, kde-format
 msgid "No commit"
 msgstr "Brez objave"
@@ -942,7 +940,7 @@ msgstr "Brez objave"
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTags)
 #. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
-#: src/gui/dialogs/fetchdialog.ui:108 src/gui/dialogs/pulldialog.ui:71
+#: src/gui/dialogs/fetchdialog.ui:108 src/gui/dialogs/pulldialog.ui:107
 #: src/gui/mainwidget.ui:263 src/gui/widgets/remoteinfodialog.ui:54
 #: src/gui/widgets/tagswidget.ui:14
 #, kde-format
@@ -952,13 +950,12 @@ msgstr "Oznake"
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/fetchdialog.ui:115 src/gui/dialogs/mergedialog.ui:81
-#: src/gui/dialogs/pulldialog.ui:109
 #, kde-format
 msgid "Fast forward only"
 msgstr "Samo hitro naprej"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
-#: src/gui/dialogs/fetchdialog.ui:122 src/gui/dialogs/pulldialog.ui:78
+#: src/gui/dialogs/fetchdialog.ui:122 src/gui/dialogs/pulldialog.ui:114
 #, kde-format
 msgid "Prune"
 msgstr "Klešči"
@@ -1057,7 +1054,7 @@ msgstr "Vzorec:"
 #: src/gui/widgets/remoteswidget.ui:164
 #: src/libgitklient/models/authorsmodel.cpp:37
 #: src/libgitklient/models/branchesmodel.cpp:56
-#: src/libgitklient/models/tagsmodel.cpp:61
+#: src/libgitklient/models/tagsmodel.cpp:62
 #, kde-format
 msgid "Name"
 msgstr "Ime"
@@ -1210,7 +1207,7 @@ msgid "-"
 msgstr "-"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/gui/dialogs/mergedialog.ui:60
+#: src/gui/dialogs/mergedialog.ui:60 src/gui/dialogs/pulldialog.ui:79
 #, kde-format
 msgid "Fast forward:"
 msgstr "Hitro naprej:"
@@ -1298,7 +1295,7 @@ msgstr ""
 "#007af4;\">Več informacij …</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
-#: src/gui/dialogs/mergedialog.ui:110 src/gui/dialogs/pulldialog.ui:57
+#: src/gui/dialogs/mergedialog.ui:110 src/gui/dialogs/pulldialog.ui:93
 #, kde-format
 msgid "Squash"
 msgstr "Strni"
@@ -1476,6 +1473,12 @@ msgstr "Opomba"
 #, kde-format
 msgid "Pull changes"
 msgstr "Povleci spremembe"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/gui/dialogs/pulldialog.ui:63
+#, kde-format
+msgid "Rebase:"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RepoSettingsDialog)
 #: src/gui/dialogs/reposettingsdialog.ui:14
@@ -1681,54 +1684,54 @@ msgstr "Značka"
 msgid "Tag name:"
 msgstr "Ime značke:"
 
-#: src/gui/diffwindow.cpp:113
+#: src/gui/diffwindow.cpp:105
 #, kde-format
 msgctxt "@title:window"
 msgid "GitKlient Diff[*]"
 msgstr "Razlika GitKlient[*]"
 
-#: src/gui/diffwindow.cpp:116
+#: src/gui/diffwindow.cpp:108
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Drevo"
 
-#: src/gui/diffwindow.cpp:141
+#: src/gui/diffwindow.cpp:135
 #, kde-format
 msgid "View hidden chars..."
 msgstr "Pokaži skrite znake ..."
 
-#: src/gui/diffwindow.cpp:146 src/gui/mergewindow.cpp:343
+#: src/gui/diffwindow.cpp:140 src/gui/mergewindow.cpp:343
 #, kde-format
 msgid "Same size blocks"
 msgstr "Bloki enake velikosti"
 
-#: src/gui/diffwindow.cpp:151
+#: src/gui/diffwindow.cpp:145
 #, kde-format
 msgid "Show files names"
 msgstr "Pokaži imena datotek"
 
-#: src/gui/diffwindow.cpp:157
+#: src/gui/diffwindow.cpp:151
 #, kde-format
 msgid "Show Tree"
 msgstr "Pokaži drevo"
 
-#: src/gui/diffwindow.cpp:214
+#: src/gui/diffwindow.cpp:208
 #, kde-format
 msgid "Unchanged"
 msgstr "Nespremenjeno"
 
-#: src/gui/diffwindow.cpp:216
+#: src/gui/diffwindow.cpp:210
 #, kde-format
 msgid "Added"
 msgstr "Dodano"
 
-#: src/gui/diffwindow.cpp:218
+#: src/gui/diffwindow.cpp:212
 #, kde-format
 msgid "Removed"
 msgstr "Odstranjeno"
 
-#: src/gui/diffwindow.cpp:220
+#: src/gui/diffwindow.cpp:214
 #, kde-format
 msgid "Modified"
 msgstr "Spremenjena"
@@ -1922,12 +1925,12 @@ msgstr "starost projekta"
 msgid "Open last repo at startup"
 msgstr "Odpri zadnje skladišče ob zagonu"
 
-#: src/gui/settings/settingsmanager.cpp:92
+#: src/gui/settings/settingsmanager.cpp:94
 #, kde-format
 msgid "General"
 msgstr "Splošno"
 
-#: src/gui/settings/settingsmanager.cpp:94
+#: src/gui/settings/settingsmanager.cpp:96
 #, kde-format
 msgid "Git"
 msgstr "Git"
@@ -2048,7 +2051,7 @@ msgstr "Ref"
 
 #: src/gui/widgets/logdetailswidget.cpp:113
 #: src/gui/widgets/logdetailswidget.cpp:116
-#: src/libgitklient/models/tagsmodel.cpp:67
+#: src/libgitklient/models/tagsmodel.cpp:68
 #, kde-format
 msgid "Committer"
 msgstr "Objavitelj"
@@ -2212,12 +2215,12 @@ msgstr "Posodobi"
 msgid "Checkout to selected"
 msgstr "Prevzemi v izbrano"
 
-#: src/libgitklient/commands/commandpull.cpp:82
+#: src/libgitklient/commands/commandpull.cpp:62
 #, kde-format
 msgid "Already up to date."
 msgstr "Že posodobljeno."
 
-#: src/libgitklient/commands/commandpull.cpp:86
+#: src/libgitklient/commands/commandpull.cpp:66
 #, kde-format
 msgid "Error"
 msgstr "Napaka"
@@ -2278,7 +2281,7 @@ msgid "Graph"
 msgstr "Grafikon"
 
 #: src/libgitklient/models/stashesmodel.cpp:60
-#: src/libgitklient/models/tagsmodel.cpp:63
+#: src/libgitklient/models/tagsmodel.cpp:64
 #, kde-format
 msgid "Subject"
 msgstr "Zadeva"
@@ -2303,7 +2306,7 @@ msgstr "Čas"
 msgid "Head"
 msgstr "Glava (head)"
 
-#: src/libgitklient/models/tagsmodel.cpp:65
+#: src/libgitklient/models/tagsmodel.cpp:66
 #, kde-format
 msgid "Tagger"
 msgstr "Označevalnik"
