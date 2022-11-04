@@ -15,17 +15,17 @@ AuthorsWidget::AuthorsWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
 {
     setupUi(this);
-    tableViewAuthors->setSortingEnabled(true);
-    tableViewAuthors->setModel(mGit->authorsModel());
-    tableViewAuthors->sortByColumn(Git::AuthorsModel::Commits, Qt::DescendingOrder);
+    treeViewAuthors->setSortingEnabled(true);
+    treeViewAuthors->setModel(mGit->authorsModel());
+    //    treeViewAuthors->sortByColumn(Git::AuthorsModel::Commits, Qt::DescendingOrder);
 }
 
 void AuthorsWidget::saveState(QSettings &settings) const
 {
-    save(settings, tableViewAuthors);
+    save(settings, treeViewAuthors);
 }
 
 void AuthorsWidget::restoreState(QSettings &settings)
 {
-    restore(settings, tableViewAuthors);
+    restore(settings, treeViewAuthors);
 }

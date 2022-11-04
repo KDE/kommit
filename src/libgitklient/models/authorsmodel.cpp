@@ -128,10 +128,10 @@ Author *AuthorsModel::findOrCreate(const QString &name, const QString &email, co
         break;
     }
 
-    authorIterator = std::upper_bound(mData.begin(), mData.end(), qMakePair(name, email), [](QPair<QString, QString> data, const Author *a) {
-        auto c = QString::compare(data.first, a->name, Qt::CaseInsensitive);
+    authorIterator = std::upper_bound(mData.begin(), mData.end(), author, [](Author *author, const Author *a) {
+        auto c = QString::compare(author->name, a->name, Qt::CaseInsensitive);
         if (!c)
-            return QString::compare(data.second, a->email, Qt::CaseInsensitive) < 0;
+            return QString::compare(author->email, a->email, Qt::CaseInsensitive) < 0;
         return c < 0;
     });
 

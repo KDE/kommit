@@ -14,11 +14,12 @@
    <string>Authors</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="user"/>
+   <iconset theme="user">
+    <normaloff>.</normaloff>.</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QTreeView" name="tableViewAuthors">
+    <widget class="QTreeView" name="treeViewAuthors">
      <property name="contextMenuPolicy">
       <enum>Qt::CustomContextMenu</enum>
      </property>
