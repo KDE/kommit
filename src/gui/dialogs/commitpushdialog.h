@@ -35,5 +35,6 @@ private Q_SLOTS:
 
 private:
     void addFiles();
+    void reload();
     ChangedFileActions *mActions = nullptr;
 };

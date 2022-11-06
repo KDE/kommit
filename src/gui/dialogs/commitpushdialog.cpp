@@ -29,12 +29,11 @@ QIcon createIcon(const QColor &color)
 
     return QIcon(QPixmap::fromImage(image));
 }
-CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
-    : AppDialog(git, parent)
-{
-    setupUi(this);
 
-    const auto files = git->changedFiles();
+void CommitPushDialog::reload()
+{
+    const auto files = mGit->changedFiles();
+
     QMap<Git::Manager::ChangeStatus, QIcon> icons;
 
     for (auto i = files.constBegin(); i != files.constEnd(); ++i) {
@@ -75,11 +74,13 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
         pushButtonPush->setText(i18n("Commit and push"));
     }
 
-    auto branches = git->branches();
-    auto remotes = git->remotes();
+    comboBoxBranch->clear();
+    comboBoxRemote->clear();
+    auto branches = mGit->branches();
+    auto remotes = mGit->remotes();
     comboBoxBranch->addItems(branches);
     comboBoxRemote->addItems(remotes);
-    labelCurrentBranchName->setText(git->currentBranch());
+    labelCurrentBranchName->setText(mGit->currentBranch());
 
     QSet<QString> _words;
     for (const auto &b : std::as_const(branches))
@@ -94,6 +95,14 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     }
     textEditMessage->addWords(_words.values());
     textEditMessage->begin();
+}
+
+CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
+    : AppDialog(git, parent)
+{
+    setupUi(this);
+
+    reload();
 
     mActions = new ChangedFileActions(mGit, this);
 

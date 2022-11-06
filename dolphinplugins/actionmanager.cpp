@@ -98,6 +98,7 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
     actionBlame->setVisible(isFile);
     actionCleanup->setVisible(isGit);
     actionDiffBranches->setVisible(isGit);
+    actionSwitchCheckout->setVisible(isGit);
 
     actionCreateTag->setVisible(isGit);
     actionCleanup->setVisible(isGit);
