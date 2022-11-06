@@ -27,6 +27,9 @@ private Q_SLOTS:
     void slotToolButtonAddAllClicked();
     void slotToolButtonAddNoneClicked();
     void slotToolButtonAddIndexedClicked();
+    void slotToolButtonAddAddedClicked();
+    void slotToolButtonAddRemovedClicked();
+    void slotToolButtonAddModifiedClicked();
     void slotListWidgetItemDoubleClicked(QListWidgetItem *item);
     void slotListWidgetItemClicked(QListWidgetItem *item);
     void slotGroupBoxMakeCommitToggled(bool);
@@ -34,7 +37,9 @@ private Q_SLOTS:
     void checkButtonsEnable();
 
 private:
+    enum Roles { StatusRole = Qt::UserRole + 1 };
     void addFiles();
     void reload();
     ChangedFileActions *mActions = nullptr;
+    void checkItemsByStatus(int status);
 };

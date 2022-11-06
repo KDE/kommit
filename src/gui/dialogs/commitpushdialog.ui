@@ -210,6 +210,36 @@
              </widget>
             </item>
             <item>
+             <widget class="QToolButton" name="toolButtonAddAdded">
+              <property name="text">
+               <string>Added</string>
+              </property>
+              <property name="autoRaise">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="toolButtonAddRemoved">
+              <property name="text">
+               <string>Removed</string>
+              </property>
+              <property name="autoRaise">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="toolButtonAddModified">
+              <property name="text">
+               <string>Modified</string>
+              </property>
+              <property name="autoRaise">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QToolButton" name="toolButtonAddNone">
               <property name="text">
                <string>None</string>

@@ -2,7 +2,7 @@
 SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 
 SPDX-License-Identifier: GPL-3.0-or-later
-*/
+                                                 */
 
 #include "commitpushdialog.h"
 #include "GitKlientSettings.h"
@@ -14,7 +14,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QPainter>
 
-// TODO: improve this method (Add cache)
 QIcon createIcon(const QColor &color)
 {
     QPixmap pixmap(32, 32);
@@ -63,6 +62,7 @@ void CommitPushDialog::reload()
             item->setIcon(icon);
         }
         item->setCheckState(Qt::Unchecked);
+        item->setData(StatusRole, (int)i.value());
         listWidget->addItem(item);
     }
     if (files.empty()) {
@@ -97,6 +97,15 @@ void CommitPushDialog::reload()
     textEditMessage->begin();
 }
 
+void CommitPushDialog::checkItemsByStatus(int status)
+{
+    for (auto i = 0; i < listWidget->count(); ++i) {
+        auto item = listWidget->item(i);
+        auto itemStatus = item->data(StatusRole).toInt();
+        item->setCheckState(status == itemStatus ? Qt::Checked : Qt::Unchecked);
+    }
+}
+
 CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
 {
@@ -113,6 +122,9 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     connect(toolButtonAddAll, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddAllClicked);
     connect(toolButtonAddNone, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddNoneClicked);
     connect(toolButtonAddIndexed, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddIndexedClicked);
+    connect(toolButtonAddAdded, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddAddedClicked);
+    connect(toolButtonAddModified, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddModifiedClicked);
+    connect(toolButtonAddRemoved, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddRemovedClicked);
     connect(listWidget, &QListWidget::itemDoubleClicked, this, &CommitPushDialog::slotListWidgetItemDoubleClicked);
     connect(listWidget, &QListWidget::itemClicked, this, &CommitPushDialog::slotListWidgetItemClicked);
     connect(groupBoxMakeCommit, &QGroupBox::toggled, this, &CommitPushDialog::slotGroupBoxMakeCommitToggled);
@@ -223,6 +235,21 @@ void CommitPushDialog::slotToolButtonAddIndexedClicked()
         item->setCheckState(Qt::Checked);
     }
     checkButtonsEnable();
+}
+
+void CommitPushDialog::slotToolButtonAddAddedClicked()
+{
+    checkItemsByStatus(Git::Manager::Added);
+}
+
+void CommitPushDialog::slotToolButtonAddRemovedClicked()
+{
+    checkItemsByStatus(Git::Manager::Removed);
+}
+
+void CommitPushDialog::slotToolButtonAddModifiedClicked()
+{
+    checkItemsByStatus(Git::Manager::Modified);
 }
 
 void CommitPushDialog::slotListWidgetItemDoubleClicked(QListWidgetItem *item)
