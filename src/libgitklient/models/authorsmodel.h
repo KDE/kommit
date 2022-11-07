@@ -15,7 +15,7 @@ namespace Git
 {
 
 struct DatesRange {
-    int count;
+    int count = 0;
     QDateTime first;
     QDateTime last;
 
