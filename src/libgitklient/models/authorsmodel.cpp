@@ -75,14 +75,14 @@ Author *AuthorsModel::findOrCreate(const QString &name, const QString &email)
     author->name = name;
     author->email = email;
 
-    authorIterator = std::upper_bound(mData.begin(), mData.end(), qMakePair(name, email), [](QPair<QString, QString> data, const Author *a) {
+    authorIterator = std::upper_bound(mData.begin(), mData.end(), qMakePair(name, email), [](const QPair<QString, QString> &data, const Author *a) {
         auto c = QString::compare(data.first, a->name, Qt::CaseInsensitive);
         if (!c)
             return QString::compare(data.second, a->email, Qt::CaseInsensitive) < 0;
         return c < 0;
     });
 
-    int idx = authorIterator - mData.begin();
+    const int idx = authorIterator - mData.begin();
     beginInsertRows(QModelIndex(), idx, idx);
     mData.insert(authorIterator, author);
     endInsertRows();
