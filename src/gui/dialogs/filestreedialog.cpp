@@ -38,7 +38,8 @@ FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QString &place, QWidge
 
     listWidget->clear();
 
-    for (const auto &f : mTreeModel->rootData()) {
+    const auto rootData = mTreeModel->rootData();
+    for (const auto &f : rootData) {
         const QFileInfo fi(f);
         const auto icon = p.icon(fi);
         auto item = new QListWidgetItem(listWidget);

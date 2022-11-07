@@ -7,7 +7,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "blamecodeview.h"
 
 #include "blamedata.h"
-#include "codeeditorsidebar.h"
 #include "gitlog.h"
 
 #include <KLocalizedString>

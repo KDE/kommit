@@ -38,13 +38,13 @@ struct Pair3 {
     {
     }
 
-    bool operator==(const Pair3 &other) const
+    bool operator==(Diff::Impl::Pair3 other) const
     {
         return first == other.first && second == other.second && third == other.third;
     }
 };
 
-QDebug operator<<(QDebug d, const Pair3 &p)
+QDebug operator<<(QDebug d, Diff::Impl::Pair3 p)
 {
     d.noquote() << "(" << p.first << "," << p.second << "," << p.third << ")";
     return d;
@@ -435,7 +435,7 @@ struct Tuple {
     int remote;
 };
 
-QDebug &operator<<(QDebug &stream, const Tuple &t)
+QDebug &operator<<(QDebug &stream, Diff::Tuple t)
 {
     stream << t.base << t.local << t.remote;
     return stream;
