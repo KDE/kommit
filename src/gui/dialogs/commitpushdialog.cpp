@@ -21,6 +21,8 @@ QIcon createIcon(const QColor &color)
     p.setBrush(color);
     p.setPen(color);
     p.fillRect(0, 0, 32, 32, Qt::color1);
+
+    p.setPen(Qt::black);
     p.drawEllipse({16, 16}, 8, 8);
 
     QImage image = pixmap.toImage();
@@ -48,6 +50,7 @@ void CommitPushDialog::reload()
                 cl = GitKlientSettings::diffModifiedColor();
                 break;
             case Git::Manager::Added:
+            case Git::Manager::Untracked:
                 cl = GitKlientSettings::diffAddedColor();
                 break;
             case Git::Manager::Removed:
@@ -239,7 +242,7 @@ void CommitPushDialog::slotToolButtonAddIndexedClicked()
 
 void CommitPushDialog::slotToolButtonAddAddedClicked()
 {
-    checkItemsByStatus(Git::Manager::Added);
+    checkItemsByStatus(Git::Manager::Untracked);
 }
 
 void CommitPushDialog::slotToolButtonAddRemovedClicked()

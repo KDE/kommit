@@ -16,8 +16,10 @@ AuthorsWidget::AuthorsWidget(Git::Manager *git, AppWindow *parent)
 {
     setupUi(this);
     treeViewAuthors->setSortingEnabled(true);
-    treeViewAuthors->setModel(mGit->authorsModel());
-    //    treeViewAuthors->sortByColumn(Git::AuthorsModel::Commits, Qt::DescendingOrder);
+
+    auto sortingModel = new QSortFilterProxyModel(this);
+    sortingModel->setSourceModel(mGit->authorsModel());
+    treeViewAuthors->setModel(sortingModel);
 }
 
 void AuthorsWidget::saveState(QSettings &settings) const
