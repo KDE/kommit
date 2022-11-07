@@ -19,9 +19,6 @@ void run(const QString &workingDir, const QStringList &args)
     p.setWorkingDirectory(workingDir);
     p.start();
     p.waitForFinished();
-    //    auto ret = p.readAllStandardOutput() + p.readAllStandardError();
-
-    //    return ret;
 }
 void run(const QString &workingDir, const AbstractCommand &cmd)
 {
@@ -31,9 +28,6 @@ void run(const QString &workingDir, const AbstractCommand &cmd)
     p.setWorkingDirectory(workingDir);
     p.start();
     p.waitForFinished();
-    //    auto ret = p.readAllStandardOutput() + p.readAllStandardError();
-
-    //    return ret;
 }
 
 QByteArray runGit(const QString &workingDir, const QStringList &args)

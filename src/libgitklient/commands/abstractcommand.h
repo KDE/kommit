@@ -31,13 +31,6 @@ class LIBGITKLIENT_EXPORT AbstractCommand : public QObject
     Q_OBJECT
     Q_PROPERTY(int progress READ progress WRITE setProgress NOTIFY progressChanged)
 
-protected:
-    QStringList mArgs;
-    Manager *mGit{nullptr};
-    void setProgress(int newProgress);
-    void appendBool(OptionalBool b, QStringList &cmd, const QString &name) const;
-    void appendBool(bool b, QStringList &cmd, const QString &name) const;
-
 public:
     enum Status { None, InvalidArgs, Ready, Running, Finished, Error };
 
@@ -71,6 +64,13 @@ public:
 
 Q_SIGNALS:
     void progressChanged(int progress);
+
+protected:
+    QStringList mArgs;
+    Manager *mGit{nullptr};
+    void setProgress(int newProgress);
+    void appendBool(OptionalBool b, QStringList &cmd, const QString &name) const;
+    void appendBool(bool b, QStringList &cmd, const QString &name) const;
 
 private:
     bool mIsValid{false};

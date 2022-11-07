@@ -31,10 +31,8 @@ public:
 private:
     Q_REQUIRED_RESULT QString branchName(const QString &refLog);
     void initChilds();
-    QString _branch;
-    QList<Log *> _data;
-    QStringList _branches;
-    QMap<QString, Log *> _dataByCommitHashLong;
-    QMap<QString, Log *> _dataByCommitHashShort;
+    QString mBranch;
+    QStringList mBranches;
+    QMap<QString, Log *> mDataByCommitHashLong;
 };
 } // namespace Git

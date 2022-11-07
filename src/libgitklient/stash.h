@@ -16,7 +16,7 @@ class Manager;
 class LIBGITKLIENT_EXPORT Stash
 {
 public:
-    Stash(Git::Manager *git, QString name);
+    explicit Stash(Git::Manager *git, QString name);
 
     void apply();
     void drop();

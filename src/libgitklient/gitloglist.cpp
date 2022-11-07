@@ -195,7 +195,7 @@ struct LanesFactory {
 
 void readLine(const QString &line, const QString &seprator, QList<QString *> list)
 {
-    auto parts = line.split(seprator);
+    const auto parts = line.split(seprator);
     if (parts.size() != list.size())
         return;
 
@@ -213,7 +213,7 @@ QString LogList::branchName(const QString &refLog)
     //        return QString();
 
     //    return parts.at(1).mid(1, parts.at(1).indexOf(")") - 1);
-    for (auto &b : _branches)
+    for (auto &b : mBranches)
         if (refLog.contains(b))
             return b;
     return {};
@@ -224,18 +224,18 @@ void LogList::initChilds()
     for (auto i = rbegin(); i != rend(); i++) {
         auto &log = *i;
         for (auto &p : log->parents())
-            _dataByCommitHashLong.value(p)->mChilds.append(log->commitHash());
+            mDataByCommitHashLong.value(p)->mChilds.append(log->commitHash());
     }
 }
 
 const QString &LogList::branch() const
 {
-    return _branch;
+    return mBranch;
 }
 
 void LogList::setBranch(const QString &newBranch)
 {
-    _branch = newBranch;
+    mBranch = newBranch;
 }
 
 Log *LogList::findByHash(const QString &hash, int *index) const
@@ -259,7 +259,7 @@ LogList::LogList()
 
 LogList::LogList(QString branch)
     : QList<Log *>()
-    , _branch(std::move(branch))
+    , mBranch(std::move(branch))
 {
 }
 
@@ -275,9 +275,9 @@ H -- commit hash              c -- committer details        m -- mark           
 */
     qDeleteAll(*this);
     clear();
-    _dataByCommitHashLong.clear();
+    mDataByCommitHashLong.clear();
 
-    _branches = git->branches();
+    mBranches = git->branches();
 
     QStringList args{QStringLiteral("--no-pager"),
                      QStringLiteral("log"),
@@ -293,8 +293,8 @@ H -- commit hash              c -- committer details        m -- mark           
                                     "%s%n"
                                     "%b%n'")};
 
-    if (_branch.size())
-        args.insert(2, _branch);
+    if (!mBranch.isEmpty())
+        args.insert(2, mBranch);
 
     // TODO: remove this singelton call
     const auto ret = QString(Manager::instance()->runGit(args));
@@ -324,8 +324,8 @@ H -- commit hash              c -- committer details        m -- mark           
         d->mAuthDate = QDateTime::fromString(authDate, Qt::ISODate);
         d->mBody = lines.mid(5).join(QStringLiteral("\n"));
         append(d);
-        _dataByCommitHashLong.insert(d->commitHash(), d);
-        _dataByCommitHashLong.insert(d->commitShortHash(), d);
+        mDataByCommitHashLong.insert(d->commitHash(), d);
+        mDataByCommitHashLong.insert(d->commitShortHash(), d);
     }
     //    std::sort(begin(), end(), [](GitLog *log1,GitLog *log2){
     //        return log1->commitDate() < log2->commitDate();
