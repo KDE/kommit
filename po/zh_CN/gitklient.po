@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:48+0000\n"
-"PO-Revision-Date: 2022-10-30 07:49\n"
+"POT-Creation-Date: 2022-11-07 00:47+0000\n"
+"PO-Revision-Date: 2022-11-06 01:07\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -158,16 +158,14 @@ msgid "Diff with HEAD..."
 msgstr "与 HEAD 相差…"
 
 #: src/gui/actions/fileactions.cpp:82
-#, fuzzy, kde-format
-#| msgid "Overview"
+#, kde-format
 msgid "Preview"
-msgstr "概览"
+msgstr ""
 
 #: src/gui/actions/fileactions.cpp:83
-#, fuzzy, kde-format
-#| msgid "Open..."
+#, kde-format
 msgid "Open"
-msgstr "打开..."
+msgstr ""
 
 #: src/gui/actions/fileactions.cpp:84
 #, kde-format
@@ -540,10 +538,9 @@ msgid "Commit/Push"
 msgstr "提交/推送"
 
 #: src/gui/dialogs/changedfilesdialog.cpp:41
-#, fuzzy, kde-format
-#| msgid "You don't have any changes!"
+#, kde-format
 msgid "You don't have any modified file!"
-msgstr "您没有任何更改！"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
@@ -646,15 +643,15 @@ msgstr "原始名称"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:73
-#: src/gui/dialogs/commitpushdialog.cpp:234
-#: src/gui/dialogs/commitpushdialog.ui:269 src/gui/widgets/tagswidget.ui:70
+#: src/gui/dialogs/commitpushdialog.cpp:72
+#: src/gui/dialogs/commitpushdialog.cpp:270
+#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
 msgstr "推送"
 
-#: src/gui/dialogs/commitpushdialog.cpp:75
-#: src/gui/dialogs/commitpushdialog.cpp:234
+#: src/gui/dialogs/commitpushdialog.cpp:74
+#: src/gui/dialogs/commitpushdialog.cpp:270
 #, kde-format
 msgid "Commit and push"
 msgstr ""
@@ -801,14 +798,32 @@ msgstr "全部"
 msgid "Indexed"
 msgstr "已索引"
 
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
+#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:210
+#, kde-format
+msgid "Added"
+msgstr "已添加"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
+#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:212
+#, kde-format
+msgid "Removed"
+msgstr "已删除"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
+#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:214
+#, kde-format
+msgid "Modified"
+msgstr "已修改"
+
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddNone)
-#: src/gui/dialogs/commitpushdialog.ui:215
+#: src/gui/dialogs/commitpushdialog.ui:245
 #, kde-format
 msgid "None"
 msgstr "无"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#: src/gui/dialogs/commitpushdialog.ui:259 src/gui/dialogs/searchdialog.cpp:37
+#: src/gui/dialogs/commitpushdialog.ui:289 src/gui/dialogs/searchdialog.cpp:37
 #, kde-format
 msgid "Commit"
 msgstr "提交"
@@ -1667,21 +1682,6 @@ msgstr "显示树"
 msgid "Unchanged"
 msgstr "未更改"
 
-#: src/gui/diffwindow.cpp:210
-#, kde-format
-msgid "Added"
-msgstr "已添加"
-
-#: src/gui/diffwindow.cpp:212
-#, kde-format
-msgid "Removed"
-msgstr "已删除"
-
-#: src/gui/diffwindow.cpp:214
-#, kde-format
-msgid "Modified"
-msgstr "已修改"
-
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/gitklientdiffui.rc:20 src/gui/gitklientmergeui.rc:33
 #: src/gui/gitklientui.rc:45
@@ -2254,6 +2254,3 @@ msgstr "头"
 #, kde-format
 msgid "Tagger"
 msgstr ""
-
-#~ msgid "View..."
-#~ msgstr "查看..."

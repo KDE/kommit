@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:48+0000\n"
+"POT-Creation-Date: 2022-11-07 00:47+0000\n"
 "PO-Revision-Date: 2022-11-04 09:31+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -643,15 +643,15 @@ msgstr "Naam van oorsprong"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:73
-#: src/gui/dialogs/commitpushdialog.cpp:234
-#: src/gui/dialogs/commitpushdialog.ui:269 src/gui/widgets/tagswidget.ui:70
+#: src/gui/dialogs/commitpushdialog.cpp:72
+#: src/gui/dialogs/commitpushdialog.cpp:270
+#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
 msgstr "Push"
 
-#: src/gui/dialogs/commitpushdialog.cpp:75
-#: src/gui/dialogs/commitpushdialog.cpp:234
+#: src/gui/dialogs/commitpushdialog.cpp:74
+#: src/gui/dialogs/commitpushdialog.cpp:270
 #, kde-format
 msgid "Commit and push"
 msgstr "Commit en push"
@@ -804,14 +804,32 @@ msgstr "Alles"
 msgid "Indexed"
 msgstr "Geïndexeerd"
 
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
+#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:210
+#, kde-format
+msgid "Added"
+msgstr "Toegevoegd"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
+#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:212
+#, kde-format
+msgid "Removed"
+msgstr "Verwijderd"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
+#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:214
+#, kde-format
+msgid "Modified"
+msgstr "Gewijzigd"
+
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddNone)
-#: src/gui/dialogs/commitpushdialog.ui:215
+#: src/gui/dialogs/commitpushdialog.ui:245
 #, kde-format
 msgid "None"
 msgstr "Geen"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#: src/gui/dialogs/commitpushdialog.ui:259 src/gui/dialogs/searchdialog.cpp:37
+#: src/gui/dialogs/commitpushdialog.ui:289 src/gui/dialogs/searchdialog.cpp:37
 #, kde-format
 msgid "Commit"
 msgstr "Commit"
@@ -1723,21 +1741,6 @@ msgstr "Boomstructuur tonen"
 #, kde-format
 msgid "Unchanged"
 msgstr "Ongewijzigd"
-
-#: src/gui/diffwindow.cpp:210
-#, kde-format
-msgid "Added"
-msgstr "Toegevoegd"
-
-#: src/gui/diffwindow.cpp:212
-#, kde-format
-msgid "Removed"
-msgstr "Verwijderd"
-
-#: src/gui/diffwindow.cpp:214
-#, kde-format
-msgid "Modified"
-msgstr "Gewijzigd"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/gitklientdiffui.rc:20 src/gui/gitklientmergeui.rc:33

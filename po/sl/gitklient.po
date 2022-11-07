@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:48+0000\n"
+"POT-Creation-Date: 2022-11-07 00:47+0000\n"
 "PO-Revision-Date: 2022-11-03 08:24+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -647,15 +647,15 @@ msgstr "Izvorno ime"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:73
-#: src/gui/dialogs/commitpushdialog.cpp:234
-#: src/gui/dialogs/commitpushdialog.ui:269 src/gui/widgets/tagswidget.ui:70
+#: src/gui/dialogs/commitpushdialog.cpp:72
+#: src/gui/dialogs/commitpushdialog.cpp:270
+#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
 msgstr "Porini"
 
-#: src/gui/dialogs/commitpushdialog.cpp:75
-#: src/gui/dialogs/commitpushdialog.cpp:234
+#: src/gui/dialogs/commitpushdialog.cpp:74
+#: src/gui/dialogs/commitpushdialog.cpp:270
 #, kde-format
 msgid "Commit and push"
 msgstr "Objavi in potisni"
@@ -805,14 +805,32 @@ msgstr "Vse"
 msgid "Indexed"
 msgstr "Indeksirano"
 
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
+#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:210
+#, kde-format
+msgid "Added"
+msgstr "Dodano"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
+#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:212
+#, kde-format
+msgid "Removed"
+msgstr "Odstranjeno"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
+#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:214
+#, kde-format
+msgid "Modified"
+msgstr "Spremenjena"
+
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddNone)
-#: src/gui/dialogs/commitpushdialog.ui:215
+#: src/gui/dialogs/commitpushdialog.ui:245
 #, kde-format
 msgid "None"
 msgstr "Nič"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#: src/gui/dialogs/commitpushdialog.ui:259 src/gui/dialogs/searchdialog.cpp:37
+#: src/gui/dialogs/commitpushdialog.ui:289 src/gui/dialogs/searchdialog.cpp:37
 #, kde-format
 msgid "Commit"
 msgstr "Potrdi"
@@ -1720,21 +1738,6 @@ msgstr "Pokaži drevo"
 #, kde-format
 msgid "Unchanged"
 msgstr "Nespremenjeno"
-
-#: src/gui/diffwindow.cpp:210
-#, kde-format
-msgid "Added"
-msgstr "Dodano"
-
-#: src/gui/diffwindow.cpp:212
-#, kde-format
-msgid "Removed"
-msgstr "Odstranjeno"
-
-#: src/gui/diffwindow.cpp:214
-#, kde-format
-msgid "Modified"
-msgstr "Spremenjena"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/gitklientdiffui.rc:20 src/gui/gitklientmergeui.rc:33
