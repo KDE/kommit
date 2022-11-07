@@ -80,8 +80,8 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
     int sidebarWidth() const;
     void sidebarPaintEvent(QPaintEvent *event);
-    KSyntaxHighlighting::SyntaxHighlighter *mHighlighter;
-    CodeEditorSidebar *mSideBar;
+    KSyntaxHighlighting::SyntaxHighlighter *const mHighlighter;
+    CodeEditorSidebar *const mSideBar;
 
 protected:
     void paintEvent(QPaintEvent *e) override;

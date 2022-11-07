@@ -15,15 +15,15 @@ class LIBGITKLIENT_EXPORT CommandCommit : public AbstractCommand
 {
 public:
     CommandCommit();
-    QStringList generateArgs() const override;
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
 
-    const QString &message() const;
+    Q_REQUIRED_RESULT const QString &message() const;
     void setMessage(const QString &newMessage);
 
-    bool amend() const;
+    Q_REQUIRED_RESULT bool amend() const;
     void setAmend(bool newAmend);
 
-    OptionalBool includeStatus() const;
+    Q_REQUIRED_RESULT OptionalBool includeStatus() const;
     void setIncludeStatus(OptionalBool newIncludeStatus);
 
 private:

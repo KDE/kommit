@@ -31,34 +31,34 @@ public:
 
     CommandPull();
     ~CommandPull() override;
-    QStringList generateArgs() const override;
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
 
-    bool squash() const;
+    Q_REQUIRED_RESULT bool squash() const;
     void setSquash(bool newSquash);
 
-    bool noCommit() const;
+    Q_REQUIRED_RESULT bool noCommit() const;
     void setNoCommit(bool newNoCommit);
 
-    bool prune() const;
+    Q_REQUIRED_RESULT bool prune() const;
     void setPrune(bool newPrune);
 
-    bool tags() const;
+    Q_REQUIRED_RESULT bool tags() const;
     void setTags(bool newTags);
 
     void parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
     bool supportWidget() const override;
     QWidget *createWidget() override;
 
-    const QString &remote() const;
+    Q_REQUIRED_RESULT const QString &remote() const;
     void setRemote(const QString &newRemote);
 
-    const QString &branch() const;
+    Q_REQUIRED_RESULT const QString &branch() const;
     void setBranch(const QString &newBranch);
 
-    Rebase rebase() const;
+    Q_REQUIRED_RESULT Rebase rebase() const;
     void setRebase(Rebase newRebase);
 
-    FastForward fastForward() const;
+    Q_REQUIRED_RESULT FastForward fastForward() const;
     void setFastForward(FastForward newFastForward);
 
 private:

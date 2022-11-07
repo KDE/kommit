@@ -26,6 +26,6 @@ private slots:
     void slotComboBoxStrategyCurrentIndexChanged(int index);
 
 private:
-    QString mSourceBranch;
+    const QString mSourceBranch;
     void init(Git::Manager *git);
 };

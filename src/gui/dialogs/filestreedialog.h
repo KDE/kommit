@@ -29,6 +29,6 @@ private Q_SLOTS:
 
 private:
     TreeModel *const mTreeModel;
-    QString mPlace;
-    FileActions *mActions = nullptr;
+    const QString mPlace;
+    FileActions *const mActions;
 };

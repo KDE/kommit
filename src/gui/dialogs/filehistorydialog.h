@@ -27,5 +27,5 @@ private Q_SLOTS:
     void slotListWidgetItemClicked(QListWidgetItem *item);
 
 private:
-    QString mFileName;
+    const QString mFileName;
 };

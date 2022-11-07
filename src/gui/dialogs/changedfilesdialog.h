@@ -22,5 +22,5 @@ private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotPushCommit();
     void reload();
-    ChangedFileActions *mActions = nullptr;
+    ChangedFileActions *const mActions;
 };

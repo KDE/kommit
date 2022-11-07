@@ -12,10 +12,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
+    , mActions(new ChangedFileActions(git, this))
 {
     setupUi(this);
     reload();
-    mActions = new ChangedFileActions(git, this);
     connect(mActions, &ChangedFileActions::reloadNeeded, this, &ChangedFilesDialog::reload);
     buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Commit/Push"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ChangedFilesDialog::slotPushCommit);

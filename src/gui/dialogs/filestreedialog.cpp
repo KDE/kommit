@@ -15,10 +15,10 @@ FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QString &place, QWidge
     : AppDialog(git, parent)
     , mTreeModel(new TreeModel(this))
     , mPlace(place)
+    , mActions(new FileActions(git, this))
 {
     setupUi(this);
 
-    mActions = new FileActions(git, this);
     mActions->setPlace(place);
 
     mTreeModel->setSeparator(QStringLiteral("/"));

@@ -19,13 +19,13 @@ public:
     enum CleanupType { AllUntrackedFiles, NonIgnoredUntrackedFiles, IgnoredFiles };
     CommandClean();
 
-    QStringList generateArgs() const override;
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
 
-    bool dryRun() const;
+    Q_REQUIRED_RESULT bool dryRun() const;
     void setDryRun(bool newDryRun);
-    CleanupType getType() const;
+    Q_REQUIRED_RESULT CleanupType getType() const;
     void setType(CleanupType newType);
-    bool removeUntrackedDirectories() const;
+    Q_REQUIRED_RESULT bool removeUntrackedDirectories() const;
     void setRemoveUntrackedDirectories(bool newRemoveUntrackedDirectories);
 
 private:
