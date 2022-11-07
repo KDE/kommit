@@ -10,3 +10,4 @@ macro(add_libgitklient_test _source)
 endmacro()
 
 add_libgitklient_test(tagtest.cpp)
+add_libgitklient_test(clonecommandtest.cpp)
