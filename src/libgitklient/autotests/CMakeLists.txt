@@ -11,3 +11,4 @@ endmacro()
 
 add_libgitklient_test(tagtest.cpp)
 add_libgitklient_test(clonecommandtest.cpp)
+add_libgitklient_test(commandcleantest.cpp)
