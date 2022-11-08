@@ -17,5 +17,13 @@ CommandCleanTest::CommandCleanTest(QObject *parent)
 void CommandCleanTest::shouldHaveDefaultValues()
 {
     Git::CommandClean command;
+
+    QVERIFY(!command.dryRun());
+    QVERIFY(!command.removeUntrackedDirectories());
+    QCOMPARE(command.getType(), Git::CommandClean::NonIgnoredUntrackedFiles);
+}
+
+void CommandCleanTest::shouldGenerateArguments()
+{
     // TODO
 }
