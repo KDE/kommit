@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-07 00:47+0000\n"
+"POT-Creation-Date: 2022-11-08 00:49+0000\n"
 "PO-Revision-Date: 2022-11-04 13:34+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -101,7 +101,7 @@ msgstr "Fusiona..."
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
 #: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:17
-#: src/gui/settings/settingsmanager.cpp:95
+#: src/gui/settings/settingsmanager.cpp:94
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
@@ -646,15 +646,15 @@ msgstr "Nom d'origen"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:72
-#: src/gui/dialogs/commitpushdialog.cpp:270
+#: src/gui/dialogs/commitpushdialog.cpp:75
+#: src/gui/dialogs/commitpushdialog.cpp:273
 #: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
 msgstr "Puja"
 
-#: src/gui/dialogs/commitpushdialog.cpp:74
-#: src/gui/dialogs/commitpushdialog.cpp:270
+#: src/gui/dialogs/commitpushdialog.cpp:77
+#: src/gui/dialogs/commitpushdialog.cpp:273
 #, kde-format
 msgid "Commit and push"
 msgstr "Comet i puja"
@@ -1931,12 +1931,12 @@ msgstr "edat del projecte"
 msgid "Open last repo at startup"
 msgstr "Obre l'últim repositori en iniciar"
 
-#: src/gui/settings/settingsmanager.cpp:94
+#: src/gui/settings/settingsmanager.cpp:93
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: src/gui/settings/settingsmanager.cpp:96
+#: src/gui/settings/settingsmanager.cpp:95
 #, kde-format
 msgid "Git"
 msgstr "Git"
@@ -2001,7 +2001,7 @@ msgstr "Servidor intermediari del Git:"
 msgid "Authors"
 msgstr "Autors"
 
-#: src/gui/widgets/blamecodeview.cpp:43
+#: src/gui/widgets/blamecodeview.cpp:42
 #, kde-format
 msgid "Uncommited"
 msgstr "Sense cometre"

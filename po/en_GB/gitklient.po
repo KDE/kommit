@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-07 00:47+0000\n"
+"POT-Creation-Date: 2022-11-08 00:49+0000\n"
 "PO-Revision-Date: 2022-09-18 12:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -98,7 +98,7 @@ msgstr "Merge..."
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
 #: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:17
-#: src/gui/settings/settingsmanager.cpp:95
+#: src/gui/settings/settingsmanager.cpp:94
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
@@ -657,15 +657,15 @@ msgstr "Origin name"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:72
-#: src/gui/dialogs/commitpushdialog.cpp:270
+#: src/gui/dialogs/commitpushdialog.cpp:75
+#: src/gui/dialogs/commitpushdialog.cpp:273
 #: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
 msgstr "Push"
 
-#: src/gui/dialogs/commitpushdialog.cpp:74
-#: src/gui/dialogs/commitpushdialog.cpp:270
+#: src/gui/dialogs/commitpushdialog.cpp:77
+#: src/gui/dialogs/commitpushdialog.cpp:273
 #, fuzzy, kde-format
 #| msgid "Commit/Push"
 msgid "Commit and push"
@@ -1960,12 +1960,12 @@ msgstr "age of the project"
 msgid "Open last repo at startup"
 msgstr "Open last repository at startup"
 
-#: src/gui/settings/settingsmanager.cpp:94
+#: src/gui/settings/settingsmanager.cpp:93
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: src/gui/settings/settingsmanager.cpp:96
+#: src/gui/settings/settingsmanager.cpp:95
 #, kde-format
 msgid "Git"
 msgstr "Git"
@@ -2031,7 +2031,7 @@ msgstr ""
 msgid "Authors"
 msgstr "Author"
 
-#: src/gui/widgets/blamecodeview.cpp:43
+#: src/gui/widgets/blamecodeview.cpp:42
 #, kde-format
 msgid "Uncommited"
 msgstr "Uncommited"
