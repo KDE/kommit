@@ -12,6 +12,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
+enum class ChangeStatus {
+    Unknown,
+    Unmodified,
+    Modified,
+    Added,
+    Removed,
+    Renamed,
+    Copied,
+    UpdatedButInmerged,
+    Ignored,
+    Untracked,
+};
+
 void run(const QString &workingDir, const QStringList &args);
 void run(const QString &workingDir, const AbstractCommand &cmd);
 

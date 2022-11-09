@@ -7,6 +7,7 @@
 #include "commands/abstractcommand.h"
 #include "filestatus.h"
 #include "gitfile.h"
+#include "gitglobal.h"
 #include "gitremote.h"
 #include "libgitklient_export.h"
 #include "stash.h"
@@ -46,20 +47,6 @@ class LIBGITKLIENT_EXPORT Manager : public QObject
     Q_PROPERTY(bool isMerging READ isMerging WRITE setIsMerging NOTIFY isMergingChanged)
 
 public:
-    enum ChangeStatus {
-        Unknown,
-        Unmodified,
-        Modified,
-        Added,
-        Removed,
-        Renamed,
-        Copied,
-        UpdatedButInmerged,
-        Ignored,
-        Untracked,
-    };
-    Q_ENUM(ChangeStatus)
-
     struct Log {
         QString hash;
         QString author;
@@ -101,7 +88,7 @@ public:
 
     void revertFile(const QString &filePath) const;
 
-    QMap<QString, Manager::ChangeStatus> changedFiles() const;
+    QMap<QString, ChangeStatus> changedFiles() const;
     void commit(const QString &message) const;
     void push() const;
     void addFile(const QString &file) const;

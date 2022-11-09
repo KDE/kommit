@@ -52,9 +52,9 @@ void Manager::setPath(const QString &newPath)
     Q_EMIT pathChanged();
 }
 
-QMap<QString, Manager::ChangeStatus> Manager::changedFiles(const QString &hash) const
+QMap<QString, ChangeStatus> Manager::changedFiles(const QString &hash) const
 {
-    QMap<QString, Manager::ChangeStatus> statuses;
+    QMap<QString, ChangeStatus> statuses;
     auto buffer = QString(runGit({QStringLiteral("show"), QStringLiteral("--name-status"), hash})).split(QLatin1Char('\n'));
 
     for (auto &line : buffer) {
@@ -67,11 +67,11 @@ QMap<QString, Manager::ChangeStatus> Manager::changedFiles(const QString &hash) 
 
         const auto partFirst{parts.first()};
         if (partFirst == QLatin1Char('A'))
-            statuses.insert(parts.at(1), Added);
+            statuses.insert(parts.at(1), ChangeStatus::Added);
         else if (partFirst == QLatin1Char('M'))
-            statuses.insert(parts.at(1), Modified);
+            statuses.insert(parts.at(1), ChangeStatus::Modified);
         else if (partFirst == QLatin1Char('D'))
-            statuses.insert(parts.at(1), Removed);
+            statuses.insert(parts.at(1), ChangeStatus::Removed);
         else
             qCDebug(GITKLIENTLIB_LOG) << "Unknown file status" << partFirst;
     }
@@ -640,10 +640,10 @@ void Manager::revertFile(const QString &filePath) const
     runGit({QStringLiteral("checkout"), QStringLiteral("--"), filePath});
 }
 
-QMap<QString, Manager::ChangeStatus> Manager::changedFiles() const
+QMap<QString, ChangeStatus> Manager::changedFiles() const
 {
     // status --untracked-files=all --ignored --short --ignore-submodules --porcelain
-    QMap<QString, Manager::ChangeStatus> statuses;
+    QMap<QString, ChangeStatus> statuses;
     const auto buffer = QString(runGit({QStringLiteral("status"), QStringLiteral("--short")})).split(QLatin1Char('\n'));
 
     for (const auto &line : buffer) {
@@ -655,24 +655,24 @@ QMap<QString, Manager::ChangeStatus> Manager::changedFiles() const
         const auto fileName = line.mid(3);
 
         if (status1 == QLatin1Char('M') || status0 == QLatin1Char('M'))
-            statuses.insert(fileName, Modified);
+            statuses.insert(fileName, ChangeStatus::Modified);
         else if (status1 == QLatin1Char('A'))
-            statuses.insert(fileName, Added);
+            statuses.insert(fileName, ChangeStatus::Added);
         else if (status1 == QLatin1Char('D') || status0 == QLatin1Char('D'))
-            statuses.insert(fileName, Removed);
+            statuses.insert(fileName, ChangeStatus::Removed);
         else if (status1 == QLatin1Char('R'))
-            statuses.insert(fileName, Renamed);
+            statuses.insert(fileName, ChangeStatus::Renamed);
         else if (status1 == QLatin1Char('C'))
-            statuses.insert(fileName, Copied);
+            statuses.insert(fileName, ChangeStatus::Copied);
         else if (status1 == QLatin1Char('U'))
-            statuses.insert(fileName, UpdatedButInmerged);
+            statuses.insert(fileName, ChangeStatus::UpdatedButInmerged);
         else if (status1 == QLatin1Char('?'))
-            statuses.insert(fileName, Untracked);
+            statuses.insert(fileName, ChangeStatus::Untracked);
         else if (status1 == QLatin1Char('!'))
-            statuses.insert(fileName, Ignored);
+            statuses.insert(fileName, ChangeStatus::Ignored);
         else {
             qDebug() << __FUNCTION__ << "The status" << status1 << "is unknown";
-            statuses.insert(fileName, Unknown);
+            statuses.insert(fileName, ChangeStatus::Unknown);
         }
     }
     return statuses;

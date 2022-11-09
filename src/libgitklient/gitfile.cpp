@@ -39,9 +39,7 @@ File::File(Manager *git, QString place, QString filePath)
     , mGit(git)
     , mStorage{Git}
 {
-    // TODO: do wee need this?
-    if (!mGit)
-        mGit = Manager::instance();
+    Q_ASSERT(mGit);
 }
 
 File::File(const File &other) = default;

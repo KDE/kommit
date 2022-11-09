@@ -86,6 +86,8 @@ target_sources(libgitklientgui PRIVATE
     models/filesmodel.h
     models/treemodel.cpp
     models/treemodel.h
+    models/changedfilesmodel.h
+    models/changedfilesmodel.cpp
     diff/codeeditordocument.cpp
     diff/codeeditordocument.h
     diff/diff.cpp

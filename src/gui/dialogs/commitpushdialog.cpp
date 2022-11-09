@@ -5,73 +5,51 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "commitpushdialog.h"
-#include "GitKlientSettings.h"
 #include "actions/changedfileactions.h"
 #include "commands/commandcommit.h"
 #include "commands/commandpush.h"
 #include "gitmanager.h"
+#include "models/changedfilesmodel.h"
 #include "runnerdialog.h"
-
 #include <QPainter>
 
-// TODO: improve this method (Add cache)
-QIcon createIcon(const QColor &color)
+CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
+    : AppDialog(git, parent)
+    , mModel(new ChangedFilesModel(git, true, this))
 {
-    QPixmap pixmap(32, 32);
-    QPainter p(&pixmap);
-    p.setBrush(color);
-    p.setPen(color);
-    p.fillRect(0, 0, 32, 32, Qt::color1);
+    setupUi(this);
 
-    p.setPen(Qt::black);
-    p.drawEllipse({16, 16}, 8, 8);
+    reload();
 
-    QImage image = pixmap.toImage();
-    image.setAlphaChannel(pixmap.toImage());
+    mActions = new ChangedFileActions(mGit, this);
 
-    return QIcon(QPixmap::fromImage(image));
+    checkBoxIncludeStatus->setCheckState(Qt::PartiallyChecked);
+
+    connect(pushButtonCommit, &QPushButton::clicked, this, &CommitPushDialog::slotPushButtonCommitClicked);
+    connect(pushButtonPush, &QPushButton::clicked, this, &CommitPushDialog::slotPushButtonPushClicked);
+    connect(toolButtonAddAll, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddAllClicked);
+    connect(toolButtonAddNone, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddNoneClicked);
+    connect(toolButtonAddIndexed, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddIndexedClicked);
+    connect(toolButtonAddAdded, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddAddedClicked);
+    connect(toolButtonAddModified, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddModifiedClicked);
+    connect(toolButtonAddRemoved, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddRemovedClicked);
+    connect(listView, &QListView::doubleClicked, this, &CommitPushDialog::slotListWidgetItemDoubleClicked);
+
+    connect(listView, &QListView::customContextMenuRequested, this, &CommitPushDialog::slotListWidgetCustomContextMenuRequested);
+    connect(groupBoxMakeCommit, &QGroupBox::toggled, this, &CommitPushDialog::slotGroupBoxMakeCommitToggled);
+    connect(mModel, &ChangedFilesModel::checkedCountChanged, this, &CommitPushDialog::checkButtonsEnable);
+    connect(textEditMessage, &QTextEdit::textChanged, this, &CommitPushDialog::checkButtonsEnable);
+    connect(checkBoxAmend, &QCheckBox::toggled, this, &CommitPushDialog::checkButtonsEnable);
+
+    listView->setModel(mModel);
+    mModel->reload();
 }
 
 void CommitPushDialog::reload()
 {
-    auto files = mGit->changedFiles();
+    mModel->reload();
 
-    QMap<Git::Manager::ChangeStatus, QIcon> icons;
-
-    for (auto i = files.constBegin(); i != files.constEnd(); ++i) {
-        auto item = new QListWidgetItem(listWidget);
-        item->setText(i.key());
-
-        if (icons.contains(i.value())) {
-            item->setIcon(icons.value(i.value()));
-        } else {
-            QColor cl;
-            switch (i.value()) {
-            case Git::Manager::Modified:
-                cl = GitKlientSettings::diffModifiedColor();
-                break;
-            case Git::Manager::Added:
-            case Git::Manager::Untracked:
-                cl = GitKlientSettings::diffAddedColor();
-                break;
-            case Git::Manager::Removed:
-                cl = GitKlientSettings::diffRemovedColor();
-                break;
-
-            default:
-                cl = Qt::yellow;
-                qWarning() << "File status" << i.value() << "is not implemented";
-                break;
-            }
-            auto icon = createIcon(cl);
-            icons.insert(i.value(), icon);
-            item->setIcon(icon);
-        }
-        item->setCheckState(Qt::Unchecked);
-        item->setData(StatusRole, (int)i.value());
-        listWidget->addItem(item);
-    }
-    if (files.empty()) {
+    if (!mModel->size()) {
         pushButtonCommit->setEnabled(false);
         pushButtonPush->setEnabled(true);
         groupBoxMakeCommit->setEnabled(false);
@@ -93,48 +71,15 @@ void CommitPushDialog::reload()
         _words.insert(b);
     for (const auto &r : std::as_const(remotes))
         _words.insert(r);
-    for (auto i = files.constBegin(); i != files.constEnd(); ++i) {
-        const auto parts = i.key().split(QLatin1Char('/'));
+    auto data = mModel->data();
+    for (const auto &row : data) {
+        const auto parts = row.filePath.split(QLatin1Char('/'));
         for (const auto &p : parts)
             _words.insert(p);
-        _words.insert(i.key());
+        _words.insert(row.filePath);
     }
     textEditMessage->addWords(_words.values());
     textEditMessage->begin();
-}
-
-void CommitPushDialog::checkItemsByStatus(int status)
-{
-    for (auto i = 0; i < listWidget->count(); ++i) {
-        auto item = listWidget->item(i);
-        auto itemStatus = item->data(StatusRole).toInt();
-        item->setCheckState(status == itemStatus ? Qt::Checked : Qt::Unchecked);
-    }
-}
-
-CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
-    : AppDialog(git, parent)
-{
-    setupUi(this);
-
-    reload();
-
-    mActions = new ChangedFileActions(mGit, this);
-
-    checkBoxIncludeStatus->setCheckState(Qt::PartiallyChecked);
-
-    connect(pushButtonCommit, &QPushButton::clicked, this, &CommitPushDialog::slotPushButtonCommitClicked);
-    connect(pushButtonPush, &QPushButton::clicked, this, &CommitPushDialog::slotPushButtonPushClicked);
-    connect(toolButtonAddAll, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddAllClicked);
-    connect(toolButtonAddNone, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddNoneClicked);
-    connect(toolButtonAddIndexed, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddIndexedClicked);
-    connect(toolButtonAddAdded, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddAddedClicked);
-    connect(toolButtonAddModified, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddModifiedClicked);
-    connect(toolButtonAddRemoved, &QToolButton::clicked, this, &CommitPushDialog::slotToolButtonAddRemovedClicked);
-    connect(listWidget, &QListWidget::itemDoubleClicked, this, &CommitPushDialog::slotListWidgetItemDoubleClicked);
-    connect(listWidget, &QListWidget::itemClicked, this, &CommitPushDialog::slotListWidgetItemClicked);
-    connect(groupBoxMakeCommit, &QGroupBox::toggled, this, &CommitPushDialog::slotGroupBoxMakeCommitToggled);
-    connect(listWidget, &QListWidget::customContextMenuRequested, this, &CommitPushDialog::slotListWidgetCustomContextMenuRequested);
 }
 
 void CommitPushDialog::checkButtonsEnable()
@@ -146,14 +91,7 @@ void CommitPushDialog::checkButtonsEnable()
     }
     bool enable{false};
 
-    for (auto i = 0; i < listWidget->count(); ++i) {
-        if (listWidget->item(i)->checkState() == Qt::Checked) {
-            enable = true;
-            break;
-        }
-    }
-
-    if (!enable) {
+    if (!mModel->checkedCount()) {
         pushButtonCommit->setEnabled(false);
         pushButtonPush->setEnabled(false);
         return;
@@ -194,7 +132,7 @@ void CommitPushDialog::slotPushButtonPushClicked()
         d.setAutoClose(true);
         d.run(&commitCommand);
         auto dd = d.exec();
-        qDebug() << dd;
+        //        qDebug() << dd;
         if (dd != QDialog::Accepted)
             return;
     }
@@ -217,67 +155,54 @@ void CommitPushDialog::slotPushButtonPushClicked()
     accept();
 }
 
-void CommitPushDialog::slotToolButtonAddAllClicked()
-{
-    for (auto i = 0; i < listWidget->count(); ++i) {
-        auto item = listWidget->item(i);
-        item->setCheckState(Qt::Checked);
-    }
-    checkButtonsEnable();
-}
-
 void CommitPushDialog::addFiles()
 {
-    for (auto i = 0; i < listWidget->count(); ++i) {
-        auto item = listWidget->item(i);
-        if (item->checkState() == Qt::Checked)
-            mGit->addFile(item->text());
+    auto files = mModel->checkedFiles();
+    for (const auto &file : files) {
+        mGit->addFile(file);
     }
+}
+
+void CommitPushDialog::slotToolButtonAddAllClicked()
+{
+    mModel->toggleCheckAll(true);
+    checkButtonsEnable();
 }
 
 void CommitPushDialog::slotToolButtonAddNoneClicked()
 {
-    for (auto i = 0; i < listWidget->count(); ++i) {
-        auto item = listWidget->item(i);
-        item->setCheckState(Qt::Unchecked);
-    }
+    mModel->toggleCheckAll(false);
     checkButtonsEnable();
 }
 
 void CommitPushDialog::slotToolButtonAddIndexedClicked()
 {
-    for (auto i = 0; i < listWidget->count(); ++i) {
-        auto item = listWidget->item(i);
-        item->setCheckState(Qt::Checked);
-    }
+    mModel->checkByStatus({Git::ChangeStatus::Removed, Git::ChangeStatus::Modified});
     checkButtonsEnable();
 }
 
 void CommitPushDialog::slotToolButtonAddAddedClicked()
 {
-    checkItemsByStatus(Git::Manager::Untracked);
+    mModel->checkByStatus(Git::ChangeStatus::Untracked);
 }
 
 void CommitPushDialog::slotToolButtonAddRemovedClicked()
 {
-    checkItemsByStatus(Git::Manager::Removed);
+    mModel->checkByStatus(Git::ChangeStatus::Removed);
 }
 
 void CommitPushDialog::slotToolButtonAddModifiedClicked()
 {
-    checkItemsByStatus(Git::Manager::Modified);
+    mModel->checkByStatus(Git::ChangeStatus::Modified);
 }
 
-void CommitPushDialog::slotListWidgetItemDoubleClicked(QListWidgetItem *item)
+void CommitPushDialog::slotListWidgetItemDoubleClicked(const QModelIndex &index)
 {
-    if (!item)
+    if (!index.isValid())
         return;
-    mActions->setFilePath(listWidget->currentItem()->text());
+
+    mActions->setFilePath(mModel->filePath(index.row()));
     mActions->diff();
-}
-void CommitPushDialog::slotListWidgetItemClicked(QListWidgetItem *)
-{
-    checkButtonsEnable();
 }
 
 void CommitPushDialog::slotGroupBoxMakeCommitToggled(bool checked)
@@ -289,9 +214,9 @@ void CommitPushDialog::slotGroupBoxMakeCommitToggled(bool checked)
 void CommitPushDialog::slotListWidgetCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
-    if (listWidget->currentRow() == -1)
+    if (!listView->currentIndex().isValid())
         return;
 
-    mActions->setFilePath(listWidget->currentItem()->text());
+    mActions->setFilePath(mModel->filePath(listView->currentIndex().row()));
     mActions->popup();
 }

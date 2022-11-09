@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "core/appdialog.h"
 #include "ui_changedfilesdialog.h"
 
+class ChangedFilesModel;
 class ChangedFileActions;
 class ChangedFilesDialog : public AppDialog, private Ui::ChangedFilesDialog
 {
@@ -18,10 +19,11 @@ public:
     explicit ChangedFilesDialog(Git::Manager *git, QWidget *parent = nullptr);
 
 private:
-    void slotItemDoubleClicked(QListWidgetItem *item);
+    void slotItemDoubleClicked(const QModelIndex &index);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotPushCommit();
     void slotButtonBoxClicked(QAbstractButton *button);
-    void reload();
+
     ChangedFileActions *const mActions;
+    ChangedFilesModel *const mModel;
 };

@@ -252,7 +252,7 @@
            </layout>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidget">
+           <widget class="QListView" name="listView">
             <property name="contextMenuPolicy">
              <enum>Qt::CustomContextMenu</enum>
             </property>
@@ -323,7 +323,7 @@
   <tabstop>toolButtonAddAll</tabstop>
   <tabstop>toolButtonAddIndexed</tabstop>
   <tabstop>toolButtonAddNone</tabstop>
-  <tabstop>listWidget</tabstop>
+  <tabstop>listView</tabstop>
   <tabstop>pushButtonCommit</tabstop>
   <tabstop>pushButtonPush</tabstop>
  </tabstops>
@@ -390,38 +390,6 @@
     <hint type="destinationlabel">
      <x>88</x>
      <y>311</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>textEditMessage</sender>
-   <signal>textChanged()</signal>
-   <receiver>CommitPushDialog</receiver>
-   <slot>checkButtonsEnable()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>181</x>
-     <y>273</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>4</x>
-     <y>344</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkBoxAmend</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>CommitPushDialog</receiver>
-   <slot>checkButtonsEnable()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>59</x>
-     <y>231</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>5</x>
-     <y>212</y>
     </hint>
    </hints>
   </connection>

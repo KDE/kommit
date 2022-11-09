@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "core/appdialog.h"
+#include "gitglobal.h"
 #include "ui_commitpushdialog.h"
 
 namespace Git
@@ -14,6 +15,7 @@ namespace Git
 class Manager;
 }
 class ChangedFileActions;
+class ChangedFilesModel;
 class CommitPushDialog : public AppDialog, private Ui::CommitPushDialog
 {
     Q_OBJECT
@@ -30,8 +32,7 @@ private Q_SLOTS:
     void slotToolButtonAddAddedClicked();
     void slotToolButtonAddRemovedClicked();
     void slotToolButtonAddModifiedClicked();
-    void slotListWidgetItemDoubleClicked(QListWidgetItem *item);
-    void slotListWidgetItemClicked(QListWidgetItem *item);
+    void slotListWidgetItemDoubleClicked(const QModelIndex &index);
     void slotGroupBoxMakeCommitToggled(bool);
     void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
     void checkButtonsEnable();
@@ -41,5 +42,5 @@ private:
     void addFiles();
     void reload();
     ChangedFileActions *mActions = nullptr;
-    void checkItemsByStatus(int status);
+    ChangedFilesModel *const mModel;
 };

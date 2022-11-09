@@ -49,23 +49,23 @@ void LogDetailsWidget::createText()
     for (auto i = files.constBegin(); i != files.constEnd(); ++i) {
         QString color;
         switch (i.value()) {
-        case Git::Manager::Modified:
+        case Git::ChangeStatus::Modified:
             color = GitKlientSettings::diffModifiedColor().name();
             break;
-        case Git::Manager::Added:
+        case Git::ChangeStatus::Added:
             color = GitKlientSettings::diffAddedColor().name();
             break;
-        case Git::Manager::Removed:
+        case Git::ChangeStatus::Removed:
             color = GitKlientSettings::diffRemovedColor().name();
             break;
 
-        case Git::Manager::Unknown:
-        case Git::Manager::Unmodified:
-        case Git::Manager::Renamed:
-        case Git::Manager::Copied:
-        case Git::Manager::UpdatedButInmerged:
-        case Git::Manager::Ignored:
-        case Git::Manager::Untracked:
+        case Git::ChangeStatus::Unknown:
+        case Git::ChangeStatus::Unmodified:
+        case Git::ChangeStatus::Renamed:
+        case Git::ChangeStatus::Copied:
+        case Git::ChangeStatus::UpdatedButInmerged:
+        case Git::ChangeStatus::Ignored:
+        case Git::ChangeStatus::Untracked:
             break;
         }
         if (mEnableFilesLinks)
