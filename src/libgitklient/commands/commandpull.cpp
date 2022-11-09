@@ -156,6 +156,7 @@ QStringList CommandPull::generateArgs() const
 
     switch (mRebase) {
     case None:
+        break;
     case False:
         args << QStringLiteral("--rebase=false");
         break;
