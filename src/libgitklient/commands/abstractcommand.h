@@ -41,7 +41,9 @@ public:
     virtual ~AbstractCommand();
 
     virtual QStringList generateArgs() const = 0;
-    virtual void parseOutput(const QByteArray &output, const QByteArray &errorOutput);
+
+    virtual bool parseOutput(const QByteArray &output, const QByteArray &errorOutput);
+    virtual void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput);
 
     bool isValid() const;
 

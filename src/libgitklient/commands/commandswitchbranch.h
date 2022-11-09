@@ -17,7 +17,7 @@ class LIBGITKLIENT_EXPORT CommandSwitchBranch : public AbstractCommand
 
 public:
     explicit CommandSwitchBranch(Manager *git);
-    void parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
+    void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput) override;
 
     enum Mode { Unknown, NewBranch, ExistingBranch, Tag };
 

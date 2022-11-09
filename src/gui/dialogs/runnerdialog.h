@@ -27,10 +27,15 @@ public:
     void run(const QStringList &args);
     void run(Git::AbstractCommand *command);
 
+    bool autoClose() const;
+    void setAutoClose(bool newAutoClose);
+
 private Q_SLOTS:
     void git_readyReadStandardOutput();
     void git_readyReadStandardError();
     void git_finished(int exitCode, QProcess::ExitStatus exitStatus);
+    void slotPushButtonCloseClicked();
+    void slotPushButtonStopClicked();
 
 private:
     QProcess *mGitProcess = nullptr;
@@ -41,4 +46,9 @@ private:
     Git::AbstractCommand *mCmd{nullptr};
 
     QElapsedTimer mTimer;
+
+    bool mAutoClose{false};
+
+    QByteArray mStandardOutput;
+    QByteArray mErrorOutput;
 };

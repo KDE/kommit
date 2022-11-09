@@ -28,7 +28,7 @@ public:
     void setIgnoreSubmodules(bool newIgnoreSubmodules);
 
     Q_REQUIRED_RESULT QStringList generateArgs() const override;
-    void parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
+    void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput) override;
 
 private:
     QList<FileStatus> mFiles;

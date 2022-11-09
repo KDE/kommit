@@ -8,7 +8,6 @@ target_sources(libgitklient PRIVATE
     filestatus.cpp
     gitgraphlane.cpp
     gitmanager.cpp
-    nonemptylinescommand.cpp
     blamedata.cpp
     gitfile.cpp
     gitlog.cpp
@@ -45,7 +44,6 @@ target_sources(libgitklient PRIVATE
     filestatus.h
     gitgraphlane.h
     gitmanager.h
-    nonemptylinescommand.h
     blamedata.h
     gitfile.h
     gitlog.h

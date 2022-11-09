@@ -31,6 +31,10 @@ public:
     Q_REQUIRED_RESULT bool recursive() const;
     void setRecursive(bool newRecursive);
 
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
+    void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput) override;
+    Q_REQUIRED_RESULT bool supportProgress() const override;
+
 private:
     QString mRepoUrl;
     QString mLocalPath;
@@ -38,12 +42,6 @@ private:
     int mDepth{-1};
     QString mOrigin;
     bool mRecursive{false};
-
-    // AbstractCommand interface
-public:
-    Q_REQUIRED_RESULT QStringList generateArgs() const override;
-    void parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
-    Q_REQUIRED_RESULT bool supportProgress() const override;
 };
 
 } // namespace Git

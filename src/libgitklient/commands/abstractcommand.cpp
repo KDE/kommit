@@ -11,6 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+AbstractCommand::~AbstractCommand() = default;
+
 bool AbstractCommand::isValid() const
 {
     return mIsValid;
@@ -63,9 +65,14 @@ AbstractCommand::AbstractCommand(Manager *git)
 {
 }
 
-AbstractCommand::~AbstractCommand() = default;
+bool AbstractCommand::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
+{
+    Q_UNUSED(output)
+    Q_UNUSED(errorOutput)
+    return true;
+}
 
-void AbstractCommand::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
+void AbstractCommand::parseOutputSection(const QByteArray &output, const QByteArray &errorOutput)
 {
     Q_UNUSED(output)
     Q_UNUSED(errorOutput)

@@ -93,7 +93,7 @@ QStringList CloneCommand::generateArgs() const
     return args;
 }
 
-void CloneCommand::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
+void CloneCommand::parseOutputSection(const QByteArray &output, const QByteArray &errorOutput)
 {
     Q_UNUSED(output)
     auto p = errorOutput.mid(0, errorOutput.lastIndexOf("%"));

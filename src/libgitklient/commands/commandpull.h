@@ -45,7 +45,7 @@ public:
     Q_REQUIRED_RESULT bool tags() const;
     void setTags(bool newTags);
 
-    void parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
+    void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput) override;
     bool supportWidget() const override;
     QWidget *createWidget() override;
 

@@ -19,7 +19,7 @@ public:
     enum StorageType { InValid, Git, Local };
     File();
     explicit File(QString filePath);
-    File(QString place, QString filePath, Manager *git = nullptr);
+    File(Manager *git, QString place, QString filePath);
     File(const File &other);
     //    File(File &&other);
 

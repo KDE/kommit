@@ -33,6 +33,7 @@ void PullDialog::slotAccepted()
     cmd.setRemote(comboBoxRemote->currentText());
     cmd.setBranch(comboBoxBranch->currentText());
     cmd.setSquash(checkBoxSquash->isChecked());
+
     cmd.setNoCommit(checkBoxNoCommit->isChecked());
     cmd.setPrune(checkBoxPrune->isChecked());
     cmd.setTags(checkBoxTags->isChecked());

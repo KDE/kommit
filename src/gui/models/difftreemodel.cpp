@@ -159,6 +159,6 @@ QVariant DiffTreeModel::data(const QModelIndex &index, int role) const
 
 void DiffTreeModel::emitAll()
 {
-    beginInsertRows(QModelIndex(), 0, 1);
-    endInsertRows();
+    beginResetModel();
+    endResetModel();
 }

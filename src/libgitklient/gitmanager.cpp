@@ -650,27 +650,30 @@ QMap<QString, Manager::ChangeStatus> Manager::changedFiles() const
         if (!line.trimmed().size())
             continue;
 
-        auto status = line.mid(1, 2).trimmed();
+        auto status0 = line.mid(0, 1).trimmed();
+        auto status1 = line.mid(1, 1).trimmed();
         const auto fileName = line.mid(3);
 
-        if (status == QLatin1Char('M'))
+        if (status1 == QLatin1Char('M') || status0 == QLatin1Char('M'))
             statuses.insert(fileName, Modified);
-        else if (status == QLatin1Char('A'))
+        else if (status1 == QLatin1Char('A'))
             statuses.insert(fileName, Added);
-        else if (status == QLatin1Char('D'))
+        else if (status1 == QLatin1Char('D') || status0 == QLatin1Char('D'))
             statuses.insert(fileName, Removed);
-        else if (status == QLatin1Char('R'))
+        else if (status1 == QLatin1Char('R'))
             statuses.insert(fileName, Renamed);
-        else if (status == QLatin1Char('C'))
+        else if (status1 == QLatin1Char('C'))
             statuses.insert(fileName, Copied);
-        else if (status == QLatin1Char('U'))
+        else if (status1 == QLatin1Char('U'))
             statuses.insert(fileName, UpdatedButInmerged);
-        else if (status == QLatin1Char('?'))
+        else if (status1 == QLatin1Char('?'))
             statuses.insert(fileName, Untracked);
-        else if (status == QLatin1Char('!'))
+        else if (status1 == QLatin1Char('!'))
             statuses.insert(fileName, Ignored);
-        else
+        else {
+            qDebug() << __FUNCTION__ << "The status" << status1 << "is unknown";
             statuses.insert(fileName, Unknown);
+        }
     }
     return statuses;
 }

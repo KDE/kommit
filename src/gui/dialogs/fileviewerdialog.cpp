@@ -28,7 +28,7 @@ FileViewerDialog::FileViewerDialog(Git::Manager *git, const QString &place, cons
     , mGit(git)
 {
     setupUi(this);
-    showFile(Git::File(place, fileName));
+    showFile(Git::File(mGit, place, fileName));
 
     QSettings s;
     restoreGeometry(s.value(QStringLiteral("FileViewerDialog_Geometry")).toByteArray());

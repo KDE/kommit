@@ -72,9 +72,9 @@ void HistoryViewWidget::slotTextBrowserFileClicked(const QString &file)
     auto log = textBrowser->log();
 
     Git::File oldFile;
-    const Git::File newFile(log->commitHash(), file);
+    const Git::File newFile(mGit, log->commitHash(), file);
     if (!log->parents().empty()) {
-        oldFile = {log->parents().first(), file};
+        oldFile = {mGit, log->parents().first(), file};
     }
     auto diffWin = new DiffWindow(oldFile, newFile);
     diffWin->showModal();

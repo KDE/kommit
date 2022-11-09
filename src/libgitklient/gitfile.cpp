@@ -33,7 +33,7 @@ File::File(QString filePath)
 {
 }
 
-File::File(QString place, QString filePath, Manager *git)
+File::File(Manager *git, QString place, QString filePath)
     : mPlace(std::move(place))
     , mFilePath(std::move(filePath))
     , mGit(git)

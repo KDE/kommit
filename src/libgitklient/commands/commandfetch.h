@@ -33,7 +33,7 @@ public:
     Q_REQUIRED_RESULT bool tags() const;
     void setTags(bool newTags);
 
-    void parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
+    void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput) override;
 
     Q_REQUIRED_RESULT const QString &remote() const;
     void setRemote(const QString &newRemote);

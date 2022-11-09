@@ -2,7 +2,7 @@
 SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 
 SPDX-License-Identifier: GPL-3.0-or-later
-                                                 */
+*/
 
 #include "commitpushdialog.h"
 #include "GitKlientSettings.h"
@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QPainter>
 
+// TODO: improve this method (Add cache)
 QIcon createIcon(const QColor &color)
 {
     QPixmap pixmap(32, 32);
@@ -33,7 +34,7 @@ QIcon createIcon(const QColor &color)
 
 void CommitPushDialog::reload()
 {
-    const auto files = mGit->changedFiles();
+    auto files = mGit->changedFiles();
 
     QMap<Git::Manager::ChangeStatus, QIcon> icons;
 
@@ -58,6 +59,8 @@ void CommitPushDialog::reload()
                 break;
 
             default:
+                cl = Qt::yellow;
+                qWarning() << "File status" << i.value() << "is not implemented";
                 break;
             }
             auto icon = createIcon(cl);
@@ -169,7 +172,10 @@ void CommitPushDialog::slotPushButtonCommitClicked()
     cmd.setMessage(textEditMessage->toPlainText());
     cmd.setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
 
-    mGit->run(cmd);
+    RunnerDialog d(mGit);
+    d.run(&cmd);
+    d.exec();
+
     accept();
 }
 
@@ -183,7 +189,14 @@ void CommitPushDialog::slotPushButtonPushClicked()
         commitCommand.setAmend(checkBoxAmend->isChecked());
         commitCommand.setMessage(textEditMessage->toPlainText());
         commitCommand.setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
-        mGit->run(commitCommand);
+
+        RunnerDialog d(mGit, this);
+        d.setAutoClose(true);
+        d.run(&commitCommand);
+        auto dd = d.exec();
+        qDebug() << dd;
+        if (dd != QDialog::Accepted)
+            return;
     }
 
     Git::CommandPush cmd;

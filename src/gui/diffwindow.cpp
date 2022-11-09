@@ -163,6 +163,7 @@ void DiffWindow::fileOpen()
     if (d.exec() != QDialog::Accepted)
         return;
 
+    qDebug() << d.mode();
     mLeftStorage = mRightStorage = FileSystem;
     if (d.mode() == DiffOpenDialog::Dirs) {
         mLeftDir = d.oldDir();
@@ -177,13 +178,12 @@ void DiffWindow::fileOpen()
 
 void DiffWindow::slotTreeViewFileSelected(const QString &file)
 {
-    qDebug() << file;
     switch (mLeftStorage) {
     case FileSystem:
         mDiffWidget->setOldFile(Git::File{mLeftDir + QLatin1Char('/') + file});
         break;
     case Git:
-        mDiffWidget->setOldFile({mOldBranch, file});
+        mDiffWidget->setOldFile({mGit, mOldBranch, file});
         break;
     case NoStorage:
         return;
@@ -193,7 +193,7 @@ void DiffWindow::slotTreeViewFileSelected(const QString &file)
         mDiffWidget->setNewFile(Git::File{mRightDir + QLatin1Char('/') + file});
         break;
     case Git:
-        mDiffWidget->setNewFile({mNewBranch, file});
+        mDiffWidget->setNewFile({mGit, mNewBranch, file});
         break;
     case NoStorage:
         return;

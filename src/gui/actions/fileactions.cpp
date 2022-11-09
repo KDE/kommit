@@ -110,21 +110,21 @@ void FileActions::saveAsFile()
 {
     const auto fileName = QFileDialog::getSaveFileName(mParent);
     if (!fileName.isEmpty()) {
-        Git::File file{mPlace, mFilePath};
+        Git::File file{mGit, mPlace, mFilePath};
         file.save(fileName);
     }
 }
 
 void FileActions::logFile()
 {
-    const Git::File file{mPlace, mFilePath};
+    const Git::File file{mGit, mPlace, mFilePath};
     FileHistoryDialog d(mGit, file, mParent);
     d.exec();
 }
 
 void FileActions::blameFile()
 {
-    const Git::File file(mPlace, mFilePath, mGit);
+    const Git::File file(mGit, mPlace, mFilePath);
     FileBlameDialog d(mGit, file, mParent);
     d.exec();
 }
@@ -137,7 +137,7 @@ void FileActions::search()
 
 void FileActions::openFile()
 {
-    const Git::File file(mPlace, mFilePath, mGit);
+    const Git::File file(mGit, mPlace, mFilePath);
     auto tempFilePath = file.saveAsTemp(); // TODO: remove temp file after openning
     if (tempFilePath.isEmpty())
         return;
@@ -164,7 +164,7 @@ void FileActions::openFile()
 
 void FileActions::openWith()
 {
-    const Git::File file(mPlace, mFilePath, mGit);
+    const Git::File file(mGit, mPlace, mFilePath);
     auto tempFilePath = file.saveAsTemp(); // TODO: remove temp file after openning
     if (tempFilePath.isEmpty())
         return;
@@ -183,7 +183,7 @@ void FileActions::openWith()
 
 void FileActions::diffWithHead()
 {
-    const Git::File oldFile{mPlace, mFilePath};
+    const Git::File oldFile{mGit, mPlace, mFilePath};
     const Git::File newFile{mGit->path() + QLatin1Char('/') + mFilePath};
 
     auto d = new DiffWindow(oldFile, newFile);
@@ -194,7 +194,7 @@ void FileActions::mergeWithHead()
 {
     auto d = new MergeWindow(mGit, MergeWindow::NoParams);
 
-    Git::File f{mPlace, mFilePath};
+    Git::File f{mGit, mPlace, mFilePath};
     auto tempFile = f.saveAsTemp();
 
     d->setFilePathBase(tempFile);

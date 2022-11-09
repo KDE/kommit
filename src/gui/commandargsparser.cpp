@@ -237,6 +237,8 @@ ArgParserReturn CommandArgsParser::pull(const QString &path)
 
 ArgParserReturn CommandArgsParser::push(const QString &path)
 {
+    checkGitPath(path);
+
     QFileInfo fi(path);
 
     if (!fi.exists()) {
@@ -310,13 +312,15 @@ ArgParserReturn CommandArgsParser::diff()
 
 ArgParserReturn CommandArgsParser::diff(const QString &file)
 {
+    checkGitPath(file);
+
     QFileInfo fi(file);
 
     if (fi.isFile()) {
         git->setPath(fi.absolutePath());
         const QDir dir(git->path());
         const Git::File headFile(file);
-        const Git::File changedFile(git->currentBranch(), dir.relativeFilePath(file), git);
+        const Git::File changedFile(git, git->currentBranch(), dir.relativeFilePath(file));
         auto d = new DiffWindow(headFile, changedFile);
         d->exec();
         return ExecApp;
@@ -361,8 +365,8 @@ ArgParserReturn CommandArgsParser::diff(const QString &path, const QString &file
         return 1;
     const auto parts1 = file1.split(QLatin1Char(':'));
     const auto parts2 = file2.split(QLatin1Char(':'));
-    const Git::File fileLeft(parts1.first(), parts1.at(1));
-    const Git::File fileRight(parts2.first(), parts2.at(1));
+    const Git::File fileLeft(git, parts1.first(), parts1.at(1));
+    const Git::File fileRight(git, parts2.first(), parts2.at(1));
     auto d = new DiffWindow(fileLeft, fileRight);
     d->exec();
     return ExecApp;
@@ -380,7 +384,7 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
     git->setPath(fi.absolutePath());
     //    git->logsModel()->load();
 
-    const Git::File f(git->currentBranch(), file, git);
+    const Git::File f(git, git->currentBranch(), file);
     FileBlameDialog d(git, f);
     d.exec();
     return 0;

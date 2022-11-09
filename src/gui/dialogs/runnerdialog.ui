@@ -93,9 +93,16 @@ li.checked::marker { content: &quot;\2612&quot;; }
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="pushButtonStop">
        <property name="text">
         <string>Stop</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonClose">
+       <property name="text">
+        <string>Close</string>
        </property>
       </widget>
      </item>
@@ -104,22 +111,5 @@ li.checked::marker { content: &quot;\2612&quot;; }
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>RunnerDialog</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>439</x>
-     <y>354</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>304</x>
-     <y>354</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

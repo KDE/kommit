@@ -10,6 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "commitpushdialog.h"
 #include "gitmanager.h"
 
+#include <KLocalizedString>
+
 ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
     , mActions(new ChangedFileActions(git, this))
@@ -20,8 +22,11 @@ ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
     buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Commit/Push"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ChangedFilesDialog::slotPushCommit);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ChangedFilesDialog::reject);
+    connect(buttonBox, &QDialogButtonBox::clicked, this, &ChangedFilesDialog::slotButtonBoxClicked);
     connect(listWidget, &QListWidget::itemDoubleClicked, this, &ChangedFilesDialog::slotItemDoubleClicked);
     connect(listWidget, &QListWidget::customContextMenuRequested, this, &ChangedFilesDialog::slotCustomContextMenuRequested);
+
+    buttonBox->button(QDialogButtonBox::RestoreDefaults)->setText(i18n("Reload"));
 }
 
 void ChangedFilesDialog::slotPushCommit()
@@ -29,6 +34,13 @@ void ChangedFilesDialog::slotPushCommit()
     CommitPushDialog d(mGit, this);
     d.exec();
     reload();
+}
+
+void ChangedFilesDialog::slotButtonBoxClicked(QAbstractButton *button)
+{
+    if (button == buttonBox->button(QDialogButtonBox::RestoreDefaults)) {
+        reload();
+    }
 }
 
 void ChangedFilesDialog::reload()

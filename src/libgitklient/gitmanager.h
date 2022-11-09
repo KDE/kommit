@@ -58,6 +58,7 @@ public:
         Ignored,
         Untracked,
     };
+    Q_ENUM(ChangeStatus)
 
     struct Log {
         QString hash;

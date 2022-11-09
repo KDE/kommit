@@ -6,6 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commandcommit.h"
 
+#include <QDebug>
+
 namespace Git
 {
 
@@ -59,6 +61,25 @@ OptionalBool CommandCommit::includeStatus() const
 void CommandCommit::setIncludeStatus(OptionalBool newIncludeStatus)
 {
     mIncludeStatus = newIncludeStatus;
+}
+
+bool CommandCommit::parseOutput(const QByteArray &output, const QByteArray &errorOutput)
+{
+    Q_UNUSED(errorOutput);
+    auto lines = output.split('\n');
+    QString error;
+    bool errorFound = false;
+    for (const auto &line : lines) {
+        if (errorFound)
+            error.append("\n" + line);
+        if (line.startsWith("ERROR: ")) {
+            errorFound = true;
+            error = line.mid(7);
+        }
+    }
+    if (errorFound)
+        setErrorMessage(error);
+    return errorFound;
 }
 
 } // namespace Git

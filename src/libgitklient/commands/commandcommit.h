@@ -26,6 +26,8 @@ public:
     Q_REQUIRED_RESULT OptionalBool includeStatus() const;
     void setIncludeStatus(OptionalBool newIncludeStatus);
 
+    bool parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
+
 private:
     QString mMessage;
     bool mAmend{false};

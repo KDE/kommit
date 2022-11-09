@@ -21,6 +21,7 @@ private:
     void slotItemDoubleClicked(QListWidgetItem *item);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotPushCommit();
+    void slotButtonBoxClicked(QAbstractButton *button);
     void reload();
     ChangedFileActions *const mActions;
 };
