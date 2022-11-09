@@ -26,7 +26,7 @@ public:
     File &operator=(const File &other);
 
     bool save(const QString &path) const;
-    QString saveAsTemp() const;
+    Q_REQUIRED_RESULT QString saveAsTemp() const;
 
     Q_REQUIRED_RESULT QString content() const;
     Q_REQUIRED_RESULT const QString &place() const;

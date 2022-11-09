@@ -28,7 +28,7 @@ public:
     };
 
     FileStatus();
-    FileStatus(QString name, Status status);
+    explicit FileStatus(QString name, Status status);
 
     const QString &name() const;
     Q_REQUIRED_RESULT Status status() const;

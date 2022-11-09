@@ -114,7 +114,7 @@ QString File::saveAsTemp() const
 {
     QFileInfo fi{mFilePath};
     QString fileName;
-    auto tempLocation = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
+    const auto tempLocation = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
     if (tempLocation.isEmpty())
         return {};
 
