@@ -19,10 +19,8 @@ DiffOpenDialog::DiffOpenDialog(QWidget *parent)
     readSettings();
     // TODO update ok button enabled
 
-    connect(toolButtonBrowseNewFile, &QToolButton::clicked, this, &DiffOpenDialog::slotToolButtonBrowseNewFileClicked);
-    connect(toolButtonBrowseOldFile, &QToolButton::clicked, this, &DiffOpenDialog::slotToolButtonBrowseOldFileClicked);
-    connect(toolButtonBrowseNewDirectory, &QToolButton::clicked, this, &DiffOpenDialog::slotToolButtonBrowseNewDirectoryClicked);
-    connect(toolButtonBrowseOldDirectory, &QToolButton::clicked, this, &DiffOpenDialog::slotToolButtonBrowseOldDirectoryClicked);
+    lineEditNewDirectory->setMode(KFile::Mode::Directory);
+    lineEditOldDirectory->setMode(KFile::Mode::Directory);
 }
 
 DiffOpenDialog::~DiffOpenDialog()
@@ -36,8 +34,8 @@ void DiffOpenDialog::readSettings()
     s.beginGroup(QStringLiteral("diff"));
     s.setValue(QStringLiteral("oldFile"), lineEditOldFile->text());
     s.setValue(QStringLiteral("newFile"), lineEditNewFile->text());
-    s.setValue(QStringLiteral("oldDir"), lineEditOldDirectory->text());
-    s.setValue(QStringLiteral("newDir"), lineEditNewDirectory->text());
+    s.setValue(QStringLiteral("oldDir"), lineEditOldDirectory->url().toLocalFile());
+    s.setValue(QStringLiteral("newDir"), lineEditNewDirectory->url().toLocalFile());
     s.endGroup();
     s.sync();
 }
@@ -76,32 +74,4 @@ QString DiffOpenDialog::newDir() const
 DiffOpenDialog::Mode DiffOpenDialog::mode() const
 {
     return radioButtonCompareFiles->isChecked() ? Files : Dirs;
-}
-
-void DiffOpenDialog::slotToolButtonBrowseNewFileClicked()
-{
-    const auto f = QFileDialog::getOpenFileName(this, i18n("Select new file"));
-    if (!f.isEmpty())
-        lineEditNewFile->setText(f);
-}
-
-void DiffOpenDialog::slotToolButtonBrowseOldFileClicked()
-{
-    const auto f = QFileDialog::getOpenFileName(this, i18n("Select old file"));
-    if (!f.isEmpty())
-        lineEditOldFile->setText(f);
-}
-
-void DiffOpenDialog::slotToolButtonBrowseNewDirectoryClicked()
-{
-    const auto f = QFileDialog::getExistingDirectory(this, i18n("Select new directory"));
-    if (!f.isEmpty())
-        lineEditNewDirectory->setText(f);
-}
-
-void DiffOpenDialog::slotToolButtonBrowseOldDirectoryClicked()
-{
-    const auto f = QFileDialog::getExistingDirectory(this, i18n("Select old directory"));
-    if (!f.isEmpty())
-        lineEditOldDirectory->setText(f);
 }

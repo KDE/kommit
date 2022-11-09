@@ -24,12 +24,6 @@ public:
     Q_REQUIRED_RESULT QString newDir() const;
     Q_REQUIRED_RESULT Mode mode() const;
 
-private Q_SLOTS:
-    void slotToolButtonBrowseNewFileClicked();
-    void slotToolButtonBrowseOldFileClicked();
-    void slotToolButtonBrowseNewDirectoryClicked();
-    void slotToolButtonBrowseOldDirectoryClicked();
-
 private:
     void readSettings();
     void saveSettings();
