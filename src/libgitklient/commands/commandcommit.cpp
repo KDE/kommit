@@ -79,7 +79,7 @@ bool CommandCommit::parseOutput(const QByteArray &output, const QByteArray &erro
     }
     if (errorFound)
         setErrorMessage(error);
-    return errorFound;
+    return !errorFound;
 }
 
 } // namespace Git
