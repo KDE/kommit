@@ -24,9 +24,4 @@ public:
 
     Q_REQUIRED_RESULT QString filePathBase() const;
     void setFilePathBase(const QString &newFilePathBase);
-
-private Q_SLOTS:
-    void slotToolButtonSelectLocalFileClicked();
-    void slotToolButtonSelectRemoteFileClicked();
-    void slotToolButtonSelectBaseFileClicked();
 };

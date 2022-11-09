@@ -15,10 +15,6 @@ MergeOpenFilesDialog::MergeOpenFilesDialog(QWidget *parent)
     setupUi(this);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &MergeOpenFilesDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &MergeOpenFilesDialog::reject);
-
-    connect(toolButtonSelectLocalFile, &QToolButton::clicked, this, &MergeOpenFilesDialog::slotToolButtonSelectLocalFileClicked);
-    connect(toolButtonSelectRemoteFile, &QToolButton::clicked, this, &MergeOpenFilesDialog::slotToolButtonSelectRemoteFileClicked);
-    connect(toolButtonSelectBaseFile, &QToolButton::clicked, this, &MergeOpenFilesDialog::slotToolButtonSelectBaseFileClicked);
 }
 
 QString MergeOpenFilesDialog::filePathLocal() const
@@ -49,25 +45,4 @@ QString MergeOpenFilesDialog::filePathBase() const
 void MergeOpenFilesDialog::setFilePathBase(const QString &newFilePathBase)
 {
     lineEditBaseFile->setText(newFilePathBase);
-}
-
-void MergeOpenFilesDialog::slotToolButtonSelectLocalFileClicked()
-{
-    const auto fileName = QFileDialog::getOpenFileName(this, i18n("Select local file"));
-    if (!fileName.isEmpty())
-        lineEditLocalFile->setText(fileName);
-}
-
-void MergeOpenFilesDialog::slotToolButtonSelectRemoteFileClicked()
-{
-    const auto fileName = QFileDialog::getOpenFileName(this, i18n("Select remote file"));
-    if (!fileName.isEmpty())
-        lineEditRemoteFile->setText(fileName);
-}
-
-void MergeOpenFilesDialog::slotToolButtonSelectBaseFileClicked()
-{
-    const auto fileName = QFileDialog::getOpenFileName(this, i18n("Select base file"));
-    if (!fileName.isEmpty())
-        lineEditBaseFile->setText(fileName);
 }
