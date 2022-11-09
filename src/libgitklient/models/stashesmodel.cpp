@@ -26,7 +26,7 @@ int StashesModel::rowCount(const QModelIndex &parent) const
 int StashesModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return 4;
+    return static_cast<int>(StashesModel::LastColumn) + 1;
 }
 
 QVariant StashesModel::data(const QModelIndex &index, int role) const
@@ -37,13 +37,13 @@ QVariant StashesModel::data(const QModelIndex &index, int role) const
     auto remote = mData.at(index.row());
 
     switch (index.column()) {
-    case 0:
+    case Subject:
         return remote->subject();
-    case 1:
+    case AuthorName:
         return remote->authorName();
-    case 2:
+    case AuthorEmail:
         return remote->authorEmail();
-    case 3:
+    case Time:
         return remote->pushTime();
     }
     return {};
@@ -56,13 +56,13 @@ QVariant StashesModel::headerData(int section, Qt::Orientation orientation, int 
 
     if (orientation == Qt::Horizontal)
         switch (section) {
-        case 0:
+        case Subject:
             return i18n("Subject");
-        case 1:
+        case AuthorName:
             return i18n("Author name");
-        case 2:
+        case AuthorEmail:
             return i18n("Author email");
-        case 3:
+        case Time:
             return i18n("Time");
         }
 

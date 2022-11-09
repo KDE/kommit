@@ -18,6 +18,13 @@ class LIBGITKLIENT_EXPORT StashesModel : public AbstractGitItemsModel
     Q_OBJECT
 
 public:
+    enum StashesModelRoles {
+        Subject,
+        AuthorName,
+        AuthorEmail,
+        Time,
+        LastColumn = Time,
+    };
     explicit StashesModel(Manager *git, QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &parent) const override;
