@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-08 00:49+0000\n"
+"POT-Creation-Date: 2022-11-10 00:49+0000\n"
 "PO-Revision-Date: 2022-10-17 10:39+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -471,12 +471,12 @@ msgstr ""
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:459
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:459
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:463
 #, kde-format
 msgid "Switch branch"
 msgstr ""
@@ -491,22 +491,22 @@ msgstr ""
 msgid "The repo inited successfully"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:488
+#: src/gui/commandargsparser.cpp:492
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:496
+#: src/gui/commandargsparser.cpp:500
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:496
+#: src/gui/commandargsparser.cpp:500
 #, kde-format
 msgid "Remove from index"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:498
+#: src/gui/commandargsparser.cpp:502
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr ""
@@ -531,15 +531,15 @@ msgid "---"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
-#: src/gui/dialogs/changedfilesdialog.cpp:20
+#: src/gui/dialogs/changedfilesdialog.cpp:23
 #: src/gui/dialogs/commitpushdialog.ui:14
 #, kde-format
 msgid "Commit/Push"
 msgstr ""
 
-#: src/gui/dialogs/changedfilesdialog.cpp:41
+#: src/gui/dialogs/changedfilesdialog.cpp:30
 #, kde-format
-msgid "You don't have any modified file!"
+msgid "Reload"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
@@ -643,15 +643,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:75
-#: src/gui/dialogs/commitpushdialog.cpp:273
+#: src/gui/dialogs/commitpushdialog.cpp:56
+#: src/gui/dialogs/commitpushdialog.cpp:211
 #: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
 msgstr ""
 
-#: src/gui/dialogs/commitpushdialog.cpp:77
-#: src/gui/dialogs/commitpushdialog.cpp:273
+#: src/gui/dialogs/commitpushdialog.cpp:58
+#: src/gui/dialogs/commitpushdialog.cpp:211
 #, kde-format
 msgid "Commit and push"
 msgstr ""
@@ -809,26 +809,6 @@ msgstr ""
 msgid "Commit"
 msgstr ""
 
-#: src/gui/dialogs/diffopendialog.cpp:83
-#, kde-format
-msgid "Select new file"
-msgstr ""
-
-#: src/gui/dialogs/diffopendialog.cpp:90
-#, kde-format
-msgid "Select old file"
-msgstr ""
-
-#: src/gui/dialogs/diffopendialog.cpp:97
-#, kde-format
-msgid "Select new directory"
-msgstr ""
-
-#: src/gui/dialogs/diffopendialog.cpp:104
-#, kde-format
-msgid "Select old directory"
-msgstr ""
-
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/gui/dialogs/diffopendialog.ui:14
 #, kde-format
@@ -836,57 +816,39 @@ msgid "Select files/folders"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
-#: src/gui/dialogs/diffopendialog.ui:23
+#: src/gui/dialogs/diffopendialog.ui:24
 #, kde-format
 msgid "Compare files"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFolders)
-#: src/gui/dialogs/diffopendialog.ui:30
+#: src/gui/dialogs/diffopendialog.ui:31
 #, kde-format
 msgid "Compare directories"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/gui/dialogs/diffopendialog.ui:43
+#: src/gui/dialogs/diffopendialog.ui:41
 #, kde-format
 msgid "Old file:"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonSelectLocalFile)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonSelectRemoteFile)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonSelectBaseFile)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseOldFile)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseNewFile)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseOldDirectory)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonBrowseNewDirectory)
-#: src/gui/dialogs/diffopendialog.ui:53 src/gui/dialogs/diffopendialog.ui:70
-#: src/gui/dialogs/diffopendialog.ui:96 src/gui/dialogs/diffopendialog.ui:113
-#: src/gui/dialogs/mergeopenfilesdialog.ui:37
-#: src/gui/dialogs/mergeopenfilesdialog.ui:58
-#: src/gui/dialogs/mergeopenfilesdialog.ui:79
-#: src/gui/merge/openfilesdialog.ui:34 src/gui/merge/openfilesdialog.ui:55
-#: src/gui/merge/openfilesdialog.ui:76
-#, kde-format
-msgid "..."
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/gui/dialogs/diffopendialog.ui:60
+#: src/gui/dialogs/diffopendialog.ui:51
 #, kde-format
 msgid "New file:"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/gui/dialogs/diffopendialog.ui:86
-#, kde-format
-msgid "Old directory:"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/gui/dialogs/diffopendialog.ui:103
+#: src/gui/dialogs/diffopendialog.ui:70
 #, kde-format
 msgid "New directory:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/gui/dialogs/diffopendialog.ui:77
+#, kde-format
+msgid "Old directory:"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
@@ -924,7 +886,7 @@ msgid "No fast forward"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
-#: src/gui/dialogs/fetchdialog.ui:101 src/gui/dialogs/pulldialog.ui:100
+#: src/gui/dialogs/fetchdialog.ui:101 src/gui/dialogs/pulldialog.ui:146
 #, kde-format
 msgid "No commit"
 msgstr ""
@@ -932,7 +894,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTags)
 #. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
-#: src/gui/dialogs/fetchdialog.ui:108 src/gui/dialogs/pulldialog.ui:107
+#: src/gui/dialogs/fetchdialog.ui:108 src/gui/dialogs/pulldialog.ui:153
 #: src/gui/mainwidget.ui:263 src/gui/widgets/remoteinfodialog.ui:54
 #: src/gui/widgets/tagswidget.ui:14
 #, kde-format
@@ -947,7 +909,7 @@ msgid "Fast forward only"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
-#: src/gui/dialogs/fetchdialog.ui:122 src/gui/dialogs/pulldialog.ui:114
+#: src/gui/dialogs/fetchdialog.ui:122 src/gui/dialogs/pulldialog.ui:160
 #, kde-format
 msgid "Prune"
 msgstr ""
@@ -1113,9 +1075,10 @@ msgid "Init git repo"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
 #: src/gui/dialogs/mergecloseeventdialog.ui:14
-#: src/gui/dialogs/runnerdialog.cpp:95 src/gui/merge/closeeventdialog.ui:14
+#: src/gui/dialogs/runnerdialog.ui:105 src/gui/merge/closeeventdialog.ui:14
 #, kde-format
 msgid "Close"
 msgstr ""
@@ -1257,7 +1220,7 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
-#: src/gui/dialogs/mergedialog.ui:110 src/gui/dialogs/pulldialog.ui:93
+#: src/gui/dialogs/mergedialog.ui:110 src/gui/dialogs/pulldialog.ui:101
 #, kde-format
 msgid "Squash"
 msgstr ""
@@ -1357,49 +1320,26 @@ msgstr ""
 msgid "Turn off rename detection"
 msgstr ""
 
-#: src/gui/dialogs/mergeopenfilesdialog.cpp:56
-#: src/gui/merge/openfilesdialog.cpp:53
-#, kde-format
-msgid "Select local file"
-msgstr ""
-
-#: src/gui/dialogs/mergeopenfilesdialog.cpp:63
-#: src/gui/merge/openfilesdialog.cpp:60
-#, kde-format
-msgid "Select remote file"
-msgstr ""
-
-#: src/gui/dialogs/mergeopenfilesdialog.cpp:70
-#: src/gui/merge/openfilesdialog.cpp:67
-#, kde-format
-msgid "Select base file"
-msgstr ""
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, OpenFilesDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeOpenFilesDialog)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:14
-#: src/gui/merge/openfilesdialog.ui:14
 #, kde-format
 msgid "Select files to merge"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/gui/dialogs/mergeopenfilesdialog.ui:25
-#: src/gui/merge/openfilesdialog.ui:22
+#: src/gui/dialogs/mergeopenfilesdialog.ui:26
 #, kde-format
 msgid "Local file:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/gui/dialogs/mergeopenfilesdialog.ui:46
-#: src/gui/merge/openfilesdialog.ui:43
+#: src/gui/dialogs/mergeopenfilesdialog.ui:36
 #, kde-format
 msgid "Remote file:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/gui/dialogs/mergeopenfilesdialog.ui:67
-#: src/gui/merge/openfilesdialog.ui:64
+#: src/gui/dialogs/mergeopenfilesdialog.ui:46
 #, kde-format
 msgid "Base file:"
 msgstr ""
@@ -1454,14 +1394,24 @@ msgstr ""
 msgid "Auto file mode"
 msgstr ""
 
-#: src/gui/dialogs/runnerdialog.cpp:49
+#: src/gui/dialogs/runnerdialog.cpp:57
 #, kde-format
 msgid "View"
 msgstr ""
 
-#: src/gui/dialogs/runnerdialog.cpp:98
+#: src/gui/dialogs/runnerdialog.cpp:119
+#, kde-format
+msgid "Process finished"
+msgstr ""
+
+#: src/gui/dialogs/runnerdialog.cpp:124
 #, kde-format
 msgid "The git process crashed"
+msgstr ""
+
+#: src/gui/dialogs/runnerdialog.cpp:125
+#, kde-format
+msgid "Process finished with error"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
@@ -1495,7 +1445,7 @@ msgid ""
 "\"><br /></p></body></html>"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pushButton)
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonStop)
 #: src/gui/dialogs/runnerdialog.ui:98
 #, kde-format
 msgid "Stop"
