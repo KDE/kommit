@@ -9,8 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 
-#include <QDebug>
-
 namespace Git
 {
 
@@ -106,7 +104,6 @@ const QString &BranchesModel::referenceBranch() const
 
 void BranchesModel::calculateCommitStats()
 {
-    qDebug() << Q_FUNC_INFO;
     for (auto &b : mData) {
         const auto commitsInfo = mGit->uniqueCommiteOnBranches(mReferenceBranch, b->name);
         b->commitsBehind = commitsInfo.first;
