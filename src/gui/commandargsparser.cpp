@@ -239,15 +239,6 @@ ArgParserReturn CommandArgsParser::push(const QString &path)
 {
     checkGitPath(path);
 
-    QFileInfo fi(path);
-
-    if (!fi.exists()) {
-        return 0;
-    }
-    if (fi.isFile())
-        git->setPath(fi.absolutePath());
-    else
-        git->setPath(fi.absoluteFilePath());
     CommitPushDialog d(git);
     d.exec();
     return 0;

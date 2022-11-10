@@ -46,7 +46,6 @@ private:
 Q_SIGNALS:
     void checkedCountChanged();
 
-
 private:
     bool mCheckable;
 };
