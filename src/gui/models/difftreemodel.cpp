@@ -95,7 +95,7 @@ QColor DiffTreeModel::statusColor(Diff::DiffType status) const
     return {};
 }
 
-Diff::DiffType DiffTreeModel::toDiffType(FileStatus::Status status)
+Diff::DiffType DiffTreeModel::toDiffType(FileStatus::Status status) const
 {
     switch (status) {
     case FileStatus::NoGit:

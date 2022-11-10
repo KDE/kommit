@@ -26,7 +26,7 @@ public:
     void emitAll();
 
 private:
+    Q_REQUIRED_RESULT Diff::DiffType toDiffType(FileStatus::Status status) const;
     Node *createPath(const QStringList &path, Diff::DiffType status);
     QColor statusColor(Diff::DiffType status) const;
-    Diff::DiffType toDiffType(FileStatus::Status status);
 };

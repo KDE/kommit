@@ -14,7 +14,7 @@ class ChangedFilesModel : public QAbstractListModel
     Q_OBJECT
 
 public:
-    ChangedFilesModel(Git::Manager *git, bool checkable = false, QObject *parent = nullptr);
+    explicit ChangedFilesModel(Git::Manager *git, bool checkable = false, QObject *parent = nullptr);
     void reload();
 
     int rowCount(const QModelIndex &parent) const override;
@@ -24,7 +24,7 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const override;
     QString filePath(int index) const;
     int size() const;
-    QStringList checkedFiles() const;
+    Q_REQUIRED_RESULT QStringList checkedFiles() const;
     void checkByStatus(Git::ChangeStatus status);
     void checkByStatus(const QList<Git::ChangeStatus> &statuses);
     void toggleCheckAll(bool checked);
@@ -35,17 +35,16 @@ public:
         bool checked;
     };
     const QList<Row> &data() const;
-    int checkedCount() const;
-
-private:
-    Git::Manager *mGit{nullptr};
-    QList<Row> mData;
-    QIcon createIcon(Git::ChangeStatus status);
-    QMap<Git::ChangeStatus, QIcon> mIcons;
+    Q_REQUIRED_RESULT int checkedCount() const;
 
 Q_SIGNALS:
     void checkedCountChanged();
 
 private:
-    bool mCheckable;
+    QIcon createIcon(Git::ChangeStatus status);
+
+    Git::Manager *mGit{nullptr};
+    QList<Row> mData;
+    QMap<Git::ChangeStatus, QIcon> mIcons;
+    bool mCheckable = false;
 };

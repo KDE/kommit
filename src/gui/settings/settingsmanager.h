@@ -32,7 +32,7 @@ Q_SIGNALS:
     void settingsUpdated();
 
 private:
-    Git::Manager *mGit;
+    Git::Manager *const mGit;
     void settingsChanged();
     Ui::SettingsPageBase pageBase{};
     Ui::SettingsPageDiff pageDiff{};
@@ -40,5 +40,5 @@ private:
     QWidget *createBasePage();
     QWidget *createGitPage();
     QWidget *createDiffPage();
-    QWidget *mParentWidget{nullptr};
+    QWidget *const mParentWidget;
 };

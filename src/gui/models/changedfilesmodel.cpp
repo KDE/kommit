@@ -46,7 +46,7 @@ QIcon ChangedFilesModel::createIcon(Git::ChangeStatus status)
     QImage image = pixmap.toImage();
     image.setAlphaChannel(pixmap.toImage());
 
-    QIcon icon(QPixmap::fromImage(image));
+    const QIcon icon(QPixmap::fromImage(image));
     mIcons.insert(status, icon);
     return icon;
 }
