@@ -23,7 +23,7 @@ class CommitPushDialog : public AppDialog, private Ui::CommitPushDialog
 public:
     explicit CommitPushDialog(Git::Manager *git, QWidget *parent = nullptr);
 
-private Q_SLOTS:
+private:
     void slotPushButtonCommitClicked();
     void slotPushButtonPushClicked();
     void slotToolButtonAddAllClicked();
@@ -37,7 +37,6 @@ private Q_SLOTS:
     void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
     void checkButtonsEnable();
 
-private:
     enum Roles { StatusRole = Qt::UserRole + 1 };
     void addFiles();
     void reload();

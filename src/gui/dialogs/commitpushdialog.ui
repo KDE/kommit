@@ -394,7 +394,4 @@
    </hints>
   </connection>
  </connections>
- <slots>
-  <slot>checkButtonsEnable()</slot>
- </slots>
 </ui>
