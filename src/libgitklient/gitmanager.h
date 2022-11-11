@@ -150,9 +150,9 @@ Q_SIGNALS:
 
 private:
     QString mPath;
-    bool _isValid{false};
-    QMap<QString, Remote> _remotes;
-    LoadFlags _loadFlags{LoadAll};
+    bool mIsValid{false};
+    QMap<QString, Remote> mRemotes;
+    LoadFlags mLoadFlags{LoadAll};
     bool m_isMerging{false};
 
     QStringList readAllNonEmptyOutput(const QStringList &cmd) const;

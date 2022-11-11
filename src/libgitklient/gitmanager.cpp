@@ -40,10 +40,10 @@ void Manager::setPath(const QString &newPath)
 
     if (ret.contains("fatal")) {
         mPath = QString();
-        _isValid = false;
+        mIsValid = false;
     } else {
         mPath = ret.replace("\n", "");
-        _isValid = true;
+        mIsValid = true;
         loadAsync();
 
         setIsMerging(QFile::exists(mPath + QStringLiteral("/.git/MERGE_HEAD")));
@@ -141,7 +141,7 @@ QList<Manager::Log *> Manager::log(const QString &branch) const
 
 bool Manager::isValid() const
 {
-    return _isValid;
+    return mIsValid;
 }
 
 bool Manager::addRemote(const QString &name, const QString &url) const
@@ -320,17 +320,17 @@ void Manager::loadAsync()
     if (mAuthorsModel) {
         mAuthorsModel->clear();
     }
-    if (_loadFlags & LoadStashes)
+    if (mLoadFlags & LoadStashes)
         models << mStashesCache;
-    if (_loadFlags & LoadRemotes)
+    if (mLoadFlags & LoadRemotes)
         models << mRemotesModel;
-    if (_loadFlags & LoadSubmodules)
+    if (mLoadFlags & LoadSubmodules)
         models << mSubmodulesModel;
-    if (_loadFlags & LoadBranches)
+    if (mLoadFlags & LoadBranches)
         models << mBranchesModel;
-    if (_loadFlags & LoadLogs)
+    if (mLoadFlags & LoadLogs)
         models << mLogsCache;
-    if (_loadFlags & LoadTags)
+    if (mLoadFlags & LoadTags)
         models << mTagsModel;
 
     if (!models.empty())
@@ -374,12 +374,12 @@ RemotesModel *Manager::remotesModel() const
 
 const LoadFlags &Manager::loadFlags() const
 {
-    return _loadFlags;
+    return mLoadFlags;
 }
 
 void Manager::setLoadFlags(Git::LoadFlags newLoadFlags)
 {
-    _loadFlags = newLoadFlags;
+    mLoadFlags = newLoadFlags;
 }
 
 QString Manager::readNote(const QString &branchName) const
@@ -592,12 +592,12 @@ bool Manager::applyStash(const QString &name) const
 
 Remote Manager::remoteDetails(const QString &remoteName)
 {
-    if (_remotes.contains(remoteName))
-        return _remotes.value(remoteName);
+    if (mRemotes.contains(remoteName))
+        return mRemotes.value(remoteName);
     Remote r;
     auto ret = QString(runGit({QStringLiteral("remote"), QStringLiteral("show"), remoteName}));
     r.parse(ret);
-    _remotes.insert(remoteName, r);
+    mRemotes.insert(remoteName, r);
     return r;
 }
 
