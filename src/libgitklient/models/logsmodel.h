@@ -38,13 +38,13 @@ public:
     QModelIndex findIndexByHash(const QString &hash) const;
     Git::Log *findLogByHash(const QString &hash) const;
 
-    const QString &branch() const;
+    Q_REQUIRED_RESULT const QString &branch() const;
     void setBranch(const QString &newBranch);
 
     bool fullDetails() const;
     void setFullDetails(bool newFullDetails);
 
-    QString calendarType() const;
+    Q_REQUIRED_RESULT QString calendarType() const;
     void setCalendarType(const QString &newCalendarType);
 
 protected:

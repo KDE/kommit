@@ -31,8 +31,8 @@ public:
 
     BranchData *fromIndex(const QModelIndex &index) const;
 
-    const QString &currentBranch() const;
-    const QString &referenceBranch() const;
+    Q_REQUIRED_RESULT const QString &currentBranch() const;
+    Q_REQUIRED_RESULT const QString &referenceBranch() const;
     void setReferenceBranch(const QString &newReferenceBranch);
 
 protected:

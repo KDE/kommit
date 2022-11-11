@@ -88,18 +88,18 @@ public:
 
     void revertFile(const QString &filePath) const;
 
-    QMap<QString, ChangeStatus> changedFiles() const;
+    Q_REQUIRED_RESULT QMap<QString, ChangeStatus> changedFiles() const;
     void commit(const QString &message) const;
     void push() const;
     void addFile(const QString &file) const;
     void removeFile(const QString &file, bool cached) const;
 
-    const QString &path() const;
+    Q_REQUIRED_RESULT const QString &path() const;
     void setPath(const QString &newPath);
 
     QMap<QString, ChangeStatus> changedFiles(const QString &hash) const;
 
-    QStringList ignoredFiles() const;
+    Q_REQUIRED_RESULT QStringList ignoredFiles() const;
     QList<FileStatus> repoFilesStatus() const;
 
     QList<Log *> log(const QString &branch) const;
@@ -116,8 +116,8 @@ public:
     QStringList fileLog(const QString &fileName) const;
 
     QString diff(const QString &from, const QString &to) const;
-    QList<FileStatus> diffBranch(const QString &from) const;
-    QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
+    Q_REQUIRED_RESULT QList<FileStatus> diffBranch(const QString &from) const;
+    Q_REQUIRED_RESULT QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
 
     enum ConfigType { ConfigGlobal, ConfigLocal };
 
@@ -140,7 +140,7 @@ public:
     const LoadFlags &loadFlags() const;
     void setLoadFlags(Git::LoadFlags newLoadFlags);
 
-    QString readNote(const QString &branchName) const;
+    Q_REQUIRED_RESULT QString readNote(const QString &branchName) const;
     void saveNote(const QString &branchName, const QString &note) const;
 
 Q_SIGNALS:
