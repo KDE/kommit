@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-10 00:49+0000\n"
+"POT-Creation-Date: 2022-11-11 00:48+0000\n"
 "PO-Revision-Date: 2022-10-27 09:01+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -476,12 +476,12 @@ msgstr "Initialiser un dépôt"
 msgid "Open repository"
 msgstr "Ouvrir un dépôt"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:454
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Impossible de changer de branch pendant une fusion"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:454
 #, kde-format
 msgid "Switch branch"
 msgstr "Changer de branche"
@@ -496,23 +496,23 @@ msgstr "Le chemin n'est pas un dépôt git : %1"
 msgid "The repo inited successfully"
 msgstr "Dépôt initialisé avec succès"
 
-#: src/gui/commandargsparser.cpp:492
+#: src/gui/commandargsparser.cpp:483
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Fichier(s) ajouté à git avec succès"
 
-#: src/gui/commandargsparser.cpp:500
+#: src/gui/commandargsparser.cpp:491
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Souhaitez-vous laisser le(s) fichier(s) sur le disque ?"
 
-#: src/gui/commandargsparser.cpp:500
+#: src/gui/commandargsparser.cpp:491
 #, fuzzy, kde-format
 #| msgid "Remove remote?"
 msgid "Remove from index"
 msgstr "Supprimer la référence distante ?"
 
-#: src/gui/commandargsparser.cpp:502
+#: src/gui/commandargsparser.cpp:493
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Fichier(s) supprimés de git avec succès"

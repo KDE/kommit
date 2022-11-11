@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-10 00:49+0000\n"
-"PO-Revision-Date: 2022-11-04 10:07+0300\n"
+"POT-Creation-Date: 2022-11-11 00:48+0000\n"
+"PO-Revision-Date: 2022-11-10 06:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -471,12 +471,12 @@ msgstr "Depo İlklendir"
 msgid "Open repository"
 msgstr "Depo Aç"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:454
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Birleştirme sırasında dal değiştirilemiyor"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:454
 #, kde-format
 msgid "Switch branch"
 msgstr "Dal Değiştir"
@@ -491,22 +491,22 @@ msgstr "Yol, bir git deposu değil: %1"
 msgid "The repo inited successfully"
 msgstr "Depo, başarıyla ilklendirildi"
 
-#: src/gui/commandargsparser.cpp:492
+#: src/gui/commandargsparser.cpp:483
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Dosya(lar), başarıyla git'e eklendi"
 
-#: src/gui/commandargsparser.cpp:500
+#: src/gui/commandargsparser.cpp:491
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Dosya(lar)ı, diskte bırakmak ister misiniz?"
 
-#: src/gui/commandargsparser.cpp:500
+#: src/gui/commandargsparser.cpp:491
 #, kde-format
 msgid "Remove from index"
 msgstr "İndeksten kaldır"
 
-#: src/gui/commandargsparser.cpp:502
+#: src/gui/commandargsparser.cpp:493
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Dosya(lar), Git'ten başarıyla kaldırıldı"
@@ -540,7 +540,7 @@ msgstr "İşle/İt"
 #: src/gui/dialogs/changedfilesdialog.cpp:30
 #, kde-format
 msgid "Reload"
-msgstr ""
+msgstr "Yeniden Yükle"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
@@ -1476,7 +1476,7 @@ msgstr "Görüntüle"
 #: src/gui/dialogs/runnerdialog.cpp:119
 #, kde-format
 msgid "Process finished"
-msgstr ""
+msgstr "Süreç bitti"
 
 #: src/gui/dialogs/runnerdialog.cpp:124
 #, kde-format
@@ -1486,7 +1486,7 @@ msgstr "Git süreci çöktü"
 #: src/gui/dialogs/runnerdialog.cpp:125
 #, kde-format
 msgid "Process finished with error"
-msgstr ""
+msgstr "Süreç, hatayla bitti"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/gui/dialogs/runnerdialog.ui:14

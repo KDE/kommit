@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-10 00:49+0000\n"
-"PO-Revision-Date: 2022-11-04 12:01+0100\n"
+"POT-Creation-Date: 2022-11-11 00:48+0000\n"
+"PO-Revision-Date: 2022-11-10 03:32+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -473,12 +473,12 @@ msgstr "Iniciar repositorio"
 msgid "Open repository"
 msgstr "Abrir repositorio"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:454
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No se puede cambiar de rama durante la fusión"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:463
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:454
 #, kde-format
 msgid "Switch branch"
 msgstr "Cambiar rama"
@@ -493,22 +493,22 @@ msgstr "La ruta no es un repositorio de git: %1"
 msgid "The repo inited successfully"
 msgstr "Repositorio iniciado correctamente"
 
-#: src/gui/commandargsparser.cpp:492
+#: src/gui/commandargsparser.cpp:483
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Archivos añadidos a git correctamente"
 
-#: src/gui/commandargsparser.cpp:500
+#: src/gui/commandargsparser.cpp:491
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "¿Desea dejar los archivos en el disco?"
 
-#: src/gui/commandargsparser.cpp:500
+#: src/gui/commandargsparser.cpp:491
 #, kde-format
 msgid "Remove from index"
 msgstr "Eliminar del índice"
 
-#: src/gui/commandargsparser.cpp:502
+#: src/gui/commandargsparser.cpp:493
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Archivos eliminados de git correctamente"
@@ -542,7 +542,7 @@ msgstr "Confirmar/enviar"
 #: src/gui/dialogs/changedfilesdialog.cpp:30
 #, kde-format
 msgid "Reload"
-msgstr ""
+msgstr "Volver a cargar"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
@@ -1483,7 +1483,7 @@ msgstr "Ver"
 #: src/gui/dialogs/runnerdialog.cpp:119
 #, kde-format
 msgid "Process finished"
-msgstr ""
+msgstr "Proceso finalizado"
 
 #: src/gui/dialogs/runnerdialog.cpp:124
 #, kde-format
@@ -1493,7 +1493,7 @@ msgstr "El proceso git ha fallado"
 #: src/gui/dialogs/runnerdialog.cpp:125
 #, kde-format
 msgid "Process finished with error"
-msgstr ""
+msgstr "Proceso finalizado con error"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/gui/dialogs/runnerdialog.ui:14
