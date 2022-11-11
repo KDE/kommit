@@ -23,11 +23,9 @@ class FilesTreeDialog : public AppDialog, private Ui::FilesTreeDialog
 public:
     explicit FilesTreeDialog(Git::Manager *git, const QString &place, QWidget *parent = nullptr);
 
-private Q_SLOTS:
-    void slotTreeViewClicked(const QModelIndex &index);
-    void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
-
 private:
+    void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
+    void slotTreeViewClicked(const QModelIndex &index);
     TreeModel *const mTreeModel;
     const QString mPlace;
     FileActions *const mActions;
