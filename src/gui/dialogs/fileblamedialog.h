@@ -23,10 +23,8 @@ public:
     explicit FileBlameDialog(Git::Manager *git, const QString &fileName, QWidget *parent = nullptr);
     explicit FileBlameDialog(Git::Manager *git, const Git::File &file, QWidget *parent = nullptr);
 
-private Q_SLOTS:
-    void slotPlainTextEditBlockSelected();
-
 private:
+    void slotPlainTextEditBlockSelected();
     QString mFileName;
     Git::File mFile;
 };
