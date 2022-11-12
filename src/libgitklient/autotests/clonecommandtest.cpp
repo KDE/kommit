@@ -48,6 +48,18 @@ void CloneCommandTest::shouldGenerateCommand_data()
         const QStringList lst{QStringLiteral("clone"), QStringLiteral("--progress"), newRepoUrl, QString(), QStringLiteral("--depth"), QString::number(depth)};
         QTest::addRow("depth") << newRepoUrl << QString() << QString() << QString() << depth << false << lst;
     }
+    {
+        const QString newRepoUrl = QStringLiteral("bla");
+        const QString newLocalPath = QStringLiteral("blo");
+        const int depth = 5;
+        const QStringList lst{QStringLiteral("clone"),
+                              QStringLiteral("--progress"),
+                              newRepoUrl,
+                              newLocalPath,
+                              QStringLiteral("--depth"),
+                              QString::number(depth)};
+        QTest::addRow("depth") << newRepoUrl << newLocalPath << QString() << QString() << depth << false << lst;
+    }
 }
 
 void CloneCommandTest::shouldGenerateCommand()
