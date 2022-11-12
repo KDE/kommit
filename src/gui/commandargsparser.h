@@ -68,6 +68,7 @@ class LIBGITKLIENTGUI_EXPORT CommandArgsParser : public QObject
 public Q_SLOTS:
     ArgParserReturn help();
 
+    ArgParserReturn clone();
     ArgParserReturn clone(const QString &path);
     ArgParserReturn init(const QString &path);
     ArgParserReturn pull(const QString &path);
