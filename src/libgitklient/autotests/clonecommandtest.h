@@ -16,4 +16,6 @@ public:
     ~CloneCommandTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldGenerateCommand_data();
+    void shouldGenerateCommand();
 };
