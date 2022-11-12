@@ -29,7 +29,7 @@ public:
 
     Q_REQUIRED_RESULT QStringList generateArgs() const override;
 
-    bool force() const;
+    Q_REQUIRED_RESULT bool force() const;
     void setForce(bool newForce);
 
 private:

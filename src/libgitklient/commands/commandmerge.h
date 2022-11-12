@@ -51,25 +51,25 @@ public:
     Q_REQUIRED_RESULT const Strategy &strategy() const;
     void setStrategy(Git::CommandMerge::Strategy newStrategy);
 
-    bool ignoreSpaceChange() const;
+    Q_REQUIRED_RESULT bool ignoreSpaceChange() const;
     void setIgnoreSpaceChange(bool newIgnoreSpaceChange);
-    bool ignoreAllSpace() const;
+    Q_REQUIRED_RESULT bool ignoreAllSpace() const;
     void setIgnoreAllSpace(bool newIgnoreAllSpace);
-    bool ignoreSpaceAtEol() const;
+    Q_REQUIRED_RESULT bool ignoreSpaceAtEol() const;
     void setIgnoreSpaceAtEol(bool newIgnoreSpaceAtEol);
-    bool ignoreCrAtEol() const;
+    Q_REQUIRED_RESULT bool ignoreCrAtEol() const;
     void setIgnoreCrAtEol(bool newIgnoreCrAtEol);
-    bool renormalize() const;
+    Q_REQUIRED_RESULT bool renormalize() const;
     void setRenormalize(bool newRenormalize);
-    bool noRenames() const;
+    Q_REQUIRED_RESULT bool noRenames() const;
     void setNoRenames(bool newNoRenames);
-    DiffAlgorithm diffAlgorithm() const;
+    Q_REQUIRED_RESULT DiffAlgorithm diffAlgorithm() const;
     void setDiffAlgorithm(DiffAlgorithm newDiffAlgorithm);
 
-    bool ours() const;
+    Q_REQUIRED_RESULT bool ours() const;
     void setOurs(bool newOurs);
 
-    bool theirs() const;
+    Q_REQUIRED_RESULT bool theirs() const;
     void setTheirs(bool newTheirs);
 
 private:
