@@ -193,6 +193,10 @@ ArgParserReturn CommandArgsParser::help()
     return 0;
 }
 
+ArgParserReturn CommandArgsParser::clone()
+{
+}
+
 ArgParserReturn CommandArgsParser::clone(const QString &path)
 {
     CloneDialog d;
