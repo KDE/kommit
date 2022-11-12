@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-11 00:48+0000\n"
-"PO-Revision-Date: 2022-11-03 08:24+0100\n"
+"PO-Revision-Date: 2022-11-11 10:10+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -544,7 +544,7 @@ msgstr "Objavi/potisni"
 #: src/gui/dialogs/changedfilesdialog.cpp:30
 #, kde-format
 msgid "Reload"
-msgstr ""
+msgstr "Ponovno naloži"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
@@ -1478,7 +1478,7 @@ msgstr "Pogled"
 #: src/gui/dialogs/runnerdialog.cpp:119
 #, kde-format
 msgid "Process finished"
-msgstr ""
+msgstr "Proces se je končal"
 
 #: src/gui/dialogs/runnerdialog.cpp:124
 #, kde-format
@@ -1488,7 +1488,7 @@ msgstr "Proces git se je sesul"
 #: src/gui/dialogs/runnerdialog.cpp:125
 #, kde-format
 msgid "Process finished with error"
-msgstr ""
+msgstr "Proces se je končal z napako"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/gui/dialogs/runnerdialog.ui:14
