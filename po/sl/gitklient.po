@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:48+0000\n"
+"POT-Creation-Date: 2022-11-13 00:48+0000\n"
 "PO-Revision-Date: 2022-11-11 10:10+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -460,12 +460,12 @@ msgstr "Preklopi/prevzemi ..."
 msgid "Diff tree"
 msgstr "Drevo razlik"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:235
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ni mogoče ustvariti poti: %1"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:235
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializiraj skladišče"
@@ -475,12 +475,12 @@ msgstr "Inicializiraj skladišče"
 msgid "Open repository"
 msgstr "Odpri skladišče"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:454
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:469
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Med spajanjem ni mogoče preklopiti veje"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:454
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:469
 #, kde-format
 msgid "Switch branch"
 msgstr "Preklopi vejo"
@@ -490,27 +490,27 @@ msgstr "Preklopi vejo"
 msgid "The path is not git repo: %1"
 msgstr "Pot ni skladišče git: %1"
 
-#: src/gui/commandargsparser.cpp:225
+#: src/gui/commandargsparser.cpp:240
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Skladišče je uspešno inicializirano"
 
-#: src/gui/commandargsparser.cpp:483
+#: src/gui/commandargsparser.cpp:498
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Datoteka/e uspešno dodana/e git-u"
 
-#: src/gui/commandargsparser.cpp:491
+#: src/gui/commandargsparser.cpp:506
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Ali želite datoteko/e pustiti na disku?"
 
-#: src/gui/commandargsparser.cpp:491
+#: src/gui/commandargsparser.cpp:506
 #, kde-format
 msgid "Remove from index"
 msgstr "Odstrani iz indeksa"
 
-#: src/gui/commandargsparser.cpp:493
+#: src/gui/commandargsparser.cpp:508
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Datoteka/e uspešno odstranjene iz git-a"

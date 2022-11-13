@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:48+0000\n"
+"POT-Creation-Date: 2022-11-13 00:48+0000\n"
 "PO-Revision-Date: 2022-09-18 12:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -464,12 +464,12 @@ msgstr "Switch/Checkout..."
 msgid "Diff tree"
 msgstr "Diff tree"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:235
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Unable to create path: %1"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:220
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:235
 #, kde-format
 msgid "Init repo"
 msgstr "Initialise repository"
@@ -480,12 +480,12 @@ msgstr "Initialise repository"
 msgid "Open repository"
 msgstr "Clone a repository"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:454
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:469
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Cannot switch branch while merging"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:454
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:469
 #, kde-format
 msgid "Switch branch"
 msgstr "Switch branch"
@@ -495,28 +495,28 @@ msgstr "Switch branch"
 msgid "The path is not git repo: %1"
 msgstr "The path is not git repository: %1"
 
-#: src/gui/commandargsparser.cpp:225
+#: src/gui/commandargsparser.cpp:240
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "The repository initialised successfully"
 
-#: src/gui/commandargsparser.cpp:483
+#: src/gui/commandargsparser.cpp:498
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "File(s) added to git successfully"
 
-#: src/gui/commandargsparser.cpp:491
+#: src/gui/commandargsparser.cpp:506
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Would you like to leave file(s) on disk?"
 
-#: src/gui/commandargsparser.cpp:491
+#: src/gui/commandargsparser.cpp:506
 #, fuzzy, kde-format
 #| msgid "Remove remote?"
 msgid "Remove from index"
 msgstr "Remove remote?"
 
-#: src/gui/commandargsparser.cpp:493
+#: src/gui/commandargsparser.cpp:508
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "File(s) removed from git successfully"
