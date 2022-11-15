@@ -15,6 +15,7 @@ OverlayPlugin::OverlayPlugin(QObject *parent)
 {
 }
 
+// TODO: Use Git::statusIcon
 QString icon(const FileStatus::Status &status)
 {
     switch (status) {

@@ -31,6 +31,7 @@ public:
 
     struct Row {
         QString filePath;
+        QString oldFilePath;
         Git::ChangeStatus status;
         bool checked;
     };

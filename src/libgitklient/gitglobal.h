@@ -25,8 +25,10 @@ enum class ChangeStatus {
     Untracked,
 };
 
-void run(const QString &workingDir, const QStringList &args);
-void run(const QString &workingDir, const AbstractCommand &cmd);
+LIBGITKLIENT_EXPORT void run(const QString &workingDir, const QStringList &args);
+LIBGITKLIENT_EXPORT void run(const QString &workingDir, const AbstractCommand &cmd);
+
+LIBGITKLIENT_EXPORT QIcon statusIcon(ChangeStatus status);
 
 LIBGITKLIENT_EXPORT QByteArray runGit(const QString &workingDir, const QStringList &args);
 LIBGITKLIENT_EXPORT QStringList readAllNonEmptyOutput(const QString &workingDir, const QStringList &cmd, bool trim = true);
