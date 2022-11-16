@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-13 00:48+0000\n"
-"PO-Revision-Date: 2022-11-04 10:44+0000\n"
+"PO-Revision-Date: 2022-11-15 18:20+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -550,7 +550,7 @@ msgstr "Gravar/Enviar"
 #: src/gui/dialogs/changedfilesdialog.cpp:30
 #, kde-format
 msgid "Reload"
-msgstr ""
+msgstr "Recarregar"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
@@ -1499,7 +1499,7 @@ msgstr "O processo 'git' estoirou"
 #: src/gui/dialogs/runnerdialog.cpp:125
 #, kde-format
 msgid "Process finished with error"
-msgstr ""
+msgstr "O processo terminou com um erro"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/gui/dialogs/runnerdialog.ui:14
@@ -2276,30 +2276,3 @@ msgstr "Última versão"
 #, kde-format
 msgid "Tagger"
 msgstr "Marcador"
-
-#~ msgid "You don't have any modified file!"
-#~ msgstr "Não tem nenhum ficheiro modificado!"
-
-#~ msgid "Select new file"
-#~ msgstr "Seleccionar o novo ficheiro"
-
-#~ msgid "Select old file"
-#~ msgstr "Seleccionar o ficheiro antigo"
-
-#~ msgid "Select new directory"
-#~ msgstr "Seleccionar a nova pasta"
-
-#~ msgid "Select old directory"
-#~ msgstr "Seleccionar a pasta antiga"
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgid "Select local file"
-#~ msgstr "Seleccionar o ficheiro local"
-
-#~ msgid "Select remote file"
-#~ msgstr "Seleccionar o ficheiro remoto"
-
-#~ msgid "Select base file"
-#~ msgstr "Seleccionar o ficheiro de base"
