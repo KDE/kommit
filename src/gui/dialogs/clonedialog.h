@@ -18,7 +18,7 @@ class LIBGITKLIENTGUI_TESTS_EXPORT CloneDialog : public AppDialog, private Ui::C
 
 public:
     explicit CloneDialog(QWidget *parent = nullptr);
-    ~CloneDialog();
+    ~CloneDialog() override;
 
     Git::CloneCommand *command();
 

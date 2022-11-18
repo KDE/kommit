@@ -28,7 +28,7 @@ public:
     explicit FileViewerDialog(Git::Manager *git, const QString &place, const QString &fileName, QWidget *parent = nullptr);
     explicit FileViewerDialog(Git::Manager *git, const Git::File &file, QWidget *parent = nullptr);
 
-    ~FileViewerDialog();
+    ~FileViewerDialog() override;
 
 private:
     Git::Manager *mGit = nullptr;

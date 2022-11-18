@@ -21,7 +21,7 @@ public:
     Q_REQUIRED_RESULT const QString &otherBranch() const;
     void setOtherBranch(const QString &newOtherBranch);
 
-private Q_SLOTS:
+private:
     void fetch();
     void create();
     void browse();
@@ -30,8 +30,6 @@ private Q_SLOTS:
     void remove();
     void merge();
     void note();
-
-private:
     QString mBranchName;
     QString mOtherBranch;
 

@@ -20,6 +20,6 @@ public:
     Q_REQUIRED_RESULT QString message() const;
     void setMessage(const QString &newMessage);
 
-private Q_SLOTS:
+private:
     void slotLineEditTagNameTextChanged(const QString &s);
 };

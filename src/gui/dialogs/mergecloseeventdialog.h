@@ -16,7 +16,8 @@ class MergeCloseEventDialog : public AppDialog, private Ui::CloseEventDialog
 public:
     enum ReturnType { LeaveAsIs = QDialog::Rejected, MarkAsResolved = QDialog::Accepted, DontExit };
     explicit MergeCloseEventDialog(QWidget *parent = nullptr);
-private Q_SLOTS:
+
+private:
     void slotCommandLinkButtonMarkResolvedClicked();
     void slotCommandLinkButtonLeaveAsIsClicked();
     void slotCommandLinkButtonDontExitClicked();
