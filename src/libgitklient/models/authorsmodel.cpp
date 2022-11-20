@@ -144,8 +144,10 @@ Author *AuthorsModel::findOrCreate(const QString &name, const QString &email, co
 
 void AuthorsModel::clear()
 {
+    beginResetModel();
     qDeleteAll(mData);
     mData.clear();
+    endResetModel();
 }
 
 void AuthorsModel::fill()
