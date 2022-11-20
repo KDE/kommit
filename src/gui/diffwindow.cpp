@@ -63,6 +63,7 @@ DiffWindow::DiffWindow(const Git::File &oldFile, const Git::File &newFile)
 
 DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QString &newBranch)
     : AppMainWindow()
+    , mGit(git)
     , mOldBranch(oldBranch)
     , mNewBranch(newBranch)
 {
