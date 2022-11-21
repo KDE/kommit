@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-13 00:48+0000\n"
+"POT-Creation-Date: 2022-11-21 00:49+0000\n"
 "PO-Revision-Date: 2022-10-11 18:36+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -805,19 +805,19 @@ msgid "Indexed"
 msgstr "Indeksowany"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
-#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:210
+#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:211
 #, fuzzy, kde-format
 msgid "Added"
 msgstr "Dodany"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
-#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:212
+#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:213
 #, fuzzy, kde-format
 msgid "Removed"
 msgstr "Usunięto"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
-#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:214
+#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:215
 #, fuzzy, kde-format
 msgid "Modified"
 msgstr "Zmieniony"
@@ -1639,39 +1639,39 @@ msgstr "Znacznik"
 msgid "Tag name:"
 msgstr "Nazwa znacznika:"
 
-#: src/gui/diffwindow.cpp:105
+#: src/gui/diffwindow.cpp:106
 #, kde-format
 msgctxt "@title:window"
 msgid "GitKlient Diff[*]"
 msgstr ""
 
-#: src/gui/diffwindow.cpp:108
+#: src/gui/diffwindow.cpp:109
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Drzewo"
 
-#: src/gui/diffwindow.cpp:135
+#: src/gui/diffwindow.cpp:136
 #, kde-format
 msgid "View hidden chars..."
 msgstr ""
 
-#: src/gui/diffwindow.cpp:140 src/gui/mergewindow.cpp:343
+#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:343
 #, kde-format
 msgid "Same size blocks"
 msgstr ""
 
-#: src/gui/diffwindow.cpp:145
+#: src/gui/diffwindow.cpp:146
 #, kde-format
 msgid "Show files names"
 msgstr ""
 
-#: src/gui/diffwindow.cpp:151
+#: src/gui/diffwindow.cpp:152
 #, kde-format
 msgid "Show Tree"
 msgstr ""
 
-#: src/gui/diffwindow.cpp:208
+#: src/gui/diffwindow.cpp:209
 #, fuzzy, kde-format
 msgid "Unchanged"
 msgstr "Niezmienny"

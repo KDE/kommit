@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-13 00:48+0000\n"
+"POT-Creation-Date: 2022-11-21 00:49+0000\n"
 "PO-Revision-Date: 2022-10-27 09:01+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -814,19 +814,19 @@ msgid "Indexed"
 msgstr "Indexés"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
-#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:210
+#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:211
 #, kde-format
 msgid "Added"
 msgstr "Ajoutés"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
-#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:212
+#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:213
 #, kde-format
 msgid "Removed"
 msgstr "Supprimés"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
-#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:214
+#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:215
 #, kde-format
 msgid "Modified"
 msgstr "Modifiés"
@@ -1651,39 +1651,39 @@ msgstr "Étiquette"
 msgid "Tag name:"
 msgstr "Nom de l'étiquette :"
 
-#: src/gui/diffwindow.cpp:105
+#: src/gui/diffwindow.cpp:106
 #, kde-format
 msgctxt "@title:window"
 msgid "GitKlient Diff[*]"
 msgstr ""
 
-#: src/gui/diffwindow.cpp:108
+#: src/gui/diffwindow.cpp:109
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Arborescence"
 
-#: src/gui/diffwindow.cpp:135
+#: src/gui/diffwindow.cpp:136
 #, kde-format
 msgid "View hidden chars..."
 msgstr "Afficher les caractères cachés…"
 
-#: src/gui/diffwindow.cpp:140 src/gui/mergewindow.cpp:343
+#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:343
 #, kde-format
 msgid "Same size blocks"
 msgstr ""
 
-#: src/gui/diffwindow.cpp:145
+#: src/gui/diffwindow.cpp:146
 #, kde-format
 msgid "Show files names"
 msgstr "Afficher les noms de fichiers"
 
-#: src/gui/diffwindow.cpp:151
+#: src/gui/diffwindow.cpp:152
 #, kde-format
 msgid "Show Tree"
 msgstr "Afficher l'arborescence"
 
-#: src/gui/diffwindow.cpp:208
+#: src/gui/diffwindow.cpp:209
 #, kde-format
 msgid "Unchanged"
 msgstr "Non-modifiés"
