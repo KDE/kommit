@@ -15,6 +15,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/cleanupdialog.h"
 #include "dialogs/clonedialog.h"
 #include "dialogs/commitpushdialog.h"
+#include "dialogs/fetchdialog.h"
 #include "dialogs/fileblamedialog.h"
 #include "dialogs/filehistorydialog.h"
 #include "dialogs/ignorefiledialog.h"
@@ -246,6 +247,14 @@ ArgParserReturn CommandArgsParser::pull(const QString &path)
 {
     git->setPath(path);
     PullDialog d(git);
+    d.exec();
+    return 0;
+}
+
+ArgParserReturn CommandArgsParser::fetch(const QString &path)
+{
+    git->setPath(path);
+    FetchDialog d(git);
     d.exec();
     return 0;
 }

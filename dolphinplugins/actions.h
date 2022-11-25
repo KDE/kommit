@@ -17,6 +17,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
     f(actionInit, "Init", PACK(QStringLiteral("init")), QLatin1String());                                                                                      \
     f(actionOpen, "Open", PACK(mPath), QLatin1String());                                                                                                       \
     f(actionPull, "Pull", PACK(QStringLiteral("pull"), mPath), QStringLiteral("git-pull"));                                                                    \
+    f(actionFetch, "Fetch", PACK(QStringLiteral("fetch"), mPath), QStringLiteral("git-fetch"));                                                                \
     f(actionPush, "Push", PACK(QStringLiteral("push"), mPath), QStringLiteral("git-push"));                                                                    \
     f(actionMerge, "Merge", PACK(QStringLiteral("merge"), mPath), QStringLiteral("git-merge"));                                                                \
     f(actionSwitchCheckout, "Switch/Checkout", PACK(QStringLiteral("switch-checkout"), mPath), QLatin1String());                                               \

@@ -89,6 +89,7 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
 
     actionOpen->setVisible(isGit);
     actionPull->setVisible(isGit);
+    actionFetch->setVisible(isGit);
     actionPush->setVisible(isGit);
     actionMerge->setVisible(isGit);
     actionModifications->setVisible(isGit);
