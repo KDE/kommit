@@ -52,62 +52,89 @@ QDebug operator<<(QDebug d, Diff::Impl::Pair3 p)
 
 using Solution = QList<Pair2>;
 using Solution3 = QList<Pair3>;
-/*
-QSet<Solution> findLCS(QStringList first, QStringList second, int m, int n)
+
+class SolutionIterator
 {
-    // construct a set to store possible LCS
-    int matrix[120, 120];
-    QSet<Solution> s;
+    const Solution &_solution;
+    int _firstIndex{0};
+    int _secondIndex{0};
+    Solution::ConstIterator i;
 
-    // If we reaches end of either string, return
-    // a empty set
-    if (m == 0 || n == 0)
-    {
-        s.insert(Solution());
-        return s;
-    }
+public:
+    struct Result {
+        int oldStart;
+        int newStart;
+        int oldEnd;
+        int newEnd;
+        bool success;
+        SegmentType type;
 
-    // If the last characters of X and Y are same
-    if (first[m - 1] == second[n - 1])
-    {
-        // recurse for X[0..m-2] and Y[0..n-2] in
-        // the matrix
-        auto tmp = findLCS(first, second, m - 1, n - 1);
-        // append current character to all possible LCS
-        // of substring X[0..m-2] and Y[0..n-2].
-        for (auto &str : std::as_const(tmp)) {
-            auto buffer = str;
-            buffer.push_back(qMakePair(m - 1, n - 1));
-            s.insert(buffer);
-        }
-    }
-
-    // If the last characters of X and Y are not same
-    else
-    {
-        // If LCS can be constructed from top side of
-        // the matrix, recurse for X[0..m-2] and Y[0..n-1]
-        if (matrix[m - 1, n] >= matrix[m, n - 1]) {
-            auto tmp = findLCS(first, second, m - 1, n);
-            s = s + tmp;
-        }
-
-        // If LCS can be constructed from left side of
-        // the matrix, recurse for X[0..m-1] and Y[0..n-2]
-        if (matrix[m, n - 1] >= matrix[m - 1, n])
-
+        Result()
+            : success(false)
         {
-            auto tmp = findLCS(first, second, m, n - 1);
-            // merge two sets if L[m-1, n] == L[m, n-1]
-            // Note s will be empty if L[m-1, n] != L[m, n-1]
-            //            s.insert(tmp.begin(), tmp.end());
-            s = s + tmp;
         }
-    }
+        Result(int oldStart, int oldEnd, int newStart, int newEnd, bool success, SegmentType type)
+            : oldStart(oldStart)
+            , newStart(newStart)
+            , oldEnd(oldEnd)
+            , newEnd(newEnd)
+            , success(success)
+            , type(type)
+        {
+        }
+        int oldSize() const
+        {
+            return oldEnd - oldStart;
+        }
+        int newSize() const
+        {
+            return newEnd - newStart;
+        }
+    };
 
-    return s;
-}
-*/
+    SolutionIterator(const Solution &solution)
+        : _solution(solution)
+        , i(_solution.begin())
+    {
+    }
+    void begin()
+    {
+        _firstIndex = _secondIndex = -1;
+        i = _solution.begin();
+    }
+    Result pick()
+    {
+        if (i == _solution.end())
+            return {};
+
+        if ((i->first == _firstIndex && i->second == _secondIndex)) {
+            auto fi = _firstIndex;
+            auto si = _secondIndex;
+            do {
+                _firstIndex++;
+                _secondIndex++;
+                ++i;
+            } while (i != _solution.end() && i->first == _firstIndex && i->second == _secondIndex);
+
+            return {fi, _firstIndex, si, _secondIndex, true, SegmentType::SameOnBoth};
+        } else {
+            Result r{_firstIndex, i->first, _secondIndex, i->second, true, SegmentType::DifferentOnBoth};
+            ++i;
+            if (r.newStart == r.newEnd)
+                r.type = SegmentType::OnlyOnLeft;
+            else if (r.oldStart == r.oldEnd)
+                r.type = SegmentType::OnlyOnRight;
+            else
+                r.type = SegmentType::DifferentOnBoth;
+            _firstIndex = i->first;
+            _secondIndex = i->second;
+            return r;
+        }
+
+        return {};
+    }
+};
+
 int maxIn(int first, int second, int third)
 {
     if (first == second && second == third)
@@ -342,7 +369,7 @@ Solution longestCommonSubsequence(const QStringList &source, const QStringList &
         for (int j = 0; j <= target.count(); j++) {
             if (i == 0 || j == 0) {
                 l(i, j) = 0;
-            } else if (source.at(i - 1) == target.at(j - 1)) {
+            } else if (isEqual(source.at(i - 1), target.at(j - 1))) {
                 l(i, j) = l(i - 1, j - 1) + 1;
             } else {
                 l(i, j) = qMax(l(i - 1, j), l(i, j - 1));
@@ -352,7 +379,6 @@ Solution longestCommonSubsequence(const QStringList &source, const QStringList &
 
     int i = source.count();
     int j = target.count();
-    int index = l(source.count(), target.count());
     Solution r;
 
     while (i > 0 && j > 0) {
@@ -360,7 +386,6 @@ Solution longestCommonSubsequence(const QStringList &source, const QStringList &
             r.prepend(qMakePair(i - 1, j - 1));
             i--;
             j--;
-            index--;
         } else {
             int n = maxIn(l(i - 1, j), l(i, j - 1), l(i - 1, j - 1));
             switch (n) {
@@ -438,6 +463,13 @@ struct Tuple {
 QDebug &operator<<(QDebug &stream, Diff::Tuple t)
 {
     stream << t.base << t.local << t.remote;
+    return stream;
+}
+
+QDebug &operator<<(QDebug &stream, const Diff::Impl::Solution &sln)
+{
+    for (auto i = sln.begin(); i != sln.end(); ++i)
+        stream << "(" << i->first << ", " << i->second << ")";
     return stream;
 }
 
@@ -635,60 +667,32 @@ QList<DiffSegment *> diff(const QStringList &oldText, const QStringList &newText
         return {segment};
     }
 
-    auto o = oldText;
-    auto n = newText;
-    auto max = Impl::longestCommonSubsequence(oldText, newText);
+    auto lcs = Impl::longestCommonSubsequence(oldText, newText);
 
-    int oldOffset{0};
-    int newOffset{0};
+    Impl::SolutionIterator si(lcs);
     QList<DiffSegment *> ret;
-
-    QPair<int, int> p;
-    while (!max.empty()) {
-        if (p == QPair<int, int>())
-            p = max.takeFirst();
-
-        if (p.first == oldOffset && p.second == newOffset) {
-            auto segment = new DiffSegment;
-            segment->type = SegmentType::SameOnBoth;
-            while (p.first == oldOffset && p.second == newOffset) {
-                oldOffset++;
-                newOffset++;
-                segment->oldText.append(o.takeFirst());
-                segment->newText.append(n.takeFirst());
-
-                if (!max.empty())
-                    p = max.takeFirst();
-            }
-            ret.append(segment);
-            if (max.empty())
-                break;
-        } else {
-            if (max.empty())
-                break;
-            p = max.takeFirst();
-        }
-
-        QStringList oldList, newList;
-        if (oldOffset - p.first)
-            oldList = take(o, p.first - oldOffset);
-        if (newOffset - p.second)
-            newList = take(n, p.second - newOffset);
-
-        oldOffset += oldList.size();
-        newOffset += newList.size();
+    int lastLeftIndex{-1};
+    int lastRightIndex{-1};
+    forever {
+        auto p = si.pick();
+        if (!p.success)
+            break;
 
         auto segment = new DiffSegment;
-        segment->oldText = oldList;
-        segment->newText = newList;
+        segment->oldText = oldText.mid(p.oldStart, p.oldEnd - p.oldStart);
+        segment->newText = newText.mid(p.newStart, p.newEnd - p.newStart);
+        segment->type = p.type;
+        lastLeftIndex = p.oldEnd;
+        lastRightIndex = p.newEnd;
+        ret << segment;
+    }
 
-        if (!oldList.empty() && !newList.empty())
-            segment->type = SegmentType::DifferentOnBoth;
-        else if (!oldList.empty())
-            segment->type = SegmentType::OnlyOnLeft;
-        else
-            segment->type = SegmentType::OnlyOnRight;
-        ret.append(segment);
+    if (lastLeftIndex != oldText.size()) {
+        auto segment = new DiffSegment;
+        segment->oldText = oldText.mid(lastLeftIndex, -1);
+        segment->newText = newText.mid(lastRightIndex, -1);
+        segment->type = SegmentType::SameOnBoth;
+        ret << segment;
     }
 
     return ret;
