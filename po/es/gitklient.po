@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:49+0000\n"
+"POT-Creation-Date: 2022-11-26 00:49+0000\n"
 "PO-Revision-Date: 2022-11-10 03:32+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -458,12 +458,12 @@ msgstr "Cambiar/cambiar rama..."
 msgid "Diff tree"
 msgstr "Árbol de diferencias"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:235
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "No se ha podido crear la ruta: %1"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:235
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Init repo"
 msgstr "Iniciar repositorio"
@@ -473,42 +473,42 @@ msgstr "Iniciar repositorio"
 msgid "Open repository"
 msgstr "Abrir repositorio"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:469
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No se puede cambiar de rama durante la fusión"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:469
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Switch branch"
 msgstr "Cambiar rama"
 
-#: src/gui/commandargsparser.cpp:55
+#: src/gui/commandargsparser.cpp:56
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "La ruta no es un repositorio de git: %1"
 
-#: src/gui/commandargsparser.cpp:240
+#: src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Repositorio iniciado correctamente"
 
-#: src/gui/commandargsparser.cpp:498
+#: src/gui/commandargsparser.cpp:507
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Archivos añadidos a git correctamente"
 
-#: src/gui/commandargsparser.cpp:506
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "¿Desea dejar los archivos en el disco?"
 
-#: src/gui/commandargsparser.cpp:506
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Remove from index"
 msgstr "Eliminar del índice"
 
-#: src/gui/commandargsparser.cpp:508
+#: src/gui/commandargsparser.cpp:517
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Archivos eliminados de git correctamente"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:49+0000\n"
+"POT-Creation-Date: 2022-11-26 00:49+0000\n"
 "PO-Revision-Date: 2022-11-19 14:49\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -456,12 +456,12 @@ msgstr "切换/检出..."
 msgid "Diff tree"
 msgstr "查看树差异"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:235
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "无法创建路径：%1"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:235
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Init repo"
 msgstr "初始化仓库"
@@ -471,42 +471,42 @@ msgstr "初始化仓库"
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:469
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "合并时无法切换分支"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:469
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Switch branch"
 msgstr "切换分支"
 
-#: src/gui/commandargsparser.cpp:55
+#: src/gui/commandargsparser.cpp:56
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "此路径不是 git 仓库：%1"
 
-#: src/gui/commandargsparser.cpp:240
+#: src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "仓库初始化成功"
 
-#: src/gui/commandargsparser.cpp:498
+#: src/gui/commandargsparser.cpp:507
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "文件已成功添加到 git"
 
-#: src/gui/commandargsparser.cpp:506
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "您想要保留磁盘上的文件吗？"
 
-#: src/gui/commandargsparser.cpp:506
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Remove from index"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:508
+#: src/gui/commandargsparser.cpp:517
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "文件已成功从 git 中删除"

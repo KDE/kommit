@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:49+0000\n"
+"POT-Creation-Date: 2022-11-26 00:49+0000\n"
 "PO-Revision-Date: 2022-11-10 06:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -456,12 +456,12 @@ msgstr "Değiştir/Çıkış Yap..."
 msgid "Diff tree"
 msgstr "Diff ağacı"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:235
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Yol oluşturulamıyor: %1"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:235
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Init repo"
 msgstr "Depo İlklendir"
@@ -471,42 +471,42 @@ msgstr "Depo İlklendir"
 msgid "Open repository"
 msgstr "Depo Aç"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:469
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Birleştirme sırasında dal değiştirilemiyor"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:469
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Switch branch"
 msgstr "Dal Değiştir"
 
-#: src/gui/commandargsparser.cpp:55
+#: src/gui/commandargsparser.cpp:56
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Yol, bir git deposu değil: %1"
 
-#: src/gui/commandargsparser.cpp:240
+#: src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Depo, başarıyla ilklendirildi"
 
-#: src/gui/commandargsparser.cpp:498
+#: src/gui/commandargsparser.cpp:507
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Dosya(lar), başarıyla git'e eklendi"
 
-#: src/gui/commandargsparser.cpp:506
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Dosya(lar)ı, diskte bırakmak ister misiniz?"
 
-#: src/gui/commandargsparser.cpp:506
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Remove from index"
 msgstr "İndeksten kaldır"
 
-#: src/gui/commandargsparser.cpp:508
+#: src/gui/commandargsparser.cpp:517
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Dosya(lar), Git'ten başarıyla kaldırıldı"

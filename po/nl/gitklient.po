@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-21 00:49+0000\n"
+"POT-Creation-Date: 2022-11-26 00:49+0000\n"
 "PO-Revision-Date: 2022-11-10 18:46-0400\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -456,12 +456,12 @@ msgstr "Omschakelen/checkout..."
 msgid "Diff tree"
 msgstr "Diff tree"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:235
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Kan pad '%1' niet aanmaken"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:235
+#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Init repo"
 msgstr "Repo initialiseren"
@@ -471,42 +471,42 @@ msgstr "Repo initialiseren"
 msgid "Open repository"
 msgstr "Opslagruimte openen"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:469
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Kan branch niet omschakelen tijdens samenvoegen"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:469
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Switch branch"
 msgstr "Branch omschakelen"
 
-#: src/gui/commandargsparser.cpp:55
+#: src/gui/commandargsparser.cpp:56
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Het pad is geen git-repo: %1"
 
-#: src/gui/commandargsparser.cpp:240
+#: src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "De repo is met succes geïnitialiseerd"
 
-#: src/gui/commandargsparser.cpp:498
+#: src/gui/commandargsparser.cpp:507
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Bestand(en) met succes toegevoegd aan git "
 
-#: src/gui/commandargsparser.cpp:506
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Wilt u bestand(en) op schijf laten?"
 
-#: src/gui/commandargsparser.cpp:506
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Remove from index"
 msgstr "Uit index verwijderen"
 
-#: src/gui/commandargsparser.cpp:508
+#: src/gui/commandargsparser.cpp:517
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Bestand(en) met succes verwijderd uit git "
