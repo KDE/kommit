@@ -35,7 +35,7 @@ void MiniManager::setPath(const QString &newPath)
     p.waitForFinished();
     auto ret = p.readAllStandardOutput() + p.readAllStandardError();
 
-    if (ret.contains("fatal")) {
+    if (p.exitStatus() == QProcess::CrashExit || ret == QLatin1String() || ret.contains("fatal")) {
         mPath = QString();
         mIsValid = false;
     } else {

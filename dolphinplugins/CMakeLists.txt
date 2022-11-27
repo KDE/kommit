@@ -53,3 +53,7 @@ target_link_libraries(
     KF5::KIOWidgets
     libgitklient
 )
+
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+endif()
