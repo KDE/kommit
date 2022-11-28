@@ -10,6 +10,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QObject>
 #include <QString>
 
+namespace Git
+{
+
 class LIBGITKLIENT_EXPORT FileStatus
 {
 public:
@@ -38,8 +41,11 @@ public:
 
     void setFullPath(const QString &newFullPath);
 
+    void setStatus(Status status);
     void setStatus(const QString &x, const QString &y = QString());
     void setName(const QString &newName);
+
+    bool operator==(const FileStatus &other);
 
 private:
     QString mFullPath;
@@ -48,6 +54,9 @@ private:
 
     friend class Manager;
 };
-Q_DECLARE_METATYPE(FileStatus)
-Q_DECLARE_TYPEINFO(FileStatus, Q_MOVABLE_TYPE);
 bool operator==(const FileStatus &f1, const FileStatus &f2);
+
+}
+
+Q_DECLARE_METATYPE(Git::FileStatus)
+Q_DECLARE_TYPEINFO(Git::FileStatus, Q_MOVABLE_TYPE);

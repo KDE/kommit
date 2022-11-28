@@ -14,7 +14,7 @@ DiffTreeModel::DiffTreeModel(QObject *parent)
     setLastPartAsData(true);
 }
 
-void DiffTreeModel::addFile(const FileStatus &file)
+void DiffTreeModel::addFile(const Git::FileStatus &file)
 {
     addFile(file.name(), toDiffType(file.status()));
 }
@@ -95,24 +95,24 @@ QColor DiffTreeModel::statusColor(Diff::DiffType status) const
     return {};
 }
 
-Diff::DiffType DiffTreeModel::toDiffType(FileStatus::Status status) const
+Diff::DiffType DiffTreeModel::toDiffType(Git::FileStatus::Status status) const
 {
     switch (status) {
-    case FileStatus::NoGit:
-    case FileStatus::Unknown:
-    case FileStatus::Unmodified:
+    case Git::FileStatus::NoGit:
+    case Git::FileStatus::Unknown:
+    case Git::FileStatus::Unmodified:
         return Diff::DiffType::Unchanged;
-    case FileStatus::Added:
+    case Git::FileStatus::Added:
         return Diff::DiffType::Added;
-    case FileStatus::Removed:
+    case Git::FileStatus::Removed:
         return Diff::DiffType::Removed;
-    case FileStatus::Modified:
-    case FileStatus::Renamed:
-    case FileStatus::Copied:
+    case Git::FileStatus::Modified:
+    case Git::FileStatus::Renamed:
+    case Git::FileStatus::Copied:
         return Diff::DiffType::Modified;
-    case FileStatus::UpdatedButInmerged:
-    case FileStatus::Ignored:
-    case FileStatus::Untracked:
+    case Git::FileStatus::UpdatedButInmerged:
+    case Git::FileStatus::Ignored:
+    case Git::FileStatus::Untracked:
         return Diff::DiffType::Unchanged;
     }
     return Diff::DiffType::Unchanged;

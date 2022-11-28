@@ -7,6 +7,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "filestatus.h"
 #include <utility>
 
+namespace Git
+{
+
 FileStatus::FileStatus() = default;
 
 FileStatus::FileStatus(QString name, FileStatus::Status status)
@@ -47,6 +50,11 @@ void FileStatus::setFullPath(const QString &newFullPath)
     mFullPath = newFullPath;
 }
 
+void FileStatus::setStatus(Status status)
+{
+    mStatus = status;
+}
+
 void FileStatus::setStatus(const QString &x, const QString &y)
 {
     if (x == QLatin1Char('M') || y == QLatin1Char('M'))
@@ -74,7 +82,14 @@ void FileStatus::setName(const QString &newName)
     mName = newName;
 }
 
+bool FileStatus::operator==(const FileStatus &other)
+{
+    return mName == other.name();
+}
+
 bool operator==(const FileStatus &f1, const FileStatus &f2)
 {
     return f1.name() == f2.name();
+}
+
 }

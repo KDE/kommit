@@ -25,7 +25,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     void append(const QString &data);
 
-    void addFile(const FileStatus &file);
+    void addFile(const Git::FileStatus &file);
 
 private:
     QList<QPair<QString, QString>> mFiles;

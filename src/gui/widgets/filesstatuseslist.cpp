@@ -12,12 +12,12 @@ FilesStatusesList::FilesStatusesList(QWidget *parent)
     setColumnCount(2);
 }
 
-const QList<FileStatus> &FilesStatusesList::files() const
+const QList<Git::FileStatus> &FilesStatusesList::files() const
 {
     return mFiles;
 }
 
-void FilesStatusesList::setFiles(const QList<FileStatus> &newFiles)
+void FilesStatusesList::setFiles(const QList<Git::FileStatus> &newFiles)
 {
     mFiles = newFiles;
 }

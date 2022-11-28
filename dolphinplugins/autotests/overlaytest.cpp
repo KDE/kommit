@@ -33,6 +33,8 @@ void OverlayTest::test1()
 
     StatusCache cache;
 
+    using namespace Git;
+
     QCOMPARE(cache.fileStatus(tm.absoluteFilePath("added.txt")), FileStatus::Unmodified);
     QCOMPARE(cache.fileStatus(tm.absoluteFilePath("ignored.txt")), FileStatus::Ignored);
     QCOMPARE(cache.fileStatus(tm.absoluteFilePath("removed.txt")), FileStatus::Removed);
@@ -44,7 +46,7 @@ void OverlayTest::checkRootDir()
 {
     StatusCache cache;
     auto status = cache.pathStatus("/root");
-    QCOMPARE(status, FileStatus::NoGit);
+    QCOMPARE(status, Git::FileStatus::NoGit);
 }
 
 QTEST_MAIN(OverlayTest)

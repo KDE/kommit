@@ -61,18 +61,27 @@ QList<FileStatus> MiniManager::repoFilesStatus() const
                                                    false);
 
     QList<FileStatus> files;
+    QList<FileStatus> unknownFiles;
     // TODO: read untrackeds
     for (const auto &item : buffer) {
         if (item.trimmed().isEmpty())
             continue;
 
-        if (item.startsWith(QStringLiteral("??"))) { }
-
         FileStatus fs;
         fs.parseStatusLine(item);
         fs.setFullPath(mPath + QLatin1Char('/') + fs.name());
-        if (fs.status() != FileStatus::Untracked) // && !files.contains(fs))
+
+        if (item.startsWith(QStringLiteral("??")))
+            unknownFiles << fs;
+        else
             files.append(fs);
+    }
+    for (auto &f : unknownFiles) {
+        auto n = files.indexOf(f);
+        if (n == -1) {
+            f.setStatus(FileStatus::Untracked);
+            files.append(f);
+        }
     }
     return files;
 }

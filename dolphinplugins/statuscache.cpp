@@ -18,9 +18,9 @@ bool StatusCache::addPath(const QString &path)
 
     const auto statuses = git.repoFilesStatus();
 
-    for (const auto &s : statuses) {
+    for (const auto &s : statuses)
         mStatuses.insert(git.path() + QLatin1Char('/') + s.name(), s.status());
-    }
+
     return true;
 }
 
@@ -31,7 +31,7 @@ bool StatusCache::isInDir(const QString &dirPath, const QString &filePath)
     return filePath.lastIndexOf(QLatin1Char('/')) == dirPath.size();
 }
 
-FileStatus::Status StatusCache::fileStatus(const QFileInfo &fileInfo)
+Git::FileStatus::Status StatusCache::fileStatus(const QFileInfo &fileInfo)
 {
     const auto filePath = fileInfo.absoluteFilePath();
 
@@ -39,17 +39,17 @@ FileStatus::Status StatusCache::fileStatus(const QFileInfo &fileInfo)
         if (mStatuses.contains(filePath)) {
             return mStatuses.value(filePath);
         } else
-            return FileStatus::Unknown;
+            return Git::FileStatus::Unknown;
     }
 
     if (!addPath(fileInfo.absolutePath()))
-        return FileStatus::NoGit;
+        return Git::FileStatus::NoGit;
 
     if (mStatuses.contains(filePath)) {
         return mStatuses.value(filePath);
     }
 
-    return FileStatus::Unmodified;
+    return Git::FileStatus::Unmodified;
 }
 
 bool StatusCache::isGitDir(const QString &path)
@@ -58,19 +58,19 @@ bool StatusCache::isGitDir(const QString &path)
     return git.isValid();
 }
 
-FileStatus::Status StatusCache::fileStatus(const QString &filePath)
+Git::FileStatus::Status StatusCache::fileStatus(const QString &filePath)
 {
     return fileStatus(QFileInfo(filePath));
 }
 
-FileStatus::Status StatusCache::pathStatus(const QString &path)
+Git::FileStatus::Status StatusCache::pathStatus(const QString &path)
 {
     Git::MiniManager git(path);
     if (!git.isValid())
-        return FileStatus::NoGit;
+        return Git::FileStatus::NoGit;
 
     auto statuses = git.repoFilesStatus();
-    FileStatus::Status status = FileStatus::Unmodified;
+    Git::FileStatus::Status status = Git::FileStatus::Unmodified;
 
     for (const auto &s : std::as_const(statuses)) {
         const auto filePath = git.path() + QLatin1Char('/') + s.name();
@@ -79,10 +79,10 @@ FileStatus::Status StatusCache::pathStatus(const QString &path)
             continue;
         }
 
-        if (status == FileStatus::Unmodified) {
+        if (status == Git::FileStatus::Unmodified) {
             status = s.status();
         } else if (status != s.status()) {
-            return FileStatus::Modified;
+            return Git::FileStatus::Modified;
         }
     }
     return status;

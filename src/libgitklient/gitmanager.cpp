@@ -98,7 +98,7 @@ QList<FileStatus> Manager::repoFilesStatus() const
             continue;
         FileStatus fs;
         fs.parseStatusLine(item);
-        //        qCDebug(GITKLIENTLIB_LOG) << "[STATUS]" << fs.name() << fs.status();
+        qCDebug(GITKLIENTLIB_LOG) << "[STATUS]" << fs.name() << fs.status();
         fs.setFullPath(mPath + QLatin1Char('/') + fs.name());
         files.append(fs);
     }

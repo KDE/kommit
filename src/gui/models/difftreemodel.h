@@ -18,7 +18,7 @@ class DiffTreeModel : public TreeModel
 public:
     explicit DiffTreeModel(QObject *parent = nullptr);
 
-    void addFile(const FileStatus &file);
+    void addFile(const Git::FileStatus &file);
     void addFile(const QString &file, Diff::DiffType type);
 
     QVariant data(const QModelIndex &index, int role) const override;
@@ -26,7 +26,7 @@ public:
     void emitAll();
 
 private:
-    Q_REQUIRED_RESULT Diff::DiffType toDiffType(FileStatus::Status status) const;
+    Q_REQUIRED_RESULT Diff::DiffType toDiffType(Git::FileStatus::Status status) const;
     Node *createPath(const QStringList &path, Diff::DiffType status);
     QColor statusColor(Diff::DiffType status) const;
 };

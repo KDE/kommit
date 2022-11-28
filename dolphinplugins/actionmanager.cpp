@@ -69,18 +69,18 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
         KFileItem &item = items.first();
         const auto path = item.url().toLocalFile();
         mPath = path;
-        FileStatus::Status status;
+        Git::FileStatus::Status status;
         if (item.isFile())
             status = mCache.fileStatus(path);
         else
             status = mCache.pathStatus(path);
 
-        if (status == FileStatus::NoGit) {
+        if (status == Git::FileStatus::NoGit) {
         } else {
-            actionAdd->setVisible(status == FileStatus::Untracked);
-            actionRemove->setVisible(status != FileStatus::Untracked);
+            actionAdd->setVisible(status == Git::FileStatus::Untracked);
+            actionRemove->setVisible(status != Git::FileStatus::Untracked);
         }
-        isGit = status != FileStatus::NoGit;
+        isGit = status != Git::FileStatus::NoGit;
         isFile = item.isFile();
     }
 

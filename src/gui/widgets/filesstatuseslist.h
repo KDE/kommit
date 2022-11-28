@@ -16,12 +16,12 @@ class LIBGITKLIENTGUI_TESTS_EXPORT FilesStatusesList : public QTreeWidget
 public:
     explicit FilesStatusesList(QWidget *parent = nullptr);
 
-    const QList<FileStatus> &files() const;
-    void setFiles(const QList<FileStatus> &newFiles);
+    const QList<Git::FileStatus> &files() const;
+    void setFiles(const QList<Git::FileStatus> &newFiles);
     bool showCheckboxes() const;
     void setShowCheckboxes(bool newShowCheckboxes);
 
 private:
-    QList<FileStatus> mFiles;
+    QList<Git::FileStatus> mFiles;
     bool mShowCheckboxes{false};
 };

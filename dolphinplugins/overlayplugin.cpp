@@ -16,27 +16,27 @@ OverlayPlugin::OverlayPlugin(QObject *parent)
 }
 
 // TODO: Use Git::statusIcon
-QString icon(const FileStatus::Status &status)
+QString icon(const Git::FileStatus::Status &status)
 {
     switch (status) {
-    case FileStatus::Added:
+    case Git::FileStatus::Added:
         return QStringLiteral("git-status-added");
-    case FileStatus::Ignored:
+    case Git::FileStatus::Ignored:
         return QStringLiteral("git-status-ignored");
-    case FileStatus::Modified:
+    case Git::FileStatus::Modified:
         return QStringLiteral("git-status-modified");
-    case FileStatus::Removed:
+    case Git::FileStatus::Removed:
         return QStringLiteral("git-status-removed");
-    case FileStatus::Renamed:
+    case Git::FileStatus::Renamed:
         return QStringLiteral("git-status-renamed");
-    case FileStatus::Unknown:
-    case FileStatus::Untracked:
+    case Git::FileStatus::Unknown:
+    case Git::FileStatus::Untracked:
         return QStringLiteral("git-status-unknown");
-    case FileStatus::Copied:
-    case FileStatus::UpdatedButInmerged:
-    case FileStatus::Unmodified:
+    case Git::FileStatus::Copied:
+    case Git::FileStatus::UpdatedButInmerged:
+    case Git::FileStatus::Unmodified:
         return QStringLiteral("git-status-update");
-    case FileStatus::NoGit:
+    case Git::FileStatus::NoGit:
         return {};
     default:
         qCWarning(GIKLIENT_DOLPHIN_PLUGINS_LOG) << "Unknown icon" << status;
@@ -47,7 +47,7 @@ QString icon(const FileStatus::Status &status)
 QStringList OverlayPlugin::getOverlays(const QUrl &url)
 {
     if (!url.isLocalFile())
-        return {icon(FileStatus::NoGit)};
+        return {icon(Git::FileStatus::NoGit)};
 
     const QFileInfo fi(url.toLocalFile());
     if (fi.isDir()) {

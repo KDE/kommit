@@ -15,9 +15,9 @@ class StatusCache
 public:
     StatusCache();
 
-    FileStatus::Status fileStatus(const QString &path);
-    FileStatus::Status pathStatus(const QString &path);
-    FileStatus::Status fileStatus(const QFileInfo &fileInfo);
+    Git::FileStatus::Status fileStatus(const QString &path);
+    Git::FileStatus::Status pathStatus(const QString &path);
+    Git::FileStatus::Status fileStatus(const QFileInfo &fileInfo);
     bool isGitDir(const QString &path);
 
 private:
@@ -28,5 +28,5 @@ private:
 
 private:
     QString mLastDir;
-    QMap<QString, FileStatus::Status> mStatuses;
+    QMap<QString, Git::FileStatus::Status> mStatuses;
 };
