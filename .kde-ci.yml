@@ -10,7 +10,7 @@ Dependencies:
     'frameworks/ktexteditor': '@stable'
     'frameworks/ktextwidgets': '@stable'
     'frameworks/kio': '@stable'
-    'frameworks/ksyntaxhighlighting': '@stable'
+    'frameworks/syntax-highlighting': '@stable'
     'frameworks/kxmlgui': '@stable'
 
 
