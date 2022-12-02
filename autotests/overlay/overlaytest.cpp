@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "../common/gittestmanager.cpp"
 #include "gitglobal.cpp"
 
-#include <QtTest/QTest>
+#include <QTest>
 
 class OverlayTest : public QObject
 {

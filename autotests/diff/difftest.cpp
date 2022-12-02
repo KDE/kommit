@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "../../src/diff/diff.cpp"
 #include "../common/gittestmanager.cpp"
 #include <QDebug>
+#include <QTest>
 #include <QTextStream>
-#include <QtTest/QTest>
 
 class DiffTest : public QObject
 {

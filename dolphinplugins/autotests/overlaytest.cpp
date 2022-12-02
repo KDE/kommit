@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitglobal.cpp"
 #include "gittestmanager.cpp"
 
-#include <QtTest/QTest>
+#include <QTest>
 
 void OverlayTest::test1()
 {
