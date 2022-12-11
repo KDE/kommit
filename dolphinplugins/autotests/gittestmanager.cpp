@@ -13,14 +13,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 GitTestManager::GitTestManager()
 {
-    _path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/') + QUuid::createUuid().toString(QUuid::Id128) + "/";
+    mPath = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/') + QUuid::createUuid().toString(QUuid::Id128) + "/";
     QDir d;
-    d.mkpath(_path);
+    d.mkpath(mPath);
 }
 
 bool GitTestManager::touch(const QString &fileName)
 {
-    QFile f(_path + QLatin1Char('/') + fileName);
+    QFile f(mPath + QLatin1Char('/') + fileName);
     if (!f.open(QIODevice::WriteOnly | QIODevice::Text))
         return false;
     f.write(QUuid::createUuid().toString(QUuid::Id128).toLatin1());
@@ -61,7 +61,7 @@ void GitTestManager::commit(const QString &message)
 
 void GitTestManager::addToIgnore(const QString &pattern)
 {
-    QFile f(_path + "/.gitignore");
+    QFile f(mPath + "/.gitignore");
     if (!f.open(QIODevice::Text | QIODevice::Append))
         return;
 
@@ -71,7 +71,7 @@ void GitTestManager::addToIgnore(const QString &pattern)
 
 QString GitTestManager::absoluteFilePath(const QString &file)
 {
-    return _path + file;
+    return mPath + file;
 }
 
 QString GitTestManager::runGit(const QStringList &args)
@@ -79,7 +79,7 @@ QString GitTestManager::runGit(const QStringList &args)
     QProcess p;
     p.setProgram(QStringLiteral("git"));
     p.setArguments(args);
-    p.setWorkingDirectory(_path);
+    p.setWorkingDirectory(mPath);
     p.start();
     p.waitForFinished();
     auto out = p.readAllStandardOutput();

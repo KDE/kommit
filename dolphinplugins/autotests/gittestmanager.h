@@ -16,8 +16,6 @@ QString getTempPath();
 
 class GitTestManager
 {
-    QString _path;
-
 public:
     GitTestManager();
     bool touch(const QString &fileName);
@@ -31,5 +29,6 @@ public:
     QString absoluteFilePath(const QString &file);
 
 private:
+    QString mPath;
     QString runGit(const QStringList &args);
 };
