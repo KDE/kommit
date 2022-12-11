@@ -47,14 +47,18 @@ void StashActions::setStashName(const QString &newStashName)
 void StashActions::apply()
 {
     if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStashName))) {
-        mGit->applyStash(mStashName);
+        if (!mGit->applyStash(mStashName))
+            KMessageBox::information(mParent, i18n("Unable to apply the selected stash"));
     }
 }
 
 void StashActions::drop()
 {
     if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to drop the selected stash?"), i18n("Drop stash %1", mStashName))) {
-        mGit->removeStash(mStashName);
+        if (!mGit->removeStash(mStashName)) {
+            KMessageBox::information(mParent, i18n("Unable to remove the selected stash"));
+            return;
+        }
         mGit->stashesModel()->load();
     }
 }
