@@ -15,38 +15,38 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QTest>
 
+QTEST_MAIN(OverlayTest)
+
 void OverlayTest::test1()
 {
     GitTestManager tm;
 
     tm.init();
-    tm.addToIgnore("ignored.txt");
-    tm.touch("ignored.txt");
-    tm.touch("added.txt");
-    tm.touch("changed.txt");
-    tm.touch("removed.txt");
+    tm.addToIgnore(QStringLiteral("ignored.txt"));
+    tm.touch(QStringLiteral("ignored.txt"));
+    tm.touch(QStringLiteral("added.txt"));
+    tm.touch(QStringLiteral("changed.txt"));
+    tm.touch(QStringLiteral("removed.txt"));
     tm.add();
-    tm.commit("Initial commit");
-    tm.touch("changed.txt");
-    tm.remove("removed.txt");
-    tm.touch("untracked.txt");
+    tm.commit(QStringLiteral("Initial commit"));
+    tm.touch(QStringLiteral("changed.txt"));
+    tm.remove(QStringLiteral("removed.txt"));
+    tm.touch(QStringLiteral("untracked.txt"));
 
     StatusCache cache;
 
     using namespace Git;
 
-    QCOMPARE(cache.fileStatus(tm.absoluteFilePath("added.txt")), FileStatus::Unmodified);
-    QCOMPARE(cache.fileStatus(tm.absoluteFilePath("ignored.txt")), FileStatus::Ignored);
-    QCOMPARE(cache.fileStatus(tm.absoluteFilePath("removed.txt")), FileStatus::Removed);
-    QCOMPARE(cache.fileStatus(tm.absoluteFilePath("changed.txt")), FileStatus::Modified);
-    QCOMPARE(cache.fileStatus(tm.absoluteFilePath("untracked.txt")), FileStatus::Untracked);
+    QCOMPARE(cache.fileStatus(tm.absoluteFilePath(QStringLiteral("added.txt"))), FileStatus::Unmodified);
+    QCOMPARE(cache.fileStatus(tm.absoluteFilePath(QStringLiteral("ignored.txt"))), FileStatus::Ignored);
+    QCOMPARE(cache.fileStatus(tm.absoluteFilePath(QStringLiteral("removed.txt"))), FileStatus::Removed);
+    QCOMPARE(cache.fileStatus(tm.absoluteFilePath(QStringLiteral("changed.txt"))), FileStatus::Modified);
+    QCOMPARE(cache.fileStatus(tm.absoluteFilePath(QStringLiteral("untracked.txt"))), FileStatus::Untracked);
 }
 
 void OverlayTest::checkRootDir()
 {
     StatusCache cache;
-    auto status = cache.pathStatus("/root");
+    auto status = cache.pathStatus(QStringLiteral("/root"));
     QCOMPARE(status, Git::FileStatus::NoGit);
 }
-
-QTEST_MAIN(OverlayTest)

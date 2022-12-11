@@ -13,14 +13,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 GitTestManager::GitTestManager()
 {
-    _path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/" + QUuid::createUuid().toString(QUuid::Id128) + "/";
+    _path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/') + QUuid::createUuid().toString(QUuid::Id128) + "/";
     QDir d;
     d.mkpath(_path);
 }
 
 bool GitTestManager::touch(const QString &fileName)
 {
-    QFile f(_path + "/" + fileName);
+    QFile f(_path + QLatin1Char('/') + fileName);
     if (!f.open(QIODevice::WriteOnly | QIODevice::Text))
         return false;
     f.write(QUuid::createUuid().toString(QUuid::Id128).toLatin1());
@@ -30,33 +30,33 @@ bool GitTestManager::touch(const QString &fileName)
 
 bool GitTestManager::run(const QString &cmd)
 {
-    auto parts = cmd.split(' ');
+    auto parts = cmd.split(QLatin1Char(' '));
     return true;
 }
 
 void GitTestManager::init()
 {
-    runGit({"init"});
+    runGit({QStringLiteral("init")});
 }
 
 void GitTestManager::add(const QString &file)
 {
-    runGit({"add", file});
+    runGit({QStringLiteral("add"), file});
 }
 
 void GitTestManager::remove(const QString &file, bool cached)
 {
     QStringList args;
-    args << "rm";
+    args << QStringLiteral("rm");
     if (cached)
-        args << "--cached";
+        args << QStringLiteral("--cached");
     args << file;
     runGit(args);
 }
 
 void GitTestManager::commit(const QString &message)
 {
-    runGit({"commit", "-m", message});
+    runGit({QStringLiteral("commit"), QStringLiteral("-m"), message});
 }
 
 void GitTestManager::addToIgnore(const QString &pattern)
@@ -77,7 +77,7 @@ QString GitTestManager::absoluteFilePath(const QString &file)
 QString GitTestManager::runGit(const QStringList &args)
 {
     QProcess p;
-    p.setProgram("git");
+    p.setProgram(QStringLiteral("git"));
     p.setArguments(args);
     p.setWorkingDirectory(_path);
     p.start();
@@ -101,7 +101,7 @@ bool touch(const QString &fileName)
 
 QString getTempPath()
 {
-    auto path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/" + QUuid::createUuid().toString(QUuid::Id128);
+    auto path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/') + QUuid::createUuid().toString(QUuid::Id128);
     QDir d;
     d.mkpath(path);
     return path;

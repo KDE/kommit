@@ -24,7 +24,7 @@ public:
     bool run(const QString &cmd);
 
     void init();
-    void add(const QString &file = ".");
+    void add(const QString &file = QStringLiteral("."));
     void remove(const QString &file, bool cached = true);
     void commit(const QString &message);
     void addToIgnore(const QString &pattern);
