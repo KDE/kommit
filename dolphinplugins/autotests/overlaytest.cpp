@@ -10,8 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "../../dolphinplugins/statuscache.cpp"
 #include "../../src/libgitklient/filestatus.cpp"
 #include "../statuscache.h"
-#include "gitglobal.cpp"
-#include "gittestmanager.cpp"
+#include "gittestmanager.h"
 
 #include <QTest>
 

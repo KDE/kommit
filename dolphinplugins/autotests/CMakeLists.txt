@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 macro(add_dolphinplugins_test _source)
-    set( _test ${_source})
+    set( _test ${_source} gittestmanager.cpp gittestmanager.h)
     get_filename_component( _name ${_source} NAME_WE )
     add_executable( ${_name} ${_test} ${ARGN} ${_name}.h)
     add_test(NAME ${_name} COMMAND ${_name} )
