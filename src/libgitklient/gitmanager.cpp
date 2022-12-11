@@ -105,40 +105,6 @@ QList<FileStatus> Manager::repoFilesStatus() const
     return files;
 }
 
-QList<Manager::Log *> Manager::log(const QString &branch) const
-{
-    const auto lines = QString(runGit({QStringLiteral("--no-pager"), QStringLiteral("log"), branch})).split(QLatin1Char('\n'));
-
-    QList<Log *> logs;
-    Log *log{nullptr};
-    for (const auto &line : lines) {
-        if (line.startsWith(QStringLiteral("commit "))) {
-            if (log)
-                logs.append(log);
-            log = new Log;
-
-            log->hash = line.mid(7).trimmed();
-        } else {
-            if (!log)
-                return {}; // There is an error
-            if (line.startsWith(QStringLiteral("Author:"))) {
-                log->author = line.mid(8).trimmed();
-            } else if (line.startsWith(QStringLiteral("Date: "))) {
-                log->date = line.mid(5).trimmed();
-            } else {
-                const auto l = line.trimmed();
-                if (!l.isEmpty())
-                    log->message.append(l + QLatin1Char('\n'));
-            }
-        }
-    }
-
-    if (log)
-        logs.append(log);
-
-    return logs;
-}
-
 bool Manager::isValid() const
 {
     return mIsValid;
@@ -169,7 +135,7 @@ bool Manager::isIgnored(const QString &path)
     return !tmp.empty();
 }
 
-QPair<int, int> Manager::uniqueCommiteOnBranches(const QString &branch1, const QString &branch2) const
+QPair<int, int> Manager::uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const
 {
     if (branch1 == branch2)
         return qMakePair(0, 0);
@@ -433,12 +399,6 @@ void Manager::init(const QString &path)
 {
     mPath = path;
     runGit({QStringLiteral("init")});
-}
-
-bool Manager::isGitDir() const
-{
-    auto out = runGit(QStringList() << QStringLiteral("status"));
-    return !out.contains("fatal: not a git repository");
 }
 
 QByteArray Manager::runGit(const QStringList &args) const

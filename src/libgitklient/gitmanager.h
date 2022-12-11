@@ -47,105 +47,98 @@ class LIBGITKLIENT_EXPORT Manager : public QObject
     Q_PROPERTY(bool isMerging READ isMerging WRITE setIsMerging NOTIFY isMergingChanged)
 
 public:
-    struct Log {
-        QString hash;
-        QString author;
-        QString date;
-        QString message;
-    };
+    enum ConfigType { ConfigGlobal, ConfigLocal };
 
     Manager();
     explicit Manager(const QString &path);
     static Manager *instance();
 
-    Q_REQUIRED_RESULT QString currentBranch() const;
-
+    // run
     QString run(const AbstractCommand &cmd) const;
-
-    void init(const QString &path);
-
-    bool isGitDir() const;
     QByteArray runGit(const QStringList &args) const;
-    Q_REQUIRED_RESULT QStringList ls(const QString &place) const;
-    QString fileContent(const QString &place, const QString &fileName) const;
-    void saveFile(const QString &place, const QString &fileName, const QString &localFile) const;
+
+    // common actions
+    void init(const QString &path);
+    void commit(const QString &message) const;
+    void push() const;
+
+    // properties
+    Q_REQUIRED_RESULT const QString &path() const;
+    void setPath(const QString &newPath);
+    Q_REQUIRED_RESULT bool isValid() const;
+    Q_REQUIRED_RESULT bool isMerging() const;
+    void setIsMerging(bool newIsMerging);
+
+    Q_REQUIRED_RESULT const LoadFlags &loadFlags() const;
+    void setLoadFlags(Git::LoadFlags newLoadFlags);
+
+    // branches
+    Q_REQUIRED_RESULT QString currentBranch() const;
+    Q_REQUIRED_RESULT QPair<int, int> uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const;
     Q_REQUIRED_RESULT QStringList branches() const;
     Q_REQUIRED_RESULT QStringList remoteBranches() const;
-    Q_REQUIRED_RESULT QStringList remotes() const;
 
+    // tags
     Q_REQUIRED_RESULT QStringList tags() const;
     void createTag(const QString &name, const QString &message) const;
 
+    // stashes
     QList<Stash> stashes();
     void createStash(const QString &name = QString()) const;
-    bool removeStash(const QString &name) const;
-    bool applyStash(const QString &name) const;
+    Q_REQUIRED_RESULT bool removeStash(const QString &name) const;
+    Q_REQUIRED_RESULT bool applyStash(const QString &name) const;
 
+    // remotes
+    Q_REQUIRED_RESULT QStringList remotes() const;
     Remote remoteDetails(const QString &remoteName);
-    bool removeBranch(const QString &branchName) const;
+    Q_REQUIRED_RESULT bool removeBranch(const QString &branchName) const;
+    Q_REQUIRED_RESULT bool addRemote(const QString &name, const QString &url) const;
+    Q_REQUIRED_RESULT bool removeRemote(const QString &name) const;
+    Q_REQUIRED_RESULT bool renameRemote(const QString &name, const QString &newName) const;
 
-    BlameData blame(const File &file);
-
-    void revertFile(const QString &filePath) const;
-
-    Q_REQUIRED_RESULT QMap<QString, ChangeStatus> changedFiles() const;
-    void commit(const QString &message) const;
-    void push() const;
-    void addFile(const QString &file) const;
-    void removeFile(const QString &file, bool cached) const;
-
-    Q_REQUIRED_RESULT const QString &path() const;
-    void setPath(const QString &newPath);
-
-    QMap<QString, ChangeStatus> changedFiles(const QString &hash) const;
-
-    Q_REQUIRED_RESULT QStringList ignoredFiles() const;
-    QList<FileStatus> repoFilesStatus() const;
-
-    QList<Log *> log(const QString &branch) const;
-    bool isValid() const;
-
-    bool addRemote(const QString &name, const QString &url) const;
-    bool removeRemote(const QString &name) const;
-    bool renameRemote(const QString &name, const QString &newName) const;
-
-    bool isIgnored(const QString &path);
-
-    QPair<int, int> uniqueCommiteOnBranches(const QString &branch1, const QString &branch2) const;
-
-    QStringList fileLog(const QString &fileName) const;
-
-    QString diff(const QString &from, const QString &to) const;
-    Q_REQUIRED_RESULT QList<FileStatus> diffBranch(const QString &from) const;
-    Q_REQUIRED_RESULT QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
-
-    enum ConfigType { ConfigGlobal, ConfigLocal };
-
-    QString config(const QString &name, ConfigType type = ConfigLocal) const;
-    bool configBool(const QString &name, ConfigType type = ConfigLocal) const;
+    // config
+    Q_REQUIRED_RESULT QString config(const QString &name, ConfigType type = ConfigLocal) const;
+    Q_REQUIRED_RESULT bool configBool(const QString &name, ConfigType type = ConfigLocal) const;
     void setConfig(const QString &name, const QString &value, ConfigType type = ConfigLocal) const;
     void unsetConfig(const QString &name, ConfigType type = ConfigLocal) const;
 
-    RemotesModel *remotesModel() const;
-    SubmodulesModel *submodulesModel() const;
-    BranchesModel *branchesModel() const;
-    AuthorsModel *authorsModel() const;
-    LogsModel *logsModel() const;
-    StashesModel *stashesModel() const;
-    TagsModel *tagsModel() const;
+    // files
+    void addFile(const QString &file) const;
+    Q_REQUIRED_RESULT QStringList ls(const QString &place) const;
+    Q_REQUIRED_RESULT QString fileContent(const QString &place, const QString &fileName) const;
+    void saveFile(const QString &place, const QString &fileName, const QString &localFile) const;
+    void revertFile(const QString &filePath) const;
+    void removeFile(const QString &file, bool cached) const;
+    Q_REQUIRED_RESULT QStringList fileLog(const QString &fileName) const;
+    BlameData blame(const File &file);
+    Q_REQUIRED_RESULT QMap<QString, ChangeStatus> changedFiles() const;
+    Q_REQUIRED_RESULT QMap<QString, ChangeStatus> changedFiles(const QString &hash) const;
+    Q_REQUIRED_RESULT QStringList ignoredFiles() const;
+    Q_REQUIRED_RESULT QList<FileStatus> repoFilesStatus() const;
 
-    bool isMerging() const;
-    void setIsMerging(bool newIsMerging);
-
-    const LoadFlags &loadFlags() const;
-    void setLoadFlags(Git::LoadFlags newLoadFlags);
-
+    // notes
     Q_REQUIRED_RESULT QString readNote(const QString &branchName) const;
     void saveNote(const QString &branchName, const QString &note) const;
 
+    // ignores
+    bool isIgnored(const QString &path);
+
+    // diffs
+    Q_REQUIRED_RESULT QString diff(const QString &from, const QString &to) const;
+    Q_REQUIRED_RESULT QList<FileStatus> diffBranch(const QString &from) const;
+    Q_REQUIRED_RESULT QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
+
+    // models
+    Q_REQUIRED_RESULT RemotesModel *remotesModel() const;
+    Q_REQUIRED_RESULT SubmodulesModel *submodulesModel() const;
+    Q_REQUIRED_RESULT BranchesModel *branchesModel() const;
+    Q_REQUIRED_RESULT AuthorsModel *authorsModel() const;
+    Q_REQUIRED_RESULT LogsModel *logsModel() const;
+    Q_REQUIRED_RESULT StashesModel *stashesModel() const;
+    Q_REQUIRED_RESULT TagsModel *tagsModel() const;
+
 Q_SIGNALS:
     void pathChanged();
-
     void isMergingChanged();
 
 private:

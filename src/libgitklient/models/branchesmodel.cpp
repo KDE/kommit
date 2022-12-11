@@ -105,7 +105,7 @@ const QString &BranchesModel::referenceBranch() const
 void BranchesModel::calculateCommitStats()
 {
     for (auto &b : mData) {
-        const auto commitsInfo = mGit->uniqueCommiteOnBranches(mReferenceBranch, b->name);
+        const auto commitsInfo = mGit->uniqueCommitsOnBranches(mReferenceBranch, b->name);
         b->commitsBehind = commitsInfo.first;
         b->commitsAhead = commitsInfo.second;
     }

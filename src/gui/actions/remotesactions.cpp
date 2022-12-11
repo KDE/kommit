@@ -59,7 +59,10 @@ void RemotesActions::create()
 void RemotesActions::remove()
 {
     if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected remote?"), i18n("Remove remote?"))) {
-        mGit->removeRemote(mRemoteName);
+        if (!mGit->removeRemote(mRemoteName)) {
+            KMessageBox::information(mParent, i18n("Unable to remove the selected remote"));
+            return;
+        }
         mGit->remotesModel()->load();
     }
 }

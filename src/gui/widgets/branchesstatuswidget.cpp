@@ -12,6 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/branchesmodel.h"
 
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QDebug>
 
 BranchesStatusWidget::BranchesStatusWidget(Git::Manager *git, AppWindow *parent)
@@ -68,7 +69,10 @@ void BranchesStatusWidget::slotPushButtonRemoveSelectedClicked()
     if (KMessageBoxHelper::removeQuestion(this, i18n("Are you sure to remove the selected branch?"))) {
         auto branchData = mGit->branchesModel()->fromIndex(treeView->currentIndex());
         if (branchData) {
-            mGit->removeBranch(branchData->name);
+            if (!mGit->removeBranch(branchData->name)) {
+                KMessageBox::information(this, i18n("Unable to remove the selected branch"));
+                return;
+            }
             mGit->branchesModel()->load();
         }
     }
