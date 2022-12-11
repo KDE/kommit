@@ -6,10 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "overlaytest.h"
 
-#include "../../dolphinplugins/manager.cpp"
-#include "../../dolphinplugins/statuscache.cpp"
-#include "../../src/libgitklient/filestatus.cpp"
-#include "../statuscache.h"
+#include "../../dolphinplugins/statuscache.h"
+#include "filestatus.h"
 #include "gittestmanager.h"
 
 #include <QTest>
