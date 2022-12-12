@@ -34,7 +34,7 @@ protected:
         comboBox->clear();
         QMetaEnum e = QMetaEnum::fromType<_Enum>();
         for (auto i = 0; i < e.keyCount(); i++) {
-            QString name = e.key(i);
+            const QString name = e.key(i);
             comboBox->addItem(name, e.value(i));
         }
     }
