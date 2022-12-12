@@ -27,12 +27,10 @@ public:
 
     void init(Git::Manager *git);
 
-private Q_SLOTS:
-    void slotComboBoxReferenceBranchCurrentIndexChanged(int selectedBranch);
-    void slotPushButtonRemoveSelectedClicked();
-    void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
-
 private:
+    void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
+    void slotPushButtonRemoveSelectedClicked();
+    void slotComboBoxReferenceBranchCurrentIndexChanged(int selectedBranch);
     BranchActions *mActions = nullptr;
     Git::BranchesModel *mModel = nullptr;
 };
