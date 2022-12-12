@@ -22,8 +22,8 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
-    QString filePath(int index) const;
-    int size() const;
+    Q_REQUIRED_RESULT QString filePath(int index) const;
+    Q_REQUIRED_RESULT int size() const;
     Q_REQUIRED_RESULT QStringList checkedFiles() const;
     void checkByStatus(Git::ChangeStatus status);
     void checkByStatus(const QList<Git::ChangeStatus> &statuses);
