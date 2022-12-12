@@ -37,7 +37,7 @@ public:
     };
 
     explicit CodeEditor(QWidget *parent = nullptr);
-    ~CodeEditor();
+    ~CodeEditor() override;
 
     void setHighlighting(const QString &fileName);
 
