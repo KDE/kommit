@@ -46,11 +46,3 @@ void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
         lastCommit = commitHash;
     }
 }
-
-Git::Log *BlameCodeView::currentLog() const
-{
-    auto tmp = currentBlockData();
-    if (tmp)
-        return static_cast<Git::Log *>(tmp->data);
-    return nullptr;
-}

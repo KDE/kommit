@@ -33,5 +33,5 @@ public:
     Q_REQUIRED_RESULT QString branch() const;
     void setBranch(const QString &newBranch);
 
-    Git::AddSubmoduleCommand *command() const;
+    Q_REQUIRED_RESULT Git::AddSubmoduleCommand *command() const;
 };

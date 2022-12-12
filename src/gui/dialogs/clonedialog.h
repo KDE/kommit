@@ -20,7 +20,7 @@ public:
     explicit CloneDialog(QWidget *parent = nullptr);
     ~CloneDialog() override;
 
-    Git::CloneCommand *command();
+    Q_REQUIRED_RESULT Git::CloneCommand *command();
 
     void setLocalPath(const QString &path);
 

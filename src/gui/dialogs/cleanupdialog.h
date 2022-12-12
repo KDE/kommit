@@ -20,5 +20,5 @@ class CleanupDialog : public AppDialog, private Ui::CleanupDialog
 public:
     explicit CleanupDialog(QWidget *parent = nullptr);
 
-    Git::CommandClean *command() const;
+    Q_REQUIRED_RESULT Git::CommandClean *command() const;
 };

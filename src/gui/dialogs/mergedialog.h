@@ -20,7 +20,7 @@ class MergeDialog : public AppDialog, private Ui::MergeDialog
 public:
     explicit MergeDialog(Git::Manager *git, QWidget *parent = nullptr);
     explicit MergeDialog(Git::Manager *git, const QString &sourceBranch, QWidget *parent = nullptr);
-    Git::CommandMerge *command() const;
+    Q_REQUIRED_RESULT Git::CommandMerge *command() const;
 
 private:
     void slotComboBoxStrategyCurrentIndexChanged(int index);

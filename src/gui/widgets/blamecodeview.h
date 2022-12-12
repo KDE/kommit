@@ -18,8 +18,6 @@ public:
     const Git::BlameData &blameData() const;
     void setBlameData(const Git::BlameData &newBlameData);
 
-    Git::Log *currentLog() const;
-
 private:
     Git::BlameData mBlameData;
 };

@@ -20,5 +20,5 @@ class SwitchBranchDialog : public AppDialog, private Ui::SwitchBranchDialog
 public:
     explicit SwitchBranchDialog(Git::Manager *git, QWidget *parent = nullptr);
 
-    Git::CommandSwitchBranch *command() const;
+    Q_REQUIRED_RESULT Git::CommandSwitchBranch *command() const;
 };
