@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:49+0000\n"
+"POT-Creation-Date: 2022-12-12 00:49+0000\n"
 "PO-Revision-Date: 2022-10-17 10:39+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -126,7 +126,7 @@ msgid "Branch name"
 msgstr ""
 
 #: src/gui/actions/branchactions.cpp:128
-#: src/gui/widgets/branchesstatuswidget.cpp:68
+#: src/gui/widgets/branchesstatuswidget.cpp:69
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr ""
@@ -134,6 +134,12 @@ msgstr ""
 #: src/gui/actions/branchactions.cpp:128
 #, kde-format
 msgid "Remove Branch"
+msgstr ""
+
+#: src/gui/actions/branchactions.cpp:130
+#: src/gui/widgets/branchesstatuswidget.cpp:73
+#, kde-format
+msgid "Unable to remove the selected branch"
 msgstr ""
 
 #: src/gui/actions/changedfileactions.cpp:18
@@ -222,27 +228,32 @@ msgstr ""
 msgid "Remove remote?"
 msgstr ""
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:63
 #, kde-format
-msgid "Change url"
-msgstr ""
-
-#: src/gui/actions/remotesactions.cpp:73
-#, kde-format
-msgid "URL"
+msgid "Unable to remove the selected remote"
 msgstr ""
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
+msgid "Change url"
+msgstr ""
+
+#: src/gui/actions/remotesactions.cpp:76
+#, kde-format
+msgid "URL"
+msgstr ""
+
+#: src/gui/actions/remotesactions.cpp:79
+#, kde-format
 msgid "Url for remote changed successfully"
 msgstr ""
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "Rename"
 msgstr ""
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "New name"
 msgstr ""
@@ -272,42 +283,52 @@ msgstr ""
 msgid "Apply stash %1"
 msgstr ""
 
-#: src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:51
+#, kde-format
+msgid "Unable to apply the selected stash"
+msgstr ""
+
+#: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr ""
 
-#: src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Drop stash %1"
 msgstr ""
 
-#: src/gui/actions/stashactions.cpp:64
+#: src/gui/actions/stashactions.cpp:59
+#, kde-format
+msgid "Unable to remove the selected stash"
+msgstr ""
+
+#: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr ""
 
-#: src/gui/actions/stashactions.cpp:64
+#: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Pop stash %1"
 msgstr ""
 
-#: src/gui/actions/stashactions.cpp:79
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "You don't have any changes!"
 msgstr ""
 
-#: src/gui/actions/stashactions.cpp:79
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "Stash"
 msgstr ""
 
-#: src/gui/actions/stashactions.cpp:84
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Create new stash"
 msgstr ""
 
-#: src/gui/actions/stashactions.cpp:84
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Name of stash"
 msgstr ""

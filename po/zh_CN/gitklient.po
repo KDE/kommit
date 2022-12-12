@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:49+0000\n"
+"POT-Creation-Date: 2022-12-12 00:49+0000\n"
 "PO-Revision-Date: 2022-12-01 06:54\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -126,7 +126,7 @@ msgid "Branch name"
 msgstr "分支名称"
 
 #: src/gui/actions/branchactions.cpp:128
-#: src/gui/widgets/branchesstatuswidget.cpp:68
+#: src/gui/widgets/branchesstatuswidget.cpp:69
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "确定移除所选分支？"
@@ -135,6 +135,13 @@ msgstr "确定移除所选分支？"
 #, kde-format
 msgid "Remove Branch"
 msgstr "删除分支"
+
+#: src/gui/actions/branchactions.cpp:130
+#: src/gui/widgets/branchesstatuswidget.cpp:73
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected branch?"
+msgid "Unable to remove the selected branch"
+msgstr "确定移除所选分支？"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
@@ -222,27 +229,33 @@ msgstr "您确定要删除所选远端吗？"
 msgid "Remove remote?"
 msgstr "移除远端？"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:63
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected remote?"
+msgid "Unable to remove the selected remote"
+msgstr "您确定要删除所选远端吗？"
+
+#: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "Change url"
 msgstr "更改 URL"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "URL"
 msgstr "URL"
 
-#: src/gui/actions/remotesactions.cpp:76
+#: src/gui/actions/remotesactions.cpp:79
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "远端 URL 更改成功"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "Rename"
 msgstr "重命名"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "New name"
 msgstr "新名称"
@@ -272,42 +285,54 @@ msgstr "您确定要应用选定的暂存？"
 msgid "Apply stash %1"
 msgstr "应用暂存 %1"
 
-#: src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:51
+#, fuzzy, kde-format
+#| msgid "Are you sure to apply the selected stash?"
+msgid "Unable to apply the selected stash"
+msgstr "您确定要应用选定的暂存？"
+
+#: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr ""
 
-#: src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Drop stash %1"
 msgstr ""
 
-#: src/gui/actions/stashactions.cpp:64
+#: src/gui/actions/stashactions.cpp:59
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected tag?"
+msgid "Unable to remove the selected stash"
+msgstr "您确定要删除选中的标签吗？"
+
+#: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr ""
 
-#: src/gui/actions/stashactions.cpp:64
+#: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Pop stash %1"
 msgstr ""
 
-#: src/gui/actions/stashactions.cpp:79
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "您没有任何更改！"
 
-#: src/gui/actions/stashactions.cpp:79
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "Stash"
 msgstr "暂存"
 
-#: src/gui/actions/stashactions.cpp:84
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Create new stash"
 msgstr "建立新暂存"
 
-#: src/gui/actions/stashactions.cpp:84
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Name of stash"
 msgstr "暂存名称"

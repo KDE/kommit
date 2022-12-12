@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:49+0000\n"
+"POT-Creation-Date: 2022-12-12 00:49+0000\n"
 "PO-Revision-Date: 2022-09-18 12:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -126,7 +126,7 @@ msgid "Branch name"
 msgstr "Branch name"
 
 #: src/gui/actions/branchactions.cpp:128
-#: src/gui/widgets/branchesstatuswidget.cpp:68
+#: src/gui/widgets/branchesstatuswidget.cpp:69
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Are you sure to remove the selected branch?"
@@ -135,6 +135,13 @@ msgstr "Are you sure to remove the selected branch?"
 #, kde-format
 msgid "Remove Branch"
 msgstr "Remove Branch"
+
+#: src/gui/actions/branchactions.cpp:130
+#: src/gui/widgets/branchesstatuswidget.cpp:73
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected branch?"
+msgid "Unable to remove the selected branch"
+msgstr "Are you sure to remove the selected branch?"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
@@ -223,27 +230,33 @@ msgstr "Are you sure to remove the selected remote?"
 msgid "Remove remote?"
 msgstr "Remove remote?"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:63
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected remote?"
+msgid "Unable to remove the selected remote"
+msgstr "Are you sure to remove the selected remote?"
+
+#: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "Change url"
 msgstr "Change URL"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "URL"
 msgstr "URL"
 
-#: src/gui/actions/remotesactions.cpp:76
+#: src/gui/actions/remotesactions.cpp:79
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "URL for remote changed successfully"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "Rename"
 msgstr "Rename"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "New name"
 msgstr "New name"
@@ -273,46 +286,58 @@ msgstr "Are you sure to apply the selected stash?"
 msgid "Apply stash %1"
 msgstr "Apply stash %1"
 
-#: src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:51
+#, fuzzy, kde-format
+#| msgid "Are you sure to apply the selected stash?"
+msgid "Unable to apply the selected stash"
+msgstr "Are you sure to apply the selected stash?"
+
+#: src/gui/actions/stashactions.cpp:57
 #, fuzzy, kde-format
 #| msgid "Are you sure to apply the selected stash?"
 msgid "Are you sure to drop the selected stash?"
 msgstr "Are you sure to apply the selected stash?"
 
-#: src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:57
 #, fuzzy, kde-format
 #| msgid "Apply stash %1"
 msgid "Drop stash %1"
 msgstr "Apply stash %1"
 
-#: src/gui/actions/stashactions.cpp:64
+#: src/gui/actions/stashactions.cpp:59
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected tag?"
+msgid "Unable to remove the selected stash"
+msgstr "Are you sure to remove the selected tag?"
+
+#: src/gui/actions/stashactions.cpp:68
 #, fuzzy, kde-format
 #| msgid "Are you sure to apply the selected stash?"
 msgid "Are you sure to pop the selected stash?"
 msgstr "Are you sure to apply the selected stash?"
 
-#: src/gui/actions/stashactions.cpp:64
+#: src/gui/actions/stashactions.cpp:68
 #, fuzzy, kde-format
 #| msgid "Apply stash %1"
 msgid "Pop stash %1"
 msgstr "Apply stash %1"
 
-#: src/gui/actions/stashactions.cpp:79
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "You don't have any changes!"
 
-#: src/gui/actions/stashactions.cpp:79
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "Stash"
 msgstr "Stash"
 
-#: src/gui/actions/stashactions.cpp:84
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Create new stash"
 msgstr "Create new stash"
 
-#: src/gui/actions/stashactions.cpp:84
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Name of stash"
 msgstr "Name of stash"

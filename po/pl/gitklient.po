@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:49+0000\n"
-"PO-Revision-Date: 2022-10-11 18:36+0200\n"
+"POT-Creation-Date: 2022-12-12 00:49+0000\n"
+"PO-Revision-Date: 2022-12-11 07:24+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,14 +16,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.08.3\n"
 
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Łukasz Wojniłowicz"
 
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "lukasz.wojnilowicz@gmail.com"
@@ -71,14 +71,14 @@ msgid "Bug fixing"
 msgstr "Naprawa błędów"
 
 #: src/gui/actions/branchactions.cpp:30
-#, fuzzy, kde-format
+#, kde-format
 msgid "Create..."
-msgstr "Utwórz"
+msgstr "Utwórz..."
 
 #: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:175
-#, fuzzy, kde-format
+#, kde-format
 msgid "Fetch..."
-msgstr "Pobierz"
+msgstr "Pobierz..."
 
 #: src/gui/actions/branchactions.cpp:34 src/gui/actions/commitactions.cpp:33
 #: src/gui/mainwidget.cpp:100
@@ -87,7 +87,7 @@ msgid "Browse..."
 msgstr "Przeglądaj..."
 
 #: src/gui/actions/branchactions.cpp:35
-#, fuzzy, kde-format
+#, kde-format
 msgid "Switch"
 msgstr "Przełącz"
 
@@ -127,66 +127,73 @@ msgid "Branch name"
 msgstr "Nazwa gałęzi"
 
 #: src/gui/actions/branchactions.cpp:128
-#: src/gui/widgets/branchesstatuswidget.cpp:68
+#: src/gui/widgets/branchesstatuswidget.cpp:69
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
-msgstr ""
+msgstr "Czy na pewno usunąć zaznaczoną gałąź?"
 
 #: src/gui/actions/branchactions.cpp:128
 #, kde-format
 msgid "Remove Branch"
-msgstr ""
+msgstr "Usuń gałąź"
+
+#: src/gui/actions/branchactions.cpp:130
+#: src/gui/widgets/branchesstatuswidget.cpp:73
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected branch?"
+msgid "Unable to remove the selected branch"
+msgstr "Czy na pewno usunąć zaznaczoną gałąź?"
 
 #: src/gui/actions/changedfileactions.cpp:18
-#, fuzzy, kde-format
+#, kde-format
 msgid "Diff..."
-msgstr "Różnica"
+msgstr "Różnica..."
 
 #: src/gui/actions/changedfileactions.cpp:19
-#, fuzzy, kde-format
+#, kde-format
 msgid "Revert..."
-msgstr "Wycofaj"
+msgstr "Wycofaj..."
 
 #: src/gui/actions/commitactions.cpp:34 src/gui/actions/tagsactions.cpp:26
-#, fuzzy, kde-format
+#, kde-format
 msgid "Checkout..."
-msgstr "Sprawdzenie"
+msgstr "Pobierz wersję wyjściową..."
 
 #: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
-msgstr ""
+msgstr "Różnica względem HEAD..."
 
 #: src/gui/actions/fileactions.cpp:82
-#, fuzzy, kde-format
+#, kde-format
 msgid "Preview"
-msgstr "Przegląd"
+msgstr "Podgląd"
 
 #: src/gui/actions/fileactions.cpp:83
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open"
 msgstr "Otwórz"
 
 #: src/gui/actions/fileactions.cpp:84
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open with..."
 msgstr "Otwórz za pomocą..."
 
 #: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Merge with HEAD..."
-msgstr ""
+msgstr "Scal z HEAD..."
 
 #: src/gui/actions/fileactions.cpp:89
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save as..."
 msgstr "Zapisz jako..."
 
 #: src/gui/actions/fileactions.cpp:90
-#, fuzzy, kde-format
+#, kde-format
 msgid "Log..."
-msgstr "Dziennik"
+msgstr "Dziennik..."
 
 #: src/gui/actions/fileactions.cpp:91
 #, kde-format
@@ -194,56 +201,62 @@ msgid "Blame..."
 msgstr "Obwiń..."
 
 #: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:190
-#, fuzzy, kde-format
+#, kde-format
 msgid "Search..."
-msgstr "Znajdź..."
+msgstr "Poszukaj..."
 
 #: src/gui/actions/remotesactions.cpp:25
-#, fuzzy, kde-format
+#, kde-format
 msgid "New..."
 msgstr "Nowy..."
 
 #: src/gui/actions/remotesactions.cpp:27
-#, fuzzy, kde-format
+#, kde-format
 msgid "Rename..."
-msgstr "Zmień nazwę..."
+msgstr "Przemianuj..."
 
 #: src/gui/actions/remotesactions.cpp:28
-#, fuzzy, kde-format
+#, kde-format
 msgid "Change url..."
-msgstr "Zmień adres URL"
+msgstr "Zmień adres URL..."
 
 #: src/gui/actions/remotesactions.cpp:61
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
-msgstr ""
+msgstr "Czy na pewno usunąć zaznaczoną gałąź zdalną?"
 
 #: src/gui/actions/remotesactions.cpp:61
 #, kde-format
 msgid "Remove remote?"
-msgstr ""
+msgstr "Usunąć zdalne repozytorium?"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:63
 #, fuzzy, kde-format
-msgid "Change url"
-msgstr "Zmień adres URL"
-
-#: src/gui/actions/remotesactions.cpp:73
-#, fuzzy, kde-format
-msgid "URL"
-msgstr "Adres URL"
+#| msgid "Are you sure to remove the selected remote?"
+msgid "Unable to remove the selected remote"
+msgstr "Czy na pewno usunąć zaznaczoną gałąź zdalną?"
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
+msgid "Change url"
+msgstr "Zmień adres URL"
+
+#: src/gui/actions/remotesactions.cpp:76
+#, kde-format
+msgid "URL"
+msgstr "Adres URL"
+
+#: src/gui/actions/remotesactions.cpp:79
+#, kde-format
 msgid "Url for remote changed successfully"
-msgstr ""
+msgstr "Pomyślnie zmieniono adres URL dla repozytorium zdalnego"
 
-#: src/gui/actions/remotesactions.cpp:82
-#, fuzzy, kde-format
+#: src/gui/actions/remotesactions.cpp:85
+#, kde-format
 msgid "Rename"
-msgstr "Zmień nazwę"
+msgstr "Przemianuj"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "New name"
 msgstr "Nowa nazwa"
@@ -251,67 +264,79 @@ msgstr "Nowa nazwa"
 #: src/gui/actions/stashactions.cpp:22
 #, kde-format
 msgid "New stash..."
-msgstr ""
+msgstr "Nowe składowisko..."
 
 #: src/gui/actions/stashactions.cpp:24
-#, fuzzy, kde-format
+#, kde-format
 msgid "Pop..."
-msgstr "POP3"
+msgstr "Pobierz ze składowiska..."
 
 #: src/gui/actions/stashactions.cpp:25
-#, fuzzy, kde-format
+#, kde-format
 msgid "Apply..."
-msgstr "Zastosuj"
+msgstr "Zastosuj..."
 
 #: src/gui/actions/stashactions.cpp:49
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
-msgstr ""
+msgstr "Czy na pewno zastosować zaznaczone składowisko?"
 
 #: src/gui/actions/stashactions.cpp:49
-#, fuzzy, kde-format
+#, kde-format
 msgid "Apply stash %1"
-msgstr "Nałóż składowisko"
+msgstr "Zastosuj składowisko %1"
 
-#: src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:51
+#, fuzzy, kde-format
+#| msgid "Are you sure to apply the selected stash?"
+msgid "Unable to apply the selected stash"
+msgstr "Czy na pewno zastosować zaznaczone składowisko?"
+
+#: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
-msgstr ""
+msgstr "Czy na pewno porzucić zaznaczone składowisko?"
 
-#: src/gui/actions/stashactions.cpp:56
-#, fuzzy, kde-format
+#: src/gui/actions/stashactions.cpp:57
+#, kde-format
 msgid "Drop stash %1"
-msgstr "Nałóż składowisko"
+msgstr "Porzuć składowisko %1"
 
-#: src/gui/actions/stashactions.cpp:64
+#: src/gui/actions/stashactions.cpp:59
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected tag?"
+msgid "Unable to remove the selected stash"
+msgstr "Na pewno usunąć zaznaczony znacznik?"
+
+#: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
-msgstr ""
+msgstr "Czy na pewno pobrać z zaznaczonego składowiska?"
 
-#: src/gui/actions/stashactions.cpp:64
-#, fuzzy, kde-format
+#: src/gui/actions/stashactions.cpp:68
+#, kde-format
 msgid "Pop stash %1"
-msgstr "Nałóż składowisko"
+msgstr "Pobierz ze składowiska %1"
 
-#: src/gui/actions/stashactions.cpp:79
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "You don't have any changes!"
-msgstr ""
+msgstr "Nie masz żadnych zmian!"
 
-#: src/gui/actions/stashactions.cpp:79
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "Stash"
 msgstr "Schowek"
 
-#: src/gui/actions/stashactions.cpp:84
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Create new stash"
-msgstr ""
+msgstr "Utwórz nowe składowisko"
 
-#: src/gui/actions/stashactions.cpp:84
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Name of stash"
-msgstr ""
+msgstr "Nazwa składowiska"
 
 #: src/gui/actions/submoduleactions.cpp:40
 #, kde-format
@@ -319,40 +344,40 @@ msgid "Add..."
 msgstr "Dodaj..."
 
 #: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:145
-#, fuzzy, kde-format
+#, kde-format
 msgid "Init..."
-msgstr "Init"
+msgstr "Zapoczątkuj..."
 
 #: src/gui/actions/submoduleactions.cpp:42
-#, fuzzy, kde-format
+#, kde-format
 msgid "Update..."
-msgstr "Uaktualnij"
+msgstr "Uaktualnij..."
 
 #. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/gui/actions/submoduleactions.cpp:44
-#, fuzzy, kde-format
+#, kde-format
 msgid "Sync..."
-msgstr "Synchronizuj"
+msgstr "Zsynchronizuj..."
 
 #: src/gui/actions/submoduleactions.cpp:76
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
-msgstr ""
+msgstr "Czy na pewno usunąć zaznaczony podczłon?"
 
 #: src/gui/actions/submoduleactions.cpp:76
 #, kde-format
 msgid "Remove Submodule"
-msgstr ""
+msgstr "Usuń podczłon"
 
 #: src/gui/actions/submoduleactions.cpp:83
 #, kde-format
 msgid "Unable to remove the module directory"
-msgstr ""
+msgstr "Nie można usunąć katalogu członu"
 
 #: src/gui/actions/submoduleactions.cpp:90
 #, kde-format
 msgid "The submodule %1 removed"
-msgstr ""
+msgstr "Usunięto podczłon %1"
 
 #: src/gui/actions/tagsactions.cpp:24
 #, kde-format
@@ -360,9 +385,9 @@ msgid "New tag..."
 msgstr "Nowy znacznik..."
 
 #: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:179
-#, fuzzy, kde-format
+#, kde-format
 msgid "Push..."
-msgstr "Popchnij"
+msgstr "Wypchnij..."
 
 #: src/gui/actions/tagsactions.cpp:48 src/gui/dialogs/taginfodialog.cpp:13
 #, kde-format
@@ -373,45 +398,44 @@ msgstr "Nowy znacznik"
 #: src/gui/actions/tagsactions.cpp:57
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
-msgstr ""
+msgstr "Na pewno usunąć zaznaczony znacznik?"
 
 #: src/gui/actions/tagsactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove Tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "Usuń znacznik"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/actions/tagsactions.cpp:65
 #: src/gui/widgets/branchesstatuswidget.ui:93
-#, fuzzy, kde-format
+#, kde-format
 msgid "Checkout"
-msgstr "Sprawdzenie"
+msgstr "Pobierz wersję wyjściową"
 
 #: src/gui/actions/tagsactions.cpp:65
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr ""
+msgstr "Czy na pewno pobrać wersję wyjściową zaznaczonego znacznika?"
 
 #: src/gui/appwindow.cpp:74
 #, kde-format
 msgid "No repo selected"
-msgstr ""
+msgstr "Nie wybrano żadnego repozytorium"
 
 #: src/gui/appwindow.cpp:126
-#, fuzzy, kde-format
+#, kde-format
 msgid "Current branch: %1"
-msgstr "<b>Bieżąca gałąź: </b>"
+msgstr "Bieżąca gałąź: %1"
 
 #: src/gui/appwindow.cpp:128
 #, kde-format
 msgid " (merging)"
-msgstr ""
+msgstr " (scalanie)"
 
 #: src/gui/appwindow.cpp:148
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open..."
-msgstr "Otwórz"
+msgstr "Otwórz..."
 
 #: src/gui/appwindow.cpp:153
 #, kde-format
@@ -421,101 +445,101 @@ msgstr "Powiel..."
 #: src/gui/appwindow.cpp:156
 #, kde-format
 msgid "Changed files..."
-msgstr ""
+msgstr "Zmienione pliki..."
 
 #: src/gui/appwindow.cpp:162
 #, kde-format
 msgid "Recent repos"
-msgstr ""
+msgstr "Ostatnie repozytoria"
 
 #: src/gui/appwindow.cpp:168
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cleanup..."
-msgstr "Porządkowanie"
+msgstr "Porządkowanie..."
 
 #: src/gui/appwindow.cpp:171
-#, fuzzy, kde-format
+#, kde-format
 msgid "Pull..."
-msgstr "Pociągnij"
+msgstr "Zaciągnij..."
 
 #: src/gui/appwindow.cpp:187
 #, kde-format
 msgid "Diff branches..."
-msgstr ""
+msgstr "Różnica gałęzi..."
 
 #: src/gui/appwindow.cpp:193
 #, kde-format
 msgid "Repo settings..."
-msgstr ""
+msgstr "Ustawienia repozytorium..."
 
 #: src/gui/appwindow.cpp:196
 #, kde-format
 msgid "Switch/Checkout..."
-msgstr ""
+msgstr "Przełącz/Pobierz wersję wyjściową..."
 
 #: src/gui/appwindow.cpp:199
 #, kde-format
 msgid "Diff tree"
-msgstr ""
+msgstr "Różnica na drzewie"
 
 #: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Unable to create path: %1"
-msgstr ""
+msgstr "Nie można utworzyć ścieżki: %1"
 
 #: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Init repo"
-msgstr ""
+msgstr "Zapoczątkuj repozytorium"
 
 #: src/gui/appwindow.cpp:263
 #, kde-format
 msgid "Open repository"
-msgstr ""
+msgstr "Otwórz repozytorium"
 
 #: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
-msgstr ""
+msgstr "Nie można przełączyć gałęzi podczas scalania"
 
 #: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
-#, fuzzy, kde-format
+#, kde-format
 msgid "Switch branch"
 msgstr "Przełącz gałąź"
 
 #: src/gui/commandargsparser.cpp:56
 #, kde-format
 msgid "The path is not git repo: %1"
-msgstr ""
+msgstr "Ścieżka nie wskazuje na repozytorium gita: %1"
 
 #: src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "The repo inited successfully"
-msgstr ""
+msgstr "Pomyślnie zapoczątkowano repozytorium"
 
 #: src/gui/commandargsparser.cpp:507
 #, kde-format
 msgid "File(s) added to git successfully"
-msgstr ""
+msgstr "Pomyślnie dodano plik(i) do gita"
 
 #: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
-msgstr ""
+msgstr "Czy pozostawić plik(i) na dysku?"
 
 #: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Remove from index"
-msgstr ""
+msgstr "Usuń z indeksu"
 
 #: src/gui/commandargsparser.cpp:517
 #, kde-format
 msgid "File(s) removed from git successfully"
-msgstr ""
+msgstr "Pomyślnie usunięto pliki z gita"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus_2)
 #: src/gui/commandpullwidget.ui:19
-#, fuzzy, kde-format
+#, kde-format
 msgid "Status:"
 msgstr "Stan:"
 
@@ -530,82 +554,82 @@ msgstr "Stan:"
 #: src/gui/widgets/remoteswidget.ui:126 src/gui/widgets/remoteswidget.ui:143
 #, kde-format
 msgid "---"
-msgstr ""
+msgstr "---"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
 #: src/gui/dialogs/changedfilesdialog.cpp:23
 #: src/gui/dialogs/commitpushdialog.ui:14
 #, kde-format
 msgid "Commit/Push"
-msgstr ""
+msgstr "Wdroż/Wypchnij"
 
 #: src/gui/dialogs/changedfilesdialog.cpp:30
 #, kde-format
 msgid "Reload"
-msgstr ""
+msgstr "Wczytaj ponownie"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
 #: src/gui/widgets/logdetailswidget.cpp:127
 #, kde-format
 msgid "Changed files"
-msgstr ""
+msgstr "Zmienione pliki"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/changedfilesdialog.ui:20
 #, kde-format
 msgid "Changed files:"
-msgstr ""
+msgstr "Zmienione pliki:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/gui/dialogs/cleanupdialog.ui:14
 #, kde-format
 msgid "Cleanup repo"
-msgstr ""
+msgstr "Uporządkuj repozytorium"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/cleanupdialog.ui:23
 #, kde-format
 msgid "Clean type"
-msgstr ""
+msgstr "Wyczyść rodzaj"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNonIgnoredUntrackedFiles)
 #: src/gui/dialogs/cleanupdialog.ui:29
 #, kde-format
 msgid "Remove non-ignored untracked files"
-msgstr ""
+msgstr "Usuń niepomijane, niezarządzane pliki"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllUntrackedFiles)
 #: src/gui/dialogs/cleanupdialog.ui:39
 #, kde-format
 msgid "Remove all untracked files"
-msgstr ""
+msgstr "Usuń wszystkie niezarządzane pliki"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
 #: src/gui/dialogs/cleanupdialog.ui:46
 #, kde-format
 msgid "Remove ignored files"
-msgstr ""
+msgstr "Usuń pomijane pliki"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
 #: src/gui/dialogs/cleanupdialog.ui:56
 #, kde-format
 msgid "Remove untracked directories"
-msgstr ""
+msgstr "Usuń niezarządzane katalogi"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloneDialog)
 #: src/gui/dialogs/clonedialog.ui:14
 #, kde-format
 msgid "Clone a repository"
-msgstr ""
+msgstr "Sklonuj repozytorium"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/clonedialog.ui:32 src/gui/dialogs/submoduleinfodialog.ui:28
 #: src/gui/widgets/remoteinfodialog.ui:35
-#, fuzzy, kde-format
+#, kde-format
 msgid "Url:"
-msgstr "Url:"
+msgstr "Adres URL:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/clonedialog.ui:39 src/gui/dialogs/initdialog.ui:26
@@ -616,13 +640,13 @@ msgstr "Katalog:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRecursive)
 #: src/gui/dialogs/clonedialog.ui:64
-#, fuzzy, kde-format
+#, kde-format
 msgid "Recursive"
-msgstr "Rekursywnie"
+msgstr "Wgłąb"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxDepth)
 #: src/gui/dialogs/clonedialog.ui:71
-#, fuzzy, kde-format
+#, kde-format
 msgid "Depth"
 msgstr "Głębokość"
 
@@ -633,7 +657,7 @@ msgstr "Głębokość"
 #: src/gui/dialogs/fetchdialog.ui:75 src/gui/dialogs/pulldialog.ui:36
 #: src/gui/dialogs/searchdialog.cpp:36
 #: src/gui/dialogs/submoduleinfodialog.ui:70
-#, fuzzy, kde-format
+#, kde-format
 msgid "Branch"
 msgstr "Gałąź"
 
@@ -641,22 +665,22 @@ msgstr "Gałąź"
 #: src/gui/dialogs/clonedialog.ui:105
 #, kde-format
 msgid "Origin name"
-msgstr ""
+msgstr "Nazwa źródła"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #: src/gui/dialogs/commitpushdialog.cpp:56
 #: src/gui/dialogs/commitpushdialog.cpp:211
 #: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
-#, fuzzy, kde-format
+#, kde-format
 msgid "Push"
-msgstr "Popchnij"
+msgstr "Wypchnij"
 
 #: src/gui/dialogs/commitpushdialog.cpp:58
 #: src/gui/dialogs/commitpushdialog.cpp:211
 #, kde-format
 msgid "Commit and push"
-msgstr ""
+msgstr "Wdroż i wypchnij"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/gui/dialogs/commitpushdialog.ui:22
@@ -666,21 +690,21 @@ msgstr "Zdalne:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCurrentBranch)
 #: src/gui/dialogs/commitpushdialog.ui:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "Current branch"
-msgstr "<b>Bieżąca gałąź: </b>"
+msgstr "Bieżąca gałąź"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExistingBranch)
 #: src/gui/dialogs/commitpushdialog.ui:50
 #: src/gui/dialogs/switchbranchdialog.ui:26
 #, kde-format
 msgid "Existing branch"
-msgstr ""
+msgstr "Istniejąca gałąź"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNewBranch)
 #: src/gui/dialogs/commitpushdialog.ui:64
 #: src/gui/dialogs/switchbranchdialog.ui:39
-#, fuzzy, kde-format
+#, kde-format
 msgid "New branch"
 msgstr "Nowa gałąź"
 
@@ -711,7 +735,7 @@ msgstr ""
 #: src/gui/dialogs/commitpushdialog.ui:91
 #: src/gui/dialogs/submoduleinfodialog.ui:63
 #: src/gui/dialogs/switchbranchdialog.ui:75
-#, fuzzy, kde-format
+#, kde-format
 msgid "Force"
 msgstr "Wymuś"
 
@@ -719,7 +743,7 @@ msgstr "Wymuś"
 #: src/gui/dialogs/commitpushdialog.ui:98
 #, kde-format
 msgid "Create a commit"
-msgstr ""
+msgstr "Utwórz wdrożenie"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/gui/dialogs/commitpushdialog.ui:107
@@ -741,7 +765,7 @@ msgstr ""
 #: src/gui/dialogs/commitpushdialog.ui:110
 #, kde-format
 msgid "Include status to the message"
-msgstr ""
+msgstr "Dodaj stan do opisu"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAmend)
 #: src/gui/dialogs/commitpushdialog.ui:120
@@ -763,7 +787,7 @@ msgstr ""
 #: src/gui/dialogs/commitpushdialog.ui:123
 #, kde-format
 msgid "Amend to previous commit"
-msgstr ""
+msgstr "Dołącz do poprzedniego wdrożenia"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -794,43 +818,43 @@ msgstr "Pliki:"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
 #: src/gui/dialogs/commitpushdialog.ui:195
-#, fuzzy, kde-format
+#, kde-format
 msgid "All"
 msgstr "Wszystkie"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddIndexed)
 #: src/gui/dialogs/commitpushdialog.ui:205
-#, fuzzy, kde-format
+#, kde-format
 msgid "Indexed"
 msgstr "Indeksowany"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:211
-#, fuzzy, kde-format
+#, kde-format
 msgid "Added"
 msgstr "Dodany"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:213
-#, fuzzy, kde-format
+#, kde-format
 msgid "Removed"
 msgstr "Usunięto"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:215
-#, fuzzy, kde-format
+#, kde-format
 msgid "Modified"
 msgstr "Zmieniony"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddNone)
 #: src/gui/dialogs/commitpushdialog.ui:245
-#, fuzzy, kde-format
+#, kde-format
 msgid "None"
 msgstr "Brak"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
 #: src/gui/dialogs/commitpushdialog.ui:289 src/gui/dialogs/searchdialog.cpp:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Commit"
 msgstr "Wdrożenie"
 
@@ -838,11 +862,11 @@ msgstr "Wdrożenie"
 #: src/gui/dialogs/diffopendialog.ui:14
 #, kde-format
 msgid "Select files/folders"
-msgstr ""
+msgstr "Zaznacz pliki/katalogi"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
 #: src/gui/dialogs/diffopendialog.ui:24
-#, fuzzy, kde-format
+#, kde-format
 msgid "Compare files"
 msgstr "Porównaj pliki"
 
@@ -850,56 +874,56 @@ msgstr "Porównaj pliki"
 #: src/gui/dialogs/diffopendialog.ui:31
 #, kde-format
 msgid "Compare directories"
-msgstr ""
+msgstr "Porównaj katalogi"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/diffopendialog.ui:41
 #, kde-format
 msgid "Old file:"
-msgstr ""
+msgstr "Stary plik:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/diffopendialog.ui:51
-#, fuzzy, kde-format
+#, kde-format
 msgid "New file:"
-msgstr "Nowy plik"
+msgstr "Nowy plik:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/diffopendialog.ui:70
 #, kde-format
 msgid "New directory:"
-msgstr ""
+msgstr "Nowy katalog:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/diffopendialog.ui:77
 #, kde-format
 msgid "Old directory:"
-msgstr ""
+msgstr "Stary katalog:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/gui/dialogs/fetchdialog.ui:14
 #, kde-format
 msgid "Fetch from origin"
-msgstr ""
+msgstr "Pobierz ze źródła"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/fetchdialog.ui:31 src/gui/dialogs/pulldialog.ui:20
 #: src/gui/dialogs/pulldialog.ui:26
-#, fuzzy, kde-format
+#, kde-format
 msgid "Remote"
-msgstr "Zdalne:"
+msgstr "Zdalna"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllBranches)
 #: src/gui/dialogs/fetchdialog.ui:43
 #, kde-format
 msgid "All branches"
-msgstr ""
+msgstr "Wszystkie gałęzie"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/fetchdialog.ui:88 src/gui/dialogs/pulldialog.ui:49
 #: src/gui/dialogs/switchbranchdialog.ui:69
-#, fuzzy, kde-format
+#, kde-format
 msgid "Options"
 msgstr "Ustawienia"
 
@@ -908,13 +932,13 @@ msgstr "Ustawienia"
 #: src/gui/dialogs/fetchdialog.ui:94 src/gui/dialogs/mergedialog.ui:86
 #, kde-format
 msgid "No fast forward"
-msgstr ""
+msgstr "Bez przewinięcia do przodu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
 #: src/gui/dialogs/fetchdialog.ui:101 src/gui/dialogs/pulldialog.ui:146
 #, kde-format
 msgid "No commit"
-msgstr ""
+msgstr "Bez wdrożenia"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTags)
@@ -922,7 +946,7 @@ msgstr ""
 #: src/gui/dialogs/fetchdialog.ui:108 src/gui/dialogs/pulldialog.ui:153
 #: src/gui/mainwidget.ui:263 src/gui/widgets/remoteinfodialog.ui:54
 #: src/gui/widgets/tagswidget.ui:14
-#, fuzzy, kde-format
+#, kde-format
 msgid "Tags"
 msgstr "Znaczniki"
 
@@ -931,7 +955,7 @@ msgstr "Znaczniki"
 #: src/gui/dialogs/fetchdialog.ui:115 src/gui/dialogs/mergedialog.ui:81
 #, kde-format
 msgid "Fast forward only"
-msgstr ""
+msgstr "Tylko przewiń do przodu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
 #: src/gui/dialogs/fetchdialog.ui:122 src/gui/dialogs/pulldialog.ui:160
@@ -944,7 +968,7 @@ msgstr "Przytnij"
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
-msgstr ""
+msgstr "Obwinianie pliku: %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
@@ -953,7 +977,7 @@ msgstr ""
 #: src/gui/dialogs/fileblamedialog.ui:14
 #: src/gui/dialogs/filehistorydialog.ui:14
 #: src/gui/dialogs/filestreedialog.ui:14 src/gui/dialogs/taginfodialog.ui:14
-#, fuzzy, kde-format
+#, kde-format
 msgid "Dialog"
 msgstr "Okno dialogowe"
 
@@ -961,13 +985,13 @@ msgstr "Okno dialogowe"
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
-msgstr ""
+msgstr "Plik dziennika: %1"
 
 #: src/gui/dialogs/filestreedialog.cpp:35
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
-msgstr "Przeglądaj pliki"
+msgstr "Przeglądaj pliki: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/filestreedialog.ui:32
@@ -987,10 +1011,10 @@ msgid "Please wait while the preview is being closed..."
 msgstr "Proszę czekać na zamknięcie podglądu..."
 
 #: src/gui/dialogs/fileviewerdialog.cpp:97
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
-msgstr "Pokaż plik"
+msgstr "Podejrzyj plik: %1"
 
 #. i18n: ectx: property (windowTitle), widget (QMainWindow, FileViewerDialog)
 #: src/gui/dialogs/fileviewerdialog.ui:14
@@ -1001,12 +1025,12 @@ msgstr "GłówneOkno"
 #: src/gui/dialogs/ignorefiledialog.cpp:44
 #, kde-format
 msgid "The file is ignored already"
-msgstr ""
+msgstr "Plik jest już pomijany"
 
 #: src/gui/dialogs/ignorefiledialog.cpp:80
 #, kde-format
 msgid "Please enter the pattern"
-msgstr ""
+msgstr "Wpisz wzorzec"
 
 #: src/gui/dialogs/ignorefiledialog.cpp:85
 #, kde-format
@@ -1017,7 +1041,7 @@ msgstr "Nie można otworzyć pliku: %1"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
 #: src/gui/dialogs/ignorefiledialog.ui:14
 #: src/gui/dialogs/ignorefiledialog.ui:96
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ignore file"
 msgstr "Pomiń plik"
 
@@ -1034,7 +1058,7 @@ msgstr "Wzorzec:"
 #: src/libgitklient/models/authorsmodel.cpp:37
 #: src/libgitklient/models/branchesmodel.cpp:56
 #: src/libgitklient/models/tagsmodel.cpp:62
-#, fuzzy, kde-format
+#, kde-format
 msgid "Name"
 msgstr "Nazwa"
 
@@ -1042,19 +1066,19 @@ msgstr "Nazwa"
 #: src/gui/dialogs/ignorefiledialog.ui:43
 #, kde-format
 msgid "Name and extension"
-msgstr ""
+msgstr "Nazwa i rozszerzenie"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExt)
 #: src/gui/dialogs/ignorefiledialog.ui:53
 #, kde-format
 msgid "All files by this extension"
-msgstr ""
+msgstr "Wszystkie pliki o tym rozszerzeniu"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonName)
 #: src/gui/dialogs/ignorefiledialog.ui:60
 #, kde-format
 msgid "All files by this name"
-msgstr ""
+msgstr "Wszystkie pliki o tej nazwie"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/gui/dialogs/ignorefiledialog.ui:70
@@ -1067,44 +1091,44 @@ msgstr "Ścieżka"
 #: src/gui/dialogs/ignorefiledialog.ui:76
 #, kde-format
 msgid "Exact the path"
-msgstr ""
+msgstr "Dokładna ścieżka"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonEveryWhere)
 #: src/gui/dialogs/ignorefiledialog.ui:86
 #, kde-format
 msgid "File in everywhere"
-msgstr ""
+msgstr "Pliki wszędzie"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRootIgnoreFile)
 #: src/gui/dialogs/ignorefiledialog.ui:102
 #, kde-format
 msgid ".gitignore in the repository root"
-msgstr ""
+msgstr ".gitignore w katalogu głównym repozytorium"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDirIgnoreFile)
 #: src/gui/dialogs/ignorefiledialog.ui:112
 #, kde-format
 msgid ".gitignore in the containing directory"
-msgstr ""
+msgstr ".gitignore w zawierającym katalogu"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExcludeFile)
 #: src/gui/dialogs/ignorefiledialog.ui:119
 #, kde-format
 msgid ".git/info/exclude"
-msgstr ""
+msgstr ".git/info/exclude"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, InitDialog)
 #: src/gui/dialogs/initdialog.ui:14
 #, kde-format
 msgid "Init git repo"
-msgstr ""
+msgstr "Zapoczątkuj repozytorium gita"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
 #: src/gui/dialogs/mergecloseeventdialog.ui:14
 #: src/gui/dialogs/runnerdialog.ui:105 src/gui/merge/closeeventdialog.ui:14
-#, fuzzy, kde-format
+#, kde-format
 msgid "Close"
 msgstr "Zamknij"
 
@@ -1113,28 +1137,28 @@ msgstr "Zamknij"
 #: src/gui/merge/closeeventdialog.ui:20
 #, kde-format
 msgid "The changes to file are not saved to the disk. What you want to do?"
-msgstr ""
+msgstr "Nie zapisano zmian w plikach na dysku. Co teraz?"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonMarkResolved)
 #: src/gui/dialogs/mergecloseeventdialog.ui:49
 #: src/gui/merge/closeeventdialog.ui:49
 #, kde-format
 msgid "Mark as resolved"
-msgstr ""
+msgstr "Oznacz jako rozwiązane"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonLeaveAsIs)
 #: src/gui/dialogs/mergecloseeventdialog.ui:62
 #: src/gui/merge/closeeventdialog.ui:62
-#, fuzzy, kde-format
+#, kde-format
 msgid "Leave as is"
-msgstr "Bez zmiany"
+msgstr "Pozostaw bez zmiany"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonDontExit)
 #: src/gui/dialogs/mergecloseeventdialog.ui:75
 #: src/gui/merge/closeeventdialog.ui:75
 #, kde-format
 msgid "Don't exit"
-msgstr ""
+msgstr "Nie kończ"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
 #: src/gui/dialogs/mergedialog.ui:14
@@ -1144,15 +1168,15 @@ msgstr "Scal"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/mergedialog.ui:22
-#, fuzzy, kde-format
+#, kde-format
 msgid "From:"
 msgstr "Od:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/mergedialog.ui:32
-#, fuzzy, kde-format
+#, kde-format
 msgid "Strategy:"
-msgstr "Strategie"
+msgstr "Strategia:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxStrategy)
 #: src/gui/dialogs/mergedialog.ui:39
@@ -1176,7 +1200,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/mergedialog.ui:46
-#, fuzzy, kde-format
+#, kde-format
 msgid "To:"
 msgstr "Do:"
 
@@ -1184,13 +1208,13 @@ msgstr "Do:"
 #: src/gui/dialogs/mergedialog.ui:53
 #, kde-format
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/mergedialog.ui:60 src/gui/dialogs/pulldialog.ui:79
-#, fuzzy, kde-format
+#, kde-format
 msgid "Fast forward:"
-msgstr "Przewiń do przodu"
+msgstr "Przewiń do przodu:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/mergedialog.ui:67
@@ -1211,7 +1235,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
 #: src/gui/dialogs/mergedialog.ui:71 src/gui/dialogs/mergedialog.ui:130
-#, fuzzy, kde-format
+#, kde-format
 msgid "Default"
 msgstr "Domyślne"
 
@@ -1219,7 +1243,7 @@ msgstr "Domyślne"
 #: src/gui/dialogs/mergedialog.ui:76
 #, kde-format
 msgid "Allow fast forward"
-msgstr ""
+msgstr "Zezwól na przewijanie do przodu"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/gui/dialogs/mergedialog.ui:94
@@ -1248,7 +1272,7 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:97
 #, kde-format
 msgid "Allow unrelated histories"
-msgstr ""
+msgstr "Zezwól na niepowiązane historie"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxSquash)
 #: src/gui/dialogs/mergedialog.ui:107
@@ -1284,13 +1308,13 @@ msgstr "Ściąganie"
 #: src/gui/dialogs/mergedialog.ui:140
 #, kde-format
 msgid "Ours"
-msgstr ""
+msgstr "Nasze"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTheirs)
 #: src/gui/dialogs/mergedialog.ui:147
 #, kde-format
 msgid "Theirs"
-msgstr ""
+msgstr "Ich"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreAllSpace)
@@ -1319,25 +1343,25 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:157
 #, kde-format
 msgid "Ignore space change"
-msgstr ""
+msgstr "Pomijaj zmiany w znakach odstępów"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreAllSpace)
 #: src/gui/dialogs/mergedialog.ui:167
 #, kde-format
 msgid "Ignore all space"
-msgstr ""
+msgstr "Pomiń wszystkie znaki białe"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
 #: src/gui/dialogs/mergedialog.ui:177
 #, kde-format
 msgid "Ignore space at eol"
-msgstr ""
+msgstr "Pomijaj odstępy na końcu wierszy"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreCrAtEol)
 #: src/gui/dialogs/mergedialog.ui:187
 #, kde-format
 msgid "Ignore cr at eol"
-msgstr ""
+msgstr "Pomiń powrót karetki na końcach wierszy"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxRenormalize)
 #: src/gui/dialogs/mergedialog.ui:194
@@ -1363,13 +1387,13 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:197
 #, kde-format
 msgid "Renormalize"
-msgstr ""
+msgstr "Znormalizuj ponownie"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/gui/dialogs/mergedialog.ui:211
 #, kde-format
 msgid "Diff algorithm:"
-msgstr ""
+msgstr "Algorytm różnicy:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxDiffAlgoritm)
 #: src/gui/dialogs/mergedialog.ui:218
@@ -1394,35 +1418,35 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:225
 #, kde-format
 msgid "Turn off rename detection"
-msgstr ""
+msgstr "Wyłącz wykrywanie przemianowanych"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeOpenFilesDialog)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:14
 #, kde-format
 msgid "Select files to merge"
-msgstr ""
+msgstr "Wybierz pliki do scalenia"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:26
-#, fuzzy, kde-format
+#, kde-format
 msgid "Local file:"
-msgstr "Plik lokalny"
+msgstr "Plik miejscowy:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:36
 #, kde-format
 msgid "Remote file:"
-msgstr ""
+msgstr "Plik zdalny:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:46
 #, kde-format
 msgid "Base file:"
-msgstr ""
+msgstr "Plik podstawy:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
 #: src/gui/dialogs/notedialog.ui:14
-#, fuzzy, kde-format
+#, kde-format
 msgid "Note"
 msgstr "Uwaga"
 
@@ -1430,31 +1454,31 @@ msgstr "Uwaga"
 #: src/gui/dialogs/pulldialog.ui:14
 #, kde-format
 msgid "Pull changes"
-msgstr ""
+msgstr "Zaciągnij zmiany"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/pulldialog.ui:63
 #, kde-format
 msgid "Rebase:"
-msgstr ""
+msgstr "Zmiana podstawy:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RepoSettingsDialog)
 #: src/gui/dialogs/reposettingsdialog.ui:14
 #, kde-format
 msgid "Repo settings"
-msgstr ""
+msgstr "Ustawienia repozytorium"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/gui/dialogs/reposettingsdialog.ui:26
 #: src/gui/widgets/remoteinfodialog.ui:25 src/gui/widgets/remoteswidget.ui:136
-#, fuzzy, kde-format
+#, kde-format
 msgid "Name:"
 msgstr "Nazwa:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/reposettingsdialog.ui:36
-#, fuzzy, kde-format
+#, kde-format
 msgid "Email:"
 msgstr "E-mail:"
 
@@ -1462,43 +1486,43 @@ msgstr "E-mail:"
 #: src/gui/dialogs/reposettingsdialog.ui:46
 #, kde-format
 msgid "Auto crlf"
-msgstr ""
+msgstr "Samoczynne crlf"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAutoFileMode)
 #: src/gui/dialogs/reposettingsdialog.ui:53
 #, kde-format
 msgid "Auto file mode"
-msgstr ""
+msgstr "Tryb samoczynnych plików"
 
 #: src/gui/dialogs/runnerdialog.cpp:57
-#, fuzzy, kde-format
+#, kde-format
 msgid "View"
 msgstr "Widok"
 
 #: src/gui/dialogs/runnerdialog.cpp:119
 #, kde-format
 msgid "Process finished"
-msgstr ""
+msgstr "Proces ukończył"
 
 #: src/gui/dialogs/runnerdialog.cpp:124
 #, kde-format
 msgid "The git process crashed"
-msgstr ""
+msgstr "Proces gita wysypał się"
 
 #: src/gui/dialogs/runnerdialog.cpp:125
 #, kde-format
 msgid "Process finished with error"
-msgstr ""
+msgstr "Proces ukończył z błędem"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/gui/dialogs/runnerdialog.ui:14
-#, fuzzy, kde-format
+#, kde-format
 msgid "Run command"
 msgstr "Wykonaj polecenie"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/gui/dialogs/runnerdialog.ui:45
-#, fuzzy, kde-format
+#, kde-format
 msgid "Output"
 msgstr "Wyjście"
 
@@ -1520,10 +1544,23 @@ msgid ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
 "\"><br /></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Monospace'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonStop)
 #: src/gui/dialogs/runnerdialog.ui:98
-#, fuzzy, kde-format
+#, kde-format
 msgid "Stop"
 msgstr "Zatrzymaj"
 
@@ -1536,7 +1573,7 @@ msgstr "Nazwa pliku"
 #: src/gui/dialogs/searchdialog.ui:14
 #, kde-format
 msgid "Search in repo"
-msgstr ""
+msgstr "Poszukaj w repozytorium"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/searchdialog.ui:25
@@ -1546,48 +1583,48 @@ msgstr "Ścieżka:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/searchdialog.ui:35
-#, fuzzy, kde-format
+#, kde-format
 msgid "Text:"
-msgstr "Tekst"
+msgstr "Tekst:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchBranches)
 #: src/gui/dialogs/searchdialog.ui:45
 #, kde-format
 msgid "Search all branches"
-msgstr ""
+msgstr "Poszukaj we wszystkich gałęziach"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
 #: src/gui/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
-msgstr ""
+msgstr "Poszukaj wszystkich wdrożeń"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
 #: src/gui/dialogs/searchdialog.ui:62
-#, fuzzy, kde-format
+#, kde-format
 msgid "Case sensitive"
 msgstr "Rozróżniaj wielkość liter"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonSearch)
 #: src/gui/dialogs/searchdialog.ui:86
-#, fuzzy, kde-format
+#, kde-format
 msgid "Search"
-msgstr "Szukaj"
+msgstr "Poszukaj"
 
 #: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
 msgid "The selected branches must be different!"
-msgstr ""
+msgstr "Zaznaczone gałęzie muszą się różnić!"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:14
 #, kde-format
 msgid "Select branches"
-msgstr ""
+msgstr "Zaznacz gałęzie"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:26
-#, fuzzy, kde-format
+#, kde-format
 msgid "Left"
 msgstr "Do lewej"
 
@@ -1595,9 +1632,9 @@ msgstr "Do lewej"
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:32
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:61
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select branch"
-msgstr "Wybierz gałąź..."
+msgstr "Wybierz gałąź"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLeftIsHead)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRightIsHead)
@@ -1609,7 +1646,7 @@ msgstr "HEAD"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:55
-#, fuzzy, kde-format
+#, kde-format
 msgid "Right"
 msgstr "Do prawej"
 
@@ -1619,17 +1656,17 @@ msgstr "Do prawej"
 #: src/gui/widgets/submoduleswidget.ui:46
 #, kde-format
 msgid "Add new submodule"
-msgstr ""
+msgstr "Dodaj nowy podczłon"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
 #: src/gui/dialogs/switchbranchdialog.ui:14
 #, kde-format
 msgid "Switch/Checkout"
-msgstr ""
+msgstr "Przełącz/Pobierz wersję wyjściową"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53
-#, fuzzy, kde-format
+#, kde-format
 msgid "Tag"
 msgstr "Znacznik"
 
@@ -1643,7 +1680,7 @@ msgstr "Nazwa znacznika:"
 #, kde-format
 msgctxt "@title:window"
 msgid "GitKlient Diff[*]"
-msgstr ""
+msgstr "GitKlient Diff[*]"
 
 #: src/gui/diffwindow.cpp:109
 #, kde-format
@@ -1654,32 +1691,32 @@ msgstr "Drzewo"
 #: src/gui/diffwindow.cpp:136
 #, kde-format
 msgid "View hidden chars..."
-msgstr ""
+msgstr "Pokaż ukryte znaki..."
 
 #: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:343
 #, kde-format
 msgid "Same size blocks"
-msgstr ""
+msgstr "Bloki o tych samych rozmiarach"
 
 #: src/gui/diffwindow.cpp:146
 #, kde-format
 msgid "Show files names"
-msgstr ""
+msgstr "Pokaż nazwy plików"
 
 #: src/gui/diffwindow.cpp:152
 #, kde-format
 msgid "Show Tree"
-msgstr ""
+msgstr "Pokaż drzewo"
 
 #: src/gui/diffwindow.cpp:209
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unchanged"
-msgstr "Niezmienny"
+msgstr "Niezmieniony"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/gitklientdiffui.rc:20 src/gui/gitklientmergeui.rc:33
 #: src/gui/gitklientui.rc:45
-#, fuzzy, kde-format
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Główny pasek narzędzi"
 
@@ -1688,12 +1725,12 @@ msgstr "Główny pasek narzędzi"
 #: src/gui/gitklientui.rc:10 src/gui/gitklientui.rc:26
 #, kde-format
 msgid "Repo"
-msgstr ""
+msgstr "Repozytorium"
 
 #: src/gui/mainwidget.cpp:101
 #, kde-format
 msgid "Diff with master..."
-msgstr ""
+msgstr "Różnica względem master..."
 
 #: src/gui/mainwidget.cpp:165
 #, kde-format
@@ -1702,7 +1739,7 @@ msgstr "Nowy znacznik"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, MainWidget)
 #: src/gui/mainwidget.ui:14
-#, fuzzy, kde-format
+#, kde-format
 msgid "Form"
 msgstr "Formularz"
 
@@ -1711,7 +1748,7 @@ msgstr "Formularz"
 #. i18n: ectx: property (windowTitle), widget (QWidget, HistoryViewWidget)
 #: src/gui/mainwidget.ui:89 src/gui/mainwidget.ui:337
 #: src/gui/multipagewidget.ui:131 src/gui/widgets/historyviewwidget.ui:14
-#, fuzzy, kde-format
+#, kde-format
 msgid "Overview"
 msgstr "Przegląd"
 
@@ -1735,21 +1772,21 @@ msgstr "Zmiany"
 #: src/gui/mainwidget.ui:176 src/gui/widgets/stasheswidget.ui:14
 #, kde-format
 msgid "Stashes"
-msgstr ""
+msgstr "Składowiska"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonSubmodules)
 #. i18n: ectx: property (windowTitle), widget (QWidget, SubmodulesWidget)
 #: src/gui/mainwidget.ui:205 src/gui/widgets/submoduleswidget.ui:14
 #, kde-format
 msgid "Submodules"
-msgstr ""
+msgstr "Podczłony"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRemotes)
 #. i18n: ectx: property (windowTitle), widget (QWidget, RemotesWidget)
 #: src/gui/mainwidget.ui:234 src/gui/widgets/remoteswidget.ui:14
 #, kde-format
 msgid "Remotes"
-msgstr ""
+msgstr "Repozytoria zdalne"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
@@ -1761,39 +1798,39 @@ msgid "Add"
 msgstr "Dodaj"
 
 #: src/gui/mergewindow.cpp:285
-#, fuzzy, kde-format
+#, kde-format
 msgid "Conflicts: %1"
-msgstr "Sprzeczności"
+msgstr "Sprzeczności: %1"
 
 #: src/gui/mergewindow.cpp:293
 #, kde-format
 msgid "Keep mine"
-msgstr ""
+msgstr "Zachowaj moje"
 
 #: src/gui/mergewindow.cpp:298
 #, kde-format
 msgid "Keep their"
-msgstr ""
+msgstr "Zachowaj ich"
 
 #: src/gui/mergewindow.cpp:304
 #, kde-format
 msgid "Keep mine before their"
-msgstr ""
+msgstr "Zachowaj moje później ich"
 
 #: src/gui/mergewindow.cpp:309
 #, kde-format
 msgid "Keep their before mine"
-msgstr ""
+msgstr "Zachowaj ich później moje"
 
 #: src/gui/mergewindow.cpp:314
 #, kde-format
 msgid "Keep my file"
-msgstr ""
+msgstr "Zachowaj mój plik"
 
 #: src/gui/mergewindow.cpp:319
 #, kde-format
 msgid "Keep their file"
-msgstr ""
+msgstr "Zachowaj ich plik"
 
 #: src/gui/mergewindow.cpp:324
 #, kde-format
@@ -1808,54 +1845,54 @@ msgstr "Pliki"
 #: src/gui/mergewindow.cpp:332
 #, kde-format
 msgid "Previous diff"
-msgstr ""
+msgstr "Poprzednia różnica"
 
 #: src/gui/mergewindow.cpp:338
 #, kde-format
 msgid "Next diff"
-msgstr ""
+msgstr "Następna różnica"
 
 #: src/gui/mergewindow.cpp:435
 #, kde-format
 msgid "Unable to open the file"
-msgstr ""
+msgstr "Nie można otworzyć pliku"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/models/treemodel.cpp:143 src/gui/widgets/remoteswidget.ui:179
 #: src/libgitklient/models/submodulesmodel.cpp:59
-#, fuzzy, kde-format
+#, kde-format
 msgid "Status"
 msgstr "Stan"
 
 #. i18n: ectx: label, entry (diffAddedColor), group (Preferences)
 #: src/gui/settings/GitKlientSettings.kcfg:9
-#, fuzzy, kde-format
+#, kde-format
 msgid "Added color"
-msgstr "Barwa dodania:"
+msgstr "Barwa dodania"
 
 #. i18n: ectx: label, entry (diffRemovedColor), group (Preferences)
 #: src/gui/settings/GitKlientSettings.kcfg:13
-#, fuzzy, kde-format
+#, kde-format
 msgid "Removed color"
-msgstr "Barwa usunięcia:"
+msgstr "Barwa usunięcia"
 
 #. i18n: ectx: label, entry (diffModifiedColor), group (Preferences)
 #: src/gui/settings/GitKlientSettings.kcfg:17
 #, kde-format
 msgid "Modified color"
-msgstr ""
+msgstr "Barwa zmienionych"
 
 #. i18n: ectx: label, entry (colorForeground), group (Preferences)
 #: src/gui/settings/GitKlientSettings.kcfg:21
 #, kde-format
 msgid "color of the foreground"
-msgstr ""
+msgstr "Barwa pierwszoplanowa"
 
 #. i18n: ectx: label, entry (gitBinPath), group (Preferences)
 #: src/gui/settings/GitKlientSettings.kcfg:26
 #, kde-format
 msgid "age of the project"
-msgstr ""
+msgstr "wiek projektu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_openLastRepo)
 #. i18n: ectx: label, entry (openLastRepo), group (Preferences)
@@ -1863,10 +1900,10 @@ msgstr ""
 #: src/gui/settings/settingspagebase.ui:29
 #, kde-format
 msgid "Open last repo at startup"
-msgstr ""
+msgstr "Otwórz ostatnie repozytorium po uruchomieniu"
 
 #: src/gui/settings/settingsmanager.cpp:93
-#, fuzzy, kde-format
+#, kde-format
 msgid "General"
 msgstr "Ogólne"
 
@@ -1877,79 +1914,78 @@ msgstr "Git"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/settings/settingspagebase.ui:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "Startup"
 msgstr "Uruchamianie"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDefaultCalendar)
 #: src/gui/settings/settingspagebase.ui:41
-#, fuzzy, kde-format
+#, kde-format
 msgid "Default calendar:"
-msgstr "%1 (Domyślny kalendarz)"
+msgstr "Domyślny kalendarz:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/settings/settingspagebase.ui:51
 #, kde-format
 msgid "Git binary path:"
-msgstr ""
+msgstr "Ścieżka do pliku git:"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel)
 #: src/gui/settings/settingspagediff.ui:17
 #, kde-format
 msgid "Added diff color:"
-msgstr ""
+msgstr "Barwa dodania różnicy:"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel_2)
 #: src/gui/settings/settingspagediff.ui:27
 #, kde-format
 msgid "Removed diff color:"
-msgstr ""
+msgstr "Barwa usuniętej różnicy:"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel_3)
 #: src/gui/settings/settingspagediff.ui:37
 #, kde-format
 msgid "Modified diff color:"
-msgstr ""
+msgstr "Barwa zmienionej różnicy:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerDiffTool)
 #: src/gui/settings/settingspagegit.ui:19
 #, kde-format
 msgid "Register GitKlient diff tool"
-msgstr ""
+msgstr "Zarejestruj narzędzie różnicy GitKlient"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
 #: src/gui/settings/settingspagegit.ui:26
 #, kde-format
 msgid "Register GitKlient merge tool"
-msgstr ""
+msgstr "Zarejestruj narzędzie scalania GitKlient"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/settings/settingspagegit.ui:37
 #, kde-format
 msgid "Git proxy:"
-msgstr ""
+msgstr "Pośrednik Git:"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AuthorsWidget)
 #: src/gui/widgets/authorswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Authors"
-msgstr "Autor"
+msgstr "Autorzy"
 
 #: src/gui/widgets/blamecodeview.cpp:42
 #, kde-format
 msgid "Uncommited"
-msgstr ""
+msgstr "Niewdrożone"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/widgets/branchesstatuswidget.ui:26
 #, kde-format
 msgid "Reference branch:"
-msgstr ""
+msgstr "Gałąź odniesienia:"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonNew)
 #: src/gui/widgets/branchesstatuswidget.ui:79
-#, fuzzy, kde-format
+#, kde-format
 msgid "New"
 msgstr "Nowy"
 
@@ -1963,53 +1999,53 @@ msgstr "Usuń"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/widgets/branchesstatuswidget.ui:113
-#, fuzzy, kde-format
+#, kde-format
 msgid "Browse"
 msgstr "Przeglądaj"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/gui/widgets/commitswidget.ui:42
-#, fuzzy, kde-format
+#, kde-format
 msgid "Filter..."
 msgstr "Odfiltruj..."
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/gui/widgets/difftreeview.ui:17
-#, fuzzy, kde-format
+#, kde-format
 msgid "Type to filter"
-msgstr "Zacznij pisać, aby zacząć filtrować..."
+msgstr "Zacznij pisać, aby zacząć filtrować"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/gui/widgets/difftreeview.ui:53
 #, kde-format
 msgid "Hide unchangeds"
-msgstr ""
+msgstr "Ukryj niezmienione"
 
 #: src/gui/widgets/logdetailswidget.cpp:110
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ref"
-msgstr "#REF!"
+msgstr "Ref"
 
 #: src/gui/widgets/logdetailswidget.cpp:113
 #: src/gui/widgets/logdetailswidget.cpp:116
 #: src/libgitklient/models/tagsmodel.cpp:68
 #, kde-format
 msgid "Committer"
-msgstr ""
+msgstr "Wdrażający"
 
 #: src/gui/widgets/logdetailswidget.cpp:119
 #: src/libgitklient/models/logsmodel.cpp:260
-#, fuzzy, kde-format
+#, kde-format
 msgid "Date"
 msgstr "Data"
 
 #: src/gui/widgets/logdetailswidget.cpp:120
-#, fuzzy, kde-format
+#, kde-format
 msgid "Hash"
 msgstr "Skrót"
 
 #: src/gui/widgets/logdetailswidget.cpp:123
-#, fuzzy, kde-format
+#, kde-format
 msgid "Parent"
 msgstr "Nadrzędne"
 
@@ -2024,19 +2060,19 @@ msgid "Child"
 msgstr "Podrzędny"
 
 #: src/gui/widgets/logdetailswidget.cpp:125
-#, fuzzy, kde-format
+#, kde-format
 msgid "Children"
-msgstr "Dzieci"
+msgstr "Podrzędne"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RemoteInfoDialog)
 #: src/gui/widgets/remoteinfodialog.ui:14
 #, kde-format
 msgid "New remote"
-msgstr ""
+msgstr "Nowe repozytorium zdalne"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxMirror)
 #: src/gui/widgets/remoteinfodialog.ui:47
-#, fuzzy, kde-format
+#, kde-format
 msgid "Mirror"
 msgstr "Lustro"
 
@@ -2048,45 +2084,45 @@ msgstr "Pobierz"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/widgets/remoteswidget.ui:79
-#, fuzzy, kde-format
+#, kde-format
 msgid "Information"
 msgstr "Informacje"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/widgets/remoteswidget.ui:85
-#, fuzzy, kde-format
+#, kde-format
 msgid "Default branch:"
-msgstr "Domyślna gałąź: "
+msgstr "Domyślna gałąź:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/widgets/remoteswidget.ui:102
 #, kde-format
 msgid "Fetch url:"
-msgstr ""
+msgstr "Adres URL pobierania:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/widgets/remoteswidget.ui:119
 #, kde-format
 msgid "Push url:"
-msgstr ""
+msgstr "Adres URL do wypychania:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/widgets/remoteswidget.ui:156
-#, fuzzy, kde-format
+#, kde-format
 msgid "Branches:"
-msgstr "Gałęzie"
+msgstr "Gałęzie:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:169
 #, kde-format
 msgid "Push to"
-msgstr ""
+msgstr "Wypchnij do"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:174
 #, kde-format
 msgid "Pull from"
-msgstr ""
+msgstr "Zaciągnij z"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
@@ -2120,7 +2156,7 @@ msgstr "Utwórz nowy"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #: src/gui/widgets/stasheswidget.ui:59 src/gui/widgets/tagswidget.ui:56
-#, fuzzy, kde-format
+#, kde-format
 msgid "Remove selected"
 msgstr "Usuń zaznaczone"
 
@@ -2142,11 +2178,11 @@ msgstr ""
 #: src/gui/widgets/stasheswidget.ui:69
 #, kde-format
 msgid "Apply selected"
-msgstr ""
+msgstr "Zastosuj zaznaczone"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
 #: src/gui/widgets/submoduleswidget.ui:56
-#, fuzzy, kde-format
+#, kde-format
 msgid "Update"
 msgstr "Uaktualnij"
 
@@ -2154,17 +2190,17 @@ msgstr "Uaktualnij"
 #: src/gui/widgets/tagswidget.ui:63
 #, kde-format
 msgid "Checkout to selected"
-msgstr ""
+msgstr "Pobierz zaznaczoną wersję"
 
 #: src/libgitklient/commands/commandpull.cpp:62
 #, kde-format
 msgid "Already up to date."
-msgstr ""
+msgstr "Już jest aktualna."
 
 #: src/libgitklient/commands/commandpull.cpp:66
-#, fuzzy, kde-format
+#, kde-format
 msgid "Error"
-msgstr "Błąd: %1"
+msgstr "Błąd"
 
 #: src/libgitklient/commands/commandswitchbranch.cpp:26
 #, kde-format
@@ -2172,56 +2208,58 @@ msgid ""
 "Your local changes to the following files would be overwritten by checkout. "
 "Please commit your changes or stash them before you switch branches."
 msgstr ""
+"Twoje miejscowe zmiany w plikach zostałyby zastąpione po pobraniu wersji "
+"wyjściowej. Wdroż swoje zmiany lub zeskładuj je zanim przełączysz gałęzie."
 
 #: src/libgitklient/gitremote.cpp:120
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unknown"
 msgstr "Nieznany"
 
 #: src/libgitklient/gitremote.cpp:122
-#, fuzzy, kde-format
+#, kde-format
 msgid "Up to date"
 msgstr "Aktualne"
 
 #: src/libgitklient/gitremote.cpp:124
 #, kde-format
 msgid "Fast forwardable"
-msgstr ""
+msgstr "Da się przewinąć do przodu"
 
 #: src/libgitklient/gitremote.cpp:126
 #, kde-format
 msgid "Local out of date"
-msgstr ""
+msgstr "Miejscowe nieaktualne"
 
 #: src/libgitklient/models/authorsmodel.cpp:39
-#, fuzzy, kde-format
+#, kde-format
 msgid "Email"
 msgstr "E-mail"
 
 #: src/libgitklient/models/branchesmodel.cpp:58
 #, kde-format
 msgid "Commit(s) behind"
-msgstr ""
+msgstr "Wdrożeń w tyle"
 
 #: src/libgitklient/models/branchesmodel.cpp:60
 #, kde-format
 msgid "Commit(s) ahead"
-msgstr ""
+msgstr "Wdrożeń do przodu"
 
 #: src/libgitklient/models/logsmodel.cpp:258
 #: src/libgitklient/models/logsmodel.cpp:269
-#, fuzzy, kde-format
+#, kde-format
 msgid "Message"
 msgstr "Wiadomość"
 
 #: src/libgitklient/models/logsmodel.cpp:267
-#, fuzzy, kde-format
+#, kde-format
 msgid "Graph"
 msgstr "Graf"
 
 #: src/libgitklient/models/stashesmodel.cpp:60
 #: src/libgitklient/models/tagsmodel.cpp:64
-#, fuzzy, kde-format
+#, kde-format
 msgid "Subject"
 msgstr "Temat"
 
@@ -2231,12 +2269,12 @@ msgid "Author name"
 msgstr "Nazwa autora"
 
 #: src/libgitklient/models/stashesmodel.cpp:64
-#, fuzzy, kde-format
+#, kde-format
 msgid "Author email"
-msgstr "E-mail a&utora:"
+msgstr "E-mail autora"
 
 #: src/libgitklient/models/stashesmodel.cpp:66
-#, fuzzy, kde-format
+#, kde-format
 msgid "Time"
 msgstr "Czas"
 
@@ -2248,7 +2286,7 @@ msgstr "Nagłówek"
 #: src/libgitklient/models/tagsmodel.cpp:66
 #, kde-format
 msgid "Tagger"
-msgstr ""
+msgstr "Znaczący"
 
 #, fuzzy
 #~ msgid "View..."

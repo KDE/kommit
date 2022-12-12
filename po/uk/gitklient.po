@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:49+0000\n"
+"POT-Creation-Date: 2022-12-12 00:49+0000\n"
 "PO-Revision-Date: 2022-11-10 14:11+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -127,7 +127,7 @@ msgid "Branch name"
 msgstr "Назва гілки"
 
 #: src/gui/actions/branchactions.cpp:128
-#: src/gui/widgets/branchesstatuswidget.cpp:68
+#: src/gui/widgets/branchesstatuswidget.cpp:69
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Ви справді хочете вилучити позначену гілку?"
@@ -136,6 +136,13 @@ msgstr "Ви справді хочете вилучити позначену г�
 #, kde-format
 msgid "Remove Branch"
 msgstr "Вилучити гілку"
+
+#: src/gui/actions/branchactions.cpp:130
+#: src/gui/widgets/branchesstatuswidget.cpp:73
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected branch?"
+msgid "Unable to remove the selected branch"
+msgstr "Ви справді хочете вилучити позначену гілку?"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
@@ -223,27 +230,33 @@ msgstr "Ви справді хочете вилучити вибране від�
 msgid "Remove remote?"
 msgstr "Вилучити віддалене?"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:63
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected remote?"
+msgid "Unable to remove the selected remote"
+msgstr "Ви справді хочете вилучити вибране віддалене сховище?"
+
+#: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "Change url"
 msgstr "Змінити адресу"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "URL"
 msgstr "Адреса"
 
-#: src/gui/actions/remotesactions.cpp:76
+#: src/gui/actions/remotesactions.cpp:79
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "Адресу віддаленого сховища успішно змінено"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "Rename"
 msgstr "Перейменувати"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "New name"
 msgstr "Нова назва"
@@ -273,42 +286,54 @@ msgstr "Ви справді хочете застосувати вибране �
 msgid "Apply stash %1"
 msgstr "Застосувати накопичення %1"
 
-#: src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:51
+#, fuzzy, kde-format
+#| msgid "Are you sure to apply the selected stash?"
+msgid "Unable to apply the selected stash"
+msgstr "Ви справді хочете застосувати вибране накопичення?"
+
+#: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "Ви справді хочете відкинути вибране накопичення?"
 
-#: src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Drop stash %1"
 msgstr "Відкинути накопичення %1"
 
-#: src/gui/actions/stashactions.cpp:64
+#: src/gui/actions/stashactions.cpp:59
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected tag?"
+msgid "Unable to remove the selected stash"
+msgstr "Ви справді хочете вилучити позначену мітку?"
+
+#: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "Ви справді хочете підняти вибране накопичення?"
 
-#: src/gui/actions/stashactions.cpp:64
+#: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Pop stash %1"
 msgstr "Підняти накопичення %1"
 
-#: src/gui/actions/stashactions.cpp:79
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "У вас немає змін!"
 
-#: src/gui/actions/stashactions.cpp:79
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "Stash"
 msgstr "Накопичити"
 
-#: src/gui/actions/stashactions.cpp:84
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Create new stash"
 msgstr "Створити накопичення"
 
-#: src/gui/actions/stashactions.cpp:84
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Name of stash"
 msgstr "Назва накопичення"

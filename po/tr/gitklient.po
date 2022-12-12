@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:49+0000\n"
+"POT-Creation-Date: 2022-12-12 00:49+0000\n"
 "PO-Revision-Date: 2022-11-10 06:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -126,7 +126,7 @@ msgid "Branch name"
 msgstr "Dal adı"
 
 #: src/gui/actions/branchactions.cpp:128
-#: src/gui/widgets/branchesstatuswidget.cpp:68
+#: src/gui/widgets/branchesstatuswidget.cpp:69
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Seçili dalı kaldırmak istediğinize emin misiniz?"
@@ -135,6 +135,13 @@ msgstr "Seçili dalı kaldırmak istediğinize emin misiniz?"
 #, kde-format
 msgid "Remove Branch"
 msgstr "Dalı Kaldır"
+
+#: src/gui/actions/branchactions.cpp:130
+#: src/gui/widgets/branchesstatuswidget.cpp:73
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected branch?"
+msgid "Unable to remove the selected branch"
+msgstr "Seçili dalı kaldırmak istediğinize emin misiniz?"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
@@ -222,27 +229,33 @@ msgstr "Seçili uzak konumu kaldırmak istediğnize emin misiniz?"
 msgid "Remove remote?"
 msgstr "Uzak konum kaldırılsın mı?"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:63
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected remote?"
+msgid "Unable to remove the selected remote"
+msgstr "Seçili uzak konumu kaldırmak istediğnize emin misiniz?"
+
+#: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "Change url"
 msgstr "URL Değiştir"
 
-#: src/gui/actions/remotesactions.cpp:73
+#: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "URL"
 msgstr "URL"
 
-#: src/gui/actions/remotesactions.cpp:76
+#: src/gui/actions/remotesactions.cpp:79
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "Uzak konum URL'si, başarıyla değiştirildi"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "Rename"
 msgstr "Yeniden Adlandır"
 
-#: src/gui/actions/remotesactions.cpp:82
+#: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "New name"
 msgstr "Yeni ad"
@@ -272,42 +285,54 @@ msgstr "Seçili zulayı uygulamak istediğinize emin misiniz?"
 msgid "Apply stash %1"
 msgstr "%1 zulasını uygula"
 
-#: src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:51
+#, fuzzy, kde-format
+#| msgid "Are you sure to apply the selected stash?"
+msgid "Unable to apply the selected stash"
+msgstr "Seçili zulayı uygulamak istediğinize emin misiniz?"
+
+#: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "Seçili zulayı bırakmak istediğinize emin misiniz?"
 
-#: src/gui/actions/stashactions.cpp:56
+#: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Drop stash %1"
 msgstr "%1 zulasını bırak"
 
-#: src/gui/actions/stashactions.cpp:64
+#: src/gui/actions/stashactions.cpp:59
+#, fuzzy, kde-format
+#| msgid "Are you sure to remove the selected tag?"
+msgid "Unable to remove the selected stash"
+msgstr "Seçili etiketi kaldırmak istediğinize emin misiniz?"
+
+#: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "Seçili zulayı patlatmak istediğinize emin misiniz?"
 
-#: src/gui/actions/stashactions.cpp:64
+#: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Pop stash %1"
 msgstr "%1 zulasını patlat"
 
-#: src/gui/actions/stashactions.cpp:79
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Bir değişikliğiniz yok!"
 
-#: src/gui/actions/stashactions.cpp:79
+#: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "Stash"
 msgstr "Zulala"
 
-#: src/gui/actions/stashactions.cpp:84
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Create new stash"
 msgstr "Yeni Zula Oluştur"
 
-#: src/gui/actions/stashactions.cpp:84
+#: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Name of stash"
 msgstr "Zulanın adı"
