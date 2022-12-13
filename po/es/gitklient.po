@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-12 00:49+0000\n"
-"PO-Revision-Date: 2022-11-10 03:32+0100\n"
+"PO-Revision-Date: 2022-12-12 11:56+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -140,10 +140,9 @@ msgstr "Eliminar rama"
 
 #: src/gui/actions/branchactions.cpp:130
 #: src/gui/widgets/branchesstatuswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected branch?"
+#, kde-format
 msgid "Unable to remove the selected branch"
-msgstr "¿Seguro que quiere eliminar la rama seleccionada?"
+msgstr "No se puede eliminar la rama seleccionada"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
@@ -232,10 +231,9 @@ msgid "Remove remote?"
 msgstr "¿Eliminar remoto?"
 
 #: src/gui/actions/remotesactions.cpp:63
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected remote?"
+#, kde-format
 msgid "Unable to remove the selected remote"
-msgstr "¿Seguro que desea eliminar el remoto seleccionado?"
+msgstr "No se puede eliminar el remoto seleccionado"
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
@@ -288,10 +286,9 @@ msgid "Apply stash %1"
 msgstr "Aplicar reserva %1"
 
 #: src/gui/actions/stashactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Unable to apply the selected stash"
-msgstr "¿Seguro que desea aplicar la reserva seleccionada?"
+msgstr "No se puede aplicar la reserva seleccionada"
 
 #: src/gui/actions/stashactions.cpp:57
 #, kde-format
@@ -304,10 +301,9 @@ msgid "Drop stash %1"
 msgstr "Descartar reserva %1"
 
 #: src/gui/actions/stashactions.cpp:59
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected tag?"
+#, kde-format
 msgid "Unable to remove the selected stash"
-msgstr "¿Seguro que quiere eliminar la etiqueta seleccionada?"
+msgstr "No se puede eliminar la reserva seleccionada"
 
 #: src/gui/actions/stashactions.cpp:68
 #, kde-format

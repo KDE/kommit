@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-12 00:49+0000\n"
-"PO-Revision-Date: 2022-11-10 14:11+0200\n"
+"PO-Revision-Date: 2022-12-12 16:23+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -139,10 +139,9 @@ msgstr "Вилучити гілку"
 
 #: src/gui/actions/branchactions.cpp:130
 #: src/gui/widgets/branchesstatuswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected branch?"
+#, kde-format
 msgid "Unable to remove the selected branch"
-msgstr "Ви справді хочете вилучити позначену гілку?"
+msgstr "Не вдалося вилучити позначену гілку"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
@@ -231,10 +230,9 @@ msgid "Remove remote?"
 msgstr "Вилучити віддалене?"
 
 #: src/gui/actions/remotesactions.cpp:63
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected remote?"
+#, kde-format
 msgid "Unable to remove the selected remote"
-msgstr "Ви справді хочете вилучити вибране віддалене сховище?"
+msgstr "Не вдалося вилучити позначене віддалене"
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
@@ -287,10 +285,9 @@ msgid "Apply stash %1"
 msgstr "Застосувати накопичення %1"
 
 #: src/gui/actions/stashactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Unable to apply the selected stash"
-msgstr "Ви справді хочете застосувати вибране накопичення?"
+msgstr "Не вдалося застосувати вибране накопичення"
 
 #: src/gui/actions/stashactions.cpp:57
 #, kde-format
@@ -303,10 +300,9 @@ msgid "Drop stash %1"
 msgstr "Відкинути накопичення %1"
 
 #: src/gui/actions/stashactions.cpp:59
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected tag?"
+#, kde-format
 msgid "Unable to remove the selected stash"
-msgstr "Ви справді хочете вилучити позначену мітку?"
+msgstr "Не вдалося вилучити позначене накопичення"
 
 #: src/gui/actions/stashactions.cpp:68
 #, kde-format

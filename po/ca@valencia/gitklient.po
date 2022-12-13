@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-12 00:49+0000\n"
-"PO-Revision-Date: 2022-11-10 08:28+0100\n"
+"PO-Revision-Date: 2022-12-12 09:41+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -141,10 +141,9 @@ msgstr "Elimina la branca"
 
 #: src/gui/actions/branchactions.cpp:130
 #: src/gui/widgets/branchesstatuswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected branch?"
+#, kde-format
 msgid "Unable to remove the selected branch"
-msgstr "Esteu segur d'eliminar la branca seleccionada?"
+msgstr "No s'ha pogut eliminar la branca seleccionada"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
@@ -233,10 +232,9 @@ msgid "Remove remote?"
 msgstr "Voleu eliminar el remot?"
 
 #: src/gui/actions/remotesactions.cpp:63
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected remote?"
+#, kde-format
 msgid "Unable to remove the selected remote"
-msgstr "Esteu segur d'eliminar el remot seleccionat?"
+msgstr "No s'ha pogut eliminar el remot seleccionat"
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
@@ -289,10 +287,9 @@ msgid "Apply stash %1"
 msgstr "Aplica l'«stash» %1"
 
 #: src/gui/actions/stashactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Unable to apply the selected stash"
-msgstr "Esteu segur d'aplicar l'«stash» seleccionat?"
+msgstr "No s'ha pogut aplicar l'«stash» seleccionat"
 
 #: src/gui/actions/stashactions.cpp:57
 #, kde-format
@@ -305,10 +302,9 @@ msgid "Drop stash %1"
 msgstr "Llença l'«stash» %1"
 
 #: src/gui/actions/stashactions.cpp:59
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected tag?"
+#, kde-format
 msgid "Unable to remove the selected stash"
-msgstr "Esteu segur d'eliminar l'etiqueta seleccionada?"
+msgstr "No s'ha pogut eliminar l'«stash» seleccionat"
 
 #: src/gui/actions/stashactions.cpp:68
 #, kde-format

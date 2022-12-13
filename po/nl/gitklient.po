@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-12 00:49+0000\n"
-"PO-Revision-Date: 2022-11-10 18:46-0400\n"
+"PO-Revision-Date: 2022-12-12 12:26+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -138,10 +138,9 @@ msgstr "Branch verwijderen"
 
 #: src/gui/actions/branchactions.cpp:130
 #: src/gui/widgets/branchesstatuswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected branch?"
+#, kde-format
 msgid "Unable to remove the selected branch"
-msgstr "Wilt u de geselecteerde branch verwijderen?"
+msgstr "Kan de geselecteerde branch niet verwijderen"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
@@ -230,10 +229,9 @@ msgid "Remove remote?"
 msgstr "Remote verwijderen?"
 
 #: src/gui/actions/remotesactions.cpp:63
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected remote?"
+#, kde-format
 msgid "Unable to remove the selected remote"
-msgstr "Wilt u de geselecteerde remote verwijderen?"
+msgstr "Kan de geselecteerde remote niet verwijderen"
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
@@ -286,10 +284,9 @@ msgid "Apply stash %1"
 msgstr "Stapel toepassen %1"
 
 #: src/gui/actions/stashactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Unable to apply the selected stash"
-msgstr "Wilt u de geselecteerde stapel toepassen?"
+msgstr "Kan de geselecteerde stapel niet toepassen"
 
 #: src/gui/actions/stashactions.cpp:57
 #, kde-format
@@ -302,10 +299,9 @@ msgid "Drop stash %1"
 msgstr "Stapel %1 laten vallen"
 
 #: src/gui/actions/stashactions.cpp:59
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected tag?"
+#, kde-format
 msgid "Unable to remove the selected stash"
-msgstr "Wilt u de geselecteerde tag verwijderen?"
+msgstr "Kan de geselecteerde stapel niet verwijderen"
 
 #: src/gui/actions/stashactions.cpp:68
 #, kde-format
