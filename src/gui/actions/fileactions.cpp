@@ -29,6 +29,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #endif
 
 #include <QAction>
+#include <QDebug>
 #include <QDesktopServices>
 #include <QFileDialog>
 #include <QMenu>
