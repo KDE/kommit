@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-12 00:49+0000\n"
+"POT-Creation-Date: 2022-12-14 00:49+0000\n"
 "PO-Revision-Date: 2022-09-07 22:16-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -154,48 +154,48 @@ msgstr ""
 msgid "Checkout..."
 msgstr ""
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:87
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Preview"
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open"
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:84
+#: src/gui/actions/fileactions.cpp:85
 #, kde-format
 msgid "Open with..."
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:88
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:89
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Save as..."
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:90
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Log..."
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:91
+#: src/gui/actions/fileactions.cpp:92
 #, kde-format
 msgid "Blame..."
 msgstr ""
 
-#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:190
+#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Search..."
 msgstr ""

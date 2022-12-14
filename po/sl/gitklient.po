@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-12 00:49+0000\n"
-"PO-Revision-Date: 2022-11-11 10:10+0100\n"
+"POT-Creation-Date: 2022-12-14 00:49+0000\n"
+"PO-Revision-Date: 2022-12-13 06:57+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -142,10 +142,9 @@ msgstr "Odstrani vejo"
 
 #: src/gui/actions/branchactions.cpp:130
 #: src/gui/widgets/branchesstatuswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected branch?"
+#, kde-format
 msgid "Unable to remove the selected branch"
-msgstr "Ali ste prepričani, da želite odstraniti izbrano vejo?"
+msgstr "Ni mogoče odstraniti izbrane veje"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
@@ -162,48 +161,48 @@ msgstr "Povrni …"
 msgid "Checkout..."
 msgstr "Prevzemi ..."
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:87
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Razlika z GLAVO/HEAD ..."
 
-#: src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Preview"
 msgstr "Predogled"
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open"
 msgstr "Odpri"
 
-#: src/gui/actions/fileactions.cpp:84
+#: src/gui/actions/fileactions.cpp:85
 #, kde-format
 msgid "Open with..."
 msgstr "Odpri z..."
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:88
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Združi z GLAVO/HEAD ..."
 
-#: src/gui/actions/fileactions.cpp:89
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Save as..."
 msgstr "Shrani kot..."
 
-#: src/gui/actions/fileactions.cpp:90
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Log..."
 msgstr "Dnevnik..."
 
-#: src/gui/actions/fileactions.cpp:91
+#: src/gui/actions/fileactions.cpp:92
 #, kde-format
 msgid "Blame..."
 msgstr "Odgovornost (blame) ..."
 
-#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:190
+#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Search..."
 msgstr "Išči..."
@@ -234,10 +233,9 @@ msgid "Remove remote?"
 msgstr "Odstranim oddaljeno?"
 
 #: src/gui/actions/remotesactions.cpp:63
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected remote?"
+#, kde-format
 msgid "Unable to remove the selected remote"
-msgstr "Ali ste prepričani, da odstranite izbrano oddaljeno?"
+msgstr "Ni mogoče odstraniti izbrano oddaljeno"
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
@@ -290,10 +288,9 @@ msgid "Apply stash %1"
 msgstr "Uveljavi zalogo %1"
 
 #: src/gui/actions/stashactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Unable to apply the selected stash"
-msgstr "Ali ste prepričani, da želite uveljaviti izbrano zalogo?"
+msgstr "Ni mogoče uveljaviti izbrano zalogo"
 
 #: src/gui/actions/stashactions.cpp:57
 #, kde-format
@@ -306,10 +303,9 @@ msgid "Drop stash %1"
 msgstr "Spusti zalogo %1"
 
 #: src/gui/actions/stashactions.cpp:59
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected tag?"
+#, kde-format
 msgid "Unable to remove the selected stash"
-msgstr "Ali ste prepričani za odstranjevanje izbrane oznake?"
+msgstr "Ni mogoče odstraniti izbrane zaloge"
 
 #: src/gui/actions/stashactions.cpp:68
 #, kde-format
@@ -1461,7 +1457,7 @@ msgstr "Povleci spremembe"
 #: src/gui/dialogs/pulldialog.ui:63
 #, kde-format
 msgid "Rebase:"
-msgstr ""
+msgstr "Ponastavi bazo:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RepoSettingsDialog)
 #: src/gui/dialogs/reposettingsdialog.ui:14

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-12 00:49+0000\n"
+"POT-Creation-Date: 2022-12-14 00:49+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -161,48 +161,48 @@ msgstr "Lehengoratu..."
 msgid "Checkout..."
 msgstr "Atera"
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:87
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Diff HEADekin..."
 
-#: src/gui/actions/fileactions.cpp:82
+#: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Preview"
 msgstr "Aurreikuspegia"
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open"
 msgstr "Ireki"
 
-#: src/gui/actions/fileactions.cpp:84
+#: src/gui/actions/fileactions.cpp:85
 #, kde-format
 msgid "Open with..."
 msgstr "Ireki honekin..."
 
-#: src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/fileactions.cpp:88
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Bateratu HEADekin..."
 
-#: src/gui/actions/fileactions.cpp:89
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Save as..."
 msgstr "Gorde honela..."
 
-#: src/gui/actions/fileactions.cpp:90
+#: src/gui/actions/fileactions.cpp:91
 #, fuzzy, kde-format
 msgid "Log..."
 msgstr "Egunkaria"
 
-#: src/gui/actions/fileactions.cpp:91
+#: src/gui/actions/fileactions.cpp:92
 #, fuzzy, kde-format
 msgid "Blame..."
 msgstr "Ardura..."
 
-#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:190
+#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Search..."
 msgstr "Bilatu..."
