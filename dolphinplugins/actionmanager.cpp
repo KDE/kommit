@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actionmanager.h"
 
-#include <KFileItem>
 #include <KFileItemListProperties>
 #include <KLocalizedString>
 #include <KPluginFactory>
