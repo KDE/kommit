@@ -80,6 +80,8 @@ target_sources(libgitklientgui PRIVATE
     widgets/segmentsscrollbar.cpp
     widgets/authorswidget.h
     widgets/authorswidget.cpp
+    widgets/segmentsmapper.h
+    widgets/segmentsmapper.cpp
     models/difftreemodel.cpp
     models/difftreemodel.h
     models/filesmodel.cpp
@@ -88,12 +90,6 @@ target_sources(libgitklientgui PRIVATE
     models/treemodel.h
     models/changedfilesmodel.h
     models/changedfilesmodel.cpp
-    diff/codeeditordocument.cpp
-    diff/codeeditordocument.h
-    diff/diff.cpp
-    diff/diff.h
-    diff/segmentsmapper.cpp
-    diff/segmentsmapper.h
     dialogs/changedfilesdialog.cpp
     dialogs/changedfilesdialog.h
     dialogs/clonedialog.cpp
@@ -240,6 +236,7 @@ target_link_libraries(libgitklientgui
     Qt::Concurrent
 
     libgitklient
+    libgitklientdiff
 
     KF5::CoreAddons
     KF5::I18n

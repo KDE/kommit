@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "diff/diff.h"
 #include <QMap>
 #include <QObject>
+#include <diff.h>
 
 class CodeEditor;
 class SegmentsMapper : public QObject

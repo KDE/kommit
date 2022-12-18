@@ -3,7 +3,8 @@
 add_executable(gitklient main.cpp)
 
 target_link_libraries(gitklient
-	libgitklient
+        libgitklient
+        libgitklientdiff
 	libgitklientgui
 )
 

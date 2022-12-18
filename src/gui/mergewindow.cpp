@@ -7,10 +7,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "dialogs/mergecloseeventdialog.h"
 #include "dialogs/mergeopenfilesdialog.h"
-#include "diff/segmentsmapper.h"
 #include "settings/settingsmanager.h"
 #include "widgets/codeeditor.h"
 #include "widgets/editactionsmapper.h"
+#include "widgets/segmentsmapper.h"
 
 #include <KActionCollection>
 #include <KLocalizedString>

@@ -1,4 +1,5 @@
 add_subdirectory(libgitklient)
+add_subdirectory(libgitklientdiff)
 add_subdirectory(data)
 add_subdirectory(gui)
 add_subdirectory(apps)

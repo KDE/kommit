@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QMap>
 #include <QPlainTextEdit>
 #include <QTextBlockFormat>
-#include <diff/diff.h>
+#include <diff.h>
 
 class QLabel;
 
