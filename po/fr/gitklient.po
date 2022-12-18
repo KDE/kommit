@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:49+0000\n"
+"POT-Creation-Date: 2022-12-18 00:57+0000\n"
 "PO-Revision-Date: 2022-10-27 09:01+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -25,7 +25,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "thomas.vergnaud@mailo.eu"
 
-#: dolphinplugins/actionmanager.cpp:22
+#: dolphinplugins/actionmanager.cpp:21
 #, kde-format
 msgid "Git Klient"
 msgstr "Klient Git"
@@ -1973,7 +1973,7 @@ msgstr ""
 msgid "Authors"
 msgstr "Auteur"
 
-#: src/gui/widgets/blamecodeview.cpp:42
+#: src/gui/widgets/blamecodeview.cpp:41
 #, kde-format
 msgid "Uncommited"
 msgstr "Non-validé"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:49+0000\n"
+"POT-Creation-Date: 2022-12-18 00:57+0000\n"
 "PO-Revision-Date: 2022-12-13 12:22\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org, henry.hu.sh@gmail.com"
 
-#: dolphinplugins/actionmanager.cpp:22
+#: dolphinplugins/actionmanager.cpp:21
 #, kde-format
 msgid "Git Klient"
 msgstr "Git 客户端"
@@ -1912,7 +1912,7 @@ msgstr ""
 msgid "Authors"
 msgstr ""
 
-#: src/gui/widgets/blamecodeview.cpp:42
+#: src/gui/widgets/blamecodeview.cpp:41
 #, kde-format
 msgid "Uncommited"
 msgstr "未提交"
