@@ -54,8 +54,7 @@ private:
 
     friend class Manager;
 };
-bool operator==(const FileStatus &f1, const FileStatus &f2);
-
+LIBGITKLIENT_EXPORT bool operator==(const FileStatus &f1, const FileStatus &f2);
 }
 
 Q_DECLARE_METATYPE(Git::FileStatus)
