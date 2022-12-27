@@ -20,14 +20,14 @@ int matchesCount(const QStringList &base, const QStringList &local, const QStrin
 QStringList take(QStringList &list, int count);
 int remove(QStringList &list, int count);
 
-QList<DiffSegment *> LIBGITKLIENTDIFF_EXPORT diff(const QString &oldText, const QString &newText);
-QList<DiffSegment *> LIBGITKLIENTDIFF_EXPORT diff(const QStringList &oldText, const QStringList &newText);
+Q_REQUIRED_RESULT QList<DiffSegment *> LIBGITKLIENTDIFF_EXPORT diff(const QString &oldText, const QString &newText);
+Q_REQUIRED_RESULT QList<DiffSegment *> LIBGITKLIENTDIFF_EXPORT diff(const QStringList &oldText, const QStringList &newText);
 
-Diff2Result LIBGITKLIENTDIFF_EXPORT diff2(const QString &oldText, const QString &newText);
+Q_REQUIRED_RESULT Diff2Result LIBGITKLIENTDIFF_EXPORT diff2(const QString &oldText, const QString &newText);
 
-Diff3Result LIBGITKLIENTDIFF_EXPORT diff3(const QString &base, const QString &local, const QString &remote);
-QList<MergeSegment *> LIBGITKLIENTDIFF_EXPORT diff3(const QStringList &base, const QStringList &local, const QStringList &remote);
+Q_REQUIRED_RESULT Diff3Result LIBGITKLIENTDIFF_EXPORT diff3(const QString &base, const QString &local, const QString &remote);
+Q_REQUIRED_RESULT QList<MergeSegment *> LIBGITKLIENTDIFF_EXPORT diff3(const QStringList &base, const QStringList &local, const QStringList &remote);
 
-QMap<QString, DiffType> LIBGITKLIENTDIFF_EXPORT diffDirs(const QString &dir1, const QString &dir2);
+Q_REQUIRED_RESULT QMap<QString, DiffType> LIBGITKLIENTDIFF_EXPORT diffDirs(const QString &dir1, const QString &dir2);
 
 } // namespace Diff

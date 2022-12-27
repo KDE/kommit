@@ -18,5 +18,5 @@ struct Text {
     LineEnding lineEnding;
 };
 
-Text readLines(const QString &text);
+Q_REQUIRED_RESULT Text readLines(const QString &text);
 }
