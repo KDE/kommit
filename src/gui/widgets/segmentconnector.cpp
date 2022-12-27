@@ -38,7 +38,7 @@ void SegmentConnector::setSegments(const QList<Diff::DiffSegment *> &newSegments
         if (m_sameSize) {
             auto sizeMax = qMax(s->oldText.size(), s->newText.size());
 
-            SegmentPos pos{oldIndex, oldIndex + s->oldText.size() - 1, newIndex, newIndex + s->newText.size() - 1};
+            SegmentPos pos{oldIndex, static_cast<int>(oldIndex + s->oldText.size() - 1), newIndex, static_cast<int>(newIndex + s->newText.size() - 1)};
 
             //            if (s->oldText.isEmpty())
             //                pos.leftEnd = -1;
@@ -49,7 +49,7 @@ void SegmentConnector::setSegments(const QList<Diff::DiffSegment *> &newSegments
             oldIndex += sizeMax;
             newIndex += sizeMax;
         } else {
-            SegmentPos pos{oldIndex, oldIndex + s->oldText.size() - 1, newIndex, newIndex + s->newText.size() - 1};
+            SegmentPos pos{oldIndex, static_cast<int>(oldIndex + s->oldText.size() - 1), newIndex, static_cast<int>(newIndex + s->newText.size() - 1)};
 
             if (s->oldText.isEmpty())
                 pos.leftEnd = -1;
