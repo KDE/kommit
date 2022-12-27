@@ -90,7 +90,6 @@ target_link_libraries(libgitklient
     Qt::Core
     Qt::Widgets
     Qt::Concurrent
-    KF5::Crash
     KF5::I18n
 )
 

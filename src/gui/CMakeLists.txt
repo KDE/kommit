@@ -163,7 +163,12 @@ set_target_properties(libgitklientgui
     PROPERTIES OUTPUT_NAME gitklientgui VERSION ${LIBGITKLIENT_LIB_VERSION} SOVERSION ${LIBGITKLIENT_LIB_SOVERSION}
 )
 
-
+target_link_libraries(libgitklientgui
+    Qt::Core
+    Qt::Widgets
+    Qt::Concurrent
+    KF5::I18n
+)
 
 install(TARGETS libgitklientgui ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
