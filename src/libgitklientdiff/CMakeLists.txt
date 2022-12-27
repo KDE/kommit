@@ -27,7 +27,7 @@ generate_export_header(libgitklientdiff BASE_NAME libgitklientdiff)
 ecm_qt_declare_logging_category(libgitklientdiff
     HEADER libgitklientdiff_debug.h
     IDENTIFIER GITKLIENTDIFFLIB_LOG
-    CATEGORY_NAME "org.kde.gitklient.libgitklientdiff" DESCRIPTION "libgitklientdiff" EXPORT GITKLIENTDIFF
+    CATEGORY_NAME "org.kde.gitklient.libgitklientdiff" DESCRIPTION "libgitklientdiff" EXPORT GITKLIENT
 )
 
 set_target_properties(libgitklientdiff
