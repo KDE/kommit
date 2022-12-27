@@ -43,3 +43,7 @@ install(
     TARGETS libgitklientdiff ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
     LIBRARY NAMELINK_SKIP
 )
+
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+endif()
