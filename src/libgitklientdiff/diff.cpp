@@ -29,8 +29,8 @@ QStringList take(QStringList &list, int count)
 
 int remove(QStringList &list, int count)
 {
-    const int size{qMin<int>(count, list.size())};
-    for (int i = 0; i < size; ++i)
+    const auto size{qMin<int>(count, list.size())};
+    for (auto i = 0; i < size; ++i)
         list.removeFirst();
     return size;
 }
