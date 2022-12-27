@@ -13,9 +13,9 @@ namespace Diff
 {
 using Pair2 = QPair<int, int>;
 struct Pair3 {
-    int first;
-    int second;
-    int third;
+    int first = -1;
+    int second = -1;
+    int third = -1;
 
     Pair3();
     Pair3(int firstNumber, int secondNumber, int thirdNumber);

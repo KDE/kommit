@@ -9,12 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Diff
 {
 
-Pair3::Pair3()
-    : first{-1}
-    , second{-1}
-    , third{-1}
-{
-}
+Pair3::Pair3() = default;
 
 Pair3::Pair3(int firstNumber, int secondNumber, int thirdNumber)
     : first{firstNumber}
