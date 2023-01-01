@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-18 00:57+0000\n"
-"PO-Revision-Date: 2022-09-18 12:32+0100\n"
+"PO-Revision-Date: 2022-12-31 16:28+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: English <kde-i18n-doc@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -62,12 +62,12 @@ msgstr "Hamed Masafi"
 #: src/apps/main.cpp:41
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/apps/main.cpp:41
 #, kde-format
 msgid "Bug fixing"
-msgstr ""
+msgstr "Bug fixing"
 
 #: src/gui/actions/branchactions.cpp:30
 #, kde-format
@@ -138,10 +138,9 @@ msgstr "Remove Branch"
 
 #: src/gui/actions/branchactions.cpp:130
 #: src/gui/widgets/branchesstatuswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected branch?"
+#, kde-format
 msgid "Unable to remove the selected branch"
-msgstr "Are you sure to remove the selected branch?"
+msgstr "Unable to remove the selected branch"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
@@ -165,10 +164,9 @@ msgid "Diff with HEAD..."
 msgstr "Diff with HEAD..."
 
 #: src/gui/actions/fileactions.cpp:83
-#, fuzzy, kde-format
-#| msgid "Overview"
+#, kde-format
 msgid "Preview"
-msgstr "Overview"
+msgstr "Preview"
 
 #: src/gui/actions/fileactions.cpp:84
 #, kde-format
@@ -231,10 +229,9 @@ msgid "Remove remote?"
 msgstr "Remove remote?"
 
 #: src/gui/actions/remotesactions.cpp:63
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected remote?"
+#, kde-format
 msgid "Unable to remove the selected remote"
-msgstr "Are you sure to remove the selected remote?"
+msgstr "Unable to remove the selected remote"
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
@@ -287,40 +284,34 @@ msgid "Apply stash %1"
 msgstr "Apply stash %1"
 
 #: src/gui/actions/stashactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Unable to apply the selected stash"
-msgstr "Are you sure to apply the selected stash?"
+msgstr "Unable to apply the selected stash"
 
 #: src/gui/actions/stashactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Are you sure to drop the selected stash?"
-msgstr "Are you sure to apply the selected stash?"
+msgstr "Are you sure to drop the selected stash?"
 
 #: src/gui/actions/stashactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Drop stash %1"
-msgstr "Apply stash %1"
+msgstr "Drop stash %1"
 
 #: src/gui/actions/stashactions.cpp:59
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected tag?"
+#, kde-format
 msgid "Unable to remove the selected stash"
-msgstr "Are you sure to remove the selected tag?"
+msgstr "Unable to remove the selected stash"
 
 #: src/gui/actions/stashactions.cpp:68
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Are you sure to pop the selected stash?"
-msgstr "Are you sure to apply the selected stash?"
+msgstr "Are you sure to pop the selected stash?"
 
 #: src/gui/actions/stashactions.cpp:68
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Pop stash %1"
-msgstr "Apply stash %1"
+msgstr "Pop stash %1"
 
 #: src/gui/actions/stashactions.cpp:83
 #, kde-format
@@ -369,10 +360,9 @@ msgid "Are you sure to remove the selected submodule?"
 msgstr "Are you sure to remove the selected submodule?"
 
 #: src/gui/actions/submoduleactions.cpp:76
-#, fuzzy, kde-format
-#| msgid "Submodules"
+#, kde-format
 msgid "Remove Submodule"
-msgstr "Submodules"
+msgstr "Remove Submodule"
 
 #: src/gui/actions/submoduleactions.cpp:83
 #, kde-format
@@ -406,10 +396,9 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Are you sure to remove the selected tag?"
 
 #: src/gui/actions/tagsactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove tag"
-msgstr "Remove"
+msgstr "Remove tag"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/actions/tagsactions.cpp:65
@@ -419,10 +408,9 @@ msgid "Checkout"
 msgstr "Checkout"
 
 #: src/gui/actions/tagsactions.cpp:65
-#, fuzzy, kde-format
-#| msgid "Are you sure to restore to the selected tag?"
+#, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr "Are you sure to restore to the selected tag?"
+msgstr "Are you sure to checkout to the selected tag?"
 
 #: src/gui/appwindow.cpp:74
 #, kde-format
@@ -462,7 +450,7 @@ msgstr "Recent repositories"
 #: src/gui/appwindow.cpp:168
 #, kde-format
 msgid "Cleanup..."
-msgstr ""
+msgstr "Cleanup..."
 
 #: src/gui/appwindow.cpp:171
 #, kde-format
@@ -500,10 +488,9 @@ msgid "Init repo"
 msgstr "Initialise repository"
 
 #: src/gui/appwindow.cpp:263
-#, fuzzy, kde-format
-#| msgid "Clone a repository"
+#, kde-format
 msgid "Open repository"
-msgstr "Clone a repository"
+msgstr "Open repository"
 
 #: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
 #, kde-format
@@ -536,10 +523,9 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Would you like to leave file(s) on disk?"
 
 #: src/gui/commandargsparser.cpp:515
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove from index"
-msgstr "Remove remote?"
+msgstr "Remove from index"
 
 #: src/gui/commandargsparser.cpp:517
 #, kde-format
@@ -575,7 +561,7 @@ msgstr "Commit/Push"
 #: src/gui/dialogs/changedfilesdialog.cpp:30
 #, kde-format
 msgid "Reload"
-msgstr ""
+msgstr "Reload"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
@@ -592,42 +578,39 @@ msgstr "Changed files:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/gui/dialogs/cleanupdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Recent repos"
+#, kde-format
 msgid "Cleanup repo"
-msgstr "Recent repositories"
+msgstr "Cleanup repository"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/cleanupdialog.ui:23
 #, kde-format
 msgid "Clean type"
-msgstr ""
+msgstr "Clean type"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNonIgnoredUntrackedFiles)
 #: src/gui/dialogs/cleanupdialog.ui:29
 #, kde-format
 msgid "Remove non-ignored untracked files"
-msgstr ""
+msgstr "Remove non-ignored untracked files"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllUntrackedFiles)
 #: src/gui/dialogs/cleanupdialog.ui:39
 #, kde-format
 msgid "Remove all untracked files"
-msgstr ""
+msgstr "Remove all untracked files"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
 #: src/gui/dialogs/cleanupdialog.ui:46
-#, fuzzy, kde-format
-#| msgid "Ignore file"
+#, kde-format
 msgid "Remove ignored files"
-msgstr "Ignore file"
+msgstr "Remove ignored files"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
 #: src/gui/dialogs/cleanupdialog.ui:56
-#, fuzzy, kde-format
-#| msgid "Compare directories"
+#, kde-format
 msgid "Remove untracked directories"
-msgstr "Compare folders"
+msgstr "Remove untracked directories"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloneDialog)
 #: src/gui/dialogs/clonedialog.ui:14
@@ -690,10 +673,9 @@ msgstr "Push"
 
 #: src/gui/dialogs/commitpushdialog.cpp:58
 #: src/gui/dialogs/commitpushdialog.cpp:211
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgid "Commit and push"
-msgstr "Commit/Push"
+msgstr "Commit and push"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/gui/dialogs/commitpushdialog.ui:22
@@ -872,10 +854,9 @@ msgstr "Commit"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/gui/dialogs/diffopendialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Select files to merge"
+#, kde-format
 msgid "Select files/folders"
-msgstr "Select files to merge"
+msgstr "Select files/folders"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
 #: src/gui/dialogs/diffopendialog.ui:24
@@ -1193,15 +1174,7 @@ msgstr "Strategy:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxStrategy)
 #: src/gui/dialogs/mergedialog.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The merge mechanism (git merge and git pull "
-#| "commands) allows the backend merge strategies to be chosen with -s "
-#| "option. Some strategies can also take their own options, which can be "
-#| "passed by giving -X&lt;option&gt; arguments to git merge and/or git pull."
-#| "</p><p><a href=\"https://git-scm.com/docs/merge-strategies\"><span style="
-#| "\" text-decoration: underline; color:#2980b9;\">More information</span></"
-#| "a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>The merge mechanism (git merge and git pull commands) "
 "allows the backend merge strategies to be chosen with -s option. Some "
@@ -1233,20 +1206,13 @@ msgstr "-"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/mergedialog.ui:60 src/gui/dialogs/pulldialog.ui:79
-#, fuzzy, kde-format
-#| msgid "Fast forward"
+#, kde-format
 msgid "Fast forward:"
-msgstr "Fast forward"
+msgstr "Fast forward:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/mergedialog.ui:67
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Create a merge commit in all cases, even when the "
-#| "merge could instead be resolved as a fast-forward.</p><p><a href="
-#| "\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---no-ff"
-#| "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
-#| "information</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Specifies how a merge is handled when the merged-in "
 "history is already a descendant of the current history.</p><p><br/></p><p><a "
@@ -1254,11 +1220,11 @@ msgid ""
 "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>Create a merge commit in all cases, even when the "
-"merge could instead be resolved as a fast-forward.</p><p><a href=\"https://"
-"git-scm.com/docs/git-merge#Documentation/git-merge.txt---no-ff\"><span style="
-"\" text-decoration: underline; color:#007af4;\">More information</span></a></"
-"p></body></html>"
+"<html><head/><body><p>Specifies how a merge is handled when the merged-in "
+"history is already a descendant of the current history.</p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">More "
+"information</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
@@ -1341,7 +1307,7 @@ msgstr "Ours"
 #: src/gui/dialogs/mergedialog.ui:147
 #, kde-format
 msgid "Theirs"
-msgstr ""
+msgstr "Theirs"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreAllSpace)
@@ -1349,14 +1315,7 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreCrAtEol)
 #: src/gui/dialogs/mergedialog.ui:154 src/gui/dialogs/mergedialog.ui:164
 #: src/gui/dialogs/mergedialog.ui:174 src/gui/dialogs/mergedialog.ui:184
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
-#| "When not possible, refuse to merge and exit with a non-zero status.</"
-#| "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-#| "merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
-#| "decoration: underline; color:#007af4;\">More information</span></a></p></"
-#| "body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Treats lines with the indicated type of whitespace "
 "change as unchanged for the sake of a three-way merge. Whitespace changes "
@@ -1365,47 +1324,40 @@ msgid ""
 "space-change\"><span style=\" text-decoration: underline; color:#007af4;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
-"When not possible, refuse to merge and exit with a non-zero status.</"
-"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
-"git-merge.txt---ff-only\"><span style=\" text-decoration: underline; color:"
-"#007af4;\">More information</span></a></p></body></html>"
+"<html><head/><body><p>Treats lines with the indicated type of whitespace "
+"change as unchanged for the sake of a three-way merge. Whitespace changes "
+"mixed with other changes to a line are not ignored. </p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-ignore-"
+"space-change\"><span style=\" text-decoration: underline; color:#007af4;"
+"\">More information</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #: src/gui/dialogs/mergedialog.ui:157
 #, kde-format
 msgid "Ignore space change"
-msgstr ""
+msgstr "Ignore space change"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreAllSpace)
 #: src/gui/dialogs/mergedialog.ui:167
-#, fuzzy, kde-format
-#| msgid "Ignore file"
+#, kde-format
 msgid "Ignore all space"
-msgstr "Ignore file"
+msgstr "Ignore all space"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
 #: src/gui/dialogs/mergedialog.ui:177
 #, kde-format
 msgid "Ignore space at eol"
-msgstr ""
+msgstr "Ignore space at eol"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreCrAtEol)
 #: src/gui/dialogs/mergedialog.ui:187
 #, kde-format
 msgid "Ignore cr at eol"
-msgstr ""
+msgstr "Ignore cr at eol"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxRenormalize)
 #: src/gui/dialogs/mergedialog.ui:194
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
-#| "When not possible, refuse to merge and exit with a non-zero status.</"
-#| "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-#| "merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
-#| "decoration: underline; color:#007af4;\">More information</span></a></p></"
-#| "body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>This runs a virtual check-out and check-in of all "
 "three stages of a file when resolving a three-way merge. This option is "
@@ -1415,34 +1367,29 @@ msgid ""
 "decoration: underline; color:#007af4;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
-"When not possible, refuse to merge and exit with a non-zero status.</"
-"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
-"git-merge.txt---ff-only\"><span style=\" text-decoration: underline; color:"
-"#007af4;\">More information</span></a></p></body></html>"
+"<html><head/><body><p>This runs a virtual check-out and check-in of all "
+"three stages of a file when resolving a three-way merge. This option is "
+"meant to be used when merging branches with different clean filters or end-"
+"of-line normalisation rules.</p><p><br/></p><p><a href=\"https://git-scm.com/"
+"docs/git-merge#Documentation/git-merge.txt-renormalize\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">More information</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
 #: src/gui/dialogs/mergedialog.ui:197
 #, kde-format
 msgid "Renormalize"
-msgstr ""
+msgstr "Normalise"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/gui/dialogs/mergedialog.ui:211
 #, kde-format
 msgid "Diff algorithm:"
-msgstr ""
+msgstr "Diff algorithm:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxDiffAlgoritm)
 #: src/gui/dialogs/mergedialog.ui:218
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
-#| "When not possible, refuse to merge and exit with a non-zero status.</"
-#| "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-#| "merge#Documentation/git-merge.txt---ff-only\"><span style=\" text-"
-#| "decoration: underline; color:#007af4;\">More information</span></a></p></"
-#| "body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Use a different diff algorithm while merging, which "
 "can help avoid mismerges that occur due to unimportant matching lines (such "
@@ -1451,17 +1398,18 @@ msgid ""
 "algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>Resolve the merge as a fast-forward when possible. "
-"When not possible, refuse to merge and exit with a non-zero status.</"
-"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
-"git-merge.txt---ff-only\"><span style=\" text-decoration: underline; color:"
-"#007af4;\">More information</span></a></p></body></html>"
+"<html><head/><body><p>Use a different diff algorithm while merging, which "
+"can help avoid mismerges that occur due to unimportant matching lines (such "
+"as braces from distinct functions).</p><p><br/></p><p><a href=\"https://git-"
+"scm.com/docs/git-merge#Documentation/git-merge.txt-diff-"
+"algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">More information</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
 #: src/gui/dialogs/mergedialog.ui:225
 #, kde-format
 msgid "Turn off rename detection"
-msgstr ""
+msgstr "Turn off rename detection"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeOpenFilesDialog)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:14
@@ -1503,7 +1451,7 @@ msgstr "Pull changes"
 #: src/gui/dialogs/pulldialog.ui:63
 #, kde-format
 msgid "Rebase:"
-msgstr ""
+msgstr "Rebase:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RepoSettingsDialog)
 #: src/gui/dialogs/reposettingsdialog.ui:14
@@ -1529,14 +1477,13 @@ msgstr "Email:"
 #: src/gui/dialogs/reposettingsdialog.ui:46
 #, kde-format
 msgid "Auto crlf"
-msgstr ""
+msgstr "Auto crlf"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAutoFileMode)
 #: src/gui/dialogs/reposettingsdialog.ui:53
-#, fuzzy, kde-format
-#| msgid "Show files names"
+#, kde-format
 msgid "Auto file mode"
-msgstr "Show files names"
+msgstr "Auto file mode"
 
 #: src/gui/dialogs/runnerdialog.cpp:57
 #, kde-format
@@ -1546,7 +1493,7 @@ msgstr "View"
 #: src/gui/dialogs/runnerdialog.cpp:119
 #, kde-format
 msgid "Process finished"
-msgstr ""
+msgstr "Process finished"
 
 #: src/gui/dialogs/runnerdialog.cpp:124
 #, kde-format
@@ -1556,7 +1503,7 @@ msgstr "The git process crashed"
 #: src/gui/dialogs/runnerdialog.cpp:125
 #, kde-format
 msgid "Process finished with error"
-msgstr ""
+msgstr "Process finished with error"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/gui/dialogs/runnerdialog.ui:14
@@ -1588,6 +1535,19 @@ msgid ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
 "\"><br /></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Monospace'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonStop)
 #: src/gui/dialogs/runnerdialog.ui:98
@@ -1602,10 +1562,9 @@ msgstr "File name"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
 #: src/gui/dialogs/searchdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Recent repos"
+#, kde-format
 msgid "Search in repo"
-msgstr "Recent repositories"
+msgstr "Search in repository"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/searchdialog.ui:25
@@ -1728,7 +1687,7 @@ msgstr "View hidden characters..."
 #: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:343
 #, kde-format
 msgid "Same size blocks"
-msgstr ""
+msgstr "Same size blocks"
 
 #: src/gui/diffwindow.cpp:146
 #, kde-format
@@ -1996,14 +1955,13 @@ msgstr "Register GitKlient merge tool"
 #: src/gui/settings/settingspagegit.ui:37
 #, kde-format
 msgid "Git proxy:"
-msgstr ""
+msgstr "Git proxy:"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AuthorsWidget)
 #: src/gui/widgets/authorswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Authors"
-msgstr "Author"
+msgstr "Authors"
 
 #: src/gui/widgets/blamecodeview.cpp:41
 #, kde-format
@@ -2040,7 +1998,7 @@ msgstr "Browse"
 #: src/gui/widgets/commitswidget.ui:42
 #, kde-format
 msgid "Filter..."
-msgstr ""
+msgstr "Filter..."
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/gui/widgets/difftreeview.ui:17
@@ -2319,7 +2277,7 @@ msgstr "Head"
 #: src/libgitklient/models/tagsmodel.cpp:66
 #, kde-format
 msgid "Tagger"
-msgstr ""
+msgstr "Tagger"
 
 #, fuzzy
 #~| msgid "You don't have any changes!"
