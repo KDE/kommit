@@ -19,7 +19,7 @@ public:
     explicit CommandSwitchBranch(Manager *git);
     void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput) override;
 
-    enum Mode { Unknown, NewBranch, ExistingBranch, Tag };
+    enum Mode { Unknown, NewBranch, ExistingBranch, Tag, RemoteBranch };
 
     Q_REQUIRED_RESULT const QString &target() const;
     void setTarget(const QString &newTarget);

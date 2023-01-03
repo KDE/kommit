@@ -9,13 +9,20 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "models/tagsmodel.h"
 
+#define BRANCH_TYPE_LOCAL 1
+#define BRANCH_TYPE_REMOTE 2
+
 SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
 {
     setupUi(this);
 
-    comboBoxBranchSelect->addItems(git->branches());
-    comboBoxBranchSelect->addItems(git->remoteBranches());
+    auto localBranches = git->branches();
+    for (const auto &b : localBranches)
+        comboBoxBranchSelect->addItem(b, BRANCH_TYPE_LOCAL);
+    auto remoteBranches = git->remoteBranches();
+    for (const auto &b : remoteBranches)
+        comboBoxBranchSelect->addItem(b, BRANCH_TYPE_REMOTE);
 
     comboBoxTags->setModel(git->tagsModel());
 
@@ -27,7 +34,8 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
     auto cmd = new Git::CommandSwitchBranch(mGit);
 
     if (radioButtonExistingBranch->isChecked()) {
-        cmd->setMode(Git::CommandSwitchBranch::ExistingBranch);
+        cmd->setMode(comboBoxBranchSelect->currentData().toInt() == BRANCH_TYPE_LOCAL ? Git::CommandSwitchBranch::ExistingBranch
+                                                                                      : Git::CommandSwitchBranch::RemoteBranch);
         cmd->setTarget(comboBoxBranchSelect->currentText());
     } else if (radioButtonTag->isChecked()) {
         cmd->setMode(Git::CommandSwitchBranch::Tag);

@@ -56,6 +56,8 @@ QStringList CommandSwitchBranch::generateArgs() const
 
     if (mMode == NewBranch)
         cmd << QStringLiteral("checkout") << QStringLiteral("-b") << mTarget;
+    else if (mMode == RemoteBranch)
+        cmd << QStringLiteral("checkout") << mTarget;
     else
         cmd << QStringLiteral("switch") << mTarget;
 
