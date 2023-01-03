@@ -89,5 +89,6 @@ void StashActions::create()
 
     if (ok) {
         mGit->createStash(name);
+        mGit->stashesModel()->load();
     }
 }
