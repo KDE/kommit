@@ -1,19 +1,20 @@
 # Thomas Vergnaud <thomas.vergnaud@mailo.eu>, 2022.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2022.
+# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-18 00:57+0000\n"
-"PO-Revision-Date: 2022-10-27 09:01+0200\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-01-09 16:34+0100\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1400,7 +1401,7 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:197
 #, kde-format
 msgid "Renormalize"
-msgstr "Renormaliser"
+msgstr "Normaliser à nouveau"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/gui/dialogs/mergedialog.ui:211
@@ -1493,7 +1494,7 @@ msgstr "Nom :"
 #: src/gui/dialogs/reposettingsdialog.ui:36
 #, kde-format
 msgid "Email:"
-msgstr "Email :"
+msgstr "Courriel :"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAutoCrlf)
 #: src/gui/dialogs/reposettingsdialog.ui:46
@@ -2140,7 +2141,7 @@ msgid ""
 "#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
 "<html><head/><body><p>Enregistre vos modifications locales vers une nouvelle "
-"remise et rétablit l'état de HEAD (dans l'arborescence de travail et "
+"remise et rétablit l'état de « HEAD » (dans l'arborescence de travail et "
 "l'index). Cette partie est optionnelle et donne la description qui "
 "accompagne l'état de la remise.</p><p><br/></p><p><a href=\"https://git-scm."
 "com/docs/git-stash#Documentation/git-stash.txt-push-p--patch-k--no-keep-"
@@ -2237,7 +2238,7 @@ msgstr "Locale obsolète"
 #: src/libgitklient/models/authorsmodel.cpp:39
 #, kde-format
 msgid "Email"
-msgstr "Email"
+msgstr "Courriel"
 
 #: src/libgitklient/models/branchesmodel.cpp:58
 #, kde-format
@@ -2274,7 +2275,7 @@ msgstr "Nom de l'auteur"
 #: src/libgitklient/models/stashesmodel.cpp:64
 #, kde-format
 msgid "Author email"
-msgstr "Email de l'auteur"
+msgstr "Courriel de l'auteur"
 
 #: src/libgitklient/models/stashesmodel.cpp:66
 #, kde-format
