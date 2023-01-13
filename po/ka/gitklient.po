@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-18 00:57+0000\n"
-"PO-Revision-Date: 2023-01-09 23:33+0100\n"
+"PO-Revision-Date: 2023-01-12 08:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -139,10 +139,9 @@ msgstr "ბრენჩის წაშლა"
 
 #: src/gui/actions/branchactions.cpp:130
 #: src/gui/widgets/branchesstatuswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected branch?"
+#, kde-format
 msgid "Unable to remove the selected branch"
-msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ მონიშნული ბრენჩი?"
+msgstr "მითითებული ბრენჩის წაშლის შეცდომა"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
@@ -166,10 +165,9 @@ msgid "Diff with HEAD..."
 msgstr "Diff-ი HEAD-თან..."
 
 #: src/gui/actions/fileactions.cpp:83
-#, fuzzy, kde-format
-#| msgid "Overview"
+#, kde-format
 msgid "Preview"
-msgstr "მიმოხილვა"
+msgstr "მინიატურა"
 
 #: src/gui/actions/fileactions.cpp:84
 #, kde-format
@@ -232,10 +230,9 @@ msgid "Remove remote?"
 msgstr "წავშალო დაშორებული?"
 
 #: src/gui/actions/remotesactions.cpp:63
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected remote?"
+#, kde-format
 msgid "Unable to remove the selected remote"
-msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ მონიშნული დაშორებული?"
+msgstr "მონიშნული დაშორებულის წაშლის შეცდომა"
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
@@ -293,8 +290,7 @@ msgid "Unable to apply the selected stash"
 msgstr ""
 
 #: src/gui/actions/stashactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected branch?"
+#, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ მონიშნული ბრენჩი?"
 
@@ -304,16 +300,14 @@ msgid "Drop stash %1"
 msgstr ""
 
 #: src/gui/actions/stashactions.cpp:59
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected branch?"
+#, kde-format
 msgid "Unable to remove the selected stash"
-msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ მონიშნული ბრენჩი?"
+msgstr ""
 
 #: src/gui/actions/stashactions.cpp:68
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected branch?"
+#, kde-format
 msgid "Are you sure to pop the selected stash?"
-msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ მონიშნული ბრენჩი?"
+msgstr ""
 
 #: src/gui/actions/stashactions.cpp:68
 #, kde-format
@@ -403,8 +397,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr ""
 
 #: src/gui/actions/tagsactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove Tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "ჭდის წაშლა"
 
@@ -416,10 +409,9 @@ msgid "Checkout"
 msgstr "წამოღება"
 
 #: src/gui/actions/tagsactions.cpp:65
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected branch?"
+#, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ მონიშნული ბრენჩი?"
+msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, გამოითხოვოთ მონიშნული ჭდე?"
 
 #: src/gui/appwindow.cpp:74
 #, kde-format
@@ -439,7 +431,7 @@ msgstr ""
 #: src/gui/appwindow.cpp:148
 #, kde-format
 msgid "Open..."
-msgstr ""
+msgstr "გახსნა..."
 
 #: src/gui/appwindow.cpp:153
 #, kde-format
@@ -532,10 +524,9 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr ""
 
 #: src/gui/commandargsparser.cpp:515
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove from index"
-msgstr "წავშალო დაშორებული?"
+msgstr "ინდექსიდან წაშლა"
 
 #: src/gui/commandargsparser.cpp:517
 #, kde-format
@@ -571,27 +562,26 @@ msgstr ""
 #: src/gui/dialogs/changedfilesdialog.cpp:30
 #, kde-format
 msgid "Reload"
-msgstr ""
+msgstr "თავიდან ჩატვირთვა"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
 #: src/gui/widgets/logdetailswidget.cpp:127
 #, kde-format
 msgid "Changed files"
-msgstr ""
+msgstr "შეცვლილი ფაილები"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/changedfilesdialog.ui:20
 #, kde-format
 msgid "Changed files:"
-msgstr ""
+msgstr "შეცვლილი ფაილები:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/gui/dialogs/cleanupdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Clone a repository"
+#, kde-format
 msgid "Cleanup repo"
-msgstr "რეპოზიტორიის კლონირება"
+msgstr "რეპოზიტორიის მოსუფთავება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/cleanupdialog.ui:23
@@ -613,10 +603,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
 #: src/gui/dialogs/cleanupdialog.ui:46
-#, fuzzy, kde-format
-#| msgid "Ignore file"
+#, kde-format
 msgid "Remove ignored files"
-msgstr "ფაილის იგნორი"
+msgstr "იგნორირებული ფაილების წაშლა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
 #: src/gui/dialogs/cleanupdialog.ui:56
@@ -852,13 +841,13 @@ msgstr ""
 #: src/gui/dialogs/diffopendialog.ui:24
 #, kde-format
 msgid "Compare files"
-msgstr ""
+msgstr "ფაილების შედარება"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFolders)
 #: src/gui/dialogs/diffopendialog.ui:31
 #, kde-format
 msgid "Compare directories"
-msgstr ""
+msgstr "საქაღალდეების შედარება"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/diffopendialog.ui:41
@@ -876,13 +865,13 @@ msgstr "ახალი ფაილი:"
 #: src/gui/dialogs/diffopendialog.ui:70
 #, kde-format
 msgid "New directory:"
-msgstr ""
+msgstr "ახალი საქაღალდე:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/diffopendialog.ui:77
 #, kde-format
 msgid "Old directory:"
-msgstr ""
+msgstr "ძველი საქაღალდე:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/gui/dialogs/fetchdialog.ui:14
@@ -909,7 +898,7 @@ msgstr "ყველა ბრენჩი"
 #: src/gui/dialogs/switchbranchdialog.ui:69
 #, kde-format
 msgid "Options"
-msgstr ""
+msgstr "პარამეტრები"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoFastForward)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
@@ -932,7 +921,7 @@ msgstr ""
 #: src/gui/widgets/tagswidget.ui:14
 #, kde-format
 msgid "Tags"
-msgstr ""
+msgstr "ჭდეები"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
@@ -1050,7 +1039,7 @@ msgstr "სახელი"
 #: src/gui/dialogs/ignorefiledialog.ui:43
 #, kde-format
 msgid "Name and extension"
-msgstr ""
+msgstr "ფაილი და გაფართოება"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExt)
 #: src/gui/dialogs/ignorefiledialog.ui:53
@@ -1435,7 +1424,7 @@ msgstr ""
 #: src/gui/dialogs/runnerdialog.cpp:119
 #, kde-format
 msgid "Process finished"
-msgstr ""
+msgstr "პროცესი დასრულდა"
 
 #: src/gui/dialogs/runnerdialog.cpp:124
 #, kde-format
@@ -1888,10 +1877,9 @@ msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AuthorsWidget)
 #: src/gui/widgets/authorswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Authors"
-msgstr "ავტორი"
+msgstr "ავტორები"
 
 #: src/gui/widgets/blamecodeview.cpp:41
 #, kde-format
