@@ -18,6 +18,8 @@ struct BlameDataRow {
 
     Log *log = nullptr;
 };
+bool operator==(const BlameDataRow &l, const BlameDataRow &r);
+bool operator!=(const BlameDataRow &l, const BlameDataRow &r);
 
 class LIBGITKLIENT_EXPORT BlameData : public QList<BlameDataRow>
 {

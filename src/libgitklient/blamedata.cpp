@@ -22,4 +22,12 @@ void BlameData::initCommits(const LogList &logs)
     //    }
 }
 
+bool operator==(const BlameDataRow &l, const BlameDataRow &r)
+{
+    return l.log == r.log;
+}
+bool operator!=(const BlameDataRow &l, const BlameDataRow &r)
+{
+    return !(l.log == r.log);
+}
 }
