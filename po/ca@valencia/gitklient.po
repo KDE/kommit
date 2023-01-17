@@ -468,7 +468,7 @@ msgstr "Diff de les branques..."
 #: src/gui/appwindow.cpp:193
 #, kde-format
 msgid "Repo settings..."
-msgstr "Configuració del repositori..."
+msgstr "Configureu el repositori..."
 
 #: src/gui/appwindow.cpp:196
 #, kde-format
@@ -1423,7 +1423,7 @@ msgstr "Desactiva la detecció de canvis de nom"
 #: src/gui/dialogs/mergeopenfilesdialog.ui:14
 #, kde-format
 msgid "Select files to merge"
-msgstr "Selecció dels fitxers que s'han de fusionar"
+msgstr "Seleccioneu els fitxers que s'han de fusionar"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:26
@@ -1465,7 +1465,7 @@ msgstr "Rebase:"
 #: src/gui/dialogs/reposettingsdialog.ui:14
 #, kde-format
 msgid "Repo settings"
-msgstr "Configuració del repositori"
+msgstr "Configureu el repositori"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_7)
