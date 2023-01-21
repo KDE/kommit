@@ -46,8 +46,6 @@ SolutionIterator::Result SolutionIterator::pick()
     if (i == _solution.end())
         return {};
 
-    //    qDebug() << "[I]" << *(i) << QStringLiteral("(%1/%2)").arg(std::distance(_solution.begin(), i)).arg(_solution.size()) << "Indexes:" << _firstIndex
-    //             << _secondIndex << (i->first == _firstIndex && i->second == _secondIndex);
     if ((i->first == _firstIndex && i->second == _secondIndex)) {
         auto fi = _firstIndex;
         auto si = _secondIndex;
@@ -60,8 +58,6 @@ SolutionIterator::Result SolutionIterator::pick()
         return {fi, _firstIndex - fi, si, _secondIndex - si, true, SegmentType::SameOnBoth};
 
     } else {
-        auto oi = i;
-
         Result r{_firstIndex, i->first - _firstIndex, _secondIndex, i->second - _secondIndex, true, SegmentType::DifferentOnBoth};
         _firstIndex = i->first;
         _secondIndex = i->second;
