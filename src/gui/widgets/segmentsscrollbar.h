@@ -20,9 +20,17 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void enterEvent(QEvent *event) override;
+    void leaveEvent(QEvent *event) override;
 
 private Q_SLOTS:
     void reload();
+
+Q_SIGNALS:
+    void hover(int y, double pos);
+    void mouseEntered();
+    void mouseLeaved();
 
 private:
     enum Side { Left, Right };

@@ -51,6 +51,7 @@ Q_SIGNALS:
     void sameSizeChanged();
 
 private Q_SLOTS:
+    void slotSegmentsScrollbarHover(int y, double pos);
     void slotSplitterSplitterMoved(int, int);
     void oldCodeEditor_scroll(int value);
     void newCodeEditor_scroll(int value);
@@ -62,6 +63,11 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
+    constexpr static int mPreviewWidgetHeight{160};
+    QWidget *mPreviewWidget;
+    int mPreviewMargin{0};
+    CodeEditor *mPreviewEditorLeft;
+    CodeEditor *mPreviewEditorRight;
     bool mSameSize{false};
     Git::File mOldFile;
     Git::File mNewFile;
@@ -70,4 +76,5 @@ private:
 
     void recalculateInfoPaneSize();
     void init();
+    void createPreviewWidget();
 };

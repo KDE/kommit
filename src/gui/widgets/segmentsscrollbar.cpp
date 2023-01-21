@@ -16,6 +16,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 SegmentsScrollBar::SegmentsScrollBar(QWidget *parent)
     : QWidget{parent}
 {
+    setMouseTracking(true);
 }
 
 SegmentConnector *SegmentsScrollBar::segmentConnector() const
@@ -96,6 +97,24 @@ void SegmentsScrollBar::paintEvent(QPaintEvent *event)
     paintSection(painter, Right, rightArea.first, rightArea.second, br, true);
     painter.setOpacity(1);
     painter.drawRect(QRect{0, 0, width() - 1, height() - 1});
+}
+
+void SegmentsScrollBar::mouseMoveEvent(QMouseEvent *event)
+{
+    QWidget::mouseMoveEvent(event);
+    Q_EMIT hover(event->y(), static_cast<double>(event->y()) / static_cast<double>(height()));
+}
+
+void SegmentsScrollBar::enterEvent(QEvent *event)
+{
+    QWidget::enterEvent(event);
+    Q_EMIT mouseEntered();
+}
+
+void SegmentsScrollBar::leaveEvent(QEvent *event)
+{
+    QWidget::leaveEvent(event);
+    Q_EMIT mouseLeaved();
 }
 
 void SegmentsScrollBar::reload()

@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "diffwidget.h"
 #include "codeeditor.h"
+#include "qdebug.h"
 #include <diff.h>
 
 #include <QScrollBar>
@@ -18,7 +19,6 @@ DiffWidget::DiffWidget(QWidget *parent)
 {
     setupUi(this);
     init();
-    showFilesInfo(true);
 }
 
 DiffWidget::DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidget *parent)
@@ -28,11 +28,11 @@ DiffWidget::DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidg
 {
     setupUi(this);
     init();
-    showFilesInfo(true);
 }
 
 void DiffWidget::init()
 {
+    createPreviewWidget();
     segmentConnector->setMinimumWidth(80);
     segmentConnector->setMaximumWidth(80);
     segmentConnector->setLeft(leftCodeEditor);
@@ -49,6 +49,35 @@ void DiffWidget::init()
     recalculateInfoPaneSize();
 
     mDefaultOption = leftCodeEditor->document()->defaultTextOption();
+
+    connect(widgetSegmentsScrollBar, &SegmentsScrollBar::hover, this, &DiffWidget::slotSegmentsScrollbarHover);
+    connect(widgetSegmentsScrollBar, &SegmentsScrollBar::mouseEntered, mPreviewWidget, &QWidget::show);
+    connect(widgetSegmentsScrollBar, &SegmentsScrollBar::mouseLeaved, mPreviewWidget, &QWidget::hide);
+    showFilesInfo(true);
+}
+
+void DiffWidget::createPreviewWidget()
+{
+    mPreviewWidget = new QWidget(this);
+    auto layout = new QHBoxLayout(mPreviewWidget);
+    mPreviewEditorLeft = new CodeEditor(mPreviewWidget);
+    mPreviewEditorLeft->setShowFoldMarks(false);
+    mPreviewEditorLeft->setShowTitleBar(false);
+    mPreviewEditorLeft->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    mPreviewEditorLeft->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    layout->addWidget(mPreviewEditorLeft);
+
+    mPreviewEditorRight = new CodeEditor(mPreviewWidget);
+    mPreviewEditorRight->setShowFoldMarks(false);
+    mPreviewEditorRight->setShowTitleBar(false);
+    mPreviewEditorRight->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    mPreviewEditorRight->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    layout->addWidget(mPreviewEditorRight);
+
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setSpacing(segmentConnector->width() + 2 * (splitter->handleWidth()));
+    mPreviewWidget->setLayout(layout);
+    mPreviewWidget->hide();
 }
 const Git::File &DiffWidget::oldFile() const
 {
@@ -91,6 +120,10 @@ void DiffWidget::compare()
 
     leftCodeEditor->setHighlighting(mOldFile.fileName());
     rightCodeEditor->setHighlighting(mNewFile.fileName());
+
+    mPreviewEditorLeft->setHighlighting(mOldFile.fileName());
+    mPreviewEditorRight->setHighlighting(mNewFile.fileName());
+
     segmentConnector->setSegments(segments);
     segmentConnector->update();
 
@@ -117,9 +150,15 @@ void DiffWidget::compare()
             const int size = qMax(s->oldText.size(), s->newText.size());
             leftCodeEditor->append(s->oldText, oldBlockType, s, size);
             rightCodeEditor->append(s->newText, newBlockType, s, size);
+
+            mPreviewEditorLeft->append(s->oldText, oldBlockType, s, size);
+            mPreviewEditorRight->append(s->newText, newBlockType, s, size);
         } else {
             leftCodeEditor->append(s->oldText, oldBlockType, s);
             rightCodeEditor->append(s->newText, newBlockType, s);
+
+            mPreviewEditorLeft->append(s->oldText, oldBlockType, s);
+            mPreviewEditorRight->append(s->newText, newBlockType, s);
         }
     }
 
@@ -153,6 +192,15 @@ void DiffWidget::showSameSize(bool show)
     mSameSize = show;
     segmentConnector->setSameSize(show);
     compare();
+}
+
+void DiffWidget::slotSegmentsScrollbarHover(int y, double pos)
+{
+    mPreviewWidget->show();
+    mPreviewWidget->move(mPreviewMargin, qMin(y, widgetSegmentsScrollBar->height() - mPreviewWidgetHeight));
+
+    mPreviewEditorLeft->verticalScrollBar()->setValue(pos * static_cast<double>(mPreviewEditorLeft->verticalScrollBar()->maximum()));
+    mPreviewEditorRight->verticalScrollBar()->setValue(pos * mPreviewEditorRight->verticalScrollBar()->maximum());
 }
 
 void DiffWidget::slotSplitterSplitterMoved(int, int)
@@ -231,6 +279,8 @@ void DiffWidget::resizeEvent(QResizeEvent *event)
 {
     WidgetBase::resizeEvent(event);
     recalculateInfoPaneSize();
+    mPreviewWidget->resize(splitter->width(), mPreviewWidgetHeight);
+    mPreviewMargin = splitter->mapToParent({0, 0}).x();
 }
 
 void DiffWidget::showEvent(QShowEvent *event)
