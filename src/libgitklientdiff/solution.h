@@ -27,16 +27,14 @@ class SolutionIterator
 public:
     struct Result {
         int oldStart;
+        int oldSize;
         int newStart;
-        int oldEnd;
-        int newEnd;
+        int newSize;
         bool success;
         SegmentType type;
 
         Result();
-        Result(int oldStart, int oldEnd, int newStart, int newEnd, bool success, SegmentType type);
-        int oldSize() const;
-        int newSize() const;
+        Result(int oldStart, int oldSize, int newStart, int newSize, bool success, SegmentType type);
     };
 
     SolutionIterator(const Solution &solution);
@@ -44,4 +42,5 @@ public:
     Result pick();
 };
 
+QDebug operator<<(QDebug d, const SolutionIterator::Result &r);
 }

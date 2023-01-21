@@ -8,3 +8,5 @@ macro(add_libgitklientdiff_test _source)
     ecm_mark_as_test(${_name})
     target_link_libraries( ${_name} Qt::Test libgitklientdiff)
 endmacro()
+
+add_libgitklientdiff_test(difftest.cpp)

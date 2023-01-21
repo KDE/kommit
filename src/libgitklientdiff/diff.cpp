@@ -134,20 +134,31 @@ QList<DiffSegment *> diff(const QStringList &oldText, const QStringList &newText
             break;
 
         auto segment = new DiffSegment;
-        segment->oldText = oldText.mid(p.oldStart, p.oldEnd - p.oldStart);
-        segment->newText = newText.mid(p.newStart, p.newEnd - p.newStart);
+        segment->oldText = oldText.mid(p.oldStart, p.oldSize);
+        segment->newText = newText.mid(p.newStart, p.newSize);
         segment->type = p.type;
-        lastLeftIndex = p.oldEnd;
-        lastRightIndex = p.newEnd;
+        lastLeftIndex += p.oldSize;
+        lastRightIndex += p.newSize;
         ret << segment;
     }
 
-    if (lastLeftIndex != oldText.size()) {
+    if (lastLeftIndex != oldText.size() || lastRightIndex != newText.size()) {
         auto segment = new DiffSegment;
-        segment->oldText = oldText.mid(lastLeftIndex, -1);
-        segment->newText = newText.mid(lastRightIndex, -1);
+        segment->oldText = oldText.mid(lastLeftIndex + 1, -1);
+        segment->newText = newText.mid(lastRightIndex + 1, -1);
         segment->type = SegmentType::SameOnBoth;
-        ret << segment;
+
+        if (segment->newText.size() == segment->oldText.size())
+            segment->type = SegmentType::SameOnBoth;
+        else if (segment->newText.size())
+            segment->type = SegmentType::OnlyOnRight;
+        else if (segment->oldText.size())
+            segment->type = SegmentType::OnlyOnLeft;
+        else
+            segment->type = SegmentType::DifferentOnBoth;
+
+        if (segment->newText.size() || segment->oldText.size())
+            ret << segment;
     }
 
     return ret;
