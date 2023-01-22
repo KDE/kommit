@@ -21,7 +21,12 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     void enterEvent(QEvent *event) override;
+#else
+    void enterEvent(QEnterEvent *event) override;
+#endif
     void leaveEvent(QEvent *event) override;
 
 private Q_SLOTS:

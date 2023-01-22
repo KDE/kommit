@@ -105,7 +105,11 @@ void SegmentsScrollBar::mouseMoveEvent(QMouseEvent *event)
     Q_EMIT hover(event->y(), static_cast<double>(event->y()) / static_cast<double>(height()));
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 void SegmentsScrollBar::enterEvent(QEvent *event)
+#else
+void SegmentsScrollBar::enterEvent(QEnterEvent *event)
+#endif
 {
     QWidget::enterEvent(event);
     Q_EMIT mouseEntered();
