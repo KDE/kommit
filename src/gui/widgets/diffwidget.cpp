@@ -280,7 +280,7 @@ void DiffWidget::resizeEvent(QResizeEvent *event)
     WidgetBase::resizeEvent(event);
     recalculateInfoPaneSize();
     mPreviewWidget->resize(splitter->width(), mPreviewWidgetHeight);
-    mPreviewMargin = splitter->mapToParent({0, 0}).x();
+    mPreviewMargin = splitter->mapToParent(QPoint{0, 0}).x();
 }
 
 void DiffWidget::showEvent(QShowEvent *event)
