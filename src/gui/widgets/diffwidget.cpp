@@ -118,6 +118,9 @@ void DiffWidget::compare()
     leftCodeEditor->clearAll();
     rightCodeEditor->clearAll();
 
+    mPreviewEditorLeft->clearAll();
+    mPreviewEditorRight->clearAll();
+
     leftCodeEditor->setHighlighting(mOldFile.fileName());
     rightCodeEditor->setHighlighting(mNewFile.fileName());
 
