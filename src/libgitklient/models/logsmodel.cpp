@@ -334,10 +334,12 @@ QModelIndex LogsModel::findIndexByHash(const QString &hash) const
 
 Log *LogsModel::findLogByHash(const QString &hash) const
 {
-    for (auto &log : mData)
-        if (log->commitHash() == hash)
-            return log;
-    return nullptr;
+    auto i = std::find_if(mData.begin(), mData.end(), [&hash](Log *log) {
+        return log->commitHash() == hash;
+    });
+    if (i == mData.end())
+        return nullptr;
+    return *i;
 }
 
 void LogsModel::fill()
