@@ -24,6 +24,15 @@ public:
     explicit FileHistoryDialog(Git::Manager *git, const Git::File &file, QWidget *parent = nullptr);
 
 private:
+    static constexpr int dataRole{Qt::UserRole + 1};
+
     void slotListWidgetItemClicked(QListWidgetItem *item);
+    void slotTreeViewItemClicked(QTreeWidgetItem *item, int column);
+    void slotRadioButtonRegularViewToggled(bool toggle);
+    void slotRadioButtonDifferentialViewToggled(bool toggle);
+    void compareFiles();
+
     const QString mFileName;
+    QTreeWidgetItem *mLeftFile{nullptr};
+    QTreeWidgetItem *mRightFile{nullptr};
 };

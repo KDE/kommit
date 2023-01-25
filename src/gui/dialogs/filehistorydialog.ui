@@ -6,27 +6,105 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>663</width>
-    <height>479</height>
+    <width>631</width>
+    <height>545</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_7">
    <item>
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="childrenCollapsible">
-      <bool>false</bool>
-     </property>
-     <widget class="QListWidget" name="listWidget"/>
-     <widget class="CodeEditor" name="plainTextEdit">
-      <property name="readOnly">
-       <bool>true</bool>
+     <widget class="QWidget" name="">
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>View type</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QRadioButton" name="radioButtonRegularView">
+            <property name="text">
+             <string>Regular view</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButtonDifferentialView">
+            <property name="text">
+             <string>Differential view</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QStackedWidget" name="stackedWidgetFileSelector">
+         <property name="currentIndex">
+          <number>1</number>
+         </property>
+         <widget class="QWidget" name="page_3">
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <widget class="QListWidget" name="listWidget"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page_4">
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <widget class="QTreeWidget" name="treeWidget">
+             <column>
+              <property name="text">
+               <string>Commit</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Left</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Right</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QStackedWidget" name="stackedWidgetFileView">
+      <property name="currentIndex">
+       <number>1</number>
       </property>
+      <widget class="QWidget" name="page">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="CodeEditor" name="plainTextEdit">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="DiffWidget" name="widgetDiffView" native="true"/>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </widget>
    </item>
@@ -37,6 +115,12 @@
    <class>CodeEditor</class>
    <extends>QPlainTextEdit</extends>
    <header location="global">widgets/codeeditor.h</header>
+  </customwidget>
+  <customwidget>
+   <class>DiffWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">widgets/diffwidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
