@@ -8,46 +8,42 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitmanager.h"
 #include "models/logsmodel.h"
+#include "qdebug.h"
 
 #include <KLocalizedString>
-
-FileBlameDialog::FileBlameDialog(Git::Manager *git, const QString &fileName, QWidget *parent)
-    : AppDialog(git, parent)
-    , mFileName(fileName)
-{
-    setupUi(this);
-
-    plainTextEdit->setHighlighting(fileName);
-    const auto content = mGit->fileContent(QString(), mFileName);
-    plainTextEdit->setPlainText(content);
-
-    setWindowTitle(i18nc("@title:window", "Blame file: %1", fileName));
-    logDetailsWidget->setEnableCommitsLinks(false);
-    plainTextEdit->setShowTitleBar(false);
-
-    connect(plainTextEdit, &BlameCodeView::blockSelected, this, &FileBlameDialog::slotPlainTextEditBlockSelected);
-}
+#include <QThread>
 
 FileBlameDialog::FileBlameDialog(Git::Manager *git, const Git::File &file, QWidget *parent)
     : AppDialog(git, parent)
     , mFile(file)
 {
     setupUi(this);
-    plainTextEdit->setHighlighting(file.fileName());
-
-    const auto b = file.git()->blame(file);
-    plainTextEdit->setBlameData(b);
-
-    setWindowTitle(i18nc("@title:window", "Blame file: %1", file.fileName()));
 
     logDetailsWidget->setEnableCommitsLinks(false);
     plainTextEdit->setShowTitleBar(false);
 
     connect(plainTextEdit, &BlameCodeView::blockSelected, this, &FileBlameDialog::slotPlainTextEditBlockSelected);
+
+    if (git->logsModel()->isLoaded())
+        loadData();
+    else
+        connect(mGit->logsModel(), &Git::LogsModel::loaded, this, &FileBlameDialog::loadData);
+}
+
+void FileBlameDialog::loadData()
+{
+    plainTextEdit->setHighlighting(mFile.fileName());
+
+    const auto b = mGit->blame(mFile);
+    plainTextEdit->setBlameData(b);
+
+    setWindowTitle(i18nc("@title:window", "Blame file: %1", mFile.fileName()));
 }
 
 void FileBlameDialog::slotPlainTextEditBlockSelected()
 {
     auto data = plainTextEdit->currentBlockData();
+    auto log = mGit->logsModel()->findLogByHash("05659b9f92b7932bb2c04ced181dbdde294cb0b");
+    qDebug() << log;
     logDetailsWidget->setLog(data ? static_cast<Git::Log *>(data->data) : nullptr);
 }

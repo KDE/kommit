@@ -332,11 +332,22 @@ QModelIndex LogsModel::findIndexByHash(const QString &hash) const
     return {};
 }
 
-Log *LogsModel::findLogByHash(const QString &hash) const
+Log *LogsModel::findLogByHash(const QString &hash, LogMatchType matchType) const
 {
-    auto i = std::find_if(mData.begin(), mData.end(), [&hash](Log *log) {
-        return log->commitHash() == hash;
-    });
+    QList<Log *>::ConstIterator i;
+
+    switch (matchType) {
+    case LogMatchType::ExactMatch:
+        i = std::find_if(mData.begin(), mData.end(), [&hash](Log *log) {
+            return log->commitHash() == hash;
+        });
+        break;
+    case LogMatchType::BeginMatch:
+        i = std::find_if(mData.begin(), mData.end(), [&hash](Log *log) {
+            return log->commitHash().startsWith(hash);
+        });
+        break;
+    }
     if (i == mData.end())
         return nullptr;
     return *i;

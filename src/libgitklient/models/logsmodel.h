@@ -25,6 +25,7 @@ class LIBGITKLIENT_EXPORT LogsModel : public AbstractGitItemsModel
     Q_OBJECT
 
 public:
+    enum class LogMatchType { ExactMatch, BeginMatch };
     explicit LogsModel(Manager *git, AuthorsModel *authorsModel = nullptr, QObject *parent = nullptr);
     ~LogsModel() override;
 
@@ -36,7 +37,7 @@ public:
     Log *at(int index) const;
     Log *fromIndex(const QModelIndex &index) const;
     QModelIndex findIndexByHash(const QString &hash) const;
-    Git::Log *findLogByHash(const QString &hash) const;
+    Git::Log *findLogByHash(const QString &hash, LogMatchType matchType = LogMatchType::ExactMatch) const;
 
     Q_REQUIRED_RESULT const QString &branch() const;
     void setBranch(const QString &newBranch);

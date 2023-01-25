@@ -569,7 +569,6 @@ bool Manager::removeBranch(const QString &branchName) const
 
 BlameData Manager::blame(const File &file)
 {
-    //    auto logList = logs();
     BlameData b;
     auto lines = readAllNonEmptyOutput({QStringLiteral("--no-pager"), QStringLiteral("blame"), QStringLiteral("-l"), file.fileName()});
     b.reserve(lines.size());
@@ -584,11 +583,8 @@ BlameData Manager::blame(const File &file)
         auto hash = row.commitHash;
         if (hash.startsWith(QLatin1Char('^')))
             hash = hash.remove(0, 1);
-        auto log = mLogsCache->findLogByHash(hash);
-        //        if (!log)
-        //            qCDebug(GITKLIENTLIB_LOG) << "Log not found" << hash;
-        row.log = log;
-        // const auto parts = line.split("\t");
+        row.log = mLogsCache->findLogByHash(hash, LogsModel::LogMatchType::BeginMatch);
+
         b.append(row);
     }
 
