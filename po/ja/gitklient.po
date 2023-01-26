@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-26 01:00+0000\n"
 "PO-Revision-Date: 2022-09-07 22:16-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -489,12 +489,12 @@ msgstr ""
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:477
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:477
 #, kde-format
 msgid "Switch branch"
 msgstr ""
@@ -509,22 +509,22 @@ msgstr ""
 msgid "The repo inited successfully"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:507
+#: src/gui/commandargsparser.cpp:506
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:515
+#: src/gui/commandargsparser.cpp:514
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:515
+#: src/gui/commandargsparser.cpp:514
 #, kde-format
 msgid "Remove from index"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:517
+#: src/gui/commandargsparser.cpp:516
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr ""
@@ -822,7 +822,9 @@ msgid "None"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#: src/gui/dialogs/commitpushdialog.ui:289 src/gui/dialogs/searchdialog.cpp:37
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/dialogs/commitpushdialog.ui:289
+#: src/gui/dialogs/filehistorydialog.ui:65 src/gui/dialogs/searchdialog.cpp:37
 #, kde-format
 msgid "Commit"
 msgstr ""
@@ -932,8 +934,7 @@ msgstr ""
 msgid "Prune"
 msgstr ""
 
-#: src/gui/dialogs/fileblamedialog.cpp:24
-#: src/gui/dialogs/fileblamedialog.cpp:41
+#: src/gui/dialogs/fileblamedialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
@@ -950,10 +951,44 @@ msgstr ""
 msgid "Dialog"
 msgstr ""
 
-#: src/gui/dialogs/filehistorydialog.cpp:35
+#: src/gui/dialogs/filehistorydialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gui/dialogs/filehistorydialog.ui:27
+#, kde-format
+msgid "View type"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
+#: src/gui/dialogs/filehistorydialog.ui:33
+#, kde-format
+msgid "Regular view"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
+#: src/gui/dialogs/filehistorydialog.ui:40
+#, kde-format
+msgid "Differential view"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/dialogs/filehistorydialog.ui:70
+#: src/gui/dialogs/selectbranchestodiffdialog.ui:26
+#, kde-format
+msgid "Left"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/dialogs/filehistorydialog.ui:75
+#: src/gui/dialogs/selectbranchestodiffdialog.ui:55
+#, kde-format
+msgid "Right"
 msgstr ""
 
 #: src/gui/dialogs/filestreedialog.cpp:35
@@ -1527,12 +1562,6 @@ msgstr ""
 msgid "Select branches"
 msgstr ""
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gui/dialogs/selectbranchestodiffdialog.ui:26
-#, kde-format
-msgid "Left"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectLeftBranch)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:32
@@ -1547,12 +1576,6 @@ msgstr ""
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:74
 #, kde-format
 msgid "HEAD"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/gui/dialogs/selectbranchestodiffdialog.ui:55
-#, kde-format
-msgid "Right"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)

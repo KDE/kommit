@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-26 01:00+0000\n"
 "PO-Revision-Date: 2022-12-12 11:56+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -494,12 +494,12 @@ msgstr "Iniciar repositorio"
 msgid "Open repository"
 msgstr "Abrir repositorio"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:477
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No se puede cambiar de rama durante la fusión"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:478
+#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:477
 #, kde-format
 msgid "Switch branch"
 msgstr "Cambiar rama"
@@ -514,22 +514,22 @@ msgstr "La ruta no es un repositorio de git: %1"
 msgid "The repo inited successfully"
 msgstr "Repositorio iniciado correctamente"
 
-#: src/gui/commandargsparser.cpp:507
+#: src/gui/commandargsparser.cpp:506
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Archivos añadidos a git correctamente"
 
-#: src/gui/commandargsparser.cpp:515
+#: src/gui/commandargsparser.cpp:514
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "¿Desea dejar los archivos en el disco?"
 
-#: src/gui/commandargsparser.cpp:515
+#: src/gui/commandargsparser.cpp:514
 #, kde-format
 msgid "Remove from index"
 msgstr "Eliminar del índice"
 
-#: src/gui/commandargsparser.cpp:517
+#: src/gui/commandargsparser.cpp:516
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Archivos eliminados de git correctamente"
@@ -853,7 +853,9 @@ msgid "None"
 msgstr "Ninguno"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#: src/gui/dialogs/commitpushdialog.ui:289 src/gui/dialogs/searchdialog.cpp:37
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/dialogs/commitpushdialog.ui:289
+#: src/gui/dialogs/filehistorydialog.ui:65 src/gui/dialogs/searchdialog.cpp:37
 #, kde-format
 msgid "Commit"
 msgstr "Confirmar"
@@ -963,8 +965,7 @@ msgstr "Solo avance rápido"
 msgid "Prune"
 msgstr "Reducir"
 
-#: src/gui/dialogs/fileblamedialog.cpp:24
-#: src/gui/dialogs/fileblamedialog.cpp:41
+#: src/gui/dialogs/fileblamedialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
@@ -981,11 +982,48 @@ msgstr "Archivo de responsables: %1"
 msgid "Dialog"
 msgstr "Diálogo"
 
-#: src/gui/dialogs/filehistorydialog.cpp:35
+#: src/gui/dialogs/filehistorydialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
 msgstr "Registro de archivo: %1"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gui/dialogs/filehistorydialog.ui:27
+#, fuzzy, kde-format
+#| msgid "Clean type"
+msgid "View type"
+msgstr "Tipo de limpieza"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
+#: src/gui/dialogs/filehistorydialog.ui:33
+#, fuzzy, kde-format
+#| msgid "Overview"
+msgid "Regular view"
+msgstr "Resumen"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
+#: src/gui/dialogs/filehistorydialog.ui:40
+#, fuzzy, kde-format
+#| msgid "Diff view"
+msgid "Differential view"
+msgstr "Vista de diferencias"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/dialogs/filehistorydialog.ui:70
+#: src/gui/dialogs/selectbranchestodiffdialog.ui:26
+#, kde-format
+msgid "Left"
+msgstr "Izquierda"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/dialogs/filehistorydialog.ui:75
+#: src/gui/dialogs/selectbranchestodiffdialog.ui:55
+#, kde-format
+msgid "Right"
+msgstr "Derecha"
 
 #: src/gui/dialogs/filestreedialog.cpp:35
 #, kde-format
@@ -1624,12 +1662,6 @@ msgstr "Las ramas seleccionadas deben ser diferentes"
 msgid "Select branches"
 msgstr "Seleccionar ramas"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gui/dialogs/selectbranchestodiffdialog.ui:26
-#, kde-format
-msgid "Left"
-msgstr "Izquierda"
-
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectLeftBranch)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:32
@@ -1645,12 +1677,6 @@ msgstr "Seleccionar rama"
 #, kde-format
 msgid "HEAD"
 msgstr "HEAD"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/gui/dialogs/selectbranchestodiffdialog.ui:55
-#, kde-format
-msgid "Right"
-msgstr "Derecha"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
@@ -2353,9 +2379,6 @@ msgstr "Etiquetador"
 
 #~ msgid "Save diff"
 #~ msgstr "Guardar diferencias"
-
-#~ msgid "Diff view"
-#~ msgstr "Vista de diferencias"
 
 #~ msgid "Left:"
 #~ msgstr "Izquierda:"
