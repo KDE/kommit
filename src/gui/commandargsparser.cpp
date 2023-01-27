@@ -327,8 +327,6 @@ ArgParserReturn CommandArgsParser::diff()
 
 ArgParserReturn CommandArgsParser::diff(const QString &file)
 {
-    checkGitPath(file);
-
     QFileInfo fi(file);
 
     if (fi.isFile()) {

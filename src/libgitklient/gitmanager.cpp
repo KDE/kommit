@@ -300,8 +300,14 @@ void Manager::loadAsync()
     if (mLoadFlags & LoadTags)
         models << mTagsModel;
 
-    if (!models.empty())
+    if (!models.empty()) {
+#ifdef QT_CONCURRENT_LIB
         QtConcurrent::mapped(models, load);
+#else
+        for (auto &m : models)
+            m->load();
+#endif
+    }
 }
 
 TagsModel *Manager::tagsModel() const
