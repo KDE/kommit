@@ -45,6 +45,7 @@ class LIBGITKLIENT_EXPORT Manager : public QObject
 
     Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged)
     Q_PROPERTY(bool isMerging READ isMerging WRITE setIsMerging NOTIFY isMergingChanged)
+    Q_PROPERTY(bool isRebasing READ isRebasing WRITE setIsRebasing NOTIFY isRebasingChanged)
 
 public:
     enum ConfigType { ConfigGlobal, ConfigLocal };
@@ -137,9 +138,14 @@ public:
     Q_REQUIRED_RESULT StashesModel *stashesModel() const;
     Q_REQUIRED_RESULT TagsModel *tagsModel() const;
 
+    bool isRebasing() const;
+    void setIsRebasing(bool newIsRebasing);
+
 Q_SIGNALS:
     void pathChanged();
     void isMergingChanged();
+
+    void isRebasingChanged();
 
 private:
     QString mPath;
@@ -167,6 +173,7 @@ private:
     friend class LogsModel;
     friend class StashesModel;
     friend class TagsModel;
+    bool m_isRebasing;
 };
 
 } // namespace Git

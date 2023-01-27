@@ -126,6 +126,8 @@ void AppWindow::git_pathChanged()
     auto statusText = i18n("Current branch: %1", mGit->currentBranch());
     if (mGit->isMerging())
         statusText.append(i18n(" (merging)"));
+    if (mGit->isRebasing())
+        statusText.append(i18n(" (rebasing)"));
 
     mStatusCurrentBranchLabel->setText(statusText);
 }
