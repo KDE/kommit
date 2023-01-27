@@ -996,10 +996,9 @@ msgstr "Registo do ficheiro: %1"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/filehistorydialog.ui:27
-#, fuzzy, kde-format
-#| msgid "Clean type"
+#, kde-format
 msgid "View type"
-msgstr "Tipo de limpeza"
+msgstr "Tipo de visualização"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/gui/dialogs/filehistorydialog.ui:33

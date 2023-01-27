@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the gitklient package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2022.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-26 01:00+0000\n"
-"PO-Revision-Date: 2022-12-12 12:26+0100\n"
+"PO-Revision-Date: 2023-01-26 14:23+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Freek de Kruijf - 2022"
+msgstr "Freek de Kruijf - 2022-2023"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -987,24 +987,21 @@ msgstr "Log-bestand: %1"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/filehistorydialog.ui:27
-#, fuzzy, kde-format
-#| msgid "Clean type"
+#, kde-format
 msgid "View type"
-msgstr "Type opschonen"
+msgstr "Weergavetype"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/gui/dialogs/filehistorydialog.ui:33
-#, fuzzy, kde-format
-#| msgid "Overview"
+#, kde-format
 msgid "Regular view"
-msgstr "Overzicht"
+msgstr "Reguliere weergave"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/gui/dialogs/filehistorydialog.ui:40
-#, fuzzy, kde-format
-#| msgid "Diff view"
+#, kde-format
 msgid "Differential view"
-msgstr "Diff-weergave"
+msgstr "Differentiële weergave"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
