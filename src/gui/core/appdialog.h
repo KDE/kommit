@@ -44,4 +44,14 @@ protected:
     {
         return static_cast<_Enum>(comboBox->currentData().toInt());
     }
+
+    template<typename _Enum>
+    void setComboboxValue(QComboBox *comboBox, _Enum value)
+    {
+        for (int i = 0; i < comboBox->count(); i++)
+            if (comboBox->itemData(i).toInt() == static_cast<int>(value)) {
+                comboBox->setCurrentIndex(i);
+                return;
+            }
+    }
 };

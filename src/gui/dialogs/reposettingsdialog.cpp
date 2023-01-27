@@ -15,17 +15,66 @@ RepoSettingsDialog::RepoSettingsDialog(Git::Manager *git, QWidget *parent)
 
     lineEditUserName->setText(git->config(QStringLiteral("user.name")));
     lineEditUserEmail->setText(git->config(QStringLiteral("user.email")));
-    checkBoxAutoCrlf->setChecked(git->configBool(QStringLiteral("core.autocrlf")));
-    checkBoxAutoFileMode->setChecked(git->configBool(QStringLiteral("core.fileMode")));
 
     connect(buttonBox, &QDialogButtonBox::accepted, this, &RepoSettingsDialog::slotAccepted);
+
+    initComboBox<AutoCrlf>(comboBoxAutoCrlf);
+    initComboBox<FileMode>(comboBoxFileMode);
+
+    auto autoCrlf = git->config(QStringLiteral("core.autocrlf"));
+    auto fileMode = git->config(QStringLiteral("core.fileMode"));
+
+    if (autoCrlf == QStringLiteral("input"))
+        setComboboxValue(comboBoxAutoCrlf, AutoCrlf::Input);
+    else if (autoCrlf == QStringLiteral("true") || autoCrlf == QStringLiteral("yes") || autoCrlf == QStringLiteral("on"))
+        setComboboxValue(comboBoxAutoCrlf, AutoCrlf::Enable);
+    else if (autoCrlf == QStringLiteral("false") || autoCrlf == QStringLiteral("no") || autoCrlf == QStringLiteral("off"))
+        setComboboxValue(comboBoxAutoCrlf, AutoCrlf::Disable);
+    else
+        setComboboxValue(comboBoxAutoCrlf, AutoCrlf::Unset);
+
+    if (fileMode == QStringLiteral("true") || fileMode == QStringLiteral("yes") || fileMode == QStringLiteral("on"))
+        setComboboxValue(comboBoxFileMode, FileMode::Enable);
+    else if (fileMode == QStringLiteral("false") || fileMode == QStringLiteral("no") || fileMode == QStringLiteral("off"))
+        setComboboxValue(comboBoxFileMode, FileMode::Disable);
+    else
+        setComboboxValue(comboBoxFileMode, FileMode::Unset);
 }
 
 void RepoSettingsDialog::slotAccepted()
 {
     mGit->setConfig(QStringLiteral("user.name"), lineEditUserName->text());
     mGit->setConfig(QStringLiteral("user.email"), lineEditUserEmail->text());
-    mGit->setConfig(QStringLiteral("core.fileMode"), checkBoxAutoFileMode->isChecked() ? QStringLiteral("true") : QStringLiteral("false"));
-    mGit->setConfig(QStringLiteral("core.autocrlf"), checkBoxAutoCrlf->isChecked() ? QStringLiteral("true") : QStringLiteral("false"));
+
+    auto autoCrlf = comboBoxCurrentValue<AutoCrlf>(comboBoxAutoCrlf);
+    auto fileMode = comboBoxCurrentValue<FileMode>(comboBoxFileMode);
+
+    switch (autoCrlf) {
+    case AutoCrlf::Unset:
+        mGit->unsetConfig(QStringLiteral("core.autocrlf"));
+        break;
+    case AutoCrlf::Enable:
+        mGit->setConfig(QStringLiteral("core.autocrlf"), "true");
+        break;
+    case AutoCrlf::Disable:
+        mGit->setConfig(QStringLiteral("core.autocrlf"), "false");
+        break;
+    case AutoCrlf::Input:
+        mGit->setConfig(QStringLiteral("core.autocrlf"), "input");
+        break;
+    }
+
+    switch (fileMode) {
+    case FileMode::Unset:
+        mGit->unsetConfig(QStringLiteral("core.fileMode"));
+        break;
+    case FileMode::Enable:
+        mGit->setConfig(QStringLiteral("core.fileMode"), "true");
+        break;
+    case FileMode::Disable:
+        mGit->setConfig(QStringLiteral("core.fileMode"), "false");
+        break;
+    }
+
     accept();
 }
