@@ -135,13 +135,13 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
         linearGrad.setColorAt(0, Qt::white);
         linearGrad.setColorAt(1, QColor(100, 100, 255));
 
-        painter->fillRect(rcBox.left(), rcBox.top(), painter->fontMetrics().horizontalAdvance(refStr) + 2, rcBox.height(), QBrush(linearGrad));
+        //        painter->fillRect(rcBox.left(), rcBox.top(), painter->fontMetrics().horizontalAdvance(refStr) + 2, rcBox.height(), QBrush(linearGrad));
 
-        painter->fillRect(rcBox.left() + painter->fontMetrics().horizontalAdvance(refStr) + 2,
+        /*painter->fillRect(rcBox.left() + painter->fontMetrics().horizontalAdvance(refStr) + 2,
                           rcBox.top(),
                           rcBox.width() - painter->fontMetrics().horizontalAdvance(refStr) - 2,
                           rcBox.height(),
-                          Qt::white);
+                          Qt::white);*/
 
         painter->setBrush(Qt::transparent);
         painter->drawRoundedRect(rcBox, 5, 5);
