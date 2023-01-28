@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-26 01:00+0000\n"
+"POT-Creation-Date: 2023-01-28 01:00+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -77,7 +77,7 @@ msgstr "Akatsak konpontzea"
 msgid "Create..."
 msgstr "Sortu..."
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:175
+#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:177
 #, kde-format
 msgid "Fetch..."
 msgstr "Ekarri..."
@@ -93,7 +93,7 @@ msgstr "Arakatu..."
 msgid "Switch"
 msgstr "Aldatu"
 
-#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:183
+#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:185
 #, kde-format
 msgid "Merge..."
 msgstr "Bateratu..."
@@ -202,7 +202,7 @@ msgstr "Egunkaria"
 msgid "Blame..."
 msgstr "Ardura..."
 
-#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:190
+#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:192
 #, kde-format
 msgid "Search..."
 msgstr "Bilatu..."
@@ -345,7 +345,7 @@ msgstr "Gordelekuaren izena"
 msgid "Add..."
 msgstr "Gehitu..."
 
-#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:145
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:147
 #, fuzzy, kde-format
 msgid "Init..."
 msgstr "Hasieratu"
@@ -386,7 +386,7 @@ msgstr "%1 azpimodulua kendu da"
 msgid "New tag..."
 msgstr "Etiketa berria..."
 
-#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:179
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Push..."
 msgstr "Bultzatu..."
@@ -434,77 +434,83 @@ msgstr "Uneko adarra: %1"
 msgid " (merging)"
 msgstr " (bateratzen)"
 
-#: src/gui/appwindow.cpp:148
+#: src/gui/appwindow.cpp:130
+#, fuzzy, kde-format
+#| msgid " (merging)"
+msgid " (rebasing)"
+msgstr " (bateratzen)"
+
+#: src/gui/appwindow.cpp:150
 #, kde-format
 msgid "Open..."
 msgstr "Ireki..."
 
-#: src/gui/appwindow.cpp:153
+#: src/gui/appwindow.cpp:155
 #, kde-format
 msgid "Clone..."
 msgstr "Itxi..."
 
-#: src/gui/appwindow.cpp:156
+#: src/gui/appwindow.cpp:158
 #, kde-format
 msgid "Changed files..."
 msgstr "Aldatutako fitxategiak..."
 
-#: src/gui/appwindow.cpp:162
+#: src/gui/appwindow.cpp:164
 #, kde-format
 msgid "Recent repos"
 msgstr "Azkenaldiko gordetegiak"
 
-#: src/gui/appwindow.cpp:168
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Cleanup..."
 msgstr "Txukuntzea..."
 
-#: src/gui/appwindow.cpp:171
+#: src/gui/appwindow.cpp:173
 #, kde-format
 msgid "Pull..."
 msgstr "Tira egin..."
 
-#: src/gui/appwindow.cpp:187
+#: src/gui/appwindow.cpp:189
 #, kde-format
 msgid "Diff branches..."
 msgstr "Diff adarrak..."
 
-#: src/gui/appwindow.cpp:193
+#: src/gui/appwindow.cpp:195
 #, kde-format
 msgid "Repo settings..."
 msgstr "Gordetegiaren ezarpenak..."
 
-#: src/gui/appwindow.cpp:196
+#: src/gui/appwindow.cpp:198
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:199
+#: src/gui/appwindow.cpp:201
 #, kde-format
 msgid "Diff tree"
 msgstr "Diff zuhaitza"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
+#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ez da bide-izena sortzeko gai: %1"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
+#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Init repo"
 msgstr "Hasieratu gordetegia"
 
-#: src/gui/appwindow.cpp:263
+#: src/gui/appwindow.cpp:265
 #, kde-format
 msgid "Open repository"
 msgstr "Ireki gordetegia"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:477
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:475
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Ezin du adarra aldatu bateratu bitartean"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:477
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:475
 #, kde-format
 msgid "Switch branch"
 msgstr "Adarrez aldatu"
@@ -519,22 +525,22 @@ msgstr "Bide-izena ez da git gordetegia: %1"
 msgid "The repo inited successfully"
 msgstr "Gordetegia ondo hasieratu da"
 
-#: src/gui/commandargsparser.cpp:506
+#: src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Fitxategia(k) git-era ondo gehitu dira"
 
-#: src/gui/commandargsparser.cpp:514
+#: src/gui/commandargsparser.cpp:512
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Fitxateia(k) diskoan utzi nahi zen(it)u(z)ke?"
 
-#: src/gui/commandargsparser.cpp:514
+#: src/gui/commandargsparser.cpp:512
 #, kde-format
 msgid "Remove from index"
 msgstr "Kendu indizetik"
 
-#: src/gui/commandargsparser.cpp:516
+#: src/gui/commandargsparser.cpp:514
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Fitxategia(k) git-etik ondo kendu d(ir)a"
@@ -1448,16 +1454,38 @@ msgstr "Izena:"
 msgid "Email:"
 msgstr "e-Posta:"
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxAutoCrlf)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/reposettingsdialog.ui:46
 #, kde-format
-msgid "Auto crlf"
+msgid "Auto crlf:"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxAutoFileMode)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/gui/dialogs/reposettingsdialog.ui:53
 #, kde-format
-msgid "Auto file mode"
+msgid ""
+"<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+"com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
+"\" text-decoration: underline; color:#007af4;\">More informations...</span></"
+"a></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/gui/dialogs/reposettingsdialog.ui:60
+#, fuzzy, kde-format
+#| msgid "File name"
+msgid "File mode:"
+msgstr "Fitxategi-izena"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
+#: src/gui/dialogs/reposettingsdialog.ui:67
+#, kde-format
+msgid ""
+"<html><head/><body><p>Tells Git if the executable bit of files in the "
+"working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
+"config#Documentation/git-config.txt-corefileMode\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">More informations...</span></a></p></"
+"body></html>"
 msgstr ""
 
 #: src/gui/dialogs/runnerdialog.cpp:57

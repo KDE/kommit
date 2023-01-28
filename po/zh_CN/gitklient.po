@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-26 01:00+0000\n"
+"POT-Creation-Date: 2023-01-28 01:00+0000\n"
 "PO-Revision-Date: 2023-01-12 10:32\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Create..."
 msgstr "新建..."
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:175
+#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:177
 #, kde-format
 msgid "Fetch..."
 msgstr "获取..."
@@ -90,7 +90,7 @@ msgstr "浏览…"
 msgid "Switch"
 msgstr "切换"
 
-#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:183
+#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:185
 #, kde-format
 msgid "Merge..."
 msgstr "合并..."
@@ -198,7 +198,7 @@ msgstr "日志…"
 msgid "Blame..."
 msgstr "追溯..."
 
-#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:190
+#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:192
 #, kde-format
 msgid "Search..."
 msgstr "搜索..."
@@ -338,7 +338,7 @@ msgstr "暂存名称"
 msgid "Add..."
 msgstr "添加..."
 
-#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:145
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:147
 #, kde-format
 msgid "Init..."
 msgstr "初始化..."
@@ -379,7 +379,7 @@ msgstr "子模块 %1 已删除"
 msgid "New tag..."
 msgstr "新标签..."
 
-#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:179
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Push..."
 msgstr "推送..."
@@ -427,77 +427,83 @@ msgstr "当前分支：%1"
 msgid " (merging)"
 msgstr " (合并中)"
 
-#: src/gui/appwindow.cpp:148
+#: src/gui/appwindow.cpp:130
+#, fuzzy, kde-format
+#| msgid " (merging)"
+msgid " (rebasing)"
+msgstr " (合并中)"
+
+#: src/gui/appwindow.cpp:150
 #, kde-format
 msgid "Open..."
 msgstr "打开..."
 
-#: src/gui/appwindow.cpp:153
+#: src/gui/appwindow.cpp:155
 #, kde-format
 msgid "Clone..."
 msgstr "克隆..."
 
-#: src/gui/appwindow.cpp:156
+#: src/gui/appwindow.cpp:158
 #, kde-format
 msgid "Changed files..."
 msgstr "已更改的文件..."
 
-#: src/gui/appwindow.cpp:162
+#: src/gui/appwindow.cpp:164
 #, kde-format
 msgid "Recent repos"
 msgstr "最近仓库"
 
-#: src/gui/appwindow.cpp:168
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Cleanup..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:171
+#: src/gui/appwindow.cpp:173
 #, kde-format
 msgid "Pull..."
 msgstr "拉取..."
 
-#: src/gui/appwindow.cpp:187
+#: src/gui/appwindow.cpp:189
 #, kde-format
 msgid "Diff branches..."
 msgstr "分支间相差..."
 
-#: src/gui/appwindow.cpp:193
+#: src/gui/appwindow.cpp:195
 #, kde-format
 msgid "Repo settings..."
 msgstr "仓库设置..."
 
-#: src/gui/appwindow.cpp:196
+#: src/gui/appwindow.cpp:198
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "切换/检出..."
 
-#: src/gui/appwindow.cpp:199
+#: src/gui/appwindow.cpp:201
 #, kde-format
 msgid "Diff tree"
 msgstr "查看树差异"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
+#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "无法创建路径：%1"
 
-#: src/gui/appwindow.cpp:253 src/gui/commandargsparser.cpp:236
+#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Init repo"
 msgstr "初始化仓库"
 
-#: src/gui/appwindow.cpp:263
+#: src/gui/appwindow.cpp:265
 #, kde-format
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:477
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:475
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "合并时无法切换分支"
 
-#: src/gui/appwindow.cpp:360 src/gui/commandargsparser.cpp:477
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:475
 #, kde-format
 msgid "Switch branch"
 msgstr "切换分支"
@@ -512,22 +518,22 @@ msgstr "此路径不是 git 仓库：%1"
 msgid "The repo inited successfully"
 msgstr "仓库初始化成功"
 
-#: src/gui/commandargsparser.cpp:506
+#: src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "文件已成功添加到 git"
 
-#: src/gui/commandargsparser.cpp:514
+#: src/gui/commandargsparser.cpp:512
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "您想要保留磁盘上的文件吗？"
 
-#: src/gui/commandargsparser.cpp:514
+#: src/gui/commandargsparser.cpp:512
 #, kde-format
 msgid "Remove from index"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:516
+#: src/gui/commandargsparser.cpp:514
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "文件已成功从 git 中删除"
@@ -1472,17 +1478,57 @@ msgstr "姓名："
 msgid "Email:"
 msgstr "邮箱："
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxAutoCrlf)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/reposettingsdialog.ui:46
 #, kde-format
-msgid "Auto crlf"
+msgid "Auto crlf:"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxAutoFileMode)
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/gui/dialogs/reposettingsdialog.ui:53
-#, kde-format
-msgid "Auto file mode"
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
+#| "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
+#| "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
+#| "\">More information</span></a></p></body></html>"
+msgid ""
+"<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+"com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
+"\" text-decoration: underline; color:#007af4;\">More informations...</span></"
+"a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>使用给定文本作为提交消息。</p><p><a href=\"https://git-"
+"scm.com/docs/git-commit#Documentation/git-commit.txt---messageltmsggt"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">更多信息</"
+"span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/gui/dialogs/reposettingsdialog.ui:60
+#, fuzzy, kde-format
+#| msgid "File name"
+msgid "File mode:"
+msgstr "文件名"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
+#: src/gui/dialogs/reposettingsdialog.ui:67
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
+#| "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
+#| "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
+#| "\">More information</span></a></p></body></html>"
+msgid ""
+"<html><head/><body><p>Tells Git if the executable bit of files in the "
+"working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
+"config#Documentation/git-config.txt-corefileMode\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">More informations...</span></a></p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>使用给定文本作为提交消息。</p><p><a href=\"https://git-"
+"scm.com/docs/git-commit#Documentation/git-commit.txt---messageltmsggt"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">更多信息</"
+"span></a></p></body></html>"
 
 #: src/gui/dialogs/runnerdialog.cpp:57
 #, kde-format
