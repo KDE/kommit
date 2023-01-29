@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-28 01:00+0000\n"
-"PO-Revision-Date: 2023-01-27 07:02+0100\n"
+"PO-Revision-Date: 2023-01-28 08:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -429,10 +429,9 @@ msgid " (merging)"
 msgstr " (შერწყმა)"
 
 #: src/gui/appwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid " (merging)"
+#, kde-format
 msgid " (rebasing)"
-msgstr " (შერწყმა)"
+msgstr " (ბაზის შეცვლა)"
 
 #: src/gui/appwindow.cpp:150
 #, kde-format
@@ -1463,10 +1462,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/reposettingsdialog.ui:60
-#, fuzzy, kde-format
-#| msgid "File name"
+#, kde-format
 msgid "File mode:"
-msgstr "ფაილის სახელი"
+msgstr "ფაილის რეჟიმი:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/gui/dialogs/reposettingsdialog.ui:67
