@@ -1560,10 +1560,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/reposettingsdialog.ui:60
-#, fuzzy, kde-format
-#| msgid "File name"
+#, kde-format
 msgid "File mode:"
-msgstr "Nome do ficheiro"
+msgstr "Modo dos ficheiros:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/gui/dialogs/reposettingsdialog.ui:67
