@@ -1,15 +1,15 @@
 # Translation of gitklient.po to Catalan (Valencian)
-# Copyright (C) 2022 This_file_is_part_of_KDE
+# Copyright (C) 2022-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-28 01:00+0000\n"
-"PO-Revision-Date: 2022-12-12 09:41+0100\n"
+"PO-Revision-Date: 2023-01-28 10:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -431,10 +431,9 @@ msgid " (merging)"
 msgstr " (en fusió)"
 
 #: src/gui/appwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid " (merging)"
+#, kde-format
 msgid " (rebasing)"
-msgstr " (en fusió)"
+msgstr " (en rebase)"
 
 #: src/gui/appwindow.cpp:150
 #, kde-format
@@ -995,23 +994,21 @@ msgstr "Registre de fitxers: %1"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/filehistorydialog.ui:27
-#, fuzzy, kde-format
-#| msgid "Clean type"
+#, kde-format
 msgid "View type"
-msgstr "Tipus de neteja"
+msgstr "Tipus de vista"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/gui/dialogs/filehistorydialog.ui:33
-#, fuzzy, kde-format
-#| msgid "Overview"
+#, kde-format
 msgid "Regular view"
-msgstr "Vista general"
+msgstr "Vista normal"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/gui/dialogs/filehistorydialog.ui:40
 #, kde-format
 msgid "Differential view"
-msgstr ""
+msgstr "Vista diferencial"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -1526,45 +1523,33 @@ msgstr "Correu electrònic:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/reposettingsdialog.ui:46
-#, fuzzy, kde-format
-#| msgid "Auto crlf"
+#, kde-format
 msgid "Auto crlf:"
-msgstr "CRLF automàtic"
+msgstr "CRLF automàtic:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/gui/dialogs/reposettingsdialog.ui:53
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
-#| "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-#| "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-#| "\">More information</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
 "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
 "\" text-decoration: underline; color:#007af4;\">More informations...</span></"
 "a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>Utilitza el text indicat com a missatge de comissió.</"
-"p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit."
-"txt---messageltmsggt\"><span style=\" text-decoration: underline; color:"
-"#2980b9;\">Més informació</span></a></p></body></html>"
+"<html><head/><body><p>Change CR/LF o no</p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Més informació...</span></a></"
+"p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/reposettingsdialog.ui:60
-#, fuzzy, kde-format
-#| msgid "File name"
+#, kde-format
 msgid "File mode:"
-msgstr "Nom del fitxer"
+msgstr "Mode del fitxer:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/gui/dialogs/reposettingsdialog.ui:67
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
-#| "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-#| "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-#| "\">More information</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Tells Git if the executable bit of files in the "
 "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
@@ -1572,10 +1557,11 @@ msgid ""
 "decoration: underline; color:#007af4;\">More informations...</span></a></p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Utilitza el text indicat com a missatge de comissió.</"
-"p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit."
-"txt---messageltmsggt\"><span style=\" text-decoration: underline; color:"
-"#2980b9;\">Més informació</span></a></p></body></html>"
+"<html><head/><body><p>Indica a Git si el bit executable dels fitxers en "
+"l'arbre de treball cal que es respecti. </p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-corefileMode\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Més informació...</span></a></"
+"p></body></html>"
 
 #: src/gui/dialogs/runnerdialog.cpp:57
 #, kde-format
@@ -2360,6 +2346,3 @@ msgstr "Head"
 #, kde-format
 msgid "Tagger"
 msgstr "Etiquetador"
-
-#~ msgid "Auto file mode"
-#~ msgstr "Mode automàtic del fitxer"
