@@ -17,6 +17,11 @@ using Solution3 = QList<Pair3>;
 
 QDebug &operator<<(QDebug &stream, const Diff::Solution &sln);
 
+struct Range {
+    int begin;
+    int size;
+};
+
 class SolutionIterator
 {
     const Solution &_solution;
@@ -38,6 +43,31 @@ public:
     };
 
     SolutionIterator(const Solution &solution);
+    void begin();
+    Result pick();
+};
+
+class SolutionIterator3
+{
+    const Solution3 &_solution;
+    int _firstIndex{0};
+    int _secondIndex{0};
+    int _thirdIndex{0};
+    Solution3::ConstIterator i;
+
+public:
+    struct Result {
+        Range base;
+        Range local;
+        Range remote;
+        bool success;
+        SegmentType type;
+
+        Result();
+        Result(Range base, Range local, Range remote, SegmentType type);
+    };
+
+    SolutionIterator3(const Solution3 &solution);
     void begin();
     Result pick();
 };

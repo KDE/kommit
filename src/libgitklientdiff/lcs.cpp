@@ -41,34 +41,33 @@ int maxIn(int first, int second, int third)
 
 int maxIn(int first, int second)
 {
-    if (first == second)
-        return 0;
-
     if (first > second)
         return 1;
 
     if (second > first)
         return 2;
 
-    return 4;
+    return 0;
 }
 
 int maxIn(const QList<int> &list)
 {
     if (list.empty())
         return -1;
-    int max{list.first()};
-    int maxIndex{0};
-    int index{0};
-    for (const auto &i : list) {
-        if (i > max) {
-            max = i;
-            maxIndex = index;
-        }
-        index++;
-    }
+    auto i = std::max_element(list.begin(), list.end());
+    return std::distance(list.begin(), i);
+    //    int max{list.first()};
+    //    int maxIndex{0};
+    //    int index{0};
+    //    for (const auto &i : list) {
+    //        if (i > max) {
+    //            max = i;
+    //            maxIndex = index;
+    //        }
+    //        index++;
+    //    }
 
-    return maxIndex;
+    //    return maxIndex;
 }
 
 Solution longestCommonSubsequence(const QStringList &source, const QStringList &target)
@@ -134,7 +133,6 @@ Solution3 longestCommonSubsequence(const QStringList &source, const QStringList 
     int i = source.count();
     int j = target.count();
     int k = target2.count();
-    int index = l(source.count(), target.count(), target2.count());
 
     Solution3 r;
     while (i > 0 && j > 0 && k > 0) {
@@ -144,21 +142,18 @@ Solution3 longestCommonSubsequence(const QStringList &source, const QStringList 
             i--;
             j--;
             k--;
-            index--;
-            ////        } else if (l[i - 1][j][k] > l[i][j - 1][k] && l[i - 1][j][k] > l[i][j][k - 1]) {
-            ////            i--;
-            ////        } else if (l[i][j][k - 1] > l[i][j - 1][k] && l[i][j][k - 1] > l[i - 1][j][k]) {
-            ////            k--;
         } else {
-            int n = maxIn({l(i - 1, j, k),
-                           l(i, j - 1, k),
-                           l(i, j, k - 1),
+            QList<int> list = {l(i - 1, j, k),
+                               l(i, j - 1, k),
+                               l(i, j, k - 1),
 
-                           l(i - 1, j - 1, k),
-                           l(i, j - 1, k - 1),
-                           l(i - 1, j, k - 1),
+                               l(i - 1, j - 1, k),
+                               l(i, j - 1, k - 1),
+                               l(i - 1, j, k - 1),
 
-                           l(i - 1, j - 1, k - 1)});
+                               l(i - 1, j - 1, k - 1)};
+            int n = maxIn(list);
+
             switch (n) {
             case 0:
                 i--;
@@ -183,19 +178,12 @@ Solution3 longestCommonSubsequence(const QStringList &source, const QStringList 
                 k--;
                 break;
 
-            case 6:
-                r.prepend({i - 1, j - 1, k - 1});
-                i--;
-                j--;
-                k--;
-                break;
-            default:
+            default: // also for 6
                 i--;
                 j--;
                 k--;
                 break;
             }
-            //            j--;
         }
     }
     return r;

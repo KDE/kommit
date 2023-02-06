@@ -56,4 +56,8 @@ Text readLines(const QString &text)
     return t;
 }
 
+Text::Text()
+    : lineEnding(LineEnding::None)
+{
+}
 }

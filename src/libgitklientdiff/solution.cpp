@@ -86,4 +86,68 @@ QDebug operator<<(QDebug d, const SolutionIterator::Result &r)
     d.noquote() << "(Old: " << r.oldStart << " size=" << r.oldSize << ", New: " << r.newStart << " size=" << r.newSize << ")";
     return d;
 }
+
+SolutionIterator3::SolutionIterator3(const Solution3 &solution)
+    : _solution(solution)
+    , i(_solution.begin())
+{
+}
+
+void SolutionIterator3::begin()
+{
+    _firstIndex = _secondIndex = _thirdIndex = -1;
+    i = _solution.begin();
+}
+
+Diff::SolutionIterator3::Result Diff::SolutionIterator3::pick()
+{
+    if (i == _solution.end())
+        return {};
+
+    if ((i->first == _firstIndex && i->second == _secondIndex && i->third == _thirdIndex)) {
+        auto fi = _firstIndex;
+        auto si = _secondIndex;
+        auto ti = _thirdIndex;
+        do {
+            _firstIndex++;
+            _secondIndex++;
+            _thirdIndex++;
+            ++i;
+        } while (i != _solution.end() && i->first == _firstIndex && i->second == _secondIndex);
+
+        return {{fi, _firstIndex - fi}, {si, _secondIndex - si}, {ti, _thirdIndex - ti}, SegmentType::SameOnBoth};
+
+    } else {
+        Result r{{_firstIndex, i->first - _firstIndex},
+                 {_secondIndex, i->second - _secondIndex},
+                 {_thirdIndex, i->third - _thirdIndex},
+                 SegmentType::DifferentOnBoth};
+        _firstIndex = i->first;
+        _secondIndex = i->second;
+
+        if (r.local.size && r.remote.size)
+            r.type = SegmentType::DifferentOnBoth;
+        else if (r.remote.size)
+            r.type = SegmentType::OnlyOnRight;
+        else
+            r.type = SegmentType::OnlyOnLeft;
+        r.success = true;
+        return r;
+    }
+
+    return {};
+}
+
+SolutionIterator3::Result::Result()
+{
+}
+
+Diff::SolutionIterator3::Result::Result(Range base, Range local, Range remote, SegmentType type)
+    : base{base}
+    , local{local}
+    , remote{remote}
+    , success{true}
+    , type{type}
+{
+}
 }

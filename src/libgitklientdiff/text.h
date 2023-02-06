@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Diff
 {
 struct Text {
+    Text();
     QList<QString> lines; // TODO: convert to QList<QStringRef> if it's possible
     LineEnding lineEnding;
 };
