@@ -37,7 +37,7 @@ int remove(QStringList &list, int count)
 
 QList<MergeSegment *> diff3(const QStringList &baseList, const QStringList &localList, const QStringList &remoteList)
 {
-    auto max = longestCommonSubsequence(baseList, localList, remoteList);
+    auto lcs = longestCommonSubsequence(baseList, localList, remoteList);
 
     auto base = baseList;
     auto local = localList;
@@ -48,10 +48,31 @@ QList<MergeSegment *> diff3(const QStringList &baseList, const QStringList &loca
     int remoteOffset{0};
     QList<MergeSegment *> ret;
 
-    Pair3 p;
-    while (!max.empty()) {
+    SolutionIterator3 si(lcs);
+    int lastBaseIndex{-1};
+    int lastLocaltIndex{-1};
+    int lastRemoteIndex{-1};
+    forever {
+        auto p = si.pick();
+        if (!p.success)
+            break;
+
+        auto segment = new MergeSegment;
+        segment->base = baseList.mid(p.base.begin, p.base.size);
+        segment->local = localList.mid(p.local.begin, p.local.size);
+        segment->remote = remoteList.mid(p.remote.begin, p.remote.size);
+        segment->type = p.type;
+        lastBaseIndex += p.base.size;
+        lastLocaltIndex += p.local.size;
+        lastRemoteIndex += p.remote.size;
+        ret << segment;
+    }
+    return ret;
+
+    /*Pair3 p;
+    while (!lcs.empty()) {
         if (p == Pair3())
-            p = max.takeFirst();
+            p = lcs.takeFirst();
 
         if (p.first == baseOffset && p.second == localOffset && p.third == remoteOffset) {
             auto segment = new MergeSegment;
@@ -64,8 +85,8 @@ QList<MergeSegment *> diff3(const QStringList &baseList, const QStringList &loca
                 segment->local.append(local.takeFirst());
                 segment->remote.append(remote.takeFirst());
 
-                if (!max.empty())
-                    p = max.takeFirst();
+                if (!lcs.empty())
+                    p = lcs.takeFirst();
             }
             ret.append(segment);
             //            if (!max.size())
@@ -96,7 +117,7 @@ QList<MergeSegment *> diff3(const QStringList &baseList, const QStringList &loca
     if (base.empty() && local.empty() && remote.empty()) {
         auto segment = new MergeSegment{base, local, remote};
         ret.append(segment);
-    }
+    }*/
     return ret;
 }
 

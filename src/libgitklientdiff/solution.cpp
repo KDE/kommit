@@ -124,6 +124,7 @@ Diff::SolutionIterator3::Result Diff::SolutionIterator3::pick()
                  SegmentType::DifferentOnBoth};
         _firstIndex = i->first;
         _secondIndex = i->second;
+        _thirdIndex = i->third;
 
         if (r.local.size && r.remote.size)
             r.type = SegmentType::DifferentOnBoth;
@@ -139,6 +140,11 @@ Diff::SolutionIterator3::Result Diff::SolutionIterator3::pick()
 }
 
 SolutionIterator3::Result::Result()
+    : base{}
+    , local{}
+    , remote{}
+    , success{false}
+    , type{}
 {
 }
 
@@ -148,6 +154,18 @@ Diff::SolutionIterator3::Result::Result(Range base, Range local, Range remote, S
     , remote{remote}
     , success{true}
     , type{type}
+{
+}
+
+Range::Range()
+    : begin{-1}
+    , size{-1}
+{
+}
+
+Range::Range(int begin, int size)
+    : begin{begin}
+    , size{size}
 {
 }
 }

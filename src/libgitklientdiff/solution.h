@@ -20,6 +20,9 @@ QDebug &operator<<(QDebug &stream, const Diff::Solution &sln);
 struct Range {
     int begin;
     int size;
+
+    Range();
+    Range(int begin, int size);
 };
 
 class SolutionIterator
