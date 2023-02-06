@@ -24,17 +24,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 // TODO: This file need to be refactored
 FileViewerDialog::FileViewerDialog(Git::Manager *git, const QString &place, const QString &fileName, QWidget *parent)
-    : KParts::MainWindow(parent)
-    , mGit(git)
+    : FileViewerDialog(git, Git::File(git, place, fileName), parent)
 {
-    setupUi(this);
-    showFile(Git::File(mGit, place, fileName));
-
-    QSettings s;
-    restoreGeometry(s.value(QStringLiteral("FileViewerDialog_Geometry")).toByteArray());
-    KStandardAction::close(this, &QMainWindow::close, actionCollection());
-
-    setupGUI(ToolBar, QStringLiteral("gitklientfileviewerui.rc"));
 }
 
 FileViewerDialog::FileViewerDialog(Git::Manager *git, const Git::File &file, QWidget *parent)
