@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-28 01:00+0000\n"
+"POT-Creation-Date: 2023-02-07 01:02+0000\n"
 "PO-Revision-Date: 2023-01-28 19:49+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1036,18 +1036,18 @@ msgstr "Sfoglia i file: %1"
 msgid "Branch:"
 msgstr "Ramo:"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:63
+#: src/gui/dialogs/fileviewerdialog.cpp:54
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Chiusura anteprima"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:64
+#: src/gui/dialogs/fileviewerdialog.cpp:55
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Attendi la chiusura dell'anteprima..."
 
-#: src/gui/dialogs/fileviewerdialog.cpp:97
+#: src/gui/dialogs/fileviewerdialog.cpp:88
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
