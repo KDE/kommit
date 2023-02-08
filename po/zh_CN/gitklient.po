@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-07 01:02+0000\n"
-"PO-Revision-Date: 2023-01-12 10:32\n"
+"PO-Revision-Date: 2023-02-07 11:03\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -428,10 +428,9 @@ msgid " (merging)"
 msgstr " (合并中)"
 
 #: src/gui/appwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid " (merging)"
+#, kde-format
 msgid " (rebasing)"
-msgstr " (合并中)"
+msgstr ""
 
 #: src/gui/appwindow.cpp:150
 #, kde-format
@@ -987,17 +986,15 @@ msgstr "文件日志：%1"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/filehistorydialog.ui:27
-#, fuzzy, kde-format
-#| msgid "View"
+#, kde-format
 msgid "View type"
-msgstr "查看"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/gui/dialogs/filehistorydialog.ui:33
-#, fuzzy, kde-format
-#| msgid "Overview"
+#, kde-format
 msgid "Regular view"
-msgstr "概览"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/gui/dialogs/filehistorydialog.ui:40
@@ -1486,38 +1483,23 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/gui/dialogs/reposettingsdialog.ui:53
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
-#| "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-#| "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-#| "\">More information</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
 "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
 "\" text-decoration: underline; color:#007af4;\">More informations...</span></"
 "a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>使用给定文本作为提交消息。</p><p><a href=\"https://git-"
-"scm.com/docs/git-commit#Documentation/git-commit.txt---messageltmsggt"
-"\"><span style=\" text-decoration: underline; color:#2980b9;\">更多信息</"
-"span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/reposettingsdialog.ui:60
-#, fuzzy, kde-format
-#| msgid "File name"
+#, kde-format
 msgid "File mode:"
-msgstr "文件名"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/gui/dialogs/reposettingsdialog.ui:67
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
-#| "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-#| "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-#| "\">More information</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Tells Git if the executable bit of files in the "
 "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
@@ -1525,10 +1507,6 @@ msgid ""
 "decoration: underline; color:#007af4;\">More informations...</span></a></p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>使用给定文本作为提交消息。</p><p><a href=\"https://git-"
-"scm.com/docs/git-commit#Documentation/git-commit.txt---messageltmsggt"
-"\"><span style=\" text-decoration: underline; color:#2980b9;\">更多信息</"
-"span></a></p></body></html>"
 
 #: src/gui/dialogs/runnerdialog.cpp:57
 #, kde-format
