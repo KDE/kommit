@@ -10,6 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QCloseEvent>
 #include <QEventLoop>
 
+#include <KCrash>
+
 AppMainWindow::AppMainWindow(QWidget *parent, Qt::WindowFlags f)
     : KXmlGuiWindow(parent, f)
 {
@@ -17,6 +19,7 @@ AppMainWindow::AppMainWindow(QWidget *parent, Qt::WindowFlags f)
 
 int AppMainWindow::exec()
 {
+    KCrash::initialize();
     QEventLoop eventLoop;
     mLoop = &eventLoop;
     showModal();
