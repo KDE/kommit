@@ -29,9 +29,11 @@ SolutionIterator::Result::Result(int oldStart, int oldSize, int newStart, int ne
 {
 }
 
-SolutionIterator::SolutionIterator(const Solution &solution)
+SolutionIterator::SolutionIterator(const Solution &solution, int firstSize, int secondSize)
     : _solution(solution)
     , i(_solution.begin())
+    , _firstSize{firstSize}
+    , _secondSize{secondSize}
 {
 }
 
@@ -39,12 +41,27 @@ void SolutionIterator::begin()
 {
     _firstIndex = _secondIndex = -1;
     i = _solution.begin();
+    _ended = false;
 }
 
 SolutionIterator::Result SolutionIterator::pick()
 {
-    if (i == _solution.end())
-        return {};
+    if (i == _solution.end()) {
+        if (_ended)
+            return {};
+        else {
+            Result r{_firstIndex, _firstSize - _firstIndex, _firstIndex, _secondSize - _secondIndex, true, SegmentType::SameOnBoth};
+            if (r.newSize && r.oldSize)
+                r.type = SegmentType::DifferentOnBoth;
+            else if (r.newSize)
+                r.type = SegmentType::OnlyOnRight;
+            else
+                r.type = SegmentType::OnlyOnLeft;
+            r.success = true;
+            _ended = true;
+            return r;
+        }
+    }
 
     if ((i->first == _firstIndex && i->second == _secondIndex)) {
         auto fi = _firstIndex;

@@ -145,10 +145,10 @@ QList<DiffSegment *> diff(const QStringList &oldText, const QStringList &newText
 
     auto lcs = longestCommonSubsequence(oldText, newText);
 
-    SolutionIterator si(lcs);
+    SolutionIterator si(lcs, oldText.size(), newText.size());
     QList<DiffSegment *> ret;
-    int lastLeftIndex{-1};
-    int lastRightIndex{-1};
+
+    si.begin();
     forever {
         auto p = si.pick();
         if (!p.success)
@@ -158,28 +158,7 @@ QList<DiffSegment *> diff(const QStringList &oldText, const QStringList &newText
         segment->oldText = oldText.mid(p.oldStart, p.oldSize);
         segment->newText = newText.mid(p.newStart, p.newSize);
         segment->type = p.type;
-        lastLeftIndex += p.oldSize;
-        lastRightIndex += p.newSize;
         ret << segment;
-    }
-
-    if (lastLeftIndex != oldText.size() || lastRightIndex != newText.size()) {
-        auto segment = new DiffSegment;
-        segment->oldText = oldText.mid(lastLeftIndex + 1, -1);
-        segment->newText = newText.mid(lastRightIndex + 1, -1);
-        segment->type = SegmentType::SameOnBoth;
-
-        if (segment->newText.size() == segment->oldText.size())
-            segment->type = SegmentType::SameOnBoth;
-        else if (segment->newText.size())
-            segment->type = SegmentType::OnlyOnRight;
-        else if (segment->oldText.size())
-            segment->type = SegmentType::OnlyOnLeft;
-        else
-            segment->type = SegmentType::DifferentOnBoth;
-
-        if (segment->newText.size() || segment->oldText.size())
-            ret << segment;
     }
 
     return ret;

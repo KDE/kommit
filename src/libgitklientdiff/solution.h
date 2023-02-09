@@ -31,6 +31,9 @@ class SolutionIterator
     int _firstIndex{0};
     int _secondIndex{0};
     Solution::ConstIterator i;
+    bool _ended{true};
+    int _firstSize{};
+    int _secondSize{};
 
 public:
     struct Result {
@@ -45,7 +48,7 @@ public:
         Result(int oldStart, int oldSize, int newStart, int newSize, bool success, SegmentType type);
     };
 
-    SolutionIterator(const Solution &solution);
+    SolutionIterator(const Solution &solution, int firstSize, int secondSize);
     void begin();
     Result pick();
 };
