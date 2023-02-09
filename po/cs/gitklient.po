@@ -495,7 +495,7 @@ msgstr ""
 #: src/gui/appwindow.cpp:265
 #, kde-format
 msgid "Open repository"
-msgstr ""
+msgstr "Otevřít repozitář"
 
 #: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:475
 #, kde-format
@@ -554,7 +554,7 @@ msgstr "Stav:"
 #: src/gui/widgets/remoteswidget.ui:126 src/gui/widgets/remoteswidget.ui:143
 #, kde-format
 msgid "---"
-msgstr ""
+msgstr "---"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
 #: src/gui/dialogs/changedfilesdialog.cpp:23
@@ -1213,7 +1213,7 @@ msgstr "Komu:"
 #: src/gui/dialogs/mergedialog.ui:53
 #, kde-format
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/mergedialog.ui:60 src/gui/dialogs/pulldialog.ui:79
@@ -1843,7 +1843,7 @@ msgstr ""
 #: src/gui/settings/GitKlientSettings.kcfg:21
 #, kde-format
 msgid "color of the foreground"
-msgstr ""
+msgstr "barva popředí"
 
 #. i18n: ectx: label, entry (gitBinPath), group (Preferences)
 #: src/gui/settings/GitKlientSettings.kcfg:26
