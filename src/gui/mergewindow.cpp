@@ -193,10 +193,6 @@ void MergeWindow::load()
     auto result = Diff::diff3(baseList, localList, remoteList);
     mDiffs = result.segments;
     mMapper->setSegments(mDiffs);
-    QList<Diff::Segment *> segments;
-    for (const auto &s : std::as_const(mDiffs)) {
-        segments.append(s);
-    }
 
     fillSegments();
     updateResult();

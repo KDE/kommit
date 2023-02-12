@@ -37,87 +37,44 @@ int remove(QStringList &list, int count)
 
 QList<MergeSegment *> diff3(const QStringList &baseList, const QStringList &localList, const QStringList &remoteList)
 {
-    auto lcs = longestCommonSubsequence(baseList, localList, remoteList);
-
-    auto base = baseList;
-    auto local = localList;
-    auto remote = remoteList;
-
-    int baseOffset{0};
-    int localOffset{0};
-    int remoteOffset{0};
     QList<MergeSegment *> ret;
 
-    SolutionIterator3 si(lcs);
-    int lastBaseIndex{-1};
-    int lastLocaltIndex{-1};
-    int lastRemoteIndex{-1};
-    forever {
-        auto p = si.pick();
-        if (!p.success)
-            break;
+    if (baseList.isEmpty()) {
+        auto lcs = longestCommonSubsequence(localList, remoteList);
+        SolutionIterator si(lcs, localList.size(), remoteList.size());
 
-        auto segment = new MergeSegment;
-        segment->base = baseList.mid(p.base.begin, p.base.size);
-        segment->local = localList.mid(p.local.begin, p.local.size);
-        segment->remote = remoteList.mid(p.remote.begin, p.remote.size);
-        segment->type = p.type;
-        lastBaseIndex += p.base.size;
-        lastLocaltIndex += p.local.size;
-        lastRemoteIndex += p.remote.size;
-        ret << segment;
-    }
-    return ret;
+        si.begin();
+        forever {
+            auto p = si.pick();
+            if (!p.success)
+                break;
 
-    /*Pair3 p;
-    while (!lcs.empty()) {
-        if (p == Pair3())
-            p = lcs.takeFirst();
-
-        if (p.first == baseOffset && p.second == localOffset && p.third == remoteOffset) {
             auto segment = new MergeSegment;
-            segment->type = SegmentType::SameOnBoth;
-            while (p.first == baseOffset && p.second == localOffset && p.third == remoteOffset) {
-                baseOffset++;
-                localOffset++;
-                remoteOffset++;
-                segment->base.append(base.takeFirst());
-                segment->local.append(local.takeFirst());
-                segment->remote.append(remote.takeFirst());
+            segment->local = localList.mid(p.oldStart, p.oldSize);
+            segment->remote = remoteList.mid(p.newStart, p.newSize);
+            segment->type = p.type;
 
-                if (!lcs.empty())
-                    p = lcs.takeFirst();
-            }
-            ret.append(segment);
-            //            if (!max.size())
-            //                break;
-        } else {
-            //            if (!max.size())
-            //                break;
-            //            p = max.takeFirst();
+            if (segment->type == SegmentType::SameOnBoth)
+                segment->base = segment->local;
+
+            ret << segment;
         }
+    } else {
+        auto lcs = longestCommonSubsequence(baseList, localList, remoteList);
+        SolutionIterator3 si(lcs);
+        forever {
+            auto p = si.pick();
+            if (!p.success)
+                break;
 
-        QStringList _baseList, _localList, _remoteList;
-        if (baseOffset - p.first)
-            _baseList = take(base, p.first - baseOffset);
-        if (localOffset - p.second)
-            _localList = take(local, p.second - localOffset);
-        if (remoteOffset - p.third)
-            _remoteList = take(remote, p.third - remoteOffset);
-
-        baseOffset += _baseList.size();
-        localOffset += _localList.size();
-        remoteOffset += _remoteList.size();
-
-        auto segment = new MergeSegment{_baseList, _localList, _remoteList};
-
-        ret.append(segment);
+            auto segment = new MergeSegment;
+            segment->base = baseList.mid(p.base.begin, p.base.size);
+            segment->local = localList.mid(p.local.begin, p.local.size);
+            segment->remote = remoteList.mid(p.remote.begin, p.remote.size);
+            segment->type = p.type;
+            ret << segment;
+        }
     }
-
-    if (base.empty() && local.empty() && remote.empty()) {
-        auto segment = new MergeSegment{base, local, remote};
-        ret.append(segment);
-    }*/
     return ret;
 }
 
