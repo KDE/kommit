@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 01:02+0000\n"
+"POT-Creation-Date: 2023-02-13 00:59+0000\n"
 "PO-Revision-Date: 2022-12-12 18:22+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1771,7 +1771,7 @@ msgstr "Árvore"
 msgid "View hidden chars..."
 msgstr "Ver os caracteres escondidos..."
 
-#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:343
+#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:339
 #, kde-format
 msgid "Same size blocks"
 msgstr "Blocos do mesmo tamanho"
@@ -1875,62 +1875,62 @@ msgstr "Servidores Remotos"
 msgid "Add"
 msgstr "Adicionar"
 
-#: src/gui/mergewindow.cpp:285
+#: src/gui/mergewindow.cpp:281
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Conflitos: %1"
 
-#: src/gui/mergewindow.cpp:293
+#: src/gui/mergewindow.cpp:289
 #, kde-format
 msgid "Keep mine"
 msgstr "Manter a minha versão"
 
-#: src/gui/mergewindow.cpp:298
+#: src/gui/mergewindow.cpp:294
 #, kde-format
 msgid "Keep their"
 msgstr "Manter a versão deles"
 
-#: src/gui/mergewindow.cpp:304
+#: src/gui/mergewindow.cpp:300
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Manter a minha versão antes da deles"
 
-#: src/gui/mergewindow.cpp:309
+#: src/gui/mergewindow.cpp:305
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Manter a versão deles antes da minha"
 
-#: src/gui/mergewindow.cpp:314
+#: src/gui/mergewindow.cpp:310
 #, kde-format
 msgid "Keep my file"
 msgstr "Manter o meu ficheiro"
 
-#: src/gui/mergewindow.cpp:319
+#: src/gui/mergewindow.cpp:315
 #, kde-format
 msgid "Keep their file"
 msgstr "Manter o ficheiro deles"
 
-#: src/gui/mergewindow.cpp:324
+#: src/gui/mergewindow.cpp:320
 #, kde-format
 msgid "Blocks"
 msgstr "Blocos"
 
-#: src/gui/mergewindow.cpp:328
+#: src/gui/mergewindow.cpp:324
 #, kde-format
 msgid "Files"
 msgstr "Ficheiros"
 
-#: src/gui/mergewindow.cpp:332
+#: src/gui/mergewindow.cpp:328
 #, kde-format
 msgid "Previous diff"
 msgstr "Diferença anterior"
 
-#: src/gui/mergewindow.cpp:338
+#: src/gui/mergewindow.cpp:334
 #, kde-format
 msgid "Next diff"
 msgstr "Diferença seguinte"
 
-#: src/gui/mergewindow.cpp:435
+#: src/gui/mergewindow.cpp:431
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Não é possível aceder ao ficheiro"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 01:02+0000\n"
+"POT-Creation-Date: 2023-02-13 00:59+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1662,7 +1662,7 @@ msgstr "Zuhaitza"
 msgid "View hidden chars..."
 msgstr "Ikusi ezkutuko karaktereak..."
 
-#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:343
+#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:339
 #, kde-format
 msgid "Same size blocks"
 msgstr "Neurri bereko blokeak"
@@ -1766,62 +1766,62 @@ msgstr "Urrutikoak"
 msgid "Add"
 msgstr "Gehitu"
 
-#: src/gui/mergewindow.cpp:285
+#: src/gui/mergewindow.cpp:281
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Gatazkak: %1"
 
-#: src/gui/mergewindow.cpp:293
+#: src/gui/mergewindow.cpp:289
 #, kde-format
 msgid "Keep mine"
 msgstr "Mantendu nirea"
 
-#: src/gui/mergewindow.cpp:298
+#: src/gui/mergewindow.cpp:294
 #, kde-format
 msgid "Keep their"
 msgstr "Mantendu beraiena"
 
-#: src/gui/mergewindow.cpp:304
+#: src/gui/mergewindow.cpp:300
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Mantendu nirea beraienaren aurretik"
 
-#: src/gui/mergewindow.cpp:309
+#: src/gui/mergewindow.cpp:305
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Mantendu beraiena nirearen aurretik"
 
-#: src/gui/mergewindow.cpp:314
+#: src/gui/mergewindow.cpp:310
 #, kde-format
 msgid "Keep my file"
 msgstr "Mantendu nire fitxategia"
 
-#: src/gui/mergewindow.cpp:319
+#: src/gui/mergewindow.cpp:315
 #, kde-format
 msgid "Keep their file"
 msgstr "Mantendu beraien fitxategia"
 
-#: src/gui/mergewindow.cpp:324
+#: src/gui/mergewindow.cpp:320
 #, kde-format
 msgid "Blocks"
 msgstr "Blokeak"
 
-#: src/gui/mergewindow.cpp:328
+#: src/gui/mergewindow.cpp:324
 #, kde-format
 msgid "Files"
 msgstr "Fitxategiak"
 
-#: src/gui/mergewindow.cpp:332
+#: src/gui/mergewindow.cpp:328
 #, kde-format
 msgid "Previous diff"
 msgstr "Aurreko diff"
 
-#: src/gui/mergewindow.cpp:338
+#: src/gui/mergewindow.cpp:334
 #, kde-format
 msgid "Next diff"
 msgstr "Hurrengo diff"
 
-#: src/gui/mergewindow.cpp:435
+#: src/gui/mergewindow.cpp:431
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Ez da fitxategia irekitzeko gai"

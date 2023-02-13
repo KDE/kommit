@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 01:02+0000\n"
+"POT-Creation-Date: 2023-02-13 00:59+0000\n"
 "PO-Revision-Date: 2023-01-29 08:54+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1748,7 +1748,7 @@ msgstr "Drevo"
 msgid "View hidden chars..."
 msgstr "Pokaži skrite znake ..."
 
-#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:343
+#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:339
 #, kde-format
 msgid "Same size blocks"
 msgstr "Bloki enake velikosti"
@@ -1852,62 +1852,62 @@ msgstr "Oddaljeni"
 msgid "Add"
 msgstr "Dodaj"
 
-#: src/gui/mergewindow.cpp:285
+#: src/gui/mergewindow.cpp:281
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Spori: %1"
 
-#: src/gui/mergewindow.cpp:293
+#: src/gui/mergewindow.cpp:289
 #, kde-format
 msgid "Keep mine"
 msgstr "Obdrži moje"
 
-#: src/gui/mergewindow.cpp:298
+#: src/gui/mergewindow.cpp:294
 #, kde-format
 msgid "Keep their"
 msgstr "Obdrži njihovo"
 
-#: src/gui/mergewindow.cpp:304
+#: src/gui/mergewindow.cpp:300
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Obdrži moje pred njihovim"
 
-#: src/gui/mergewindow.cpp:309
+#: src/gui/mergewindow.cpp:305
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Obdrži njihovo pred mojim"
 
-#: src/gui/mergewindow.cpp:314
+#: src/gui/mergewindow.cpp:310
 #, kde-format
 msgid "Keep my file"
 msgstr "Obdrži mojo datoteko"
 
-#: src/gui/mergewindow.cpp:319
+#: src/gui/mergewindow.cpp:315
 #, kde-format
 msgid "Keep their file"
 msgstr "Obdrži njihovo datoteko"
 
-#: src/gui/mergewindow.cpp:324
+#: src/gui/mergewindow.cpp:320
 #, kde-format
 msgid "Blocks"
 msgstr "Bloki"
 
-#: src/gui/mergewindow.cpp:328
+#: src/gui/mergewindow.cpp:324
 #, kde-format
 msgid "Files"
 msgstr "Datoteke"
 
-#: src/gui/mergewindow.cpp:332
+#: src/gui/mergewindow.cpp:328
 #, kde-format
 msgid "Previous diff"
 msgstr "Prejšnja razlika"
 
-#: src/gui/mergewindow.cpp:338
+#: src/gui/mergewindow.cpp:334
 #, kde-format
 msgid "Next diff"
 msgstr "Naslednja razlika"
 
-#: src/gui/mergewindow.cpp:435
+#: src/gui/mergewindow.cpp:431
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Datoteke ni mogoče odpreti"

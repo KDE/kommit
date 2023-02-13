@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 01:02+0000\n"
+"POT-Creation-Date: 2023-02-13 00:59+0000\n"
 "PO-Revision-Date: 2023-01-28 10:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1751,7 +1751,7 @@ msgstr "Arbre"
 msgid "View hidden chars..."
 msgstr "Mostra els caràcters ocults..."
 
-#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:343
+#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:339
 #, kde-format
 msgid "Same size blocks"
 msgstr "Blocs de la mateixa mida"
@@ -1855,62 +1855,62 @@ msgstr "Remots"
 msgid "Add"
 msgstr "Afegeix"
 
-#: src/gui/mergewindow.cpp:285
+#: src/gui/mergewindow.cpp:281
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Conflictes: %1"
 
-#: src/gui/mergewindow.cpp:293
+#: src/gui/mergewindow.cpp:289
 #, kde-format
 msgid "Keep mine"
 msgstr "Mantén els meus"
 
-#: src/gui/mergewindow.cpp:298
+#: src/gui/mergewindow.cpp:294
 #, kde-format
 msgid "Keep their"
 msgstr "Mantén els seus"
 
-#: src/gui/mergewindow.cpp:304
+#: src/gui/mergewindow.cpp:300
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Mantén els meus abans que els seus"
 
-#: src/gui/mergewindow.cpp:309
+#: src/gui/mergewindow.cpp:305
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Mantén els seus abans que els meus"
 
-#: src/gui/mergewindow.cpp:314
+#: src/gui/mergewindow.cpp:310
 #, kde-format
 msgid "Keep my file"
 msgstr "Mantén el meu fitxer"
 
-#: src/gui/mergewindow.cpp:319
+#: src/gui/mergewindow.cpp:315
 #, kde-format
 msgid "Keep their file"
 msgstr "Mantén el seu fitxer"
 
-#: src/gui/mergewindow.cpp:324
+#: src/gui/mergewindow.cpp:320
 #, kde-format
 msgid "Blocks"
 msgstr "Blocs"
 
-#: src/gui/mergewindow.cpp:328
+#: src/gui/mergewindow.cpp:324
 #, kde-format
 msgid "Files"
 msgstr "Fitxers"
 
-#: src/gui/mergewindow.cpp:332
+#: src/gui/mergewindow.cpp:328
 #, kde-format
 msgid "Previous diff"
 msgstr "Diferència anterior"
 
-#: src/gui/mergewindow.cpp:338
+#: src/gui/mergewindow.cpp:334
 #, kde-format
 msgid "Next diff"
 msgstr "Diferència següent"
 
-#: src/gui/mergewindow.cpp:435
+#: src/gui/mergewindow.cpp:431
 #, kde-format
 msgid "Unable to open the file"
 msgstr "No s'ha pogut obrir el fitxer"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 01:02+0000\n"
+"POT-Creation-Date: 2023-02-13 00:59+0000\n"
 "PO-Revision-Date: 2023-02-07 11:03\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1682,7 +1682,7 @@ msgstr "树"
 msgid "View hidden chars..."
 msgstr "显示不可见字符..."
 
-#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:343
+#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:339
 #, kde-format
 msgid "Same size blocks"
 msgstr ""
@@ -1786,62 +1786,62 @@ msgstr "远端"
 msgid "Add"
 msgstr "添加"
 
-#: src/gui/mergewindow.cpp:285
+#: src/gui/mergewindow.cpp:281
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "冲突：%1"
 
-#: src/gui/mergewindow.cpp:293
+#: src/gui/mergewindow.cpp:289
 #, kde-format
 msgid "Keep mine"
 msgstr "保留我的"
 
-#: src/gui/mergewindow.cpp:298
+#: src/gui/mergewindow.cpp:294
 #, kde-format
 msgid "Keep their"
 msgstr "保留他们的"
 
-#: src/gui/mergewindow.cpp:304
+#: src/gui/mergewindow.cpp:300
 #, kde-format
 msgid "Keep mine before their"
 msgstr "在他们的之前优先保留我的"
 
-#: src/gui/mergewindow.cpp:309
+#: src/gui/mergewindow.cpp:305
 #, kde-format
 msgid "Keep their before mine"
 msgstr "在我的之前优先保留他们的"
 
-#: src/gui/mergewindow.cpp:314
+#: src/gui/mergewindow.cpp:310
 #, kde-format
 msgid "Keep my file"
 msgstr "保留我的文件"
 
-#: src/gui/mergewindow.cpp:319
+#: src/gui/mergewindow.cpp:315
 #, kde-format
 msgid "Keep their file"
 msgstr "保留他们的文件"
 
-#: src/gui/mergewindow.cpp:324
+#: src/gui/mergewindow.cpp:320
 #, kde-format
 msgid "Blocks"
 msgstr "块"
 
-#: src/gui/mergewindow.cpp:328
+#: src/gui/mergewindow.cpp:324
 #, kde-format
 msgid "Files"
 msgstr "文件"
 
-#: src/gui/mergewindow.cpp:332
+#: src/gui/mergewindow.cpp:328
 #, kde-format
 msgid "Previous diff"
 msgstr "上一个差异"
 
-#: src/gui/mergewindow.cpp:338
+#: src/gui/mergewindow.cpp:334
 #, kde-format
 msgid "Next diff"
 msgstr "下一个差异"
 
-#: src/gui/mergewindow.cpp:435
+#: src/gui/mergewindow.cpp:431
 #, kde-format
 msgid "Unable to open the file"
 msgstr "无法打开文件"
