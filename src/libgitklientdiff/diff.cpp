@@ -111,6 +111,9 @@ QList<DiffSegment *> diff(const QStringList &oldText, const QStringList &newText
         if (!p.success)
             break;
 
+        if (!p.oldSize && !p.newSize)
+            continue;
+
         auto segment = new DiffSegment;
         segment->oldText = oldText.mid(p.oldStart, p.oldSize);
         segment->newText = newText.mid(p.newStart, p.newSize);
