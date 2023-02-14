@@ -128,6 +128,8 @@ void BranchActions::remove()
     if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected branch?"), i18n("Remove Branch"))) {
         if (!mGit->removeBranch(mBranchName))
             KMessageBox::information(mParent, i18n("Unable to remove the selected branch"));
+        else
+            mGit->branchesModel()->load();
     }
 }
 
