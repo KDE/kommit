@@ -32,10 +32,14 @@ public:
     Q_REQUIRED_RESULT bool force() const;
     void setForce(bool newForce);
 
+    Q_REQUIRED_RESULT QString remoteBranch() const;
+    void setRemoteBranch(const QString &newRemoteBranch);
+
 private:
+    bool mForce{false};
     Mode mMode{Unknown};
     QString mTarget;
-    bool mForce{false};
+    QString mRemoteBranch;
 };
 
 } // namespace Git

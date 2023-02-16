@@ -6,8 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "switchbranchdialog.h"
 #include "commands/commandswitchbranch.h"
+#include "gitklient_appdebug.h"
 #include "gitmanager.h"
 #include "models/tagsmodel.h"
+
+#include <QDebug>
 
 #define BRANCH_TYPE_LOCAL 1
 #define BRANCH_TYPE_REMOTE 2
@@ -34,9 +37,20 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
     auto cmd = new Git::CommandSwitchBranch(mGit);
 
     if (radioButtonExistingBranch->isChecked()) {
-        cmd->setMode(comboBoxBranchSelect->currentData().toInt() == BRANCH_TYPE_LOCAL ? Git::CommandSwitchBranch::ExistingBranch
-                                                                                      : Git::CommandSwitchBranch::RemoteBranch);
-        cmd->setTarget(comboBoxBranchSelect->currentText());
+        if (comboBoxBranchSelect->currentData().toInt() == BRANCH_TYPE_LOCAL) {
+            cmd->setTarget(comboBoxBranchSelect->currentText());
+            cmd->setMode(Git::CommandSwitchBranch::ExistingBranch);
+        } else {
+            auto n = comboBoxBranchSelect->currentText().indexOf("/");
+            if (n == -1) {
+                qCWarning(GITKLIENT_LOG, "The branch name %s is invalid", qPrintable(comboBoxBranchSelect->currentText()));
+                return nullptr;
+            }
+
+            cmd->setRemoteBranch(comboBoxBranchSelect->currentText().mid(0, n));
+            cmd->setTarget(comboBoxBranchSelect->currentText().mid(n + 1));
+            cmd->setMode(Git::CommandSwitchBranch::RemoteBranch);
+        }
     } else if (radioButtonTag->isChecked()) {
         cmd->setMode(Git::CommandSwitchBranch::Tag);
         cmd->setTarget(comboBoxTags->currentText());
@@ -47,30 +61,3 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
 
     return cmd;
 }
-
-// void SwitchBranchDialog::slotButtonBoxAccepted()
-//{
-//     Git::CommandSwitchBranch cmd(_git);
-
-//    if (radioButtonExistingBranch->isChecked()) {
-//        cmd.setMode(Git::CommandSwitchBranch::ExistingBranch);
-//        cmd.setTarget(comboBoxBranchSelect->currentText());
-//    } else if (radioButtonTag->isChecked()) {
-//        cmd.setMode(Git::CommandSwitchBranch::Tag);
-//        cmd.setTarget(comboBoxTags->currentText());
-//    } else {
-//        cmd.setMode(Git::CommandSwitchBranch::NewBranch);
-//        cmd.setTarget(lineEditNewBranchName->text());
-//    }
-
-//    qCDebug(GITKLIENT_LOG) << cmd.target();
-//    return;
-
-//    cmd.setForce(checkBoxForce->isChecked());
-
-//    RunnerDialog d(this);
-//    d.run(&cmd);
-//    d.exec();
-
-//    accept();
-//}

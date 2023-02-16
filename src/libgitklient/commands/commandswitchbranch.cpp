@@ -57,7 +57,7 @@ QStringList CommandSwitchBranch::generateArgs() const
     if (mMode == NewBranch)
         cmd << QStringLiteral("checkout") << QStringLiteral("-b") << mTarget;
     else if (mMode == RemoteBranch)
-        cmd << QStringLiteral("checkout") << mTarget;
+        cmd << QStringLiteral("checkout") << QStringLiteral("-b") << mTarget << mRemoteBranch;
     else
         cmd << QStringLiteral("switch") << mTarget;
 
@@ -74,6 +74,16 @@ bool CommandSwitchBranch::force() const
 void CommandSwitchBranch::setForce(bool newForce)
 {
     mForce = newForce;
+}
+
+QString CommandSwitchBranch::remoteBranch() const
+{
+    return mRemoteBranch;
+}
+
+void CommandSwitchBranch::setRemoteBranch(const QString &newRemoteBranch)
+{
+    mRemoteBranch = newRemoteBranch;
 }
 
 } // namespace Git
