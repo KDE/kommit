@@ -15,6 +15,7 @@
   <name xml:lang="it">Git Klient</name>
   <name xml:lang="ka">Git Klient</name>
   <name xml:lang="nl">Git Klient</name>
+  <name xml:lang="pl">Git Klient</name>
   <name xml:lang="pt">Git Klient</name>
   <name xml:lang="sk">Git Klient</name>
   <name xml:lang="sl">Odjemalec Git</name>
@@ -33,6 +34,7 @@
   <summary xml:lang="it">Interfaccia client Git per KDE</summary>
   <summary xml:lang="ka">Git-ის კლიენტი KDE-სთვის</summary>
   <summary xml:lang="nl">Git gui-client voor KDE</summary>
+  <summary xml:lang="pl">Interfejs gita dla KDE</summary>
   <summary xml:lang="pt">Cliente gráfico do Git para o KDE</summary>
   <summary xml:lang="sk">Git gui klient pre KDE</summary>
   <summary xml:lang="sl">Grafični vmesnik odjemalca Git za KDE</summary>
@@ -52,6 +54,7 @@
     <p xml:lang="it">Interfaccia client Git per KDE</p>
     <p xml:lang="ka">Git-ის კლიენტი KDE-სთვის</p>
     <p xml:lang="nl">Git gui-client voor KDE</p>
+    <p xml:lang="pl">Interfejs gita dla KDE</p>
     <p xml:lang="pt">Cliente gráfico do Git para o KDE</p>
     <p xml:lang="sk">Git gui klient pre KDE</p>
     <p xml:lang="sl">Grafični vmesnik odjemalca Git za KDE</p>
