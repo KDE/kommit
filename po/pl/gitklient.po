@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the gitklient package.
 #
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2022.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-13 00:59+0000\n"
-"PO-Revision-Date: 2022-12-11 07:24+0100\n"
+"PO-Revision-Date: 2023-02-18 09:23+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -139,10 +139,9 @@ msgstr "Usuń gałąź"
 
 #: src/gui/actions/branchactions.cpp:130
 #: src/gui/widgets/branchesstatuswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected branch?"
+#, kde-format
 msgid "Unable to remove the selected branch"
-msgstr "Czy na pewno usunąć zaznaczoną gałąź?"
+msgstr "Nie można usunąć zaznaczonej gałęzi"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
@@ -231,10 +230,9 @@ msgid "Remove remote?"
 msgstr "Usunąć zdalne repozytorium?"
 
 #: src/gui/actions/remotesactions.cpp:63
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected remote?"
+#, kde-format
 msgid "Unable to remove the selected remote"
-msgstr "Czy na pewno usunąć zaznaczoną gałąź zdalną?"
+msgstr "Nie można usunąć zaznaczonego źródła zdalnego"
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
@@ -287,10 +285,9 @@ msgid "Apply stash %1"
 msgstr "Zastosuj składowisko %1"
 
 #: src/gui/actions/stashactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Unable to apply the selected stash"
-msgstr "Czy na pewno zastosować zaznaczone składowisko?"
+msgstr "Nie można przywrócić z zaznaczonego składowiska"
 
 #: src/gui/actions/stashactions.cpp:57
 #, kde-format
@@ -303,10 +300,9 @@ msgid "Drop stash %1"
 msgstr "Porzuć składowisko %1"
 
 #: src/gui/actions/stashactions.cpp:59
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected tag?"
+#, kde-format
 msgid "Unable to remove the selected stash"
-msgstr "Na pewno usunąć zaznaczony znacznik?"
+msgstr "Nie można usunąć zaznaczonego składowiska"
 
 #: src/gui/actions/stashactions.cpp:68
 #, kde-format
@@ -433,10 +429,9 @@ msgid " (merging)"
 msgstr " (scalanie)"
 
 #: src/gui/appwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid " (merging)"
+#, kde-format
 msgid " (rebasing)"
-msgstr " (scalanie)"
+msgstr " (zmiana podstawy)"
 
 #: src/gui/appwindow.cpp:150
 #, kde-format
@@ -996,23 +991,21 @@ msgstr "Plik dziennika: %1"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/filehistorydialog.ui:27
-#, fuzzy, kde-format
-#| msgid "Clean type"
+#, kde-format
 msgid "View type"
-msgstr "Wyczyść rodzaj"
+msgstr "Rodzaj widoku"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/gui/dialogs/filehistorydialog.ui:33
-#, fuzzy, kde-format
-#| msgid "Overview"
+#, kde-format
 msgid "Regular view"
-msgstr "Przegląd"
+msgstr "Zwykły widok"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/gui/dialogs/filehistorydialog.ui:40
 #, kde-format
 msgid "Differential view"
-msgstr ""
+msgstr "Widok różnic"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -1527,45 +1520,33 @@ msgstr "E-mail:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/reposettingsdialog.ui:46
-#, fuzzy, kde-format
-#| msgid "Auto crlf"
+#, kde-format
 msgid "Auto crlf:"
-msgstr "Samoczynne crlf"
+msgstr "Sam postępuj z crlf:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/gui/dialogs/reposettingsdialog.ui:53
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
-#| "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-#| "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-#| "\">More information</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
 "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
 "\" text-decoration: underline; color:#007af4;\">More informations...</span></"
 "a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>Użyj danego tekstu jako opisu wdrożenia. </p><p><a "
-"href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-"messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-"\">Więcej szczegółów</span></a></p></body></html>"
+"<html><head/><body><p>Zamieniać cr/lf czy nie zamieniać</p><p><a href="
+"\"https://git-scm.com/docs/git-config#Documentation/git-config.txt-"
+"coreautocrlf\"><span style=\" text-decoration: underline; color:#007af4;"
+"\">Więcej szczegółów...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/reposettingsdialog.ui:60
-#, fuzzy, kde-format
-#| msgid "File name"
+#, kde-format
 msgid "File mode:"
-msgstr "Nazwa pliku"
+msgstr "Tryb pliku:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/gui/dialogs/reposettingsdialog.ui:67
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
-#| "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-#| "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-#| "\">More information</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Tells Git if the executable bit of files in the "
 "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
@@ -1573,10 +1554,11 @@ msgid ""
 "decoration: underline; color:#007af4;\">More informations...</span></a></p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Użyj danego tekstu jako opisu wdrożenia. </p><p><a "
-"href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-"messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-"\">Więcej szczegółów</span></a></p></body></html>"
+"<html><head/><body><p>Mówi Gitowi, czy bit wykonywalny plików w drzewie "
+"pracy ma robić różnicę. </p><p><a href=\"https://git-scm.com/docs/git-"
+"config#Documentation/git-config.txt-corefileMode\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">Więcej szczegółów...</span></a></p></"
+"body></html>"
 
 #: src/gui/dialogs/runnerdialog.cpp:57
 #, kde-format
