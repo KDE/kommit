@@ -9,7 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QObject>
 
 class QPlainTextEdit;
-class QAction;
 class KActionCollection;
 class EditActionsMapper : public QObject
 {
