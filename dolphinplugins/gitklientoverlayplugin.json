@@ -16,6 +16,7 @@
         "Description[tr]": "GitKlient için Owncloud Simgesi",
         "Description[uk]": "Піктограма-накладка для GitKlient",
         "Description[x-test]": "xxOverlay icon for GitKlientxx",
+        "Description[zh_TW]": "GitKlient 的覆蓋圖示",
         "ServiceTypes": [
             "KOverlayIconPlugin"
         ]
