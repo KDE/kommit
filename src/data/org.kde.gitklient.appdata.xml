@@ -23,6 +23,7 @@
   <name xml:lang="uk">Git Klient</name>
   <name xml:lang="x-test">xxGit Klientxx</name>
   <name xml:lang="zh-CN">Git Klient</name>
+  <name xml:lang="zh-TW">Git Klient</name>
   <summary> Git gui client for KDE </summary>
   <summary xml:lang="ca">Client gràfic del Git per al KDE</summary>
   <summary xml:lang="ca-valencia">Client gràfic de Git per a KDE</summary>
@@ -42,6 +43,7 @@
   <summary xml:lang="uk">Клієнтська графічна оболонка до git для KDE</summary>
   <summary xml:lang="x-test">xxGit gui client for KDExx</summary>
   <summary xml:lang="zh-CN">KDE git 图形界面客户端</summary>
+  <summary xml:lang="zh-TW">KDE 的 Git 用戶端介面</summary>
   <description>
     <p> Git gui client for KDE </p>
     <p xml:lang="ca">Client gràfic del Git per al KDE</p>
@@ -62,6 +64,7 @@
     <p xml:lang="uk">Клієнтська графічна оболонка до git для KDE</p>
     <p xml:lang="x-test">xxGit gui client for KDExx</p>
     <p xml:lang="zh-CN">KDE git 图形界面客户端</p>
+    <p xml:lang="zh-TW">KDE 的 Git 用戶端介面</p>
   </description>
   <url type="homepage">https://invent.kde.org/sdk/gitklient</url>
   <url type="bugtracker">https://invent.kde.org/sdk/gitklient/-/issues</url>
