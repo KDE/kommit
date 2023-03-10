@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-13 00:59+0000\n"
-"PO-Revision-Date: 2023-02-22 14:30+0100\n"
+"PO-Revision-Date: 2023-03-04 23:29+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -30,7 +30,7 @@ msgstr "vit@pelcak.org"
 #: dolphinplugins/actionmanager.cpp:21
 #, kde-format
 msgid "Git Klient"
-msgstr ""
+msgstr "Klient pro Git"
 
 #: src/apps/main.cpp:34
 #, kde-format
