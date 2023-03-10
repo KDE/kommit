@@ -27,6 +27,7 @@
   <summary> Git gui client for KDE </summary>
   <summary xml:lang="ca">Client gràfic del Git per al KDE</summary>
   <summary xml:lang="ca-valencia">Client gràfic de Git per a KDE</summary>
+  <summary xml:lang="cs">Git klient od KDE</summary>
   <summary xml:lang="en-GB">Git GUI client for KDE</summary>
   <summary xml:lang="es">Interfaz gráfica de cliente git para KDE</summary>
   <summary xml:lang="eu">KDEren Git GUI bezeroa</summary>
@@ -48,6 +49,7 @@
     <p> Git gui client for KDE </p>
     <p xml:lang="ca">Client gràfic del Git per al KDE</p>
     <p xml:lang="ca-valencia">Client gràfic de Git per a KDE</p>
+    <p xml:lang="cs">Git klient od KDE</p>
     <p xml:lang="en-GB">Git GUI client for KDE</p>
     <p xml:lang="es">Interfaz gráfica de cliente git para KDE</p>
     <p xml:lang="eu">KDEren Git GUI bezeroa</p>
