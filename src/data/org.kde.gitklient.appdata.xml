@@ -10,6 +10,7 @@
   <name xml:lang="en-GB">Git Klient</name>
   <name xml:lang="es">Git Klient</name>
   <name xml:lang="eu">Git Klient</name>
+  <name xml:lang="fi">Git Klient</name>
   <name xml:lang="fr">Client Git</name>
   <name xml:lang="id">Git Klient</name>
   <name xml:lang="it">Git Klient</name>
@@ -31,6 +32,7 @@
   <summary xml:lang="en-GB">Git GUI client for KDE</summary>
   <summary xml:lang="es">Interfaz gráfica de cliente git para KDE</summary>
   <summary xml:lang="eu">KDEren Git GUI bezeroa</summary>
+  <summary xml:lang="fi">Graafinen Git-käyttöliittymä KDE:hen</summary>
   <summary xml:lang="fr">Client « Git » avec interface utilisateur pour KDE</summary>
   <summary xml:lang="id">Klien gui Git untuk KDE</summary>
   <summary xml:lang="it">Interfaccia client Git per KDE</summary>
@@ -53,6 +55,7 @@
     <p xml:lang="en-GB">Git GUI client for KDE</p>
     <p xml:lang="es">Interfaz gráfica de cliente git para KDE</p>
     <p xml:lang="eu">KDEren Git GUI bezeroa</p>
+    <p xml:lang="fi">Graafinen Git-käyttöliittymä KDE:hen</p>
     <p xml:lang="fr">Client « Git » avec interface utilisateur pour KDE</p>
     <p xml:lang="id">Klien gui Git untuk KDE</p>
     <p xml:lang="it">Interfaccia client Git per KDE</p>
