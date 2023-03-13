@@ -1,99 +1,101 @@
 # German translations for gitklient package.
 # Copyright (C) 2022 This file is copyright:
 # This file is distributed under the same license as the gitklient package.
-# Automatically generated, 2022.
+# Frederik Schwarzer <schwarzer@kde.org>, 2023.
 #
+# Automatically generated, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-13 00:59+0000\n"
-"PO-Revision-Date: 2022-10-17 10:39+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-03-12 16:12+0100\n"
+"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Deutsches KDE-Übersetzerteam"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "kde-i18n-de@kde.org"
 
 #: dolphinplugins/actionmanager.cpp:21
 #, kde-format
 msgid "Git Klient"
-msgstr ""
+msgstr "Git Klient"
 
 #: src/apps/main.cpp:34
 #, kde-format
 msgid "GitKlient"
-msgstr ""
+msgstr "GitKlient"
 
 #: src/apps/main.cpp:36
 #, kde-format
 msgid "Git client gui for KDE"
-msgstr ""
+msgstr "Git-Programm für KDE"
 
 #: src/apps/main.cpp:38
 #, kde-format
 msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr ""
+msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:114
 #: src/gui/widgets/logdetailswidget.cpp:117
 #: src/libgitklient/models/logsmodel.cpp:262
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: src/apps/main.cpp:40
 #, kde-format
 msgid "Hamed Masafi"
-msgstr ""
+msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:41
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/apps/main.cpp:41
 #, kde-format
 msgid "Bug fixing"
-msgstr ""
+msgstr "Fehlerkorrekturen"
 
 #: src/gui/actions/branchactions.cpp:30
 #, kde-format
 msgid "Create..."
-msgstr ""
+msgstr "Erstellen ..."
 
 #: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:177
 #, kde-format
 msgid "Fetch..."
-msgstr ""
+msgstr "Abholen ..."
 
 #: src/gui/actions/branchactions.cpp:34 src/gui/actions/commitactions.cpp:33
 #: src/gui/mainwidget.cpp:100
 #, kde-format
 msgid "Browse..."
-msgstr ""
+msgstr "Durchsuchen ..."
 
 #: src/gui/actions/branchactions.cpp:35
 #, kde-format
 msgid "Switch"
-msgstr ""
+msgstr "Wechseln"
 
 #: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:185
 #, kde-format
 msgid "Merge..."
-msgstr ""
+msgstr "Zusammenführen ..."
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
@@ -102,28 +104,28 @@ msgstr ""
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
-msgstr ""
+msgstr "Diff"
 
 #: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
-msgstr ""
+msgstr "Entfernen ..."
 
 #: src/gui/actions/branchactions.cpp:39
 #, kde-format
 msgid "Note..."
-msgstr ""
+msgstr "Notiz ..."
 
 #: src/gui/actions/branchactions.cpp:79
 #, kde-format
 msgid "Create new branch"
-msgstr ""
+msgstr "Neuen Zweig anlegen"
 
 #: src/gui/actions/branchactions.cpp:79
 #, kde-format
 msgid "Branch name"
-msgstr ""
+msgstr "Zweig-Name"
 
 #: src/gui/actions/branchactions.cpp:128
 #: src/gui/widgets/branchesstatuswidget.cpp:69
@@ -134,89 +136,89 @@ msgstr ""
 #: src/gui/actions/branchactions.cpp:128
 #, kde-format
 msgid "Remove Branch"
-msgstr ""
+msgstr "Zweig entfernen"
 
 #: src/gui/actions/branchactions.cpp:130
 #: src/gui/widgets/branchesstatuswidget.cpp:73
 #, kde-format
 msgid "Unable to remove the selected branch"
-msgstr ""
+msgstr "Der ausgewählte Zweig kann nicht gelöscht werden"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
 msgid "Diff..."
-msgstr ""
+msgstr "Diff ..."
 
 #: src/gui/actions/changedfileactions.cpp:19
 #, kde-format
 msgid "Revert..."
-msgstr ""
+msgstr "Zurücksetzen ..."
 
 #: src/gui/actions/commitactions.cpp:34 src/gui/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Checkout..."
-msgstr ""
+msgstr "Auslesen ..."
 
 #: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:87
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
-msgstr ""
+msgstr "Mit HEAD vergleichen ..."
 
 #: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "Vorschau"
 
 #: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "Öffnen"
 
 #: src/gui/actions/fileactions.cpp:85
 #, kde-format
 msgid "Open with..."
-msgstr ""
+msgstr "Öffnen mit ..."
 
 #: src/gui/actions/fileactions.cpp:88
 #, kde-format
 msgid "Merge with HEAD..."
-msgstr ""
+msgstr "Mit HEAD zusammenführen ..."
 
 #: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Save as..."
-msgstr ""
+msgstr "Speichern unter ..."
 
 #: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Log..."
-msgstr ""
+msgstr "Protokoll ..."
 
 #: src/gui/actions/fileactions.cpp:92
 #, kde-format
 msgid "Blame..."
-msgstr ""
+msgstr "Blame ..."
 
 #: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:192
 #, kde-format
 msgid "Search..."
-msgstr ""
+msgstr "Suchen ..."
 
 #: src/gui/actions/remotesactions.cpp:25
 #, kde-format
 msgid "New..."
-msgstr ""
+msgstr "Neu ..."
 
 #: src/gui/actions/remotesactions.cpp:27
 #, kde-format
 msgid "Rename..."
-msgstr ""
+msgstr "Umbenennen ..."
 
 #: src/gui/actions/remotesactions.cpp:28
 #, kde-format
 msgid "Change url..."
-msgstr ""
+msgstr "Adresse (URL) ändern ..."
 
 #: src/gui/actions/remotesactions.cpp:61
 #, kde-format
@@ -251,27 +253,27 @@ msgstr ""
 #: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "Rename"
-msgstr ""
+msgstr "Umbenennen"
 
 #: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "New name"
-msgstr ""
+msgstr "Neuer Name"
 
 #: src/gui/actions/stashactions.cpp:22
 #, kde-format
 msgid "New stash..."
-msgstr ""
+msgstr "Neuer Stash ..."
 
 #: src/gui/actions/stashactions.cpp:24
 #, kde-format
 msgid "Pop..."
-msgstr ""
+msgstr "Pop ..."
 
 #: src/gui/actions/stashactions.cpp:25
 #, kde-format
 msgid "Apply..."
-msgstr ""
+msgstr "Anwenden ..."
 
 #: src/gui/actions/stashactions.cpp:49
 #, kde-format
@@ -321,22 +323,22 @@ msgstr ""
 #: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "Stash"
-msgstr ""
+msgstr "Stash"
 
 #: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Create new stash"
-msgstr ""
+msgstr "Neuen Stash erstellem"
 
 #: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Name of stash"
-msgstr ""
+msgstr "Name des Stash"
 
 #: src/gui/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Add..."
-msgstr ""
+msgstr "Hinzufügen ..."
 
 #: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:147
 #, kde-format
@@ -346,13 +348,13 @@ msgstr ""
 #: src/gui/actions/submoduleactions.cpp:42
 #, kde-format
 msgid "Update..."
-msgstr ""
+msgstr "Aktualisieren ..."
 
 #. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/gui/actions/submoduleactions.cpp:44
 #, kde-format
 msgid "Sync..."
-msgstr ""
+msgstr "Abgleichen ..."
 
 #: src/gui/actions/submoduleactions.cpp:76
 #, kde-format
@@ -440,7 +442,7 @@ msgstr ""
 #: src/gui/appwindow.cpp:155
 #, kde-format
 msgid "Clone..."
-msgstr ""
+msgstr "Klonen ..."
 
 #: src/gui/appwindow.cpp:158
 #, kde-format
