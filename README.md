@@ -6,7 +6,7 @@ Git gui client for KDE
 
 ## Build
 
-Install Qt via online installer or your distru's package manager
+Install Qt via online installer or your distro's package manager
 ```
 sudo apt install qt5-default qt5-qmake qt5-qmake-bin libqt5core5a libqt5gui5 libqt5concurrent5
 ```
@@ -28,12 +28,12 @@ make install
 ## TODO list
   - Rebase support
   - Make a new visual graph for doing merge or rebase 
-  - Finalize merge tool (some ui improvment needed)
+  - Finalize merge tool (some ui improvement needed)
   - Authors view
-  - Show file histiry in differential view (like wikipedia)
+  - Show file history in differential view (like wikipedia)
   - Reports (including chart and data)
     - Commits per authors
-    - Commits prr weekday and month day
+    - Commits per weekday and month day
     - Projects lines count per each author
   - Custom actions support (e.g. clang-format)
 
