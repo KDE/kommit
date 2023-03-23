@@ -23,8 +23,6 @@ public:
 private:
     void initActions();
 
-    QString getCommonPart(const KFileItemList &fileItems);
-
 private Q_SLOTS:
 #define f(name, text, args, icon) void name##Clicked()
     ACTIONS_FOR_EACH(f)

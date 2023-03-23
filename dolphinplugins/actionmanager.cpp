@@ -106,31 +106,5 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
     return QList<QAction *>() << mMainAction;
 }
 
-QString ActionManager::getCommonPart(const KFileItemList &fileItems)
-{
-    if (!fileItems.size())
-        return {};
-
-    QStringList list;
-    for (auto const &i : fileItems)
-        list.append(i.url().toLocalFile());
-
-    QString root = list.front();
-    for (QStringList::const_iterator it = list.cbegin(); it != list.cend(); ++it) {
-        if (root.length() > it->length()) {
-            root.truncate(it->length());
-        }
-
-        for (int i = 0; i < root.length(); ++i) {
-            if (root.at(i) != it->at(i)) {
-                root.truncate(i);
-                break;
-            }
-        }
-    }
-
-    return root;
-}
-
 K_PLUGIN_CLASS_WITH_JSON(ActionManager, "gitklientitemaction.json")
 #include "actionmanager.moc"
