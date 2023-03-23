@@ -1,0 +1,25 @@
+{
+    "KPlugin": {
+        "Description": "Overlay icon for kommit",
+        "Description[ca@valencia]": "Icona de substitució per a GitKlient",
+        "Description[ca]": "Icona de substitució per al GitKlient",
+        "Description[en_GB]": "Overlay icon for GitKlient",
+        "Description[es]": "Icono superpuesto para GitKlient",
+        "Description[eu]": "«GitKlient»erako ikono gainjarria",
+        "Description[fi]": "Peittokuvake GitKlientille",
+        "Description[fr]": "Icône superposée pour « GitKlient »",
+        "Description[it]": "Icona in sovrapposizione per GitKlient",
+        "Description[ka]": "GitKlient-ს ხატულა",
+        "Description[nl]": "Overlay pictogram voor GitKlient",
+        "Description[pl]": "Nakładka na ikonę dla GitKlienta",
+        "Description[pt]": "Ícone sobreposto para o GitKlient",
+        "Description[sl]": "Prekrivna ikona za GitKlient",
+        "Description[tr]": "GitKlient için Owncloud Simgesi",
+        "Description[uk]": "Піктограма-накладка для GitKlient",
+        "Description[x-test]": "xxOverlay icon for GitKlientxx",
+        "Description[zh_TW]": "GitKlient 的覆蓋圖示",
+        "ServiceTypes": [
+            "KOverlayIconPlugin"
+        ]
+    }
+}
