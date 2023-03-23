@@ -22,6 +22,7 @@ class CommitPushDialog : public AppDialog, private Ui::CommitPushDialog
 
 public:
     explicit CommitPushDialog(Git::Manager *git, QWidget *parent = nullptr);
+    ~CommitPushDialog() override;
 
 private:
     void slotPushButtonCommitClicked();
@@ -40,6 +41,8 @@ private:
     enum Roles { StatusRole = Qt::UserRole + 1 };
     void addFiles();
     void reload();
+    void readConfig();
+    void writeConfig();
     ChangedFileActions *mActions = nullptr;
     ChangedFilesModel *const mModel;
 };

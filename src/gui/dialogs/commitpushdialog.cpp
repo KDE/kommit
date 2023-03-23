@@ -13,6 +13,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "runnerdialog.h"
 #include <QPainter>
 
+#include <KSharedConfig>
+#include <KWindowConfig>
+#include <QWindow>
+
+namespace
+{
+static const char myCommitPushDialogGroupName[] = "CommitPushDialog";
+}
 CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
     , mModel(new ChangedFilesModel(git, true, this))
@@ -43,6 +51,27 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
 
     listView->setModel(mModel);
     mModel->reload();
+    readConfig();
+}
+
+CommitPushDialog::~CommitPushDialog()
+{
+    writeConfig();
+}
+
+void CommitPushDialog::readConfig()
+{
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 300));
+    KConfigGroup group(KSharedConfig::openStateConfig(), myCommitPushDialogGroupName);
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
+}
+
+void CommitPushDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), myCommitPushDialogGroupName);
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
 void CommitPushDialog::reload()

@@ -17,12 +17,15 @@ class ChangedFilesDialog : public AppDialog, private Ui::ChangedFilesDialog
 
 public:
     explicit ChangedFilesDialog(Git::Manager *git, QWidget *parent = nullptr);
+    ~ChangedFilesDialog() override;
 
 private:
     void slotItemDoubleClicked(const QModelIndex &index);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotPushCommit();
     void slotButtonBoxClicked(QAbstractButton *button);
+    void readConfig();
+    void writeConfig();
 
     ChangedFileActions *const mActions;
     ChangedFilesModel *const mModel;

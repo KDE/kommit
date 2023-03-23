@@ -12,6 +12,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 
+#include <KSharedConfig>
+#include <KWindowConfig>
+#include <QWindow>
+
+namespace
+{
+static const char myChangedFilesDialogGroupName[] = "ChangedFilesDialog";
+}
 ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
     , mActions(new ChangedFileActions(git, this))
@@ -31,6 +39,12 @@ ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
 
     listView->setModel(mModel);
     mModel->reload();
+    readConfig();
+}
+
+ChangedFilesDialog::~ChangedFilesDialog()
+{
+    writeConfig();
 }
 
 void ChangedFilesDialog::slotPushCommit()
@@ -64,4 +78,19 @@ void ChangedFilesDialog::slotCustomContextMenuRequested(const QPoint &pos)
 
     mActions->setFilePath(mModel->filePath(listView->currentIndex().row()));
     mActions->popup();
+}
+
+void ChangedFilesDialog::readConfig()
+{
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 300));
+    KConfigGroup group(KSharedConfig::openStateConfig(), myChangedFilesDialogGroupName);
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
+}
+
+void ChangedFilesDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), myChangedFilesDialogGroupName);
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }
