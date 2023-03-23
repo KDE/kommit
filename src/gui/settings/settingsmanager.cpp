@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "settingsmanager.h"
 
-#include "GitKlientSettings.h"
+#include "KommitSettings.h"
 #include "gitmanager.h"
 
 #include <QCalendar>
@@ -24,24 +24,24 @@ SettingsManager::SettingsManager(Git::Manager *git, QWidget *parentWidget)
 
 void SettingsManager::settingsChanged()
 {
-    GitKlientSettings::setCalendarType(pageBase.kcfg_calendarTypeIndex->currentText());
-    GitKlientSettings::self()->save();
+    KommitSettings::setCalendarType(pageBase.kcfg_calendarTypeIndex->currentText());
+    KommitSettings::self()->save();
 
     mGit->setConfig(QStringLiteral("http.proxy"), pageGit.lineEditGitProxy->text(), Git::Manager::ConfigGlobal);
 
-    if (GitKlientSettings::registerDiffTool()) {
-        mGit->setConfig(QStringLiteral("difftool.gitklientdiff.cmd"), QStringLiteral("gitklientdiff \"$LOCAL\" \"$REMOTE\""), Git::Manager::ConfigGlobal);
+    if (KommitSettings::registerDiffTool()) {
+        mGit->setConfig(QStringLiteral("difftool.kommitdiff.cmd"), QStringLiteral("kommitdiff \"$LOCAL\" \"$REMOTE\""), Git::Manager::ConfigGlobal);
     } else {
-        mGit->unsetConfig(QStringLiteral("difftool.gitklientdiff.cmd"), Git::Manager::ConfigGlobal);
+        mGit->unsetConfig(QStringLiteral("difftool.kommitdiff.cmd"), Git::Manager::ConfigGlobal);
     }
-    if (GitKlientSettings::registerMergeTool()) {
-        mGit->setConfig(QStringLiteral("mergetool.gitklientmerge.cmd"),
-                        QStringLiteral("gitklientmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\""),
+    if (KommitSettings::registerMergeTool()) {
+        mGit->setConfig(QStringLiteral("mergetool.kommitmerge.cmd"),
+                        QStringLiteral("kommitmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\""),
                         Git::Manager::ConfigGlobal);
-        mGit->setConfig(QStringLiteral("mergetool.gitklientmerge.trustExitCode"), QStringLiteral("true"), Git::Manager::ConfigGlobal);
+        mGit->setConfig(QStringLiteral("mergetool.kommitmerge.trustExitCode"), QStringLiteral("true"), Git::Manager::ConfigGlobal);
     } else {
-        mGit->unsetConfig(QStringLiteral("mergetool.gitklientmerge.cmd"), Git::Manager::ConfigGlobal);
-        mGit->unsetConfig(QStringLiteral("mergetool.gitklientmerge.trustExitCode"), Git::Manager::ConfigGlobal);
+        mGit->unsetConfig(QStringLiteral("mergetool.kommitmerge.cmd"), Git::Manager::ConfigGlobal);
+        mGit->unsetConfig(QStringLiteral("mergetool.kommitmerge.trustExitCode"), Git::Manager::ConfigGlobal);
     }
 
     Q_EMIT settingsUpdated();
@@ -60,7 +60,7 @@ QWidget *SettingsManager::createBasePage()
     auto availableCalendars = QCalendar::availableCalendars();
     std::sort(availableCalendars.begin(), availableCalendars.end());
     pageBase.kcfg_calendarTypeIndex->addItems(availableCalendars);
-    pageBase.kcfg_calendarTypeIndex->setCurrentText(GitKlientSettings::calendarType());
+    pageBase.kcfg_calendarTypeIndex->setCurrentText(KommitSettings::calendarType());
     return w;
 }
 QWidget *SettingsManager::createDiffPage()
@@ -88,7 +88,7 @@ void SettingsManager::exec(QWidget *parentWidget)
         return;
     }
 
-    dialog = new KConfigDialog(parentWidget, name, GitKlientSettings::self());
+    dialog = new KConfigDialog(parentWidget, name, KommitSettings::self());
 
     dialog->addPage(createBasePage(), i18n("General"), QStringLiteral("package_setting"));
     dialog->addPage(createDiffPage(), i18n("Diff"), QStringLiteral("package_setting"));

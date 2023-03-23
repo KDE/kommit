@@ -64,7 +64,7 @@ void AppWindow::init()
     addPage<TagsWidget>(QStringLiteral("view_tags"));
     addPage<AuthorsWidget>(QStringLiteral("view_tags"));
 
-    setupGUI(StandardWindowOption::Default, QStringLiteral("gitklientui.rc"));
+    setupGUI(StandardWindowOption::Default, QStringLiteral("kommitui.rc"));
     mMainWidget->setCurrentIndex(0);
 
     setCentralWidget(mMainWidget);
@@ -81,7 +81,7 @@ AppWindow::AppWindow()
 {
     init();
 
-    if (GitKlientSettings::openLastRepo()) {
+    if (KommitSettings::openLastRepo()) {
         QSettings s;
         auto p = s.value(QStringLiteral("last_repo")).toString();
         mGit->setPath(p);
@@ -136,7 +136,7 @@ void AppWindow::settingsUpdated()
 {
     for (auto &w : mBaseWidgets)
         w->settingsUpdated();
-    mGit->logsModel()->setCalendarType(GitKlientSettings::calendarType());
+    mGit->logsModel()->setCalendarType(KommitSettings::calendarType());
 }
 
 void AppWindow::initActions()
@@ -156,7 +156,7 @@ void AppWindow::initActions()
 
     auto repoStatusAction = actionCollection->addAction(QStringLiteral("repo_status"), this, &AppWindow::repoStatus);
     repoStatusAction->setText(i18n("Changed files..."));
-    repoStatusAction->setIcon(QIcon::fromTheme(QStringLiteral("gitklient-changedfiles")));
+    repoStatusAction->setIcon(QIcon::fromTheme(QStringLiteral("kommit-changedfiles")));
     actionCollection->setDefaultShortcut(repoStatusAction, QKeySequence(Qt::CTRL | Qt::Key_S));
 
     {

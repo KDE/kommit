@@ -14,7 +14,7 @@
    <string>Run command</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="gitklient">
+   <iconset theme="kommit">
     <normaloff>.</normaloff>.</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">

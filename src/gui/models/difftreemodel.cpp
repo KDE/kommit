@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "difftreemodel.h"
 
-#include <GitKlientSettings.h>
+#include <KommitSettings.h>
 
 DiffTreeModel::DiffTreeModel(QObject *parent)
     : TreeModel(parent)
@@ -69,11 +69,11 @@ QColor textColor(Diff::DiffType status)
 {
     switch (status) {
     case Diff::DiffType::Added:
-        return GitKlientSettings::self()->diffAddedColor();
+        return KommitSettings::self()->diffAddedColor();
     case Diff::DiffType::Modified:
-        return GitKlientSettings::self()->diffModifiedColor();
+        return KommitSettings::self()->diffModifiedColor();
     case Diff::DiffType::Removed:
-        return GitKlientSettings::self()->diffRemovedColor();
+        return KommitSettings::self()->diffRemovedColor();
     case Diff::DiffType::Unchanged:
         return {};
     }
@@ -86,11 +86,11 @@ QColor DiffTreeModel::statusColor(Diff::DiffType status) const
     case Diff::DiffType::Unchanged:
         return Qt::black;
     case Diff::DiffType::Added:
-        return GitKlientSettings::diffAddedColor();
+        return KommitSettings::diffAddedColor();
     case Diff::DiffType::Removed:
-        return GitKlientSettings::diffRemovedColor();
+        return KommitSettings::diffRemovedColor();
     case Diff::DiffType::Modified:
-        return GitKlientSettings::diffModifiedColor();
+        return KommitSettings::diffModifiedColor();
     }
     return {};
 }

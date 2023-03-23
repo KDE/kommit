@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitmanager.h"
 
-#include "gitklient_appdebug.h"
+#include "kommit_appdebug.h"
 #include <QFileInfo>
 #include <QPushButton>
 
@@ -66,7 +66,7 @@ void IgnoreFileDialog::generateIgnorePattern()
         s = mPath + s;
 
     lineEdit->setText(s);
-    qCDebug(GITKLIENT_LOG) << getIgnoreFile();
+    qCDebug(KOMMIT_LOG) << getIgnoreFile();
 }
 
 void IgnoreFileDialog::slotAccept()

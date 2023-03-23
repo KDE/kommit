@@ -73,7 +73,7 @@ DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QStrin
 
     for (auto &f : diffs) {
         mDiffModel->addFile(f);
-        //        qCDebug(GITKLIENT_LOG) << f.name() << f.status();
+        //        qCDebug(KOMMIT_LOG) << f.name() << f.status();
         mFilesModel->append(f.name());
     }
     mLeftStorage = mRightStorage = Git;
@@ -103,7 +103,7 @@ void DiffWindow::init(bool showSideBar)
 
     mapper->addTextEdit(mDiffWidget->oldCodeEditor());
     mapper->addTextEdit(mDiffWidget->newCodeEditor());
-    setWindowTitle(i18nc("@title:window", "GitKlient Diff[*]"));
+    setWindowTitle(i18nc("@title:window", "Kommit Diff[*]"));
 
     mDock = new QDockWidget(this);
     mDock->setWindowTitle(i18nc("@title:window", "Tree"));
@@ -121,7 +121,7 @@ void DiffWindow::init(bool showSideBar)
     //_treeView->setDiffModel(_diffModel, _filesModel);
 
     initActions();
-    setupGUI(StandardWindowOption::Default, QStringLiteral("gitklientdiffui.rc"));
+    setupGUI(StandardWindowOption::Default, QStringLiteral("kommitdiffui.rc"));
 
     mDock->setVisible(showSideBar);
 

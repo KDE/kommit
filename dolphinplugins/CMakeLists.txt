@@ -3,14 +3,14 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS KIO)
 set(GIT_EXTRA_SOURCE
 )
 
-ecm_qt_declare_logging_category(GIT_EXTRA_SOURCE HEADER gitklient_dolphinplugins_debug.h
-    IDENTIFIER GIKLIENT_DOLPHIN_PLUGINS_LOG CATEGORY_NAME org.kde.gitklient.dolphinplugins DESCRIPTION "gitklient dolphin plugins" EXPORT GITKLIENT)
+ecm_qt_declare_logging_category(GIT_EXTRA_SOURCE HEADER kommit_dolphinplugins_debug.h
+    IDENTIFIER KOMMIT_DOLPHIN_PLUGINS_LOG CATEGORY_NAME org.kde.kommit.dolphinplugins DESCRIPTION "kommit dolphin plugins" EXPORT kommit)
 
 #---ACTION PLUGIN---
-kcoreaddons_add_plugin(gitklientitemaction
+kcoreaddons_add_plugin(kommititemaction
     INSTALL_NAMESPACE kf${QT_MAJOR_VERSION}/kfileitemaction
 )
-target_sources(gitklientitemaction PRIVATE
+target_sources(kommititemaction PRIVATE
     actionmanager.cpp
     statuscache.cpp
     manager.cpp
@@ -22,20 +22,20 @@ target_sources(gitklientitemaction PRIVATE
 )
 
 target_link_libraries(
-    gitklientitemaction
+    kommititemaction
     KF5::I18n
     KF5::WidgetsAddons
     KF5::KIOCore
     KF5::KIOWidgets
-    libgitklient
+    libkommit
 )
 
 #---OVERLAY PLUGIN---
-kcoreaddons_add_plugin(gitklientoverlayplugin
+kcoreaddons_add_plugin(kommitoverlayplugin
     INSTALL_NAMESPACE kf${QT_MAJOR_VERSION}/overlayicon
 )
 
-target_sources(gitklientoverlayplugin PRIVATE
+target_sources(kommitoverlayplugin PRIVATE
     overlayplugin.cpp
     statuscache.cpp
     manager.cpp
@@ -47,11 +47,11 @@ target_sources(gitklientoverlayplugin PRIVATE
 
 
 target_link_libraries(
-    gitklientoverlayplugin
+    kommitoverlayplugin
     KF5::CoreAddons
     KF5::KIOCore
     KF5::KIOWidgets
-    libgitklient
+    libkommit
 )
 
 if (BUILD_TESTING)

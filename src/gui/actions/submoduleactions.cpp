@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "models/submodulesmodel.h"
 
-#include "gitklient_appdebug.h"
+#include "kommit_appdebug.h"
 #include <QAction>
 
 #include <KLocalizedString>
@@ -74,16 +74,16 @@ void SubmoduleActions::create()
 void SubmoduleActions::deinit()
 {
     if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected submodule?"), i18n("Remove Submodule"))) {
-        qCDebug(GITKLIENT_LOG) << mGit->runGit(
+        qCDebug(KOMMIT_LOG) << mGit->runGit(
             {QStringLiteral("submodule"), QStringLiteral("deinit"), QStringLiteral("-f"), QStringLiteral("--"), mSubModuleName});
-        qCDebug(GITKLIENT_LOG) << mGit->runGit({QStringLiteral("rm"), mSubModuleName});
+        qCDebug(KOMMIT_LOG) << mGit->runGit({QStringLiteral("rm"), mSubModuleName});
 
         QDir d(mGit->path() + QStringLiteral("/.git/modules/") + mSubModuleName);
         if (!d.removeRecursively()) {
             KMessageBox::error(mParent, i18n("Unable to remove the module directory"));
             return;
         }
-        qCDebug(GITKLIENT_LOG) << d.path();
+        qCDebug(KOMMIT_LOG) << d.path();
         mGit->runGit({QStringLiteral("config"), QStringLiteral("--remove-section"), QStringLiteral("submodule.") + mSubModuleName});
 
         mGit->submodulesModel()->load();

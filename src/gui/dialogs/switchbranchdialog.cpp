@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "switchbranchdialog.h"
 #include "commands/commandswitchbranch.h"
-#include "gitklient_appdebug.h"
 #include "gitmanager.h"
+#include "kommit_appdebug.h"
 #include "models/tagsmodel.h"
 
 #include <QDebug>
@@ -43,7 +43,7 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
         } else {
             auto n = comboBoxBranchSelect->currentText().indexOf("/");
             if (n == -1) {
-                qCWarning(GITKLIENT_LOG, "The branch name %s is invalid", qPrintable(comboBoxBranchSelect->currentText()));
+                qCWarning(KOMMIT_LOG, "The branch name %s is invalid", qPrintable(comboBoxBranchSelect->currentText()));
                 return nullptr;
             }
 

@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "segmentconnector.h"
-#include "GitKlientSettings.h"
+#include "KommitSettings.h"
 #include "widgets/codeeditor.h"
 
 #include <QPainter>
@@ -135,13 +135,13 @@ void SegmentConnector::paintEvent(QPaintEvent *event)
             //            painter.setBrush(Qt::magenta);
             continue;
         case Diff::SegmentType::OnlyOnRight:
-            painter.setBrush(GitKlientSettings::diffAddedColor());
+            painter.setBrush(KommitSettings::diffAddedColor());
             break;
         case Diff::SegmentType::OnlyOnLeft:
-            painter.setBrush(GitKlientSettings::diffRemovedColor());
+            painter.setBrush(KommitSettings::diffRemovedColor());
             break;
         case Diff::SegmentType::DifferentOnBoth:
-            painter.setBrush(GitKlientSettings::diffModifiedColor());
+            painter.setBrush(KommitSettings::diffModifiedColor());
             break;
         }
 

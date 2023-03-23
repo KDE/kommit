@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KStandardAction>
 #include <KXMLGUIFactory>
 
-#include "gitklient_appdebug.h"
+#include "kommit_appdebug.h"
 #include <QFile>
 #include <QMimeData>
 #include <QMimeDatabase>
@@ -38,7 +38,7 @@ FileViewerDialog::FileViewerDialog(Git::Manager *git, const Git::File &file, QWi
     restoreGeometry(s.value(QStringLiteral("FileViewerDialog_Geometry")).toByteArray());
     KStandardAction::close(this, &QMainWindow::close, actionCollection());
 
-    setupGUI(ToolBar, QStringLiteral("gitklientfileviewerui.rc"));
+    setupGUI(ToolBar, QStringLiteral("kommitfileviewerui.rc"));
 }
 
 FileViewerDialog::~FileViewerDialog()
@@ -103,14 +103,14 @@ void FileViewerDialog::showFile(const Git::File &file)
     else {
         if (!ptr || !ptr->isValid()) {
             showInEditor(file);
-            qCDebug(GITKLIENT_LOG) << "fallback to text mode";
+            qCDebug(KOMMIT_LOG) << "fallback to text mode";
         } else {
             file.save(mFilePath);
             if (!viewInInternalViewer(ptr, mFilePath, mime))
                 showInEditor(file);
         }
     }
-    qCDebug(GITKLIENT_LOG) << "mime is" << mime.name() << fn << mimeDatabase.suffixForFileName(fn) << stackedWidget->currentIndex();
+    qCDebug(KOMMIT_LOG) << "mime is" << mime.name() << fn << mimeDatabase.suffixForFileName(fn) << stackedWidget->currentIndex();
 }
 
 void FileViewerDialog::showInEditor(const Git::File &file)
@@ -140,9 +140,9 @@ KService::Ptr FileViewerDialog::getInternalViewer(const QString &mimeType)
     // Try to get a read-only kpart for the internal viewer
     KService::List offers = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("KParts/ReadOnlyPart"));
 
-    qCDebug(GITKLIENT_LOG) << offers.size() << "offer(s) found for" << mimeType;
+    qCDebug(KOMMIT_LOG) << offers.size() << "offer(s) found for" << mimeType;
     for (const auto &offer : std::as_const(offers))
-        qCDebug(GITKLIENT_LOG) << " *" << offer->name() << offer->genericName();
+        qCDebug(KOMMIT_LOG) << " *" << offer->name() << offer->genericName();
     /*auto arkPartIt = std::find_if(offers.begin(), offers.end(), [](KService::Ptr service) {
         return service->storageId() == QLatin1String("ark_part.desktop");
     });
@@ -189,7 +189,7 @@ void FileViewerDialog::keyPressEvent(QKeyEvent *event)
 KService::Ptr FileViewerDialog::getExternalViewer(const QString &mimeType)
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    qCDebug(GITKLIENT_LOG) << mimeType;
+    qCDebug(KOMMIT_LOG) << mimeType;
     const KService::List offers = KMimeTypeTrader::self()->query(mimeType);
 
     if (!offers.isEmpty()) {
@@ -216,7 +216,7 @@ bool FileViewerDialog::viewInInternalViewer(const KService::Ptr &viewer, const Q
     m_part = viewer->createInstance<KParts::ReadOnlyPart>(widgetContainer, widgetContainer, QVariantList(), &error);
 
     if (!m_part.data()) {
-        qCDebug(GITKLIENT_LOG) << "m_part is null" << error;
+        qCDebug(KOMMIT_LOG) << "m_part is null" << error;
         return false;
     }
 

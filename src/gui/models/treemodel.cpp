@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "treemodel.h"
 
-#include "gitklient_appdebug.h"
+#include "kommit_appdebug.h"
 #include <QModelIndex>
 
 #include <KLocalizedString>
@@ -282,7 +282,7 @@ void TreeModel::getFullPath(QString &path, Node *node) const
 
 void TreeModel::sortNode(Node *node)
 {
-    qCDebug(GITKLIENT_LOG) << "Sorting" << node->title;
+    qCDebug(KOMMIT_LOG) << "Sorting" << node->title;
     std::sort(node->childs.begin(), node->childs.end(), [](Node *l, Node *r) {
         if (l->childs.empty() && !r->childs.empty())
             return false;

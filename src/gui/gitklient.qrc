@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/kxmlgui5/gitklient">
-        <file>gitklientdiffui.rc</file>
-        <file>gitklientfileviewerui.rc</file>
-        <file>gitklientmergeui.rc</file>
-        <file>gitklientui.rc</file>
-    </qresource>
-</RCC>

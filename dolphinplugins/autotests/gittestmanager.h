@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QString>
 
-namespace GitKlientTest
+namespace KommitTest
 {
 bool touch(const QString &fileName);
 QString getTempPath();

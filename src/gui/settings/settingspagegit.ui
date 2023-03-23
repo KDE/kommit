@@ -16,14 +16,14 @@
      <item>
       <widget class="QCheckBox" name="kcfg_registerDiffTool">
        <property name="text">
-        <string>Register GitKlient diff tool</string>
+        <string>Register kommit diff tool</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QCheckBox" name="kcfg_registerMergeTool">
        <property name="text">
-        <string>Register GitKlient merge tool</string>
+        <string>Register kommit merge tool</string>
        </property>
       </widget>
      </item>

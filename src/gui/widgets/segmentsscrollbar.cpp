@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "segmentsscrollbar.h"
 
-#include "GitKlientSettings.h"
+#include "KommitSettings.h"
 #include "segmentconnector.h"
 #include "widgets/codeeditor.h"
 
@@ -51,16 +51,16 @@ void SegmentsScrollBar::paintEvent(QPaintEvent *event)
         QBrush brush;
         switch (segment->type) {
         case Diff::SegmentType::OnlyOnLeft:
-            brush = GitKlientSettings::diffRemovedColor();
+            brush = KommitSettings::diffRemovedColor();
             break;
         case Diff::SegmentType::OnlyOnRight:
-            brush = GitKlientSettings::diffAddedColor();
+            brush = KommitSettings::diffAddedColor();
             break;
         case Diff::SegmentType::SameOnBoth:
             brush = Qt::white;
             break;
         case Diff::SegmentType::DifferentOnBoth:
-            brush = GitKlientSettings::diffModifiedColor();
+            brush = KommitSettings::diffModifiedColor();
             break;
         default:
             break;

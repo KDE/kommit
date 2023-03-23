@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "core/appmainwindow.h"
 
-#include "GitKlientSettings.h"
+#include "KommitSettings.h"
 
 class MultiPageWidget;
 class WidgetBase;
@@ -19,7 +19,7 @@ namespace Git
 class Manager;
 }
 /**
- * This class serves as the main window for gitklient.  It handles the
+ * This class serves as the main window for kommit.  It handles the
  * menus, toolbars and status bars.
  *
  * @short Main window class

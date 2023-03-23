@@ -14,7 +14,7 @@
    <string>Search in repo</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="gitklient"/>
+   <iconset theme="kommit"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

@@ -31,7 +31,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "mergewindow.h"
 
-#include "gitklient_appdebug.h"
+#include "kommit_appdebug.h"
 #include <QApplication>
 #include <QDir>
 #include <QFileInfo>
@@ -132,7 +132,7 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
         return main();
     const auto name = QString(args.at(1)).replace(QLatin1String("-"), QLatin1String("_")).toLocal8Bit();
     const auto c = metaObject()->methodCount();
-    qCDebug(GITKLIENT_LOG) << "Running" << args;
+    qCDebug(KOMMIT_LOG) << "Running" << args;
     for (int i = 0; i < c; i++) {
         const auto method = metaObject()->method(i);
 
@@ -140,7 +140,7 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
             if (method.parameterCount() != args.size() - 1) {
                 auto params = args.mid(2);
                 ArgParserReturn r;
-                qCDebug(GITKLIENT_LOG) << "Running:" << method.name();
+                qCDebug(KOMMIT_LOG) << "Running:" << method.name();
                 auto b = metaObject()->invokeMethod(this,
                                                     method.name().constData(),
                                                     Q_RETURN_ARG(ArgParserReturn, r),
@@ -156,7 +156,7 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
                                                     GET_OP(9));
 
                 if (!b) {
-                    qCDebug(GITKLIENT_LOG) << args.size() << method.parameterCount();
+                    qCDebug(KOMMIT_LOG) << args.size() << method.parameterCount();
                 }
 
                 return r;
@@ -185,11 +185,11 @@ ArgParserReturn CommandArgsParser::help()
 
         mHelpTexts.insert(name, value);
     }
-    qCDebug(GITKLIENT_LOG) << "Git Klient command line interface help:";
+    qCDebug(KOMMIT_LOG) << "Git Klient command line interface help:";
     for (int i = metaObject()->methodOffset(); i < c; i++) {
         auto method = metaObject()->method(i);
-        qCDebug(GITKLIENT_LOG).noquote() << "    " << method.name() << method.parameterNames().join(" ");
-        qCDebug(GITKLIENT_LOG).noquote() << mHelpTexts.value(method.name());
+        qCDebug(KOMMIT_LOG).noquote() << "    " << method.name() << method.parameterNames().join(" ");
+        qCDebug(KOMMIT_LOG).noquote() << mHelpTexts.value(method.name());
     }
     return 0;
 }
@@ -348,12 +348,12 @@ ArgParserReturn CommandArgsParser::diff(const QString &file)
 
 ArgParserReturn CommandArgsParser::diff(const QString &file1, const QString &file2)
 {
-    qCDebug(GITKLIENT_LOG) << file1 << file2;
+    qCDebug(KOMMIT_LOG) << file1 << file2;
     QFileInfo fi1(file1);
     QFileInfo fi2(file2);
 
     if (fi1.isFile() && fi2.isFile()) {
-        qCDebug(GITKLIENT_LOG) << fi1.absoluteFilePath() << fi2.absoluteFilePath();
+        qCDebug(KOMMIT_LOG) << fi1.absoluteFilePath() << fi2.absoluteFilePath();
         const Git::File fileLeft(fi1.absoluteFilePath());
         const Git::File fileRight(fi2.absoluteFilePath());
         auto d = new DiffWindow(fileLeft, fileRight);

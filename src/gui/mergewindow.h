@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "core/appmainwindow.h"
-#include "ui_gitklientmergeview.h"
+#include "ui_kommitmergeview.h"
 #include <diff.h>
 
 namespace Git

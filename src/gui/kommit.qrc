@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/kxmlgui5/kommit">
+        <file>kommitdiffui.rc</file>
+        <file>kommitfileviewerui.rc</file>
+        <file>kommitmergeui.rc</file>
+        <file>kommitui.rc</file>
+    </qresource>
+</RCC>

@@ -5,9 +5,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "codeeditor.h"
-#include "GitKlientSettings.h"
+#include "KommitSettings.h"
 #include "codeeditorsidebar.h"
-#include "gitklient_appdebug.h"
+#include "kommit_appdebug.h"
 
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/FoldingRegion>
@@ -73,9 +73,9 @@ CodeEditor::CodeEditor(QWidget *parent)
 
     QTextBlockFormat normalFormat, addedFormat, removedFormat, changedFormat, highlightFormat, emptyFormat, oddFormat, evenFormat;
 
-    addedFormat.setBackground(GitKlientSettings::diffAddedColor());
-    removedFormat.setBackground(GitKlientSettings::diffRemovedColor());
-    changedFormat.setBackground(GitKlientSettings::diffModifiedColor());
+    addedFormat.setBackground(KommitSettings::diffAddedColor());
+    removedFormat.setBackground(KommitSettings::diffRemovedColor());
+    changedFormat.setBackground(KommitSettings::diffModifiedColor());
     highlightFormat.setBackground(Qt::yellow);
     emptyFormat.setBackground(Qt::gray);
     oddFormat.setBackground(QColor(200, 150, 150, 100));
@@ -449,7 +449,7 @@ QPair<int, int> CodeEditor::blockArea(int from, int to)
 {
     auto firstBlock = document()->findBlockByLineNumber(from);
     auto secondBlock = document()->findBlockByLineNumber(to);
-    //    qCDebug(GITKLIENT_LOG) << from << " to " << to << firstBlock.text() << secondBlock.text();
+    //    qCDebug(KOMMIT_LOG) << from << " to " << to << firstBlock.text() << secondBlock.text();
 
     int top = qRound(blockBoundingGeometry(firstBlock).translated(contentOffset()).top());
     int bottom;
@@ -536,9 +536,9 @@ void CodeEditor::highlightSegment(Diff::Segment *segment)
     }
     //    _currentSegment = segment;
     mSideBar->update();
-    qCDebug(GITKLIENT_LOG) << mCurrentSegment;
+    qCDebug(KOMMIT_LOG) << mCurrentSegment;
     return;
-    qCDebug(GITKLIENT_LOG) << "Segment not found";
+    qCDebug(KOMMIT_LOG) << "Segment not found";
 }
 
 void CodeEditor::clearAll()

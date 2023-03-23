@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "libgitklientgui_private_export.h"
+#include "libkommitgui_private_export.h"
 #include <QComboBox>
 #include <QDialog>
 #include <QMetaEnum>
@@ -16,7 +16,7 @@ namespace Git
 class Manager;
 }
 
-class LIBGITKLIENTGUI_TESTS_EXPORT AppDialog : public QDialog
+class LIBKOMMITGUI_TESTS_EXPORT AppDialog : public QDialog
 {
     Q_OBJECT
 public:

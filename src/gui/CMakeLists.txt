@@ -1,9 +1,9 @@
 include_directories(${CMAKE_SOURCE_DIR}/core)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-add_library(libgitklientgui SHARED)
-generate_export_header(libgitklientgui BASE_NAME libgitklientgui)
-target_sources(libgitklientgui PRIVATE
+add_library(libkommitgui SHARED)
+generate_export_header(libkommitgui BASE_NAME libkommitgui)
+target_sources(libkommitgui PRIVATE
     core/appdialog.cpp
     core/appdialog.h
     core/appmainwindow.cpp
@@ -155,34 +155,34 @@ target_sources(libgitklientgui PRIVATE
     commandargsparser.h
     appconfig.h
     settings/settingsmanager.h
-    gitklient.qrc
+    kommit.qrc
 )
 
 
-set_target_properties(libgitklientgui
-    PROPERTIES OUTPUT_NAME gitklientgui VERSION ${LIBGITKLIENT_LIB_VERSION} SOVERSION ${LIBGITKLIENT_LIB_SOVERSION}
+set_target_properties(libkommitgui
+    PROPERTIES OUTPUT_NAME kommitgui VERSION ${LIBKOMMIT_LIB_VERSION} SOVERSION ${LIBKOMMIT_LIB_SOVERSION}
 )
 
-install(TARGETS libgitklientgui ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS libkommitgui ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
-ecm_qt_declare_logging_category(libgitklientgui
-    HEADER gitklient_appdebug.h
-    IDENTIFIER GITKLIENT_LOG
-    CATEGORY_NAME "org.kde.gitklient" DESCRIPTION "gitklient" EXPORT GITKLIENT
+ecm_qt_declare_logging_category(libkommitgui
+    HEADER kommit_appdebug.h
+    IDENTIFIER KOMMIT_LOG
+    CATEGORY_NAME "org.kde.kommit" DESCRIPTION "kommit" EXPORT KOMMIT
 )
 
-kconfig_add_kcfg_files(libgitklientgui settings/GitKlientSettings.kcfgc)
+kconfig_add_kcfg_files(libkommitgui settings/KommitSettings.kcfgc)
 
 add_compile_definitions(GIT_GUI)
 
 ki18n_wrap_ui(
-    libgitklientgui
+    libkommitgui
 
     settings/settingspagebase.ui
     settings/settingspagediff.ui
     settings/settingspagegit.ui
     multipagewidget.ui
-    gitklientmergeview.ui
+    kommitmergeview.ui
     commandpullwidget.ui
 
     widgets/branchesstatuswidget.ui
@@ -223,13 +223,13 @@ ki18n_wrap_ui(
     dialogs/cleanupdialog.ui
 )
 
-target_link_libraries(libgitklientgui
+target_link_libraries(libkommitgui
     Qt::Core
     Qt::Widgets
     Qt::Concurrent
 
-    libgitklient
-    libgitklientdiff
+    libkommit
+    libkommitdiff
 
     KF5::CoreAddons
     KF5::I18n
@@ -248,13 +248,13 @@ target_link_libraries(libgitklientgui
 )
 
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
-    set_target_properties(libgitklientgui PROPERTIES UNITY_BUILD ON)
+    set_target_properties(libkommitgui PROPERTIES UNITY_BUILD ON)
 endif()
 
 
 set_target_properties(
-    libgitklientgui PROPERTIES
-    MACOSX_BUNDLE_GUI_IDENTIFIER org.kde.gitklient
+    libkommitgui PROPERTIES
+    MACOSX_BUNDLE_GUI_IDENTIFIER org.kde.kommit
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE

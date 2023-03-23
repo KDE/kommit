@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "appmainwindow.h"
-#include "gitklient_appdebug.h"
+#include "kommit_appdebug.h"
 
 #include <QCloseEvent>
 #include <QEventLoop>
@@ -25,7 +25,7 @@ int AppMainWindow::exec()
     showModal();
     (void)eventLoop.exec(QEventLoop::DialogExec);
     mLoop = nullptr;
-    qCDebug(GITKLIENT_LOG) << "returnCode=" << mReturnCode;
+    qCDebug(KOMMIT_LOG) << "returnCode=" << mReturnCode;
     return mReturnCode;
 }
 
@@ -63,7 +63,7 @@ void AppMainWindow::setVisible(bool visible)
 
 // void AppMainWindow::closeEvent(QCloseEvent *event)
 //{
-//     qCDebug(GITKLIENT_LOG) << Q_FUNC_INFO;
+//     qCDebug(KOMMIT_LOG) << Q_FUNC_INFO;
 //     Q_UNUSED(event)
 //     if (_loop && _loop->isRunning())
 //         _loop->quit();

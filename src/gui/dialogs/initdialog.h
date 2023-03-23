@@ -7,10 +7,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "core/appdialog.h"
-#include "libgitklientgui_private_export.h"
+#include "libkommitgui_private_export.h"
 #include "ui_initdialog.h"
 
-class LIBGITKLIENTGUI_TESTS_EXPORT InitDialog : public AppDialog, private Ui::InitDialog
+class LIBKOMMITGUI_TESTS_EXPORT InitDialog : public AppDialog, private Ui::InitDialog
 {
     Q_OBJECT
 

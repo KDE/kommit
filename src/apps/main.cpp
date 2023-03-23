@@ -27,11 +27,11 @@ int main(int argc, char **argv)
 #endif
     QApplication application(argc, argv);
 
-    KLocalizedString::setApplicationDomain("gitklient");
+    KLocalizedString::setApplicationDomain("kommit");
     KCrash::initialize();
 
-    KAboutData aboutData(QStringLiteral("gitklient"),
-                         i18n("GitKlient"),
+    KAboutData aboutData(QStringLiteral("kommit"),
+                         i18n("Kommit"),
                          QStringLiteral(GK_VERSION),
                          i18n("Git client gui for KDE"),
                          KAboutLicense::GPL_V3,
@@ -39,10 +39,10 @@ int main(int argc, char **argv)
 
     aboutData.addAuthor(i18n("Hamed Masafi"), i18n("Author"), QStringLiteral("hamed.masafi@gmail.com"));
     aboutData.addCredit(i18n("Laurent Montel"), i18n("Bug fixing"), QStringLiteral("montel@kde.org"));
-    aboutData.setDesktopFileName(QStringLiteral("org.kde.gitklient"));
+    aboutData.setDesktopFileName(QStringLiteral("org.kde.kommit"));
 
     KAboutData::setApplicationData(aboutData);
-    application.setWindowIcon(QIcon::fromTheme(QStringLiteral("gitklient")));
+    application.setWindowIcon(QIcon::fromTheme(QStringLiteral("kommit")));
 
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);

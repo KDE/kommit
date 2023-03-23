@@ -5,11 +5,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 #pragma once
 
-#include "libgitklientgui_private_export.h"
+#include "libkommitgui_private_export.h"
 #include "ui_authorswidget.h"
 #include "widgetbase.h"
 
-class LIBGITKLIENTGUI_TESTS_EXPORT AuthorsWidget : public WidgetBase, private Ui::AuthorsWidget
+class LIBKOMMITGUI_TESTS_EXPORT AuthorsWidget : public WidgetBase, private Ui::AuthorsWidget
 {
     Q_OBJECT
 

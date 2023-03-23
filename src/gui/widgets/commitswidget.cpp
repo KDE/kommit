@@ -15,7 +15,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/logsmodel.h"
 #include "models/treemodel.h"
 
-#include <GitKlientSettings.h>
+#include <KommitSettings.h>
 
 CommitsWidget::CommitsWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
@@ -56,7 +56,7 @@ void CommitsWidget::restoreState(QSettings &settings)
 
 void CommitsWidget::settingsUpdated()
 {
-    mHistoryModel->setCalendarType(GitKlientSettings::calendarType());
+    mHistoryModel->setCalendarType(KommitSettings::calendarType());
 }
 
 void CommitsWidget::slotTreeViewRepoItemActivated(const QModelIndex &index)
@@ -77,7 +77,7 @@ void CommitsWidget::slotTreeViewRepoCustomContextMenuRequested(const QPoint &pos
 void CommitsWidget::init()
 {
     mHistoryModel = new Git::LogsModel(mGit, nullptr, this);
-    mHistoryModel->setCalendarType(GitKlientSettings::calendarType());
+    mHistoryModel->setCalendarType(KommitSettings::calendarType());
     mHistoryModel->setFullDetails(true);
     mFilterModel = new CommitsFilterModel(mHistoryModel, this);
 

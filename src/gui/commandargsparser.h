@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "libgitklientgui_export.h"
+#include "libkommitgui_export.h"
 #include <QMap>
 #include <QObject>
 #include <QString>
@@ -46,7 +46,7 @@ class Manager;
 using CommandList = QList<Command>;
 
 #define HelpText(name, text) Q_CLASSINFO("help." #name, text);
-class LIBGITKLIENTGUI_EXPORT CommandArgsParser : public QObject
+class LIBKOMMITGUI_EXPORT CommandArgsParser : public QObject
 {
     Q_OBJECT
 

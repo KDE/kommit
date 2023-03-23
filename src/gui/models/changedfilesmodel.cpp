@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitmanager.h"
 
-#include <GitKlientSettings.h>
+#include <KommitSettings.h>
 #include <QIcon>
 #include <QPainter>
 #include <QPixmap>

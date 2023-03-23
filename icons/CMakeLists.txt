@@ -1,9 +1,9 @@
-set(GIT_KLIENT_ICONS
-  16-apps-gitklient.png
-  22-apps-gitklient.png
-  32-apps-gitklient.png
-  48-apps-gitklient.png
-  sc-apps-gitklient.svg
+set(KOMMIT_ICONS
+  16-apps-kommit.png
+  22-apps-kommit.png
+  32-apps-kommit.png
+  48-apps-kommit.png
+  sc-apps-kommit.svg
 
   sc-actions-diff-keep-their.svg
   sc-actions-diff-keep-mine.svg
@@ -37,7 +37,7 @@ set(GIT_KLIENT_ICONS
   sc-actions-git-ignore.svg
   sc-actions-git-merge.svg
 
-  sc-actions-gitklient-changedfiles.svg
+  sc-actions-kommit-changedfiles.svg
 )
 
-ecm_install_icons(ICONS ${GIT_KLIENT_ICONS} DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor)
+ecm_install_icons(ICONS ${KOMMIT_ICONS} DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor)

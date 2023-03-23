@@ -7,12 +7,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "core/appdialog.h"
-#include "libgitklientgui_private_export.h"
+#include "libkommitgui_private_export.h"
 #include "ui_clonedialog.h"
 
 #include "commands/commandclone.h"
 
-class LIBGITKLIENTGUI_TESTS_EXPORT CloneDialog : public AppDialog, private Ui::CloneDialog
+class LIBKOMMITGUI_TESTS_EXPORT CloneDialog : public AppDialog, private Ui::CloneDialog
 {
     Q_OBJECT
 

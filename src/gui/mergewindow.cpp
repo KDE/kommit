@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include "gitklient_appdebug.h"
+#include "kommit_appdebug.h"
 #include <QFile>
 #include <QFileInfo>
 #include <QLabel>
@@ -119,7 +119,7 @@ void MergeWindow::init()
 
     actionViewBlocks_clicked();
 
-    setupGUI(Default, QStringLiteral("gitklientmergeui.rc"));
+    setupGUI(Default, QStringLiteral("kommitmergeui.rc"));
 }
 
 void MergeWindow::fillSegments()
@@ -543,7 +543,7 @@ void MergeWindow::setFilePathLocal(const QString &newFilePathLocal)
 
 void MergeWindow::slotPlainTextEditResultTextChanged()
 {
-    qCDebug(GITKLIENT_LOG) << "**********************";
+    qCDebug(KOMMIT_LOG) << "**********************";
     //    auto segment = static_cast<Diff::MergeSegment *>(_mapper->currentSegment());
     //    if (segment) {
     //        segment->mergeType = Diff::MergeCustom;

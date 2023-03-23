@@ -2,7 +2,7 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!-- Define an entity for your application if it is not part of KDE
        Git -->
-  <!ENTITY kmyapplication "<application>gitklient</application>">
+  <!ENTITY kmyapplication "<application>kommit</application>">
   <!ENTITY i18n-translatable-entity "<application>Translatable Entity</application>">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE">
@@ -131,7 +131,7 @@ as Authors, publish date, the abstract, and Keywords -->
     $applicationname xx.yy for applications with independent release schedule (extragear/playground)
     -->
     <releaseinfo>
-        gitklient 0.1
+        kommit 0.1
     </releaseinfo>
 
     <!-- Abstract about this handbook -->

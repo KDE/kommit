@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include "gitklient_appdebug.h"
+#include "kommit_appdebug.h"
 
 RunnerDialog::RunnerDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(parent)

@@ -5,10 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "logdetailswidget.h"
-#include "GitKlientSettings.h"
-#include "gitklient_appdebug.h"
+#include "KommitSettings.h"
 #include "gitlog.h"
 #include "gitmanager.h"
+#include "kommit_appdebug.h"
 #include "models/logsmodel.h"
 
 #include <KLocalizedString>
@@ -50,13 +50,13 @@ void LogDetailsWidget::createText()
         QString color;
         switch (i.value()) {
         case Git::ChangeStatus::Modified:
-            color = GitKlientSettings::diffModifiedColor().name();
+            color = KommitSettings::diffModifiedColor().name();
             break;
         case Git::ChangeStatus::Added:
-            color = GitKlientSettings::diffAddedColor().name();
+            color = KommitSettings::diffAddedColor().name();
             break;
         case Git::ChangeStatus::Removed:
-            color = GitKlientSettings::diffRemovedColor().name();
+            color = KommitSettings::diffRemovedColor().name();
             break;
 
         case Git::ChangeStatus::Unknown:
@@ -82,9 +82,9 @@ void LogDetailsWidget::createText()
         childsHashHtml.append(createHashLink(child));
 
     QString date;
-    qCDebug(GITKLIENT_LOG) << "cal=" << GitKlientSettings::calendarType();
-    QCalendar cal(GitKlientSettings::calendarType());
-    /*switch (GitKlientSettings::calendarType()) {
+    qCDebug(KOMMIT_LOG) << "cal=" << KommitSettings::calendarType();
+    QCalendar cal(KommitSettings::calendarType());
+    /*switch (KommitSettings::calendarType()) {
     case SettingsHelper::CalendarType::Gregorian:
         cal = QCalendar(QCalendar::System::Gregorian);
         break;

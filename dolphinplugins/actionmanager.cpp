@@ -18,8 +18,6 @@ ActionManager::ActionManager(QObject *parent, const QList<QVariant> &)
     : KAbstractFileItemActionPlugin(parent)
 {
     mMainAction = new QAction;
-    mMainAction->setText(i18n("Git Klient"));
-    mMainAction->setIcon(QIcon::fromTheme(QStringLiteral("gitklient")));
 
     auto menu = new QMenu;
 
@@ -37,8 +35,7 @@ ActionManager::ActionManager(QObject *parent, const QList<QVariant> &)
 
 #define f(name, text, args, icon)                                                                                                                              \
     void ActionManager::name##Clicked()                                                                                                                        \
-    {                                                                                                                                                          \
-        KProcess::startDetached(QStringLiteral("gitklient"), args);                                                                                            \
+    {
     }
 
 ACTIONS_FOR_EACH(f)
@@ -50,7 +47,7 @@ void ActionManager::addMenu(QMenu *menu, const QString &title, const QStringList
     if (!icon.isEmpty())
         action->setIcon(QIcon::fromTheme(icon));
     connect(action, &QAction::triggered, [args]() {
-        KProcess::startDetached(QStringLiteral("gitklient"), args);
+
     });
 }
 
@@ -106,5 +103,31 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
     return QList<QAction *>() << mMainAction;
 }
 
-K_PLUGIN_CLASS_WITH_JSON(ActionManager, "gitklientitemaction.json")
+QString ActionManager::getCommonPart(const KFileItemList &fileItems)
+{
+    if (!fileItems.size())
+        return {};
+
+    QStringList list;
+    for (auto const &i : fileItems)
+        list.append(i.url().toLocalFile());
+
+    QString root = list.front();
+    for (QStringList::const_iterator it = list.cbegin(); it != list.cend(); ++it) {
+        if (root.length() > it->length()) {
+            root.truncate(it->length());
+        }
+
+        for (int i = 0; i < root.length(); ++i) {
+            if (root.at(i) != it->at(i)) {
+                root.truncate(i);
+                break;
+            }
+        }
+    }
+
+    return root;
+}
+
+K_PLUGIN_CLASS_WITH_JSON(ActionManager, "kommititemaction.json")
 #include "actionmanager.moc"

@@ -14,7 +14,7 @@
    <string>Fetch from origin</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="gitklient"/>
+   <iconset theme="kommit"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

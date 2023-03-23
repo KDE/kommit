@@ -87,7 +87,7 @@ QString GitTestManager::runGit(const QStringList &args)
     return out; // + err;
 }
 
-namespace GitKlientTest
+namespace KommitTest
 {
 bool touch(const QString &fileName)
 {
@@ -106,4 +106,4 @@ QString getTempPath()
     d.mkpath(path);
     return path;
 }
-} // namespace GitKlientTest
+} // namespace KommitTest
