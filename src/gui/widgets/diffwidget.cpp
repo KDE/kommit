@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "diffwidget.h"
 #include "codeeditor.h"
-#include "qdebug.h"
 #include <diff.h>
 
 #include <QScrollBar>
