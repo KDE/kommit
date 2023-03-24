@@ -298,9 +298,8 @@ ArgParserReturn CommandArgsParser::changes()
 
 ArgParserReturn CommandArgsParser::changes(const QString &path)
 {
-    QFileInfo fi(path);
+    checkGitPath(path);
 
-    git->setPath(fi.isFile() ? fi.absoluteFilePath() : fi.absolutePath());
     ChangedFilesDialog d(git);
     d.exec();
     return 0;

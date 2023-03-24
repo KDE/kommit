@@ -26,7 +26,7 @@ ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
     , mModel(new ChangedFilesModel(git, false, this))
 {
     setupUi(this);
-
+    label->setText(git->path());
     connect(mActions, &ChangedFileActions::reloadNeeded, mModel, &ChangedFilesModel::reload);
     buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Commit/Push"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ChangedFilesDialog::slotPushCommit);
@@ -66,7 +66,11 @@ void ChangedFilesDialog::slotItemDoubleClicked(const QModelIndex &index)
     if (!index.isValid())
         return;
 
-    mActions->setFilePath(mModel->filePath(index.row()));
+    auto data = mModel->data(index.row());
+    if (data->oldFilePath != QString())
+        mActions->setFilePaths(data->oldFilePath, data->filePath);
+    else
+        mActions->setFilePath(data->filePath);
     mActions->diff();
 }
 
