@@ -84,7 +84,7 @@ void ChangedFilesModel::reload()
         else if (status1 == QLatin1Char('!'))
             d.status = Git::ChangeStatus::Ignored;
         else if (status1 == QLatin1Char('R')) {
-            auto parts = fileName.split("->");
+            auto parts = fileName.split(QStringLiteral("->"));
             d.oldFilePath = parts[0].trimmed();
             d.filePath = parts[1].trimmed();
             d.status = Git::ChangeStatus::Renamed;
