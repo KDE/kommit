@@ -26,7 +26,7 @@ ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
     , mModel(new ChangedFilesModel(git, false, this))
 {
     setupUi(this);
-    label->setText(git->path());
+
     connect(mActions, &ChangedFileActions::reloadNeeded, mModel, &ChangedFilesModel::reload);
     buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Commit/Push"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ChangedFilesDialog::slotPushCommit);
