@@ -186,6 +186,11 @@ const QList<ChangedFilesModel::Row> &ChangedFilesModel::data() const
     return mData;
 }
 
+const ChangedFilesModel::Row *ChangedFilesModel::data(int index) const
+{
+    return &mData.at(index);
+}
+
 int ChangedFilesModel::checkedCount() const
 {
     int ret{0};

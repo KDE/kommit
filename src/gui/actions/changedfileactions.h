@@ -17,6 +17,7 @@ public:
 
     Q_REQUIRED_RESULT const QString &filePath() const;
     void setFilePath(const QString &newFilePath);
+    void setFilePaths(const QString &originalFilePath, const QString &renamedFilePath);
     void diff();
 
 private:
@@ -26,6 +27,7 @@ Q_SIGNALS:
     void reloadNeeded();
 
 private:
+    QString mOriginalFilePath;
     QString mFilePath;
 
     DEFINE_ACTION(actionDiff)

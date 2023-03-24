@@ -230,7 +230,11 @@ void CommitPushDialog::slotListWidgetItemDoubleClicked(const QModelIndex &index)
     if (!index.isValid())
         return;
 
-    mActions->setFilePath(mModel->filePath(index.row()));
+    auto data = mModel->data(index.row());
+    if (data->oldFilePath != QString())
+        mActions->setFilePaths(data->oldFilePath, data->filePath);
+    else
+        mActions->setFilePath(data->filePath);
     mActions->diff();
 }
 

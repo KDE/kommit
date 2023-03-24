@@ -36,6 +36,7 @@ public:
         bool checked;
     };
     const QList<Row> &data() const;
+    const Row *data(int index) const;
     Q_REQUIRED_RESULT int checkedCount() const;
 
 Q_SIGNALS:

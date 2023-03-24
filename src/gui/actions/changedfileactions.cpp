@@ -31,6 +31,16 @@ const QString &ChangedFileActions::filePath() const
 void ChangedFileActions::setFilePath(const QString &newFilePath)
 {
     mFilePath = newFilePath;
+    mOriginalFilePath = QString();
+
+    setActionEnabled(_actionDiff, true);
+    setActionEnabled(_actionRevert, true);
+}
+
+void ChangedFileActions::setFilePaths(const QString &originalFilePath, const QString &renamedFilePath)
+{
+    mOriginalFilePath = originalFilePath;
+    mFilePath = renamedFilePath;
 
     setActionEnabled(_actionDiff, true);
     setActionEnabled(_actionRevert, true);
@@ -38,7 +48,13 @@ void ChangedFileActions::setFilePath(const QString &newFilePath)
 
 void ChangedFileActions::diff()
 {
-    const Git::File original{mGit, mGit->currentBranch(), mFilePath};
+    Git::File original;
+
+    if (mOriginalFilePath == QString())
+        original = Git::File{mGit, mGit->currentBranch(), mFilePath};
+    else
+        original = Git::File{mGit, mGit->currentBranch(), mOriginalFilePath};
+
     const Git::File changed{mGit->path() + QLatin1Char('/') + mFilePath};
 
     auto diffWin = new DiffWindow(original, changed);
