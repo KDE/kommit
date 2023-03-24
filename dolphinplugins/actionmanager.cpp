@@ -18,6 +18,8 @@ ActionManager::ActionManager(QObject *parent, const QList<QVariant> &)
     : KAbstractFileItemActionPlugin(parent)
 {
     mMainAction = new QAction;
+    mMainAction->setText(i18n("Kommit"));
+    mMainAction->setIcon(QIcon::fromTheme(QStringLiteral("kommit")));
 
     auto menu = new QMenu;
 
@@ -36,7 +38,7 @@ ActionManager::ActionManager(QObject *parent, const QList<QVariant> &)
 #define f(name, text, args, icon)                                                                                                                              \
     void ActionManager::name##Clicked()                                                                                                                        \
     {                                                                                                                                                          \
-        KProcess::startDetached(QStringLiteral("gitklient"), args);                                                                                            \
+        KProcess::startDetached(QStringLiteral("kommit"), args);                                                                                               \
     }
 
 ACTIONS_FOR_EACH(f)
