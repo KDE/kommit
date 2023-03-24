@@ -29,7 +29,7 @@ WidgetBase::WidgetBase(Git::Manager *git, AppWindow *parent)
     , mGit(git)
     , mParent{parent}
 {
-    // TODO: do wee need this?
+    // TODO: do we need this?
     if (!mGit)
         mGit = Git::Manager::instance();
     connect(mGit, &Git::Manager::pathChanged, this, &WidgetBase::git_pathChanged);
