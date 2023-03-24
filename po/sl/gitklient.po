@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-13 00:59+0000\n"
+"POT-Creation-Date: 2023-03-24 00:50+0000\n"
 "PO-Revision-Date: 2023-01-29 08:54+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -561,13 +561,13 @@ msgid "---"
 msgstr "---"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
-#: src/gui/dialogs/changedfilesdialog.cpp:23
+#: src/gui/dialogs/changedfilesdialog.cpp:31
 #: src/gui/dialogs/commitpushdialog.ui:14
 #, kde-format
 msgid "Commit/Push"
 msgstr "Objavi/potisni"
 
-#: src/gui/dialogs/changedfilesdialog.cpp:30
+#: src/gui/dialogs/changedfilesdialog.cpp:38
 #, kde-format
 msgid "Reload"
 msgstr "Ponovno naloži"
@@ -673,15 +673,15 @@ msgstr "Izvorno ime"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:56
-#: src/gui/dialogs/commitpushdialog.cpp:211
+#: src/gui/dialogs/commitpushdialog.cpp:85
+#: src/gui/dialogs/commitpushdialog.cpp:240
 #: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
 msgstr "Porini"
 
-#: src/gui/dialogs/commitpushdialog.cpp:58
-#: src/gui/dialogs/commitpushdialog.cpp:211
+#: src/gui/dialogs/commitpushdialog.cpp:87
+#: src/gui/dialogs/commitpushdialog.cpp:240
 #, kde-format
 msgid "Commit and push"
 msgstr "Objavi in potisni"
