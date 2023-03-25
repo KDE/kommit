@@ -54,7 +54,6 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
 
     Author *findOrCreate(const QString &name, const QString &email);
-    void extracted(AuthorCreateReason &reason);
     Author *findOrCreate(const QString &name, const QString &email, const QDateTime &time, AuthorCreateReason reason);
     void clear();
 

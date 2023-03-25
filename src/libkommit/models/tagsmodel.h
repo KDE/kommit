@@ -38,8 +38,6 @@ protected:
 
 private:
     QList<Tag *> mData;
-
-    QString readTagSubject(const QString &tagName);
 };
 
 } // namespace Git

@@ -16,7 +16,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Diff
 {
 
-int matchesCount(const QStringList &base, const QStringList &local, const QStringList &remote);
 QStringList take(QStringList &list, int count);
 int remove(QStringList &list, int count);
 
