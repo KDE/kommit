@@ -41,7 +41,7 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
             cmd->setTarget(comboBoxBranchSelect->currentText());
             cmd->setMode(Git::CommandSwitchBranch::ExistingBranch);
         } else {
-            auto n = comboBoxBranchSelect->currentText().indexOf("/");
+            const auto n = comboBoxBranchSelect->currentText().indexOf(QLatin1Char('/'));
             if (n == -1) {
                 qCWarning(KOMMIT_LOG, "The branch name %s is invalid", qPrintable(comboBoxBranchSelect->currentText()));
                 return nullptr;
