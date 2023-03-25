@@ -14,5 +14,5 @@
 #define LIBKOMMIT_TESTS_EXPORT LIBKOMMIT_EXPORT
 #endif
 #else /* not compiling tests */
-#define LIBGITKLIENT_TESTS_EXPORT
+#define LIBKOMMIT_TESTS_EXPORT
 #endif

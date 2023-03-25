@@ -63,8 +63,8 @@
     <p xml:lang="zh-CN">KDE git 图形界面客户端</p>
     <p xml:lang="zh-TW">KDE 的 Git 用戶端介面</p>
   </description>
-  <url type="homepage">https://invent.kde.org/sdk/gitklient</url>
-  <url type="bugtracker">https://invent.kde.org/sdk/gitklient/-/issues</url>
+  <url type="homepage">https://invent.kde.org/sdk/kommit</url>
+  <url type="bugtracker">https://invent.kde.org/sdk/kommit/-/issues</url>
   <screenshots>
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/gitklient/gitklient.png</image>
