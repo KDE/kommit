@@ -20,10 +20,10 @@ SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
 {
     setupUi(this);
 
-    auto localBranches = git->branches();
+    const auto localBranches = git->branches();
     for (const auto &b : localBranches)
         comboBoxBranchSelect->addItem(b, BRANCH_TYPE_LOCAL);
-    auto remoteBranches = git->remoteBranches();
+    const auto remoteBranches = git->remoteBranches();
     for (const auto &b : remoteBranches)
         comboBoxBranchSelect->addItem(b, BRANCH_TYPE_REMOTE);
 
