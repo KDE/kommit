@@ -1,4 +1,4 @@
-[![pipeline](https://invent.kde.org/sdk/gitklient/badges/master/pipeline.svg)](https://invent.kde.org/sdk/gitklient/-/pipelines)
+[![pipeline](https://invent.kde.org/sdk/kommit/badges/master/pipeline.svg)](https://invent.kde.org/sdk/kommit/-/pipelines)
 
 # Kommit
 
