@@ -1,22 +1,5 @@
 [Desktop Entry]
 Name=Kommit Diff
-Name[ca]=Git Klient Diff
-Name[ca@valencia]=Git Klient Diff
-Name[en_GB]=Git Klient Diff
-Name[es]=Diferencias de Git Klient
-Name[eu]=Git Klient Diferentzia
-Name[fi]=Git Klient -vertailu
-Name[fr]=Comparateur pour le Klient « Git »
-Name[it]=Git Klient Diff
-Name[ka]=Git Klient Diff
-Name[nl]=Git Klient Diff
-Name[pl]=Git Klient Diff
-Name[pt]=Diferenças do Git Klient
-Name[sl]=Odjemalec Git Diff
-Name[tr]=Git Klient Diff
-Name[uk]=Різниця git Klient
-Name[x-test]=xxGit Klient Diffxx
-Name[zh_CN]=Git Klient 差异
 Exec=kommit diff
 Icon=kommit
 
@@ -30,7 +13,7 @@ GenericName[en_GB]=Git client GUI for KDE
 GenericName[es]=Interfaz gráfica de cliente git para KDE
 GenericName[eu]=KDEren Git GUI bezeroa
 GenericName[fi]=KDE:n Git-asiakaskäyttöliittymä
-GenericName[fr]=Client « Git » avec interface utilisateur pour KDE
+GenericName[fr]=Client « Git » avec interface utilisateur pour KDE
 GenericName[it]=Interfaccia client Git per KDE
 GenericName[ka]=Git-ის კლიენტი KDE-სთვის
 GenericName[nl]=Git-client-gui voor KDE

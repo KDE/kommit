@@ -1,22 +1,5 @@
 [Desktop Entry]
 Name=Kommit Merge
-Name[ca]=Git Klient Merge
-Name[ca@valencia]=Git Klient Merge
-Name[en_GB]=Git Klient Merge
-Name[es]=Fusión de Git Klient
-Name[eu]=Git Klient Bateratzea
-Name[fi]=Git Klient -yhdistäminen
-Name[fr]=Fusion pour le Klient « Git »
-Name[it]=Git Klient Merge
-Name[ka]=Git Klient Merge
-Name[nl]=Git Klient Merge
-Name[pl]=Git Klient Merge
-Name[pt]=Junção do Git Klient
-Name[sl]=Odjemalec Git Merge
-Name[tr]=Git Klient Birleştir
-Name[uk]=Об'єднання git Klient
-Name[x-test]=xxGit Klient Mergexx
-Name[zh_CN]=Git Klient 合并
 Exec=kommit merge
 Icon=kommit
 
@@ -30,7 +13,7 @@ GenericName[en_GB]=Git client GUI for KDE
 GenericName[es]=Interfaz gráfica de cliente git para KDE
 GenericName[eu]=KDEren Git GUI bezeroa
 GenericName[fi]=KDE:n Git-asiakaskäyttöliittymä
-GenericName[fr]=Client « Git » avec interface utilisateur pour KDE
+GenericName[fr]=Client « Git » avec interface utilisateur pour KDE
 GenericName[it]=Interfaccia client Git per KDE
 GenericName[ka]=Git-ის კლიენტი KDE-სთვის
 GenericName[nl]=Git-client-gui voor KDE
