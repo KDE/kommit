@@ -1,58 +1,56 @@
-# Copyright (C) YEAR This file is copyright:
+# German translations for gitklient package.
+# Copyright (C) 2022 This file is copyright:
 # This file is distributed under the same license as the gitklient package.
-# Tommi Nieminen <translator@legisign.org>, 2022, 2023.
+# Frederik Schwarzer <schwarzer@kde.org>, 2023.
 #
+# Automatically generated, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 00:50+0000\n"
-"PO-Revision-Date: 2023-02-26 21:41+0200\n"
-"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
-"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
-"Language: fi\n"
+"POT-Creation-Date: 2023-03-26 00:50+0000\n"
+"PO-Revision-Date: 2023-03-12 16:12+0100\n"
+"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Tommi Nieminen"
+msgstr "Deutsches KDE-Übersetzerteam"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "translator@legisign.org"
-
-#: dolphinplugins/actionmanager.cpp:21
-#, kde-format
-msgid "Git Klient"
-msgstr "Git-asiakas"
+msgstr "kde-i18n-de@kde.org"
 
 #: src/apps/main.cpp:34
 #, kde-format
-msgid "GitKlient"
-msgstr "GitKlient"
+msgid "Kommit"
+msgstr ""
 
 #: src/apps/main.cpp:36
 #, kde-format
 msgid "Git client gui for KDE"
-msgstr "KDE:n Git-asiakaskäyttöliittymä"
+msgstr "Git-Programm für KDE"
 
 #: src/apps/main.cpp:38
-#, kde-format
-msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr "Tekijänoikeudet 2021–2022, Hamed Masafi <hamed.masafi@gmail.com>"
+#, fuzzy, kde-format
+#| msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
+msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:114
 #: src/gui/widgets/logdetailswidget.cpp:117
-#: src/libgitklient/models/logsmodel.cpp:262
+#: src/libkommit/models/logsmodel.cpp:262
 #, kde-format
 msgid "Author"
-msgstr "Tekijä"
+msgstr "Autor"
 
 #: src/apps/main.cpp:40
 #, kde-format
@@ -67,37 +65,37 @@ msgstr "Laurent Montel"
 #: src/apps/main.cpp:41
 #, kde-format
 msgid "Bug fixing"
-msgstr "Virheiden korjaus"
+msgstr "Fehlerkorrekturen"
 
 #: src/gui/actions/branchactions.cpp:30
 #, kde-format
 msgid "Create..."
-msgstr "Luo…"
+msgstr "Erstellen ..."
 
 #: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:177
 #, kde-format
 msgid "Fetch..."
-msgstr "Nouda…"
+msgstr "Abholen ..."
 
 #: src/gui/actions/branchactions.cpp:34 src/gui/actions/commitactions.cpp:33
 #: src/gui/mainwidget.cpp:100
 #, kde-format
 msgid "Browse..."
-msgstr "Selaa…"
+msgstr "Durchsuchen ..."
 
 #: src/gui/actions/branchactions.cpp:35
 #, kde-format
 msgid "Switch"
-msgstr "Siirry"
+msgstr "Wechseln"
 
 #: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:185
 #, kde-format
 msgid "Merge..."
-msgstr "Yhdistä…"
+msgstr "Zusammenführen ..."
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:17
+#: src/gui/actions/branchactions.cpp:37 src/gui/kommitmergeui.rc:17
 #: src/gui/settings/settingsmanager.cpp:94
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
@@ -108,125 +106,125 @@ msgstr "Diff"
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
-msgstr "Poista…"
+msgstr "Entfernen ..."
 
 #: src/gui/actions/branchactions.cpp:39
 #, kde-format
 msgid "Note..."
-msgstr "Huomautus…"
+msgstr "Notiz ..."
 
 #: src/gui/actions/branchactions.cpp:79
 #, kde-format
 msgid "Create new branch"
-msgstr "Luo uusi haara"
+msgstr "Neuen Zweig anlegen"
 
 #: src/gui/actions/branchactions.cpp:79
 #, kde-format
 msgid "Branch name"
-msgstr "Haaran nimi"
+msgstr "Zweig-Name"
 
 #: src/gui/actions/branchactions.cpp:128
 #: src/gui/widgets/branchesstatuswidget.cpp:69
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
-msgstr "Haluatko varmasti poistaa valitun haaran?"
+msgstr ""
 
 #: src/gui/actions/branchactions.cpp:128
 #, kde-format
 msgid "Remove Branch"
-msgstr "Poista haara"
+msgstr "Zweig entfernen"
 
 #: src/gui/actions/branchactions.cpp:130
 #: src/gui/widgets/branchesstatuswidget.cpp:73
 #, kde-format
 msgid "Unable to remove the selected branch"
-msgstr ""
+msgstr "Der ausgewählte Zweig kann nicht gelöscht werden"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
 msgid "Diff..."
-msgstr "Diff…"
+msgstr "Diff ..."
 
 #: src/gui/actions/changedfileactions.cpp:19
 #, kde-format
 msgid "Revert..."
-msgstr "Palaa takaisin…"
+msgstr "Zurücksetzen ..."
 
 #: src/gui/actions/commitactions.cpp:34 src/gui/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Checkout..."
-msgstr "Vaihda…"
+msgstr "Auslesen ..."
 
 #: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:87
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
-msgstr "Vertaa HEADiin…"
+msgstr "Mit HEAD vergleichen ..."
 
 #: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Preview"
-msgstr "Esikatselu"
+msgstr "Vorschau"
 
 #: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open"
-msgstr "Avaa"
+msgstr "Öffnen"
 
 #: src/gui/actions/fileactions.cpp:85
 #, kde-format
 msgid "Open with..."
-msgstr "Avaa ohjelmalla…"
+msgstr "Öffnen mit ..."
 
 #: src/gui/actions/fileactions.cpp:88
 #, kde-format
 msgid "Merge with HEAD..."
-msgstr "Yhdistä HEADiin…"
+msgstr "Mit HEAD zusammenführen ..."
 
 #: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Save as..."
-msgstr "Tallenna nimellä…"
+msgstr "Speichern unter ..."
 
 #: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Log..."
-msgstr "Loki…"
+msgstr "Protokoll ..."
 
 #: src/gui/actions/fileactions.cpp:92
 #, kde-format
 msgid "Blame..."
-msgstr "Moiti…"
+msgstr "Blame ..."
 
 #: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:192
 #, kde-format
 msgid "Search..."
-msgstr "Etsi…"
+msgstr "Suchen ..."
 
 #: src/gui/actions/remotesactions.cpp:25
 #, kde-format
 msgid "New..."
-msgstr "Uusi…"
+msgstr "Neu ..."
 
 #: src/gui/actions/remotesactions.cpp:27
 #, kde-format
 msgid "Rename..."
-msgstr "Muuta nimeä…"
+msgstr "Umbenennen ..."
 
 #: src/gui/actions/remotesactions.cpp:28
 #, kde-format
 msgid "Change url..."
-msgstr "Muuta verkko-osoitetta…"
+msgstr "Adresse (URL) ändern ..."
 
 #: src/gui/actions/remotesactions.cpp:61
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
-msgstr "Haluatko varmasti poistaa valitun etäkohteen?"
+msgstr ""
 
 #: src/gui/actions/remotesactions.cpp:61
 #, kde-format
 msgid "Remove remote?"
-msgstr "Poistetaanko etäkohde?"
+msgstr ""
 
 #: src/gui/actions/remotesactions.cpp:63
 #, kde-format
@@ -236,52 +234,52 @@ msgstr ""
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "Change url"
-msgstr "Muuta verkko-osoitetta"
+msgstr ""
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "URL"
-msgstr "Verkko-osoite"
+msgstr ""
 
 #: src/gui/actions/remotesactions.cpp:79
 #, kde-format
 msgid "Url for remote changed successfully"
-msgstr "Etäkohteen verkko-osoitteen muutos onnistui"
+msgstr ""
 
 #: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "Rename"
-msgstr "Muuta nimeä"
+msgstr "Umbenennen"
 
 #: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "New name"
-msgstr "Uusi nimi"
+msgstr "Neuer Name"
 
 #: src/gui/actions/stashactions.cpp:22
 #, kde-format
 msgid "New stash..."
-msgstr "Uusi jemma…"
+msgstr "Neuer Stash ..."
 
 #: src/gui/actions/stashactions.cpp:24
 #, kde-format
 msgid "Pop..."
-msgstr "Palauta…"
+msgstr "Pop ..."
 
 #: src/gui/actions/stashactions.cpp:25
 #, kde-format
 msgid "Apply..."
-msgstr "Käytä…"
+msgstr "Anwenden ..."
 
 #: src/gui/actions/stashactions.cpp:49
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
-msgstr "Haluatko varmasti käyttää valittua jemmaa?"
+msgstr ""
 
 #: src/gui/actions/stashactions.cpp:49
 #, kde-format
 msgid "Apply stash %1"
-msgstr "Käytä jemmaa %1"
+msgstr ""
 
 #: src/gui/actions/stashactions.cpp:51
 #, kde-format
@@ -291,12 +289,12 @@ msgstr ""
 #: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
-msgstr "Haluatko varmasti hylätä valitun jemman?"
+msgstr ""
 
 #: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Drop stash %1"
-msgstr "Hylkää jemma %1"
+msgstr ""
 
 #: src/gui/actions/stashactions.cpp:59
 #, kde-format
@@ -306,126 +304,126 @@ msgstr ""
 #: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
-msgstr "Haluatko varmasti palauttaa valitun jemman?"
+msgstr ""
 
 #: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Pop stash %1"
-msgstr "Palauta jemma %1"
+msgstr ""
 
 #: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "You don't have any changes!"
-msgstr "Muutoksia ei ole!"
+msgstr ""
 
 #: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "Stash"
-msgstr "Jemma"
+msgstr "Stash"
 
 #: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Create new stash"
-msgstr "Luo uusi jemma"
+msgstr "Neuen Stash erstellem"
 
 #: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Name of stash"
-msgstr "Jemman nimi"
+msgstr "Name des Stash"
 
 #: src/gui/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Add..."
-msgstr "Lisää…"
+msgstr "Hinzufügen ..."
 
 #: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:147
 #, kde-format
 msgid "Init..."
-msgstr "Alusta…"
+msgstr ""
 
 #: src/gui/actions/submoduleactions.cpp:42
 #, kde-format
 msgid "Update..."
-msgstr "Päivitä…"
+msgstr "Aktualisieren ..."
 
 #. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/gui/actions/submoduleactions.cpp:44
 #, kde-format
 msgid "Sync..."
-msgstr "Tahdista…"
+msgstr "Abgleichen ..."
 
 #: src/gui/actions/submoduleactions.cpp:76
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
-msgstr "Haluatko varmasti poistaa valitun alimoduulin?"
+msgstr ""
 
 #: src/gui/actions/submoduleactions.cpp:76
 #, kde-format
 msgid "Remove Submodule"
-msgstr "Poista alimoduuli"
+msgstr ""
 
 #: src/gui/actions/submoduleactions.cpp:83
 #, kde-format
 msgid "Unable to remove the module directory"
-msgstr "Moduulikansiota ei voi poistaa"
+msgstr ""
 
 #: src/gui/actions/submoduleactions.cpp:90
 #, kde-format
 msgid "The submodule %1 removed"
-msgstr "Alimoduuli %1 on poistettu"
+msgstr ""
 
 #: src/gui/actions/tagsactions.cpp:24
 #, kde-format
 msgid "New tag..."
-msgstr "Uusi tunniste…"
+msgstr ""
 
 #: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Push..."
-msgstr "Vie…"
+msgstr ""
 
 #: src/gui/actions/tagsactions.cpp:48 src/gui/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
-msgstr "Uusi tunniste"
+msgstr ""
 
 #: src/gui/actions/tagsactions.cpp:57
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
-msgstr "Haluatko varmasti poistaa valitun tunnisteen?"
+msgstr ""
 
 #: src/gui/actions/tagsactions.cpp:57
 #, kde-format
 msgid "Remove tag"
-msgstr "Poista tunniste"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/actions/tagsactions.cpp:65
 #: src/gui/widgets/branchesstatuswidget.ui:93
 #, kde-format
 msgid "Checkout"
-msgstr "Vaihda"
+msgstr ""
 
 #: src/gui/actions/tagsactions.cpp:65
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr "Haluatko varmasti vaihtaa valittuun tunnisteeseen?"
+msgstr ""
 
 #: src/gui/appwindow.cpp:74
 #, kde-format
 msgid "No repo selected"
-msgstr "Lähdettä ei ole valittu"
+msgstr ""
 
 #: src/gui/appwindow.cpp:126
 #, kde-format
 msgid "Current branch: %1"
-msgstr "Nykyinen haara: %1"
+msgstr ""
 
 #: src/gui/appwindow.cpp:128
 #, kde-format
 msgid " (merging)"
-msgstr " (yhdistetään)"
+msgstr ""
 
 #: src/gui/appwindow.cpp:130
 #, kde-format
@@ -435,114 +433,113 @@ msgstr ""
 #: src/gui/appwindow.cpp:150
 #, kde-format
 msgid "Open..."
-msgstr "Avaa…"
+msgstr ""
 
 #: src/gui/appwindow.cpp:155
 #, kde-format
 msgid "Clone..."
-msgstr "Monista…"
+msgstr "Klonen ..."
 
 #: src/gui/appwindow.cpp:158
 #, kde-format
 msgid "Changed files..."
-msgstr "Muuttuneet tiedostot…"
+msgstr ""
 
 #: src/gui/appwindow.cpp:164
 #, kde-format
 msgid "Recent repos"
-msgstr "Viimeaikaiset lähteet"
+msgstr ""
 
 #: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Cleanup..."
-msgstr "Siivoa…"
+msgstr ""
 
 #: src/gui/appwindow.cpp:173
 #, kde-format
 msgid "Pull..."
-msgstr "Tuo…"
+msgstr ""
 
 #: src/gui/appwindow.cpp:189
 #, kde-format
 msgid "Diff branches..."
-msgstr "Vertaa haaroja…"
+msgstr ""
 
 #: src/gui/appwindow.cpp:195
 #, kde-format
 msgid "Repo settings..."
-msgstr "Lähdeasetukset…"
+msgstr ""
 
-# Käännös perustuu siihen, että checkout = switch + jotakin lisää. ”Switch” näin ollen vain siirtyy toiseen haaraan, kun taas ”checkout” oikeasti vaihtaa haaraa.
 #: src/gui/appwindow.cpp:198
 #, kde-format
 msgid "Switch/Checkout..."
-msgstr "Siirry/vaihda…"
+msgstr ""
 
 #: src/gui/appwindow.cpp:201
 #, kde-format
 msgid "Diff tree"
-msgstr "Vertaa puuta"
+msgstr ""
 
 #: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Unable to create path: %1"
-msgstr "Polkua ei voi luoda: %1"
+msgstr ""
 
 #: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Init repo"
-msgstr "Alusta lähde"
+msgstr ""
 
 #: src/gui/appwindow.cpp:265
 #, kde-format
 msgid "Open repository"
-msgstr "Avaa lähde"
+msgstr ""
 
-#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:475
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:474
 #, kde-format
 msgid "Cannot switch branch while merging"
-msgstr "Yhdistettäessä haarasta toiseen ei voi siirtyä"
+msgstr ""
 
-#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:475
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:474
 #, kde-format
 msgid "Switch branch"
-msgstr "Siirry haaraan"
+msgstr ""
 
 #: src/gui/commandargsparser.cpp:56
 #, kde-format
 msgid "The path is not git repo: %1"
-msgstr "Sijainti ei ole git-lähde: %1"
+msgstr ""
 
 #: src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "The repo inited successfully"
-msgstr "Lähteen alustaminen onnistui"
+msgstr ""
 
-#: src/gui/commandargsparser.cpp:504
+#: src/gui/commandargsparser.cpp:503
 #, kde-format
 msgid "File(s) added to git successfully"
-msgstr "Tiedostojen lisäys gitiin onnistui"
+msgstr ""
 
-#: src/gui/commandargsparser.cpp:512
+#: src/gui/commandargsparser.cpp:511
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
-msgstr "Haluaisitko jättää tiedostot levylle?"
+msgstr ""
 
-#: src/gui/commandargsparser.cpp:512
+#: src/gui/commandargsparser.cpp:511
 #, kde-format
 msgid "Remove from index"
-msgstr "Poista indeksistä"
+msgstr ""
 
-#: src/gui/commandargsparser.cpp:514
+#: src/gui/commandargsparser.cpp:513
 #, kde-format
 msgid "File(s) removed from git successfully"
-msgstr "Tiedostojen poisto gitistä onnistui"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus_2)
 #: src/gui/commandpullwidget.ui:19
 #, kde-format
 msgid "Status:"
-msgstr "Tila:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelStatus)
@@ -555,38 +552,38 @@ msgstr "Tila:"
 #: src/gui/widgets/remoteswidget.ui:126 src/gui/widgets/remoteswidget.ui:143
 #, kde-format
 msgid "---"
-msgstr "---"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
 #: src/gui/dialogs/changedfilesdialog.cpp:31
 #: src/gui/dialogs/commitpushdialog.ui:14
 #, kde-format
 msgid "Commit/Push"
-msgstr "Toimita/vie"
+msgstr ""
 
 #: src/gui/dialogs/changedfilesdialog.cpp:38
 #, kde-format
 msgid "Reload"
-msgstr "Lataa uudelleen"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
 #: src/gui/widgets/logdetailswidget.cpp:127
 #, kde-format
 msgid "Changed files"
-msgstr "Muuttuneet tiedostot"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/changedfilesdialog.ui:20
 #, kde-format
 msgid "Changed files:"
-msgstr "Muuttuneet tiedostot:"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/gui/dialogs/cleanupdialog.ui:14
 #, kde-format
 msgid "Cleanup repo"
-msgstr "Siivoa lähde"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/cleanupdialog.ui:23
@@ -598,31 +595,31 @@ msgstr ""
 #: src/gui/dialogs/cleanupdialog.ui:29
 #, kde-format
 msgid "Remove non-ignored untracked files"
-msgstr "Poista ei-sivuutetut ei-jäljitetyt tiedostot"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllUntrackedFiles)
 #: src/gui/dialogs/cleanupdialog.ui:39
 #, kde-format
 msgid "Remove all untracked files"
-msgstr "Poista kaikki ei-jäljitetyt tiedostot"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
 #: src/gui/dialogs/cleanupdialog.ui:46
 #, kde-format
 msgid "Remove ignored files"
-msgstr "Poista sivuutetut tiedostot"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
 #: src/gui/dialogs/cleanupdialog.ui:56
 #, kde-format
 msgid "Remove untracked directories"
-msgstr "Poista ei-jäljitetyt kansiot"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloneDialog)
 #: src/gui/dialogs/clonedialog.ui:14
 #, kde-format
 msgid "Clone a repository"
-msgstr "Monista lähde"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -630,26 +627,26 @@ msgstr "Monista lähde"
 #: src/gui/widgets/remoteinfodialog.ui:35
 #, kde-format
 msgid "Url:"
-msgstr "Verkko-osoite:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/clonedialog.ui:39 src/gui/dialogs/initdialog.ui:26
 #: src/gui/dialogs/submoduleinfodialog.ui:35
 #, kde-format
 msgid "Directory:"
-msgstr "Kansio:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRecursive)
 #: src/gui/dialogs/clonedialog.ui:64
 #, kde-format
 msgid "Recursive"
-msgstr "Rekursiivinen"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxDepth)
 #: src/gui/dialogs/clonedialog.ui:71
 #, kde-format
 msgid "Depth"
-msgstr "Syvyys"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -660,7 +657,7 @@ msgstr "Syvyys"
 #: src/gui/dialogs/submoduleinfodialog.ui:70
 #, kde-format
 msgid "Branch"
-msgstr "Haara"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxOriginName)
 #: src/gui/dialogs/clonedialog.ui:105
@@ -671,43 +668,43 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #: src/gui/dialogs/commitpushdialog.cpp:85
-#: src/gui/dialogs/commitpushdialog.cpp:240
+#: src/gui/dialogs/commitpushdialog.cpp:244
 #: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
-msgstr "Vie"
+msgstr ""
 
 #: src/gui/dialogs/commitpushdialog.cpp:87
-#: src/gui/dialogs/commitpushdialog.cpp:240
+#: src/gui/dialogs/commitpushdialog.cpp:244
 #, kde-format
 msgid "Commit and push"
-msgstr "Toimita ja vie"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/gui/dialogs/commitpushdialog.ui:22
 #, kde-format
 msgid "Remote:"
-msgstr "Etäkohde: "
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCurrentBranch)
 #: src/gui/dialogs/commitpushdialog.ui:40
 #, kde-format
 msgid "Current branch"
-msgstr "Nykyinen haara"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExistingBranch)
 #: src/gui/dialogs/commitpushdialog.ui:50
 #: src/gui/dialogs/switchbranchdialog.ui:26
 #, kde-format
 msgid "Existing branch"
-msgstr "Olemassa oleva haara"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNewBranch)
 #: src/gui/dialogs/commitpushdialog.ui:64
 #: src/gui/dialogs/switchbranchdialog.ui:39
 #, kde-format
 msgid "New branch"
-msgstr "Uusi haara"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxForce)
 #: src/gui/dialogs/commitpushdialog.ui:88
@@ -729,13 +726,13 @@ msgstr ""
 #: src/gui/dialogs/switchbranchdialog.ui:75
 #, kde-format
 msgid "Force"
-msgstr "Pakota"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxMakeCommit)
 #: src/gui/dialogs/commitpushdialog.ui:98
 #, kde-format
 msgid "Create a commit"
-msgstr "Luo toimitus"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/gui/dialogs/commitpushdialog.ui:107
@@ -752,7 +749,7 @@ msgstr ""
 #: src/gui/dialogs/commitpushdialog.ui:110
 #, kde-format
 msgid "Include status to the message"
-msgstr "Sisällytä viestiin tila"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAmend)
 #: src/gui/dialogs/commitpushdialog.ui:120
@@ -769,14 +766,14 @@ msgstr ""
 #: src/gui/dialogs/commitpushdialog.ui:123
 #, kde-format
 msgid "Amend to previous commit"
-msgstr "Täydennä aiempaa toimitusta"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/commitpushdialog.ui:152 src/gui/dialogs/taginfodialog.ui:32
 #, kde-format
 msgid "Message:"
-msgstr "Viesti:"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (CompletionTextEdit, textEditMessage)
 #: src/gui/dialogs/commitpushdialog.ui:162
@@ -792,43 +789,43 @@ msgstr ""
 #: src/gui/dialogs/commitpushdialog.ui:175
 #, kde-format
 msgid "Files:"
-msgstr "Tiedostot:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
 #: src/gui/dialogs/commitpushdialog.ui:195
 #, kde-format
 msgid "All"
-msgstr "Kaikki"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddIndexed)
 #: src/gui/dialogs/commitpushdialog.ui:205
 #, kde-format
 msgid "Indexed"
-msgstr "Indeksoitu"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:211
 #, kde-format
 msgid "Added"
-msgstr "Lisätty"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:213
 #, kde-format
 msgid "Removed"
-msgstr "Poistettu"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:215
 #, kde-format
 msgid "Modified"
-msgstr "Muutettu"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddNone)
 #: src/gui/dialogs/commitpushdialog.ui:245
 #, kde-format
 msgid "None"
-msgstr "Ei mitään"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -836,55 +833,55 @@ msgstr "Ei mitään"
 #: src/gui/dialogs/filehistorydialog.ui:65 src/gui/dialogs/searchdialog.cpp:37
 #, kde-format
 msgid "Commit"
-msgstr "Toimita"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/gui/dialogs/diffopendialog.ui:14
 #, kde-format
 msgid "Select files/folders"
-msgstr "Valitse tiedostot tai kansiot"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
 #: src/gui/dialogs/diffopendialog.ui:24
 #, kde-format
 msgid "Compare files"
-msgstr "Vertaa tiedostoja"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFolders)
 #: src/gui/dialogs/diffopendialog.ui:31
 #, kde-format
 msgid "Compare directories"
-msgstr "Vertaa kansioita"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/diffopendialog.ui:41
 #, kde-format
 msgid "Old file:"
-msgstr "Vanha tiedosto:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/diffopendialog.ui:51
 #, kde-format
 msgid "New file:"
-msgstr "Uusi tiedosto:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/diffopendialog.ui:70
 #, kde-format
 msgid "New directory:"
-msgstr "Uusi kansio:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/diffopendialog.ui:77
 #, kde-format
 msgid "Old directory:"
-msgstr "Vanha kansio:"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/gui/dialogs/fetchdialog.ui:14
 #, kde-format
 msgid "Fetch from origin"
-msgstr "Nouda alkulähteestä"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -892,33 +889,33 @@ msgstr "Nouda alkulähteestä"
 #: src/gui/dialogs/pulldialog.ui:26
 #, kde-format
 msgid "Remote"
-msgstr "Etäkohde"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllBranches)
 #: src/gui/dialogs/fetchdialog.ui:43
 #, kde-format
 msgid "All branches"
-msgstr "Kaikki haarat"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/fetchdialog.ui:88 src/gui/dialogs/pulldialog.ui:49
 #: src/gui/dialogs/switchbranchdialog.ui:69
 #, kde-format
 msgid "Options"
-msgstr "Valinnat"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoFastForward)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/fetchdialog.ui:94 src/gui/dialogs/mergedialog.ui:86
 #, kde-format
 msgid "No fast forward"
-msgstr "Ei pikakelausta"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
 #: src/gui/dialogs/fetchdialog.ui:101 src/gui/dialogs/pulldialog.ui:146
 #, kde-format
 msgid "No commit"
-msgstr "Ei toimitusta"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTags)
@@ -928,26 +925,26 @@ msgstr "Ei toimitusta"
 #: src/gui/widgets/tagswidget.ui:14
 #, kde-format
 msgid "Tags"
-msgstr "Tunnisteet"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/fetchdialog.ui:115 src/gui/dialogs/mergedialog.ui:81
 #, kde-format
 msgid "Fast forward only"
-msgstr "Vain pikakelaus"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
 #: src/gui/dialogs/fetchdialog.ui:122 src/gui/dialogs/pulldialog.ui:160
 #, kde-format
 msgid "Prune"
-msgstr "Karsi"
+msgstr ""
 
 #: src/gui/dialogs/fileblamedialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
-msgstr "Moitetiedosto: %1"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
@@ -958,13 +955,13 @@ msgstr "Moitetiedosto: %1"
 #: src/gui/dialogs/filestreedialog.ui:14 src/gui/dialogs/taginfodialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr "Ikkuna"
+msgstr ""
 
 #: src/gui/dialogs/filehistorydialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
-msgstr "Tiedostoloki: %1"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/filehistorydialog.ui:27
@@ -990,7 +987,7 @@ msgstr ""
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:26
 #, kde-format
 msgid "Left"
-msgstr "Vasen"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -998,57 +995,57 @@ msgstr "Vasen"
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:55
 #, kde-format
 msgid "Right"
-msgstr "Oikea"
+msgstr ""
 
 #: src/gui/dialogs/filestreedialog.cpp:35
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
-msgstr "Selaa tiedostoja: %1"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/filestreedialog.ui:32
 #, kde-format
 msgid "Branch:"
-msgstr "Haara:"
+msgstr ""
 
 #: src/gui/dialogs/fileviewerdialog.cpp:54
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
-msgstr "Suljetaan esikatselua"
+msgstr ""
 
 #: src/gui/dialogs/fileviewerdialog.cpp:55
 #, kde-format
 msgid "Please wait while the preview is being closed..."
-msgstr "Odota kunnes esikatselu on sulkeutunut…"
+msgstr ""
 
 #: src/gui/dialogs/fileviewerdialog.cpp:88
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
-msgstr "Näytä tiedosto: %1"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QMainWindow, FileViewerDialog)
 #: src/gui/dialogs/fileviewerdialog.ui:14
 #, kde-format
 msgid "MainWindow"
-msgstr "Pääikkuna"
+msgstr ""
 
 #: src/gui/dialogs/ignorefiledialog.cpp:44
 #, kde-format
 msgid "The file is ignored already"
-msgstr "Tämä tiedosto sivuutetaan jo"
+msgstr ""
 
 #: src/gui/dialogs/ignorefiledialog.cpp:80
 #, kde-format
 msgid "Please enter the pattern"
-msgstr "Kirjoita kuvio"
+msgstr ""
 
 #: src/gui/dialogs/ignorefiledialog.cpp:85
 #, kde-format
 msgid "Unable to open file: %1"
-msgstr "Tiedostoa ei voi avata: %1"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
@@ -1056,85 +1053,85 @@ msgstr "Tiedostoa ei voi avata: %1"
 #: src/gui/dialogs/ignorefiledialog.ui:96
 #, kde-format
 msgid "Ignore file"
-msgstr "Sivuuta tiedosto"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/ignorefiledialog.ui:25
 #, kde-format
 msgid "Pattern:"
-msgstr "Kuvio:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/dialogs/ignorefiledialog.ui:37 src/gui/models/treemodel.cpp:141
 #: src/gui/widgets/remoteswidget.ui:164
-#: src/libgitklient/models/authorsmodel.cpp:37
-#: src/libgitklient/models/branchesmodel.cpp:56
-#: src/libgitklient/models/tagsmodel.cpp:62
+#: src/libkommit/models/authorsmodel.cpp:37
+#: src/libkommit/models/branchesmodel.cpp:56
+#: src/libkommit/models/tagsmodel.cpp:62
 #, kde-format
 msgid "Name"
-msgstr "Nimi"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNameAndExt)
 #: src/gui/dialogs/ignorefiledialog.ui:43
 #, kde-format
 msgid "Name and extension"
-msgstr "Nimi ja pääte"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExt)
 #: src/gui/dialogs/ignorefiledialog.ui:53
 #, kde-format
 msgid "All files by this extension"
-msgstr "Kaikki tämän päätteiset tiedostot"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonName)
 #: src/gui/dialogs/ignorefiledialog.ui:60
 #, kde-format
 msgid "All files by this name"
-msgstr "Kaikki tämän nimiset tiedostot"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/gui/dialogs/ignorefiledialog.ui:70
-#: src/libgitklient/models/submodulesmodel.cpp:55
+#: src/libkommit/models/submodulesmodel.cpp:55
 #, kde-format
 msgid "Path"
-msgstr "Sijainti"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExactPath)
 #: src/gui/dialogs/ignorefiledialog.ui:76
 #, kde-format
 msgid "Exact the path"
-msgstr "Juuri tässä sijainnissa"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonEveryWhere)
 #: src/gui/dialogs/ignorefiledialog.ui:86
 #, kde-format
 msgid "File in everywhere"
-msgstr "Tiedosto missä tahansa"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRootIgnoreFile)
 #: src/gui/dialogs/ignorefiledialog.ui:102
 #, kde-format
 msgid ".gitignore in the repository root"
-msgstr ".gitignore lähteen juuressa"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDirIgnoreFile)
 #: src/gui/dialogs/ignorefiledialog.ui:112
 #, kde-format
 msgid ".gitignore in the containing directory"
-msgstr ".gitignore ylemmässä kansiossa"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExcludeFile)
 #: src/gui/dialogs/ignorefiledialog.ui:119
 #, kde-format
 msgid ".git/info/exclude"
-msgstr ".git/info/exclude"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, InitDialog)
 #: src/gui/dialogs/initdialog.ui:14
 #, kde-format
 msgid "Init git repo"
-msgstr "Alusta git-lähde"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
@@ -1143,53 +1140,53 @@ msgstr "Alusta git-lähde"
 #: src/gui/dialogs/runnerdialog.ui:105 src/gui/merge/closeeventdialog.ui:14
 #, kde-format
 msgid "Close"
-msgstr "Sulje"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/mergecloseeventdialog.ui:20
 #: src/gui/merge/closeeventdialog.ui:20
 #, kde-format
 msgid "The changes to file are not saved to the disk. What you want to do?"
-msgstr "Tiedoston muutoksia ei ole tallennettu. Mitä haluat tehdä?"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonMarkResolved)
 #: src/gui/dialogs/mergecloseeventdialog.ui:49
 #: src/gui/merge/closeeventdialog.ui:49
 #, kde-format
 msgid "Mark as resolved"
-msgstr "Merkitse ratkaistuksi"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonLeaveAsIs)
 #: src/gui/dialogs/mergecloseeventdialog.ui:62
 #: src/gui/merge/closeeventdialog.ui:62
 #, kde-format
 msgid "Leave as is"
-msgstr "Jätä sikseen"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonDontExit)
 #: src/gui/dialogs/mergecloseeventdialog.ui:75
 #: src/gui/merge/closeeventdialog.ui:75
 #, kde-format
 msgid "Don't exit"
-msgstr "Älä lopeta"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
 #: src/gui/dialogs/mergedialog.ui:14
 #, kde-format
 msgid "Merge"
-msgstr "Yhdistä"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/mergedialog.ui:22
 #, kde-format
 msgid "From:"
-msgstr "Mistä:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/mergedialog.ui:32
 #, kde-format
 msgid "Strategy:"
-msgstr "Strategia:"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxStrategy)
 #: src/gui/dialogs/mergedialog.ui:39
@@ -1208,7 +1205,7 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:46
 #, kde-format
 msgid "To:"
-msgstr "Mihin:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #: src/gui/dialogs/mergedialog.ui:53
@@ -1220,7 +1217,7 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:60 src/gui/dialogs/pulldialog.ui:79
 #, kde-format
 msgid "Fast forward:"
-msgstr "Pikakelaa:"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/mergedialog.ui:67
@@ -1238,13 +1235,13 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:71 src/gui/dialogs/mergedialog.ui:130
 #, kde-format
 msgid "Default"
-msgstr "Oletus"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/mergedialog.ui:76
 #, kde-format
 msgid "Allow fast forward"
-msgstr "Salli pikakelaus"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/gui/dialogs/mergedialog.ui:94
@@ -1291,13 +1288,13 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:140
 #, kde-format
 msgid "Ours"
-msgstr "Meidän"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTheirs)
 #: src/gui/dialogs/mergedialog.ui:147
 #, kde-format
 msgid "Theirs"
-msgstr "Heidän"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreAllSpace)
@@ -1319,25 +1316,25 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:157
 #, kde-format
 msgid "Ignore space change"
-msgstr "Sivuuta tyhjemerkkien muutokset"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreAllSpace)
 #: src/gui/dialogs/mergedialog.ui:167
 #, kde-format
 msgid "Ignore all space"
-msgstr "Sivuuta kaikki tyhjemerkit"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
 #: src/gui/dialogs/mergedialog.ui:177
 #, kde-format
 msgid "Ignore space at eol"
-msgstr "Sivuuta rivinloppuiset tyhjemerkit"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreCrAtEol)
 #: src/gui/dialogs/mergedialog.ui:187
 #, kde-format
 msgid "Ignore cr at eol"
-msgstr "Sivuuta rivinloppuinen CR"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxRenormalize)
 #: src/gui/dialogs/mergedialog.ui:194
@@ -1356,13 +1353,13 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:197
 #, kde-format
 msgid "Renormalize"
-msgstr "Normalisoi uudelleen"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/gui/dialogs/mergedialog.ui:211
 #, kde-format
 msgid "Diff algorithm:"
-msgstr "Diff-algoritmi:"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxDiffAlgoritm)
 #: src/gui/dialogs/mergedialog.ui:218
@@ -1380,55 +1377,55 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:225
 #, kde-format
 msgid "Turn off rename detection"
-msgstr "Poista nimenmuutoksen tunnistus käytöstä"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeOpenFilesDialog)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:14
 #, kde-format
 msgid "Select files to merge"
-msgstr "Valitse yhdistettävät tiedostot"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:26
 #, kde-format
 msgid "Local file:"
-msgstr "Paikallinen tiedosto:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:36
 #, kde-format
 msgid "Remote file:"
-msgstr "Etätiedosto:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:46
 #, kde-format
 msgid "Base file:"
-msgstr "Pohjatiedosto:"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
 #: src/gui/dialogs/notedialog.ui:14
 #, kde-format
 msgid "Note"
-msgstr "Huomautus"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PullDialog)
 #: src/gui/dialogs/pulldialog.ui:14
 #, kde-format
 msgid "Pull changes"
-msgstr "Tuo muutokset"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/pulldialog.ui:63
 #, kde-format
 msgid "Rebase:"
-msgstr "Pohjaa uudelleen:"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RepoSettingsDialog)
 #: src/gui/dialogs/reposettingsdialog.ui:14
 #, kde-format
 msgid "Repo settings"
-msgstr "Lähdeasetukset"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_7)
@@ -1436,13 +1433,13 @@ msgstr "Lähdeasetukset"
 #: src/gui/widgets/remoteinfodialog.ui:25 src/gui/widgets/remoteswidget.ui:136
 #, kde-format
 msgid "Name:"
-msgstr "Nimi:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/reposettingsdialog.ui:36
 #, kde-format
 msgid "Email:"
-msgstr "Sähköposti:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/reposettingsdialog.ui:46
@@ -1480,34 +1477,34 @@ msgstr ""
 #: src/gui/dialogs/runnerdialog.cpp:57
 #, kde-format
 msgid "View"
-msgstr "Näytä"
+msgstr ""
 
 #: src/gui/dialogs/runnerdialog.cpp:119
 #, kde-format
 msgid "Process finished"
-msgstr "Prosessi valmistui"
+msgstr ""
 
 #: src/gui/dialogs/runnerdialog.cpp:124
 #, kde-format
 msgid "The git process crashed"
-msgstr "git-prosessi kaatui"
+msgstr ""
 
 #: src/gui/dialogs/runnerdialog.cpp:125
 #, kde-format
 msgid "Process finished with error"
-msgstr "Prosessi päättyi virheeseen"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/gui/dialogs/runnerdialog.ui:14
 #, kde-format
 msgid "Run command"
-msgstr "Suorita komento"
+msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/gui/dialogs/runnerdialog.ui:45
 #, kde-format
 msgid "Output"
-msgstr "Tuloste"
+msgstr ""
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
 #: src/gui/dialogs/runnerdialog.ui:72
@@ -1527,83 +1524,76 @@ msgid ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
 "\"><br /></p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
-"\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Monospace'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-"\"><br /></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonStop)
 #: src/gui/dialogs/runnerdialog.ui:98
 #, kde-format
 msgid "Stop"
-msgstr "Pysäytä"
+msgstr ""
 
 #: src/gui/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "File name"
-msgstr "Tiedostonimi"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
 #: src/gui/dialogs/searchdialog.ui:14
 #, kde-format
 msgid "Search in repo"
-msgstr "Etsi lähteestä"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/searchdialog.ui:25
 #, kde-format
 msgid "Path:"
-msgstr "Sijainti:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/searchdialog.ui:35
 #, kde-format
 msgid "Text:"
-msgstr "Teksti:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchBranches)
 #: src/gui/dialogs/searchdialog.ui:45
 #, kde-format
 msgid "Search all branches"
-msgstr "Etsi kaikista haaroista"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
 #: src/gui/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
-msgstr "Etsi kaikista toimituksista"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
 #: src/gui/dialogs/searchdialog.ui:62
 #, kde-format
 msgid "Case sensitive"
-msgstr "Erota pien- ja suuraakkoset"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonSearch)
 #: src/gui/dialogs/searchdialog.ui:86
 #, kde-format
 msgid "Search"
-msgstr "Etsi"
+msgstr ""
 
 #: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
 msgid "The selected branches must be different!"
-msgstr "Valittujen haarojen on erottava!"
+msgstr ""
+
+#: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
+#, fuzzy, kde-format
+#| msgid "Remove Branch"
+msgid "Select Branches"
+msgstr "Zweig entfernen"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:14
 #, kde-format
 msgid "Select branches"
-msgstr "Valitse haarat"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectLeftBranch)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
@@ -1611,7 +1601,7 @@ msgstr "Valitse haarat"
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:61
 #, kde-format
 msgid "Select branch"
-msgstr "Valitse haara"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLeftIsHead)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRightIsHead)
@@ -1619,7 +1609,7 @@ msgstr "Valitse haara"
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:74
 #, kde-format
 msgid "HEAD"
-msgstr "HEAD"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
@@ -1627,92 +1617,92 @@ msgstr "HEAD"
 #: src/gui/widgets/submoduleswidget.ui:46
 #, kde-format
 msgid "Add new submodule"
-msgstr "Lisää uusi alimoduuli"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
 #: src/gui/dialogs/switchbranchdialog.ui:14
 #, kde-format
 msgid "Switch/Checkout"
-msgstr "Siirry/vaihda"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53
 #, kde-format
 msgid "Tag"
-msgstr "Tunniste"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/taginfodialog.ui:22
 #, kde-format
 msgid "Tag name:"
-msgstr "Tunnisteen nimi:"
+msgstr ""
 
 #: src/gui/diffwindow.cpp:106
 #, kde-format
 msgctxt "@title:window"
-msgid "GitKlient Diff[*]"
-msgstr "GitKlient Diff[*]"
+msgid "Kommit Diff[*]"
+msgstr ""
 
 #: src/gui/diffwindow.cpp:109
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
-msgstr "Puu"
+msgstr ""
 
 #: src/gui/diffwindow.cpp:136
 #, kde-format
 msgid "View hidden chars..."
-msgstr "Näytä piilomerkit…"
+msgstr ""
 
 #: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:339
 #, kde-format
 msgid "Same size blocks"
-msgstr "Saman kokoiset lohkot"
+msgstr ""
 
 #: src/gui/diffwindow.cpp:146
 #, kde-format
 msgid "Show files names"
-msgstr "Näytä tiedostonimet"
+msgstr ""
 
 #: src/gui/diffwindow.cpp:152
 #, kde-format
 msgid "Show Tree"
-msgstr "Näytä puu"
+msgstr ""
 
 #: src/gui/diffwindow.cpp:209
 #, kde-format
 msgid "Unchanged"
-msgstr "Ei muutettu"
+msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/gui/gitklientdiffui.rc:20 src/gui/gitklientmergeui.rc:33
-#: src/gui/gitklientui.rc:45
+#: src/gui/kommitdiffui.rc:20 src/gui/kommitmergeui.rc:33
+#: src/gui/kommitui.rc:45
 #, kde-format
 msgid "Main Toolbar"
-msgstr "Päätyökalurivi"
+msgstr ""
 
 #. i18n: ectx: Menu (file)
 #. i18n: ectx: Menu (repo)
-#: src/gui/gitklientui.rc:10 src/gui/gitklientui.rc:26
+#: src/gui/kommitui.rc:10 src/gui/kommitui.rc:26
 #, kde-format
 msgid "Repo"
-msgstr "Lähde"
+msgstr ""
 
 #: src/gui/mainwidget.cpp:101
 #, kde-format
 msgid "Diff with master..."
-msgstr "Vertaa masteriin…"
+msgstr ""
 
 #: src/gui/mainwidget.cpp:165
 #, kde-format
 msgid "New tag"
-msgstr "Uusi tunniste"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, MainWidget)
 #: src/gui/mainwidget.ui:14
 #, kde-format
 msgid "Form"
-msgstr "Lomake"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelTitle)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonOverview)
@@ -1721,43 +1711,43 @@ msgstr "Lomake"
 #: src/gui/multipagewidget.ui:131 src/gui/widgets/historyviewwidget.ui:14
 #, kde-format
 msgid "Overview"
-msgstr "Yleiskuva"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonBranches)
 #. i18n: ectx: property (windowTitle), widget (QWidget, BranchesStatusWidget)
 #: src/gui/mainwidget.ui:118 src/gui/widgets/branchesstatuswidget.ui:14
 #, kde-format
 msgid "Branches"
-msgstr "Haarat"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonCommits)
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
 #: src/gui/mainwidget.ui:147 src/gui/widgets/commitswidget.ui:14
-#: src/libgitklient/models/authorsmodel.cpp:41
+#: src/libkommit/models/authorsmodel.cpp:41
 #, kde-format
 msgid "Commits"
-msgstr "Toimitukset"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonStashes)
 #. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
 #: src/gui/mainwidget.ui:176 src/gui/widgets/stasheswidget.ui:14
 #, kde-format
 msgid "Stashes"
-msgstr "Jemmat"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonSubmodules)
 #. i18n: ectx: property (windowTitle), widget (QWidget, SubmodulesWidget)
 #: src/gui/mainwidget.ui:205 src/gui/widgets/submoduleswidget.ui:14
 #, kde-format
 msgid "Submodules"
-msgstr "Alimoduulit"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRemotes)
 #. i18n: ectx: property (windowTitle), widget (QWidget, RemotesWidget)
 #: src/gui/mainwidget.ui:234 src/gui/widgets/remoteswidget.ui:14
 #, kde-format
 msgid "Remotes"
-msgstr "Etäkohteet"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
@@ -1766,170 +1756,170 @@ msgstr "Etäkohteet"
 #: src/gui/widgets/tagswidget.ui:49
 #, kde-format
 msgid "Add"
-msgstr "Lisää"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:281
 #, kde-format
 msgid "Conflicts: %1"
-msgstr "Ristiriitoja: %1"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:289
 #, kde-format
 msgid "Keep mine"
-msgstr "Pidä minun"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:294
 #, kde-format
 msgid "Keep their"
-msgstr "Pidä heidän"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:300
 #, kde-format
 msgid "Keep mine before their"
-msgstr "Pidä minun ennen kuin heidän"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:305
 #, kde-format
 msgid "Keep their before mine"
-msgstr "Pidä heidän ennen kuin minun"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:310
 #, kde-format
 msgid "Keep my file"
-msgstr "Pidä minun tiedostoni"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:315
 #, kde-format
 msgid "Keep their file"
-msgstr "Pidä heidän tiedostonsa"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:320
 #, kde-format
 msgid "Blocks"
-msgstr "Lohkot"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:324
 #, kde-format
 msgid "Files"
-msgstr "Tiedostot"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:328
 #, kde-format
 msgid "Previous diff"
-msgstr "Edellinen diff"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:334
 #, kde-format
 msgid "Next diff"
-msgstr "Seuraava diff"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:431
 #, kde-format
 msgid "Unable to open the file"
-msgstr "Tiedostoa ei voi avata"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/models/treemodel.cpp:143 src/gui/widgets/remoteswidget.ui:179
-#: src/libgitklient/models/submodulesmodel.cpp:59
+#: src/libkommit/models/submodulesmodel.cpp:59
 #, kde-format
 msgid "Status"
-msgstr "Tila"
+msgstr ""
 
 #. i18n: ectx: label, entry (diffAddedColor), group (Preferences)
-#: src/gui/settings/GitKlientSettings.kcfg:9
+#: src/gui/settings/KommitSettings.kcfg:9
 #, kde-format
 msgid "Added color"
-msgstr "Lisätty väri"
+msgstr ""
 
 #. i18n: ectx: label, entry (diffRemovedColor), group (Preferences)
-#: src/gui/settings/GitKlientSettings.kcfg:13
+#: src/gui/settings/KommitSettings.kcfg:13
 #, kde-format
 msgid "Removed color"
-msgstr "Poistettu väri"
+msgstr ""
 
 #. i18n: ectx: label, entry (diffModifiedColor), group (Preferences)
-#: src/gui/settings/GitKlientSettings.kcfg:17
+#: src/gui/settings/KommitSettings.kcfg:17
 #, kde-format
 msgid "Modified color"
-msgstr "Muutettu väri"
+msgstr ""
 
 #. i18n: ectx: label, entry (colorForeground), group (Preferences)
-#: src/gui/settings/GitKlientSettings.kcfg:21
+#: src/gui/settings/KommitSettings.kcfg:21
 #, kde-format
 msgid "color of the foreground"
-msgstr "edustaväri"
+msgstr ""
 
 #. i18n: ectx: label, entry (gitBinPath), group (Preferences)
-#: src/gui/settings/GitKlientSettings.kcfg:26
+#: src/gui/settings/KommitSettings.kcfg:26
 #, kde-format
 msgid "age of the project"
-msgstr "projektin ikä"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_openLastRepo)
 #. i18n: ectx: label, entry (openLastRepo), group (Preferences)
-#: src/gui/settings/GitKlientSettings.kcfg:33
+#: src/gui/settings/KommitSettings.kcfg:33
 #: src/gui/settings/settingspagebase.ui:29
 #, kde-format
 msgid "Open last repo at startup"
-msgstr "Avaa käynnistettäessä viimeisin lähde"
+msgstr ""
 
 #: src/gui/settings/settingsmanager.cpp:93
 #, kde-format
 msgid "General"
-msgstr "Perusasetukset"
+msgstr ""
 
 #: src/gui/settings/settingsmanager.cpp:95
 #, kde-format
 msgid "Git"
-msgstr "Git"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/settings/settingspagebase.ui:23
 #, kde-format
 msgid "Startup"
-msgstr "Käynnistys"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelDefaultCalendar)
 #: src/gui/settings/settingspagebase.ui:41
 #, kde-format
 msgid "Default calendar:"
-msgstr "Oletuskalenteri:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/settings/settingspagebase.ui:51
 #, kde-format
 msgid "Git binary path:"
-msgstr "Git-ohjelmatiedoston sijainti:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel)
 #: src/gui/settings/settingspagediff.ui:17
 #, kde-format
 msgid "Added diff color:"
-msgstr "Lisäyksen vertailuväri:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel_2)
 #: src/gui/settings/settingspagediff.ui:27
 #, kde-format
 msgid "Removed diff color:"
-msgstr "Poiston vertailuväri:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel_3)
 #: src/gui/settings/settingspagediff.ui:37
 #, kde-format
 msgid "Modified diff color:"
-msgstr "Muutoksen vertailuväri:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerDiffTool)
 #: src/gui/settings/settingspagegit.ui:19
 #, kde-format
-msgid "Register GitKlient diff tool"
-msgstr "Rekisteröi GitKlient-vertailutyökalu"
+msgid "Register kommit diff tool"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
 #: src/gui/settings/settingspagegit.ui:26
 #, kde-format
-msgid "Register GitKlient merge tool"
-msgstr "Rekisteröi GitKlient-yhdistämistyökalu"
+msgid "Register kommit merge tool"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/settings/settingspagegit.ui:37
@@ -1941,24 +1931,24 @@ msgstr ""
 #: src/gui/widgets/authorswidget.ui:14
 #, kde-format
 msgid "Authors"
-msgstr "Tekijät"
+msgstr ""
 
 #: src/gui/widgets/blamecodeview.cpp:41
 #, kde-format
 msgid "Uncommited"
-msgstr "Ei toimitettu"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/widgets/branchesstatuswidget.ui:26
 #, kde-format
 msgid "Reference branch:"
-msgstr "Viitehaara:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonNew)
 #: src/gui/widgets/branchesstatuswidget.ui:79
 #, kde-format
 msgid "New"
-msgstr "Uusi"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
@@ -1966,134 +1956,134 @@ msgstr "Uusi"
 #: src/gui/widgets/remoteswidget.ui:66
 #, kde-format
 msgid "Remove"
-msgstr "Poista"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/widgets/branchesstatuswidget.ui:113
 #, kde-format
 msgid "Browse"
-msgstr "Selaa"
+msgstr ""
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/gui/widgets/commitswidget.ui:42
 #, kde-format
 msgid "Filter..."
-msgstr "Suodata…"
+msgstr ""
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/gui/widgets/difftreeview.ui:17
 #, kde-format
 msgid "Type to filter"
-msgstr "Suodata kirjoittamalla"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/gui/widgets/difftreeview.ui:53
 #, kde-format
 msgid "Hide unchangeds"
-msgstr "Piilota muuttamattomat"
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:110
 #, kde-format
 msgid "Ref"
-msgstr "Viite"
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:113
 #: src/gui/widgets/logdetailswidget.cpp:116
-#: src/libgitklient/models/tagsmodel.cpp:68
+#: src/libkommit/models/tagsmodel.cpp:68
 #, kde-format
 msgid "Committer"
-msgstr "Toimittaja"
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:119
-#: src/libgitklient/models/logsmodel.cpp:260
+#: src/libkommit/models/logsmodel.cpp:260
 #, kde-format
 msgid "Date"
-msgstr "Päiväys"
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:120
 #, kde-format
 msgid "Hash"
-msgstr "Tiiviste"
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:123
 #, kde-format
 msgid "Parent"
-msgstr "Vanhempi"
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:123
 #, kde-format
 msgid "Parents"
-msgstr "Vanhemmat"
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:125
 #, kde-format
 msgid "Child"
-msgstr "Lapsi"
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:125
 #, kde-format
 msgid "Children"
-msgstr "Lapset"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RemoteInfoDialog)
 #: src/gui/widgets/remoteinfodialog.ui:14
 #, kde-format
 msgid "New remote"
-msgstr "Uusi etäkohde"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxMirror)
 #: src/gui/widgets/remoteinfodialog.ui:47
 #, kde-format
 msgid "Mirror"
-msgstr "Peili"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
 #: src/gui/widgets/remoteinfodialog.ui:64
 #, kde-format
 msgid "Fetch"
-msgstr "Nouda"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/widgets/remoteswidget.ui:79
 #, kde-format
 msgid "Information"
-msgstr "Tietoa"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/widgets/remoteswidget.ui:85
 #, kde-format
 msgid "Default branch:"
-msgstr "Oletushaara:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/widgets/remoteswidget.ui:102
 #, kde-format
 msgid "Fetch url:"
-msgstr "Nouto-osoite:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/widgets/remoteswidget.ui:119
 #, kde-format
 msgid "Push url:"
-msgstr "Vientiosoite:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/widgets/remoteswidget.ui:156
 #, kde-format
 msgid "Branches:"
-msgstr "Haarat:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:169
 #, kde-format
 msgid "Push to"
-msgstr "Vie kohteeseen"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:174
 #, kde-format
 msgid "Pull from"
-msgstr "Tuo kohteesta"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
@@ -2114,14 +2104,14 @@ msgstr ""
 #: src/gui/widgets/stasheswidget.ui:52
 #, kde-format
 msgid "Create new"
-msgstr "Luo uusi"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #: src/gui/widgets/stasheswidget.ui:59 src/gui/widgets/tagswidget.ui:56
 #, kde-format
 msgid "Remove selected"
-msgstr "Poista valittu"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonApply)
 #: src/gui/widgets/stasheswidget.ui:66
@@ -2137,112 +2127,116 @@ msgstr ""
 #: src/gui/widgets/stasheswidget.ui:69
 #, kde-format
 msgid "Apply selected"
-msgstr "Käytä valittua"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
 #: src/gui/widgets/submoduleswidget.ui:56
 #, kde-format
 msgid "Update"
-msgstr "Päivitä"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/widgets/tagswidget.ui:63
 #, kde-format
 msgid "Checkout to selected"
-msgstr "Vaihda valittuun"
+msgstr ""
 
-#: src/libgitklient/commands/commandpull.cpp:62
+#: src/libkommit/commands/commandpull.cpp:62
 #, kde-format
 msgid "Already up to date."
-msgstr "Jo ajan tasalla."
+msgstr ""
 
-#: src/libgitklient/commands/commandpull.cpp:66
+#: src/libkommit/commands/commandpull.cpp:66
 #, kde-format
 msgid "Error"
-msgstr "Virhe"
+msgstr ""
 
-#: src/libgitklient/commands/commandswitchbranch.cpp:26
+#: src/libkommit/commands/commandswitchbranch.cpp:26
 #, kde-format
 msgid ""
 "Your local changes to the following files would be overwritten by checkout. "
 "Please commit your changes or stash them before you switch branches."
 msgstr ""
-"Vaihdettaessa paikalliset muutokset seuraaviin tiedostoihin korvattaisiin. "
-"Toimita muutokset tai siirrä ne jemmaan ennen haaran vaihtoa."
 
-#: src/libgitklient/gitremote.cpp:120
+#: src/libkommit/gitremote.cpp:120
 #, kde-format
 msgid "Unknown"
-msgstr "Tuntematon"
+msgstr ""
 
-#: src/libgitklient/gitremote.cpp:122
+#: src/libkommit/gitremote.cpp:122
 #, kde-format
 msgid "Up to date"
-msgstr "Ajan tasalla"
+msgstr ""
 
-#: src/libgitklient/gitremote.cpp:124
+#: src/libkommit/gitremote.cpp:124
 #, kde-format
 msgid "Fast forwardable"
-msgstr "Pikakelattavissa"
+msgstr ""
 
-#: src/libgitklient/gitremote.cpp:126
+#: src/libkommit/gitremote.cpp:126
 #, kde-format
 msgid "Local out of date"
-msgstr "Paikallinen vanhentunut"
+msgstr ""
 
-#: src/libgitklient/models/authorsmodel.cpp:39
+#: src/libkommit/models/authorsmodel.cpp:39
 #, kde-format
 msgid "Email"
-msgstr "Sähköposti"
+msgstr ""
 
-#: src/libgitklient/models/branchesmodel.cpp:58
+#: src/libkommit/models/branchesmodel.cpp:58
 #, kde-format
 msgid "Commit(s) behind"
-msgstr "Toimitus(ta) jäljessä"
+msgstr ""
 
-#: src/libgitklient/models/branchesmodel.cpp:60
+#: src/libkommit/models/branchesmodel.cpp:60
 #, kde-format
 msgid "Commit(s) ahead"
-msgstr "Toimitus(ta) edellä"
+msgstr ""
 
-#: src/libgitklient/models/logsmodel.cpp:258
-#: src/libgitklient/models/logsmodel.cpp:269
+#: src/libkommit/models/logsmodel.cpp:258
+#: src/libkommit/models/logsmodel.cpp:269
 #, kde-format
 msgid "Message"
-msgstr "Viesti"
+msgstr ""
 
-#: src/libgitklient/models/logsmodel.cpp:267
+#: src/libkommit/models/logsmodel.cpp:267
 #, kde-format
 msgid "Graph"
-msgstr "Kaavio"
+msgstr ""
 
-#: src/libgitklient/models/stashesmodel.cpp:60
-#: src/libgitklient/models/tagsmodel.cpp:64
+#: src/libkommit/models/stashesmodel.cpp:60
+#: src/libkommit/models/tagsmodel.cpp:64
 #, kde-format
 msgid "Subject"
-msgstr "Aihe"
+msgstr ""
 
-#: src/libgitklient/models/stashesmodel.cpp:62
+#: src/libkommit/models/stashesmodel.cpp:62
 #, kde-format
 msgid "Author name"
-msgstr "Tekijän nimi"
+msgstr ""
 
-#: src/libgitklient/models/stashesmodel.cpp:64
+#: src/libkommit/models/stashesmodel.cpp:64
 #, kde-format
 msgid "Author email"
-msgstr "Tekijän sähköposti"
+msgstr ""
 
-#: src/libgitklient/models/stashesmodel.cpp:66
+#: src/libkommit/models/stashesmodel.cpp:66
 #, kde-format
 msgid "Time"
-msgstr "Aika"
+msgstr ""
 
-#: src/libgitklient/models/submodulesmodel.cpp:57
+#: src/libkommit/models/submodulesmodel.cpp:57
 #, kde-format
 msgid "Head"
-msgstr "HEAD"
+msgstr ""
 
-#: src/libgitklient/models/tagsmodel.cpp:66
+#: src/libkommit/models/tagsmodel.cpp:66
 #, kde-format
 msgid "Tagger"
 msgstr ""
+
+#~ msgid "Git Klient"
+#~ msgstr "Git Klient"
+
+#~ msgid "GitKlient"
+#~ msgstr "GitKlient"

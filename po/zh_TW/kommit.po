@@ -1,55 +1,52 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the gitklient package.
+#
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 00:50+0000\n"
-"PO-Revision-Date: 2023-03-11 04:53\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"POT-Creation-Date: 2023-03-26 00:50+0000\n"
+"PO-Revision-Date: 2023-02-28 00:38+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/gitklient/gitklient.pot\n"
-"X-Crowdin-File-ID: 40826\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "KDE 中国, Henry Hu"
+msgstr "Kisaragi Hiu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-china@kde.org, henry.hu.sh@gmail.com"
-
-#: dolphinplugins/actionmanager.cpp:21
-#, kde-format
-msgid "Git Klient"
-msgstr "Git 客户端"
+msgstr "mail@kisaragi-hiu.com"
 
 #: src/apps/main.cpp:34
-#, kde-format
-msgid "GitKlient"
-msgstr "GitKlient"
+#, fuzzy, kde-format
+#| msgid "Commit"
+msgid "Kommit"
+msgstr "提交"
 
 #: src/apps/main.cpp:36
 #, kde-format
 msgid "Git client gui for KDE"
-msgstr "KDE Git 图形客户端"
+msgstr "KDE 的 Git 用戶端介面"
 
 #: src/apps/main.cpp:38
-#, kde-format
-msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
+msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+msgstr "版權所有 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:114
 #: src/gui/widgets/logdetailswidget.cpp:117
-#: src/libgitklient/models/logsmodel.cpp:262
+#: src/libkommit/models/logsmodel.cpp:262
 #, kde-format
 msgid "Author"
 msgstr "作者"
@@ -62,486 +59,486 @@ msgstr "Hamed Masafi"
 #: src/apps/main.cpp:41
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/apps/main.cpp:41
 #, kde-format
 msgid "Bug fixing"
-msgstr ""
+msgstr "錯誤修正"
 
 #: src/gui/actions/branchactions.cpp:30
 #, kde-format
 msgid "Create..."
-msgstr "新建..."
+msgstr "建立…"
 
 #: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:177
 #, kde-format
 msgid "Fetch..."
-msgstr "获取..."
+msgstr "抓取 (fetch)…"
 
 #: src/gui/actions/branchactions.cpp:34 src/gui/actions/commitactions.cpp:33
 #: src/gui/mainwidget.cpp:100
 #, kde-format
 msgid "Browse..."
-msgstr "浏览…"
+msgstr "瀏覽…"
 
 #: src/gui/actions/branchactions.cpp:35
 #, kde-format
 msgid "Switch"
-msgstr "切换"
+msgstr "切換"
 
 #: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:185
 #, kde-format
 msgid "Merge..."
-msgstr "合并..."
+msgstr "合併…"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:37 src/gui/gitklientmergeui.rc:17
+#: src/gui/actions/branchactions.cpp:37 src/gui/kommitmergeui.rc:17
 #: src/gui/settings/settingsmanager.cpp:94
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
-msgstr "差异"
+msgstr "比對差異"
 
 #: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
-msgstr "移除..."
+msgstr "移除…"
 
 #: src/gui/actions/branchactions.cpp:39
 #, kde-format
 msgid "Note..."
-msgstr "注解..."
+msgstr "備註…"
 
 #: src/gui/actions/branchactions.cpp:79
 #, kde-format
 msgid "Create new branch"
-msgstr "创建新分支"
+msgstr "建立新分支"
 
 #: src/gui/actions/branchactions.cpp:79
 #, kde-format
 msgid "Branch name"
-msgstr "分支名称"
+msgstr "分支名稱"
 
 #: src/gui/actions/branchactions.cpp:128
 #: src/gui/widgets/branchesstatuswidget.cpp:69
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
-msgstr "确定移除所选分支？"
+msgstr "您確定要刪除已選分支嗎？"
 
 #: src/gui/actions/branchactions.cpp:128
 #, kde-format
 msgid "Remove Branch"
-msgstr "删除分支"
+msgstr "移除分支"
 
 #: src/gui/actions/branchactions.cpp:130
 #: src/gui/widgets/branchesstatuswidget.cpp:73
 #, kde-format
 msgid "Unable to remove the selected branch"
-msgstr ""
+msgstr "無法移除所選分支"
 
 #: src/gui/actions/changedfileactions.cpp:18
 #, kde-format
 msgid "Diff..."
-msgstr "差异..."
+msgstr "比對…"
 
 #: src/gui/actions/changedfileactions.cpp:19
 #, kde-format
 msgid "Revert..."
-msgstr "还原..."
+msgstr "還原…"
 
 #: src/gui/actions/commitactions.cpp:34 src/gui/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Checkout..."
-msgstr "检出..."
+msgstr "簽出…"
 
 #: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:87
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
-msgstr "与 HEAD 相差…"
+msgstr "與 HEAD 比對差異…"
 
 #: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "預覽"
 
 #: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "開啟"
 
 #: src/gui/actions/fileactions.cpp:85
 #, kde-format
 msgid "Open with..."
-msgstr "打开方式..."
+msgstr "開啟方式…"
 
 #: src/gui/actions/fileactions.cpp:88
 #, kde-format
 msgid "Merge with HEAD..."
-msgstr "与 HEAD 合并…"
+msgstr "與 HEAD 合併…"
 
 #: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Save as..."
-msgstr "另存为..."
+msgstr "另存為…"
 
 #: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Log..."
-msgstr "日志…"
+msgstr "日誌…"
 
 #: src/gui/actions/fileactions.cpp:92
 #, kde-format
 msgid "Blame..."
-msgstr "追溯..."
+msgstr "Blame…"
 
 #: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:192
 #, kde-format
 msgid "Search..."
-msgstr "搜索..."
+msgstr "搜尋…"
 
 #: src/gui/actions/remotesactions.cpp:25
 #, kde-format
 msgid "New..."
-msgstr "新建…"
+msgstr "新增…"
 
 #: src/gui/actions/remotesactions.cpp:27
 #, kde-format
 msgid "Rename..."
-msgstr "重命名…"
+msgstr "重新命名…"
 
 #: src/gui/actions/remotesactions.cpp:28
 #, kde-format
 msgid "Change url..."
-msgstr "更改 URL..."
+msgstr "變更網址…"
 
 #: src/gui/actions/remotesactions.cpp:61
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
-msgstr "您确定要删除所选远端吗？"
+msgstr "您確定要刪除已選遠端嗎？"
 
 #: src/gui/actions/remotesactions.cpp:61
 #, kde-format
 msgid "Remove remote?"
-msgstr "移除远端？"
+msgstr "移除遠端？"
 
 #: src/gui/actions/remotesactions.cpp:63
 #, kde-format
 msgid "Unable to remove the selected remote"
-msgstr ""
+msgstr "無法移除所選遠端"
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "Change url"
-msgstr "更改 URL"
+msgstr "變更網址"
 
 #: src/gui/actions/remotesactions.cpp:76
 #, kde-format
 msgid "URL"
-msgstr "URL"
+msgstr "網址"
 
 #: src/gui/actions/remotesactions.cpp:79
 #, kde-format
 msgid "Url for remote changed successfully"
-msgstr "远端 URL 更改成功"
+msgstr "成功變更遠端網址"
 
 #: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "Rename"
-msgstr "重命名"
+msgstr "重新命名"
 
 #: src/gui/actions/remotesactions.cpp:85
 #, kde-format
 msgid "New name"
-msgstr "新名称"
+msgstr "新名稱"
 
 #: src/gui/actions/stashactions.cpp:22
 #, kde-format
 msgid "New stash..."
-msgstr "新建暂存…"
+msgstr "新貯存…"
 
 #: src/gui/actions/stashactions.cpp:24
 #, kde-format
 msgid "Pop..."
-msgstr "弹出..."
+msgstr "彈出…"
 
 #: src/gui/actions/stashactions.cpp:25
 #, kde-format
 msgid "Apply..."
-msgstr "应用..."
+msgstr "套用…"
 
 #: src/gui/actions/stashactions.cpp:49
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
-msgstr "您确定要应用选定的暂存？"
+msgstr "您確定要套用已選貯存嗎？"
 
 #: src/gui/actions/stashactions.cpp:49
 #, kde-format
 msgid "Apply stash %1"
-msgstr "应用暂存 %1"
+msgstr "套用貯存 %1"
 
 #: src/gui/actions/stashactions.cpp:51
 #, kde-format
 msgid "Unable to apply the selected stash"
-msgstr ""
+msgstr "無法套用已選貯存"
 
 #: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
-msgstr ""
+msgstr "您確定要捨棄已選貯存嗎？"
 
 #: src/gui/actions/stashactions.cpp:57
 #, kde-format
 msgid "Drop stash %1"
-msgstr ""
+msgstr "捨棄貯存 %1"
 
 #: src/gui/actions/stashactions.cpp:59
 #, kde-format
 msgid "Unable to remove the selected stash"
-msgstr ""
+msgstr "無法移除所選貯存"
 
 #: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
-msgstr ""
+msgstr "您確定要彈出（套用並移除）已選貯存嗎？"
 
 #: src/gui/actions/stashactions.cpp:68
 #, kde-format
 msgid "Pop stash %1"
-msgstr ""
+msgstr "彈出貯存 %1"
 
 #: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "You don't have any changes!"
-msgstr "您没有任何更改！"
+msgstr "您沒有任何變更！"
 
 #: src/gui/actions/stashactions.cpp:83
 #, kde-format
 msgid "Stash"
-msgstr "暂存"
+msgstr "貯存"
 
 #: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Create new stash"
-msgstr "建立新暂存"
+msgstr "建立新貯存"
 
 #: src/gui/actions/stashactions.cpp:88
 #, kde-format
 msgid "Name of stash"
-msgstr "暂存名称"
+msgstr "貯存名稱"
 
 #: src/gui/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Add..."
-msgstr "添加..."
+msgstr "新增..."
 
 #: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:147
 #, kde-format
 msgid "Init..."
-msgstr "初始化..."
+msgstr "初始化…"
 
 #: src/gui/actions/submoduleactions.cpp:42
 #, kde-format
 msgid "Update..."
-msgstr "更新..."
+msgstr "更新…"
 
 #. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/gui/actions/submoduleactions.cpp:44
 #, kde-format
 msgid "Sync..."
-msgstr "同步..."
+msgstr "同步…"
 
 #: src/gui/actions/submoduleactions.cpp:76
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
-msgstr "您确定要删除选定的子模块吗？"
+msgstr "您確定要刪除已選子模組嗎？"
 
 #: src/gui/actions/submoduleactions.cpp:76
 #, kde-format
 msgid "Remove Submodule"
-msgstr ""
+msgstr "移除子模組"
 
 #: src/gui/actions/submoduleactions.cpp:83
 #, kde-format
 msgid "Unable to remove the module directory"
-msgstr "无法删除模块目录"
+msgstr "無法移除模組目錄"
 
 #: src/gui/actions/submoduleactions.cpp:90
 #, kde-format
 msgid "The submodule %1 removed"
-msgstr "子模块 %1 已删除"
+msgstr "移除了子模組 %1"
 
 #: src/gui/actions/tagsactions.cpp:24
 #, kde-format
 msgid "New tag..."
-msgstr "新标签..."
+msgstr "建立標籤…"
 
 #: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Push..."
-msgstr "推送..."
+msgstr "推送 (push)…"
 
 #: src/gui/actions/tagsactions.cpp:48 src/gui/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
-msgstr "新标签"
+msgstr "建立標籤"
 
 #: src/gui/actions/tagsactions.cpp:57
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
-msgstr "您确定要删除选中的标签吗？"
+msgstr "您確定要刪除已選標籤嗎？"
 
 #: src/gui/actions/tagsactions.cpp:57
 #, kde-format
 msgid "Remove tag"
-msgstr ""
+msgstr "移除標籤"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/actions/tagsactions.cpp:65
 #: src/gui/widgets/branchesstatuswidget.ui:93
 #, kde-format
 msgid "Checkout"
-msgstr "检出"
+msgstr "簽出"
 
 #: src/gui/actions/tagsactions.cpp:65
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr ""
+msgstr "您確定要簽出已選標籤嗎？"
 
 #: src/gui/appwindow.cpp:74
 #, kde-format
 msgid "No repo selected"
-msgstr "没有选择仓库"
+msgstr "未選取版本庫"
 
 #: src/gui/appwindow.cpp:126
 #, kde-format
 msgid "Current branch: %1"
-msgstr "当前分支：%1"
+msgstr "目前分支：%1"
 
 #: src/gui/appwindow.cpp:128
 #, kde-format
 msgid " (merging)"
-msgstr " (合并中)"
+msgstr "（合併中）"
 
 #: src/gui/appwindow.cpp:130
 #, kde-format
 msgid " (rebasing)"
-msgstr ""
+msgstr "（重定基底中）"
 
 #: src/gui/appwindow.cpp:150
 #, kde-format
 msgid "Open..."
-msgstr "打开..."
+msgstr "開啟…"
 
 #: src/gui/appwindow.cpp:155
 #, kde-format
 msgid "Clone..."
-msgstr "克隆..."
+msgstr "建立複本…"
 
 #: src/gui/appwindow.cpp:158
 #, kde-format
 msgid "Changed files..."
-msgstr "已更改的文件..."
+msgstr "已變更的檔案…"
 
 #: src/gui/appwindow.cpp:164
 #, kde-format
 msgid "Recent repos"
-msgstr "最近仓库"
+msgstr "最近版本庫"
 
 #: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Cleanup..."
-msgstr ""
+msgstr "清理…"
 
 #: src/gui/appwindow.cpp:173
 #, kde-format
 msgid "Pull..."
-msgstr "拉取..."
+msgstr "拉取 (pull)…"
 
 #: src/gui/appwindow.cpp:189
 #, kde-format
 msgid "Diff branches..."
-msgstr "分支间相差..."
+msgstr "比對分支差異…"
 
 #: src/gui/appwindow.cpp:195
 #, kde-format
 msgid "Repo settings..."
-msgstr "仓库设置..."
+msgstr "版本庫設定…"
 
 #: src/gui/appwindow.cpp:198
 #, kde-format
 msgid "Switch/Checkout..."
-msgstr "切换/检出..."
+msgstr "切換/簽出…"
 
 #: src/gui/appwindow.cpp:201
 #, kde-format
 msgid "Diff tree"
-msgstr "查看树差异"
+msgstr ""
 
 #: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Unable to create path: %1"
-msgstr "无法创建路径：%1"
+msgstr "無法建立路徑：%1"
 
 #: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
 #, kde-format
 msgid "Init repo"
-msgstr "初始化仓库"
+msgstr "初始化版本庫"
 
 #: src/gui/appwindow.cpp:265
 #, kde-format
 msgid "Open repository"
-msgstr ""
+msgstr "開啟版本庫"
 
-#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:475
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:474
 #, kde-format
 msgid "Cannot switch branch while merging"
-msgstr "合并时无法切换分支"
+msgstr "合併中無法切換分支"
 
-#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:475
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:474
 #, kde-format
 msgid "Switch branch"
-msgstr "切换分支"
+msgstr "切換分支"
 
 #: src/gui/commandargsparser.cpp:56
 #, kde-format
 msgid "The path is not git repo: %1"
-msgstr "此路径不是 git 仓库：%1"
+msgstr "路徑不是 git 版本庫：%1"
 
 #: src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "The repo inited successfully"
-msgstr "仓库初始化成功"
+msgstr "版本庫已成功初始化"
 
-#: src/gui/commandargsparser.cpp:504
+#: src/gui/commandargsparser.cpp:503
 #, kde-format
 msgid "File(s) added to git successfully"
-msgstr "文件已成功添加到 git"
+msgstr "檔案成功加入到 git"
 
-#: src/gui/commandargsparser.cpp:512
+#: src/gui/commandargsparser.cpp:511
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
-msgstr "您想要保留磁盘上的文件吗？"
+msgstr "您要把檔案留在磁碟上嗎？"
 
-#: src/gui/commandargsparser.cpp:512
+#: src/gui/commandargsparser.cpp:511
 #, kde-format
 msgid "Remove from index"
-msgstr ""
+msgstr "從索引移除"
 
-#: src/gui/commandargsparser.cpp:514
+#: src/gui/commandargsparser.cpp:513
 #, kde-format
 msgid "File(s) removed from git successfully"
-msgstr "文件已成功从 git 中删除"
+msgstr "檔案成功從 git 移除"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus_2)
 #: src/gui/commandpullwidget.ui:19
 #, kde-format
 msgid "Status:"
-msgstr "状态："
+msgstr "狀態："
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelStatus)
@@ -566,26 +563,26 @@ msgstr "提交/推送"
 #: src/gui/dialogs/changedfilesdialog.cpp:38
 #, kde-format
 msgid "Reload"
-msgstr ""
+msgstr "重新載入"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/gui/dialogs/changedfilesdialog.ui:14
 #: src/gui/widgets/logdetailswidget.cpp:127
 #, kde-format
 msgid "Changed files"
-msgstr "更改的文件"
+msgstr "已變更的檔案"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/changedfilesdialog.ui:20
 #, kde-format
 msgid "Changed files:"
-msgstr "已更改文件："
+msgstr "已變更的檔案："
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/gui/dialogs/cleanupdialog.ui:14
 #, kde-format
 msgid "Cleanup repo"
-msgstr ""
+msgstr "清理版本庫"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/cleanupdialog.ui:23
@@ -597,31 +594,31 @@ msgstr ""
 #: src/gui/dialogs/cleanupdialog.ui:29
 #, kde-format
 msgid "Remove non-ignored untracked files"
-msgstr ""
+msgstr "移除所有未忽略且未追蹤的檔案"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllUntrackedFiles)
 #: src/gui/dialogs/cleanupdialog.ui:39
 #, kde-format
 msgid "Remove all untracked files"
-msgstr ""
+msgstr "移除所有未追蹤的檔案"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
 #: src/gui/dialogs/cleanupdialog.ui:46
 #, kde-format
 msgid "Remove ignored files"
-msgstr ""
+msgstr "移除已忽略的檔案"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
 #: src/gui/dialogs/cleanupdialog.ui:56
 #, kde-format
 msgid "Remove untracked directories"
-msgstr ""
+msgstr "移除未追蹤的目錄"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloneDialog)
 #: src/gui/dialogs/clonedialog.ui:14
 #, kde-format
 msgid "Clone a repository"
-msgstr "克隆一个仓库"
+msgstr "複製一個版本庫"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -629,20 +626,20 @@ msgstr "克隆一个仓库"
 #: src/gui/widgets/remoteinfodialog.ui:35
 #, kde-format
 msgid "Url:"
-msgstr "Url："
+msgstr "網址："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/clonedialog.ui:39 src/gui/dialogs/initdialog.ui:26
 #: src/gui/dialogs/submoduleinfodialog.ui:35
 #, kde-format
 msgid "Directory:"
-msgstr "目录："
+msgstr "目錄："
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRecursive)
 #: src/gui/dialogs/clonedialog.ui:64
 #, kde-format
 msgid "Recursive"
-msgstr "递归"
+msgstr "遞迴"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxDepth)
 #: src/gui/dialogs/clonedialog.ui:71
@@ -665,48 +662,48 @@ msgstr "分支"
 #: src/gui/dialogs/clonedialog.ui:105
 #, kde-format
 msgid "Origin name"
-msgstr "原始名称"
+msgstr "來源名稱"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #: src/gui/dialogs/commitpushdialog.cpp:85
-#: src/gui/dialogs/commitpushdialog.cpp:240
+#: src/gui/dialogs/commitpushdialog.cpp:244
 #: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
 msgstr "推送"
 
 #: src/gui/dialogs/commitpushdialog.cpp:87
-#: src/gui/dialogs/commitpushdialog.cpp:240
+#: src/gui/dialogs/commitpushdialog.cpp:244
 #, kde-format
 msgid "Commit and push"
-msgstr ""
+msgstr "提交並推送"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/gui/dialogs/commitpushdialog.ui:22
 #, kde-format
 msgid "Remote:"
-msgstr "远端："
+msgstr "遠端："
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCurrentBranch)
 #: src/gui/dialogs/commitpushdialog.ui:40
 #, kde-format
 msgid "Current branch"
-msgstr "当前分支"
+msgstr "目前分支"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExistingBranch)
 #: src/gui/dialogs/commitpushdialog.ui:50
 #: src/gui/dialogs/switchbranchdialog.ui:26
 #, kde-format
 msgid "Existing branch"
-msgstr "现有分支"
+msgstr "既存分支"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNewBranch)
 #: src/gui/dialogs/commitpushdialog.ui:64
 #: src/gui/dialogs/switchbranchdialog.ui:39
 #, kde-format
 msgid "New branch"
-msgstr "新建分支"
+msgstr "新分支"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxForce)
 #: src/gui/dialogs/commitpushdialog.ui:88
@@ -721,13 +718,6 @@ msgid ""
 "push#Documentation/git-push.txt--f\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information...</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>一般来说，如果用于覆盖一个远程引用的本地引用不是它的祖"
-"先，此命令会拒绝更新那个远程引用。另外，如果指定了 --force-with-lease 选项，"
-"那么如果一个远程引用的当前值不匹配期望值，此命令会拒绝更新它。</p><p>该选项会"
-"禁用这些检查，因此可能会导致远程仓库丢失提交；请谨慎使用。</p><p><br/></"
-"p><p><a href=\"https://git-scm.com/docs/git-push#Documentation/git-push.txt--"
-"f\"><span style=\" text-decoration: underline; color:#007af4;\">更多信息...</"
-"span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
 #: src/gui/dialogs/commitpushdialog.ui:91
@@ -735,13 +725,13 @@ msgstr ""
 #: src/gui/dialogs/switchbranchdialog.ui:75
 #, kde-format
 msgid "Force"
-msgstr "强制"
+msgstr "強制"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxMakeCommit)
 #: src/gui/dialogs/commitpushdialog.ui:98
 #, kde-format
 msgid "Create a commit"
-msgstr "创建提交"
+msgstr "建立提交"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/gui/dialogs/commitpushdialog.ui:107
@@ -753,16 +743,12 @@ msgid ""
 "commit.txt---status\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">More information</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>在用编辑器准备提交消息时，将 &quot;git status&quot; 的"
-"输出包含在提交消息模板中。</p><p><a href=\"https://git-scm.com/docs/git-"
-"commit#Documentation/git-commit.txt---status\"><span style=\" text-"
-"decoration: underline; color:#2980b9;\">更多信息</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/gui/dialogs/commitpushdialog.ui:110
 #, kde-format
 msgid "Include status to the message"
-msgstr "将状态添加到消息"
+msgstr "在訊息包含狀態"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAmend)
 #: src/gui/dialogs/commitpushdialog.ui:120
@@ -774,23 +760,23 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More info</span></a></p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>通过创建新提交来替换当前分支的尖端。</p><p><br/></"
+"<html><head/><body><p>藉由建立新提交來取代目前分支頂端。</p><p><br/></"
 "p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit."
 "txt---amend\"><span style=\" text-decoration: underline; color:#2980b9;\">更"
-"多信息</span></a></p></body></html>"
+"多資訊</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAmend)
 #: src/gui/dialogs/commitpushdialog.ui:123
 #, kde-format
 msgid "Amend to previous commit"
-msgstr "修改上一个提交"
+msgstr "編輯 (amend) 最近的提交"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/commitpushdialog.ui:152 src/gui/dialogs/taginfodialog.ui:32
 #, kde-format
 msgid "Message:"
-msgstr "消息："
+msgstr "訊息："
 
 #. i18n: ectx: property (whatsThis), widget (CompletionTextEdit, textEditMessage)
 #: src/gui/dialogs/commitpushdialog.ui:162
@@ -801,16 +787,12 @@ msgid ""
 "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>使用给定文本作为提交消息。</p><p><a href=\"https://git-"
-"scm.com/docs/git-commit#Documentation/git-commit.txt---messageltmsggt"
-"\"><span style=\" text-decoration: underline; color:#2980b9;\">更多信息</"
-"span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/commitpushdialog.ui:175
 #, kde-format
 msgid "Files:"
-msgstr "文件："
+msgstr "檔案："
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
 #: src/gui/dialogs/commitpushdialog.ui:195
@@ -828,13 +810,13 @@ msgstr "已索引"
 #: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:211
 #, kde-format
 msgid "Added"
-msgstr "已添加"
+msgstr "已加入"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:213
 #, kde-format
 msgid "Removed"
-msgstr "已删除"
+msgstr "已移除"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:215
@@ -846,7 +828,7 @@ msgstr "已修改"
 #: src/gui/dialogs/commitpushdialog.ui:245
 #, kde-format
 msgid "None"
-msgstr "无"
+msgstr "無"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -860,49 +842,49 @@ msgstr "提交"
 #: src/gui/dialogs/diffopendialog.ui:14
 #, kde-format
 msgid "Select files/folders"
-msgstr ""
+msgstr "選取檔案/資料夾"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
 #: src/gui/dialogs/diffopendialog.ui:24
 #, kde-format
 msgid "Compare files"
-msgstr "比较文件"
+msgstr "比較檔案"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFolders)
 #: src/gui/dialogs/diffopendialog.ui:31
 #, kde-format
 msgid "Compare directories"
-msgstr "比较目录"
+msgstr "比較目錄"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/diffopendialog.ui:41
 #, kde-format
 msgid "Old file:"
-msgstr "旧文件："
+msgstr "舊檔案："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/diffopendialog.ui:51
 #, kde-format
 msgid "New file:"
-msgstr "新文件："
+msgstr "新檔案："
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/diffopendialog.ui:70
 #, kde-format
 msgid "New directory:"
-msgstr "新目录："
+msgstr "新目錄："
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/diffopendialog.ui:77
 #, kde-format
 msgid "Old directory:"
-msgstr "旧目录："
+msgstr "舊目錄："
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/gui/dialogs/fetchdialog.ui:14
 #, kde-format
 msgid "Fetch from origin"
-msgstr "从来源获取"
+msgstr "從來源抓取"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -910,7 +892,7 @@ msgstr "从来源获取"
 #: src/gui/dialogs/pulldialog.ui:26
 #, kde-format
 msgid "Remote"
-msgstr "远端"
+msgstr "遠端"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllBranches)
 #: src/gui/dialogs/fetchdialog.ui:43
@@ -923,20 +905,20 @@ msgstr "所有分支"
 #: src/gui/dialogs/switchbranchdialog.ui:69
 #, kde-format
 msgid "Options"
-msgstr "选项"
+msgstr "選項"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoFastForward)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/fetchdialog.ui:94 src/gui/dialogs/mergedialog.ui:86
 #, kde-format
 msgid "No fast forward"
-msgstr "不要快进"
+msgstr "不快轉"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
 #: src/gui/dialogs/fetchdialog.ui:101 src/gui/dialogs/pulldialog.ui:146
 #, kde-format
 msgid "No commit"
-msgstr "不要提交"
+msgstr "無提交"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTags)
@@ -946,26 +928,26 @@ msgstr "不要提交"
 #: src/gui/widgets/tagswidget.ui:14
 #, kde-format
 msgid "Tags"
-msgstr "标签"
+msgstr "標籤"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/fetchdialog.ui:115 src/gui/dialogs/mergedialog.ui:81
 #, kde-format
 msgid "Fast forward only"
-msgstr "仅快进"
+msgstr "只快轉"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
 #: src/gui/dialogs/fetchdialog.ui:122 src/gui/dialogs/pulldialog.ui:160
 #, kde-format
 msgid "Prune"
-msgstr "修剪"
+msgstr ""
 
 #: src/gui/dialogs/fileblamedialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
-msgstr "追溯文件：%1"
+msgstr "Blame 檔案：%1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
@@ -976,31 +958,31 @@ msgstr "追溯文件：%1"
 #: src/gui/dialogs/filestreedialog.ui:14 src/gui/dialogs/taginfodialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr "对话框"
+msgstr "對話框"
 
 #: src/gui/dialogs/filehistorydialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
-msgstr "文件日志：%1"
+msgstr "檔案日誌：%1"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/filehistorydialog.ui:27
 #, kde-format
 msgid "View type"
-msgstr ""
+msgstr "檢視模式"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/gui/dialogs/filehistorydialog.ui:33
 #, kde-format
 msgid "Regular view"
-msgstr ""
+msgstr "一般檢視"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/gui/dialogs/filehistorydialog.ui:40
 #, kde-format
 msgid "Differential view"
-msgstr ""
+msgstr "差異檢視"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -1008,7 +990,7 @@ msgstr ""
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:26
 #, kde-format
 msgid "Left"
-msgstr "左侧"
+msgstr "左側"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -1016,13 +998,13 @@ msgstr "左侧"
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:55
 #, kde-format
 msgid "Right"
-msgstr "右侧"
+msgstr "右側"
 
 #: src/gui/dialogs/filestreedialog.cpp:35
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
-msgstr "浏览文件：%1"
+msgstr "瀏覽檔案：%1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/filestreedialog.ui:32
@@ -1034,39 +1016,39 @@ msgstr "分支："
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
-msgstr "关闭预览"
+msgstr "關閉預覽"
 
 #: src/gui/dialogs/fileviewerdialog.cpp:55
 #, kde-format
 msgid "Please wait while the preview is being closed..."
-msgstr "请等待预览窗口关闭..."
+msgstr "請稍候，預覽正在關閉中..."
 
 #: src/gui/dialogs/fileviewerdialog.cpp:88
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
-msgstr "查看文件：%1"
+msgstr "檢視檔案：%1"
 
 #. i18n: ectx: property (windowTitle), widget (QMainWindow, FileViewerDialog)
 #: src/gui/dialogs/fileviewerdialog.ui:14
 #, kde-format
 msgid "MainWindow"
-msgstr "主窗口"
+msgstr "主視窗"
 
 #: src/gui/dialogs/ignorefiledialog.cpp:44
 #, kde-format
 msgid "The file is ignored already"
-msgstr "此文件已被忽略"
+msgstr "檔案已經是被忽略的"
 
 #: src/gui/dialogs/ignorefiledialog.cpp:80
 #, kde-format
 msgid "Please enter the pattern"
-msgstr "请输入模式"
+msgstr "請輸入樣式"
 
 #: src/gui/dialogs/ignorefiledialog.cpp:85
 #, kde-format
 msgid "Unable to open file: %1"
-msgstr "无法打开文件：%1"
+msgstr "無法開啟檔案：%1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
@@ -1074,73 +1056,73 @@ msgstr "无法打开文件：%1"
 #: src/gui/dialogs/ignorefiledialog.ui:96
 #, kde-format
 msgid "Ignore file"
-msgstr "忽略文件"
+msgstr "忽略檔案"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/ignorefiledialog.ui:25
 #, kde-format
 msgid "Pattern:"
-msgstr "模式："
+msgstr "樣式："
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/dialogs/ignorefiledialog.ui:37 src/gui/models/treemodel.cpp:141
 #: src/gui/widgets/remoteswidget.ui:164
-#: src/libgitklient/models/authorsmodel.cpp:37
-#: src/libgitklient/models/branchesmodel.cpp:56
-#: src/libgitklient/models/tagsmodel.cpp:62
+#: src/libkommit/models/authorsmodel.cpp:37
+#: src/libkommit/models/branchesmodel.cpp:56
+#: src/libkommit/models/tagsmodel.cpp:62
 #, kde-format
 msgid "Name"
-msgstr "名称"
+msgstr "名稱"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNameAndExt)
 #: src/gui/dialogs/ignorefiledialog.ui:43
 #, kde-format
 msgid "Name and extension"
-msgstr "名称和扩展"
+msgstr "名稱和副檔名"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExt)
 #: src/gui/dialogs/ignorefiledialog.ui:53
 #, kde-format
 msgid "All files by this extension"
-msgstr "所有带有此扩展名的文件"
+msgstr "所有這個副檔名的檔案"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonName)
 #: src/gui/dialogs/ignorefiledialog.ui:60
 #, kde-format
 msgid "All files by this name"
-msgstr "所有带有此名称的文件"
+msgstr "所有這個名稱的檔案"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/gui/dialogs/ignorefiledialog.ui:70
-#: src/libgitklient/models/submodulesmodel.cpp:55
+#: src/libkommit/models/submodulesmodel.cpp:55
 #, kde-format
 msgid "Path"
-msgstr "路径"
+msgstr "路徑"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExactPath)
 #: src/gui/dialogs/ignorefiledialog.ui:76
 #, kde-format
 msgid "Exact the path"
-msgstr "精确路径"
+msgstr "完全相符的路徑"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonEveryWhere)
 #: src/gui/dialogs/ignorefiledialog.ui:86
 #, kde-format
 msgid "File in everywhere"
-msgstr "任意位置的文件"
+msgstr "任何地方裡面的檔案"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRootIgnoreFile)
 #: src/gui/dialogs/ignorefiledialog.ui:102
 #, kde-format
 msgid ".gitignore in the repository root"
-msgstr "在仓库库根目录下的 .gitignore"
+msgstr "版本庫根目錄中的 .gitignore"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDirIgnoreFile)
 #: src/gui/dialogs/ignorefiledialog.ui:112
 #, kde-format
 msgid ".gitignore in the containing directory"
-msgstr "在包含目录中的 .gitignore"
+msgstr "包含目錄中的 .gitignore"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExcludeFile)
 #: src/gui/dialogs/ignorefiledialog.ui:119
@@ -1152,7 +1134,7 @@ msgstr ".git/info/exclude"
 #: src/gui/dialogs/initdialog.ui:14
 #, kde-format
 msgid "Init git repo"
-msgstr "初始化 git 仓库"
+msgstr "初始化 git 版本庫"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
@@ -1161,47 +1143,47 @@ msgstr "初始化 git 仓库"
 #: src/gui/dialogs/runnerdialog.ui:105 src/gui/merge/closeeventdialog.ui:14
 #, kde-format
 msgid "Close"
-msgstr "关闭"
+msgstr "關閉"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/mergecloseeventdialog.ui:20
 #: src/gui/merge/closeeventdialog.ui:20
 #, kde-format
 msgid "The changes to file are not saved to the disk. What you want to do?"
-msgstr "对文件的更改尚未保存到磁盘。您想要做什么？"
+msgstr "檔案的變更尚未儲存到磁碟裡。您打算怎麼做？"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonMarkResolved)
 #: src/gui/dialogs/mergecloseeventdialog.ui:49
 #: src/gui/merge/closeeventdialog.ui:49
 #, kde-format
 msgid "Mark as resolved"
-msgstr "标记为已解决"
+msgstr "標記為已解決"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonLeaveAsIs)
 #: src/gui/dialogs/mergecloseeventdialog.ui:62
 #: src/gui/merge/closeeventdialog.ui:62
 #, kde-format
 msgid "Leave as is"
-msgstr "保留原样"
+msgstr "留著不動"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonDontExit)
 #: src/gui/dialogs/mergecloseeventdialog.ui:75
 #: src/gui/merge/closeeventdialog.ui:75
 #, kde-format
 msgid "Don't exit"
-msgstr "不要退出"
+msgstr "不離開"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
 #: src/gui/dialogs/mergedialog.ui:14
 #, kde-format
 msgid "Merge"
-msgstr "合并"
+msgstr "合併"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/mergedialog.ui:22
 #, kde-format
 msgid "From:"
-msgstr "从："
+msgstr "從："
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/mergedialog.ui:32
@@ -1226,7 +1208,7 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:46
 #, kde-format
 msgid "To:"
-msgstr "至："
+msgstr "到："
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #: src/gui/dialogs/mergedialog.ui:53
@@ -1238,7 +1220,7 @@ msgstr "-"
 #: src/gui/dialogs/mergedialog.ui:60 src/gui/dialogs/pulldialog.ui:79
 #, kde-format
 msgid "Fast forward:"
-msgstr ""
+msgstr "快轉："
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/mergedialog.ui:67
@@ -1256,13 +1238,13 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:71 src/gui/dialogs/mergedialog.ui:130
 #, kde-format
 msgid "Default"
-msgstr "默认"
+msgstr "預設"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #: src/gui/dialogs/mergedialog.ui:76
 #, kde-format
 msgid "Allow fast forward"
-msgstr "允许快进"
+msgstr "允許快轉"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/gui/dialogs/mergedialog.ui:94
@@ -1277,18 +1259,18 @@ msgid ""
 "txt---allow-unrelated-histories\"><span style=\" text-decoration: underline; "
 "color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>默认情况下，git 合并命令拒绝合并没有公共祖先的历史。此"
-"选项可用于绕过这个安全功能，特别是合并两个起源独立的项目的历史时。因为这种情"
-"况非常少见，没有默认启用这个选项的配置变量，并且这种变量也不会被添加。</"
+"<html><head/><body><p>git merge 命令預設拒絕合併沒有共同祖先的歷史。這個選項"
+"可以用來覆寫這個安全措施，允許兩個原先獨立建立的專案歷史能夠合併。由於這是一"
+"個偶爾才會出現的情況，目前沒有變數可以預設啟用這個選項，以後也不會新增。</"
 "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
 "git-merge.txt---allow-unrelated-histories\"><span style=\" text-decoration: "
-"underline; color:#007af4;\">更多信息</span></a></p></body></html>"
+"underline; color:#007af4;\">更多資訊</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/gui/dialogs/mergedialog.ui:97
 #, kde-format
 msgid "Allow unrelated histories"
-msgstr "允许不相关的历史"
+msgstr "允許不相關的歷史"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxSquash)
 #: src/gui/dialogs/mergedialog.ui:107
@@ -1304,31 +1286,24 @@ msgid ""
 "squash\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>就如同真正合并已经发生了那样，生成工作树和索引状态（除"
-"了合并信息），但是不要真的创建提交，移动 HEAD（头指针），或者记录 $GIT_DIR/"
-"MERGE_HEAD（这会导致下一次 git commit 命令创建合并提交）。这使得您可以在当前"
-"分支上面创建一个提交，其效果相当于合并入另一个分支（或者多个分支，如果进行的"
-"是多重合并）。</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-"merge#Documentation/git-merge.txt---squash\"><span style=\" text-decoration: "
-"underline; color:#007af4;\">更多信息</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
 #: src/gui/dialogs/mergedialog.ui:110 src/gui/dialogs/pulldialog.ui:101
 #, kde-format
 msgid "Squash"
-msgstr "压缩"
+msgstr "融合"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonOurs)
 #: src/gui/dialogs/mergedialog.ui:140
 #, kde-format
 msgid "Ours"
-msgstr "我们的"
+msgstr "我們的"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTheirs)
 #: src/gui/dialogs/mergedialog.ui:147
 #, kde-format
 msgid "Theirs"
-msgstr ""
+msgstr "他們的"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreAllSpace)
@@ -1350,25 +1325,25 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:157
 #, kde-format
 msgid "Ignore space change"
-msgstr ""
+msgstr "忽略空白變更"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreAllSpace)
 #: src/gui/dialogs/mergedialog.ui:167
 #, kde-format
 msgid "Ignore all space"
-msgstr ""
+msgstr "忽略所有空白"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
 #: src/gui/dialogs/mergedialog.ui:177
 #, kde-format
 msgid "Ignore space at eol"
-msgstr ""
+msgstr "忽略行尾空白"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreCrAtEol)
 #: src/gui/dialogs/mergedialog.ui:187
 #, kde-format
 msgid "Ignore cr at eol"
-msgstr ""
+msgstr "忽略行尾的 CR"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxRenormalize)
 #: src/gui/dialogs/mergedialog.ui:194
@@ -1393,7 +1368,7 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:211
 #, kde-format
 msgid "Diff algorithm:"
-msgstr ""
+msgstr "差異演算法："
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxDiffAlgoritm)
 #: src/gui/dialogs/mergedialog.ui:218
@@ -1411,55 +1386,55 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:225
 #, kde-format
 msgid "Turn off rename detection"
-msgstr ""
+msgstr "關閉重新命名偵測"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeOpenFilesDialog)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:14
 #, kde-format
 msgid "Select files to merge"
-msgstr "选择要合并的文件"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:26
 #, kde-format
 msgid "Local file:"
-msgstr "本地文件："
+msgstr "本機檔案："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:36
 #, kde-format
 msgid "Remote file:"
-msgstr "远程文件："
+msgstr "遠端檔案："
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:46
 #, kde-format
 msgid "Base file:"
-msgstr "基本文件："
+msgstr "基底檔案："
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
 #: src/gui/dialogs/notedialog.ui:14
 #, kde-format
 msgid "Note"
-msgstr "注解"
+msgstr "備註"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PullDialog)
 #: src/gui/dialogs/pulldialog.ui:14
 #, kde-format
 msgid "Pull changes"
-msgstr "拉取更改"
+msgstr "拉取變更"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/pulldialog.ui:63
 #, kde-format
 msgid "Rebase:"
-msgstr ""
+msgstr "重定基底："
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RepoSettingsDialog)
 #: src/gui/dialogs/reposettingsdialog.ui:14
 #, kde-format
 msgid "Repo settings"
-msgstr "仓库设置"
+msgstr "版本庫設定"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_7)
@@ -1467,19 +1442,19 @@ msgstr "仓库设置"
 #: src/gui/widgets/remoteinfodialog.ui:25 src/gui/widgets/remoteswidget.ui:136
 #, kde-format
 msgid "Name:"
-msgstr "姓名："
+msgstr "名稱："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/reposettingsdialog.ui:36
 #, kde-format
 msgid "Email:"
-msgstr "邮箱："
+msgstr "電子郵件："
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/reposettingsdialog.ui:46
 #, kde-format
 msgid "Auto crlf:"
-msgstr ""
+msgstr "自動 crlf："
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/gui/dialogs/reposettingsdialog.ui:53
@@ -1495,7 +1470,7 @@ msgstr ""
 #: src/gui/dialogs/reposettingsdialog.ui:60
 #, kde-format
 msgid "File mode:"
-msgstr ""
+msgstr "檔案模式："
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/gui/dialogs/reposettingsdialog.ui:67
@@ -1511,34 +1486,34 @@ msgstr ""
 #: src/gui/dialogs/runnerdialog.cpp:57
 #, kde-format
 msgid "View"
-msgstr "查看"
+msgstr "檢視"
 
 #: src/gui/dialogs/runnerdialog.cpp:119
 #, kde-format
 msgid "Process finished"
-msgstr ""
+msgstr "行程已完成"
 
 #: src/gui/dialogs/runnerdialog.cpp:124
 #, kde-format
 msgid "The git process crashed"
-msgstr "git 进程已崩溃"
+msgstr "git 行程已崩潰"
 
 #: src/gui/dialogs/runnerdialog.cpp:125
 #, kde-format
 msgid "Process finished with error"
-msgstr ""
+msgstr "行程已完成但有錯誤"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/gui/dialogs/runnerdialog.ui:14
 #, kde-format
 msgid "Run command"
-msgstr "运行命令"
+msgstr "執行命令"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/gui/dialogs/runnerdialog.ui:45
 #, kde-format
 msgid "Output"
-msgstr "输出"
+msgstr "輸出"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
 #: src/gui/dialogs/runnerdialog.ui:72
@@ -1568,60 +1543,66 @@ msgstr "停止"
 #: src/gui/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "File name"
-msgstr "文件名"
+msgstr "檔案名稱"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
 #: src/gui/dialogs/searchdialog.ui:14
 #, kde-format
 msgid "Search in repo"
-msgstr ""
+msgstr "在版本庫中搜尋"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/searchdialog.ui:25
 #, kde-format
 msgid "Path:"
-msgstr "路径："
+msgstr "路徑："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/searchdialog.ui:35
 #, kde-format
 msgid "Text:"
-msgstr "文本："
+msgstr "文字："
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchBranches)
 #: src/gui/dialogs/searchdialog.ui:45
 #, kde-format
 msgid "Search all branches"
-msgstr "搜索所有分支"
+msgstr "搜尋所有分支"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
 #: src/gui/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
-msgstr "搜索所有提交"
+msgstr "搜尋所有提交"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
 #: src/gui/dialogs/searchdialog.ui:62
 #, kde-format
 msgid "Case sensitive"
-msgstr "区分大小写"
+msgstr "區分大小寫"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonSearch)
 #: src/gui/dialogs/searchdialog.ui:86
 #, kde-format
 msgid "Search"
-msgstr "搜索"
+msgstr "搜尋"
 
 #: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
 msgid "The selected branches must be different!"
-msgstr "所选分支必须不同！"
+msgstr "選取的分支必須是不同的！"
+
+#: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
+#, fuzzy, kde-format
+#| msgid "Select branches"
+msgid "Select Branches"
+msgstr "選取分支"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:14
 #, kde-format
 msgid "Select branches"
-msgstr "选择分支"
+msgstr "選取分支"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectLeftBranch)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
@@ -1629,7 +1610,7 @@ msgstr "选择分支"
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:61
 #, kde-format
 msgid "Select branch"
-msgstr "选择分支"
+msgstr "選取分支"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLeftIsHead)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRightIsHead)
@@ -1645,42 +1626,44 @@ msgstr "HEAD"
 #: src/gui/widgets/submoduleswidget.ui:46
 #, kde-format
 msgid "Add new submodule"
-msgstr "添加新的子模块"
+msgstr "新增子模組"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
 #: src/gui/dialogs/switchbranchdialog.ui:14
 #, kde-format
 msgid "Switch/Checkout"
-msgstr "切换/检出"
+msgstr "切換/簽出"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53
 #, kde-format
 msgid "Tag"
-msgstr "标签"
+msgstr "標籤"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/taginfodialog.ui:22
 #, kde-format
 msgid "Tag name:"
-msgstr "标签名称："
+msgstr "標籤名稱"
 
 #: src/gui/diffwindow.cpp:106
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "GitKlient Diff[*]"
 msgctxt "@title:window"
-msgid "GitKlient Diff[*]"
-msgstr "GitKlient 差异[*]"
+msgid "Kommit Diff[*]"
+msgstr "GitKlient 差異[*]"
 
 #: src/gui/diffwindow.cpp:109
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
-msgstr "树"
+msgstr ""
 
 #: src/gui/diffwindow.cpp:136
 #, kde-format
 msgid "View hidden chars..."
-msgstr "显示不可见字符..."
+msgstr "檢視隱藏字元…"
 
 #: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:339
 #, kde-format
@@ -1690,47 +1673,47 @@ msgstr ""
 #: src/gui/diffwindow.cpp:146
 #, kde-format
 msgid "Show files names"
-msgstr "显示文件名"
+msgstr "顯示檔案名稱"
 
 #: src/gui/diffwindow.cpp:152
 #, kde-format
 msgid "Show Tree"
-msgstr "显示树"
+msgstr ""
 
 #: src/gui/diffwindow.cpp:209
 #, kde-format
 msgid "Unchanged"
-msgstr "未更改"
+msgstr "未變更"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/gui/gitklientdiffui.rc:20 src/gui/gitklientmergeui.rc:33
-#: src/gui/gitklientui.rc:45
+#: src/gui/kommitdiffui.rc:20 src/gui/kommitmergeui.rc:33
+#: src/gui/kommitui.rc:45
 #, kde-format
 msgid "Main Toolbar"
-msgstr "主工具栏"
+msgstr "主工具列"
 
 #. i18n: ectx: Menu (file)
 #. i18n: ectx: Menu (repo)
-#: src/gui/gitklientui.rc:10 src/gui/gitklientui.rc:26
+#: src/gui/kommitui.rc:10 src/gui/kommitui.rc:26
 #, kde-format
 msgid "Repo"
-msgstr "仓库"
+msgstr "版本庫"
 
 #: src/gui/mainwidget.cpp:101
 #, kde-format
 msgid "Diff with master..."
-msgstr "与主分支的差异..."
+msgstr "與 master 比對差異…"
 
 #: src/gui/mainwidget.cpp:165
 #, kde-format
 msgid "New tag"
-msgstr "新标签"
+msgstr "新標籤"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, MainWidget)
 #: src/gui/mainwidget.ui:14
 #, kde-format
 msgid "Form"
-msgstr "表单"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelTitle)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonOverview)
@@ -1739,7 +1722,7 @@ msgstr "表单"
 #: src/gui/multipagewidget.ui:131 src/gui/widgets/historyviewwidget.ui:14
 #, kde-format
 msgid "Overview"
-msgstr "概览"
+msgstr "總覽"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonBranches)
 #. i18n: ectx: property (windowTitle), widget (QWidget, BranchesStatusWidget)
@@ -1751,7 +1734,7 @@ msgstr "分支"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonCommits)
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
 #: src/gui/mainwidget.ui:147 src/gui/widgets/commitswidget.ui:14
-#: src/libgitklient/models/authorsmodel.cpp:41
+#: src/libkommit/models/authorsmodel.cpp:41
 #, kde-format
 msgid "Commits"
 msgstr "提交"
@@ -1761,21 +1744,21 @@ msgstr "提交"
 #: src/gui/mainwidget.ui:176 src/gui/widgets/stasheswidget.ui:14
 #, kde-format
 msgid "Stashes"
-msgstr "暂存"
+msgstr "貯存"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonSubmodules)
 #. i18n: ectx: property (windowTitle), widget (QWidget, SubmodulesWidget)
 #: src/gui/mainwidget.ui:205 src/gui/widgets/submoduleswidget.ui:14
 #, kde-format
 msgid "Submodules"
-msgstr "子模块"
+msgstr "子模組"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRemotes)
 #. i18n: ectx: property (windowTitle), widget (QWidget, RemotesWidget)
 #: src/gui/mainwidget.ui:234 src/gui/widgets/remoteswidget.ui:14
 #, kde-format
 msgid "Remotes"
-msgstr "远端"
+msgstr "遠端"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
@@ -1784,12 +1767,12 @@ msgstr "远端"
 #: src/gui/widgets/tagswidget.ui:49
 #, kde-format
 msgid "Add"
-msgstr "添加"
+msgstr "加入"
 
 #: src/gui/mergewindow.cpp:281
 #, kde-format
 msgid "Conflicts: %1"
-msgstr "冲突：%1"
+msgstr "衝突：%1"
 
 #: src/gui/mergewindow.cpp:289
 #, kde-format
@@ -1799,102 +1782,102 @@ msgstr "保留我的"
 #: src/gui/mergewindow.cpp:294
 #, kde-format
 msgid "Keep their"
-msgstr "保留他们的"
+msgstr "保留他的"
 
 #: src/gui/mergewindow.cpp:300
 #, kde-format
 msgid "Keep mine before their"
-msgstr "在他们的之前优先保留我的"
+msgstr "在他的之前先保留我的"
 
 #: src/gui/mergewindow.cpp:305
 #, kde-format
 msgid "Keep their before mine"
-msgstr "在我的之前优先保留他们的"
+msgstr "在我的之前先保留他的"
 
 #: src/gui/mergewindow.cpp:310
 #, kde-format
 msgid "Keep my file"
-msgstr "保留我的文件"
+msgstr "保留我的檔案"
 
 #: src/gui/mergewindow.cpp:315
 #, kde-format
 msgid "Keep their file"
-msgstr "保留他们的文件"
+msgstr "保留他的檔案"
 
 #: src/gui/mergewindow.cpp:320
 #, kde-format
 msgid "Blocks"
-msgstr "块"
+msgstr ""
 
 #: src/gui/mergewindow.cpp:324
 #, kde-format
 msgid "Files"
-msgstr "文件"
+msgstr "檔案"
 
 #: src/gui/mergewindow.cpp:328
 #, kde-format
 msgid "Previous diff"
-msgstr "上一个差异"
+msgstr "上一個差異"
 
 #: src/gui/mergewindow.cpp:334
 #, kde-format
 msgid "Next diff"
-msgstr "下一个差异"
+msgstr "下一個差異"
 
 #: src/gui/mergewindow.cpp:431
 #, kde-format
 msgid "Unable to open the file"
-msgstr "无法打开文件"
+msgstr "無法開啟檔案"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/models/treemodel.cpp:143 src/gui/widgets/remoteswidget.ui:179
-#: src/libgitklient/models/submodulesmodel.cpp:59
+#: src/libkommit/models/submodulesmodel.cpp:59
 #, kde-format
 msgid "Status"
-msgstr "状态"
+msgstr "狀態"
 
 #. i18n: ectx: label, entry (diffAddedColor), group (Preferences)
-#: src/gui/settings/GitKlientSettings.kcfg:9
+#: src/gui/settings/KommitSettings.kcfg:9
 #, kde-format
 msgid "Added color"
-msgstr "新增文本的颜色"
+msgstr "已新增的顏色"
 
 #. i18n: ectx: label, entry (diffRemovedColor), group (Preferences)
-#: src/gui/settings/GitKlientSettings.kcfg:13
+#: src/gui/settings/KommitSettings.kcfg:13
 #, kde-format
 msgid "Removed color"
-msgstr "删除文本的颜色"
+msgstr "已移除的顏色"
 
 #. i18n: ectx: label, entry (diffModifiedColor), group (Preferences)
-#: src/gui/settings/GitKlientSettings.kcfg:17
+#: src/gui/settings/KommitSettings.kcfg:17
 #, kde-format
 msgid "Modified color"
-msgstr "修改文本的颜色"
+msgstr "已變更的顏色"
 
 #. i18n: ectx: label, entry (colorForeground), group (Preferences)
-#: src/gui/settings/GitKlientSettings.kcfg:21
+#: src/gui/settings/KommitSettings.kcfg:21
 #, kde-format
 msgid "color of the foreground"
-msgstr "前景颜色"
+msgstr "前景的顏色"
 
 #. i18n: ectx: label, entry (gitBinPath), group (Preferences)
-#: src/gui/settings/GitKlientSettings.kcfg:26
+#: src/gui/settings/KommitSettings.kcfg:26
 #, kde-format
 msgid "age of the project"
-msgstr "项目历史"
+msgstr "專案年齡"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_openLastRepo)
 #. i18n: ectx: label, entry (openLastRepo), group (Preferences)
-#: src/gui/settings/GitKlientSettings.kcfg:33
+#: src/gui/settings/KommitSettings.kcfg:33
 #: src/gui/settings/settingspagebase.ui:29
 #, kde-format
 msgid "Open last repo at startup"
-msgstr "启动时打开最近仓库"
+msgstr "啟動時開啟上次使用的版本庫"
 
 #: src/gui/settings/settingsmanager.cpp:93
 #, kde-format
 msgid "General"
-msgstr "常规"
+msgstr "一般"
 
 #: src/gui/settings/settingsmanager.cpp:95
 #, kde-format
@@ -1905,78 +1888,80 @@ msgstr "Git"
 #: src/gui/settings/settingspagebase.ui:23
 #, kde-format
 msgid "Startup"
-msgstr "启动"
+msgstr "啟動"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDefaultCalendar)
 #: src/gui/settings/settingspagebase.ui:41
 #, kde-format
 msgid "Default calendar:"
-msgstr "默认日历："
+msgstr "預設行事曆："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/settings/settingspagebase.ui:51
 #, kde-format
 msgid "Git binary path:"
-msgstr "Git 二进制文件路径："
+msgstr "Git 執行檔路徑："
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel)
 #: src/gui/settings/settingspagediff.ui:17
 #, kde-format
 msgid "Added diff color:"
-msgstr "新增文本的颜色："
+msgstr "已新增的差異顏色："
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel_2)
 #: src/gui/settings/settingspagediff.ui:27
 #, kde-format
 msgid "Removed diff color:"
-msgstr "删除文本的颜色："
+msgstr "已移除的差異顏色："
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel_3)
 #: src/gui/settings/settingspagediff.ui:37
 #, kde-format
 msgid "Modified diff color:"
-msgstr "修改文本的颜色："
+msgstr "已變更的差異顏色："
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerDiffTool)
 #: src/gui/settings/settingspagegit.ui:19
-#, kde-format
-msgid "Register GitKlient diff tool"
-msgstr "注册 GitKlient 差异工具"
+#, fuzzy, kde-format
+#| msgid "Register GitKlient diff tool"
+msgid "Register kommit diff tool"
+msgstr "登記 GitKlient 差異工具"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
 #: src/gui/settings/settingspagegit.ui:26
-#, kde-format
-msgid "Register GitKlient merge tool"
-msgstr "注册 GitKlient 合并工具"
+#, fuzzy, kde-format
+#| msgid "Register GitKlient merge tool"
+msgid "Register kommit merge tool"
+msgstr "登記 GitKlient 合併工具"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/settings/settingspagegit.ui:37
 #, kde-format
 msgid "Git proxy:"
-msgstr ""
+msgstr "Git 代理伺服器："
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, AuthorsWidget)
 #: src/gui/widgets/authorswidget.ui:14
 #, kde-format
 msgid "Authors"
-msgstr ""
+msgstr "作者群"
 
 #: src/gui/widgets/blamecodeview.cpp:41
 #, kde-format
 msgid "Uncommited"
-msgstr "未提交"
+msgstr "尚未提交"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/widgets/branchesstatuswidget.ui:26
 #, kde-format
 msgid "Reference branch:"
-msgstr "参考分支："
+msgstr "參照分支："
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonNew)
 #: src/gui/widgets/branchesstatuswidget.ui:79
 #, kde-format
 msgid "New"
-msgstr "新建"
+msgstr "新增"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
@@ -1990,40 +1975,40 @@ msgstr "移除"
 #: src/gui/widgets/branchesstatuswidget.ui:113
 #, kde-format
 msgid "Browse"
-msgstr "浏览"
+msgstr "瀏覽"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/gui/widgets/commitswidget.ui:42
 #, kde-format
 msgid "Filter..."
-msgstr ""
+msgstr "過濾…"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/gui/widgets/difftreeview.ui:17
 #, kde-format
 msgid "Type to filter"
-msgstr "输入筛选条件"
+msgstr "輸入以過濾"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/gui/widgets/difftreeview.ui:53
 #, kde-format
 msgid "Hide unchangeds"
-msgstr "隐藏未更改的"
+msgstr "隱藏未變更"
 
 #: src/gui/widgets/logdetailswidget.cpp:110
 #, kde-format
 msgid "Ref"
-msgstr "参考"
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:113
 #: src/gui/widgets/logdetailswidget.cpp:116
-#: src/libgitklient/models/tagsmodel.cpp:68
+#: src/libkommit/models/tagsmodel.cpp:68
 #, kde-format
 msgid "Committer"
 msgstr "提交者"
 
 #: src/gui/widgets/logdetailswidget.cpp:119
-#: src/libgitklient/models/logsmodel.cpp:260
+#: src/libkommit/models/logsmodel.cpp:260
 #, kde-format
 msgid "Date"
 msgstr "日期"
@@ -2031,69 +2016,69 @@ msgstr "日期"
 #: src/gui/widgets/logdetailswidget.cpp:120
 #, kde-format
 msgid "Hash"
-msgstr "哈希值"
+msgstr "雜湊值"
 
 #: src/gui/widgets/logdetailswidget.cpp:123
 #, kde-format
 msgid "Parent"
-msgstr "父提交"
+msgstr "親"
 
 #: src/gui/widgets/logdetailswidget.cpp:123
 #, kde-format
 msgid "Parents"
-msgstr "父提交"
+msgstr "親"
 
 #: src/gui/widgets/logdetailswidget.cpp:125
 #, kde-format
 msgid "Child"
-msgstr "子提交"
+msgstr "子"
 
 #: src/gui/widgets/logdetailswidget.cpp:125
 #, kde-format
 msgid "Children"
-msgstr "子提交"
+msgstr "子"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RemoteInfoDialog)
 #: src/gui/widgets/remoteinfodialog.ui:14
 #, kde-format
 msgid "New remote"
-msgstr "新远端"
+msgstr "新遠端"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxMirror)
 #: src/gui/widgets/remoteinfodialog.ui:47
 #, kde-format
 msgid "Mirror"
-msgstr "镜像"
+msgstr "鏡射"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
 #: src/gui/widgets/remoteinfodialog.ui:64
 #, kde-format
 msgid "Fetch"
-msgstr "获取"
+msgstr "抓取"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/widgets/remoteswidget.ui:79
 #, kde-format
 msgid "Information"
-msgstr "信息"
+msgstr "資訊"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/widgets/remoteswidget.ui:85
 #, kde-format
 msgid "Default branch:"
-msgstr "默认分支："
+msgstr "預設分支："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/widgets/remoteswidget.ui:102
 #, kde-format
 msgid "Fetch url:"
-msgstr "拉取 URL："
+msgstr "抓取網址："
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/widgets/remoteswidget.ui:119
 #, kde-format
 msgid "Push url:"
-msgstr "推送 URL："
+msgstr "推送網址："
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/widgets/remoteswidget.ui:156
@@ -2111,7 +2096,7 @@ msgstr "推送到"
 #: src/gui/widgets/remoteswidget.ui:174
 #, kde-format
 msgid "Pull from"
-msgstr "拉取自"
+msgstr "從哪裡拉取"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
@@ -2127,26 +2112,19 @@ msgid ""
 "ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>将您的本地改动保存为一个新的暂存项，随后将它们回滚到 "
-"HEAD (在工作树和索引中)。此部分为可选项，用于给暂存的状态提供描述。</"
-"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/"
-"git-stash.txt-push-p--patch-k--no-keep-index-u--include-untracked-a--all-q--"
-"quiet-m--messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--"
-"ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
-"#2980b9;\">更多信息...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
 #: src/gui/widgets/stasheswidget.ui:52
 #, kde-format
 msgid "Create new"
-msgstr "创建新的"
+msgstr "建立新的"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #: src/gui/widgets/stasheswidget.ui:59 src/gui/widgets/tagswidget.ui:56
 #, kde-format
 msgid "Remove selected"
-msgstr "删除选中"
+msgstr "移除所選"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonApply)
 #: src/gui/widgets/stasheswidget.ui:66
@@ -2157,16 +2135,12 @@ msgid ""
 "txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
 "underline; color:#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>在当前工作目录上应用暂存</p><p><a href=\"https://git-"
-"scm.com/docs/git-stash#Documentation/git-stash.txt-apply--index-q--"
-"quietltstashgt\"><span style=\" text-decoration: underline; color:#2980b9;\">"
-"更多信息...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
 #: src/gui/widgets/stasheswidget.ui:69
 #, kde-format
 msgid "Apply selected"
-msgstr "应用选中的"
+msgstr "套用所選"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
 #: src/gui/widgets/submoduleswidget.ui:56
@@ -2178,99 +2152,105 @@ msgstr "更新"
 #: src/gui/widgets/tagswidget.ui:63
 #, kde-format
 msgid "Checkout to selected"
-msgstr "检出到选定的"
+msgstr "簽出到所選"
 
-#: src/libgitklient/commands/commandpull.cpp:62
+#: src/libkommit/commands/commandpull.cpp:62
 #, kde-format
 msgid "Already up to date."
-msgstr "已经是最新的。"
+msgstr "已是最新。"
 
-#: src/libgitklient/commands/commandpull.cpp:66
+#: src/libkommit/commands/commandpull.cpp:66
 #, kde-format
 msgid "Error"
-msgstr "错误"
+msgstr "錯誤"
 
-#: src/libgitklient/commands/commandswitchbranch.cpp:26
+#: src/libkommit/commands/commandswitchbranch.cpp:26
 #, kde-format
 msgid ""
 "Your local changes to the following files would be overwritten by checkout. "
 "Please commit your changes or stash them before you switch branches."
 msgstr ""
-"您对以下文件的本地改动会被检出所覆盖。请在切换分支前提交您的修改或暂存它们。"
+"您對以下檔案的本地變更將被簽出動作覆寫。請先提交或貯存您的變更再切換分支。"
 
-#: src/libgitklient/gitremote.cpp:120
+#: src/libkommit/gitremote.cpp:120
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
 
-#: src/libgitklient/gitremote.cpp:122
+#: src/libkommit/gitremote.cpp:122
 #, kde-format
 msgid "Up to date"
-msgstr "已是最新"
+msgstr "最新"
 
-#: src/libgitklient/gitremote.cpp:124
+#: src/libkommit/gitremote.cpp:124
 #, kde-format
 msgid "Fast forwardable"
-msgstr "可快进"
+msgstr "可以快轉"
 
-#: src/libgitklient/gitremote.cpp:126
+#: src/libkommit/gitremote.cpp:126
 #, kde-format
 msgid "Local out of date"
-msgstr "本地文件过期"
+msgstr "本機並非最新"
 
-#: src/libgitklient/models/authorsmodel.cpp:39
+#: src/libkommit/models/authorsmodel.cpp:39
 #, kde-format
 msgid "Email"
-msgstr "电子邮箱"
+msgstr "電子郵件"
 
-#: src/libgitklient/models/branchesmodel.cpp:58
+#: src/libkommit/models/branchesmodel.cpp:58
 #, kde-format
 msgid "Commit(s) behind"
-msgstr "提交落后"
+msgstr "落後幾個提交"
 
-#: src/libgitklient/models/branchesmodel.cpp:60
+#: src/libkommit/models/branchesmodel.cpp:60
 #, kde-format
 msgid "Commit(s) ahead"
-msgstr "提交领先"
+msgstr "提前幾個提交"
 
-#: src/libgitklient/models/logsmodel.cpp:258
-#: src/libgitklient/models/logsmodel.cpp:269
+#: src/libkommit/models/logsmodel.cpp:258
+#: src/libkommit/models/logsmodel.cpp:269
 #, kde-format
 msgid "Message"
-msgstr "消息"
+msgstr "訊息"
 
-#: src/libgitklient/models/logsmodel.cpp:267
+#: src/libkommit/models/logsmodel.cpp:267
 #, kde-format
 msgid "Graph"
-msgstr "图"
+msgstr "圖表"
 
-#: src/libgitklient/models/stashesmodel.cpp:60
-#: src/libgitklient/models/tagsmodel.cpp:64
+#: src/libkommit/models/stashesmodel.cpp:60
+#: src/libkommit/models/tagsmodel.cpp:64
 #, kde-format
 msgid "Subject"
-msgstr "主题"
+msgstr "主旨"
 
-#: src/libgitklient/models/stashesmodel.cpp:62
+#: src/libkommit/models/stashesmodel.cpp:62
 #, kde-format
 msgid "Author name"
-msgstr "作者姓名"
+msgstr "作者名稱"
 
-#: src/libgitklient/models/stashesmodel.cpp:64
+#: src/libkommit/models/stashesmodel.cpp:64
 #, kde-format
 msgid "Author email"
-msgstr "作者邮箱"
+msgstr "作者電郵"
 
-#: src/libgitklient/models/stashesmodel.cpp:66
+#: src/libkommit/models/stashesmodel.cpp:66
 #, kde-format
 msgid "Time"
-msgstr "时间"
+msgstr "時間"
 
-#: src/libgitklient/models/submodulesmodel.cpp:57
+#: src/libkommit/models/submodulesmodel.cpp:57
 #, kde-format
 msgid "Head"
-msgstr "头"
+msgstr "Head"
 
-#: src/libgitklient/models/tagsmodel.cpp:66
+#: src/libkommit/models/tagsmodel.cpp:66
 #, kde-format
 msgid "Tagger"
-msgstr ""
+msgstr "標籤者"
+
+#~ msgid "Git Klient"
+#~ msgstr "Git Klient"
+
+#~ msgid "GitKlient"
+#~ msgstr "GitKlient"
