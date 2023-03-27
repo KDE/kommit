@@ -5,6 +5,15 @@
             "inode/directory"
         ],
         "Name": "Kommit",
+        "Name[ca@valencia]": "Kommit",
+        "Name[ca]": "Kommit",
+        "Name[en_GB]": "Kommit",
+        "Name[es]": "Kommit",
+        "Name[ka]": "Kommit",
+        "Name[nl]": "Kommit",
+        "Name[tr]": "Kommit",
+        "Name[uk]": "Kommit",
+        "Name[x-test]": "xxKommitxx",
         "ServiceTypes": [
             "KFileItemAction/Plugin"
         ]

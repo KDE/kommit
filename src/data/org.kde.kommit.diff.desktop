@@ -1,5 +1,14 @@
 [Desktop Entry]
 Name=Kommit Diff
+Name[ca]=Diff del Kommit
+Name[ca@valencia]=Diff de Kommit
+Name[en_GB]=Kommit Diff
+Name[es]=Diferencias de Kommit
+Name[ka]=Git Kommit Diff
+Name[nl]=Kommit Diff
+Name[tr]=Kommit Diff
+Name[uk]=Різниця Kommit
+Name[x-test]=xxKommit Diffxx
 Exec=kommit diff
 Icon=kommit
 

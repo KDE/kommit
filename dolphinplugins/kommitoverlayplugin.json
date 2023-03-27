@@ -1,6 +1,15 @@
 {
     "KPlugin": {
         "Description": "Overlay icon for kommit",
+        "Description[ca@valencia]": "Icona de substitució per a Kommit",
+        "Description[ca]": "Icona de substitució per al Kommit",
+        "Description[en_GB]": "Overlay icon for kommit",
+        "Description[es]": "Icono superpuesto para Kommit",
+        "Description[ka]": "kommit-ის ხატულა",
+        "Description[nl]": "Overlay pictogram voor kommit",
+        "Description[tr]": "Kommit için kaplama simgesi",
+        "Description[uk]": "Піктограма-накладка для Kommit",
+        "Description[x-test]": "xxOverlay icon for kommitxx",
         "ServiceTypes": [
             "KOverlayIconPlugin"
         ]

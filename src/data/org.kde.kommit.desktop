@@ -1,5 +1,14 @@
 [Desktop Entry]
 Name=Kommit
+Name[ca]=Kommit
+Name[ca@valencia]=Kommit
+Name[en_GB]=Kommit
+Name[es]=Kommit
+Name[ka]=Kommit
+Name[nl]=Kommit
+Name[tr]=Kommit
+Name[uk]=Kommit
+Name[x-test]=xxKommitxx
 Exec=kommit
 Icon=kommit
 
