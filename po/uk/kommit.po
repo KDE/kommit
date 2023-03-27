@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-26 00:50+0000\n"
-"PO-Revision-Date: 2023-01-28 08:55+0200\n"
+"PO-Revision-Date: 2023-03-26 08:37+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -29,10 +29,9 @@ msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
 #: src/apps/main.cpp:34
-#, fuzzy, kde-format
-#| msgid "Commit"
+#, kde-format
 msgid "Kommit"
-msgstr "Внести"
+msgstr "Kommit"
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -40,10 +39,9 @@ msgid "Git client gui for KDE"
 msgstr "Клієнтська графічна оболонка git для KDE"
 
 #: src/apps/main.cpp:38
-#, fuzzy, kde-format
-#| msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
+#, kde-format
 msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr "© Hamed Masafi <hamed.masafi@gmail.com>, 2021–2022"
+msgstr "© Hamed Masafi <hamed.masafi@gmail.com>, 2021–2023"
 
 #: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:114
 #: src/gui/widgets/logdetailswidget.cpp:117
@@ -1680,10 +1678,9 @@ msgid "The selected branches must be different!"
 msgstr "Вибрані гілки мають бути різними!"
 
 #: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Select branches"
+#, kde-format
 msgid "Select Branches"
-msgstr "Вибрані гілки"
+msgstr "Виберіть гілки"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:14
@@ -1734,12 +1731,10 @@ msgid "Tag name:"
 msgstr "Назва мітки:"
 
 #: src/gui/diffwindow.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "GitKlient Diff[*]"
+#, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
-msgstr "Різниця GitKlient[*]"
+msgstr "Різниця Kommit[*]"
 
 #: src/gui/diffwindow.cpp:109
 #, kde-format
@@ -2009,17 +2004,15 @@ msgstr "Колір зміненого у різниці:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerDiffTool)
 #: src/gui/settings/settingspagegit.ui:19
-#, fuzzy, kde-format
-#| msgid "Register GitKlient diff tool"
+#, kde-format
 msgid "Register kommit diff tool"
-msgstr "Зареєструвати інструмент різниць GitKlient"
+msgstr "Зареєструвати інструмент різниць Kommit"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
 #: src/gui/settings/settingspagegit.ui:26
-#, fuzzy, kde-format
-#| msgid "Register GitKlient merge tool"
+#, kde-format
 msgid "Register kommit merge tool"
-msgstr "Зареєструвати інструмент об'єднання GitKlient"
+msgstr "Зареєструвати інструмент об'єднання Kommit"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/settings/settingspagegit.ui:37

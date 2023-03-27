@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-26 00:50+0000\n"
-"PO-Revision-Date: 2023-01-28 08:22+0100\n"
+"PO-Revision-Date: 2023-03-26 06:59+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -29,10 +29,9 @@ msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
 #: src/apps/main.cpp:34
-#, fuzzy, kde-format
-#| msgid "Commit"
+#, kde-format
 msgid "Kommit"
-msgstr "გადაცემა"
+msgstr "Kommit"
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -40,10 +39,9 @@ msgid "Git client gui for KDE"
 msgstr "Git-ის კლიენტი KDE-სთვის"
 
 #: src/apps/main.cpp:38
-#, fuzzy, kde-format
-#| msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
+#, kde-format
 msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
+msgstr "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:114
 #: src/gui/widgets/logdetailswidget.cpp:117
@@ -1584,8 +1582,7 @@ msgid "The selected branches must be different!"
 msgstr ""
 
 #: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Select branches"
+#, kde-format
 msgid "Select Branches"
 msgstr "აირჩიეთ ბრენჩები"
 
@@ -1638,12 +1635,10 @@ msgid "Tag name:"
 msgstr "ჭდის სახელი:"
 
 #: src/gui/diffwindow.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "GitKlient Diff[*]"
+#, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
-msgstr "GitKlient Diff[*]"
+msgstr "Kommit Diff[*]"
 
 #: src/gui/diffwindow.cpp:109
 #, kde-format
