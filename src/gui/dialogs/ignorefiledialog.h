@@ -20,7 +20,7 @@ public:
 private:
     void generateIgnorePattern();
     void slotAccept();
-    QString getIgnoreFile() const;
+    Q_REQUIRED_RESULT QString getIgnoreFile() const;
     bool mIsIgnoredAlready{false};
     QString mPath;
     QString mName;

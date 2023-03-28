@@ -28,5 +28,5 @@ public:
 private:
     Q_REQUIRED_RESULT Diff::DiffType toDiffType(Git::FileStatus::Status status) const;
     Node *createPath(const QStringList &path, Diff::DiffType status);
-    QColor statusColor(Diff::DiffType status) const;
+    Q_REQUIRED_RESULT QColor statusColor(Diff::DiffType status) const;
 };
