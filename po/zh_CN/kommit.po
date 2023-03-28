@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-26 00:50+0000\n"
-"PO-Revision-Date: 2023-03-11 04:53\n"
+"PO-Revision-Date: 2023-03-27 12:00\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/gitklient/gitklient.pot\n"
-"X-Crowdin-File-ID: 40826\n"
+"X-Crowdin-File: /kf5-trunk/messages/kommit/kommit.pot\n"
+"X-Crowdin-File-ID: 42087\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,10 +28,9 @@ msgid "Your emails"
 msgstr "kde-china@kde.org, henry.hu.sh@gmail.com"
 
 #: src/apps/main.cpp:34
-#, fuzzy, kde-format
-#| msgid "Commit"
+#, kde-format
 msgid "Kommit"
-msgstr "提交"
+msgstr ""
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -1614,10 +1613,9 @@ msgid "The selected branches must be different!"
 msgstr "所选分支必须不同！"
 
 #: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Select branches"
+#, kde-format
 msgid "Select Branches"
-msgstr "选择分支"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:14
@@ -1668,12 +1666,10 @@ msgid "Tag name:"
 msgstr "标签名称："
 
 #: src/gui/diffwindow.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "GitKlient Diff[*]"
+#, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
-msgstr "GitKlient 差异[*]"
+msgstr ""
 
 #: src/gui/diffwindow.cpp:109
 #, kde-format
@@ -1943,17 +1939,15 @@ msgstr "修改文本的颜色："
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerDiffTool)
 #: src/gui/settings/settingspagegit.ui:19
-#, fuzzy, kde-format
-#| msgid "Register GitKlient diff tool"
+#, kde-format
 msgid "Register kommit diff tool"
-msgstr "注册 GitKlient 差异工具"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
 #: src/gui/settings/settingspagegit.ui:26
-#, fuzzy, kde-format
-#| msgid "Register GitKlient merge tool"
+#, kde-format
 msgid "Register kommit merge tool"
-msgstr "注册 GitKlient 合并工具"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/settings/settingspagegit.ui:37
@@ -2280,9 +2274,3 @@ msgstr "头"
 #, kde-format
 msgid "Tagger"
 msgstr ""
-
-#~ msgid "Git Klient"
-#~ msgstr "Git 客户端"
-
-#~ msgid "GitKlient"
-#~ msgstr "GitKlient"
