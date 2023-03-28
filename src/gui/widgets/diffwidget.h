@@ -64,10 +64,10 @@ protected:
 
 private:
     constexpr static int mPreviewWidgetHeight{160};
-    QWidget *mPreviewWidget;
+    QWidget *mPreviewWidget = nullptr;
     int mPreviewMargin{0};
-    CodeEditor *mPreviewEditorLeft;
-    CodeEditor *mPreviewEditorRight;
+    CodeEditor *mPreviewEditorLeft = nullptr;
+    CodeEditor *mPreviewEditorRight = nullptr;
     bool mSameSize{false};
     Git::File mOldFile;
     Git::File mNewFile;
