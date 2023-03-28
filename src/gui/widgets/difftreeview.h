@@ -26,15 +26,13 @@ public:
     void setHideUnchangeds(bool newHideUnchangeds);
     bool eventFilter(QObject *watched, QEvent *event) override;
 
-private Q_SLOTS:
-    void slotTreeViewClicked(const QModelIndex &index);
-    void slotListViewClicked(const QModelIndex &index);
-
 Q_SIGNALS:
     void fileSelected(const QString &file);
     void hideUnchangedsChanged();
 
 private:
+    void slotTreeViewClicked(const QModelIndex &index);
+    void slotListViewClicked(const QModelIndex &index);
     void lineEditFilterTextChanged(const QString &text);
     DiffTreeModel *mDiffModel{nullptr};
     QSortFilterProxyModel *const mFilterModel;
