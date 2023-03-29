@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-26 00:50+0000\n"
-"PO-Revision-Date: 2023-01-28 19:49+0100\n"
+"POT-Creation-Date: 2023-03-29 00:49+0000\n"
+"PO-Revision-Date: 2023-03-28 13:04+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -27,11 +27,10 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "smart2128vr@gmail.com"
 
-#: src/apps/main.cpp:34
-#, fuzzy, kde-format
-#| msgid "Commit"
+#: dolphinplugins/actionmanager.cpp:21 src/apps/main.cpp:34
+#, kde-format
 msgid "Kommit"
-msgstr "Commit"
+msgstr "Kommit"
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -39,10 +38,9 @@ msgid "Git client gui for KDE"
 msgstr "Interfaccia client Git per KDE"
 
 #: src/apps/main.cpp:38
-#, fuzzy, kde-format
-#| msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
+#, kde-format
 msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
+msgstr "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:40 src/gui/widgets/logdetailswidget.cpp:114
 #: src/gui/widgets/logdetailswidget.cpp:117
@@ -1683,8 +1681,7 @@ msgid "The selected branches must be different!"
 msgstr "I rami selezionati devono essere diversi!"
 
 #: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Select branches"
+#, kde-format
 msgid "Select Branches"
 msgstr "Seleziona i rami"
 
@@ -1737,12 +1734,10 @@ msgid "Tag name:"
 msgstr "Nome del tag:"
 
 #: src/gui/diffwindow.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "GitKlient Diff[*]"
+#, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
-msgstr "GitKlient Diff[*]"
+msgstr "Kommit Diff[*]"
 
 #: src/gui/diffwindow.cpp:109
 #, kde-format
@@ -2012,17 +2007,15 @@ msgstr "Colore delle differenze delle modifiche:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerDiffTool)
 #: src/gui/settings/settingspagegit.ui:19
-#, fuzzy, kde-format
-#| msgid "Register GitKlient diff tool"
+#, kde-format
 msgid "Register kommit diff tool"
-msgstr "Registra lo strumento delle differenze di GitKlient"
+msgstr "Registra lo strumento delle differenze di kommit"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
 #: src/gui/settings/settingspagegit.ui:26
-#, fuzzy, kde-format
-#| msgid "Register GitKlient merge tool"
+#, kde-format
 msgid "Register kommit merge tool"
-msgstr "Registra lo strumento di unione di GitKlient"
+msgstr "Registra lo strumento di unione di kommit"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/settings/settingspagegit.ui:37

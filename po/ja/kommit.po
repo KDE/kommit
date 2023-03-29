@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-26 00:50+0000\n"
+"POT-Creation-Date: 2023-03-29 00:49+0000\n"
 "PO-Revision-Date: 2022-09-07 22:16-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -24,7 +24,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: src/apps/main.cpp:34
+#: dolphinplugins/actionmanager.cpp:21 src/apps/main.cpp:34
 #, kde-format
 msgid "Kommit"
 msgstr ""

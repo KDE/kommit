@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-26 00:50+0000\n"
+"POT-Creation-Date: 2023-03-29 00:49+0000\n"
 "PO-Revision-Date: 2023-01-17 20:10+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -26,7 +26,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "thomas.vergnaud@mailo.eu"
 
-#: src/apps/main.cpp:34
+#: dolphinplugins/actionmanager.cpp:21 src/apps/main.cpp:34
 #, fuzzy, kde-format
 #| msgid "Commit"
 msgid "Kommit"
