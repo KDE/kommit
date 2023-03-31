@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #define ACTIONS_FOR_EACH(f)                                                                                                                                    \
     f(actionClone, "Clone", PACK(QStringLiteral("clone"), PACK(mPath)), QLatin1String());                                                                      \
-    f(actionInit, "Init", PACK(QStringLiteral("init")), QLatin1String());                                                                                      \
+    f(actionInit, "Init", PACK(QStringLiteral("init"), PACK(mPath)), QLatin1String());                                                                         \
     f(actionOpen, "Open", PACK(mPath), QLatin1String());                                                                                                       \
     f(actionPull, "Pull", PACK(QStringLiteral("pull"), mPath), QStringLiteral("git-pull"));                                                                    \
     f(actionFetch, "Fetch", PACK(QStringLiteral("fetch"), mPath), QStringLiteral("git-fetch"));                                                                \
