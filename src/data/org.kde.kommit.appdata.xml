@@ -6,6 +6,7 @@
   <name>Kommit</name>
   <name xml:lang="ca">Kommit</name>
   <name xml:lang="ca-valencia">Kommit</name>
+  <name xml:lang="cs">Kommit</name>
   <name xml:lang="en-GB">Kommit</name>
   <name xml:lang="es">Kommit</name>
   <name xml:lang="it">Kommit</name>
@@ -19,7 +20,7 @@
   <summary> Git gui client for KDE </summary>
   <summary xml:lang="ca">Client gràfic del Git per al KDE</summary>
   <summary xml:lang="ca-valencia">Client gràfic de Git per a KDE</summary>
-  <summary xml:lang="cs">Git klient od KDE</summary>
+  <summary xml:lang="cs">GUI git klient od KDE</summary>
   <summary xml:lang="de">Git-Programm für KDE</summary>
   <summary xml:lang="en-GB">Git GUI client for KDE</summary>
   <summary xml:lang="es">Interfaz gráfica de cliente git para KDE</summary>
@@ -43,7 +44,7 @@
     <p> Git gui client for KDE </p>
     <p xml:lang="ca">Client gràfic del Git per al KDE</p>
     <p xml:lang="ca-valencia">Client gràfic de Git per a KDE</p>
-    <p xml:lang="cs">Git klient od KDE</p>
+    <p xml:lang="cs">GUI git klient od KDE</p>
     <p xml:lang="de">Git-Programm für KDE</p>
     <p xml:lang="en-GB">Git GUI client for KDE</p>
     <p xml:lang="es">Interfaz gráfica de cliente git para KDE</p>
