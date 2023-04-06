@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-29 00:49+0000\n"
-"PO-Revision-Date: 2023-04-02 13:10+0200\n"
+"PO-Revision-Date: 2023-04-04 16:56+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -866,10 +866,9 @@ msgstr "Validation"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/gui/dialogs/diffopendialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Select files to merge"
+#, kde-format
 msgid "Select files/folders"
-msgstr "Choisissez les fichiers à fusionner"
+msgstr "Sélectionner des fichiers et des dossiers"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
 #: src/gui/dialogs/diffopendialog.ui:24
