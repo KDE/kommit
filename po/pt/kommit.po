@@ -2097,7 +2097,7 @@ msgstr "Referência"
 #: src/libkommit/models/tagsmodel.cpp:68
 #, kde-format
 msgid "Committer"
-msgstr "Responsável"
+msgstr "Modificado por"
 
 #: src/gui/widgets/logdetailswidget.cpp:119
 #: src/libkommit/models/logsmodel.cpp:260
