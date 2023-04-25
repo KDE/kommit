@@ -231,20 +231,20 @@ target_link_libraries(libkommitgui
     libkommit
     libkommitdiff
 
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::XmlGui
-    KF5::ConfigWidgets
-    KF5::DBusAddons
-    KF5::Crash
-    KF5::KIOCore
-    KF5::KIOFileWidgets
-    KF5::KIOWidgets
-    KF5::Parts
-    KF5::TextWidgets
-    KF5::TextEditor
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::XmlGui
+    KF${KF_MAJOR_VERSION}::ConfigWidgets
+    KF${KF_MAJOR_VERSION}::DBusAddons
+    KF${KF_MAJOR_VERSION}::Crash
+    KF${KF_MAJOR_VERSION}::KIOCore
+    KF${KF_MAJOR_VERSION}::KIOFileWidgets
+    KF${KF_MAJOR_VERSION}::KIOWidgets
+    KF${KF_MAJOR_VERSION}::Parts
+    KF${KF_MAJOR_VERSION}::TextWidgets
+    KF${KF_MAJOR_VERSION}::TextEditor
 
-    KF5::SyntaxHighlighting
+    KF${KF_MAJOR_VERSION}::SyntaxHighlighting
 )
 
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)

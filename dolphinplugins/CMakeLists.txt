@@ -1,4 +1,4 @@
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS KIO)
+find_package(KF${KF_MAJOR_VERSION} ${KF${KF_MAJOR_VERSION}_MIN_VERSION} REQUIRED COMPONENTS KIO)
 
 set(GIT_EXTRA_SOURCE
 )
@@ -23,10 +23,10 @@ target_sources(kommititemaction PRIVATE
 
 target_link_libraries(
     kommititemaction
-    KF5::I18n
-    KF5::WidgetsAddons
-    KF5::KIOCore
-    KF5::KIOWidgets
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::WidgetsAddons
+    KF${KF_MAJOR_VERSION}::KIOCore
+    KF${KF_MAJOR_VERSION}::KIOWidgets
     libkommit
 )
 
@@ -48,9 +48,9 @@ target_sources(kommitoverlayplugin PRIVATE
 
 target_link_libraries(
     kommitoverlayplugin
-    KF5::CoreAddons
-    KF5::KIOCore
-    KF5::KIOWidgets
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::KIOCore
+    KF${KF_MAJOR_VERSION}::KIOWidgets
     libkommit
 )
 

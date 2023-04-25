@@ -38,6 +38,13 @@ include(GenerateExportHeader)
 include(KDEGitCommitHooks)
 include(KDEClangFormat)
 include(ECMDeprecationSettings)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_REQUIRED_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
 
 set (CMAKE_CXX_STANDARD 17)
 
@@ -51,7 +58,7 @@ find_package(
 )
 
 find_package(
-    KF5 ${KF_MIN_VERSION}
+    KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION}
     REQUIRED COMPONENTS
         ConfigWidgets
         CoreAddons
@@ -92,7 +99,7 @@ if(BUILD_TESTING)
 endif(BUILD_TESTING)
 
 
-if(KF5DocTools_FOUND)
+if(KF${KF_MAJOR_VERSION}DocTools_FOUND)
     add_subdirectory(doc)
     kdoctools_install(po)
 else()

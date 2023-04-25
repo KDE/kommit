@@ -90,7 +90,7 @@ target_link_libraries(libkommit
     Qt::Core
     Qt::Widgets
     Qt::Concurrent
-    KF5::I18n
+    KF${KF_MAJOR_VERSION}::I18n
 )
 
 if (BUILD_TESTING)
