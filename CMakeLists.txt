@@ -13,11 +13,11 @@ set(LIBKOMMIT_LIB_SOVERSION "0")
 
 
 add_definitions(-DGK_VERSION="${RELEASE_SERVICE_VERSION}")
-set(REQUIRED_KF5_VERSION "5.90")
+set(KF_MIN_VERSION "5.90")
 set(QT_MIN_VERSION 5.15.2)
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
-find_package(ECM ${REQUIRED_KF5_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(
     CMAKE_MODULE_PATH
     ${ECM_MODULE_PATH}
@@ -51,7 +51,7 @@ find_package(
 )
 
 find_package(
-    KF5 ${REQUIRED_KF5_VERSION}
+    KF5 ${KF_MIN_VERSION}
     REQUIRED COMPONENTS
         ConfigWidgets
         CoreAddons
