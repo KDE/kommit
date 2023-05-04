@@ -22,7 +22,7 @@ Icon=kommit
 
 Type=Application
 X-DocPath=kommit/index.html
-GenericName=Git client gui for KDE
+GenericName=Git client GUI
 GenericName[ca]=Client gràfic del Git per al KDE
 GenericName[ca@valencia]=Client gràfic de Git per a KDE
 GenericName[cs]=GUI git klient od KDE
