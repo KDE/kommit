@@ -127,7 +127,11 @@ QString CommandArgsParser::param(const QString &name) const
 
 ArgParserReturn CommandArgsParser::run(const QStringList &args)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #define GET_OP(x) params.size() > x ? Q_ARG(QString, params.at(x)) : QGenericArgument()
+#else
+#define GET_OP(x) params.size() > x ? Q_ARG(QString, params.at(x)) : QMetaMethodArgument()
+#endif
     if (args.size() == 1)
         return main();
     const auto name = QString(args.at(1)).replace(QLatin1String("-"), QLatin1String("_")).toLocal8Bit();

@@ -99,11 +99,12 @@ if(BUILD_TESTING)
 endif(BUILD_TESTING)
 
 
-if(KF${KF_MAJOR_VERSION}DocTools_FOUND)
+if(KF5DocTools_FOUND) # For the moment on kf6 it doesn't build depend against deprecated &kf5
     add_subdirectory(doc)
     kdoctools_install(po)
 else()
-    message(WARNING "DocTools not found.")
+    
+	message(WARNING "DocTools not found. NEED TO FIX IT IN QT6")
 endif()
 
 add_subdirectory(icons)

@@ -9,7 +9,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KActionCollection>
 #include <KLocalizedString>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <KMimeTypeTrader>
+#endif
 #include <KStandardAction>
 #include <KXMLGUIFactory>
 

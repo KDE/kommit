@@ -18,7 +18,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/OpenUrlJob>
 #include <KLocalizedString>
-#include <KMimeTypeTrader>
 #include <kjobtrackerinterface.h>
 
 #include <kio_version.h>

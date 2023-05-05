@@ -9,7 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KFileItemListProperties>
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <KProcess>
 #include <QAction>
 #include <QMenu>
