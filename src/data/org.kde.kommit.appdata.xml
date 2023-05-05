@@ -21,52 +21,8 @@
   <name xml:lang="uk">Kommit</name>
   <name xml:lang="x-test">xxKommitxx</name>
   <summary>Git GUI client</summary>
-  <summary xml:lang="ca">Client gràfic del Git per al KDE</summary>
-  <summary xml:lang="ca-valencia">Client gràfic de Git per a KDE</summary>
-  <summary xml:lang="cs">GUI git klient od KDE</summary>
-  <summary xml:lang="de">Git-Programm für KDE</summary>
-  <summary xml:lang="en-GB">Git GUI client for KDE</summary>
-  <summary xml:lang="es">Interfaz gráfica de cliente git para KDE</summary>
-  <summary xml:lang="eu">KDEren Git GUI bezeroa</summary>
-  <summary xml:lang="fi">Graafinen Git-käyttöliittymä KDE:hen</summary>
-  <summary xml:lang="fr">Client « Git » avec interface utilisateur pour KDE</summary>
-  <summary xml:lang="id">Klien gui Git untuk KDE</summary>
-  <summary xml:lang="it">Interfaccia client Git per KDE</summary>
-  <summary xml:lang="ka">Git-ის კლიენტი KDE-სთვის</summary>
-  <summary xml:lang="nl">Git gui-client voor KDE</summary>
-  <summary xml:lang="pl">Interfejs gita dla KDE</summary>
-  <summary xml:lang="pt">Cliente gráfico do Git para o KDE</summary>
-  <summary xml:lang="sk">Git gui klient pre KDE</summary>
-  <summary xml:lang="sl">Grafični vmesnik odjemalca Git za KDE</summary>
-  <summary xml:lang="tr">KDE için Git Grafik Kullanıcı Arayüzü</summary>
-  <summary xml:lang="uk">Клієнтська графічна оболонка до git для KDE</summary>
-  <summary xml:lang="x-test">xxGit gui client for KDExx</summary>
-  <summary xml:lang="zh-CN">KDE git 图形界面客户端</summary>
-  <summary xml:lang="zh-TW">KDE 的 Git 用戶端介面</summary>
   <description>
     <p>Git GUI client</p>
-    <p xml:lang="ca">Client gràfic del Git per al KDE</p>
-    <p xml:lang="ca-valencia">Client gràfic de Git per a KDE</p>
-    <p xml:lang="cs">GUI git klient od KDE</p>
-    <p xml:lang="de">Git-Programm für KDE</p>
-    <p xml:lang="en-GB">Git GUI client for KDE</p>
-    <p xml:lang="es">Interfaz gráfica de cliente git para KDE</p>
-    <p xml:lang="eu">KDEren Git GUI bezeroa</p>
-    <p xml:lang="fi">Graafinen Git-käyttöliittymä KDE:hen</p>
-    <p xml:lang="fr">Client « Git » avec interface utilisateur pour KDE</p>
-    <p xml:lang="id">Klien gui Git untuk KDE</p>
-    <p xml:lang="it">Interfaccia client Git per KDE</p>
-    <p xml:lang="ka">Git-ის კლიენტი KDE-სთვის</p>
-    <p xml:lang="nl">Git gui-client voor KDE</p>
-    <p xml:lang="pl">Interfejs gita dla KDE</p>
-    <p xml:lang="pt">Cliente gráfico do Git para o KDE</p>
-    <p xml:lang="sk">Git gui klient pre KDE</p>
-    <p xml:lang="sl">Grafični vmesnik odjemalca Git za KDE</p>
-    <p xml:lang="tr">KDE için Git Grafik Kullanıcı Arayüzü</p>
-    <p xml:lang="uk">Клієнтська графічна оболонка до git для KDE</p>
-    <p xml:lang="x-test">xxGit gui client for KDExx</p>
-    <p xml:lang="zh-CN">KDE git 图形界面客户端</p>
-    <p xml:lang="zh-TW">KDE 的 Git 用戶端介面</p>
   </description>
   <url type="homepage">https://invent.kde.org/sdk/kommit</url>
   <url type="bugtracker">https://invent.kde.org/sdk/kommit/-/issues</url>
