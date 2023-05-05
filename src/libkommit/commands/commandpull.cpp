@@ -167,7 +167,7 @@ QStringList CommandPull::generateArgs() const
         args << QStringLiteral("--rebase=preserve");
         break;
     case Merge:
-        args << QStringLiteral("--rebase=merge");
+        args << QStringLiteral("--rebase=merges");
         break;
     }
 
