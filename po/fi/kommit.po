@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 00:49+0000\n"
+"POT-Creation-Date: 2023-05-06 00:49+0000\n"
 "PO-Revision-Date: 2023-04-02 16:22+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "translator@legisign.org"
 
-#: dolphinplugins/actionmanager.cpp:21 src/apps/main.cpp:34
+#: dolphinplugins/actionmanager.cpp:20 src/apps/main.cpp:34
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
@@ -152,48 +152,48 @@ msgstr "Palaa takaisin…"
 msgid "Checkout..."
 msgstr "Vaihda…"
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Vertaa HEADiin…"
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:82
 #, kde-format
 msgid "Preview"
 msgstr "Esikatselu"
 
-#: src/gui/actions/fileactions.cpp:84
+#: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Open"
 msgstr "Avaa"
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open with..."
 msgstr "Avaa ohjelmalla…"
 
-#: src/gui/actions/fileactions.cpp:88
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Yhdistä HEADiin…"
 
-#: src/gui/actions/fileactions.cpp:90
+#: src/gui/actions/fileactions.cpp:89
 #, kde-format
 msgid "Save as..."
 msgstr "Tallenna nimellä…"
 
-#: src/gui/actions/fileactions.cpp:91
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Log..."
 msgstr "Loki…"
 
-#: src/gui/actions/fileactions.cpp:92
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Blame..."
 msgstr "Moiti…"
 
-#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:192
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:192
 #, kde-format
 msgid "Search..."
 msgstr "Etsi…"
@@ -478,12 +478,12 @@ msgstr "Siirry/vaihda…"
 msgid "Diff tree"
 msgstr "Vertaa puuta"
 
-#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
+#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:240
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Polkua ei voi luoda: %1"
 
-#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
+#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:240
 #, kde-format
 msgid "Init repo"
 msgstr "Alusta lähde"
@@ -493,12 +493,12 @@ msgstr "Alusta lähde"
 msgid "Open repository"
 msgstr "Avaa lähde"
 
-#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:474
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Yhdistettäessä haarasta toiseen ei voi siirtyä"
 
-#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:474
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Switch branch"
 msgstr "Siirry haaraan"
@@ -508,27 +508,27 @@ msgstr "Siirry haaraan"
 msgid "The path is not git repo: %1"
 msgstr "Sijainti ei ole git-lähde: %1"
 
-#: src/gui/commandargsparser.cpp:241
+#: src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Lähteen alustaminen onnistui"
 
-#: src/gui/commandargsparser.cpp:503
+#: src/gui/commandargsparser.cpp:507
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Tiedostojen lisäys gitiin onnistui"
 
-#: src/gui/commandargsparser.cpp:511
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Haluaisitko jättää tiedostot levylle?"
 
-#: src/gui/commandargsparser.cpp:511
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Remove from index"
 msgstr "Poista indeksistä"
 
-#: src/gui/commandargsparser.cpp:513
+#: src/gui/commandargsparser.cpp:517
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Tiedostojen poisto gitistä onnistui"
@@ -1007,18 +1007,18 @@ msgstr "Selaa tiedostoja: %1"
 msgid "Branch:"
 msgstr "Haara:"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:54
+#: src/gui/dialogs/fileviewerdialog.cpp:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Suljetaan esikatselua"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:55
+#: src/gui/dialogs/fileviewerdialog.cpp:57
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Odota kunnes esikatselu on sulkeutunut…"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:88
+#: src/gui/dialogs/fileviewerdialog.cpp:90
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"

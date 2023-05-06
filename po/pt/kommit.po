@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 00:49+0000\n"
+"POT-Creation-Date: 2023-05-06 00:49+0000\n"
 "PO-Revision-Date: 2023-03-27 23:31+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -37,7 +37,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zepires@gmail.com"
 
-#: dolphinplugins/actionmanager.cpp:21 src/apps/main.cpp:34
+#: dolphinplugins/actionmanager.cpp:20 src/apps/main.cpp:34
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
@@ -162,48 +162,48 @@ msgstr "Reverter..."
 msgid "Checkout..."
 msgstr "Obter..."
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Diferenças do HEAD..."
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:82
 #, kde-format
 msgid "Preview"
 msgstr "Antevisão"
 
-#: src/gui/actions/fileactions.cpp:84
+#: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open with..."
 msgstr "Abrir com..."
 
-#: src/gui/actions/fileactions.cpp:88
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Reunir com o HEAD..."
 
-#: src/gui/actions/fileactions.cpp:90
+#: src/gui/actions/fileactions.cpp:89
 #, kde-format
 msgid "Save as..."
 msgstr "Gravar como..."
 
-#: src/gui/actions/fileactions.cpp:91
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Log..."
 msgstr "Registo..."
 
-#: src/gui/actions/fileactions.cpp:92
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Blame..."
 msgstr "Anotar..."
 
-#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:192
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:192
 #, kde-format
 msgid "Search..."
 msgstr "Procurar..."
@@ -487,12 +487,12 @@ msgstr "Mudar/Seleccionar..."
 msgid "Diff tree"
 msgstr "Diferenças da árvore"
 
-#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
+#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:240
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Não é possível criar a localização: %1"
 
-#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
+#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:240
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializar o repositório"
@@ -502,12 +502,12 @@ msgstr "Inicializar o repositório"
 msgid "Open repository"
 msgstr "Abrir um repositório"
 
-#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:474
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Não é possível mudar de ramificação durante uma junção"
 
-#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:474
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Switch branch"
 msgstr "Mudar de ramificação"
@@ -517,27 +517,27 @@ msgstr "Mudar de ramificação"
 msgid "The path is not git repo: %1"
 msgstr "A localização não é de um repositório Git: %1"
 
-#: src/gui/commandargsparser.cpp:241
+#: src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "O repositório foi inicializado com sucesso"
 
-#: src/gui/commandargsparser.cpp:503
+#: src/gui/commandargsparser.cpp:507
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Os ficheiros foram adicionados com sucesso ao Git"
 
-#: src/gui/commandargsparser.cpp:511
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Deseja deixar os ficheiros no disco?"
 
-#: src/gui/commandargsparser.cpp:511
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Remove from index"
 msgstr "Remover do índice"
 
-#: src/gui/commandargsparser.cpp:513
+#: src/gui/commandargsparser.cpp:517
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Os ficheiros foram removidos com sucesso do Git"
@@ -1040,18 +1040,18 @@ msgstr "Navegação pelos ficheiros: %1"
 msgid "Branch:"
 msgstr "Ramificação:"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:54
+#: src/gui/dialogs/fileviewerdialog.cpp:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "A fechar a antevisão"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:55
+#: src/gui/dialogs/fileviewerdialog.cpp:57
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Espere por favor enquanto se fecha a antevisão..."
 
-#: src/gui/dialogs/fileviewerdialog.cpp:88
+#: src/gui/dialogs/fileviewerdialog.cpp:90
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"

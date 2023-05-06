@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 00:49+0000\n"
+"POT-Creation-Date: 2023-05-06 00:49+0000\n"
 "PO-Revision-Date: 2023-03-27 09:21+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net,miles@filmsi.net"
 
-#: dolphinplugins/actionmanager.cpp:21 src/apps/main.cpp:34
+#: dolphinplugins/actionmanager.cpp:20 src/apps/main.cpp:34
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
@@ -156,48 +156,48 @@ msgstr "Povrni …"
 msgid "Checkout..."
 msgstr "Prevzemi ..."
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Razlika z GLAVO/HEAD ..."
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:82
 #, kde-format
 msgid "Preview"
 msgstr "Predogled"
 
-#: src/gui/actions/fileactions.cpp:84
+#: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Open"
 msgstr "Odpri"
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open with..."
 msgstr "Odpri z..."
 
-#: src/gui/actions/fileactions.cpp:88
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Združi z GLAVO/HEAD ..."
 
-#: src/gui/actions/fileactions.cpp:90
+#: src/gui/actions/fileactions.cpp:89
 #, kde-format
 msgid "Save as..."
 msgstr "Shrani kot..."
 
-#: src/gui/actions/fileactions.cpp:91
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Log..."
 msgstr "Dnevnik..."
 
-#: src/gui/actions/fileactions.cpp:92
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Blame..."
 msgstr "Odgovornost (blame) ..."
 
-#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:192
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:192
 #, kde-format
 msgid "Search..."
 msgstr "Išči..."
@@ -481,12 +481,12 @@ msgstr "Preklopi/prevzemi ..."
 msgid "Diff tree"
 msgstr "Drevo razlik"
 
-#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
+#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:240
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ni mogoče ustvariti poti: %1"
 
-#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
+#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:240
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializiraj skladišče"
@@ -496,12 +496,12 @@ msgstr "Inicializiraj skladišče"
 msgid "Open repository"
 msgstr "Odpri skladišče"
 
-#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:474
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Med spajanjem ni mogoče preklopiti veje"
 
-#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:474
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Switch branch"
 msgstr "Preklopi vejo"
@@ -511,27 +511,27 @@ msgstr "Preklopi vejo"
 msgid "The path is not git repo: %1"
 msgstr "Pot ni skladišče git: %1"
 
-#: src/gui/commandargsparser.cpp:241
+#: src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Skladišče je uspešno inicializirano"
 
-#: src/gui/commandargsparser.cpp:503
+#: src/gui/commandargsparser.cpp:507
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Datoteka/e uspešno dodana/e git-u"
 
-#: src/gui/commandargsparser.cpp:511
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Ali želite datoteko/e pustiti na disku?"
 
-#: src/gui/commandargsparser.cpp:511
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Remove from index"
 msgstr "Odstrani iz indeksa"
 
-#: src/gui/commandargsparser.cpp:513
+#: src/gui/commandargsparser.cpp:517
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Datoteka/e uspešno odstranjene iz git-a"
@@ -1032,18 +1032,18 @@ msgstr "Brskaj po datotekah: %1"
 msgid "Branch:"
 msgstr "Veja:"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:54
+#: src/gui/dialogs/fileviewerdialog.cpp:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Zapiranje predogleda"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:55
+#: src/gui/dialogs/fileviewerdialog.cpp:57
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Počakajte, da se predogled zapre ..."
 
-#: src/gui/dialogs/fileviewerdialog.cpp:88
+#: src/gui/dialogs/fileviewerdialog.cpp:90
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"

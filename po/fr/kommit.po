@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 00:49+0000\n"
+"POT-Creation-Date: 2023-05-06 00:49+0000\n"
 "PO-Revision-Date: 2023-04-04 16:56+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -26,7 +26,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "thomas.vergnaud@mailo.eu, xavier.besnard@neuf.fr"
 
-#: dolphinplugins/actionmanager.cpp:21 src/apps/main.cpp:34
+#: dolphinplugins/actionmanager.cpp:20 src/apps/main.cpp:34
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
@@ -151,48 +151,48 @@ msgstr "Rétablir…"
 msgid "Checkout..."
 msgstr "Récupérer…"
 
-#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:87
+#: src/gui/actions/commitactions.cpp:35 src/gui/actions/fileactions.cpp:86
 #: src/gui/actions/stashactions.cpp:23 src/gui/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with HEAD..."
 msgstr "Différences avec HEAD…"
 
-#: src/gui/actions/fileactions.cpp:83
+#: src/gui/actions/fileactions.cpp:82
 #, kde-format
 msgid "Preview"
 msgstr "Vue d'ensemble"
 
-#: src/gui/actions/fileactions.cpp:84
+#: src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Open"
 msgstr "Ouvrir "
 
-#: src/gui/actions/fileactions.cpp:85
+#: src/gui/actions/fileactions.cpp:84
 #, kde-format
 msgid "Open with..."
 msgstr "Ouvrir avec…"
 
-#: src/gui/actions/fileactions.cpp:88
+#: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Merge with HEAD..."
 msgstr "Fusionner avec HEAD…"
 
-#: src/gui/actions/fileactions.cpp:90
+#: src/gui/actions/fileactions.cpp:89
 #, kde-format
 msgid "Save as..."
 msgstr "Enregistrer sous…"
 
-#: src/gui/actions/fileactions.cpp:91
+#: src/gui/actions/fileactions.cpp:90
 #, kde-format
 msgid "Log..."
 msgstr "Journal…"
 
-#: src/gui/actions/fileactions.cpp:92
+#: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Blame..."
 msgstr "Rejet..."
 
-#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:192
+#: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:192
 #, kde-format
 msgid "Search..."
 msgstr "Chercher…"
@@ -484,12 +484,12 @@ msgstr "Basculer / Obtenir..."
 msgid "Diff tree"
 msgstr "Arborescence des différences"
 
-#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
+#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:240
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Impossible de créer le chemin : %1"
 
-#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:236
+#: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:240
 #, kde-format
 msgid "Init repo"
 msgstr "Initialiser un dépôt"
@@ -499,12 +499,12 @@ msgstr "Initialiser un dépôt"
 msgid "Open repository"
 msgstr "Ouvrir un dépôt"
 
-#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:474
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Impossible de changer de branch pendant une fusion"
 
-#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:474
+#: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Switch branch"
 msgstr "Changer de branche"
@@ -514,27 +514,27 @@ msgstr "Changer de branche"
 msgid "The path is not git repo: %1"
 msgstr "Le chemin n'est pas un dépôt git : %1"
 
-#: src/gui/commandargsparser.cpp:241
+#: src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Dépôt initialisé avec succès"
 
-#: src/gui/commandargsparser.cpp:503
+#: src/gui/commandargsparser.cpp:507
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Fichier(s) ajouté à git avec succès"
 
-#: src/gui/commandargsparser.cpp:511
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Souhaitez-vous laisser le(s) fichier(s) sur le disque ?"
 
-#: src/gui/commandargsparser.cpp:511
+#: src/gui/commandargsparser.cpp:515
 #, kde-format
 msgid "Remove from index"
 msgstr "Supprimer de la table d'index"
 
-#: src/gui/commandargsparser.cpp:513
+#: src/gui/commandargsparser.cpp:517
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Fichier(s) supprimés de git avec succès"
@@ -1038,18 +1038,18 @@ msgstr "Parcourir les fichiers : %1"
 msgid "Branch:"
 msgstr "Branche :"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:54
+#: src/gui/dialogs/fileviewerdialog.cpp:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Fermeture de la prévisualisation"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:55
+#: src/gui/dialogs/fileviewerdialog.cpp:57
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Veuillez patienter pendant la fermeture de la prévisualisation…"
 
-#: src/gui/dialogs/fileviewerdialog.cpp:88
+#: src/gui/dialogs/fileviewerdialog.cpp:90
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
