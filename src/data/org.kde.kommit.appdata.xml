@@ -25,7 +25,11 @@
   <summary xml:lang="ca">Client amb IGU del Git</summary>
   <summary xml:lang="ca-valencia">Client amb IGU de Git</summary>
   <summary xml:lang="de">Grafisches Git-Programm</summary>
+  <summary xml:lang="en-GB">Git GUI client</summary>
+  <summary xml:lang="es">Interfaz de cliente de Git</summary>
+  <summary xml:lang="ka">გრაფიკული კლიენტი Git-სთვის</summary>
   <summary xml:lang="nl">Git-client GUI</summary>
+  <summary xml:lang="pt">Cliente gráfico do Git</summary>
   <summary xml:lang="sl">Grafični odjemalec Git</summary>
   <summary xml:lang="tr">Grafik Arayüzli Git İstemcisi</summary>
   <summary xml:lang="uk">Графічний клієнт Git</summary>
@@ -35,7 +39,11 @@
     <p xml:lang="ca">Client amb IGU del Git</p>
     <p xml:lang="ca-valencia">Client amb IGU de Git</p>
     <p xml:lang="de">Grafisches Git-Programm</p>
+    <p xml:lang="en-GB">Git GUI client</p>
+    <p xml:lang="es">Interfaz de cliente de Git</p>
+    <p xml:lang="ka">გრაფიკული კლიენტი Git-სთვის</p>
     <p xml:lang="nl">Git-client GUI</p>
+    <p xml:lang="pt">Cliente gráfico do Git</p>
     <p xml:lang="sl">Grafični odjemalec Git</p>
     <p xml:lang="tr">Grafik Arayüzli Git İstemcisi</p>
     <p xml:lang="uk">Графічний клієнт Git</p>
