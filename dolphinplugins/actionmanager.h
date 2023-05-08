@@ -34,7 +34,7 @@ private:
     ACTIONS_FOR_EACH(decl)
 #undef decl
 
-    QAction *mMainAction;
+    QAction *mMainAction = nullptr;
 
     QString mPath;
 };

@@ -23,7 +23,7 @@ ActionManager::ActionManager(QObject *parent, const QList<QVariant> &)
     auto menu = new QMenu;
 
 #define f(name, text, args, icon)                                                                                                                              \
-    name = menu->addAction(i18n(text));                                                                                                                        \
+    name = menu->addAction(text);                                                                                                                              \
     if (!icon.isEmpty())                                                                                                                                       \
         name->setIcon(QIcon::fromTheme(icon));                                                                                                                 \
     connect(name, &QAction::triggered, this, &ActionManager::name##Clicked);
