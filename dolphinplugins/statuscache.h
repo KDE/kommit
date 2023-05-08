@@ -18,11 +18,11 @@ public:
     Git::FileStatus::Status fileStatus(const QString &path);
     Git::FileStatus::Status pathStatus(const QString &path);
     Git::FileStatus::Status fileStatus(const QFileInfo &fileInfo);
-    bool isGitDir(const QString &path);
+    Q_REQUIRED_RESULT bool isGitDir(const QString &path);
 
 private:
-    bool addPath(const QString &path);
-    bool isInDir(const QString &dirPath, const QString &filePath);
+    Q_REQUIRED_RESULT bool addPath(const QString &path);
+    Q_REQUIRED_RESULT bool isInDir(const QString &dirPath, const QString &filePath);
 
     friend class OverlayTest;
 
