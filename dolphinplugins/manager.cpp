@@ -77,7 +77,7 @@ QList<FileStatus> MiniManager::repoFilesStatus() const
             files.append(fs);
     }
     for (auto &f : unknownFiles) {
-        auto n = files.indexOf(f);
+        const auto n = files.indexOf(f);
         if (n == -1) {
             f.setStatus(FileStatus::Untracked);
             files.append(f);

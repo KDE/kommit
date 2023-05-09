@@ -69,7 +69,7 @@ Git::FileStatus::Status StatusCache::pathStatus(const QString &path)
     if (!git.isValid())
         return Git::FileStatus::NoGit;
 
-    auto statuses = git.repoFilesStatus();
+    const auto statuses = git.repoFilesStatus();
     Git::FileStatus::Status status = Git::FileStatus::Unmodified;
 
     for (const auto &s : std::as_const(statuses)) {
