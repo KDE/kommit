@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-06 00:49+0000\n"
+"POT-Creation-Date: 2023-05-09 00:50+0000\n"
 "PO-Revision-Date: 2023-03-26 14:38+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -31,6 +31,119 @@ msgstr "steve.allewell@gmail.com"
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
+
+#: dolphinplugins/actions.h:15
+#, kde-format
+msgid "Clone"
+msgstr "Clone"
+
+#: dolphinplugins/actions.h:16
+#, kde-format
+msgid "Init"
+msgstr "Init"
+
+#: dolphinplugins/actions.h:17 src/gui/actions/fileactions.cpp:83
+#, kde-format
+msgid "Open"
+msgstr "Open"
+
+#: dolphinplugins/actions.h:18
+#, kde-format
+msgid "Pull"
+msgstr "Pull"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
+#: dolphinplugins/actions.h:19 src/gui/widgets/remoteinfodialog.ui:64
+#, kde-format
+msgid "Fetch"
+msgstr "Fetch"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
+#: dolphinplugins/actions.h:20 src/gui/dialogs/commitpushdialog.cpp:85
+#: src/gui/dialogs/commitpushdialog.cpp:244
+#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
+#, kde-format
+msgid "Push"
+msgstr "Push"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
+#: dolphinplugins/actions.h:21 src/gui/dialogs/mergedialog.ui:14
+#, kde-format
+msgid "Merge"
+msgstr "Merge"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
+#: dolphinplugins/actions.h:22 src/gui/dialogs/switchbranchdialog.ui:14
+#, kde-format
+msgid "Switch/Checkout"
+msgstr "Switch/Checkout"
+
+#: dolphinplugins/actions.h:23
+#, kde-format
+msgid "Modifications"
+msgstr "Modifications"
+
+#. i18n: ectx: Menu (diff)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
+#: dolphinplugins/actions.h:24 src/gui/actions/branchactions.cpp:37
+#: src/gui/kommitmergeui.rc:17 src/gui/settings/settingsmanager.cpp:94
+#: src/gui/widgets/branchesstatuswidget.ui:123
+#, kde-format
+msgid "Diff"
+msgstr "Diff"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
+#: dolphinplugins/actions.h:25 src/gui/dialogs/ignorefiledialog.ui:14
+#: src/gui/dialogs/ignorefiledialog.ui:96
+#, kde-format
+msgid "Ignore file"
+msgstr "Ignore file"
+
+#: dolphinplugins/actions.h:26
+#, kde-format
+msgid "History"
+msgstr "History"
+
+#: dolphinplugins/actions.h:27
+#, kde-format
+msgid "Blame"
+msgstr "Blame"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
+#: dolphinplugins/actions.h:28 src/gui/mainwidget.ui:477
+#: src/gui/widgets/remoteswidget.ui:56 src/gui/widgets/tagswidget.ui:49
+#, kde-format
+msgid "Add"
+msgstr "Add"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
+#: dolphinplugins/actions.h:29 src/gui/widgets/branchesstatuswidget.ui:103
+#: src/gui/widgets/remoteswidget.ui:66
+#, kde-format
+msgid "Remove"
+msgstr "Remove"
+
+#: dolphinplugins/actions.h:30
+#, kde-format
+msgid "Create tag"
+msgstr "Create tag"
+
+#: dolphinplugins/actions.h:31
+#, fuzzy, kde-format
+#| msgid "Cleanup..."
+msgid "Cleanup"
+msgstr "Cleanup..."
+
+#: dolphinplugins/actions.h:32
+#, fuzzy, kde-format
+#| msgid "Diff branches..."
+msgid "Diff branches"
+msgstr "Diff branches..."
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -89,15 +202,6 @@ msgstr "Switch"
 #, kde-format
 msgid "Merge..."
 msgstr "Merge..."
-
-#. i18n: ectx: Menu (diff)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:37 src/gui/kommitmergeui.rc:17
-#: src/gui/settings/settingsmanager.cpp:94
-#: src/gui/widgets/branchesstatuswidget.ui:123
-#, kde-format
-msgid "Diff"
-msgstr "Diff"
 
 #: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
@@ -162,11 +266,6 @@ msgstr "Diff with HEAD..."
 #, kde-format
 msgid "Preview"
 msgstr "Preview"
-
-#: src/gui/actions/fileactions.cpp:83
-#, kde-format
-msgid "Open"
-msgstr "Open"
 
 #: src/gui/actions/fileactions.cpp:84
 #, kde-format
@@ -662,15 +761,6 @@ msgstr "Branch"
 msgid "Origin name"
 msgstr "Origin name"
 
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:85
-#: src/gui/dialogs/commitpushdialog.cpp:244
-#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
-#, kde-format
-msgid "Push"
-msgstr "Push"
-
 #: src/gui/dialogs/commitpushdialog.cpp:87
 #: src/gui/dialogs/commitpushdialog.cpp:244
 #, kde-format
@@ -1066,14 +1156,6 @@ msgstr "Please enter the pattern"
 msgid "Unable to open file: %1"
 msgstr "Unable to open file: %1"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
-#: src/gui/dialogs/ignorefiledialog.ui:14
-#: src/gui/dialogs/ignorefiledialog.ui:96
-#, kde-format
-msgid "Ignore file"
-msgstr "Ignore file"
-
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/ignorefiledialog.ui:25
 #, kde-format
@@ -1188,12 +1270,6 @@ msgstr "Leave as is"
 #, kde-format
 msgid "Don't exit"
 msgstr "Do not exit"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
-#: src/gui/dialogs/mergedialog.ui:14
-#, kde-format
-msgid "Merge"
-msgstr "Merge"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/mergedialog.ui:22
@@ -1707,12 +1783,6 @@ msgstr "HEAD"
 msgid "Add new submodule"
 msgstr "Add new submodule"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
-#: src/gui/dialogs/switchbranchdialog.ui:14
-#, kde-format
-msgid "Switch/Checkout"
-msgstr "Switch/Checkout"
-
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53
 #, kde-format
@@ -1836,15 +1906,6 @@ msgstr "Submodules"
 #, kde-format
 msgid "Remotes"
 msgstr "Remotes"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: src/gui/mainwidget.ui:477 src/gui/widgets/remoteswidget.ui:56
-#: src/gui/widgets/tagswidget.ui:49
-#, kde-format
-msgid "Add"
-msgstr "Add"
 
 #: src/gui/mergewindow.cpp:281
 #, kde-format
@@ -2038,14 +2099,6 @@ msgstr "Reference branch:"
 msgid "New"
 msgstr "New"
 
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: src/gui/widgets/branchesstatuswidget.ui:103
-#: src/gui/widgets/remoteswidget.ui:66
-#, kde-format
-msgid "Remove"
-msgstr "Remove"
-
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/widgets/branchesstatuswidget.ui:113
 #, kde-format
@@ -2124,12 +2177,6 @@ msgstr "New remote"
 #, kde-format
 msgid "Mirror"
 msgstr "Mirror"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
-#: src/gui/widgets/remoteinfodialog.ui:64
-#, kde-format
-msgid "Fetch"
-msgstr "Fetch"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/widgets/remoteswidget.ui:79
@@ -2388,27 +2435,6 @@ msgstr "Tagger"
 #~| msgid "Leave as is"
 #~ msgid "Leave"
 #~ msgstr "Leave as is"
-
-#~ msgid "Clone"
-#~ msgstr "Clone"
-
-#~ msgid "Init"
-#~ msgstr "Init"
-
-#~ msgid "Pull"
-#~ msgstr "Pull"
-
-#~ msgid "Modifications"
-#~ msgstr "Modifications"
-
-#~ msgid "History"
-#~ msgstr "History"
-
-#~ msgid "Blame"
-#~ msgstr "Blame"
-
-#~ msgid "Create tag"
-#~ msgstr "Create tag"
 
 #~ msgid "Save diff"
 #~ msgstr "Save diff"

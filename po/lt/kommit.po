@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-06 00:49+0000\n"
+"POT-Creation-Date: 2023-05-09 00:50+0000\n"
 "PO-Revision-Date: 2023-02-13 00:59+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -31,6 +31,117 @@ msgstr ""
 #: dolphinplugins/actionmanager.cpp:20 src/apps/main.cpp:34
 #, kde-format
 msgid "Kommit"
+msgstr ""
+
+#: dolphinplugins/actions.h:15
+#, kde-format
+msgid "Clone"
+msgstr ""
+
+#: dolphinplugins/actions.h:16
+#, kde-format
+msgid "Init"
+msgstr ""
+
+#: dolphinplugins/actions.h:17 src/gui/actions/fileactions.cpp:83
+#, kde-format
+msgid "Open"
+msgstr ""
+
+#: dolphinplugins/actions.h:18
+#, kde-format
+msgid "Pull"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
+#: dolphinplugins/actions.h:19 src/gui/widgets/remoteinfodialog.ui:64
+#, kde-format
+msgid "Fetch"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
+#: dolphinplugins/actions.h:20 src/gui/dialogs/commitpushdialog.cpp:85
+#: src/gui/dialogs/commitpushdialog.cpp:244
+#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
+#, kde-format
+msgid "Push"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
+#: dolphinplugins/actions.h:21 src/gui/dialogs/mergedialog.ui:14
+#, kde-format
+msgid "Merge"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
+#: dolphinplugins/actions.h:22 src/gui/dialogs/switchbranchdialog.ui:14
+#, kde-format
+msgid "Switch/Checkout"
+msgstr ""
+
+#: dolphinplugins/actions.h:23
+#, kde-format
+msgid "Modifications"
+msgstr ""
+
+#. i18n: ectx: Menu (diff)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
+#: dolphinplugins/actions.h:24 src/gui/actions/branchactions.cpp:37
+#: src/gui/kommitmergeui.rc:17 src/gui/settings/settingsmanager.cpp:94
+#: src/gui/widgets/branchesstatuswidget.ui:123
+#, kde-format
+msgid "Diff"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
+#: dolphinplugins/actions.h:25 src/gui/dialogs/ignorefiledialog.ui:14
+#: src/gui/dialogs/ignorefiledialog.ui:96
+#, kde-format
+msgid "Ignore file"
+msgstr ""
+
+#: dolphinplugins/actions.h:26
+#, kde-format
+msgid "History"
+msgstr ""
+
+#: dolphinplugins/actions.h:27
+#, kde-format
+msgid "Blame"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
+#: dolphinplugins/actions.h:28 src/gui/mainwidget.ui:477
+#: src/gui/widgets/remoteswidget.ui:56 src/gui/widgets/tagswidget.ui:49
+#, kde-format
+msgid "Add"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
+#: dolphinplugins/actions.h:29 src/gui/widgets/branchesstatuswidget.ui:103
+#: src/gui/widgets/remoteswidget.ui:66
+#, kde-format
+msgid "Remove"
+msgstr ""
+
+#: dolphinplugins/actions.h:30
+#, kde-format
+msgid "Create tag"
+msgstr ""
+
+#: dolphinplugins/actions.h:31
+#, kde-format
+msgid "Cleanup"
+msgstr ""
+
+#: dolphinplugins/actions.h:32
+#, kde-format
+msgid "Diff branches"
 msgstr ""
 
 #: src/apps/main.cpp:36
@@ -89,15 +200,6 @@ msgstr ""
 #: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:185
 #, kde-format
 msgid "Merge..."
-msgstr ""
-
-#. i18n: ectx: Menu (diff)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:37 src/gui/kommitmergeui.rc:17
-#: src/gui/settings/settingsmanager.cpp:94
-#: src/gui/widgets/branchesstatuswidget.ui:123
-#, kde-format
-msgid "Diff"
 msgstr ""
 
 #: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
@@ -162,11 +264,6 @@ msgstr ""
 #: src/gui/actions/fileactions.cpp:82
 #, kde-format
 msgid "Preview"
-msgstr ""
-
-#: src/gui/actions/fileactions.cpp:83
-#, kde-format
-msgid "Open"
 msgstr ""
 
 #: src/gui/actions/fileactions.cpp:84
@@ -663,15 +760,6 @@ msgstr ""
 msgid "Origin name"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:85
-#: src/gui/dialogs/commitpushdialog.cpp:244
-#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
-#, kde-format
-msgid "Push"
-msgstr ""
-
 #: src/gui/dialogs/commitpushdialog.cpp:87
 #: src/gui/dialogs/commitpushdialog.cpp:244
 #, kde-format
@@ -1045,14 +1133,6 @@ msgstr ""
 msgid "Unable to open file: %1"
 msgstr ""
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
-#: src/gui/dialogs/ignorefiledialog.ui:14
-#: src/gui/dialogs/ignorefiledialog.ui:96
-#, kde-format
-msgid "Ignore file"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/ignorefiledialog.ui:25
 #, kde-format
@@ -1166,12 +1246,6 @@ msgstr ""
 #: src/gui/merge/closeeventdialog.ui:75
 #, kde-format
 msgid "Don't exit"
-msgstr ""
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
-#: src/gui/dialogs/mergedialog.ui:14
-#, kde-format
-msgid "Merge"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -1616,12 +1690,6 @@ msgstr ""
 msgid "Add new submodule"
 msgstr ""
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
-#: src/gui/dialogs/switchbranchdialog.ui:14
-#, kde-format
-msgid "Switch/Checkout"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53
 #, kde-format
@@ -1744,15 +1812,6 @@ msgstr ""
 #: src/gui/mainwidget.ui:234 src/gui/widgets/remoteswidget.ui:14
 #, kde-format
 msgid "Remotes"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: src/gui/mainwidget.ui:477 src/gui/widgets/remoteswidget.ui:56
-#: src/gui/widgets/tagswidget.ui:49
-#, kde-format
-msgid "Add"
 msgstr ""
 
 #: src/gui/mergewindow.cpp:281
@@ -1947,14 +2006,6 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: src/gui/widgets/branchesstatuswidget.ui:103
-#: src/gui/widgets/remoteswidget.ui:66
-#, kde-format
-msgid "Remove"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/widgets/branchesstatuswidget.ui:113
 #, kde-format
@@ -2032,12 +2083,6 @@ msgstr ""
 #: src/gui/widgets/remoteinfodialog.ui:47
 #, kde-format
 msgid "Mirror"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
-#: src/gui/widgets/remoteinfodialog.ui:64
-#, kde-format
-msgid "Fetch"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)

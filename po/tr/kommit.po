@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-06 00:49+0000\n"
+"POT-Creation-Date: 2023-05-09 00:50+0000\n"
 "PO-Revision-Date: 2023-03-26 14:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -31,6 +31,119 @@ msgstr "emir_sari@icloud.com"
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
+
+#: dolphinplugins/actions.h:15
+#, kde-format
+msgid "Clone"
+msgstr "Klonla"
+
+#: dolphinplugins/actions.h:16
+#, kde-format
+msgid "Init"
+msgstr "İlklendir"
+
+#: dolphinplugins/actions.h:17 src/gui/actions/fileactions.cpp:83
+#, kde-format
+msgid "Open"
+msgstr "Aç"
+
+#: dolphinplugins/actions.h:18
+#, kde-format
+msgid "Pull"
+msgstr "Çek"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
+#: dolphinplugins/actions.h:19 src/gui/widgets/remoteinfodialog.ui:64
+#, kde-format
+msgid "Fetch"
+msgstr "Getir"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
+#: dolphinplugins/actions.h:20 src/gui/dialogs/commitpushdialog.cpp:85
+#: src/gui/dialogs/commitpushdialog.cpp:244
+#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
+#, kde-format
+msgid "Push"
+msgstr "İt"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
+#: dolphinplugins/actions.h:21 src/gui/dialogs/mergedialog.ui:14
+#, kde-format
+msgid "Merge"
+msgstr "Birleştir"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
+#: dolphinplugins/actions.h:22 src/gui/dialogs/switchbranchdialog.ui:14
+#, kde-format
+msgid "Switch/Checkout"
+msgstr "Değiştir/Çıkış Yap"
+
+#: dolphinplugins/actions.h:23
+#, kde-format
+msgid "Modifications"
+msgstr "Değişiklikler"
+
+#. i18n: ectx: Menu (diff)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
+#: dolphinplugins/actions.h:24 src/gui/actions/branchactions.cpp:37
+#: src/gui/kommitmergeui.rc:17 src/gui/settings/settingsmanager.cpp:94
+#: src/gui/widgets/branchesstatuswidget.ui:123
+#, kde-format
+msgid "Diff"
+msgstr "Diff"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
+#: dolphinplugins/actions.h:25 src/gui/dialogs/ignorefiledialog.ui:14
+#: src/gui/dialogs/ignorefiledialog.ui:96
+#, kde-format
+msgid "Ignore file"
+msgstr "Dosyayı Yok Say"
+
+#: dolphinplugins/actions.h:26
+#, kde-format
+msgid "History"
+msgstr "Geçmiş"
+
+#: dolphinplugins/actions.h:27
+#, kde-format
+msgid "Blame"
+msgstr "Suçla"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
+#: dolphinplugins/actions.h:28 src/gui/mainwidget.ui:477
+#: src/gui/widgets/remoteswidget.ui:56 src/gui/widgets/tagswidget.ui:49
+#, kde-format
+msgid "Add"
+msgstr "Ekle"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
+#: dolphinplugins/actions.h:29 src/gui/widgets/branchesstatuswidget.ui:103
+#: src/gui/widgets/remoteswidget.ui:66
+#, kde-format
+msgid "Remove"
+msgstr "Kaldır"
+
+#: dolphinplugins/actions.h:30
+#, kde-format
+msgid "Create tag"
+msgstr "Etiket Oluştur"
+
+#: dolphinplugins/actions.h:31
+#, fuzzy, kde-format
+#| msgid "Cleanup..."
+msgid "Cleanup"
+msgstr "Toparla..."
+
+#: dolphinplugins/actions.h:32
+#, fuzzy, kde-format
+#| msgid "Diff branches..."
+msgid "Diff branches"
+msgstr "Dalları Diff'le..."
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -89,15 +202,6 @@ msgstr "Değiştir"
 #, kde-format
 msgid "Merge..."
 msgstr "Birleştir..."
-
-#. i18n: ectx: Menu (diff)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:37 src/gui/kommitmergeui.rc:17
-#: src/gui/settings/settingsmanager.cpp:94
-#: src/gui/widgets/branchesstatuswidget.ui:123
-#, kde-format
-msgid "Diff"
-msgstr "Diff"
 
 #: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
@@ -162,11 +266,6 @@ msgstr "HEAD Diff'i..."
 #, kde-format
 msgid "Preview"
 msgstr "Önizleme"
-
-#: src/gui/actions/fileactions.cpp:83
-#, kde-format
-msgid "Open"
-msgstr "Aç"
 
 #: src/gui/actions/fileactions.cpp:84
 #, kde-format
@@ -662,15 +761,6 @@ msgstr "Dal"
 msgid "Origin name"
 msgstr "Köken adı"
 
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:85
-#: src/gui/dialogs/commitpushdialog.cpp:244
-#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
-#, kde-format
-msgid "Push"
-msgstr "İt"
-
 #: src/gui/dialogs/commitpushdialog.cpp:87
 #: src/gui/dialogs/commitpushdialog.cpp:244
 #, kde-format
@@ -1067,14 +1157,6 @@ msgstr "Lütfen dizgiyi girin"
 msgid "Unable to open file: %1"
 msgstr "Dosya açılamıyor: %1"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
-#: src/gui/dialogs/ignorefiledialog.ui:14
-#: src/gui/dialogs/ignorefiledialog.ui:96
-#, kde-format
-msgid "Ignore file"
-msgstr "Dosyayı Yok Say"
-
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/ignorefiledialog.ui:25
 #, kde-format
@@ -1190,12 +1272,6 @@ msgstr "Olduğu Gibi Bırak"
 #, kde-format
 msgid "Don't exit"
 msgstr "Çıkma"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
-#: src/gui/dialogs/mergedialog.ui:14
-#, kde-format
-msgid "Merge"
-msgstr "Birleştir"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/mergedialog.ui:22
@@ -1711,12 +1787,6 @@ msgstr "HEAD"
 msgid "Add new submodule"
 msgstr "Yeni Altmodül Ekle"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
-#: src/gui/dialogs/switchbranchdialog.ui:14
-#, kde-format
-msgid "Switch/Checkout"
-msgstr "Değiştir/Çıkış Yap"
-
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53
 #, kde-format
@@ -1840,15 +1910,6 @@ msgstr "Altmodüller"
 #, kde-format
 msgid "Remotes"
 msgstr "Uzak Konumlar"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: src/gui/mainwidget.ui:477 src/gui/widgets/remoteswidget.ui:56
-#: src/gui/widgets/tagswidget.ui:49
-#, kde-format
-msgid "Add"
-msgstr "Ekle"
 
 #: src/gui/mergewindow.cpp:281
 #, kde-format
@@ -2042,14 +2103,6 @@ msgstr "Başvuru dalı:"
 msgid "New"
 msgstr "Yeni"
 
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: src/gui/widgets/branchesstatuswidget.ui:103
-#: src/gui/widgets/remoteswidget.ui:66
-#, kde-format
-msgid "Remove"
-msgstr "Kaldır"
-
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/widgets/branchesstatuswidget.ui:113
 #, kde-format
@@ -2128,12 +2181,6 @@ msgstr "Yeni Uzak Konum"
 #, kde-format
 msgid "Mirror"
 msgstr "Yansıla"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
-#: src/gui/widgets/remoteinfodialog.ui:64
-#, kde-format
-msgid "Fetch"
-msgstr "Getir"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/widgets/remoteswidget.ui:79
@@ -2388,27 +2435,6 @@ msgstr "Etiketleyici"
 
 #~ msgid "Leave"
 #~ msgstr "Ayrıl"
-
-#~ msgid "Clone"
-#~ msgstr "Klonla"
-
-#~ msgid "Init"
-#~ msgstr "İlklendir"
-
-#~ msgid "Pull"
-#~ msgstr "Çek"
-
-#~ msgid "Modifications"
-#~ msgstr "Değişiklikler"
-
-#~ msgid "History"
-#~ msgstr "Geçmiş"
-
-#~ msgid "Blame"
-#~ msgstr "Suçla"
-
-#~ msgid "Create tag"
-#~ msgstr "Etiket Oluştur"
 
 #~ msgid "Oure"
 #~ msgstr "Bizimki"

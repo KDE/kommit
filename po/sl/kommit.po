@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-06 00:49+0000\n"
+"POT-Creation-Date: 2023-05-09 00:50+0000\n"
 "PO-Revision-Date: 2023-03-27 09:21+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -35,6 +35,119 @@ msgstr "matjaz.jeran@amis.net,miles@filmsi.net"
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
+
+#: dolphinplugins/actions.h:15
+#, kde-format
+msgid "Clone"
+msgstr "Kloniraj"
+
+#: dolphinplugins/actions.h:16
+#, kde-format
+msgid "Init"
+msgstr "Inicializiraj"
+
+#: dolphinplugins/actions.h:17 src/gui/actions/fileactions.cpp:83
+#, kde-format
+msgid "Open"
+msgstr "Odpri"
+
+#: dolphinplugins/actions.h:18
+#, kde-format
+msgid "Pull"
+msgstr "Potegni"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
+#: dolphinplugins/actions.h:19 src/gui/widgets/remoteinfodialog.ui:64
+#, kde-format
+msgid "Fetch"
+msgstr "Pridobi"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
+#: dolphinplugins/actions.h:20 src/gui/dialogs/commitpushdialog.cpp:85
+#: src/gui/dialogs/commitpushdialog.cpp:244
+#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
+#, kde-format
+msgid "Push"
+msgstr "Porini"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
+#: dolphinplugins/actions.h:21 src/gui/dialogs/mergedialog.ui:14
+#, kde-format
+msgid "Merge"
+msgstr "Spoji"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
+#: dolphinplugins/actions.h:22 src/gui/dialogs/switchbranchdialog.ui:14
+#, kde-format
+msgid "Switch/Checkout"
+msgstr "Preklopi/prevzemi"
+
+#: dolphinplugins/actions.h:23
+#, kde-format
+msgid "Modifications"
+msgstr "Spremembe"
+
+#. i18n: ectx: Menu (diff)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
+#: dolphinplugins/actions.h:24 src/gui/actions/branchactions.cpp:37
+#: src/gui/kommitmergeui.rc:17 src/gui/settings/settingsmanager.cpp:94
+#: src/gui/widgets/branchesstatuswidget.ui:123
+#, kde-format
+msgid "Diff"
+msgstr "Razlike"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
+#: dolphinplugins/actions.h:25 src/gui/dialogs/ignorefiledialog.ui:14
+#: src/gui/dialogs/ignorefiledialog.ui:96
+#, kde-format
+msgid "Ignore file"
+msgstr "Prezri datoteko"
+
+#: dolphinplugins/actions.h:26
+#, kde-format
+msgid "History"
+msgstr "Zgodovina"
+
+#: dolphinplugins/actions.h:27
+#, kde-format
+msgid "Blame"
+msgstr "Odgovornost (blame)"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
+#: dolphinplugins/actions.h:28 src/gui/mainwidget.ui:477
+#: src/gui/widgets/remoteswidget.ui:56 src/gui/widgets/tagswidget.ui:49
+#, kde-format
+msgid "Add"
+msgstr "Dodaj"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
+#: dolphinplugins/actions.h:29 src/gui/widgets/branchesstatuswidget.ui:103
+#: src/gui/widgets/remoteswidget.ui:66
+#, kde-format
+msgid "Remove"
+msgstr "Odstrani"
+
+#: dolphinplugins/actions.h:30
+#, kde-format
+msgid "Create tag"
+msgstr "Ustvari oznako"
+
+#: dolphinplugins/actions.h:31
+#, fuzzy, kde-format
+#| msgid "Cleanup..."
+msgid "Cleanup"
+msgstr "Čiščenje..."
+
+#: dolphinplugins/actions.h:32
+#, fuzzy, kde-format
+#| msgid "Diff branches..."
+msgid "Diff branches"
+msgstr "Razlika vej..."
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -93,15 +206,6 @@ msgstr "Preklopi"
 #, kde-format
 msgid "Merge..."
 msgstr "Zlij..."
-
-#. i18n: ectx: Menu (diff)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:37 src/gui/kommitmergeui.rc:17
-#: src/gui/settings/settingsmanager.cpp:94
-#: src/gui/widgets/branchesstatuswidget.ui:123
-#, kde-format
-msgid "Diff"
-msgstr "Razlike"
 
 #: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
@@ -166,11 +270,6 @@ msgstr "Razlika z GLAVO/HEAD ..."
 #, kde-format
 msgid "Preview"
 msgstr "Predogled"
-
-#: src/gui/actions/fileactions.cpp:83
-#, kde-format
-msgid "Open"
-msgstr "Odpri"
 
 #: src/gui/actions/fileactions.cpp:84
 #, kde-format
@@ -666,15 +765,6 @@ msgstr "Veja"
 msgid "Origin name"
 msgstr "Izvorno ime"
 
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:85
-#: src/gui/dialogs/commitpushdialog.cpp:244
-#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
-#, kde-format
-msgid "Push"
-msgstr "Porini"
-
 #: src/gui/dialogs/commitpushdialog.cpp:87
 #: src/gui/dialogs/commitpushdialog.cpp:244
 #, kde-format
@@ -1070,14 +1160,6 @@ msgstr "Vnesite vzorec"
 msgid "Unable to open file: %1"
 msgstr "Datoteke ni mogoče odpreti: %1"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
-#: src/gui/dialogs/ignorefiledialog.ui:14
-#: src/gui/dialogs/ignorefiledialog.ui:96
-#, kde-format
-msgid "Ignore file"
-msgstr "Prezri datoteko"
-
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/ignorefiledialog.ui:25
 #, kde-format
@@ -1192,12 +1274,6 @@ msgstr "Pusti, kot je"
 #, kde-format
 msgid "Don't exit"
 msgstr "Ne izstopi"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
-#: src/gui/dialogs/mergedialog.ui:14
-#, kde-format
-msgid "Merge"
-msgstr "Spoji"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/mergedialog.ui:22
@@ -1713,12 +1789,6 @@ msgstr "GLAVA/HEAD"
 msgid "Add new submodule"
 msgstr "Dodaj nov podmodul"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
-#: src/gui/dialogs/switchbranchdialog.ui:14
-#, kde-format
-msgid "Switch/Checkout"
-msgstr "Preklopi/prevzemi"
-
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53
 #, kde-format
@@ -1842,15 +1912,6 @@ msgstr "Podmoduli"
 #, kde-format
 msgid "Remotes"
 msgstr "Oddaljeni"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: src/gui/mainwidget.ui:477 src/gui/widgets/remoteswidget.ui:56
-#: src/gui/widgets/tagswidget.ui:49
-#, kde-format
-msgid "Add"
-msgstr "Dodaj"
 
 #: src/gui/mergewindow.cpp:281
 #, kde-format
@@ -2044,14 +2105,6 @@ msgstr "Referenčna veja:"
 msgid "New"
 msgstr "Novo"
 
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: src/gui/widgets/branchesstatuswidget.ui:103
-#: src/gui/widgets/remoteswidget.ui:66
-#, kde-format
-msgid "Remove"
-msgstr "Odstrani"
-
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/widgets/branchesstatuswidget.ui:113
 #, kde-format
@@ -2130,12 +2183,6 @@ msgstr "Novo oddaljeno"
 #, kde-format
 msgid "Mirror"
 msgstr "Zrcali"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
-#: src/gui/widgets/remoteinfodialog.ui:64
-#, kde-format
-msgid "Fetch"
-msgstr "Pridobi"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/widgets/remoteswidget.ui:79
@@ -2390,27 +2437,6 @@ msgstr "Označevalnik"
 
 #~ msgid "Leave"
 #~ msgstr "Pusti"
-
-#~ msgid "Clone"
-#~ msgstr "Kloniraj"
-
-#~ msgid "Init"
-#~ msgstr "Inicializiraj"
-
-#~ msgid "Pull"
-#~ msgstr "Potegni"
-
-#~ msgid "Modifications"
-#~ msgstr "Spremembe"
-
-#~ msgid "History"
-#~ msgstr "Zgodovina"
-
-#~ msgid "Blame"
-#~ msgstr "Odgovornost (blame)"
-
-#~ msgid "Create tag"
-#~ msgstr "Ustvari oznako"
 
 #~ msgid "Save diff"
 #~ msgstr "Shrani razliko"

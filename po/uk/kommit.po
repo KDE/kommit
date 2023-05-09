@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-06 00:49+0000\n"
+"POT-Creation-Date: 2023-05-09 00:50+0000\n"
 "PO-Revision-Date: 2023-03-26 08:37+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -32,6 +32,119 @@ msgstr "yurchor@ukr.net"
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
+
+#: dolphinplugins/actions.h:15
+#, kde-format
+msgid "Clone"
+msgstr "Клонувати"
+
+#: dolphinplugins/actions.h:16
+#, kde-format
+msgid "Init"
+msgstr "Ініціалізація"
+
+#: dolphinplugins/actions.h:17 src/gui/actions/fileactions.cpp:83
+#, kde-format
+msgid "Open"
+msgstr "Відкрити"
+
+#: dolphinplugins/actions.h:18
+#, kde-format
+msgid "Pull"
+msgstr "Отримати"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
+#: dolphinplugins/actions.h:19 src/gui/widgets/remoteinfodialog.ui:64
+#, kde-format
+msgid "Fetch"
+msgstr "Отримати"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
+#: dolphinplugins/actions.h:20 src/gui/dialogs/commitpushdialog.cpp:85
+#: src/gui/dialogs/commitpushdialog.cpp:244
+#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
+#, kde-format
+msgid "Push"
+msgstr "Надіслати"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
+#: dolphinplugins/actions.h:21 src/gui/dialogs/mergedialog.ui:14
+#, kde-format
+msgid "Merge"
+msgstr "Об'єднання"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
+#: dolphinplugins/actions.h:22 src/gui/dialogs/switchbranchdialog.ui:14
+#, kde-format
+msgid "Switch/Checkout"
+msgstr "Перемкнутися/Отримати"
+
+#: dolphinplugins/actions.h:23
+#, kde-format
+msgid "Modifications"
+msgstr "Зміни"
+
+#. i18n: ectx: Menu (diff)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
+#: dolphinplugins/actions.h:24 src/gui/actions/branchactions.cpp:37
+#: src/gui/kommitmergeui.rc:17 src/gui/settings/settingsmanager.cpp:94
+#: src/gui/widgets/branchesstatuswidget.ui:123
+#, kde-format
+msgid "Diff"
+msgstr "Різниця"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
+#: dolphinplugins/actions.h:25 src/gui/dialogs/ignorefiledialog.ui:14
+#: src/gui/dialogs/ignorefiledialog.ui:96
+#, kde-format
+msgid "Ignore file"
+msgstr "Ігнорувати файл"
+
+#: dolphinplugins/actions.h:26
+#, kde-format
+msgid "History"
+msgstr "Журнал"
+
+#: dolphinplugins/actions.h:27
+#, kde-format
+msgid "Blame"
+msgstr "Визначити автора"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
+#: dolphinplugins/actions.h:28 src/gui/mainwidget.ui:477
+#: src/gui/widgets/remoteswidget.ui:56 src/gui/widgets/tagswidget.ui:49
+#, kde-format
+msgid "Add"
+msgstr "Додати"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
+#: dolphinplugins/actions.h:29 src/gui/widgets/branchesstatuswidget.ui:103
+#: src/gui/widgets/remoteswidget.ui:66
+#, kde-format
+msgid "Remove"
+msgstr "Вилучити"
+
+#: dolphinplugins/actions.h:30
+#, kde-format
+msgid "Create tag"
+msgstr "Створити мітку"
+
+#: dolphinplugins/actions.h:31
+#, fuzzy, kde-format
+#| msgid "Cleanup..."
+msgid "Cleanup"
+msgstr "Очищення…"
+
+#: dolphinplugins/actions.h:32
+#, fuzzy, kde-format
+#| msgid "Diff branches..."
+msgid "Diff branches"
+msgstr "Різниця гілок…"
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -90,15 +203,6 @@ msgstr "Перемкнутися"
 #, kde-format
 msgid "Merge..."
 msgstr "Об'єднати…"
-
-#. i18n: ectx: Menu (diff)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:37 src/gui/kommitmergeui.rc:17
-#: src/gui/settings/settingsmanager.cpp:94
-#: src/gui/widgets/branchesstatuswidget.ui:123
-#, kde-format
-msgid "Diff"
-msgstr "Різниця"
 
 #: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
@@ -163,11 +267,6 @@ msgstr "Різниця з HEAD…"
 #, kde-format
 msgid "Preview"
 msgstr "Перегляд"
-
-#: src/gui/actions/fileactions.cpp:83
-#, kde-format
-msgid "Open"
-msgstr "Відкрити"
 
 #: src/gui/actions/fileactions.cpp:84
 #, kde-format
@@ -663,15 +762,6 @@ msgstr "Гілка"
 msgid "Origin name"
 msgstr "Назва походження"
 
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:85
-#: src/gui/dialogs/commitpushdialog.cpp:244
-#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
-#, kde-format
-msgid "Push"
-msgstr "Надіслати"
-
 #: src/gui/dialogs/commitpushdialog.cpp:87
 #: src/gui/dialogs/commitpushdialog.cpp:244
 #, kde-format
@@ -1069,14 +1159,6 @@ msgstr "Будь ласка, вкажіть взірець"
 msgid "Unable to open file: %1"
 msgstr "Не вдалося відкрити файл: %1"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
-#: src/gui/dialogs/ignorefiledialog.ui:14
-#: src/gui/dialogs/ignorefiledialog.ui:96
-#, kde-format
-msgid "Ignore file"
-msgstr "Ігнорувати файл"
-
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/ignorefiledialog.ui:25
 #, kde-format
@@ -1191,12 +1273,6 @@ msgstr "Залишити як є"
 #, kde-format
 msgid "Don't exit"
 msgstr "Не існує"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
-#: src/gui/dialogs/mergedialog.ui:14
-#, kde-format
-msgid "Merge"
-msgstr "Об'єднання"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/mergedialog.ui:22
@@ -1712,12 +1788,6 @@ msgstr "HEAD"
 msgid "Add new submodule"
 msgstr "Додати новий підмодуль"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
-#: src/gui/dialogs/switchbranchdialog.ui:14
-#, kde-format
-msgid "Switch/Checkout"
-msgstr "Перемкнутися/Отримати"
-
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53
 #, kde-format
@@ -1841,15 +1911,6 @@ msgstr "Підмодулі"
 #, kde-format
 msgid "Remotes"
 msgstr "Віддалені"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: src/gui/mainwidget.ui:477 src/gui/widgets/remoteswidget.ui:56
-#: src/gui/widgets/tagswidget.ui:49
-#, kde-format
-msgid "Add"
-msgstr "Додати"
 
 #: src/gui/mergewindow.cpp:281
 #, kde-format
@@ -2043,14 +2104,6 @@ msgstr "Еталонна гілка:"
 msgid "New"
 msgstr "Створити"
 
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: src/gui/widgets/branchesstatuswidget.ui:103
-#: src/gui/widgets/remoteswidget.ui:66
-#, kde-format
-msgid "Remove"
-msgstr "Вилучити"
-
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/widgets/branchesstatuswidget.ui:113
 #, kde-format
@@ -2129,12 +2182,6 @@ msgstr "Нове віддалене"
 #, kde-format
 msgid "Mirror"
 msgstr "Дзеркало"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
-#: src/gui/widgets/remoteinfodialog.ui:64
-#, kde-format
-msgid "Fetch"
-msgstr "Отримати"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/widgets/remoteswidget.ui:79
@@ -2391,27 +2438,6 @@ msgstr "Мітки"
 
 #~ msgid "Leave"
 #~ msgstr "Залишити"
-
-#~ msgid "Clone"
-#~ msgstr "Клонувати"
-
-#~ msgid "Init"
-#~ msgstr "Ініціалізація"
-
-#~ msgid "Pull"
-#~ msgstr "Отримати"
-
-#~ msgid "Modifications"
-#~ msgstr "Зміни"
-
-#~ msgid "History"
-#~ msgstr "Журнал"
-
-#~ msgid "Blame"
-#~ msgstr "Визначити автора"
-
-#~ msgid "Create tag"
-#~ msgstr "Створити мітку"
 
 #~ msgid "Oure"
 #~ msgstr "Наше"

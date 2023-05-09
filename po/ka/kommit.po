@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-06 00:49+0000\n"
+"POT-Creation-Date: 2023-05-09 00:50+0000\n"
 "PO-Revision-Date: 2023-03-26 06:59+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -32,6 +32,119 @@ msgstr "Temuri.doghonadze@gmail.com"
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
+
+#: dolphinplugins/actions.h:15
+#, kde-format
+msgid "Clone"
+msgstr "კლონირება"
+
+#: dolphinplugins/actions.h:16
+#, kde-format
+msgid "Init"
+msgstr "ერთეული"
+
+#: dolphinplugins/actions.h:17 src/gui/actions/fileactions.cpp:83
+#, kde-format
+msgid "Open"
+msgstr "გახსნა"
+
+#: dolphinplugins/actions.h:18
+#, kde-format
+msgid "Pull"
+msgstr "მიღება"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
+#: dolphinplugins/actions.h:19 src/gui/widgets/remoteinfodialog.ui:64
+#, kde-format
+msgid "Fetch"
+msgstr "გამოთხოვა"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
+#: dolphinplugins/actions.h:20 src/gui/dialogs/commitpushdialog.cpp:85
+#: src/gui/dialogs/commitpushdialog.cpp:244
+#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
+#, kde-format
+msgid "Push"
+msgstr "გადაცემა"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
+#: dolphinplugins/actions.h:21 src/gui/dialogs/mergedialog.ui:14
+#, kde-format
+msgid "Merge"
+msgstr "შერწყმა"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
+#: dolphinplugins/actions.h:22 src/gui/dialogs/switchbranchdialog.ui:14
+#, kde-format
+msgid "Switch/Checkout"
+msgstr ""
+
+#: dolphinplugins/actions.h:23
+#, kde-format
+msgid "Modifications"
+msgstr "ცვლილებები"
+
+#. i18n: ectx: Menu (diff)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
+#: dolphinplugins/actions.h:24 src/gui/actions/branchactions.cpp:37
+#: src/gui/kommitmergeui.rc:17 src/gui/settings/settingsmanager.cpp:94
+#: src/gui/widgets/branchesstatuswidget.ui:123
+#, kde-format
+msgid "Diff"
+msgstr "სხვაობა"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
+#: dolphinplugins/actions.h:25 src/gui/dialogs/ignorefiledialog.ui:14
+#: src/gui/dialogs/ignorefiledialog.ui:96
+#, kde-format
+msgid "Ignore file"
+msgstr "ფაილის იგნორი"
+
+#: dolphinplugins/actions.h:26
+#, kde-format
+msgid "History"
+msgstr "ისტორია"
+
+#: dolphinplugins/actions.h:27
+#, kde-format
+msgid "Blame"
+msgstr "პასუხისმგებლობა"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
+#: dolphinplugins/actions.h:28 src/gui/mainwidget.ui:477
+#: src/gui/widgets/remoteswidget.ui:56 src/gui/widgets/tagswidget.ui:49
+#, kde-format
+msgid "Add"
+msgstr "დამატება"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
+#: dolphinplugins/actions.h:29 src/gui/widgets/branchesstatuswidget.ui:103
+#: src/gui/widgets/remoteswidget.ui:66
+#, kde-format
+msgid "Remove"
+msgstr "წაშლა"
+
+#: dolphinplugins/actions.h:30
+#, kde-format
+msgid "Create tag"
+msgstr "ჭდის შექმნა"
+
+#: dolphinplugins/actions.h:31
+#, fuzzy, kde-format
+#| msgid "Cleanup..."
+msgid "Cleanup"
+msgstr "მოსუფთავება..."
+
+#: dolphinplugins/actions.h:32
+#, fuzzy, kde-format
+#| msgid "All branches"
+msgid "Diff branches"
+msgstr "ყველა ბრენჩი"
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -90,15 +203,6 @@ msgstr "გადართვა"
 #, kde-format
 msgid "Merge..."
 msgstr "შერწყმა..."
-
-#. i18n: ectx: Menu (diff)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: src/gui/actions/branchactions.cpp:37 src/gui/kommitmergeui.rc:17
-#: src/gui/settings/settingsmanager.cpp:94
-#: src/gui/widgets/branchesstatuswidget.ui:123
-#, kde-format
-msgid "Diff"
-msgstr "სხვაობა"
 
 #: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
@@ -163,11 +267,6 @@ msgstr "Diff-ი HEAD-თან..."
 #, kde-format
 msgid "Preview"
 msgstr "მინიატურა"
-
-#: src/gui/actions/fileactions.cpp:83
-#, kde-format
-msgid "Open"
-msgstr "გახსნა"
 
 #: src/gui/actions/fileactions.cpp:84
 #, kde-format
@@ -663,15 +762,6 @@ msgstr "ბრენჩი"
 msgid "Origin name"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: src/gui/dialogs/commitpushdialog.cpp:85
-#: src/gui/dialogs/commitpushdialog.cpp:244
-#: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
-#, kde-format
-msgid "Push"
-msgstr "გადაცემა"
-
 #: src/gui/dialogs/commitpushdialog.cpp:87
 #: src/gui/dialogs/commitpushdialog.cpp:244
 #, kde-format
@@ -1045,14 +1135,6 @@ msgstr ""
 msgid "Unable to open file: %1"
 msgstr "ფაილის გახსნა შეუძლებელია: %1"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
-#: src/gui/dialogs/ignorefiledialog.ui:14
-#: src/gui/dialogs/ignorefiledialog.ui:96
-#, kde-format
-msgid "Ignore file"
-msgstr "ფაილის იგნორი"
-
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/ignorefiledialog.ui:25
 #, kde-format
@@ -1167,12 +1249,6 @@ msgstr "დატოვება, როგორც არის"
 #, kde-format
 msgid "Don't exit"
 msgstr "არ გახვიდე"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
-#: src/gui/dialogs/mergedialog.ui:14
-#, kde-format
-msgid "Merge"
-msgstr "შერწყმა"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/mergedialog.ui:22
@@ -1616,12 +1692,6 @@ msgstr "HEAD"
 msgid "Add new submodule"
 msgstr "ახალი ქვემოდულის დამატება"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
-#: src/gui/dialogs/switchbranchdialog.ui:14
-#, kde-format
-msgid "Switch/Checkout"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53
 #, kde-format
@@ -1745,15 +1815,6 @@ msgstr "ქვემოდულები"
 #, kde-format
 msgid "Remotes"
 msgstr "დაშორებულები"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: src/gui/mainwidget.ui:477 src/gui/widgets/remoteswidget.ui:56
-#: src/gui/widgets/tagswidget.ui:49
-#, kde-format
-msgid "Add"
-msgstr "დამატება"
 
 #: src/gui/mergewindow.cpp:281
 #, kde-format
@@ -1947,14 +2008,6 @@ msgstr ""
 msgid "New"
 msgstr "ახალი"
 
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
-#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: src/gui/widgets/branchesstatuswidget.ui:103
-#: src/gui/widgets/remoteswidget.ui:66
-#, kde-format
-msgid "Remove"
-msgstr "წაშლა"
-
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/widgets/branchesstatuswidget.ui:113
 #, kde-format
@@ -2033,12 +2086,6 @@ msgstr ""
 #, kde-format
 msgid "Mirror"
 msgstr "სარკე"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
-#: src/gui/widgets/remoteinfodialog.ui:64
-#, kde-format
-msgid "Fetch"
-msgstr "გამოთხოვა"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/widgets/remoteswidget.ui:79
@@ -2237,27 +2284,6 @@ msgstr ""
 
 #~ msgid "GitKlient"
 #~ msgstr "GitKlient"
-
-#~ msgid "Clone"
-#~ msgstr "კლონირება"
-
-#~ msgid "Init"
-#~ msgstr "ერთეული"
-
-#~ msgid "Pull"
-#~ msgstr "მიღება"
-
-#~ msgid "Modifications"
-#~ msgstr "ცვლილებები"
-
-#~ msgid "History"
-#~ msgstr "ისტორია"
-
-#~ msgid "Blame"
-#~ msgstr "პასუხისმგებლობა"
-
-#~ msgid "Create tag"
-#~ msgstr "ჭდის შექმნა"
 
 #~ msgid "View..."
 #~ msgstr "ხედი..."
