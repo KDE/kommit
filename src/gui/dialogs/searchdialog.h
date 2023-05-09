@@ -25,11 +25,9 @@ public:
 
     void initModel();
 
-public Q_SLOTS:
+private:
     void slotPushButtonSearchClicked();
     void slotTreeViewDoubleClicked(const QModelIndex &index);
-
-private:
     void beginSearch();
     void searchOnPlace(const QString &place, const QString &commit);
 

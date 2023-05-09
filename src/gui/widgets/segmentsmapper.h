@@ -35,11 +35,9 @@ public:
     void findPrevious(Diff::SegmentType type);
     void findNext(Diff::SegmentType type);
 
-private Q_SLOTS:
+private:
     void codeEditor_blockSelected();
     void codeEditor_scroll(int value);
-
-private:
     Diff::Segment *mCurrentSegment{nullptr};
     QList<Diff::Segment *> mSegments;
     QList<CodeEditor *> mEditors;
