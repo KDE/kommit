@@ -27,13 +27,11 @@ public:
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
 
-private Q_SLOTS:
+private:
     void slotTreeViewHistoryItemActivated(const QModelIndex &index);
     void slotTextBrowserHashClicked(const QString &hash);
     void slotTextBrowserFileClicked(const QString &file);
     void slotTreeViewHistoryCustomContextMenuRequested(const QPoint &pos);
-
-private:
     CommitActions *const mActions;
     Git::LogsModel *const mHistoryModel;
     GraphPainter *mGraphPainter{nullptr};

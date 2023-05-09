@@ -25,11 +25,9 @@ public:
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
 
-private Q_SLOTS:
+private:
     void slotListViewItemActivated(const QModelIndex &index);
     void slotListViewCustomContextMenuRequested(const QPoint &pos);
-
-private:
     void init(Git::Manager *git);
     Git::RemotesModel *mModel = nullptr;
     RemotesActions *mActions = nullptr;

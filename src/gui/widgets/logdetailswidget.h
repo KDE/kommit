@@ -25,16 +25,24 @@ public:
     Git::Log *log() const;
     void setLog(Git::Log *newLog);
 
-    bool enableCommitsLinks() const;
+    Q_REQUIRED_RESULT bool enableCommitsLinks() const;
     void setEnableCommitsLinks(bool newEnableCommitsLinks);
 
-    bool enableEmailsLinks() const;
+    Q_REQUIRED_RESULT bool enableEmailsLinks() const;
     void setEnableEmailsLinks(bool newEnableEmailsLinks);
 
-    bool enableFilesLinks() const;
+    Q_REQUIRED_RESULT bool enableFilesLinks() const;
     void setEnableFilesLinks(bool newEnableFilesLinks);
 
+Q_SIGNALS:
+    void hashClicked(const QString &hash);
+    void fileClicked(const QString &file);
+    void enableCommitsLinksChanged();
+    void enableEmailsLinksChanged();
+    void enableFilesLinksChanged();
+
 private:
+    void self_anchorClicked(const QUrl &url);
     void createText();
     static void appendHeading(QString &html, const QString &title, short level = 2);
     static void appendParagraph(QString &html, const QString &text);
@@ -48,14 +56,4 @@ private:
     bool mEnableCommitsLinks{false};
     bool mEnableEmailsLinks{true};
     bool mEnableFilesLinks{true};
-
-private Q_SLOTS:
-    void self_anchorClicked(const QUrl &url);
-
-Q_SIGNALS:
-    void hashClicked(const QString &hash);
-    void fileClicked(const QString &file);
-    void enableCommitsLinksChanged();
-    void enableEmailsLinksChanged();
-    void enableFilesLinksChanged();
 };
