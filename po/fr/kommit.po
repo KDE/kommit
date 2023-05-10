@@ -32,12 +32,14 @@ msgid "Kommit"
 msgstr "Kommit"
 
 #: dolphinplugins/actions.h:15
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clone"
 msgid "Clone"
 msgstr "Cloner"
 
 #: dolphinplugins/actions.h:16
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Init"
 msgid "Init"
 msgstr "Initialiser"
 
@@ -47,7 +49,8 @@ msgid "Open"
 msgstr "Ouvrir "
 
 #: dolphinplugins/actions.h:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pull"
 msgid "Pull"
 msgstr "Tirer"
 
@@ -79,7 +82,8 @@ msgid "Switch/Checkout"
 msgstr "Basculer/Récupérer"
 
 #: dolphinplugins/actions.h:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Modifications"
 msgid "Modifications"
 msgstr "Modifications "
 
@@ -101,7 +105,8 @@ msgid "Ignore file"
 msgstr "Ignorer le fichier "
 
 #: dolphinplugins/actions.h:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "History"
 msgid "History"
 msgstr "Historique "
 
@@ -129,7 +134,8 @@ msgid "Remove"
 msgstr "Retirer"
 
 #: dolphinplugins/actions.h:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create tag"
 msgid "Create tag"
 msgstr "Créer une étiquette"
 
