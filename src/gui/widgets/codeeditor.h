@@ -106,7 +106,7 @@ private:
     QMap<QTextBlock, BlockData *> mBlocksData;
     QPair<int, int> mCurrentSegment{-1, -1};
 
-    QLabel *mTitleBar;
+    QLabel *mTitleBar = nullptr;
     bool mShowTitlebar = true;
     int mTitlebarDefaultHeight;
 

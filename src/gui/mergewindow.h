@@ -81,15 +81,15 @@ private:
     QLabel *mConflictsLabel = nullptr;
     QAction *mActionBlocksView = nullptr;
     QAction *mActionFilesView = nullptr;
-    QAction *actionKeepMine;
-    QAction *actionKeepTheir;
-    QAction *actionKeepMineBeforeTheir;
-    QAction *actionKeepTheirBeforeMine;
-    QAction *actionKeepMyFile;
-    QAction *actionKeepTheirFile;
-    QAction *actionGotoPrevDiff;
-    QAction *actionGotoNextDiff;
-    QAction *actionViewSameSizeBlocks;
+    QAction *actionKeepMine = nullptr;
+    QAction *actionKeepTheir = nullptr;
+    QAction *actionKeepMineBeforeTheir = nullptr;
+    QAction *actionKeepTheirBeforeMine = nullptr;
+    QAction *actionKeepMyFile = nullptr;
+    QAction *actionKeepTheirFile = nullptr;
+    QAction *actionGotoPrevDiff = nullptr;
+    QAction *actionGotoNextDiff = nullptr;
+    QAction *actionViewSameSizeBlocks = nullptr;
 
 protected:
     void closeEvent(QCloseEvent *event) override;

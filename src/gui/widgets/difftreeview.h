@@ -36,5 +36,5 @@ private:
     void lineEditFilterTextChanged(const QString &text);
     DiffTreeModel *mDiffModel{nullptr};
     QSortFilterProxyModel *const mFilterModel;
-    FilesModel *mFilesModel;
+    FilesModel *mFilesModel = nullptr;
 };
