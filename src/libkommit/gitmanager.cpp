@@ -166,12 +166,12 @@ QString Manager::diff(const QString &from, const QString &to) const
 
 QList<FileStatus> Manager::diffBranch(const QString &from) const
 {
-    auto buffer = QString(runGit({QStringLiteral("diff"), from, QStringLiteral("--name-status")})).split(QLatin1Char('\n'));
+    const QStringList buffer = QString(runGit({QStringLiteral("diff"), from, QStringLiteral("--name-status")})).split(QLatin1Char('\n'));
     QList<FileStatus> files;
-    for (auto &item : buffer) {
+    for (const auto &item : buffer) {
         if (!item.trimmed().size())
             continue;
-        auto parts = item.split(QStringLiteral("\t"));
+        const auto parts = item.split(QStringLiteral("\t"));
         if (parts.size() != 2)
             continue;
 
@@ -459,9 +459,9 @@ void Manager::saveFile(const QString &place, const QString &fileName, const QStr
 QStringList Manager::branches() const
 {
     QStringList branchesList;
-    auto out = QString(runGit({QStringLiteral("branch"), QStringLiteral("--list")})).split(QLatin1Char('\n'));
+    const auto out = QString(runGit({QStringLiteral("branch"), QStringLiteral("--list")})).split(QLatin1Char('\n'));
 
-    for (auto &line : out) {
+    for (const auto &line : out) {
         auto b = line.trimmed();
         if (b.isEmpty())
             continue;
@@ -577,10 +577,10 @@ bool Manager::removeBranch(const QString &branchName) const
 BlameData Manager::blame(const File &file)
 {
     BlameData b;
-    auto lines = readAllNonEmptyOutput({QStringLiteral("--no-pager"), QStringLiteral("blame"), QStringLiteral("-l"), file.fileName()});
+    const auto lines = readAllNonEmptyOutput({QStringLiteral("--no-pager"), QStringLiteral("blame"), QStringLiteral("-l"), file.fileName()});
     b.reserve(lines.size());
 
-    for (auto &line : lines) {
+    for (const auto &line : lines) {
         BlameDataRow row;
         row.commitHash = line.mid(0, 40);
 
