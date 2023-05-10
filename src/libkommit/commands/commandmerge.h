@@ -39,7 +39,7 @@ public:
     Q_REQUIRED_RESULT OptionalBool allowUnrelatedHistories() const;
     void setAllowUnrelatedHistories(OptionalBool newAllowUnrelatedHistories);
 
-    FastForwardType ff() const;
+    Q_REQUIRED_RESULT FastForwardType ff() const;
     void setFf(FastForwardType newFf);
 
     Q_REQUIRED_RESULT OptionalBool squash() const;

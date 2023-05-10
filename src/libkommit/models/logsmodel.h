@@ -42,7 +42,7 @@ public:
     Q_REQUIRED_RESULT const QString &branch() const;
     void setBranch(const QString &newBranch);
 
-    bool fullDetails() const;
+    Q_REQUIRED_RESULT bool fullDetails() const;
     void setFullDetails(bool newFullDetails);
 
     Q_REQUIRED_RESULT QString calendarType() const;

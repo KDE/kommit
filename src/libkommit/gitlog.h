@@ -48,7 +48,7 @@ public:
     Q_REQUIRED_RESULT const QString &branch() const;
     Q_REQUIRED_RESULT const QString &extraData() const;
     Q_REQUIRED_RESULT CommitType type() const;
-    const QVector<GraphLane> &lanes() const;
+    Q_REQUIRED_RESULT const QVector<GraphLane> &lanes() const;
 
     Q_REQUIRED_RESULT const QStringList &childs() const;
 
