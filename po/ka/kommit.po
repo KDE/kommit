@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-09 00:50+0000\n"
-"PO-Revision-Date: 2023-03-26 06:59+0200\n"
+"PO-Revision-Date: 2023-05-10 05:48+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -135,16 +135,14 @@ msgid "Create tag"
 msgstr "ჭდის შექმნა"
 
 #: dolphinplugins/actions.h:31
-#, fuzzy, kde-format
-#| msgid "Cleanup..."
+#, kde-format
 msgid "Cleanup"
-msgstr "მოსუფთავება..."
+msgstr "გასუფთავება"
 
 #: dolphinplugins/actions.h:32
-#, fuzzy, kde-format
-#| msgid "All branches"
+#, kde-format
 msgid "Diff branches"
-msgstr "ყველა ბრენჩი"
+msgstr "ბრენჩების diff"
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -590,7 +588,7 @@ msgstr ""
 #: src/gui/appwindow.cpp:265
 #, kde-format
 msgid "Open repository"
-msgstr ""
+msgstr "რეპოზიტორიის გახსნა"
 
 #: src/gui/appwindow.cpp:362 src/gui/commandargsparser.cpp:478
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-09 00:50+0000\n"
-"PO-Revision-Date: 2023-05-08 23:43+0200\n"
+"PO-Revision-Date: 2023-05-10 20:28+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -35,10 +35,9 @@ msgid "Kommit"
 msgstr "Kommit"
 
 #: dolphinplugins/actions.h:15
-#, fuzzy, kde-format
-#| msgid "Clone..."
+#, kde-format
 msgid "Clone"
-msgstr "Klonen ..."
+msgstr "Klonen"
 
 #: dolphinplugins/actions.h:16
 #, kde-format

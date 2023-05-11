@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-09 00:50+0000\n"
-"PO-Revision-Date: 2023-03-26 11:27+0200\n"
+"PO-Revision-Date: 2023-05-09 09:31+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -36,16 +36,14 @@ msgid "Kommit"
 msgstr "Kommit"
 
 #: dolphinplugins/actions.h:15
-#, fuzzy, kde-format
-#| msgid "Clone..."
+#, kde-format
 msgid "Clone"
-msgstr "Clona..."
+msgstr "Clona"
 
 #: dolphinplugins/actions.h:16
-#, fuzzy, kde-format
-#| msgid "Init..."
+#, kde-format
 msgid "Init"
-msgstr "Restablix..."
+msgstr "Restablix"
 
 #: dolphinplugins/actions.h:17 src/gui/actions/fileactions.cpp:83
 #, kde-format
@@ -53,10 +51,9 @@ msgid "Open"
 msgstr "Obri"
 
 #: dolphinplugins/actions.h:18
-#, fuzzy, kde-format
-#| msgid "Pull..."
+#, kde-format
 msgid "Pull"
-msgstr "Baixa..."
+msgstr "Extrau («Pull»)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
 #: dolphinplugins/actions.h:19 src/gui/widgets/remoteinfodialog.ui:64
@@ -88,7 +85,7 @@ msgstr "Canvia/Extrau"
 #: dolphinplugins/actions.h:23
 #, kde-format
 msgid "Modifications"
-msgstr ""
+msgstr "Modificacions"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
@@ -110,13 +107,12 @@ msgstr "Ignora el fitxer"
 #: dolphinplugins/actions.h:26
 #, kde-format
 msgid "History"
-msgstr ""
+msgstr "Historial"
 
 #: dolphinplugins/actions.h:27
-#, fuzzy, kde-format
-#| msgid "Blame..."
+#, kde-format
 msgid "Blame"
-msgstr "«Blame»..."
+msgstr "«Blame»"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
@@ -136,22 +132,19 @@ msgid "Remove"
 msgstr "Elimina"
 
 #: dolphinplugins/actions.h:30
-#, fuzzy, kde-format
-#| msgid "Create new"
+#, kde-format
 msgid "Create tag"
-msgstr "Crea nou"
+msgstr "Crea una etiqueta"
 
 #: dolphinplugins/actions.h:31
-#, fuzzy, kde-format
-#| msgid "Cleanup..."
+#, kde-format
 msgid "Cleanup"
-msgstr "Neteja..."
+msgstr "Neteja"
 
 #: dolphinplugins/actions.h:32
-#, fuzzy, kde-format
-#| msgid "Diff branches..."
+#, kde-format
 msgid "Diff branches"
-msgstr "Diff de les branques..."
+msgstr "Diff de les branques"
 
 #: src/apps/main.cpp:36
 #, kde-format
