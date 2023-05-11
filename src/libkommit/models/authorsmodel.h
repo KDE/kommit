@@ -43,7 +43,11 @@ public:
         Commits,
         LastColumn,
     };
-    enum AuthorCreateReason { Commit, AuthoredCommit, Tag };
+    enum AuthorCreateReason {
+        Commit,
+        AuthoredCommit,
+        Tag,
+    };
 
     Q_ENUM(AuthorsModelsRoles)
     explicit AuthorsModel(Manager *git, QObject *parent = nullptr);

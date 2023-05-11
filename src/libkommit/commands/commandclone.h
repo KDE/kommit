@@ -39,8 +39,8 @@ private:
     QString mRepoUrl;
     QString mLocalPath;
     QString mBranch;
-    int mDepth{-1};
     QString mOrigin;
+    int mDepth{-1};
     bool mRecursive{false};
 };
 

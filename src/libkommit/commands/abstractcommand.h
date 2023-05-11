@@ -21,7 +21,12 @@ enum class OptionalBool {
     True,
 };
 
-enum class FastForwardType { Unset, Yes, No, OnlyFastForward };
+enum class FastForwardType {
+    Unset,
+    Yes,
+    No,
+    OnlyFastForward,
+};
 
 LIBKOMMIT_EXPORT OptionalBool checkStateToOptionalBool(Qt::CheckState checkState);
 

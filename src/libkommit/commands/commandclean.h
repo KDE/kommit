@@ -16,7 +16,11 @@ class LIBKOMMIT_EXPORT CommandClean : public AbstractCommand
     Q_OBJECT
 
 public:
-    enum CleanupType { AllUntrackedFiles, NonIgnoredUntrackedFiles, IgnoredFiles };
+    enum CleanupType {
+        AllUntrackedFiles,
+        NonIgnoredUntrackedFiles,
+        IgnoredFiles,
+    };
     CommandClean();
 
     Q_REQUIRED_RESULT QStringList generateArgs() const override;

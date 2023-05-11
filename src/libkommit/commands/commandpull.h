@@ -23,10 +23,21 @@ class LIBKOMMIT_EXPORT CommandPull : public AbstractCommand
     Q_OBJECT
 
 public:
-    enum Rebase { None, False, True, Preserve, Merge };
+    enum Rebase {
+        None,
+        False,
+        True,
+        Preserve,
+        Merge,
+    };
     Q_ENUM(Rebase)
 
-    enum FastForward { Unset, Yes, No, OnlyFastForward };
+    enum FastForward {
+        Unset,
+        Yes,
+        No,
+        OnlyFastForward,
+    };
     Q_ENUM(FastForward)
 
     CommandPull();
