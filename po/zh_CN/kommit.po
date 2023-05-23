@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-09 00:50+0000\n"
-"PO-Revision-Date: 2023-04-29 08:35\n"
+"PO-Revision-Date: 2023-05-22 14:02\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -33,16 +33,14 @@ msgid "Kommit"
 msgstr ""
 
 #: dolphinplugins/actions.h:15
-#, fuzzy, kde-format
-#| msgid "Clone..."
+#, kde-format
 msgid "Clone"
-msgstr "克隆..."
+msgstr ""
 
 #: dolphinplugins/actions.h:16
-#, fuzzy, kde-format
-#| msgid "Init..."
+#, kde-format
 msgid "Init"
-msgstr "初始化..."
+msgstr ""
 
 #: dolphinplugins/actions.h:17 src/gui/actions/fileactions.cpp:83
 #, kde-format
@@ -50,10 +48,9 @@ msgid "Open"
 msgstr ""
 
 #: dolphinplugins/actions.h:18
-#, fuzzy, kde-format
-#| msgid "Pull..."
+#, kde-format
 msgid "Pull"
-msgstr "拉取..."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
 #: dolphinplugins/actions.h:19 src/gui/widgets/remoteinfodialog.ui:64
@@ -110,10 +107,9 @@ msgid "History"
 msgstr ""
 
 #: dolphinplugins/actions.h:27
-#, fuzzy, kde-format
-#| msgid "Blame..."
+#, kde-format
 msgid "Blame"
-msgstr "追溯..."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
@@ -133,10 +129,9 @@ msgid "Remove"
 msgstr "移除"
 
 #: dolphinplugins/actions.h:30
-#, fuzzy, kde-format
-#| msgid "Create new"
+#, kde-format
 msgid "Create tag"
-msgstr "创建新的"
+msgstr ""
 
 #: dolphinplugins/actions.h:31
 #, kde-format
@@ -144,10 +139,9 @@ msgid "Cleanup"
 msgstr ""
 
 #: dolphinplugins/actions.h:32
-#, fuzzy, kde-format
-#| msgid "Diff branches..."
+#, kde-format
 msgid "Diff branches"
-msgstr "分支间相差..."
+msgstr ""
 
 #: src/apps/main.cpp:36
 #, kde-format
