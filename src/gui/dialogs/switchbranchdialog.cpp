@@ -68,7 +68,7 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
     return cmd;
 }
 
-void SwitchBranchDialog::on_buttonBox_accepted()
+void SwitchBranchDialog::slotButtonBoxAccepted()
 {
     if (radioButtonExistingBranch->isChecked())
         if (_existingLocalBranches.contains(lineEditNewBranchName->text()) || _existingRemoteBranches.contains(lineEditNewBranchName->text())) {
