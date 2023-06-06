@@ -33,6 +33,8 @@ SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
     comboBoxTags->setModel(git->tagsModel());
 
     radioButtonTag->setEnabled(comboBoxTags->count());
+
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &SwitchBranchDialog::slotButtonBoxAccepted);
 }
 
 Git::CommandSwitchBranch *SwitchBranchDialog::command() const

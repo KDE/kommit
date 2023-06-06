@@ -23,7 +23,7 @@ public:
     Q_REQUIRED_RESULT Git::CommandSwitchBranch *command() const;
 
 private slots:
-    void on_buttonBox_accepted();
+    void slotButtonBoxAccepted();
 
 private:
     QStringList _existingLocalBranches;
