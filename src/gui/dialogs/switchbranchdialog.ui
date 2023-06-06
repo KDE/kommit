@@ -179,21 +179,5 @@
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>SwitchBranchDialog</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>123</x>
-     <y>212</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>80</x>
-     <y>183</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
 </ui>

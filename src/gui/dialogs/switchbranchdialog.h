@@ -21,4 +21,11 @@ public:
     explicit SwitchBranchDialog(Git::Manager *git, QWidget *parent = nullptr);
 
     Q_REQUIRED_RESULT Git::CommandSwitchBranch *command() const;
+
+private slots:
+    void on_buttonBox_accepted();
+
+private:
+    QStringList _existingLocalBranches;
+    QStringList _existingRemoteBranches;
 };

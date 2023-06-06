@@ -12,6 +12,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QDebug>
 
+#include <KLocalizedString>
+#include <KMessageBox>
+
 #define BRANCH_TYPE_LOCAL 1
 #define BRANCH_TYPE_REMOTE 2
 
@@ -20,11 +23,11 @@ SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
 {
     setupUi(this);
 
-    const auto localBranches = git->branches();
-    for (const auto &b : localBranches)
+    _existingLocalBranches = git->branches();
+    for (const auto &b : std::as_const(_existingLocalBranches))
         comboBoxBranchSelect->addItem(b, BRANCH_TYPE_LOCAL);
-    const auto remoteBranches = git->remoteBranches();
-    for (const auto &b : remoteBranches)
+    _existingRemoteBranches = git->remoteBranches();
+    for (const auto &b : std::as_const(_existingRemoteBranches))
         comboBoxBranchSelect->addItem(b, BRANCH_TYPE_REMOTE);
 
     comboBoxTags->setModel(git->tagsModel());
@@ -44,6 +47,7 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
             const auto n = comboBoxBranchSelect->currentText().indexOf(QLatin1Char('/'));
             if (n == -1) {
                 qCWarning(KOMMIT_LOG, "The branch name %s is invalid", qPrintable(comboBoxBranchSelect->currentText()));
+                cmd->deleteLater();
                 return nullptr;
             }
 
@@ -60,4 +64,14 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
     }
 
     return cmd;
+}
+
+void SwitchBranchDialog::on_buttonBox_accepted()
+{
+    if (radioButtonExistingBranch->isChecked())
+        if (_existingLocalBranches.contains(lineEditNewBranchName->text()) || _existingRemoteBranches.contains(lineEditNewBranchName->text())) {
+            KMessageBox::error(this, i18n("The branch already exists"));
+            return;
+        }
+    accept();
 }
