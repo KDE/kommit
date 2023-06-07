@@ -25,6 +25,7 @@ X-DocPath=kommit/index.html
 GenericName=Git client GUI
 GenericName[ca]=IGU de client del Git
 GenericName[ca@valencia]=IGU de client de Git
+GenericName[cs]=Grafický klient pro Git
 GenericName[de]=Grafisches Git-Programm
 GenericName[en_GB]=Git client GUI
 GenericName[es]=Interfaz de cliente de Git
