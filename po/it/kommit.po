@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-09 00:50+0000\n"
+"POT-Creation-Date: 2023-06-07 00:50+0000\n"
 "PO-Revision-Date: 2023-05-09 18:36+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1788,6 +1788,11 @@ msgstr "HEAD"
 #, kde-format
 msgid "Add new submodule"
 msgstr "Aggiungi nuovo sotto-modulo"
+
+#: src/gui/dialogs/switchbranchdialog.cpp:75
+#, kde-format
+msgid "The branch already exists"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53
