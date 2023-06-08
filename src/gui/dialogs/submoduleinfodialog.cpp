@@ -95,6 +95,8 @@ void SubmoduleInfoDialog::slotLineEditPathUrlSelected(const QUrl &url)
     if (text.startsWith(mGit->path())) {
         auto t = text;
         t.remove(0, mGit->path().size());
+        if (t.startsWith("/"))
+            t.remove(0, 1);
         lineEditPath->setText(t);
     } else {
         KMessageBox::error(this, i18n("The path is not inside of git directory"));
