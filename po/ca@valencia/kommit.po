@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-07 00:50+0000\n"
-"PO-Revision-Date: 2023-05-09 09:31+0200\n"
+"PO-Revision-Date: 2023-06-07 10:56+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 # NdT: Com que és una capa gràfica del Git, he intentat seguir la terminologia pròpia de la traducció del Git (https://github.com/Softcatala/git-po/blob/master/po/ca.po)
 #, kde-format
@@ -1792,7 +1792,7 @@ msgstr "Afig un submòdul nou"
 #: src/gui/dialogs/switchbranchdialog.cpp:75
 #, kde-format
 msgid "The branch already exists"
-msgstr ""
+msgstr "La branca ja existix"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53

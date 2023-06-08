@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-07 00:50+0000\n"
-"PO-Revision-Date: 2023-05-09 08:37+0300\n"
+"PO-Revision-Date: 2023-06-07 16:18+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1789,7 +1789,7 @@ msgstr "Додати новий підмодуль"
 #: src/gui/dialogs/switchbranchdialog.cpp:75
 #, kde-format
 msgid "The branch already exists"
-msgstr ""
+msgstr "Гілка вже існує"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53

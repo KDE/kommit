@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-07 00:50+0000\n"
-"PO-Revision-Date: 2023-06-05 11:10+0200\n"
+"PO-Revision-Date: 2023-06-07 14:02+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -1692,7 +1692,7 @@ msgstr ""
 #: src/gui/dialogs/switchbranchdialog.cpp:75
 #, kde-format
 msgid "The branch already exists"
-msgstr ""
+msgstr "Větev již existuje"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:53

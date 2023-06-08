@@ -1,30 +1,32 @@
 # Thomas Vergnaud <thomas.vergnaud@mailo.eu>, 2022.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2022.
 # Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
+# Valentin Poupon <valentin.poupon@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-07 00:50+0000\n"
-"PO-Revision-Date: 2023-05-23 19:26+0200\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
-"Language-Team: fr\n"
+"PO-Revision-Date: 2023-06-05 11:26+0200\n"
+"Last-Translator: Valentin Poupon <valentin.poupon@gmail.com>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Thomas Vergnaud, Xavier Besnard"
+msgstr "Thomas Vergnaud, Xavier Besnard, Valentin Poupon"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "thomas.vergnaud@mailo.eu, xavier.besnard@neuf.fr"
+msgstr ""
+"thomas.vergnaud@mailo.eu, xavier.besnard@neuf.fr, valentin.poupon@gmail.com"
 
 #: dolphinplugins/actionmanager.cpp:20 src/apps/main.cpp:34
 #, kde-format
@@ -44,7 +46,7 @@ msgstr "Initialiser"
 #: dolphinplugins/actions.h:17 src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Open"
-msgstr "Ouvrir "
+msgstr "Ouvrir"
 
 #: dolphinplugins/actions.h:18
 #, kde-format
@@ -64,7 +66,7 @@ msgstr "Récupérer"
 #: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:70
 #, kde-format
 msgid "Push"
-msgstr "Pousser "
+msgstr "Pousser"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
 #: dolphinplugins/actions.h:21 src/gui/dialogs/mergedialog.ui:14
@@ -81,7 +83,7 @@ msgstr "Basculer/Récupérer"
 #: dolphinplugins/actions.h:23
 #, kde-format
 msgid "Modifications"
-msgstr "Modifications "
+msgstr "Modifications"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
@@ -90,7 +92,7 @@ msgstr "Modifications "
 #: src/gui/widgets/branchesstatuswidget.ui:123
 #, kde-format
 msgid "Diff"
-msgstr "Différences "
+msgstr "Différences"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
@@ -98,18 +100,17 @@ msgstr "Différences "
 #: src/gui/dialogs/ignorefiledialog.ui:96
 #, kde-format
 msgid "Ignore file"
-msgstr "Ignorer le fichier "
+msgstr "Ignorer le fichier"
 
 #: dolphinplugins/actions.h:26
 #, kde-format
 msgid "History"
-msgstr "Historique "
+msgstr "Historique"
 
 #: dolphinplugins/actions.h:27
-#, fuzzy, kde-format
-#| msgid "Blame..."
+#, kde-format
 msgid "Blame"
-msgstr "Rejet..."
+msgstr "Blâmer"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
@@ -126,7 +127,7 @@ msgstr "Ajouter"
 #: src/gui/widgets/remoteswidget.ui:66
 #, kde-format
 msgid "Remove"
-msgstr "Retirer"
+msgstr "Supprimer"
 
 #: dolphinplugins/actions.h:30
 #, kde-format
@@ -205,7 +206,7 @@ msgstr "Fusionner…"
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
-msgstr "Retirer…"
+msgstr "Supprimer…"
 
 #: src/gui/actions/branchactions.cpp:39
 #, kde-format
@@ -226,12 +227,12 @@ msgstr "Nom de la branche"
 #: src/gui/widgets/branchesstatuswidget.cpp:69
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
-msgstr "Êtes-vous certain de retirer la branche sélectionnée ?"
+msgstr "Êtes-vous certain de supprimer la branche sélectionnée ?"
 
 #: src/gui/actions/branchactions.cpp:128
 #, kde-format
 msgid "Remove Branch"
-msgstr "Retirer une branche"
+msgstr "Supprimer une branche"
 
 #: src/gui/actions/branchactions.cpp:130
 #: src/gui/widgets/branchesstatuswidget.cpp:73
@@ -288,7 +289,7 @@ msgstr "Journal…"
 #: src/gui/actions/fileactions.cpp:91
 #, kde-format
 msgid "Blame..."
-msgstr "Rejet..."
+msgstr "Blâmer…"
 
 #: src/gui/actions/fileactions.cpp:92 src/gui/appwindow.cpp:192
 #, kde-format
@@ -376,38 +377,32 @@ msgid "Apply stash %1"
 msgstr "Appliquer le remisage %1"
 
 #: src/gui/actions/stashactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Unable to apply the selected stash"
-msgstr "Êtes-vous certain d'appliquer la remise sélectionnée ?"
+msgstr "Impossible d'appliquer le remisage sélectionné"
 
 #: src/gui/actions/stashactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Are you sure to drop the selected stash?"
-msgstr "Êtes-vous certain d’appliquer la remise sélectionnée ?"
+msgstr "Êtes-vous certain d'appliquer le remisage sélectionné ?"
 
 #: src/gui/actions/stashactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Drop stash %1"
 msgstr "Appliquer le remisage %1"
 
 #: src/gui/actions/stashactions.cpp:59
-#, fuzzy, kde-format
-#| msgid "Are you sure to remove the selected tag?"
+#, kde-format
 msgid "Unable to remove the selected stash"
-msgstr "Êtes-vous certain de supprimer l'étiquette sélectionnée ?"
+msgstr "Impossible de supprimer le remisage sélectionné"
 
 #: src/gui/actions/stashactions.cpp:68
-#, fuzzy, kde-format
-#| msgid "Are you sure to apply the selected stash?"
+#, kde-format
 msgid "Are you sure to pop the selected stash?"
-msgstr "Êtes-vous certain d’appliquer la remise sélectionnée ?"
+msgstr "Êtes-vous certain d'appliquer le remisage sélectionné ?"
 
 #: src/gui/actions/stashactions.cpp:68
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Pop stash %1"
 msgstr "Appliquer le remisage %1"
 
@@ -480,7 +475,7 @@ msgstr "Nouvelle étiquette…"
 #: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Push..."
-msgstr "Pousser"
+msgstr "Pousser…"
 
 #: src/gui/actions/tagsactions.cpp:48 src/gui/dialogs/taginfodialog.cpp:13
 #, kde-format
@@ -503,13 +498,12 @@ msgstr "Supprimer une étiquette"
 #: src/gui/widgets/branchesstatuswidget.ui:93
 #, kde-format
 msgid "Checkout"
-msgstr "Rechercher..."
+msgstr "Rechercher"
 
 #: src/gui/actions/tagsactions.cpp:65
-#, fuzzy, kde-format
-#| msgid "Are you sure to restore to the selected tag?"
+#, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr "Êtes-vous certain de rétablir l'étiquette sélectionnée ?"
+msgstr "Voulez-vous vraiment rétablir l'étiquette sélectionnée ?"
 
 #: src/gui/appwindow.cpp:74
 #, kde-format
@@ -527,10 +521,9 @@ msgid " (merging)"
 msgstr "(fusion)"
 
 #: src/gui/appwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid " (merging)"
+#, kde-format
 msgid " (rebasing)"
-msgstr "(fusion)"
+msgstr "(rebasage)"
 
 #: src/gui/appwindow.cpp:150
 #, kde-format
@@ -555,7 +548,7 @@ msgstr "Dépôts récents"
 #: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Cleanup..."
-msgstr "Nettoyage..."
+msgstr "Nettoyage…"
 
 #: src/gui/appwindow.cpp:173
 #, kde-format
@@ -575,7 +568,7 @@ msgstr "Paramètres des dépôts…"
 #: src/gui/appwindow.cpp:198
 #, kde-format
 msgid "Switch/Checkout..."
-msgstr "Basculer / Obtenir..."
+msgstr "Basculer / Obtenir…"
 
 #: src/gui/appwindow.cpp:201
 #, kde-format
@@ -590,7 +583,7 @@ msgstr "Impossible de créer le chemin : %1"
 #: src/gui/appwindow.cpp:255 src/gui/commandargsparser.cpp:240
 #, kde-format
 msgid "Init repo"
-msgstr "Initialiser un dépôt"
+msgstr "Initialiser le dépôt"
 
 #: src/gui/appwindow.cpp:265
 #, kde-format
@@ -620,7 +613,7 @@ msgstr "Dépôt initialisé avec succès"
 #: src/gui/commandargsparser.cpp:507
 #, kde-format
 msgid "File(s) added to git successfully"
-msgstr "Fichier(s) ajouté à git avec succès"
+msgstr "Fichier(s) ajouté(s) à git avec succès"
 
 #: src/gui/commandargsparser.cpp:515
 #, kde-format
@@ -635,7 +628,7 @@ msgstr "Supprimer de la table d'index"
 #: src/gui/commandargsparser.cpp:517
 #, kde-format
 msgid "File(s) removed from git successfully"
-msgstr "Fichier(s) supprimés de git avec succès"
+msgstr "Fichier(s) supprimé(s) de git avec succès"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus_2)
 #: src/gui/commandpullwidget.ui:19
@@ -777,7 +770,7 @@ msgstr "Valider et pousser"
 #: src/gui/dialogs/commitpushdialog.ui:22
 #, kde-format
 msgid "Remote:"
-msgstr "Distants :"
+msgstr "Distant :"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCurrentBranch)
 #: src/gui/dialogs/commitpushdialog.ui:40
@@ -887,7 +880,7 @@ msgstr "Amender la validation précédente"
 #: src/gui/dialogs/commitpushdialog.ui:152 src/gui/dialogs/taginfodialog.ui:32
 #, kde-format
 msgid "Message:"
-msgstr "Message:"
+msgstr "Message :"
 
 #. i18n: ectx: property (whatsThis), widget (CompletionTextEdit, textEditMessage)
 #: src/gui/dialogs/commitpushdialog.ui:162
@@ -1576,7 +1569,7 @@ msgstr "Sortir les modifications de la file"
 #: src/gui/dialogs/pulldialog.ui:63
 #, kde-format
 msgid "Rebase:"
-msgstr ""
+msgstr "Rebaser :"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RepoSettingsDialog)
 #: src/gui/dialogs/reposettingsdialog.ui:14
@@ -1616,7 +1609,7 @@ msgstr ""
 "<html><head/><body><p>Modifier les retours ligne « cr /lf » ou non</p><p><a "
 "href=\"https://git-scm.com/docs/git-config#Documentation/git-config.txt-"
 "coreautocrlf\"><span style=\" text-decoration: underline; color:#007af4;"
-"\">Plus d'informations...</span></a></p></body></html>"
+"\">Plus d'informations…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/dialogs/reposettingsdialog.ui:60
@@ -1637,8 +1630,8 @@ msgstr ""
 "<html><head/><body><p>Indique à Git si le bit d'exécution des fichiers dans "
 "l'arborescence de travail doit être respecté. </p><p><a href=\"https://git-"
 "scm.com/docs/git-config#Documentation/git-config.txt-corefileMode\"><span "
-"style=\" text-decoration: underline; color:#007af4;\">Plus d'informations..."
-"</span></a></p></body></html>"
+"style=\" text-decoration: underline; color:#007af4;\">Plus d'informations…</"
+"span></a></p></body></html>"
 
 #: src/gui/dialogs/runnerdialog.cpp:57
 #, kde-format
@@ -2152,7 +2145,7 @@ msgstr "Référence"
 #: src/libkommit/models/tagsmodel.cpp:68
 #, kde-format
 msgid "Committer"
-msgstr "Valideur"
+msgstr "Validateur"
 
 #: src/gui/widgets/logdetailswidget.cpp:119
 #: src/libkommit/models/logsmodel.cpp:260
@@ -2306,7 +2299,7 @@ msgstr "Mettre à jour"
 #: src/gui/widgets/tagswidget.ui:63
 #, kde-format
 msgid "Checkout to selected"
-msgstr ""
+msgstr "Récupérer la sélection"
 
 #: src/libkommit/commands/commandpull.cpp:62
 #, kde-format
