@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-09 00:50+0000\n"
-"PO-Revision-Date: 2023-06-07 10:28+0200\n"
+"PO-Revision-Date: 2023-06-09 10:50+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1783,10 +1783,9 @@ msgid "HEAD"
 msgstr "HEAD"
 
 #: src/gui/dialogs/submoduleinfodialog.cpp:102
-#, fuzzy, kde-format
-#| msgid "The path is not git repo: %1"
+#, kde-format
 msgid "The path is not inside of git directory"
-msgstr "Het pad is geen git-repo: %1"
+msgstr "Het pad is niet binnen de git-map"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
