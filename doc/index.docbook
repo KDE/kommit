@@ -493,7 +493,7 @@ information here.
 
 <para>
 In order to successfully use &kmyapplication;, you need few libraries from
-&kf5; 5.1 (bar, baz). Foobar.lib is
+&kde-frameworks; 5.1 (bar, baz). Foobar.lib is
 required in order to support the advanced &kmyapplication; features. &kmyapplication; uses
 about 5 megs of memory to run, but this may vary depending on your
 platform and configuration.
