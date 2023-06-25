@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-09 00:50+0000\n"
-"PO-Revision-Date: 2023-04-02 16:22+0300\n"
+"PO-Revision-Date: 2023-06-07 16:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -33,16 +33,14 @@ msgid "Kommit"
 msgstr "Kommit"
 
 #: dolphinplugins/actions.h:15
-#, fuzzy, kde-format
-#| msgid "Clone..."
+#, kde-format
 msgid "Clone"
-msgstr "Monista…"
+msgstr "Monista"
 
 #: dolphinplugins/actions.h:16
-#, fuzzy, kde-format
-#| msgid "Init..."
+#, kde-format
 msgid "Init"
-msgstr "Alusta…"
+msgstr "Alusta"
 
 #: dolphinplugins/actions.h:17 src/gui/actions/fileactions.cpp:83
 #, kde-format
@@ -50,10 +48,9 @@ msgid "Open"
 msgstr "Avaa"
 
 #: dolphinplugins/actions.h:18
-#, fuzzy, kde-format
-#| msgid "Pull..."
+#, kde-format
 msgid "Pull"
-msgstr "Tuo…"
+msgstr "Tuo"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
 #: dolphinplugins/actions.h:19 src/gui/widgets/remoteinfodialog.ui:64
@@ -85,7 +82,7 @@ msgstr "Siirry/vaihda"
 #: dolphinplugins/actions.h:23
 #, kde-format
 msgid "Modifications"
-msgstr ""
+msgstr "Muutokset"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
@@ -107,13 +104,12 @@ msgstr "Sivuuta tiedosto"
 #: dolphinplugins/actions.h:26
 #, kde-format
 msgid "History"
-msgstr ""
+msgstr "Historia"
 
 #: dolphinplugins/actions.h:27
-#, fuzzy, kde-format
-#| msgid "Blame..."
+#, kde-format
 msgid "Blame"
-msgstr "Moiti…"
+msgstr "Moiti"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
@@ -133,22 +129,19 @@ msgid "Remove"
 msgstr "Poista"
 
 #: dolphinplugins/actions.h:30
-#, fuzzy, kde-format
-#| msgid "Create new"
+#, kde-format
 msgid "Create tag"
-msgstr "Luo uusi"
+msgstr "Luo luokitus"
 
 #: dolphinplugins/actions.h:31
-#, fuzzy, kde-format
-#| msgid "Cleanup..."
+#, kde-format
 msgid "Cleanup"
-msgstr "Siivoa…"
+msgstr "Siivoa"
 
 #: dolphinplugins/actions.h:32
-#, fuzzy, kde-format
-#| msgid "Diff branches..."
+#, kde-format
 msgid "Diff branches"
-msgstr "Vertaa haaroja…"
+msgstr "Vertaa haaroja"
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -691,7 +684,7 @@ msgstr "Siivoa lähde"
 #: src/gui/dialogs/cleanupdialog.ui:23
 #, kde-format
 msgid "Clean type"
-msgstr ""
+msgstr "Siivoa tyyppi"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNonIgnoredUntrackedFiles)
 #: src/gui/dialogs/cleanupdialog.ui:29
