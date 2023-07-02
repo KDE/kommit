@@ -99,7 +99,7 @@ if(BUILD_TESTING)
 endif(BUILD_TESTING)
 
 
-if(KF5DocTools_FOUND) # For the moment on kf6 it doesn't build depend against deprecated &kf5
+if(KF${KF_MAJOR_VERSION}DocTools_FOUND) # For the moment on kf6 it doesn't build depend against deprecated &kf5
     add_subdirectory(doc)
     kdoctools_install(po)
 else()
