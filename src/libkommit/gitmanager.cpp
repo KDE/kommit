@@ -693,3 +693,5 @@ void Manager::setIsRebasing(bool newIsRebasing)
 }
 
 } // namespace Git
+
+#include "moc_gitmanager.cpp"

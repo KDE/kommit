@@ -150,3 +150,5 @@ void SegmentsScrollBar::paintSection(QPainter &painter, SegmentsScrollBar::Side 
     if (drawRect)
         painter.drawRect(rc);
 }
+
+#include "moc_segmentsscrollbar.cpp"

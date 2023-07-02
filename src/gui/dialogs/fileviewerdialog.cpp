@@ -248,3 +248,5 @@ bool FileViewerDialog::viewInInternalViewer(const KService::Ptr &viewer, const Q
 #endif
     return true;
 }
+
+#include "moc_fileviewerdialog.cpp"

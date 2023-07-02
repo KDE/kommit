@@ -107,3 +107,5 @@ void FileHistoryDialog::slotTreeViewItemClicked(QTreeWidgetItem *item, int colum
     }
     compareFiles();
 }
+
+#include "moc_filehistorydialog.cpp"

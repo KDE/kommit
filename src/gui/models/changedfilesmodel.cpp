@@ -199,3 +199,5 @@ int ChangedFilesModel::checkedCount() const
             ret++;
     return ret;
 }
+
+#include "moc_changedfilesmodel.cpp"

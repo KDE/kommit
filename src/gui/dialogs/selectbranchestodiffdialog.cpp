@@ -44,3 +44,5 @@ void SelectBranchesToDiffDialog::slotAccepted()
     }
     accept();
 }
+
+#include "moc_selectbranchestodiffdialog.cpp"

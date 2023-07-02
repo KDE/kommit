@@ -45,3 +45,5 @@ void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
         lastCommit = commitHash;
     }
 }
+
+#include "moc_blamecodeview.cpp"

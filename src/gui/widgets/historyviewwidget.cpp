@@ -90,3 +90,5 @@ void HistoryViewWidget::slotTreeViewHistoryCustomContextMenuRequested(const QPoi
 
     mActions->popup();
 }
+
+#include "moc_historyviewwidget.cpp"

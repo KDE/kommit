@@ -44,3 +44,5 @@ void PushButton::updateButtonStatusFromAction()
     setCheckable(mAction->isCheckable());
     setChecked(mAction->isChecked());
 }
+
+#include "moc_pushbutton.cpp"

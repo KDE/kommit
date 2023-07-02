@@ -121,3 +121,5 @@ void TagsModel::fill()
 }
 
 } // namespace Git
+
+#include "moc_tagsmodel.cpp"

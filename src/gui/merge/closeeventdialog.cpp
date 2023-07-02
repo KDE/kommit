@@ -30,3 +30,5 @@ void CloseEventDialog::slotCommandLinkButtonDontExitClicked()
 {
     done(DontExit);
 }
+
+#include "moc_closeeventdialog.cpp"

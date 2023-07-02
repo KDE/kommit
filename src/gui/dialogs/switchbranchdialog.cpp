@@ -77,3 +77,5 @@ void SwitchBranchDialog::slotButtonBoxAccepted()
         }
     accept();
 }
+
+#include "moc_switchbranchdialog.cpp"

@@ -31,3 +31,5 @@ void FilesStatusesList::setShowCheckboxes(bool newShowCheckboxes)
 {
     mShowCheckboxes = newShowCheckboxes;
 }
+
+#include "moc_filesstatuseslist.cpp"

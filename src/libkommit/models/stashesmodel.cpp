@@ -103,3 +103,5 @@ void StashesModel::fill()
 }
 
 }
+
+#include "moc_stashesmodel.cpp"

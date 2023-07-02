@@ -97,3 +97,5 @@ void SettingsManager::exec(QWidget *parentWidget)
     connect(dialog, &KConfigDialog::settingsChanged, this, &SettingsManager::settingsChanged);
     dialog->show();
 }
+
+#include "moc_settingsmanager.cpp"

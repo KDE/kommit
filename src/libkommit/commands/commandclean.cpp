@@ -67,3 +67,5 @@ void CommandClean::setRemoveUntrackedDirectories(bool newRemoveUntrackedDirector
 }
 
 }
+
+#include "moc_commandclean.cpp"

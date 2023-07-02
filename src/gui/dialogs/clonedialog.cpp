@@ -72,3 +72,5 @@ void CloneDialog::slotAccepted()
 
     accept();
 }
+
+#include "moc_clonedialog.cpp"

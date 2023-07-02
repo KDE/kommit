@@ -126,3 +126,5 @@ void MultiPageWidget::slotPageSelected(QAction *action)
     labelTitle->setText(action->text().remove(QLatin1Char('&')));
     labelPageIcon->setPixmap(action->icon().pixmap({32, 32}));
 }
+
+#include "moc_multipagewidget.cpp"

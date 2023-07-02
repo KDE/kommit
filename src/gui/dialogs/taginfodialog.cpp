@@ -39,3 +39,5 @@ void TagInfoDialog::slotLineEditTagNameTextChanged(const QString &s)
 {
     lineEditMessage->setText(s);
 }
+
+#include "moc_taginfodialog.cpp"

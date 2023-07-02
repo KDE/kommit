@@ -30,3 +30,5 @@ void MergeCloseEventDialog::slotCommandLinkButtonDontExitClicked()
 {
     done(DontExit);
 }
+
+#include "moc_mergecloseeventdialog.cpp"

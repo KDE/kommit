@@ -99,3 +99,5 @@ bool DiffTreeView::eventFilter(QObject *watched, QEvent *event)
     }
     return QWidget::eventFilter(watched, event);
 }
+
+#include "moc_difftreeview.cpp"

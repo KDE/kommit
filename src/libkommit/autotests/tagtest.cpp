@@ -21,3 +21,5 @@ void TagTest::shouldHaveDefaultValues()
     QVERIFY(w.name().isEmpty());
     QVERIFY(w.taggerEmail().isEmpty());
 }
+
+#include "moc_tagtest.cpp"

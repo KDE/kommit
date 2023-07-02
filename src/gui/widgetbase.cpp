@@ -55,3 +55,5 @@ void WidgetBase::git_pathChanged()
 {
     reload();
 }
+
+#include "moc_widgetbase.cpp"

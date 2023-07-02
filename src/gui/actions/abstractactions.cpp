@@ -67,3 +67,5 @@ QAction *AbstractActions::createAction(const QString &text, bool enabled, bool a
     mActions.append(a);
     return a;
 }
+
+#include "moc_abstractactions.cpp"

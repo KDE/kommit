@@ -23,3 +23,5 @@ void NoteDialog::slotAccepted()
     mGit->saveNote(mBranchName, textEdit->toPlainText());
     accept();
 }
+
+#include "moc_notedialog.cpp"

@@ -126,3 +126,5 @@ void SearchDialog::timerEvent(QTimerEvent *event)
     progressBar->setMaximum(mProgress.total);
     progressBar->setValue(mProgress.value);
 }
+
+#include "moc_searchdialog.cpp"

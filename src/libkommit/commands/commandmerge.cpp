@@ -236,3 +236,5 @@ void CommandMerge::setTheirs(bool newTheirs)
 }
 
 } // namespace Git
+
+#include "moc_commandmerge.cpp"

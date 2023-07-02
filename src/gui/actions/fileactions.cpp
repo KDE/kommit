@@ -206,3 +206,5 @@ void FileActions::mergeWithHead()
     d->exec();
     QFile::remove(tempFile);
 }
+
+#include "moc_fileactions.cpp"

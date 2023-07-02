@@ -564,3 +564,5 @@ void MergeWindow::slotPlainTextEditResultBlockSelected()
         m_ui.codeEditorTheirBlock->clear();
     }
 }
+
+#include "moc_mergewindow.cpp"

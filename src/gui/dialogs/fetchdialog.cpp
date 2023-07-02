@@ -48,3 +48,5 @@ void FetchDialog::slotAccept()
 
     accept();
 }
+
+#include "moc_fetchdialog.cpp"

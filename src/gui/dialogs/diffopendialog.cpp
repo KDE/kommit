@@ -75,3 +75,5 @@ DiffOpenDialog::Mode DiffOpenDialog::mode() const
 {
     return radioButtonCompareFiles->isChecked() ? Files : Dirs;
 }
+
+#include "moc_diffopendialog.cpp"

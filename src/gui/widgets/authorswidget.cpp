@@ -31,3 +31,5 @@ void AuthorsWidget::restoreState(QSettings &settings)
 {
     restore(settings, treeViewAuthors);
 }
+
+#include "moc_authorswidget.cpp"

@@ -95,3 +95,5 @@ void RemotesActions::update()
     // TODO implement it.
     qCWarning(KOMMIT_LOG) << "RemotesActions::update not implemented";
 }
+
+#include "moc_remotesactions.cpp"

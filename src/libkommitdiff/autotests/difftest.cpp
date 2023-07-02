@@ -161,3 +161,5 @@ void DiffTest::removedTest()
 }
 
 QTEST_MAIN(DiffTest)
+
+#include "moc_difftest.cpp"

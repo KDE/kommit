@@ -68,3 +68,5 @@ void AddSubmoduleCommand::setLocalPath(const QString &newLocalPath)
 }
 
 } // namespace Git
+
+#include "moc_addsubmodulecommand.cpp"

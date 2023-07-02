@@ -303,3 +303,5 @@ void TreeModel::setShowRoot(bool newDefaultRoot)
 {
     mShowRoot = newDefaultRoot;
 }
+
+#include "moc_treemodel.cpp"

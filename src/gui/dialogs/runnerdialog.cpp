@@ -157,3 +157,5 @@ void RunnerDialog::setAutoClose(bool newAutoClose)
 {
     mAutoClose = newAutoClose;
 }
+
+#include "moc_runnerdialog.cpp"

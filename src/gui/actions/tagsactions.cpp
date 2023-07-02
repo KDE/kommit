@@ -79,3 +79,5 @@ void TagsActions::push()
     d.run({QStringLiteral("push"), QStringLiteral("--tags")});
     d.exec();
 }
+
+#include "moc_tagsactions.cpp"

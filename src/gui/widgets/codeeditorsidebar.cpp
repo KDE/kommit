@@ -44,3 +44,5 @@ void CodeEditorSidebar::mouseReleaseEvent(QMouseEvent *event)
     }
     QWidget::mouseReleaseEvent(event);
 }
+
+#include "moc_codeeditorsidebar.cpp"

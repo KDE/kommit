@@ -162,3 +162,5 @@ void DiffTreeModel::emitAll()
     beginResetModel();
     endResetModel();
 }
+
+#include "moc_difftreemodel.cpp"

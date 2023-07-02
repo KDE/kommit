@@ -18,3 +18,5 @@ void InitDialogTest::shouldHaveDefaultValues()
     InitDialog d(nullptr);
     QVERIFY(d.path().isEmpty());
 }
+
+#include "moc_initdialogtest.cpp"

@@ -149,3 +149,5 @@ void BranchActions::note()
     NoteDialog d{mGit, mBranchName, mParent};
     d.exec();
 }
+
+#include "moc_branchactions.cpp"

@@ -171,3 +171,5 @@ void SegmentsMapper::findNext(Diff::SegmentType type)
             return;
         }
 }
+
+#include "moc_segmentsmapper.cpp"

@@ -122,3 +122,5 @@ OptionalBool checkStateToOptionalBool(Qt::CheckState checkState)
 }
 
 } // namespace Git
+
+#include "moc_abstractcommand.cpp"

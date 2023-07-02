@@ -464,3 +464,5 @@ void LogsModel::setCalendarType(const QString &newCalendarType)
     }
 }
 }
+
+#include "moc_logsmodel.cpp"

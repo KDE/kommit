@@ -77,3 +77,5 @@ void AppMainWindow::keyPressEvent(QKeyEvent *event)
 
     KXmlGuiWindow::keyPressEvent(event);
 }
+
+#include "moc_appmainwindow.cpp"

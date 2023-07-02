@@ -46,3 +46,5 @@ void MergeOpenFilesDialog::setFilePathBase(const QString &newFilePathBase)
 {
     lineEditBaseFile->setText(newFilePathBase);
 }
+
+#include "moc_mergeopenfilesdialog.cpp"

@@ -78,3 +78,5 @@ void RepoSettingsDialog::slotAccepted()
 
     accept();
 }
+
+#include "moc_reposettingsdialog.cpp"

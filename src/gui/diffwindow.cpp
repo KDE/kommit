@@ -227,3 +227,5 @@ void DiffWindow::compareDirs()
 
     mDock->show();
 }
+
+#include "moc_diffwindow.cpp"

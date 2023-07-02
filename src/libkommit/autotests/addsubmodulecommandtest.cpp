@@ -20,3 +20,5 @@ void AddSubmoduleCommandTest::shouldHaveDefaultValues()
     QVERIFY(command.branch().isEmpty());
     QVERIFY(!command.force());
 }
+
+#include "moc_addsubmodulecommandtest.cpp"

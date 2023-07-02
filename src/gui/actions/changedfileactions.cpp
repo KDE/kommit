@@ -66,3 +66,5 @@ void ChangedFileActions::revert()
     mGit->revertFile(mFilePath);
     Q_EMIT reloadNeeded();
 }
+
+#include "moc_changedfileactions.cpp"

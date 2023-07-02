@@ -46,3 +46,5 @@ void CloneDialogTest::shouldChangePath()
     d.setLocalPath(path);
     QCOMPARE(lineEditPath->text(), result);
 }
+
+#include "moc_clonedialogtest.cpp"

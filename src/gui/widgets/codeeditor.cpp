@@ -558,3 +558,5 @@ CodeEditor::BlockData::BlockData(int lineNumber, Diff::Segment *segment, CodeEdi
     , type{type}
 {
 }
+
+#include "moc_codeeditor.cpp"

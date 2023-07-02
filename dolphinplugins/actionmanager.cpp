@@ -107,3 +107,5 @@ QList<QAction *> ActionManager::actions(const KFileItemListProperties &fileItemI
 
 K_PLUGIN_CLASS_WITH_JSON(ActionManager, "kommititemaction.json")
 #include "actionmanager.moc"
+
+#include "moc_actionmanager.cpp"

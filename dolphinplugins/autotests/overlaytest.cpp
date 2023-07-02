@@ -47,3 +47,5 @@ void OverlayTest::checkRootDir()
     auto status = cache.pathStatus(QStringLiteral("/root"));
     QCOMPARE(status, Git::FileStatus::NoGit);
 }
+
+#include "moc_overlaytest.cpp"

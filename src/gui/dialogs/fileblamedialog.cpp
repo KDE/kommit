@@ -47,3 +47,5 @@ void FileBlameDialog::slotPlainTextEditBlockSelected()
     qDebug() << log;
     logDetailsWidget->setLog(data ? static_cast<Git::Log *>(data->data) : nullptr);
 }
+
+#include "moc_fileblamedialog.cpp"

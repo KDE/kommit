@@ -63,3 +63,5 @@ void StashesWidget::restoreState(QSettings &settings)
 {
     restore(settings, treeView);
 }
+
+#include "moc_stasheswidget.cpp"

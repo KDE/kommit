@@ -167,3 +167,5 @@ void MainWidget::slotPushButtonAddTagClicked()
         _git->createTag(d.tagName(), d.message());
     }
 }
+
+#include "moc_mainwidget.cpp"

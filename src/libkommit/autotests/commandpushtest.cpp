@@ -22,3 +22,5 @@ void CommandPushTest::shouldHaveDefaultValues()
     QVERIFY(command.localBranch().isEmpty());
     QVERIFY(command.remoteBranch().isEmpty());
 }
+
+#include "moc_commandpushtest.cpp"

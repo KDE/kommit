@@ -153,3 +153,5 @@ void CommitsWidget::slotLineEditFilterTextChanged(const QString &text)
 {
     mFilterModel->setFilterTerm(text);
 }
+
+#include "moc_commitswidget.cpp"

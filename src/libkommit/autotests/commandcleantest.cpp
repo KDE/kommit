@@ -27,3 +27,5 @@ void CommandCleanTest::shouldGenerateArguments()
 {
     // TODO
 }
+
+#include "moc_commandcleantest.cpp"

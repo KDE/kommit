@@ -87,3 +87,5 @@ void BranchesStatusWidget::slotTreeViewCustomContextMenuRequested(const QPoint &
     mActions->setBranchName(b->name);
     mActions->popup();
 }
+
+#include "moc_branchesstatuswidget.cpp"

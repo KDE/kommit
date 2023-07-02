@@ -103,3 +103,5 @@ void SubmoduleInfoDialog::slotLineEditPathUrlSelected(const QUrl &url)
         lineEditPath->setText(QString{});
     }
 }
+
+#include "moc_submoduleinfodialog.cpp"

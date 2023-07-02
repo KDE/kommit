@@ -532,3 +532,5 @@ ArgParserReturn CommandArgsParser::main(const QString &path)
     window->show();
     return ExecApp;
 }
+
+#include "moc_commandargsparser.cpp"

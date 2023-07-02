@@ -312,3 +312,5 @@ void DiffWidget::scrollToTop()
     //    rightCodeEditor->verticalScrollBar()->setValue(0);
     segmentConnector->update();
 }
+
+#include "moc_diffwidget.cpp"

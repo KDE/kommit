@@ -20,3 +20,5 @@ void FilesStatusesListTest::shouldHaveDefaultValues()
     FilesStatusesList w;
     QCOMPARE(w.columnCount(), 2);
 }
+
+#include "moc_filesstatuseslisttest.cpp"

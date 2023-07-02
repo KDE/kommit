@@ -93,3 +93,5 @@ void RemotesModel::fill()
 }
 
 }
+
+#include "moc_remotesmodel.cpp"

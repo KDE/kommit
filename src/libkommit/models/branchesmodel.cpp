@@ -125,3 +125,5 @@ const QString &BranchesModel::currentBranch() const
 }
 
 } // namespace Git
+
+#include "moc_branchesmodel.cpp"

@@ -253,3 +253,5 @@ void CommitPushDialog::slotListWidgetCustomContextMenuRequested(const QPoint &po
     mActions->setFilePath(mModel->filePath(listView->currentIndex().row()));
     mActions->popup();
 }
+
+#include "moc_commitpushdialog.cpp"

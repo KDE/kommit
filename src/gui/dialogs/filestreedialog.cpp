@@ -80,3 +80,5 @@ void FilesTreeDialog::slotListWidgetCustomContextMenuRequested(const QPoint &pos
     mActions->setFilePath(path);
     mActions->popup(listWidget->mapToGlobal(pos));
 }
+
+#include "moc_filestreedialog.cpp"

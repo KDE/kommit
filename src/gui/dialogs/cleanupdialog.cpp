@@ -27,3 +27,5 @@ Git::CommandClean *CleanupDialog::command() const
 
     return cmd;
 }
+
+#include "moc_cleanupdialog.cpp"

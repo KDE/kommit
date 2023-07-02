@@ -187,3 +187,5 @@ CommandPull::~CommandPull()
 }
 
 } // namespace Git
+
+#include "moc_commandpull.cpp"

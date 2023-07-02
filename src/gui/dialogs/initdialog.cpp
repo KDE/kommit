@@ -27,3 +27,5 @@ void InitDialog::setPath(const QString &path)
 {
     lineEditPath->setText(path);
 }
+
+#include "moc_initdialog.cpp"

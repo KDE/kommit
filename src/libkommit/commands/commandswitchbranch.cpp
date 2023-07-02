@@ -87,3 +87,5 @@ void CommandSwitchBranch::setRemoteBranch(const QString &newRemoteBranch)
 }
 
 } // namespace Git
+
+#include "moc_commandswitchbranch.cpp"

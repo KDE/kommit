@@ -58,3 +58,5 @@ QStringList OverlayPlugin::getOverlays(const QUrl &url)
 }
 
 #include "overlayplugin.moc"
+
+#include "moc_overlayplugin.cpp"

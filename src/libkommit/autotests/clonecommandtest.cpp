@@ -80,3 +80,5 @@ void CloneCommandTest::shouldGenerateCommand()
     command.setRecursive(newRecursive);
     QCOMPARE(command.generateArgs(), result);
 }
+
+#include "moc_clonecommandtest.cpp"

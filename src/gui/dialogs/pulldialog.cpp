@@ -47,3 +47,4 @@ void PullDialog::slotAccepted()
 
     accept();
 }
+#include "moc_pulldialog.cpp"

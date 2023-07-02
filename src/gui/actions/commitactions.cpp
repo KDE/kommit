@@ -53,3 +53,5 @@ void CommitActions::diff()
     auto d = new DiffWindow(mGit, mCommitHash, QStringLiteral("HEAD"));
     d->showModal();
 }
+
+#include "moc_commitactions.cpp"

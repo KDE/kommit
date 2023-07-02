@@ -105,3 +105,5 @@ QString WidgetBase::stateName(QWidget *w) const
 {
     return QStringLiteral("%1_%2_state").arg(metaObject()->className(), w->objectName());
 }
+
+#include "moc_widgetbase.cpp"

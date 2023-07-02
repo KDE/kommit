@@ -52,3 +52,5 @@ void AbstractGitItemsModel::setStatus(Status newStatus)
 }
 
 } // namespace Git
+
+#include "moc_abstractgititemsmodel.cpp"

@@ -101,3 +101,5 @@ QString IgnoreFileDialog::getIgnoreFile() const
     else
         return mGit->path() + QStringLiteral("/.git/info/exclude");
 }
+
+#include "moc_ignorefiledialog.cpp"

@@ -45,3 +45,5 @@ void ButtonsGroup::buttonClicked()
     const auto index = mButtons.indexOf(btn);
     Q_EMIT clicked(index);
 }
+
+#include "moc_buttonsgroup.cpp"

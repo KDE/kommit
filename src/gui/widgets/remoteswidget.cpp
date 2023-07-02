@@ -78,3 +78,5 @@ void RemotesWidget::init(Git::Manager *git)
     connect(listView, &ListView::itemActivated, this, &RemotesWidget::slotListViewItemActivated);
     connect(listView, &QListView::customContextMenuRequested, this, &RemotesWidget::slotListViewCustomContextMenuRequested);
 }
+
+#include "moc_remoteswidget.cpp"

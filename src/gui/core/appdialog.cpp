@@ -33,3 +33,5 @@ bool AppDialog::event(QEvent *event)
     }
     return QDialog::event(event);
 }
+
+#include "moc_appdialog.cpp"

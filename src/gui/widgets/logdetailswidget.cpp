@@ -223,3 +223,5 @@ void LogDetailsWidget::setEnableFilesLinks(bool newEnableFilesLinks)
     mEnableFilesLinks = newEnableFilesLinks;
     Q_EMIT enableFilesLinksChanged();
 }
+
+#include "moc_logdetailswidget.cpp"

@@ -408,3 +408,5 @@ void AppWindow::addPage(const QString &actionName)
     w->restoreState(s);
     mBaseWidgets.append(w);
 }
+
+#include "moc_appwindow.cpp"

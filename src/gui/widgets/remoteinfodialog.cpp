@@ -42,3 +42,5 @@ Git::CommandAddRemote *RemoteInfoDialog::command()
     cmd->setFetch(checkBoxFetch->isChecked());
     return cmd;
 }
+
+#include "moc_remoteinfodialog.cpp"

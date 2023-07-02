@@ -167,3 +167,5 @@ void DatesRange::increase(const QDateTime &time)
 }
 
 } // namespace Git
+
+#include "moc_authorsmodel.cpp"

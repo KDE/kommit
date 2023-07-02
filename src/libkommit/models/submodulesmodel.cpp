@@ -98,3 +98,5 @@ void SubmodulesModel::fill()
 }
 
 } // namespace Git
+
+#include "moc_submodulesmodel.cpp"

@@ -98,3 +98,5 @@ void ChangedFilesDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myChangedFilesDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_changedfilesdialog.cpp"

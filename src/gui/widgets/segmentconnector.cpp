@@ -167,3 +167,5 @@ void SegmentConnector::setTopMargin(int newTopMargin)
     m_topMargin = newTopMargin;
     update();
 }
+
+#include "moc_segmentconnector.cpp"

@@ -100,3 +100,5 @@ void MergeDialog::slotComboBoxStrategyCurrentIndexChanged(int index)
         break;
     }
 }
+
+#include "moc_mergedialog.cpp"

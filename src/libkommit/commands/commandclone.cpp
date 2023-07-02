@@ -107,3 +107,5 @@ bool CloneCommand::supportProgress() const
 }
 
 } // namespace Git
+
+#include "moc_commandclone.cpp"

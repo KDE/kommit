@@ -129,3 +129,5 @@ void CompletionTextEdit::keyPressEvent(QKeyEvent *e)
     cr.setWidth(mCompleter->popup()->sizeHintForColumn(0) + mCompleter->popup()->verticalScrollBar()->sizeHint().width());
     mCompleter->complete(cr); // popup it up!
 }
+
+#include "moc_completiontextedit.cpp"

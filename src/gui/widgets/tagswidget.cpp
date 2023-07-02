@@ -60,3 +60,5 @@ void TagsWidget::slotTreeViewTagsItemActivated(const QModelIndex &index)
     if (item)
         mActions->setTagName(item->name());
 }
+
+#include "moc_tagswidget.cpp"

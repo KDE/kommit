@@ -92,3 +92,5 @@ void StashActions::create()
         mGit->stashesModel()->load();
     }
 }
+
+#include "moc_stashactions.cpp"

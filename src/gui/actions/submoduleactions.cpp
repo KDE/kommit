@@ -97,3 +97,5 @@ void SubmoduleActions::sync()
     d.run({QStringLiteral("submodule"), QStringLiteral("sync"), mSubModuleName});
     d.exec();
 }
+
+#include "moc_submoduleactions.cpp"

@@ -16,3 +16,5 @@ void TreeView::currentChanged(const QModelIndex &current, const QModelIndex &pre
     Q_UNUSED(previous)
     Q_EMIT itemActivated(current);
 }
+
+#include "moc_treeview.cpp"

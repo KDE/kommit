@@ -57,3 +57,5 @@ void SubmodulesWidget::slotTreeViewActivated(const QModelIndex &index)
         return;
     mActions->setSubModuleName(s->path());
 }
+
+#include "moc_submoduleswidget.cpp"
