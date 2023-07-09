@@ -9,6 +9,7 @@
   <name xml:lang="cs">Kommit</name>
   <name xml:lang="de">Kommit</name>
   <name xml:lang="en-GB">Kommit</name>
+  <name xml:lang="eo">Kommit</name>
   <name xml:lang="es">Kommit</name>
   <name xml:lang="fi">Kommit</name>
   <name xml:lang="fr">Kommit</name>
@@ -28,6 +29,7 @@
   <summary xml:lang="cs">Grafický klient pro Git</summary>
   <summary xml:lang="de">Grafisches Git-Programm</summary>
   <summary xml:lang="en-GB">Git GUI client</summary>
+  <summary xml:lang="eo">GUI-kliento por Git</summary>
   <summary xml:lang="es">Interfaz de cliente de Git</summary>
   <summary xml:lang="fi">Graafinen Git-käyttöliittymä</summary>
   <summary xml:lang="fr">Interface Graphique Utilisateur pour un client « Git »</summary>
@@ -47,6 +49,7 @@
     <p xml:lang="cs">Grafický klient pro Git</p>
     <p xml:lang="de">Grafisches Git-Programm</p>
     <p xml:lang="en-GB">Git GUI client</p>
+    <p xml:lang="eo">GUI-kliento por Git</p>
     <p xml:lang="es">Interfaz de cliente de Git</p>
     <p xml:lang="fi">Graafinen Git-käyttöliittymä</p>
     <p xml:lang="fr">Interface Graphique Utilisateur pour un client « Git »</p>
