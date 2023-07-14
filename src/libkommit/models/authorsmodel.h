@@ -41,6 +41,8 @@ public:
         Name,
         Email,
         Commits,
+        Autheds,
+        Tags,
         LastColumn,
     };
     enum AuthorCreateReason {

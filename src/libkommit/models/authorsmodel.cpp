@@ -39,6 +39,10 @@ QVariant AuthorsModel::headerData(int section, Qt::Orientation orientation, int 
         return i18n("Email");
     case Commits:
         return i18n("Commits");
+    case Autheds:
+        return i18n("Autheds");
+    case Tags:
+        return i18n("Tags");
     }
     return {};
 }
@@ -55,6 +59,10 @@ QVariant AuthorsModel::data(const QModelIndex &index, int role) const
         return mData.at(index.row())->email;
     case Commits:
         return mData.at(index.row())->commits.count;
+    case Autheds:
+        return mData.at(index.row())->authoredCommits.count;
+    case Tags:
+        return mData.at(index.row())->tags.count;
     }
 
     return {};

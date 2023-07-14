@@ -21,6 +21,7 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
+    void resizeEvent(QResizeEvent *event) override;
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     void enterEvent(QEvent *event) override;
@@ -43,6 +44,9 @@ private:
     int leftCount{0};
     int rightCount{0};
     SegmentConnector *mSegmentConnector{nullptr};
+    QImage mSegmentsImage;
+
+    void generateSegmentsImage();
 
     inline void paintSection(QPainter &painter, SegmentsScrollBar::Side side, int from, int len, const QBrush &brush, bool drawRect = false);
 };

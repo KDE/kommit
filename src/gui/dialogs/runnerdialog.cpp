@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <QInputDialog>
 
 #include "kommit_appdebug.h"
 
@@ -86,6 +87,12 @@ void RunnerDialog::git_readyReadStandardOutput()
 
     if (mCmd && mCmd->supportProgress())
         mCmd->parseOutputSection(buffer, QByteArray());
+
+    QRegularExpression r{"Username for '.*': "};
+
+    if (r.match(buffer).hasMatch()) {
+        QInputDialog::getText(this, buffer, "Username:");
+    }
 }
 
 void RunnerDialog::git_readyReadStandardError()
