@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gui name="kommitdiff"
-     version="1"
+     version="2"
      xmlns="http://www.kde.org/standards/kxmlgui/1.0"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
                          http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd">
 <MenuBar>
+  <Menu name="file">
+    <Action name="file_reload"/>
+  </Menu>
   <Menu name="view">
     <Action name="view_hidden_chars"/>
     <Action name="view_same_size_blocks"/>
@@ -21,10 +24,10 @@
     <Action name="view_hidden_chars"/>
     <Action name="view_same_size_blocks"/>
     <Action name="view_files_info"/>
-
 </ToolBar>
 
 <ActionProperties>
 
 </ActionProperties>
+
 </gui>

@@ -151,6 +151,9 @@ void DiffWindow::initActions()
     actionCollection->addAction(QStringLiteral("show_tree_dock"), showTreeDockAction);
     showTreeDockAction->setText(i18n("Show Tree"));
 
+    auto reloadAction = actionCollection->addAction(QStringLiteral("file_reload"), mDiffWidget, &DiffWidget::compare);
+    reloadAction->setText(i18n("Reload"));
+
     KStandardAction::quit(this, &QWidget::close, actionCollection);
     KStandardAction::open(this, &DiffWindow::fileOpen, actionCollection);
 
@@ -164,7 +167,6 @@ void DiffWindow::fileOpen()
     if (d.exec() != QDialog::Accepted)
         return;
 
-    qDebug() << d.mode();
     mLeftStorage = mRightStorage = FileSystem;
     if (d.mode() == DiffOpenDialog::Dirs) {
         mLeftDir = d.oldDir();

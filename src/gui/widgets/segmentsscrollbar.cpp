@@ -45,44 +45,6 @@ void SegmentsScrollBar::paintEvent(QPaintEvent *event)
         return;
 
     painter.drawImage(0, 0, mSegmentsImage);
-    //    int countLeft{0};
-    //    int countRight{0};
-
-    //    for (const auto &segment : qAsConst(mSegmentConnector->segments())) {
-    //        QBrush brush;
-    //        switch (segment->type) {
-    //        case Diff::SegmentType::OnlyOnLeft:
-    //            brush = KommitSettings::diffRemovedColor();
-    //            break;
-    //        case Diff::SegmentType::OnlyOnRight:
-    //            brush = KommitSettings::diffAddedColor();
-    //            break;
-    //        case Diff::SegmentType::SameOnBoth:
-    //            brush = Qt::white;
-    //            break;
-    //        case Diff::SegmentType::DifferentOnBoth:
-    //            brush = KommitSettings::diffModifiedColor();
-    //            break;
-    //        default:
-    //            break;
-    //        }
-
-    //        paintSection(painter, Left, countLeft, segment->oldText.size(), brush);
-    //        paintSection(painter, Right, countRight, segment->newText.size(), brush);
-
-    //        if (mSegmentConnector->sameSize()) {
-    //            auto m = qMax(segment->oldText.size(), segment->newText.size());
-
-    //            paintSection(painter, Left, countLeft + segment->oldText.size(), m - segment->oldText.size(), Qt::darkGray);
-    //            paintSection(painter, Right, countRight + segment->newText.size(), m - segment->newText.size(), Qt::darkGray);
-
-    //            countLeft += m;
-    //            countRight += m;
-    //        } else {
-    //            countLeft += segment->oldText.size();
-    //            countRight += segment->newText.size();
-    //        }
-    //    }
 
     auto leftArea = mSegmentConnector->left()->visibleLines();
     auto rightArea = mSegmentConnector->right()->visibleLines();
@@ -148,6 +110,8 @@ void SegmentsScrollBar::reload()
 void SegmentsScrollBar::generateSegmentsImage()
 {
     mSegmentsImage = QImage{width(), height(), QImage::Format_ARGB32};
+
+    mSegmentsImage.fill(Qt::white);
     QPainter painter{&mSegmentsImage};
 
     int countLeft{0};
