@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 00:50+0000\n"
+"POT-Creation-Date: 2023-07-15 00:50+0000\n"
 "PO-Revision-Date: 2023-06-09 09:33+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1034,7 +1034,7 @@ msgstr "Sense comissió"
 #. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
 #: src/gui/dialogs/fetchdialog.ui:108 src/gui/dialogs/pulldialog.ui:153
 #: src/gui/mainwidget.ui:263 src/gui/widgets/remoteinfodialog.ui:54
-#: src/gui/widgets/tagswidget.ui:14
+#: src/gui/widgets/tagswidget.ui:14 src/libkommit/models/authorsmodel.cpp:45
 #, kde-format
 msgid "Tags"
 msgstr "Etiquetes"
@@ -1632,22 +1632,22 @@ msgstr ""
 "text-decoration: underline; color:#007af4;\">Més informació...</span></a></"
 "p></body></html>"
 
-#: src/gui/dialogs/runnerdialog.cpp:57
+#: src/gui/dialogs/runnerdialog.cpp:58
 #, kde-format
 msgid "View"
 msgstr "Visualitza"
 
-#: src/gui/dialogs/runnerdialog.cpp:119
+#: src/gui/dialogs/runnerdialog.cpp:126
 #, kde-format
 msgid "Process finished"
 msgstr "El procés ha finalitzat"
 
-#: src/gui/dialogs/runnerdialog.cpp:124
+#: src/gui/dialogs/runnerdialog.cpp:131
 #, kde-format
 msgid "The git process crashed"
 msgstr "El procés «git» ha fallat"
 
-#: src/gui/dialogs/runnerdialog.cpp:125
+#: src/gui/dialogs/runnerdialog.cpp:132
 #, kde-format
 msgid "Process finished with error"
 msgstr "El procés ha finalitzat amb error"
@@ -2348,6 +2348,12 @@ msgstr "Local desactualitzat"
 #, kde-format
 msgid "Email"
 msgstr "Correu electrònic"
+
+#: src/libkommit/models/authorsmodel.cpp:43
+#, fuzzy, kde-format
+#| msgid "Authors"
+msgid "Autheds"
+msgstr "Autoria"
 
 #: src/libkommit/models/branchesmodel.cpp:58
 #, kde-format

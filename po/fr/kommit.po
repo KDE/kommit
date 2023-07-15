@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 00:50+0000\n"
+"POT-Creation-Date: 2023-07-15 00:50+0000\n"
 "PO-Revision-Date: 2023-06-05 11:26+0200\n"
 "Last-Translator: Valentin Poupon <valentin.poupon@gmail.com>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -1033,7 +1033,7 @@ msgstr "Pas de validation"
 #. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
 #: src/gui/dialogs/fetchdialog.ui:108 src/gui/dialogs/pulldialog.ui:153
 #: src/gui/mainwidget.ui:263 src/gui/widgets/remoteinfodialog.ui:54
-#: src/gui/widgets/tagswidget.ui:14
+#: src/gui/widgets/tagswidget.ui:14 src/libkommit/models/authorsmodel.cpp:45
 #, kde-format
 msgid "Tags"
 msgstr "Étiquettes"
@@ -1633,22 +1633,22 @@ msgstr ""
 "style=\" text-decoration: underline; color:#007af4;\">Plus d'informations…</"
 "span></a></p></body></html>"
 
-#: src/gui/dialogs/runnerdialog.cpp:57
+#: src/gui/dialogs/runnerdialog.cpp:58
 #, kde-format
 msgid "View"
 msgstr "Visualiser"
 
-#: src/gui/dialogs/runnerdialog.cpp:119
+#: src/gui/dialogs/runnerdialog.cpp:126
 #, kde-format
 msgid "Process finished"
 msgstr "Processus terminé"
 
-#: src/gui/dialogs/runnerdialog.cpp:124
+#: src/gui/dialogs/runnerdialog.cpp:131
 #, kde-format
 msgid "The git process crashed"
 msgstr "Le processus git a planté"
 
-#: src/gui/dialogs/runnerdialog.cpp:125
+#: src/gui/dialogs/runnerdialog.cpp:132
 #, kde-format
 msgid "Process finished with error"
 msgstr "Processus terminé avec une erreur"
@@ -2351,6 +2351,12 @@ msgstr "Locale obsolète"
 #, kde-format
 msgid "Email"
 msgstr "Courriel"
+
+#: src/libkommit/models/authorsmodel.cpp:43
+#, fuzzy, kde-format
+#| msgid "Authors"
+msgid "Autheds"
+msgstr "Auteurs"
 
 #: src/libkommit/models/branchesmodel.cpp:58
 #, kde-format

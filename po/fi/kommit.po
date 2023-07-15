@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 00:50+0000\n"
+"POT-Creation-Date: 2023-07-15 00:50+0000\n"
 "PO-Revision-Date: 2023-06-07 16:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1008,7 +1008,7 @@ msgstr "Ei toimitusta"
 #. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
 #: src/gui/dialogs/fetchdialog.ui:108 src/gui/dialogs/pulldialog.ui:153
 #: src/gui/mainwidget.ui:263 src/gui/widgets/remoteinfodialog.ui:54
-#: src/gui/widgets/tagswidget.ui:14
+#: src/gui/widgets/tagswidget.ui:14 src/libkommit/models/authorsmodel.cpp:45
 #, kde-format
 msgid "Tags"
 msgstr "Tunnisteet"
@@ -1546,22 +1546,22 @@ msgid ""
 "body></html>"
 msgstr ""
 
-#: src/gui/dialogs/runnerdialog.cpp:57
+#: src/gui/dialogs/runnerdialog.cpp:58
 #, kde-format
 msgid "View"
 msgstr "Näytä"
 
-#: src/gui/dialogs/runnerdialog.cpp:119
+#: src/gui/dialogs/runnerdialog.cpp:126
 #, kde-format
 msgid "Process finished"
 msgstr "Prosessi valmistui"
 
-#: src/gui/dialogs/runnerdialog.cpp:124
+#: src/gui/dialogs/runnerdialog.cpp:131
 #, kde-format
 msgid "The git process crashed"
 msgstr "git-prosessi kaatui"
 
-#: src/gui/dialogs/runnerdialog.cpp:125
+#: src/gui/dialogs/runnerdialog.cpp:132
 #, kde-format
 msgid "Process finished with error"
 msgstr "Prosessi päättyi virheeseen"
@@ -2250,6 +2250,12 @@ msgstr "Paikallinen vanhentunut"
 #, kde-format
 msgid "Email"
 msgstr "Sähköposti"
+
+#: src/libkommit/models/authorsmodel.cpp:43
+#, fuzzy, kde-format
+#| msgid "Authors"
+msgid "Autheds"
+msgstr "Tekijät"
 
 #: src/libkommit/models/branchesmodel.cpp:58
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 00:50+0000\n"
+"POT-Creation-Date: 2023-07-15 00:50+0000\n"
 "PO-Revision-Date: 2023-02-28 00:38+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -1020,7 +1020,7 @@ msgstr "無提交"
 #. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
 #: src/gui/dialogs/fetchdialog.ui:108 src/gui/dialogs/pulldialog.ui:153
 #: src/gui/mainwidget.ui:263 src/gui/widgets/remoteinfodialog.ui:54
-#: src/gui/widgets/tagswidget.ui:14
+#: src/gui/widgets/tagswidget.ui:14 src/libkommit/models/authorsmodel.cpp:45
 #, kde-format
 msgid "Tags"
 msgstr "標籤"
@@ -1564,22 +1564,22 @@ msgid ""
 "body></html>"
 msgstr ""
 
-#: src/gui/dialogs/runnerdialog.cpp:57
+#: src/gui/dialogs/runnerdialog.cpp:58
 #, kde-format
 msgid "View"
 msgstr "檢視"
 
-#: src/gui/dialogs/runnerdialog.cpp:119
+#: src/gui/dialogs/runnerdialog.cpp:126
 #, kde-format
 msgid "Process finished"
 msgstr "行程已完成"
 
-#: src/gui/dialogs/runnerdialog.cpp:124
+#: src/gui/dialogs/runnerdialog.cpp:131
 #, kde-format
 msgid "The git process crashed"
 msgstr "git 行程已崩潰"
 
-#: src/gui/dialogs/runnerdialog.cpp:125
+#: src/gui/dialogs/runnerdialog.cpp:132
 #, kde-format
 msgid "Process finished with error"
 msgstr "行程已完成但有錯誤"
@@ -2259,6 +2259,12 @@ msgstr "本機並非最新"
 #, kde-format
 msgid "Email"
 msgstr "電子郵件"
+
+#: src/libkommit/models/authorsmodel.cpp:43
+#, fuzzy, kde-format
+#| msgid "Authors"
+msgid "Autheds"
+msgstr "作者群"
 
 #: src/libkommit/models/branchesmodel.cpp:58
 #, kde-format
