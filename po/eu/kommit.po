@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 00:50+0000\n"
+"POT-Creation-Date: 2023-07-16 00:52+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -670,7 +670,7 @@ msgstr "---"
 msgid "Commit/Push"
 msgstr "Baliozkotu/Bultzatu"
 
-#: src/gui/dialogs/changedfilesdialog.cpp:38
+#: src/gui/dialogs/changedfilesdialog.cpp:38 src/gui/diffwindow.cpp:155
 #, kde-format
 msgid "Reload"
 msgstr "Birzamatu"
@@ -904,19 +904,19 @@ msgid "Indexed"
 msgstr "Indexatuta"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
-#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:211
+#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:213
 #, kde-format
 msgid "Added"
 msgstr "Gehituta"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
-#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:213
+#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:215
 #, kde-format
 msgid "Removed"
 msgstr "Kenduta"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
-#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:215
+#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:217
 #, kde-format
 msgid "Modified"
 msgstr "Aldatua"
@@ -1766,13 +1766,13 @@ msgstr "Erakutsi fitxategian izenak"
 msgid "Show Tree"
 msgstr "Erakutsi zuhaitza"
 
-#: src/gui/diffwindow.cpp:209
+#: src/gui/diffwindow.cpp:211
 #, kde-format
 msgid "Unchanged"
 msgstr "Aldatu gabe"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/gui/kommitdiffui.rc:20 src/gui/kommitmergeui.rc:33
+#: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
 #: src/gui/kommitui.rc:45
 #, kde-format
 msgid "Main Toolbar"

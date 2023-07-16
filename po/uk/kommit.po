@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 00:50+0000\n"
-"PO-Revision-Date: 2023-06-09 17:31+0300\n"
+"POT-Creation-Date: 2023-07-16 00:52+0000\n"
+"PO-Revision-Date: 2023-07-15 08:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -656,7 +656,7 @@ msgstr "---"
 msgid "Commit/Push"
 msgstr "Внести/Записати"
 
-#: src/gui/dialogs/changedfilesdialog.cpp:38
+#: src/gui/dialogs/changedfilesdialog.cpp:38 src/gui/diffwindow.cpp:155
 #, kde-format
 msgid "Reload"
 msgstr "Перезавантажити"
@@ -914,19 +914,19 @@ msgid "Indexed"
 msgstr "Індексований"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
-#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:211
+#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:213
 #, kde-format
 msgid "Added"
 msgstr "Додано"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
-#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:213
+#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:215
 #, kde-format
 msgid "Removed"
 msgstr "Вилучено"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
-#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:215
+#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:217
 #, kde-format
 msgid "Modified"
 msgstr "Змінено"
@@ -1840,13 +1840,13 @@ msgstr "Показувати назви файлів"
 msgid "Show Tree"
 msgstr "Показати ієрархію"
 
-#: src/gui/diffwindow.cpp:209
+#: src/gui/diffwindow.cpp:211
 #, kde-format
 msgid "Unchanged"
 msgstr "Без змін"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/gui/kommitdiffui.rc:20 src/gui/kommitmergeui.rc:33
+#: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
 #: src/gui/kommitui.rc:45
 #, kde-format
 msgid "Main Toolbar"
@@ -2348,8 +2348,7 @@ msgid "Email"
 msgstr "Ел. пошта"
 
 #: src/libkommit/models/authorsmodel.cpp:43
-#, fuzzy, kde-format
-#| msgid "Authors"
+#, kde-format
 msgid "Autheds"
 msgstr "Автори"
 

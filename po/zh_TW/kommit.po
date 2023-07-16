@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 00:50+0000\n"
+"POT-Creation-Date: 2023-07-16 00:52+0000\n"
 "PO-Revision-Date: 2023-02-28 00:38+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -664,7 +664,7 @@ msgstr "---"
 msgid "Commit/Push"
 msgstr "提交/推送"
 
-#: src/gui/dialogs/changedfilesdialog.cpp:38
+#: src/gui/dialogs/changedfilesdialog.cpp:38 src/gui/diffwindow.cpp:155
 #, kde-format
 msgid "Reload"
 msgstr "重新載入"
@@ -902,19 +902,19 @@ msgid "Indexed"
 msgstr "已索引"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
-#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:211
+#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:213
 #, kde-format
 msgid "Added"
 msgstr "已加入"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
-#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:213
+#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:215
 #, kde-format
 msgid "Removed"
 msgstr "已移除"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
-#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:215
+#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:217
 #, kde-format
 msgid "Modified"
 msgstr "已修改"
@@ -1766,13 +1766,13 @@ msgstr "顯示檔案名稱"
 msgid "Show Tree"
 msgstr ""
 
-#: src/gui/diffwindow.cpp:209
+#: src/gui/diffwindow.cpp:211
 #, kde-format
 msgid "Unchanged"
 msgstr "未變更"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/gui/kommitdiffui.rc:20 src/gui/kommitmergeui.rc:33
+#: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
 #: src/gui/kommitui.rc:45
 #, kde-format
 msgid "Main Toolbar"

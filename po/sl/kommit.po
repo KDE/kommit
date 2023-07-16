@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 00:50+0000\n"
-"PO-Revision-Date: 2023-06-09 08:31+0200\n"
+"POT-Creation-Date: 2023-07-16 00:52+0000\n"
+"PO-Revision-Date: 2023-07-15 06:58+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -659,7 +659,7 @@ msgstr "---"
 msgid "Commit/Push"
 msgstr "Objavi/potisni"
 
-#: src/gui/dialogs/changedfilesdialog.cpp:38
+#: src/gui/dialogs/changedfilesdialog.cpp:38 src/gui/diffwindow.cpp:155
 #, kde-format
 msgid "Reload"
 msgstr "Ponovno naloži"
@@ -915,19 +915,19 @@ msgid "Indexed"
 msgstr "Indeksirano"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
-#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:211
+#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:213
 #, kde-format
 msgid "Added"
 msgstr "Dodano"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
-#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:213
+#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:215
 #, kde-format
 msgid "Removed"
 msgstr "Odstranjeno"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
-#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:215
+#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:217
 #, kde-format
 msgid "Modified"
 msgstr "Spremenjena"
@@ -1841,13 +1841,13 @@ msgstr "Pokaži imena datotek"
 msgid "Show Tree"
 msgstr "Pokaži drevo"
 
-#: src/gui/diffwindow.cpp:209
+#: src/gui/diffwindow.cpp:211
 #, kde-format
 msgid "Unchanged"
 msgstr "Nespremenjeno"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/gui/kommitdiffui.rc:20 src/gui/kommitmergeui.rc:33
+#: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
 #: src/gui/kommitui.rc:45
 #, kde-format
 msgid "Main Toolbar"
@@ -2347,10 +2347,9 @@ msgid "Email"
 msgstr "E-pošta"
 
 #: src/libkommit/models/authorsmodel.cpp:43
-#, fuzzy, kde-format
-#| msgid "Authors"
+#, kde-format
 msgid "Autheds"
-msgstr "Avtorji"
+msgstr "Avtentikacije"
 
 #: src/libkommit/models/branchesmodel.cpp:58
 #, kde-format

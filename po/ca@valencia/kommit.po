@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 00:50+0000\n"
-"PO-Revision-Date: 2023-06-09 09:33+0200\n"
+"POT-Creation-Date: 2023-07-16 00:52+0000\n"
+"PO-Revision-Date: 2023-07-15 11:54+0300\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 # NdT: Com que és una capa gràfica del Git, he intentat seguir la terminologia pròpia de la traducció del Git (https://github.com/Softcatala/git-po/blob/master/po/ca.po)
 #, kde-format
@@ -658,7 +658,7 @@ msgstr "---"
 msgid "Commit/Push"
 msgstr "Comet/Puja"
 
-#: src/gui/dialogs/changedfilesdialog.cpp:38
+#: src/gui/dialogs/changedfilesdialog.cpp:38 src/gui/diffwindow.cpp:155
 #, kde-format
 msgid "Reload"
 msgstr "Torna a carregar"
@@ -916,19 +916,19 @@ msgid "Indexed"
 msgstr "Indexats"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
-#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:211
+#: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:213
 #, kde-format
 msgid "Added"
 msgstr "Afegit"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
-#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:213
+#: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:215
 #, kde-format
 msgid "Removed"
 msgstr "Eliminat"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
-#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:215
+#: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:217
 #, kde-format
 msgid "Modified"
 msgstr "Modificat"
@@ -1843,13 +1843,13 @@ msgstr "Mostra els noms de fitxer"
 msgid "Show Tree"
 msgstr "Mostra un arbre"
 
-#: src/gui/diffwindow.cpp:209
+#: src/gui/diffwindow.cpp:211
 #, kde-format
 msgid "Unchanged"
 msgstr "Sense canvis"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/gui/kommitdiffui.rc:20 src/gui/kommitmergeui.rc:33
+#: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
 #: src/gui/kommitui.rc:45
 #, kde-format
 msgid "Main Toolbar"
@@ -2350,10 +2350,9 @@ msgid "Email"
 msgstr "Correu electrònic"
 
 #: src/libkommit/models/authorsmodel.cpp:43
-#, fuzzy, kde-format
-#| msgid "Authors"
+#, kde-format
 msgid "Autheds"
-msgstr "Autoria"
+msgstr "Autheds"
 
 #: src/libkommit/models/branchesmodel.cpp:58
 #, kde-format
