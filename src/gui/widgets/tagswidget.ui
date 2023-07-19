@@ -14,8 +14,7 @@
    <string>Tags</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="git-tag">
-    <normaloff>.</normaloff>.</iconset>
+   <iconset theme="git-tag"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

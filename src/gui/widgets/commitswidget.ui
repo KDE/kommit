@@ -14,8 +14,7 @@
    <string>Commits</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="git-commit">
-    <normaloff>.</normaloff>.</iconset>
+   <iconset theme="git-commit"/>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>

@@ -14,8 +14,7 @@
    <string>Dialog</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="kommit">
-    <normaloff>.</normaloff>.</iconset>
+   <iconset theme="kommit"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

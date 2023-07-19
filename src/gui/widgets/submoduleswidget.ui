@@ -14,8 +14,7 @@
    <string>Submodules</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="git-submodules">
-    <normaloff>.</normaloff>.</iconset>
+   <iconset theme="git-submodules"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

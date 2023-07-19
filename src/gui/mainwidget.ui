@@ -89,8 +89,7 @@ QToolButto2 {
           <string>Overview</string>
          </property>
          <property name="icon">
-          <iconset theme="git-overview">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="git-overview"/>
          </property>
          <property name="iconSize">
           <size>
@@ -118,8 +117,7 @@ QToolButto2 {
           <string>Branches</string>
          </property>
          <property name="icon">
-          <iconset theme="git-branch">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="git-branch"/>
          </property>
          <property name="iconSize">
           <size>
@@ -147,8 +145,7 @@ QToolButto2 {
           <string>Commits</string>
          </property>
          <property name="icon">
-          <iconset theme="git-commit">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="git-commit"/>
          </property>
          <property name="iconSize">
           <size>
@@ -176,8 +173,7 @@ QToolButto2 {
           <string>Stashes</string>
          </property>
          <property name="icon">
-          <iconset theme="git-stash">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="git-stash"/>
          </property>
          <property name="iconSize">
           <size>
@@ -205,8 +201,7 @@ QToolButto2 {
           <string>Submodules</string>
          </property>
          <property name="icon">
-          <iconset theme="git-submodules">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="git-submodules"/>
          </property>
          <property name="iconSize">
           <size>
@@ -234,8 +229,7 @@ QToolButto2 {
           <string>Remotes</string>
          </property>
          <property name="icon">
-          <iconset theme="git-remote">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="git-remote"/>
          </property>
          <property name="iconSize">
           <size>
@@ -263,8 +257,7 @@ QToolButto2 {
           <string>Tags</string>
          </property>
          <property name="icon">
-          <iconset theme="git-tag">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset theme="git-tag"/>
          </property>
          <property name="iconSize">
           <size>

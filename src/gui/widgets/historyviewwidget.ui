@@ -14,8 +14,7 @@
    <string>Overview</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="git-overview">
-    <normaloff>.</normaloff>.</iconset>
+   <iconset theme="git-overview"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="leftMargin">

@@ -14,8 +14,7 @@
    <string>Stashes</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="git-stash">
-    <normaloff>.</normaloff>.</iconset>
+   <iconset theme="git-stash"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

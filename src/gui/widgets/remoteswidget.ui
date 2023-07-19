@@ -14,8 +14,7 @@
    <string>Remotes</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="git-remote">
-    <normaloff>.</normaloff>.</iconset>
+   <iconset theme="git-remote"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>

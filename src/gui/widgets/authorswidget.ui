@@ -14,8 +14,7 @@
    <string>Authors</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="user">
-    <normaloff>.</normaloff>.</iconset>
+   <iconset theme="user"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
