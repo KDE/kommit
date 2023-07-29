@@ -2235,10 +2235,9 @@ msgid "Email"
 msgstr "E-mail"
 
 #: src/libkommit/models/authorsmodel.cpp:43
-#, fuzzy, kde-format
-#| msgid "Authors"
+#, kde-format
 msgid "Autheds"
-msgstr "Autoři"
+msgstr ""
 
 #: src/libkommit/models/branchesmodel.cpp:58
 #, kde-format
