@@ -16,6 +16,7 @@
   <name xml:lang="gl">Kommit</name>
   <name xml:lang="it">Kommit</name>
   <name xml:lang="ka">Kommit</name>
+  <name xml:lang="ko">Kommit</name>
   <name xml:lang="nl">Kommit</name>
   <name xml:lang="pl">Kommit</name>
   <name xml:lang="pt">Kommit</name>
@@ -37,6 +38,7 @@
   <summary xml:lang="gl">Cliente gráfico de Git</summary>
   <summary xml:lang="it">Interfaccia grafica client Git</summary>
   <summary xml:lang="ka">გრაფიკული კლიენტი Git-სთვის</summary>
+  <summary xml:lang="ko">Git GUI 클라이언트</summary>
   <summary xml:lang="nl">Git-client GUI</summary>
   <summary xml:lang="pt">Cliente gráfico do Git</summary>
   <summary xml:lang="sl">Grafični odjemalec Git</summary>
@@ -58,6 +60,7 @@
     <p xml:lang="gl">Cliente gráfico de Git</p>
     <p xml:lang="it">Interfaccia grafica client Git</p>
     <p xml:lang="ka">გრაფიკული კლიენტი Git-სთვის</p>
+    <p xml:lang="ko">Git GUI 클라이언트</p>
     <p xml:lang="nl">Git-client GUI</p>
     <p xml:lang="pt">Cliente gráfico do Git</p>
     <p xml:lang="sl">Grafični odjemalec Git</p>
