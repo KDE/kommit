@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-20 00:51+0000\n"
-"PO-Revision-Date: 2023-08-09 01:00+0200\n"
+"PO-Revision-Date: 2023-08-25 22:51+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -71,7 +71,7 @@ msgstr "푸시"
 #: dolphinplugins/actions.h:21 src/gui/dialogs/mergedialog.ui:14
 #, kde-format
 msgid "Merge"
-msgstr "합치기"
+msgstr "병합"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
 #: dolphinplugins/actions.h:22 src/gui/dialogs/switchbranchdialog.ui:14
@@ -199,7 +199,7 @@ msgstr "전환"
 #: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:185
 #, kde-format
 msgid "Merge..."
-msgstr "합치기..."
+msgstr "병합..."
 
 #: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
@@ -273,7 +273,7 @@ msgstr "다음으로 열기..."
 #: src/gui/actions/fileactions.cpp:87
 #, kde-format
 msgid "Merge with HEAD..."
-msgstr "HEAD와 합치기..."
+msgstr "HEAD와 병합..."
 
 #: src/gui/actions/fileactions.cpp:89
 #, kde-format
@@ -1291,6 +1291,13 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>git merge와 git pull 명령에 사용되는 병합 메커니즘에서"
+"는 -s 옵션을 사용하여 백엔드 병합 전략을 지정할 수 있습니다. 일부 전략에는 개"
+"별적으로 옵션을 지정할 수 있으며, git merge, git pull 명령에 -X&lt;"
+"option&gt; 인자를 지정하여 옵션을 지정할 수 있습니다.</p><p><a href="
+"\"https://git-scm.com/docs/merge-strategies\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">더 많은 정보</span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/mergedialog.ui:46
@@ -1320,6 +1327,10 @@ msgid ""
 "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>병합된 역사가 현재 역사의 상위 항목일 때 병합 진행 방식"
+"을 지정합니다.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt---ff\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">더 많은 정보</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
@@ -1347,6 +1358,13 @@ msgid ""
 "txt---allow-unrelated-histories\"><span style=\" text-decoration: underline; "
 "color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>기본값으로 git merge 명령은 공통 상위 항목이 없는 역사 "
+"병합을 거부합니다. 이 옵션은 개별적으로 시작된 두 프로젝트의 역사를 합칠 때 "
+"안전 장치를 끌 수 있습니다. 일반적인 경우가 아니기 때문에 이 옵션을 기본값으"
+"로 활성화할 수 있는 설정 변수는 없으며 앞으로도 추가되지 않을 것입니다.</"
+"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
+"git-merge.txt---allow-unrelated-histories\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">더 많은 정보</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/gui/dialogs/mergedialog.ui:97
@@ -1368,6 +1386,13 @@ msgid ""
 "squash\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>실제 병합이 일어난 것처럼 작업 폴더와 인덱스 상태를 생"
+"성하지만(병합 정보 제외), 실제 커밋 생성, HEAD 이동, $GIT_DIR/MERGE_HEAD 기록"
+"(다음 git commit 명령이 병합 커밋을 생성하도록)을 변경하지는 않습니다. 현재 "
+"브랜치 하에서 다른 브랜치를 병합하는 것과 효과가 동일한 새 단일 커밋을 생성합"
+"니다.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt---squash\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">더 많은 정보</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
 #: src/gui/dialogs/mergedialog.ui:110 src/gui/dialogs/pulldialog.ui:101
@@ -1402,6 +1427,12 @@ msgid ""
 "space-change\"><span style=\" text-decoration: underline; color:#007af4;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>3방향 병합을 실행할 때 지정한 공백 문자 변경 사항이 있"
+"는 줄을 변경 사항이 없는 것처럼 처리합니다. 공백 문자 변경 사항과 다른 변경 "
+"사항이 동시에 존재할 경우에는 무시하지 않습니다.</p><p><br/></p><p><a href="
+"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-ignore-"
+"space-change\"><span style=\" text-decoration: underline; color:#007af4;\">"
+"더 많은 정보</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #: src/gui/dialogs/mergedialog.ui:157
@@ -1439,12 +1470,18 @@ msgid ""
 "decoration: underline; color:#007af4;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>3방향 병합을 실행할 때 파일의 모든 세 단계에서 가상 체"
+"크아웃과 체크인을 실행합니다. 이 옵션은 병합하는 브랜치별로 정규화 필터나 줄 "
+"끝 문자가 다른 경우에 사용합니다.</p><p><br/></p><p><a href=\"https://git-"
+"scm.com/docs/git-merge#Documentation/git-merge.txt-renormalize\"><span style="
+"\" text-decoration: underline; color:#007af4;\">더 많은 정보</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
 #: src/gui/dialogs/mergedialog.ui:197
 #, kde-format
 msgid "Renormalize"
-msgstr ""
+msgstr "재정규화"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/gui/dialogs/mergedialog.ui:211
@@ -1463,9 +1500,9 @@ msgid ""
 "algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>합치는 과정에서 다른 diff 알고리즘을 사용하여 중요하지 "
-"않은 변경 사항으로 인하여 잘못 합쳐지는 경우(예: 관계 없는 함수의 괄호)를 방"
-"지합니다.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"<html><head/><body><p>병합하는 과정에서 다른 diff 알고리즘을 사용하여 중요하"
+"지 않은 변경 사항으로 인하여 잘못 병합되는 경우(예: 관계 없는 함수의 괄호)를 "
+"방지합니다.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
 "merge#Documentation/git-merge.txt-diff-algorithmpatienceminimalhistogrammyers"
 "\"><span style=\" text-decoration: underline; color:#007af4;\">자세한 정보</"
 "span></a></p></body></html>"
@@ -1480,7 +1517,7 @@ msgstr "이름 바꾸기 감지 끄기"
 #: src/gui/dialogs/mergeopenfilesdialog.ui:14
 #, kde-format
 msgid "Select files to merge"
-msgstr "합칠 파일 선택"
+msgstr "병합할 파일 선택"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/mergeopenfilesdialog.ui:25
@@ -2298,7 +2335,7 @@ msgstr "이메일"
 #: src/libkommit/models/authorsmodel.cpp:43
 #, kde-format
 msgid "Autheds"
-msgstr ""
+msgstr "작성자"
 
 #: src/libkommit/models/branchesmodel.cpp:58
 #, kde-format
