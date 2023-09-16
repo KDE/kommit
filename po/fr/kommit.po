@@ -1,5 +1,5 @@
+# SPDX-FileCopyrightText: 2022, 2023 Xavier Besnard <xavier.besnard@neuf.fr>
 # Thomas Vergnaud <thomas.vergnaud@mailo.eu>, 2022.
-# Xavier Besnard <xavier.besnard@neuf.fr>, 2022.
 # Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
 # Valentin Poupon <valentin.poupon@gmail.com>, 2023.
 msgid ""
@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-20 00:51+0000\n"
-"PO-Revision-Date: 2023-06-05 11:26+0200\n"
-"Last-Translator: Valentin Poupon <valentin.poupon@gmail.com>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-09-14 15:47+0200\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1783,10 +1783,9 @@ msgid "HEAD"
 msgstr "HEAD"
 
 #: src/gui/dialogs/submoduleinfodialog.cpp:102
-#, fuzzy, kde-format
-#| msgid "The path is not git repo: %1"
+#, kde-format
 msgid "The path is not inside of git directory"
-msgstr "Le chemin n'est pas un dépôt git : %1"
+msgstr "L'emplacement est en dehors d'un dépôt « git »."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
@@ -1799,7 +1798,7 @@ msgstr "Ajouter un nouveau sous-module"
 #: src/gui/dialogs/switchbranchdialog.cpp:75
 #, kde-format
 msgid "The branch already exists"
-msgstr ""
+msgstr "La branche existe déjà."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/gui/dialogs/switchbranchdialog.ui:52
@@ -2353,8 +2352,7 @@ msgid "Email"
 msgstr "Courriel"
 
 #: src/libkommit/models/authorsmodel.cpp:43
-#, fuzzy, kde-format
-#| msgid "Authors"
+#, kde-format
 msgid "Autheds"
 msgstr "Auteurs"
 
