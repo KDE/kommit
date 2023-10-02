@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "filestatus.h"
+
 #include <utility>
 
 namespace Git
@@ -36,8 +37,6 @@ void FileStatus::parseStatusLine(const QString &line)
     mName = fileName;
 
     setStatus(statusX, statusY);
-
-    //    qCDebug(KOMMITLIB_LOG) << "***=" << line << _status << statusX << statusY;
 }
 
 const QString &FileStatus::fullPath() const

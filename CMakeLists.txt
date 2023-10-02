@@ -10,6 +10,11 @@ set (RELEASE_SERVICE_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.
 
 set(LIBKOMMIT_LIB_VERSION "${RELEASE_SERVICE_VERSION}")
 set(LIBKOMMIT_LIB_SOVERSION "0")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+
+#find_package(git2 REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(LIBGIT2 "libgit2>=1.0" REQUIRED IMPORTED_TARGET)
 
 
 add_definitions(-DGK_VERSION="${RELEASE_SERVICE_VERSION}")
@@ -72,6 +77,7 @@ find_package(
         TextEditor
         SyntaxHighlighting
 )
+find_package(DolphinVcs REQUIRED)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -103,8 +109,8 @@ if(KF${KF_MAJOR_VERSION}DocTools_FOUND) # For the moment on kf6 it doesn't build
     add_subdirectory(doc)
     kdoctools_install(po)
 else()
-    
-	message(WARNING "DocTools not found. NEED TO FIX IT IN QT6")
+
+    message(WARNING "DocTools not found. NEED TO FIX IT IN QT6")
 endif()
 
 add_subdirectory(icons)
@@ -116,10 +122,10 @@ endif (UNIX)
 
 
 ecm_qt_install_logging_categories(
-        EXPORT KOMMIT
-        FILE kommit.categories
-        DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
-        )
+    EXPORT KOMMIT
+    FILE kommit.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)
 
 if (KOMMIT_BUILD_DIR)
     file(WRITE ${KOMMIT_BUILD_DIR}/version "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")

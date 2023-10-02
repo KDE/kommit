@@ -1,0 +1,10 @@
+{
+    "KPlugin": {
+        "MimeTypes": [
+            "text/plain"
+        ],
+        "Name": "Kommit dolphin plugin"
+    },
+    "MimeType": "text/plain;"
+}
+

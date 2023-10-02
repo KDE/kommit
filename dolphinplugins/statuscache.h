@@ -6,8 +6,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "filestatus.h"
 #include <QMap>
+
+#include <Dolphin/KVersionControlPlugin>
+namespace Impl
+{
+QString removeSlashAtEnd(const QStringRef &s);
+};
 
 class QFileInfo;
 class StatusCache
@@ -15,18 +20,14 @@ class StatusCache
 public:
     StatusCache();
 
-    Q_REQUIRED_RESULT Git::FileStatus::Status fileStatus(const QString &path);
-    Q_REQUIRED_RESULT Git::FileStatus::Status pathStatus(const QString &path);
-    Q_REQUIRED_RESULT Git::FileStatus::Status fileStatus(const QFileInfo &fileInfo);
-    Q_REQUIRED_RESULT bool isGitDir(const QString &path);
+    Q_REQUIRED_RESULT KVersionControlPlugin::ItemVersion status(const QString &name);
+    bool setPath(const QString &path);
 
 private:
-    Q_REQUIRED_RESULT bool addPath(const QString &path);
-    Q_REQUIRED_RESULT bool isInDir(const QString &dirPath, const QString &filePath);
+    QString mRepoRootPath;
+    QString mPath;
+    QMap<QString, KVersionControlPlugin::ItemVersion> mStatuses;
+    bool mCurrentPathIsIgnored{false};
 
     friend class OverlayTest;
-
-private:
-    QString mLastDir;
-    QMap<QString, Git::FileStatus::Status> mStatuses;
 };

@@ -22,6 +22,7 @@ public:
 
     Q_REQUIRED_RESULT bool isValid() const;
     Q_REQUIRED_RESULT QList<FileStatus> repoFilesStatus() const;
+    void repoFilesStatus(const std::function<bool(const FileStatus &)> &cb) const;
 
 private:
     QString mPath;

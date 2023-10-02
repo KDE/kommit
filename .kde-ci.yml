@@ -5,6 +5,7 @@ Dependencies:
 - 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5', 'macOS/Qt5']
   'require':
     'frameworks/extra-cmake-modules': '@stable'
+    'frameworks/kcoreaddons': '@stable'
     'frameworks/kdoctools': '@stable'
     'frameworks/ki18n': '@stable'
     'frameworks/ktexteditor': '@stable'
@@ -12,10 +13,12 @@ Dependencies:
     'frameworks/kio': '@stable'
     'frameworks/syntax-highlighting': '@stable'
     'frameworks/kxmlgui': '@stable'
+    'system/dolphin': '@same'
 
 - 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6', 'macOS/Qt6']
   'require':
     'frameworks/extra-cmake-modules': '@latest-kf6'
+    'frameworks/kcoreaddons': '@latest-kf6'
     'frameworks/kdoctools': '@latest-kf6'
     'frameworks/ki18n': '@latest-kf6'
     'frameworks/ktexteditor': '@latest-kf6'
@@ -23,3 +26,4 @@ Dependencies:
     'frameworks/kio': '@latest-kf6'
     'frameworks/syntax-highlighting': '@latest-kf6'
     'frameworks/kxmlgui': '@latest-kf6'
+    'system/dolphin': 'kf6'

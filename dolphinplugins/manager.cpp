@@ -86,4 +86,39 @@ QList<FileStatus> MiniManager::repoFilesStatus() const
     return files;
 }
 
+void MiniManager::repoFilesStatus(const std::function<bool(const FileStatus &)> &cb) const
+{
+    const auto buffer = Git::readAllNonEmptyOutput(mPath,
+                                                   {QStringLiteral("status"),
+                                                    QStringLiteral("--untracked-files=all"),
+                                                    QStringLiteral("--ignored"),
+                                                    QStringLiteral("--short"),
+                                                    QStringLiteral("--ignore-submodules"),
+                                                    QStringLiteral("--porcelain")},
+                                                   false);
+
+    QList<FileStatus> unknownFiles;
+    // TODO: read untrackeds
+    for (const auto &item : buffer) {
+        if (item.trimmed().isEmpty())
+            continue;
+
+        FileStatus fs;
+        fs.parseStatusLine(item);
+        fs.setFullPath(mPath + QLatin1Char('/') + fs.name());
+
+        if (item.startsWith(QStringLiteral("??")))
+            unknownFiles << fs;
+        else if (!cb(fs))
+            return;
+        // files.append(fs);
+    }
+    //    for (auto &f : unknownFiles) {
+    //        const auto n = files.indexOf(f);
+    //        if (n == -1) {
+    //            f.setStatus(FileStatus::Untracked);
+    //            files.append(f);
+    //        }
+    //    }
+}
 }

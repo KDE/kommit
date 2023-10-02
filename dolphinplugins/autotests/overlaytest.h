@@ -13,6 +13,9 @@ class OverlayTest : public QObject
     Q_OBJECT
 
 private Q_SLOTS:
+    void initTestCase();
+
     void test1();
     void checkRootDir();
+    void dirTest();
 };
