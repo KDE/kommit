@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:51+0000\n"
+"POT-Creation-Date: 2023-10-03 00:43+0000\n"
 "PO-Revision-Date: 2023-08-25 16:32+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -29,40 +29,35 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ecuadra@eloihr.net"
 
-#: dolphinplugins/actionmanager.cpp:20 src/apps/main.cpp:34
-#, kde-format
-msgid "Kommit"
-msgstr "Kommit"
-
-#: dolphinplugins/actions.h:15
+#: dolphinplugins/actions.h:16
 #, kde-format
 msgid "Clone"
 msgstr "Clonar"
 
-#: dolphinplugins/actions.h:16
+#: dolphinplugins/actions.h:17
 #, kde-format
 msgid "Init"
 msgstr "Iniciar"
 
-#: dolphinplugins/actions.h:17 src/gui/actions/fileactions.cpp:83
+#: dolphinplugins/actions.h:18 src/gui/actions/fileactions.cpp:83
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: dolphinplugins/actions.h:18
+#: dolphinplugins/actions.h:19
 #, kde-format
 msgid "Pull"
 msgstr "Descargar"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
-#: dolphinplugins/actions.h:19 src/gui/widgets/remoteinfodialog.ui:64
+#: dolphinplugins/actions.h:20 src/gui/widgets/remoteinfodialog.ui:64
 #, kde-format
 msgid "Fetch"
 msgstr "Extraer"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
-#: dolphinplugins/actions.h:20 src/gui/dialogs/commitpushdialog.cpp:85
+#: dolphinplugins/actions.h:21 src/gui/dialogs/commitpushdialog.cpp:85
 #: src/gui/dialogs/commitpushdialog.cpp:244
 #: src/gui/dialogs/commitpushdialog.ui:299 src/gui/widgets/tagswidget.ui:69
 #, kde-format
@@ -70,25 +65,25 @@ msgid "Push"
 msgstr "Enviar"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
-#: dolphinplugins/actions.h:21 src/gui/dialogs/mergedialog.ui:14
+#: dolphinplugins/actions.h:22 src/gui/dialogs/mergedialog.ui:14
 #, kde-format
 msgid "Merge"
 msgstr "Fusionar"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
-#: dolphinplugins/actions.h:22 src/gui/dialogs/switchbranchdialog.ui:14
+#: dolphinplugins/actions.h:23 src/gui/dialogs/switchbranchdialog.ui:14
 #, kde-format
 msgid "Switch/Checkout"
 msgstr "Cambiar/cambiar rama"
 
-#: dolphinplugins/actions.h:23
+#: dolphinplugins/actions.h:24
 #, kde-format
 msgid "Modifications"
 msgstr "Modificaciones"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: dolphinplugins/actions.h:24 src/gui/actions/branchactions.cpp:37
+#: dolphinplugins/actions.h:25 src/gui/actions/branchactions.cpp:37
 #: src/gui/kommitmergeui.rc:17 src/gui/settings/settingsmanager.cpp:94
 #: src/gui/widgets/branchesstatuswidget.ui:121
 #, kde-format
@@ -97,18 +92,18 @@ msgstr "Diferencias"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
-#: dolphinplugins/actions.h:25 src/gui/dialogs/ignorefiledialog.ui:14
+#: dolphinplugins/actions.h:26 src/gui/dialogs/ignorefiledialog.ui:14
 #: src/gui/dialogs/ignorefiledialog.ui:96
 #, kde-format
 msgid "Ignore file"
 msgstr "Ignorar archivo"
 
-#: dolphinplugins/actions.h:26
+#: dolphinplugins/actions.h:27
 #, kde-format
 msgid "History"
 msgstr "Historial"
 
-#: dolphinplugins/actions.h:27
+#: dolphinplugins/actions.h:28
 #, kde-format
 msgid "Blame"
 msgstr "Responsables"
@@ -116,7 +111,7 @@ msgstr "Responsables"
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: dolphinplugins/actions.h:28 src/gui/mainwidget.ui:470
+#: dolphinplugins/actions.h:29 src/gui/mainwidget.ui:470
 #: src/gui/widgets/remoteswidget.ui:55 src/gui/widgets/tagswidget.ui:48
 #, kde-format
 msgid "Add"
@@ -124,26 +119,32 @@ msgstr "Añadir"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: dolphinplugins/actions.h:29 src/gui/widgets/branchesstatuswidget.ui:101
+#: dolphinplugins/actions.h:30 src/gui/widgets/branchesstatuswidget.ui:101
 #: src/gui/widgets/remoteswidget.ui:65
 #, kde-format
 msgid "Remove"
 msgstr "Eliminar"
 
-#: dolphinplugins/actions.h:30
+#: dolphinplugins/actions.h:31
 #, kde-format
 msgid "Create tag"
 msgstr "Crear etiqueta"
 
-#: dolphinplugins/actions.h:31
+#: dolphinplugins/actions.h:32
 #, kde-format
 msgid "Cleanup"
 msgstr "Limpiar"
 
-#: dolphinplugins/actions.h:32
+#: dolphinplugins/actions.h:33
 #, kde-format
 msgid "Diff branches"
 msgstr "Diferencias entre ramas"
+
+#: dolphinplugins/dolphinplugin.cpp:31 dolphinplugins/dolphinplugin.cpp:35
+#: src/apps/main.cpp:34
+#, kde-format
+msgid "Kommit"
+msgstr "Kommit"
 
 #: src/apps/main.cpp:36
 #, kde-format
