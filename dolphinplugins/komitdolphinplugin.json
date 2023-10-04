@@ -3,7 +3,16 @@
         "MimeTypes": [
             "text/plain"
         ],
-        "Name": "Kommit dolphin plugin"
+        "Name": "Kommit dolphin plugin",
+        "Name[ca@valencia]": "Connector Kommit de Dolphin",
+        "Name[ca]": "Connector Kommit del Dolphin",
+        "Name[eo]": "Kommit dolfin-kromprogramo",
+        "Name[es]": "Complemento Kommit de Dolphin",
+        "Name[nl]": "Kommit dolphin-plug-in",
+        "Name[sl]": "Uveljavi dolphinov vtičnik",
+        "Name[tr]": "Kommit Dolphin Eklentisi",
+        "Name[uk]": "Додаток Kommit до Dolphin",
+        "Name[x-test]": "xxKommit dolphin pluginxx"
     },
     "MimeType": "text/plain;"
 }
