@@ -13,6 +13,10 @@ target_sources(libkommit PRIVATE
     gitlog.cpp
     gitremote.cpp
     gittag.cpp
+    branch.h branch.cpp
+    types.h types.cpp
+    signature.h signature.cpp
+
 
     models/abstractgititemsmodel.cpp
     models/logsmodel.cpp
@@ -72,6 +76,10 @@ target_sources(libkommit PRIVATE
     commands/commandaddremote.h
     commands/parameterescommand.h
     commands/commandclean.h
+
+    observers/fetchobserver.h observers/fetchobserver.cpp
+    observers/cloneobserver.h observers/cloneobserver.cpp
+    observers/checkoutobserver.h observers/checkoutobserver.cpp
 )
 
 generate_export_header(libkommit BASE_NAME libkommit)
@@ -87,6 +95,7 @@ set_target_properties(libkommit
 )
 
 target_link_libraries(libkommit
+    PkgConfig::LIBGIT2
     Qt::Core
     Qt::Widgets
     Qt::Concurrent

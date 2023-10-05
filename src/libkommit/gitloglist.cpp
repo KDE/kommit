@@ -277,7 +277,7 @@ H -- commit hash              c -- committer details        m -- mark           
     clear();
     mDataByCommitHashLong.clear();
 
-    mBranches = git->branches();
+    mBranches = git->branches(Git::Manager::BranchType::LocalBranch);
 
     QStringList args{QStringLiteral("--no-pager"),
                      QStringLiteral("log"),

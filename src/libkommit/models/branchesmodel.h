@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class Branch;
 class Manager;
 class LIBKOMMIT_EXPORT BranchesModel : public AbstractGitItemsModel
 {
@@ -39,10 +40,12 @@ protected:
     void fill() override;
 
 private:
-    QList<BranchData *> mData;
+    QMap<Branch *, QPair<int, int>> mCompareWithRef;
+    QList<Branch *> mData;
     QString mCurrentBranch;
     QString mReferenceBranch;
     void calculateCommitStats();
+    void calc();
 };
 
 } // namespace Git

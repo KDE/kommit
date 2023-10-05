@@ -21,6 +21,11 @@ add_definitions(-DGK_VERSION="${RELEASE_SERVICE_VERSION}")
 set(KF_MIN_VERSION "5.90")
 set(QT_MIN_VERSION 5.15.2)
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+
+#find_package(git2 REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(LIBGIT2 "libgit2>=1.0" REQUIRED IMPORTED_TARGET)
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(

@@ -6,10 +6,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitsubmodule.h"
 
+#include <git2/submodule.h>
+
 namespace Git
 {
 
 Submodule::Submodule() = default;
+
+Submodule::Submodule(git_submodule *submodule)
+{
+    mName = QString{git_submodule_name(submodule)};
+    mPath = QString{git_submodule_path(submodule)};
+    mUrl = QString{git_submodule_url(submodule)};
+
+    auto headId = git_submodule_head_id(submodule);
+    mRefName = QString{git_oid_tostr_s(headId)};
+}
 
 const QString &Submodule::path() const
 {

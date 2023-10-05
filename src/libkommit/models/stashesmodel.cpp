@@ -9,6 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include <KLocalizedString>
 
+#include <git2/stash.h>
+
 namespace Git
 {
 

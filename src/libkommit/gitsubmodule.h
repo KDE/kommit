@@ -5,7 +5,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
+
 #include "libkommit_export.h"
+
+#include <git2/types.h>
+
 #include <QString>
 
 namespace Git
@@ -15,6 +19,7 @@ class LIBKOMMIT_EXPORT Submodule
 {
 public:
     Submodule();
+    Submodule(git_submodule *submodule);
 
     Q_REQUIRED_RESULT const QString &path() const;
     void setPath(const QString &newPath);
@@ -27,6 +32,7 @@ public:
     void setUrl(const QString &newUrl);
 
 private:
+    QString mName;
     QString mUrl;
     QString mPath;
     QString mCommitHash;

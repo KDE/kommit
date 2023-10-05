@@ -102,8 +102,8 @@ bool File::save(const QString &path) const
     QFile f{path};
     if (!f.open(QIODevice::WriteOnly))
         return false;
-    const auto buffer = mGit->runGit({QStringLiteral("show"), mPlace + QLatin1Char(':') + mFilePath});
-    f.write(buffer);
+    const auto buffer = content(); // mGit->runGit({QStringLiteral("show"), mPlace + QLatin1Char(':') + mFilePath});
+    f.write(buffer.toUtf8());
     f.close();
     return true;
 }
@@ -135,7 +135,7 @@ QString File::content() const
         return f.readAll();
     }
     case Git:
-        return mGit->runGit({QStringLiteral("show"), mPlace + QLatin1Char(':') + mFilePath});
+        return mGit->fileContent(mPlace, mFilePath); // mGit->runGit({QStringLiteral("show"), mPlace + QLatin1Char(':') + mFilePath});
     }
 
     return {};

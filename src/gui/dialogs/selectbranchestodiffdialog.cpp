@@ -15,7 +15,7 @@ SelectBranchesToDiffDialog::SelectBranchesToDiffDialog(Git::Manager *git, QWidge
 {
     setupUi(this);
 
-    const auto branches = git->branches();
+    const auto branches = git->branches(Git::Manager::BranchType::LocalBranch);
 
     comboBoxOldBranch->addItems(branches);
     comboBoxNewBranch->addItems(branches);

@@ -35,13 +35,22 @@ void RemotesWidget::slotListViewItemActivated(const QModelIndex &index)
     if (!remote)
         return;
 
-    mActions->setRemoteName(remote->name);
-    labelRemoteName->setText(remote->name);
-    labelFetchUrl->setText(remote->fetchUrl);
-    labelPushUrl->setText(remote->pushUrl);
-    labelDefaultBranch->setText(remote->headBranch);
+    mActions->setRemoteName(remote->name());
+    labelRemoteName->setText(remote->name());
+    labelFetchUrl->setText(remote->fetchUrl());
+    labelPushUrl->setText(remote->pushUrl());
+    labelDefaultBranch->setText(remote->defaultBranch());
     treeWidget->clear();
+    for (auto &ref : remote->refSpecList()) {
+        auto item = new QTreeWidgetItem(treeWidget);
 
+        item->setText(0, ref->name());
+        item->setText(1, ref->source());
+        item->setText(2, ref->destionation());
+        item->setText(3, ref->direction() == Git::RefSpec::Direction::DirectionFetch ? "Fetch" : "Push");
+
+        treeWidget->addTopLevelItem(item);
+    }
     for (const auto &rb : std::as_const(remote->branches)) {
         auto item = new QTreeWidgetItem(treeWidget);
 
@@ -61,7 +70,7 @@ void RemotesWidget::slotListViewCustomContextMenuRequested(const QPoint &pos)
     if (!remote)
         return;
 
-    mActions->setRemoteName(remote->name);
+    mActions->setRemoteName(remote->name());
     mActions->popup();
 }
 

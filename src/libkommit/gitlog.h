@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDateTime>
 #include <QString>
 #include <QVector>
+#include <git2/types.h>
 
 namespace Git
 {
@@ -20,6 +21,7 @@ public:
     enum CommitType { NormalCommit, InitialCommit, ForkCommit, MergeCommit };
 
     Log();
+    Log(git_commit *commit);
     Log(QString authorName,
         QString authorEmail,
         QDateTime authDate,
@@ -55,6 +57,7 @@ public:
     Q_REQUIRED_RESULT const QString &commitShortHash() const;
 
 private:
+    git_commit *mGitCommit{nullptr};
     QString mAuthorName;
     QString mAuthorEmail;
     QDateTime mAuthDate;
@@ -75,7 +78,7 @@ private:
     QStringList mChilds;
 
     friend class LogList;
-    friend class GitManager;
+    friend class Manager;
     friend class LogsModel;
 };
 

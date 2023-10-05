@@ -9,6 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDateTime>
 #include <QString>
 
+#include <git2/types.h>
+
 namespace Git
 {
 
@@ -17,6 +19,7 @@ class LIBKOMMIT_EXPORT Stash
 {
 public:
     explicit Stash(Git::Manager *git, QString name);
+    Stash(size_t index, git_repository *repo, const char *message, const git_oid *stash_id);
 
     void apply();
     void drop();
@@ -39,6 +42,7 @@ private:
     QString mSubject;
     QString mBranch;
     QDateTime mPushTime;
+    size_t mIndex;
 };
 
 } // namespace Git

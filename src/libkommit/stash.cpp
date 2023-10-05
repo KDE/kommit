@@ -9,12 +9,25 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include <utility>
 
+#include <git2/stash.h>
 namespace Git
 {
 Stash::Stash(Manager *git, QString name)
     : mGit(git)
     , mName(std::move(name))
 {
+}
+
+Stash::Stash(size_t index, git_repository *repo, const char *message, const git_oid *stash_id)
+    : mIndex{index}
+{
+    git_commit *commit = NULL;
+
+    git_commit_lookup(&commit, repo, stash_id);
+    git_commit_author(commit);
+    mSubject = git_commit_body(commit);
+
+    mName = message;
 }
 
 void Stash::apply()

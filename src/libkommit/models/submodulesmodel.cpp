@@ -80,21 +80,28 @@ Submodule *SubmodulesModel::fromIndex(const QModelIndex &index)
 
 void SubmodulesModel::fill()
 {
+    beginResetModel();
     qDeleteAll(mData);
     mData.clear();
-    const auto modulesList = mGit->readAllNonEmptyOutput({QStringLiteral("submodule"), QStringLiteral("status")});
-    for (const auto &line : modulesList) {
-        auto m = new Submodule;
-        m->setCommitHash(line.mid(0, 40));
-        auto n = line.lastIndexOf(QLatin1Char(' '));
-        if (line.count(QLatin1Char(' ')) == 1)
-            n = line.size();
-        m->setPath(line.mid(41, n - 41));
+    auto append = [this](Submodule *s) {
+        mData << s;
+    };
+    mGit->forEachSubmodules(append);
+    endResetModel();
 
-        if (line.count(QLatin1Char(' ')) == 2)
-            m->setRefName(line.mid(n));
-        mData.append(m);
-    }
+    //    const auto modulesList = mGit->readAllNonEmptyOutput({QStringLiteral("submodule"), QStringLiteral("status")});
+    //    for (const auto &line : modulesList) {
+    //        auto m = new Submodule;
+    //        m->setCommitHash(line.mid(0, 40));
+    //        auto n = line.lastIndexOf(QLatin1Char(' '));
+    //        if (line.count(QLatin1Char(' ')) == 1)
+    //            n = line.size();
+    //        m->setPath(line.mid(41, n - 41));
+
+    //        if (line.count(QLatin1Char(' ')) == 2)
+    //            m->setRefName(line.mid(n));
+    //        mData.append(m);
+    //    }
 }
 
 } // namespace Git

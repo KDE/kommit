@@ -6,6 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitlog.h"
 
+#include "types.h"
+#include <git2/commit.h>
 #include <utility>
 
 namespace Git
@@ -73,7 +75,35 @@ Log::Log(QString authorName,
 {
 }
 
-Log::~Log() = default;
+Log::Log(git_commit *commit)
+    : mGitCommit{commit}
+{
+    mSubject = QString{git_commit_message(commit)}.replace("\n", "");
+
+    auto commiter = git_commit_committer(commit);
+    mCommitterName = commiter->name;
+    mCommitterEmail = commiter->email;
+    mCommitDate = QDateTime::fromMSecsSinceEpoch(commiter->when.time);
+
+    auto author = git_commit_author(commit);
+    mAuthorName = author->name;
+    mAuthorEmail = author->email;
+    mAuthDate = QDateTime::fromMSecsSinceEpoch(author->when.time);
+    mBody = QString{git_commit_body(commit)}.replace("\n", "");
+
+    auto id = git_commit_id(commit);
+    mCommitHash = git_oid_tostr_s(id);
+
+    auto parentCount = git_commit_parentcount(commit);
+    for (unsigned int i = 0; i < parentCount; ++i) {
+        auto pid = git_commit_parent_id(commit, i);
+        mParentHash << convertToString(pid, 20);
+    }
+}
+
+Log::~Log()
+{
+}
 
 const QString &Log::authorName() const
 {

@@ -54,47 +54,57 @@ ChangedFilesModel::ChangedFilesModel(Git::Manager *git, bool checkable, QObject 
 void ChangedFilesModel::reload()
 {
     beginResetModel();
-    const auto buffer = QString(mGit->runGit({QStringLiteral("status"), QStringLiteral("--short")})).split(QLatin1Char('\n'));
 
     mData.clear();
-    mData.reserve(buffer.size());
 
-    for (const auto &line : buffer) {
-        if (!line.trimmed().size())
-            continue;
-
-        auto status0 = line.mid(0, 1).trimmed();
-        auto status1 = line.mid(1, 1).trimmed();
-        const auto fileName = line.mid(3);
+    auto files = mGit->changedFiles();
+    for (auto i = files.begin(); i != files.end(); ++i) {
         Row d;
-        d.filePath = fileName;
-
-        if (status1 == QLatin1Char('M') || status0 == QLatin1Char('M'))
-            d.status = Git::ChangeStatus::Modified;
-        else if (status1 == QLatin1Char('A'))
-            d.status = Git::ChangeStatus::Added;
-        else if (status1 == QLatin1Char('D') || status0 == QLatin1Char('D'))
-            d.status = Git::ChangeStatus::Removed;
-        else if (status1 == QLatin1Char('C'))
-            d.status = Git::ChangeStatus::Copied;
-        else if (status1 == QLatin1Char('U'))
-            d.status = Git::ChangeStatus::UpdatedButInmerged;
-        else if (status1 == QLatin1Char('?'))
-            d.status = Git::ChangeStatus::Untracked;
-        else if (status1 == QLatin1Char('!'))
-            d.status = Git::ChangeStatus::Ignored;
-        else if (status1 == QLatin1Char('R')) {
-            auto parts = fileName.split(QStringLiteral("->"));
-            d.oldFilePath = parts[0].trimmed();
-            d.filePath = parts[1].trimmed();
-            d.status = Git::ChangeStatus::Renamed;
-        } else {
-            qDebug() << __FUNCTION__ << "The status" << status1 << "is unknown for" << fileName;
-            d.status = Git::ChangeStatus::Unknown;
-        }
-        mData.append(d);
+        d.filePath = i.key();
+        d.status = i.value();
+        d.checked = false;
         createIcon(d.status);
+        mData << d;
     }
+    const auto buffer = QString(mGit->runGit({QStringLiteral("status"), QStringLiteral("--short")})).split(QLatin1Char('\n'));
+    //    mData.reserve(buffer.size());
+
+    //    for (const auto &line : buffer) {
+    //        if (!line.trimmed().size())
+    //            continue;
+
+    //        auto status0 = line.mid(0, 1).trimmed();
+    //        auto status1 = line.mid(1, 1).trimmed();
+    //        const auto fileName = line.mid(3);
+    //        Row d;
+    //        d.filePath = fileName;
+
+    //        if (status1 == QLatin1Char('M') || status0 == QLatin1Char('M'))
+    //            d.status = Git::ChangeStatus::Modified;
+    //        else if (status1 == QLatin1Char('A'))
+    //            d.status = Git::ChangeStatus::Added;
+    //        else if (status1 == QLatin1Char('D') || status0 == QLatin1Char('D'))
+    //            d.status = Git::ChangeStatus::Removed;
+    //        else if (status1 == QLatin1Char('C'))
+    //            d.status = Git::ChangeStatus::Copied;
+    //        else if (status1 == QLatin1Char('U'))
+    //            d.status = Git::ChangeStatus::UpdatedButInmerged;
+    //        else if (status1 == QLatin1Char('?'))
+    //            d.status = Git::ChangeStatus::Untracked;
+    //        else if (status1 == QLatin1Char('!'))
+    //            d.status = Git::ChangeStatus::Ignored;
+    //        else if (status1 == QLatin1Char('R')) {
+    //            auto parts = fileName.split(QStringLiteral("->"));
+    //            d.oldFilePath = parts[0].trimmed();
+    //            d.filePath = parts[1].trimmed();
+    //            d.status = Git::ChangeStatus::Renamed;
+    //        } else {
+    //            qDebug() << __FUNCTION__ << "The status" << status1 << "is unknown for" << fileName;
+    //            d.status = Git::ChangeStatus::Unknown;
+    //        }
+    //        mData.append(d);
+    //        createIcon(d.status);
+    //    }
     endResetModel();
 }
 

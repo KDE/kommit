@@ -330,19 +330,20 @@ ArgParserReturn CommandArgsParser::diff()
 
 ArgParserReturn CommandArgsParser::diff(const QString &file)
 {
-    QFileInfo fi(file);
+    QFileInfo fi{file};
 
     if (fi.isFile()) {
+        qDebug() << Q_FUNC_INFO << file;
         git->setPath(fi.absolutePath());
         const QDir dir{git->path()};
         const Git::File headFile{git, git->currentBranch(), dir.relativeFilePath(file)};
         const Git::File changedFile{file};
-        auto d = new DiffWindow(headFile, changedFile);
+        auto d = new DiffWindow{headFile, changedFile};
         d->exec();
         return ExecApp;
     } else if (fi.isDir()) {
         git->setPath(fi.absoluteFilePath());
-        auto d = new DiffWindow(git);
+        auto d = new DiffWindow{git};
         d->exec();
         return ExecApp;
     }

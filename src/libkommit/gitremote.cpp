@@ -6,13 +6,65 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitremote.h"
 #include "libkommit_debug.h"
+#include "types.h"
+
+#include <git2/buffer.h>
+
 #include <KLocalizedString>
 #include <QRegularExpression>
 
 namespace Git
 {
 
+RefSpec::RefSpec(const git_refspec *refspecs)
+{
+    mName = git_refspec_string(refspecs);
+    mDestionation = git_refspec_dst(refspecs);
+    mSource = git_refspec_src(refspecs);
+    mDirection = static_cast<Direction>(git_refspec_direction(refspecs));
+}
+
+QString RefSpec::name() const
+{
+    return mName;
+}
+
+RefSpec::Direction RefSpec::direction() const
+{
+    return mDirection;
+}
+
+QString RefSpec::destionation() const
+{
+    return mDestionation;
+}
+
+QString RefSpec::source() const
+{
+    return mSource;
+}
+
 Remote::Remote() = default;
+
+Remote::Remote(git_remote *remote)
+{
+    mName = git_remote_name(remote);
+    auto mConnected = git_remote_connected(remote);
+    auto buf = git_buf{0};
+    git_remote_default_branch(&buf, remote);
+    mDefaultBranch = convertToQString(&buf);
+    git_buf_dispose(&buf);
+
+    mPushUrl = git_remote_pushurl(remote);
+    mFetchUrl = git_remote_url(remote);
+
+    auto refCount = git_remote_refspec_count(remote);
+    for (size_t i = 0; i < refCount; ++i) {
+        auto ref = git_remote_get_refspec(remote, i);
+        auto refSpec = new RefSpec{ref};
+        mRefSpecList << refSpec;
+    }
+}
 
 void Remote::parse(const QString &output)
 {
@@ -95,13 +147,13 @@ void Remote::parse(const QString &output)
             }
         }
         if (line.startsWith(QStringLiteral("* remote"))) {
-            name = line.remove(QStringLiteral("* remote ")).trimmed();
+            // name = line.remove(QStringLiteral("* remote ")).trimmed();
         } else if (line.startsWith(QStringLiteral("HEAD branch: "))) {
-            headBranch = line.remove(QStringLiteral("HEAD branch: ")).trimmed();
+            //            headBranch = line.remove(QStringLiteral("HEAD branch: ")).trimmed();
         } else if (line.startsWith(QStringLiteral("Push  URL:"))) {
-            pushUrl = line.remove(QStringLiteral("Push  URL:")).trimmed();
+            //            pushUrl = line.remove(QStringLiteral("Push  URL:")).trimmed();
         } else if (line.startsWith(QStringLiteral("Fetch URL:"))) {
-            fetchUrl = line.remove(QStringLiteral("Fetch URL:")).trimmed();
+            //            fetchUrl = line.remove(QStringLiteral("Fetch URL:")).trimmed();
         } else if (line == QStringLiteral("Local branches configured for 'git pull':")) {
             mode = GitPull;
             continue;
@@ -111,6 +163,31 @@ void Remote::parse(const QString &output)
         }
     }
     qCDebug(KOMMITLIB_LOG) << branches.size();
+}
+
+QString Remote::name() const
+{
+    return mName;
+}
+
+QList<RefSpec *> Remote::refSpecList() const
+{
+    return mRefSpecList;
+}
+
+QString Remote::pushUrl() const
+{
+    return mPushUrl;
+}
+
+QString Remote::fetchUrl() const
+{
+    return mFetchUrl;
+}
+
+QString Remote::defaultBranch() const
+{
+    return mDefaultBranch;
 }
 
 QString RemoteBranch::statusText() const

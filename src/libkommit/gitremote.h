@@ -9,6 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QList>
 #include <QString>
 
+#include <git2/remote.h>
+
 namespace Git
 {
 
@@ -27,17 +29,47 @@ public:
     Q_REQUIRED_RESULT QString statusText() const;
 };
 
-class Remote
+class LIBKOMMIT_EXPORT RefSpec
 {
 public:
-    QString name;
-    QString headBranch;
-    QString fetchUrl;
-    QString pushUrl;
-    QList<RemoteBranch> branches;
-    //    QStringList
+    enum class Direction { DirectionFetch = 0, DirectionPush = 1 };
+
+    RefSpec(const git_refspec *refspecs);
+
+    Q_REQUIRED_RESULT QString name() const;
+    Q_REQUIRED_RESULT Direction direction() const;
+    Q_REQUIRED_RESULT QString destionation() const;
+    Q_REQUIRED_RESULT QString source() const;
+
+private:
+    QString mName;
+    Direction mDirection;
+    QString mDestionation;
+    QString mSource;
+};
+
+class LIBKOMMIT_EXPORT Remote
+{
+public:
     Remote();
+    Remote(git_remote *remote);
+
     void parse(const QString &output);
+    //    QString headBranch;
+    QList<RemoteBranch> branches;
+
+    Q_REQUIRED_RESULT QString name() const;
+    Q_REQUIRED_RESULT QList<RefSpec *> refSpecList() const;
+    Q_REQUIRED_RESULT QString pushUrl() const;
+    Q_REQUIRED_RESULT QString fetchUrl() const;
+    Q_REQUIRED_RESULT QString defaultBranch() const;
+
+private:
+    QList<RefSpec *> mRefSpecList;
+    QString mName;
+    QString mPushUrl;
+    QString mFetchUrl;
+    QString mDefaultBranch;
 };
 
 } // namespace Git

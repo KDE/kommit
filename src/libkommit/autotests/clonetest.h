@@ -13,21 +13,17 @@ namespace Git
 class Manager;
 };
 
-class TagTest : public QObject
+class CloneTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit TagTest(QObject *parent = nullptr);
-    ~TagTest() override = default;
+    explicit CloneTest(QObject *parent = nullptr);
+    ~CloneTest() override = default;
 
 private Q_SLOTS:
     void initTestCase();
-    void shouldHaveDefaultValues();
-
-    void addTagNoHead();
-    void makeACommit();
-    void addTag();
-    void removeTag();
+    void clone();
+    void cleanupTestCase();
 
 private:
     Git::Manager *mManager;

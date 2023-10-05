@@ -8,16 +8,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commands/commandfetch.h"
 #include "gitmanager.h"
+#include "observers/fetchobserver.h"
 #include "runnerdialog.h"
 
 #include <QDialogButtonBox>
 FetchDialog::FetchDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
+    , mObserver{new Git::FetchObserver{this}}
 {
     setupUi(this);
 
     comboBoxRemote->addItems(git->remotes());
-    comboBoxBranch->addItems(git->branches());
+    comboBoxBranch->addItems(git->branches(Git::Manager::BranchType::LocalBranch));
 
     comboBoxRemote->setCurrentText(git->currentBranch());
     connect(buttonBox, &QDialogButtonBox::accepted, this, &FetchDialog::slotAccept);
@@ -30,23 +32,24 @@ void FetchDialog::setBranch(const QString &branch)
 
 void FetchDialog::slotAccept()
 {
-    Git::CommandFetch cmd;
+    mGit->fetch(comboBoxRemote->currentText(), mObserver);
+    //    Git::CommandFetch cmd;
 
-    cmd.setRemote(comboBoxRemote->currentText());
+    //    cmd.setRemote(comboBoxRemote->currentText());
 
-    if (!checkBoxAllBranches->isChecked())
-        cmd.setBranch(comboBoxBranch->currentText());
-    cmd.setNoFf(checkBoxNoFastForward->isChecked());
-    cmd.setFfOnly(checkBoxFastForwardOnly->isChecked());
-    cmd.setNoCommit(checkBoxNoCommit->isChecked());
-    cmd.setPrune(checkBoxPrune->isChecked());
-    cmd.setTags(checkBoxTags->isChecked());
+    //    if (!checkBoxAllBranches->isChecked())
+    //        cmd.setBranch(comboBoxBranch->currentText());
+    //    cmd.setNoFf(checkBoxNoFastForward->isChecked());
+    //    cmd.setFfOnly(checkBoxFastForwardOnly->isChecked());
+    //    cmd.setNoCommit(checkBoxNoCommit->isChecked());
+    //    cmd.setPrune(checkBoxPrune->isChecked());
+    //    cmd.setTags(checkBoxTags->isChecked());
 
-    RunnerDialog d(mGit, this);
-    d.run(&cmd);
-    d.exec();
+    //    RunnerDialog d(mGit, this);
+    //    d.run(&cmd);
+    //    d.exec();
 
-    accept();
+    //    accept();
 }
 
 #include "moc_fetchdialog.cpp"

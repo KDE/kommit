@@ -8,8 +8,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "authorsmodel.h"
 #include "gitlog.h"
 #include "gitmanager.h"
+#include "qdebug.h"
 
 #include <KLocalizedString>
+
+#include <git2/commit.h>
 
 namespace Git
 {
@@ -355,12 +358,57 @@ Log *LogsModel::findLogByHash(const QString &hash, LogMatchType matchType) const
 
 void LogsModel::fill()
 {
+    constexpr int GIT_SUCCESS{0};
     qDeleteAll(mData);
     mData.clear();
     mDataByCommitHashLong.clear();
 
-    mBranches = mGit->branches();
+    git_revwalk *walker;
+    git_commit *commit;
+    git_oid oid;
 
+    git_revwalk_new(&walker, mGit->mRepo);
+    git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL);
+
+    if (mBranch.isEmpty()) {
+        git_revwalk_push_head(walker);
+    } else {
+        git_reference *ref;
+        auto n = git_branch_lookup(&ref, mGit->mRepo, mBranch.toLocal8Bit().data(), GIT_BRANCH_ALL);
+
+        if (n)
+            return;
+
+        auto refName = git_reference_name(ref);
+        git_revwalk_push_ref(walker, refName);
+    }
+
+    while (git_revwalk_next(&oid, walker) == GIT_SUCCESS) {
+        if (git_commit_lookup(&commit, mGit->mRepo, &oid)) {
+            fprintf(stderr, "Failed to lookup the next object\n");
+            return;
+        }
+
+        auto d = new Log{commit};
+
+        mData.append(d);
+        mDataByCommitHashLong.insert(d->commitHash(), d);
+        mDataByCommitHashShort.insert(d->commitShortHash(), d);
+
+        if (mAuthorsModel) {
+            mAuthorsModel->findOrCreate(d->committerName(), d->committerEmail(), d->commitDate(), AuthorsModel::Commit);
+            mAuthorsModel->findOrCreate(d->authorName(), d->authorEmail(), d->authDate(), AuthorsModel::AuthoredCommit);
+        }
+
+        git_commit_free(commit);
+    }
+
+    git_revwalk_free(walker);
+    initChilds();
+    initGraph();
+    return;
+
+    mBranches = mGit->branches(Git::Manager::BranchType::LocalBranch);
     QStringList args{QStringLiteral("--no-pager"),
                      QStringLiteral("log"),
                      QStringLiteral("--topo-order"),
