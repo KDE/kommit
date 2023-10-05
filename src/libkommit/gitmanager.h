@@ -169,7 +169,7 @@ public:
     Q_REQUIRED_RESULT QString fileContent(const QString &place, const QString &fileName) const;
     void saveFile(const QString &place, const QString &fileName, const QString &localFile) const;
     bool revertFile(const QString &filePath) const;
-    void removeFile(const QString &file, bool cached) const;
+    bool removeFile(const QString &file, bool cached) const;
     Q_REQUIRED_RESULT QStringList fileLog(const QString &fileName) const;
     BlameData blame(const File &file);
     Q_REQUIRED_RESULT QMap<QString, ChangeStatus> changedFiles() const;

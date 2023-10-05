@@ -13,20 +13,20 @@ namespace Git
 class Manager;
 };
 
-class IndexTest : public QObject
+class ConfigTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit IndexTest(QObject *parent = nullptr);
-    ~IndexTest() override = default;
+    explicit ConfigTest(QObject *parent = nullptr);
+    ~ConfigTest() override = default;
 
 private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
 
-    void addFile();
-    void revertFile();
-    void removeFile();
+    void setUserInfo();
+    void setGlobalConfig();
+    void allConfigs();
 
 private:
     Git::Manager *mManager;

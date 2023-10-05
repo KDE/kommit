@@ -29,7 +29,7 @@ void IndexTest::initTestCase()
 
 void IndexTest::cleanupTestCase()
 {
-    TestCommon::cleanPath(mManager);
+    //    TestCommon::cleanPath(mManager);
 }
 
 void IndexTest::addFile()
@@ -61,6 +61,16 @@ void IndexTest::revertFile()
     QVERIFY(ok);
 
     changedFiles = mManager->changedFiles();
+    QVERIFY(!changedFiles.contains("README.md"));
+}
+
+void IndexTest::removeFile()
+{
+    auto ok = mManager->removeFile("README.md", false);
+    QVERIFY(ok);
+
+    TestCommon::touch(mManager->path() + "/README.md");
+    auto changedFiles = mManager->changedFiles();
     QVERIFY(!changedFiles.contains("README.md"));
 }
 

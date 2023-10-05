@@ -374,19 +374,13 @@ void Manager::forEachSubmodules(std::function<void(Submodule *)> callback)
 QString Manager::config(const QString &name, ConfigType type) const
 {
     BEGIN
-    const char *buf = nullptr;
     git_config *cfg;
-    git_config *sys_cfg;
     switch (type) {
     case ConfigLocal:
-        STEP git_config_open_default(&cfg);
         STEP git_repository_config(&cfg, mRepo);
-        //        STEP git_config_open_default(&cfg);
-        //        STEP git_config_open_level(&sys_cfg, cfg, GIT_CONFIG_LEVEL_LOCAL);
         break;
     case ConfigGlobal:
         STEP git_config_open_default(&cfg);
-        //        STEP git_config_open_level(&sys_cfg, cfg, GIT_CONFIG_LEVEL_LOCAL);
         break;
     }
     git_config_entry *entry = NULL;
@@ -399,34 +393,16 @@ QString Manager::config(const QString &name, ConfigType type) const
     QString s = entry->value;
     git_config_entry_free(entry);
     return s;
-
-    QStringList cmd;
-    switch (type) {
-    case ConfigLocal:
-        cmd = QStringList{QStringLiteral("config"), name};
-        break;
-    case ConfigGlobal:
-        cmd = QStringList{QStringLiteral("config"), QStringLiteral("--global"), name};
-        break;
-    }
-    const auto list = readAllNonEmptyOutput(cmd);
-    if (!list.empty())
-        return list.first();
-
-    return {};
 }
 
 bool Manager::configBool(const QString &name, ConfigType type) const
 {
-    //    const auto buffer = config(name, type);
-    //    return buffer == QStringLiteral("true") || buffer == QStringLiteral("yes") || buffer == QStringLiteral("on");
-
     BEGIN
     int buf;
     git_config *cfg;
     switch (type) {
     case ConfigLocal:
-        STEP git_config_open_default(&cfg);
+        STEP git_repository_config(&cfg, mRepo);
         break;
     case ConfigGlobal:
         STEP git_config_open_default(&cfg);
@@ -444,7 +420,7 @@ void Manager::setConfig(const QString &name, const QString &value, ConfigType ty
     git_config *cfg;
     switch (type) {
     case ConfigLocal:
-        STEP git_config_open_default(&cfg);
+        STEP git_repository_config(&cfg, mRepo);
         break;
     case ConfigGlobal:
         STEP git_config_open_default(&cfg);
@@ -474,7 +450,7 @@ void Manager::unsetConfig(const QString &name, ConfigType type) const
     git_config *cfg;
     switch (type) {
     case ConfigLocal:
-        STEP git_config_open_default(&cfg);
+        STEP git_repository_config(&cfg, mRepo);
         break;
     case ConfigGlobal:
         STEP git_config_open_default(&cfg);
@@ -502,6 +478,9 @@ void Manager::forEachConfig(std::function<void(QString, QString)> calback)
     wrapper w;
     w.calback = calback;
     git_config *cfg = nullptr;
+
+    BEGIN
+    STEP git_config_open_default(&cfg);
 
     auto cb = [](const git_config_entry *entry, void *payload) -> int {
         auto w = reinterpret_cast<wrapper *>(payload);
@@ -1251,7 +1230,6 @@ void Manager::push() const
 void Manager::addFile(const QString &file) const
 {
     git_index *index{nullptr};
-    git_tree *headTree{nullptr};
     git_tree *tree{nullptr};
     git_oid oid;
 
@@ -1265,19 +1243,30 @@ void Manager::addFile(const QString &file) const
     PRINT_ERROR;
 
     git_tree_free(tree);
-    git_tree_free(headTree);
     git_index_free(index);
-
-    //    runGit({QStringLiteral("add"), file});
 }
 
-void Manager::removeFile(const QString &file, bool cached) const
+bool Manager::removeFile(const QString &file, bool cached) const
 {
-    git_index *index;
+    git_index *index = nullptr;
+    git_oid oid;
+    git_tree *tree{nullptr};
+
     BEGIN
     STEP git_repository_index(&index, mRepo);
+    STEP git_index_read(index, true);
     STEP git_index_remove_bypath(index, file.toLocal8Bit().constData());
+    STEP git_index_write_tree(&oid, index);
+    STEP git_tree_lookup(&tree, mRepo, &oid);
+    // STEP git_index_write(index);
     PRINT_ERROR;
+
+    git_tree_free(tree);
+    git_index_free(index);
+
+    PRINT_ERROR;
+
+    return !err;
 
     QStringList args;
     args.append(QStringLiteral("rm"));
