@@ -4,7 +4,7 @@
 #include "gitmanager.h"
 
 #include "branch.h"
-#include "gitlog.h"
+#include "commit.h"
 #include "gitsubmodule.h"
 #include "gittag.h"
 #include "models/authorsmodel.h"
@@ -1313,7 +1313,7 @@ void Manager::commitsForEach()
             return;
         }
 
-        auto d = new Log{commit};
+        auto d = new Commit{commit};
 
         git_commit_free(commit);
     }

@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class Log;
+class Commit;
 class Manager;
 class AuthorsModel;
 class LIBKOMMIT_EXPORT LogsModel : public AbstractGitItemsModel
@@ -30,10 +30,10 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
-    Log *at(int index) const;
-    Log *fromIndex(const QModelIndex &index) const;
+    Commit *at(int index) const;
+    Commit *fromIndex(const QModelIndex &index) const;
     QModelIndex findIndexByHash(const QString &hash) const;
-    Git::Log *findLogByHash(const QString &hash, LogMatchType matchType = LogMatchType::ExactMatch) const;
+    Git::Commit *findLogByHash(const QString &hash, LogMatchType matchType = LogMatchType::ExactMatch) const;
 
     Q_REQUIRED_RESULT const QString &branch() const;
     void setBranch(const QString &newBranch);
@@ -53,10 +53,10 @@ private:
     void initGraph();
 
     QString mBranch;
-    QList<Log *> mData;
+    QList<Commit *> mData;
     QStringList mBranches;
-    QMap<QString, Log *> mDataByCommitHashLong;
-    QMap<QString, Log *> mDataByCommitHashShort;
+    QMap<QString, Commit *> mDataByCommitHashLong;
+    QMap<QString, Commit *> mDataByCommitHashShort;
     AuthorsModel *mAuthorsModel;
     QCalendar mCalendar;
 };

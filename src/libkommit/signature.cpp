@@ -1,5 +1,5 @@
 /*
-SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
+SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
 
 SPDX-License-Identifier: GPL-3.0-or-later
 */
@@ -9,10 +9,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-Signature::Signature(git_signature *signature)
+Signature::Signature()
 {
-    mName = signature->name;
-    mEmail = signature->email;
+}
+
+Signature::Signature(const git_signature *signature)
+{
+    setSignature(signature);
 }
 
 QString Signature::name() const
@@ -25,4 +28,16 @@ QString Signature::email() const
     return mEmail;
 }
 
+QDateTime Signature::time() const
+{
+    return mTime;
+}
+
+void Signature::setSignature(const git_signature *signature)
+{
+    mSignature = signature;
+    mName = signature->name;
+    mEmail = signature->email;
+    mTime = QDateTime::fromMSecsSinceEpoch(signature->when.offset);
+}
 }

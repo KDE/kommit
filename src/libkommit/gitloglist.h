@@ -13,8 +13,8 @@ namespace Git
 {
 
 class Manager;
-class Log;
-class LIBKOMMIT_EXPORT LogList : public QList<Log *>
+class Commit;
+class LIBKOMMIT_EXPORT LogList : public QList<Commit *>
 {
 public:
     LogList();
@@ -26,13 +26,13 @@ public:
     Q_REQUIRED_RESULT const QString &branch() const;
     void setBranch(const QString &newBranch);
 
-    Log *findByHash(const QString &hash, int *index = nullptr) const;
+    Commit *findByHash(const QString &hash, int *index = nullptr) const;
 
 private:
     Q_REQUIRED_RESULT QString branchName(const QString &refLog);
     void initChilds();
     QString mBranch;
     QStringList mBranches;
-    QMap<QString, Log *> mDataByCommitHashLong;
+    QMap<QString, Commit *> mDataByCommitHashLong;
 };
 } // namespace Git

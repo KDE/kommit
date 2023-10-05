@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "logsmodel.h"
 #include "authorsmodel.h"
-#include "gitlog.h"
+#include "commit.h"
 #include "gitmanager.h"
 #include "qdebug.h"
 
@@ -185,7 +185,7 @@ struct LanesFactory {
         else
             lanes.append(lane);
     }
-    QVector<GraphLane> apply(Log *log)
+    QVector<GraphLane> apply(Commit *log)
     {
         int myIndex = -1;
         QVector<GraphLane> lanes = initLanes(log->commitHash(), myIndex);
@@ -275,7 +275,7 @@ QVariant LogsModel::headerData(int section, Qt::Orientation orientation, int rol
     return {};
 }
 
-Log *LogsModel::at(int index) const
+Commit *LogsModel::at(int index) const
 {
     if (index < 0 || index >= mData.size())
         return nullptr;
@@ -297,12 +297,12 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
             return log->subject();
         case 1: {
             if (mCalendar.isValid())
-                return log->commitDate().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), mCalendar);
+                return log->committer().time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), mCalendar);
 
-            return log->commitDate();
+            return log->committer().time();
         }
         case 2:
-            return log->authorName();
+            return log->author().name();
         }
     } else {
         switch (index.column()) {
@@ -316,7 +316,7 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-Log *LogsModel::fromIndex(const QModelIndex &index) const
+Commit *LogsModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
@@ -335,18 +335,18 @@ QModelIndex LogsModel::findIndexByHash(const QString &hash) const
     return {};
 }
 
-Log *LogsModel::findLogByHash(const QString &hash, LogMatchType matchType) const
+Commit *LogsModel::findLogByHash(const QString &hash, LogMatchType matchType) const
 {
-    QList<Log *>::ConstIterator i;
+    QList<Commit *>::ConstIterator i;
 
     switch (matchType) {
     case LogMatchType::ExactMatch:
-        i = std::find_if(mData.begin(), mData.end(), [&hash](Log *log) {
+        i = std::find_if(mData.begin(), mData.end(), [&hash](Commit *log) {
             return log->commitHash() == hash;
         });
         break;
     case LogMatchType::BeginMatch:
-        i = std::find_if(mData.begin(), mData.end(), [&hash](Log *log) {
+        i = std::find_if(mData.begin(), mData.end(), [&hash](Commit *log) {
             return log->commitHash().startsWith(hash);
         });
         break;
@@ -389,15 +389,15 @@ void LogsModel::fill()
             return;
         }
 
-        auto d = new Log{commit};
+        auto d = new Commit{commit};
 
         mData.append(d);
         mDataByCommitHashLong.insert(d->commitHash(), d);
         mDataByCommitHashShort.insert(d->commitShortHash(), d);
 
         if (mAuthorsModel) {
-            mAuthorsModel->findOrCreate(d->committerName(), d->committerEmail(), d->commitDate(), AuthorsModel::Commit);
-            mAuthorsModel->findOrCreate(d->authorName(), d->authorEmail(), d->authDate(), AuthorsModel::AuthoredCommit);
+            mAuthorsModel->findOrCreate(d->committer().name(), d->committer().email(), d->committer().time(), AuthorsModel::Commit);
+            mAuthorsModel->findOrCreate(d->author().name(), d->author().email(), d->author().time(), AuthorsModel::AuthoredCommit);
         }
 
         git_commit_free(commit);
@@ -406,66 +406,66 @@ void LogsModel::fill()
     git_revwalk_free(walker);
     initChilds();
     initGraph();
-    return;
+    //    return;
 
-    mBranches = mGit->branches(Git::Manager::BranchType::LocalBranch);
-    QStringList args{QStringLiteral("--no-pager"),
-                     QStringLiteral("log"),
-                     QStringLiteral("--topo-order"),
-                     QStringLiteral("--no-color"),
-                     QStringLiteral("--parents"),
-                     QStringLiteral("--boundary"),
-                     QStringLiteral("--pretty=format:'SEP%m%HX%hX%P%n"
-                                    "%cnX%ceX%cI%n"
-                                    "%anX%aeX%aI%n"
-                                    "%d%n"
-                                    "%at%n"
-                                    "%s%n"
-                                    "%b%n'")};
+    //    mBranches = mGit->branches(Git::Manager::BranchType::LocalBranch);
+    //    QStringList args{QStringLiteral("--no-pager"),
+    //                     QStringLiteral("log"),
+    //                     QStringLiteral("--topo-order"),
+    //                     QStringLiteral("--no-color"),
+    //                     QStringLiteral("--parents"),
+    //                     QStringLiteral("--boundary"),
+    //                     QStringLiteral("--pretty=format:'SEP%m%HX%hX%P%n"
+    //                                    "%cnX%ceX%cI%n"
+    //                                    "%anX%aeX%aI%n"
+    //                                    "%d%n"
+    //                                    "%at%n"
+    //                                    "%s%n"
+    //                                    "%b%n'")};
 
-    if (mBranch.size())
-        args.insert(2, mBranch);
+    //    if (mBranch.size())
+    //        args.insert(2, mBranch);
 
-    auto ret = QString(mGit->runGit(args));
-    if (ret.startsWith(QStringLiteral("fatal:")))
-        return;
+    //    auto ret = QString(mGit->runGit(args));
+    //    if (ret.startsWith(QStringLiteral("fatal:")))
+    //        return;
 
-    const auto parts = ret.split(QStringLiteral("SEP>"));
+    //    const auto parts = ret.split(QStringLiteral("SEP>"));
 
-    for (const auto &p : parts) {
-        auto lines = p.split(QLatin1Char('\n'));
-        if (lines.size() < 4)
-            continue;
+    //    for (const auto &p : parts) {
+    //        auto lines = p.split(QLatin1Char('\n'));
+    //        if (lines.size() < 4)
+    //            continue;
 
-        auto d = new Log;
-        QString commitDate;
-        QString authDate;
-        QString parentHash;
-        Impl::readLine(lines.at(0), QStringLiteral("X"), {&d->mCommitHash, &d->mCommitShortHash, &parentHash});
-        Impl::readLine(lines.at(1), QStringLiteral("X"), {&d->mCommitterName, &d->mCommitterEmail, &commitDate});
-        Impl::readLine(lines.at(2), QStringLiteral("X"), {&d->mAuthorName, &d->mAuthorEmail, &authDate});
+    //        auto d = new Log;
+    //        QString commitDate;
+    //        QString authDate;
+    //        QString parentHash;
+    //        Impl::readLine(lines.at(0), QStringLiteral("X"), {&d->mCommitHash, &d->mCommitShortHash, &parentHash});
+    //        Impl::readLine(lines.at(1), QStringLiteral("X"), {&d->mCommitterName, &d->mCommitterEmail, &commitDate});
+    //        Impl::readLine(lines.at(2), QStringLiteral("X"), {&d->mAuthorName, &d->mAuthorEmail, &authDate});
 
-        if (!parentHash.isEmpty())
-            d->mParentHash = parentHash.split(QLatin1Char(' '));
-        d->mRefLog = lines.at(3);
-        d->mSubject = lines.at(5);
-        d->mCommitDate = QDateTime::fromString(commitDate, Qt::ISODate);
-        d->mAuthDate = QDateTime::fromString(authDate, Qt::ISODate);
-        d->mBody = lines.mid(5).join(QLatin1Char('\n'));
-        mData.append(d);
-        mDataByCommitHashLong.insert(d->commitHash(), d);
-        mDataByCommitHashShort.insert(d->commitShortHash(), d);
+    //        if (!parentHash.isEmpty())
+    //            d->mParentHash = parentHash.split(QLatin1Char(' '));
+    //        d->mRefLog = lines.at(3);
+    //        d->mSubject = lines.at(5);
+    //        d->mCommitDate = QDateTime::fromString(commitDate, Qt::ISODate);
+    //        d->mAuthDate = QDateTime::fromString(authDate, Qt::ISODate);
+    //        d->mBody = lines.mid(5).join(QLatin1Char('\n'));
+    //        mData.append(d);
+    //        mDataByCommitHashLong.insert(d->commitHash(), d);
+    //        mDataByCommitHashShort.insert(d->commitShortHash(), d);
 
-        if (mAuthorsModel) {
-            mAuthorsModel->findOrCreate(d->committerName(), d->committerEmail(), d->commitDate(), AuthorsModel::Commit);
-            mAuthorsModel->findOrCreate(d->authorName(), d->authorEmail(), d->authDate(), AuthorsModel::AuthoredCommit);
-        }
-    }
-    //    std::sort(begin(), end(), [](GitLog *log1,GitLog *log2){
-    //        return log1->commitDate() < log2->commitDate();
-    //    });
-    initChilds();
-    initGraph();
+    //        if (mAuthorsModel) {
+    //            mAuthorsModel->findOrCreate(d->committerName(), d->committerEmail(), d->commitDate(), AuthorsModel::Commit);
+    //            mAuthorsModel->findOrCreate(d->authorName(), d->authorEmail(), d->authDate(), AuthorsModel::AuthoredCommit);
+    //        }
+    //    }
+    //    //    std::sort(begin(), end(), [](GitLog *log1,GitLog *log2){
+    //    //        return log1->commitDate() < log2->commitDate();
+    //    //    });
+    //    initChilds();
+    //    initGraph();
 }
 
 bool LogsModel::fullDetails() const

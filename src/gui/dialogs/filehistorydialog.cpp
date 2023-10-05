@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "filehistorydialog.h"
 
-#include "gitlog.h"
+#include "commit.h"
 #include "gitmanager.h"
 #include "models/logsmodel.h"
 

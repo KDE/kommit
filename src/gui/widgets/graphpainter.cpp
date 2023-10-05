@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "graphpainter.h"
 
-#include "gitlog.h"
+#include "commit.h"
 #include "models/logsmodel.h"
 #include <QPainter>
 #include <QPainterPath>

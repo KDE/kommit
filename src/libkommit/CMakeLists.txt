@@ -10,7 +10,7 @@ target_sources(libkommit PRIVATE
     gitmanager.cpp
     blamedata.cpp
     gitfile.cpp
-    gitlog.cpp
+    commit.cpp
     gitremote.cpp
     gittag.cpp
     branch.h branch.cpp
@@ -50,9 +50,11 @@ target_sources(libkommit PRIVATE
     gitmanager.h
     blamedata.h
     gitfile.h
-    gitlog.h
+    commit.h
     gitremote.h
     gittag.h
+    note.h note.cpp
+    signature.h signature.cpp
 
     models/abstractgititemsmodel.h
     models/logsmodel.h

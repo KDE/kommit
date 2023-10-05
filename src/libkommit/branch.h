@@ -12,6 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
+
+class Note;
 class Branch
 {
 public:
@@ -22,6 +24,8 @@ public:
     Q_REQUIRED_RESULT QString refName() const;
     Q_REQUIRED_RESULT QString upStreamName() const;
     Q_REQUIRED_RESULT QString remoteName() const;
+
+    Note *note() const;
 
 private:
     git_reference *mBranch;

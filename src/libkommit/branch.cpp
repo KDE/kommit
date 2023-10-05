@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/branch.h>
 #include <git2/buffer.h>
 #include <git2/graph.h>
+#include <git2/notes.h>
 #include <git2/refs.h>
 
 namespace Git
@@ -59,4 +60,8 @@ QString Branch::remoteName() const
     return mRemoteName;
 }
 
+Note *Branch::note() const
+{
+    return nullptr;
+}
 }

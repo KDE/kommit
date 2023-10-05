@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "gitloglist.h"
+#include "commit.h"
 #include "gitgraphlane.h"
-#include "gitlog.h"
 #include "gitmanager.h"
 
 #include <QDateTime>
@@ -171,7 +171,7 @@ struct LanesFactory {
         else
             lanes.append(lane);
     }
-    QVector<GraphLane> apply(Log *log)
+    QVector<GraphLane> apply(Commit *log)
     {
         int myIndex = -1;
         QVector<GraphLane> lanes = initLanes(log->commitHash(), myIndex);
@@ -238,7 +238,7 @@ void LogList::setBranch(const QString &newBranch)
     mBranch = newBranch;
 }
 
-Log *LogList::findByHash(const QString &hash, int *index) const
+Commit *LogList::findByHash(const QString &hash, int *index) const
 {
     for (int i = 0; i < size(); ++i) {
         if (at(i)->commitHash() == hash) {
@@ -253,12 +253,12 @@ Log *LogList::findByHash(const QString &hash, int *index) const
 }
 
 LogList::LogList()
-    : QList<Log *>()
+    : QList<Commit *>()
 {
 }
 
 LogList::LogList(QString branch)
-    : QList<Log *>()
+    : QList<Commit *>()
     , mBranch(std::move(branch))
 {
 }
@@ -303,30 +303,30 @@ H -- commit hash              c -- committer details        m -- mark           
 
     const auto parts = ret.split(QStringLiteral("SEP>"));
 
-    for (auto &p : parts) {
-        auto lines = p.split(QLatin1Char('\n'));
-        if (lines.size() < 4)
-            continue;
+    //    for (auto &p : parts) {
+    //        auto lines = p.split(QLatin1Char('\n'));
+    //        if (lines.size() < 4)
+    //            continue;
 
-        auto d = new Log;
-        QString commitDate;
-        QString authDate;
-        QString parentHash;
-        readLine(lines.at(0), QStringLiteral("X"), {&d->mCommitHash, &d->mCommitShortHash, &parentHash});
-        readLine(lines.at(1), QStringLiteral("X"), {&d->mCommitterName, &d->mCommitterEmail, &commitDate});
-        readLine(lines.at(2), QStringLiteral("X"), {&d->mAuthorName, &d->mAuthorEmail, &authDate});
+    //        auto d = new Log;
+    //        QString commitDate;
+    //        QString authDate;
+    //        QString parentHash;
+    //        readLine(lines.at(0), QStringLiteral("X"), {&d->mCommitHash, &d->mCommitShortHash, &parentHash});
+    //        readLine(lines.at(1), QStringLiteral("X"), {&d->mCommitterName, &d->mCommitterEmail, &commitDate});
+    //        readLine(lines.at(2), QStringLiteral("X"), {&d->mAuthorName, &d->mAuthorEmail, &authDate});
 
-        if (!parentHash.isEmpty())
-            d->mParentHash = parentHash.split(QStringLiteral(" "));
-        d->mRefLog = lines.at(3);
-        d->mSubject = lines.at(5);
-        d->mCommitDate = QDateTime::fromString(commitDate, Qt::ISODate);
-        d->mAuthDate = QDateTime::fromString(authDate, Qt::ISODate);
-        d->mBody = lines.mid(5).join(QStringLiteral("\n"));
-        append(d);
-        mDataByCommitHashLong.insert(d->commitHash(), d);
-        mDataByCommitHashLong.insert(d->commitShortHash(), d);
-    }
+    //        if (!parentHash.isEmpty())
+    //            d->mParentHash = parentHash.split(QStringLiteral(" "));
+    //        d->mRefLog = lines.at(3);
+    //        d->mSubject = lines.at(5);
+    //        d->mCommitDate = QDateTime::fromString(commitDate, Qt::ISODate);
+    //        d->mAuthDate = QDateTime::fromString(authDate, Qt::ISODate);
+    //        d->mBody = lines.mid(5).join(QStringLiteral("\n"));
+    //        append(d);
+    //        mDataByCommitHashLong.insert(d->commitHash(), d);
+    //        mDataByCommitHashLong.insert(d->commitShortHash(), d);
+    //    }
     //    std::sort(begin(), end(), [](GitLog *log1,GitLog *log2){
     //        return log1->commitDate() < log2->commitDate();
     //    });
