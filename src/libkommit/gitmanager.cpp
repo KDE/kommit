@@ -170,6 +170,8 @@ bool Manager::removeRemote(const QString &name) const
     BEGIN
     STEP git_remote_delete(mRepo, name.toUtf8().data());
     //    runGit({QStringLiteral("remote"), QStringLiteral("remove"), name});
+
+    PRINT_ERROR;
     return !err;
 }
 

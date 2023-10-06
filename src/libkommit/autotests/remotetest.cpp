@@ -61,4 +61,10 @@ void RemoteTest::renameRemote()
     QVERIFY(mManager->remotes().contains("origin2"));
 }
 
+void RemoteTest::removeRemote()
+{
+    auto ok = mManager->removeRemote("origin2");
+    QVERIFY(ok);
+}
+
 #include "moc_remotetest.cpp"

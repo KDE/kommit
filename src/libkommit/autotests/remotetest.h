@@ -26,6 +26,7 @@ private Q_SLOTS:
     void addRemote();
     void fetch();
     void renameRemote();
+    void removeRemote();
 
 private:
     Git::Manager *mManager;
