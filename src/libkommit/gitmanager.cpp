@@ -160,6 +160,8 @@ bool Manager::addRemote(const QString &name, const QString &url) const
     BEGIN
     STEP git_remote_create(&remote, mRepo, name.toUtf8().data(), url.toUtf8().data());
     //    runGit({QStringLiteral("remote"), QStringLiteral("add"), name, url});
+
+    PRINT_ERROR;
     return !err;
 }
 
@@ -183,11 +185,18 @@ bool Manager::renameRemote(const QString &name, const QString &newName) const
     return !err;
 }
 
-void Manager::fetch(const QString &remoteName, FetchObserver *observer)
+bool Manager::fetch(const QString &remoteName, FetchObserver *observer)
 {
     git_remote *remote;
-    if (!git_remote_lookup(&remote, mRepo, remoteName.toLocal8Bit().data()))
-        return;
+
+    BEGIN
+
+    STEP git_remote_lookup(&remote, mRepo, remoteName.toLocal8Bit().data());
+
+    if (err) {
+        PRINT_ERROR;
+        return false;
+    }
 
     git_fetch_options fetch_opts = GIT_FETCH_OPTIONS_INIT;
 
@@ -201,8 +210,12 @@ void Manager::fetch(const QString &remoteName, FetchObserver *observer)
 
     git_strarray ref;
 
-    git_remote_fetch(remote, &ref, &fetch_opts, "fetch");
+    STEP git_remote_fetch(remote, NULL, &fetch_opts, "fetch");
     git_remote_free(remote);
+
+    PRINT_ERROR;
+
+    return !err;
 }
 
 bool Manager::isIgnored(const QString &path)

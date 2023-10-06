@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "gitlog.h"
+#include "commit.h"
 
 #include "types.h"
 #include <git2/commit.h>
@@ -13,82 +13,64 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-const QString &Log::refLog() const
+const QString &Commit::refLog() const
 {
     return mRefLog;
 }
 
-const QString &Log::branch() const
+const QString &Commit::branch() const
 {
     return mBranch;
 }
 
-const QString &Log::extraData() const
+const QString &Commit::extraData() const
 {
     return mExtraData;
 }
 
-Log::CommitType Log::type() const
+Commit::CommitType Commit::type() const
 {
     return mType;
 }
 
-const QVector<GraphLane> &Log::lanes() const
+const QVector<GraphLane> &Commit::lanes() const
 {
     return mLanes;
 }
 
-const QStringList &Log::childs() const
+const QStringList &Commit::childs() const
 {
     return mChilds;
 }
 
-const QString &Log::commitShortHash() const
+const QString &Commit::commitShortHash() const
 {
     return mCommitShortHash;
 }
 
-Log::Log() = default;
-
-Log::Log(QString authorName,
-         QString authorEmail,
-         QDateTime authDate,
-         QString committerName,
-         QString committerEmail,
-         QDateTime commitDate,
-         QString message,
-         QString subject,
-         QString body,
-         QString commitHash,
-         QStringList parentHash)
-    : mAuthorName(std::move(authorName))
-    , mAuthorEmail(std::move(authorEmail))
-    , mAuthDate(std::move(authDate))
-    , mCommitterName(std::move(committerName))
-    , mCommitterEmail(std::move(committerEmail))
-    , mCommitDate(std::move(commitDate))
-    , mMessage(std::move(message))
-    , mSubject(std::move(subject))
-    , mBody(std::move(body))
-    , mCommitHash(std::move(commitHash))
-    , mParentHash(std::move(parentHash))
+const Signature &Commit::author() const
 {
+    return mAuthor;
 }
 
-Log::Log(git_commit *commit)
+const Signature &Commit::committer() const
+{
+    return mCommitter;
+}
+
+Commit::Commit() = default;
+
+Commit::Commit(git_commit *commit)
     : mGitCommit{commit}
 {
     mSubject = QString{git_commit_message(commit)}.replace("\n", "");
 
     auto commiter = git_commit_committer(commit);
-    mCommitterName = commiter->name;
-    mCommitterEmail = commiter->email;
-    mCommitDate = QDateTime::fromMSecsSinceEpoch(commiter->when.time);
+    mCommitter.setSignature(commiter);
 
     auto author = git_commit_author(commit);
-    mAuthorName = author->name;
-    mAuthorEmail = author->email;
-    mAuthDate = QDateTime::fromMSecsSinceEpoch(author->when.time);
+    mAuthor.setSignature(author);
+
     mBody = QString{git_commit_body(commit)}.replace("\n", "");
 
     auto id = git_commit_id(commit);
@@ -101,61 +83,31 @@ Log::Log(git_commit *commit)
     }
 }
 
-Log::~Log()
+Commit::~Commit()
 {
 }
 
-const QString &Log::authorName() const
-{
-    return mAuthorName;
-}
-
-const QString &Log::authorEmail() const
-{
-    return mAuthorEmail;
-}
-
-const QDateTime &Log::authDate() const
-{
-    return mAuthDate;
-}
-
-const QString &Log::committerName() const
-{
-    return mCommitterName;
-}
-
-const QString &Log::committerEmail() const
-{
-    return mCommitterEmail;
-}
-
-const QDateTime &Log::commitDate() const
-{
-    return mCommitDate;
-}
-
-const QString &Log::message() const
+const QString &Commit::message() const
 {
     return mMessage;
 }
 
-const QString &Log::subject() const
+const QString &Commit::subject() const
 {
     return mSubject;
 }
 
-const QString &Log::body() const
+const QString &Commit::body() const
 {
     return mBody;
 }
 
-const QString &Log::commitHash() const
+const QString &Commit::commitHash() const
 {
     return mCommitHash;
 }
 
-const QStringList &Log::parents() const
+const QStringList &Commit::parents() const
 {
     return mParentHash;
 }

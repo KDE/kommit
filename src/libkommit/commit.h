@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 #include "gitgraphlane.h"
 #include "libkommit_export.h"
+#include "signature.h"
 #include <QDateTime>
 #include <QString>
 #include <QVector>
@@ -15,32 +16,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class LIBKOMMIT_EXPORT Log
+class LIBKOMMIT_EXPORT Commit
 {
 public:
     enum CommitType { NormalCommit, InitialCommit, ForkCommit, MergeCommit };
 
-    Log();
-    Log(git_commit *commit);
-    Log(QString authorName,
-        QString authorEmail,
-        QDateTime authDate,
-        QString committerName,
-        QString committerEmail,
-        QDateTime commitDate,
-        QString message,
-        QString subject,
-        QString body,
-        QString commitHash,
-        QStringList parentHash);
-    ~Log();
+    Commit();
+    Commit(git_commit *commit);
+    ~Commit();
 
-    Q_REQUIRED_RESULT const QString &authorName() const;
-    Q_REQUIRED_RESULT const QString &authorEmail() const;
-    Q_REQUIRED_RESULT const QDateTime &authDate() const;
-    Q_REQUIRED_RESULT const QString &committerName() const;
-    Q_REQUIRED_RESULT const QString &committerEmail() const;
-    Q_REQUIRED_RESULT const QDateTime &commitDate() const;
+    Q_REQUIRED_RESULT const Signature &author() const;
+    Q_REQUIRED_RESULT const Signature &committer() const;
     Q_REQUIRED_RESULT const QString &message() const;
     Q_REQUIRED_RESULT const QString &subject() const;
     Q_REQUIRED_RESULT const QString &body() const;
@@ -58,12 +44,8 @@ public:
 
 private:
     git_commit *mGitCommit{nullptr};
-    QString mAuthorName;
-    QString mAuthorEmail;
-    QDateTime mAuthDate;
-    QString mCommitterName;
-    QString mCommitterEmail;
-    QDateTime mCommitDate;
+    Signature mAuthor;
+    Signature mCommitter;
     QString mMessage;
     QString mSubject;
     QString mBody;

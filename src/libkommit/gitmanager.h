@@ -154,7 +154,7 @@ public:
     Q_REQUIRED_RESULT bool addRemote(const QString &name, const QString &url) const;
     Q_REQUIRED_RESULT bool removeRemote(const QString &name) const;
     Q_REQUIRED_RESULT bool renameRemote(const QString &name, const QString &newName) const;
-    void fetch(const QString &remoteName, FetchObserver *observer = nullptr);
+    bool fetch(const QString &remoteName, FetchObserver *observer = nullptr);
 
     // config
     Q_REQUIRED_RESULT QString config(const QString &name, ConfigType type = ConfigLocal) const;
