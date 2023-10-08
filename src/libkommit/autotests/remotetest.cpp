@@ -67,4 +67,8 @@ void RemoteTest::removeRemote()
     QVERIFY(ok);
 }
 
+void RemoteTest::pull()
+{
+}
+
 #include "moc_remotetest.cpp"

@@ -16,6 +16,7 @@
 #include "models/tagsmodel.h"
 #include "observers/cloneobserver.h"
 #include "observers/fetchobserver.h"
+#include "observers/pushobserver.h"
 #include "types.h"
 
 #include "libkommit_debug.h"
@@ -48,6 +49,18 @@
     do {                                                                                                                                                       \
         if (!err)                                                                                                                                              \
             throw new Exception{err, gitErrorMessage(err)};                                                                                                    \
+    } while (false)
+
+#define RETURN_IF_ERR_BOOL                                                                                                                                     \
+    do {                                                                                                                                                       \
+        if (err)                                                                                                                                               \
+            return false;                                                                                                                                      \
+    } while (false)
+
+#define RETURN_IF_ERR_VOID                                                                                                                                     \
+    do {                                                                                                                                                       \
+        if (err)                                                                                                                                               \
+            return;                                                                                                                                            \
     } while (false)
 
 namespace Git
@@ -232,17 +245,26 @@ QPair<int, int> Manager::uniqueCommitsOnBranches(const QString &branch1, const Q
     if (branch1 == branch2)
         return qMakePair(0, 0);
 
-    auto ret = readAllNonEmptyOutput(
-        {QStringLiteral("rev-list"), QStringLiteral("--left-right"), QStringLiteral("--count"), branch1 + QStringLiteral("...") + branch2});
+    size_t ahead;
+    size_t behind;
+    git_reference *ref1;
+    git_reference *ref2;
 
-    if (ret.size() != 1)
-        return qMakePair(-1, -1);
+    BEGIN
+    STEP git_branch_lookup(&ref1, mRepo, branch1.toLocal8Bit().constData(), GIT_BRANCH_LOCAL);
+    STEP git_branch_lookup(&ref2, mRepo, branch2.toLocal8Bit().constData(), GIT_BRANCH_LOCAL);
 
-    const auto parts = ret.first().split(QLatin1Char('\t'));
-    if (parts.size() != 2)
-        return qMakePair(-1, -1);
+    if (err)
+        return qMakePair(0, 0);
+    auto id1 = git_reference_target(ref1);
+    auto id2 = git_reference_target(ref2);
+    STEP git_graph_ahead_behind(&ahead, &behind, mRepo, id1, id2);
 
-    return qMakePair(parts.at(0).toInt(), parts.at(1).toInt());
+    if (err)
+        return qMakePair(0, 0);
+    PRINT_ERROR;
+
+    return qMakePair(ahead, behind);
 }
 
 QStringList Manager::fileLog(const QString &fileName) const
@@ -363,6 +385,10 @@ QList<FileStatus> Manager::diffBranches(const QString &from, const QString &to) 
         files.append(fs);
     }
     return files2;
+}
+
+void Manager::forEachCommits(std::function<void(Commit)> callback) const
+{
 }
 
 void Manager::forEachSubmodules(std::function<void(Submodule *)> callback)
@@ -651,6 +677,24 @@ void Manager::saveNote(const QString &branchName, const QString &note) const
     runGit({QStringLiteral("notes"), QStringLiteral("add"), branchName, QStringLiteral("-f"), QStringLiteral("--message=") + note});
 }
 
+void Manager::forEachRefs(std::function<void(QSharedPointer<Reference>)> callback) const
+{
+    struct wrapper {
+        std::function<void(QSharedPointer<Reference>)> cb;
+    };
+    auto cb = [](git_reference *reference, void *payload) -> int {
+        auto w = reinterpret_cast<wrapper *>(payload);
+
+        auto refPtr = QSharedPointer<Reference>(new Reference{reference});
+        w->cb(refPtr);
+        return 0;
+    };
+
+    wrapper w;
+    w.cb = callback;
+    git_reference_foreach(mRepo, cb, &w);
+}
+
 Manager::Manager()
     : QObject()
     , mRemotesModel{new RemotesModel(this)}
@@ -679,17 +723,33 @@ Manager *Manager::instance()
 
 QString Manager::currentBranch() const
 {
-    const auto ret = QString(runGit({QStringLiteral("rev-parse"), QStringLiteral("--abbrev-ref"), QStringLiteral("HEAD")}))
-                         .remove(QLatin1Char('\n'))
-                         .remove(QLatin1Char('\r'));
-    return ret;
+    if (isDetached())
+        return {};
+
+    git_reference *ref;
+    BEGIN
+    STEP git_repository_head(&ref, mRepo);
+    if (err) {
+        PRINT_ERROR;
+        return {};
+    }
+
+    QString branchName{git_reference_shorthand(ref)};
+
+    git_reference_free(ref);
+
+    return branchName;
+    //    const auto ret = QString(runGit({QStringLiteral("rev-parse"), QStringLiteral("--abbrev-ref"), QStringLiteral("HEAD")}))
+    //                         .remove(QLatin1Char('\n'))
+    //                         .remove(QLatin1Char('\r'));
+    //    return ret;
 }
 
 bool Manager::createBranch(const QString &branchName) const
 {
-    git_reference *ref;
-    git_commit *commit;
-    git_reference *head;
+    git_reference *ref{nullptr};
+    git_commit *commit{nullptr};
+    git_reference *head{nullptr};
 
     BEGIN
     STEP git_repository_head(&head, mRepo);
@@ -724,6 +784,7 @@ bool Manager::switchBranch(const QString &branchName) const
     auto refName = git_reference_name(branch);
     STEP git_repository_set_head(mRepo, refName);
 
+    git_reference_free(branch);
     return !err;
 }
 
@@ -1086,6 +1147,30 @@ bool Manager::removeBranch(const QString &branchName) const
     return !err;
 }
 
+bool Manager::merge(const QString &branchName) const
+{
+    auto state = git_repository_state(mRepo);
+    if (state != GIT_REPOSITORY_STATE_NONE) {
+        fprintf(stderr, "repository is in unexpected state %d\n", state);
+        return false;
+    }
+
+    git_merge_options merge_opts = GIT_MERGE_OPTIONS_INIT;
+    git_checkout_options checkout_opts = GIT_CHECKOUT_OPTIONS_INIT;
+    git_annotated_commit **annotated;
+    size_t annotated_count;
+
+    merge_opts.flags = 0;
+    merge_opts.file_flags = GIT_MERGE_FILE_STYLE_DIFF3;
+
+    checkout_opts.checkout_strategy = GIT_CHECKOUT_FORCE | GIT_CHECKOUT_ALLOW_CONFLICTS;
+
+    BEGIN
+    STEP git_merge(mRepo, (const git_annotated_commit **)annotated, annotated_count, &merge_opts, &checkout_opts);
+
+    return !err;
+}
+
 BlameData Manager::blame(const File &file)
 {
     git_blame *blame;
@@ -1237,8 +1322,18 @@ void Manager::commit(const QString &message) const
     runGit({QStringLiteral("commit"), QStringLiteral("-m"), message});
 }
 
-void Manager::push() const
+void Manager::push(PushObserver *observer) const
 {
+    git_push_options opts = GIT_PUSH_OPTIONS_INIT;
+    if (observer) {
+        opts.callbacks.pack_progress = &PushCallbacks::git_helper_packbuilder_progress;
+        opts.callbacks.push_transfer_progress = &PushCallbacks::git_helper_push_transfer_progress_cb;
+        opts.callbacks.credentials = &PushCallbacks::git_helper_credential_acquire_cb;
+        opts.callbacks.certificate_check = &PushCallbacks::git_helper_transport_certificate_check_cb;
+        opts.callbacks.payload = observer;
+    }
+
+    //    git_remote_lookup()
     runGit({QStringLiteral("push"), QStringLiteral("origin"), QStringLiteral("master")});
 }
 
@@ -1310,32 +1405,6 @@ bool Manager::isDetached() const
     return git_repository_head_detached(mRepo) == 1;
 }
 
-void Manager::commitsForEach()
-{
-#define GIT_SUCCESS 0
-
-    git_oid oid;
-    git_revwalk *walker;
-    git_commit *commit;
-
-    git_revwalk_new(&walker, mRepo);
-    git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL);
-    git_revwalk_push(walker, &oid);
-
-    while (git_revwalk_next(&oid, walker) == GIT_SUCCESS) {
-        if (git_commit_lookup(&commit, mRepo, &oid)) {
-            fprintf(stderr, "Failed to lookup the next object\n");
-            return;
-        }
-
-        auto d = new Commit{commit};
-
-        git_commit_free(commit);
-    }
-
-    git_revwalk_free(walker);
-}
-
 void Manager::check_lg2(int error)
 {
     const git_error *lg2err;
@@ -1362,6 +1431,4 @@ void Manager::check_lg2(int error)
 
 } // namespace Git
 
-#include "branch.h"
-#include "gitsubmodule.h"
 #include "moc_gitmanager.cpp"

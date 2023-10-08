@@ -55,6 +55,7 @@ target_sources(libkommit PRIVATE
     gittag.h
     note.h note.cpp
     signature.h signature.cpp
+    reference.h reference.cpp
 
     models/abstractgititemsmodel.h
     models/logsmodel.h
@@ -82,6 +83,7 @@ target_sources(libkommit PRIVATE
     observers/fetchobserver.h observers/fetchobserver.cpp
     observers/cloneobserver.h observers/cloneobserver.cpp
     observers/checkoutobserver.h observers/checkoutobserver.cpp
+    observers/pushobserver.h observers/pushobserver.cpp
 )
 
 generate_export_header(libkommit BASE_NAME libkommit)

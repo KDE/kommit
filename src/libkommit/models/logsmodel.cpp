@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "qdebug.h"
 
 #include <KLocalizedString>
+#include <QDebug>
 
 #include <git2/commit.h>
 
@@ -404,6 +405,43 @@ void LogsModel::fill()
     }
 
     git_revwalk_free(walker);
+
+    struct wrapper {
+        QList<Commit *> mData;
+        QMap<QString, Commit *> mDataByCommitHashLong;
+        QMap<QString, Commit *> mDataByCommitHashShort;
+        git_repository *repo;
+    };
+    auto cb = [](git_reference *reference, void *payload) -> int {
+        if (git_reference_is_note(reference))
+            return 0;
+
+        auto w = reinterpret_cast<wrapper *>(payload);
+
+        auto target = git_reference_target(reference);
+        if (!target) {
+            qDebug() << "No target" << git_reference_is_branch(reference) << git_reference_is_note(reference) << git_reference_is_remote(reference)
+                     << git_reference_is_tag(reference);
+
+            git_reference_free(reference);
+            return 0;
+        }
+
+        QString hash = git_oid_tostr_s(target);
+        auto c = w->mDataByCommitHashLong.value(hash);
+        if (c) {
+            c->mReference.reset(new Reference{reference});
+        }
+
+        return 0;
+    };
+    wrapper w;
+    w.mData = mData;
+    w.mDataByCommitHashLong = mDataByCommitHashLong;
+    w.mDataByCommitHashShort = mDataByCommitHashShort;
+    w.repo = mGit->mRepo;
+    git_reference_foreach(mGit->mRepo, cb, &w);
+
     initChilds();
     initGraph();
     //    return;

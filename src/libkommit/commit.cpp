@@ -6,16 +6,43 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commit.h"
 
+#include "qdebug.h"
 #include "types.h"
 #include <git2/commit.h>
+#include <git2/revparse.h>
 #include <utility>
 
 namespace Git
 {
 
-const QString &Commit::refLog() const
+Commit::Commit() = default;
+
+Commit::Commit(git_commit *commit)
+    : mGitCommit{commit}
 {
-    return mRefLog;
+    mSubject = QString{git_commit_message(commit)}.replace("\n", "");
+
+    auto commiter = git_commit_committer(commit);
+    mCommitter.setSignature(commiter);
+
+    auto author = git_commit_author(commit);
+    mAuthor.setSignature(author);
+
+    mBody = QString{git_commit_body(commit)}.replace("\n", "");
+
+    auto id = git_commit_id(commit);
+    mCommitHash = git_oid_tostr_s(id);
+
+    auto parentCount = git_commit_parentcount(commit);
+    for (unsigned int i = 0; i < parentCount; ++i) {
+        auto pid = git_commit_parent_id(commit, i);
+        mParentHash << convertToString(pid, 20);
+    }
+}
+
+Commit::~Commit()
+{
+    git_commit_free(mGitCommit);
 }
 
 const QString &Commit::branch() const
@@ -48,6 +75,11 @@ const QString &Commit::commitShortHash() const
     return mCommitShortHash;
 }
 
+QSharedPointer<Reference> Commit::reference() const
+{
+    return mReference;
+}
+
 const Signature &Commit::author() const
 {
     return mAuthor;
@@ -56,35 +88,6 @@ const Signature &Commit::author() const
 const Signature &Commit::committer() const
 {
     return mCommitter;
-}
-
-Commit::Commit() = default;
-
-Commit::Commit(git_commit *commit)
-    : mGitCommit{commit}
-{
-    mSubject = QString{git_commit_message(commit)}.replace("\n", "");
-
-    auto commiter = git_commit_committer(commit);
-    mCommitter.setSignature(commiter);
-
-    auto author = git_commit_author(commit);
-    mAuthor.setSignature(author);
-
-    mBody = QString{git_commit_body(commit)}.replace("\n", "");
-
-    auto id = git_commit_id(commit);
-    mCommitHash = git_oid_tostr_s(id);
-
-    auto parentCount = git_commit_parentcount(commit);
-    for (unsigned int i = 0; i < parentCount; ++i) {
-        auto pid = git_commit_parent_id(commit, i);
-        mParentHash << convertToString(pid, 20);
-    }
-}
-
-Commit::~Commit()
-{
 }
 
 const QString &Commit::message() const

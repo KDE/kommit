@@ -32,6 +32,8 @@ class Manager;
 class Submodule;
 class FetchObserver;
 class CloneObserver;
+class PushObserver;
+class Reference;
 
 enum LoadFlag {
     LoadNone = 0,
@@ -114,7 +116,7 @@ public:
     bool init(const QString &path);
     bool clone(const QString &url, const QString &localPath, CloneObserver *observer = nullptr);
     void commit(const QString &message) const;
-    void push() const;
+    void push(PushObserver *observer = nullptr) const;
 
     // properties
     Q_REQUIRED_RESULT const QString &path() const;
@@ -133,6 +135,7 @@ public:
     Q_REQUIRED_RESULT QPair<int, int> uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const;
     Q_REQUIRED_RESULT QStringList branches(BranchType type);
     Q_REQUIRED_RESULT bool removeBranch(const QString &branchName) const;
+    bool merge(const QString &branchName) const;
 
     // tags
     void forEachTags(std::function<void(Tag *)> cb);
@@ -181,6 +184,9 @@ public:
     Q_REQUIRED_RESULT QString readNote(const QString &branchName) const;
     void saveNote(const QString &branchName, const QString &note) const;
 
+    // refs
+    void forEachRefs(std::function<void(QSharedPointer<Reference>)> callback) const;
+
     // ignores
     bool isIgnored(const QString &path);
 
@@ -188,6 +194,8 @@ public:
     Q_REQUIRED_RESULT QString diff(const QString &from, const QString &to) const;
     Q_REQUIRED_RESULT QList<FileStatus> diffBranch(const QString &from) const;
     Q_REQUIRED_RESULT QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
+
+    void forEachCommits(std::function<void(Commit)> callback) const;
 
     // models
     void forEachSubmodules(std::function<void(Submodule *)> callback);
@@ -201,8 +209,6 @@ public:
 
     Q_REQUIRED_RESULT bool isRebasing() const;
     Q_REQUIRED_RESULT bool isDetached() const;
-
-    void commitsForEach();
 
 Q_SIGNALS:
     void pathChanged();

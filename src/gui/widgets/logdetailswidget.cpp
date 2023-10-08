@@ -106,8 +106,20 @@ void LogDetailsWidget::createText()
     clear();
     QString html;
     appendHeading(html, mLog->subject());
-    if (!mLog->refLog().isEmpty())
-        appendParagraph(html, i18n("Ref"), mLog->refLog());
+    auto ref = mLog->reference();
+    if (!ref.isNull()) {
+        QString refName;
+        if (ref->isBranch())
+            refName = i18n("Branch: ");
+        else if (ref->isNote())
+            refName = i18n("Note: ");
+        else if (ref->isRemote())
+            refName = i18n("Remote: ");
+        else if (ref->isTag())
+            refName = i18n("Tag: ");
+        refName.append(ref->shorthand());
+        appendParagraph(html, i18n("Ref"), refName);
+    }
 
     if (mEnableEmailsLinks) {
         appendParagraph(html,

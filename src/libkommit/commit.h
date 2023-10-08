@@ -7,10 +7,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 #include "gitgraphlane.h"
 #include "libkommit_export.h"
+#include "reference.h"
 #include "signature.h"
+
 #include <QDateTime>
+#include <QSharedPointer>
 #include <QString>
 #include <QVector>
+
 #include <git2/types.h>
 
 namespace Git
@@ -32,15 +36,14 @@ public:
     Q_REQUIRED_RESULT const QString &body() const;
     Q_REQUIRED_RESULT const QString &commitHash() const;
     Q_REQUIRED_RESULT const QStringList &parents() const;
-    Q_REQUIRED_RESULT const QString &refLog() const;
     Q_REQUIRED_RESULT const QString &branch() const;
     Q_REQUIRED_RESULT const QString &extraData() const;
     Q_REQUIRED_RESULT CommitType type() const;
     Q_REQUIRED_RESULT const QVector<GraphLane> &lanes() const;
-
     Q_REQUIRED_RESULT const QStringList &childs() const;
-
     Q_REQUIRED_RESULT const QString &commitShortHash() const;
+
+    Q_REQUIRED_RESULT QSharedPointer<Reference> reference() const;
 
 private:
     git_commit *mGitCommit{nullptr};
@@ -52,12 +55,12 @@ private:
     QString mCommitHash;
     QString mCommitShortHash;
     QStringList mParentHash;
-    QString mRefLog;
     QString mBranch;
     QString mExtraData;
     CommitType mType;
     QVector<GraphLane> mLanes;
     QStringList mChilds;
+    QSharedPointer<Reference> mReference;
 
     friend class LogList;
     friend class Manager;
