@@ -1020,17 +1020,20 @@ bool Manager::removeTag(const QString &name) const
     return !err;
 }
 
-void Manager::forEachStash(std::function<void(Stash *)> cb)
+void Manager::forEachStash(std::function<void(QSharedPointer<Stash>)> cb)
 {
     struct wrapper {
         Manager *manager;
-        std::function<void(Stash *)> cb;
+        std::function<void(QSharedPointer<Stash>)> cb;
     };
 
     auto callback = [](size_t index, const char *message, const git_oid *stash_id, void *payload) {
         auto w = static_cast<wrapper *>(payload);
-        Stash s{index, w->manager->mRepo, message, stash_id};
-        w->cb(&s);
+
+        QSharedPointer<Stash> ptr{new Stash{index, w->manager->mRepo, message, stash_id}};
+        //        Stash s{index, w->manager->mRepo, message, stash_id};
+
+        w->cb(ptr);
 
         return 0;
     };
@@ -1114,6 +1117,21 @@ bool Manager::applyStash(const QString &name) const
 
     runGit({QStringLiteral("stash"), QStringLiteral("apply"), name});
     return true;
+}
+
+bool Manager::popStash(const QString &name) const
+{
+    auto stashIndex = findStashIndex(name);
+    git_stash_apply_options options;
+
+    if (stashIndex == -1)
+        return false;
+
+    BEGIN
+    STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
+    STEP git_stash_pop(mRepo, stashIndex, &options);
+
+    return !err;
 }
 
 Remote *Manager::remote(const QString &name) const

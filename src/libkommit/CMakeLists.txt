@@ -56,6 +56,7 @@ target_sources(libkommit PRIVATE
     note.h note.cpp
     signature.h signature.cpp
     reference.h reference.cpp
+    abstractreference.h abstractreference.cpp
 
     models/abstractgititemsmodel.h
     models/logsmodel.h

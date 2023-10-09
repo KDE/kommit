@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commit.h"
 
-#include "qdebug.h"
 #include "types.h"
 #include <git2/commit.h>
 #include <git2/revparse.h>
@@ -22,11 +21,11 @@ Commit::Commit(git_commit *commit)
 {
     mSubject = QString{git_commit_message(commit)}.replace("\n", "");
 
-    auto commiter = git_commit_committer(commit);
-    mCommitter.setSignature(commiter);
+    auto committer = git_commit_committer(commit);
+    mCommitter.reset(new Signature{committer});
 
     auto author = git_commit_author(commit);
-    mAuthor.setSignature(author);
+    mAuthor.reset(new Signature{author});
 
     mBody = QString{git_commit_body(commit)}.replace("\n", "");
 
@@ -80,12 +79,12 @@ QSharedPointer<Reference> Commit::reference() const
     return mReference;
 }
 
-const Signature &Commit::author() const
+QSharedPointer<Signature> Commit::author() const
 {
     return mAuthor;
 }
 
-const Signature &Commit::committer() const
+QSharedPointer<Signature> Commit::committer() const
 {
     return mCommitter;
 }

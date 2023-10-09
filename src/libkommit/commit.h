@@ -29,8 +29,8 @@ public:
     Commit(git_commit *commit);
     ~Commit();
 
-    Q_REQUIRED_RESULT const Signature &author() const;
-    Q_REQUIRED_RESULT const Signature &committer() const;
+    Q_REQUIRED_RESULT QSharedPointer<Signature> author() const;
+    Q_REQUIRED_RESULT QSharedPointer<Signature> committer() const;
     Q_REQUIRED_RESULT const QString &message() const;
     Q_REQUIRED_RESULT const QString &subject() const;
     Q_REQUIRED_RESULT const QString &body() const;
@@ -47,8 +47,8 @@ public:
 
 private:
     git_commit *mGitCommit{nullptr};
-    Signature mAuthor;
-    Signature mCommitter;
+    QSharedPointer<Signature> mAuthor;
+    QSharedPointer<Signature> mCommitter;
     QString mMessage;
     QString mSubject;
     QString mBody;

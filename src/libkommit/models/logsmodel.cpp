@@ -298,12 +298,12 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
             return log->subject();
         case 1: {
             if (mCalendar.isValid())
-                return log->committer().time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), mCalendar);
+                return log->committer()->time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), mCalendar);
 
-            return log->committer().time();
+            return log->committer()->time();
         }
         case 2:
-            return log->author().name();
+            return log->author()->name();
         }
     } else {
         switch (index.column()) {
@@ -397,8 +397,8 @@ void LogsModel::fill()
         mDataByCommitHashShort.insert(d->commitShortHash(), d);
 
         if (mAuthorsModel) {
-            mAuthorsModel->findOrCreate(d->committer().name(), d->committer().email(), d->committer().time(), AuthorsModel::Commit);
-            mAuthorsModel->findOrCreate(d->author().name(), d->author().email(), d->author().time(), AuthorsModel::AuthoredCommit);
+            mAuthorsModel->findOrCreate(d->committer()->name(), d->committer()->email(), d->committer()->time(), AuthorsModel::Commit);
+            mAuthorsModel->findOrCreate(d->author()->name(), d->author()->email(), d->author()->time(), AuthorsModel::AuthoredCommit);
         }
 
         git_commit_free(commit);

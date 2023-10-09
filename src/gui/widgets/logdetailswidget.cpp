@@ -99,9 +99,9 @@ void LogDetailsWidget::createText()
         break;
     }*/
     if (cal.isValid())
-        date = mLog->committer().time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal);
+        date = mLog->committer()->time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal);
     else
-        date = mLog->committer().time().toLocalTime().toString();
+        date = mLog->committer()->time().toLocalTime().toString();
 
     clear();
     QString html;
@@ -124,11 +124,11 @@ void LogDetailsWidget::createText()
     if (mEnableEmailsLinks) {
         appendParagraph(html,
                         i18n("Committer"),
-                        QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->committer().name(), mLog->committer().email()));
-        appendParagraph(html, i18n("Author"), QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->author().name(), mLog->author().email()));
+                        QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->committer()->name(), mLog->committer()->email()));
+        appendParagraph(html, i18n("Author"), QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->author()->name(), mLog->author()->email()));
     } else {
-        appendParagraph(html, i18n("Committer"), QStringLiteral(R"(%1 &lt;%2&gt;)").arg(mLog->committer().name(), mLog->committer().email()));
-        appendParagraph(html, i18n("Author"), QStringLiteral(R"(%1 &lt;%2&gt;)").arg(mLog->author().name(), mLog->author().email()));
+        appendParagraph(html, i18n("Committer"), QStringLiteral(R"(%1 &lt;%2&gt;)").arg(mLog->committer()->name(), mLog->committer()->email()));
+        appendParagraph(html, i18n("Author"), QStringLiteral(R"(%1 &lt;%2&gt;)").arg(mLog->author()->name(), mLog->author()->email()));
     }
     appendParagraph(html, i18n("Date"), date);
     appendParagraph(html, i18n("Hash"), mLog->commitHash());

@@ -7,9 +7,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "abstractgititemsmodel.h"
+#include "signature.h"
 
 #include <QDateTime>
 #include <QMutex>
+#include <QSharedPointer>
 
 namespace Git
 {
@@ -60,7 +62,10 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
 
     Author *findOrCreate(const QString &name, const QString &email);
+
+    Q_DECL_DEPRECATED_X("Use smart pointer overload")
     Author *findOrCreate(const QString &name, const QString &email, const QDateTime &time, AuthorCreateReason reason);
+    Author *findOrCreate(QSharedPointer<Signature> signature, AuthorCreateReason reason);
     void clear();
 
 protected:

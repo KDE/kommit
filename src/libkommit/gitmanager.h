@@ -144,11 +144,12 @@ public:
     bool removeTag(const QString &name) const;
 
     // stashes
-    void forEachStash(std::function<void(Stash *)> cb);
+    void forEachStash(std::function<void(QSharedPointer<Stash>)> cb);
     QList<Stash> stashes();
     bool createStash(const QString &name = QString()) const;
     Q_REQUIRED_RESULT bool removeStash(const QString &name) const;
     Q_REQUIRED_RESULT bool applyStash(const QString &name) const;
+    Q_REQUIRED_RESULT bool popStash(const QString &name) const;
 
     // remotes
     Remote *remote(const QString &name) const;

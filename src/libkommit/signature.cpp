@@ -6,16 +6,29 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "signature.h"
 
+#include <git2/signature.h>
+
 namespace Git
 {
 
-Signature::Signature()
+Signature::Signature(git_signature *signature)
+    : mSignature{signature}
 {
+    mName = signature->name;
+    mEmail = signature->email;
+    mTime = QDateTime::fromMSecsSinceEpoch(signature->when.time);
 }
 
 Signature::Signature(const git_signature *signature)
 {
-    setSignature(signature);
+    mName = signature->name;
+    mEmail = signature->email;
+    mTime = QDateTime::fromMSecsSinceEpoch(signature->when.time);
+}
+
+Signature::~Signature()
+{
+    git_signature_free(mSignature);
 }
 
 QString Signature::name() const
@@ -31,13 +44,5 @@ QString Signature::email() const
 QDateTime Signature::time() const
 {
     return mTime;
-}
-
-void Signature::setSignature(const git_signature *signature)
-{
-    mSignature = signature;
-    mName = signature->name;
-    mEmail = signature->email;
-    mTime = QDateTime::fromMSecsSinceEpoch(signature->when.offset);
 }
 }

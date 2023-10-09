@@ -37,7 +37,7 @@ bool CommitsFilterModel::filterAcceptsRow(int source_row, const QModelIndex &sou
     const auto &log = mSourceModel->at(source_row);
 
     return log->message().contains(mFilterTerm) || log->commitHash().contains(mFilterTerm) || log->body().contains(mFilterTerm)
-        || log->author().email().contains(mFilterTerm) || log->author().name().contains(mFilterTerm);
+        || log->author()->email().contains(mFilterTerm) || log->author()->name().contains(mFilterTerm);
 }
 
 #include "moc_commitsfiltermodel.cpp"
