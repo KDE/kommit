@@ -1758,13 +1758,13 @@ msgstr "Cal que les branques seleccionades siguen diferents!"
 #: src/gui/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
 msgid "Select Branches"
-msgstr "Seleccioneu el branques"
+msgstr "Seleccioneu les branques"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:14
 #, kde-format
 msgid "Select branches"
-msgstr "Seleccioneu el branques"
+msgstr "Seleccioneu les branques"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectLeftBranch)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
