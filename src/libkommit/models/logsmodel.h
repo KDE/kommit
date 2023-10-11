@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommit_export.h"
 
 #include <QCalendar>
+#include <QSet>
 
 namespace Git
 {
@@ -59,5 +60,6 @@ private:
     QMap<QString, Commit *> mDataByCommitHashShort;
     AuthorsModel *mAuthorsModel;
     QCalendar mCalendar;
+    QSet<QString> mSeenHases;
 };
 }

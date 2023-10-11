@@ -1,0 +1,121 @@
+#include "tree.h"
+#include "qdebug.h"
+#include <git2/commit.h>
+#include <git2/tree.h>
+
+namespace Git
+{
+
+Tree::Tree(git_tree *tree)
+    : ptr{tree}
+{
+    initTree();
+}
+
+Tree::~Tree()
+{
+    if (ptr)
+        git_tree_free(ptr);
+}
+
+QList<Tree::Entry> Tree::entries(const QString &path) const
+{
+    return mTreeData.values(path);
+}
+
+QStringList Tree::entries(const QString &path, EntryType filter) const
+{
+    auto entries = this->entries(path);
+    QStringList ret;
+    for (auto &en : entries)
+        if (filter == EntryType::All || en.type == filter)
+            ret << en.name;
+    return ret;
+}
+
+void Tree::initTree()
+{
+    auto cb = [](const char *root, const git_tree_entry *entry, void *payload) -> int {
+        auto w = reinterpret_cast<Tree *>(payload);
+        QString path{root};
+        QString name{git_tree_entry_name(entry)};
+
+        if (path.endsWith("/"))
+            path = path.mid(0, path.length() - 1);
+
+        auto type = git_tree_entry_type(entry);
+        switch (type) {
+        case GIT_OBJECT_BLOB:
+            w->mTreeData.insert(path, Entry{name, EntryType::File});
+            break;
+        case GIT_OBJECT_TREE:
+            w->mTreeData.insert(path, Entry{name, EntryType::Dir});
+            break;
+        case GIT_OBJECT_COMMIT:
+        case GIT_OBJECT_ANY:
+        case GIT_OBJECT_INVALID:
+        case GIT_OBJECT_TAG:
+        case GIT_OBJECT_OFS_DELTA:
+        case GIT_OBJECT_REF_DELTA:
+            break;
+        }
+        return 0;
+    };
+
+    git_tree_walk(ptr, GIT_TREEWALK_PRE, cb, this);
+}
+
+}
+
+Git::Tree::EntryType QListSpecialMethods<Git::Tree::Entry>::type(const QString &entryName) const
+{
+    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
+
+    auto i = std::find_if(self->begin(), self->end(), [&entryName](Git::Tree::Entry en) {
+        return en.name == entryName;
+    });
+
+    if (i == self->end())
+        return Git::Tree::EntryType::Unknown;
+
+    return (*i).type;
+}
+
+QDebug operator<<(QDebug d, const QList<Git::Tree::Entry> &list)
+{
+    bool first{true};
+
+    auto &dd = d.noquote().nospace();
+
+    for (auto &entry : list) {
+        if (!first)
+            dd << ", ";
+
+        dd << "(" << entry.name << ": ";
+
+        switch (entry.type) {
+        case Git::Tree::EntryType::Unknown:
+            dd << "Unknown";
+            break;
+        case Git::Tree::EntryType::File:
+            dd << "File";
+            break;
+        case Git::Tree::EntryType::Dir:
+            dd << "Dir";
+            break;
+        }
+        dd << ")";
+        first = false;
+    }
+
+    return dd;
+}
+
+bool QListSpecialMethods<Git::Tree::Entry>::comtains(const QString &entryName) const
+{
+    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
+
+    return std::any_of(self->begin(), self->end(), [&entryName](Git::Tree::Entry en) {
+        return en.name == entryName;
+    });
+}

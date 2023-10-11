@@ -101,7 +101,6 @@ void BranchesModel::fill()
         auto b = new Branch{ref};
 
         mData.append(b);
-        git_reference_free(ref);
     }
     git_branch_iterator_free(it);
     calculateCommitStats();

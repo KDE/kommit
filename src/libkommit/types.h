@@ -30,4 +30,5 @@ QStringList convert(git_strarray *arr);
 QString convertToString(const git_oid *id, const int len);
 void addToArray(git_strarray *arr, const QString &value);
 
+QSharedPointer<git_tree> makeShared(git_tree *tree);
 }

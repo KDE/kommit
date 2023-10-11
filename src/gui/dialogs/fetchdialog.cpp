@@ -32,24 +32,24 @@ void FetchDialog::setBranch(const QString &branch)
 
 void FetchDialog::slotAccept()
 {
-    mGit->fetch(comboBoxRemote->currentText(), mObserver);
-    //    Git::CommandFetch cmd;
+    //    mGit->fetch(comboBoxRemote->currentText(), mObserver);
+    Git::CommandFetch cmd;
 
-    //    cmd.setRemote(comboBoxRemote->currentText());
+    cmd.setRemote(comboBoxRemote->currentText());
 
-    //    if (!checkBoxAllBranches->isChecked())
-    //        cmd.setBranch(comboBoxBranch->currentText());
-    //    cmd.setNoFf(checkBoxNoFastForward->isChecked());
-    //    cmd.setFfOnly(checkBoxFastForwardOnly->isChecked());
-    //    cmd.setNoCommit(checkBoxNoCommit->isChecked());
-    //    cmd.setPrune(checkBoxPrune->isChecked());
-    //    cmd.setTags(checkBoxTags->isChecked());
+    if (!checkBoxAllBranches->isChecked())
+        cmd.setBranch(comboBoxBranch->currentText());
+    cmd.setNoFf(checkBoxNoFastForward->isChecked());
+    cmd.setFfOnly(checkBoxFastForwardOnly->isChecked());
+    cmd.setNoCommit(checkBoxNoCommit->isChecked());
+    cmd.setPrune(checkBoxPrune->isChecked());
+    cmd.setTags(checkBoxTags->isChecked());
 
-    //    RunnerDialog d(mGit, this);
-    //    d.run(&cmd);
-    //    d.exec();
+    RunnerDialog d(mGit, this);
+    d.run(&cmd);
+    d.exec();
 
-    //    accept();
+    accept();
 }
 
 #include "moc_fetchdialog.cpp"

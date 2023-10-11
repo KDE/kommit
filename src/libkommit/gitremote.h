@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class Branch;
 class LIBKOMMIT_EXPORT RemoteBranch
 {
 public:
@@ -35,6 +36,7 @@ public:
     enum class Direction { DirectionFetch = 0, DirectionPush = 1 };
 
     RefSpec(const git_refspec *refspecs);
+    ~RefSpec();
 
     Q_REQUIRED_RESULT QString name() const;
     Q_REQUIRED_RESULT Direction direction() const;
@@ -56,7 +58,7 @@ public:
 
     void parse(const QString &output);
     //    QString headBranch;
-    QList<RemoteBranch> branches;
+    //    QList<RemoteBranch> branches;
 
     Q_REQUIRED_RESULT QString name() const;
     Q_REQUIRED_RESULT QList<RefSpec *> refSpecList() const;
@@ -64,12 +66,20 @@ public:
     Q_REQUIRED_RESULT QString fetchUrl() const;
     Q_REQUIRED_RESULT QString defaultBranch() const;
 
+    Q_REQUIRED_RESULT QList<Branch *> branches() const;
+
+    Q_REQUIRED_RESULT bool connected() const;
+
 private:
     QList<RefSpec *> mRefSpecList;
+    bool mConnected{false};
     QString mName;
     QString mPushUrl;
     QString mFetchUrl;
     QString mDefaultBranch;
+    QList<Branch *> mBranches;
+
+    friend class RemotesModel;
 };
 
 } // namespace Git

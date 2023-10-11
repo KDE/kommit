@@ -7,4 +7,7 @@ AbstractReference::AbstractReference()
 {
 }
 
+AbstractReference::~AbstractReference()
+{
+}
 }

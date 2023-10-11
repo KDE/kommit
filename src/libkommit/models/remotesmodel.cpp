@@ -5,8 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "remotesmodel.h"
+#include "branch.h"
 #include "gitmanager.h"
 #include "gitremote.h"
+#include "qdebug.h"
 #include "types.h"
 
 namespace Git
@@ -79,6 +81,8 @@ void RemotesModel::fill()
     if (!mGit)
         return;
 
+    QMap<QString, Remote *> remotesMap;
+
     git_strarray list{};
     git_remote_list(&list, mGit->mRepo);
     auto remotes = convert(&list);
@@ -89,8 +93,30 @@ void RemotesModel::fill()
         if (!git_remote_lookup(&remote, mGit->mRepo, r.toLatin1().data())) {
             auto rem = new Remote{remote};
             mData << rem;
+
+            remotesMap.insert(rem->name(), rem);
         }
     }
+
+    git_branch_iterator *it;
+    git_branch_iterator_new(&it, mGit->mRepo, GIT_BRANCH_ALL);
+
+    git_reference *ref;
+    git_branch_t b;
+    qDebug() << remotesMap;
+    while (!git_branch_next(&ref, &b, it)) {
+        auto b = new Branch{ref};
+
+        auto remote = remotesMap.value(b->remoteName());
+
+        if (!remote)
+            qDebug() << "NO REMOTE FOUUND" << b->remoteName();
+        else {
+            qDebug() << "REMOTE FOUUND" << b->remoteName();
+            remote->mBranches << b;
+        }
+    }
+    git_branch_iterator_free(it);
 
     //    const auto remotes = mGit->remotes();
     //    for (const auto &remote : remotes) {

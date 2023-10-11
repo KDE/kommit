@@ -363,16 +363,34 @@ void LogsModel::fill()
     qDeleteAll(mData);
     mData.clear();
     mDataByCommitHashLong.clear();
+    mDataByCommitHashShort.clear();
+    mSeenHases.clear();
 
     git_revwalk *walker;
-    git_commit *commit;
     git_oid oid;
 
     git_revwalk_new(&walker, mGit->mRepo);
-    git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL);
+    git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL | GIT_SORT_TIME);
 
     if (mBranch.isEmpty()) {
-        git_revwalk_push_head(walker);
+        // git_revwalk_push_head(walker);
+
+        git_branch_iterator *it;
+        git_branch_iterator_new(&it, mGit->mRepo, GIT_BRANCH_ALL);
+
+        git_reference *ref;
+        git_branch_t b;
+
+        QStringList list;
+        while (!git_branch_next(&ref, &b, it)) {
+            //        if (!git_reference_is_branch(ref))
+            //            continue;
+            auto refname = git_reference_name(ref);
+
+            git_revwalk_push_ref(walker, refname);
+        }
+        git_branch_iterator_free(it);
+
     } else {
         git_reference *ref;
         auto n = git_branch_lookup(&ref, mGit->mRepo, mBranch.toLocal8Bit().data(), GIT_BRANCH_ALL);
@@ -382,9 +400,13 @@ void LogsModel::fill()
 
         auto refName = git_reference_name(ref);
         git_revwalk_push_ref(walker, refName);
+
+        git_reference_free(ref);
     }
 
     while (git_revwalk_next(&oid, walker) == GIT_SUCCESS) {
+        git_commit *commit;
+
         if (git_commit_lookup(&commit, mGit->mRepo, &oid)) {
             fprintf(stderr, "Failed to lookup the next object\n");
             return;
@@ -397,14 +419,65 @@ void LogsModel::fill()
         mDataByCommitHashShort.insert(d->commitShortHash(), d);
 
         if (mAuthorsModel) {
-            mAuthorsModel->findOrCreate(d->committer()->name(), d->committer()->email(), d->committer()->time(), AuthorsModel::Commit);
-            mAuthorsModel->findOrCreate(d->author()->name(), d->author()->email(), d->author()->time(), AuthorsModel::AuthoredCommit);
+            mAuthorsModel->findOrCreate(d->committer(), AuthorsModel::Commit);
+            mAuthorsModel->findOrCreate(d->author(), AuthorsModel::AuthoredCommit);
         }
 
-        git_commit_free(commit);
+        //        git_commit_free(commit);
     }
 
     git_revwalk_free(walker);
+
+    //    std::sort(mData.begin(), mData.end(), [](Commit *commit1, Commit *commit2) {
+    //        if (commit1->commitTime() == commit2->commitTime())
+    //            return commit1->committer()->time() > commit2->committer()->time();
+    //        return commit1->commitTime() > commit2->commitTime();
+    //    });
+
+    /* auto commitsCallback = [this](Commit*d){
+         mData.append(d);
+         mDataByCommitHashLong.insert(d->commitHash(), d);
+         mDataByCommitHashShort.insert(d->commitShortHash(), d);
+
+         if (mAuthorsModel) {
+             mAuthorsModel->findOrCreate(d->committer(), AuthorsModel::Commit);
+             mAuthorsModel->findOrCreate(d->author(), AuthorsModel::AuthoredCommit);
+         }
+     };
+
+     mGit->forEachCommits(commitsCallback, mBranch);*/
+
+    /*git_odb *odb;
+    git_repository_odb(&odb, mGit->mRepo);
+    auto cb_odb = [](const git_oid *id, void *payload) -> int {
+        auto w = reinterpret_cast<LogsModel *>(payload);
+
+        git_commit *commit;
+        if (git_commit_lookup(&commit, w->mGit->mRepo, id))
+            return 0;
+
+        auto commitHash = git_oid_tostr_s(id);
+
+        if (w->mSeenHases.contains(commitHash))
+            return 0;
+
+        auto d = new Commit{commit};
+
+        w->mData.append(d);
+        w->mDataByCommitHashLong.insert(d->commitHash(), d);
+        w->mDataByCommitHashShort.insert(d->commitShortHash(), d);
+
+        if (w->mAuthorsModel) {
+            w->mAuthorsModel->findOrCreate(d->committer()->name(), d->committer()->email(), d->committer()->time(), AuthorsModel::Commit);
+            w->mAuthorsModel->findOrCreate(d->author()->name(), d->author()->email(), d->author()->time(), AuthorsModel::AuthoredCommit);
+        }
+
+        w->mSeenHases.insert(commitHash);
+        return 0;
+    };
+
+    git_odb_foreach(odb, cb_odb, this);
+    git_odb_free(odb);*/
 
     struct wrapper {
         QList<Commit *> mData;

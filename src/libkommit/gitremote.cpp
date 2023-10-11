@@ -24,6 +24,10 @@ RefSpec::RefSpec(const git_refspec *refspecs)
     mDirection = static_cast<Direction>(git_refspec_direction(refspecs));
 }
 
+RefSpec::~RefSpec()
+{
+}
+
 QString RefSpec::name() const
 {
     return mName;
@@ -49,7 +53,7 @@ Remote::Remote() = default;
 Remote::Remote(git_remote *remote)
 {
     mName = git_remote_name(remote);
-    auto mConnected = git_remote_connected(remote);
+    mConnected = git_remote_connected(remote);
     auto buf = git_buf{0};
     git_remote_default_branch(&buf, remote);
     mDefaultBranch = convertToQString(&buf);
@@ -58,6 +62,9 @@ Remote::Remote(git_remote *remote)
     mPushUrl = git_remote_pushurl(remote);
     mFetchUrl = git_remote_url(remote);
 
+    git_strarray a1, a2;
+    git_remote_get_fetch_refspecs(&a1, remote);
+    git_remote_get_push_refspecs(&a2, remote);
     auto refCount = git_remote_refspec_count(remote);
     for (size_t i = 0; i < refCount; ++i) {
         auto ref = git_remote_get_refspec(remote, i);
@@ -91,78 +98,78 @@ void Remote::parse(const QString &output)
     wip/video_import      pushes to wip/video_import      (up to date)
     wip/video_trimmer     pushes to wip/video_trimmer     (up to date)
 */
-    enum ParseMode {
-        None,
-        GitPull,
-        GitPush,
-    };
+    //    enum ParseMode {
+    //        None,
+    //        GitPull,
+    //        GitPush,
+    //    };
 
-    ParseMode mode{None};
-    auto lines = output.split(QLatin1Char('\n'));
-    const QRegularExpression regexPull{QStringLiteral(R"((\S+)\s+merges with remote\s+(\S+))")};
-    const QRegularExpression regexPush{QStringLiteral(R"((\S+)\s+pushes to (\S+)\s+\(([^)]*)\))")};
+    //    ParseMode mode{None};
+    //    auto lines = output.split(QLatin1Char('\n'));
+    //    const QRegularExpression regexPull{QStringLiteral(R"((\S+)\s+merges with remote\s+(\S+))")};
+    //    const QRegularExpression regexPush{QStringLiteral(R"((\S+)\s+pushes to (\S+)\s+\(([^)]*)\))")};
 
-    for (auto &line : lines) {
-        line = line.trimmed();
+    //    for (auto &line : lines) {
+    //        line = line.trimmed();
 
-        if (mode == GitPull) {
-            const auto match = regexPull.match(line); // clazy:exclude=use-static-qregularexpression
-            if (match.hasMatch()) {
-                RemoteBranch branch;
-                branch.configuredPull = true;
-                branch.name = match.captured(1);
-                branch.remotePullBranch = match.captured(2);
-                branches.append(branch);
-            }
-        } else if (mode == GitPush) {
-            const auto match = regexPush.match(line); // clazy:exclude=use-static-qregularexpression
-            if (match.hasMatch()) {
-                int index{-1};
-                RemoteBranch branch;
-                for (int i = 0; i < branches.size(); ++i) {
-                    if (branches[i].name == match.captured(1)) {
-                        index = i;
-                        branch = branches[i];
-                        break;
-                    }
-                }
+    //        if (mode == GitPull) {
+    //            const auto match = regexPull.match(line); // clazy:exclude=use-static-qregularexpression
+    //            if (match.hasMatch()) {
+    //                RemoteBranch branch;
+    //                branch.configuredPull = true;
+    //                branch.name = match.captured(1);
+    //                branch.remotePullBranch = match.captured(2);
+    //                branches.append(branch);
+    //            }
+    //        } else if (mode == GitPush) {
+    //            const auto match = regexPush.match(line); // clazy:exclude=use-static-qregularexpression
+    //            if (match.hasMatch()) {
+    //                int index{-1};
+    //                RemoteBranch branch;
+    //                for (int i = 0; i < branches.size(); ++i) {
+    //                    if (branches[i].name == match.captured(1)) {
+    //                        index = i;
+    //                        branch = branches[i];
+    //                        break;
+    //                    }
+    //                }
 
-                branch.configuredPush = true;
-                branch.name = match.captured(1);
-                if (match.captured(3) == QStringLiteral("fast-forwardable"))
-                    branch.status = RemoteBranch::Status::FastForwardable;
-                else if (match.captured(3) == QStringLiteral("up to date"))
-                    branch.status = RemoteBranch::Status::UpToDate;
-                else if (match.captured(3) == QStringLiteral("local out of date"))
-                    branch.status = RemoteBranch::Status::LocalOutOfDate;
-                else
-                    qCDebug(KOMMITLIB_LOG) << "Unknown status" << match.captured(3);
+    //                branch.configuredPush = true;
+    //                branch.name = match.captured(1);
+    //                if (match.captured(3) == QStringLiteral("fast-forwardable"))
+    //                    branch.status = RemoteBranch::Status::FastForwardable;
+    //                else if (match.captured(3) == QStringLiteral("up to date"))
+    //                    branch.status = RemoteBranch::Status::UpToDate;
+    //                else if (match.captured(3) == QStringLiteral("local out of date"))
+    //                    branch.status = RemoteBranch::Status::LocalOutOfDate;
+    //                else
+    //                    qCDebug(KOMMITLIB_LOG) << "Unknown status" << match.captured(3);
 
-                branch.remotePushBranch = match.captured(2);
+    //                branch.remotePushBranch = match.captured(2);
 
-                if (index == -1)
-                    branches.append(branch);
-                else
-                    branches.replace(index, branch);
-            }
-        }
-        if (line.startsWith(QStringLiteral("* remote"))) {
-            // name = line.remove(QStringLiteral("* remote ")).trimmed();
-        } else if (line.startsWith(QStringLiteral("HEAD branch: "))) {
-            //            headBranch = line.remove(QStringLiteral("HEAD branch: ")).trimmed();
-        } else if (line.startsWith(QStringLiteral("Push  URL:"))) {
-            //            pushUrl = line.remove(QStringLiteral("Push  URL:")).trimmed();
-        } else if (line.startsWith(QStringLiteral("Fetch URL:"))) {
-            //            fetchUrl = line.remove(QStringLiteral("Fetch URL:")).trimmed();
-        } else if (line == QStringLiteral("Local branches configured for 'git pull':")) {
-            mode = GitPull;
-            continue;
-        } else if (line == QStringLiteral("Local refs configured for 'git push':")) {
-            mode = GitPush;
-            continue;
-        }
-    }
-    qCDebug(KOMMITLIB_LOG) << branches.size();
+    //                if (index == -1)
+    //                    branches.append(branch);
+    //                else
+    //                    branches.replace(index, branch);
+    //            }
+    //        }
+    //        if (line.startsWith(QStringLiteral("* remote"))) {
+    //            // name = line.remove(QStringLiteral("* remote ")).trimmed();
+    //        } else if (line.startsWith(QStringLiteral("HEAD branch: "))) {
+    //            //            headBranch = line.remove(QStringLiteral("HEAD branch: ")).trimmed();
+    //        } else if (line.startsWith(QStringLiteral("Push  URL:"))) {
+    //            //            pushUrl = line.remove(QStringLiteral("Push  URL:")).trimmed();
+    //        } else if (line.startsWith(QStringLiteral("Fetch URL:"))) {
+    //            //            fetchUrl = line.remove(QStringLiteral("Fetch URL:")).trimmed();
+    //        } else if (line == QStringLiteral("Local branches configured for 'git pull':")) {
+    //            mode = GitPull;
+    //            continue;
+    //        } else if (line == QStringLiteral("Local refs configured for 'git push':")) {
+    //            mode = GitPush;
+    //            continue;
+    //        }
+    //    }
+    //    qCDebug(KOMMITLIB_LOG) << branches.size();
 }
 
 QString Remote::name() const
@@ -188,6 +195,16 @@ QString Remote::fetchUrl() const
 QString Remote::defaultBranch() const
 {
     return mDefaultBranch;
+}
+
+QList<Branch *> Remote::branches() const
+{
+    return mBranches;
+}
+
+bool Remote::connected() const
+{
+    return mConnected;
 }
 
 QString RemoteBranch::statusText() const

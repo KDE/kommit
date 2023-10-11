@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <git2/branch.h>
 #include <git2/buffer.h>
+#include <git2/errors.h>
 #include <git2/graph.h>
 #include <git2/notes.h>
 #include <git2/refs.h>
@@ -31,13 +32,16 @@ Branch::Branch(git_reference *branch)
     git_buf_dispose(&buf);
 
     auto buf2 = git_buf{0};
-    git_branch_remote_name(&buf2, repo, refName);
+    int m = git_branch_remote_name(&buf2, repo, refName);
     mRemoteName = buf2.ptr;
     git_buf_dispose(&buf2);
+
+    mIsHead = git_branch_is_head(branch);
 }
 
 Branch::~Branch()
 {
+    git_reference_free(mBranch);
 }
 
 QString Branch::name() const
@@ -63,5 +67,10 @@ QString Branch::remoteName() const
 Note *Branch::note() const
 {
     return nullptr;
+}
+
+bool Branch::isHead() const
+{
+    return mIsHead;
 }
 }

@@ -35,6 +35,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "widgets/stasheswidget.h"
 #include "widgets/submoduleswidget.h"
 #include "widgets/tagswidget.h"
+#include <KommitSettings.h>
 
 // KF headers
 #include <KActionCollection>

@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "remoteswidget.h"
 #include "actions/remotesactions.h"
+#include "branch.h"
 #include "gitmanager.h"
 #include "models/remotesmodel.h"
 
@@ -41,23 +42,23 @@ void RemotesWidget::slotListViewItemActivated(const QModelIndex &index)
     labelPushUrl->setText(remote->pushUrl());
     labelDefaultBranch->setText(remote->defaultBranch());
     treeWidget->clear();
-    for (auto &ref : remote->refSpecList()) {
+    //    for (auto &ref : remote->refSpecList()) {
+    //        auto item = new QTreeWidgetItem(treeWidget);
+
+    //        item->setText(0, ref->name());
+    //        item->setText(1, ref->source());
+    //        item->setText(2, ref->destionation());
+    //        item->setText(3, ref->direction() == Git::RefSpec::Direction::DirectionFetch ? "Fetch" : "Push");
+
+    //        treeWidget->addTopLevelItem(item);
+    //    }
+    for (const auto &rb : remote->branches()) {
         auto item = new QTreeWidgetItem(treeWidget);
 
-        item->setText(0, ref->name());
-        item->setText(1, ref->source());
-        item->setText(2, ref->destionation());
-        item->setText(3, ref->direction() == Git::RefSpec::Direction::DirectionFetch ? "Fetch" : "Push");
-
-        treeWidget->addTopLevelItem(item);
-    }
-    for (const auto &rb : std::as_const(remote->branches)) {
-        auto item = new QTreeWidgetItem(treeWidget);
-
-        item->setText(0, rb.name);
-        item->setText(1, rb.remotePushBranch);
-        item->setText(2, rb.remotePullBranch);
-        item->setText(3, rb.statusText());
+        item->setText(0, rb->name());
+        item->setText(1, rb->refName());
+        item->setText(2, rb->upStreamName());
+        item->setText(2, rb->isHead() ? i18n("Update") : "");
 
         treeWidget->addTopLevelItem(item);
     }

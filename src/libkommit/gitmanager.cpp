@@ -25,8 +25,10 @@
 #include <QSortFilterProxyModel>
 #include <QtConcurrent>
 
+#include <abstractreference.h>
 #include <git2.h>
 #include <git2/branch.h>
+#include <git2/errors.h>
 #include <git2/refs.h>
 #include <git2/stash.h>
 #include <git2/tag.h>
@@ -94,10 +96,11 @@ void Manager::setPath(const QString &newPath)
     if (mPath == newPath)
         return;
 
-    int n = git_repository_open_ext(&mRepo, newPath.toUtf8().data(), 0, NULL);
-    check_lg2(n);
+    BEGIN
+    STEP git_repository_open_ext(&mRepo, newPath.toUtf8().data(), 0, NULL);
+    PRINT_ERROR;
 
-    if (n) {
+    if (err) {
         mIsValid = false;
     } else {
         mPath = git_repository_workdir(mRepo);
@@ -387,8 +390,105 @@ QList<FileStatus> Manager::diffBranches(const QString &from, const QString &to) 
     return files2;
 }
 
-void Manager::forEachCommits(std::function<void(Commit)> callback) const
+QList<FileStatus> Manager::diff(AbstractReference *from, AbstractReference *to) const
 {
+    BEGIN
+
+    git_diff *diff;
+    git_diff_options opts = GIT_DIFF_OPTIONS_INIT;
+    opts.flags = GIT_DIFF_NORMAL;
+
+    STEP git_diff_tree_to_tree(&diff, mRepo, from->tree().data(), to->tree().data(), &opts);
+
+    if (err) {
+        PRINT_ERROR;
+        return {};
+    }
+
+    git_diff_stats *stats;
+    git_diff_get_stats(&stats, diff);
+    auto n = git_diff_stats_files_changed(stats);
+    QList<FileStatus> files2;
+
+    for (size_t i = 0; i < n; ++i) {
+        auto delta = git_diff_get_delta(diff, i);
+        FileStatus fs;
+        fs.mName = delta->new_file.path;
+
+        switch (delta->status) {
+        case GIT_DELTA_UNMODIFIED:
+            fs.mStatus = FileStatus::Unmodified;
+            break;
+        case GIT_DELTA_ADDED:
+            fs.mStatus = FileStatus::Added;
+            break;
+        case GIT_DELTA_DELETED:
+            fs.mStatus = FileStatus::Removed;
+            break;
+        case GIT_DELTA_MODIFIED:
+            fs.mStatus = FileStatus::Modified;
+            break;
+        case GIT_DELTA_RENAMED:
+            fs.mStatus = FileStatus::Renamed;
+            break;
+        case GIT_DELTA_COPIED:
+            fs.mStatus = FileStatus::Copied;
+            break;
+        case GIT_DELTA_IGNORED:
+            fs.mStatus = FileStatus::Ignored;
+            break;
+        case GIT_DELTA_UNTRACKED:
+            fs.mStatus = FileStatus::Untracked;
+            break;
+        case GIT_DELTA_TYPECHANGE:
+            fs.mStatus = FileStatus::Unknown;
+            break;
+        case GIT_DELTA_UNREADABLE:
+            fs.mStatus = FileStatus::Unknown;
+            break;
+        case GIT_DELTA_CONFLICTED:
+            fs.mStatus = FileStatus::Unknown;
+            break;
+        }
+        files2 << fs;
+    }
+
+    return files2;
+}
+
+void Manager::forEachCommits(std::function<void(Commit *)> callback, const QString &branchName) const
+{
+    git_revwalk *walker;
+    git_commit *commit;
+    git_oid oid;
+
+    git_revwalk_new(&walker, mRepo);
+    git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL);
+
+    if (branchName.isEmpty()) {
+        git_revwalk_push_head(walker);
+    } else {
+        git_reference *ref;
+        auto n = git_branch_lookup(&ref, mRepo, branchName.toLocal8Bit().data(), GIT_BRANCH_ALL);
+
+        if (n)
+            return;
+
+        auto refName = git_reference_name(ref);
+        git_revwalk_push_ref(walker, refName);
+    }
+
+    while (!git_revwalk_next(&oid, walker)) {
+        if (git_commit_lookup(&commit, mRepo, &oid)) {
+            fprintf(stderr, "Failed to lookup the next object\n");
+            return;
+        }
+
+        auto c = new Commit{commit};
+        callback(c);
+    }
+
+    git_revwalk_free(walker);
 }
 
 void Manager::forEachSubmodules(std::function<void(Submodule *)> callback)
@@ -439,7 +539,7 @@ QString Manager::config(const QString &name, ConfigType type) const
 bool Manager::configBool(const QString &name, ConfigType type) const
 {
     BEGIN
-    int buf;
+    int buf{};
     git_config *cfg;
     switch (type) {
     case ConfigLocal:
@@ -450,6 +550,10 @@ bool Manager::configBool(const QString &name, ConfigType type) const
         break;
     }
     STEP git_config_get_bool(&buf, cfg, name.toLatin1().data());
+
+    PRINT_ERROR;
+    if (err)
+        return false;
 
     return buf;
 }
@@ -548,7 +652,7 @@ int Manager::findStashIndex(const QString &message) const
             w->index = index;
         return 0;
     };
-    git_stash_foreach(mRepo, callback, NULL);
+    git_stash_foreach(mRepo, callback, &w);
 
     return w.index;
 }
@@ -862,12 +966,27 @@ QByteArray Manager::runGit(const QStringList &args) const
 
 QStringList Manager::ls(const QString &place) const
 {
-    //    auto cb = [](const char *root, const git_tree_entry *entry, void *payload) -> int {
+    struct wrapper {
+        QStringList files;
+    };
 
-    //        return 0;
-    //    };
-    //    const git_tree *tree;
-    //    git_tree_walk(tree, GIT_TREEWALK_PRE, cb, NULL);
+    auto cb = [](const char *root, const git_tree_entry *entry, void *payload) -> int {
+        auto w = reinterpret_cast<wrapper *>(payload);
+        qDebug() << QString{root} << QString{git_tree_entry_name(entry)};
+        w->files << QString{root} + QString{git_tree_entry_name(entry)};
+        return 0;
+    };
+    git_tree *tree;
+    git_object *placeObject{nullptr};
+    git_commit *commit{nullptr};
+
+    BEGIN
+    STEP git_revparse_single(&placeObject, mRepo, place.toLatin1().constData());
+    STEP git_commit_lookup(&commit, mRepo, git_object_id(placeObject));
+    STEP git_commit_tree(&tree, commit);
+
+    wrapper w;
+    STEP git_tree_walk(tree, GIT_TREEWALK_PRE, cb, &w);
 
     auto buffer = readAllNonEmptyOutput({QStringLiteral("ls-tree"), QStringLiteral("--name-only"), QStringLiteral("-r"), place});
     QMutableListIterator<QString> it(buffer);
@@ -1113,6 +1232,8 @@ bool Manager::applyStash(const QString &name) const
     STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
     STEP git_stash_apply(mRepo, stashIndex, &options);
 
+    PRINT_ERROR;
+
     return !err;
 
     runGit({QStringLiteral("stash"), QStringLiteral("apply"), name});
@@ -1187,6 +1308,21 @@ bool Manager::merge(const QString &branchName) const
     STEP git_merge(mRepo, (const git_annotated_commit **)annotated, annotated_count, &merge_opts, &checkout_opts);
 
     return !err;
+}
+
+Commit *Manager::commitByHash(const QString &hash) const
+{
+    git_commit *commit;
+    git_object *commitObject;
+    BEGIN
+    STEP git_revparse_single(&commitObject, mRepo, hash.toLatin1().constData());
+    STEP git_commit_lookup(&commit, mRepo, git_object_id(commitObject));
+
+    PRINT_ERROR;
+
+    if (err)
+        return nullptr;
+    return new Commit(commit);
 }
 
 BlameData Manager::blame(const File &file)

@@ -41,4 +41,13 @@ bool cleanPath(Git::Manager *manager)
     return d.removeRecursively();
 }
 
+QString readFile(const QString &fileName)
+{
+    QFile f(fileName);
+    if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
+        return {};
+    auto buffer = f.readAll();
+    f.close();
+    return buffer;
+}
 }

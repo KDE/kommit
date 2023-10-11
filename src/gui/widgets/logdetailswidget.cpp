@@ -82,6 +82,8 @@ void LogDetailsWidget::createText()
         childsHashHtml.append(createHashLink(child));
 
     QString date;
+    QString commitDate;
+    QString authDate;
     qCDebug(KOMMIT_LOG) << "cal=" << KommitSettings::calendarType();
     QCalendar cal(KommitSettings::calendarType());
     /*switch (KommitSettings::calendarType()) {
@@ -98,10 +100,15 @@ void LogDetailsWidget::createText()
         cal = QCalendar(QCalendar::System::IslamicCivil);
         break;
     }*/
-    if (cal.isValid())
-        date = mLog->committer()->time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal);
-    else
-        date = mLog->committer()->time().toLocalTime().toString();
+    if (cal.isValid()) {
+        date = mLog->commitTime().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal);
+        authDate = mLog->committer()->time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal);
+        authDate = mLog->author()->time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal);
+    } else {
+        date = mLog->commitTime().toLocalTime().toString();
+        authDate = mLog->committer()->time().toLocalTime().toString();
+        authDate = mLog->author()->time().toLocalTime().toString();
+    }
 
     clear();
     QString html;
@@ -130,7 +137,9 @@ void LogDetailsWidget::createText()
         appendParagraph(html, i18n("Committer"), QStringLiteral(R"(%1 &lt;%2&gt;)").arg(mLog->committer()->name(), mLog->committer()->email()));
         appendParagraph(html, i18n("Author"), QStringLiteral(R"(%1 &lt;%2&gt;)").arg(mLog->author()->name(), mLog->author()->email()));
     }
-    appendParagraph(html, i18n("Date"), date);
+    appendParagraph(html, i18n("time"), date);
+    appendParagraph(html, i18n("Commit time"), commitDate);
+    appendParagraph(html, i18n("Auth time"), authDate);
     appendParagraph(html, i18n("Hash"), mLog->commitHash());
 
     if (!mLog->parents().empty())

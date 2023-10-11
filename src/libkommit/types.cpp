@@ -5,15 +5,26 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include <QString>
+#include <git2/tree.h>
 
 #include "types.h"
 
 namespace Git
 {
 
+namespace Deleters
+{
+
+void deleteGitTree(git_tree *tree)
+{
+    git_tree_free(tree);
+}
+
+}
+
 QString convertToQString(git_buf *buf)
 {
-    return QString();
+    return QString(buf->ptr);
 }
 
 QStringList convert(git_strarray *arr)
@@ -50,4 +61,8 @@ void addToArray(git_strarray *arr, const QString &value)
     arr->count = 0;
 }
 
+QSharedPointer<git_tree> makeShared(git_tree *tree)
+{
+    return QSharedPointer<git_tree>(tree, Deleters::deleteGitTree);
+}
 }

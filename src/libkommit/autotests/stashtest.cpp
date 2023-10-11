@@ -29,7 +29,7 @@ void StashTest::initTestCase()
 
 void StashTest::cleanupTestCase()
 {
-    //    TestCommon::cleanPath(mManager);
+    TestCommon::cleanPath(mManager);
 }
 
 void StashTest::makeACommit()
@@ -63,6 +63,27 @@ void StashTest::makeStash()
     });
     QCOMPARE(stashes.count(), 1);
     QCOMPARE(stashes.at(0)->name(), QStringLiteral("On master: stash1"));
+}
+
+void StashTest::applyStash()
+{
+    auto fileContentBefore = TestCommon::readFile(mManager->path() + "/README.md");
+    TestCommon::touch(mManager->path() + "/README.md");
+
+    auto ok = mManager->applyStash(QStringLiteral("On master: stash1"));
+    QVERIFY(ok);
+
+    QList<QSharedPointer<Git::Stash>> stashes;
+    mManager->forEachStash([&stashes](QSharedPointer<Git::Stash> stash) {
+        stashes << stash;
+        return 0;
+    });
+    QCOMPARE(stashes.count(), 1);
+    QCOMPARE(stashes.at(0)->name(), QStringLiteral("On master: stash1"));
+
+    auto fileContentAfter = TestCommon::readFile(mManager->path() + "/README.md");
+
+    QCOMPARE(fileContentBefore, fileContentAfter);
 }
 
 #include "moc_stashtest.cpp"

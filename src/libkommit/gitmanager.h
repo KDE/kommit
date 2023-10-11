@@ -34,6 +34,7 @@ class FetchObserver;
 class CloneObserver;
 class PushObserver;
 class Reference;
+class AbstractReference;
 
 enum LoadFlag {
     LoadNone = 0,
@@ -137,6 +138,9 @@ public:
     Q_REQUIRED_RESULT bool removeBranch(const QString &branchName) const;
     bool merge(const QString &branchName) const;
 
+    // commits
+    Commit *commitByHash(const QString &hash) const;
+
     // tags
     void forEachTags(std::function<void(Tag *)> cb);
     Q_REQUIRED_RESULT QStringList tags() const;
@@ -195,8 +199,9 @@ public:
     Q_REQUIRED_RESULT QString diff(const QString &from, const QString &to) const;
     Q_REQUIRED_RESULT QList<FileStatus> diffBranch(const QString &from) const;
     Q_REQUIRED_RESULT QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
+    Q_REQUIRED_RESULT QList<FileStatus> diff(AbstractReference *from, AbstractReference *to) const;
 
-    void forEachCommits(std::function<void(Commit)> callback) const;
+    void forEachCommits(std::function<void(Commit *)> callback, const QString &branchName) const;
 
     // models
     void forEachSubmodules(std::function<void(Submodule *)> callback);

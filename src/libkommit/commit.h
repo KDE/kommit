@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
+
 #include "gitgraphlane.h"
 #include "libkommit_export.h"
 #include "reference.h"
@@ -20,6 +21,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class Tree;
 class LIBKOMMIT_EXPORT Commit
 {
 public:
@@ -45,6 +47,12 @@ public:
 
     Q_REQUIRED_RESULT QSharedPointer<Reference> reference() const;
 
+    Tree *tree() const;
+
+    Q_REQUIRED_RESULT git_commit *gitCommit() const;
+
+    Q_REQUIRED_RESULT QDateTime commitTime() const;
+
 private:
     git_commit *mGitCommit{nullptr};
     QSharedPointer<Signature> mAuthor;
@@ -61,6 +69,7 @@ private:
     QVector<GraphLane> mLanes;
     QStringList mChilds;
     QSharedPointer<Reference> mReference;
+    QDateTime mCommitTime;
 
     friend class LogList;
     friend class Manager;

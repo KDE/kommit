@@ -6,6 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commit.h"
 
+#include <QTimeZone>
+
+#include "tree.h"
 #include "types.h"
 #include <git2/commit.h>
 #include <git2/revparse.h>
@@ -37,6 +40,11 @@ Commit::Commit(git_commit *commit)
         auto pid = git_commit_parent_id(commit, i);
         mParentHash << convertToString(pid, 20);
     }
+
+    auto time = git_commit_time(commit);
+    auto timeOffset = git_commit_time_offset(commit);
+
+    mCommitTime = QDateTime::fromSecsSinceEpoch(time, QTimeZone{timeOffset});
 }
 
 Commit::~Commit()
@@ -77,6 +85,24 @@ const QString &Commit::commitShortHash() const
 QSharedPointer<Reference> Commit::reference() const
 {
     return mReference;
+}
+
+Tree *Commit::tree() const
+{
+    git_tree *tree;
+    if (git_commit_tree(&tree, mGitCommit))
+        return nullptr;
+    return new Tree{tree};
+}
+
+git_commit *Commit::gitCommit() const
+{
+    return mGitCommit;
+}
+
+QDateTime Commit::commitTime() const
+{
+    return mCommitTime;
 }
 
 QSharedPointer<Signature> Commit::author() const

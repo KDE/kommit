@@ -61,6 +61,8 @@ DolphinPlugin::DolphinPlugin(QObject *parent, const QList<QVariant> &args)
     gitMenu->addAction(actionIgnoreFile);
     gitMenu->addAction(actionCleanup);
     gitMenu->addAction(actionRemove);
+    gitMenu->addAction(actionBlame);
+    gitMenu->addAction(actionHistory);
     mMainActionGit->setMenu(gitMenu);
 
     auto nonGitMenu = new QMenu;

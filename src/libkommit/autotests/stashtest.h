@@ -27,6 +27,7 @@ private Q_SLOTS:
     void makeACommit();
     void touchAFile();
     void makeStash();
+    void applyStash();
 
 private:
     Git::Manager *mManager;

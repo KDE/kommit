@@ -8,13 +8,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QString>
 
+#include "libkommit_export.h"
+
 #include "git2/types.h"
 
 namespace Git
 {
 
 class Note;
-class Branch
+class LIBKOMMIT_EXPORT Branch
 {
 public:
     Branch(git_reference *branch);
@@ -27,12 +29,15 @@ public:
 
     Note *note() const;
 
+    Q_REQUIRED_RESULT bool isHead() const;
+
 private:
     git_reference *mBranch;
     QString mName;
     QString mRefName;
     QString mUpStreamName;
     QString mRemoteName;
+    bool mIsHead{false};
 };
 
 }
