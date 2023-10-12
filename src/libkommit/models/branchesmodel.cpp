@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "branchesmodel.h"
-#include "branch.h"
+#include "entities/branch.h"
 #include "gitmanager.h"
 
 #include <KLocalizedString>
@@ -75,12 +75,12 @@ QVariant BranchesModel::headerData(int section, Qt::Orientation orientation, int
     return {};
 }
 
-BranchesModel::BranchData *BranchesModel::fromIndex(const QModelIndex &index) const
+Branch *BranchesModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
 
-    return nullptr; // mData.at(index.row());
+    return mData.at(index.row());
 }
 
 void BranchesModel::fill()

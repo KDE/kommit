@@ -5,9 +5,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "remotesmodel.h"
-#include "branch.h"
+#include "entities/branch.h"
+#include "entities/remote.h"
 #include "gitmanager.h"
-#include "gitremote.h"
 #include "qdebug.h"
 #include "types.h"
 

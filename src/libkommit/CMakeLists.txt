@@ -4,19 +4,19 @@ target_sources(libkommit PRIVATE
     gitglobal.cpp
     gitloglist.cpp
     gitsubmodule.cpp
-    stash.cpp
     filestatus.cpp
     gitgraphlane.cpp
     gitmanager.cpp
     blamedata.cpp
-    gitfile.cpp
-    commit.cpp
-    gitremote.cpp
-    gittag.cpp
-    branch.h branch.cpp
     types.h types.cpp
-    signature.h signature.cpp
-
+    gitglobal.h
+    gitloglist.h
+    gitsubmodule.h
+    filestatus.h
+    gitgraphlane.h
+    gitmanager.h
+    blamedata.h
+    abstractreference.h abstractreference.cpp
 
     models/abstractgititemsmodel.cpp
     models/logsmodel.cpp
@@ -41,23 +41,26 @@ target_sources(libkommit PRIVATE
     commands/parameterescommand.cpp
     commands/commandclean.cpp
 
-    gitglobal.h
-    gitloglist.h
-    gitsubmodule.h
-    stash.h
-    filestatus.h
-    gitgraphlane.h
-    gitmanager.h
-    blamedata.h
-    gitfile.h
-    commit.h
-    gitremote.h
-    gittag.h
-    note.h note.cpp
-    signature.h signature.cpp
-    reference.h reference.cpp
-    abstractreference.h abstractreference.cpp
-    tree.h tree.cpp
+    entities/branch.cpp
+    entities/branch.h
+    entities/commit.cpp
+    entities/commit.h
+    entities/file.cpp
+    entities/file.h
+    entities/note.cpp
+    entities/note.h
+    entities/reference.cpp
+    entities/reference.h
+    entities/remote.cpp
+    entities/remote.h
+    entities/signature.cpp
+    entities/signature.h
+    entities/stash.cpp
+    entities/stash.h
+    entities/tag.cpp
+    entities/tag.h
+    entities/tree.cpp
+    entities/tree.h
 
     models/abstractgititemsmodel.h
     models/logsmodel.h

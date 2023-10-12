@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "gitloglist.h"
-#include "commit.h"
+#include "entities/commit.h"
 #include "gitgraphlane.h"
 #include "gitmanager.h"
 

@@ -6,10 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "logdetailswidget.h"
 #include "KommitSettings.h"
-#include "commit.h"
-#include "gitmanager.h"
 #include "kommit_appdebug.h"
-#include "models/logsmodel.h"
+
+#include <entities/commit.h>
+#include <gitmanager.h>
+#include <models/logsmodel.h>
 
 #include <KLocalizedString>
 

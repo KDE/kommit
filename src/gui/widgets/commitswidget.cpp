@@ -8,12 +8,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actions/branchactions.h"
 #include "actions/commitactions.h"
-#include "commit.h"
 #include "core/commitsfiltermodel.h"
 #include "diffwindow.h"
-#include "gitmanager.h"
-#include "models/logsmodel.h"
-#include "models/treemodel.h"
+
+#include <entities/commit.h>
+#include <gitmanager.h>
+#include <models/logsmodel.h>
+#include <models/treemodel.h>
 
 #include <KommitSettings.h>
 

@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "stash.h"
 #include "ui_stasheswidget.h"
 #include "widgetbase.h"
+#include <entities/stash.h>
 
 namespace Git
 {

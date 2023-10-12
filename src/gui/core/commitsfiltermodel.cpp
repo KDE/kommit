@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commitsfiltermodel.h"
 
-#include "commit.h"
+#include "entities/commit.h"
 #include "models/logsmodel.h"
 
 CommitsFilterModel::CommitsFilterModel(Git::LogsModel *sourceModel, QObject *parent)

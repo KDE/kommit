@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "logsmodel.h"
 #include "authorsmodel.h"
-#include "commit.h"
+#include "entities/commit.h"
 #include "gitmanager.h"
 #include "qdebug.h"
 

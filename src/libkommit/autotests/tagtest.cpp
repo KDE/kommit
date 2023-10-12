@@ -5,10 +5,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tagtest.h"
-#include "gitmanager.h"
-#include "gittag.h"
 #include "testcommon.h"
+
 #include <QTest>
+#include <entities/tag.h>
+#include <gitmanager.h>
 
 QTEST_GUILESS_MAIN(TagTest)
 

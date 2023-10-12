@@ -6,11 +6,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "historyviewwidget.h"
 #include "actions/commitactions.h"
-#include "commit.h"
 #include "diffwindow.h"
-#include "gitmanager.h"
 #include "models/logsmodel.h"
 #include "widgets/graphpainter.h"
+
+#include <entities/commit.h>
+#include <gitmanager.h>
 
 HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)

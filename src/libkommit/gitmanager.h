@@ -5,16 +5,17 @@
 
 #include "blamedata.h"
 #include "commands/abstractcommand.h"
+#include "entities/file.h"
+#include "entities/remote.h"
+#include "entities/stash.h"
 #include "filestatus.h"
-#include "git2.h"
-#include "gitfile.h"
 #include "gitglobal.h"
-#include "gitremote.h"
 #include "libkommit_export.h"
-#include "stash.h"
 
 #include <QObject>
 #include <QString>
+
+#include <git2.h>
 
 namespace Git
 {
@@ -99,8 +100,6 @@ class LIBKOMMIT_EXPORT Manager : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged)
-
 public:
     enum class BranchType { LocalBranch, RemoteBranch, AllBranches };
     enum ConfigType { ConfigGlobal, ConfigLocal };
@@ -118,10 +117,10 @@ public:
     bool clone(const QString &url, const QString &localPath, CloneObserver *observer = nullptr);
     void commit(const QString &message) const;
     void push(PushObserver *observer = nullptr) const;
+    bool open(const QString &newPath);
 
     // properties
     Q_REQUIRED_RESULT const QString &path() const;
-    void setPath(const QString &newPath);
     Q_REQUIRED_RESULT bool isValid() const;
     Q_REQUIRED_RESULT bool isMerging() const;
 

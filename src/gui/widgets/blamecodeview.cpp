@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "blamecodeview.h"
 
-#include "commit.h"
+#include <entities/commit.h>
 
 #include <KLocalizedString>
 #include <KSyntaxHighlighting/SyntaxHighlighter>

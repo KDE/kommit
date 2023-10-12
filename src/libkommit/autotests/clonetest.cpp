@@ -5,9 +5,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "clonetest.h"
-#include "commit.h"
 #include "testcommon.h"
-#include "tree.h"
+#include <entities/commit.h>
+#include <entities/tree.h>
 
 #include <QTest>
 #include <gitmanager.h>
@@ -30,13 +30,11 @@ void CloneTest::initTestCase()
 void CloneTest::clone()
 {
     auto path = TestCommon::getTempPath();
-    //    auto ok = mManager->clone("https://invent.kde.org/sdk/kommit.git", path);
-    //    QVERIFY(ok);
-    mManager->setPath("/doc/dev/qt/kommit");
-    QVERIFY(mManager->isValid());
+    auto ok = mManager->clone("https://invent.kde.org/sdk/kommit.git", path);
+    QVERIFY(ok);
 
     path.append("/");
-    //    QCOMPARE(path, mManager->path());
+    QCOMPARE(path, mManager->path());
 
     auto tags = mManager->tags();
     QVERIFY(tags.contains("v1.0.1"));

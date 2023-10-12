@@ -59,14 +59,18 @@ void ChangedFilesModel::reload()
 
     auto files = mGit->changedFiles();
     for (auto i = files.begin(); i != files.end(); ++i) {
+        if (i.value() == Git::ChangeStatus::Ignored)
+            continue;
+
+        qDebug() << i.key() << (int)i.value();
         Row d;
         d.filePath = i.key();
         d.status = i.value();
-        d.checked = false;
+        d.checked = true;
         createIcon(d.status);
         mData << d;
     }
-    const auto buffer = QString(mGit->runGit({QStringLiteral("status"), QStringLiteral("--short")})).split(QLatin1Char('\n'));
+    //    const auto buffer = QString(mGit->runGit({QStringLiteral("status"), QStringLiteral("--short")})).split(QLatin1Char('\n'));
     //    mData.reserve(buffer.size());
 
     //    for (const auto &line : buffer) {

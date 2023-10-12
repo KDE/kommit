@@ -3,10 +3,10 @@
 
 #include "gitmanager.h"
 
-#include "branch.h"
-#include "commit.h"
+#include "entities/branch.h"
+#include "entities/commit.h"
+#include "entities/tag.h"
 #include "gitsubmodule.h"
-#include "gittag.h"
 #include "models/authorsmodel.h"
 #include "models/branchesmodel.h"
 #include "models/logsmodel.h"
@@ -91,10 +91,10 @@ const QString &Manager::path() const
     return mPath;
 }
 
-void Manager::setPath(const QString &newPath)
+bool Manager::open(const QString &newPath)
 {
     if (mPath == newPath)
-        return;
+        return false;
 
     BEGIN
     STEP git_repository_open_ext(&mRepo, newPath.toUtf8().data(), 0, NULL);
@@ -110,6 +110,8 @@ void Manager::setPath(const QString &newPath)
     }
 
     Q_EMIT pathChanged();
+
+    return !err;
 }
 
 QMap<QString, ChangeStatus> Manager::changedFiles(const QString &hash) const
@@ -816,7 +818,7 @@ Manager::Manager(const QString &path)
     : Manager()
 {
     git_libgit2_init();
-    setPath(path);
+    (void)open(path);
 }
 
 Manager *Manager::instance()
@@ -1013,6 +1015,11 @@ QString Manager::fileContent(const QString &place, const QString &fileName) cons
 
     STEP git_tree_entry_bypath(&entry, tree, fileName.toLocal8Bit().constData());
     STEP git_blob_lookup(&blob, mRepo, git_tree_entry_id(entry));
+
+    PRINT_ERROR;
+
+    if (err)
+        return {};
 
     QString ch = (char *)git_blob_rawcontent(blob);
 
@@ -1399,7 +1406,7 @@ QMap<QString, ChangeStatus> Manager::changedFiles() const
     auto cb = [](const char *path, unsigned int status_flags, void *payload) -> int {
         auto w = reinterpret_cast<wrapper *>(payload);
 
-        ChangeStatus status;
+        auto status = ChangeStatus::Unknown;
         if (status_flags & GIT_STATUS_WT_NEW || status_flags & GIT_STATUS_INDEX_NEW)
             status = ChangeStatus::Added;
         else if (status_flags & GIT_STATUS_WT_MODIFIED)
@@ -1408,13 +1415,12 @@ QMap<QString, ChangeStatus> Manager::changedFiles() const
             status = ChangeStatus::Removed;
         else if (status_flags & GIT_STATUS_WT_RENAMED)
             status = ChangeStatus::Renamed;
-        //        else if (status_flags & GIT_STATUS_CONFLICTED)
-        //            status = ChangeStatus::UpdatedButInmerged;
+        else if (status_flags & GIT_STATUS_IGNORED)
+            status = ChangeStatus::Ignored;
         else
             status = ChangeStatus::Unknown;
         //        if (status_flags & GIT_STATUS_INDEX_TYPECHANGE) status = ChangeStatus::ty ;
 
-        qDebug() << QString{path} << (int)status << status_flags;
         w->files.insert(QString{path}, status);
         return 0;
     };
