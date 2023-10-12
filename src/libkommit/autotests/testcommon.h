@@ -19,4 +19,5 @@ bool touch(const QString &fileName);
 QString readFile(const QString &fileName);
 QString getTempPath();
 bool cleanPath(Git::Manager *manager);
+bool makePath(Git::Manager *manager, const QString &path);
 }

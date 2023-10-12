@@ -31,6 +31,8 @@ public:
     Q_REQUIRED_RESULT const QString &url() const;
     void setUrl(const QString &newUrl);
 
+    Q_REQUIRED_RESULT QString name() const;
+
 private:
     QString mName;
     QString mUrl;

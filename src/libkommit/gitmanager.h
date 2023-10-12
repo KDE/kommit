@@ -36,6 +36,7 @@ class CloneObserver;
 class PushObserver;
 class Reference;
 class AbstractReference;
+class AddSubmoduleOptions;
 
 enum LoadFlag {
     LoadNone = 0,
@@ -103,6 +104,9 @@ class LIBKOMMIT_EXPORT Manager : public QObject
 public:
     enum class BranchType { LocalBranch, RemoteBranch, AllBranches };
     enum ConfigType { ConfigGlobal, ConfigLocal };
+
+    template<class T>
+    using PointerList = QList<QSharedPointer<T>>;
 
     Manager();
     explicit Manager(const QString &path);
@@ -202,8 +206,12 @@ public:
 
     void forEachCommits(std::function<void(Commit *)> callback, const QString &branchName) const;
 
-    // models
+    // submodules
     void forEachSubmodules(std::function<void(Submodule *)> callback);
+    bool addSubmodule(const AddSubmoduleOptions &options) const;
+    Q_REQUIRED_RESULT PointerList<Submodule> submodules() const;
+
+    // models
     Q_REQUIRED_RESULT RemotesModel *remotesModel() const;
     Q_REQUIRED_RESULT SubmodulesModel *submodulesModel() const;
     Q_REQUIRED_RESULT BranchesModel *branchesModel() const;

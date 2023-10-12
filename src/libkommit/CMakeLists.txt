@@ -3,7 +3,6 @@ add_library(libkommit SHARED)
 target_sources(libkommit PRIVATE
     gitglobal.cpp
     gitloglist.cpp
-    gitsubmodule.cpp
     filestatus.cpp
     gitgraphlane.cpp
     gitmanager.cpp
@@ -11,7 +10,6 @@ target_sources(libkommit PRIVATE
     types.h types.cpp
     gitglobal.h
     gitloglist.h
-    gitsubmodule.h
     filestatus.h
     gitgraphlane.h
     gitmanager.h
@@ -61,6 +59,7 @@ target_sources(libkommit PRIVATE
     entities/tag.h
     entities/tree.cpp
     entities/tree.h
+    entities/submodule.h entities/submodule.cpp
 
     models/abstractgititemsmodel.h
     models/logsmodel.h
@@ -89,6 +88,8 @@ target_sources(libkommit PRIVATE
     observers/cloneobserver.h observers/cloneobserver.cpp
     observers/checkoutobserver.h observers/checkoutobserver.cpp
     observers/pushobserver.h observers/pushobserver.cpp
+
+    options/addsubmoduleoptions.h options/addsubmoduleoptions.cpp
 )
 
 generate_export_header(libkommit BASE_NAME libkommit)

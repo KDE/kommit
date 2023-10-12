@@ -5,8 +5,8 @@
 
 #include "entities/branch.h"
 #include "entities/commit.h"
+#include "entities/submodule.h"
 #include "entities/tag.h"
-#include "gitsubmodule.h"
 #include "models/authorsmodel.h"
 #include "models/branchesmodel.h"
 #include "models/logsmodel.h"
@@ -17,6 +17,7 @@
 #include "observers/cloneobserver.h"
 #include "observers/fetchobserver.h"
 #include "observers/pushobserver.h"
+#include "options/addsubmoduleoptions.h"
 #include "types.h"
 
 #include "libkommit_debug.h"
@@ -31,6 +32,7 @@
 #include <git2/errors.h>
 #include <git2/refs.h>
 #include <git2/stash.h>
+#include <git2/submodule.h>
 #include <git2/tag.h>
 
 #define BEGIN int err = 0;
@@ -64,6 +66,8 @@
         if (err)                                                                                                                                               \
             return;                                                                                                                                            \
     } while (false)
+
+#define toConstChars(s) s.toLocal8Bit().constData()
 
 namespace Git
 {
@@ -512,6 +516,42 @@ void Manager::forEachSubmodules(std::function<void(Submodule *)> callback)
     wrapper w;
     w.callback = callback;
     git_submodule_foreach(mRepo, cb, &w);
+}
+
+bool Manager::addSubmodule(const AddSubmoduleOptions &options) const
+{
+    git_submodule *submodule{nullptr};
+    git_repository *submoduleRepo;
+    git_submodule_update_options opts = GIT_SUBMODULE_UPDATE_OPTIONS_INIT;
+
+    BEGIN STEP git_submodule_add_setup(&submodule, mRepo, toConstChars(options.url), toConstChars(options.path), 1);
+    //    STEP git_submodule_add_to_index(submodule, 1);
+    STEP git_submodule_clone(&submoduleRepo, submodule, &opts);
+    STEP git_submodule_add_finalize(submodule);
+    git_submodule_free(submodule);
+    PRINT_ERROR;
+
+    return !err;
+}
+
+Manager::PointerList<Submodule> Manager::submodules() const
+{
+    PointerList<Submodule> list;
+
+    auto cb = [](git_submodule *sm, const char *name, void *payload) -> int {
+        Q_UNUSED(name);
+
+        auto l = reinterpret_cast<PointerList<Submodule> *>(payload);
+
+        QSharedPointer<Submodule> submodule{new Submodule{sm}};
+        l->append(submodule);
+
+        return 0;
+    };
+
+    git_submodule_foreach(mRepo, cb, &list);
+
+    return list;
 }
 
 QString Manager::config(const QString &name, ConfigType type) const

@@ -50,4 +50,10 @@ QString readFile(const QString &fileName)
     f.close();
     return buffer;
 }
+
+bool makePath(Git::Manager *manager, const QString &path)
+{
+    QDir d{};
+    return d.mkpath(manager->path() + "/" + path);
+}
 }
