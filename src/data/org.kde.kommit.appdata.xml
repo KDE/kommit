@@ -40,6 +40,7 @@
   <summary xml:lang="ka">გრაფიკული კლიენტი Git-სთვის</summary>
   <summary xml:lang="ko">Git GUI 클라이언트</summary>
   <summary xml:lang="nl">Git-client GUI</summary>
+  <summary xml:lang="pl">Interfejs klienta Git</summary>
   <summary xml:lang="pt">Cliente gráfico do Git</summary>
   <summary xml:lang="sl">Grafični odjemalec Git</summary>
   <summary xml:lang="sv">Git grafisk användargränssnittsklient</summary>
@@ -62,6 +63,7 @@
     <p xml:lang="ka">გრაფიკული კლიენტი Git-სთვის</p>
     <p xml:lang="ko">Git GUI 클라이언트</p>
     <p xml:lang="nl">Git-client GUI</p>
+    <p xml:lang="pl">Interfejs klienta Git</p>
     <p xml:lang="pt">Cliente gráfico do Git</p>
     <p xml:lang="sl">Grafični odjemalec Git</p>
     <p xml:lang="sv">Git grafisk användargränssnittsklient</p>
