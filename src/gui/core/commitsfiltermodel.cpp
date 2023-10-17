@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commitsfiltermodel.h"
 
-#include "gitlog.h"
+#include "entities/commit.h"
 #include "models/logsmodel.h"
 
 CommitsFilterModel::CommitsFilterModel(Git::LogsModel *sourceModel, QObject *parent)
@@ -37,7 +37,7 @@ bool CommitsFilterModel::filterAcceptsRow(int source_row, const QModelIndex &sou
     const auto &log = mSourceModel->at(source_row);
 
     return log->message().contains(mFilterTerm) || log->commitHash().contains(mFilterTerm) || log->body().contains(mFilterTerm)
-        || log->authorEmail().contains(mFilterTerm) || log->authorName().contains(mFilterTerm);
+        || log->author()->email().contains(mFilterTerm) || log->author()->name().contains(mFilterTerm);
 }
 
 #include "moc_commitsfiltermodel.cpp"

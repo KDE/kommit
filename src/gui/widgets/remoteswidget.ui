@@ -6,15 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>512</width>
-    <height>445</height>
+    <width>1032</width>
+    <height>612</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Remotes</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="git-remote"/>
+   <iconset theme="git-remote">
+    <normaloff>.</normaloff>.</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -165,12 +166,12 @@
          </column>
          <column>
           <property name="text">
-           <string>Push to</string>
+           <string>Ref name</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Pull from</string>
+           <string>Upstream</string>
           </property>
          </column>
          <column>

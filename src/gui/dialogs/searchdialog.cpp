@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <QStandardItemModel>
 #include <QtConcurrent>
-#include <gitlog.h>
+#include <entities/commit.h>
 #include <gitmanager.h>
 
 SearchDialog::SearchDialog(const QString &path, Git::Manager *git, QWidget *parent)
@@ -84,7 +84,7 @@ void SearchDialog::slotTreeViewDoubleClicked(const QModelIndex &index)
 void SearchDialog::beginSearch()
 {
     if (radioButtonSearchBranches->isChecked()) {
-        const auto branchesList = mGit->branches();
+        const auto branchesList = mGit->branchesNames(Git::Manager::BranchType::LocalBranch);
         mProgress.total = branchesList.size();
         for (const auto &branch : branchesList) {
             searchOnPlace(branch, QString());

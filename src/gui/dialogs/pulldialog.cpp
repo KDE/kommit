@@ -17,7 +17,7 @@ PullDialog::PullDialog(Git::Manager *git, QWidget *parent)
     setupUi(this);
 
     comboBoxRemote->addItems(git->remotes());
-    comboBoxBranch->addItems(git->branches());
+    comboBoxBranch->addItems(git->branchesNames(Git::Manager::BranchType::LocalBranch));
 
     comboBoxBranch->setCurrentText(git->currentBranch());
     connect(buttonBox->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &PullDialog::slotAccepted);

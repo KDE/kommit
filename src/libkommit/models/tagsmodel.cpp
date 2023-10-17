@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "tagsmodel.h"
 #include "authorsmodel.h"
+#include "entities/tag.h"
 #include "gitmanager.h"
-#include "gittag.h"
 
 #include <KLocalizedString>
 
@@ -44,9 +44,9 @@ QVariant TagsModel::data(const QModelIndex &index, int role) const
     case Subject:
         return tag->message();
     case Tagger:
-        return tag->taggerName() + QStringLiteral(" ") + tag->taggerEmail();
+        return QStringLiteral("%1 <%2>").arg(tag->taggerName(), tag->taggerEmail());
     case Committer:
-        return tag->commiterName() + QStringLiteral(" ") + tag->commiterEmail();
+        return tag->createTime();
     }
     return {};
 }
@@ -65,7 +65,7 @@ QVariant TagsModel::headerData(int section, Qt::Orientation orientation, int rol
         case Tagger:
             return i18n("Tagger");
         case Committer:
-            return i18n("Committer");
+            return i18n("Create time");
         }
 
     return {};
@@ -81,43 +81,14 @@ Tag *TagsModel::fromIndex(const QModelIndex &index) const
 
 void TagsModel::fill()
 {
-    // TODO: remove < and > from email address
-    // TODO: ass objecttype
     qDeleteAll(mData);
     mData.clear();
 
-    const auto tagsNames = mGit->readAllNonEmptyOutput({QStringLiteral("--no-pager"), QStringLiteral("tag"), QStringLiteral("--list")});
-
-    for (const auto &tagName : tagsNames) {
-        auto tag = new Tag;
+    mGit->forEachTags([this](Tag *tag) {
         mData.append(tag);
-        tag->setName(tagName);
-        auto message = mGit->readAllNonEmptyOutput({QStringLiteral("tag"), QStringLiteral("-n99"), tagName, QStringLiteral("--format=%(subject)")}).join('\n');
-        tag->setMessage(message);
-
-        auto l = mGit->runGit({QStringLiteral("--no-pager"),
-                               QStringLiteral("tag"),
-                               QStringLiteral("-n99"),
-                               tagName,
-                               QStringLiteral("--format=%(taggername)\r%(taggeremail)\r%(committername)\r%(committeremail)\r%(tag)")});
-
-        auto parts = l.split('\r');
-
-        if (parts.size() < 4)
-            continue;
-        tag->setTaggerName(parts.at(0).trimmed());
-        tag->setTaggerEmail(parts.at(1).trimmed());
-        tag->setCommiterName(parts.at(2).trimmed());
-        tag->setCommiterEmail(parts.at(3).trimmed());
-
-        if (tag->taggerName().isEmpty())
-            tag->setTaggerName(tag->commiterName());
-        if (tag->taggerEmail().isEmpty())
-            tag->setTaggerEmail(tag->commiterEmail());
-
         if (mGit->authorsModel())
             mGit->authorsModel()->findOrCreate(tag->taggerName(), tag->taggerEmail(), QDateTime(), AuthorsModel::Tag);
-    }
+    });
 }
 
 } // namespace Git

@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "graphpainter.h"
 
-#include "gitlog.h"
+#include "entities/commit.h"
 #include "models/logsmodel.h"
 #include <QPainter>
 #include <QPainterPath>
@@ -124,9 +124,9 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
     QRect rc(log->lanes().size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(log->subject()), HEIGHT);
 
     painter->setPen(option.palette.color(QPalette::Text));
-    if (!log->refLog().isEmpty()) {
+    if (!log->reference().isNull()) {
         const QString refStr{QStringLiteral("ref: ")};
-        const auto ref = refStr + log->refLog();
+        const auto ref = refStr + log->reference()->shorthand();
         QRect rcBox(log->lanes().size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(ref) + 8, painter->fontMetrics().height() + 4);
         rcBox.moveTop((HEIGHT - rcBox.height()) / 2);
 

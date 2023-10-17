@@ -16,7 +16,7 @@ struct BlameDataRow {
     QString commitHash;
     QString code;
 
-    Log *log = nullptr;
+    Commit *log = nullptr;
 };
 bool operator==(const BlameDataRow &l, const BlameDataRow &r);
 bool operator!=(const BlameDataRow &l, const BlameDataRow &r);

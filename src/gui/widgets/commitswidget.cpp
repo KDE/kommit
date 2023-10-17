@@ -10,10 +10,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "actions/commitactions.h"
 #include "core/commitsfiltermodel.h"
 #include "diffwindow.h"
-#include "gitlog.h"
-#include "gitmanager.h"
-#include "models/logsmodel.h"
-#include "models/treemodel.h"
+
+#include <entities/commit.h>
+#include <gitmanager.h>
+#include <models/logsmodel.h>
+#include <models/treemodel.h>
 
 #include <KommitSettings.h>
 
@@ -27,7 +28,7 @@ CommitsWidget::CommitsWidget(Git::Manager *git, AppWindow *parent)
 void CommitsWidget::reload()
 {
     mRepoModel->clear();
-    const auto branches = git()->branches();
+    const auto branches = git()->branchesNames(Git::Manager::BranchType::AllBranches);
     mRepoModel->addData(branches);
 
     if (branches.contains(QStringLiteral("master")))

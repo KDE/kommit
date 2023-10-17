@@ -35,6 +35,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "widgets/stasheswidget.h"
 #include "widgets/submoduleswidget.h"
 #include "widgets/tagswidget.h"
+#include <KommitSettings.h>
 
 // KF headers
 #include <KActionCollection>
@@ -84,7 +85,7 @@ AppWindow::AppWindow()
     if (KommitSettings::openLastRepo()) {
         QSettings s;
         auto p = s.value(QStringLiteral("last_repo")).toString();
-        mGit->setPath(p);
+        mGit->open(p);
         initRecentFiles(p);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         QtConcurrent::run(this, &AppWindow::loadRemotes);
@@ -97,7 +98,7 @@ AppWindow::AppWindow()
 AppWindow::AppWindow(const QString &path)
 {
     init();
-    mGit->setPath(path);
+    mGit->open(path);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QtConcurrent::run(this, &AppWindow::loadRemotes);
 #else
@@ -256,7 +257,7 @@ void AppWindow::initRepo()
             return;
         }
         mGit->init(d.path());
-        mGit->setPath(d.path());
+        mGit->open(d.path());
     }
 }
 
@@ -265,7 +266,7 @@ void AppWindow::openRepo()
     auto dir = QFileDialog::getExistingDirectory(this, i18n("Open repository"));
 
     if (dir != QString()) {
-        mGit->setPath(dir);
+        mGit->open(dir);
         initRecentFiles(dir);
     }
 }
@@ -277,7 +278,7 @@ void AppWindow::recentActionTriggered()
         return;
 
     auto p = action->data().toString();
-    mGit->setPath(p);
+    mGit->open(p);
 
     initRecentFiles(p);
 

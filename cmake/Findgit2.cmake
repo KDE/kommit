@@ -24,3 +24,4 @@ endif()
 mark_as_advanced(
   GIT2_INCLUDE_PATH
   GIT2_LIBRARY
+)

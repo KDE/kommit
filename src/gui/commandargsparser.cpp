@@ -27,9 +27,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/switchbranchdialog.h"
 #include "dialogs/taginfodialog.h"
 #include "diffwindow.h"
-#include "gitfile.h"
-#include "gitmanager.h"
 #include "mergewindow.h"
+
+#include <entities/file.h>
+#include <gitmanager.h>
 
 #include "kommit_appdebug.h"
 #include <QApplication>
@@ -49,9 +50,9 @@ constexpr int InvalidPath = 1;
     do {                                                                                                                                                       \
         QFileInfo fi(path);                                                                                                                                    \
         if (fi.isFile())                                                                                                                                       \
-            git->setPath(fi.absolutePath());                                                                                                                   \
+            git->open(fi.absolutePath());                                                                                                                      \
         else                                                                                                                                                   \
-            git->setPath(path);                                                                                                                                \
+            git->open(path);                                                                                                                                   \
         if (!git->isValid()) {                                                                                                                                 \
             KMessageBox::error(nullptr, i18n("The path is not git repo: %1", path));                                                                           \
             return 1;                                                                                                                                          \
@@ -249,7 +250,7 @@ ArgParserReturn CommandArgsParser::init(const QString &path)
 
 ArgParserReturn CommandArgsParser::pull(const QString &path)
 {
-    git->setPath(path);
+    git->open(path);
     PullDialog d(git);
     d.exec();
     return 0;
@@ -257,7 +258,7 @@ ArgParserReturn CommandArgsParser::pull(const QString &path)
 
 ArgParserReturn CommandArgsParser::fetch(const QString &path)
 {
-    git->setPath(path);
+    git->open(path);
     FetchDialog d(git);
     d.exec();
     return 0;
@@ -274,7 +275,7 @@ ArgParserReturn CommandArgsParser::push(const QString &path)
 
 ArgParserReturn CommandArgsParser::merge(const QString &path)
 {
-    git->setPath(path);
+    git->open(path);
 
     if (!git->isValid())
         return Errors::InvalidPath;
@@ -294,7 +295,7 @@ ArgParserReturn CommandArgsParser::merge(const QString &path)
 ArgParserReturn CommandArgsParser::changes()
 {
     QDir dir;
-    git->setPath(dir.currentPath());
+    git->open(dir.currentPath());
     ChangedFilesDialog d(git);
     d.exec();
     return 0;
@@ -330,19 +331,20 @@ ArgParserReturn CommandArgsParser::diff()
 
 ArgParserReturn CommandArgsParser::diff(const QString &file)
 {
-    QFileInfo fi(file);
+    QFileInfo fi{file};
 
     if (fi.isFile()) {
-        git->setPath(fi.absolutePath());
+        qDebug() << Q_FUNC_INFO << file;
+        git->open(fi.absolutePath());
         const QDir dir{git->path()};
         const Git::File headFile{git, git->currentBranch(), dir.relativeFilePath(file)};
         const Git::File changedFile{file};
-        auto d = new DiffWindow(headFile, changedFile);
+        auto d = new DiffWindow{headFile, changedFile};
         d->exec();
         return ExecApp;
     } else if (fi.isDir()) {
-        git->setPath(fi.absoluteFilePath());
-        auto d = new DiffWindow(git);
+        git->open(fi.absoluteFilePath());
+        auto d = new DiffWindow{git};
         d->exec();
         return ExecApp;
     }
@@ -376,7 +378,7 @@ ArgParserReturn CommandArgsParser::diff(const QString &path, const QString &file
 {
     if (file1.count(QLatin1Char(':')) != 1 || file2.count(QLatin1Char(':')) != 1)
         return 1;
-    git->setPath(path);
+    git->open(path);
     if (!git->isValid())
         return 1;
     const auto parts1 = file1.split(QLatin1Char(':'));
@@ -397,7 +399,7 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
     }
 
     git->setLoadFlags(Git::LoadLogs);
-    git->setPath(fi.absolutePath());
+    git->open(fi.absolutePath());
 
     const Git::File f(git, git->currentBranch(), file);
     FileBlameDialog d(git, f);
@@ -407,7 +409,7 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
 
 ArgParserReturn CommandArgsParser::history(const QString &file)
 {
-    git->setPath(file.mid(0, file.lastIndexOf(QLatin1Char('/'))));
+    git->open(file.mid(0, file.lastIndexOf(QLatin1Char('/'))));
     auto fileCopy = file;
     fileCopy = file.mid(git->path().size() + 1);
     FileHistoryDialog d(git, fileCopy);
@@ -445,9 +447,9 @@ ArgParserReturn CommandArgsParser::ignore(const QString &path)
         return 1;
 
     if (fi.isDir())
-        git->setPath(path);
+        git->open(path);
     else
-        git->setPath(fi.absolutePath());
+        git->open(fi.absolutePath());
 
     if (!git->isValid())
         return 1;

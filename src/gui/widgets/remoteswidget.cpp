@@ -6,8 +6,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "remoteswidget.h"
 #include "actions/remotesactions.h"
-#include "gitmanager.h"
 #include "models/remotesmodel.h"
+
+#include <entities/branch.h>
+#include <gitmanager.h>
 
 RemotesWidget::RemotesWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
@@ -35,20 +37,29 @@ void RemotesWidget::slotListViewItemActivated(const QModelIndex &index)
     if (!remote)
         return;
 
-    mActions->setRemoteName(remote->name);
-    labelRemoteName->setText(remote->name);
-    labelFetchUrl->setText(remote->fetchUrl);
-    labelPushUrl->setText(remote->pushUrl);
-    labelDefaultBranch->setText(remote->headBranch);
+    mActions->setRemoteName(remote->name());
+    labelRemoteName->setText(remote->name());
+    labelFetchUrl->setText(remote->fetchUrl());
+    labelPushUrl->setText(remote->pushUrl());
+    labelDefaultBranch->setText(remote->defaultBranch());
     treeWidget->clear();
+    //    for (auto &ref : remote->refSpecList()) {
+    //        auto item = new QTreeWidgetItem(treeWidget);
 
-    for (const auto &rb : std::as_const(remote->branches)) {
+    //        item->setText(0, ref->name());
+    //        item->setText(1, ref->source());
+    //        item->setText(2, ref->destionation());
+    //        item->setText(3, ref->direction() == Git::RefSpec::Direction::DirectionFetch ? "Fetch" : "Push");
+
+    //        treeWidget->addTopLevelItem(item);
+    //    }
+    for (const auto &rb : remote->branches()) {
         auto item = new QTreeWidgetItem(treeWidget);
 
-        item->setText(0, rb.name);
-        item->setText(1, rb.remotePushBranch);
-        item->setText(2, rb.remotePullBranch);
-        item->setText(3, rb.statusText());
+        item->setText(0, rb->name());
+        item->setText(1, rb->refName());
+        item->setText(2, rb->upStreamName());
+        item->setText(2, rb->isHead() ? i18n("Update") : "");
 
         treeWidget->addTopLevelItem(item);
     }
@@ -61,7 +72,7 @@ void RemotesWidget::slotListViewCustomContextMenuRequested(const QPoint &pos)
     if (!remote)
         return;
 
-    mActions->setRemoteName(remote->name);
+    mActions->setRemoteName(remote->name());
     mActions->popup();
 }
 

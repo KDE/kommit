@@ -37,7 +37,7 @@ protected:
     void fill() override;
 
 private:
-    QList<Stash *> mData;
+    QList<QSharedPointer<Stash>> mData;
 };
 
 }

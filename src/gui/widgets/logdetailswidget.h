@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Log;
+class Commit;
 }
 
 class LogDetailsWidget : public QTextBrowser
@@ -22,8 +22,8 @@ class LogDetailsWidget : public QTextBrowser
 
 public:
     explicit LogDetailsWidget(QWidget *parent = nullptr);
-    Git::Log *log() const;
-    void setLog(Git::Log *newLog);
+    Git::Commit *log() const;
+    void setLog(Git::Commit *newLog);
 
     Q_REQUIRED_RESULT bool enableCommitsLinks() const;
     void setEnableCommitsLinks(bool newEnableCommitsLinks);
@@ -51,7 +51,7 @@ private:
     QString createHashLink(const QString &hash) const;
     static QString createFileLink(const QString &hash);
 
-    Git::Log *mLog = nullptr;
+    Git::Commit *mLog = nullptr;
 
     bool mEnableCommitsLinks{false};
     bool mEnableEmailsLinks{true};

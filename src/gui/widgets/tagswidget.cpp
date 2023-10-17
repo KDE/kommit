@@ -6,11 +6,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "tagswidget.h"
 
-#include "gitmanager.h"
-#include "gittag.h"
+#include "actions/tagsactions.h"
 #include "models/tagsmodel.h"
 
-#include "actions/tagsactions.h"
+#include <entities/tag.h>
+#include <gitmanager.h>
+
 #include <QSortFilterProxyModel>
 
 TagsWidget::TagsWidget(Git::Manager *git, AppWindow *parent)

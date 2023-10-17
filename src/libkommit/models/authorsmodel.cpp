@@ -150,6 +150,59 @@ Author *AuthorsModel::findOrCreate(const QString &name, const QString &email, co
     return author;
 }
 
+Author *AuthorsModel::findOrCreate(QSharedPointer<Signature> signature, AuthorCreateReason reason)
+{
+    QMutexLocker locker(&mDataMutex);
+
+    auto authorIterator = std::find_if(mData.begin(), mData.end(), [&signature](Author *a) {
+        return a->email == signature->email() && a->name == signature->name();
+    });
+
+    if (authorIterator != mData.end()) {
+        switch (reason) {
+        case Commit:
+            (*authorIterator)->commits.increase(signature->time());
+            break;
+        case AuthoredCommit:
+            (*authorIterator)->authoredCommits.increase(signature->time());
+            break;
+        case Tag:
+            (*authorIterator)->tags.increase(signature->time());
+            break;
+        }
+        return *authorIterator;
+    }
+
+    auto author = new Author;
+    author->name = signature->name();
+    author->email = signature->email();
+
+    switch (reason) {
+    case Commit:
+        author->commits.begin(signature->time());
+        break;
+    case AuthoredCommit:
+        author->authoredCommits.begin(signature->time());
+        break;
+    case Tag:
+        author->tags.begin(signature->time());
+        break;
+    }
+
+    authorIterator = std::upper_bound(mData.begin(), mData.end(), author, [](Author *author, const Author *a) {
+        auto c = QString::compare(author->name, a->name, Qt::CaseInsensitive);
+        if (!c)
+            return QString::compare(author->email, a->email, Qt::CaseInsensitive) < 0;
+        return c < 0;
+    });
+
+    int idx = authorIterator - mData.begin();
+    beginInsertRows(QModelIndex(), idx, idx);
+    mData.insert(authorIterator, author);
+    endInsertRows();
+    return author;
+}
+
 void AuthorsModel::clear()
 {
     beginResetModel();

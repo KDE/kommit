@@ -20,19 +20,7 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QScrollArea2 {
-	
-	background-color: rgb(255, 255, 255);
-}
-QToolButto2 {
-	height: 32px;
-	padding-top: 9px;
-	padding-bottom: 9px;
-
-	
-	background-color: rgb(255, 255, 255);
-	border: none;
-}</string>
+      <string notr="true"/>
      </property>
      <property name="horizontalScrollBarPolicy">
       <enum>Qt::ScrollBarAlwaysOff</enum>

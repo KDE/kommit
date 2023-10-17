@@ -12,7 +12,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class Manager;
+class FetchObserver;
 }
+
 class FetchDialog : public AppDialog, private Ui::FetchDialog
 {
     Q_OBJECT
@@ -24,4 +26,6 @@ public:
 
 private:
     void slotAccept();
+
+    Git::FetchObserver *mObserver;
 };

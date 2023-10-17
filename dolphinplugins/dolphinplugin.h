@@ -40,7 +40,7 @@ public:
     QList<QAction *> outOfVersionControlActions(const KFileItemList &items) const override;
 
 private Q_SLOTS:
-#define f(name, text, args, icon) void name##Clicked()
+#define f(name, text, args, icon) void name##Clicked();
     ACTIONS_FOR_EACH(f)
 #undef f
 

@@ -8,8 +8,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "core/appmainwindow.h"
 
-#include "KommitSettings.h"
-
 class MultiPageWidget;
 class WidgetBase;
 class QLabel;
@@ -32,15 +30,8 @@ class AppWindow : public AppMainWindow
     Git::Manager *mGit = nullptr;
 
 public:
-    /**
-     * Default Constructor
-     */
     AppWindow();
     explicit AppWindow(const QString &path);
-
-    /**
-     * Default Destructor
-     */
     ~AppWindow() override;
 
     static AppWindow *instance();
@@ -73,6 +64,8 @@ private:
 
     void initActions();
     void initRecentFiles(const QString &newItem = QString());
+
+    Q_DECL_DEPRECATED
     void loadRemotes();
 
     template<class T>

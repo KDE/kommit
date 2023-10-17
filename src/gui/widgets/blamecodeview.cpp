@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "blamecodeview.h"
 
-#include "gitlog.h"
+#include <entities/commit.h>
 
 #include <KLocalizedString>
 #include <KSyntaxHighlighting/SyntaxHighlighter>
@@ -38,7 +38,7 @@ void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
         }
 
         auto data = new BlockData{-1, nullptr, type};
-        data->extraText = blame.log ? blame.log->committerName() : i18n("Uncommited");
+        data->extraText = blame.log ? blame.log->committer()->name() : i18n("Uncommited");
         data->data = blame.log ? blame.log : nullptr;
 
         append(blame.code, type, data);

@@ -273,7 +273,7 @@ void TreeModel::getFullPath(QString &path, Node *node) const
     if (node) {
         path.prepend(node->title);
 
-        if ((mShowRoot && node->parent->parent != mRootNode) && node->parent != mRootNode) {
+        if ((mShowRoot && node->parent->parent != mRootNode) || (!mShowRoot && node->parent != mRootNode)) {
             path.prepend(mSeparator);
             getFullPath(path, node->parent);
         }

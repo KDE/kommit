@@ -4,13 +4,12 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-//
-// Created by hamed on 25.03.22.
-//
-
 #include "remotesmodel.h"
+#include "entities/branch.h"
+#include "entities/remote.h"
 #include "gitmanager.h"
-#include "gitremote.h"
+#include "qdebug.h"
+#include "types.h"
 
 namespace Git
 {
@@ -41,7 +40,7 @@ QVariant RemotesModel::data(const QModelIndex &index, int role) const
 
     switch (index.column()) {
     case 0:
-        return remote->name;
+        return remote->name();
     }
     return {};
 }
@@ -57,7 +56,7 @@ Remote *RemotesModel::fromIndex(const QModelIndex &index)
 Remote *RemotesModel::findByName(const QString &name)
 {
     for (const auto &d : std::as_const(mData))
-        if (d->name == name)
+        if (d->name() == name)
             return d;
     return nullptr;
 }
@@ -82,14 +81,51 @@ void RemotesModel::fill()
     if (!mGit)
         return;
 
-    const auto remotes = mGit->remotes();
-    for (const auto &remote : remotes) {
-        auto r = new Remote;
-        r->name = remote;
-        auto ret = QString(mGit->runGit({QStringLiteral("remote"), QStringLiteral("show"), remote}));
-        r->parse(ret);
-        mData.append(r);
+    QMap<QString, Remote *> remotesMap;
+
+    git_strarray list{};
+    git_remote_list(&list, mGit->mRepo);
+    auto remotes = convert(&list);
+    git_strarray_free(&list);
+
+    for (auto &r : remotes) {
+        git_remote *remote;
+        if (!git_remote_lookup(&remote, mGit->mRepo, r.toLatin1().data())) {
+            auto rem = new Remote{remote};
+            mData << rem;
+
+            remotesMap.insert(rem->name(), rem);
+        }
     }
+
+    git_branch_iterator *it;
+    git_branch_iterator_new(&it, mGit->mRepo, GIT_BRANCH_ALL);
+
+    git_reference *ref;
+    git_branch_t b;
+    qDebug() << remotesMap;
+    while (!git_branch_next(&ref, &b, it)) {
+        auto b = new Branch{ref};
+
+        auto remote = remotesMap.value(b->remoteName());
+
+        if (!remote)
+            qDebug() << "NO REMOTE FOUUND" << b->remoteName();
+        else {
+            qDebug() << "REMOTE FOUUND" << b->remoteName();
+            remote->mBranches << b;
+        }
+    }
+    git_branch_iterator_free(it);
+
+    //    const auto remotes = mGit->remotes();
+    //    for (const auto &remote : remotes) {
+    //        auto r = new Remote;
+    //        r->name = remote;
+    //        auto ret = QString(mGit->runGit({QStringLiteral("remote"), QStringLiteral("show"), remote}));
+    //        r->parse(ret);
+    //        mData.append(r);
+    //    }
 }
 
 }

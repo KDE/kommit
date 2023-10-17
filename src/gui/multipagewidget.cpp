@@ -72,6 +72,7 @@ void MultiPageWidget::addPage(const QString &title, const QIcon &icon, WidgetBas
     btn->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed));
 
     auto action = new QAction(this);
+
     action->setText(title);
     action->setIcon(icon);
     action->setCheckable(true);

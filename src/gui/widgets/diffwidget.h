@@ -6,10 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "gitfile.h"
 #include "ui_diffwidget.h"
 #include "widgetbase.h"
+
 #include <QTextOption>
+#include <entities/file.h>
 
 class CodeEditor;
 class DiffWidget : public WidgetBase, private Ui::DiffWIdget

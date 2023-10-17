@@ -6,10 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "logdetailswidget.h"
 #include "KommitSettings.h"
-#include "gitlog.h"
-#include "gitmanager.h"
 #include "kommit_appdebug.h"
-#include "models/logsmodel.h"
+
+#include <entities/commit.h>
+#include <gitmanager.h>
+#include <models/logsmodel.h>
 
 #include <KLocalizedString>
 
@@ -22,12 +23,12 @@ LogDetailsWidget::LogDetailsWidget(QWidget *parent)
     connect(this, &QTextBrowser::anchorClicked, this, &LogDetailsWidget::self_anchorClicked);
 }
 
-Git::Log *LogDetailsWidget::log() const
+Git::Commit *LogDetailsWidget::log() const
 {
     return mLog;
 }
 
-void LogDetailsWidget::setLog(Git::Log *newLog)
+void LogDetailsWidget::setLog(Git::Commit *newLog)
 {
     if (mLog == newLog)
         return;
@@ -82,6 +83,8 @@ void LogDetailsWidget::createText()
         childsHashHtml.append(createHashLink(child));
 
     QString date;
+    QString commitDate;
+    QString authDate;
     qCDebug(KOMMIT_LOG) << "cal=" << KommitSettings::calendarType();
     QCalendar cal(KommitSettings::calendarType());
     /*switch (KommitSettings::calendarType()) {
@@ -98,25 +101,46 @@ void LogDetailsWidget::createText()
         cal = QCalendar(QCalendar::System::IslamicCivil);
         break;
     }*/
-    if (cal.isValid())
-        date = mLog->commitDate().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal);
-    else
-        date = mLog->commitDate().toLocalTime().toString();
+    if (cal.isValid()) {
+        date = mLog->commitTime().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal);
+        authDate = mLog->committer()->time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal);
+        authDate = mLog->author()->time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal);
+    } else {
+        date = mLog->commitTime().toLocalTime().toString();
+        authDate = mLog->committer()->time().toLocalTime().toString();
+        authDate = mLog->author()->time().toLocalTime().toString();
+    }
 
     clear();
     QString html;
     appendHeading(html, mLog->subject());
-    if (!mLog->refLog().isEmpty())
-        appendParagraph(html, i18n("Ref"), mLog->refLog());
+    auto ref = mLog->reference();
+    if (!ref.isNull()) {
+        QString refName;
+        if (ref->isBranch())
+            refName = i18n("Branch: ");
+        else if (ref->isNote())
+            refName = i18n("Note: ");
+        else if (ref->isRemote())
+            refName = i18n("Remote: ");
+        else if (ref->isTag())
+            refName = i18n("Tag: ");
+        refName.append(ref->shorthand());
+        appendParagraph(html, i18n("Ref"), refName);
+    }
 
     if (mEnableEmailsLinks) {
-        appendParagraph(html, i18n("Committer"), QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->committerName(), mLog->committerEmail()));
-        appendParagraph(html, i18n("Author"), QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->authorName(), mLog->authorEmail()));
+        appendParagraph(html,
+                        i18n("Committer"),
+                        QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->committer()->name(), mLog->committer()->email()));
+        appendParagraph(html, i18n("Author"), QStringLiteral(R"(<a href="mailto:%2">%1 &lt;%2&gt;</a>)").arg(mLog->author()->name(), mLog->author()->email()));
     } else {
-        appendParagraph(html, i18n("Committer"), QStringLiteral(R"(%1 &lt;%2&gt;)").arg(mLog->committerName(), mLog->committerEmail()));
-        appendParagraph(html, i18n("Author"), QStringLiteral(R"(%1 &lt;%2&gt;)").arg(mLog->authorName(), mLog->authorEmail()));
+        appendParagraph(html, i18n("Committer"), QStringLiteral(R"(%1 &lt;%2&gt;)").arg(mLog->committer()->name(), mLog->committer()->email()));
+        appendParagraph(html, i18n("Author"), QStringLiteral(R"(%1 &lt;%2&gt;)").arg(mLog->author()->name(), mLog->author()->email()));
     }
-    appendParagraph(html, i18n("Date"), date);
+    appendParagraph(html, i18n("time"), date);
+    appendParagraph(html, i18n("Commit time"), commitDate);
+    appendParagraph(html, i18n("Auth time"), authDate);
     appendParagraph(html, i18n("Hash"), mLog->commitHash());
 
     if (!mLog->parents().empty())
