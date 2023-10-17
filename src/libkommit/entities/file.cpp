@@ -13,6 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QUuid>
 #include <utility>
 
+#include "types.h"
+
 namespace Git
 {
 
@@ -33,6 +35,19 @@ File::File(QString filePath)
 {
 }
 
+File::File(git_repository *repo, git_tree_entry *entry)
+    : mRepo{repo}
+    , mEntry{entry}
+    , mStorage{Git}
+{
+}
+
+File::~File()
+{
+    if (mEntry)
+        git_tree_entry_free(mEntry);
+}
+
 File::File(Manager *git, QString place, QString filePath)
     : mPlace(std::move(place))
     , mFilePath(std::move(filePath))
@@ -40,6 +55,9 @@ File::File(Manager *git, QString place, QString filePath)
     , mStorage{Git}
 {
     Q_ASSERT(mGit);
+
+    if (mFilePath.startsWith("/"))
+        mFilePath = mFilePath.mid(1);
 }
 
 File::File(const File &other) = default;
@@ -76,11 +94,6 @@ void File::setFileName(const QString &newFileName)
 Manager *File::git() const
 {
     return mGit;
-}
-
-void File::setGit(Manager *newGit)
-{
-    mGit = newGit;
 }
 
 QString File::displayName() const
@@ -135,10 +148,44 @@ QString File::content() const
         return f.readAll();
     }
     case Git:
-        return mGit->fileContent(mPlace, mFilePath); // mGit->runGit({QStringLiteral("show"), mPlace + QLatin1Char(':') + mFilePath});
+        return stringContent(); // mGit->fileContent(mPlace, mFilePath); // mGit->runGit({QStringLiteral("show"), mPlace + QLatin1Char(':') + mFilePath});
     }
 
     return {};
+}
+
+QString File::stringContent() const
+{
+    git_object *placeObject{nullptr};
+    git_commit *commit{nullptr};
+    git_tree *tree{nullptr};
+    git_tree_entry *entry{nullptr};
+    git_blob *blob{nullptr};
+
+    BEGIN
+    if (mEntry) {
+        STEP git_blob_lookup(&blob, mRepo, git_tree_entry_id(mEntry));
+    } else {
+        STEP git_revparse_single(&placeObject, mGit->mRepo, toConstChars(mPlace));
+        STEP git_commit_lookup(&commit, mGit->mRepo, git_object_id(placeObject));
+        STEP git_commit_tree(&tree, commit);
+
+        STEP git_tree_entry_bypath(&entry, tree, toConstChars(mFilePath));
+        STEP git_blob_lookup(&blob, mGit->mRepo, git_tree_entry_id(entry));
+    }
+
+    if (err)
+        return {};
+
+    QString ch = (char *)git_blob_rawcontent(blob);
+
+    git_object_free(placeObject);
+    git_commit_free(commit);
+    git_blob_free(blob);
+    git_tree_entry_free(entry);
+    git_tree_free(tree);
+
+    return ch;
 }
 
 } // namespace Git

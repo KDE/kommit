@@ -27,7 +27,7 @@ int BranchesModel::rowCount(const QModelIndex &parent) const
 int BranchesModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return 6;
+    return 7;
 }
 
 QVariant BranchesModel::data(const QModelIndex &index, int role) const
@@ -43,10 +43,12 @@ QVariant BranchesModel::data(const QModelIndex &index, int role) const
     case 2:
         return mCompareWithRef.value(mData.at(index.row())).second;
     case 3:
-        return mData.at(index.row())->refName(); // mData.at(index.row())->commitsBehind;
+        return mData.at(index.row())->isHead();
     case 4:
-        return mData.at(index.row())->upStreamName(); // mData.at(index.row())->commitsAhead;
+        return mData.at(index.row())->refName(); // mData.at(index.row())->commitsBehind;
     case 5:
+        return mData.at(index.row())->upStreamName(); // mData.at(index.row())->commitsAhead;
+    case 6:
         return mData.at(index.row())->remoteName();
     }
 
@@ -66,10 +68,12 @@ QVariant BranchesModel::headerData(int section, Qt::Orientation orientation, int
     case 2:
         return i18n("Commit(s) ahead");
     case 3:
-        return i18n("Ref");
+        return i18n("Is ahead");
     case 4:
-        return i18n("Upstream");
+        return i18n("Ref");
     case 5:
+        return i18n("Upstream");
+    case 6:
         return i18n("Remote");
     }
     return {};

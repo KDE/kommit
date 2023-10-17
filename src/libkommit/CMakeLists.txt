@@ -60,6 +60,7 @@ target_sources(libkommit PRIVATE
     entities/tree.cpp
     entities/tree.h
     entities/submodule.h entities/submodule.cpp
+    entities/index.h entities/index.cpp
 
     models/abstractgititemsmodel.h
     models/logsmodel.h
@@ -90,6 +91,8 @@ target_sources(libkommit PRIVATE
     observers/pushobserver.h observers/pushobserver.cpp
 
     options/addsubmoduleoptions.h options/addsubmoduleoptions.cpp
+    options/fetchoptions.h options/fetchoptions.cpp
+    options/checkoutoptions.h options/checkoutoptions.cpp
 )
 
 generate_export_header(libkommit BASE_NAME libkommit)

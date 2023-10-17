@@ -65,4 +65,9 @@ QSharedPointer<git_tree> makeShared(git_tree *tree)
 {
     return QSharedPointer<git_tree>(tree, Deleters::deleteGitTree);
 }
+
+const char *toChar(const QString &s)
+{
+    return s.toLocal8Bit().constData();
+}
 }

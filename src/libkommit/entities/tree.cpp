@@ -1,5 +1,6 @@
 #include "tree.h"
 #include "qdebug.h"
+#include "types.h"
 #include <git2/commit.h>
 #include <git2/tree.h>
 
@@ -31,6 +32,18 @@ QStringList Tree::entries(const QString &path, EntryType filter) const
         if (filter == EntryType::All || en.type == filter)
             ret << en.name;
     return ret;
+}
+
+QSharedPointer<File> Tree::file(const QString &path)
+{
+    git_tree_entry *entry;
+    BEGIN
+    STEP git_tree_entry_bypath(&entry, ptr, toConstChars(path));
+
+    if (err)
+        return {};
+
+    return QSharedPointer<File>{new File{git_tree_owner(ptr), entry}};
 }
 
 void Tree::initTree()

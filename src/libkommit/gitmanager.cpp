@@ -5,6 +5,7 @@
 
 #include "entities/branch.h"
 #include "entities/commit.h"
+#include "entities/index.h"
 #include "entities/submodule.h"
 #include "entities/tag.h"
 #include "models/authorsmodel.h"
@@ -45,8 +46,10 @@
 
 #define PRINT_ERROR                                                                                                                                            \
     do {                                                                                                                                                       \
-        if (err)                                                                                                                                               \
+        if (err) {                                                                                                                                             \
+            const_cast<Manager *>(this)->checkError(err);                                                                                                      \
             qDebug() << "Error" << Q_FUNC_INFO << err << ":" << gitErrorMessage(err);                                                                          \
+        }                                                                                                                                                      \
     } while (false)
 
 #define THROW                                                                                                                                                  \
@@ -524,14 +527,21 @@ bool Manager::addSubmodule(const AddSubmoduleOptions &options) const
     git_repository *submoduleRepo;
     git_submodule_update_options opts = GIT_SUBMODULE_UPDATE_OPTIONS_INIT;
 
+    options.applyToFetchOptions(&opts.fetch_opts);
+    options.applyToCheckoutOptions(&opts.checkout_opts);
+
     BEGIN STEP git_submodule_add_setup(&submodule, mRepo, toConstChars(options.url), toConstChars(options.path), 1);
-    //    STEP git_submodule_add_to_index(submodule, 1);
     STEP git_submodule_clone(&submoduleRepo, submodule, &opts);
     STEP git_submodule_add_finalize(submodule);
-    git_submodule_free(submodule);
     PRINT_ERROR;
 
+    git_submodule_free(submodule);
     return !err;
+}
+
+bool Manager::removeSubmodule(const QString &name) const
+{
+    return false;
 }
 
 Manager::PointerList<Submodule> Manager::submodules() const
@@ -552,6 +562,32 @@ Manager::PointerList<Submodule> Manager::submodules() const
     git_submodule_foreach(mRepo, cb, &list);
 
     return list;
+}
+
+QSharedPointer<Submodule> Manager::submodule(const QString &name) const
+{
+    git_submodule *submodule{nullptr};
+    BEGIN
+    STEP git_submodule_lookup(&submodule, mRepo, toConstChars(name));
+    PRINT_ERROR;
+
+    if (err)
+        return nullptr;
+
+    return QSharedPointer<Submodule>{new Submodule{submodule}};
+}
+
+Index *Manager::index() const
+{
+    git_index *index;
+    BEGIN
+    STEP git_repository_index(&index, mRepo);
+    PRINT_ERROR;
+
+    if (err)
+        return nullptr;
+
+    return new Index{index};
 }
 
 QString Manager::config(const QString &name, ConfigType type) const
@@ -1084,7 +1120,7 @@ void Manager::saveFile(const QString &place, const QString &fileName, const QStr
     f.close();
 }
 
-QStringList Manager::branches(BranchType type)
+QStringList Manager::branchesNames(BranchType type)
 {
     git_branch_iterator *it;
     switch (type) {
@@ -1111,6 +1147,33 @@ QStringList Manager::branches(BranchType type)
         git_branch_name(&branchName, ref);
         list << branchName;
         git_reference_free(ref);
+    }
+    git_branch_iterator_free(it);
+
+    return list;
+}
+
+Manager::PointerList<Branch> Manager::branches(BranchType type) const
+{
+    git_branch_iterator *it;
+    switch (type) {
+    case BranchType::AllBranches:
+        git_branch_iterator_new(&it, mRepo, GIT_BRANCH_ALL);
+        break;
+    case BranchType::LocalBranch:
+        git_branch_iterator_new(&it, mRepo, GIT_BRANCH_LOCAL);
+        break;
+    case BranchType::RemoteBranch:
+        git_branch_iterator_new(&it, mRepo, GIT_BRANCH_REMOTE);
+        break;
+    }
+    git_reference *ref;
+    git_branch_t b;
+
+    PointerList<Branch> list;
+    while (!git_branch_next(&ref, &b, it)) {
+        auto branch = new Branch{ref};
+        list << QSharedPointer<Branch>{branch};
     }
     git_branch_iterator_free(it);
 
@@ -1372,6 +1435,43 @@ Commit *Manager::commitByHash(const QString &hash) const
     return new Commit(commit);
 }
 
+Manager::PointerList<Commit> Manager::commits(const QString &branchName) const
+{
+    PointerList<Commit> list;
+
+    git_revwalk *walker;
+    git_commit *commit;
+    git_oid oid;
+
+    git_revwalk_new(&walker, mRepo);
+    git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL);
+
+    if (branchName.isEmpty()) {
+        git_revwalk_push_head(walker);
+    } else {
+        git_reference *ref;
+        auto n = git_branch_lookup(&ref, mRepo, branchName.toLocal8Bit().data(), GIT_BRANCH_ALL);
+
+        if (n)
+            return list;
+
+        auto refName = git_reference_name(ref);
+        git_revwalk_push_ref(walker, refName);
+    }
+
+    while (!git_revwalk_next(&oid, walker)) {
+        if (git_commit_lookup(&commit, mRepo, &oid)) {
+            fprintf(stderr, "Failed to lookup the next object\n");
+            return list;
+        }
+
+        list << QSharedPointer<Commit>{new Commit{commit}};
+    }
+
+    git_revwalk_free(walker);
+    return list;
+}
+
 BlameData Manager::blame(const File &file)
 {
     git_blame *blame;
@@ -1605,28 +1705,34 @@ bool Manager::isDetached() const
     return git_repository_head_detached(mRepo) == 1;
 }
 
-void Manager::check_lg2(int error)
+void Manager::checkError(int code)
 {
-    const git_error *lg2err;
-    const char *lg2msg = "", *lg2spacer = "";
+    auto err = git_error_last();
 
-    if (!error)
-        return;
-
-    if ((lg2err = git_error_last()) != NULL && lg2err->message != NULL) {
-        lg2msg = lg2err->message;
-        lg2spacer = " - ";
-        qDebug() << "Error" << lg2err->message;
+    if (err != NULL) {
+        mErrorCode = code;
+        mErrorClass = err->klass;
+        mErrorMessage = QString{err->message};
     }
 
-    //    if (extra)
-    //        fprintf(stderr, "%s '%s' [%d]%s%s\n",
-    //                message, extra, error, lg2spacer, lg2msg);
-    //    else
-    //        fprintf(stderr, "%s [%d]%s%s\n",
-    //                message, error, lg2spacer, lg2msg);
+    if (code) {
+        qDebug().noquote().nospace() << "libgit2 error: " << code << ", class: " << mErrorClass << ", Mssage: " << mErrorMessage;
+    }
+}
 
-    //    exit(1);
+int Manager::errorClass() const
+{
+    return mErrorClass;
+}
+
+QString Manager::errorMessage() const
+{
+    return mErrorMessage;
+}
+
+int Manager::errorCode() const
+{
+    return mErrorCode;
 }
 
 } // namespace Git

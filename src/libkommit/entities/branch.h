@@ -15,7 +15,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class Tree;
 class Note;
+
 class LIBKOMMIT_EXPORT Branch
 {
 public:
@@ -30,6 +32,8 @@ public:
     Note *note() const;
 
     Q_REQUIRED_RESULT bool isHead() const;
+
+    Tree *tree() const;
 
 private:
     git_reference *mBranch;

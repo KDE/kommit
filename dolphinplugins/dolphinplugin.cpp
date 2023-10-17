@@ -36,7 +36,7 @@ DolphinPlugin::DolphinPlugin(QObject *parent, const QList<QVariant> &args)
     mMainActionNonGit->setIcon(QIcon::fromTheme(QStringLiteral("kommit")));
 
 #define f(name, text, args, icon)                                                                                                                              \
-    name = new QAction(text);                                                                                                                                  \
+    name = new QAction{text};                                                                                                                                  \
     if (!icon.isEmpty())                                                                                                                                       \
         name->setIcon(QIcon::fromTheme(icon));                                                                                                                 \
     connect(name, &QAction::triggered, this, &DolphinPlugin::name##Clicked);

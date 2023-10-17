@@ -37,6 +37,7 @@ class PushObserver;
 class Reference;
 class AbstractReference;
 class AddSubmoduleOptions;
+class Index;
 
 enum LoadFlag {
     LoadNone = 0,
@@ -137,12 +138,14 @@ public:
     bool createBranch(const QString &branchName) const;
     bool switchBranch(const QString &branchName) const;
     Q_REQUIRED_RESULT QPair<int, int> uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const;
-    Q_REQUIRED_RESULT QStringList branches(BranchType type);
+    Q_REQUIRED_RESULT QStringList branchesNames(BranchType type);
+    Q_REQUIRED_RESULT PointerList<Branch> branches(BranchType type) const;
     Q_REQUIRED_RESULT bool removeBranch(const QString &branchName) const;
     bool merge(const QString &branchName) const;
 
     // commits
     Commit *commitByHash(const QString &hash) const;
+    Q_REQUIRED_RESULT PointerList<Commit> commits(const QString &branchName = {}) const;
 
     // tags
     void forEachTags(std::function<void(Tag *)> cb);
@@ -209,7 +212,11 @@ public:
     // submodules
     void forEachSubmodules(std::function<void(Submodule *)> callback);
     bool addSubmodule(const AddSubmoduleOptions &options) const;
+    bool removeSubmodule(const QString &name) const;
     Q_REQUIRED_RESULT PointerList<Submodule> submodules() const;
+    QSharedPointer<Submodule> submodule(const QString &name) const;
+
+    Q_REQUIRED_RESULT Index *index() const;
 
     // models
     Q_REQUIRED_RESULT RemotesModel *remotesModel() const;
@@ -222,6 +229,12 @@ public:
 
     Q_REQUIRED_RESULT bool isRebasing() const;
     Q_REQUIRED_RESULT bool isDetached() const;
+
+    Q_REQUIRED_RESULT int errorCode() const;
+
+    Q_REQUIRED_RESULT QString errorMessage() const;
+
+    Q_REQUIRED_RESULT int errorClass() const;
 
 Q_SIGNALS:
     void pathChanged();
@@ -237,7 +250,7 @@ private:
     QStringList readAllNonEmptyOutput(const QStringList &cmd) const;
     QString escapeFileName(const QString &filePath) const;
     void loadAsync();
-    void check_lg2(int error);
+    void checkError(int code);
 
     RemotesModel *const mRemotesModel;
     AuthorsModel *const mAuthorsModel;
@@ -249,6 +262,11 @@ private:
 
     git_repository *mRepo;
 
+    int mErrorCode{};
+    int mErrorClass{};
+    QString mErrorMessage;
+
+    friend class File;
     friend class Stash;
     friend class RemotesModel;
     friend class SubmodulesModel;

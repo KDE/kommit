@@ -107,7 +107,7 @@ void BranchActions::diff()
         if (currentBranch != branchToDiff) {
             branchToDiff = currentBranch;
         } else {
-            auto branches = mGit->branches(Git::Manager::BranchType::LocalBranch);
+            auto branches = mGit->branchesNames(Git::Manager::BranchType::LocalBranch);
             if (branches.contains(QStringLiteral("master")))
                 branchToDiff = QStringLiteral("master");
             else if (branches.contains(QStringLiteral("main")))

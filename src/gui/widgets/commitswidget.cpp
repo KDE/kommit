@@ -28,7 +28,7 @@ CommitsWidget::CommitsWidget(Git::Manager *git, AppWindow *parent)
 void CommitsWidget::reload()
 {
     mRepoModel->clear();
-    const auto branches = git()->branches(Git::Manager::BranchType::AllBranches);
+    const auto branches = git()->branchesNames(Git::Manager::BranchType::AllBranches);
     mRepoModel->addData(branches);
 
     if (branches.contains(QStringLiteral("master")))

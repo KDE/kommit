@@ -47,7 +47,7 @@ void BranchesTest::createBranch()
     auto ok = mManager->createBranch(newBranchName);
     QVERIFY(ok);
 
-    QVERIFY(mManager->branches(Git::Manager::BranchType::LocalBranch).contains(newBranchName));
+    QVERIFY(mManager->branchesNames(Git::Manager::BranchType::LocalBranch).contains(newBranchName));
 
     auto newBranch = mManager->branch(newBranchName);
     QVERIFY(newBranch != nullptr);

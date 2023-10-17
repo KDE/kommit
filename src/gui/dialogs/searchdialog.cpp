@@ -84,7 +84,7 @@ void SearchDialog::slotTreeViewDoubleClicked(const QModelIndex &index)
 void SearchDialog::beginSearch()
 {
     if (radioButtonSearchBranches->isChecked()) {
-        const auto branchesList = mGit->branches(Git::Manager::BranchType::LocalBranch);
+        const auto branchesList = mGit->branchesNames(Git::Manager::BranchType::LocalBranch);
         mProgress.total = branchesList.size();
         for (const auto &branch : branchesList) {
             searchOnPlace(branch, QString());

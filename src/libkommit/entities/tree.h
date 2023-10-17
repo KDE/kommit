@@ -1,5 +1,6 @@
 #pragma once
 
+#include "file.h"
 #include "libkommit_export.h"
 
 #include <git2/types.h>
@@ -27,6 +28,7 @@ public:
 
     QList<Entry> entries(const QString &path) const;
     QStringList entries(const QString &path, EntryType filter) const;
+    QSharedPointer<File> file(const QString &path);
 
 private:
     git_tree *ptr{nullptr};

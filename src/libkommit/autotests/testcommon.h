@@ -15,7 +15,7 @@ class Manager;
 
 namespace TestCommon
 {
-bool touch(const QString &fileName);
+QString touch(const QString &fileName);
 QString readFile(const QString &fileName);
 QString getTempPath();
 bool cleanPath(Git::Manager *manager);

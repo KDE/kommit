@@ -59,6 +59,22 @@ void SubmoduleTest::addSubmodule()
     QVERIFY(ok);
 }
 
+void SubmoduleTest::addInSameLocation()
+{
+    Git::AddSubmoduleOptions opts;
+
+    opts.url = "https://github.com/HamedMasafi/Logger.git";
+    opts.path = "3rdparty/libgit2";
+
+    auto ok = mManager->addSubmodule(opts);
+
+    QVERIFY(!ok);
+
+    QCOMPARE(mManager->errorCode(), -4);
+    QCOMPARE(mManager->errorClass(), 17);
+    QCOMPARE(mManager->errorMessage(), "attempt to add submodule '3rdparty/libgit2' that already exists");
+}
+
 void SubmoduleTest::checkExists()
 {
     auto submodules = mManager->submodules();
@@ -69,6 +85,24 @@ void SubmoduleTest::checkExists()
     QCOMPARE(submodule->name(), "3rdparty/libgit2");
     QCOMPARE(submodule->path(), "3rdparty/libgit2");
     QCOMPARE(submodule->url(), "https://github.com/HamedMasafi/Logger.git");
+}
+
+void SubmoduleTest::lookup()
+{
+    auto submodule = mManager->submodule("3rdparty/libgit2");
+
+    QVERIFY(submodule != nullptr);
+    QCOMPARE(submodule->name(), "3rdparty/libgit2");
+    QCOMPARE(submodule->path(), "3rdparty/libgit2");
+    QCOMPARE(submodule->url(), "https://github.com/HamedMasafi/Logger.git");
+    Git::Submodule::StatusFlags statusFlags = Git::Submodule::Status::WdIndexModified | Git::Submodule::Status::IndexAdded | Git::Submodule::Status::InIndex
+        | Git::Submodule::Status::InConfig | Git::Submodule::Status::InWd;
+    QCOMPARE(submodule->status(), statusFlags);
+    QCOMPARE(submodule->branch(), "");
+}
+
+void SubmoduleTest::remove()
+{
 }
 
 #include "moc_submoduletest.cpp"

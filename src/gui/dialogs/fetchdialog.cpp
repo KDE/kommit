@@ -19,7 +19,7 @@ FetchDialog::FetchDialog(Git::Manager *git, QWidget *parent)
     setupUi(this);
 
     comboBoxRemote->addItems(git->remotes());
-    comboBoxBranch->addItems(git->branches(Git::Manager::BranchType::LocalBranch));
+    comboBoxBranch->addItems(git->branchesNames(Git::Manager::BranchType::LocalBranch));
 
     comboBoxRemote->setCurrentText(git->currentBranch());
     connect(buttonBox, &QDialogButtonBox::accepted, this, &FetchDialog::slotAccept);

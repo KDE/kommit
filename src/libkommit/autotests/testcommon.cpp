@@ -15,14 +15,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace TestCommon
 {
 
-bool touch(const QString &fileName)
+QString touch(const QString &fileName)
 {
     QFile f(fileName);
     if (!f.open(QIODevice::WriteOnly | QIODevice::Text))
-        return false;
-    f.write(QUuid::createUuid().toString(QUuid::Id128).toLatin1());
+        return {};
+    auto content = QUuid::createUuid().toString(QUuid::Id128);
+    f.write(content.toLatin1());
     f.close();
-    return true;
+    return content;
 }
 
 QString getTempPath()

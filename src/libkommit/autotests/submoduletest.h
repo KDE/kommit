@@ -26,7 +26,10 @@ private Q_SLOTS:
     void makeACommit();
 
     void addSubmodule();
+    void addInSameLocation();
     void checkExists();
+    void lookup();
+    void remove();
 
 private:
     Git::Manager *mManager;
