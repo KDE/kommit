@@ -1,0 +1,21 @@
+
+#!/usr/bin/env bash
+# This is the maintainence launcher for the snap, make necessary runtime
+# environment changes to make the snap work here.  You may also insert
+# security confinement/deprecation/obsoletion notice of the snap here.
+#
+# Copyright 2019 林博仁(Buo-ren, Lin) <Buo.Ren.Lin@gmail.com>
+# SPDX-License-Identifier: MIT
+
+set \
+    -o errexit \
+    -o errtrace \
+    -o nounset \
+    -o pipefail
+
+#export IMPORTANT_ENVIRONMENT_VARIABLE=value
+kdialog --msgbox "ATTENTION\n sudo snap connect kommit:gpg-keys :gpg-keys \n \
+sudo snap connect kommit:ssh-keys :ssh-keys \n \
+if you wish to use your pre-existing keys"
+# Finally run the next part of the command chain
+exec "${@}"
