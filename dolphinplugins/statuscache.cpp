@@ -39,11 +39,11 @@ KVersionControlPlugin::ItemVersion convertToItemVersion(unsigned int status_flag
     return status;
 }
 
-QString removeSlashAtEnd(const QStringRef &s)
+QString removeSlashAtEnd(const QString &s)
 {
     if (s.endsWith("/"))
-        return s.mid(0, s.length() - 1).toString();
-    return s.toString();
+        return s.mid(0, s.length() - 1);
+    return s;
 }
 
 auto callback(const char *pa, unsigned int status_flags, void *payload) -> int
@@ -62,13 +62,13 @@ auto callback(const char *pa, unsigned int status_flags, void *payload) -> int
 
     auto status = convertToItemVersion(status_flags);
 
-    QStringRef entryName;
-    QStringRef childPath;
+    QString entryName;
+    QString childPath;
     if (path.indexOf("/", w->prefix.length()) == -1) {
-        entryName = path.midRef(w->prefix.length());
+        entryName = path.mid(w->prefix.length());
     } else {
-        entryName = path.midRef(w->prefix.length(), path.indexOf("/", w->prefix.length()) + 1 - w->prefix.length());
-        childPath = path.midRef(w->prefix.length() + entryName.length());
+        entryName = path.mid(w->prefix.length(), path.indexOf("/", w->prefix.length()) + 1 - w->prefix.length());
+        childPath = path.mid(w->prefix.length() + entryName.length());
     }
 
     qDebug() << path << entryName << childPath;
@@ -77,9 +77,9 @@ auto callback(const char *pa, unsigned int status_flags, void *payload) -> int
     } else {
         if (status != KVersionControlPlugin::ItemVersion::IgnoredVersion) {
             //            if (entryName.count('/') == 1 && entryName.endsWith("/"))
-            //                w->files.insert(childPath.toString(), KVersionControlPlugin::ItemVersion::IgnoredVersion);
+            //                w->files.insert(childPath, KVersionControlPlugin::ItemVersion::IgnoredVersion);
             //        } else {
-            auto st = w->files.value(entryName.toString(), KVersionControlPlugin::ItemVersion::NormalVersion);
+            auto st = w->files.value(entryName, KVersionControlPlugin::ItemVersion::NormalVersion);
 
             if (st != status) {
                 if (st == KVersionControlPlugin::ItemVersion::NormalVersion)

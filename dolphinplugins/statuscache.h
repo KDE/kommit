@@ -7,11 +7,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include <QMap>
+#include <QString>
 
 #include <Dolphin/KVersionControlPlugin>
 namespace Impl
 {
-QString removeSlashAtEnd(const QStringRef &s);
+QString removeSlashAtEnd(const QString &s);
 };
 
 class QFileInfo;

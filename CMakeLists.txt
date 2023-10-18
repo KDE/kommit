@@ -67,6 +67,10 @@ find_package(
         Concurrent
 )
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+    find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Core5Compat)
+endif()
+
 find_package(
     KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION}
     REQUIRED COMPONENTS

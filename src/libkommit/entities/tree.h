@@ -6,6 +6,7 @@
 #include <git2/types.h>
 
 #include <QDebug>
+#include <QList>
 #include <QMultiMap>
 #include <QString>
 
@@ -45,7 +46,9 @@ class LIBKOMMIT_EXPORT QListSpecialMethods<Git::Tree::Entry>
 {
 public:
     Git::Tree::EntryType type(const QString &entryName) const;
-    bool comtains(const QString &entryName) const;
+    bool contains(const QString &entryName) const;
+    qsizetype indexOf(const QString &entryName, qsizetype from = 0) const;
+    qsizetype lastIndexOf(const QString &entryName, qsizetype from = -1) const;
 };
 
 QDebug LIBKOMMIT_EXPORT operator<<(QDebug d, const QList<Git::Tree::Entry> &list);

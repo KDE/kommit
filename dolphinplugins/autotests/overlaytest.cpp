@@ -25,11 +25,9 @@ void OverlayTest::test1()
 {
     QString s1{"test"};
     QString s2{"test/"};
-    QStringRef r1{&s1};
-    QStringRef r2{&s2};
 
-    auto ret1 = Impl::removeSlashAtEnd(r1);
-    auto ret2 = Impl::removeSlashAtEnd(r2);
+    auto ret1 = Impl::removeSlashAtEnd(s1);
+    auto ret2 = Impl::removeSlashAtEnd(s2);
 
     QCOMPARE(ret1, "test");
     QCOMPARE(ret2, "test");

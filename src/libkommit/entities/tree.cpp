@@ -129,11 +129,42 @@ QDebug operator<<(QDebug d, const QList<Git::Tree::Entry> &list)
     return dd;
 }
 
-bool QListSpecialMethods<Git::Tree::Entry>::comtains(const QString &entryName) const
+bool QListSpecialMethods<Git::Tree::Entry>::contains(const QString &entryName) const
 {
     auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
 
     return std::any_of(self->begin(), self->end(), [&entryName](Git::Tree::Entry en) {
         return en.name == entryName;
     });
+}
+
+qsizetype QListSpecialMethods<Git::Tree::Entry>::indexOf(const QString &entryName, qsizetype from) const
+{
+    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
+
+    for (qsizetype i = 0; i < self->size(); ++i) {
+        if (self->at(i).name == entryName) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+qsizetype QListSpecialMethods<Git::Tree::Entry>::lastIndexOf(const QString &entryName, qsizetype from) const
+{
+    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
+
+    auto startIndex = from;
+    if (startIndex == -1) {
+        startIndex = self->size();
+    }
+
+    for (qsizetype i = startIndex; i > 0; --i) {
+        if (self->at(i).name == entryName) {
+            return i;
+        }
+    }
+
+    return -1;
 }
