@@ -1,7 +1,8 @@
 include_directories(${CMAKE_SOURCE_DIR}/core)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-add_library(libkommitgui SHARED)
+add_library(libkommitgui SHARED
+    core/repositorydata.h core/repositorydata.cpp)
 generate_export_header(libkommitgui BASE_NAME libkommitgui)
 target_sources(libkommitgui PRIVATE
     core/appdialog.cpp

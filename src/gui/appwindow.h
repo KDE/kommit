@@ -12,6 +12,7 @@ class MultiPageWidget;
 class WidgetBase;
 class QLabel;
 
+class RepositoryData;
 namespace Git
 {
 class Manager;
@@ -28,6 +29,7 @@ class AppWindow : public AppMainWindow
 {
     Q_OBJECT
     Git::Manager *mGit = nullptr;
+    RepositoryData *mGitData{nullptr};
 
 public:
     AppWindow();

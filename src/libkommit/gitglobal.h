@@ -23,6 +23,9 @@ enum class ChangeStatus {
     UpdatedButInmerged,
     Ignored,
     Untracked,
+    Typechange,
+    Unreadable,
+    Conflicted,
 };
 
 LIBKOMMIT_EXPORT void run(const QString &workingDir, const QStringList &args);

@@ -46,6 +46,11 @@ QSharedPointer<File> Tree::file(const QString &path)
     return QSharedPointer<File>{new File{git_tree_owner(ptr), entry}};
 }
 
+git_tree *Tree::gitTree() const
+{
+    return ptr;
+}
+
 void Tree::initTree()
 {
     auto cb = [](const char *root, const git_tree_entry *entry, void *payload) -> int {

@@ -8,6 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractgititemsmodel.h"
 #include "libkommit_export.h"
+#include "types.h"
+
 namespace Git
 {
 
@@ -30,7 +32,8 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
-    Branch *fromIndex(const QModelIndex &index) const;
+    QSharedPointer<Branch> fromIndex(const QModelIndex &index) const;
+    QSharedPointer<Branch> findByName(const QString &branchName) const;
 
     Q_REQUIRED_RESULT const QString &currentBranch() const;
     Q_REQUIRED_RESULT const QString &referenceBranch() const;
@@ -40,8 +43,8 @@ protected:
     void fill() override;
 
 private:
-    QMap<Branch *, QPair<int, int>> mCompareWithRef;
-    QList<Branch *> mData;
+    QMap<QSharedPointer<Branch>, QPair<int, int>> mCompareWithRef;
+    PointerList<Branch> mData;
     QString mCurrentBranch;
     QString mReferenceBranch;
     void calculateCommitStats();

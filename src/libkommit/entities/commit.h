@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "gitgraphlane.h"
+#include "interfaces.h"
 #include "libkommit_export.h"
 #include "reference.h"
 #include "signature.h"
@@ -22,7 +23,7 @@ namespace Git
 {
 
 class Tree;
-class LIBKOMMIT_EXPORT Commit
+class LIBKOMMIT_EXPORT Commit : public ITree
 {
 public:
     enum CommitType { NormalCommit, InitialCommit, ForkCommit, MergeCommit };
@@ -47,7 +48,7 @@ public:
 
     Q_REQUIRED_RESULT QSharedPointer<Reference> reference() const;
 
-    Tree *tree() const;
+    QSharedPointer<Tree> tree() const override;
 
     Q_REQUIRED_RESULT git_commit *gitCommit() const;
 

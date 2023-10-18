@@ -39,7 +39,7 @@ void BranchesStatusWidget::init(Git::Manager *git)
     pushButtonDiff->setAction(mActions->actionDiff());
     pushButtonRemoveSelected->setAction(mActions->actionRemove());
 
-    mActions->setOtherBranch(comboBoxReferenceBranch->currentText());
+    mActions->setOtherBranch(mModel->findByName(comboBoxReferenceBranch->currentText()));
 
     connect(comboBoxReferenceBranch, &QComboBox::currentIndexChanged, this, &BranchesStatusWidget::slotComboBoxReferenceBranchCurrentIndexChanged);
     connect(pushButtonRemoveSelected, &QPushButton::clicked, this, &BranchesStatusWidget::slotPushButtonRemoveSelectedClicked);
@@ -60,7 +60,7 @@ void BranchesStatusWidget::slotComboBoxReferenceBranchCurrentIndexChanged(int)
 {
     auto selectedBranch = comboBoxReferenceBranch->currentText();
     mModel->setReferenceBranch(selectedBranch);
-    mActions->setOtherBranch(selectedBranch);
+    mActions->setOtherBranch(mModel->findByName(selectedBranch));
 }
 
 void BranchesStatusWidget::slotPushButtonRemoveSelectedClicked()
@@ -86,7 +86,7 @@ void BranchesStatusWidget::slotTreeViewCustomContextMenuRequested(const QPoint &
     auto b = mModel->fromIndex(treeView->currentIndex());
     if (!b)
         return;
-    mActions->setBranchName(b->name());
+    mActions->setBranchName(b);
     mActions->popup();
 }
 

@@ -8,6 +8,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractactions.h"
 
+namespace Git
+{
+class Branch;
+}
 class BranchActions : public AbstractActions
 {
     Q_OBJECT
@@ -15,11 +19,8 @@ class BranchActions : public AbstractActions
 public:
     explicit BranchActions(Git::Manager *git, QWidget *parent = nullptr);
 
-    Q_REQUIRED_RESULT const QString &branchName() const;
-    void setBranchName(const QString &newBranchName);
-
-    Q_REQUIRED_RESULT const QString &otherBranch() const;
-    void setOtherBranch(const QString &newOtherBranch);
+    void setBranchName(const QSharedPointer<Git::Branch> &newBranchName);
+    void setOtherBranch(const QSharedPointer<Git::Branch> &newOtherBranch);
 
 private:
     void fetch();
@@ -30,8 +31,9 @@ private:
     void remove();
     void merge();
     void note();
-    QString mBranchName;
-    QString mOtherBranch;
+
+    QSharedPointer<Git::Branch> mBranchName;
+    QSharedPointer<Git::Branch> mOtherBranch;
 
     DEFINE_ACTION(actionFetch)
     DEFINE_ACTION(actionBrowse)

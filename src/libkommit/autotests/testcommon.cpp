@@ -17,9 +17,13 @@ namespace TestCommon
 
 QString touch(const QString &fileName)
 {
+    QFileInfo fi{fileName};
+    fi.absoluteDir().mkpath(fi.absolutePath());
+
     QFile f(fileName);
     if (!f.open(QIODevice::WriteOnly | QIODevice::Text))
         return {};
+
     auto content = QUuid::createUuid().toString(QUuid::Id128);
     f.write(content.toLatin1());
     f.close();
@@ -56,5 +60,16 @@ bool makePath(Git::Manager *manager, const QString &path)
 {
     QDir d{};
     return d.mkpath(manager->path() + "/" + path);
+}
+
+QString touch(Git::Manager *manager, const QString &fileName)
+{
+    QString content;
+    if (fileName.startsWith("/"))
+        content = touch(manager->path() + fileName);
+    else
+        content = touch(manager->path() + "/" + fileName);
+    manager->addFile(fileName);
+    return content;
 }
 }

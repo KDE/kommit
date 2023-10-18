@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "core/commitsfiltermodel.h"
 #include "diffwindow.h"
 
+#include <entities/branch.h>
 #include <entities/commit.h>
 #include <gitmanager.h>
 #include <models/logsmodel.h>
@@ -28,12 +29,17 @@ CommitsWidget::CommitsWidget(Git::Manager *git, AppWindow *parent)
 void CommitsWidget::reload()
 {
     mRepoModel->clear();
-    const auto branches = git()->branchesNames(Git::Manager::BranchType::AllBranches);
-    mRepoModel->addData(branches);
+    QStringList branchNames;
+    auto branches = git()->branches(Git::Manager::BranchType::AllBranches);
+    for (auto &branch : branches) {
+        branchNames << branch->name();
+        mBranchesMap.insert(branch->name(), branch);
+    }
+    mRepoModel->addData(branchNames);
 
-    if (branches.contains(QStringLiteral("master")))
+    if (branchNames.contains(QStringLiteral("master")))
         mMainBranch = QStringLiteral("master");
-    else if (branches.contains(QStringLiteral("main")))
+    else if (branchNames.contains(QStringLiteral("main")))
         mMainBranch = QStringLiteral("main");
 
     setBranch(QString());
@@ -71,7 +77,7 @@ void CommitsWidget::slotTreeViewRepoCustomContextMenuRequested(const QPoint &pos
 {
     Q_UNUSED(pos)
     auto branchName = mRepoModel->fullPath(treeViewRepo->currentIndex());
-    mActions->setBranchName(branchName);
+    mActions->setBranchName(mBranchesMap.value(branchName));
     mActions->popup();
 }
 

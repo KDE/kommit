@@ -8,6 +8,7 @@
 #include "entities/index.h"
 #include "entities/submodule.h"
 #include "entities/tag.h"
+#include "entities/tree.h"
 #include "models/authorsmodel.h"
 #include "models/branchesmodel.h"
 #include "models/logsmodel.h"
@@ -30,6 +31,7 @@
 #include <abstractreference.h>
 #include <git2.h>
 #include <git2/branch.h>
+#include <git2/diff.h>
 #include <git2/errors.h>
 #include <git2/refs.h>
 #include <git2/stash.h>
@@ -544,7 +546,7 @@ bool Manager::removeSubmodule(const QString &name) const
     return false;
 }
 
-Manager::PointerList<Submodule> Manager::submodules() const
+PointerList<Submodule> Manager::submodules() const
 {
     PointerList<Submodule> list;
 
@@ -588,6 +590,34 @@ Index *Manager::index() const
         return nullptr;
 
     return new Index{index};
+}
+
+TreeDiff Manager::diff(ITree *oldTree, ITree *newTree)
+{
+    git_diff *diff;
+    git_diff_options opts = GIT_DIFF_OPTIONS_INIT;
+    opts.flags = GIT_DIFF_NORMAL;
+
+    BEGIN
+
+    auto fromTree = oldTree->tree();
+    auto toTree = newTree->tree();
+    git_diff_stats *stats;
+
+    STEP git_diff_tree_to_tree(&diff, mRepo, fromTree->gitTree(), toTree->gitTree(), &opts);
+    STEP git_diff_get_stats(&stats, diff);
+
+    if (err)
+        return {};
+
+    auto n = git_diff_stats_files_changed(stats);
+
+    TreeDiff treeDiff;
+
+    for (size_t i = 0; i < n; ++i)
+        treeDiff << TreeDiffEntry{git_diff_get_delta(diff, i)};
+
+    return treeDiff;
 }
 
 QString Manager::config(const QString &name, ConfigType type) const
@@ -1153,7 +1183,7 @@ QStringList Manager::branchesNames(BranchType type)
     return list;
 }
 
-Manager::PointerList<Branch> Manager::branches(BranchType type) const
+PointerList<Branch> Manager::branches(BranchType type) const
 {
     git_branch_iterator *it;
     switch (type) {
@@ -1435,7 +1465,7 @@ Commit *Manager::commitByHash(const QString &hash) const
     return new Commit(commit);
 }
 
-Manager::PointerList<Commit> Manager::commits(const QString &branchName) const
+PointerList<Commit> Manager::commits(const QString &branchName) const
 {
     PointerList<Commit> list;
 
@@ -1645,7 +1675,10 @@ void Manager::addFile(const QString &file) const
 
     BEGIN
     STEP git_repository_index(&index, mRepo);
-    STEP git_index_add_bypath(index, file.toLocal8Bit().constData());
+    if (file.startsWith("/"))
+        STEP git_index_add_bypath(index, toConstChars(file.mid(1)));
+    else
+        STEP git_index_add_bypath(index, toConstChars(file));
     STEP git_index_write_tree_to(&oid, index, mRepo);
     STEP git_tree_lookup(&tree, mRepo, &oid);
     STEP git_index_write(index);

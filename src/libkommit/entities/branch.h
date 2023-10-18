@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QString>
 
+#include "interfaces.h"
 #include "libkommit_export.h"
 
 #include "git2/types.h"
@@ -18,7 +19,7 @@ namespace Git
 class Tree;
 class Note;
 
-class LIBKOMMIT_EXPORT Branch
+class LIBKOMMIT_EXPORT Branch : public ITree
 {
 public:
     Branch(git_reference *branch);
@@ -33,7 +34,7 @@ public:
 
     Q_REQUIRED_RESULT bool isHead() const;
 
-    Tree *tree() const;
+    QSharedPointer<Tree> tree() const override;
 
 private:
     git_reference *mBranch;

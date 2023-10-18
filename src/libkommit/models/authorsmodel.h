@@ -9,6 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractgititemsmodel.h"
 #include "entities/signature.h"
 
+#include "libkommit_export.h"
+
 #include <QDateTime>
 #include <QMutex>
 #include <QSharedPointer>
@@ -34,7 +36,7 @@ struct Author {
     DatesRange tags;
 };
 
-class AuthorsModel : public AbstractGitItemsModel
+class LIBKOMMIT_EXPORT AuthorsModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 

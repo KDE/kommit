@@ -8,9 +8,11 @@
 #include "entities/file.h"
 #include "entities/remote.h"
 #include "entities/stash.h"
+#include "entities/treediff.h"
 #include "filestatus.h"
 #include "gitglobal.h"
 #include "libkommit_export.h"
+#include "types.h"
 
 #include <QObject>
 #include <QString>
@@ -38,6 +40,7 @@ class Reference;
 class AbstractReference;
 class AddSubmoduleOptions;
 class Index;
+class ITree;
 
 enum LoadFlag {
     LoadNone = 0,
@@ -105,9 +108,6 @@ class LIBKOMMIT_EXPORT Manager : public QObject
 public:
     enum class BranchType { LocalBranch, RemoteBranch, AllBranches };
     enum ConfigType { ConfigGlobal, ConfigLocal };
-
-    template<class T>
-    using PointerList = QList<QSharedPointer<T>>;
 
     Manager();
     explicit Manager(const QString &path);
@@ -217,6 +217,8 @@ public:
     QSharedPointer<Submodule> submodule(const QString &name) const;
 
     Q_REQUIRED_RESULT Index *index() const;
+
+    TreeDiff diff(ITree *oldTree, ITree *newTree);
 
     // models
     Q_REQUIRED_RESULT RemotesModel *remotesModel() const;

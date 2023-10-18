@@ -15,6 +15,7 @@ target_sources(libkommit PRIVATE
     gitmanager.h
     blamedata.h
     abstractreference.h abstractreference.cpp
+    interfaces.h
 
     models/abstractgititemsmodel.cpp
     models/logsmodel.cpp
@@ -61,6 +62,7 @@ target_sources(libkommit PRIVATE
     entities/tree.h
     entities/submodule.h entities/submodule.cpp
     entities/index.h entities/index.cpp
+    entities/treediff.h entities/treediff.cpp
 
     models/abstractgititemsmodel.h
     models/logsmodel.h

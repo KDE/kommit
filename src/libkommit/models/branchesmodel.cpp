@@ -79,7 +79,7 @@ QVariant BranchesModel::headerData(int section, Qt::Orientation orientation, int
     return {};
 }
 
-Branch *BranchesModel::fromIndex(const QModelIndex &index) const
+QSharedPointer<Branch> BranchesModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
@@ -87,26 +87,22 @@ Branch *BranchesModel::fromIndex(const QModelIndex &index) const
     return mData.at(index.row());
 }
 
+QSharedPointer<Branch> BranchesModel::findByName(const QString &branchName) const
+{
+    auto i = std::find_if(mData.begin(), mData.end(), [&branchName](QSharedPointer<Branch> branch) {
+        return branch->name() == branchName;
+    });
+    if (i == mData.end())
+        return nullptr;
+
+    return *i;
+}
+
 void BranchesModel::fill()
 {
-    qDeleteAll(mData);
     mData.clear();
 
-    git_branch_iterator *it;
-    git_branch_iterator_new(&it, mGit->mRepo, GIT_BRANCH_ALL);
-
-    git_reference *ref;
-    git_branch_t b;
-
-    QStringList list;
-    while (!git_branch_next(&ref, &b, it)) {
-        //        if (!git_reference_is_branch(ref))
-        //            continue;
-        auto b = new Branch{ref};
-
-        mData.append(b);
-    }
-    git_branch_iterator_free(it);
+    mData = mGit->branches(Git::Manager::BranchType::AllBranches);
     calculateCommitStats();
 }
 

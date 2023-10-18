@@ -11,6 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
+
+class Branch;
 class LogsModel;
 };
 
@@ -42,6 +44,7 @@ private Q_SLOTS:
 
 private:
     void init();
+    QMap<QString, QSharedPointer<Git::Branch>> mBranchesMap;
     TreeModel *mRepoModel{nullptr};
     BranchActions *mActions{nullptr};
     CommitActions *mCommitActions{nullptr};

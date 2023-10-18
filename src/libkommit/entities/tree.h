@@ -30,6 +30,8 @@ public:
     QStringList entries(const QString &path, EntryType filter) const;
     QSharedPointer<File> file(const QString &path);
 
+    git_tree *gitTree() const;
+
 private:
     git_tree *ptr{nullptr};
     void initTree();

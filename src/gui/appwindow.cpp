@@ -6,9 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 // application headers
 #include "appwindow.h"
-#include "commands/commandclean.h"
 #include "commands/commandmerge.h"
-#include "commands/commandswitchbranch.h"
+#include "core/repositorydata.h"
 #include "dialogs/changedfilesdialog.h"
 #include "dialogs/cleanupdialog.h"
 #include "dialogs/clonedialog.h"
@@ -23,7 +22,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/selectbranchestodiffdialog.h"
 #include "dialogs/switchbranchdialog.h"
 #include "diffwindow.h"
-#include "gitmanager.h"
 #include "models/logsmodel.h"
 #include "multipagewidget.h"
 #include "settings/settingsmanager.h"
@@ -36,6 +34,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "widgets/submoduleswidget.h"
 #include "widgets/tagswidget.h"
 #include <KommitSettings.h>
+
+#include <commands/commandclean.h>
+#include <commands/commandswitchbranch.h>
+#include <gitmanager.h>
 
 // KF headers
 #include <KActionCollection>
@@ -51,6 +53,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 void AppWindow::init()
 {
     mGit = Git::Manager::instance();
+
+    mGitData = new RepositoryData{this};
+
     connect(mGit, &Git::Manager::pathChanged, this, &AppWindow::git_pathChanged);
 
     initActions();

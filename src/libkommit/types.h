@@ -27,6 +27,9 @@ public:
     }
 };
 
+template<class T>
+using PointerList = QList<QSharedPointer<T>>;
+
 LIBKOMMIT_EXPORT inline const char *toChar(const QString &s);
 
 QString convertToQString(git_buf *buf);

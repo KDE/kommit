@@ -87,12 +87,12 @@ QSharedPointer<Reference> Commit::reference() const
     return mReference;
 }
 
-Tree *Commit::tree() const
+QSharedPointer<Tree> Commit::tree() const
 {
     git_tree *tree;
     if (git_commit_tree(&tree, mGitCommit))
         return nullptr;
-    return new Tree{tree};
+    return QSharedPointer<Tree>{new Tree{tree}};
 }
 
 git_commit *Commit::gitCommit() const

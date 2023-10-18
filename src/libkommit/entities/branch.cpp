@@ -79,7 +79,7 @@ bool Branch::isHead() const
     return mIsHead;
 }
 
-Tree *Branch::tree() const
+QSharedPointer<Tree> Branch::tree() const
 {
     git_commit *commit;
     git_object *obj;
@@ -93,6 +93,6 @@ Tree *Branch::tree() const
     STEP git_commit_tree(&tree, commit);
     END;
 
-    RETURN_COND(new Tree{tree}, nullptr);
+    RETURN_COND(QSharedPointer<Tree>{new Tree{tree}}, nullptr);
 }
 }
