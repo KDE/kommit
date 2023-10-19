@@ -27,6 +27,9 @@ void SubmoduleTest::initTestCase()
     auto path = TestCommon::getTempPath();
     qDebug() << path;
     mManager = new Git::Manager;
+
+    TestCommon::initSignature(mManager);
+
     QVERIFY(!mManager->isValid());
 
     auto ok = mManager->init(path);

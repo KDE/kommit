@@ -25,6 +25,9 @@ void FileTest::initTestCase()
     auto path = TestCommon::getTempPath();
     qDebug() << path;
     mManager = new Git::Manager;
+
+    TestCommon::initSignature(mManager);
+
     auto init = mManager->init(path);
     QCOMPARE(mManager->path(), path);
     QVERIFY(init);

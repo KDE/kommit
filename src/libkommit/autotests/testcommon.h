@@ -15,6 +15,8 @@ class Manager;
 
 namespace TestCommon
 {
+void initSignature(Git::Manager *manager);
+
 QString touch(const QString &fileName);
 QString readFile(const QString &fileName);
 QString getTempPath();

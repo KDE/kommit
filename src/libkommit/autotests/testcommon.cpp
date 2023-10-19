@@ -72,4 +72,10 @@ QString touch(Git::Manager *manager, const QString &fileName)
     manager->addFile(fileName);
     return content;
 }
+
+void initSignature(Git::Manager *manager)
+{
+    manager->setConfig("user.name", "kommit test user", Git::Manager::ConfigLocal);
+    manager->setConfig("user.email", "kommit@kde.org", Git::Manager::ConfigLocal);
+}
 }
