@@ -28,12 +28,12 @@ void SubmoduleTest::initTestCase()
     qDebug() << path;
     mManager = new Git::Manager;
 
-    TestCommon::initSignature(mManager);
-
     QVERIFY(!mManager->isValid());
 
     auto ok = mManager->init(path);
     QVERIFY(ok);
+
+    TestCommon::initSignature(mManager);
 }
 
 void SubmoduleTest::cleanupTestCase()

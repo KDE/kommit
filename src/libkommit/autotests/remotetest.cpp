@@ -25,11 +25,11 @@ void RemoteTest::initTestCase()
     mManager = new Git::Manager;
     QVERIFY(!mManager->isValid());
 
-    TestCommon::initSignature(mManager);
-
     auto ok = mManager->init(path);
     QVERIFY(ok);
     QCOMPARE(path, mManager->path());
+
+    TestCommon::initSignature(mManager);
 }
 
 void RemoteTest::cleanupTestCase()

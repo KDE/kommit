@@ -26,12 +26,12 @@ void FileTest::initTestCase()
     qDebug() << path;
     mManager = new Git::Manager;
 
-    TestCommon::initSignature(mManager);
-
     auto init = mManager->init(path);
     QCOMPARE(mManager->path(), path);
     QVERIFY(init);
     QVERIFY(mManager->isValid());
+
+    TestCommon::initSignature(mManager);
 }
 
 void FileTest::cleanupTestCase()
