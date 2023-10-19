@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 00:44+0000\n"
-"PO-Revision-Date: 2023-07-15 11:54+0300\n"
+"POT-Creation-Date: 2023-10-19 00:44+0000\n"
+"PO-Revision-Date: 2023-10-18 09:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -84,7 +84,7 @@ msgstr "Modificacions"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: dolphinplugins/actions.h:25 src/gui/actions/branchactions.cpp:37
+#: dolphinplugins/actions.h:25 src/gui/actions/branchactions.cpp:39
 #: src/gui/kommitmergeui.rc:17 src/gui/settings/settingsmanager.cpp:94
 #: src/gui/widgets/branchesstatuswidget.ui:121
 #, kde-format
@@ -179,65 +179,65 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Correcció d'errors"
 
-#: src/gui/actions/branchactions.cpp:30
+#: src/gui/actions/branchactions.cpp:32
 #, kde-format
 msgid "Create..."
 msgstr "Crea..."
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:178
+#: src/gui/actions/branchactions.cpp:35 src/gui/appwindow.cpp:183
 #, kde-format
 msgid "Fetch..."
 msgstr "Obtín..."
 
-#: src/gui/actions/branchactions.cpp:34 src/gui/actions/commitactions.cpp:33
+#: src/gui/actions/branchactions.cpp:36 src/gui/actions/commitactions.cpp:33
 #: src/gui/mainwidget.cpp:100
 #, kde-format
 msgid "Browse..."
 msgstr "Navega..."
 
-#: src/gui/actions/branchactions.cpp:35
+#: src/gui/actions/branchactions.cpp:37
 #, kde-format
 msgid "Switch"
 msgstr "Canvia"
 
-#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:186
+#: src/gui/actions/branchactions.cpp:38 src/gui/appwindow.cpp:191
 #, kde-format
 msgid "Merge..."
 msgstr "Fusiona..."
 
-#: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
+#: src/gui/actions/branchactions.cpp:40 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
 msgstr "Elimina..."
 
-#: src/gui/actions/branchactions.cpp:39
+#: src/gui/actions/branchactions.cpp:41
 #, kde-format
 msgid "Note..."
 msgstr "Nota..."
 
-#: src/gui/actions/branchactions.cpp:79
+#: src/gui/actions/branchactions.cpp:71
 #, kde-format
 msgid "Create new branch"
 msgstr "Crea una branca nova"
 
-#: src/gui/actions/branchactions.cpp:79
+#: src/gui/actions/branchactions.cpp:71
 #, kde-format
 msgid "Branch name"
 msgstr "Nom de la branca"
 
-#: src/gui/actions/branchactions.cpp:128
+#: src/gui/actions/branchactions.cpp:120
 #: src/gui/widgets/branchesstatuswidget.cpp:71
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Esteu segur d'eliminar la branca seleccionada?"
 
-#: src/gui/actions/branchactions.cpp:128
+#: src/gui/actions/branchactions.cpp:120
 #, kde-format
 msgid "Remove Branch"
 msgstr "Elimina la branca"
 
-#: src/gui/actions/branchactions.cpp:130
+#: src/gui/actions/branchactions.cpp:122
 #: src/gui/widgets/branchesstatuswidget.cpp:75
 #, kde-format
 msgid "Unable to remove the selected branch"
@@ -294,7 +294,7 @@ msgstr "Registre..."
 msgid "Blame..."
 msgstr "«Blame»..."
 
-#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:193
+#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:198
 #, kde-format
 msgid "Search..."
 msgstr "Busca..."
@@ -434,7 +434,7 @@ msgstr "Nom de l'«stash»"
 msgid "Add..."
 msgstr "Afig..."
 
-#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:148
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:153
 #, kde-format
 msgid "Init..."
 msgstr "Restablix..."
@@ -475,7 +475,7 @@ msgstr "S'ha eliminat el submòdul %1"
 msgid "New tag..."
 msgstr "Etiqueta nova..."
 
-#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:182
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:187
 #, kde-format
 msgid "Push..."
 msgstr "Puja..."
@@ -508,97 +508,97 @@ msgstr "Extrau"
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Esteu segur d'extraure a l'etiqueta seleccionada?"
 
-#: src/gui/appwindow.cpp:75
+#: src/gui/appwindow.cpp:80
 #, kde-format
 msgid "No repo selected"
 msgstr "Cap repositori seleccionat"
 
-#: src/gui/appwindow.cpp:127
+#: src/gui/appwindow.cpp:132
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Branca actual: %1"
 
-#: src/gui/appwindow.cpp:129
+#: src/gui/appwindow.cpp:134
 #, kde-format
 msgid " (merging)"
 msgstr " (en fusió)"
 
-#: src/gui/appwindow.cpp:131
+#: src/gui/appwindow.cpp:136
 #, kde-format
 msgid " (rebasing)"
 msgstr " (en rebase)"
 
-#: src/gui/appwindow.cpp:151
+#: src/gui/appwindow.cpp:156
 #, kde-format
 msgid "Open..."
 msgstr "Obri..."
 
-#: src/gui/appwindow.cpp:156
+#: src/gui/appwindow.cpp:161
 #, kde-format
 msgid "Clone..."
 msgstr "Clona..."
 
-#: src/gui/appwindow.cpp:159
+#: src/gui/appwindow.cpp:164
 #, kde-format
 msgid "Changed files..."
 msgstr "Fitxers canviats..."
 
-#: src/gui/appwindow.cpp:165
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Recent repos"
 msgstr "Repositoris recents"
 
-#: src/gui/appwindow.cpp:171
+#: src/gui/appwindow.cpp:176
 #, kde-format
 msgid "Cleanup..."
 msgstr "Neteja..."
 
-#: src/gui/appwindow.cpp:174
+#: src/gui/appwindow.cpp:179
 #, kde-format
 msgid "Pull..."
 msgstr "Baixa..."
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:195
 #, kde-format
 msgid "Diff branches..."
 msgstr "Diff de les branques..."
 
-#: src/gui/appwindow.cpp:196
+#: src/gui/appwindow.cpp:201
 #, kde-format
 msgid "Repo settings..."
 msgstr "Configureu el repositori..."
 
-#: src/gui/appwindow.cpp:199
+#: src/gui/appwindow.cpp:204
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Canvia/Extrau..."
 
-#: src/gui/appwindow.cpp:202
+#: src/gui/appwindow.cpp:207
 #, kde-format
 msgid "Diff tree"
 msgstr "Arbre de diferències"
 
-#: src/gui/appwindow.cpp:256 src/gui/commandargsparser.cpp:241
+#: src/gui/appwindow.cpp:261 src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "No s'ha pogut crear el camí: %1"
 
-#: src/gui/appwindow.cpp:256 src/gui/commandargsparser.cpp:241
+#: src/gui/appwindow.cpp:261 src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "Init repo"
 msgstr "Restablix el repositori"
 
-#: src/gui/appwindow.cpp:266
+#: src/gui/appwindow.cpp:271
 #, kde-format
 msgid "Open repository"
 msgstr "Obri el repositori"
 
-#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No es pot canviar de branca mentre s'està fusionant"
 
-#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
 #, kde-format
 msgid "Switch branch"
 msgstr "Canvia de branca"
@@ -2141,27 +2141,24 @@ msgid "Hide unchangeds"
 msgstr "Oculta els no canviats"
 
 #: src/gui/widgets/logdetailswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Branch:"
+#, kde-format
 msgid "Branch: "
-msgstr "Branca:"
+msgstr "Branca: "
 
 #: src/gui/widgets/logdetailswidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Note"
+#, kde-format
 msgid "Note: "
-msgstr "Nota"
+msgstr "Nota: "
 
 #: src/gui/widgets/logdetailswidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Remote:"
+#, kde-format
 msgid "Remote: "
-msgstr "Remot:"
+msgstr "Remot: "
 
 #: src/gui/widgets/logdetailswidget.cpp:127
 #, kde-format
 msgid "Tag: "
-msgstr ""
+msgstr "Etiqueta: "
 
 #: src/gui/widgets/logdetailswidget.cpp:129
 #: src/libkommit/models/branchesmodel.cpp:73
@@ -2178,19 +2175,17 @@ msgstr "Comitent"
 #: src/gui/widgets/logdetailswidget.cpp:141
 #, kde-format
 msgid "time"
-msgstr ""
+msgstr "hora"
 
 #: src/gui/widgets/logdetailswidget.cpp:142
-#, fuzzy, kde-format
-#| msgid "Committer"
+#, kde-format
 msgid "Commit time"
-msgstr "Comitent"
+msgstr "Hora de la comissió"
 
 #: src/gui/widgets/logdetailswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Author name"
+#, kde-format
 msgid "Auth time"
-msgstr "Nom de l'autor"
+msgstr "Hora de l'autorització"
 
 #: src/gui/widgets/logdetailswidget.cpp:144
 #, kde-format
@@ -2267,17 +2262,16 @@ msgstr "Branques:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:169
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Ref name"
-msgstr "Canvia el nom"
+msgstr "Nom de la ref"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:174
 #: src/libkommit/models/branchesmodel.cpp:75
 #, kde-format
 msgid "Upstream"
-msgstr ""
+msgstr "Font"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
@@ -2402,10 +2396,9 @@ msgid "Commit(s) ahead"
 msgstr "Comisions davant"
 
 #: src/libkommit/models/branchesmodel.cpp:71
-#, fuzzy, kde-format
-#| msgid "Commit(s) ahead"
+#, kde-format
 msgid "Is ahead"
-msgstr "Comisions davant"
+msgstr "Està per davant"
 
 #: src/libkommit/models/logsmodel.cpp:262
 #: src/libkommit/models/logsmodel.cpp:273
@@ -2456,13 +2449,6 @@ msgid "Tagger"
 msgstr "Etiquetador"
 
 #: src/libkommit/models/tagsmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Create tag"
+#, kde-format
 msgid "Create time"
-msgstr "Crea una etiqueta"
-
-#~ msgid "Push to"
-#~ msgstr "Puja a"
-
-#~ msgid "Pull from"
-#~ msgstr "Baixa des de"
+msgstr "Hora de creació"

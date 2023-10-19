@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 00:44+0000\n"
+"POT-Creation-Date: 2023-10-19 00:44+0000\n"
 "PO-Revision-Date: 2023-10-10 14:31\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -81,7 +81,7 @@ msgstr ""
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: dolphinplugins/actions.h:25 src/gui/actions/branchactions.cpp:37
+#: dolphinplugins/actions.h:25 src/gui/actions/branchactions.cpp:39
 #: src/gui/kommitmergeui.rc:17 src/gui/settings/settingsmanager.cpp:94
 #: src/gui/widgets/branchesstatuswidget.ui:121
 #, kde-format
@@ -176,65 +176,65 @@ msgstr ""
 msgid "Bug fixing"
 msgstr ""
 
-#: src/gui/actions/branchactions.cpp:30
+#: src/gui/actions/branchactions.cpp:32
 #, kde-format
 msgid "Create..."
 msgstr "新建..."
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:178
+#: src/gui/actions/branchactions.cpp:35 src/gui/appwindow.cpp:183
 #, kde-format
 msgid "Fetch..."
 msgstr "获取..."
 
-#: src/gui/actions/branchactions.cpp:34 src/gui/actions/commitactions.cpp:33
+#: src/gui/actions/branchactions.cpp:36 src/gui/actions/commitactions.cpp:33
 #: src/gui/mainwidget.cpp:100
 #, kde-format
 msgid "Browse..."
 msgstr "浏览…"
 
-#: src/gui/actions/branchactions.cpp:35
+#: src/gui/actions/branchactions.cpp:37
 #, kde-format
 msgid "Switch"
 msgstr "切换"
 
-#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:186
+#: src/gui/actions/branchactions.cpp:38 src/gui/appwindow.cpp:191
 #, kde-format
 msgid "Merge..."
 msgstr "合并..."
 
-#: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
+#: src/gui/actions/branchactions.cpp:40 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
 msgstr "移除..."
 
-#: src/gui/actions/branchactions.cpp:39
+#: src/gui/actions/branchactions.cpp:41
 #, kde-format
 msgid "Note..."
 msgstr "注解..."
 
-#: src/gui/actions/branchactions.cpp:79
+#: src/gui/actions/branchactions.cpp:71
 #, kde-format
 msgid "Create new branch"
 msgstr "创建新分支"
 
-#: src/gui/actions/branchactions.cpp:79
+#: src/gui/actions/branchactions.cpp:71
 #, kde-format
 msgid "Branch name"
 msgstr "分支名称"
 
-#: src/gui/actions/branchactions.cpp:128
+#: src/gui/actions/branchactions.cpp:120
 #: src/gui/widgets/branchesstatuswidget.cpp:71
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "确定移除所选分支？"
 
-#: src/gui/actions/branchactions.cpp:128
+#: src/gui/actions/branchactions.cpp:120
 #, kde-format
 msgid "Remove Branch"
 msgstr "删除分支"
 
-#: src/gui/actions/branchactions.cpp:130
+#: src/gui/actions/branchactions.cpp:122
 #: src/gui/widgets/branchesstatuswidget.cpp:75
 #, kde-format
 msgid "Unable to remove the selected branch"
@@ -291,7 +291,7 @@ msgstr "日志…"
 msgid "Blame..."
 msgstr "追溯..."
 
-#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:193
+#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:198
 #, kde-format
 msgid "Search..."
 msgstr "搜索..."
@@ -431,7 +431,7 @@ msgstr "暂存名称"
 msgid "Add..."
 msgstr "添加..."
 
-#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:148
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:153
 #, kde-format
 msgid "Init..."
 msgstr "初始化..."
@@ -472,7 +472,7 @@ msgstr "子模块 %1 已删除"
 msgid "New tag..."
 msgstr "新标签..."
 
-#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:182
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:187
 #, kde-format
 msgid "Push..."
 msgstr "推送..."
@@ -505,97 +505,97 @@ msgstr "检出"
 msgid "Are you sure to checkout to the selected tag?"
 msgstr ""
 
-#: src/gui/appwindow.cpp:75
+#: src/gui/appwindow.cpp:80
 #, kde-format
 msgid "No repo selected"
 msgstr "没有选择仓库"
 
-#: src/gui/appwindow.cpp:127
+#: src/gui/appwindow.cpp:132
 #, kde-format
 msgid "Current branch: %1"
 msgstr "当前分支：%1"
 
-#: src/gui/appwindow.cpp:129
+#: src/gui/appwindow.cpp:134
 #, kde-format
 msgid " (merging)"
 msgstr " (合并中)"
 
-#: src/gui/appwindow.cpp:131
+#: src/gui/appwindow.cpp:136
 #, kde-format
 msgid " (rebasing)"
 msgstr ""
 
-#: src/gui/appwindow.cpp:151
+#: src/gui/appwindow.cpp:156
 #, kde-format
 msgid "Open..."
 msgstr "打开..."
 
-#: src/gui/appwindow.cpp:156
+#: src/gui/appwindow.cpp:161
 #, kde-format
 msgid "Clone..."
 msgstr "克隆..."
 
-#: src/gui/appwindow.cpp:159
+#: src/gui/appwindow.cpp:164
 #, kde-format
 msgid "Changed files..."
 msgstr "已更改的文件..."
 
-#: src/gui/appwindow.cpp:165
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Recent repos"
 msgstr "最近仓库"
 
-#: src/gui/appwindow.cpp:171
+#: src/gui/appwindow.cpp:176
 #, kde-format
 msgid "Cleanup..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:174
+#: src/gui/appwindow.cpp:179
 #, kde-format
 msgid "Pull..."
 msgstr "拉取..."
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:195
 #, kde-format
 msgid "Diff branches..."
 msgstr "分支间相差..."
 
-#: src/gui/appwindow.cpp:196
+#: src/gui/appwindow.cpp:201
 #, kde-format
 msgid "Repo settings..."
 msgstr "仓库设置..."
 
-#: src/gui/appwindow.cpp:199
+#: src/gui/appwindow.cpp:204
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "切换/检出..."
 
-#: src/gui/appwindow.cpp:202
+#: src/gui/appwindow.cpp:207
 #, kde-format
 msgid "Diff tree"
 msgstr "查看树差异"
 
-#: src/gui/appwindow.cpp:256 src/gui/commandargsparser.cpp:241
+#: src/gui/appwindow.cpp:261 src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "无法创建路径：%1"
 
-#: src/gui/appwindow.cpp:256 src/gui/commandargsparser.cpp:241
+#: src/gui/appwindow.cpp:261 src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "Init repo"
 msgstr "初始化仓库"
 
-#: src/gui/appwindow.cpp:266
+#: src/gui/appwindow.cpp:271
 #, kde-format
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "合并时无法切换分支"
 
-#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
 #, kde-format
 msgid "Switch branch"
 msgstr "切换分支"

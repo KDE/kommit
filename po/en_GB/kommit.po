@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-18 00:44+0000\n"
+"POT-Creation-Date: 2023-10-19 00:44+0000\n"
 "PO-Revision-Date: 2023-06-17 12:09+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -81,7 +81,7 @@ msgstr "Modifications"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: dolphinplugins/actions.h:25 src/gui/actions/branchactions.cpp:37
+#: dolphinplugins/actions.h:25 src/gui/actions/branchactions.cpp:39
 #: src/gui/kommitmergeui.rc:17 src/gui/settings/settingsmanager.cpp:94
 #: src/gui/widgets/branchesstatuswidget.ui:121
 #, kde-format
@@ -176,65 +176,65 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Bug fixing"
 
-#: src/gui/actions/branchactions.cpp:30
+#: src/gui/actions/branchactions.cpp:32
 #, kde-format
 msgid "Create..."
 msgstr "Create..."
 
-#: src/gui/actions/branchactions.cpp:33 src/gui/appwindow.cpp:178
+#: src/gui/actions/branchactions.cpp:35 src/gui/appwindow.cpp:183
 #, kde-format
 msgid "Fetch..."
 msgstr "Fetch..."
 
-#: src/gui/actions/branchactions.cpp:34 src/gui/actions/commitactions.cpp:33
+#: src/gui/actions/branchactions.cpp:36 src/gui/actions/commitactions.cpp:33
 #: src/gui/mainwidget.cpp:100
 #, kde-format
 msgid "Browse..."
 msgstr "Browse..."
 
-#: src/gui/actions/branchactions.cpp:35
+#: src/gui/actions/branchactions.cpp:37
 #, kde-format
 msgid "Switch"
 msgstr "Switch"
 
-#: src/gui/actions/branchactions.cpp:36 src/gui/appwindow.cpp:186
+#: src/gui/actions/branchactions.cpp:38 src/gui/appwindow.cpp:191
 #, kde-format
 msgid "Merge..."
 msgstr "Merge..."
 
-#: src/gui/actions/branchactions.cpp:38 src/gui/actions/remotesactions.cpp:26
+#: src/gui/actions/branchactions.cpp:40 src/gui/actions/remotesactions.cpp:26
 #: src/gui/actions/stashactions.cpp:26 src/gui/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
 msgstr "Remove..."
 
-#: src/gui/actions/branchactions.cpp:39
+#: src/gui/actions/branchactions.cpp:41
 #, kde-format
 msgid "Note..."
 msgstr "Note..."
 
-#: src/gui/actions/branchactions.cpp:79
+#: src/gui/actions/branchactions.cpp:71
 #, kde-format
 msgid "Create new branch"
 msgstr "Create new branch"
 
-#: src/gui/actions/branchactions.cpp:79
+#: src/gui/actions/branchactions.cpp:71
 #, kde-format
 msgid "Branch name"
 msgstr "Branch name"
 
-#: src/gui/actions/branchactions.cpp:128
+#: src/gui/actions/branchactions.cpp:120
 #: src/gui/widgets/branchesstatuswidget.cpp:71
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Are you sure to remove the selected branch?"
 
-#: src/gui/actions/branchactions.cpp:128
+#: src/gui/actions/branchactions.cpp:120
 #, kde-format
 msgid "Remove Branch"
 msgstr "Remove Branch"
 
-#: src/gui/actions/branchactions.cpp:130
+#: src/gui/actions/branchactions.cpp:122
 #: src/gui/widgets/branchesstatuswidget.cpp:75
 #, kde-format
 msgid "Unable to remove the selected branch"
@@ -291,7 +291,7 @@ msgstr "Log..."
 msgid "Blame..."
 msgstr "Blame..."
 
-#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:193
+#: src/gui/actions/fileactions.cpp:93 src/gui/appwindow.cpp:198
 #, kde-format
 msgid "Search..."
 msgstr "Search..."
@@ -431,7 +431,7 @@ msgstr "Name of stash"
 msgid "Add..."
 msgstr "Add..."
 
-#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:148
+#: src/gui/actions/submoduleactions.cpp:41 src/gui/appwindow.cpp:153
 #, kde-format
 msgid "Init..."
 msgstr "Init..."
@@ -472,7 +472,7 @@ msgstr "The submodule %1 removed"
 msgid "New tag..."
 msgstr "New tag..."
 
-#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:182
+#: src/gui/actions/tagsactions.cpp:28 src/gui/appwindow.cpp:187
 #, kde-format
 msgid "Push..."
 msgstr "Push..."
@@ -505,97 +505,97 @@ msgstr "Checkout"
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Are you sure to checkout to the selected tag?"
 
-#: src/gui/appwindow.cpp:75
+#: src/gui/appwindow.cpp:80
 #, kde-format
 msgid "No repo selected"
 msgstr "No repository selected"
 
-#: src/gui/appwindow.cpp:127
+#: src/gui/appwindow.cpp:132
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Current branch: %1"
 
-#: src/gui/appwindow.cpp:129
+#: src/gui/appwindow.cpp:134
 #, kde-format
 msgid " (merging)"
 msgstr " (merging)"
 
-#: src/gui/appwindow.cpp:131
+#: src/gui/appwindow.cpp:136
 #, kde-format
 msgid " (rebasing)"
 msgstr " (rebasing)"
 
-#: src/gui/appwindow.cpp:151
+#: src/gui/appwindow.cpp:156
 #, kde-format
 msgid "Open..."
 msgstr "Open..."
 
-#: src/gui/appwindow.cpp:156
+#: src/gui/appwindow.cpp:161
 #, kde-format
 msgid "Clone..."
 msgstr "Clone..."
 
-#: src/gui/appwindow.cpp:159
+#: src/gui/appwindow.cpp:164
 #, kde-format
 msgid "Changed files..."
 msgstr "Changed files..."
 
-#: src/gui/appwindow.cpp:165
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Recent repos"
 msgstr "Recent repositories"
 
-#: src/gui/appwindow.cpp:171
+#: src/gui/appwindow.cpp:176
 #, kde-format
 msgid "Cleanup..."
 msgstr "Cleanup..."
 
-#: src/gui/appwindow.cpp:174
+#: src/gui/appwindow.cpp:179
 #, kde-format
 msgid "Pull..."
 msgstr "Pull..."
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:195
 #, kde-format
 msgid "Diff branches..."
 msgstr "Diff branches..."
 
-#: src/gui/appwindow.cpp:196
+#: src/gui/appwindow.cpp:201
 #, kde-format
 msgid "Repo settings..."
 msgstr "Repository settings..."
 
-#: src/gui/appwindow.cpp:199
+#: src/gui/appwindow.cpp:204
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Switch/Checkout..."
 
-#: src/gui/appwindow.cpp:202
+#: src/gui/appwindow.cpp:207
 #, kde-format
 msgid "Diff tree"
 msgstr "Diff tree"
 
-#: src/gui/appwindow.cpp:256 src/gui/commandargsparser.cpp:241
+#: src/gui/appwindow.cpp:261 src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Unable to create path: %1"
 
-#: src/gui/appwindow.cpp:256 src/gui/commandargsparser.cpp:241
+#: src/gui/appwindow.cpp:261 src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "Init repo"
 msgstr "Initialise repository"
 
-#: src/gui/appwindow.cpp:266
+#: src/gui/appwindow.cpp:271
 #, kde-format
 msgid "Open repository"
 msgstr "Open repository"
 
-#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Cannot switch branch while merging"
 
-#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
 #, kde-format
 msgid "Switch branch"
 msgstr "Switch branch"
