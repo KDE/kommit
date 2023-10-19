@@ -2,7 +2,6 @@
 
 #include <QList>
 
-#include "filestatus.h"
 #include "gitglobal.h"
 #include "libkommit_export.h"
 
@@ -24,8 +23,10 @@ public:
     Q_REQUIRED_RESULT QString newFile() const;
     Q_REQUIRED_RESULT ChangeStatus status() const;
 
+    bool operator==(const TreeDiffEntry &other);
+
 private:
-    git_diff_delta *mDeltaPtr;
+    git_diff_delta *mDeltaPtr{nullptr};
 
     QString mOldFile;
     QString mNewFile;

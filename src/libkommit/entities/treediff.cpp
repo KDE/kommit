@@ -93,4 +93,11 @@ ChangeStatus TreeDiffEntry::status() const
     return mStatus;
 }
 
+bool TreeDiffEntry::operator==(const TreeDiffEntry &other)
+{
+    if (!mDeltaPtr)
+        return false;
+    return mDeltaPtr == other.mDeltaPtr;
+}
+
 } // namespace Git
