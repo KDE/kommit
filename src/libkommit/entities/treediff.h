@@ -16,6 +16,7 @@ class FileStatus;
 class LIBKOMMIT_EXPORT TreeDiffEntry
 {
 public:
+    TreeDiffEntry();
     TreeDiffEntry(const git_diff_delta *delta);
 
     Q_REQUIRED_RESULT git_diff_delta *deltaPtr() const;

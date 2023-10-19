@@ -27,6 +27,10 @@ ChangeStatus TreeDiff::status(const QString &entryPath) const
     return (*i).status();
 }
 
+TreeDiffEntry::TreeDiffEntry()
+{
+}
+
 TreeDiffEntry::TreeDiffEntry(const git_diff_delta *delta)
 {
     mOldFile = delta->old_file.path;
