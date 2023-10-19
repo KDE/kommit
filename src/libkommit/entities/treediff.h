@@ -23,7 +23,7 @@ public:
     Q_REQUIRED_RESULT QString newFile() const;
     Q_REQUIRED_RESULT ChangeStatus status() const;
 
-    bool operator==(const TreeDiffEntry &other);
+    bool operator==(const TreeDiffEntry &other) const;
 
 private:
     git_diff_delta *mDeltaPtr{nullptr};

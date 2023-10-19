@@ -93,7 +93,7 @@ ChangeStatus TreeDiffEntry::status() const
     return mStatus;
 }
 
-bool TreeDiffEntry::operator==(const TreeDiffEntry &other)
+bool TreeDiffEntry::operator==(const TreeDiffEntry &other) const
 {
     if (!mDeltaPtr)
         return false;
