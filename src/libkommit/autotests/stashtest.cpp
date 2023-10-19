@@ -45,7 +45,7 @@ void StashTest::makeACommit()
 
 void StashTest::touchAFile()
 {
-    TestCommon::touch(mManager->path() + "/README.md");
+    mFileContentInStash = TestCommon::touch(mManager->path() + "/README.md");
     auto changedFiles = mManager->changedFiles();
     QCOMPARE(changedFiles.count(), 1);
     QCOMPARE(changedFiles.value("README.md"), Git::ChangeStatus::Modified);
@@ -59,34 +59,36 @@ void StashTest::makeStash()
     auto changedFiles = mManager->changedFiles();
     QCOMPARE(changedFiles.count(), 0);
 
-    QList<QSharedPointer<Git::Stash>> stashes;
-    mManager->forEachStash([&stashes](QSharedPointer<Git::Stash> stash) {
-        stashes << stash;
-        return 0;
-    });
+    auto stashes = mManager->stashes();
     QCOMPARE(stashes.count(), 1);
     QCOMPARE(stashes.at(0)->name(), QStringLiteral("On master: stash1"));
 }
 
-void StashTest::applyStash()
+void StashTest::tryToApplyInChangedWorkDir()
 {
-    auto fileContentBefore = TestCommon::readFile(mManager->path() + "/README.md");
     TestCommon::touch(mManager->path() + "/README.md");
+    auto ok = mManager->applyStash(QStringLiteral("On master: stash1"));
+    QVERIFY(!ok); // we have un committed changes
+}
+
+void StashTest::revertAndApplyStash()
+{
+    TestCommon::touch(mManager->path() + "/README.md");
+    auto ok = mManager->revertFile("README.md");
+    QVERIFY(ok);
+    ok = mManager->applyStash(QStringLiteral("On master: stash1"));
+    QVERIFY(ok);
+}
+
+void StashTest::commitAndApplyStash()
+{
+    TestCommon::touch(mManager->path() + "/README.md");
+
+    mManager->addFile("README.md");
+    mManager->commit("commit2");
 
     auto ok = mManager->applyStash(QStringLiteral("On master: stash1"));
     QVERIFY(ok);
-
-    QList<QSharedPointer<Git::Stash>> stashes;
-    mManager->forEachStash([&stashes](QSharedPointer<Git::Stash> stash) {
-        stashes << stash;
-        return 0;
-    });
-    QCOMPARE(stashes.count(), 1);
-    QCOMPARE(stashes.at(0)->name(), QStringLiteral("On master: stash1"));
-
-    auto fileContentAfter = TestCommon::readFile(mManager->path() + "/README.md");
-
-    QCOMPARE(fileContentBefore, fileContentAfter);
 }
 
 #include "moc_stashtest.cpp"

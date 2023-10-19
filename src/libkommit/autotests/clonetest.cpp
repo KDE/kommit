@@ -25,6 +25,8 @@ void CloneTest::initTestCase()
     qDebug() << path;
     mManager = new Git::Manager;
     QVERIFY(!mManager->isValid());
+
+    TestCommon::initSignature(mManager);
 }
 
 void CloneTest::clone()

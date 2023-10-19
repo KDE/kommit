@@ -25,6 +25,8 @@ void IndexTest::initTestCase()
     QCOMPARE(mManager->path(), path);
     QVERIFY(init);
     QVERIFY(mManager->isValid());
+
+    TestCommon::initSignature(mManager);
 }
 
 void IndexTest::cleanupTestCase()

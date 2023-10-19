@@ -27,8 +27,11 @@ private Q_SLOTS:
     void makeACommit();
     void touchAFile();
     void makeStash();
-    void applyStash();
+    void tryToApplyInChangedWorkDir();
+    void revertAndApplyStash();
+    void commitAndApplyStash();
 
 private:
     Git::Manager *mManager;
+    QString mFileContentInStash;
 };

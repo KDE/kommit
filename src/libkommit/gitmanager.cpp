@@ -1303,29 +1303,27 @@ void Manager::forEachStash(std::function<void(QSharedPointer<Stash>)> cb)
     git_stash_foreach(mRepo, callback, &w);
 }
 
-QList<Stash> Manager::stashes()
+PointerList<Stash> Manager::stashes() const
 {
-    QList<Stash> ret;
-    const auto list = readAllNonEmptyOutput({QStringLiteral("stash"), QStringLiteral("list"), QStringLiteral("--format=format:%s%m%an%m%ae%m%aD")});
-    int id{0};
-    for (const auto &item : std::as_const(list)) {
-        const auto parts = item.split(QStringLiteral(">"));
-        if (parts.size() != 4)
-            continue;
+    struct wrapper {
+        const Manager *manager;
+        PointerList<Stash> list;
+    };
 
-        const auto subject = parts.first();
-        Stash stash(this, QStringLiteral("stash@{%1}").arg(id));
+    auto callback = [](size_t index, const char *message, const git_oid *stash_id, void *payload) {
+        auto w = static_cast<wrapper *>(payload);
 
-        stash.mSubject = subject;
-        stash.mAuthorName = parts.at(1);
-        stash.mAuthorEmail = parts.at(2);
-        stash.mPushTime = QDateTime::fromString(parts.at(3), Qt::RFC2822Date);
-        qCDebug(KOMMITLIB_LOG) << item << subject << stash.mPushTime;
+        QSharedPointer<Stash> ptr{new Stash{index, w->manager->mRepo, message, stash_id}};
 
-        ret.append(stash);
-        id++;
-    }
-    return ret;
+        w->list << ptr;
+
+        return 0;
+    };
+
+    wrapper w;
+    w.manager = this;
+    git_stash_foreach(mRepo, callback, &w);
+    return w.list;
 }
 
 bool Manager::createStash(const QString &name) const
