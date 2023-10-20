@@ -9,6 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "pair.h"
 #include "types.h"
 
+#include "libkommitdiff_export.h"
+
 namespace Diff
 {
 
@@ -25,7 +27,7 @@ struct Range {
     Range(int begin, int size);
 };
 
-class SolutionIterator
+class LIBKOMMITDIFF_EXPORT SolutionIterator
 {
     const Solution &_solution;
     int _firstIndex{0};
@@ -53,7 +55,7 @@ public:
     Result pick();
 };
 
-class SolutionIterator3
+class LIBKOMMITDIFF_EXPORT SolutionIterator3
 {
     const Solution3 &_solution;
     int _firstIndex{0};

@@ -5,17 +5,38 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "difftest.h"
+
 #include <QtTest>
+
 #include <diff.h>
+#include <solution.h>
+
+void DiffTest::solutionTest()
+{
+    /*
+
+    */
+    Diff::Solution solution;
+    solution << qMakePair(1, 1);
+    solution << qMakePair(3, 4);
+    solution << qMakePair(5, 6);
+    Diff::SolutionIterator it{solution, 5, 6};
+    it.begin();
+
+    auto r = it.pick();
+    QCOMPARE(r.success, true);
+    QCOMPARE(r.oldStart, 0);
+    QCOMPARE(r.newStart, 0);
+}
 
 void DiffTest::basicList()
 {
     QStringList oldList{"a", "b", "c", "e"};
     QStringList newList{"a", "b", "d", "e"};
     auto diffResult = Diff::diff(oldList, newList);
+    QCOMPARE(diffResult.size(), 3);
 
     QStringList f1{"a", "b"};
-    QCOMPARE(diffResult.size(), 3);
 
     auto r = diffResult.at(0);
     QCOMPARE(r->type, Diff::SegmentType::SameOnBoth);

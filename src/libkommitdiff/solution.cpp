@@ -39,7 +39,7 @@ SolutionIterator::SolutionIterator(const Solution &solution, int firstSize, int 
 
 void SolutionIterator::begin()
 {
-    _firstIndex = _secondIndex = -1;
+    _firstIndex = _secondIndex = 0;
     i = _solution.begin();
     _ended = false;
 }

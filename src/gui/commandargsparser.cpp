@@ -410,8 +410,7 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
 ArgParserReturn CommandArgsParser::history(const QString &file)
 {
     git->open(file.mid(0, file.lastIndexOf(QLatin1Char('/'))));
-    auto fileCopy = file;
-    fileCopy = file.mid(git->path().size() + 1);
+    auto fileCopy = file.mid(git->path().size() + 1);
     FileHistoryDialog d(git, fileCopy);
     d.exec();
     return 0;

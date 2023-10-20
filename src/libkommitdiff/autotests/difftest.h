@@ -11,6 +11,7 @@ class DiffTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
+    void solutionTest();
     void basicList();
     void removedTest();
     void randomMissedNumber();
