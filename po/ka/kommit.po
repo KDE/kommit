@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-19 00:44+0000\n"
-"PO-Revision-Date: 2023-07-16 06:16+0200\n"
+"PO-Revision-Date: 2023-10-19 05:51+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2042,22 +2042,19 @@ msgid "Hide unchangeds"
 msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Branch:"
+#, kde-format
 msgid "Branch: "
-msgstr "ბრენჩი:"
+msgstr "ბრენჩი: "
 
 #: src/gui/widgets/logdetailswidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Note"
+#, kde-format
 msgid "Note: "
-msgstr "არცერთი"
+msgstr "შენიშვნა: "
 
 #: src/gui/widgets/logdetailswidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Remote:"
+#, kde-format
 msgid "Remote: "
-msgstr "დაშორებული:"
+msgstr "დაშორებული: "
 
 #: src/gui/widgets/logdetailswidget.cpp:127
 #, kde-format
@@ -2079,19 +2076,17 @@ msgstr "დამკომიტებელი"
 #: src/gui/widgets/logdetailswidget.cpp:141
 #, kde-format
 msgid "time"
-msgstr ""
+msgstr "დრო"
 
 #: src/gui/widgets/logdetailswidget.cpp:142
-#, fuzzy, kde-format
-#| msgid "Committer"
+#, kde-format
 msgid "Commit time"
-msgstr "დამკომიტებელი"
+msgstr "კომიტის დრო"
 
 #: src/gui/widgets/logdetailswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Author name"
+#, kde-format
 msgid "Auth time"
-msgstr "ავტორის სახელი"
+msgstr "ავტორიზაციის დრო"
 
 #: src/gui/widgets/logdetailswidget.cpp:144
 #, kde-format
@@ -2168,10 +2163,9 @@ msgstr "ბრენჩები:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:169
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Ref name"
-msgstr "გადარქმევა"
+msgstr "მიმართვის სახელი"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:174
@@ -2290,10 +2284,9 @@ msgid "Commit(s) ahead"
 msgstr "კომიტით წინ"
 
 #: src/libkommit/models/branchesmodel.cpp:71
-#, fuzzy, kde-format
-#| msgid "Commit(s) ahead"
+#, kde-format
 msgid "Is ahead"
-msgstr "კომიტით წინ"
+msgstr "წინაა"
 
 #: src/libkommit/models/logsmodel.cpp:262
 #: src/libkommit/models/logsmodel.cpp:273
@@ -2343,10 +2336,9 @@ msgid "Tagger"
 msgstr "ჭდეების დამდები"
 
 #: src/libkommit/models/tagsmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Create tag"
+#, kde-format
 msgid "Create time"
-msgstr "ჭდის შექმნა"
+msgstr "შექმნის დრო"
 
 #~ msgid "Git Klient"
 #~ msgstr "Git Klient"
