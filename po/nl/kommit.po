@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 00:44+0000\n"
+"POT-Creation-Date: 2023-10-21 00:44+0000\n"
 "PO-Revision-Date: 2023-10-18 14:11+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -590,12 +590,12 @@ msgstr "Repo initialiseren"
 msgid "Open repository"
 msgstr "Opslagruimte openen"
 
-#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:479
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Kan branch niet omschakelen tijdens samenvoegen"
 
-#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:479
 #, kde-format
 msgid "Switch branch"
 msgstr "Branch omschakelen"
@@ -610,22 +610,22 @@ msgstr "Het pad is geen git-repo: %1"
 msgid "The repo inited successfully"
 msgstr "De repo is met succes geïnitialiseerd"
 
-#: src/gui/commandargsparser.cpp:509
+#: src/gui/commandargsparser.cpp:508
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Bestand(en) met succes toegevoegd aan git "
 
-#: src/gui/commandargsparser.cpp:517
+#: src/gui/commandargsparser.cpp:516
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Wilt u bestand(en) op schijf laten?"
 
-#: src/gui/commandargsparser.cpp:517
+#: src/gui/commandargsparser.cpp:516
 #, kde-format
 msgid "Remove from index"
 msgstr "Uit index verwijderen"
 
-#: src/gui/commandargsparser.cpp:519
+#: src/gui/commandargsparser.cpp:518
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Bestand(en) met succes verwijderd uit git "

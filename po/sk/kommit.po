@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 00:44+0000\n"
+"POT-Creation-Date: 2023-10-21 00:44+0000\n"
 "PO-Revision-Date: 2022-09-08 22:13+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -597,12 +597,12 @@ msgstr ""
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:479
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:479
 #, kde-format
 msgid "Switch branch"
 msgstr "Prepnúť vetvu"
@@ -617,23 +617,23 @@ msgstr ""
 msgid "The repo inited successfully"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:509
+#: src/gui/commandargsparser.cpp:508
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:517
+#: src/gui/commandargsparser.cpp:516
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:517
+#: src/gui/commandargsparser.cpp:516
 #, fuzzy, kde-format
 #| msgid "Removed color"
 msgid "Remove from index"
 msgstr "Farba odstráneného"
 
-#: src/gui/commandargsparser.cpp:519
+#: src/gui/commandargsparser.cpp:518
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 00:44+0000\n"
+"POT-Creation-Date: 2023-10-21 00:44+0000\n"
 "PO-Revision-Date: 2023-07-17 13:57+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -590,12 +590,12 @@ msgstr "Inizializza il deposito"
 msgid "Open repository"
 msgstr "Apri deposito"
 
-#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:479
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Impossibile cambiare ramo durante l'unione"
 
-#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:479
 #, kde-format
 msgid "Switch branch"
 msgstr "Cambia ramo"
@@ -610,22 +610,22 @@ msgstr "Il percorso non è deposito git: %1"
 msgid "The repo inited successfully"
 msgstr "Il deposito è stato inizializzato correttamente"
 
-#: src/gui/commandargsparser.cpp:509
+#: src/gui/commandargsparser.cpp:508
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "File aggiunti a git correttamente"
 
-#: src/gui/commandargsparser.cpp:517
+#: src/gui/commandargsparser.cpp:516
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Vuoi lasciare i file su disco?"
 
-#: src/gui/commandargsparser.cpp:517
+#: src/gui/commandargsparser.cpp:516
 #, kde-format
 msgid "Remove from index"
 msgstr "Rimuovi dall'indice"
 
-#: src/gui/commandargsparser.cpp:519
+#: src/gui/commandargsparser.cpp:518
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "File rimossi da git correttamente"

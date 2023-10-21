@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 00:44+0000\n"
+"POT-Creation-Date: 2023-10-21 00:44+0000\n"
 "PO-Revision-Date: 2023-10-15 11:53+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -591,12 +591,12 @@ msgstr "Zapoczątkuj repozytorium"
 msgid "Open repository"
 msgstr "Otwórz repozytorium"
 
-#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:479
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Nie można przełączyć gałęzi podczas scalania"
 
-#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:480
+#: src/gui/appwindow.cpp:368 src/gui/commandargsparser.cpp:479
 #, kde-format
 msgid "Switch branch"
 msgstr "Przełącz gałąź"
@@ -611,22 +611,22 @@ msgstr "Ścieżka nie wskazuje na repozytorium gita: %1"
 msgid "The repo inited successfully"
 msgstr "Pomyślnie zapoczątkowano repozytorium"
 
-#: src/gui/commandargsparser.cpp:509
+#: src/gui/commandargsparser.cpp:508
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Pomyślnie dodano plik(i) do gita"
 
-#: src/gui/commandargsparser.cpp:517
+#: src/gui/commandargsparser.cpp:516
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Czy pozostawić plik(i) na dysku?"
 
-#: src/gui/commandargsparser.cpp:517
+#: src/gui/commandargsparser.cpp:516
 #, kde-format
 msgid "Remove from index"
 msgstr "Usuń z indeksu"
 
-#: src/gui/commandargsparser.cpp:519
+#: src/gui/commandargsparser.cpp:518
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Pomyślnie usunięto pliki z gita"
