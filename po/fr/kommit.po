@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 00:44+0000\n"
-"PO-Revision-Date: 2023-09-14 15:47+0200\n"
+"PO-Revision-Date: 2023-10-20 12:43+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2142,27 +2142,24 @@ msgid "Hide unchangeds"
 msgstr "Masquer les non-modifiés"
 
 #: src/gui/widgets/logdetailswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Branch:"
+#, kde-format
 msgid "Branch: "
-msgstr "Branche :"
+msgstr "Branche : "
 
 #: src/gui/widgets/logdetailswidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Note"
+#, kde-format
 msgid "Note: "
-msgstr "Note"
+msgstr "Note : "
 
 #: src/gui/widgets/logdetailswidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Remote:"
+#, kde-format
 msgid "Remote: "
 msgstr "Distant :"
 
 #: src/gui/widgets/logdetailswidget.cpp:127
 #, kde-format
 msgid "Tag: "
-msgstr ""
+msgstr "Étiquette :"
 
 #: src/gui/widgets/logdetailswidget.cpp:129
 #: src/libkommit/models/branchesmodel.cpp:73
@@ -2179,19 +2176,17 @@ msgstr "Validateur"
 #: src/gui/widgets/logdetailswidget.cpp:141
 #, kde-format
 msgid "time"
-msgstr ""
+msgstr "heure"
 
 #: src/gui/widgets/logdetailswidget.cpp:142
-#, fuzzy, kde-format
-#| msgid "Committer"
+#, kde-format
 msgid "Commit time"
-msgstr "Validateur"
+msgstr "Heure de validation"
 
 #: src/gui/widgets/logdetailswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Author name"
+#, kde-format
 msgid "Auth time"
-msgstr "Nom de l'auteur"
+msgstr "Heure d'authentification"
 
 #: src/gui/widgets/logdetailswidget.cpp:144
 #, kde-format
@@ -2268,17 +2263,16 @@ msgstr "Branches :"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:169
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Ref name"
-msgstr "Renommer"
+msgstr "Nom de référence"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:174
 #: src/libkommit/models/branchesmodel.cpp:75
 #, kde-format
 msgid "Upstream"
-msgstr ""
+msgstr "En amont"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
@@ -2404,10 +2398,9 @@ msgid "Commit(s) ahead"
 msgstr "Validation(s) devant"
 
 #: src/libkommit/models/branchesmodel.cpp:71
-#, fuzzy, kde-format
-#| msgid "Commit(s) ahead"
+#, kde-format
 msgid "Is ahead"
-msgstr "Validation(s) devant"
+msgstr "Est devant"
 
 #: src/libkommit/models/logsmodel.cpp:262
 #: src/libkommit/models/logsmodel.cpp:273
@@ -2457,10 +2450,9 @@ msgid "Tagger"
 msgstr "Étiqueteur"
 
 #: src/libkommit/models/tagsmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Create tag"
+#, kde-format
 msgid "Create time"
-msgstr "Créer une étiquette"
+msgstr "Heure de création"
 
 #~ msgid "Push to"
 #~ msgstr "Pousser vers"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 00:44+0000\n"
-"PO-Revision-Date: 2023-10-10 14:31\n"
+"PO-Revision-Date: 2023-10-21 13:55\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -2073,22 +2073,19 @@ msgid "Hide unchangeds"
 msgstr "隐藏未更改的"
 
 #: src/gui/widgets/logdetailswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Branch:"
+#, kde-format
 msgid "Branch: "
-msgstr "分支："
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Note"
+#, kde-format
 msgid "Note: "
-msgstr "注解"
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Remote:"
+#, kde-format
 msgid "Remote: "
-msgstr "远端："
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:127
 #, kde-format
@@ -2113,16 +2110,14 @@ msgid "time"
 msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:142
-#, fuzzy, kde-format
-#| msgid "Committer"
+#, kde-format
 msgid "Commit time"
-msgstr "提交者"
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Author name"
+#, kde-format
 msgid "Auth time"
-msgstr "作者姓名"
+msgstr ""
 
 #: src/gui/widgets/logdetailswidget.cpp:144
 #, kde-format
@@ -2199,10 +2194,9 @@ msgstr "分支："
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:169
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Ref name"
-msgstr "重命名"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:174
@@ -2331,10 +2325,9 @@ msgid "Commit(s) ahead"
 msgstr "提交领先"
 
 #: src/libkommit/models/branchesmodel.cpp:71
-#, fuzzy, kde-format
-#| msgid "Commit(s) ahead"
+#, kde-format
 msgid "Is ahead"
-msgstr "提交领先"
+msgstr ""
 
 #: src/libkommit/models/logsmodel.cpp:262
 #: src/libkommit/models/logsmodel.cpp:273
@@ -2384,13 +2377,6 @@ msgid "Tagger"
 msgstr ""
 
 #: src/libkommit/models/tagsmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Create new"
+#, kde-format
 msgid "Create time"
-msgstr "创建新的"
-
-#~ msgid "Push to"
-#~ msgstr "推送到"
-
-#~ msgid "Pull from"
-#~ msgstr "拉取自"
+msgstr ""
