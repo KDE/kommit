@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 00:44+0000\n"
-"PO-Revision-Date: 2023-10-15 11:53+0200\n"
+"PO-Revision-Date: 2023-10-22 10:49+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -811,10 +811,10 @@ msgstr ""
 "jego zastąpienia. Także gdy użyty został argument --force-with-lease, to "
 "polecenie odmawia uaktualnienia odniesienia, którego bieżąca wartość nie "
 "odpowiada temu, co jest oczekiwane.</p><p>Ta flaga wyłącza te sprawdzenia i "
-"może spowodować, że repozytorium zdalne pogubi wdrożenia; zachowaj "
-"ostrożność.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-"push#Documentation/git-push.txt--f\"><span style=\" text-decoration: "
-"underline; color:#007af4;\">Więcej szczegółów...</span></a></p></body></html>"
+"może spowodować, że repozytorium zdalne pogubi zmiany; zachowaj ostrożność.</"
+"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-push#Documentation/"
+"git-push.txt--f\"><span style=\" text-decoration: underline; color:#007af4;"
+"\">Więcej szczegółów...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
 #: src/gui/dialogs/commitpushdialog.ui:91
@@ -828,7 +828,7 @@ msgstr "Wymuś"
 #: src/gui/dialogs/commitpushdialog.ui:98
 #, kde-format
 msgid "Create a commit"
-msgstr "Utwórz wdrożenie"
+msgstr "Utwórz zmianę"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/gui/dialogs/commitpushdialog.ui:107
@@ -841,10 +841,10 @@ msgid ""
 "#2980b9;\">More information</span></a></p></body></html>"
 msgstr ""
 "<html><head/><body><p>Dodaj wynik &quot;git status&quot; do wzorca opisu "
-"wdrożenia przy używaniu edytora do jego tworzenia. </p><p><a href=\"https://"
-"git-scm.com/docs/git-commit#Documentation/git-commit.txt---status\"><span "
-"style=\" text-decoration: underline; color:#2980b9;\">Więcej szczegółów</"
-"span></a></p></body></html>"
+"zmiany przy używaniu edytora do jego tworzenia. </p><p><a href=\"https://git-"
+"scm.com/docs/git-commit#Documentation/git-commit.txt---status\"><span style="
+"\" text-decoration: underline; color:#2980b9;\">Więcej szczegółów</span></"
+"a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/gui/dialogs/commitpushdialog.ui:110
@@ -862,17 +862,16 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More info</span></a></p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Zastąp czubek bieżącej gałęzi, tworząc nowe wdrożenie."
-"</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-"commit#Documentation/git-commit.txt---amend\"><span style=\" text-"
-"decoration: underline; color:#2980b9;\">Więcej szczegółów</span></a></p></"
-"body></html>"
+"<html><head/><body><p>Zastąp czubek bieżącej gałęzi, tworząc nową zmianę.</"
+"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/"
+"git-commit.txt---amend\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">Więcej szczegółów</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAmend)
 #: src/gui/dialogs/commitpushdialog.ui:123
 #, kde-format
 msgid "Amend to previous commit"
-msgstr "Dołącz do poprzedniego wdrożenia"
+msgstr "Dołącz do poprzedniej zmiany"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -890,8 +889,8 @@ msgid ""
 "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>Użyj danego tekstu jako opisu wdrożenia. </p><p><a "
-"href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
+"<html><head/><body><p>Użyj danego tekstu jako opisu zmiany. </p><p><a href="
+"\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
 "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
 "\">Więcej szczegółów</span></a></p></body></html>"
 
@@ -943,7 +942,7 @@ msgstr "Brak"
 #: src/gui/dialogs/filehistorydialog.ui:65 src/gui/dialogs/searchdialog.cpp:37
 #, kde-format
 msgid "Commit"
-msgstr "Wdrożenie"
+msgstr "Zmiana"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/gui/dialogs/diffopendialog.ui:14
@@ -1025,7 +1024,7 @@ msgstr "Bez przewinięcia do przodu"
 #: src/gui/dialogs/fetchdialog.ui:101 src/gui/dialogs/pulldialog.ui:146
 #, kde-format
 msgid "No commit"
-msgstr "Bez wdrożenia"
+msgstr "Bez zmiany"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTags)
@@ -1396,13 +1395,13 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Ustaw stan drzewa pracy i indeksu tak, jakby nastąpiło "
 "rzeczywiste scalenie (poza wiadomością o scaleniu), lecz nie twórz żadnego "
-"wdrożenia, przesuń HEAD lub zapis $GIT_DIR/MERGE_HEAD (tak aby następne "
-"wdrożenie do gita stworzyło wdrożenie scalające). Umożliwia to stworzenie "
-"pojedynczego wdrożenia na górze bieżącej gałęzi, czego wynikiem jest to samo "
-"co scalenie z inną gałęzią (lub więcej w przypadku octopusa).</p><p><br/></"
-"p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
-"txt---squash\"><span style=\" text-decoration: underline; color:#007af4;"
-"\">Więcej szczegółów</span></a></p></body></html>"
+"zmiany, przesuń HEAD lub zapis $GIT_DIR/MERGE_HEAD (tak aby następne zmianę "
+"do gita stworzyło zmianę scalające). Umożliwia to stworzenie pojedynczego "
+"zmiany na górze bieżącej gałęzi, czego wynikiem jest to samo co scalenie z "
+"inną gałęzią (lub więcej w przypadku octopusa).</p><p><br/></p><p><a href="
+"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---squash"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">Więcej "
+"szczegółów</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
 #: src/gui/dialogs/mergedialog.ui:110 src/gui/dialogs/pulldialog.ui:101
@@ -1733,7 +1732,7 @@ msgstr "Poszukaj we wszystkich gałęziach"
 #: src/gui/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
-msgstr "Poszukaj wszystkich wdrożeń"
+msgstr "Poszukaj wszystkich zmian"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
 #: src/gui/dialogs/searchdialog.ui:62
@@ -2138,27 +2137,24 @@ msgid "Hide unchangeds"
 msgstr "Ukryj niezmienione"
 
 #: src/gui/widgets/logdetailswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Branch:"
+#, kde-format
 msgid "Branch: "
-msgstr "Gałąź:"
+msgstr "Gałąź: "
 
 #: src/gui/widgets/logdetailswidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Note"
+#, kde-format
 msgid "Note: "
-msgstr "Uwaga"
+msgstr "Uwaga: "
 
 #: src/gui/widgets/logdetailswidget.cpp:125
-#, fuzzy, kde-format
-#| msgid "Remote:"
+#, kde-format
 msgid "Remote: "
-msgstr "Zdalne:"
+msgstr "Zdalne: "
 
 #: src/gui/widgets/logdetailswidget.cpp:127
 #, kde-format
 msgid "Tag: "
-msgstr ""
+msgstr "Znacznik: "
 
 #: src/gui/widgets/logdetailswidget.cpp:129
 #: src/libkommit/models/branchesmodel.cpp:73
@@ -2175,19 +2171,17 @@ msgstr "Wdrażający"
 #: src/gui/widgets/logdetailswidget.cpp:141
 #, kde-format
 msgid "time"
-msgstr ""
+msgstr "czas"
 
 #: src/gui/widgets/logdetailswidget.cpp:142
-#, fuzzy, kde-format
-#| msgid "Committer"
+#, kde-format
 msgid "Commit time"
-msgstr "Wdrażający"
+msgstr "Nazwa zmiany"
 
 #: src/gui/widgets/logdetailswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Author name"
+#, kde-format
 msgid "Auth time"
-msgstr "Nazwa autora"
+msgstr "Czas autora"
 
 #: src/gui/widgets/logdetailswidget.cpp:144
 #, kde-format
@@ -2197,17 +2191,17 @@ msgstr "Skrót"
 #: src/gui/widgets/logdetailswidget.cpp:147
 #, kde-format
 msgid "Parent"
-msgstr "Nadrzędne"
+msgstr "Nadrzędna"
 
 #: src/gui/widgets/logdetailswidget.cpp:147
 #, kde-format
 msgid "Parents"
-msgstr "Rodzice"
+msgstr "Nadrzędne"
 
 #: src/gui/widgets/logdetailswidget.cpp:149
 #, kde-format
 msgid "Child"
-msgstr "Podrzędny"
+msgstr "Podrzędna"
 
 #: src/gui/widgets/logdetailswidget.cpp:149
 #, kde-format
@@ -2264,17 +2258,16 @@ msgstr "Gałęzie:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:169
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Ref name"
-msgstr "Przemianuj"
+msgstr "Nazwa Ref"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/widgets/remoteswidget.ui:174
 #: src/libkommit/models/branchesmodel.cpp:75
 #, kde-format
 msgid "Upstream"
-msgstr ""
+msgstr "Odgórna"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
@@ -2303,7 +2296,7 @@ msgstr ""
 #: src/gui/widgets/stasheswidget.ui:51
 #, kde-format
 msgid "Create new"
-msgstr "Utwórz nowy"
+msgstr "Utwórz nowe"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
@@ -2390,18 +2383,17 @@ msgstr "Autheds"
 #: src/libkommit/models/branchesmodel.cpp:67
 #, kde-format
 msgid "Commit(s) behind"
-msgstr "Wdrożeń w tyle"
+msgstr "Zmian w tyle"
 
 #: src/libkommit/models/branchesmodel.cpp:69
 #, kde-format
 msgid "Commit(s) ahead"
-msgstr "Wdrożeń do przodu"
+msgstr "Zmian do przodu"
 
 #: src/libkommit/models/branchesmodel.cpp:71
-#, fuzzy, kde-format
-#| msgid "Commit(s) ahead"
+#, kde-format
 msgid "Is ahead"
-msgstr "Wdrożeń do przodu"
+msgstr "Jest przed"
 
 #: src/libkommit/models/logsmodel.cpp:262
 #: src/libkommit/models/logsmodel.cpp:273
@@ -2451,10 +2443,9 @@ msgid "Tagger"
 msgstr "Znaczący"
 
 #: src/libkommit/models/tagsmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Create tag"
+#, kde-format
 msgid "Create time"
-msgstr "Utwórz znacznik"
+msgstr "Czas utworzenia"
 
 #~ msgid "Push to"
 #~ msgstr "Wypchnij do"
