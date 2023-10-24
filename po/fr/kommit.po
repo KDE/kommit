@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 00:44+0000\n"
-"PO-Revision-Date: 2023-10-20 12:43+0200\n"
+"PO-Revision-Date: 2023-10-22 22:02+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -814,7 +814,7 @@ msgstr ""
 "désactive ces vérifications, et peut provoquer des pertes dans le dépôt "
 "distant ; utilisez avec précautions.</p><p><br/></p><p><a href=\"https://git-"
 "scm.com/docs/git-push#Documentation/git-push.txt--f\"><span style=\" text-"
-"decoration: underline; color:#007af4;\">Plus d'information…</span></a></p></"
+"decoration: underline; color:#007af4;\">Plus d'informations…</span></a></p></"
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
@@ -845,7 +845,7 @@ msgstr ""
 "modèle de message de validation si on utilise un éditeur pour préparer le "
 "message de validation. </p><p><a href=\"https://git-scm.com/docs/git-"
 "commit#Documentation/git-commit.txt---status\"><span style=\" text-"
-"decoration: underline; color:#2980b9;\">Plus d'information</span></a></p></"
+"decoration: underline; color:#2980b9;\">Plus d'informations</span></a></p></"
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
@@ -895,7 +895,7 @@ msgstr ""
 "<html><head/><body><p>Utiliser le texte comme message de validation. </"
 "p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit."
 "txt---messageltmsggt\"><span style=\" text-decoration: underline; color:"
-"#2980b9;\">Plus d'information</span></a></p></body></html>"
+"#2980b9;\">Plus d'informations</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/commitpushdialog.ui:175
@@ -1305,7 +1305,7 @@ msgstr ""
 "Certaines stratégies peuvent également avoir leurs propres options, passée "
 "en donnant des arguments -X&lt;option&gt; à git merge et/ou git pull.</"
 "p><p><a href=\"https://git-scm.com/docs/merge-strategies\"><span style=\" "
-"text-decoration: underline; color:#2980b9;\">Plus d'information</span></a></"
+"text-decoration: underline; color:#2980b9;\">Plus d'informations</span></a></"
 "p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -1340,7 +1340,7 @@ msgstr ""
 "l'historique de fusion est déjà un descendant de l'historique courant..</"
 "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
 "git-merge.txt---ff\"><span style=\" text-decoration: underline; color:"
-"#007af4;\">Plus d'information</span></a></p></body></html>"
+"#007af4;\">Plus d'informations</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
@@ -1375,7 +1375,7 @@ msgstr ""
 "aucune variable de configuration n'existe pour permettre cela.</p><p><br/></"
 "p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
 "txt---allow-unrelated-histories\"><span style=\" text-decoration: underline; "
-"color:#007af4;\">Plus d'information</span></a></p></body></html>"
+"color:#007af4;\">Plus d'informations</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/gui/dialogs/mergedialog.ui:97
@@ -1406,7 +1406,7 @@ msgstr ""
 "fusionner une autre branche (ou plus dans le cas d'une pieuvre).</p><p><br/"
 "></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
 "txt---squash\"><span style=\" text-decoration: underline; color:#007af4;"
-"\">Plus d'information</span></a></p></body></html>"
+"\">Plus d'informations</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
 #: src/gui/dialogs/mergedialog.ui:110 src/gui/dialogs/pulldialog.ui:101
@@ -1446,7 +1446,7 @@ msgstr ""
 "blancs mélangés avec les autres changements dans les lignes ne sont pas "
 "ignorés. </p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
 "merge#Documentation/git-merge.txt-ignore-space-change\"><span style=\" text-"
-"decoration: underline; color:#007af4;\">Plus d'information</span></a></p></"
+"decoration: underline; color:#007af4;\">Plus d'informations</span></a></p></"
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
@@ -1491,7 +1491,7 @@ msgstr ""
 "normalisation de fin de ligne différents.</p><p><br/></p><p><a href="
 "\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-renormalize"
 "\"><span style=\" text-decoration: underline; color:#007af4;\">Plus "
-"d'information</span></a></p></body></html>"
+"d'informations</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
 #: src/gui/dialogs/mergedialog.ui:197
@@ -1522,7 +1522,7 @@ msgstr ""
 "distinctes).</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
 "merge#Documentation/git-merge.txt-diff-algorithmpatienceminimalhistogrammyers"
 "\"><span style=\" text-decoration: underline; color:#007af4;\">Plus "
-"d'information</span></a></p></body></html>"
+"d'informations</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
 #: src/gui/dialogs/mergedialog.ui:225
@@ -2235,7 +2235,7 @@ msgstr "Mettre à jour"
 #: src/gui/widgets/remoteswidget.ui:79
 #, kde-format
 msgid "Information"
-msgstr "Information"
+msgstr "Informations"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/widgets/remoteswidget.ui:85
@@ -2295,8 +2295,8 @@ msgstr ""
 "com/docs/git-stash#Documentation/git-stash.txt-push-p--patch-k--no-keep-"
 "index-u--include-untracked-a--all-q--quiet-m--messageltmessagegt--pathspec-"
 "from-fileltfilegt--pathspec-file-nul--ltpathspecgt82308203\"><span style=\" "
-"text-decoration: underline; color:#2980b9;\">Plus d'information…</span></a></"
-"p></body></html>"
+"text-decoration: underline; color:#2980b9;\">Plus d'informations…</span></"
+"a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
 #: src/gui/widgets/stasheswidget.ui:51
@@ -2323,7 +2323,7 @@ msgstr ""
 "<html><head/><body><p>Appliquer la remise au dossier de travail courant</"
 "p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
 "txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
-"underline; color:#2980b9;\">Plus d'information…</span></a></p></body></html>"
+"underline; color:#2980b9;\">Plus d'informations…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
 #: src/gui/widgets/stasheswidget.ui:68
