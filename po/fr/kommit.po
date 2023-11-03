@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 00:44+0000\n"
-"PO-Revision-Date: 2023-10-22 22:02+0200\n"
+"PO-Revision-Date: 2023-11-01 16:34+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -52,7 +52,7 @@ msgstr "Tirer"
 #: dolphinplugins/actions.h:20 src/gui/widgets/remoteinfodialog.ui:64
 #, kde-format
 msgid "Fetch"
-msgstr "Récupérer"
+msgstr "Rechercher"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
@@ -73,7 +73,7 @@ msgstr "Fusionner"
 #: dolphinplugins/actions.h:23 src/gui/dialogs/switchbranchdialog.ui:14
 #, kde-format
 msgid "Switch/Checkout"
-msgstr "Basculer/Récupérer"
+msgstr "Basculer / Récupérer"
 
 #: dolphinplugins/actions.h:24
 #, kde-format
@@ -579,7 +579,7 @@ msgstr "Arborescence des différences"
 #: src/gui/appwindow.cpp:261 src/gui/commandargsparser.cpp:241
 #, kde-format
 msgid "Unable to create path: %1"
-msgstr "Impossible de créer le chemin : %1"
+msgstr "Impossible de créer l'emplacement : %1"
 
 #: src/gui/appwindow.cpp:261 src/gui/commandargsparser.cpp:241
 #, kde-format
@@ -604,7 +604,7 @@ msgstr "Changer de branche"
 #: src/gui/commandargsparser.cpp:57
 #, kde-format
 msgid "The path is not git repo: %1"
-msgstr "Le chemin n'est pas un dépôt git : %1"
+msgstr "L'emplacement n'est pas un dépôt « git » : %1"
 
 #: src/gui/commandargsparser.cpp:246
 #, kde-format
@@ -619,7 +619,7 @@ msgstr "Fichier(s) ajouté(s) à git avec succès"
 #: src/gui/commandargsparser.cpp:516
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
-msgstr "Souhaitez-vous laisser le(s) fichier(s) sur le disque ?"
+msgstr "Voulez-vous laisser le(s) fichier(s) sur le disque ?"
 
 #: src/gui/commandargsparser.cpp:516
 #, kde-format
@@ -1125,12 +1125,12 @@ msgstr "Branche :"
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
-msgstr "Fermeture de la prévisualisation"
+msgstr "Fermeture de l'aperçu"
 
 #: src/gui/dialogs/fileviewerdialog.cpp:57
 #, kde-format
 msgid "Please wait while the preview is being closed..."
-msgstr "Veuillez patienter pendant la fermeture de la prévisualisation…"
+msgstr "Veuillez patienter pendant la fermeture de l'aperçu..."
 
 #: src/gui/dialogs/fileviewerdialog.cpp:90
 #, kde-format
@@ -1152,7 +1152,7 @@ msgstr "Le fichier est déjà ignoré"
 #: src/gui/dialogs/ignorefiledialog.cpp:80
 #, kde-format
 msgid "Please enter the pattern"
-msgstr "Veuillez entrer le motif"
+msgstr "Veuillez saisir le motif"
 
 #: src/gui/dialogs/ignorefiledialog.cpp:85
 #, kde-format
@@ -1199,7 +1199,7 @@ msgstr "Tous les fichiers avec ce nom"
 #: src/libkommit/models/submodulesmodel.cpp:55
 #, kde-format
 msgid "Path"
-msgstr "Chemin"
+msgstr "Emplacement"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExactPath)
 #: src/gui/dialogs/ignorefiledialog.ui:76
@@ -1252,8 +1252,8 @@ msgstr "Fermer"
 #, kde-format
 msgid "The changes to file are not saved to the disk. What you want to do?"
 msgstr ""
-"Les modifications apportées au fichier ne sont pas sauvegardées sur le "
-"disque. Que souhaitez-vous faire ?"
+"Les modifications apportées au fichier ne sont pas enregistrées sur le "
+"disque. Voulez-vous le faire ?"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonMarkResolved)
 #: src/gui/dialogs/mergecloseeventdialog.ui:49
@@ -1300,13 +1300,13 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Le mécanisme de fusion (commandes git merge et git "
-"pull) permet de sélectionner les stratégie de fusion avec l'option -s. "
-"Certaines stratégies peuvent également avoir leurs propres options, passée "
-"en donnant des arguments -X&lt;option&gt; à git merge et/ou git pull.</"
-"p><p><a href=\"https://git-scm.com/docs/merge-strategies\"><span style=\" "
-"text-decoration: underline; color:#2980b9;\">Plus d'informations</span></a></"
-"p></body></html>"
+"<html><head/><body><p>Le mécanisme de fusion (Commandes « git merge » et "
+"« git pull » ) permet de sélectionner les stratégie de fusion du moteur avec "
+"l'option « -s ». Certaines stratégies peuvent également avoir leurs propres "
+"options, passée en donnant des arguments -X&lt;option&gt; à « git merge » "
+"et / ou « git pull ».</p><p><a href=\"https://git-scm.com/docs/merge-"
+"strategies\"><span style=\" text-decoration: underline; color:#2980b9;"
+"\">Plus d'informations</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/dialogs/mergedialog.ui:46
@@ -1719,7 +1719,7 @@ msgstr "Chercher dans le dépôt"
 #: src/gui/dialogs/searchdialog.ui:25
 #, kde-format
 msgid "Path:"
-msgstr "Chemin :"
+msgstr "Emplacement :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/dialogs/searchdialog.ui:35
@@ -1855,7 +1855,7 @@ msgstr "Non-modifiés"
 #: src/gui/kommitui.rc:45
 #, kde-format
 msgid "Main Toolbar"
-msgstr "Barre d'outils principale"
+msgstr "Barre principale d'outils"
 
 #. i18n: ectx: Menu (file)
 #. i18n: ectx: Menu (repo)
@@ -2056,7 +2056,7 @@ msgstr "Calendrier par défaut :"
 #: src/gui/settings/settingspagebase.ui:51
 #, kde-format
 msgid "Git binary path:"
-msgstr "Chemin du binaire Git :"
+msgstr "Emplacement du binaire « Git » :"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel)
 #: src/gui/settings/settingspagediff.ui:17
@@ -2149,7 +2149,7 @@ msgstr "Branche : "
 #: src/gui/widgets/logdetailswidget.cpp:123
 #, kde-format
 msgid "Note: "
-msgstr "Note : "
+msgstr "Remarque : "
 
 #: src/gui/widgets/logdetailswidget.cpp:125
 #, kde-format
