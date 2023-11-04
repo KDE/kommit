@@ -20,7 +20,6 @@ Name[sl]=Kommit Merge
 Name[sv]=Kommit sammanfoga
 Name[tr]=Kommit Birleştir
 Name[uk]=Об'єднання Kommit
-Name[x-test]=xxKommit Mergexx
 Exec=kommit merge
 Icon=kommit
 
@@ -49,7 +48,6 @@ GenericName[sl]=Grafični vmesnik odjemalca Git za KDE
 GenericName[sv]=Git grafisk användargränssnittsklient för KDE
 GenericName[tr]=KDE için Git Grafik Kullanıcı Arayüzü
 GenericName[uk]=Клієнтська графічна оболонка до git для KDE
-GenericName[x-test]=xxGit client gui for KDExx
 GenericName[zh_CN]=KDE Git 图形客户端
 GenericName[zh_TW]=KDE 的 Git 用戶端介面
 Categories=Development
