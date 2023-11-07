@@ -20,6 +20,7 @@ Name[sl]=Kommit
 Name[sv]=Kommit
 Name[tr]=Kommit
 Name[uk]=Kommit
+Name[x-test]=xxKommitxx
 Exec=kommit
 Icon=kommit
 
@@ -46,4 +47,5 @@ GenericName[sl]=Grafični odjemalec Git
 GenericName[sv]=Git grafisk användargränssnittsklient
 GenericName[tr]=Grafik Arayüzlü Git İstemcisi
 GenericName[uk]=Графічний клієнт Git
+GenericName[x-test]=xxGit client GUIxx
 Categories=Development
