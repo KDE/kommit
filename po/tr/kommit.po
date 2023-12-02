@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:38+0000\n"
-"PO-Revision-Date: 2023-10-18 13:03+0300\n"
+"PO-Revision-Date: 2023-12-01 14:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -136,7 +136,7 @@ msgstr "Toparla"
 #: dolphinplugins/actions.h:33
 #, kde-format
 msgid "Diff branches"
-msgstr "Dalları Diff'le"
+msgstr "Dalların Farkını Al"
 
 #: dolphinplugins/dolphinplugin.cpp:31 dolphinplugins/dolphinplugin.cpp:35
 #: src/apps/main.cpp:34
@@ -558,7 +558,7 @@ msgstr "Çek..."
 #: src/gui/appwindow.cpp:195
 #, kde-format
 msgid "Diff branches..."
-msgstr "Dalları Diff'le..."
+msgstr "Dalların Farkını Al..."
 
 #: src/gui/appwindow.cpp:201
 #, kde-format
@@ -573,7 +573,7 @@ msgstr "Değiştir/Çıkış Yap..."
 #: src/gui/appwindow.cpp:207
 #, kde-format
 msgid "Diff tree"
-msgstr "Diff ağacı"
+msgstr "Diff Ağacı"
 
 #: src/gui/appwindow.cpp:261 src/gui/commandargsparser.cpp:241
 #, kde-format
@@ -666,7 +666,7 @@ msgstr "Yeniden Yükle"
 #: src/gui/widgets/logdetailswidget.cpp:151
 #, kde-format
 msgid "Changed files"
-msgstr "Değiştirilen dosyalar"
+msgstr "Değiştirilen Dosyalar"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/changedfilesdialog.ui:20
@@ -678,7 +678,7 @@ msgstr "Değiştirilen dosyalar:"
 #: src/gui/dialogs/cleanupdialog.ui:14
 #, kde-format
 msgid "Cleanup repo"
-msgstr "Depoyu temizle"
+msgstr "Depoyu Temizle"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/dialogs/cleanupdialog.ui:23
@@ -849,7 +849,7 @@ msgstr ""
 #: src/gui/dialogs/commitpushdialog.ui:110
 #, kde-format
 msgid "Include status to the message"
-msgstr "Durumu İletide İçer"
+msgstr "Durumu iletide içer"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAmend)
 #: src/gui/dialogs/commitpushdialog.ui:120
@@ -871,7 +871,7 @@ msgstr ""
 #: src/gui/dialogs/commitpushdialog.ui:123
 #, kde-format
 msgid "Amend to previous commit"
-msgstr "Bir Önceki İşlemeyi Değiştir"
+msgstr "Bir önceki işlemeyi değiştir"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -916,25 +916,25 @@ msgstr "İndekslenmiş"
 #: src/gui/dialogs/commitpushdialog.ui:215 src/gui/diffwindow.cpp:213
 #, kde-format
 msgid "Added"
-msgstr "Eklenmiş"
+msgstr "Eklendi"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/commitpushdialog.ui:225 src/gui/diffwindow.cpp:215
 #, kde-format
 msgid "Removed"
-msgstr "Kaldırılmış"
+msgstr "Kaldırıldı"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/gui/dialogs/commitpushdialog.ui:235 src/gui/diffwindow.cpp:217
 #, kde-format
 msgid "Modified"
-msgstr "Değiştirilmiş"
+msgstr "Değiştirildi"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddNone)
 #: src/gui/dialogs/commitpushdialog.ui:245
 #, kde-format
 msgid "None"
-msgstr "Hiçbiri"
+msgstr "Yok"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -948,19 +948,19 @@ msgstr "İşle"
 #: src/gui/dialogs/diffopendialog.ui:14
 #, kde-format
 msgid "Select files/folders"
-msgstr "Dosyalar/Klasörler seç"
+msgstr "Dosyalar/Klasörler Seç"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
 #: src/gui/dialogs/diffopendialog.ui:23
 #, kde-format
 msgid "Compare files"
-msgstr "Dosyaları Karşılaştır"
+msgstr "Dosyaları karşılaştır"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFolders)
 #: src/gui/dialogs/diffopendialog.ui:30
 #, kde-format
 msgid "Compare directories"
-msgstr "Dizinleri Karşılaştır"
+msgstr "Dizinleri karşılaştır"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/dialogs/diffopendialog.ui:40
@@ -1378,7 +1378,7 @@ msgstr ""
 #: src/gui/dialogs/mergedialog.ui:97
 #, kde-format
 msgid "Allow unrelated histories"
-msgstr "İlgisiz Geçmişlere İzin Ver"
+msgstr "İlgisiz geçmişlere izin ver"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxSquash)
 #: src/gui/dialogs/mergedialog.ui:107
@@ -1702,7 +1702,7 @@ msgstr "Durdur"
 #: src/gui/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "File name"
-msgstr "Dosya adı"
+msgstr "Dosya Adı"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
 #: src/gui/dialogs/searchdialog.ui:14
@@ -1726,19 +1726,19 @@ msgstr "Metin:"
 #: src/gui/dialogs/searchdialog.ui:45
 #, kde-format
 msgid "Search all branches"
-msgstr "Tüm Dalları Ara"
+msgstr "Tüm dalları ara"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
 #: src/gui/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
-msgstr "Tüm İşlemeleri Ara"
+msgstr "Tüm işlemeleri ara"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
 #: src/gui/dialogs/searchdialog.ui:62
 #, kde-format
 msgid "Case sensitive"
-msgstr "BÜYÜK/küçük Harf Duyarlı"
+msgstr "BÜYÜK/küçük harf duyarlı"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonSearch)
 #: src/gui/dialogs/searchdialog.ui:86
@@ -1760,7 +1760,7 @@ msgstr "Dalları Seç"
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:14
 #, kde-format
 msgid "Select branches"
-msgstr "Dalları seç"
+msgstr "Dalları Seç"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectLeftBranch)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
@@ -1768,7 +1768,7 @@ msgstr "Dalları seç"
 #: src/gui/dialogs/selectbranchestodiffdialog.ui:60
 #, kde-format
 msgid "Select branch"
-msgstr "Dalı Seç"
+msgstr "Dalı seç"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLeftIsHead)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRightIsHead)
@@ -1828,7 +1828,7 @@ msgstr "Gizli Karakterleri Görüntüle..."
 #: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:339
 #, kde-format
 msgid "Same size blocks"
-msgstr "Aynı boyutlu bloklar"
+msgstr "Aynı Boyutlu Bloklar"
 
 #: src/gui/diffwindow.cpp:146
 #, kde-format
@@ -1843,7 +1843,7 @@ msgstr "Ağacı Göster"
 #: src/gui/diffwindow.cpp:211
 #, kde-format
 msgid "Unchanged"
-msgstr "Değiştirilmemiş"
+msgstr "Değiştirilmedi"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -2075,13 +2075,13 @@ msgstr "Değiştirilen diff rengi:"
 #: src/gui/settings/settingspagegit.ui:19
 #, kde-format
 msgid "Register kommit diff tool"
-msgstr "Kommit Diff Aracını Kaydet"
+msgstr "Kommit diff aracının kaydını yaz"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
 #: src/gui/settings/settingspagegit.ui:26
 #, kde-format
 msgid "Register kommit merge tool"
-msgstr "Kommit Birleştirme Aracını Kaydet"
+msgstr "Kommit birleştirme aracının kaydını yaz"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/settings/settingspagegit.ui:37
@@ -2134,7 +2134,7 @@ msgstr "Süzmek için yaz"
 #: src/gui/widgets/difftreeview.ui:53
 #, kde-format
 msgid "Hide unchangeds"
-msgstr "Değiştirilmemişleri Gizle"
+msgstr "Değiştirilmeyenleri gizle"
 
 #: src/gui/widgets/logdetailswidget.cpp:121
 #, kde-format
@@ -2420,12 +2420,12 @@ msgstr "Konu"
 #: src/libkommit/models/stashesmodel.cpp:65
 #, kde-format
 msgid "Author name"
-msgstr "Yazar adı"
+msgstr "Yazar Adı"
 
 #: src/libkommit/models/stashesmodel.cpp:67
 #, kde-format
 msgid "Author email"
-msgstr "Yazar e-postası"
+msgstr "Yazar E-postası"
 
 #: src/libkommit/models/stashesmodel.cpp:69
 #, kde-format
@@ -2435,7 +2435,7 @@ msgstr "Zaman"
 #: src/libkommit/models/submodulesmodel.cpp:57
 #, kde-format
 msgid "Head"
-msgstr "Dal ucu"
+msgstr "Dal Ucu"
 
 #: src/libkommit/models/tagsmodel.cpp:66
 #, kde-format
