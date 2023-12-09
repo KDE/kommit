@@ -42,6 +42,7 @@
   <summary xml:lang="nl">Git-client GUI</summary>
   <summary xml:lang="pl">Interfejs klienta Git</summary>
   <summary xml:lang="pt">Cliente gráfico do Git</summary>
+  <summary xml:lang="sk">Git GUI klient</summary>
   <summary xml:lang="sl">Grafični odjemalec Git</summary>
   <summary xml:lang="sv">Git grafisk användargränssnittsklient</summary>
   <summary xml:lang="tr">Grafik Arayüzli Git İstemcisi</summary>
@@ -65,6 +66,7 @@
     <p xml:lang="nl">Git-client GUI</p>
     <p xml:lang="pl">Interfejs klienta Git</p>
     <p xml:lang="pt">Cliente gráfico do Git</p>
+    <p xml:lang="sk">Git GUI klient</p>
     <p xml:lang="sl">Grafični odjemalec Git</p>
     <p xml:lang="sv">Git grafisk användargränssnittsklient</p>
     <p xml:lang="tr">Grafik Arayüzli Git İstemcisi</p>
