@@ -53,6 +53,7 @@ int main(int argc, char **argv)
     KDBusService appDBusService(KDBusService::Multiple | KDBusService::NoExitOnFailure);
 
     CommandArgsParser p;
+    p.init();
     const auto w = p.run(application.arguments());
     if (w.type == ExecApp)
         return application.exec();

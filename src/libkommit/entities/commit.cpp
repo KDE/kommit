@@ -72,9 +72,9 @@ const QVector<GraphLane> &Commit::lanes() const
     return mLanes;
 }
 
-const QStringList &Commit::childs() const
+const QStringList &Commit::children() const
 {
-    return mChilds;
+    return mChildren;
 }
 
 const QString &Commit::commitShortHash() const

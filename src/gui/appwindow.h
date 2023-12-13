@@ -67,9 +67,6 @@ private:
     void initActions();
     void initRecentFiles(const QString &newItem = QString());
 
-    Q_DECL_DEPRECATED
-    void loadRemotes();
-
     template<class T>
     void addPage(const QString &actionName);
     void init();

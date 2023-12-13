@@ -25,8 +25,6 @@ class LIBKOMMIT_EXPORT BlameData : public QList<BlameDataRow>
 {
 public:
     BlameData();
-
-    void initCommits(const LogList &logs);
 };
 
 } // namespace Git

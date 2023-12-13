@@ -1,4 +1,5 @@
 add_subdirectory(libkommit)
+add_subdirectory(libkommitwidgets)
 add_subdirectory(libkommitdiff)
 add_subdirectory(data)
 add_subdirectory(gui)

@@ -65,6 +65,9 @@ class LIBKOMMITGUI_EXPORT CommandArgsParser : public QObject
     QString param(const QString &name) const;
     ArgParserReturn run(const QStringList &args);
 
+public:
+    void init();
+
 public Q_SLOTS:
     ArgParserReturn help();
 

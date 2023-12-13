@@ -43,7 +43,7 @@ public:
     Q_REQUIRED_RESULT const QString &extraData() const;
     Q_REQUIRED_RESULT CommitType type() const;
     Q_REQUIRED_RESULT const QVector<GraphLane> &lanes() const;
-    Q_REQUIRED_RESULT const QStringList &childs() const;
+    Q_REQUIRED_RESULT const QStringList &children() const;
     Q_REQUIRED_RESULT const QString &commitShortHash() const;
 
     Q_REQUIRED_RESULT QSharedPointer<Reference> reference() const;
@@ -68,7 +68,7 @@ private:
     QString mExtraData;
     CommitType mType;
     QVector<GraphLane> mLanes;
-    QStringList mChilds;
+    QStringList mChildren;
     QSharedPointer<Reference> mReference;
     QDateTime mCommitTime;
 

@@ -193,13 +193,13 @@ struct LanesFactory {
 
         if (!log->parents().empty())
             join(log->commitHash(), lanes, myIndex);
-        else if (!log->childs().empty()) {
-            start(log->childs().first(), lanes);
+        else if (!log->children().empty()) {
+            start(log->children().first(), lanes);
             myIndex = _hashes.size() - 1;
         }
 
-        if (!log->childs().empty()) {
-            fork(log->childs(), lanes, myIndex);
+        if (!log->children().empty()) {
+            fork(log->children(), lanes, myIndex);
         } else if (myIndex != -1) {
             lanes[myIndex].mType = GraphLane::End;
         }
@@ -596,7 +596,7 @@ void LogsModel::initChilds()
     for (auto i = mData.rbegin(); i != mData.rend(); i++) {
         auto &log = *i;
         for (auto &p : log->parents())
-            mDataByCommitHashLong.value(p)->mChilds.append(log->commitHash());
+            mDataByCommitHashLong.value(p)->mChildren.append(log->commitHash());
     }
 }
 

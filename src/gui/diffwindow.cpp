@@ -13,6 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDockWidget>
 #include <QTreeView>
 
+#include "core/editactionsmapper.h"
 #include "dialogs/diffopendialog.h"
 #include "gitmanager.h"
 #include "models/difftreemodel.h"
@@ -21,7 +22,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "widgets/codeeditor.h"
 #include "widgets/difftreeview.h"
 #include "widgets/diffwidget.h"
-#include "widgets/editactionsmapper.h"
 
 DiffWindow::DiffWindow()
     : AppMainWindow()

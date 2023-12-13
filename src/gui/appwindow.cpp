@@ -24,15 +24,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "diffwindow.h"
 #include "models/logsmodel.h"
 #include "multipagewidget.h"
+#include "pages/authorswidget.h"
+#include "pages/branchesstatuswidget.h"
+#include "pages/commitswidget.h"
+#include "pages/historyviewwidget.h"
+#include "pages/remoteswidget.h"
+#include "pages/stasheswidget.h"
+#include "pages/submoduleswidget.h"
+#include "pages/tagswidget.h"
 #include "settings/settingsmanager.h"
-#include "widgets/authorswidget.h"
-#include "widgets/branchesstatuswidget.h"
-#include "widgets/commitswidget.h"
-#include "widgets/historyviewwidget.h"
-#include "widgets/remoteswidget.h"
-#include "widgets/stasheswidget.h"
-#include "widgets/submoduleswidget.h"
-#include "widgets/tagswidget.h"
 #include <KommitSettings.h>
 
 #include <commands/commandclean.h>
@@ -90,13 +90,11 @@ AppWindow::AppWindow()
     if (KommitSettings::openLastRepo()) {
         QSettings s;
         auto p = s.value(QStringLiteral("last_repo")).toString();
-        mGit->open(p);
-        initRecentFiles(p);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        QtConcurrent::run(this, &AppWindow::loadRemotes);
-#else
-        QtConcurrent::run(&AppWindow::loadRemotes, this);
-#endif
+
+        if (!p.isEmpty()) {
+            mGit->open(p);
+            initRecentFiles(p);
+        }
     }
 }
 
@@ -104,11 +102,6 @@ AppWindow::AppWindow(const QString &path)
 {
     init();
     mGit->open(path);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QtConcurrent::run(this, &AppWindow::loadRemotes);
-#else
-    QtConcurrent::run(&AppWindow::loadRemotes, this);
-#endif
 }
 
 AppWindow::~AppWindow()
@@ -239,13 +232,6 @@ void AppWindow::initRecentFiles(const QString &newItem)
     }
 }
 
-void AppWindow::loadRemotes()
-{
-    const auto remotes = mGit->remotes();
-    for (const auto &r : remotes)
-        volatile auto remote = mGit->remoteDetails(r);
-}
-
 void AppWindow::repoStatus()
 {
     ChangedFilesDialog d(mGit, this);
@@ -286,12 +272,6 @@ void AppWindow::recentActionTriggered()
     mGit->open(p);
 
     initRecentFiles(p);
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QtConcurrent::run(this, &AppWindow::loadRemotes);
-#else
-    QtConcurrent::run(&AppWindow::loadRemotes, this);
-#endif
 }
 
 void AppWindow::commitPushAction()

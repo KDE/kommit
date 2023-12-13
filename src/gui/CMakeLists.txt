@@ -1,8 +1,7 @@
 include_directories(${CMAKE_SOURCE_DIR}/core)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-add_library(libkommitgui SHARED
-    core/repositorydata.h core/repositorydata.cpp)
+add_library(libkommitgui SHARED)
 generate_export_header(libkommitgui BASE_NAME libkommitgui)
 target_sources(libkommitgui PRIVATE
     core/appdialog.cpp
@@ -19,70 +18,73 @@ target_sources(libkommitgui PRIVATE
     core/commitsfiltermodel.cpp
     core/kmessageboxhelper.h
     core/kmessageboxhelper.cpp
-    actions/abstractactions.cpp
-    actions/abstractactions.h
-    actions/branchactions.cpp
-    actions/branchactions.h
-    actions/changedfileactions.cpp
-    actions/changedfileactions.h
-    actions/commitactions.cpp
-    actions/commitactions.h
-    actions/fileactions.cpp
-    actions/fileactions.h
-    actions/remotesactions.cpp
-    actions/remotesactions.h
-    actions/stashactions.cpp
-    actions/stashactions.h
-    actions/submoduleactions.cpp
-    actions/submoduleactions.h
-    actions/tagsactions.cpp
-    actions/tagsactions.h
-    widgets/blamecodeview.cpp
-    widgets/blamecodeview.h
-    widgets/branchesstatuswidget.cpp
-    widgets/branchesstatuswidget.h
-    widgets/codeeditor.cpp
-    widgets/codeeditor.h
-    widgets/codeeditorsidebar.cpp
-    widgets/codeeditorsidebar.h
-    widgets/commitswidget.cpp
-    widgets/commitswidget.h
-    widgets/completiontextedit.cpp
-    widgets/completiontextedit.h
-    widgets/difftreeview.cpp
-    widgets/difftreeview.h
-    widgets/diffwidget.cpp
-    widgets/diffwidget.h
-    widgets/editactionsmapper.cpp
-    widgets/editactionsmapper.h
-    widgets/filesstatuseslist.cpp
-    widgets/filesstatuseslist.h
-    widgets/graphpainter.cpp
-    widgets/graphpainter.h
-    widgets/historyviewwidget.cpp
-    widgets/historyviewwidget.h
-    widgets/logdetailswidget.cpp
-    widgets/logdetailswidget.h
-    widgets/remoteinfodialog.cpp
-    widgets/remoteinfodialog.h
-    widgets/remoteswidget.cpp
-    widgets/remoteswidget.h
-    widgets/segmentconnector.cpp
-    widgets/segmentconnector.h
-    widgets/stasheswidget.cpp
-    widgets/stasheswidget.h
-    widgets/submoduleswidget.cpp
-    widgets/submoduleswidget.h
-    widgets/tagswidget.cpp
-    widgets/tagswidget.h
-    widgets/widgetbase.cpp
-    widgets/widgetbase.h
-    widgets/segmentsscrollbar.h
-    widgets/segmentsscrollbar.cpp
-    widgets/authorswidget.h
-    widgets/authorswidget.cpp
-    widgets/segmentsmapper.h
-    widgets/segmentsmapper.cpp
+    core/repositorydata.h core/repositorydata.cpp
+    core/gravatarcache.h core/gravatarcache.cpp
+
+    # actions/abstractactions.cpp
+    # actions/abstractactions.h
+    # actions/branchactions.cpp
+    # actions/branchactions.h
+    # actions/changedfileactions.cpp
+    # actions/changedfileactions.h
+    # actions/commitactions.cpp
+    # actions/commitactions.h
+    # actions/fileactions.cpp
+    # actions/fileactions.h
+    # actions/remotesactions.cpp
+    # actions/remotesactions.h
+    # actions/stashactions.cpp
+    # actions/stashactions.h
+    # actions/submoduleactions.cpp
+    # actions/submoduleactions.h
+    # actions/tagsactions.cpp
+    # actions/tagsactions.h
+    # widgets/blamecodeview.cpp
+    # widgets/blamecodeview.h
+    # widgets/branchesstatuswidget.cpp
+    # widgets/branchesstatuswidget.h
+    # widgets/codeeditor.cpp
+    # widgets/codeeditor.h
+    # widgets/codeeditorsidebar.cpp
+    # widgets/codeeditorsidebar.h
+    # widgets/commitswidget.cpp
+    # widgets/commitswidget.h
+    # widgets/completiontextedit.cpp
+    # widgets/completiontextedit.h
+    # widgets/difftreeview.cpp
+    # widgets/difftreeview.h
+    # widgets/diffwidget.cpp
+    # widgets/diffwidget.h
+    # widgets/editactionsmapper.cpp
+    # widgets/editactionsmapper.h
+    # widgets/filesstatuseslist.cpp
+    # widgets/filesstatuseslist.h
+    # widgets/graphpainter.cpp
+    # widgets/graphpainter.h
+    # widgets/historyviewwidget.cpp
+    # widgets/historyviewwidget.h
+    # widgets/logdetailswidget.cpp
+    # widgets/logdetailswidget.h
+    # widgets/remoteinfodialog.cpp
+    # widgets/remoteinfodialog.h
+    # widgets/remoteswidget.cpp
+    # widgets/remoteswidget.h
+    # widgets/segmentconnector.cpp
+    # widgets/segmentconnector.h
+    # widgets/stasheswidget.cpp
+    # widgets/stasheswidget.h
+    # widgets/submoduleswidget.cpp
+    # widgets/submoduleswidget.h
+    # widgets/tagswidget.cpp
+    # widgets/tagswidget.h
+    # widgets/widgetbase.cpp
+    # widgets/widgetbase.h
+    # widgets/segmentsscrollbar.h
+    # widgets/segmentsscrollbar.cpp
+    # widgets/authorswidget.h
+    # widgets/authorswidget.cpp
+    # widgets/segmentsmapper.h
+    # widgets/segmentsmapper.cpp
     models/difftreemodel.cpp
     models/difftreemodel.h
     models/filesmodel.cpp
@@ -91,54 +93,66 @@ target_sources(libkommitgui PRIVATE
     models/treemodel.h
     models/changedfilesmodel.h
     models/changedfilesmodel.cpp
-    dialogs/changedfilesdialog.cpp
-    dialogs/changedfilesdialog.h
-    dialogs/clonedialog.cpp
-    dialogs/clonedialog.h
-    dialogs/commitpushdialog.cpp
-    dialogs/commitpushdialog.h
-    dialogs/diffopendialog.cpp
-    dialogs/diffopendialog.h
-    dialogs/fetchdialog.cpp
-    dialogs/fetchdialog.h
-    dialogs/fileblamedialog.cpp
-    dialogs/fileblamedialog.h
-    dialogs/filehistorydialog.cpp
-    dialogs/filehistorydialog.h
-    dialogs/filestreedialog.cpp
-    dialogs/filestreedialog.h
-    dialogs/fileviewerdialog.cpp
-    dialogs/fileviewerdialog.h
-    dialogs/ignorefiledialog.cpp
-    dialogs/ignorefiledialog.h
-    dialogs/initdialog.cpp
-    dialogs/initdialog.h
-    dialogs/mergecloseeventdialog.cpp
-    dialogs/mergecloseeventdialog.h
-    dialogs/mergedialog.cpp
-    dialogs/mergedialog.h
-    dialogs/mergeopenfilesdialog.cpp
-    dialogs/mergeopenfilesdialog.h
-    dialogs/notedialog.cpp
-    dialogs/notedialog.h
-    dialogs/pulldialog.cpp
-    dialogs/pulldialog.h
-    dialogs/reposettingsdialog.cpp
-    dialogs/reposettingsdialog.h
-    dialogs/runnerdialog.cpp
-    dialogs/runnerdialog.h
-    dialogs/searchdialog.cpp
-    dialogs/searchdialog.h
-    dialogs/selectbranchestodiffdialog.cpp
-    dialogs/selectbranchestodiffdialog.h
-    dialogs/submoduleinfodialog.cpp
-    dialogs/submoduleinfodialog.h
-    dialogs/switchbranchdialog.cpp
-    dialogs/switchbranchdialog.h
-    dialogs/taginfodialog.cpp
-    dialogs/taginfodialog.h
-    dialogs/cleanupdialog.cpp
-    dialogs/cleanupdialog.h
+
+    # dialogs/changedfilesdialog.cpp
+    # dialogs/changedfilesdialog.h
+    # dialogs/clonedialog.cpp
+    # dialogs/clonedialog.h
+    # dialogs/commitpushdialog.cpp
+    # dialogs/commitpushdialog.h
+    # dialogs/diffopendialog.cpp
+    # dialogs/diffopendialog.h
+    # dialogs/fetchdialog.cpp
+    # dialogs/fetchdialog.h
+    # dialogs/fileblamedialog.cpp
+    # dialogs/fileblamedialog.h
+    # dialogs/filehistorydialog.cpp
+    # dialogs/filehistorydialog.h
+    # dialogs/filestreedialog.cpp
+    # dialogs/filestreedialog.h
+    # dialogs/fileviewerdialog.cpp
+    # dialogs/fileviewerdialog.h
+    # dialogs/ignorefiledialog.cpp
+    # dialogs/ignorefiledialog.h
+    # dialogs/initdialog.cpp
+    # dialogs/initdialog.h
+    # dialogs/mergecloseeventdialog.cpp
+    # dialogs/mergecloseeventdialog.h
+    # dialogs/mergedialog.cpp
+    # dialogs/mergedialog.h
+    # dialogs/mergeopenfilesdialog.cpp
+    # dialogs/mergeopenfilesdialog.h
+    # dialogs/notedialog.cpp
+    # dialogs/notedialog.h
+    # dialogs/pulldialog.cpp
+    # dialogs/pulldialog.h
+    # dialogs/reposettingsdialog.cpp
+    # dialogs/reposettingsdialog.h
+    # dialogs/runnerdialog.cpp
+    # dialogs/runnerdialog.h
+    # dialogs/searchdialog.cpp
+    # dialogs/searchdialog.h
+    # dialogs/selectbranchestodiffdialog.cpp
+    # dialogs/selectbranchestodiffdialog.h
+    # dialogs/submoduleinfodialog.cpp
+    # dialogs/submoduleinfodialog.h
+    # dialogs/switchbranchdialog.cpp
+    # dialogs/switchbranchdialog.h
+    # dialogs/taginfodialog.cpp
+    # dialogs/taginfodialog.h
+    # dialogs/cleanupdialog.cpp
+    # dialogs/cleanupdialog.h
+
+    pages/authorswidget.h  pages/authorswidget.cpp
+    pages/branchesstatuswidget.h  pages/branchesstatuswidget.cpp
+    pages/commitswidget.h  pages/commitswidget.cpp
+    pages/historyviewwidget.h  pages/historyviewwidget.cpp
+    pages/remoteswidget.h  pages/remoteswidget.cpp
+    pages/stasheswidget.h  pages/stasheswidget.cpp
+    pages/submoduleswidget.h  pages/submoduleswidget.cpp
+    pages/tagswidget.h  pages/tagswidget.cpp
+    pages/widgetbase.h  pages/widgetbase.cpp
+
 
     appwindow.cpp
     buttonsgroup.cpp
@@ -186,51 +200,51 @@ ki18n_wrap_ui(
     kommitmergeview.ui
     commandpullwidget.ui
 
-    widgets/branchesstatuswidget.ui
-    widgets/remoteinfodialog.ui
-    widgets/remoteswidget.ui
-    widgets/stasheswidget.ui
-    widgets/historyviewwidget.ui
-    widgets/submoduleswidget.ui
-    widgets/commitswidget.ui
-    widgets/tagswidget.ui
-    widgets/difftreeview.ui
-    widgets/diffwidget.ui
-    widgets/authorswidget.ui
+    pages/authorswidget.ui
+    pages/branchesstatuswidget.ui
+    pages/commitswidget.ui
+    pages/historyviewwidget.ui
+    pages/remoteswidget.ui
+    pages/stasheswidget.ui
+    pages/submoduleswidget.ui
+    pages/tagswidget.ui
 
-    dialogs/ignorefiledialog.ui
-    dialogs/mergeopenfilesdialog.ui
-    dialogs/mergecloseeventdialog.ui
-    dialogs/changedfilesdialog.ui
-    dialogs/filestreedialog.ui
-    dialogs/commitpushdialog.ui
-    dialogs/pulldialog.ui
-    dialogs/mergedialog.ui
-    dialogs/runnerdialog.ui
-    dialogs/fileviewerdialog.ui
-    dialogs/clonedialog.ui
-    dialogs/submoduleinfodialog.ui
-    dialogs/taginfodialog.ui
-    dialogs/diffopendialog.ui
-    dialogs/selectbranchestodiffdialog.ui
-    dialogs/filehistorydialog.ui
-    dialogs/fileblamedialog.ui
-    dialogs/searchdialog.ui
-    dialogs/reposettingsdialog.ui
-    dialogs/fetchdialog.ui
-    dialogs/switchbranchdialog.ui
-    dialogs/initdialog.ui
-    dialogs/notedialog.ui
-    dialogs/cleanupdialog.ui
+
+    # dialogs/ignorefiledialog.ui
+    # dialogs/mergeopenfilesdialog.ui
+    # dialogs/mergecloseeventdialog.ui
+    # dialogs/changedfilesdialog.ui
+    # dialogs/filestreedialog.ui
+    # dialogs/commitpushdialog.ui
+    # dialogs/pulldialog.ui
+    # dialogs/mergedialog.ui
+    # dialogs/runnerdialog.ui
+    # dialogs/fileviewerdialog.ui
+    # dialogs/clonedialog.ui
+    # dialogs/submoduleinfodialog.ui
+    # dialogs/taginfodialog.ui
+    # dialogs/diffopendialog.ui
+    # dialogs/selectbranchestodiffdialog.ui
+    # dialogs/filehistorydialog.ui
+    # dialogs/fileblamedialog.ui
+    # dialogs/searchdialog.ui
+    # dialogs/reposettingsdialog.ui
+    # dialogs/fetchdialog.ui
+    # dialogs/switchbranchdialog.ui
+    # dialogs/initdialog.ui
+    # dialogs/notedialog.ui
+    # dialogs/cleanupdialog.ui
 )
 
 target_link_libraries(libkommitgui
     Qt::Core
     Qt::Widgets
     Qt::Concurrent
+    Qt::Network
 
     libkommit
     libkommitdiff
+    libkommitwidgets
 
     KF${KF_MAJOR_VERSION}::CoreAddons
     KF${KF_MAJOR_VERSION}::I18n
@@ -256,7 +270,7 @@ endif()
 set_target_properties(
     libkommitgui PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER org.kde.kommit
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
