@@ -45,7 +45,7 @@ class Manager;
 
 using CommandList = QList<Command>;
 
-#define HelpText(name, text) Q_CLASSINFO("help." #name, text);
+#define HelpText(name, text) Q_CLASSINFO("help." #name, text)
 class LIBKOMMITGUI_EXPORT CommandArgsParser : public QObject
 {
     Q_OBJECT
@@ -55,18 +55,14 @@ class LIBKOMMITGUI_EXPORT CommandArgsParser : public QObject
     Git::Manager *git = nullptr;
     QMap<QString, QString> mHelpTexts;
 
-    HelpText(clone, "Clone an repo")
-
-        public : CommandArgsParser();
+public:
+    CommandArgsParser();
     void add(const QString &name, const CommandList &list);
     void add(const QString &name, const QString &list);
     bool check(const CommandList &commands);
     QString checkAll();
     QString param(const QString &name) const;
     ArgParserReturn run(const QStringList &args);
-
-public:
-    void init();
 
 public Q_SLOTS:
     ArgParserReturn help();

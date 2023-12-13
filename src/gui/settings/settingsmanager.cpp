@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "KommitSettings.h"
 #include "gitmanager.h"
+#include "kommitwidgetsglobaloptions.h"
 
 #include <QCalendar>
 
@@ -44,6 +45,7 @@ void SettingsManager::settingsChanged()
         mGit->unsetConfig(QStringLiteral("mergetool.kommitmerge.trustExitCode"), Git::Manager::ConfigGlobal);
     }
 
+    applyToLib();
     Q_EMIT settingsUpdated();
 }
 
@@ -96,6 +98,16 @@ void SettingsManager::exec(QWidget *parentWidget)
 
     connect(dialog, &KConfigDialog::settingsChanged, this, &SettingsManager::settingsChanged);
     dialog->show();
+}
+
+void SettingsManager::applyToLib()
+{
+    auto opt = KommitWidgetsGlobalOptions::instance();
+    auto set = KommitSettings::self();
+    opt->setCalendar(QCalendar{set->calendarType()});
+    opt->setColor(Git::ChangeStatus::Added, set->diffAddedColor());
+    opt->setColor(Git::ChangeStatus::Modified, set->diffModifiedColor());
+    opt->setColor(Git::ChangeStatus::Removed, set->diffRemovedColor());
 }
 
 #include "moc_settingsmanager.cpp"

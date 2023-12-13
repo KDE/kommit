@@ -84,12 +84,12 @@ FileActions::FileActions(Git::Manager *git, QWidget *parent)
     _actionOpen = addAction(i18n("Open"), this, &FileActions::openFile, false, true);
     _actionOpenWith = addAction(i18n("Open with..."), this, &FileActions::openWith, false, true);
 
-    _actionDiffWithHead = addAction(i18n("Diff with HEAD..."), this, &FileActions::diffWithHead, false, true);
-    _actionMergeWithHead = addAction(i18n("Merge with HEAD..."), this, &FileActions::mergeWithHead, false, true);
+    _actionDiffWithHead = addAction(i18n("Diff with working dir"), this, &FileActions::diffWithHead, false, true);
+    _actionMergeWithHead = addAction(i18n("Merge with working dir"), this, &FileActions::mergeWithHead, false, true);
 
     _actionSaveAs = addAction(i18n("Save as..."), this, &FileActions::saveAsFile, false, true);
-    _actionHistory = addAction(i18n("Log..."), this, &FileActions::logFile, false, true);
-    _actionBlame = addAction(i18n("Blame..."), this, &FileActions::blameFile, false, true);
+    _actionHistory = addAction(i18n("Log"), this, &FileActions::logFile, false, true);
+    _actionBlame = addAction(i18n("Blame"), this, &FileActions::blameFile, false, true);
     _actionSearch = addAction(i18n("Search..."), this, &FileActions::search, false, true);
 }
 

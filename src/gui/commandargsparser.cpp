@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commandargsparser.h"
 
-#include "KommitSettings.h"
 #include "appwindow.h"
 #include "commands/commandclean.h"
 #include "commands/commandmerge.h"
@@ -28,8 +27,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/switchbranchdialog.h"
 #include "dialogs/taginfodialog.h"
 #include "diffwindow.h"
-#include "kommitwidgetsglobaloptions.h"
 #include "mergewindow.h"
+#include "settings/settingsmanager.h"
 
 #include <entities/file.h>
 #include <gitmanager.h>
@@ -65,6 +64,7 @@ CommandArgsParser::CommandArgsParser()
     : QObject()
 {
     git = new Git::Manager;
+    SettingsManager::applyToLib();
 }
 
 void CommandArgsParser::add(const QString &name, const CommandList &list)
@@ -176,16 +176,6 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
     if (args.size() == 2)
         return main(args.at(1));
     return main();
-}
-
-void CommandArgsParser::init()
-{
-    auto opt = KommitWidgetsGlobalOptions::instance();
-    auto set = KommitSettings::self();
-    opt->setCalendar(QCalendar{set->calendarType()});
-    opt->setColor(Git::ChangeStatus::Added, set->diffAddedColor());
-    opt->setColor(Git::ChangeStatus::Modified, set->diffModifiedColor());
-    opt->setColor(Git::ChangeStatus::Removed, set->diffRemovedColor());
 }
 
 ArgParserReturn CommandArgsParser::help()

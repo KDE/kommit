@@ -30,9 +30,9 @@ void CommitActions::setCommitHash(const QString &newCommitHash)
 CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
-    _actionBrowse = addAction(i18n("Browse..."), this, &CommitActions::browse, false, true);
-    _actionCheckout = addAction(i18n("Checkout..."), this, &CommitActions::checkout, false, true);
-    _actionDiff = addAction(i18n("Diff with HEAD..."), this, &CommitActions::diff, false, true);
+    _actionBrowse = addAction(i18n("Browse"), this, &CommitActions::browse, false, true);
+    _actionCheckout = addAction(i18n("Checkout"), this, &CommitActions::checkout, false, true);
+    _actionDiff = addAction(i18n("Diff with working dir"), this, &CommitActions::diff, false, true);
 }
 
 void CommitActions::browse()
@@ -50,7 +50,7 @@ void CommitActions::checkout()
 
 void CommitActions::diff()
 {
-    auto d = new DiffWindow(mGit, mCommitHash, QStringLiteral("HEAD"));
+    auto d = new DiffWindow(mGit, mCommitHash, QLatin1String());
     d->showModal();
 }
 

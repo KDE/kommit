@@ -72,6 +72,12 @@
             return;                                                                                                                                            \
     } while (false)
 
+#define RETURN_IF_ERR(val)                                                                                                                                     \
+    do {                                                                                                                                                       \
+        if (err)                                                                                                                                               \
+            return val;                                                                                                                                        \
+    } while (false)
+
 #define toConstChars(s) s.toLocal8Bit().constData()
 
 namespace Git
@@ -315,27 +321,36 @@ QList<FileStatus> Manager::diffBranches(const QString &from, const QString &to) 
     BEGIN
 
     git_tree *fromTree;
-    git_tree *toTree;
+    git_tree *toTree{nullptr};
 
-    git_object *obj;
-    git_commit *a = NULL;
-    STEP git_revparse_single(&obj, mRepo, from.toLatin1().constData());
-    STEP git_commit_lookup(&a, mRepo, git_object_id(obj));
-    git_commit_tree(&fromTree, a);
-    git_commit_free(a);
-
-    git_object *obj2;
-    git_commit *a2 = NULL;
-    STEP git_revparse_single(&obj2, mRepo, to.toLatin1().constData());
-    STEP git_commit_lookup(&a2, mRepo, git_object_id(obj2));
-    git_commit_tree(&toTree, a2);
-    git_commit_free(a2);
-
+    git_object *fromObject;
+    git_commit *fromCommit = NULL;
+    git_object *toObject;
+    git_commit *toCommit = NULL;
     git_diff *diff;
     git_diff_options opts = GIT_DIFF_OPTIONS_INIT;
     opts.flags = GIT_DIFF_NORMAL;
 
-    git_diff_tree_to_tree(&diff, mRepo, fromTree, toTree, &opts);
+    STEP git_revparse_single(&fromObject, mRepo, from.toLatin1().constData());
+    STEP git_commit_lookup(&fromCommit, mRepo, git_object_id(fromObject));
+    STEP git_commit_tree(&fromTree, fromCommit);
+
+    if (to.isEmpty()) {
+        git_diff_tree_to_workdir(&diff, mRepo, fromTree, &opts);
+        RETURN_IF_ERR({});
+    } else {
+        STEP git_revparse_single(&toObject, mRepo, to.toLatin1().constData());
+        STEP git_commit_lookup(&toCommit, mRepo, git_object_id(toObject));
+        STEP git_commit_tree(&toTree, toCommit);
+
+        RETURN_IF_ERR({});
+
+        git_diff_tree_to_tree(&diff, mRepo, fromTree, toTree, &opts);
+        git_commit_free(toCommit);
+    }
+
+    git_commit_free(fromCommit);
+
     git_diff_stats *stats;
     git_diff_get_stats(&stats, diff);
     auto n = git_diff_stats_files_changed(stats);

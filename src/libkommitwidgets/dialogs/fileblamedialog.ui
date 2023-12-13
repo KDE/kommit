@@ -20,22 +20,53 @@
       <enum>Qt::Vertical</enum>
      </property>
      <widget class="BlameCodeView" name="plainTextEdit"/>
-     <widget class="LogDetailsWidget" name="logDetailsWidget" native="true"/>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>535</width>
+         <height>68</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="CommitDetails" name="widgetCommitDetails" native="true"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
     </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
+   <class>CommitDetails</class>
+   <extends>QWidget</extends>
+   <header location="global">widgets/commitdetails.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>BlameCodeView</class>
    <extends>QPlainTextEdit</extends>
    <header>widgets/blamecodeview.h</header>
-  </customwidget>
-  <customwidget>
-   <class>LogDetailsWidget</class>
-   <extends>QWidget</extends>
-   <header>widgets/logdetailswidget.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

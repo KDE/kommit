@@ -24,6 +24,7 @@ public:
     SettingsManager(Git::Manager *git, QWidget *parentWidget);
 
     void exec(QWidget *parentWidget);
+    static void applyToLib();
 
 public Q_SLOTS:
     void show();
