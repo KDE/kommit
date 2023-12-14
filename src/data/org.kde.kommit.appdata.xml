@@ -25,6 +25,7 @@
   <name xml:lang="tr">Kommit</name>
   <name xml:lang="uk">Kommit</name>
   <name xml:lang="x-test">xxKommitxx</name>
+  <name xml:lang="zh-TW">Kommit</name>
   <summary>Git GUI client</summary>
   <summary xml:lang="ca">Client amb IGU del Git</summary>
   <summary xml:lang="ca-valencia">Client amb IGU de Git</summary>
@@ -48,6 +49,7 @@
   <summary xml:lang="tr">Grafik Arayüzli Git İstemcisi</summary>
   <summary xml:lang="uk">Графічний клієнт Git</summary>
   <summary xml:lang="x-test">xxGit GUI clientxx</summary>
+  <summary xml:lang="zh-TW">Git GUI 用戶端</summary>
   <description>
     <p>Git GUI client</p>
     <p xml:lang="ca">Client amb IGU del Git</p>
@@ -72,6 +74,7 @@
     <p xml:lang="tr">Grafik Arayüzli Git İstemcisi</p>
     <p xml:lang="uk">Графічний клієнт Git</p>
     <p xml:lang="x-test">xxGit GUI clientxx</p>
+    <p xml:lang="zh-TW">Git GUI 用戶端</p>
   </description>
   <url type="homepage">https://invent.kde.org/sdk/kommit</url>
   <url type="bugtracker">https://invent.kde.org/sdk/kommit/-/issues</url>
