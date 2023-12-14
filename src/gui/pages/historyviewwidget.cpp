@@ -6,12 +6,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "historyviewwidget.h"
 #include "actions/commitactions.h"
-#include "diffwindow.h"
 #include "models/logsmodel.h"
-#include <widgets/graphpainter.h>
 
 #include <entities/commit.h>
 #include <gitmanager.h>
+#include <widgets/graphpainter.h>
+#include <windows/diffwindow.h>
 
 HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
@@ -72,11 +72,12 @@ void HistoryViewWidget::slotTextBrowserFileClicked(const QString &file)
 {
     auto log = widgetCommit->commit();
 
-    Git::File oldFile;
-    const Git::File newFile(mGit, log->commitHash(), file);
-    if (!log->parents().empty()) {
-        oldFile = {mGit, log->parents().first(), file};
-    }
+    if (!log || !log->parents().size())
+        return;
+
+    QSharedPointer<Git::File> oldFile{new Git::File{mGit, log->parents().first(), file}};
+    QSharedPointer<Git::File> newFile{new Git::File{mGit, log->commitHash(), file}};
+
     auto diffWin = new DiffWindow(oldFile, newFile);
     diffWin->showModal();
 }

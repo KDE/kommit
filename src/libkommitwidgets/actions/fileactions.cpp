@@ -184,8 +184,8 @@ void FileActions::openWith()
 
 void FileActions::diffWithHead()
 {
-    const Git::File oldFile{mGit, mPlace, mFilePath};
-    const Git::File newFile{mGit->path() + QLatin1Char('/') + mFilePath};
+    QSharedPointer<Git::File> oldFile{new Git::File{mGit, mPlace, mFilePath}};
+    QSharedPointer<Git::File> newFile{new Git::File{mGit->path() + QLatin1Char('/') + mFilePath}};
 
     auto d = new DiffWindow(oldFile, newFile);
     d->showModal();

@@ -9,6 +9,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractactions.h"
 #include "libkommitwidgets_export.h"
 
+namespace Git
+{
+class Stash;
+};
+
 class LIBKOMMITWIDGETS_EXPORT StashActions : public AbstractActions
 {
     Q_OBJECT
@@ -16,8 +21,8 @@ class LIBKOMMITWIDGETS_EXPORT StashActions : public AbstractActions
 public:
     explicit StashActions(Git::Manager *git, QWidget *parent = nullptr);
 
-    Q_REQUIRED_RESULT const QString &stashName() const;
-    void setStashName(const QString &newStashName);
+    Q_REQUIRED_RESULT QSharedPointer<Git::Stash> stash() const;
+    void setStash(QSharedPointer<Git::Stash> stash);
 
 public Q_SLOTS:
     void apply();
@@ -27,7 +32,8 @@ public Q_SLOTS:
     void create();
 
 private:
-    QString mStashName;
+    QSharedPointer<Git::Stash> mStash;
+
     DEFINE_ACTION(actionPop)
     DEFINE_ACTION(actionApply)
     DEFINE_ACTION(actionDrop)

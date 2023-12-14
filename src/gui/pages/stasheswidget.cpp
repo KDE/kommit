@@ -40,7 +40,7 @@ void StashesWidget::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
     if (!stash)
         return;
 
-    mActions->setStashName(stash->name());
+    mActions->setStash(stash);
     mActions->popup();
 }
 
@@ -51,7 +51,7 @@ void StashesWidget::slotTreeViewItemActivated(const QModelIndex &index)
     if (!stash)
         return;
 
-    mActions->setStashName(stash->name());
+    mActions->setStash(stash);
 }
 
 void StashesWidget::saveState(QSettings &settings) const

@@ -72,12 +72,12 @@ QVariant StashesModel::headerData(int section, Qt::Orientation orientation, int 
     return {};
 }
 
-Stash *StashesModel::fromIndex(const QModelIndex &index) const
+QSharedPointer<Stash> StashesModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
-        return nullptr;
+        return {};
 
-    return mData.at(index.row()).data();
+    return mData.at(index.row());
 }
 
 void StashesModel::fill()

@@ -26,12 +26,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/selectbranchestodiffdialog.h"
 #include "dialogs/switchbranchdialog.h"
 #include "dialogs/taginfodialog.h"
-#include "diffwindow.h"
-#include "mergewindow.h"
 #include "settings/settingsmanager.h"
 
 #include <entities/file.h>
 #include <gitmanager.h>
+#include <windows/diffwindow.h>
+#include <windows/mergewindow.h>
 
 #include "kommit_appdebug.h"
 #include <QApplication>
@@ -339,9 +339,9 @@ ArgParserReturn CommandArgsParser::diff(const QString &file)
         qDebug() << Q_FUNC_INFO << file;
         git->open(fi.absolutePath());
         const QDir dir{git->path()};
-        // TODO: change to QSharedPointer
-        const Git::File headFile{git, git->currentBranch(), dir.relativeFilePath(file)};
-        const Git::File changedFile{file};
+
+        QSharedPointer<Git::File> headFile{new Git::File{git, git->currentBranch(), dir.relativeFilePath(file)}};
+        QSharedPointer<Git::File> changedFile{new Git::File{file}};
         auto d = new DiffWindow{headFile, changedFile};
         d->exec();
         return ExecApp;
@@ -361,9 +361,9 @@ ArgParserReturn CommandArgsParser::diff(const QString &file1, const QString &fil
     QFileInfo fi2(file2);
 
     if (fi1.isFile() && fi2.isFile()) {
-        qCDebug(KOMMIT_LOG) << fi1.absoluteFilePath() << fi2.absoluteFilePath();
-        const Git::File fileLeft(fi1.absoluteFilePath());
-        const Git::File fileRight(fi2.absoluteFilePath());
+        QSharedPointer<Git::File> fileLeft{new Git::File{fi1.absoluteFilePath()}};
+        QSharedPointer<Git::File> fileRight{new Git::File{fi2.absoluteFilePath()}};
+
         auto d = new DiffWindow(fileLeft, fileRight);
         d->exec();
         return ExecApp;
@@ -386,8 +386,9 @@ ArgParserReturn CommandArgsParser::diff(const QString &path, const QString &file
         return 1;
     const auto parts1 = file1.split(QLatin1Char(':'));
     const auto parts2 = file2.split(QLatin1Char(':'));
-    const Git::File fileLeft(git, parts1.first(), parts1.at(1));
-    const Git::File fileRight(git, parts2.first(), parts2.at(1));
+    QSharedPointer<Git::File> fileLeft{new Git::File{git, parts1.first(), parts1.at(1)}};
+    QSharedPointer<Git::File> fileRight{new Git::File{git, parts2.first(), parts2.at(1)}};
+
     auto d = new DiffWindow(fileLeft, fileRight);
     d->exec();
     return ExecApp;

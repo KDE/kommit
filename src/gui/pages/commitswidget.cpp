@@ -9,13 +9,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "actions/branchactions.h"
 #include "actions/commitactions.h"
 #include "core/commitsfiltermodel.h"
-#include "diffwindow.h"
 
 #include <entities/branch.h>
 #include <entities/commit.h>
 #include <gitmanager.h>
 #include <models/logsmodel.h>
 #include <models/treemodel.h>
+#include <windows/diffwindow.h>
 
 #include <KommitSettings.h>
 
@@ -128,11 +128,12 @@ void CommitsWidget::slotTextBrowserFileClicked(const QString &file)
 {
     auto commit = widgetCommitDetails->commit();
 
-    Git::File oldFile;
-    const Git::File newFile(mGit, commit->commitHash(), file);
-    if (!commit->parents().empty()) {
-        oldFile = {mGit, commit->parents().first(), file};
-    }
+    if (!commit || !commit->parents().size())
+        return;
+
+    QSharedPointer<Git::File> oldFile{new Git::File{mGit, commit->parents().first(), file}};
+    QSharedPointer<Git::File> newFile{new Git::File{mGit, commit->commitHash(), file}};
+
     auto diffWin = new DiffWindow(oldFile, newFile);
     diffWin->showModal();
 }

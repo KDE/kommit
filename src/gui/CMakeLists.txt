@@ -4,10 +4,10 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 add_library(libkommitgui SHARED)
 generate_export_header(libkommitgui BASE_NAME libkommitgui)
 target_sources(libkommitgui PRIVATE
-    core/appdialog.cpp
-    core/appdialog.h
-    core/appmainwindow.cpp
-    core/appmainwindow.h
+
+
+
+
     core/listview.cpp
     core/listview.h
     core/pushbutton.cpp
@@ -44,16 +44,16 @@ target_sources(libkommitgui PRIVATE
     appwindow.cpp
     buttonsgroup.cpp
     multipagewidget.cpp
-    diffwindow.cpp
-    mergewindow.cpp
+
+
     commandargsparser.cpp
     appconfig.cpp
     settings/settingsmanager.cpp
     appwindow.h
     buttonsgroup.h
     multipagewidget.h
-    diffwindow.h
-    mergewindow.h
+
+
     commandargsparser.h
     appconfig.h
     settings/settingsmanager.h
@@ -64,6 +64,8 @@ target_sources(libkommitgui PRIVATE
 set_target_properties(libkommitgui
     PROPERTIES OUTPUT_NAME kommitgui VERSION ${LIBKOMMIT_LIB_VERSION} SOVERSION ${LIBKOMMIT_LIB_SOVERSION}
 )
+
+add_compile_definitions(LIBKOMMIT_WIDGET_USE_KF)
 
 install(TARGETS libkommitgui ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 

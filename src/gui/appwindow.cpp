@@ -21,7 +21,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/searchdialog.h"
 #include "dialogs/selectbranchestodiffdialog.h"
 #include "dialogs/switchbranchdialog.h"
-#include "diffwindow.h"
 #include "models/logsmodel.h"
 #include "multipagewidget.h"
 #include "pages/authorswidget.h"
@@ -38,6 +37,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <commands/commandclean.h>
 #include <commands/commandswitchbranch.h>
 #include <gitmanager.h>
+#include <windows/diffwindow.h>
 
 // KF headers
 #include <KActionCollection>

@@ -25,9 +25,10 @@ public:
     Stash(size_t index, git_repository *repo, const char *message, const git_oid *stash_id);
     ~Stash();
 
-    void apply();
-    void drop();
-    void pop();
+    Q_DECL_DEPRECATED void apply();
+    Q_DECL_DEPRECATED void drop();
+    Q_DECL_DEPRECATED void pop();
+
     Q_REQUIRED_RESULT const QString &name() const;
     Q_REQUIRED_RESULT const QString &authorName() const;
     Q_REQUIRED_RESULT const QString &authorEmail() const;

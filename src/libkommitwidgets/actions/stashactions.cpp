@@ -29,33 +29,18 @@ StashActions::StashActions(Git::Manager *git, QWidget *parent)
     _actionNew->setIcon(QIcon::fromTheme(QStringLiteral("list-add")));
 }
 
-const QString &StashActions::stashName() const
-{
-    return mStashName;
-}
-
-void StashActions::setStashName(const QString &newStashName)
-{
-    mStashName = newStashName;
-
-    setActionEnabled(_actionApply, true);
-    setActionEnabled(_actionDiff, true);
-    setActionEnabled(_actionDrop, true);
-    setActionEnabled(_actionPop, true);
-}
-
 void StashActions::apply()
 {
-    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStashName))) {
-        if (!mGit->applyStash(mStashName))
+    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStash->name()))) {
+        if (!mGit->applyStash(mStash->name()))
             KMessageBox::information(mParent, i18n("Unable to apply the selected stash"));
     }
 }
 
 void StashActions::drop()
 {
-    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to drop the selected stash?"), i18n("Drop stash %1", mStashName))) {
-        if (!mGit->removeStash(mStashName)) {
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to drop the selected stash?"), i18n("Drop stash %1", mStash->name()))) {
+        if (!mGit->removeStash(mStash->name())) {
             KMessageBox::information(mParent, i18n("Unable to remove the selected stash"));
             return;
         }
@@ -65,15 +50,15 @@ void StashActions::drop()
 
 void StashActions::pop()
 {
-    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to pop the selected stash?"), i18n("Pop stash %1", mStashName))) {
-        mGit->runGit({QStringLiteral("stash"), QStringLiteral("pop"), mStashName});
+    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to pop the selected stash?"), i18n("Pop stash %1", mStash->name()))) {
+        mGit->runGit({QStringLiteral("stash"), QStringLiteral("pop"), mStash->name()});
         mGit->stashesModel()->load();
     }
 }
 
 void StashActions::diff()
 {
-    auto d = new DiffWindow(mGit, mStashName, QLatin1String());
+    auto d = new DiffWindow(mGit, mStash->name(), QLatin1String());
     d->showModal();
 }
 
@@ -91,6 +76,21 @@ void StashActions::create()
         mGit->createStash(name);
         mGit->stashesModel()->load();
     }
+}
+
+QSharedPointer<Git::Stash> StashActions::stash() const
+{
+    return mStash;
+}
+
+void StashActions::setStash(QSharedPointer<Git::Stash> stash)
+{
+    mStash = stash;
+
+    setActionEnabled(_actionApply, stash);
+    setActionEnabled(_actionDiff, stash);
+    setActionEnabled(_actionDrop, stash);
+    setActionEnabled(_actionPop, stash);
 }
 
 #include "moc_stashactions.cpp"

@@ -49,15 +49,15 @@ DiffWindow::DiffWindow(Git::Manager *git)
     mDiffModel->sortItems();
 }
 
-DiffWindow::DiffWindow(const Git::File &oldFile, const Git::File &newFile)
+DiffWindow::DiffWindow(QSharedPointer<Git::File> oldFile, QSharedPointer<Git::File> newFile)
     : AppMainWindow()
     , mOldFile(oldFile)
     , mNewFile(newFile)
 {
     init(false);
 
-    // mDiffWidget->setOldFile(std::move(oldFile));
-    // mDiffWidget->setNewFile(std::move(newFile));
+    mDiffWidget->setOldFile(oldFile);
+    mDiffWidget->setNewFile(newFile);
     mDiffWidget->compare();
 }
 

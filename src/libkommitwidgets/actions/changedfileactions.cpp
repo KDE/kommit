@@ -48,14 +48,14 @@ void ChangedFileActions::setFilePaths(const QString &originalFilePath, const QSt
 
 void ChangedFileActions::diff()
 {
-    Git::File original;
+    QSharedPointer<Git::File> original;
 
     if (mOriginalFilePath == QString())
-        original = Git::File{mGit, mGit->currentBranch(), mFilePath};
+        original.reset(new Git::File{mGit, mGit->currentBranch(), mFilePath});
     else
-        original = Git::File{mGit, mGit->currentBranch(), mOriginalFilePath};
+        original.reset(new Git::File{mGit, mGit->currentBranch(), mOriginalFilePath});
 
-    const Git::File changed{mGit->path() + QLatin1Char('/') + mFilePath};
+    QSharedPointer<Git::File> changed{new Git::File{mGit->path() + QLatin1Char('/') + mFilePath}};
 
     auto diffWin = new DiffWindow(original, changed);
     diffWin->showModal();

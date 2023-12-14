@@ -7,6 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "appmainwindow.h"
+#include "libkommitwidgets_export.h"
+
 #include <entities/file.h>
 
 #include <QSharedPointer>
@@ -23,14 +25,14 @@ class DiffTreeModel;
 class DiffWidget;
 class DiffTreeView;
 class FilesModel;
-class DiffWindow : public AppMainWindow
+class LIBKOMMITWIDGETS_EXPORT DiffWindow : public AppMainWindow
 {
     Q_OBJECT
 
 public:
     explicit DiffWindow();
     explicit DiffWindow(Git::Manager *git);
-    DiffWindow(const Git::File &oldFile, const Git::File &newFile);
+    DiffWindow(QSharedPointer<Git::File> oldFile, QSharedPointer<Git::File> newFile);
     DiffWindow(Git::Manager *git, const QString &oldBranch, const QString &newBranch);
     DiffWindow(Git::Manager *git, Git::Tag *tag);
     DiffWindow(Git::Branch *oldBranch, Git::Branch *newBranch);
@@ -43,8 +45,8 @@ private Q_SLOTS:
 
 private:
     Git::Manager *mGit;
-    Git::File mOldFile;
-    Git::File mNewFile;
+    QSharedPointer<Git::File> mOldFile;
+    QSharedPointer<Git::File> mNewFile;
 
     QString mOldBranch;
     QString mNewBranch;

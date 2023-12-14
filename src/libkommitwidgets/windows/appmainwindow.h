@@ -6,16 +6,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include "libkommitwidgets_export.h"
+
 #ifdef LIBKOMMIT_WIDGET_USE_KF
 #include <KXmlGuiWindow>
 #endif
 
 class QEventLoop;
-class AppMainWindow : public
+class LIBKOMMITWIDGETS_EXPORT AppMainWindow : public
 #ifdef LIBKOMMIT_WIDGET_USE_KF
-                      KXmlGuiWindow
+                                              KXmlGuiWindow
 #else
-                      QMainWindow
+                                              QMainWindow
 #endif
 {
     Q_OBJECT
@@ -29,10 +31,10 @@ public:
     void showModal();
     void accept();
     void reject();
-    void setVisible(bool visible) override;
+    void setVisible(bool visible);
 
 protected:
-    void keyPressEvent(QKeyEvent *event) override;
+    void keyPressEvent(QKeyEvent *event);
 
 private:
     QEventLoop *mLoop{nullptr};

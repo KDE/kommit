@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "core/appmainwindow.h"
+#include <windows/appmainwindow.h>
 
 class MultiPageWidget;
 class WidgetBase;
