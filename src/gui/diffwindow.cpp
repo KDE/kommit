@@ -56,8 +56,8 @@ DiffWindow::DiffWindow(const Git::File &oldFile, const Git::File &newFile)
 {
     init(false);
 
-    mDiffWidget->setOldFile(std::move(oldFile));
-    mDiffWidget->setNewFile(std::move(newFile));
+    // mDiffWidget->setOldFile(std::move(oldFile));
+    // mDiffWidget->setNewFile(std::move(newFile));
     mDiffWidget->compare();
 }
 
@@ -173,34 +173,34 @@ void DiffWindow::fileOpen()
         mRightDir = d.newDir();
         compareDirs();
     } else {
-        mDiffWidget->setOldFile(Git::File{d.oldFile()});
-        mDiffWidget->setNewFile(Git::File{d.newFile()});
+        // mDiffWidget->setOldFile(Git::File{d.oldFile()});
+        // mDiffWidget->setNewFile(Git::File{d.newFile()});
         mDiffWidget->compare();
     }
 }
 
 void DiffWindow::slotTreeViewFileSelected(const QString &file)
 {
-    switch (mLeftStorage) {
-    case FileSystem:
-        mDiffWidget->setOldFile(Git::File{mLeftDir + QLatin1Char('/') + file});
-        break;
-    case Git:
-        mDiffWidget->setOldFile({mGit, mOldBranch, file});
-        break;
-    case NoStorage:
-        return;
-    }
-    switch (mRightStorage) {
-    case FileSystem:
-        mDiffWidget->setNewFile(Git::File{mRightDir + QLatin1Char('/') + file});
-        break;
-    case Git:
-        mDiffWidget->setNewFile({mGit, mNewBranch, file});
-        break;
-    case NoStorage:
-        return;
-    }
+    // switch (mLeftStorage) {
+    // case FileSystem:
+    //     mDiffWidget->setOldFile(Git::File{mLeftDir + QLatin1Char('/') + file});
+    //     break;
+    // case Git:
+    //     mDiffWidget->setOldFile({mGit, mOldBranch, file});
+    //     break;
+    // case NoStorage:
+    //     return;
+    // }
+    // switch (mRightStorage) {
+    // case FileSystem:
+    //     mDiffWidget->setNewFile(Git::File{mRightDir + QLatin1Char('/') + file});
+    //     break;
+    // case Git:
+    //     mDiffWidget->setNewFile({mGit, mNewBranch, file});
+    //     break;
+    // case NoStorage:
+    //     return;
+    // }
     mDiffWidget->compare();
 }
 

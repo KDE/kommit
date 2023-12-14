@@ -13,15 +13,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDockWidget>
 #include <QTreeView>
 
-#include "dialogs/diffopendialog.h"
-#include "gitmanager.h"
-#include "models/difftreemodel.h"
-#include "models/filesmodel.h"
-// #include "settings/settingsmanager.h"
-#include "core/editactionsmapper.h"
-#include "widgets/codeeditor.h"
-#include "widgets/difftreeview.h"
-#include "widgets/diffwidget.h"
+#include <core/editactionsmapper.h>
+#include <dialogs/diffopendialog.h>
+#include <entities/branch.h>
+#include <entities/tag.h>
+#include <entities/tree.h>
+#include <gitmanager.h>
+#include <models/difftreemodel.h>
+#include <models/filesmodel.h>
+#include <widgets/difftreeview.h>
+#include <widgets/diffwidget.h>
 
 DiffWindow::DiffWindow()
     : AppMainWindow()
@@ -43,9 +44,8 @@ DiffWindow::DiffWindow(Git::Manager *git)
         mFilesModel->append(f.name());
     }
 
-    mLeftStorage = Git;
-    mRightStorage = FileSystem;
-    mRightDir = git->path();
+    mLeftStorage.setGitManager(git);
+    mRightStorage.setPath(git->path());
     mDiffModel->sortItems();
 }
 
@@ -56,8 +56,8 @@ DiffWindow::DiffWindow(const Git::File &oldFile, const Git::File &newFile)
 {
     init(false);
 
-    mDiffWidget->setOldFile(std::move(oldFile));
-    mDiffWidget->setNewFile(std::move(newFile));
+    // mDiffWidget->setOldFile(std::move(oldFile));
+    // mDiffWidget->setNewFile(std::move(newFile));
     mDiffWidget->compare();
 }
 
@@ -76,7 +76,50 @@ DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QStrin
         //        qCDebug(KOMMIT_LOG) << f.name() << f.status();
         mFilesModel->append(f.name());
     }
-    mLeftStorage = mRightStorage = Git;
+    // mLeftStorage.set = mRightStorage = Git;
+    mDiffModel->sortItems();
+}
+
+DiffWindow::DiffWindow(Git::Manager *git, Git::Tag *tag)
+    : AppMainWindow()
+    , mOldBranch(tag->name())
+    , mNewBranch("Working dir")
+{
+    init(true);
+
+    auto tree = tag->commit()->tree();
+    const auto diffs = git->diff(tree);
+
+    for (auto &f : diffs) {
+        mDiffModel->addFile(f);
+        //        qCDebug(KOMMIT_LOG) << f.name() << f.status();
+        mFilesModel->append(f.newFile());
+    }
+    mLeftStorage.setTree(tree);
+    mRightStorage.setPath(git->path());
+    mDiffModel->sortItems();
+}
+
+DiffWindow::DiffWindow(Git::Branch *oldBranch, Git::Branch *newBranch)
+{
+    mLeftStorage.setTree(oldBranch->tree());
+    mRightStorage.setTree(newBranch->tree());
+}
+
+DiffWindow::DiffWindow(Git::Manager *git, QSharedPointer<Git::Tree> leftTree)
+{
+    init(true);
+    mLeftStorage.setTree(leftTree);
+    mRightStorage.setPath(git->path());
+
+    const auto diffs = git->diff(leftTree);
+
+    for (auto &f : diffs) {
+        mDiffModel->addFile(f);
+        //        qCDebug(KOMMIT_LOG) << f.name() << f.status();
+        mFilesModel->append(f.newFile());
+    }
+
     mDiffModel->sortItems();
 }
 
@@ -88,7 +131,8 @@ DiffWindow::DiffWindow(const QString &oldDir, const QString &newDir)
     mRightDir = newDir;
     compareDirs();
 
-    mLeftStorage = mRightStorage = FileSystem;
+    mLeftStorage.setPath(oldDir);
+    mRightStorage.setPath(newDir);
 }
 
 void DiffWindow::init(bool showSideBar)
@@ -169,40 +213,43 @@ void DiffWindow::fileOpen()
     if (d.exec() != QDialog::Accepted)
         return;
 
-    mLeftStorage = mRightStorage = FileSystem;
     if (d.mode() == DiffOpenDialog::Dirs) {
-        mLeftDir = d.oldDir();
-        mRightDir = d.newDir();
+        mLeftStorage.setPath(d.oldDir());
+        mRightStorage.setPath(d.newDir());
         compareDirs();
     } else {
-        mDiffWidget->setOldFile(Git::File{d.oldFile()});
-        mDiffWidget->setNewFile(Git::File{d.newFile()});
+        mDiffWidget->setOldFile(QSharedPointer<Git::File>{new Git::File{d.oldFile()}});
+        mDiffWidget->setNewFile(QSharedPointer<Git::File>{new Git::File{d.newFile()}});
         mDiffWidget->compare();
     }
 }
 
 void DiffWindow::slotTreeViewFileSelected(const QString &file)
 {
-    switch (mLeftStorage) {
-    case FileSystem:
-        mDiffWidget->setOldFile(Git::File{mLeftDir + QLatin1Char('/') + file});
-        break;
-    case Git:
-        mDiffWidget->setOldFile({mGit, mOldBranch, file});
-        break;
-    case NoStorage:
-        return;
-    }
-    switch (mRightStorage) {
-    case FileSystem:
-        mDiffWidget->setNewFile(Git::File{mRightDir + QLatin1Char('/') + file});
-        break;
-    case Git:
-        mDiffWidget->setNewFile({mGit, mNewBranch, file});
-        break;
-    case NoStorage:
-        return;
-    }
+    // switch (mLeftStorage) {
+    // case FileSystem:
+    //     mDiffWidget->setOldFile(Git::File{mLeftDir + QLatin1Char('/') + file});
+    //     break;
+    // case Git:
+    //     mDiffWidget->setOldFile({mGit, mOldBranch, file});
+    //     break;
+    // case NoStorage:
+    //     return;
+    // }
+    // switch (mRightStorage) {
+    // case FileSystem:
+    //     mDiffWidget->setNewFile(Git::File{mRightDir + QLatin1Char('/') + file});
+    //     break;
+    // case Git:
+    //     mDiffWidget->setNewFile({mGit, mNewBranch, file});
+    //     break;
+    // case NoStorage:
+    //     return;
+    // }
+
+    mDiffWidget->setOldFile(mLeftStorage.file(file));
+    mDiffWidget->setNewFile(mRightStorage.file(file));
+
     mDiffWidget->compare();
 }
 
@@ -232,4 +279,39 @@ void DiffWindow::compareDirs()
     mDock->show();
 }
 
+QSharedPointer<Git::File> DiffWindow::Storage::file(const QString &path) const
+{
+    switch (mMode) {
+    case Mode::NoStorage:
+        break;
+    case Mode::FileSystem:
+        return QSharedPointer<Git::File>{new Git::File{mPath + path}};
+    case Mode::Git:
+        return QSharedPointer<Git::File>{new Git::File{mManager, "mNewBranch", path}};
+    case Mode::Tree:
+        return mTree->file(path);
+    }
+
+    return {};
+}
+
+void DiffWindow::Storage::setGitManager(Git::Manager *manager)
+{
+    mMode = Mode::Git;
+    mManager = manager;
+}
+
+void DiffWindow::Storage::setPath(const QString &path)
+{
+    mPath = path;
+    if (!mPath.endsWith("/"))
+        mPath += "/";
+    mMode = Mode::FileSystem;
+}
+
+void DiffWindow::Storage::setTree(QSharedPointer<Git::Tree> tree)
+{
+    mTree = tree;
+    mMode = Mode::Tree;
+}
 #include "moc_diffwindow.cpp"

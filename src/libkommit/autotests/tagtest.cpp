@@ -36,7 +36,7 @@ void TagTest::shouldHaveDefaultValues()
     Git::Tag w;
     QVERIFY(w.message().isEmpty());
     QVERIFY(w.name().isEmpty());
-    QVERIFY(w.taggerEmail().isEmpty());
+    QVERIFY(w.tagger().isNull());
 }
 
 void TagTest::addTagNoHead()

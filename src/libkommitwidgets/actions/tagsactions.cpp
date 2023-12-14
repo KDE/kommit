@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "core/kmessageboxhelper.h"
 #include "dialogs/runnerdialog.h"
 #include "dialogs/taginfodialog.h"
+#include "entities/tag.h"
 #include "gitmanager.h"
 #include "models/tagsmodel.h"
 
@@ -24,22 +25,8 @@ TagsActions::TagsActions(Git::Manager *git, QWidget *parent)
     _actionCreate = addActionHidden(i18n("New tag..."), this, &TagsActions::create);
     _actionRemove = addActionDisabled(i18n("Remove..."), this, &TagsActions::remove);
     _actionCheckout = addActionDisabled(i18n("Checkout..."), this, &TagsActions::checkout);
-    _actionDiff = addActionDisabled(i18n("Diff with HEAD..."), this, &TagsActions::diff);
+    _actionDiff = addActionDisabled(i18n("Diff with working dir"), this, &TagsActions::diff);
     _actionPush = addAction(i18n("Push..."), this, &TagsActions::push);
-}
-
-const QString &TagsActions::tagName() const
-{
-    return mTagName;
-}
-
-void TagsActions::setTagName(const QString &newTagName)
-{
-    mTagName = newTagName;
-
-    setActionEnabled(_actionRemove, true);
-    setActionEnabled(_actionCheckout, true);
-    setActionEnabled(_actionDiff, true);
 }
 
 void TagsActions::create()
@@ -55,7 +42,7 @@ void TagsActions::create()
 void TagsActions::remove()
 {
     if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected tag?"), i18n("Remove tag"))) {
-        mGit->runGit({QStringLiteral("tag"), QStringLiteral("-d"), mTagName});
+        mGit->runGit({QStringLiteral("tag"), QStringLiteral("-d"), mTag->name()});
         mGit->tagsModel()->load();
     }
 }
@@ -63,13 +50,13 @@ void TagsActions::remove()
 void TagsActions::checkout()
 {
     if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to checkout to the selected tag?"), i18n("Checkout"))) {
-        mGit->runGit({QStringLiteral("tag"), QStringLiteral("checkout"), QStringLiteral("tags/") + mTagName});
+        mGit->runGit({QStringLiteral("tag"), QStringLiteral("checkout"), QStringLiteral("tags/") + mTag->name()});
     }
 }
 
 void TagsActions::diff()
 {
-    auto d = new DiffWindow(mTagName, QStringLiteral("HEAD"));
+    auto d = new DiffWindow(mGit, mTag);
     d->showModal();
 }
 
@@ -78,6 +65,20 @@ void TagsActions::push()
     RunnerDialog d(mGit, mParent);
     d.run({QStringLiteral("push"), QStringLiteral("--tags")});
     d.exec();
+}
+
+Git::Tag *TagsActions::tag() const
+{
+    return mTag;
+}
+
+void TagsActions::setTag(Git::Tag *tag)
+{
+    mTag = tag;
+
+    setActionEnabled(_actionRemove, tag);
+    setActionEnabled(_actionCheckout, tag);
+    setActionEnabled(_actionDiff, tag);
 }
 
 #include "moc_tagsactions.cpp"

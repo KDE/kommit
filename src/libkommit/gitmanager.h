@@ -40,7 +40,7 @@ class Reference;
 class AbstractReference;
 class AddSubmoduleOptions;
 class Index;
-class ITree;
+class Tree;
 
 enum LoadFlag {
     LoadNone = 0,
@@ -206,6 +206,7 @@ public:
     Q_REQUIRED_RESULT QList<FileStatus> diffBranch(const QString &from) const;
     Q_REQUIRED_RESULT QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
     Q_REQUIRED_RESULT QList<FileStatus> diff(AbstractReference *from, AbstractReference *to) const;
+    Q_REQUIRED_RESULT TreeDiff diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTree = {});
 
     void forEachCommits(std::function<void(Commit *)> callback, const QString &branchName) const;
 
@@ -217,8 +218,6 @@ public:
     QSharedPointer<Submodule> submodule(const QString &name) const;
 
     Q_REQUIRED_RESULT Index *index() const;
-
-    TreeDiff diff(ITree *oldTree, ITree *newTree);
 
     // models
     Q_REQUIRED_RESULT RemotesModel *remotesModel() const;

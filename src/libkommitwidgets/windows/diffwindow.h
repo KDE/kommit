@@ -9,9 +9,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "appmainwindow.h"
 #include <entities/file.h>
 
+#include <QSharedPointer>
+
 namespace Git
 {
 class Manager;
+class Tag;
+class Tree;
+class Branch;
 };
 
 class DiffTreeModel;
@@ -27,6 +32,9 @@ public:
     explicit DiffWindow(Git::Manager *git);
     DiffWindow(const Git::File &oldFile, const Git::File &newFile);
     DiffWindow(Git::Manager *git, const QString &oldBranch, const QString &newBranch);
+    DiffWindow(Git::Manager *git, Git::Tag *tag);
+    DiffWindow(Git::Branch *oldBranch, Git::Branch *newBranch);
+    DiffWindow(Git::Manager *git, QSharedPointer<Git::Tree> leftTree);
     DiffWindow(const QString &oldDir, const QString &newDir);
 
 private Q_SLOTS:
@@ -53,9 +61,24 @@ private:
     void init(bool showSideBar);
 
     enum Mode { None, Dirs, Files };
-    enum Storage { NoStorage, FileSystem, Git };
 
-    Storage mLeftStorage{NoStorage};
-    Storage mRightStorage{NoStorage};
+    struct Storage {
+        enum class Mode { NoStorage, FileSystem, Git, Tree };
+
+        QSharedPointer<Git::File> file(const QString &path) const;
+
+        void setGitManager(Git::Manager *manager);
+        void setPath(const QString &path);
+        void setTree(QSharedPointer<Git::Tree> tree);
+
+    private:
+        QString mPath;
+        QSharedPointer<Git::Tree> mTree;
+        Git::Manager *mManager;
+        Mode mMode{Mode::NoStorage};
+    };
+
+    Storage mLeftStorage;
+    Storage mRightStorage;
     void compareDirs();
 };

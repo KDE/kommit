@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "tag.h"
 
+#include <git2/commit.h>
 #include <git2/tag.h>
 
 namespace Git
@@ -14,13 +15,13 @@ namespace Git
 Tag::Tag() = default;
 
 Tag::Tag(git_tag *tag)
+    : mTagPtr{tag}
 {
     mName = git_tag_name(tag);
     mMessage = QString{git_tag_message(tag)}.replace("\n", "");
     auto tagger = git_tag_tagger(tag);
-    mTaggerName = tagger->name;
-    mTaggerEmail = tagger->email;
-    mCreateTime = QDateTime::fromSecsSinceEpoch(tagger->when.time);
+
+    mTagger.reset(new Signature{tagger});
 }
 
 const QString &Tag::name() const
@@ -43,48 +44,23 @@ void Tag::setMessage(const QString &newMessage)
     mMessage = newMessage;
 }
 
-const QString &Tag::taggerEmail() const
+QSharedPointer<Signature> Tag::tagger() const
 {
-    return mTaggerEmail;
+    return mTagger;
 }
 
-void Tag::setTaggerEmail(const QString &newTaggerEmail)
+QSharedPointer<Commit> Tag::commit() const
 {
-    mTaggerEmail = newTaggerEmail;
-}
+    auto type = git_tag_target_type(mTagPtr);
 
-const QString &Tag::taggerName() const
-{
-    return mTaggerName;
-}
+    if (type != GIT_OBJECT_COMMIT)
+        return {};
 
-void Tag::setTaggerName(const QString &newTaggerName)
-{
-    mTaggerName = newTaggerName;
-}
+    git_commit *commit;
+    auto id = git_tag_target_id(mTagPtr);
+    if (git_commit_lookup(&commit, git_tag_owner(mTagPtr), id))
+        return {};
 
-const QString &Tag::commiterName() const
-{
-    return mCommiterName;
-}
-
-void Tag::setCommiterName(const QString &newCommiterName)
-{
-    mCommiterName = newCommiterName;
-}
-
-const QString &Tag::commiterEmail() const
-{
-    return mCommiterEmail;
-}
-
-void Tag::setCommiterEmail(const QString &newCommiterEmail)
-{
-    mCommiterEmail = newCommiterEmail;
-}
-
-QDateTime Tag::createTime() const
-{
-    return mCreateTime;
+    return QSharedPointer<Commit>(new Commit{commit});
 }
 }

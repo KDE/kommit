@@ -17,12 +17,12 @@ class LIBKOMMIT_EXPORT TagsModel : public AbstractGitItemsModel
     Q_OBJECT
 
 public:
-    enum TagsModelRoles {
+    enum class TagsModelRoles {
         Name,
         Subject,
         Tagger,
-        Committer,
-        LastColumn = Committer,
+        Time,
+        LastColumn = Time,
     };
     Q_ENUM(TagsModelRoles)
     explicit TagsModel(Manager *git, QObject *parent = nullptr);

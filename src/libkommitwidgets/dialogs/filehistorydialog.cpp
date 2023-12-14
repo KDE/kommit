@@ -86,8 +86,8 @@ void FileHistoryDialog::compareFiles()
     if (!mLeftFile || !mRightFile)
         return;
 
-    widgetDiffView->setOldFile(Git::File{mGit, mLeftFile->data(0, dataRole).toString(), mFileName});
-    widgetDiffView->setNewFile(Git::File{mGit, mRightFile->data(0, dataRole).toString(), mFileName});
+    widgetDiffView->setOldFile(QSharedPointer<Git::File>{new Git::File{mGit, mLeftFile->data(0, dataRole).toString(), mFileName}});
+    widgetDiffView->setNewFile(QSharedPointer<Git::File>{new Git::File{mGit, mRightFile->data(0, dataRole).toString(), mFileName}});
     widgetDiffView->compare();
 }
 

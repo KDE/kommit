@@ -20,7 +20,7 @@ DiffWidget::DiffWidget(QWidget *parent)
     init();
 }
 
-DiffWidget::DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidget *parent)
+DiffWidget::DiffWidget(QSharedPointer<Git::File> oldFile, QSharedPointer<Git::File> newFile, QWidget *parent)
     : QWidget{parent}
     , mOldFile(oldFile)
     , mNewFile(newFile)
@@ -78,41 +78,44 @@ void DiffWidget::createPreviewWidget()
     mPreviewWidget->setLayout(layout);
     mPreviewWidget->hide();
 }
-const Git::File &DiffWidget::oldFile() const
+QSharedPointer<Git::File> DiffWidget::oldFile() const
 {
     return mOldFile;
 }
 
-void DiffWidget::setOldFileText(const Git::File &newOldFile)
+void DiffWidget::setOldFileText(const QString &newOldFile)
 {
-    leftCodeEditor->setTitle(newOldFile.displayName());
+    leftCodeEditor->setTitle(newOldFile);
 }
 
-void DiffWidget::setOldFile(const Git::File &newOldFile)
+void DiffWidget::setOldFile(QSharedPointer<Git::File> newOldFile)
 {
     mOldFile = newOldFile;
-    setOldFileText(newOldFile);
+    setOldFileText(newOldFile->displayName());
 }
 
-const Git::File &DiffWidget::newFile() const
+QSharedPointer<Git::File> DiffWidget::newFile() const
 {
     return mNewFile;
 }
 
-void DiffWidget::setNewFileText(const Git::File &newNewFile)
+void DiffWidget::setNewFileText(const QString &newNewFile)
 {
-    rightCodeEditor->setTitle(newNewFile.displayName());
+    rightCodeEditor->setTitle(newNewFile);
 }
 
-void DiffWidget::setNewFile(const Git::File &newNewFile)
+void DiffWidget::setNewFile(QSharedPointer<Git::File> newNewFile)
 {
     mNewFile = newNewFile;
-    setNewFileText(newNewFile);
+    setNewFileText(newNewFile->displayName());
 }
 
 void DiffWidget::compare()
 {
-    const auto segments = Diff::diff(mOldFile.content(), mNewFile.content());
+    if (!mOldFile || !mNewFile)
+        return;
+
+    const auto segments = Diff::diff(mOldFile->content(), mNewFile->content());
 
     leftCodeEditor->clearAll();
     rightCodeEditor->clearAll();
@@ -120,11 +123,11 @@ void DiffWidget::compare()
     mPreviewEditorLeft->clearAll();
     mPreviewEditorRight->clearAll();
 
-    leftCodeEditor->setHighlighting(mOldFile.fileName());
-    rightCodeEditor->setHighlighting(mNewFile.fileName());
+    leftCodeEditor->setHighlighting(mOldFile->fileName());
+    rightCodeEditor->setHighlighting(mNewFile->fileName());
 
-    mPreviewEditorLeft->setHighlighting(mOldFile.fileName());
-    mPreviewEditorRight->setHighlighting(mNewFile.fileName());
+    mPreviewEditorLeft->setHighlighting(mOldFile->fileName());
+    mPreviewEditorRight->setHighlighting(mNewFile->fileName());
 
     segmentConnector->setSegments(segments);
     segmentConnector->update();

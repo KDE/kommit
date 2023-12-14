@@ -38,15 +38,15 @@ QVariant TagsModel::data(const QModelIndex &index, int role) const
 
     auto tag = mData.at(index.row());
 
-    switch (index.column()) {
-    case Name:
+    switch (static_cast<TagsModelRoles>(index.column())) {
+    case TagsModelRoles::Name:
         return tag->name();
-    case Subject:
+    case TagsModelRoles::Subject:
         return tag->message();
-    case Tagger:
-        return QStringLiteral("%1 <%2>").arg(tag->taggerName(), tag->taggerEmail());
-    case Committer:
-        return tag->createTime();
+    case TagsModelRoles::Tagger:
+        return QStringLiteral("%1 <%2>").arg(tag->tagger()->name(), tag->tagger()->email());
+    case TagsModelRoles::Time:
+        return tag->tagger()->time();
     }
     return {};
 }
@@ -57,14 +57,14 @@ QVariant TagsModel::headerData(int section, Qt::Orientation orientation, int rol
         return {};
 
     if (orientation == Qt::Horizontal)
-        switch (section) {
-        case Name:
+        switch (static_cast<TagsModelRoles>(section)) {
+        case TagsModelRoles::Name:
             return i18n("Name");
-        case Subject:
+        case TagsModelRoles::Subject:
             return i18n("Subject");
-        case Tagger:
+        case TagsModelRoles::Tagger:
             return i18n("Tagger");
-        case Committer:
+        case TagsModelRoles::Time:
             return i18n("Create time");
         }
 
@@ -87,7 +87,7 @@ void TagsModel::fill()
     mGit->forEachTags([this](Tag *tag) {
         mData.append(tag);
         if (mGit->authorsModel())
-            mGit->authorsModel()->findOrCreate(tag->taggerName(), tag->taggerEmail(), QDateTime(), AuthorsModel::Tag);
+            mGit->authorsModel()->findOrCreate(tag->tagger()->name(), tag->tagger()->email(), QDateTime(), AuthorsModel::Tag);
     });
 }
 

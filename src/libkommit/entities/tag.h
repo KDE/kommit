@@ -6,8 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include "entities/commit.h"
+#include "entities/signature.h"
 #include "libkommit_export.h"
 #include <QDateTime>
+#include <QSharedPointer>
 #include <QString>
 
 #include <git2/types.h>
@@ -27,30 +30,18 @@ public:
     Q_REQUIRED_RESULT const QString &message() const;
     void setMessage(const QString &newMessage);
 
-    Q_REQUIRED_RESULT const QString &taggerEmail() const;
-    void setTaggerEmail(const QString &newTaggerEmail);
-
-    Q_REQUIRED_RESULT const QString &taggerName() const;
-    void setTaggerName(const QString &newTaggerName);
-
-    Q_REQUIRED_RESULT const QString &commiterName() const;
-    void setCommiterName(const QString &newCommiterName);
-
-    Q_REQUIRED_RESULT const QString &commiterEmail() const;
-    void setCommiterEmail(const QString &newCommiterEmail);
-
     Q_REQUIRED_RESULT QDateTime createTime() const;
 
+    Q_REQUIRED_RESULT QSharedPointer<Signature> tagger() const;
+
+    QSharedPointer<Commit> commit() const;
+
 private:
+    git_tag *mTagPtr{nullptr};
+    QSharedPointer<Signature> mTagger;
+
     QString mName;
     QString mMessage;
-
-    QString mTaggerName;
-    QString mTaggerEmail;
-    QDateTime mCreateTime;
-
-    QString mCommiterName;
-    QString mCommiterEmail;
 };
 
 } // namespace Git
