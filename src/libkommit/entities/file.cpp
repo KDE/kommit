@@ -38,7 +38,7 @@ File::File(QString filePath)
 File::File(git_repository *repo, git_tree_entry *entry)
     : mRepo{repo}
     , mEntry{entry}
-    , mStorage{Git}
+    , mStorage{Entry}
 {
 }
 
@@ -81,8 +81,12 @@ void File::setPlace(const QString &newPlace)
     mPlace = newPlace;
 }
 
-const QString &File::fileName() const
+QString File::fileName() const
 {
+    if (mStorage == Entry) {
+        QString name = git_tree_entry_name(mEntry);
+        return name;
+    }
     return mFilePath;
 }
 
@@ -105,6 +109,10 @@ QString File::displayName() const
         return mFilePath;
     case Git:
         return mPlace + QLatin1Char(':') + mFilePath;
+    case Entry: {
+        QString name = git_tree_entry_name(mEntry);
+        return name;
+    }
     }
 
     return {};
@@ -148,6 +156,7 @@ QString File::content() const
         return f.readAll();
     }
     case Git:
+    case Entry:
         return stringContent(); // mGit->fileContent(mPlace, mFilePath); // mGit->runGit({QStringLiteral("show"), mPlace + QLatin1Char(':') + mFilePath});
     }
 

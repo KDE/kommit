@@ -32,7 +32,7 @@ TagsWidget::TagsWidget(Git::Manager *git, AppWindow *parent)
 
     connect(treeViewTags, &QTreeView::customContextMenuRequested, this, &TagsWidget::slotTreeViewTagsCustomContextMenuRequested);
     connect(treeViewTags, &TreeView::itemActivated, this, &TagsWidget::slotTreeViewTagsItemActivated);
-    treeViewTags->sortByColumn(Git::TagsModel::Name, Qt::DescendingOrder);
+    treeViewTags->sortByColumn(static_cast<int>(Git::TagsModel::TagsModelRoles::Name), Qt::DescendingOrder);
 }
 
 void TagsWidget::saveState(QSettings &settings) const
@@ -48,18 +48,18 @@ void TagsWidget::restoreState(QSettings &settings)
 void TagsWidget::slotTreeViewTagsCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
-    auto item = mModel->fromIndex(treeViewTags->currentIndex());
-    if (item) {
-        mActions->setTagName(item->name());
+    auto tag = mModel->fromIndex(treeViewTags->currentIndex());
+    if (tag) {
+        mActions->setTag(tag);
         mActions->popup();
     }
 }
 
 void TagsWidget::slotTreeViewTagsItemActivated(const QModelIndex &index)
 {
-    auto item = mModel->fromIndex(index);
-    if (item)
-        mActions->setTagName(item->name());
+    auto tag = mModel->fromIndex(index);
+    if (tag)
+        mActions->setTag(tag);
 }
 
 #include "moc_tagswidget.cpp"

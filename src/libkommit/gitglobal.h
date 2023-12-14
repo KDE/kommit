@@ -23,7 +23,7 @@ enum class ChangeStatus {
     UpdatedButInmerged,
     Ignored,
     Untracked,
-    Typechange,
+    TypeChange,
     Unreadable,
     Conflicted,
 };

@@ -23,12 +23,12 @@ class LIBKOMMITWIDGETS_EXPORT DiffWidget : public QWidget, private Ui::DiffWIdge
 
 public:
     explicit DiffWidget(QWidget *parent = nullptr);
-    DiffWidget(const Git::File &oldFile, const Git::File &newFile, QWidget *parent = nullptr);
+    DiffWidget(QSharedPointer<Git::File> oldFile, QSharedPointer<Git::File> newFile, QWidget *parent = nullptr);
 
-    const Git::File &oldFile() const;
-    void setOldFile(const Git::File &newOldFile);
-    const Git::File &newFile() const;
-    void setNewFile(const Git::File &newNewFile);
+    QSharedPointer<Git::File> oldFile() const;
+    void setOldFile(QSharedPointer<Git::File> newOldFile);
+    QSharedPointer<Git::File> newFile() const;
+    void setNewFile(QSharedPointer<Git::File> newNewFile);
 
     void compare();
 
@@ -41,9 +41,8 @@ public:
 
     void scrollToTop();
 
-    void setOldFileText(const Git::File &newOldFile);
-
-    void setNewFileText(const Git::File &newNewFile);
+    void setOldFileText(const QString &newOldFile);
+    void setNewFileText(const QString &newNewFile);
 
 public Q_SLOTS:
     void showHiddenChars(bool show);
@@ -72,8 +71,8 @@ private:
     CodeEditor *mPreviewEditorLeft = nullptr;
     CodeEditor *mPreviewEditorRight = nullptr;
     bool mSameSize{false};
-    Git::File mOldFile;
-    Git::File mNewFile;
+    QSharedPointer<Git::File> mOldFile;
+    QSharedPointer<Git::File> mNewFile;
 
     QTextOption mDefaultOption;
 

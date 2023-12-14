@@ -18,7 +18,7 @@ class Manager;
 class LIBKOMMIT_EXPORT File
 {
 public:
-    enum StorageType { InValid, Git, Local };
+    enum StorageType { InValid, Git, Local, Entry };
     File();
     explicit File(QString filePath);
     File(Manager *git, QString place, QString filePath);
@@ -35,7 +35,7 @@ public:
     Q_REQUIRED_RESULT QString content() const;
     Q_REQUIRED_RESULT const QString &place() const;
     void setPlace(const QString &newPlace);
-    Q_REQUIRED_RESULT const QString &fileName() const;
+    Q_REQUIRED_RESULT QString fileName() const;
     void setFileName(const QString &newFileName);
     Manager *git() const;
 

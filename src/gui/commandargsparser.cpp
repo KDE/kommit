@@ -339,6 +339,7 @@ ArgParserReturn CommandArgsParser::diff(const QString &file)
         qDebug() << Q_FUNC_INFO << file;
         git->open(fi.absolutePath());
         const QDir dir{git->path()};
+        // TODO: change to QSharedPointer
         const Git::File headFile{git, git->currentBranch(), dir.relativeFilePath(file)};
         const Git::File changedFile{file};
         auto d = new DiffWindow{headFile, changedFile};

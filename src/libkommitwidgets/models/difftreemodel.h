@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <diff.h>
 #define TREEMODEL_NODE_DATA_TYPE Diff::DiffType
 #include "treemodel.h"
+#include <entities/treediff.h>
 
 class DiffTreeModel : public TreeModel
 {
@@ -20,6 +21,7 @@ public:
 
     void addFile(const Git::FileStatus &file);
     void addFile(const QString &file, Diff::DiffType type);
+    void addFile(const Git::TreeDiffEntry &diffEntry);
 
     QVariant data(const QModelIndex &index, int role) const override;
 
@@ -27,5 +29,6 @@ public:
 
 private:
     Q_REQUIRED_RESULT Diff::DiffType toDiffType(Git::FileStatus::Status status) const;
+    Q_REQUIRED_RESULT Diff::DiffType toDiffType(Git::ChangeStatus status) const;
     Node *createPath(const QStringList &path, Diff::DiffType status);
 };

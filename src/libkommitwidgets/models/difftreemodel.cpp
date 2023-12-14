@@ -30,6 +30,11 @@ void DiffTreeModel::addFile(const QString &file, Diff::DiffType type)
     node->metaData = type;
 }
 
+void DiffTreeModel::addFile(const Git::TreeDiffEntry &file)
+{
+    addFile(file.newFile(), toDiffType(file.status()));
+}
+
 TreeModel::Node *DiffTreeModel::createPath(const QStringList &path, Diff::DiffType status)
 {
     Node *parent = mRootNode;
@@ -82,6 +87,32 @@ Diff::DiffType DiffTreeModel::toDiffType(Git::FileStatus::Status status) const
     case Git::FileStatus::Ignored:
     case Git::FileStatus::Untracked:
         return Diff::DiffType::Unchanged;
+    }
+    return Diff::DiffType::Unchanged;
+}
+
+Diff::DiffType DiffTreeModel::toDiffType(Git::ChangeStatus status) const
+{
+    switch (status) {
+    case Git::ChangeStatus::Unknown:
+    case Git::ChangeStatus::Unmodified:
+        return Diff::DiffType::Unchanged;
+    case Git::ChangeStatus::Added:
+        return Diff::DiffType::Added;
+    case Git::ChangeStatus::Removed:
+        return Diff::DiffType::Removed;
+    case Git::ChangeStatus::Modified:
+    case Git::ChangeStatus::Renamed:
+    case Git::ChangeStatus::Copied:
+        return Diff::DiffType::Modified;
+    case Git::ChangeStatus::UpdatedButInmerged:
+    case Git::ChangeStatus::Ignored:
+    case Git::ChangeStatus::Untracked:
+        return Diff::DiffType::Unchanged;
+    case Git::ChangeStatus::TypeChange:
+    case Git::ChangeStatus::Unreadable:
+    case Git::ChangeStatus::Conflicted:
+        break;
     }
     return Diff::DiffType::Unchanged;
 }

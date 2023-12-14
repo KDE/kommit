@@ -607,19 +607,20 @@ Index *Manager::index() const
     return new Index{index};
 }
 
-TreeDiff Manager::diff(ITree *oldTree, ITree *newTree)
+TreeDiff Manager::diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTree)
 {
     git_diff *diff;
     git_diff_options opts = GIT_DIFF_OPTIONS_INIT;
     opts.flags = GIT_DIFF_NORMAL;
+    git_diff_stats *stats;
 
     BEGIN
 
-    auto fromTree = oldTree->tree();
-    auto toTree = newTree->tree();
-    git_diff_stats *stats;
-
-    STEP git_diff_tree_to_tree(&diff, mRepo, fromTree->gitTree(), toTree->gitTree(), &opts);
+    if (newTree) {
+        STEP git_diff_tree_to_tree(&diff, mRepo, oldTree->gitTree(), newTree->gitTree(), &opts);
+    } else {
+        STEP git_diff_tree_to_workdir(&diff, mRepo, oldTree->gitTree(), &opts);
+    }
     STEP git_diff_get_stats(&stats, diff);
 
     if (err)

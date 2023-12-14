@@ -143,7 +143,7 @@ void CommitsWidget::slotTreeViewHistoryCustomContextMenuRequested(const QPoint &
     auto log = mHistoryModel->fromIndex(treeViewHistory->currentIndex());
     if (!log)
         return;
-    mCommitActions->setCommitHash(log->commitHash());
+    mCommitActions->setCommit(log);
 
     mCommitActions->popup();
 }

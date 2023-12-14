@@ -8,23 +8,24 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/filestreedialog.h"
 #include "dialogs/runnerdialog.h"
 #include "windows/diffwindow.h"
+#include <entities/commit.h>
 
 #include <QAction>
 
 #include <KLocalizedString>
 
-const QString &CommitActions::commitHash() const
+Git::Commit *CommitActions::commit() const
 {
-    return mCommitHash;
+    return mCommit;
 }
 
-void CommitActions::setCommitHash(const QString &newCommitHash)
+void CommitActions::setCommit(Git::Commit *commit)
 {
-    mCommitHash = newCommitHash;
+    mCommit = commit;
 
-    setActionEnabled(_actionBrowse, true);
-    setActionEnabled(_actionCheckout, true);
-    setActionEnabled(_actionDiff, true);
+    setActionEnabled(_actionBrowse, commit);
+    setActionEnabled(_actionCheckout, commit);
+    setActionEnabled(_actionDiff, commit);
 }
 
 CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
@@ -37,20 +38,20 @@ CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
 
 void CommitActions::browse()
 {
-    FilesTreeDialog d(mGit, mCommitHash, mParent);
+    FilesTreeDialog d(mGit, mCommit->commitHash(), mParent);
     d.exec();
 }
 
 void CommitActions::checkout()
 {
     RunnerDialog d(mGit, mParent);
-    d.run({QStringLiteral("checkout"), mCommitHash});
+    d.run({QStringLiteral("checkout"), mCommit->commitHash()});
     d.exec();
 }
 
 void CommitActions::diff()
 {
-    auto d = new DiffWindow(mGit, mCommitHash, QLatin1String());
+    auto d = new DiffWindow(mGit, mCommit->tree());
     d->showModal();
 }
 

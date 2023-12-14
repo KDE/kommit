@@ -68,7 +68,7 @@ TreeDiffEntry::TreeDiffEntry(const git_diff_delta *delta)
         mStatus = ChangeStatus::Untracked;
         break;
     case GIT_DELTA_TYPECHANGE:
-        mStatus = ChangeStatus::Typechange;
+        mStatus = ChangeStatus::TypeChange;
         break;
     case GIT_DELTA_UNREADABLE:
         mStatus = ChangeStatus::Unreadable;

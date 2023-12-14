@@ -103,7 +103,7 @@ void BranchesDiffTest::diff()
 
     QCOMPARE(branches.at(0)->name(), "dev");
     QCOMPARE(branches.at(1)->name(), "master");
-    auto diff = mManager->diff(branches.at(1).data(), branches.at(0).data());
+    auto diff = mManager->diff(branches.at(1)->tree(), branches.at(0)->tree());
 
     QCOMPARE(diff.size(), 10);
 

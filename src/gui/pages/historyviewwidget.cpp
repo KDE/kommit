@@ -84,10 +84,10 @@ void HistoryViewWidget::slotTextBrowserFileClicked(const QString &file)
 void HistoryViewWidget::slotTreeViewHistoryCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
-    auto log = mHistoryModel->fromIndex(treeViewHistory->currentIndex());
-    if (!log)
+    auto commit = mHistoryModel->fromIndex(treeViewHistory->currentIndex());
+    if (!commit)
         return;
-    mActions->setCommitHash(log->commitHash());
+    mActions->setCommit(commit);
 
     mActions->popup();
 }
