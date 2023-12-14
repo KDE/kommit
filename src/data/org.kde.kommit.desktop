@@ -22,6 +22,7 @@ Name[sv]=Kommit
 Name[tr]=Kommit
 Name[uk]=Kommit
 Name[x-test]=xxKommitxx
+Name[zh_TW]=Kommit
 Exec=kommit
 Icon=kommit
 
@@ -50,4 +51,5 @@ GenericName[sv]=Git grafisk användargränssnittsklient
 GenericName[tr]=Grafik Arayüzlü Git İstemcisi
 GenericName[uk]=Графічний клієнт Git
 GenericName[x-test]=xxGit client GUIxx
+GenericName[zh_TW]=Git 用戶端介面
 Categories=Development

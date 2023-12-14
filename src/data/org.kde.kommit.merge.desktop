@@ -22,6 +22,7 @@ Name[sv]=Kommit sammanfoga
 Name[tr]=Kommit Birleştir
 Name[uk]=Об'єднання Kommit
 Name[x-test]=xxKommit Mergexx
+Name[zh_TW]=Kommit 合併
 Exec=kommit merge
 Icon=kommit
 

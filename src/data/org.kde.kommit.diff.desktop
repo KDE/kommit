@@ -22,6 +22,7 @@ Name[sv]=Kommit jämför
 Name[tr]=Kommit Diff
 Name[uk]=Різниця Kommit
 Name[x-test]=xxKommit Diffxx
+Name[zh_TW]=Kommit 差異
 Exec=kommit diff
 Icon=kommit
 

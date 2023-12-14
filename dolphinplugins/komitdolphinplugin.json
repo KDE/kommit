@@ -20,7 +20,8 @@
         "Name[sv]": "Dolphin Kommit-insticksprogram",
         "Name[tr]": "Kommit Dolphin Eklentisi",
         "Name[uk]": "Додаток Kommit до Dolphin",
-        "Name[x-test]": "xxKommit dolphin pluginxx"
+        "Name[x-test]": "xxKommit dolphin pluginxx",
+        "Name[zh_TW]": "Kommit Dolphin 外掛程式"
     },
     "MimeType": "text/plain;"
 }
