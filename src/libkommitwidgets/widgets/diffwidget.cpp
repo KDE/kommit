@@ -189,7 +189,7 @@ void DiffWidget::showFilesInfo(bool show)
 {
     leftCodeEditor->setShowTitleBar(show);
     rightCodeEditor->setShowTitleBar(show);
-    segmentConnector->setTopMargin(show ? leftCodeEditor->titlebarHeight() : 0);
+    segmentConnector->setTopMargin(show ? leftCodeEditor->titlebarHeight() + 2 : 0);
 }
 
 void DiffWidget::showSameSize(bool show)
