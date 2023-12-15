@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "stashesmodel.h"
 
+#include "entities/commit.h"
 #include "entities/signature.h"
 #include "gitmanager.h"
 #include <KLocalizedString>
@@ -42,12 +43,14 @@ QVariant StashesModel::data(const QModelIndex &index, int role) const
     switch (index.column()) {
     case Subject:
         return remote->subject();
+    case CommitHash:
+        return remote->commitHash();
     case AuthorName:
-        return remote->author()->name();
+        return remote->commit()->author()->name();
     case AuthorEmail:
-        return remote->author()->email();
+        return remote->commit()->author()->email();
     case Time:
-        return remote->committer()->time();
+        return remote->commit()->author()->time();
     }
     return {};
 }
@@ -61,6 +64,8 @@ QVariant StashesModel::headerData(int section, Qt::Orientation orientation, int 
         switch (section) {
         case Subject:
             return i18n("Subject");
+        case CommitHash:
+            return i18n("Commit");
         case AuthorName:
             return i18n("Author name");
         case AuthorEmail:

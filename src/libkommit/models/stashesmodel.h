@@ -20,6 +20,7 @@ class LIBKOMMIT_EXPORT StashesModel : public AbstractGitItemsModel
 public:
     enum StashesModelRoles {
         Subject,
+        CommitHash,
         AuthorName,
         AuthorEmail,
         Time,

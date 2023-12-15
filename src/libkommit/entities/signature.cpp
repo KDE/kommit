@@ -8,6 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <git2/signature.h>
 
+#include <QTimeZone>
+
 namespace Git
 {
 
@@ -16,14 +18,16 @@ Signature::Signature(git_signature *signature)
 {
     mName = signature->name;
     mEmail = signature->email;
-    mTime = QDateTime::fromMSecsSinceEpoch(signature->when.time);
+    QTimeZone timeZone{signature->when.offset};
+    mTime = QDateTime::fromSecsSinceEpoch(signature->when.time, timeZone);
 }
 
 Signature::Signature(const git_signature *signature)
 {
     mName = signature->name;
     mEmail = signature->email;
-    mTime = QDateTime::fromMSecsSinceEpoch(signature->when.time);
+    QTimeZone timeZone{signature->when.offset};
+    mTime = QDateTime::fromSecsSinceEpoch(signature->when.time, timeZone);
 }
 
 Signature::~Signature()

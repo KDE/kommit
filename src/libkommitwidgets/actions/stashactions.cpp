@@ -31,16 +31,16 @@ StashActions::StashActions(Git::Manager *git, QWidget *parent)
 
 void StashActions::apply()
 {
-    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStash->name()))) {
-        if (!mGit->applyStash(mStash->name()))
+    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStash->message()))) {
+        if (!mGit->applyStash(mStash->message()))
             KMessageBox::information(mParent, i18n("Unable to apply the selected stash"));
     }
 }
 
 void StashActions::drop()
 {
-    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to drop the selected stash?"), i18n("Drop stash %1", mStash->name()))) {
-        if (!mGit->removeStash(mStash->name())) {
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to drop the selected stash?"), i18n("Drop stash %1", mStash->message()))) {
+        if (!mGit->removeStash(mStash->message())) {
             KMessageBox::information(mParent, i18n("Unable to remove the selected stash"));
             return;
         }
@@ -50,15 +50,15 @@ void StashActions::drop()
 
 void StashActions::pop()
 {
-    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to pop the selected stash?"), i18n("Pop stash %1", mStash->name()))) {
-        mGit->runGit({QStringLiteral("stash"), QStringLiteral("pop"), mStash->name()});
+    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to pop the selected stash?"), i18n("Pop stash %1", mStash->message()))) {
+        mGit->runGit({QStringLiteral("stash"), QStringLiteral("pop"), mStash->message()});
         mGit->stashesModel()->load();
     }
 }
 
 void StashActions::diff()
 {
-    auto d = new DiffWindow(mGit, mStash->name(), QLatin1String());
+    auto d = new DiffWindow(mGit, mStash->message(), QLatin1String());
     d->showModal();
 }
 

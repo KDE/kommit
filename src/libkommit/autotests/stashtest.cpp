@@ -61,7 +61,7 @@ void StashTest::makeStash()
 
     auto stashes = mManager->stashes();
     QCOMPARE(stashes.count(), 1);
-    QCOMPARE(stashes.at(0)->name(), QStringLiteral("On master: stash1"));
+    QCOMPARE(stashes.at(0)->message(), QStringLiteral("On master: stash1"));
 }
 
 void StashTest::tryToApplyInChangedWorkDir()

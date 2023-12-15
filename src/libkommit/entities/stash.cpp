@@ -5,8 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "stash.h"
-#include "qdebug.h"
-#include "signature.h"
+#include "entities/commit.h"
 
 #include "gitmanager.h"
 #include <utility>
@@ -16,7 +15,7 @@ namespace Git
 {
 Stash::Stash(Manager *git, QString name)
     : mGit(git)
-    , mName(std::move(name))
+    , mMessage(std::move(name))
 {
 }
 
@@ -26,19 +25,13 @@ Stash::Stash(size_t index, git_repository *repo, const char *message, const git_
     git_commit *commit = NULL;
 
     git_commit_lookup(&commit, repo, stash_id);
-    git_commit_author(commit);
+    mCommit.reset(new Commit{commit});
+
     mSubject = git_commit_body(commit);
 
-    auto m = git_commit_message(commit);
-    mName = message;
+    mMessage = message;
 
     mSubject = QString{git_commit_message(commit)}.replace("\n", "");
-
-    auto commiter = git_commit_committer(commit);
-    mCommitter.reset(new Signature{commiter});
-
-    auto author = git_commit_author(commit);
-    mAuthor.reset(new Signature{author});
 
     mCommitHash = git_oid_tostr_s(stash_id);
 }
@@ -49,34 +42,9 @@ Stash::~Stash()
         git_commit_free(ptr);
 }
 
-void Stash::apply()
+const QString &Stash::message() const
 {
-    mGit->runGit({QStringLiteral("stash"), QStringLiteral("apply"), mName});
-}
-
-void Stash::drop()
-{
-    mGit->runGit({QStringLiteral("stash"), QStringLiteral("drop"), mName});
-}
-
-void Stash::pop()
-{
-    mGit->runGit({QStringLiteral("stash"), QStringLiteral("pop"), mName});
-}
-
-const QString &Stash::name() const
-{
-    return mName;
-}
-
-const QString &Stash::authorName() const
-{
-    return mAuthorName;
-}
-
-const QString &Stash::authorEmail() const
-{
-    return mAuthorEmail;
+    return mMessage;
 }
 
 const QString &Stash::subject() const
@@ -84,29 +52,14 @@ const QString &Stash::subject() const
     return mSubject;
 }
 
-const QString &Stash::branch() const
+QSharedPointer<Commit> Stash::commit() const
 {
-    return mBranch;
+    return mCommit;
 }
 
-const QDateTime &Stash::pushTime() const
+QString Stash::commitHash() const
 {
-    return mPushTime;
-}
-
-QSharedPointer<Signature> Stash::author() const
-{
-    return mAuthor;
-}
-
-QSharedPointer<Signature> Stash::committer() const
-{
-    return mCommitter;
-}
-
-void Stash::setCommitter(QSharedPointer<Signature> committer)
-{
-    mCommitter = committer;
+    return mCommitHash;
 }
 
 } // namespace Git
