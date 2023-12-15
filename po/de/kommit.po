@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-14 00:43+0000\n"
+"POT-Creation-Date: 2023-12-15 00:43+0000\n"
 "PO-Revision-Date: 2023-05-10 20:28+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Fetch..."
 msgstr "Abholen ..."
 
-#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:29
 #, kde-format
 msgid "Push..."
 msgstr ""
@@ -294,12 +294,12 @@ msgstr ""
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:481
+#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:483
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:481
+#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:483
 #, kde-format
 msgid "Switch branch"
 msgstr ""
@@ -314,22 +314,22 @@ msgstr ""
 msgid "The repo inited successfully"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:510
+#: src/gui/commandargsparser.cpp:512
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:518
+#: src/gui/commandargsparser.cpp:520
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:518
+#: src/gui/commandargsparser.cpp:520
 #, kde-format
 msgid "Remove from index"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:520
+#: src/gui/commandargsparser.cpp:522
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr ""
@@ -352,76 +352,6 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:78
 #, kde-format
 msgid "---"
-msgstr ""
-
-#: src/gui/diffwindow.cpp:106 src/libkommitwidgets/windows/diffwindow.cpp:106
-#, kde-format
-msgctxt "@title:window"
-msgid "Kommit Diff[*]"
-msgstr ""
-
-#: src/gui/diffwindow.cpp:109 src/libkommitwidgets/windows/diffwindow.cpp:109
-#, kde-format
-msgctxt "@title:window"
-msgid "Tree"
-msgstr ""
-
-#: src/gui/diffwindow.cpp:136 src/libkommitwidgets/windows/diffwindow.cpp:136
-#, kde-format
-msgid "View hidden chars..."
-msgstr ""
-
-#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:339
-#: src/libkommitwidgets/windows/diffwindow.cpp:141
-#: src/libkommitwidgets/windows/mergewindow.cpp:342
-#, kde-format
-msgid "Same size blocks"
-msgstr ""
-
-#: src/gui/diffwindow.cpp:146 src/libkommitwidgets/windows/diffwindow.cpp:146
-#, kde-format
-msgid "Show files names"
-msgstr ""
-
-#: src/gui/diffwindow.cpp:152 src/libkommitwidgets/windows/diffwindow.cpp:152
-#, kde-format
-msgid "Show Tree"
-msgstr ""
-
-#: src/gui/diffwindow.cpp:155
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:38
-#: src/libkommitwidgets/windows/diffwindow.cpp:155
-#, kde-format
-msgid "Reload"
-msgstr ""
-
-#: src/gui/diffwindow.cpp:211 src/libkommitwidgets/windows/diffwindow.cpp:213
-#, kde-format
-msgid "Unchanged"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
-#: src/gui/diffwindow.cpp:213
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:215
-#, kde-format
-msgid "Added"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
-#: src/gui/diffwindow.cpp:215
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:217
-#, kde-format
-msgid "Removed"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
-#: src/gui/diffwindow.cpp:217
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:219
-#, kde-format
-msgid "Modified"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
@@ -555,66 +485,6 @@ msgstr ""
 msgid "Don't exit"
 msgstr ""
 
-#: src/gui/mergewindow.cpp:281 src/libkommitwidgets/windows/mergewindow.cpp:284
-#, kde-format
-msgid "Conflicts: %1"
-msgstr ""
-
-#: src/gui/mergewindow.cpp:289 src/libkommitwidgets/windows/mergewindow.cpp:292
-#, kde-format
-msgid "Keep mine"
-msgstr ""
-
-#: src/gui/mergewindow.cpp:294 src/libkommitwidgets/windows/mergewindow.cpp:297
-#, kde-format
-msgid "Keep their"
-msgstr ""
-
-#: src/gui/mergewindow.cpp:300 src/libkommitwidgets/windows/mergewindow.cpp:303
-#, kde-format
-msgid "Keep mine before their"
-msgstr ""
-
-#: src/gui/mergewindow.cpp:305 src/libkommitwidgets/windows/mergewindow.cpp:308
-#, kde-format
-msgid "Keep their before mine"
-msgstr ""
-
-#: src/gui/mergewindow.cpp:310 src/libkommitwidgets/windows/mergewindow.cpp:313
-#, kde-format
-msgid "Keep my file"
-msgstr ""
-
-#: src/gui/mergewindow.cpp:315 src/libkommitwidgets/windows/mergewindow.cpp:318
-#, kde-format
-msgid "Keep their file"
-msgstr ""
-
-#: src/gui/mergewindow.cpp:320 src/libkommitwidgets/windows/mergewindow.cpp:323
-#, kde-format
-msgid "Blocks"
-msgstr ""
-
-#: src/gui/mergewindow.cpp:324 src/libkommitwidgets/windows/mergewindow.cpp:327
-#, kde-format
-msgid "Files"
-msgstr ""
-
-#: src/gui/mergewindow.cpp:328 src/libkommitwidgets/windows/mergewindow.cpp:331
-#, kde-format
-msgid "Previous diff"
-msgstr ""
-
-#: src/gui/mergewindow.cpp:334 src/libkommitwidgets/windows/mergewindow.cpp:337
-#, kde-format
-msgid "Next diff"
-msgstr ""
-
-#: src/gui/mergewindow.cpp:431 src/libkommitwidgets/windows/mergewindow.cpp:436
-#, kde-format
-msgid "Unable to open the file"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #: src/gui/models/treemodel.cpp:141 src/gui/pages/remoteswidget.ui:164
@@ -667,15 +537,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
-#: src/libkommitwidgets/actions/commitactions.cpp:34
-#: src/libkommitwidgets/actions/tagsactions.cpp:65
+#: src/libkommitwidgets/actions/commitactions.cpp:35
+#: src/libkommitwidgets/actions/tagsactions.cpp:52
 #, kde-format
 msgid "Checkout"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/pages/branchesstatuswidget.ui:111
-#: src/libkommitwidgets/actions/commitactions.cpp:33
+#: src/libkommitwidgets/actions/commitactions.cpp:34
 #, kde-format
 msgid "Browse"
 msgstr ""
@@ -1055,7 +925,7 @@ msgstr "Wechseln"
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #: src/libkommitwidgets/actions/stashactions.cpp:26
-#: src/libkommitwidgets/actions/tagsactions.cpp:25
+#: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Remove..."
 msgstr "Entfernen ..."
@@ -1090,9 +960,10 @@ msgstr "Diff ..."
 msgid "Revert..."
 msgstr "Zurücksetzen ..."
 
-#: src/libkommitwidgets/actions/commitactions.cpp:35
+#: src/libkommitwidgets/actions/commitactions.cpp:36
 #: src/libkommitwidgets/actions/fileactions.cpp:87
 #: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Diff with working dir"
 msgstr ""
@@ -1193,62 +1064,62 @@ msgstr "Pop ..."
 msgid "Apply..."
 msgstr "Anwenden ..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:49
+#: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:49
+#: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Apply stash %1"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:51
+#: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
 msgid "Unable to apply the selected stash"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:57
+#: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:57
+#: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Drop stash %1"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:59
+#: src/libkommitwidgets/actions/stashactions.cpp:44
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Pop stash %1"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:83
+#: src/libkommitwidgets/actions/stashactions.cpp:68
 #, kde-format
 msgid "You don't have any changes!"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:83
+#: src/libkommitwidgets/actions/stashactions.cpp:68
 #, kde-format
 msgid "Stash"
 msgstr "Stash"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:88
+#: src/libkommitwidgets/actions/stashactions.cpp:73
 #, kde-format
 msgid "Create new stash"
 msgstr "Neuen Stash erstellem"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:88
+#: src/libkommitwidgets/actions/stashactions.cpp:73
 #, kde-format
 msgid "Name of stash"
 msgstr "Name des Stash"
@@ -1289,39 +1160,34 @@ msgstr ""
 msgid "The submodule %1 removed"
 msgstr ""
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:24
+#: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, kde-format
 msgid "New tag..."
 msgstr ""
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:26
+#: src/libkommitwidgets/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Checkout..."
 msgstr "Auslesen ..."
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:27
-#, kde-format
-msgid "Diff with HEAD..."
-msgstr "Mit HEAD vergleichen ..."
-
-#: src/libkommitwidgets/actions/tagsactions.cpp:48
+#: src/libkommitwidgets/actions/tagsactions.cpp:35
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
 msgstr ""
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:57
+#: src/libkommitwidgets/actions/tagsactions.cpp:44
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
 msgstr ""
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:57
+#: src/libkommitwidgets/actions/tagsactions.cpp:44
 #, kde-format
 msgid "Remove tag"
 msgstr ""
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:65
+#: src/libkommitwidgets/actions/tagsactions.cpp:52
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
 msgstr ""
@@ -1331,6 +1197,12 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
 #, kde-format
 msgid "Commit/Push"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:38
+#: src/libkommitwidgets/windows/diffwindow.cpp:199
+#, kde-format
+msgid "Reload"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
@@ -1565,6 +1437,27 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:205
 #, kde-format
 msgid "Indexed"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
+#: src/libkommitwidgets/windows/diffwindow.cpp:262
+#, kde-format
+msgid "Added"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
+#: src/libkommitwidgets/windows/diffwindow.cpp:264
+#, kde-format
+msgid "Removed"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
+#: src/libkommitwidgets/windows/diffwindow.cpp:266
+#, kde-format
+msgid "Modified"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddNone)
@@ -2411,6 +2304,107 @@ msgstr ""
 #, kde-format
 msgid "Hide unchangeds"
 msgstr ""
+
+#: src/libkommitwidgets/windows/diffwindow.cpp:150
+#, kde-format
+msgctxt "@title:window"
+msgid "Kommit Diff[*]"
+msgstr ""
+
+#: src/libkommitwidgets/windows/diffwindow.cpp:153
+#, kde-format
+msgctxt "@title:window"
+msgid "Tree"
+msgstr ""
+
+#: src/libkommitwidgets/windows/diffwindow.cpp:180
+#, kde-format
+msgid "View hidden chars..."
+msgstr ""
+
+#: src/libkommitwidgets/windows/diffwindow.cpp:185
+#: src/libkommitwidgets/windows/mergewindow.cpp:342
+#, kde-format
+msgid "Same size blocks"
+msgstr ""
+
+#: src/libkommitwidgets/windows/diffwindow.cpp:190
+#, kde-format
+msgid "Show files names"
+msgstr ""
+
+#: src/libkommitwidgets/windows/diffwindow.cpp:196
+#, kde-format
+msgid "Show Tree"
+msgstr ""
+
+#: src/libkommitwidgets/windows/diffwindow.cpp:260
+#, kde-format
+msgid "Unchanged"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:284
+#, kde-format
+msgid "Conflicts: %1"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:292
+#, kde-format
+msgid "Keep mine"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:297
+#, kde-format
+msgid "Keep their"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:303
+#, kde-format
+msgid "Keep mine before their"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:308
+#, kde-format
+msgid "Keep their before mine"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:313
+#, kde-format
+msgid "Keep my file"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:318
+#, kde-format
+msgid "Keep their file"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:323
+#, kde-format
+msgid "Blocks"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:327
+#, kde-format
+msgid "Files"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:331
+#, kde-format
+msgid "Previous diff"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:337
+#, kde-format
+msgid "Next diff"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:436
+#, kde-format
+msgid "Unable to open the file"
+msgstr ""
+
+#~ msgid "Diff with HEAD..."
+#~ msgstr "Mit HEAD vergleichen ..."
 
 #~ msgid "Merge with HEAD..."
 #~ msgstr "Mit HEAD zusammenführen ..."

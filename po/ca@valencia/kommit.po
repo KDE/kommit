@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-14 00:43+0000\n"
-"PO-Revision-Date: 2023-12-07 10:51+0100\n"
+"POT-Creation-Date: 2023-12-15 00:43+0000\n"
+"PO-Revision-Date: 2023-12-14 13:25+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -243,7 +243,7 @@ msgstr "Baixa..."
 msgid "Fetch..."
 msgstr "Obtín..."
 
-#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:29
 #, kde-format
 msgid "Push..."
 msgstr "Puja..."
@@ -293,12 +293,12 @@ msgstr "Restablix el repositori"
 msgid "Open repository"
 msgstr "Obri el repositori"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:481
+#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:483
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No es pot canviar de branca mentre s'està fusionant"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:481
+#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:483
 #, kde-format
 msgid "Switch branch"
 msgstr "Canvia de branca"
@@ -313,22 +313,22 @@ msgstr "El camí no és un repositori de Git: %1"
 msgid "The repo inited successfully"
 msgstr "El repositori s'ha inicialitzat correctament"
 
-#: src/gui/commandargsparser.cpp:510
+#: src/gui/commandargsparser.cpp:512
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Els fitxers s'ha/n afegit correctament"
 
-#: src/gui/commandargsparser.cpp:518
+#: src/gui/commandargsparser.cpp:520
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Voleu deixar els fitxers en el disc?"
 
-#: src/gui/commandargsparser.cpp:518
+#: src/gui/commandargsparser.cpp:520
 #, kde-format
 msgid "Remove from index"
 msgstr "Elimina des de l'índex"
 
-#: src/gui/commandargsparser.cpp:520
+#: src/gui/commandargsparser.cpp:522
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Els fitxers s'ha/n eliminat correctament de Git"
@@ -352,76 +352,6 @@ msgstr "Estat:"
 #, kde-format
 msgid "---"
 msgstr "---"
-
-#: src/gui/diffwindow.cpp:106 src/libkommitwidgets/windows/diffwindow.cpp:106
-#, kde-format
-msgctxt "@title:window"
-msgid "Kommit Diff[*]"
-msgstr "Diff[*] de Kommit"
-
-#: src/gui/diffwindow.cpp:109 src/libkommitwidgets/windows/diffwindow.cpp:109
-#, kde-format
-msgctxt "@title:window"
-msgid "Tree"
-msgstr "Arbre"
-
-#: src/gui/diffwindow.cpp:136 src/libkommitwidgets/windows/diffwindow.cpp:136
-#, kde-format
-msgid "View hidden chars..."
-msgstr "Mostra els caràcters ocults..."
-
-#: src/gui/diffwindow.cpp:141 src/gui/mergewindow.cpp:339
-#: src/libkommitwidgets/windows/diffwindow.cpp:141
-#: src/libkommitwidgets/windows/mergewindow.cpp:342
-#, kde-format
-msgid "Same size blocks"
-msgstr "Blocs de la mateixa mida"
-
-#: src/gui/diffwindow.cpp:146 src/libkommitwidgets/windows/diffwindow.cpp:146
-#, kde-format
-msgid "Show files names"
-msgstr "Mostra els noms de fitxer"
-
-#: src/gui/diffwindow.cpp:152 src/libkommitwidgets/windows/diffwindow.cpp:152
-#, kde-format
-msgid "Show Tree"
-msgstr "Mostra un arbre"
-
-#: src/gui/diffwindow.cpp:155
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:38
-#: src/libkommitwidgets/windows/diffwindow.cpp:155
-#, kde-format
-msgid "Reload"
-msgstr "Torna a carregar"
-
-#: src/gui/diffwindow.cpp:211 src/libkommitwidgets/windows/diffwindow.cpp:213
-#, kde-format
-msgid "Unchanged"
-msgstr "Sense canvis"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
-#: src/gui/diffwindow.cpp:213
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:215
-#, kde-format
-msgid "Added"
-msgstr "Afegit"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
-#: src/gui/diffwindow.cpp:215
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:217
-#, kde-format
-msgid "Removed"
-msgstr "Eliminat"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
-#: src/gui/diffwindow.cpp:217
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:219
-#, kde-format
-msgid "Modified"
-msgstr "Modificat"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -554,66 +484,6 @@ msgstr "Deixa'l com està"
 msgid "Don't exit"
 msgstr "No isques"
 
-#: src/gui/mergewindow.cpp:281 src/libkommitwidgets/windows/mergewindow.cpp:284
-#, kde-format
-msgid "Conflicts: %1"
-msgstr "Conflictes: %1"
-
-#: src/gui/mergewindow.cpp:289 src/libkommitwidgets/windows/mergewindow.cpp:292
-#, kde-format
-msgid "Keep mine"
-msgstr "Mantín els meus"
-
-#: src/gui/mergewindow.cpp:294 src/libkommitwidgets/windows/mergewindow.cpp:297
-#, kde-format
-msgid "Keep their"
-msgstr "Mantín els seus"
-
-#: src/gui/mergewindow.cpp:300 src/libkommitwidgets/windows/mergewindow.cpp:303
-#, kde-format
-msgid "Keep mine before their"
-msgstr "Mantín els meus abans que els seus"
-
-#: src/gui/mergewindow.cpp:305 src/libkommitwidgets/windows/mergewindow.cpp:308
-#, kde-format
-msgid "Keep their before mine"
-msgstr "Mantín els seus abans que els meus"
-
-#: src/gui/mergewindow.cpp:310 src/libkommitwidgets/windows/mergewindow.cpp:313
-#, kde-format
-msgid "Keep my file"
-msgstr "Mantín el meu fitxer"
-
-#: src/gui/mergewindow.cpp:315 src/libkommitwidgets/windows/mergewindow.cpp:318
-#, kde-format
-msgid "Keep their file"
-msgstr "Mantín el seu fitxer"
-
-#: src/gui/mergewindow.cpp:320 src/libkommitwidgets/windows/mergewindow.cpp:323
-#, kde-format
-msgid "Blocks"
-msgstr "Blocs"
-
-#: src/gui/mergewindow.cpp:324 src/libkommitwidgets/windows/mergewindow.cpp:327
-#, kde-format
-msgid "Files"
-msgstr "Fitxers"
-
-#: src/gui/mergewindow.cpp:328 src/libkommitwidgets/windows/mergewindow.cpp:331
-#, kde-format
-msgid "Previous diff"
-msgstr "Diferència anterior"
-
-#: src/gui/mergewindow.cpp:334 src/libkommitwidgets/windows/mergewindow.cpp:337
-#, kde-format
-msgid "Next diff"
-msgstr "Diferència següent"
-
-#: src/gui/mergewindow.cpp:431 src/libkommitwidgets/windows/mergewindow.cpp:436
-#, kde-format
-msgid "Unable to open the file"
-msgstr "No s'ha pogut obrir el fitxer"
-
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #: src/gui/models/treemodel.cpp:141 src/gui/pages/remoteswidget.ui:164
@@ -666,15 +536,15 @@ msgstr "Nova"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
-#: src/libkommitwidgets/actions/commitactions.cpp:34
-#: src/libkommitwidgets/actions/tagsactions.cpp:65
+#: src/libkommitwidgets/actions/commitactions.cpp:35
+#: src/libkommitwidgets/actions/tagsactions.cpp:52
 #, kde-format
 msgid "Checkout"
 msgstr "Extrau"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/pages/branchesstatuswidget.ui:111
-#: src/libkommitwidgets/actions/commitactions.cpp:33
+#: src/libkommitwidgets/actions/commitactions.cpp:34
 #, kde-format
 msgid "Browse"
 msgstr "Navega"
@@ -1067,7 +937,7 @@ msgstr "Canvia"
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #: src/libkommitwidgets/actions/stashactions.cpp:26
-#: src/libkommitwidgets/actions/tagsactions.cpp:25
+#: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Remove..."
 msgstr "Elimina..."
@@ -1102,12 +972,13 @@ msgstr "Diferència..."
 msgid "Revert..."
 msgstr "Revertix..."
 
-#: src/libkommitwidgets/actions/commitactions.cpp:35
+#: src/libkommitwidgets/actions/commitactions.cpp:36
 #: src/libkommitwidgets/actions/fileactions.cpp:87
 #: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Diff with working dir"
-msgstr ""
+msgstr "Diff amb el directori de treball"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:83
 #, kde-format
@@ -1122,7 +993,7 @@ msgstr "Obri amb..."
 #: src/libkommitwidgets/actions/fileactions.cpp:88
 #, kde-format
 msgid "Merge with working dir"
-msgstr ""
+msgstr "Fusió amb el directori de treball"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:90
 #, kde-format
@@ -1130,10 +1001,9 @@ msgid "Save as..."
 msgstr "Anomena i guarda..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:91
-#, fuzzy, kde-format
-#| msgid "Log..."
+#, kde-format
 msgid "Log"
-msgstr "Registre..."
+msgstr "Registre"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #, kde-format
@@ -1205,62 +1075,62 @@ msgstr "«Pop»..."
 msgid "Apply..."
 msgstr "Aplica..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:49
+#: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "Esteu segur d'aplicar l'«stash» seleccionat?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:49
+#: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Apply stash %1"
 msgstr "Aplica l'«stash» %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:51
+#: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
 msgid "Unable to apply the selected stash"
 msgstr "No s'ha pogut aplicar l'«stash» seleccionat"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:57
+#: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "Segur de llençar l'«stash» seleccionat?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:57
+#: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Drop stash %1"
 msgstr "Llença l'«stash» %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:59
+#: src/libkommitwidgets/actions/stashactions.cpp:44
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "No s'ha pogut eliminar l'«stash» seleccionat"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "Esteu segur d'aplicar («pop») l'«stash» seleccionat?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Pop stash %1"
 msgstr "Aplica («pop») l'«stash» %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:83
+#: src/libkommitwidgets/actions/stashactions.cpp:68
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "No teniu cap canvi!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:83
+#: src/libkommitwidgets/actions/stashactions.cpp:68
 #, kde-format
 msgid "Stash"
 msgstr "«Stash»"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:88
+#: src/libkommitwidgets/actions/stashactions.cpp:73
 #, kde-format
 msgid "Create new stash"
 msgstr "Crea un «stash» nou"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:88
+#: src/libkommitwidgets/actions/stashactions.cpp:73
 #, kde-format
 msgid "Name of stash"
 msgstr "Nom de l'«stash»"
@@ -1301,39 +1171,34 @@ msgstr "No s'ha pogut eliminar el directori del mòdul"
 msgid "The submodule %1 removed"
 msgstr "S'ha eliminat el submòdul %1"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:24
+#: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, kde-format
 msgid "New tag..."
 msgstr "Etiqueta nova..."
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:26
+#: src/libkommitwidgets/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Checkout..."
 msgstr "Extrau..."
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:27
-#, kde-format
-msgid "Diff with HEAD..."
-msgstr "Diff amb HEAD..."
-
-#: src/libkommitwidgets/actions/tagsactions.cpp:48
+#: src/libkommitwidgets/actions/tagsactions.cpp:35
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
 msgstr "Etiqueta nova"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:57
+#: src/libkommitwidgets/actions/tagsactions.cpp:44
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
 msgstr "Esteu segur d'eliminar l'etiqueta seleccionada?"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:57
+#: src/libkommitwidgets/actions/tagsactions.cpp:44
 #, kde-format
 msgid "Remove tag"
 msgstr "Elimina l'etiqueta"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:65
+#: src/libkommitwidgets/actions/tagsactions.cpp:52
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Esteu segur d'extraure a l'etiqueta seleccionada?"
@@ -1344,6 +1209,12 @@ msgstr "Esteu segur d'extraure a l'etiqueta seleccionada?"
 #, kde-format
 msgid "Commit/Push"
 msgstr "Comet/Puja"
+
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:38
+#: src/libkommitwidgets/windows/diffwindow.cpp:199
+#, kde-format
+msgid "Reload"
+msgstr "Torna a carregar"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
@@ -1602,6 +1473,27 @@ msgstr "Tots"
 #, kde-format
 msgid "Indexed"
 msgstr "Indexats"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
+#: src/libkommitwidgets/windows/diffwindow.cpp:262
+#, kde-format
+msgid "Added"
+msgstr "Afegit"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
+#: src/libkommitwidgets/windows/diffwindow.cpp:264
+#, kde-format
+msgid "Removed"
+msgstr "Eliminat"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
+#: src/libkommitwidgets/windows/diffwindow.cpp:266
+#, kde-format
+msgid "Modified"
+msgstr "Modificat"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddNone)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:245
@@ -2461,50 +2353,45 @@ msgstr "Etiqueta: "
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/widgets/commitdetails.ui:39
-#, fuzzy, kde-format
-#| msgid "Checkout to selected"
+#, kde-format
 msgid "Commit is not selected"
-msgstr "Extrau als seleccionats"
+msgstr "No s'ha seleccionat la comissió"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:99
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Author:"
-msgstr "Autoria"
+msgstr "Autoria:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCommitterText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:111
-#, fuzzy, kde-format
-#| msgid "Committer"
+#, kde-format
 msgid "Committer:"
-msgstr "Comitent"
+msgstr "Comitent:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, fuzzy, kde-format
-#| msgid "Parent"
+#, kde-format
 msgid "Parent:"
-msgstr "Pare"
+msgstr "Pare:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, fuzzy, kde-format
-#| msgid "Child"
+#, kde-format
 msgid "Child:"
-msgstr "Fill"
+msgstr "Fill:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>-</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
 #: src/libkommitwidgets/widgets/commitdetails.ui:196
 #, kde-format
 msgid "Ref:"
-msgstr ""
+msgstr "Ref:"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/difftreeview.ui:17
@@ -2518,26 +2405,103 @@ msgstr "Teclegeu per a filtrar"
 msgid "Hide unchangeds"
 msgstr "Oculta els no canviats"
 
-#~ msgid "Merge with HEAD..."
-#~ msgstr "Fusiona amb HEAD..."
+#: src/libkommitwidgets/windows/diffwindow.cpp:150
+#, kde-format
+msgctxt "@title:window"
+msgid "Kommit Diff[*]"
+msgstr "Diff[*] de Kommit"
 
-#~ msgid "Blame..."
-#~ msgstr "«Blame»..."
+#: src/libkommitwidgets/windows/diffwindow.cpp:153
+#, kde-format
+msgctxt "@title:window"
+msgid "Tree"
+msgstr "Arbre"
 
-#~ msgid "time"
-#~ msgstr "hora"
+#: src/libkommitwidgets/windows/diffwindow.cpp:180
+#, kde-format
+msgid "View hidden chars..."
+msgstr "Mostra els caràcters ocults..."
 
-#~ msgid "Commit time"
-#~ msgstr "Hora de la comissió"
+#: src/libkommitwidgets/windows/diffwindow.cpp:185
+#: src/libkommitwidgets/windows/mergewindow.cpp:342
+#, kde-format
+msgid "Same size blocks"
+msgstr "Blocs de la mateixa mida"
 
-#~ msgid "Auth time"
-#~ msgstr "Hora de l'autorització"
+#: src/libkommitwidgets/windows/diffwindow.cpp:190
+#, kde-format
+msgid "Show files names"
+msgstr "Mostra els noms de fitxer"
 
-#~ msgid "Hash"
-#~ msgstr "Resum"
+#: src/libkommitwidgets/windows/diffwindow.cpp:196
+#, kde-format
+msgid "Show Tree"
+msgstr "Mostra un arbre"
 
-#~ msgid "Parents"
-#~ msgstr "Pares"
+#: src/libkommitwidgets/windows/diffwindow.cpp:260
+#, kde-format
+msgid "Unchanged"
+msgstr "Sense canvis"
 
-#~ msgid "Children"
-#~ msgstr "Fills"
+#: src/libkommitwidgets/windows/mergewindow.cpp:284
+#, kde-format
+msgid "Conflicts: %1"
+msgstr "Conflictes: %1"
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:292
+#, kde-format
+msgid "Keep mine"
+msgstr "Mantín els meus"
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:297
+#, kde-format
+msgid "Keep their"
+msgstr "Mantín els seus"
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:303
+#, kde-format
+msgid "Keep mine before their"
+msgstr "Mantín els meus abans que els seus"
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:308
+#, kde-format
+msgid "Keep their before mine"
+msgstr "Mantín els seus abans que els meus"
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:313
+#, kde-format
+msgid "Keep my file"
+msgstr "Mantín el meu fitxer"
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:318
+#, kde-format
+msgid "Keep their file"
+msgstr "Mantín el seu fitxer"
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:323
+#, kde-format
+msgid "Blocks"
+msgstr "Blocs"
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:327
+#, kde-format
+msgid "Files"
+msgstr "Fitxers"
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:331
+#, kde-format
+msgid "Previous diff"
+msgstr "Diferència anterior"
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:337
+#, kde-format
+msgid "Next diff"
+msgstr "Diferència següent"
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:436
+#, kde-format
+msgid "Unable to open the file"
+msgstr "No s'ha pogut obrir el fitxer"
+
+#~ msgid "Diff with HEAD..."
+#~ msgstr "Diff amb HEAD..."
