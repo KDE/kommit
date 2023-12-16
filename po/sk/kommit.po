@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-15 00:43+0000\n"
+"POT-Creation-Date: 2023-12-16 00:43+0000\n"
 "PO-Revision-Date: 2023-12-08 19:34+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -868,23 +868,33 @@ msgstr "Dátum"
 msgid "Graph"
 msgstr "Graf"
 
-#: src/libkommit/models/stashesmodel.cpp:63
+#: src/libkommit/models/stashesmodel.cpp:66
 #: src/libkommit/models/tagsmodel.cpp:64
 #, kde-format
 msgid "Subject"
 msgstr "Predmet"
 
-#: src/libkommit/models/stashesmodel.cpp:65
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommit/models/stashesmodel.cpp:68
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:37
+#, kde-format
+msgid "Commit"
+msgstr "Začleniť"
+
+#: src/libkommit/models/stashesmodel.cpp:70
 #, kde-format
 msgid "Author name"
 msgstr "Meno autora"
 
-#: src/libkommit/models/stashesmodel.cpp:67
+#: src/libkommit/models/stashesmodel.cpp:72
 #, kde-format
 msgid "Author email"
 msgstr "E-mail autora"
 
-#: src/libkommit/models/stashesmodel.cpp:69
+#: src/libkommit/models/stashesmodel.cpp:74
 #, kde-format
 msgid "Time"
 msgstr "Čas"
@@ -1472,15 +1482,6 @@ msgstr "Zmenené"
 #, kde-format
 msgid "None"
 msgstr "Žiadne"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:37
-#, kde-format
-msgid "Commit"
-msgstr "Začleniť"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-15 00:43+0000\n"
+"POT-Creation-Date: 2023-12-16 00:43+0000\n"
 "PO-Revision-Date: 2023-12-14 13:25+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -881,23 +881,33 @@ msgstr "Data"
 msgid "Graph"
 msgstr "Graf"
 
-#: src/libkommit/models/stashesmodel.cpp:63
+#: src/libkommit/models/stashesmodel.cpp:66
 #: src/libkommit/models/tagsmodel.cpp:64
 #, kde-format
 msgid "Subject"
 msgstr "Assumpte"
 
-#: src/libkommit/models/stashesmodel.cpp:65
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommit/models/stashesmodel.cpp:68
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:37
+#, kde-format
+msgid "Commit"
+msgstr "Comet"
+
+#: src/libkommit/models/stashesmodel.cpp:70
 #, kde-format
 msgid "Author name"
 msgstr "Nom de l'autor"
 
-#: src/libkommit/models/stashesmodel.cpp:67
+#: src/libkommit/models/stashesmodel.cpp:72
 #, kde-format
 msgid "Author email"
 msgstr "Correu de l'autor"
 
-#: src/libkommit/models/stashesmodel.cpp:69
+#: src/libkommit/models/stashesmodel.cpp:74
 #, kde-format
 msgid "Time"
 msgstr "Hora"
@@ -1500,15 +1510,6 @@ msgstr "Modificat"
 #, kde-format
 msgid "None"
 msgstr "Cap"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:37
-#, kde-format
-msgid "Commit"
-msgstr "Comet"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14

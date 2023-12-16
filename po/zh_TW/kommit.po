@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-15 00:43+0000\n"
+"POT-Creation-Date: 2023-12-16 00:43+0000\n"
 "PO-Revision-Date: 2023-12-13 18:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -865,23 +865,33 @@ msgstr "日期"
 msgid "Graph"
 msgstr "圖表"
 
-#: src/libkommit/models/stashesmodel.cpp:63
+#: src/libkommit/models/stashesmodel.cpp:66
 #: src/libkommit/models/tagsmodel.cpp:64
 #, kde-format
 msgid "Subject"
 msgstr "主旨"
 
-#: src/libkommit/models/stashesmodel.cpp:65
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommit/models/stashesmodel.cpp:68
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:37
+#, kde-format
+msgid "Commit"
+msgstr "提交"
+
+#: src/libkommit/models/stashesmodel.cpp:70
 #, kde-format
 msgid "Author name"
 msgstr "作者名稱"
 
-#: src/libkommit/models/stashesmodel.cpp:67
+#: src/libkommit/models/stashesmodel.cpp:72
 #, kde-format
 msgid "Author email"
 msgstr "作者電郵"
 
-#: src/libkommit/models/stashesmodel.cpp:69
+#: src/libkommit/models/stashesmodel.cpp:74
 #, kde-format
 msgid "Time"
 msgstr "時間"
@@ -1465,15 +1475,6 @@ msgstr "已修改"
 #, kde-format
 msgid "None"
 msgstr "無"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:37
-#, kde-format
-msgid "Commit"
-msgstr "提交"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14

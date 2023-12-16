@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-15 00:43+0000\n"
+"POT-Creation-Date: 2023-12-16 00:43+0000\n"
 "PO-Revision-Date: 2023-12-14 08:31+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -879,23 +879,33 @@ msgstr "Дата"
 msgid "Graph"
 msgstr "Граф"
 
-#: src/libkommit/models/stashesmodel.cpp:63
+#: src/libkommit/models/stashesmodel.cpp:66
 #: src/libkommit/models/tagsmodel.cpp:64
 #, kde-format
 msgid "Subject"
 msgstr "Тема"
 
-#: src/libkommit/models/stashesmodel.cpp:65
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommit/models/stashesmodel.cpp:68
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:37
+#, kde-format
+msgid "Commit"
+msgstr "Внести"
+
+#: src/libkommit/models/stashesmodel.cpp:70
 #, kde-format
 msgid "Author name"
 msgstr "Імʼя автора"
 
-#: src/libkommit/models/stashesmodel.cpp:67
+#: src/libkommit/models/stashesmodel.cpp:72
 #, kde-format
 msgid "Author email"
 msgstr "Електронна пошта автора"
 
-#: src/libkommit/models/stashesmodel.cpp:69
+#: src/libkommit/models/stashesmodel.cpp:74
 #, kde-format
 msgid "Time"
 msgstr "Час"
@@ -1498,15 +1508,6 @@ msgstr "Змінено"
 #, kde-format
 msgid "None"
 msgstr "Немає"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:37
-#, kde-format
-msgid "Commit"
-msgstr "Внести"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14
