@@ -67,18 +67,18 @@ void TagsActions::push()
     d.exec();
 }
 
-Git::Tag *TagsActions::tag() const
+QSharedPointer<Git::Tag> TagsActions::tag() const
 {
     return mTag;
 }
 
-void TagsActions::setTag(Git::Tag *tag)
+void TagsActions::setTag(QSharedPointer<Git::Tag> tag)
 {
     mTag = tag;
 
-    setActionEnabled(_actionRemove, tag);
-    setActionEnabled(_actionCheckout, tag);
-    setActionEnabled(_actionDiff, tag);
+    setActionEnabled(_actionRemove, !tag.isNull());
+    setActionEnabled(_actionCheckout, !tag.isNull());
+    setActionEnabled(_actionDiff, !tag.isNull());
 }
 
 #include "moc_tagsactions.cpp"

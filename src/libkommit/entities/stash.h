@@ -41,6 +41,8 @@ public:
 
     Q_REQUIRED_RESULT QString commitHash() const;
 
+    Q_REQUIRED_RESULT size_t index() const;
+
 private:
     git_commit *ptr{nullptr};
     Git::Manager *mGit = nullptr;

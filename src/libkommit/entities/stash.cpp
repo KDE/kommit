@@ -62,4 +62,9 @@ QString Stash::commitHash() const
     return mCommitHash;
 }
 
+size_t Stash::index() const
+{
+    return mIndex;
+}
+
 } // namespace Git

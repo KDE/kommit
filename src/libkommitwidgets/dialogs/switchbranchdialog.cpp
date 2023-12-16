@@ -29,7 +29,7 @@ SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
     for (const auto &b : std::as_const(_existingRemoteBranches))
         comboBoxBranchSelect->addItem(b, BRANCH_TYPE_REMOTE);
 
-    comboBoxTags->addItems(git->tags());
+    comboBoxTags->addItems(git->tagsNames());
     // TODO: comboBoxTags->setModel(git->tagsModel());
 
     radioButtonTag->setEnabled(comboBoxTags->count());

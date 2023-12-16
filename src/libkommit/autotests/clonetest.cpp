@@ -38,7 +38,7 @@ void CloneTest::clone()
     path.append("/");
     QCOMPARE(path, mManager->path());
 
-    auto tags = mManager->tags();
+    auto tags = mManager->tagsNames();
     QVERIFY(tags.contains("v1.0.1"));
 }
 

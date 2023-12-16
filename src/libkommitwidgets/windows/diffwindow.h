@@ -34,7 +34,7 @@ public:
     explicit DiffWindow(Git::Manager *git);
     DiffWindow(QSharedPointer<Git::File> oldFile, QSharedPointer<Git::File> newFile);
     DiffWindow(Git::Manager *git, const QString &oldBranch, const QString &newBranch);
-    DiffWindow(Git::Manager *git, Git::Tag *tag);
+    DiffWindow(Git::Manager *git, QSharedPointer<Git::Tag> tag);
     DiffWindow(Git::Branch *oldBranch, Git::Branch *newBranch);
     DiffWindow(Git::Manager *git, QSharedPointer<Git::Tree> leftTree);
     DiffWindow(const QString &oldDir, const QString &newDir);

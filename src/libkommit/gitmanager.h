@@ -148,18 +148,24 @@ public:
     Q_REQUIRED_RESULT PointerList<Commit> commits(const QString &branchName = {}) const;
 
     // tags
-    void forEachTags(std::function<void(Tag *)> cb);
-    Q_REQUIRED_RESULT QStringList tags() const;
+    void forEachTags(std::function<void(QSharedPointer<Tag>)> cb);
+    Q_REQUIRED_RESULT QStringList tagsNames() const;
+    Q_REQUIRED_RESULT QList<QSharedPointer<Tag>> tags() const;
     bool createTag(const QString &name, const QString &message) const;
     bool removeTag(const QString &name) const;
+    bool removeTag(QSharedPointer<Tag> tag) const;
 
     // stashes
     void forEachStash(std::function<void(QSharedPointer<Stash>)> cb);
     PointerList<Stash> stashes() const;
-    bool createStash(const QString &name = QString()) const;
+    Q_REQUIRED_RESULT bool applyStash(QSharedPointer<Stash> stash) const;
+    Q_REQUIRED_RESULT bool popStash(QSharedPointer<Stash> stash) const;
+    Q_REQUIRED_RESULT bool removeStash(QSharedPointer<Stash> stash) const;
     Q_REQUIRED_RESULT bool removeStash(const QString &name) const;
     Q_REQUIRED_RESULT bool applyStash(const QString &name) const;
     Q_REQUIRED_RESULT bool popStash(const QString &name) const;
+
+    bool createStash(const QString &name = QString()) const;
 
     // remotes
     Remote *remote(const QString &name) const;

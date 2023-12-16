@@ -80,7 +80,7 @@ DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QStrin
     mDiffModel->sortItems();
 }
 
-DiffWindow::DiffWindow(Git::Manager *git, Git::Tag *tag)
+DiffWindow::DiffWindow(Git::Manager *git, QSharedPointer<Git::Tag> tag)
     : AppMainWindow()
     , mOldBranch(tag->name())
     , mNewBranch("Working dir")

@@ -71,7 +71,7 @@ QVariant TagsModel::headerData(int section, Qt::Orientation orientation, int rol
     return {};
 }
 
-Tag *TagsModel::fromIndex(const QModelIndex &index) const
+QSharedPointer<Tag> TagsModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
@@ -81,10 +81,9 @@ Tag *TagsModel::fromIndex(const QModelIndex &index) const
 
 void TagsModel::fill()
 {
-    qDeleteAll(mData);
     mData.clear();
 
-    mGit->forEachTags([this](Tag *tag) {
+    mGit->forEachTags([this](QSharedPointer<Tag> tag) {
         mData.append(tag);
         if (mGit->authorsModel())
             mGit->authorsModel()->findOrCreate(tag->tagger()->name(), tag->tagger()->email(), QDateTime(), AuthorsModel::Tag);

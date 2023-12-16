@@ -1226,11 +1226,11 @@ PointerList<Branch> Manager::branches(BranchType type) const
     return list;
 }
 
-void Manager::forEachTags(std::function<void(Tag *)> cb)
+void Manager::forEachTags(std::function<void(QSharedPointer<Tag>)> cb)
 {
     struct wrapper {
         git_repository *repo;
-        std::function<void(Tag *)> cb;
+        std::function<void(QSharedPointer<Tag>)> cb;
     };
 
     wrapper w;
@@ -1245,7 +1245,7 @@ void Manager::forEachTags(std::function<void(Tag *)> cb)
 
         if (!t)
             return 0;
-        auto tag = new Tag{t};
+        QSharedPointer<Tag> tag{new Tag{t}};
 
         w->cb(tag);
 
@@ -1264,9 +1264,39 @@ QStringList Manager::remotes() const
     return r;
 }
 
-QStringList Manager::tags() const
+QStringList Manager::tagsNames() const
 {
     return readAllNonEmptyOutput({QStringLiteral("tag"), QStringLiteral("--list")});
+}
+
+QList<QSharedPointer<Tag>> Manager::tags() const
+{
+    struct wrapper {
+        git_repository *repo;
+        QList<QSharedPointer<Tag>> tags;
+    };
+
+    wrapper w;
+    w.repo = mRepo;
+
+    auto callback_c = [](const char *name, git_oid *oid_c, void *payload) {
+        Q_UNUSED(name)
+        auto w = reinterpret_cast<wrapper *>(payload);
+        git_tag *t{};
+        if (git_tag_lookup(&t, w->repo, oid_c))
+            return 0;
+
+        if (!t)
+            return 0;
+
+        w->tags << QSharedPointer<Tag>::create(t);
+
+        return 0;
+    };
+
+    git_tag_foreach(mRepo, callback_c, &w);
+
+    return w.tags;
 }
 
 bool Manager::createTag(const QString &name, const QString &message) const
@@ -1291,6 +1321,14 @@ bool Manager::removeTag(const QString &name) const
 {
     BEGIN
     STEP git_tag_delete(mRepo, name.toLocal8Bit().constData());
+    PRINT_ERROR;
+    return !err;
+}
+
+bool Manager::removeTag(QSharedPointer<Tag> tag) const
+{
+    BEGIN
+    STEP git_tag_delete(mRepo, tag->name().toLocal8Bit().constData());
     PRINT_ERROR;
     return !err;
 }
@@ -1340,6 +1378,47 @@ PointerList<Stash> Manager::stashes() const
     w.manager = this;
     git_stash_foreach(mRepo, callback, &w);
     return w.list;
+}
+
+bool Manager::applyStash(QSharedPointer<Stash> stash) const
+{
+    if (stash.isNull())
+        return false;
+
+    git_stash_apply_options options;
+
+    BEGIN
+    STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
+    STEP git_stash_apply(mRepo, stash->index(), &options);
+
+    PRINT_ERROR;
+
+    return !err;
+}
+
+bool Manager::popStash(QSharedPointer<Stash> stash) const
+{
+    if (stash.isNull())
+        return false;
+
+    git_stash_apply_options options;
+
+    BEGIN
+    STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
+    STEP git_stash_pop(mRepo, stash->index(), &options);
+
+    return !err;
+}
+
+bool Manager::removeStash(QSharedPointer<Stash> stash) const
+{
+    if (stash.isNull())
+        return false;
+
+    BEGIN
+    STEP git_stash_drop(mRepo, stash->index());
+
+    return !err;
 }
 
 bool Manager::createStash(const QString &name) const

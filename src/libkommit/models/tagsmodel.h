@@ -31,13 +31,13 @@ public:
     int columnCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    Tag *fromIndex(const QModelIndex &index) const;
+    QSharedPointer<Tag> fromIndex(const QModelIndex &index) const;
 
 protected:
     void fill() override;
 
 private:
-    QList<Tag *> mData;
+    QList<QSharedPointer<Tag>> mData;
 };
 
 } // namespace Git

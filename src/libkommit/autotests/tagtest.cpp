@@ -45,7 +45,7 @@ void TagTest::addTagNoHead()
 
     QVERIFY(!ok);
 
-    auto tags = mManager->tags();
+    auto tags = mManager->tagsNames();
     QVERIFY(!tags.contains("tag1"));
 }
 
@@ -63,7 +63,7 @@ void TagTest::addTag()
 
     QVERIFY(ok);
 
-    auto tags = mManager->tags();
+    auto tags = mManager->tagsNames();
     QVERIFY(tags.contains("tag1"));
 }
 
@@ -73,7 +73,7 @@ void TagTest::removeTag()
 
     QVERIFY(ok);
 
-    auto tags = mManager->tags();
+    auto tags = mManager->tagsNames();
     QVERIFY(!tags.contains("tag1"));
 }
 

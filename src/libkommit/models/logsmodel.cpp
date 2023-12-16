@@ -517,66 +517,6 @@ void LogsModel::fill()
 
     initChilds();
     initGraph();
-    //    return;
-
-    //    mBranches = mGit->branches(Git::Manager::BranchType::LocalBranch);
-    //    QStringList args{QStringLiteral("--no-pager"),
-    //                     QStringLiteral("log"),
-    //                     QStringLiteral("--topo-order"),
-    //                     QStringLiteral("--no-color"),
-    //                     QStringLiteral("--parents"),
-    //                     QStringLiteral("--boundary"),
-    //                     QStringLiteral("--pretty=format:'SEP%m%HX%hX%P%n"
-    //                                    "%cnX%ceX%cI%n"
-    //                                    "%anX%aeX%aI%n"
-    //                                    "%d%n"
-    //                                    "%at%n"
-    //                                    "%s%n"
-    //                                    "%b%n'")};
-
-    //    if (mBranch.size())
-    //        args.insert(2, mBranch);
-
-    //    auto ret = QString(mGit->runGit(args));
-    //    if (ret.startsWith(QStringLiteral("fatal:")))
-    //        return;
-
-    //    const auto parts = ret.split(QStringLiteral("SEP>"));
-
-    //    for (const auto &p : parts) {
-    //        auto lines = p.split(QLatin1Char('\n'));
-    //        if (lines.size() < 4)
-    //            continue;
-
-    //        auto d = new Log;
-    //        QString commitDate;
-    //        QString authDate;
-    //        QString parentHash;
-    //        Impl::readLine(lines.at(0), QStringLiteral("X"), {&d->mCommitHash, &d->mCommitShortHash, &parentHash});
-    //        Impl::readLine(lines.at(1), QStringLiteral("X"), {&d->mCommitterName, &d->mCommitterEmail, &commitDate});
-    //        Impl::readLine(lines.at(2), QStringLiteral("X"), {&d->mAuthorName, &d->mAuthorEmail, &authDate});
-
-    //        if (!parentHash.isEmpty())
-    //            d->mParentHash = parentHash.split(QLatin1Char(' '));
-    //        d->mRefLog = lines.at(3);
-    //        d->mSubject = lines.at(5);
-    //        d->mCommitDate = QDateTime::fromString(commitDate, Qt::ISODate);
-    //        d->mAuthDate = QDateTime::fromString(authDate, Qt::ISODate);
-    //        d->mBody = lines.mid(5).join(QLatin1Char('\n'));
-    //        mData.append(d);
-    //        mDataByCommitHashLong.insert(d->commitHash(), d);
-    //        mDataByCommitHashShort.insert(d->commitShortHash(), d);
-
-    //        if (mAuthorsModel) {
-    //            mAuthorsModel->findOrCreate(d->committerName(), d->committerEmail(), d->commitDate(), AuthorsModel::Commit);
-    //            mAuthorsModel->findOrCreate(d->authorName(), d->authorEmail(), d->authDate(), AuthorsModel::AuthoredCommit);
-    //        }
-    //    }
-    //    //    std::sort(begin(), end(), [](GitLog *log1,GitLog *log2){
-    //    //        return log1->commitDate() < log2->commitDate();
-    //    //    });
-    //    initChilds();
-    //    initGraph();
 }
 
 bool LogsModel::fullDetails() const

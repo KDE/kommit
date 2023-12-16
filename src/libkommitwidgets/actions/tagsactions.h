@@ -24,8 +24,8 @@ public:
     Q_REQUIRED_RESULT const QString &tagName() const;
     void setTagName(const QString &newTagName);
 
-    Q_REQUIRED_RESULT Git::Tag *tag() const;
-    void setTag(Git::Tag *tag);
+    Q_REQUIRED_RESULT QSharedPointer<Git::Tag> tag() const;
+    void setTag(QSharedPointer<Git::Tag> tag);
 
 private:
     void create();
@@ -38,5 +38,5 @@ private:
     DEFINE_ACTION(actionCheckout)
     DEFINE_ACTION(actionDiff)
     DEFINE_ACTION(actionPush)
-    Git::Tag *mTag;
+    QSharedPointer<Git::Tag> mTag;
 };
