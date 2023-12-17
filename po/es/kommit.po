@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 00:43+0000\n"
+"POT-Creation-Date: 2023-12-17 00:44+0000\n"
 "PO-Revision-Date: 2023-12-14 03:13+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1110,6 +1110,7 @@ msgid "Drop stash %1"
 msgstr "Descartar reserva %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
+#: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "No se puede eliminar la reserva seleccionada"
@@ -1124,22 +1125,22 @@ msgstr "¿Seguro que desea descartar la reserva seleccionada?"
 msgid "Pop stash %1"
 msgstr "Sacar reserva %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "No hay ningún cambio"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "Stash"
 msgstr "Reservar"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Create new stash"
 msgstr "Crear nueva reserva"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Name of stash"
 msgstr "Nombre de la reserva"

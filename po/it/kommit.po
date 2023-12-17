@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 00:43+0000\n"
+"POT-Creation-Date: 2023-12-17 00:44+0000\n"
 "PO-Revision-Date: 2023-10-19 08:35+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1108,6 +1108,7 @@ msgid "Drop stash %1"
 msgstr "Scarta stash %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
+#: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "Impossibile rimuovere lo stash selezionato"
@@ -1122,22 +1123,22 @@ msgstr "Sei sicuro di voler eseguire il pop dallo stash selezionato?"
 msgid "Pop stash %1"
 msgstr "Pop stash %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Non hai modifiche!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "Stash"
 msgstr "Stash"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Create new stash"
 msgstr "Crea nuovo stash"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Name of stash"
 msgstr "Nome stash"

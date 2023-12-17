@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 00:43+0000\n"
+"POT-Creation-Date: 2023-12-17 00:44+0000\n"
 "PO-Revision-Date: 2023-12-08 19:34+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1102,6 +1102,7 @@ msgid "Drop stash %1"
 msgstr "Vymazať úschovňu"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
+#: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr ""
@@ -1116,22 +1117,22 @@ msgstr ""
 msgid "Pop stash %1"
 msgstr "Aplikovať a vymazať úschovňu"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "You don't have any changes!"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "Stash"
 msgstr "Úschovňa"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Create new stash"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Name of stash"
 msgstr ""

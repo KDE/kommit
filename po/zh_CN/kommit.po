@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 00:43+0000\n"
+"POT-Creation-Date: 2023-12-17 00:44+0000\n"
 "PO-Revision-Date: 2023-12-09 09:28\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1105,6 +1105,7 @@ msgid "Drop stash %1"
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
+#: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr ""
@@ -1119,22 +1120,22 @@ msgstr ""
 msgid "Pop stash %1"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "您没有任何更改！"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "Stash"
 msgstr "暂存"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Create new stash"
 msgstr "建立新暂存"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Name of stash"
 msgstr "暂存名称"

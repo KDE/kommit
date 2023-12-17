@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 00:43+0000\n"
+"POT-Creation-Date: 2023-12-17 00:44+0000\n"
 "PO-Revision-Date: 2023-10-22 10:49+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -1108,6 +1108,7 @@ msgid "Drop stash %1"
 msgstr "Porzuć składowisko %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
+#: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "Nie można usunąć zaznaczonego składowiska"
@@ -1122,22 +1123,22 @@ msgstr "Czy na pewno pobrać z zaznaczonego składowiska?"
 msgid "Pop stash %1"
 msgstr "Pobierz ze składowiska %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Nie masz żadnych zmian!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "Stash"
 msgstr "Schowek"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Create new stash"
 msgstr "Utwórz nowe składowisko"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Name of stash"
 msgstr "Nazwa składowiska"

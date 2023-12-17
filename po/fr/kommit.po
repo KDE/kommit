@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 00:43+0000\n"
-"PO-Revision-Date: 2023-12-08 16:56+0100\n"
+"POT-Creation-Date: 2023-12-17 00:44+0000\n"
+"PO-Revision-Date: 2023-12-15 10:02+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -988,7 +988,7 @@ msgstr "Rétablir…"
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Diff with working dir"
-msgstr ""
+msgstr "Faire une comparaison avec le dossier de travail"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:83
 #, kde-format
@@ -1003,7 +1003,7 @@ msgstr "Ouvrir avec…"
 #: src/libkommitwidgets/actions/fileactions.cpp:88
 #, kde-format
 msgid "Merge with working dir"
-msgstr ""
+msgstr "Fusionner avec le dossier de travail"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:90
 #, kde-format
@@ -1011,10 +1011,9 @@ msgid "Save as..."
 msgstr "Enregistrer sous…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:91
-#, fuzzy, kde-format
-#| msgid "Log..."
+#, kde-format
 msgid "Log"
-msgstr "Journal…"
+msgstr "Journal"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #, kde-format
@@ -1112,6 +1111,7 @@ msgid "Drop stash %1"
 msgstr "Appliquer le remisage %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
+#: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "Impossible de supprimer le remisage sélectionné"
@@ -1126,22 +1126,22 @@ msgstr "Êtes-vous certain d'appliquer le remisage sélectionné ?"
 msgid "Pop stash %1"
 msgstr "Appliquer le remisage %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Vous n'avez aucune modification !"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "Stash"
 msgstr "Remiser"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Create new stash"
 msgstr "Créer une nouvelle remise"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Name of stash"
 msgstr "Nom de la remise"
@@ -2356,50 +2356,45 @@ msgstr "Étiquette :"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/widgets/commitdetails.ui:39
-#, fuzzy, kde-format
-#| msgid "Checkout to selected"
+#, kde-format
 msgid "Commit is not selected"
-msgstr "Récupérer la sélection"
+msgstr "La validation n'est pas sélectionnée"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:99
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Author:"
-msgstr "Auteur"
+msgstr "Auteur :"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCommitterText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:111
-#, fuzzy, kde-format
-#| msgid "Committer"
+#, kde-format
 msgid "Committer:"
-msgstr "Validateur"
+msgstr "Validateur :"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, fuzzy, kde-format
-#| msgid "Parent"
+#, kde-format
 msgid "Parent:"
-msgstr "Parent"
+msgstr "Parent :"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, fuzzy, kde-format
-#| msgid "Child"
+#, kde-format
 msgid "Child:"
-msgstr "Enfant"
+msgstr "Fils :"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>-</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
 #: src/libkommitwidgets/widgets/commitdetails.ui:196
 #, kde-format
 msgid "Ref:"
-msgstr ""
+msgstr "Référence :"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/difftreeview.ui:17

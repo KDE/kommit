@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 00:43+0000\n"
-"PO-Revision-Date: 2023-10-19 05:51+0200\n"
+"POT-Creation-Date: 2023-12-17 00:44+0000\n"
+"PO-Revision-Date: 2023-12-16 06:32+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -608,7 +608,7 @@ msgstr "მიმართვის სახელი"
 #: src/gui/pages/remoteswidget.ui:174 src/libkommit/models/branchesmodel.cpp:75
 #, kde-format
 msgid "Upstream"
-msgstr ""
+msgstr "აღმავალი"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
@@ -995,10 +995,9 @@ msgid "Save as..."
 msgstr "შენახვა როგორც..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:91
-#, fuzzy, kde-format
-#| msgid "Log..."
+#, kde-format
 msgid "Log"
-msgstr "ჟურნალი..."
+msgstr "ჟურნალი"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #, kde-format
@@ -1096,6 +1095,7 @@ msgid "Drop stash %1"
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
+#: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr ""
@@ -1110,22 +1110,22 @@ msgstr ""
 msgid "Pop stash %1"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "ანგარიშების გარეშე!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:68
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #, kde-format
 msgid "Stash"
 msgstr "შენახვა საკუჭნაოში"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Create new stash"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:73
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #, kde-format
 msgid "Name of stash"
 msgstr ""
@@ -2245,38 +2245,33 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/widgets/commitdetails.ui:39
-#, fuzzy, kde-format
-#| msgid "No repo selected"
+#, kde-format
 msgid "Commit is not selected"
-msgstr "რეპო არჩეული არაა"
+msgstr "კომიტი არჩეული არაა"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:99
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Author:"
-msgstr "ავტორი"
+msgstr "ავტორი:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCommitterText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:111
-#, fuzzy, kde-format
-#| msgid "Committer"
+#, kde-format
 msgid "Committer:"
-msgstr "დამკომიტებელი"
+msgstr "დამკომიტებელი:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, fuzzy, kde-format
-#| msgid "Parent"
+#, kde-format
 msgid "Parent:"
-msgstr "მშობლიური"
+msgstr "მშობელი:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, fuzzy, kde-format
-#| msgid "Child"
+#, kde-format
 msgid "Child:"
-msgstr "ბავშვი"
+msgstr "შვილი:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181
@@ -2288,7 +2283,7 @@ msgstr ""
 #: src/libkommitwidgets/widgets/commitdetails.ui:196
 #, kde-format
 msgid "Ref:"
-msgstr ""
+msgstr "მიმართვა:"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/difftreeview.ui:17
