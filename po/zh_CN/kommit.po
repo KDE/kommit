@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-17 00:44+0000\n"
-"PO-Revision-Date: 2023-12-09 09:28\n"
+"PO-Revision-Date: 2023-12-17 11:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1004,10 +1004,9 @@ msgid "Save as..."
 msgstr "另存为..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:91
-#, fuzzy, kde-format
-#| msgid "Log..."
+#, kde-format
 msgid "Log"
-msgstr "日志…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #, kde-format
@@ -2287,38 +2286,33 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/widgets/commitdetails.ui:39
-#, fuzzy, kde-format
-#| msgid "Checkout to selected"
+#, kde-format
 msgid "Commit is not selected"
-msgstr "检出到选定的"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:99
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Author:"
-msgstr "作者"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelCommitterText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:111
-#, fuzzy, kde-format
-#| msgid "Committer"
+#, kde-format
 msgid "Committer:"
-msgstr "提交者"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, fuzzy, kde-format
-#| msgid "Parent"
+#, kde-format
 msgid "Parent:"
-msgstr "父提交"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, fuzzy, kde-format
-#| msgid "Child"
+#, kde-format
 msgid "Child:"
-msgstr "子提交"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181
@@ -2441,21 +2435,3 @@ msgstr "下一个差异"
 #, kde-format
 msgid "Unable to open the file"
 msgstr "无法打开文件"
-
-#~ msgid "Diff with HEAD..."
-#~ msgstr "与 HEAD 相差…"
-
-#~ msgid "Merge with HEAD..."
-#~ msgstr "与 HEAD 合并…"
-
-#~ msgid "Blame..."
-#~ msgstr "追溯..."
-
-#~ msgid "Hash"
-#~ msgstr "哈希值"
-
-#~ msgid "Parents"
-#~ msgstr "父提交"
-
-#~ msgid "Children"
-#~ msgstr "子提交"
