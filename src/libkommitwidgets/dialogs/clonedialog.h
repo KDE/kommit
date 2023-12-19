@@ -12,6 +12,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commands/commandclone.h"
 
+namespace Git
+{
+
+class Credential;
+class CloneObserver;
+}
+
 class LIBKOMMITWIDGETS_EXPORT CloneDialog : public AppDialog, private Ui::CloneDialog
 {
     Q_OBJECT
@@ -24,9 +31,14 @@ public:
 
     void setLocalPath(const QString &path);
 
+private Q_SLOTS:
+    void slotCredentialRequeted(const QString &url, Git::Credential *cred);
+
 private:
     void slotUrlChanged(const QString &text);
     void slotAccepted();
     void loadSettings();
     QString mFixedPath;
+
+    Git::CloneObserver *mCloneObserver;
 };

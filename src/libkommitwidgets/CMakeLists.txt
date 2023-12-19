@@ -1,6 +1,7 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-add_library(libkommitwidgets SHARED)
+add_library(libkommitwidgets SHARED
+    dialogs/credentialdialog.h dialogs/credentialdialog.cpp dialogs/credentialdialog.ui)
 generate_export_header(libkommitwidgets BASE_NAME libkommitwidgets)
 
 macro(kommitwidgets_add_dir dir)

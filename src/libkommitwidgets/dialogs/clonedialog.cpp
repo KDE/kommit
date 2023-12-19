@@ -7,17 +7,31 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "clonedialog.h"
 
 #include <KLocalizedString>
+#include <QMessageBox>
+#include <QPointer>
 #include <QSettings>
 #include <QStandardPaths>
+#include <dialogs/credentialdialog.h>
+#include <gitmanager.h>
+#include <observers/cloneobserver.h>
+#include <observers/fetchobserver.h>
 
 CloneDialog::CloneDialog(QWidget *parent)
     : AppDialog(parent)
     , mFixedPath(QStandardPaths::writableLocation(QStandardPaths::HomeLocation))
+    , mCloneObserver{new Git::CloneObserver}
 {
     setupUi(this);
     loadSettings();
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CloneDialog::slotAccepted);
     connect(lineEditUrl, &QLineEdit::textChanged, this, &CloneDialog::slotUrlChanged);
+
+    connect(mCloneObserver, &Git::CloneObserver::totalObjectsChanged, progressBar, &QProgressBar::setMaximum);
+    connect(mCloneObserver, &Git::CloneObserver::receivedObjectsChanged, progressBar, &QProgressBar::setValue);
+    connect(mCloneObserver, &Git::CloneObserver::credentialRequeted, this, &CloneDialog::slotCredentialRequeted);
+    connect(mCloneObserver, &Git::CloneObserver::message, labelMessage, &QLabel::setText);
+
+    stackedWidget->setCurrentIndex(0);
 }
 
 CloneDialog::~CloneDialog() = default;
@@ -52,6 +66,17 @@ void CloneDialog::setLocalPath(const QString &path)
     slotUrlChanged(lineEditUrl->text());
 }
 
+void CloneDialog::slotCredentialRequeted(const QString &url, Git::Credential *cred)
+{
+    CredentialDialog d;
+    d.setUsername(cred->username());
+    d.setUrl(url);
+    if (d.exec() == QDialog::Accepted) {
+        cred->setUsername(d.username());
+        cred->setPassword(d.password());
+    }
+}
+
 void CloneDialog::slotUrlChanged(const QString &text)
 {
     const auto parts = text.split(QLatin1Char('/'));
@@ -67,10 +92,17 @@ void CloneDialog::slotUrlChanged(const QString &text)
 
 void CloneDialog::slotAccepted()
 {
-    QSettings s;
-    s.setValue(QStringLiteral("lastClonedRepo"), lineEditUrl->text());
+    // QSettings s;
+    // s.setValue(QStringLiteral("lastClonedRepo"), lineEditUrl->text());
 
-    accept();
+    // accept();
+
+    stackedWidget->setCurrentIndex(1);
+    QPointer<Git::Manager> git{new Git::Manager};
+
+    auto ok = git->clone(lineEditUrl->text(), lineEditPath->text(), mCloneObserver);
+    if (!ok)
+        QMessageBox::warning(this, tr("Clone"), git->errorMessage());
 }
 
 #include "moc_clonedialog.cpp"

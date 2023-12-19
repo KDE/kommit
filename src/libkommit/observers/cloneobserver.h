@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "fetchobserver.h"
+#include "libkommit_export.h"
 #include <git2/checkout.h>
 #include <git2/types.h>
 
@@ -26,10 +27,12 @@ void git_helper_checkout_progress_cb(const char *path, size_t completed_steps, s
 void git_helper_checkout_perfdata_cb(const git_checkout_perfdata *perfdata, void *payload);
 }
 
-class CloneObserver : public FetchObserver
+class LIBKOMMIT_EXPORT CloneObserver : public FetchObserver
 {
 public:
     CloneObserver(QObject *parent = nullptr);
+
+    void init(git_checkout_options *opts);
 };
 
 }

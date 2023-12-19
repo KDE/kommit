@@ -236,10 +236,10 @@ bool Manager::fetch(const QString &remoteName, FetchObserver *observer)
     git_fetch_options fetch_opts = GIT_FETCH_OPTIONS_INIT;
 
     if (observer) {
-        fetch_opts.callbacks.update_tips = &git_helper_update_tips_cb;
-        fetch_opts.callbacks.sideband_progress = &git_helper_sideband_progress_cb;
-        fetch_opts.callbacks.transfer_progress = &git_helper_transfer_progress_cb;
-        fetch_opts.callbacks.credentials = &git_helper_credentials_cb;
+        fetch_opts.callbacks.update_tips = &FetchObserverCallbacks::git_helper_update_tips_cb;
+        fetch_opts.callbacks.sideband_progress = &FetchObserverCallbacks::git_helper_sideband_progress_cb;
+        fetch_opts.callbacks.transfer_progress = &FetchObserverCallbacks::git_helper_transfer_progress_cb;
+        fetch_opts.callbacks.credentials = &FetchObserverCallbacks::git_helper_credentials_cb;
         fetch_opts.callbacks.payload = observer;
     }
 
@@ -1043,22 +1043,25 @@ bool Manager::clone(const QString &url, const QString &localPath, CloneObserver 
     git_clone_options opts = GIT_CLONE_OPTIONS_INIT;
 
     if (observer) {
-        if (observer) {
-            opts.fetch_opts.callbacks.update_tips = &git_helper_update_tips_cb;
-            opts.fetch_opts.callbacks.sideband_progress = &git_helper_sideband_progress_cb;
-            opts.fetch_opts.callbacks.transfer_progress = &git_helper_transfer_progress_cb;
-            opts.fetch_opts.callbacks.credentials = &git_helper_credentials_cb;
-            opts.checkout_opts.progress_cb = &CloneCallbacks::git_helper_checkout_progress_cb;
-            opts.checkout_opts.notify_cb = &CloneCallbacks::git_helper_checkout_notify_cb;
-            opts.checkout_opts.perfdata_cb = &CloneCallbacks::git_helper_checkout_perfdata_cb;
+        opts.fetch_opts.callbacks.update_tips = &FetchObserverCallbacks::git_helper_update_tips_cb;
+        opts.fetch_opts.callbacks.sideband_progress = &FetchObserverCallbacks::git_helper_sideband_progress_cb;
+        opts.fetch_opts.callbacks.transfer_progress = &FetchObserverCallbacks::git_helper_transfer_progress_cb;
+        opts.fetch_opts.callbacks.credentials = &FetchObserverCallbacks::git_helper_credentials_cb;
+        opts.fetch_opts.callbacks.pack_progress = &FetchObserverCallbacks::git_helper_packbuilder_progress;
+        opts.fetch_opts.callbacks.transport = &FetchObserverCallbacks::git_helper_transport_cb;
+        // opts.checkout_opts.progress_cb = &CloneCallbacks::git_helper_checkout_progress_cb;
+        // opts.checkout_opts.notify_cb = &CloneCallbacks::git_helper_checkout_notify_cb;
+        // opts.checkout_opts.perfdata_cb = &CloneCallbacks::git_helper_checkout_perfdata_cb;
 
-            opts.fetch_opts.callbacks.payload = opts.checkout_opts.progress_payload = opts.checkout_opts.notify_payload = opts.checkout_opts.perfdata_payload =
-                observer;
-        }
+        observer->init(&opts.checkout_opts);
+
+        opts.fetch_opts.callbacks.payload = observer;
     }
 
     BEGIN
     STEP git_clone(&mRepo, url.toLocal8Bit().constData(), localPath.toLocal8Bit().constData(), &opts);
+
+    PRINT_ERROR;
 
     if (err)
         return false;
