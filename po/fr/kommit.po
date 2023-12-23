@@ -1,6 +1,6 @@
-# SPDX-FileCopyrightText: 2022, 2023 Xavier Besnard <xavier.besnard@neuf.fr>
+# SPDX-FileCopyrightText: 2022, 2023 Xavier Besnard <xavier.besnard@kde.org>
 # Thomas Vergnaud <thomas.vergnaud@mailo.eu>, 2022.
-# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
+# Xavier Besnard <xavier.besnard@kde.org>, 2023.
 # Valentin Poupon <valentin.poupon@gmail.com>, 2023.
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-17 00:44+0000\n"
 "PO-Revision-Date: 2023-12-15 10:02+0100\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Thomas Vergnaud, Xavier Besnard, Valentin Poupon"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-"thomas.vergnaud@mailo.eu, xavier.besnard@neuf.fr, valentin.poupon@gmail.com"
+"thomas.vergnaud@mailo.eu, xavier.besnard@kde.org, valentin.poupon@gmail.com"
 
 #: dolphinplugins/actions.h:16
 #, kde-format
