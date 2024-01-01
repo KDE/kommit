@@ -316,7 +316,7 @@ msgstr "El repositori s'ha inicialitzat correctament"
 #: src/gui/commandargsparser.cpp:512
 #, kde-format
 msgid "File(s) added to git successfully"
-msgstr "Els fitxers s'ha/n afegit correctament"
+msgstr "Els fitxers s'han afegit correctament"
 
 #: src/gui/commandargsparser.cpp:520
 #, kde-format
@@ -331,7 +331,7 @@ msgstr "Elimina des de l'índex"
 #: src/gui/commandargsparser.cpp:522
 #, kde-format
 msgid "File(s) removed from git successfully"
-msgstr "Els fitxers s'ha/n eliminat correctament de Git"
+msgstr "Els fitxers s'han eliminat correctament de Git"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus_2)
 #: src/gui/commandpullwidget.ui:19
@@ -2504,6 +2504,3 @@ msgstr "Diferència següent"
 #, kde-format
 msgid "Unable to open the file"
 msgstr "No s'ha pogut obrir el fitxer"
-
-#~ msgid "Diff with HEAD..."
-#~ msgstr "Diff amb HEAD..."
