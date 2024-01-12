@@ -92,17 +92,17 @@ void CloneDialog::slotUrlChanged(const QString &text)
 
 void CloneDialog::slotAccepted()
 {
-    // QSettings s;
-    // s.setValue(QStringLiteral("lastClonedRepo"), lineEditUrl->text());
+    QSettings s;
+    s.setValue(QStringLiteral("lastClonedRepo"), lineEditUrl->text());
 
-    // accept();
+    accept();
 
-    stackedWidget->setCurrentIndex(1);
-    QPointer<Git::Manager> git{new Git::Manager};
+    // stackedWidget->setCurrentIndex(1);
+    // QPointer<Git::Manager> git{new Git::Manager};
 
-    auto ok = git->clone(lineEditUrl->text(), lineEditPath->text(), mCloneObserver);
-    if (!ok)
-        QMessageBox::warning(this, tr("Clone"), git->errorMessage());
+    // auto ok = git->clone(lineEditUrl->text(), lineEditPath->text(), mCloneObserver);
+    // if (!ok)
+    //     QMessageBox::warning(this, tr("Clone"), git->errorMessage());
 }
 
 #include "moc_clonedialog.cpp"
