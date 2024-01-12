@@ -7,19 +7,19 @@
     <group name="Preferences">
         <entry name="diffAddedColor" type="Color">
             <label>Added color</label>
-            <default>green</default>
+            <default>#84f3a9</default>
         </entry>
         <entry name="diffRemovedColor" type="Color">
             <label>Removed color</label>
-            <default>red</default>
+            <default>#ffaaaa</default>
         </entry>
         <entry name="diffModifiedColor" type="Color">
             <label>Modified color</label>
-            <default>blue</default>
+            <default>#c5d2ff</default>
         </entry>
         <entry name="colorForeground" type="Color">
             <label>color of the foreground</label>
-            <default>yellow</default>
+            <default>#ffea9d</default>
         </entry>
 
         <entry name="gitBinPath" type="String">
