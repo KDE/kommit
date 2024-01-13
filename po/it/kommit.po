@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-17 00:44+0000\n"
+"POT-Creation-Date: 2024-01-13 01:47+0000\n"
 "PO-Revision-Date: 2023-12-15 09:37+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1281,7 +1281,7 @@ msgstr "Clona un deposito"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:31
+#: src/libkommitwidgets/dialogs/clonedialog.ui:38
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:35
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:28
 #, kde-format
@@ -1289,7 +1289,7 @@ msgid "Url:"
 msgstr "Url:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:38
+#: src/libkommitwidgets/dialogs/clonedialog.ui:45
 #: src/libkommitwidgets/dialogs/initdialog.ui:25
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:35
 #, kde-format
@@ -1297,13 +1297,13 @@ msgid "Directory:"
 msgstr "Cartella:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRecursive)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:63
+#: src/libkommitwidgets/dialogs/clonedialog.ui:66
 #, kde-format
 msgid "Recursive"
 msgstr "Ricorsivo"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxDepth)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:70
+#: src/libkommitwidgets/dialogs/clonedialog.ui:73
 #, kde-format
 msgid "Depth"
 msgstr "Profondità"
@@ -1311,7 +1311,7 @@ msgstr "Profondità"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxBranch)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:90
+#: src/libkommitwidgets/dialogs/clonedialog.ui:93
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:34
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:75
 #: src/libkommitwidgets/dialogs/pulldialog.ui:36
@@ -1322,10 +1322,48 @@ msgid "Branch"
 msgstr "Ramo"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxOriginName)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:104
+#: src/libkommitwidgets/dialogs/clonedialog.ui:107
 #, kde-format
 msgid "Origin name"
 msgstr "Nome origine"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:147
+#, kde-format
+msgid "Cloning into:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
+#. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
+#. i18n: ectx: property (text), widget (QLabel, labelRefName)
+#. i18n: ectx: property (text), widget (QLabel, labelParent)
+#. i18n: ectx: property (text), widget (QLabel, labelChildren)
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#. i18n: ectx: property (text), widget (QLabel, labelAuthTime)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitter)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitTime)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:154
+#: src/libkommitwidgets/dialogs/mergedialog.ui:53
+#: src/libkommitwidgets/widgets/commitdetails.ui:69
+#: src/libkommitwidgets/widgets/commitdetails.ui:82
+#: src/libkommitwidgets/widgets/commitdetails.ui:118
+#: src/libkommitwidgets/widgets/commitdetails.ui:137
+#: src/libkommitwidgets/widgets/commitdetails.ui:159
+#: src/libkommitwidgets/widgets/commitdetails.ui:230
+#: src/libkommitwidgets/widgets/commitdetails.ui:240
+#: src/libkommitwidgets/widgets/commitdetails.ui:282
+#: src/libkommitwidgets/widgets/commitdetails.ui:292
+#, kde-format
+msgid "-"
+msgstr "-"
+
+#. i18n: ectx: property (text), widget (QLabel, labelMessage)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:161
+#, kde-format
+msgid "TextLabel"
+msgstr ""
 
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:87
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:244
@@ -1509,6 +1547,39 @@ msgstr "Modificati"
 msgid "None"
 msgstr "Nessuno"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, CredentialDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
+#: src/libkommitwidgets/dialogs/credentialdialog.ui:14
+#: src/libkommitwidgets/dialogs/fileblamedialog.ui:14
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:14
+#: src/libkommitwidgets/dialogs/filestreedialog.ui:14
+#: src/libkommitwidgets/dialogs/taginfodialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Finestra"
+
+#. i18n: ectx: property (text), widget (QLabel, labelCredentialsUrl)
+#: src/libkommitwidgets/dialogs/credentialdialog.ui:23
+#, kde-format
+msgid "Credentials:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/credentialdialog.ui:35
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgid "Username:"
+msgstr "Rinomina"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/libkommitwidgets/dialogs/credentialdialog.ui:45
+#, kde-format
+msgid "Password:"
+msgstr ""
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14
 #, kde-format
@@ -1606,18 +1677,6 @@ msgstr "Riduci"
 msgctxt "@title:window"
 msgid "Blame file: %1"
 msgstr "File di attribuzione: %1"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
-#: src/libkommitwidgets/dialogs/fileblamedialog.ui:14
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:14
-#: src/libkommitwidgets/dialogs/filestreedialog.ui:14
-#: src/libkommitwidgets/dialogs/taginfodialog.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Finestra"
 
 #: src/libkommitwidgets/dialogs/filehistorydialog.cpp:40
 #, kde-format
@@ -1806,30 +1865,6 @@ msgstr ""
 #, kde-format
 msgid "To:"
 msgstr "A:"
-
-#. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
-#. i18n: ectx: property (text), widget (QLabel, labelRefName)
-#. i18n: ectx: property (text), widget (QLabel, labelParent)
-#. i18n: ectx: property (text), widget (QLabel, labelChildren)
-#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#. i18n: ectx: property (text), widget (QLabel, labelAuthTime)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitter)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitTime)
-#: src/libkommitwidgets/dialogs/mergedialog.ui:53
-#: src/libkommitwidgets/widgets/commitdetails.ui:69
-#: src/libkommitwidgets/widgets/commitdetails.ui:82
-#: src/libkommitwidgets/widgets/commitdetails.ui:118
-#: src/libkommitwidgets/widgets/commitdetails.ui:137
-#: src/libkommitwidgets/widgets/commitdetails.ui:159
-#: src/libkommitwidgets/widgets/commitdetails.ui:230
-#: src/libkommitwidgets/widgets/commitdetails.ui:240
-#: src/libkommitwidgets/widgets/commitdetails.ui:282
-#: src/libkommitwidgets/widgets/commitdetails.ui:292
-#, kde-format
-msgid "-"
-msgstr "-"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:60
