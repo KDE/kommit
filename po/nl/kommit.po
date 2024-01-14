@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the gitklient package.
 #
-# SPDX-FileCopyrightText: 2022, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 01:47+0000\n"
-"PO-Revision-Date: 2023-12-17 16:23+0100\n"
+"PO-Revision-Date: 2024-01-13 13:51+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -20,7 +20,7 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Freek de Kruijf - 2022-2023"
+msgstr "Freek de Kruijf - 2022-2024"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -1333,7 +1333,7 @@ msgstr "Naam van oorsprong"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:147
 #, kde-format
 msgid "Cloning into:"
-msgstr ""
+msgstr "Klonen in:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
@@ -1365,7 +1365,7 @@ msgstr "-"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:161
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "Tekstlabel"
 
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:87
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:244
@@ -1567,20 +1567,19 @@ msgstr "Dialoog"
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
 #, kde-format
 msgid "Credentials:"
-msgstr ""
+msgstr "Credentials:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Username:"
-msgstr "Hernoemen"
+msgstr "Gebruikersnaam:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:45
 #, kde-format
 msgid "Password:"
-msgstr ""
+msgstr "Wachtwoord:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14

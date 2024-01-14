@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 01:47+0000\n"
-"PO-Revision-Date: 2024-01-07 21:49+0100\n"
+"PO-Revision-Date: 2024-01-13 12:20+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -1332,7 +1332,7 @@ msgstr "Origina nomo"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:147
 #, kde-format
 msgid "Cloning into:"
-msgstr ""
+msgstr "Klonante en:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
@@ -1364,7 +1364,7 @@ msgstr "-"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:161
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "TekstEtikedo"
 
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:87
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:244
@@ -1563,20 +1563,19 @@ msgstr "Dialogo"
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
 #, kde-format
 msgid "Credentials:"
-msgstr ""
+msgstr "Akreditaĵoj:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Username:"
-msgstr "Alinomi"
+msgstr "Uzantnomo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:45
 #, kde-format
 msgid "Password:"
-msgstr ""
+msgstr "Pasvorto:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14
