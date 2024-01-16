@@ -18,4 +18,5 @@ private Q_SLOTS:
     void test1();
     void checkRootDir();
     void dirTest();
+    void invalidDir();
 };

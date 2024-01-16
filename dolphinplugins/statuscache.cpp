@@ -110,7 +110,7 @@ bool StatusCache::setPath(const QString &path)
 
     mPath = path;
 
-    git_repository *repo;
+    git_repository *repo{nullptr};
     int n = git_repository_open_ext(&repo, path.toUtf8().data(), 0, NULL);
 
     if (n) {
@@ -121,6 +121,8 @@ bool StatusCache::setPath(const QString &path)
     mRepoRootPath = git_repository_workdir(repo);
     if (path.startsWith(mRepoRootPath + ".git/")) {
         mCurrentPathIsIgnored = true;
+
+        git_repository_free(repo);
         return true;
     }
 

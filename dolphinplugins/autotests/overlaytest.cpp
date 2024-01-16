@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "overlaytest.h"
 
 #include "../../dolphinplugins/statuscache.h"
+#include "../dolphinplugin.h"
 #include "filestatus.h"
 #include "gittestmanager.h"
 
@@ -82,6 +83,12 @@ void OverlayTest::dirTest()
 
     //    status = cache.status("CMakeLists.txt.user");
     //    QCOMPARE(status, Git::FileStatus::Ignored);
+}
+
+void OverlayTest::invalidDir()
+{
+    DolphinPlugin plugin{this, QList<QVariant>{}};
+    plugin.beginRetrieval("/doc/src/cpp/aws-sdk-cpp/install/lib/aws-crt-cpp/cmake");
 }
 
 #include "moc_overlaytest.cpp"
