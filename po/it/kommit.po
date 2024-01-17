@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the gitklient package.
-# SPDX-FileCopyrightText: 2022, 2023 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 01:47+0000\n"
-"PO-Revision-Date: 2023-12-15 09:37+0100\n"
+"PO-Revision-Date: 2024-01-14 10:43+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1331,7 +1331,7 @@ msgstr "Nome origine"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:147
 #, kde-format
 msgid "Cloning into:"
-msgstr ""
+msgstr "Clonazione in:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
@@ -1363,7 +1363,7 @@ msgstr "-"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:161
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "EtichettaTesto"
 
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:87
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:244
@@ -1565,20 +1565,19 @@ msgstr "Finestra"
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
 #, kde-format
 msgid "Credentials:"
-msgstr ""
+msgstr "Credenziali:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Username:"
-msgstr "Rinomina"
+msgstr "Nome utente:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:45
 #, kde-format
 msgid "Password:"
-msgstr ""
+msgstr "Password:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14
