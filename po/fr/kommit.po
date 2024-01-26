@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022, 2023 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
 # Thomas Vergnaud <thomas.vergnaud@mailo.eu>, 2022.
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 # Valentin Poupon <valentin.poupon@gmail.com>, 2023.
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 01:47+0000\n"
-"PO-Revision-Date: 2023-12-15 10:02+0100\n"
+"PO-Revision-Date: 2024-01-23 14:01+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1335,7 +1335,7 @@ msgstr "Nom d'origine"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:147
 #, kde-format
 msgid "Cloning into:"
-msgstr ""
+msgstr "Cloner dans :"
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
@@ -1367,7 +1367,7 @@ msgstr "-"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:161
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "Étiquette de texte"
 
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:87
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:244
@@ -1569,20 +1569,19 @@ msgstr "Dialogue"
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
 #, kde-format
 msgid "Credentials:"
-msgstr ""
+msgstr "Identifiants :"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Username:"
-msgstr "Renommer"
+msgstr "Nom d'utilisateur :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:45
 #, kde-format
 msgid "Password:"
-msgstr ""
+msgstr "Mot de passe :"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14
