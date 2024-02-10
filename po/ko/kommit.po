@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kommit package.
-# Shinjo Park <kde@peremen.name>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 01:47+0000\n"
-"PO-Revision-Date: 2023-08-25 22:51+0200\n"
+"PO-Revision-Date: 2024-02-09 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -599,16 +599,15 @@ msgstr "브랜치:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:169
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Ref name"
-msgstr "이름 바꾸기"
+msgstr "참조 이름"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:174 src/libkommit/models/branchesmodel.cpp:75
 #, kde-format
 msgid "Upstream"
-msgstr ""
+msgstr "업스트림"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
@@ -841,10 +840,9 @@ msgid "Commit(s) ahead"
 msgstr "앞서는 커밋"
 
 #: src/libkommit/models/branchesmodel.cpp:71
-#, fuzzy, kde-format
-#| msgid "Commit(s) ahead"
+#, kde-format
 msgid "Is ahead"
-msgstr "앞서는 커밋"
+msgstr "앞서 있음"
 
 #: src/libkommit/models/branchesmodel.cpp:73
 #, kde-format
@@ -926,10 +924,9 @@ msgid "Tagger"
 msgstr "태거"
 
 #: src/libkommit/models/tagsmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Create tag"
+#, kde-format
 msgid "Create time"
-msgstr "태그 만들기"
+msgstr "생성 시간"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:32
 #, kde-format
@@ -985,7 +982,7 @@ msgstr "되돌리기..."
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Diff with working dir"
-msgstr ""
+msgstr "작업 디렉터리와 Diff"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:83
 #, kde-format
@@ -1000,7 +997,7 @@ msgstr "다음으로 열기..."
 #: src/libkommitwidgets/actions/fileactions.cpp:88
 #, kde-format
 msgid "Merge with working dir"
-msgstr ""
+msgstr "작업 디렉터리와 합치기"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:90
 #, kde-format
@@ -1008,10 +1005,9 @@ msgid "Save as..."
 msgstr "다른 이름으로 저장..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:91
-#, fuzzy, kde-format
-#| msgid "Log..."
+#, kde-format
 msgid "Log"
-msgstr "로그..."
+msgstr "로그"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #, kde-format
@@ -1333,7 +1329,7 @@ msgstr "원본 이름"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:147
 #, kde-format
 msgid "Cloning into:"
-msgstr ""
+msgstr "다음으로 복제:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
@@ -1365,7 +1361,7 @@ msgstr "-"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:161
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "텍스트 레이블"
 
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:87
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:244
@@ -1562,20 +1558,19 @@ msgstr "대화 상자"
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
 #, kde-format
 msgid "Credentials:"
-msgstr ""
+msgstr "자격 증명:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Username:"
-msgstr "이름 바꾸기"
+msgstr "사용자 이름:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:45
 #, kde-format
 msgid "Password:"
-msgstr ""
+msgstr "암호:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14
@@ -2208,7 +2203,7 @@ msgstr "명령 실행"
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:37
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:48
@@ -2218,21 +2213,7 @@ msgstr "출력"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\">\n"
-#| "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
-#| "\"utf-8\" /><style type=\"text/css\">\n"
-#| "p, li { white-space: pre-wrap; }\n"
-#| "hr { height: 1px; border-width: 0; }\n"
-#| "li.unchecked::marker { content: \"\\2610\"; }\n"
-#| "li.checked::marker { content: \"\\2612\"; }\n"
-#| "</style></head><body style=\" font-family:'Monospace'; font-size:9pt; "
-#| "font-weight:400; font-style:normal;\">\n"
-#| "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#| "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#| "\"><br /></p></body></html>"
+#, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
@@ -2247,17 +2228,14 @@ msgid ""
 msgstr ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
-"\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Monospace'; font-size:9pt; font-"
+"</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-"\"><br /></p></body></html>"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"size:9pt;\"><br /></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonStop)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:98
@@ -2372,74 +2350,66 @@ msgid "Uncommited"
 msgstr "커밋되지 않음"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:79
-#, fuzzy, kde-format
-#| msgid "Branch:"
+#, kde-format
 msgid "Branch: "
-msgstr "브랜치:"
+msgstr "브랜치: "
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:81
-#, fuzzy, kde-format
-#| msgid "Note"
+#, kde-format
 msgid "Note: "
-msgstr "메모"
+msgstr "메모:"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:83
-#, fuzzy, kde-format
-#| msgid "Remote:"
+#, kde-format
 msgid "Remote: "
-msgstr "원격지:"
+msgstr "원격:"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:85
 #, kde-format
 msgid "Tag: "
-msgstr ""
+msgstr "태그:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/widgets/commitdetails.ui:39
-#, fuzzy, kde-format
-#| msgid "Checkout to selected"
+#, kde-format
 msgid "Commit is not selected"
-msgstr "선택 항목 체크아웃"
+msgstr "커밋이 선택되지 않았음"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:99
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Author:"
-msgstr "작성자"
+msgstr "작성자:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCommitterText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:111
-#, fuzzy, kde-format
-#| msgid "Committer"
+#, kde-format
 msgid "Committer:"
-msgstr "커미터"
+msgstr "커미터:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, fuzzy, kde-format
-#| msgid "Parent"
+#, kde-format
 msgid "Parent:"
-msgstr "상위"
+msgstr "상위:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, fuzzy, kde-format
-#| msgid "Child"
+#, kde-format
 msgid "Child:"
-msgstr "하위"
+msgstr "하위:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>-</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
 #: src/libkommitwidgets/widgets/commitdetails.ui:196
 #, kde-format
 msgid "Ref:"
-msgstr ""
+msgstr "참조:"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/difftreeview.ui:17
