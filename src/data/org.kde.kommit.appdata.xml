@@ -3,6 +3,7 @@
   <id>org.kde.kommit.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
+  <developer_name translate="no">KDE</developer_name>
   <name>Kommit</name>
   <name xml:lang="ca">Kommit</name>
   <name xml:lang="ca-valencia">Kommit</name>
