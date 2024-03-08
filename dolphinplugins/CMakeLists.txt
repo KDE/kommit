@@ -25,12 +25,6 @@ target_link_libraries(kommitdolphinplugin PRIVATE
     PkgConfig::LIBGIT2
 )
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(kommitdolphinplugin PRIVATE
-        Qt::Core5Compat
-    )
-endif()
-
 #install(FILES fileviewgitpluginsettings.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 
 if (BUILD_TESTING)

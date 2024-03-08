@@ -13,7 +13,7 @@ Dependencies:
     'frameworks/kio': '@stable'
     'frameworks/syntax-highlighting': '@stable'
     'frameworks/kxmlgui': '@stable'
-    'system/dolphin': '@same'
+    'system/dolphin': '@stable'
 
 - 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6', 'macOS/Qt6']
   'require':
@@ -26,4 +26,4 @@ Dependencies:
     'frameworks/kio': '@latest-kf6'
     'frameworks/syntax-highlighting': '@latest-kf6'
     'frameworks/kxmlgui': '@latest-kf6'
-    'system/dolphin': 'kf6'
+    'system/dolphin': '@latest-kf6'
