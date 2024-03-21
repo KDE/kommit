@@ -38,6 +38,8 @@
 #include <git2/submodule.h>
 #include <git2/tag.h>
 
+#pragma GCC diagnostic ignored "-Wmissing-field-initializers"
+
 #define BEGIN int err = 0;
 #define STEP err = err ? err:
 #define END                                                                                                                                                    \
@@ -243,8 +245,6 @@ bool Manager::fetch(const QString &remoteName, FetchObserver *observer)
         fetch_opts.callbacks.payload = observer;
     }
 
-    git_strarray ref;
-
     STEP git_remote_fetch(remote, NULL, &fetch_opts, "fetch");
     git_remote_free(remote);
 
@@ -356,7 +356,7 @@ QList<FileStatus> Manager::diffBranches(const QString &from, const QString &to) 
     auto n = git_diff_stats_files_changed(stats);
     QList<FileStatus> files2;
 
-    for (int i = 0; i < n; ++i) {
+    for (size_t i = 0; i < n; ++i) {
         auto delta = git_diff_get_delta(diff, i);
         FileStatus fs;
         fs.mName = delta->new_file.path;
@@ -1000,7 +1000,7 @@ bool Manager::createBranch(const QString &branchName) const
 
 bool Manager::switchBranch(const QString &branchName) const
 {
-    git_reference *branch;
+    git_reference *branch{nullptr};
     git_object *treeish = NULL;
     git_checkout_options opts = GIT_CHECKOUT_OPTIONS_INIT;
     opts.checkout_strategy = GIT_CHECKOUT_SAFE;
