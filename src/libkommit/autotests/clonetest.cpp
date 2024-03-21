@@ -25,8 +25,6 @@ void CloneTest::initTestCase()
     qDebug() << path;
     mManager = new Git::Manager;
     QVERIFY(!mManager->isValid());
-
-    TestCommon::initSignature(mManager);
 }
 
 void CloneTest::clone()
@@ -34,6 +32,7 @@ void CloneTest::clone()
     auto path = TestCommon::getTempPath();
     auto ok = mManager->clone("https://invent.kde.org/sdk/kommit.git", path);
     QVERIFY(ok);
+    TestCommon::initSignature(mManager);
 
     path.append("/");
     QCOMPARE(path, mManager->path());
