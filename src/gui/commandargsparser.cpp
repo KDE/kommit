@@ -28,6 +28,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/taginfodialog.h"
 #include "settings/settingsmanager.h"
 
+#include <dialogs/filestreedialog.h>
 #include <entities/file.h>
 #include <gitmanager.h>
 #include <windows/diffwindow.h>
@@ -502,6 +503,24 @@ ArgParserReturn CommandArgsParser::diff_branches(const QString &path)
         return 0;
     }
     return 1;
+}
+
+ArgParserReturn CommandArgsParser::browse(const QString &place)
+{
+    checkGitPath(QDir::currentPath());
+
+    FilesTreeDialog d{git, place};
+    d.exec();
+    return 0;
+}
+
+ArgParserReturn CommandArgsParser::browse(const QString &path, const QString &place)
+{
+    checkGitPath(path);
+
+    FilesTreeDialog d{git, place};
+    d.exec();
+    return 0;
 }
 
 ArgParserReturn CommandArgsParser::add(const QString &path)

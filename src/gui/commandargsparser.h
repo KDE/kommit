@@ -90,6 +90,8 @@ public Q_SLOTS:
     ArgParserReturn cleanup(const QString &path);
     ArgParserReturn switch_checkout(const QString &path);
     ArgParserReturn diff_branches(const QString &path);
+    ArgParserReturn browse(const QString &place);
+    ArgParserReturn browse(const QString &path, const QString &place);
 
     ArgParserReturn add(const QString &path);
     ArgParserReturn remove(const QString &path);
