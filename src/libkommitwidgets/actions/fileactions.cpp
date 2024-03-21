@@ -109,9 +109,12 @@ void FileActions::viewFile()
 void FileActions::saveAsFile()
 
 {
-    const auto fileName = QFileDialog::getSaveFileName(mParent);
+    Git::File file{mGit, mPlace, mFilePath};
+    QFileInfo fi{file.fileName()};
+    auto filter = QStringLiteral("%1 file (*.%1);;All files(*)").arg(fi.suffix());
+    const auto fileName = QFileDialog::getSaveFileName(mParent, {}, file.fileName(), {});
+
     if (!fileName.isEmpty()) {
-        Git::File file{mGit, mPlace, mFilePath};
         file.save(fileName);
     }
 }
