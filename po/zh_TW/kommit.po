@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 01:47+0000\n"
+"POT-Creation-Date: 2024-03-22 01:37+0000\n"
 "PO-Revision-Date: 2024-03-06 20:20+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -275,12 +275,12 @@ msgstr "切換/簽出…"
 msgid "Diff tree"
 msgstr "比對樹狀圖差異"
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:243
+#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:244
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "無法建立路徑：%1"
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:243
+#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:244
 #, kde-format
 msgid "Init repo"
 msgstr "初始化版本庫"
@@ -290,42 +290,42 @@ msgstr "初始化版本庫"
 msgid "Open repository"
 msgstr "開啟版本庫"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:483
+#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:484
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "合併中無法切換分支"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:483
+#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:484
 #, kde-format
 msgid "Switch branch"
 msgstr "切換分支"
 
-#: src/gui/commandargsparser.cpp:58
+#: src/gui/commandargsparser.cpp:59
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "路徑不是 git 版本庫：%1"
 
-#: src/gui/commandargsparser.cpp:248
+#: src/gui/commandargsparser.cpp:249
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "版本庫已成功初始化"
 
-#: src/gui/commandargsparser.cpp:512
+#: src/gui/commandargsparser.cpp:531
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "檔案成功加入到 git"
 
-#: src/gui/commandargsparser.cpp:520
+#: src/gui/commandargsparser.cpp:539
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "您要把檔案留在磁碟上嗎？"
 
-#: src/gui/commandargsparser.cpp:520
+#: src/gui/commandargsparser.cpp:539
 #, kde-format
 msgid "Remove from index"
 msgstr "從索引移除"
 
-#: src/gui/commandargsparser.cpp:522
+#: src/gui/commandargsparser.cpp:541
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "檔案成功從 git 移除"

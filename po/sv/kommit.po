@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 01:47+0000\n"
+"POT-Creation-Date: 2024-03-22 01:37+0000\n"
 "PO-Revision-Date: 2023-12-28 15:48+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -275,12 +275,12 @@ msgstr "Byt/Checka ut..."
 msgid "Diff tree"
 msgstr "Jämför träd"
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:243
+#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:244
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Kan inte skapa sökväg: %1"
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:243
+#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:244
 #, kde-format
 msgid "Init repo"
 msgstr "Initiera arkiv"
@@ -290,42 +290,42 @@ msgstr "Initiera arkiv"
 msgid "Open repository"
 msgstr "Öppna arkiv"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:483
+#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:484
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Kan inte byta gren under sammanfogning"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:483
+#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:484
 #, kde-format
 msgid "Switch branch"
 msgstr "Byt gren"
 
-#: src/gui/commandargsparser.cpp:58
+#: src/gui/commandargsparser.cpp:59
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Sökvägen är inte ett git-arkiv: %1"
 
-#: src/gui/commandargsparser.cpp:248
+#: src/gui/commandargsparser.cpp:249
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Arkivet initierat med lyckat resultat"
 
-#: src/gui/commandargsparser.cpp:512
+#: src/gui/commandargsparser.cpp:531
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Fil(er) tillagd(a) med lyckat resultat "
 
-#: src/gui/commandargsparser.cpp:520
+#: src/gui/commandargsparser.cpp:539
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Skulle du vilja lämna filen eller filerna på disk?"
 
-#: src/gui/commandargsparser.cpp:520
+#: src/gui/commandargsparser.cpp:539
 #, kde-format
 msgid "Remove from index"
 msgstr "Ta bort från index"
 
-#: src/gui/commandargsparser.cpp:522
+#: src/gui/commandargsparser.cpp:541
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Fil eller filer borttagna från git med lyckat resultat"
