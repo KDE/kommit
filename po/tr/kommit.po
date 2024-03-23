@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-22 01:37+0000\n"
-"PO-Revision-Date: 2024-01-13 16:20+0300\n"
+"PO-Revision-Date: 2024-03-22 16:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.90\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -512,7 +512,7 @@ msgstr "Yazarlar"
 #: src/libkommitwidgets/actions/branchactions.cpp:120
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
-msgstr "Seçili dalı kaldırmak istediğinize emin misiniz?"
+msgstr "Seçili dalı kaldırmak istediğinizden emin misiniz?"
 
 #: src/gui/pages/branchesstatuswidget.cpp:75
 #: src/libkommitwidgets/actions/branchactions.cpp:122
@@ -1029,7 +1029,7 @@ msgstr "URL Değiştir..."
 #: src/libkommitwidgets/actions/remotesactions.cpp:61
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
-msgstr "Seçili uzak konumu kaldırmak istediğinize emin misiniz?"
+msgstr "Seçili uzak konumu kaldırmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:61
 #, kde-format
@@ -1084,7 +1084,7 @@ msgstr "Uygula..."
 #: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
-msgstr "Seçili zulayı uygulamak istediğinize emin misiniz?"
+msgstr "Seçili zulayı uygulamak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
@@ -1099,7 +1099,7 @@ msgstr "Seçili zula uygulanamıyor"
 #: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
-msgstr "Seçili zulayı bırakmak istediğinize emin misiniz?"
+msgstr "Seçili zulayı bırakmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
@@ -1115,7 +1115,7 @@ msgstr "Seçili zula kaldırılamıyor"
 #: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
-msgstr "Seçili zulayı patlatmak istediğinize emin misiniz?"
+msgstr "Seçili zulayı patlatmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
@@ -1161,7 +1161,7 @@ msgstr "Eşzamanla..."
 #: src/libkommitwidgets/actions/submoduleactions.cpp:76
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
-msgstr "Seçili altmodülü kaldırmak istediğinize emin misiniz?"
+msgstr "Seçili altmodülü kaldırmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:76
 #, kde-format
@@ -1198,7 +1198,7 @@ msgstr "Yeni Etiket"
 #: src/libkommitwidgets/actions/tagsactions.cpp:44
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
-msgstr "Seçili etiketi kaldırmak istediğinize emin misiniz?"
+msgstr "Seçili etiketi kaldırmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:44
 #, kde-format
@@ -1208,7 +1208,7 @@ msgstr "Etiketi Kaldır"
 #: src/libkommitwidgets/actions/tagsactions.cpp:52
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr "Seçili etikete çıkış yapmak istediğinize emin misiniz?"
+msgstr "Seçili etikete çıkış yapmak istediğinizden emin misiniz?"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:31
