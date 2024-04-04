@@ -8,19 +8,24 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "actions/changedfileactions.h"
 #include "commands/commandcommit.h"
 #include "commands/commandpush.h"
+#include "dialogs/changedsubmodulesdialog.h"
+#include "entities/index.h"
+#include "entities/submodule.h"
 #include "gitmanager.h"
 #include "models/changedfilesmodel.h"
 #include "runnerdialog.h"
+
 #include <QPainter>
+#include <QWindow>
 
 #include <KSharedConfig>
 #include <KWindowConfig>
-#include <QWindow>
 
 namespace
 {
 static const char myCommitPushDialogGroupName[] = "CommitPushDialog";
 }
+
 CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
     , mModel(new ChangedFilesModel(git, true, this))
@@ -52,6 +57,17 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     listView->setModel(mModel);
     mModel->reload();
     readConfig();
+
+    auto submodules = mGit->submodules();
+    auto modifiedSubmoduleFound = std::any_of(submodules.constBegin(), submodules.constEnd(), [](const QSharedPointer<Git::Submodule> &submodule) {
+        return submodule->status() & Git::Submodule::Status::WdWdModified;
+    });
+
+    if (modifiedSubmoduleFound) {
+        ChangedSubmodulesDialog d{git};
+        d.exec();
+        reload();
+    }
 }
 
 CommitPushDialog::~CommitPushDialog()
@@ -186,10 +202,14 @@ void CommitPushDialog::slotPushButtonPushClicked()
 
 void CommitPushDialog::addFiles()
 {
-    auto files = mModel->checkedFiles();
-    for (const auto &file : files) {
-        mGit->addFile(file);
+    auto index = mGit->index();
+    for (const auto &file : mModel->data()) {
+        if (file.status == Git::ChangeStatus::Removed)
+            Q_UNUSED(index->removeByPath(file.filePath))
+        else
+            Q_UNUSED(index->addByPath(file.filePath))
     }
+    index->write();
 }
 
 void CommitPushDialog::slotToolButtonAddAllClicked()
@@ -231,6 +251,10 @@ void CommitPushDialog::slotListWidgetItemDoubleClicked(const QModelIndex &index)
         return;
 
     auto data = mModel->data(index.row());
+
+    if (!data->submodule.isNull())
+        return;
+
     if (data->oldFilePath != QString())
         mActions->setFilePaths(data->oldFilePath, data->filePath);
     else
@@ -254,4 +278,5 @@ void CommitPushDialog::slotListWidgetCustomContextMenuRequested(const QPoint &po
     mActions->popup();
 }
 
+#include "changedsubmodulesdialog.h"
 #include "moc_commitpushdialog.cpp"

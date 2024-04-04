@@ -521,13 +521,14 @@ void Manager::forEachSubmodules(std::function<void(Submodule *)> callback)
 {
     struct wrapper {
         std::function<void(Submodule *)> callback;
+        git_repository *repo;
     };
 
     auto cb = [](git_submodule *sm, const char *name, void *payload) -> int {
         Q_UNUSED(name)
 
         auto w = reinterpret_cast<wrapper *>(payload);
-        auto submodule = new Submodule{sm};
+        auto submodule = new Submodule{w->repo, sm};
 
         w->callback(submodule);
         return 0;
@@ -535,6 +536,7 @@ void Manager::forEachSubmodules(std::function<void(Submodule *)> callback)
 
     wrapper w;
     w.callback = callback;
+    w.repo = mRepo;
     git_submodule_foreach(mRepo, cb, &w);
 }
 
@@ -563,22 +565,27 @@ bool Manager::removeSubmodule(const QString &name) const
 
 PointerList<Submodule> Manager::submodules() const
 {
-    PointerList<Submodule> list;
+    struct Data {
+        PointerList<Submodule> list;
+        git_repository *repo;
+    };
 
     auto cb = [](git_submodule *sm, const char *name, void *payload) -> int {
         Q_UNUSED(name);
 
-        auto l = reinterpret_cast<PointerList<Submodule> *>(payload);
+        auto data = reinterpret_cast<Data *>(payload);
 
-        QSharedPointer<Submodule> submodule{new Submodule{sm}};
-        l->append(submodule);
+        QSharedPointer<Submodule> submodule{new Submodule{data->repo, sm}};
+        data->list.append(submodule);
 
         return 0;
     };
 
-    git_submodule_foreach(mRepo, cb, &list);
+    Data data;
+    data.repo = mRepo;
+    git_submodule_foreach(mRepo, cb, &data);
 
-    return list;
+    return data.list;
 }
 
 QSharedPointer<Submodule> Manager::submodule(const QString &name) const
@@ -934,6 +941,14 @@ Manager::Manager()
     , mTagsModel{new TagsModel(this)}
 {
     git_libgit2_init();
+}
+
+Manager::Manager(git_repository *repo)
+    : Manager()
+{
+    git_libgit2_init();
+    mRepo = repo;
+    mPath = git_repository_workdir(mRepo);
 }
 
 Manager::Manager(const QString &path)
@@ -1661,7 +1676,6 @@ bool Manager::revertFile(const QString &filePath) const
     PRINT_ERROR;
 
     return !err;
-    runGit({QStringLiteral("checkout"), QStringLiteral("--"), filePath});
 }
 
 QMap<QString, ChangeStatus> Manager::changedFiles() const
@@ -1695,52 +1709,18 @@ QMap<QString, ChangeStatus> Manager::changedFiles() const
     git_status_options opts;
     git_status_options_init(&opts, GIT_STATUS_OPTIONS_VERSION);
     opts.show = GIT_STATUS_SHOW_INDEX_AND_WORKDIR;
-    opts.flags = GIT_STATUS_OPT_DEFAULTS /*GIT_STATUS_OPT_INCLUDE_UNTRACKED | GIT_STATUS_OPT_INCLUDE_IGNORED |
-          GIT_STATUS_OPT_INCLUDE_UNMODIFIED | GIT_STATUS_OPT_EXCLUDE_SUBMODULES | GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS | GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH
-          | GIT_STATUS_OPT_RECURSE_IGNORED_DIRS | GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX | GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR |
-          GIT_STATUS_OPT_SORT_CASE_SENSITIVELY | GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY | GIT_STATUS_OPT_RENAMES_FROM_REWRITES | GIT_STATUS_OPT_NO_REFRESH |
-          GIT_STATUS_OPT_UPDATE_INDEX | GIT_STATUS_OPT_INCLUDE_UNREADABLE | GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED*/
+    opts.flags = GIT_STATUS_OPT_DEFAULTS | GIT_STATUS_OPT_EXCLUDE_SUBMODULES
+        /*GIT_STATUS_OPT_INCLUDE_UNTRACKED | GIT_STATUS_OPT_INCLUDE_IGNORED |
+   GIT_STATUS_OPT_INCLUDE_UNMODIFIED | GIT_STATUS_OPT_EXCLUDE_SUBMODULES | GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS | GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH
+   | GIT_STATUS_OPT_RECURSE_IGNORED_DIRS | GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX | GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR |
+   GIT_STATUS_OPT_SORT_CASE_SENSITIVELY | GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY | GIT_STATUS_OPT_RENAMES_FROM_REWRITES | GIT_STATUS_OPT_NO_REFRESH |
+   GIT_STATUS_OPT_UPDATE_INDEX | GIT_STATUS_OPT_INCLUDE_UNREADABLE | GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED*/
         ;
 
     git_status_foreach_ext(mRepo, &opts, cb, &w);
 
     //    git_status_foreach(_repo, cb, &w);
     return w.files;
-
-    // status --untracked-files=all --ignored --short --ignore-submodules --porcelain
-    QMap<QString, ChangeStatus> statuses;
-    const auto buffer = QString(runGit({QStringLiteral("status"), QStringLiteral("--short")})).split(QLatin1Char('\n'));
-
-    for (const auto &line : buffer) {
-        if (!line.trimmed().size())
-            continue;
-
-        auto status0 = line.mid(0, 1).trimmed();
-        auto status1 = line.mid(1, 1).trimmed();
-        const auto fileName = line.mid(3);
-
-        if (status1 == QLatin1Char('M') || status0 == QLatin1Char('M'))
-            statuses.insert(fileName, ChangeStatus::Modified);
-        else if (status1 == QLatin1Char('A'))
-            statuses.insert(fileName, ChangeStatus::Added);
-        else if (status1 == QLatin1Char('D') || status0 == QLatin1Char('D'))
-            statuses.insert(fileName, ChangeStatus::Removed);
-        else if (status1 == QLatin1Char('R'))
-            statuses.insert(fileName, ChangeStatus::Renamed);
-        else if (status1 == QLatin1Char('C'))
-            statuses.insert(fileName, ChangeStatus::Copied);
-        else if (status1 == QLatin1Char('U'))
-            statuses.insert(fileName, ChangeStatus::UpdatedButInmerged);
-        else if (status1 == QLatin1Char('?'))
-            statuses.insert(fileName, ChangeStatus::Untracked);
-        else if (status1 == QLatin1Char('!'))
-            statuses.insert(fileName, ChangeStatus::Ignored);
-        else {
-            qDebug() << __FUNCTION__ << "The status" << status1 << "is unknown";
-            statuses.insert(fileName, ChangeStatus::Unknown);
-        }
-    }
-    return statuses;
 }
 
 void Manager::commit(const QString &message) const

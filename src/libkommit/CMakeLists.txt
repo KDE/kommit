@@ -1,21 +1,14 @@
 add_library(libkommit SHARED)
 
-target_sources(libkommit PRIVATE
+set(SOURCES
     gitglobal.cpp
     gitloglist.cpp
     filestatus.cpp
     gitgraphlane.cpp
     gitmanager.cpp
     blamedata.cpp
-    types.h types.cpp
-    gitglobal.h
-    gitloglist.h
-    filestatus.h
-    gitgraphlane.h
-    gitmanager.h
-    blamedata.h
-    abstractreference.h abstractreference.cpp
-    interfaces.h
+    types.cpp
+    abstractreference.cpp
 
     models/abstractgititemsmodel.cpp
     models/logsmodel.cpp
@@ -41,28 +34,37 @@ target_sources(libkommit PRIVATE
     commands/commandclean.cpp
 
     entities/branch.cpp
-    entities/branch.h
     entities/commit.cpp
-    entities/commit.h
     entities/file.cpp
-    entities/file.h
     entities/note.cpp
-    entities/note.h
     entities/reference.cpp
-    entities/reference.h
     entities/remote.cpp
-    entities/remote.h
     entities/signature.cpp
-    entities/signature.h
     entities/stash.cpp
-    entities/stash.h
-    entities/tag.cpp
-    entities/tag.h
     entities/tree.cpp
-    entities/tree.h
-    entities/submodule.h entities/submodule.cpp
-    entities/index.h entities/index.cpp
-    entities/treediff.h entities/treediff.cpp
+    entities/tag.cpp
+    entities/submodule.cpp
+    entities/index.cpp
+    entities/treediff.cpp
+
+    observers/fetchobserver.cpp
+    observers/cloneobserver.cpp
+    observers/checkoutobserver.cpp
+    observers/pushobserver.cpp
+
+    options/addsubmoduleoptions.cpp
+    options/fetchoptions.cpp
+    options/checkoutoptions.cpp
+)
+set(HEADERS
+    gitglobal.h
+    gitloglist.h
+    filestatus.h
+    gitgraphlane.h
+    gitmanager.h
+    blamedata.h
+    types.h
+    abstractreference.h
 
     models/abstractgititemsmodel.h
     models/logsmodel.h
@@ -86,16 +88,37 @@ target_sources(libkommit PRIVATE
     commands/commandaddremote.h
     commands/parameterescommand.h
     commands/commandclean.h
+    commands/addsubmodulecommand.h
 
-    observers/fetchobserver.h observers/fetchobserver.cpp
-    observers/cloneobserver.h observers/cloneobserver.cpp
-    observers/checkoutobserver.h observers/checkoutobserver.cpp
-    observers/pushobserver.h observers/pushobserver.cpp
+    entities/branch.h
+    entities/commit.h
+    entities/file.h
+    entities/note.h
+    entities/reference.h
+    entities/remote.h
+    entities/signature.h
+    entities/stash.h
+    entities/tree.h
+    entities/tag.h
+    entities/submodule.h
+    entities/treediff.h
+    entities/index.h
 
-    options/addsubmoduleoptions.h options/addsubmoduleoptions.cpp
-    options/fetchoptions.h options/fetchoptions.cpp
-    options/checkoutoptions.h options/checkoutoptions.cpp
+    observers/fetchobserver.h
+    observers/cloneobserver.h
+    observers/checkoutobserver.h
+    observers/pushobserver.h
+
+    options/addsubmoduleoptions.h
+    options/fetchoptions.h
+    options/checkoutoptions.h
 )
+target_sources(libkommit PRIVATE ${SOURCES} ${HEADERS})
+# target_sources(libkommit
+#     PUBLIC FILE_SET HEADERS
+#     BASE_DIRS ${MY_LIB_SOURCE_DIR}
+#     FILES ${HEADERS}
+# )
 
 generate_export_header(libkommit BASE_NAME libkommit)
 
@@ -108,6 +131,8 @@ ecm_qt_declare_logging_category(libkommit
 set_target_properties(libkommit
     PROPERTIES OUTPUT_NAME kommit VERSION ${LIBKOMMIT_LIB_VERSION} SOVERSION ${LIBKOMMIT_LIB_SOVERSION}
 )
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/kommit)
 
 target_link_libraries(libkommit
     PkgConfig::LIBGIT2
@@ -122,3 +147,4 @@ if (BUILD_TESTING)
 endif()
 
 install(TARGETS libkommit ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+# install(FILES ${HEADERS} DESTINATION include/kommit) future releases

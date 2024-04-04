@@ -110,6 +110,7 @@ public:
     enum ConfigType { ConfigGlobal, ConfigLocal };
 
     Manager();
+    explicit Manager(git_repository *repo);
     explicit Manager(const QString &path);
     static Manager *instance();
 

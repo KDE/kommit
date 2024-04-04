@@ -7,7 +7,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "gitglobal.h"
+#include <entities/submodule.h>
+
 #include <QAbstractListModel>
+#include <QSharedPointer>
 
 class ChangedFilesModel : public QAbstractListModel
 {
@@ -33,6 +36,7 @@ public:
         QString filePath;
         QString oldFilePath;
         Git::ChangeStatus status;
+        QSharedPointer<Git::Submodule> submodule;
         bool checked;
     };
     const QList<Row> &data() const;

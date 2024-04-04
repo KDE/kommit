@@ -102,6 +102,9 @@ QVariant ChangedFilesModel::data(const QModelIndex &index, int role) const
         else
             return {};
     }
+
+    default:
+        break;
     }
 
     if (role == Qt::DisplayRole) {

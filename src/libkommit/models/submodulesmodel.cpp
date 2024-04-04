@@ -31,16 +31,21 @@ int SubmodulesModel::columnCount(const QModelIndex &parent) const
 
 QVariant SubmodulesModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= mData.size())
+    if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return {};
 
     auto submodule = mData.at(index.row());
 
-    switch (index.column()) {
-    case 0:
-        return submodule->path();
-    case 1:
-        return submodule->refName();
+    if (role == Qt::ToolTipRole) {
+        return submodule->statusTexts().join('\n');
+    }
+    if (role == Qt::DisplayRole) {
+        switch (index.column()) {
+        case 0:
+            return submodule->path();
+        case 1:
+            return submodule->refName();
+        }
     }
     return {};
 }

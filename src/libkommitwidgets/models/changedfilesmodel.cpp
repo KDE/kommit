@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QIcon>
 #include <QPainter>
 #include <QPixmap>
+#include <entities/submodule.h>
 
 QIcon ChangedFilesModel::createIcon(Git::ChangeStatus status)
 {
@@ -56,6 +57,23 @@ void ChangedFilesModel::reload()
 
     mData.clear();
 
+    auto submodules = mGit->submodules();
+    for (auto const &submodule : std::as_const(submodules)) {
+        using Status = Git::Submodule::Status;
+        auto status = submodule->status();
+
+        if (status & Status::WdWdModified || status & Status::WdIndexModified || status & Status::WdModified) {
+            Row d;
+            d.filePath = submodule->name();
+            d.status = Git::ChangeStatus::Modified;
+            d.checked = true;
+            d.submodule = submodule;
+
+            createIcon(d.status);
+            mData << d;
+        }
+    }
+
     auto files = mGit->changedFiles();
     for (auto i = files.begin(); i != files.end(); ++i) {
         if (i.value() == Git::ChangeStatus::Ignored)
@@ -65,6 +83,7 @@ void ChangedFilesModel::reload()
         d.filePath = i.key();
         d.status = i.value();
         d.checked = true;
+
         createIcon(d.status);
         mData << d;
     }
@@ -94,18 +113,28 @@ QVariant ChangedFilesModel::data(const QModelIndex &index, int role) const
     case Qt::DecorationRole:
         return mIcons.value(row.status);
 
+    case Qt::ForegroundRole:
+        return row.submodule ? QVariant::fromValue(QColor{Qt::gray}) : QVariant{};
+
     case Qt::CheckStateRole: {
         if (mCheckable)
-            return row.checked ? Qt::Checked : Qt::Unchecked;
+            return row.submodule.isNull() ? (row.checked ? Qt::Checked : Qt::Unchecked) : Qt::PartiallyChecked;
         else
             return {};
     }
-    }
 
-    if (role == Qt::DisplayRole) {
-        if (index.column() == 1)
+    case Qt::DisplayRole: {
+        if (index.column() == 1) {
             return row.filePath;
+        }
+        if (row.submodule) {
+            if (row.submodule->status() & Git::Submodule::Status::WdModified)
+                return row.filePath + tr(" (new commit)");
+            if (row.submodule->status() & Git::Submodule::Status::WdWdModified)
+                return row.filePath + tr(" (content modified)");
+        }
         return row.filePath;
+    }
     }
     return {};
 }

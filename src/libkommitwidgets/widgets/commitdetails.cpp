@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commitdetails.h"
 #include "avatarview.h"
+#include "kommitwidgetsglobaloptions.h"
 
 #include <entities/commit.h>
 #include <gitmanager.h>
@@ -17,7 +18,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace
 {
 
-void showSignature(QSharedPointer<Git::Signature> sign, AvatarView *avatarView, QLabel *nameLabel, QLabel *timeLabel, bool createLink)
+void showSignature(const QSharedPointer<Git::Signature> &sign, AvatarView *avatarView, QLabel *nameLabel, QLabel *timeLabel, bool createLink)
 {
     if (!sign)
         return;
@@ -31,9 +32,15 @@ void showSignature(QSharedPointer<Git::Signature> sign, AvatarView *avatarView, 
         label = QStringLiteral("%1 <%2>");
 
     nameLabel->setText(label.arg(sign->name(), sign->email()));
-    timeLabel->setText(sign->time().toString());
+
+    auto cal = KommitWidgetsGlobalOptions::instance()->calendar();
+    if (cal.isValid())
+        timeLabel->setText(sign->time().toString("yyyy-MM-dd HH:mm:ss", cal));
+    else
+        timeLabel->setText(sign->time().toString());
 }
 }
+
 CommitDetails::CommitDetails(QWidget *parent)
     : QWidget(parent)
 {

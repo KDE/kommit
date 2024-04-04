@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "addsubmodulecommand.h"
+#include "commands/addsubmodulecommand.h"
 
 namespace Git
 {
@@ -69,4 +69,4 @@ void AddSubmoduleCommand::setLocalPath(const QString &newLocalPath)
 
 } // namespace Git
 
-#include "moc_addsubmodulecommand.cpp"
+// #include "entities/moc_addsubmodulecommand.cpp"

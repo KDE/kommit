@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QString>
 
+#include "entities/tree.h"
 #include "libkommit_export.h"
 
 namespace Git
@@ -22,6 +23,8 @@ public:
 
     Q_REQUIRED_RESULT bool addByPath(const QString &path) const;
     Q_REQUIRED_RESULT bool removeByPath(const QString &path) const;
+    bool write();
+    QSharedPointer<Tree> tree() const;
 
 private:
     git_index *ptr;
