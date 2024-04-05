@@ -20,7 +20,7 @@
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>The flowing submodules are dirty. Whould you like to push them?</string>
+      <string>The following submodules are dirty. Would you like to push them?</string>
      </property>
     </widget>
    </item>
