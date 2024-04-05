@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-22 01:37+0000\n"
+"POT-Creation-Date: 2024-04-05 01:41+0000\n"
 "PO-Revision-Date: 2024-01-13 09:16+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -58,8 +58,8 @@ msgstr "Отримати"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #: dolphinplugins/actions.h:21 src/gui/pages/tagswidget.ui:69
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:85
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:244
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:101
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:299
 #, kde-format
 msgid "Push"
@@ -496,7 +496,7 @@ msgstr "Назва"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/models/treemodel.cpp:143 src/gui/pages/remoteswidget.ui:179
-#: src/libkommit/models/submodulesmodel.cpp:59
+#: src/libkommit/models/submodulesmodel.cpp:64
 #: src/libkommitwidgets/models/treemodel.cpp:143
 #, kde-format
 msgid "Status"
@@ -911,13 +911,13 @@ msgid "Time"
 msgstr "Час"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
-#: src/libkommit/models/submodulesmodel.cpp:55
+#: src/libkommit/models/submodulesmodel.cpp:60
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
 #, kde-format
 msgid "Path"
 msgstr "Шлях"
 
-#: src/libkommit/models/submodulesmodel.cpp:57
+#: src/libkommit/models/submodulesmodel.cpp:62
 #, kde-format
 msgid "Head"
 msgstr "Голова"
@@ -1239,6 +1239,19 @@ msgstr "Змінені файли"
 msgid "Changed files:"
 msgstr "Змінені файли:"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Changed files"
+msgid "Changed submodules"
+msgstr "Змінені файли"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
+#, kde-format
+msgid "The flowing submodules are dirty. Whould you like to push them?"
+msgstr ""
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:14
 #, kde-format
@@ -1367,8 +1380,8 @@ msgstr "-"
 msgid "TextLabel"
 msgstr "TextLabel"
 
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:87
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:244
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:103
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
 #, kde-format
 msgid "Commit and push"
 msgstr "Внести і записати"
@@ -2364,22 +2377,22 @@ msgstr "Назва мітки:"
 msgid "Uncommited"
 msgstr "Не внесено"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:79
+#: src/libkommitwidgets/widgets/commitdetails.cpp:86
 #, kde-format
 msgid "Branch: "
 msgstr "Гілка: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:81
+#: src/libkommitwidgets/widgets/commitdetails.cpp:88
 #, kde-format
 msgid "Note: "
 msgstr "Нотатка: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:83
+#: src/libkommitwidgets/widgets/commitdetails.cpp:90
 #, kde-format
 msgid "Remote: "
 msgstr "Віддалене:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:85
+#: src/libkommitwidgets/widgets/commitdetails.cpp:92
 #, kde-format
 msgid "Tag: "
 msgstr "Мітка: "

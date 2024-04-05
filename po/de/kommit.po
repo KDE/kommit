@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-22 01:37+0000\n"
+"POT-Creation-Date: 2024-04-05 01:41+0000\n"
 "PO-Revision-Date: 2023-05-10 20:28+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -59,8 +59,8 @@ msgstr ""
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #: dolphinplugins/actions.h:21 src/gui/pages/tagswidget.ui:69
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:85
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:244
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:101
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:299
 #, kde-format
 msgid "Push"
@@ -499,7 +499,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/models/treemodel.cpp:143 src/gui/pages/remoteswidget.ui:179
-#: src/libkommit/models/submodulesmodel.cpp:59
+#: src/libkommit/models/submodulesmodel.cpp:64
 #: src/libkommitwidgets/models/treemodel.cpp:143
 #, kde-format
 msgid "Status"
@@ -900,13 +900,13 @@ msgid "Time"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
-#: src/libkommit/models/submodulesmodel.cpp:55
+#: src/libkommit/models/submodulesmodel.cpp:60
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
 #, kde-format
 msgid "Path"
 msgstr ""
 
-#: src/libkommit/models/submodulesmodel.cpp:57
+#: src/libkommit/models/submodulesmodel.cpp:62
 #, kde-format
 msgid "Head"
 msgstr ""
@@ -1230,6 +1230,18 @@ msgstr ""
 msgid "Changed files:"
 msgstr ""
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
+#, kde-format
+msgid "Changed submodules"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
+#, kde-format
+msgid "The flowing submodules are dirty. Whould you like to push them?"
+msgstr ""
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:14
 #, kde-format
@@ -1358,8 +1370,8 @@ msgstr ""
 msgid "TextLabel"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:87
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:244
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:103
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
 #, kde-format
 msgid "Commit and push"
 msgstr ""
@@ -2264,24 +2276,24 @@ msgstr ""
 msgid "Uncommited"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:79
+#: src/libkommitwidgets/widgets/commitdetails.cpp:86
 #, fuzzy, kde-format
 #| msgid "Branch name"
 msgid "Branch: "
 msgstr "Zweig-Name"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:81
+#: src/libkommitwidgets/widgets/commitdetails.cpp:88
 #, fuzzy, kde-format
 #| msgid "Note..."
 msgid "Note: "
 msgstr "Notiz ..."
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:83
+#: src/libkommitwidgets/widgets/commitdetails.cpp:90
 #, kde-format
 msgid "Remote: "
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:85
+#: src/libkommitwidgets/widgets/commitdetails.cpp:92
 #, kde-format
 msgid "Tag: "
 msgstr ""
