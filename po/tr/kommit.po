@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 01:41+0000\n"
-"PO-Revision-Date: 2024-03-22 16:18+0300\n"
+"POT-Creation-Date: 2024-04-06 01:44+0000\n"
+"PO-Revision-Date: 2024-04-05 12:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1239,16 +1239,16 @@ msgstr "Değiştirilen dosyalar:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Changed files"
+#, kde-format
 msgid "Changed submodules"
-msgstr "Değiştirilen Dosyalar"
+msgstr "Değiştirilen Alt Modüller"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
-#, kde-format
-msgid "The flowing submodules are dirty. Whould you like to push them?"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "The flowing submodules are dirty. Whould you like to push them?"
+msgid "The following submodules are dirty. Would you like to push them?"
+msgstr "Aşağıdaki alt modüller kirli. Onları itmek ister misiniz?"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:14
