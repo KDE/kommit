@@ -30,6 +30,7 @@ private Q_SLOTS:
     void checkExists();
     void lookup();
     void remove();
+    void status();
 
 private:
     Git::Manager *mManager;

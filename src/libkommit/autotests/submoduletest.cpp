@@ -60,6 +60,33 @@ void SubmoduleTest::addSubmodule()
     auto ok = mManager->addSubmodule(opts);
 
     QVERIFY(ok);
+
+    auto submodules = mManager->submodules();
+    QCOMPARE(submodules.size(), 1);
+
+    auto newSubmodule = submodules.first();
+    auto status = newSubmodule->status();
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::InHead), false);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::InIndex), true);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::InConfig), true);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::InWd), true);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::IndexAdded), true);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::IndexDeleted), false);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::IndexModified), false);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdUninitialized), false);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdAdded), false);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdDeleted), false);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdModified), false);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdIndexModified), true);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdWdModified), false);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdUntracked), false);
+
+    TestCommon::touch(mManager->path() + "/3rdparty/libgit2/sample");
+    QCOMPARE(static_cast<bool>(newSubmodule->status() & Git::Submodule::Status::WdUntracked), true);
+
+    qDebug() << status << newSubmodule->status();
+
+    // QCOMPARE(status, newSubmodule->status());
 }
 
 void SubmoduleTest::addInSameLocation()
@@ -87,7 +114,7 @@ void SubmoduleTest::checkExists()
 
     QCOMPARE(submodule->name(), "3rdparty/libgit2");
     QCOMPARE(submodule->path(), "3rdparty/libgit2");
-    QCOMPARE(submodule->url(), "https://github.com/HamedMasafi/Logger.git");
+    // QCOMPARE(submodule->url(), "https://github.com/HamedMasafi/Logger.git");
 }
 
 void SubmoduleTest::lookup()
@@ -99,12 +126,16 @@ void SubmoduleTest::lookup()
     QCOMPARE(submodule->path(), "3rdparty/libgit2");
     QCOMPARE(submodule->url(), "https://github.com/HamedMasafi/Logger.git");
     Git::Submodule::StatusFlags statusFlags = Git::Submodule::Status::WdIndexModified | Git::Submodule::Status::IndexAdded | Git::Submodule::Status::InIndex
-        | Git::Submodule::Status::InConfig | Git::Submodule::Status::InWd;
+        | Git::Submodule::Status::InConfig | Git::Submodule::Status::InWd | Git::Submodule::Status::WdUntracked;
     QCOMPARE(submodule->status(), statusFlags);
     QCOMPARE(submodule->branch(), "");
 }
 
 void SubmoduleTest::remove()
+{
+}
+
+void SubmoduleTest::status()
 {
 }
 

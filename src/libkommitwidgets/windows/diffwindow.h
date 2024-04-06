@@ -36,6 +36,7 @@ public:
     DiffWindow(Git::Manager *git, const QString &oldBranch, const QString &newBranch);
     DiffWindow(Git::Manager *git, QSharedPointer<Git::Tag> tag);
     DiffWindow(Git::Branch *oldBranch, Git::Branch *newBranch);
+    DiffWindow(QSharedPointer<Git::Branch> oldBranch, QSharedPointer<Git::Branch> newBranch);
     DiffWindow(Git::Manager *git, QSharedPointer<Git::Tree> leftTree);
     DiffWindow(const QString &oldDir, const QString &newDir);
 
@@ -69,12 +70,13 @@ private:
 
         QSharedPointer<Git::File> file(const QString &path) const;
 
-        void setGitManager(Git::Manager *manager);
+        void setGitBranch(Git::Manager *manager, const QString &branchName);
         void setPath(const QString &path);
         void setTree(QSharedPointer<Git::Tree> tree);
 
     private:
         QString mPath;
+        QString mBranchName;
         QSharedPointer<Git::Tree> mTree;
         Git::Manager *mManager;
         Mode mMode{Mode::NoStorage};

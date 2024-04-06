@@ -549,7 +549,8 @@ bool Manager::addSubmodule(const AddSubmoduleOptions &options) const
     options.applyToFetchOptions(&opts.fetch_opts);
     options.applyToCheckoutOptions(&opts.checkout_opts);
 
-    BEGIN STEP git_submodule_add_setup(&submodule, mRepo, toConstChars(options.url), toConstChars(options.path), 1);
+    BEGIN
+    STEP git_submodule_add_setup(&submodule, mRepo, toConstChars(options.url), toConstChars(options.path), 1);
     STEP git_submodule_clone(&submoduleRepo, submodule, &opts);
     STEP git_submodule_add_finalize(submodule);
     PRINT_ERROR;

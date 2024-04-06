@@ -44,7 +44,7 @@ DiffWindow::DiffWindow(Git::Manager *git)
         mFilesModel->append(f.name());
     }
 
-    mLeftStorage.setGitManager(git);
+    mLeftStorage.setGitBranch(git, git->currentBranch());
     mRightStorage.setPath(git->path());
     mDiffModel->sortItems();
 }
@@ -68,6 +68,9 @@ DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QStrin
     , mNewBranch(newBranch)
 {
     init(true);
+
+    mLeftStorage.setGitBranch(git, oldBranch);
+    mRightStorage.setGitBranch(git, newBranch);
 
     const auto diffs = git->diffBranches(oldBranch, newBranch);
 
@@ -102,6 +105,14 @@ DiffWindow::DiffWindow(Git::Manager *git, QSharedPointer<Git::Tag> tag)
 
 DiffWindow::DiffWindow(Git::Branch *oldBranch, Git::Branch *newBranch)
 {
+    mLeftStorage.setTree(oldBranch->tree());
+    mRightStorage.setTree(newBranch->tree());
+}
+
+DiffWindow::DiffWindow(QSharedPointer<Git::Branch> oldBranch, QSharedPointer<Git::Branch> newBranch)
+    : AppMainWindow()
+{
+    init(true);
     mLeftStorage.setTree(oldBranch->tree());
     mRightStorage.setTree(newBranch->tree());
 }
@@ -287,7 +298,7 @@ QSharedPointer<Git::File> DiffWindow::Storage::file(const QString &path) const
     case Mode::FileSystem:
         return QSharedPointer<Git::File>{new Git::File{mPath + path}};
     case Mode::Git:
-        return QSharedPointer<Git::File>{new Git::File{mManager, "mNewBranch", path}};
+        return QSharedPointer<Git::File>{new Git::File{mManager, mBranchName, path}};
     case Mode::Tree:
         return mTree->file(path);
     }
@@ -295,10 +306,11 @@ QSharedPointer<Git::File> DiffWindow::Storage::file(const QString &path) const
     return {};
 }
 
-void DiffWindow::Storage::setGitManager(Git::Manager *manager)
+void DiffWindow::Storage::setGitBranch(Git::Manager *manager, const QString &branchName)
 {
     mMode = Mode::Git;
     mManager = manager;
+    mBranchName = branchName;
 }
 
 void DiffWindow::Storage::setPath(const QString &path)
