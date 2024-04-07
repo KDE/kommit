@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 01:44+0000\n"
-"PO-Revision-Date: 2024-04-05 07:36+0200\n"
+"POT-Creation-Date: 2024-04-07 01:43+0000\n"
+"PO-Revision-Date: 2024-04-06 08:48+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1221,7 +1221,7 @@ msgid "Commit/Push"
 msgstr "Objavi/potisni"
 
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:38
-#: src/libkommitwidgets/windows/diffwindow.cpp:199
+#: src/libkommitwidgets/windows/diffwindow.cpp:210
 #, kde-format
 msgid "Reload"
 msgstr "Ponovno naloži"
@@ -1248,10 +1248,9 @@ msgstr "Spremenjeni podmoduli"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
-#, fuzzy, kde-format
-#| msgid "The flowing submodules are dirty. Whould you like to push them?"
+#, kde-format
 msgid "The following submodules are dirty. Would you like to push them?"
-msgstr "Pretočni podmoduli so umazani. Ali bi jih rad potisnili?"
+msgstr "Naslednji podmoduli so umazani. Ali bi jih rad potisnili?"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:14
@@ -1535,21 +1534,21 @@ msgstr "Indeksirano"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:262
+#: src/libkommitwidgets/windows/diffwindow.cpp:273
 #, kde-format
 msgid "Added"
 msgstr "Dodano"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:264
+#: src/libkommitwidgets/windows/diffwindow.cpp:275
 #, kde-format
 msgid "Removed"
 msgstr "Odstranjeno"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:266
+#: src/libkommitwidgets/windows/diffwindow.cpp:277
 #, kde-format
 msgid "Modified"
 msgstr "Spremenjena"
@@ -2450,40 +2449,40 @@ msgstr "Vrste za filtriranje"
 msgid "Hide unchangeds"
 msgstr "Skrij nespremenjene"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:150
+#: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "Kommit Diff[*]"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:153
+#: src/libkommitwidgets/windows/diffwindow.cpp:164
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Drevo"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:180
+#: src/libkommitwidgets/windows/diffwindow.cpp:191
 #, kde-format
 msgid "View hidden chars..."
 msgstr "Pokaži skrite znake ..."
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:185
+#: src/libkommitwidgets/windows/diffwindow.cpp:196
 #: src/libkommitwidgets/windows/mergewindow.cpp:342
 #, kde-format
 msgid "Same size blocks"
 msgstr "Bloki enake velikosti"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:190
+#: src/libkommitwidgets/windows/diffwindow.cpp:201
 #, kde-format
 msgid "Show files names"
 msgstr "Pokaži imena datotek"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:196
+#: src/libkommitwidgets/windows/diffwindow.cpp:207
 #, kde-format
 msgid "Show Tree"
 msgstr "Pokaži drevo"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:260
+#: src/libkommitwidgets/windows/diffwindow.cpp:271
 #, kde-format
 msgid "Unchanged"
 msgstr "Nespremenjeno"

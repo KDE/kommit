@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 01:44+0000\n"
+"POT-Creation-Date: 2024-04-07 01:43+0000\n"
 "PO-Revision-Date: 2023-06-17 12:09+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -1222,7 +1222,7 @@ msgid "Commit/Push"
 msgstr "Commit/Push"
 
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:38
-#: src/libkommitwidgets/windows/diffwindow.cpp:199
+#: src/libkommitwidgets/windows/diffwindow.cpp:210
 #, kde-format
 msgid "Reload"
 msgstr "Reload"
@@ -1536,21 +1536,21 @@ msgstr "Indexed"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:262
+#: src/libkommitwidgets/windows/diffwindow.cpp:273
 #, kde-format
 msgid "Added"
 msgstr "Added"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:264
+#: src/libkommitwidgets/windows/diffwindow.cpp:275
 #, kde-format
 msgid "Removed"
 msgstr "Removed"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:266
+#: src/libkommitwidgets/windows/diffwindow.cpp:277
 #, kde-format
 msgid "Modified"
 msgstr "Modified"
@@ -2475,40 +2475,40 @@ msgstr "Type to filter"
 msgid "Hide unchangeds"
 msgstr "Hide unchanged"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:150
+#: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "Kommit Diff[*]"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:153
+#: src/libkommitwidgets/windows/diffwindow.cpp:164
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Tree"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:180
+#: src/libkommitwidgets/windows/diffwindow.cpp:191
 #, kde-format
 msgid "View hidden chars..."
 msgstr "View hidden characters..."
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:185
+#: src/libkommitwidgets/windows/diffwindow.cpp:196
 #: src/libkommitwidgets/windows/mergewindow.cpp:342
 #, kde-format
 msgid "Same size blocks"
 msgstr "Same size blocks"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:190
+#: src/libkommitwidgets/windows/diffwindow.cpp:201
 #, kde-format
 msgid "Show files names"
 msgstr "Show files names"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:196
+#: src/libkommitwidgets/windows/diffwindow.cpp:207
 #, kde-format
 msgid "Show Tree"
 msgstr "Show Tree"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:260
+#: src/libkommitwidgets/windows/diffwindow.cpp:271
 #, kde-format
 msgid "Unchanged"
 msgstr "Unchanged"

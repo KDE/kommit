@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 01:44+0000\n"
+"POT-Creation-Date: 2024-04-07 01:43+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1222,7 +1222,7 @@ msgid "Commit/Push"
 msgstr "Baliozkotu/Bultzatu"
 
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:38
-#: src/libkommitwidgets/windows/diffwindow.cpp:199
+#: src/libkommitwidgets/windows/diffwindow.cpp:210
 #, kde-format
 msgid "Reload"
 msgstr "Birzamatu"
@@ -1514,21 +1514,21 @@ msgstr "Indexatuta"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:262
+#: src/libkommitwidgets/windows/diffwindow.cpp:273
 #, kde-format
 msgid "Added"
 msgstr "Gehituta"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:264
+#: src/libkommitwidgets/windows/diffwindow.cpp:275
 #, kde-format
 msgid "Removed"
 msgstr "Kenduta"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:266
+#: src/libkommitwidgets/windows/diffwindow.cpp:277
 #, kde-format
 msgid "Modified"
 msgstr "Aldatua"
@@ -2374,7 +2374,7 @@ msgstr "Iragazi beharreko mota"
 msgid "Hide unchangeds"
 msgstr "Ezkutatu aldaketa ez dutenak"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:150
+#: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "GitKlient Diff[*]"
@@ -2382,34 +2382,34 @@ msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "GitKlient Diff[*]"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:153
+#: src/libkommitwidgets/windows/diffwindow.cpp:164
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Zuhaitza"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:180
+#: src/libkommitwidgets/windows/diffwindow.cpp:191
 #, kde-format
 msgid "View hidden chars..."
 msgstr "Ikusi ezkutuko karaktereak..."
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:185
+#: src/libkommitwidgets/windows/diffwindow.cpp:196
 #: src/libkommitwidgets/windows/mergewindow.cpp:342
 #, kde-format
 msgid "Same size blocks"
 msgstr "Neurri bereko blokeak"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:190
+#: src/libkommitwidgets/windows/diffwindow.cpp:201
 #, kde-format
 msgid "Show files names"
 msgstr "Erakutsi fitxategian izenak"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:196
+#: src/libkommitwidgets/windows/diffwindow.cpp:207
 #, kde-format
 msgid "Show Tree"
 msgstr "Erakutsi zuhaitza"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:260
+#: src/libkommitwidgets/windows/diffwindow.cpp:271
 #, kde-format
 msgid "Unchanged"
 msgstr "Aldatu gabe"

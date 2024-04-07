@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 01:44+0000\n"
-"PO-Revision-Date: 2024-04-05 12:17+0300\n"
+"POT-Creation-Date: 2024-04-07 01:43+0000\n"
+"PO-Revision-Date: 2024-04-06 13:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1218,7 +1218,7 @@ msgid "Commit/Push"
 msgstr "İşle/İt"
 
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:38
-#: src/libkommitwidgets/windows/diffwindow.cpp:199
+#: src/libkommitwidgets/windows/diffwindow.cpp:210
 #, kde-format
 msgid "Reload"
 msgstr "Yeniden Yükle"
@@ -1245,8 +1245,7 @@ msgstr "Değiştirilen Alt Modüller"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
-#, fuzzy, kde-format
-#| msgid "The flowing submodules are dirty. Whould you like to push them?"
+#, kde-format
 msgid "The following submodules are dirty. Would you like to push them?"
 msgstr "Aşağıdaki alt modüller kirli. Onları itmek ister misiniz?"
 
@@ -1533,21 +1532,21 @@ msgstr "İndekslenmiş"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:262
+#: src/libkommitwidgets/windows/diffwindow.cpp:273
 #, kde-format
 msgid "Added"
 msgstr "Eklendi"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:264
+#: src/libkommitwidgets/windows/diffwindow.cpp:275
 #, kde-format
 msgid "Removed"
 msgstr "Kaldırıldı"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:266
+#: src/libkommitwidgets/windows/diffwindow.cpp:277
 #, kde-format
 msgid "Modified"
 msgstr "Değiştirildi"
@@ -2448,40 +2447,40 @@ msgstr "Süzmek için yaz"
 msgid "Hide unchangeds"
 msgstr "Değiştirilmeyenleri gizle"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:150
+#: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "Kommit Diff'i[*]"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:153
+#: src/libkommitwidgets/windows/diffwindow.cpp:164
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Ağaç"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:180
+#: src/libkommitwidgets/windows/diffwindow.cpp:191
 #, kde-format
 msgid "View hidden chars..."
 msgstr "Gizli Karakterleri Görüntüle..."
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:185
+#: src/libkommitwidgets/windows/diffwindow.cpp:196
 #: src/libkommitwidgets/windows/mergewindow.cpp:342
 #, kde-format
 msgid "Same size blocks"
 msgstr "Aynı Boyutlu Bloklar"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:190
+#: src/libkommitwidgets/windows/diffwindow.cpp:201
 #, kde-format
 msgid "Show files names"
 msgstr "Dosya Adlarını Göster"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:196
+#: src/libkommitwidgets/windows/diffwindow.cpp:207
 #, kde-format
 msgid "Show Tree"
 msgstr "Ağacı Göster"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:260
+#: src/libkommitwidgets/windows/diffwindow.cpp:271
 #, kde-format
 msgid "Unchanged"
 msgstr "Değiştirilmedi"
