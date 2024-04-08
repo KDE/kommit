@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-07 01:43+0000\n"
-"PO-Revision-Date: 2024-04-07 00:35\n"
+"PO-Revision-Date: 2024-04-07 14:33\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1236,10 +1236,9 @@ msgstr "已更改文件："
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Changed files"
+#, kde-format
 msgid "Changed submodules"
-msgstr "更改的文件"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
