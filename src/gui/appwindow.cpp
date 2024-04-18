@@ -23,11 +23,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/switchbranchdialog.h"
 #include "models/logsmodel.h"
 #include "multipagewidget.h"
-#include "pages/authorswidget.h"
 #include "pages/branchesstatuswidget.h"
 #include "pages/commitswidget.h"
 #include "pages/historyviewwidget.h"
 #include "pages/remoteswidget.h"
+#include "pages/reportswidget.h"
 #include "pages/stasheswidget.h"
 #include "pages/submoduleswidget.h"
 #include "pages/tagswidget.h"
@@ -68,7 +68,7 @@ void AppWindow::init()
     addPage<SubmodulesWidget>(QStringLiteral("view_submodules"));
     addPage<RemotesWidget>(QStringLiteral("view_remotes"));
     addPage<TagsWidget>(QStringLiteral("view_tags"));
-    addPage<AuthorsWidget>(QStringLiteral("view_tags"));
+    addPage<ReportsWidget>(QStringLiteral("view_tags"));
 
     setupGUI(StandardWindowOption::Default, QStringLiteral("kommitui.rc"));
     mMainWidget->setCurrentIndex(0);

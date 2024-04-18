@@ -36,6 +36,7 @@ struct Author {
     DatesRange tags;
 };
 
+// TODO: delete me
 class LIBKOMMIT_EXPORT AuthorsModel : public AbstractGitItemsModel
 {
     Q_OBJECT

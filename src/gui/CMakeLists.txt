@@ -1,7 +1,8 @@
 include_directories(${CMAKE_SOURCE_DIR}/core)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-add_library(libkommitgui SHARED)
+add_library(libkommitgui SHARED
+    pages/reportswidget.h pages/reportswidget.cpp pages/reportswidget.ui)
 generate_export_header(libkommitgui BASE_NAME libkommitgui)
 target_sources(libkommitgui PRIVATE
 
@@ -30,7 +31,7 @@ target_sources(libkommitgui PRIVATE
     models/changedfilesmodel.h
     models/changedfilesmodel.cpp
 
-    pages/authorswidget.h  pages/authorswidget.cpp
+    pages/reportswidget.h  pages/reportswidget.cpp
     pages/branchesstatuswidget.h  pages/branchesstatuswidget.cpp
     pages/commitswidget.h  pages/commitswidget.cpp
     pages/historyviewwidget.h  pages/historyviewwidget.cpp
@@ -39,7 +40,6 @@ target_sources(libkommitgui PRIVATE
     pages/submoduleswidget.h  pages/submoduleswidget.cpp
     pages/tagswidget.h  pages/tagswidget.cpp
     pages/widgetbase.h  pages/widgetbase.cpp
-
 
     appwindow.cpp
     buttonsgroup.cpp
@@ -89,7 +89,7 @@ ki18n_wrap_ui(
     kommitmergeview.ui
     commandpullwidget.ui
 
-    pages/authorswidget.ui
+    pages/reportswidget.ui
     pages/branchesstatuswidget.ui
     pages/commitswidget.ui
     pages/historyviewwidget.ui
@@ -97,32 +97,6 @@ ki18n_wrap_ui(
     pages/stasheswidget.ui
     pages/submoduleswidget.ui
     pages/tagswidget.ui
-
-
-    # dialogs/ignorefiledialog.ui
-    # dialogs/mergeopenfilesdialog.ui
-    # dialogs/mergecloseeventdialog.ui
-    # dialogs/changedfilesdialog.ui
-    # dialogs/filestreedialog.ui
-    # dialogs/commitpushdialog.ui
-    # dialogs/pulldialog.ui
-    # dialogs/mergedialog.ui
-    # dialogs/runnerdialog.ui
-    # dialogs/fileviewerdialog.ui
-    # dialogs/clonedialog.ui
-    # dialogs/submoduleinfodialog.ui
-    # dialogs/taginfodialog.ui
-    # dialogs/diffopendialog.ui
-    # dialogs/selectbranchestodiffdialog.ui
-    # dialogs/filehistorydialog.ui
-    # dialogs/fileblamedialog.ui
-    # dialogs/searchdialog.ui
-    # dialogs/reposettingsdialog.ui
-    # dialogs/fetchdialog.ui
-    # dialogs/switchbranchdialog.ui
-    # dialogs/initdialog.ui
-    # dialogs/notedialog.ui
-    # dialogs/cleanupdialog.ui
 )
 
 target_link_libraries(libkommitgui

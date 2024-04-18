@@ -41,6 +41,7 @@ class AbstractReference;
 class AddSubmoduleOptions;
 class Index;
 class Tree;
+class Note;
 
 enum LoadFlag {
     LoadNone = 0,
@@ -121,7 +122,7 @@ public:
     // common actions
     bool init(const QString &path);
     bool clone(const QString &url, const QString &localPath, CloneObserver *observer = nullptr);
-    void commit(const QString &message) const;
+    void commit(const QString &message);
     void push(PushObserver *observer = nullptr) const;
     bool open(const QString &newPath);
 
@@ -201,6 +202,7 @@ public:
     // notes
     Q_REQUIRED_RESULT QString readNote(const QString &branchName) const;
     void saveNote(const QString &branchName, const QString &note) const;
+    QList<QSharedPointer<Note>> notes() const;
 
     // refs
     void forEachRefs(std::function<void(QSharedPointer<Reference>)> callback) const;
@@ -215,7 +217,7 @@ public:
     Q_REQUIRED_RESULT QList<FileStatus> diff(AbstractReference *from, AbstractReference *to) const;
     Q_REQUIRED_RESULT TreeDiff diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTree = {});
 
-    void forEachCommits(std::function<void(Commit *)> callback, const QString &branchName) const;
+    void forEachCommits(std::function<void(QSharedPointer<Commit>)> callback, const QString &branchName) const;
 
     // submodules
     void forEachSubmodules(std::function<void(Submodule *)> callback);
@@ -246,6 +248,7 @@ public:
 
 Q_SIGNALS:
     void pathChanged();
+    void reloadRequired();
 
 private:
     int findStashIndex(const QString &message) const;

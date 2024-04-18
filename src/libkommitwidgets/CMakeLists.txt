@@ -1,6 +1,6 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-add_library(libkommitwidgets SHARED )
+add_library(libkommitwidgets SHARED)
 
 generate_export_header(libkommitwidgets BASE_NAME libkommitwidgets)
 
@@ -9,22 +9,152 @@ macro(kommitwidgets_add_dir dir)
     file(GLOB ${dir}_UI_FILES ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/*.ui)
 endmacro()
 
-kommitwidgets_add_dir(core)
-kommitwidgets_add_dir(widgets)
-kommitwidgets_add_dir(windows)
-kommitwidgets_add_dir(models)
-kommitwidgets_add_dir(dialogs)
-kommitwidgets_add_dir(actions)
+# kommitwidgets_add_dir(core)
+# kommitwidgets_add_dir(widgets)
+# kommitwidgets_add_dir(windows)
+# kommitwidgets_add_dir(models)
+# kommitwidgets_add_dir(dialogs)
+# kommitwidgets_add_dir(actions)
+# kommitwidgets_add_dir(reports)
 
 target_sources(libkommitwidgets PRIVATE
     kommitwidgetsglobaloptions.h kommitwidgetsglobaloptions.cpp
 
-    ${core_FILES}
-    ${widgets_FILES}
-    ${windows_FILES}
-    ${dialogs_FILES}
-    ${models_FILES}
-    ${actions_FILES}
+    widgets/reportwidget.h
+    widgets/graphpainter.cpp
+    widgets/segmentsscrollbar.cpp
+    widgets/difftreeview.h
+    widgets/filesstatuseslist.h
+    widgets/commitdetails.cpp
+    widgets/avatarview.h
+    widgets/codeeditor.cpp
+    widgets/segmentsmapper.h
+    widgets/segmentsscrollbar.h
+    widgets/reportwidget.cpp
+    widgets/codeeditorsidebar.h
+    widgets/segmentsmapper.cpp
+    widgets/segmentconnector.h
+    widgets/diffwidget.h
+    widgets/avatarview.cpp
+    widgets/codeeditorsidebar.cpp
+    widgets/codeeditor.h
+    widgets/blamecodeview.h
+    widgets/completiontextedit.cpp
+    widgets/completiontextedit.h
+    widgets/graphpainter.h
+    widgets/segmentconnector.cpp
+    widgets/blamecodeview.cpp
+    widgets/diffwidget.cpp
+    widgets/difftreeview.cpp
+    widgets/filesstatuseslist.cpp
+    widgets/commitdetails.h
+
+    core/kmessageboxhelper.h
+    core/kmessageboxhelper.cpp
+    core/editactionsmapper.h
+    core/editactionsmapper.cpp
+
+    reports/authorsreport.cpp
+    reports/authorsreport.h
+    reports/abstractreport.cpp
+    reports/abstractreport.h
+    reports/commitsbydayweek.cpp
+    reports/commitsbydayweek.h
+    reports/commitsbydayhour.cpp
+    reports/commitsbydayhour.h
+
+    windows/appmainwindow.cpp
+    windows/mergewindow.h
+    windows/diffwindow.h
+    windows/diffwindow.cpp
+    windows/mergewindow.cpp
+    windows/appmainwindow.h
+
+    actions/submoduleactions.cpp
+    actions/remotesactions.h
+    actions/tagsactions.cpp
+    actions/branchactions.cpp
+    actions/changedfileactions.h
+    actions/branchactions.h
+    actions/fileactions.cpp
+    actions/submoduleactions.h
+    actions/stashactions.h
+    actions/abstractactions.cpp
+    actions/abstractactions.h
+    actions/fileactions.h
+    actions/commitactions.cpp
+    actions/changedfileactions.cpp
+    actions/stashactions.cpp
+    actions/commitactions.h
+    actions/tagsactions.h
+    actions/remotesactions.cpp
+
+    models/treemodel.h
+    models/treemodel.cpp
+    models/changedfilesmodel.h
+    models/difftreemodel.h
+    models/difftreemodel.cpp
+    models/filesmodel.cpp
+    models/changedfilesmodel.cpp
+    models/filesmodel.h
+
+    dialogs/appdialog.h
+    dialogs/runnerdialog.cpp
+    dialogs/submoduleinfodialog.cpp
+    dialogs/credentialdialog.cpp
+    dialogs/taginfodialog.h
+    dialogs/selectbranchestodiffdialog.h
+    dialogs/selectbranchestodiffdialog.cpp
+    dialogs/initdialog.h
+    dialogs/changedfilesdialog.h
+    dialogs/mergedialog.h
+    dialogs/filehistorydialog.h
+    dialogs/changedsubmodulesdialog.h
+    dialogs/ignorefiledialog.cpp
+    dialogs/switchbranchdialog.h
+    dialogs/changedsubmodulesdialog.cpp
+    dialogs/initdialog.cpp
+    dialogs/cleanupdialog.h
+    dialogs/ignorefiledialog.h
+    dialogs/reposettingsdialog.h
+    dialogs/mergeopenfilesdialog.h
+    dialogs/remoteinfodialog.h
+    dialogs/diffopendialog.cpp
+    dialogs/fileviewerdialog.h
+    dialogs/commitpushdialog.cpp
+    dialogs/mergedialog.cpp
+    dialogs/filestreedialog.h
+    dialogs/fileblamedialog.h
+    dialogs/submoduleinfodialog.h
+    dialogs/changedfilesdialog.cpp
+    dialogs/switchbranchdialog.cpp
+    dialogs/mergecloseeventdialog.cpp
+    dialogs/reposettingsdialog.cpp
+    dialogs/mergecloseeventdialog.h
+    dialogs/mergeopenfilesdialog.cpp
+    dialogs/notedialog.h
+    dialogs/remoteinfodialog.cpp
+    dialogs/pulldialog.h
+    dialogs/searchdialog.cpp
+    dialogs/taginfodialog.cpp
+    dialogs/filestreedialog.cpp
+    dialogs/fetchdialog.h
+    dialogs/diffopendialog.h
+    dialogs/credentialdialog.h
+    dialogs/fetchdialog.cpp
+    dialogs/fileviewerdialog.cpp
+    dialogs/cleanupdialog.cpp
+    dialogs/commitpushdialog.h
+    dialogs/notedialog.cpp
+    dialogs/clonedialog.cpp
+    dialogs/appdialog.cpp
+    dialogs/runnerdialog.h
+    dialogs/pulldialog.cpp
+    dialogs/clonedialog.h
+    dialogs/fileblamedialog.cpp
+    dialogs/searchdialog.h
+    dialogs/filehistorydialog.cpp
+
 )
 
 target_link_libraries(libkommitwidgets
@@ -57,10 +187,38 @@ add_compile_definitions(LIBKOMMIT_WIDGET_USE_KF)
 ki18n_wrap_ui(
     libkommitwidgets
 
-    ${widgets_UI_FILES}
-    ${windows_UI_FILES}
-    ${dialogs_UI_FILES}
-    ${models_UI_FILES}
+    widgets/diffwidget.ui
+    widgets/commitdetails.ui
+    widgets/reportwidget.ui
+    widgets/difftreeview.ui
+    windows/kommitmergeview.ui
+    dialogs/mergecloseeventdialog.ui
+    dialogs/searchdialog.ui
+    dialogs/credentialdialog.ui
+    dialogs/submoduleinfodialog.ui
+    dialogs/remoteinfodialog.ui
+    dialogs/changedfilesdialog.ui
+    dialogs/cleanupdialog.ui
+    dialogs/clonedialog.ui
+    dialogs/selectbranchestodiffdialog.ui
+    dialogs/pulldialog.ui
+    dialogs/diffopendialog.ui
+    dialogs/runnerdialog.ui
+    dialogs/fileblamedialog.ui
+    dialogs/changedsubmodulesdialog.ui
+    dialogs/initdialog.ui
+    dialogs/switchbranchdialog.ui
+    dialogs/mergeopenfilesdialog.ui
+    dialogs/fileviewerdialog.ui
+    dialogs/filestreedialog.ui
+    dialogs/filehistorydialog.ui
+    dialogs/commitpushdialog.ui
+    dialogs/mergedialog.ui
+    dialogs/reposettingsdialog.ui
+    dialogs/fetchdialog.ui
+    dialogs/ignorefiledialog.ui
+    dialogs/notedialog.ui
+    dialogs/taginfodialog.ui
 )
 
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
