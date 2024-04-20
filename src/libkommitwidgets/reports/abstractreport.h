@@ -15,13 +15,6 @@ namespace Git
 class Manager;
 };
 
-#if QT_CHARTS_LIB
-namespace QtCharts
-{
-class QChart;
-}
-#endif
-
 class LIBKOMMIT_EXPORT AbstractReport : public QObject
 {
     Q_OBJECT
@@ -34,7 +27,6 @@ public:
     virtual QString name() const = 0;
 
     virtual bool supportChart() const;
-    virtual void initChart(QtCharts::QChart *chart);
 
     virtual QStringList headerData() const = 0;
     virtual int rowCount() const;

@@ -33,6 +33,11 @@ ReportsWidget::ReportsWidget(Git::Manager *git, AppWindow *parent)
     connect(pushButtonChart, &QPushButton::clicked, this, &ReportsWidget::mSlotPushButtonChartClicked);
 
     mSlotPushButtonTableClicked();
+
+#ifndef QT_CHARTS_LIB
+    pushButtonTable->hide();
+    pushButtonChart->hide();
+#endif
 }
 
 void ReportsWidget::saveState(QSettings &settings) const

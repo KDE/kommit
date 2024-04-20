@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#if QT_CHARTS_LIB
+#ifdef QT_CHARTS_LIB
 #include <QBarCategoryAxis>
 #include <QBarSeries>
 #include <QBarSet>
@@ -30,7 +30,7 @@ ReportWidget::ReportWidget(AbstractReport *report, QWidget *parent)
 
 void ReportWidget::initChart()
 {
-#if QT_CHARTS_LIB
+#ifdef QT_CHARTS_LIB
     if (!mReport->supportChart())
         return;
     using namespace QtCharts;
@@ -78,6 +78,7 @@ void ReportWidget::fillTableWidget()
 
 void ReportWidget::fillChart()
 {
+#ifdef QT_CHARTS_LIB
     using namespace QtCharts;
 
     auto barSet = new QBarSet(mReport->name());
@@ -98,6 +99,7 @@ void ReportWidget::fillChart()
     axis->setMin(mReport->minValue());
     axis->setMax(mReport->maxValue());
     axis->setTitleText(mReport->axisYTitle());
+#endif
 }
 
 int ReportWidget::showMode() const

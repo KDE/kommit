@@ -22,11 +22,6 @@ bool AbstractReport::supportChart() const
     return false;
 }
 
-void AbstractReport::initChart(QtCharts::QChart *chart)
-{
-    Q_UNUSED(chart)
-}
-
 int AbstractReport::rowCount() const
 {
     return mData.size();
