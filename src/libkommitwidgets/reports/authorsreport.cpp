@@ -16,17 +16,21 @@ SPDX-License-Identifier: GPL-3.0-or-later
 AuthorsReport::AuthorsReport(Git::Manager *git, QObject *parent)
     : AbstractReport{git, parent}
 {
+    setValueColumn(2);
 }
 
 void AuthorsReport::reload()
 {
-    beginResetModel();
     qDeleteAll(mData);
     mData.clear();
 
-    auto commitCb = [this](QSharedPointer<Git::Commit> commit) {
+    auto max{0};
+
+    auto commitCb = [this, &max](QSharedPointer<Git::Commit> commit) {
         findOrCreate(commit->author(), AuthorCreateReason::AuthoredCommit);
-        findOrCreate(commit->committer(), AuthorCreateReason::Commit);
+        auto a = findOrCreate(commit->committer(), AuthorCreateReason::Commit);
+
+        max = qMax(max, a->commits.count);
     };
     auto tagCb = [this](QSharedPointer<Git::Tag> tag) {
         findOrCreate(tag->tagger(), AuthorCreateReason::Tag);
@@ -34,7 +38,14 @@ void AuthorsReport::reload()
 
     mGit->forEachCommits(commitCb, "");
     mGit->forEachTags(tagCb);
-    endResetModel();
+
+    clear();
+    for (auto const &data : std::as_const(mData)) {
+        addData({data->name, data->email, data->commits.count, data->authoredCommits.count, data->tags.count});
+        extendRange(data->commits.count);
+    }
+
+    Q_EMIT reloaded();
 }
 
 QString AuthorsReport::name() const
@@ -42,60 +53,22 @@ QString AuthorsReport::name() const
     return i18n("Commits count by author");
 }
 
-int AuthorsReport::rowCount(const QModelIndex &parent) const
+int AuthorsReport::columnCount() const
 {
-    Q_UNUSED(parent)
-    return mData.size();
+    return 5;
 }
 
-int AuthorsReport::columnCount(const QModelIndex &parent) const
+QStringList AuthorsReport::headerData() const
 {
-    Q_UNUSED(parent)
-    return static_cast<int>(AuthorsReportRoles::LastColumn);
+    return {i18n("Name"), i18n("Email"), i18n("Commits"), i18n("Autheds"), i18n("Tags")};
 }
 
-QVariant AuthorsReport::headerData(int section, Qt::Orientation orientation, int role) const
+bool AuthorsReport::supportChart() const
 {
-    if (orientation != Qt::Horizontal || role != Qt::DisplayRole)
-        return {};
-
-    switch (section) {
-    case Name:
-        return i18n("Name");
-    case Email:
-        return i18n("Email");
-    case Commits:
-        return i18n("Commits");
-    case Autheds:
-        return i18n("Autheds");
-    case Tags:
-        return i18n("Tags");
-    }
-    return {};
+    return true;
 }
 
-QVariant AuthorsReport::data(const QModelIndex &index, int role) const
-{
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= mData.size())
-        return {};
-
-    switch (index.column()) {
-    case Name:
-        return mData.at(index.row())->name;
-    case Email:
-        return mData.at(index.row())->email;
-    case Commits:
-        return mData.at(index.row())->commits.count;
-    case Autheds:
-        return mData.at(index.row())->authoredCommits.count;
-    case Tags:
-        return mData.at(index.row())->tags.count;
-    }
-
-    return {};
-}
-
-void AuthorsReport::findOrCreate(QSharedPointer<Git::Signature> signature, AuthorCreateReason reason)
+AuthorsReport::Author *AuthorsReport::findOrCreate(QSharedPointer<Git::Signature> signature, AuthorCreateReason reason)
 {
     auto authorIterator = std::find_if(mData.begin(), mData.end(), [&signature](Author *a) {
         return a->email == signature->email() && a->name == signature->name();
@@ -113,7 +86,7 @@ void AuthorsReport::findOrCreate(QSharedPointer<Git::Signature> signature, Autho
             (*authorIterator)->tags.increase(signature->time());
             break;
         }
-        return;
+        return *authorIterator;
     }
 
     auto author = new Author;
@@ -140,6 +113,7 @@ void AuthorsReport::findOrCreate(QSharedPointer<Git::Signature> signature, Autho
     });
 
     mData.insert(authorIterator, author);
+    return author;
 }
 
 void AuthorsReport::DatesRange::begin(const QDateTime &time)

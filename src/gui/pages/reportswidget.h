@@ -1,10 +1,16 @@
+/*
+SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
 #pragma once
 
 #include "ui_reportswidget.h"
 #include "widgetbase.h"
 
 class AbstractReport;
-
+class ReportWidget;
 class ReportsWidget : public WidgetBase, private Ui::ReportsWidget
 {
     Q_OBJECT
@@ -17,8 +23,10 @@ public:
 
 private Q_SLOTS:
     void reloadReports();
+    void mSlotPushButtonTableClicked();
+    void mSlotPushButtonChartClicked();
 
 private:
     void addReport(AbstractReport *report);
-    QList<AbstractReport *> mReports;
+    QList<ReportWidget *> mReportWidgets;
 };

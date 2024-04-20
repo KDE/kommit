@@ -10,7 +10,6 @@
 #include "entities/submodule.h"
 #include "entities/tag.h"
 #include "entities/tree.h"
-#include "models/authorsmodel.h"
 #include "models/branchesmodel.h"
 #include "models/logsmodel.h"
 #include "models/remotesmodel.h"
@@ -825,9 +824,7 @@ bool load(AbstractGitItemsModel *cache)
 void Manager::loadAsync()
 {
     QList<AbstractGitItemsModel *> models;
-    if (mAuthorsModel) {
-        mAuthorsModel->clear();
-    }
+
     if (mLoadFlags & LoadStashes)
         models << mStashesCache;
     if (mLoadFlags & LoadRemotes)
@@ -869,11 +866,6 @@ LogsModel *Manager::logsModel() const
 BranchesModel *Manager::branchesModel() const
 {
     return mBranchesModel;
-}
-
-AuthorsModel *Manager::authorsModel() const
-{
-    return mAuthorsModel;
 }
 
 SubmodulesModel *Manager::submodulesModel() const
@@ -960,10 +952,9 @@ void Manager::forEachRefs(std::function<void(QSharedPointer<Reference>)> callbac
 Manager::Manager()
     : QObject()
     , mRemotesModel{new RemotesModel(this)}
-    , mAuthorsModel{new AuthorsModel(this)}
     , mSubmodulesModel{new SubmodulesModel(this)}
     , mBranchesModel{new BranchesModel(this)}
-    , mLogsCache{new LogsModel(this, mAuthorsModel)}
+    , mLogsCache{new LogsModel(this)}
     , mStashesCache{new StashesModel(this)}
     , mTagsModel{new TagsModel(this)}
 {

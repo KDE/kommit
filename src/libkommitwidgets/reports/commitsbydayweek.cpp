@@ -13,6 +13,30 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <entities/signature.h>
 #include <gitmanager.h>
 
+namespace
+{
+QString dayToString(Qt::DayOfWeek dayOfWeek)
+{
+    switch (dayOfWeek) {
+    case Qt::Monday:
+        return "Monday";
+    case Qt::Tuesday:
+        return "Tuesday";
+    case Qt::Wednesday:
+        return "Wednesday";
+    case Qt::Thursday:
+        return "Thursday";
+    case Qt::Friday:
+        return "Friday";
+    case Qt::Saturday:
+        return "Saturday";
+    case Qt::Sunday:
+        return "Sunday";
+    }
+    return "";
+}
+}
+
 CommitsByDayWeek::CommitsByDayWeek(Git::Manager *git, QObject *parent)
     : AbstractReport{git, parent}
 {
@@ -20,18 +44,30 @@ CommitsByDayWeek::CommitsByDayWeek(Git::Manager *git, QObject *parent)
 
 void CommitsByDayWeek::reload()
 {
-    beginResetModel();
-    mData.clear();
+    clear();
 
-    auto commitCb = [this](QSharedPointer<Git::Commit> commit) {
+    QMap<Qt::DayOfWeek, int> map;
+
+    map.insert(Qt::Monday, 0);
+    map.insert(Qt::Tuesday, 0);
+    map.insert(Qt::Wednesday, 0);
+    map.insert(Qt::Thursday, 0);
+    map.insert(Qt::Friday, 0);
+    map.insert(Qt::Saturday, 0);
+    map.insert(Qt::Sunday, 0);
+    auto commitCb = [&map](QSharedPointer<Git::Commit> commit) {
         auto time = commit->committer()->time();
 
-        auto count = mData.value(static_cast<Qt::DayOfWeek>(time.date().dayOfWeek()), 0);
-        mData[static_cast<Qt::DayOfWeek>(time.date().dayOfWeek())] = count + 1;
+        auto count = map.value(static_cast<Qt::DayOfWeek>(time.date().dayOfWeek()), 0);
+        map[static_cast<Qt::DayOfWeek>(time.date().dayOfWeek())] = count + 1;
     };
 
     mGit->forEachCommits(commitCb, "");
-    endResetModel();
+
+    for (auto d = map.constBegin(); d != map.constEnd(); ++d) {
+        addData({dayToString(d.key()), d.value()});
+        extendRange(d.value());
+    }
 }
 
 QString CommitsByDayWeek::name() const
@@ -39,63 +75,17 @@ QString CommitsByDayWeek::name() const
     return i18n("Commits by day of week");
 }
 
-int CommitsByDayWeek::rowCount(const QModelIndex &parent) const
+int CommitsByDayWeek::columnCount() const
 {
-    Q_UNUSED(parent)
-    return 7;
-}
-
-int CommitsByDayWeek::columnCount(const QModelIndex &parent) const
-{
-    Q_UNUSED(parent)
     return 2;
 }
 
-QVariant CommitsByDayWeek::headerData(int section, Qt::Orientation orientation, int role) const
+QStringList CommitsByDayWeek::headerData() const
 {
-    if (orientation != Qt::Horizontal || role != Qt::DisplayRole)
-        return {};
-
-    switch (section) {
-    case DayOfWeek:
-        return i18n("Day");
-    case Commits:
-        return i18n("Commits");
-    }
-    return {};
+    return {i18n("Day"), i18n("Commits")};
 }
 
-QVariant CommitsByDayWeek::data(const QModelIndex &index, int role) const
+bool CommitsByDayWeek::supportChart() const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= mData.size())
-        return {};
-
-    switch (index.column()) {
-    case DayOfWeek: {
-        auto dayOfWeek = static_cast<Qt::DayOfWeek>(index.row() + 1);
-
-        // TODO: convert to QCalendar::weekDayName
-        switch (dayOfWeek) {
-        case Qt::Monday:
-            return "Monday";
-        case Qt::Tuesday:
-            return "Tuesday";
-        case Qt::Wednesday:
-            return "Wednesday";
-        case Qt::Thursday:
-            return "Thursday";
-        case Qt::Friday:
-            return "Friday";
-        case Qt::Saturday:
-            return "Saturday";
-        case Qt::Sunday:
-            return "Sunday";
-        }
-        break;
-    }
-    case Commits:
-        return mData[static_cast<Qt::DayOfWeek>(index.row())];
-    }
-
-    return {};
+    return true;
 }

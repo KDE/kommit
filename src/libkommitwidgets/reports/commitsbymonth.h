@@ -9,12 +9,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractreport.h"
 #include "libkommit_export.h"
 
-class LIBKOMMIT_EXPORT CommitsByDayWeek : public AbstractReport
+class LIBKOMMIT_EXPORT CommitsByMonth : public AbstractReport
 {
     Q_OBJECT
-
 public:
-    CommitsByDayWeek(Git::Manager *git, QObject *parent = nullptr);
+    CommitsByMonth(Git::Manager *git, QObject *parent = nullptr);
 
     void reload() override;
     QString name() const override;
@@ -23,11 +22,4 @@ public:
     QStringList headerData() const override;
 
     bool supportChart() const override;
-
-private:
-    enum CommitsByDayWeekRoles {
-        DayOfWeek,
-        Commits,
-        LastColumn,
-    };
 };

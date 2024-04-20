@@ -62,6 +62,8 @@ target_sources(libkommitwidgets PRIVATE
     reports/commitsbydayweek.h
     reports/commitsbydayhour.cpp
     reports/commitsbydayhour.h
+    reports/commitsbymonth.cpp
+    reports/commitsbymonth.h
 
     windows/appmainwindow.cpp
     windows/mergewindow.h
@@ -173,6 +175,10 @@ target_link_libraries(libkommitwidgets
     KF${KF_MAJOR_VERSION}::Parts
 
 )
+
+if(TARGET Qt::Charts)
+    target_link_libraries(libkommitwidgets Qt::Charts)
+endif()
 
 install(TARGETS libkommitwidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 

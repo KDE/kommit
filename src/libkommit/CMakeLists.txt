@@ -17,7 +17,7 @@ set(SOURCES
     models/branchesmodel.cpp
     models/stashesmodel.cpp
     models/tagsmodel.cpp
-    models/authorsmodel.cpp
+
 
     commands/abstractcommand.cpp
     commands/commandchangedfiles.cpp
@@ -73,7 +73,7 @@ set(HEADERS
     models/branchesmodel.h
     models/stashesmodel.h
     models/tagsmodel.h
-    models/authorsmodel.h
+
 
     commands/abstractcommand.h
     commands/commandchangedfiles.h

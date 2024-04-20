@@ -16,14 +16,14 @@ namespace Git
 
 class Commit;
 class Manager;
-class AuthorsModel;
+
 class LIBKOMMIT_EXPORT LogsModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 
 public:
     enum class LogMatchType { ExactMatch, BeginMatch };
-    explicit LogsModel(Manager *git, AuthorsModel *authorsModel = nullptr, QObject *parent = nullptr);
+    explicit LogsModel(Manager *git, QObject *parent = nullptr);
     ~LogsModel() override;
 
     int rowCount(const QModelIndex &parent) const override;
@@ -58,7 +58,6 @@ private:
     QStringList mBranches;
     QMap<QString, Commit *> mDataByCommitHashLong;
     QMap<QString, Commit *> mDataByCommitHashShort;
-    AuthorsModel *mAuthorsModel;
     QCalendar mCalendar;
     QSet<QString> mSeenHases;
 };

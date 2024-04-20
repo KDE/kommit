@@ -65,6 +65,8 @@ find_package(
         Gui
         Widgets
         Concurrent
+        OPTIONAL_COMPONENTS
+            Charts
 )
 
 find_package(

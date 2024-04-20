@@ -27,21 +27,12 @@ public:
     void reload() override;
     QString name() const override;
 
-    int rowCount(const QModelIndex &parent) const override;
-    int columnCount(const QModelIndex &parent) const override;
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
+    int columnCount() const override;
+    QStringList headerData() const override;
+
+    bool supportChart() const override;
 
 private:
-    enum AuthorsReportRoles {
-        Name,
-        Email,
-        Commits,
-        Autheds,
-        Tags,
-        LastColumn,
-    };
-
     struct DatesRange {
         int count = 0;
         QDateTime first;
@@ -66,6 +57,6 @@ private:
         Tag,
     };
 
-    void findOrCreate(QSharedPointer<Git::Signature> signature, AuthorCreateReason reason);
+    Author *findOrCreate(QSharedPointer<Git::Signature> signature, AuthorCreateReason reason);
     QList<Author *> mData;
 };

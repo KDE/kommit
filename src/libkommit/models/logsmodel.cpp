@@ -5,7 +5,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "logsmodel.h"
-#include "authorsmodel.h"
 #include "entities/commit.h"
 #include "gitmanager.h"
 #include "qdebug.h"
@@ -210,9 +209,8 @@ struct LanesFactory {
 
 } // namespace Impl
 
-LogsModel::LogsModel(Manager *git, AuthorsModel *authorsModel, QObject *parent)
+LogsModel::LogsModel(Manager *git, QObject *parent)
     : AbstractGitItemsModel(git, parent)
-    , mAuthorsModel(authorsModel)
 {
 }
 
@@ -417,67 +415,9 @@ void LogsModel::fill()
         mData.append(d);
         mDataByCommitHashLong.insert(d->commitHash(), d);
         mDataByCommitHashShort.insert(d->commitShortHash(), d);
-
-        if (mAuthorsModel) {
-            mAuthorsModel->findOrCreate(d->committer(), AuthorsModel::Commit);
-            mAuthorsModel->findOrCreate(d->author(), AuthorsModel::AuthoredCommit);
-        }
-
-        //        git_commit_free(commit);
     }
 
     git_revwalk_free(walker);
-
-    //    std::sort(mData.begin(), mData.end(), [](Commit *commit1, Commit *commit2) {
-    //        if (commit1->commitTime() == commit2->commitTime())
-    //            return commit1->committer()->time() > commit2->committer()->time();
-    //        return commit1->commitTime() > commit2->commitTime();
-    //    });
-
-    /* auto commitsCallback = [this](Commit*d){
-         mData.append(d);
-         mDataByCommitHashLong.insert(d->commitHash(), d);
-         mDataByCommitHashShort.insert(d->commitShortHash(), d);
-
-         if (mAuthorsModel) {
-             mAuthorsModel->findOrCreate(d->committer(), AuthorsModel::Commit);
-             mAuthorsModel->findOrCreate(d->author(), AuthorsModel::AuthoredCommit);
-         }
-     };
-
-     mGit->forEachCommits(commitsCallback, mBranch);*/
-
-    /*git_odb *odb;
-    git_repository_odb(&odb, mGit->mRepo);
-    auto cb_odb = [](const git_oid *id, void *payload) -> int {
-        auto w = reinterpret_cast<LogsModel *>(payload);
-
-        git_commit *commit;
-        if (git_commit_lookup(&commit, w->mGit->mRepo, id))
-            return 0;
-
-        auto commitHash = git_oid_tostr_s(id);
-
-        if (w->mSeenHases.contains(commitHash))
-            return 0;
-
-        auto d = new Commit{commit};
-
-        w->mData.append(d);
-        w->mDataByCommitHashLong.insert(d->commitHash(), d);
-        w->mDataByCommitHashShort.insert(d->commitShortHash(), d);
-
-        if (w->mAuthorsModel) {
-            w->mAuthorsModel->findOrCreate(d->committer()->name(), d->committer()->email(), d->committer()->time(), AuthorsModel::Commit);
-            w->mAuthorsModel->findOrCreate(d->author()->name(), d->author()->email(), d->author()->time(), AuthorsModel::AuthoredCommit);
-        }
-
-        w->mSeenHases.insert(commitHash);
-        return 0;
-    };
-
-    git_odb_foreach(odb, cb_odb, this);
-    git_odb_free(odb);*/
 
     struct wrapper {
         QList<Commit *> mData;

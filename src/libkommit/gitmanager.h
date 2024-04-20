@@ -29,7 +29,6 @@ class BranchesModel;
 class LogsModel;
 class StashesModel;
 class TagsModel;
-class AuthorsModel;
 class Tag;
 class Manager;
 class Submodule;
@@ -232,7 +231,6 @@ public:
     Q_REQUIRED_RESULT RemotesModel *remotesModel() const;
     Q_REQUIRED_RESULT SubmodulesModel *submodulesModel() const;
     Q_REQUIRED_RESULT BranchesModel *branchesModel() const;
-    Q_REQUIRED_RESULT AuthorsModel *authorsModel() const;
     Q_REQUIRED_RESULT LogsModel *logsModel() const;
     Q_REQUIRED_RESULT StashesModel *stashesModel() const;
     Q_REQUIRED_RESULT TagsModel *tagsModel() const;
@@ -264,7 +262,6 @@ private:
     void checkError(int code);
 
     RemotesModel *const mRemotesModel;
-    AuthorsModel *const mAuthorsModel;
     SubmodulesModel *const mSubmodulesModel;
     BranchesModel *const mBranchesModel;
     LogsModel *const mLogsCache;
