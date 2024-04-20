@@ -49,6 +49,7 @@ int git_helper_transport_certificate_check_cb(git_cert *cert, int valid, const c
 }
 
 PushObserver::PushObserver(QObject *parent)
+    : QObject(parent)
 {
 }
 
