@@ -268,7 +268,7 @@ private:
     StashesModel *const mStashesCache;
     TagsModel *const mTagsModel;
 
-    git_repository *mRepo;
+    git_repository *mRepo = nullptr;
 
     int mErrorCode{};
     int mErrorClass{};
