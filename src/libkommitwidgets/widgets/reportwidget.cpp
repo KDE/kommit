@@ -90,7 +90,7 @@ void ReportWidget::fillChart()
     }
     axisX->append(names);
     axisX->setTitleText(mReport->axisXTitle());
-    axisX->setLabelsAngle(90);
+    // axisX->setLabelsAngle(90);
 
     barSeries->clear();
     barSeries->append(barSet);
