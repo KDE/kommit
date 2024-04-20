@@ -89,3 +89,13 @@ bool CommitsByDayWeek::supportChart() const
 {
     return true;
 }
+
+QString CommitsByDayWeek::axisXTitle() const
+{
+    return i18n("Day of week");
+}
+
+QString CommitsByDayWeek::axisYTitle() const
+{
+    return i18n("Commits");
+}

@@ -68,6 +68,16 @@ bool AuthorsReport::supportChart() const
     return true;
 }
 
+QString AuthorsReport::axisXTitle() const
+{
+    return i18n("Author");
+}
+
+QString AuthorsReport::axisYTitle() const
+{
+    return i18n("Commits");
+}
+
 AuthorsReport::Author *AuthorsReport::findOrCreate(QSharedPointer<Git::Signature> signature, AuthorCreateReason reason)
 {
     auto authorIterator = std::find_if(mData.begin(), mData.end(), [&signature](Author *a) {

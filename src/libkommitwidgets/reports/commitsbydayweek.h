@@ -23,6 +23,8 @@ public:
     QStringList headerData() const override;
 
     bool supportChart() const override;
+    QString axisXTitle() const override;
+    QString axisYTitle() const override;
 
 private:
     enum CommitsByDayWeekRoles {

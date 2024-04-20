@@ -74,3 +74,13 @@ bool CommitsByMonth::supportChart() const
 {
     return true;
 }
+
+QString CommitsByMonth::axisXTitle() const
+{
+    return i18n("Month-year");
+}
+
+QString CommitsByMonth::axisYTitle() const
+{
+    return i18n("Commits");
+}

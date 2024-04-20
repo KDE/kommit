@@ -60,3 +60,13 @@ bool CommitsByDayHour::supportChart() const
 {
     return true;
 }
+
+QString CommitsByDayHour::axisXTitle() const
+{
+    return i18n("Hour of day");
+}
+
+QString CommitsByDayHour::axisYTitle() const
+{
+    return i18n("Commits");
+}

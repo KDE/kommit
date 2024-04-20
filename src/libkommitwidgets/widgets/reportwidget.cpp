@@ -40,7 +40,6 @@ void ReportWidget::initChart()
 
     chart->addSeries(barSeries);
     axisX = new QBarCategoryAxis();
-    axisX->setTitleText("Hour");
     axisX->append(mReport->headerData());
     chart->addAxis(axisX, Qt::AlignBottom);
     barSeries->attachAxis(axisX);
@@ -90,12 +89,15 @@ void ReportWidget::fillChart()
         names << mReport->at(row, mReport->categoryColumn()).toString();
     }
     axisX->append(names);
+    axisX->setTitleText(mReport->axisXTitle());
+    axisX->setLabelsAngle(90);
 
     barSeries->clear();
     barSeries->append(barSet);
 
     axis->setMin(mReport->minValue());
     axis->setMax(mReport->maxValue());
+    axis->setTitleText(mReport->axisYTitle());
 }
 
 int ReportWidget::showMode() const
