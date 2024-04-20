@@ -31,10 +31,10 @@ public:
     void showModal();
     void accept();
     void reject();
-    void setVisible(bool visible);
+    void setVisible(bool visible) override;
 
 protected:
-    void keyPressEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event) override;
 
 private:
     QEventLoop *mLoop{nullptr};
