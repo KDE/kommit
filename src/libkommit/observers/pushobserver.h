@@ -20,7 +20,7 @@ class PushObserver : public QObject
 {
     Q_OBJECT
 public:
-    PushObserver(QObject *parent = nullptr);
+    explicit PushObserver(QObject *parent = nullptr);
 
     Q_REQUIRED_RESULT unsigned int packProgressValue() const;
     void setPackProgressValue(unsigned int packProgressValue);

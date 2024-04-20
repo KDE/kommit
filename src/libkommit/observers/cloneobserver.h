@@ -30,7 +30,7 @@ void git_helper_checkout_perfdata_cb(const git_checkout_perfdata *perfdata, void
 class LIBKOMMIT_EXPORT CloneObserver : public FetchObserver
 {
 public:
-    CloneObserver(QObject *parent = nullptr);
+    explicit CloneObserver(QObject *parent = nullptr);
 
     void init(git_checkout_options *opts);
 };

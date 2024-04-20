@@ -13,7 +13,7 @@ class RepositoryData : public QObject
     Q_OBJECT
 
 public:
-    RepositoryData(QObject *parent = nullptr);
+    explicit RepositoryData(QObject *parent = nullptr);
 
     void loadAll();
 

@@ -15,7 +15,7 @@ class GravatarCache : public QObject
     Q_OBJECT
 
 public:
-    GravatarCache(QObject *parent = nullptr);
+    explicit GravatarCache(QObject *parent = nullptr);
     QString avatarPath(const QString &email);
 
 private:

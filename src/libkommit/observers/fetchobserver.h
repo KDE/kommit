@@ -70,7 +70,7 @@ class LIBKOMMIT_EXPORT FetchObserver : public QObject
     Q_PROPERTY(unsigned int indexedDeltas READ indexedDeltas WRITE setIndexedDeltas NOTIFY indexedDeltasChanged FINAL)
 
 public:
-    FetchObserver(QObject *parent = nullptr);
+    explicit FetchObserver(QObject *parent = nullptr);
 
     Q_REQUIRED_RESULT unsigned int totalObjects() const;
     void setTotalObjects(unsigned int totalObjects);
