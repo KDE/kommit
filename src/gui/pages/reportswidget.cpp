@@ -24,19 +24,19 @@ ReportsWidget::ReportsWidget(Git::Manager *git, AppWindow *parent)
     addReport(new CommitsByMonth{git, this});
 
     connect(git, &Git::Manager::reloadRequired, this, &ReportsWidget::reloadReports);
-    connect(pushButtonRefresh, &QPushButton::clicked, this, &ReportsWidget::reloadReports);
+    connect(toolButtonRefresh, &QToolButton::clicked, this, &ReportsWidget::reloadReports);
     connect(listWidget, &QListWidget::currentRowChanged, stackedWidget, &QStackedWidget::setCurrentIndex);
 
     stackedWidget->setCurrentIndex(0);
 
-    connect(pushButtonTable, &QPushButton::clicked, this, &ReportsWidget::mSlotPushButtonTableClicked);
-    connect(pushButtonChart, &QPushButton::clicked, this, &ReportsWidget::mSlotPushButtonChartClicked);
+    connect(toolButtonTable, &QToolButton::clicked, this, &ReportsWidget::mSlotToolButtonTableClicked);
+    connect(toolButtonChart, &QToolButton::clicked, this, &ReportsWidget::mSlotToolButtonChartClicked);
 
-    mSlotPushButtonTableClicked();
+    mSlotToolButtonTableClicked();
 
 #ifndef QT_CHARTS_LIB
-    pushButtonTable->hide();
-    pushButtonChart->hide();
+    ToolButtonTable->hide();
+    ToolButtonChart->hide();
 #endif
 }
 
@@ -56,18 +56,18 @@ void ReportsWidget::reloadReports()
         report->reload();
 }
 
-void ReportsWidget::mSlotPushButtonTableClicked()
+void ReportsWidget::mSlotToolButtonTableClicked()
 {
-    pushButtonTable->setChecked(true);
-    pushButtonChart->setChecked(false);
+    toolButtonTable->setChecked(true);
+    toolButtonChart->setChecked(false);
     for (auto &reportWidget : mReportWidgets)
         reportWidget->setShowMode(ReportWidget::Table);
 }
 
-void ReportsWidget::mSlotPushButtonChartClicked()
+void ReportsWidget::mSlotToolButtonChartClicked()
 {
-    pushButtonTable->setChecked(false);
-    pushButtonChart->setChecked(true);
+    toolButtonTable->setChecked(false);
+    toolButtonChart->setChecked(true);
     for (auto &reportWidget : mReportWidgets)
         reportWidget->setShowMode(ReportWidget::Chart);
 }

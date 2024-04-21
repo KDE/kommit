@@ -385,7 +385,6 @@ void AppWindow::addPage(const QString &actionName)
     auto action = actionCollection()->addAction(actionName);
     auto w = new T(mGit, this);
     action->setText(w->windowTitle());
-    action->setIcon(QIcon::fromTheme(actionName));
     if (mMainWidget->count() < 10)
         actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL + keys[mMainWidget->count()]));
 

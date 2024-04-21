@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Reports</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../../../../../home/hamed/Downloads/9040378_graph_up_icon.png</normaloff>../../../../../../../home/hamed/Downloads/9040378_graph_up_icon.png</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QSplitter" name="splitter">
@@ -24,9 +28,13 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QPushButton" name="pushButtonTable">
+          <widget class="QToolButton" name="toolButtonTable">
            <property name="text">
             <string>Table</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>../../../../../../../home/hamed/Downloads/8675522_ic_fluent_table_regular_icon.png</normaloff>../../../../../../../home/hamed/Downloads/8675522_ic_fluent_table_regular_icon.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -34,9 +42,13 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButtonChart">
+          <widget class="QToolButton" name="toolButtonChart">
            <property name="text">
             <string>Chart</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>../../../../../../../home/hamed/Downloads/1564531_chart_business_graph_statistics_icon.png</normaloff>../../../../../../../home/hamed/Downloads/1564531_chart_business_graph_statistics_icon.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -57,9 +69,13 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButtonRefresh">
+          <widget class="QToolButton" name="toolButtonRefresh">
            <property name="text">
             <string>Refresh</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>../../../../../../../home/hamed/Downloads/134221_refresh_reload_repeat_update_arrow_icon.png</normaloff>../../../../../../../home/hamed/Downloads/134221_refresh_reload_repeat_update_arrow_icon.png</iconset>
            </property>
           </widget>
          </item>
