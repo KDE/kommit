@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>bar-chart.png</file>
+        <file>chart.png</file>
+        <file>refresh.png</file>
+        <file>table.png</file>
+    </qresource>
+</RCC>

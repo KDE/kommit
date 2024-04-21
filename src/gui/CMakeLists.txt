@@ -5,10 +5,6 @@ add_library(libkommitgui SHARED
     pages/reportswidget.h pages/reportswidget.cpp pages/reportswidget.ui)
 generate_export_header(libkommitgui BASE_NAME libkommitgui)
 target_sources(libkommitgui PRIVATE
-
-
-
-
     core/listview.cpp
     core/listview.h
     core/pushbutton.cpp
@@ -58,8 +54,8 @@ target_sources(libkommitgui PRIVATE
     appconfig.h
     settings/settingsmanager.h
     kommit.qrc
+    icons/icons.qrc
 )
-
 
 set_target_properties(libkommitgui
     PROPERTIES OUTPUT_NAME kommitgui VERSION ${LIBKOMMIT_LIB_VERSION} SOVERSION ${LIBKOMMIT_LIB_SOVERSION}

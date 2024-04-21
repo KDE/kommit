@@ -14,8 +14,8 @@
    <string>Reports</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../../../../../../../home/hamed/Downloads/9040378_graph_up_icon.png</normaloff>../../../../../../../home/hamed/Downloads/9040378_graph_up_icon.png</iconset>
+   <iconset resource="../icons/icons.qrc">
+    <normaloff>:/icons/bar-chart.png</normaloff>:/icons/bar-chart.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -36,8 +36,8 @@
             <string>Table</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../../../../../../../home/hamed/Downloads/8675522_ic_fluent_table_regular_icon.png</normaloff>../../../../../../../home/hamed/Downloads/8675522_ic_fluent_table_regular_icon.png</iconset>
+            <iconset resource="../icons/icons.qrc">
+             <normaloff>:/icons/table.png</normaloff>:/icons/table.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -53,8 +53,8 @@
             <string>Chart</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../../../../../../../home/hamed/Downloads/1564531_chart_business_graph_statistics_icon.png</normaloff>../../../../../../../home/hamed/Downloads/1564531_chart_business_graph_statistics_icon.png</iconset>
+            <iconset resource="../icons/icons.qrc">
+             <normaloff>:/icons/chart.png</normaloff>:/icons/chart.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -83,8 +83,8 @@
             <string>Refresh</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../../../../../../../home/hamed/Downloads/134221_refresh_reload_repeat_update_arrow_icon.png</normaloff>../../../../../../../home/hamed/Downloads/134221_refresh_reload_repeat_update_arrow_icon.png</iconset>
+            <iconset resource="../icons/icons.qrc">
+             <normaloff>:/icons/refresh.png</normaloff>:/icons/refresh.png</iconset>
            </property>
           </widget>
          </item>
@@ -100,6 +100,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../icons/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
