@@ -66,8 +66,12 @@ find_package(
         Gui
         Widgets
         Concurrent
-        OPTIONAL_COMPONENTS
-            Charts
+)
+
+find_package(
+    Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION}
+    QUIET CONFIG OPTIONAL_COMPONENTS
+        Charts
 )
 
 find_package(

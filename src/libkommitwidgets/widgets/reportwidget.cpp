@@ -33,7 +33,7 @@ void ReportWidget::initChart()
 #ifdef QT_CHARTS_LIB
     if (!mReport->supportChart())
         return;
-    using namespace QtCharts;
+    QT_CHARTS_USE_NAMESPACE
 
     auto chart = new QChart;
     barSeries = new QBarSeries;
@@ -79,7 +79,7 @@ void ReportWidget::fillTableWidget()
 void ReportWidget::fillChart()
 {
 #ifdef QT_CHARTS_LIB
-    using namespace QtCharts;
+    QT_CHARTS_USE_NAMESPACE
 
     auto barSet = new QBarSet(mReport->name());
     axisX->clear();
