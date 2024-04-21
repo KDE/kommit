@@ -29,6 +29,9 @@
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QToolButton" name="toolButtonTable">
+           <property name="toolTip">
+            <string>Table view</string>
+           </property>
            <property name="text">
             <string>Table</string>
            </property>
@@ -43,6 +46,9 @@
          </item>
          <item>
           <widget class="QToolButton" name="toolButtonChart">
+           <property name="toolTip">
+            <string>Chart view</string>
+           </property>
            <property name="text">
             <string>Chart</string>
            </property>
@@ -70,6 +76,9 @@
          </item>
          <item>
           <widget class="QToolButton" name="toolButtonRefresh">
+           <property name="toolTip">
+            <string>Refresh data</string>
+           </property>
            <property name="text">
             <string>Refresh</string>
            </property>
