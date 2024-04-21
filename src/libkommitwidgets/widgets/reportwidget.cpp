@@ -67,6 +67,7 @@ void ReportWidget::fillTableWidget()
     tableWidget->clear();
     tableWidget->setRowCount(mReport->rowCount());
     tableWidget->setColumnCount(mReport->columnCount());
+    tableWidget->setHorizontalHeaderLabels(mReport->headerData());
 
     for (int row = 0; row < mReport->rowCount(); ++row) {
         for (auto col = 0; col < mReport->columnCount(); ++col) {
