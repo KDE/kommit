@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 01:44+0000\n"
-"PO-Revision-Date: 2024-04-06 08:48+0200\n"
+"PO-Revision-Date: 2024-04-21 07:34+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -159,10 +159,9 @@ msgid "Git client gui for KDE"
 msgstr "Grafični uporabniški vmesnik odjemalca Git za KDE"
 
 #: src/apps/main.cpp:38
-#, fuzzy, kde-format
-#| msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+#, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:266
 #, kde-format
