@@ -78,6 +78,11 @@ QString AuthorsReport::axisYTitle() const
     return i18n("Commits");
 }
 
+int AuthorsReport::labelsAngle() const
+{
+    return 90;
+}
+
 AuthorsReport::Author *AuthorsReport::findOrCreate(QSharedPointer<Git::Signature> signature, AuthorCreateReason reason)
 {
     auto authorIterator = std::find_if(mData.begin(), mData.end(), [&signature](Author *a) {

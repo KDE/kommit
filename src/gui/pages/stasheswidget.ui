@@ -14,7 +14,8 @@
    <string>Stashes</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="git-stash"/>
+   <iconset resource="../icons/icons.qrc">
+    <normaloff>:/icons/snow-flake.png</normaloff>:/icons/snow-flake.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -85,6 +86,8 @@
    <header location="global">core/treeview.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../icons/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

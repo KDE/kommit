@@ -35,8 +35,8 @@ ReportsWidget::ReportsWidget(Git::Manager *git, AppWindow *parent)
     mSlotToolButtonTableClicked();
 
 #ifndef QT_CHARTS_LIB
-    ToolButtonTable->hide();
-    ToolButtonChart->hide();
+    toolButtonTable->hide();
+    toolButtonChart->hide();
 #endif
 }
 

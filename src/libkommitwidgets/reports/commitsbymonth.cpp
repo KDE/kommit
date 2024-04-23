@@ -84,3 +84,8 @@ QString CommitsByMonth::axisYTitle() const
 {
     return i18n("Commits");
 }
+
+int CommitsByMonth::labelsAngle() const
+{
+    return 90;
+}

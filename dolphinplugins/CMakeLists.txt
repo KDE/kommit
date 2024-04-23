@@ -3,8 +3,14 @@ find_package(KF${KF_MAJOR_VERSION} ${KF${KF_MAJOR_VERSION}_MIN_VERSION} REQUIRED
 set(GIT_EXTRA_SOURCE
 )
 
-ecm_qt_declare_logging_category(GIT_EXTRA_SOURCE HEADER kommit_dolphinplugins_debug.h
-    IDENTIFIER KOMMIT_DOLPHIN_PLUGINS_LOG CATEGORY_NAME org.kde.kommit.dolphinplugins DESCRIPTION "kommit dolphin plugins" EXPORT kommit)
+ecm_qt_declare_logging_category(
+    GIT_EXTRA_SOURCE
+    HEADER kommit_dolphinplugins_debug.h
+    IDENTIFIER KOMMIT_DOLPHIN_PLUGINS_LOG
+    CATEGORY_NAME org.kde.kommit.dolphinplugins
+    DESCRIPTION "kommit dolphin plugins"
+    EXPORT kommit
+)
 
 #--- VCS Plugin ---
 add_definitions(-DTRANSLATION_DOMAIN=\"fileviewgitplugin\")

@@ -34,6 +34,8 @@ public:
     QString axisXTitle() const override;
     QString axisYTitle() const override;
 
+    int labelsAngle() const override;
+
 private:
     struct DatesRange {
         int count = 0;

@@ -26,6 +26,8 @@ public:
     QString axisXTitle() const override;
     QString axisYTitle() const override;
 
+    int labelsAngle() const override;
+
 private:
     enum CommitsByDayWeekRoles {
         DayOfWeek,

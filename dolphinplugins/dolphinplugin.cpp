@@ -46,8 +46,8 @@ DolphinPlugin::DolphinPlugin(QObject *parent, const QList<QVariant> &args)
 
     auto gitMenu = new QMenu;
     gitMenu->addAction(actionOpen);
-    gitMenu->addAction(actionPull);
-    gitMenu->addAction(actionPush);
+    // gitMenu->addAction(actionPull);
+    // gitMenu->addAction(actionPush);
     gitMenu->addAction(actionFetch);
     gitMenu->addAction(actionCreateTag);
     gitMenu->addSeparator();
@@ -92,7 +92,17 @@ QString DolphinPlugin::fileName() const
 
 bool DolphinPlugin::beginRetrieval(const QString &directory)
 {
-    return mCache->setPath(directory);
+    auto isGit = mCache->setPath(directory);
+
+    if (!isGit)
+        return false;
+
+    if (mCache->submoduleName().isEmpty())
+        actionPush->setText(i18n("Push/Commit to %0").arg(mCache->currentBranch()));
+    else
+        actionPush->setText(i18n("Push/Commit to submodule %0").arg(mCache->submoduleName()));
+
+    return true;
 }
 
 void DolphinPlugin::endRetrieval()
@@ -110,7 +120,8 @@ KVersionControlPlugin::ItemVersion DolphinPlugin::itemVersion(const KFileItem &i
 QList<QAction *> DolphinPlugin::versionControlActions(const KFileItemList &items) const
 {
     const_cast<DolphinPlugin *>(this)->mPath = items[0].url().toLocalFile();
-    return QList<QAction *>() << mMainActionGit;
+
+    return QList<QAction *>() << actionPush << actionPull << mMainActionGit;
 }
 
 QList<QAction *> DolphinPlugin::outOfVersionControlActions(const KFileItemList &items) const

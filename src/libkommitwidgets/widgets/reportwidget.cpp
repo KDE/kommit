@@ -57,6 +57,7 @@ void ReportWidget::initChart()
     chartView->show();
     chart->setTitle(mReport->name());
 
+    chart->legend()->hide();
 #else
     stackedWidget->setCurrentIndex(0);
 #endif
@@ -82,7 +83,7 @@ void ReportWidget::fillChart()
 #ifdef QT_CHARTS_LIB
     QT_CHARTS_USE_NAMESPACE
 
-    auto barSet = new QBarSet(mReport->name());
+    auto barSet = new QBarSet{mReport->name(), this};
     axisX->clear();
 
     QStringList names;
@@ -91,8 +92,7 @@ void ReportWidget::fillChart()
         names << mReport->at(row, mReport->categoryColumn()).toString();
     }
     axisX->append(names);
-    axisX->setTitleText(mReport->axisXTitle());
-    // axisX->setLabelsAngle(90);
+    axisX->setLabelsAngle(mReport->labelsAngle());
 
     barSeries->clear();
     barSeries->append(barSet);

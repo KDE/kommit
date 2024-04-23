@@ -7,7 +7,21 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "statuscache.h"
 #include "qdebug.h"
 
+#include <QDir>
 #include <git2.h>
+
+#define BEGIN int err = 0;
+#define STEP err = err ? err:
+#define PRINT_ERROR                                                                                                                                            \
+    do {                                                                                                                                                       \
+        if (err) {                                                                                                                                             \
+            const git_error *lg2err;                                                                                                                           \
+            if ((lg2err = git_error_last()) != NULL && lg2err->message != NULL) {                                                                              \
+                auto msg = QString{lg2err->message};                                                                                                           \
+                qDebug() << "Error" << Q_FUNC_INFO << err << ":" << msg;                                                                                       \
+            }                                                                                                                                                  \
+        }                                                                                                                                                      \
+    } while (false)
 
 namespace Impl
 {
@@ -71,7 +85,6 @@ auto callback(const char *pa, unsigned int status_flags, void *payload) -> int
         childPath = path.mid(w->prefix.length() + entryName.length());
     }
 
-    qDebug() << path << entryName << childPath;
     if (childPath.isEmpty()) {
         w->files.insert(removeSlashAtEnd(entryName), status);
     } else {
@@ -91,6 +104,66 @@ auto callback(const char *pa, unsigned int status_flags, void *payload) -> int
     }
     return 0;
 };
+
+QString findParentContansGit(const QString &dir)
+{
+    auto path = removeSlashAtEnd(dir);
+
+    QDir d;
+    while (path.contains("/")) {
+        if (d.exists(path + "/.git/"))
+            return path;
+
+        path = path.mid(0, path.lastIndexOf("/"));
+    }
+
+    return {};
+}
+
+QStringList submodules(git_repository *repo)
+{
+    if (!repo)
+        return {};
+
+    struct Data {
+        QStringList list;
+        git_repository *repo;
+    };
+
+    auto cb = [](git_submodule *sm, const char *name, void *payload) -> int {
+        Q_UNUSED(sm);
+        auto data = reinterpret_cast<Data *>(payload);
+        data->list << name;
+
+        return 0;
+    };
+
+    Data data;
+    data.repo = repo;
+    git_submodule_foreach(repo, cb, &data);
+
+    return data.list;
+}
+
+QString submodulePath(const QString &rootPath, const QString &childPath)
+{
+    qDebug() << Q_FUNC_INFO << rootPath << childPath;
+    git_repository *repo;
+    auto n = git_repository_open_ext(&repo, rootPath.toUtf8().data(), GIT_REPOSITORY_OPEN_NO_SEARCH, NULL);
+
+    if (n) {
+        git_repository_free(repo);
+        return {};
+    }
+
+    auto submodulesList = submodules(repo);
+    for (auto const &submodule : submodulesList) {
+        qDebug() << "FFFFF" << submodule << rootPath << childPath;
+        if (rootPath + "/" + submodule + "/" == childPath)
+            return submodule;
+    }
+    return {};
+}
 }
 
 StatusCache::StatusCache() = default;
@@ -110,19 +183,23 @@ bool StatusCache::setPath(const QString &path)
 
     mPath = path;
 
-    git_repository *repo{nullptr};
-    int n = git_repository_open_ext(&repo, path.toUtf8().data(), 0, NULL);
+    int n = git_repository_open_ext(&mRepo, path.toUtf8().data(), 0, NULL);
 
     if (n) {
-        git_repository_free(repo);
+        git_repository_free(mRepo);
+        mRepo = nullptr;
         return false;
     }
 
-    mRepoRootPath = git_repository_workdir(repo);
+    auto rootPath = Impl::findParentContansGit(path);
+    mSubmoduleName = Impl::submodulePath(rootPath, path);
+    qDebug() << Q_FUNC_INFO << mSubmoduleName;
+
+    mRepoRootPath = git_repository_workdir(mRepo);
     if (path.startsWith(mRepoRootPath + ".git/")) {
         mCurrentPathIsIgnored = true;
 
-        git_repository_free(repo);
+        git_repository_free(mRepo);
         return true;
     }
 
@@ -146,11 +223,66 @@ bool StatusCache::setPath(const QString &path)
     //        opts.pathspec = array;
     //    }
 
-    git_status_foreach_ext(repo, &opts, Impl::callback, &w);
+    git_status_foreach_ext(mRepo, &opts, Impl::callback, &w);
     mStatuses = w.files;
     mCurrentPathIsIgnored = w.allIgnored;
 
-    git_repository_free(repo);
-
     return true;
+}
+
+QString StatusCache::currentBranch() const
+{
+    if (git_repository_head_detached(mRepo) == 1)
+        return {};
+
+    git_reference *ref;
+    BEGIN
+    STEP git_repository_head(&ref, mRepo);
+    if (err) {
+        PRINT_ERROR;
+        return {};
+    }
+
+    QString branchName{git_reference_shorthand(ref)};
+
+    git_reference_free(ref);
+
+    return branchName;
+}
+
+QStringList StatusCache::submodules() const
+{
+    if (!mRepo)
+        return {};
+
+    struct Data {
+        QStringList list;
+        git_repository *repo;
+    };
+
+    auto cb = [](git_submodule *sm, const char *name, void *payload) -> int {
+        Q_UNUSED(sm);
+        qDebug() << "Submodule name" << name;
+        auto data = reinterpret_cast<Data *>(payload);
+        // data->list.append(git_submodule_path(sm));
+        data->list << name;
+
+        return 0;
+    };
+
+    Data data;
+    data.repo = mRepo;
+    git_submodule_foreach(mRepo, cb, &data);
+
+    return data.list;
+}
+
+QString StatusCache::repoRootPath() const
+{
+    return mRepoRootPath;
+}
+
+QString StatusCache::submoduleName() const
+{
+    return mSubmoduleName;
 }

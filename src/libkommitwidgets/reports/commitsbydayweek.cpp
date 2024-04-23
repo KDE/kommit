@@ -99,3 +99,8 @@ QString CommitsByDayWeek::axisYTitle() const
 {
     return i18n("Commits");
 }
+
+int CommitsByDayWeek::labelsAngle() const
+{
+    return 90;
+}

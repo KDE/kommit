@@ -78,6 +78,11 @@ int AbstractReport::valueColumn() const
     return mValueColumn;
 }
 
+int AbstractReport::labelsAngle() const
+{
+    return 0;
+}
+
 void AbstractReport::setValueColumn(int valueColumn)
 {
     mValueColumn = valueColumn;
