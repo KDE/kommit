@@ -619,6 +619,24 @@ Index *Manager::index() const
     return new Index{index};
 }
 
+QSharedPointer<Tree> Manager::headTree() const
+{
+    git_reference *ref;
+    git_tree *tree;
+
+    BEGIN
+    STEP git_repository_head(&ref, mRepo);
+    PRINT_ERROR;
+    RETURN_IF_ERR(nullptr);
+    auto r = Reference{ref};
+    auto oid = git_reference_target(ref);
+    STEP git_tree_lookup(&tree, mRepo, oid);
+    PRINT_ERROR;
+    RETURN_IF_ERR(nullptr);
+
+    return QSharedPointer<Tree>{new Tree{tree}};
+}
+
 TreeDiff Manager::diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTree)
 {
     git_diff *diff;
@@ -1641,8 +1659,8 @@ BlameData Manager::blame(const File &file)
     STEP git_blame_file(&blame, mRepo, file.fileName().toUtf8().data(), &options);
     END;
 
-    if (err)
-        return {};
+    PRINT_ERROR;
+    RETURN_IF_ERR({});
 
     BlameData b;
 

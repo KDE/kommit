@@ -83,9 +83,16 @@ void File::setPlace(const QString &newPlace)
 
 QString File::fileName() const
 {
-    if (mStorage == Entry) {
+    switch (mStorage) {
+    case Entry: {
         QString name = git_tree_entry_name(mEntry);
         return name;
+    }
+    case Git:
+        return mFilePath;
+    case Local:
+    case InValid:
+        break;
     }
     return mFilePath;
 }

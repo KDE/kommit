@@ -16,7 +16,7 @@ struct BlameDataRow {
     QString commitHash;
     QString code;
 
-    Commit *log = nullptr;
+    Commit *log = nullptr; // TODO: change to QSharedPointer
 };
 bool operator==(const BlameDataRow &l, const BlameDataRow &r);
 bool operator!=(const BlameDataRow &l, const BlameDataRow &r);

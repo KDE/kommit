@@ -30,6 +30,8 @@ public:
     enum BlockType { Unchanged, Added, Removed, Edited, HighLight, Odd, Even, Empty };
     struct BlockData {
         int lineNumber;
+        int lineCount;
+
         Diff::Segment *segment;
         BlockType type;
         QString extraText;
@@ -106,6 +108,8 @@ private:
     KSyntaxHighlighting::Repository mRepository;
     QMap<int, Diff::Segment *> mSegments;
     QMap<QTextBlock, BlockData *> mBlocksData;
+    QList<BlockData *> mBlocks;
+
     QPair<int, int> mCurrentSegment{-1, -1};
 
     QLabel *mTitleBar = nullptr;

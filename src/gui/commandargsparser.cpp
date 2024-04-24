@@ -30,6 +30,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <dialogs/filestreedialog.h>
 #include <entities/file.h>
+#include <entities/tree.h>
 #include <gitmanager.h>
 #include <windows/diffwindow.h>
 #include <windows/mergewindow.h>
@@ -405,8 +406,8 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
 
     git->setLoadFlags(Git::LoadLogs);
     git->open(fi.absolutePath());
-
-    const Git::File f(git, git->currentBranch(), file);
+    auto fileName = file.mid(git->path().size());
+    const Git::File f(git, git->currentBranch(), fileName);
     FileBlameDialog d(git, f);
     d.exec();
     return 0;

@@ -226,6 +226,7 @@ public:
     QSharedPointer<Submodule> submodule(const QString &name) const;
 
     Q_REQUIRED_RESULT Index *index() const;
+    Q_REQUIRED_RESULT QSharedPointer<Tree> headTree() const;
 
     // models
     Q_REQUIRED_RESULT RemotesModel *remotesModel() const;

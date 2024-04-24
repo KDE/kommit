@@ -22,6 +22,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QtMath>
 
+class BlockUserData : public QTextBlockUserData
+{
+public:
+    CodeEditor::BlockData *data;
+    QString extraText;
+};
+
 class LIBKOMMITWIDGETS_EXPORT SegmentData : public QTextBlockUserData
 {
 public:
@@ -430,18 +437,40 @@ int CodeEditor::append(const QString &code, CodeEditor::BlockType type, BlockDat
 {
     auto t = textCursor();
 
-    if (mSegments.size())
-        t.insertBlock();
+    // if (mSegments.size())
+    // t.insertBlock();
+
+    auto lines = code.split('\n');
+    auto d = new BlockUserData;
+    d->data = data;
+    d->extraText = data->extraText;
+    for (auto const &line : std::as_const(lines)) {
+        // t.insertBlock();
+        // t.block().setUserData(d);
+
+        mBlocksData.insert(t.block(), data);
+        auto f = mFormats.value(type);
+        t.setBlockFormat(f);
+        t.insertText(line + " \n");
+    }
+    /*
+    data->lineCount = code.split('\n').size();
+    mLastLineNumber += data->lineCount;
 
     QTextCursor c(t.block());
-    c.insertText(code);
+
+    if (code.endsWith('\n'))
+        c.insertText(code);
+    else
+        c.insertText(code + '\n');
 
     t.setBlockFormat(mFormats.value(type));
-    data->lineNumber = ++mLastLineNumber;
+    data->lineNumber = mLastLineNumber;
 
     mSegments.insert(t.block().blockNumber(), nullptr);
     mBlocksData.insert(t.block(), data);
-
+    mBlocks << data;
+*/
     return t.block().blockNumber();
 }
 
