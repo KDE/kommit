@@ -20,7 +20,6 @@ public:
 private:
     Git::Manager *const mManager{nullptr};
     Git::RemotesModel *const mRemotesModel{nullptr};
-    Git::AuthorsModel *const mAuthorsModel{nullptr};
     Git::SubmodulesModel *const mSubmodulesModel{nullptr};
     Git::BranchesModel *const mBranchesModel{nullptr};
     Git::LogsModel *const mLogsCache{nullptr};

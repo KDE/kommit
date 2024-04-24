@@ -14,7 +14,8 @@
    <string>Submodules</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="git-submodules"/>
+   <iconset resource="../icons/icons.qrc">
+    <normaloff>:/icons/submodule.svg</normaloff>:/icons/submodule.svg</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -67,6 +68,8 @@
    <header>core/pushbutton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../icons/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

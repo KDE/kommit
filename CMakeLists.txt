@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 project(kommit)
 
 set(PROJECT_VERSION_MAJOR 1)
-set(PROJECT_VERSION_MINOR 4)
+set(PROJECT_VERSION_MINOR 5)
 set(PROJECT_VERSION_PATCH 0)
 
 set (RELEASE_SERVICE_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
@@ -65,6 +65,12 @@ find_package(
         Gui
         Widgets
         Concurrent
+)
+
+find_package(
+    Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION}
+    QUIET CONFIG OPTIONAL_COMPONENTS
+        Charts
 )
 
 find_package(

@@ -5,12 +5,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "commit.h"
+#include "note.h"
 
 #include <QTimeZone>
 
 #include "tree.h"
 #include "types.h"
 #include <git2/commit.h>
+#include <git2/notes.h>
 #include <git2/revparse.h>
 #include <utility>
 
@@ -98,6 +100,14 @@ QSharedPointer<Tree> Commit::tree() const
 git_commit *Commit::gitCommit() const
 {
     return mGitCommit;
+}
+
+QSharedPointer<Note> Commit::note() const
+{
+    git_note *note;
+    if (git_note_commit_read(&note, git_commit_owner(mGitCommit), mGitCommit, 0))
+        return {};
+    return QSharedPointer<Note>{new Note{note}};
 }
 
 QDateTime Commit::commitTime() const

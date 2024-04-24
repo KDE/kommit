@@ -14,8 +14,8 @@
    <string>Remotes</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="git-remote">
-    <normaloff>.</normaloff>.</iconset>
+   <iconset resource="../icons/icons.qrc">
+    <normaloff>:/icons/remote.png</normaloff>:/icons/remote.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -199,6 +199,8 @@
    <header>core/listview.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../icons/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -5,7 +5,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tagsmodel.h"
-#include "authorsmodel.h"
 #include "entities/tag.h"
 #include "gitmanager.h"
 
@@ -85,8 +84,6 @@ void TagsModel::fill()
 
     mGit->forEachTags([this](QSharedPointer<Tag> tag) {
         mData.append(tag);
-        if (mGit->authorsModel())
-            mGit->authorsModel()->findOrCreate(tag->tagger()->name(), tag->tagger()->email(), QDateTime(), AuthorsModel::Tag);
     });
 }
 

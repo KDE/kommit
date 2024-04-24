@@ -23,6 +23,8 @@ namespace Git
 {
 
 class Tree;
+class Note;
+
 class LIBKOMMIT_EXPORT Commit : public ITree
 {
 public:
@@ -45,6 +47,7 @@ public:
     Q_REQUIRED_RESULT const QVector<GraphLane> &lanes() const;
     Q_REQUIRED_RESULT const QStringList &children() const;
     Q_REQUIRED_RESULT const QString &commitShortHash() const;
+    Q_REQUIRED_RESULT QDateTime commitTime() const;
 
     Q_REQUIRED_RESULT QSharedPointer<Reference> reference() const;
 
@@ -52,7 +55,7 @@ public:
 
     Q_REQUIRED_RESULT git_commit *gitCommit() const;
 
-    Q_REQUIRED_RESULT QDateTime commitTime() const;
+    Q_REQUIRED_RESULT QSharedPointer<Note> note() const;
 
 private:
     git_commit *mGitCommit{nullptr};

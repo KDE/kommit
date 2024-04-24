@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "repositorydata.h"
 
-#include <models/authorsmodel.h>
 #include <models/branchesmodel.h>
 #include <models/logsmodel.h>
 #include <models/remotesmodel.h>
@@ -20,10 +19,9 @@ RepositoryData::RepositoryData(QObject *parent)
     : QObject{parent}
     , mManager{new Git::Manager}
     , mRemotesModel{new Git::RemotesModel{mManager, this}}
-    , mAuthorsModel{new Git::AuthorsModel{mManager, this}}
     , mSubmodulesModel{new Git::SubmodulesModel{mManager, this}}
     , mBranchesModel{new Git::BranchesModel{mManager, this}}
-    , mLogsCache{new Git::LogsModel{mManager, mAuthorsModel, this}}
+    , mLogsCache{new Git::LogsModel{mManager, this}}
     , mStashesCache{new Git::StashesModel{mManager, this}}
     , mTagsModel{new Git::TagsModel{mManager, this}}
 {
@@ -32,7 +30,6 @@ RepositoryData::RepositoryData(QObject *parent)
 void RepositoryData::loadAll()
 {
     mRemotesModel->load();
-    mAuthorsModel->load();
     mSubmodulesModel->load();
     mBranchesModel->load();
     mLogsCache->load();

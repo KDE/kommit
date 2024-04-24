@@ -6,10 +6,10 @@
 #include "entities/branch.h"
 #include "entities/commit.h"
 #include "entities/index.h"
+#include "entities/note.h"
 #include "entities/submodule.h"
 #include "entities/tag.h"
 #include "entities/tree.h"
-#include "models/authorsmodel.h"
 #include "models/branchesmodel.h"
 #include "models/logsmodel.h"
 #include "models/remotesmodel.h"
@@ -127,6 +127,7 @@ bool Manager::open(const QString &newPath)
     }
 
     Q_EMIT pathChanged();
+    Q_EMIT reloadRequired();
 
     return !err;
 }
@@ -482,8 +483,11 @@ QList<FileStatus> Manager::diff(AbstractReference *from, AbstractReference *to) 
     return files2;
 }
 
-void Manager::forEachCommits(std::function<void(Commit *)> callback, const QString &branchName) const
+void Manager::forEachCommits(std::function<void(QSharedPointer<Commit>)> callback, const QString &branchName) const
 {
+    if (!mRepo)
+        return;
+
     git_revwalk *walker;
     git_commit *commit;
     git_oid oid;
@@ -511,7 +515,7 @@ void Manager::forEachCommits(std::function<void(Commit *)> callback, const QStri
         }
 
         auto c = new Commit{commit};
-        callback(c);
+        callback(QSharedPointer<Commit>{c});
     }
 
     git_revwalk_free(walker);
@@ -820,9 +824,7 @@ bool load(AbstractGitItemsModel *cache)
 void Manager::loadAsync()
 {
     QList<AbstractGitItemsModel *> models;
-    if (mAuthorsModel) {
-        mAuthorsModel->clear();
-    }
+
     if (mLoadFlags & LoadStashes)
         models << mStashesCache;
     if (mLoadFlags & LoadRemotes)
@@ -864,11 +866,6 @@ LogsModel *Manager::logsModel() const
 BranchesModel *Manager::branchesModel() const
 {
     return mBranchesModel;
-}
-
-AuthorsModel *Manager::authorsModel() const
-{
-    return mAuthorsModel;
 }
 
 SubmodulesModel *Manager::submodulesModel() const
@@ -913,6 +910,27 @@ void Manager::saveNote(const QString &branchName, const QString &note) const
     runGit({QStringLiteral("notes"), QStringLiteral("add"), branchName, QStringLiteral("-f"), QStringLiteral("--message=") + note});
 }
 
+QList<QSharedPointer<Note>> Manager::notes() const
+{
+    struct wrapper {
+        git_repository *repo;
+        QList<QSharedPointer<Note>> notes;
+    };
+    auto cb = [](const git_oid *blob_id, const git_oid *annotated_object_id, void *payload) -> int {
+        Q_UNUSED(blob_id);
+
+        auto w = reinterpret_cast<wrapper *>(payload);
+        git_note *note;
+        if (!git_note_read(&note, w->repo, NULL, annotated_object_id))
+            w->notes.append(QSharedPointer<Note>{new Note{note}});
+        return 0;
+    };
+    wrapper w;
+    w.repo = mRepo;
+    git_note_foreach(mRepo, NULL, cb, &w);
+    return w.notes;
+}
+
 void Manager::forEachRefs(std::function<void(QSharedPointer<Reference>)> callback) const
 {
     struct wrapper {
@@ -934,10 +952,9 @@ void Manager::forEachRefs(std::function<void(QSharedPointer<Reference>)> callbac
 Manager::Manager()
     : QObject()
     , mRemotesModel{new RemotesModel(this)}
-    , mAuthorsModel{new AuthorsModel(this)}
     , mSubmodulesModel{new SubmodulesModel(this)}
     , mBranchesModel{new BranchesModel(this)}
-    , mLogsCache{new LogsModel(this, mAuthorsModel)}
+    , mLogsCache{new LogsModel(this)}
     , mStashesCache{new StashesModel(this)}
     , mTagsModel{new TagsModel(this)}
 {
@@ -1724,9 +1741,10 @@ QMap<QString, ChangeStatus> Manager::changedFiles() const
     return w.files;
 }
 
-void Manager::commit(const QString &message) const
+void Manager::commit(const QString &message)
 {
     runGit({QStringLiteral("commit"), QStringLiteral("-m"), message});
+    Q_EMIT reloadRequired();
 }
 
 void Manager::push(PushObserver *observer) const
