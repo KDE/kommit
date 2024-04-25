@@ -11,9 +11,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/changedfilesmodel.h"
 
 #include <KLocalizedString>
-
+#include <KMessageBox>
 #include <KSharedConfig>
 #include <KWindowConfig>
+
+#include <QInputDialog>
 #include <QWindow>
 
 namespace
@@ -28,14 +30,12 @@ ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
     setupUi(this);
 
     connect(mActions, &ChangedFileActions::reloadNeeded, mModel, &ChangedFilesModel::reload);
-    buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Commit/Push"));
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &ChangedFilesDialog::slotPushCommit);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ChangedFilesDialog::reject);
-    connect(buttonBox, &QDialogButtonBox::clicked, this, &ChangedFilesDialog::slotButtonBoxClicked);
+
+    connect(pushButtonCommitPush, &QPushButton::clicked, this, &ChangedFilesDialog::slotPushCommit);
+    connect(pushButtonReload, &QPushButton::clicked, mModel, &ChangedFilesModel::reload);
+    connect(pushButtonStashChanges, &QPushButton::clicked, this, &ChangedFilesDialog::slotStash);
     connect(listView, &QListView::doubleClicked, this, &ChangedFilesDialog::slotItemDoubleClicked);
     connect(listView, &QListView::customContextMenuRequested, this, &ChangedFilesDialog::slotCustomContextMenuRequested);
-
-    buttonBox->button(QDialogButtonBox::RestoreDefaults)->setText(i18n("Reload"));
 
     listView->setModel(mModel);
     mModel->reload();
@@ -54,9 +54,18 @@ void ChangedFilesDialog::slotPushCommit()
     mModel->reload();
 }
 
-void ChangedFilesDialog::slotButtonBoxClicked(QAbstractButton *button)
+void ChangedFilesDialog::slotStash()
 {
-    if (button == buttonBox->button(QDialogButtonBox::RestoreDefaults)) {
+    if (mGit->changedFiles().empty()) {
+        KMessageBox::information(this, i18n("You don't have any changes!"), i18n("Stash"));
+        return;
+    }
+    bool ok;
+
+    const auto name = QInputDialog::getText(this, i18n("Create new stash"), i18n("Name of stash"), QLineEdit::Normal, QString(), &ok);
+
+    if (ok) {
+        mGit->createStash(name);
         mModel->reload();
     }
 }

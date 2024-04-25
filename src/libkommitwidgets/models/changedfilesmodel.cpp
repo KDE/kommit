@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitmanager.h"
 
+#include <QDebug>
 #include <QIcon>
 #include <QPainter>
 #include <QPixmap>
@@ -110,8 +111,12 @@ QVariant ChangedFilesModel::data(const QModelIndex &index, int role) const
     auto row = mData[index.row()];
 
     switch (role) {
-    case Qt::DecorationRole:
-        return mIcons.value(row.status);
+    case Qt::DecorationRole: {
+        auto icon = mIcons.value(row.status);
+        if (icon.isNull())
+            qDebug() << "No icon for" << (int)row.status << row.filePath;
+        return icon;
+    }
 
     case Qt::ForegroundRole:
         return row.submodule ? QVariant::fromValue(QColor{Qt::gray}) : QVariant{};

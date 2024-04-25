@@ -24,7 +24,8 @@ private:
     void slotItemDoubleClicked(const QModelIndex &index);
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotPushCommit();
-    void slotButtonBoxClicked(QAbstractButton *button);
+    void slotStash();
+
     void readConfig();
     void writeConfig();
 

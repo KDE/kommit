@@ -1649,7 +1649,7 @@ PointerList<Commit> Manager::commits(const QString &branchName) const
     return list;
 }
 
-BlameData Manager::blame(const File &file)
+BlameData Manager::blame(const File &file) // TODO: change parametere to QSharedPointer<File>
 {
     git_blame *blame;
     git_blame_options options;
@@ -1679,24 +1679,6 @@ BlameData Manager::blame(const File &file)
     }
     git_blame_free(blame);
 
-    //    const auto lines = readAllNonEmptyOutput({QStringLiteral("--no-pager"), QStringLiteral("blame"), QStringLiteral("-l"), file.fileName()});
-    //    b.reserve(lines.size());
-
-    //    for (const auto &line : lines) {
-    //        BlameDataRow row;
-    //        row.commitHash = line.mid(0, 40);
-
-    //        auto metaIndex = line.indexOf(QLatin1Char(')'));
-    //        row.code = line.mid(metaIndex + 1);
-
-    //        auto hash = row.commitHash;
-    //        if (hash.startsWith(QLatin1Char('^')))
-    //            hash = hash.remove(0, 1);
-    //        row.log = mLogsCache->findLogByHash(hash, LogsModel::LogMatchType::BeginMatch);
-
-    //        b.append(row);
-    //    }
-
     return b;
 }
 
@@ -1725,11 +1707,11 @@ QMap<QString, ChangeStatus> Manager::changedFiles() const
         auto status = ChangeStatus::Unknown;
         if (status_flags & GIT_STATUS_WT_NEW || status_flags & GIT_STATUS_INDEX_NEW)
             status = ChangeStatus::Added;
-        else if (status_flags & GIT_STATUS_WT_MODIFIED)
+        else if ((status_flags & GIT_STATUS_WT_MODIFIED) || (status_flags & GIT_STATUS_INDEX_MODIFIED))
             status = ChangeStatus::Modified;
-        else if (status_flags & GIT_STATUS_WT_DELETED)
+        else if ((status_flags & GIT_STATUS_WT_DELETED) || (status_flags & GIT_STATUS_INDEX_DELETED))
             status = ChangeStatus::Removed;
-        else if (status_flags & GIT_STATUS_WT_RENAMED)
+        else if ((status_flags & GIT_STATUS_WT_RENAMED) || (status_flags & GIT_STATUS_INDEX_RENAMED))
             status = ChangeStatus::Renamed;
         else if (status_flags & GIT_STATUS_IGNORED)
             status = ChangeStatus::Ignored;
