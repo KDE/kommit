@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 01:44+0000\n"
+"POT-Creation-Date: 2024-04-25 01:41+0000\n"
 "PO-Revision-Date: 2024-04-21 07:34+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -115,11 +115,10 @@ msgstr "Zgodovina"
 msgid "Blame"
 msgstr "Odgovornost (blame)"
 
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: dolphinplugins/actions.h:29 src/gui/mainwidget.ui:470
-#: src/gui/pages/remoteswidget.ui:56 src/gui/pages/tagswidget.ui:48
+#: dolphinplugins/actions.h:29 src/gui/pages/remoteswidget.ui:56
+#: src/gui/pages/tagswidget.ui:48
 #, kde-format
 msgid "Add"
 msgstr "Dodaj"
@@ -153,6 +152,16 @@ msgstr "Razlika vej"
 msgid "Kommit"
 msgstr "Kommit"
 
+#: dolphinplugins/dolphinplugin.cpp:101
+#, kde-format
+msgid "Push/Commit to %0"
+msgstr ""
+
+#: dolphinplugins/dolphinplugin.cpp:103
+#, kde-format
+msgid "Push/Commit to submodule %0"
+msgstr ""
+
 #: src/apps/main.cpp:36
 #, kde-format
 msgid "Git client gui for KDE"
@@ -163,7 +172,8 @@ msgstr "Grafični uporabniški vmesnik odjemalca Git za KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:266
+#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:264
+#: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
 msgid "Author"
 msgstr "Avtor"
@@ -279,12 +289,12 @@ msgstr "Preklopi/prevzemi ..."
 msgid "Diff tree"
 msgstr "Drevo razlik"
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:244
+#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ni mogoče ustvariti poti: %1"
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:244
+#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializiraj skladišče"
@@ -294,42 +304,42 @@ msgstr "Inicializiraj skladišče"
 msgid "Open repository"
 msgstr "Odpri skladišče"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:484
+#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:485
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Med spajanjem ni mogoče preklopiti veje"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:484
+#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:485
 #, kde-format
 msgid "Switch branch"
 msgstr "Preklopi vejo"
 
-#: src/gui/commandargsparser.cpp:59
+#: src/gui/commandargsparser.cpp:60
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Pot ni skladišče git: %1"
 
-#: src/gui/commandargsparser.cpp:249
+#: src/gui/commandargsparser.cpp:250
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Skladišče je uspešno inicializirano"
 
-#: src/gui/commandargsparser.cpp:531
+#: src/gui/commandargsparser.cpp:532
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Datoteka/e uspešno dodana/e git-u"
 
-#: src/gui/commandargsparser.cpp:539
+#: src/gui/commandargsparser.cpp:540
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Ali želite datoteko/e pustiti na disku?"
 
-#: src/gui/commandargsparser.cpp:539
+#: src/gui/commandargsparser.cpp:540
 #, kde-format
 msgid "Remove from index"
 msgstr "Odstrani iz indeksa"
 
-#: src/gui/commandargsparser.cpp:541
+#: src/gui/commandargsparser.cpp:542
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Datoteka/e uspešno odstranjene iz git-a"
@@ -367,85 +377,6 @@ msgstr "Glavna orodna vrstica"
 #, kde-format
 msgid "Repo"
 msgstr "Skladišče"
-
-#: src/gui/mainwidget.cpp:100 src/libkommitwidgets/actions/branchactions.cpp:36
-#, kde-format
-msgid "Browse..."
-msgstr "Brskaj..."
-
-#: src/gui/mainwidget.cpp:101
-#, kde-format
-msgid "Diff with master..."
-msgstr "Razlika z glavnim ..."
-
-#: src/gui/mainwidget.cpp:165
-#, kde-format
-msgid "New tag"
-msgstr "Nova oznaka"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, MainWidget)
-#. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
-#: src/gui/mainwidget.ui:14 src/libkommitwidgets/widgets/commitdetails.ui:14
-#, kde-format
-msgid "Form"
-msgstr "Oblika"
-
-#. i18n: ectx: property (text), widget (QLabel, labelTitle)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonOverview)
-#. i18n: ectx: property (windowTitle), widget (QWidget, HistoryViewWidget)
-#: src/gui/mainwidget.ui:89 src/gui/mainwidget.ui:330
-#: src/gui/multipagewidget.ui:119 src/gui/pages/historyviewwidget.ui:14
-#, kde-format
-msgid "Overview"
-msgstr "Pregled"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonBranches)
-#. i18n: ectx: property (windowTitle), widget (QWidget, BranchesStatusWidget)
-#: src/gui/mainwidget.ui:117 src/gui/pages/branchesstatuswidget.ui:14
-#, kde-format
-msgid "Branches"
-msgstr "Veje"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonCommits)
-#. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
-#: src/gui/mainwidget.ui:145 src/gui/pages/commitswidget.ui:14
-#: src/libkommit/models/authorsmodel.cpp:41
-#, kde-format
-msgid "Commits"
-msgstr "Objave"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonStashes)
-#. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
-#: src/gui/mainwidget.ui:173 src/gui/pages/stasheswidget.ui:14
-#, kde-format
-msgid "Stashes"
-msgstr "Zaloge"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonSubmodules)
-#. i18n: ectx: property (windowTitle), widget (QWidget, SubmodulesWidget)
-#: src/gui/mainwidget.ui:201 src/gui/pages/submoduleswidget.ui:14
-#, kde-format
-msgid "Submodules"
-msgstr "Podmoduli"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonRemotes)
-#. i18n: ectx: property (windowTitle), widget (QWidget, RemotesWidget)
-#: src/gui/mainwidget.ui:229 src/gui/pages/remoteswidget.ui:14
-#, kde-format
-msgid "Remotes"
-msgstr "Oddaljeni"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonTags)
-#. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
-#: src/gui/mainwidget.ui:257 src/gui/pages/tagswidget.ui:14
-#: src/libkommit/models/authorsmodel.cpp:45
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:108
-#: src/libkommitwidgets/dialogs/pulldialog.ui:153
-#: src/libkommitwidgets/dialogs/remoteinfodialog.ui:54
-#, kde-format
-msgid "Tags"
-msgstr "Oznake"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
@@ -488,11 +419,11 @@ msgstr "Ne izstopi"
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #: src/gui/models/treemodel.cpp:141 src/gui/pages/remoteswidget.ui:164
-#: src/libkommit/models/authorsmodel.cpp:37
 #: src/libkommit/models/branchesmodel.cpp:65
-#: src/libkommit/models/tagsmodel.cpp:62
+#: src/libkommit/models/tagsmodel.cpp:61
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
 #: src/libkommitwidgets/models/treemodel.cpp:141
+#: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format
 msgid "Name"
 msgstr "Ime"
@@ -505,11 +436,12 @@ msgstr "Ime"
 msgid "Status"
 msgstr "Stanje"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, AuthorsWidget)
-#: src/gui/pages/authorswidget.ui:14
+#. i18n: ectx: property (text), widget (QLabel, labelTitle)
+#. i18n: ectx: property (windowTitle), widget (QWidget, HistoryViewWidget)
+#: src/gui/multipagewidget.ui:131 src/gui/pages/historyviewwidget.ui:14
 #, kde-format
-msgid "Authors"
-msgstr "Avtorji"
+msgid "Overview"
+msgstr "Pregled"
 
 #: src/gui/pages/branchesstatuswidget.cpp:71
 #: src/libkommitwidgets/actions/branchactions.cpp:120
@@ -522,6 +454,12 @@ msgstr "Ali ste prepričani, da želite odstraniti izbrano vejo?"
 #, kde-format
 msgid "Unable to remove the selected branch"
 msgstr "Ni mogoče odstraniti izbrane veje"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, BranchesStatusWidget)
+#: src/gui/pages/branchesstatuswidget.ui:14
+#, kde-format
+msgid "Branches"
+msgstr "Veje"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/pages/branchesstatuswidget.ui:25
@@ -550,6 +488,20 @@ msgstr "Prevzemi"
 msgid "Browse"
 msgstr "Prebrskaj"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
+#: src/gui/pages/commitswidget.ui:14
+#: src/libkommitwidgets/reports/authorsreport.cpp:63
+#: src/libkommitwidgets/reports/authorsreport.cpp:78
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:71
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:100
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:70
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:85
+#, kde-format
+msgid "Commits"
+msgstr "Objave"
+
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/gui/pages/commitswidget.ui:41
 #, kde-format
@@ -557,10 +509,16 @@ msgid "Filter..."
 msgstr "Filter..."
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
-#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:55
+#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:56
 #, kde-format
 msgid "Update"
 msgstr "Posodobi"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, RemotesWidget)
+#: src/gui/pages/remoteswidget.ui:14
+#, kde-format
+msgid "Remotes"
+msgstr "Oddaljeni"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/pages/remoteswidget.ui:79
@@ -613,9 +571,59 @@ msgstr "Ime reference"
 msgid "Upstream"
 msgstr "Tok tja"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
+#: src/gui/pages/reportswidget.ui:14
+#, fuzzy, kde-format
+#| msgid "Repo"
+msgid "Reports"
+msgstr "Skladišče"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
+#: src/gui/pages/reportswidget.ui:33
+#, kde-format
+msgid "Table view"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonTable)
+#: src/gui/pages/reportswidget.ui:36
+#, kde-format
+msgid "Table"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonChart)
+#: src/gui/pages/reportswidget.ui:50
+#, fuzzy, kde-format
+#| msgid "Regular view"
+msgid "Chart view"
+msgstr "Regularni pogled"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonChart)
+#: src/gui/pages/reportswidget.ui:53
+#, kde-format
+msgid "Chart"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
+#: src/gui/pages/reportswidget.ui:80
+#, kde-format
+msgid "Refresh data"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
+#: src/gui/pages/reportswidget.ui:83
+#, kde-format
+msgid "Refresh"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
+#: src/gui/pages/stasheswidget.ui:14
+#, kde-format
+msgid "Stashes"
+msgstr "Zaloge"
+
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
-#: src/gui/pages/stasheswidget.ui:48 src/gui/pages/submoduleswidget.ui:52
+#: src/gui/pages/stasheswidget.ui:49 src/gui/pages/submoduleswidget.ui:53
 #, kde-format
 msgid ""
 "<html><head/><body><p>Save your local modifications to a new stash entry and "
@@ -637,20 +645,20 @@ msgstr ""
 "#2980b9;\">Več informacij ...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
-#: src/gui/pages/stasheswidget.ui:51
+#: src/gui/pages/stasheswidget.ui:52
 #, kde-format
 msgid "Create new"
 msgstr "Ustvari novo"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
-#: src/gui/pages/stasheswidget.ui:58 src/gui/pages/tagswidget.ui:55
+#: src/gui/pages/stasheswidget.ui:59 src/gui/pages/tagswidget.ui:55
 #, kde-format
 msgid "Remove selected"
 msgstr "Odstrani izbrano"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonApply)
-#: src/gui/pages/stasheswidget.ui:65
+#: src/gui/pages/stasheswidget.ui:66
 #, kde-format
 msgid ""
 "<html><head/><body><p>Apply stash to top of current working directory</"
@@ -664,18 +672,35 @@ msgstr ""
 "underline; color:#2980b9;\">Več informacij ...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
-#: src/gui/pages/stasheswidget.ui:68
+#: src/gui/pages/stasheswidget.ui:69
 #, kde-format
 msgid "Apply selected"
 msgstr "Uveljavi izbrano"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, SubmodulesWidget)
+#: src/gui/pages/submoduleswidget.ui:14
+#, kde-format
+msgid "Submodules"
+msgstr "Podmoduli"
+
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
-#: src/gui/pages/submoduleswidget.ui:45
+#: src/gui/pages/submoduleswidget.ui:46
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:14
 #, kde-format
 msgid "Add new submodule"
 msgstr "Dodaj nov podmodul"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
+#: src/gui/pages/tagswidget.ui:14
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:108
+#: src/libkommitwidgets/dialogs/pulldialog.ui:153
+#: src/libkommitwidgets/dialogs/remoteinfodialog.ui:54
+#: src/libkommitwidgets/reports/authorsreport.cpp:63
+#, kde-format
+msgid "Tags"
+msgstr "Oznake"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/tagswidget.ui:62
@@ -824,16 +849,6 @@ msgstr "Možno je pomikanje hitro naprej"
 msgid "Local out of date"
 msgstr "Krajevno je zastarelo"
 
-#: src/libkommit/models/authorsmodel.cpp:39
-#, kde-format
-msgid "Email"
-msgstr "E-pošta"
-
-#: src/libkommit/models/authorsmodel.cpp:43
-#, kde-format
-msgid "Autheds"
-msgstr "Avtentikacije"
-
 #: src/libkommit/models/branchesmodel.cpp:67
 #, kde-format
 msgid "Commit(s) behind"
@@ -864,24 +879,24 @@ msgstr "Ref"
 msgid "Remote"
 msgstr "Oddaljena"
 
-#: src/libkommit/models/logsmodel.cpp:262
-#: src/libkommit/models/logsmodel.cpp:273
+#: src/libkommit/models/logsmodel.cpp:260
+#: src/libkommit/models/logsmodel.cpp:271
 #, kde-format
 msgid "Message"
 msgstr "Sporočilo"
 
-#: src/libkommit/models/logsmodel.cpp:264
+#: src/libkommit/models/logsmodel.cpp:262
 #, kde-format
 msgid "Date"
 msgstr "Date"
 
-#: src/libkommit/models/logsmodel.cpp:271
+#: src/libkommit/models/logsmodel.cpp:269
 #, kde-format
 msgid "Graph"
 msgstr "Grafikon"
 
 #: src/libkommit/models/stashesmodel.cpp:66
-#: src/libkommit/models/tagsmodel.cpp:64
+#: src/libkommit/models/tagsmodel.cpp:63
 #, kde-format
 msgid "Subject"
 msgstr "Zadeva"
@@ -923,12 +938,12 @@ msgstr "Pot"
 msgid "Head"
 msgstr "Glava (head)"
 
-#: src/libkommit/models/tagsmodel.cpp:66
+#: src/libkommit/models/tagsmodel.cpp:65
 #, kde-format
 msgid "Tagger"
 msgstr "Označevalnik"
 
-#: src/libkommit/models/tagsmodel.cpp:68
+#: src/libkommit/models/tagsmodel.cpp:67
 #, kde-format
 msgid "Create time"
 msgstr "Čas kreiranja"
@@ -937,6 +952,11 @@ msgstr "Čas kreiranja"
 #, kde-format
 msgid "Create..."
 msgstr "Ustvari..."
+
+#: src/libkommitwidgets/actions/branchactions.cpp:36
+#, kde-format
+msgid "Browse..."
+msgstr "Brskaj..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
@@ -2370,6 +2390,67 @@ msgstr "Značka"
 msgid "Tag name:"
 msgstr "Ime značke:"
 
+#: src/libkommitwidgets/reports/authorsreport.cpp:53
+#, kde-format
+msgid "Commits count by author"
+msgstr ""
+
+#: src/libkommitwidgets/reports/authorsreport.cpp:63
+#, kde-format
+msgid "Email"
+msgstr "E-pošta"
+
+#: src/libkommitwidgets/reports/authorsreport.cpp:63
+#, kde-format
+msgid "Autheds"
+msgstr "Avtentikacije"
+
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:46
+#, kde-format
+msgid "Commits by hour of day"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
+#, kde-format
+msgid "Hour"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:66
+#, kde-format
+msgid "Hour of day"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
+#, kde-format
+msgid "Commits by day of week"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
+#, kde-format
+msgid "Day"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:95
+#, kde-format
+msgid "Day of week"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:60
+#, fuzzy, kde-format
+#| msgid "Commit(s) behind"
+msgid "Commits by month"
+msgstr "Objava/e zadaj"
+
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:70
+#, kde-format
+msgid "Month"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:80
+#, kde-format
+msgid "Month-year"
+msgstr ""
+
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:41
 #, kde-format
 msgid "Uncommited"
@@ -2394,6 +2475,12 @@ msgstr "Oddaljena: "
 #, kde-format
 msgid "Tag: "
 msgstr "Oznaka: "
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
+#: src/libkommitwidgets/widgets/commitdetails.ui:14
+#, kde-format
+msgid "Form"
+msgstr "Oblika"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/widgets/commitdetails.ui:39
@@ -2448,6 +2535,13 @@ msgstr "Vrste za filtriranje"
 #, kde-format
 msgid "Hide unchangeds"
 msgstr "Skrij nespremenjene"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
+#: src/libkommitwidgets/widgets/reportwidget.ui:14
+#, fuzzy, kde-format
+#| msgid "Repo"
+msgid "Report"
+msgstr "Skladišče"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
@@ -2546,6 +2640,15 @@ msgstr "Naslednja razlika"
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Datoteke ni mogoče odpreti"
+
+#~ msgid "Diff with master..."
+#~ msgstr "Razlika z glavnim ..."
+
+#~ msgid "New tag"
+#~ msgstr "Nova oznaka"
+
+#~ msgid "Authors"
+#~ msgstr "Avtorji"
 
 #~ msgid "Diff with HEAD..."
 #~ msgstr "Razlika z GLAVO/HEAD ..."

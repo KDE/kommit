@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 01:44+0000\n"
+"POT-Creation-Date: 2024-04-25 01:41+0000\n"
 "PO-Revision-Date: 2024-02-09 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -111,11 +111,10 @@ msgstr "과거 기록"
 msgid "Blame"
 msgstr "블레임"
 
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonAddTag)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: dolphinplugins/actions.h:29 src/gui/mainwidget.ui:470
-#: src/gui/pages/remoteswidget.ui:56 src/gui/pages/tagswidget.ui:48
+#: dolphinplugins/actions.h:29 src/gui/pages/remoteswidget.ui:56
+#: src/gui/pages/tagswidget.ui:48
 #, kde-format
 msgid "Add"
 msgstr "추가"
@@ -149,6 +148,16 @@ msgstr "브랜치간 Diff"
 msgid "Kommit"
 msgstr "Kommit"
 
+#: dolphinplugins/dolphinplugin.cpp:101
+#, kde-format
+msgid "Push/Commit to %0"
+msgstr ""
+
+#: dolphinplugins/dolphinplugin.cpp:103
+#, kde-format
+msgid "Push/Commit to submodule %0"
+msgstr ""
+
 #: src/apps/main.cpp:36
 #, kde-format
 msgid "Git client gui for KDE"
@@ -160,7 +169,8 @@ msgstr "KDE의 Git 클라이언트 GUI"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:266
+#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:264
+#: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
 msgid "Author"
 msgstr "작성자"
@@ -276,12 +286,12 @@ msgstr "전환/체크아웃..."
 msgid "Diff tree"
 msgstr "트리 차이점 보기"
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:244
+#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "경로를 만들 수 없음: %1"
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:244
+#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "Init repo"
 msgstr "저장소 초기화"
@@ -291,42 +301,42 @@ msgstr "저장소 초기화"
 msgid "Open repository"
 msgstr "저장소 열기"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:484
+#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:485
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "병합 중에는 브랜치를 전환할 수 없음"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:484
+#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:485
 #, kde-format
 msgid "Switch branch"
 msgstr "브랜치 전환"
 
-#: src/gui/commandargsparser.cpp:59
+#: src/gui/commandargsparser.cpp:60
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "경로가 Git 저장소가 아님: %1"
 
-#: src/gui/commandargsparser.cpp:249
+#: src/gui/commandargsparser.cpp:250
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "저장소가 초기화됨"
 
-#: src/gui/commandargsparser.cpp:531
+#: src/gui/commandargsparser.cpp:532
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Git에 파일을 추가함"
 
-#: src/gui/commandargsparser.cpp:539
+#: src/gui/commandargsparser.cpp:540
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "디스크에 파일을 유지하시겠습니까?"
 
-#: src/gui/commandargsparser.cpp:539
+#: src/gui/commandargsparser.cpp:540
 #, kde-format
 msgid "Remove from index"
 msgstr "색인에서 삭제"
 
-#: src/gui/commandargsparser.cpp:541
+#: src/gui/commandargsparser.cpp:542
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Git에서 파일을 삭제함"
@@ -364,85 +374,6 @@ msgstr "주 도구 모음"
 #, kde-format
 msgid "Repo"
 msgstr "저장소"
-
-#: src/gui/mainwidget.cpp:100 src/libkommitwidgets/actions/branchactions.cpp:36
-#, kde-format
-msgid "Browse..."
-msgstr "찾아보기..."
-
-#: src/gui/mainwidget.cpp:101
-#, kde-format
-msgid "Diff with master..."
-msgstr "master와의 차이점 보기..."
-
-#: src/gui/mainwidget.cpp:165
-#, kde-format
-msgid "New tag"
-msgstr "새 태그"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, MainWidget)
-#. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
-#: src/gui/mainwidget.ui:14 src/libkommitwidgets/widgets/commitdetails.ui:14
-#, kde-format
-msgid "Form"
-msgstr "폼"
-
-#. i18n: ectx: property (text), widget (QLabel, labelTitle)
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonOverview)
-#. i18n: ectx: property (windowTitle), widget (QWidget, HistoryViewWidget)
-#: src/gui/mainwidget.ui:89 src/gui/mainwidget.ui:330
-#: src/gui/multipagewidget.ui:119 src/gui/pages/historyviewwidget.ui:14
-#, kde-format
-msgid "Overview"
-msgstr "요약"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonBranches)
-#. i18n: ectx: property (windowTitle), widget (QWidget, BranchesStatusWidget)
-#: src/gui/mainwidget.ui:117 src/gui/pages/branchesstatuswidget.ui:14
-#, kde-format
-msgid "Branches"
-msgstr "브랜치"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonCommits)
-#. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
-#: src/gui/mainwidget.ui:145 src/gui/pages/commitswidget.ui:14
-#: src/libkommit/models/authorsmodel.cpp:41
-#, kde-format
-msgid "Commits"
-msgstr "커밋"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonStashes)
-#. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
-#: src/gui/mainwidget.ui:173 src/gui/pages/stasheswidget.ui:14
-#, kde-format
-msgid "Stashes"
-msgstr "스태시"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonSubmodules)
-#. i18n: ectx: property (windowTitle), widget (QWidget, SubmodulesWidget)
-#: src/gui/mainwidget.ui:201 src/gui/pages/submoduleswidget.ui:14
-#, kde-format
-msgid "Submodules"
-msgstr "하위 모듈"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonRemotes)
-#. i18n: ectx: property (windowTitle), widget (QWidget, RemotesWidget)
-#: src/gui/mainwidget.ui:229 src/gui/pages/remoteswidget.ui:14
-#, kde-format
-msgid "Remotes"
-msgstr "원격"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonTags)
-#. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
-#: src/gui/mainwidget.ui:257 src/gui/pages/tagswidget.ui:14
-#: src/libkommit/models/authorsmodel.cpp:45
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:108
-#: src/libkommitwidgets/dialogs/pulldialog.ui:153
-#: src/libkommitwidgets/dialogs/remoteinfodialog.ui:54
-#, kde-format
-msgid "Tags"
-msgstr "태그"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
@@ -485,11 +416,11 @@ msgstr "끝내지 않기"
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #: src/gui/models/treemodel.cpp:141 src/gui/pages/remoteswidget.ui:164
-#: src/libkommit/models/authorsmodel.cpp:37
 #: src/libkommit/models/branchesmodel.cpp:65
-#: src/libkommit/models/tagsmodel.cpp:62
+#: src/libkommit/models/tagsmodel.cpp:61
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
 #: src/libkommitwidgets/models/treemodel.cpp:141
+#: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format
 msgid "Name"
 msgstr "이름"
@@ -502,11 +433,12 @@ msgstr "이름"
 msgid "Status"
 msgstr "상태"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, AuthorsWidget)
-#: src/gui/pages/authorswidget.ui:14
+#. i18n: ectx: property (text), widget (QLabel, labelTitle)
+#. i18n: ectx: property (windowTitle), widget (QWidget, HistoryViewWidget)
+#: src/gui/multipagewidget.ui:131 src/gui/pages/historyviewwidget.ui:14
 #, kde-format
-msgid "Authors"
-msgstr "작성자"
+msgid "Overview"
+msgstr "요약"
 
 #: src/gui/pages/branchesstatuswidget.cpp:71
 #: src/libkommitwidgets/actions/branchactions.cpp:120
@@ -519,6 +451,12 @@ msgstr "선택한 브랜치를 삭제하시겠습니까?"
 #, kde-format
 msgid "Unable to remove the selected branch"
 msgstr "선택한 브랜치를 삭제할 수 없음"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, BranchesStatusWidget)
+#: src/gui/pages/branchesstatuswidget.ui:14
+#, kde-format
+msgid "Branches"
+msgstr "브랜치"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/pages/branchesstatuswidget.ui:25
@@ -547,6 +485,20 @@ msgstr "체크아웃"
 msgid "Browse"
 msgstr "찾아보기"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
+#: src/gui/pages/commitswidget.ui:14
+#: src/libkommitwidgets/reports/authorsreport.cpp:63
+#: src/libkommitwidgets/reports/authorsreport.cpp:78
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:71
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:100
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:70
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:85
+#, kde-format
+msgid "Commits"
+msgstr "커밋"
+
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/gui/pages/commitswidget.ui:41
 #, kde-format
@@ -554,10 +506,16 @@ msgid "Filter..."
 msgstr "필터..."
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
-#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:55
+#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:56
 #, kde-format
 msgid "Update"
 msgstr "업데이트"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, RemotesWidget)
+#: src/gui/pages/remoteswidget.ui:14
+#, kde-format
+msgid "Remotes"
+msgstr "원격"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/pages/remoteswidget.ui:79
@@ -610,9 +568,59 @@ msgstr "참조 이름"
 msgid "Upstream"
 msgstr "업스트림"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
+#: src/gui/pages/reportswidget.ui:14
+#, fuzzy, kde-format
+#| msgid "Repo"
+msgid "Reports"
+msgstr "저장소"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
+#: src/gui/pages/reportswidget.ui:33
+#, kde-format
+msgid "Table view"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonTable)
+#: src/gui/pages/reportswidget.ui:36
+#, kde-format
+msgid "Table"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonChart)
+#: src/gui/pages/reportswidget.ui:50
+#, fuzzy, kde-format
+#| msgid "Regular view"
+msgid "Chart view"
+msgstr "일반 보기"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonChart)
+#: src/gui/pages/reportswidget.ui:53
+#, kde-format
+msgid "Chart"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
+#: src/gui/pages/reportswidget.ui:80
+#, kde-format
+msgid "Refresh data"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
+#: src/gui/pages/reportswidget.ui:83
+#, kde-format
+msgid "Refresh"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
+#: src/gui/pages/stasheswidget.ui:14
+#, kde-format
+msgid "Stashes"
+msgstr "스태시"
+
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
-#: src/gui/pages/stasheswidget.ui:48 src/gui/pages/submoduleswidget.ui:52
+#: src/gui/pages/stasheswidget.ui:49 src/gui/pages/submoduleswidget.ui:53
 #, kde-format
 msgid ""
 "<html><head/><body><p>Save your local modifications to a new stash entry and "
@@ -633,20 +641,20 @@ msgstr ""
 "underline; color:#2980b9;\">자세한 정보...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
-#: src/gui/pages/stasheswidget.ui:51
+#: src/gui/pages/stasheswidget.ui:52
 #, kde-format
 msgid "Create new"
 msgstr "새로 만들기"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
-#: src/gui/pages/stasheswidget.ui:58 src/gui/pages/tagswidget.ui:55
+#: src/gui/pages/stasheswidget.ui:59 src/gui/pages/tagswidget.ui:55
 #, kde-format
 msgid "Remove selected"
 msgstr "선택한 항목 삭제"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonApply)
-#: src/gui/pages/stasheswidget.ui:65
+#: src/gui/pages/stasheswidget.ui:66
 #, kde-format
 msgid ""
 "<html><head/><body><p>Apply stash to top of current working directory</"
@@ -660,18 +668,35 @@ msgstr ""
 "#2980b9;\">자세한 정보...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
-#: src/gui/pages/stasheswidget.ui:68
+#: src/gui/pages/stasheswidget.ui:69
 #, kde-format
 msgid "Apply selected"
 msgstr "선택 항목 적용"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, SubmodulesWidget)
+#: src/gui/pages/submoduleswidget.ui:14
+#, kde-format
+msgid "Submodules"
+msgstr "하위 모듈"
+
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
-#: src/gui/pages/submoduleswidget.ui:45
+#: src/gui/pages/submoduleswidget.ui:46
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:14
 #, kde-format
 msgid "Add new submodule"
 msgstr "새 하위 모듈 추가"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
+#: src/gui/pages/tagswidget.ui:14
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:108
+#: src/libkommitwidgets/dialogs/pulldialog.ui:153
+#: src/libkommitwidgets/dialogs/remoteinfodialog.ui:54
+#: src/libkommitwidgets/reports/authorsreport.cpp:63
+#, kde-format
+msgid "Tags"
+msgstr "태그"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/tagswidget.ui:62
@@ -820,16 +845,6 @@ msgstr "정방향 진행 가능"
 msgid "Local out of date"
 msgstr "로컬이 오래됨"
 
-#: src/libkommit/models/authorsmodel.cpp:39
-#, kde-format
-msgid "Email"
-msgstr "이메일"
-
-#: src/libkommit/models/authorsmodel.cpp:43
-#, kde-format
-msgid "Autheds"
-msgstr "작성자"
-
 #: src/libkommit/models/branchesmodel.cpp:67
 #, kde-format
 msgid "Commit(s) behind"
@@ -860,24 +875,24 @@ msgstr "참조"
 msgid "Remote"
 msgstr "원격"
 
-#: src/libkommit/models/logsmodel.cpp:262
-#: src/libkommit/models/logsmodel.cpp:273
+#: src/libkommit/models/logsmodel.cpp:260
+#: src/libkommit/models/logsmodel.cpp:271
 #, kde-format
 msgid "Message"
 msgstr "메시지"
 
-#: src/libkommit/models/logsmodel.cpp:264
+#: src/libkommit/models/logsmodel.cpp:262
 #, kde-format
 msgid "Date"
 msgstr "날짜"
 
-#: src/libkommit/models/logsmodel.cpp:271
+#: src/libkommit/models/logsmodel.cpp:269
 #, kde-format
 msgid "Graph"
 msgstr "그래프"
 
 #: src/libkommit/models/stashesmodel.cpp:66
-#: src/libkommit/models/tagsmodel.cpp:64
+#: src/libkommit/models/tagsmodel.cpp:63
 #, kde-format
 msgid "Subject"
 msgstr "제목"
@@ -919,12 +934,12 @@ msgstr "경로"
 msgid "Head"
 msgstr "헤드"
 
-#: src/libkommit/models/tagsmodel.cpp:66
+#: src/libkommit/models/tagsmodel.cpp:65
 #, kde-format
 msgid "Tagger"
 msgstr "태거"
 
-#: src/libkommit/models/tagsmodel.cpp:68
+#: src/libkommit/models/tagsmodel.cpp:67
 #, kde-format
 msgid "Create time"
 msgstr "생성 시간"
@@ -933,6 +948,11 @@ msgstr "생성 시간"
 #, kde-format
 msgid "Create..."
 msgstr "만들기..."
+
+#: src/libkommitwidgets/actions/branchactions.cpp:36
+#, kde-format
+msgid "Browse..."
+msgstr "찾아보기..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
@@ -2358,6 +2378,67 @@ msgstr "태그"
 msgid "Tag name:"
 msgstr "태그 이름:"
 
+#: src/libkommitwidgets/reports/authorsreport.cpp:53
+#, kde-format
+msgid "Commits count by author"
+msgstr ""
+
+#: src/libkommitwidgets/reports/authorsreport.cpp:63
+#, kde-format
+msgid "Email"
+msgstr "이메일"
+
+#: src/libkommitwidgets/reports/authorsreport.cpp:63
+#, kde-format
+msgid "Autheds"
+msgstr "작성자"
+
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:46
+#, kde-format
+msgid "Commits by hour of day"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
+#, kde-format
+msgid "Hour"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:66
+#, kde-format
+msgid "Hour of day"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
+#, kde-format
+msgid "Commits by day of week"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
+#, kde-format
+msgid "Day"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:95
+#, kde-format
+msgid "Day of week"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:60
+#, fuzzy, kde-format
+#| msgid "Commit(s) behind"
+msgid "Commits by month"
+msgstr "뒤따르는 커밋"
+
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:70
+#, kde-format
+msgid "Month"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:80
+#, kde-format
+msgid "Month-year"
+msgstr ""
+
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:41
 #, kde-format
 msgid "Uncommited"
@@ -2382,6 +2463,12 @@ msgstr "원격:"
 #, kde-format
 msgid "Tag: "
 msgstr "태그:"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
+#: src/libkommitwidgets/widgets/commitdetails.ui:14
+#, kde-format
+msgid "Form"
+msgstr "폼"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/widgets/commitdetails.ui:39
@@ -2436,6 +2523,13 @@ msgstr "입력하여 필터"
 #, kde-format
 msgid "Hide unchangeds"
 msgstr "변경되지 않은 항목 숨기기"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
+#: src/libkommitwidgets/widgets/reportwidget.ui:14
+#, fuzzy, kde-format
+#| msgid "Repo"
+msgid "Report"
+msgstr "저장소"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
@@ -2534,6 +2628,15 @@ msgstr "다음 차이점"
 #, kde-format
 msgid "Unable to open the file"
 msgstr "파일을 열 수 없음"
+
+#~ msgid "Diff with master..."
+#~ msgstr "master와의 차이점 보기..."
+
+#~ msgid "New tag"
+#~ msgstr "새 태그"
+
+#~ msgid "Authors"
+#~ msgstr "작성자"
 
 #~ msgid "Diff with HEAD..."
 #~ msgstr "HEAD와의 차이점 보기..."
