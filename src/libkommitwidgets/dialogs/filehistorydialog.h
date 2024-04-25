@@ -22,7 +22,7 @@ class LIBKOMMITWIDGETS_EXPORT FileHistoryDialog : public AppDialog, private Ui::
 
 public:
     explicit FileHistoryDialog(Git::Manager *git, const QString &fileName, QWidget *parent = nullptr);
-    explicit FileHistoryDialog(Git::Manager *git, const Git::File &file, QWidget *parent = nullptr);
+    explicit FileHistoryDialog(Git::Manager *git, QSharedPointer<Git::File> file, QWidget *parent = nullptr);
 
 private:
     static constexpr int dataRole{Qt::UserRole + 1};

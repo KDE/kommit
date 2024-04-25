@@ -38,7 +38,7 @@ CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
 
 void CommitActions::browse()
 {
-    FilesTreeDialog d(mGit, mCommit->commitHash(), mParent);
+    FilesTreeDialog d(mGit, mCommit->tree(), mParent);
     d.exec();
 }
 

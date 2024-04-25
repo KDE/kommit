@@ -9,6 +9,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractactions.h"
 #include "libkommitwidgets_export.h"
 
+namespace Git
+{
+class File;
+};
+
 class LIBKOMMITWIDGETS_EXPORT FileActions : public AbstractActions
 {
     Q_OBJECT
@@ -22,6 +27,9 @@ public:
 
     Q_REQUIRED_RESULT const QString &filePath() const;
     void setFilePath(const QString &newFilePath);
+
+    Q_REQUIRED_RESULT QSharedPointer<Git::File> file() const;
+    void setFile(QSharedPointer<Git::File> file);
 
 private:
     void viewFile();
@@ -44,7 +52,7 @@ private:
     DEFINE_ACTION(actionOpenWith)
     DEFINE_ACTION(actionDiffWithHead)
     DEFINE_ACTION(actionMergeWithHead)
-    QString mPlace;
-    QString mFilePath;
+
     QMenu *mOpenWithMenu = nullptr;
+    QSharedPointer<Git::File> mFile;
 };

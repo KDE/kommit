@@ -407,7 +407,7 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
     git->setLoadFlags(Git::LoadLogs);
     git->open(fi.absolutePath());
     auto fileName = file.mid(git->path().size());
-    const Git::File f(git, git->currentBranch(), fileName);
+    auto f = QSharedPointer<Git::File>{new Git::File{git, git->currentBranch(), fileName}};
     FileBlameDialog d(git, f);
     d.exec();
     return 0;

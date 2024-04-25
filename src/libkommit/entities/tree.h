@@ -35,6 +35,7 @@ public:
 
     QList<Entry> entries(const QString &path) const;
     QStringList entries(const QString &path, EntryType filter) const;
+    QStringList entries(EntryType filter) const;
     QSharedPointer<File> file(const QString &path);
 
     git_tree *gitTree() const;
@@ -43,6 +44,7 @@ private:
     git_tree *ptr{nullptr};
     void initTree();
     QMultiMap<QString, Entry> mTreeData;
+    void browseNestedEntities(EntryType type, const QString &path, QStringList &list) const;
 };
 
 }

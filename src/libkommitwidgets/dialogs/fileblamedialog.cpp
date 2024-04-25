@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <QThread>
 
-FileBlameDialog::FileBlameDialog(Git::Manager *git, const Git::File &file, QWidget *parent)
+FileBlameDialog::FileBlameDialog(Git::Manager *git, QSharedPointer<Git::File> file, QWidget *parent)
     : AppDialog(git, parent)
     , mFile(file)
 {
@@ -31,12 +31,12 @@ FileBlameDialog::FileBlameDialog(Git::Manager *git, const Git::File &file, QWidg
 
 void FileBlameDialog::loadData()
 {
-    plainTextEdit->setHighlighting(mFile.fileName());
+    plainTextEdit->setHighlighting(mFile->fileName());
 
-    const auto b = mGit->blame(mFile);
+    const auto b = mGit->blame(*mFile.data());
     plainTextEdit->setBlameData(b);
 
-    setWindowTitle(i18nc("@title:window", "Blame file: %1", mFile.fileName()));
+    setWindowTitle(i18nc("@title:window", "Blame file: %1", mFile->fileName()));
 }
 
 void FileBlameDialog::slotPlainTextEditBlockSelected()

@@ -13,6 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class Manager;
+class Tree;
 };
 
 class FileActions;
@@ -22,7 +23,8 @@ class LIBKOMMITWIDGETS_EXPORT FilesTreeDialog : public AppDialog, private Ui::Fi
     Q_OBJECT
 
 public:
-    explicit FilesTreeDialog(Git::Manager *git, const QString &place, QWidget *parent = nullptr);
+    FilesTreeDialog(Git::Manager *git, const QString &place, QWidget *parent = nullptr);
+    FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::Tree> tree, QWidget *parent = nullptr);
 
 private:
     void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
@@ -30,4 +32,7 @@ private:
     TreeModel *const mTreeModel;
     const QString mPlace;
     FileActions *const mActions;
+    void initModel(const QStringList &files);
+
+    QSharedPointer<Git::Tree> mTree;
 };

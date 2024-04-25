@@ -21,7 +21,7 @@ class LIBKOMMITWIDGETS_EXPORT FileBlameDialog : public AppDialog, private Ui::Fi
     Q_OBJECT
 
 public:
-    explicit FileBlameDialog(Git::Manager *git, const Git::File &file, QWidget *parent = nullptr);
+    explicit FileBlameDialog(Git::Manager *git, QSharedPointer<Git::File> file, QWidget *parent = nullptr);
 
 private:
     void loadData();
@@ -29,5 +29,5 @@ private:
     void slotPlainTextEditBlockSelected();
 
     QString mFileName;
-    Git::File mFile;
+    QSharedPointer<Git::File> mFile;
 };

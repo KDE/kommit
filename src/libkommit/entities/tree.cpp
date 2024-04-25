@@ -40,6 +40,15 @@ QStringList Tree::entries(const QString &path, EntryType filter) const
     return ret;
 }
 
+QStringList Tree::entries(EntryType filter) const
+{
+    QStringList list;
+
+    browseNestedEntities(filter, "", list);
+
+    return list;
+}
+
 QSharedPointer<File> Tree::file(const QString &path)
 {
     git_tree_entry *entry;
@@ -89,6 +98,25 @@ void Tree::initTree()
     git_tree_walk(ptr, GIT_TREEWALK_PRE, cb, this);
 }
 
+void Tree::browseNestedEntities(EntryType type, const QString &path, QStringList &list) const
+{
+    QString prefix;
+    if (path != "")
+        prefix = path + "/";
+
+    auto dirs = entries(path, EntryType::Dir);
+    auto files = entries(path, EntryType::File);
+    if (type == EntryType::Dir || type == EntryType::All) {
+        for (auto const &dir : dirs)
+            list.append(prefix + dir);
+    }
+    if (type == EntryType::File || type == EntryType::All) {
+        for (auto const &file : files)
+            list.append(prefix + file);
+    }
+    for (auto const &dir : dirs)
+        browseNestedEntities(type, prefix + dir, list);
+}
 }
 
 Git::Tree::EntryType QListSpecialMethods<Git::Tree::Entry>::type(const QString &entryName) const

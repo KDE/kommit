@@ -54,8 +54,8 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
     radioButtonRegularView->setChecked(true);
 }
 
-FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const Git::File &file, QWidget *parent)
-    : FileHistoryDialog(git, file.fileName(), parent)
+FileHistoryDialog::FileHistoryDialog(Git::Manager *git, QSharedPointer<Git::File> file, QWidget *parent)
+    : FileHistoryDialog(git, file->fileName(), parent)
 {
 }
 

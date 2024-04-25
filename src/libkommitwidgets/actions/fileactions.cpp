@@ -36,45 +36,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QMimeDatabase>
 #include <QStandardPaths>
 
-const QString &FileActions::place() const
-{
-    return mPlace;
-}
-
-void FileActions::setPlace(const QString &newPlace)
-{
-    mPlace = newPlace;
-
-    setActionEnabled(_actionView, !mFilePath.isEmpty());
-    setActionEnabled(_actionOpenWith, !mFilePath.isEmpty());
-    setActionEnabled(_actionDiffWithHead, !mFilePath.isEmpty());
-    setActionEnabled(_actionMergeWithHead, !mFilePath.isEmpty());
-    setActionEnabled(_actionSaveAs, !mFilePath.isEmpty());
-    setActionEnabled(_actionHistory, !mFilePath.isEmpty());
-    setActionEnabled(_actionBlame, !mFilePath.isEmpty());
-    setActionEnabled(_actionSearch, !mFilePath.isEmpty());
-}
-
-const QString &FileActions::filePath() const
-{
-    return mFilePath;
-}
-
-void FileActions::setFilePath(const QString &newFilePath)
-{
-    mFilePath = newFilePath;
-
-    setActionEnabled(_actionView, !mPlace.isEmpty());
-    setActionEnabled(_actionOpen, !mPlace.isEmpty());
-    setActionEnabled(_actionOpenWith, !mPlace.isEmpty());
-    setActionEnabled(_actionDiffWithHead, !mPlace.isEmpty());
-    setActionEnabled(_actionMergeWithHead, !mPlace.isEmpty());
-    setActionEnabled(_actionSaveAs, !mPlace.isEmpty());
-    setActionEnabled(_actionHistory, !mPlace.isEmpty());
-    setActionEnabled(_actionBlame, !mPlace.isEmpty());
-    setActionEnabled(_actionSearch, !mPlace.isEmpty());
-}
-
 FileActions::FileActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
@@ -100,49 +61,44 @@ void FileActions::popup(const QPoint &pos)
 
 void FileActions::viewFile()
 {
-    auto d = new FileViewerDialog(mGit, mPlace, mFilePath, mParent);
+    auto d = new FileViewerDialog(mGit, mFile, mParent);
     d->setWindowModality(Qt::ApplicationModal);
     d->setAttribute(Qt::WA_DeleteOnClose, true);
     d->show();
 }
 
 void FileActions::saveAsFile()
-
 {
-    Git::File file{mGit, mPlace, mFilePath};
-    QFileInfo fi{file.fileName()};
+    QFileInfo fi{mFile->fileName()};
     auto filter = QStringLiteral("%1 file (*.%1);;All files(*)").arg(fi.suffix());
-    const auto fileName = QFileDialog::getSaveFileName(mParent, {}, file.fileName(), {});
+    const auto fileName = QFileDialog::getSaveFileName(mParent, {}, mFile->fileName(), filter);
 
     if (!fileName.isEmpty()) {
-        file.save(fileName);
+        mFile->save(fileName);
     }
 }
 
 void FileActions::logFile()
 {
-    const Git::File file{mGit, mPlace, mFilePath};
-    FileHistoryDialog d(mGit, file, mParent);
+    FileHistoryDialog d(mGit, mFile, mParent);
     d.exec();
 }
 
 void FileActions::blameFile()
 {
-    const Git::File file(mGit, mPlace, mFilePath);
-    FileBlameDialog d(mGit, file, mParent);
+    FileBlameDialog d(mGit, mFile, mParent);
     d.exec();
 }
 
 void FileActions::search()
 {
-    SearchDialog d(mFilePath, mGit, mParent);
-    d.exec();
+    // SearchDialog d(mFilePath, mGit, mParent);
+    // d.exec();
 }
 
 void FileActions::openFile()
 {
-    const Git::File file(mGit, mPlace, mFilePath);
-    auto tempFilePath = file.saveAsTemp(); // TODO: remove temp file after openning
+    auto tempFilePath = mFile->saveAsTemp(); // TODO: remove temp file after openning
     if (tempFilePath.isEmpty())
         return;
 
@@ -168,8 +124,7 @@ void FileActions::openFile()
 
 void FileActions::openWith()
 {
-    const Git::File file(mGit, mPlace, mFilePath);
-    auto tempFilePath = file.saveAsTemp(); // TODO: remove temp file after openning
+    auto tempFilePath = mFile->saveAsTemp(); // TODO: remove temp file after openning
     if (tempFilePath.isEmpty())
         return;
 
@@ -187,10 +142,9 @@ void FileActions::openWith()
 
 void FileActions::diffWithHead()
 {
-    QSharedPointer<Git::File> oldFile{new Git::File{mGit, mPlace, mFilePath}};
-    QSharedPointer<Git::File> newFile{new Git::File{mGit->path() + QLatin1Char('/') + mFilePath}};
+    QSharedPointer<Git::File> newFile{new Git::File{mGit->path() + QLatin1Char('/') + mFile->fileName()}};
 
-    auto d = new DiffWindow(oldFile, newFile);
+    auto d = new DiffWindow(mFile, newFile);
     d->showModal();
 }
 
@@ -198,17 +152,36 @@ void FileActions::mergeWithHead()
 {
     auto d = new MergeWindow(mGit, MergeWindow::NoParams);
 
-    Git::File f{mGit, mPlace, mFilePath};
-    auto tempFile = f.saveAsTemp();
+    auto tempFile = mFile->saveAsTemp();
 
     d->setFilePathBase(tempFile);
-    d->setFilePathLocal(mGit->path() + QLatin1Char('/') + mFilePath);
+    d->setFilePathLocal(mGit->path() + QLatin1Char('/') + mFile->fileName());
     d->setFilePathRemote(tempFile);
-    d->setFilePathResult(mGit->path() + QLatin1Char('/') + mFilePath);
+    d->setFilePathResult(mGit->path() + QLatin1Char('/') + mFile->fileName());
     d->load();
 
     d->exec();
     QFile::remove(tempFile);
+}
+
+QSharedPointer<Git::File> FileActions::file() const
+{
+    return mFile;
+}
+
+void FileActions::setFile(QSharedPointer<Git::File> file)
+{
+    mFile = file;
+
+    setActionEnabled(_actionView, !mFile.isNull());
+    setActionEnabled(_actionOpen, !mFile.isNull());
+    setActionEnabled(_actionOpenWith, !mFile.isNull());
+    setActionEnabled(_actionDiffWithHead, !mFile.isNull());
+    setActionEnabled(_actionMergeWithHead, !mFile.isNull());
+    setActionEnabled(_actionSaveAs, !mFile.isNull());
+    setActionEnabled(_actionHistory, !mFile.isNull());
+    setActionEnabled(_actionBlame, !mFile.isNull());
+    setActionEnabled(_actionSearch, !mFile.isNull());
 }
 
 #include "moc_fileactions.cpp"
