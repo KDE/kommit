@@ -11,12 +11,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 
 #ifdef QT_CHARTS_LIB
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 namespace QtCharts
 {
 class QValueAxis;
 class QBarSeries;
 class QBarCategoryAxis;
-}
+};
+
+using namespace QtCharts;
+#else
+class QValueAxis;
+class QBarSeries;
+class QBarCategoryAxis;
+#endif
+
 #endif
 
 class AbstractReport;
@@ -41,8 +51,8 @@ private:
     void fillTableWidget();
 
 #ifdef QT_CHARTS_LIB
-    QtCharts::QValueAxis *axis;
-    QtCharts::QBarSeries *barSeries;
-    QtCharts::QBarCategoryAxis *axisX;
+    QValueAxis *axis;
+    QBarSeries *barSeries;
+    QBarCategoryAxis *axisX;
 #endif
 };
