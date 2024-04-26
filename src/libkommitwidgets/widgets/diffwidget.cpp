@@ -93,7 +93,10 @@ void DiffWidget::setOldFileText(const QString &newOldFile)
 void DiffWidget::setOldFile(QSharedPointer<Git::File> newOldFile)
 {
     mOldFile = newOldFile;
-    setOldFileText(newOldFile->displayName());
+    if (newOldFile.isNull())
+        setOldFileText("");
+    else
+        setOldFileText(newOldFile->displayName());
 }
 
 QSharedPointer<Git::File> DiffWidget::newFile() const
@@ -109,7 +112,11 @@ void DiffWidget::setNewFileText(const QString &newNewFile)
 void DiffWidget::setNewFile(QSharedPointer<Git::File> newNewFile)
 {
     mNewFile = newNewFile;
-    setNewFileText(newNewFile->displayName());
+
+    if (newNewFile.isNull())
+        setNewFileText("");
+    else
+        setNewFileText(newNewFile->displayName());
 }
 
 void DiffWidget::compare()

@@ -15,12 +15,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "models/stashesmodel.h"
 #include "windows/diffwindow.h"
+#include <entities/commit.h>
 
 StashActions::StashActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
     _actionNew = addActionHidden(i18n("New stash..."), this, &StashActions::create);
-    _actionDiff = addActionHidden(i18n("Diff with working dir"), this, &StashActions::diff);
+    _actionDiff = addAction(i18n("Diff with working dir"), this, &StashActions::diff);
     _actionPop = addAction(i18n("Pop..."), this, &StashActions::pop, false, true);
     _actionApply = addAction(i18n("Apply..."), this, &StashActions::apply, false, true);
     _actionDrop = addAction(i18n("Remove..."), this, &StashActions::drop, false, true);
@@ -61,7 +62,7 @@ void StashActions::pop()
 
 void StashActions::diff()
 {
-    auto d = new DiffWindow(mGit, mStash->message(), QLatin1String());
+    auto d = new DiffWindow(mGit, mStash->commit()->tree());
     d->showModal();
 }
 
