@@ -26,7 +26,7 @@ class LIBKOMMITWIDGETS_EXPORT FileViewerDialog : public KParts::MainWindow, priv
     Q_OBJECT
 
 public:
-    explicit FileViewerDialog(Git::Manager *git, const QSharedPointer<Git::File> &file, QWidget *parent = nullptr);
+    explicit FileViewerDialog(Git::Manager *git, QSharedPointer<Git::File> file, QWidget *parent = nullptr);
 
     ~FileViewerDialog() override;
 

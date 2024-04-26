@@ -22,7 +22,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QStandardPaths>
 #include <QStyle>
 
-FileViewerDialog::FileViewerDialog(Git::Manager *git, const QSharedPointer<Git::File> &file, QWidget *parent)
+FileViewerDialog::FileViewerDialog(Git::Manager *git, QSharedPointer<Git::File> file, QWidget *parent)
     : KParts::MainWindow(parent)
     , mGit(git)
 {

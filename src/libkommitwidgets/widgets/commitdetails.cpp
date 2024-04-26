@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace
 {
 
-void showSignature(const QSharedPointer<Git::Signature> &sign, AvatarView *avatarView, QLabel *nameLabel, QLabel *timeLabel, bool createLink)
+void showSignature(QSharedPointer<Git::Signature> sign, AvatarView *avatarView, QLabel *nameLabel, QLabel *timeLabel, bool createLink)
 {
     if (!sign)
         return;

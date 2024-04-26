@@ -20,8 +20,8 @@ class LIBKOMMITWIDGETS_EXPORT BranchActions : public AbstractActions
 public:
     explicit BranchActions(Git::Manager *git, QWidget *parent = nullptr);
 
-    void setBranchName(const QSharedPointer<Git::Branch> &newBranchName);
-    void setOtherBranch(const QSharedPointer<Git::Branch> &newOtherBranch);
+    void setBranchName(QSharedPointer<Git::Branch> newBranchName);
+    void setOtherBranch(QSharedPointer<Git::Branch> newOtherBranch);
 
 private:
     void fetch();

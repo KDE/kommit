@@ -41,7 +41,7 @@ BranchActions::BranchActions(Git::Manager *git, QWidget *parent)
     _actionNote = addActionDisabled(i18n("Note..."), this, &BranchActions::note);
 }
 
-void BranchActions::setBranchName(const QSharedPointer<Git::Branch> &newBranchName)
+void BranchActions::setBranchName(QSharedPointer<Git::Branch> newBranchName)
 {
     mBranchName = newBranchName;
 
@@ -54,7 +54,7 @@ void BranchActions::setBranchName(const QSharedPointer<Git::Branch> &newBranchNa
     setActionEnabled(_actionNote, true);
 }
 
-void BranchActions::setOtherBranch(const QSharedPointer<Git::Branch> &newOtherBranch)
+void BranchActions::setOtherBranch(QSharedPointer<Git::Branch> newOtherBranch)
 {
     mOtherBranch = newOtherBranch;
 }
