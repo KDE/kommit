@@ -115,7 +115,11 @@ bool FileViewerDialog::showWithParts(const QMimeType &mimeType, const Git::File 
     auto viewer = parts[0];
     auto icon = QIcon::fromTheme(mimeType.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize));
     setWindowIcon(icon);
+#if KPARTS_ENABLE_DEPRECATED_SINCE(6, 0)
     const auto result = KParts::PartLoader::createPartInstanceForMimeType<KParts::ReadOnlyPart>(mimeType.name(), this, this);
+#else
+    const auto result = KParts::PartLoader::instantiatePart<KParts::ReadOnlyPart>(m_part, this, this);
+#endif
 
     m_part = result;
     if (!result) {
