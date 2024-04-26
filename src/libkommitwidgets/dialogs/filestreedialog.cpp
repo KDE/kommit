@@ -13,6 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 #include <QFileIconProvider>
+#include <interfaces.h>
 
 FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QString &place, QWidget *parent)
     : AppDialog(git, parent)
@@ -55,16 +56,31 @@ FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QString &place, QWidge
     connect(listWidget, &QListWidget::customContextMenuRequested, this, &FilesTreeDialog::slotListWidgetCustomContextMenuRequested);
 }
 
-FilesTreeDialog::FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::Tree> tree, QWidget *parent)
+// FilesTreeDialog::FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::Tree> tree, QWidget *parent)
+//     : AppDialog(nullptr, parent)
+//     , mTreeModel(new TreeModel(this))
+//     , mPlace{}
+//     , mActions(new FileActions(git, this))
+//     , mTree{tree}
+// {
+//     setupUi(this);
+
+//     auto files = tree->entries(Git::Tree::EntryType::File);
+
+//     initModel(files);
+// }
+
+FilesTreeDialog::FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::ITree> tree, QWidget *parent)
     : AppDialog(nullptr, parent)
     , mTreeModel(new TreeModel(this))
     , mPlace{}
     , mActions(new FileActions(git, this))
-    , mTree{tree}
+    , mTree{tree->tree()}
 {
     setupUi(this);
 
-    auto files = tree->entries(Git::Tree::EntryType::File);
+    auto files = tree->tree()->entries(Git::Tree::EntryType::File);
+    lineEditBranchName->setText(tree->treeTitle());
 
     initModel(files);
 }

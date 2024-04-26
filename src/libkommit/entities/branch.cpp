@@ -95,4 +95,9 @@ QSharedPointer<Tree> Branch::tree() const
 
     RETURN_COND(QSharedPointer<Tree>{new Tree{tree}}, nullptr);
 }
+
+QString Branch::treeTitle() const
+{
+    return name();
+}
 }

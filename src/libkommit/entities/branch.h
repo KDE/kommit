@@ -35,6 +35,7 @@ public:
     Q_REQUIRED_RESULT bool isHead() const;
 
     QSharedPointer<Tree> tree() const override;
+    QString treeTitle() const override;
 
 private:
     git_reference *mBranch;

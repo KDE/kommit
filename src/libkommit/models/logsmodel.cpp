@@ -216,8 +216,6 @@ LogsModel::LogsModel(Manager *git, QObject *parent)
 
 LogsModel::~LogsModel()
 {
-    qDeleteAll(mData);
-    mData.clear();
 }
 
 const QString &LogsModel::branch() const
@@ -274,7 +272,7 @@ QVariant LogsModel::headerData(int section, Qt::Orientation orientation, int rol
     return {};
 }
 
-Commit *LogsModel::at(int index) const
+QSharedPointer<Commit> LogsModel::at(int index) const
 {
     if (index < 0 || index >= mData.size())
         return nullptr;
@@ -315,7 +313,7 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-Commit *LogsModel::fromIndex(const QModelIndex &index) const
+QSharedPointer<Commit> LogsModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
@@ -334,18 +332,18 @@ QModelIndex LogsModel::findIndexByHash(const QString &hash) const
     return {};
 }
 
-Commit *LogsModel::findLogByHash(const QString &hash, LogMatchType matchType) const
+QSharedPointer<Commit> LogsModel::findLogByHash(const QString &hash, LogMatchType matchType) const
 {
-    QList<Commit *>::ConstIterator i;
+    QList<QSharedPointer<Commit>>::ConstIterator i;
 
     switch (matchType) {
     case LogMatchType::ExactMatch:
-        i = std::find_if(mData.begin(), mData.end(), [&hash](Commit *log) {
+        i = std::find_if(mData.begin(), mData.end(), [&hash](QSharedPointer<Commit> log) {
             return log->commitHash() == hash;
         });
         break;
     case LogMatchType::BeginMatch:
-        i = std::find_if(mData.begin(), mData.end(), [&hash](Commit *log) {
+        i = std::find_if(mData.begin(), mData.end(), [&hash](QSharedPointer<Commit> log) {
             return log->commitHash().startsWith(hash);
         });
         break;
@@ -358,7 +356,7 @@ Commit *LogsModel::findLogByHash(const QString &hash, LogMatchType matchType) co
 void LogsModel::fill()
 {
     constexpr int GIT_SUCCESS{0};
-    qDeleteAll(mData);
+
     mData.clear();
     mDataByCommitHashLong.clear();
     mDataByCommitHashShort.clear();
@@ -410,7 +408,7 @@ void LogsModel::fill()
             return;
         }
 
-        auto d = new Commit{commit};
+        auto d = QSharedPointer<Commit>{new Commit{commit}};
 
         mData.append(d);
         mDataByCommitHashLong.insert(d->commitHash(), d);
@@ -420,9 +418,9 @@ void LogsModel::fill()
     git_revwalk_free(walker);
 
     struct wrapper {
-        QList<Commit *> mData;
-        QMap<QString, Commit *> mDataByCommitHashLong;
-        QMap<QString, Commit *> mDataByCommitHashShort;
+        QList<QSharedPointer<Commit>> mData;
+        QMap<QString, QSharedPointer<Commit>> mDataByCommitHashLong;
+        QMap<QString, QSharedPointer<Commit>> mDataByCommitHashShort;
         git_repository *repo;
     };
     auto cb = [](git_reference *reference, void *payload) -> int {
@@ -485,7 +483,7 @@ void LogsModel::initGraph()
     Impl::LanesFactory factory;
     for (auto i = mData.rbegin(); i != mData.rend(); i++) {
         auto &log = *i;
-        log->mLanes = factory.apply(log);
+        log->mLanes = factory.apply(log.data());
     }
 }
 

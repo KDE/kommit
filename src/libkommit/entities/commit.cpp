@@ -97,6 +97,11 @@ QSharedPointer<Tree> Commit::tree() const
     return QSharedPointer<Tree>{new Tree{tree}};
 }
 
+QString Commit::treeTitle() const
+{
+    return mSubject;
+}
+
 git_commit *Commit::gitCommit() const
 {
     return mGitCommit;

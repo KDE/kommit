@@ -7,6 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 #include "gitloglist.h"
 #include "libkommit_export.h"
+
+#include <QSharedPointer>
 #include <QString>
 
 namespace Git
@@ -16,7 +18,7 @@ struct BlameDataRow {
     QString commitHash;
     QString code;
 
-    Commit *log = nullptr; // TODO: change to QSharedPointer
+    QSharedPointer<Commit> log = nullptr; // TODO: change to QSharedPointer
 };
 bool operator==(const BlameDataRow &l, const BlameDataRow &r);
 bool operator!=(const BlameDataRow &l, const BlameDataRow &r);

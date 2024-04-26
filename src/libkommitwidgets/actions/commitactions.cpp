@@ -14,12 +14,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 
-Git::Commit *CommitActions::commit() const
+QSharedPointer<Git::Commit> CommitActions::commit() const
 {
     return mCommit;
 }
 
-void CommitActions::setCommit(Git::Commit *commit)
+void CommitActions::setCommit(QSharedPointer<Git::Commit> commit)
 {
     mCommit = commit;
 
@@ -38,7 +38,7 @@ CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
 
 void CommitActions::browse()
 {
-    FilesTreeDialog d(mGit, mCommit->tree(), mParent);
+    FilesTreeDialog d(mGit, mCommit.dynamicCast<Git::ITree>(), mParent);
     d.exec();
 }
 

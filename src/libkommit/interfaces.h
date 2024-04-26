@@ -17,8 +17,11 @@ class Tree;
 class LIBKOMMIT_EXPORT ITree
 {
 public:
+    enum class TreeType { Commit, Branch };
+
     virtual ~ITree();
     virtual QSharedPointer<Tree> tree() const = 0;
+    virtual QString treeTitle() const = 0;
 };
 
 inline ITree::~ITree()

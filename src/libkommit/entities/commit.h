@@ -52,6 +52,7 @@ public:
     Q_REQUIRED_RESULT QSharedPointer<Reference> reference() const;
 
     QSharedPointer<Tree> tree() const override;
+    QString treeTitle() const override;
 
     Q_REQUIRED_RESULT git_commit *gitCommit() const;
 

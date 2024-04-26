@@ -12,6 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <KMimeTypeTrader>
 #endif
+#include <KParts/OpenUrlArguments>
+#include <KParts/PartLoader>
 #include <KStandardAction>
 #include <KXMLGUIFactory>
 
@@ -74,18 +76,25 @@ void FileViewerDialog::showFile(const Git::File &file)
     QMimeDatabase mimeDatabase;
     const auto fn = file.fileName().mid(file.fileName().lastIndexOf(QLatin1Char('/')) + 1);
     const auto mime = mimeDatabase.mimeTypeForFile(fn, QMimeDatabase::MatchExtension);
-    mFilePath = file.fileName();
-    mFilePath = mFilePath.mid(mFilePath.lastIndexOf(QLatin1Char('/')) + 1);
-    mFilePath.prepend(QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/'));
 
     lineEditBranchName->setText(file.place());
     lineEditFileName->setText(file.fileName());
     plainTextEdit->setReadOnly(true);
+
     setWindowTitle(i18nc("@title:window", "View file: %1", file.fileName()));
     setWindowFilePath(file.fileName());
     labelFileIcon->setPixmap(QIcon::fromTheme(mime.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize)));
 
-    auto ptr = getInternalViewer(mime.name());
+    if (showWithParts(mime, file))
+        return;
+
+    if (mime.name().startsWith(QStringLiteral("image/")))
+        showAsImage(file);
+    else
+        showInEditor(file);
+
+    return;
+    auto ptr = getInternalViewer(mime);
     if (ptr && ptr->isValid()) {
         file.save(mFilePath);
         if (viewInInternalViewer(ptr, mFilePath, mime))
@@ -119,15 +128,15 @@ void FileViewerDialog::showInEditor(const Git::File &file)
 void FileViewerDialog::showAsImage(const Git::File &file)
 {
     stackedWidget->setCurrentIndex(1);
-    const auto p = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QStringLiteral("/klient_img");
-    file.save(p);
-    QImage img{p};
+    mFilePath = file.saveAsTemp();
+    QImage img{mFilePath};
     labelImage->setPixmap(QPixmap::fromImage(img));
 }
 
-KService::Ptr FileViewerDialog::getInternalViewer(const QString &mimeType)
+KService::Ptr FileViewerDialog::getInternalViewer(const QMimeType &mimeType)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#ifdef NO
+    // #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     // No point in even trying to find anything for application/octet-stream
     if (mimeType == QLatin1String("application/octet-stream")) {
         return {};
@@ -172,6 +181,34 @@ KService::Ptr FileViewerDialog::getInternalViewer(const QString &mimeType)
     return {};
 
 #endif
+}
+
+bool FileViewerDialog::showWithParts(const QMimeType &mimeType, const Git::File &file)
+{
+    auto parts = KParts::PartLoader::partsForMimeType(mimeType.name());
+
+    if (!parts.size())
+        return false;
+    auto viewer = parts[0];
+    auto icon = QIcon::fromTheme(mimeType.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize));
+    setWindowIcon(icon);
+    const auto result = KParts::PartLoader::createPartInstanceForMimeType<KParts::ReadOnlyPart>(mimeType.name(), this, this);
+
+    m_part = result;
+    if (!result) {
+        qDebug() << "Failed to create internal viewer";
+        return false;
+    }
+
+    kPartWidgetLayout->addWidget(result->widget());
+    stackedWidget->setCurrentIndex(2);
+
+    createGUI(m_part.data());
+
+    auto f = file.saveAsTemp();
+    m_part.data()->openUrl(QUrl::fromLocalFile(f));
+
+    return true;
 }
 
 void FileViewerDialog::keyPressEvent(QKeyEvent *event)

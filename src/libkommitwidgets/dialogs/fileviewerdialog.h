@@ -41,7 +41,9 @@ private:
 
     bool viewInInternalViewer(const KService::Ptr &viewer, const QString &fileName, const QMimeType &mimeType);
     KService::Ptr getExternalViewer(const QString &mimeType);
-    KService::Ptr getInternalViewer(const QString &mimeType);
+    KService::Ptr getInternalViewer(const QMimeType &mimeType);
+
+    bool showWithParts(const QMimeType &mime, const Git::File &file);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;

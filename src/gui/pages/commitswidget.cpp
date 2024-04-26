@@ -112,7 +112,7 @@ void CommitsWidget::slotTreeViewHistoryItemActivated(const QModelIndex &index)
     if (!commit)
         return;
 
-    widgetCommitDetails->setCommit(commit);
+    widgetCommitDetails->setCommit(commit.data()); // TODO: passing raw pointer
 }
 
 void CommitsWidget::slotTextBrowserHashClicked(const QString &hash)

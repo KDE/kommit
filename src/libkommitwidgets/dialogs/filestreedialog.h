@@ -14,6 +14,7 @@ namespace Git
 {
 class Manager;
 class Tree;
+class ITree;
 };
 
 class FileActions;
@@ -24,7 +25,8 @@ class LIBKOMMITWIDGETS_EXPORT FilesTreeDialog : public AppDialog, private Ui::Fi
 
 public:
     FilesTreeDialog(Git::Manager *git, const QString &place, QWidget *parent = nullptr);
-    FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::Tree> tree, QWidget *parent = nullptr);
+    // FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::Tree> tree, QWidget *parent = nullptr);
+    FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::ITree> tree, QWidget *parent = nullptr);
 
 private:
     void slotListWidgetCustomContextMenuRequested(const QPoint &pos);

@@ -56,7 +56,7 @@ void HistoryViewWidget::slotTreeViewHistoryItemActivated(const QModelIndex &inde
     if (!log)
         return;
 
-    widgetCommit->setCommit(log);
+    widgetCommit->setCommit(log.data()); // TODO: passing raw pointer
 }
 
 void HistoryViewWidget::slotTextBrowserHashClicked(const QString &hash)

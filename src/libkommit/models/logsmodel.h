@@ -31,10 +31,10 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
-    Commit *at(int index) const;
-    Commit *fromIndex(const QModelIndex &index) const;
+    QSharedPointer<Commit> at(int index) const;
+    QSharedPointer<Commit> fromIndex(const QModelIndex &index) const;
     QModelIndex findIndexByHash(const QString &hash) const;
-    Git::Commit *findLogByHash(const QString &hash, LogMatchType matchType = LogMatchType::ExactMatch) const;
+    QSharedPointer<Commit> findLogByHash(const QString &hash, LogMatchType matchType = LogMatchType::ExactMatch) const;
 
     Q_REQUIRED_RESULT const QString &branch() const;
     void setBranch(const QString &newBranch);
@@ -54,10 +54,10 @@ private:
     void initGraph();
 
     QString mBranch;
-    QList<Commit *> mData;
+    QList<QSharedPointer<Commit>> mData;
     QStringList mBranches;
-    QMap<QString, Commit *> mDataByCommitHashLong;
-    QMap<QString, Commit *> mDataByCommitHashShort;
+    QMap<QString, QSharedPointer<Commit>> mDataByCommitHashLong;
+    QMap<QString, QSharedPointer<Commit>> mDataByCommitHashShort;
     QCalendar mCalendar;
     QSet<QString> mSeenHases;
 };
