@@ -20,7 +20,7 @@ StashActions::StashActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
     _actionNew = addActionHidden(i18n("New stash..."), this, &StashActions::create);
-    _actionDiff = addAction(i18n("Diff with working dir"), this, &StashActions::diff);
+    _actionDiff = addActionHidden(i18n("Diff with working dir"), this, &StashActions::diff);
     _actionPop = addAction(i18n("Pop..."), this, &StashActions::pop, false, true);
     _actionApply = addAction(i18n("Apply..."), this, &StashActions::apply, false, true);
     _actionDrop = addAction(i18n("Remove..."), this, &StashActions::drop, false, true);
