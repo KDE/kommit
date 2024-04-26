@@ -23,9 +23,9 @@ void CommitActions::setCommit(QSharedPointer<Git::Commit> commit)
 {
     mCommit = commit;
 
-    setActionEnabled(_actionBrowse, commit);
-    setActionEnabled(_actionCheckout, commit);
-    setActionEnabled(_actionDiff, commit);
+    setActionEnabled(_actionBrowse, !commit.isNull());
+    setActionEnabled(_actionCheckout, !commit.isNull());
+    setActionEnabled(_actionDiff, !commit.isNull());
 }
 
 CommitActions::CommitActions(Git::Manager *git, QWidget *parent)

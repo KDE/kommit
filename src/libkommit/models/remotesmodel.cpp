@@ -109,12 +109,8 @@ void RemotesModel::fill()
 
         auto remote = remotesMap.value(b->remoteName());
 
-        if (!remote)
-            qDebug() << "NO REMOTE FOUUND" << b->remoteName();
-        else {
-            qDebug() << "REMOTE FOUUND" << b->remoteName();
+        if (remote)
             remote->mBranches << b;
-        }
     }
     git_branch_iterator_free(it);
 
