@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-25 01:41+0000\n"
+"POT-Creation-Date: 2024-04-26 01:39+0000\n"
 "PO-Revision-Date: 2024-01-21 11:56+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -38,7 +38,7 @@ msgstr "კლონირება"
 msgid "Init"
 msgstr "ერთეული"
 
-#: dolphinplugins/actions.h:18 src/libkommitwidgets/actions/fileactions.cpp:84
+#: dolphinplugins/actions.h:18 src/libkommitwidgets/actions/fileactions.cpp:45
 #, kde-format
 msgid "Open"
 msgstr "გახსნა"
@@ -107,7 +107,7 @@ msgstr "ფაილის იგნორი"
 msgid "History"
 msgstr "ისტორია"
 
-#: dolphinplugins/actions.h:28 src/libkommitwidgets/actions/fileactions.cpp:92
+#: dolphinplugins/actions.h:28 src/libkommitwidgets/actions/fileactions.cpp:53
 #, kde-format
 msgid "Blame"
 msgstr "პასუხისმგებლობა"
@@ -267,7 +267,7 @@ msgstr "შერწყმა..."
 msgid "Diff branches..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:191 src/libkommitwidgets/actions/fileactions.cpp:93
+#: src/gui/appwindow.cpp:191 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr "ძებნა..."
@@ -380,6 +380,7 @@ msgstr "რეპო"
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
 #: src/gui/merge/closeeventdialog.ui:14
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:73
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:14
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:105
 #, kde-format
@@ -988,34 +989,34 @@ msgid "Revert..."
 msgstr "დაბრუნება..."
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
-#: src/libkommitwidgets/actions/fileactions.cpp:87
+#: src/libkommitwidgets/actions/fileactions.cpp:48
 #: src/libkommitwidgets/actions/stashactions.cpp:23
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Diff with working dir"
 msgstr ""
 
-#: src/libkommitwidgets/actions/fileactions.cpp:83
+#: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
 msgid "Preview"
 msgstr "მინიატურა"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:85
+#: src/libkommitwidgets/actions/fileactions.cpp:46
 #, kde-format
 msgid "Open with..."
 msgstr "გამხსნელი პროგრამა..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:88
+#: src/libkommitwidgets/actions/fileactions.cpp:49
 #, kde-format
 msgid "Merge with working dir"
 msgstr ""
 
-#: src/libkommitwidgets/actions/fileactions.cpp:90
+#: src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
 msgid "Save as..."
 msgstr "შენახვა როგორც..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:91
+#: src/libkommitwidgets/actions/fileactions.cpp:52
 #, kde-format
 msgid "Log"
 msgstr "ჟურნალი"
@@ -1132,21 +1133,25 @@ msgid "Pop stash %1"
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "ანგარიშების გარეშე!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
 msgstr "შენახვა საკუჭნაოში"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
 msgstr ""
@@ -1219,19 +1224,6 @@ msgstr "ჭდის წაშლა"
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, გამოითხოვოთ მონიშნული ჭდე?"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:31
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
-#, kde-format
-msgid "Commit/Push"
-msgstr ""
-
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:38
-#: src/libkommitwidgets/windows/diffwindow.cpp:210
-#, kde-format
-msgid "Reload"
-msgstr "თავიდან ჩატვირთვა"
-
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
 #, kde-format
@@ -1245,6 +1237,26 @@ msgstr "შეცვლილი ფაილები"
 #, kde-format
 msgid "Changed files:"
 msgstr "შეცვლილი ფაილები:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
+#: src/libkommitwidgets/windows/diffwindow.cpp:210
+#, kde-format
+msgid "Reload"
+msgstr "თავიდან ჩატვირთვა"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonStashChanges)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
+#, kde-format
+msgid "Stash changes"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
+#, fuzzy, kde-format
+#| msgid "Commits"
+msgid "Commit/push"
+msgstr "კომიტი"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -1391,6 +1403,12 @@ msgstr "ტექსტური ჭდე"
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
 #, kde-format
 msgid "Commit and push"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
+#, kde-format
+msgid "Commit/Push"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
@@ -1714,7 +1732,7 @@ msgstr "მარცხენა"
 msgid "Right"
 msgstr "მარჯვენა"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:35
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
@@ -1726,18 +1744,18 @@ msgstr ""
 msgid "Branch:"
 msgstr "ბრენჩი:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:56
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:50
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "გადახედვის დახურვა"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:57
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:51
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "მიმდინარეობს მინიატურის დახურვა. მოითმინეთ..."
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:90
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:84
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-25 01:41+0000\n"
-"PO-Revision-Date: 2024-04-21 09:06+0300\n"
+"POT-Creation-Date: 2024-04-26 01:39+0000\n"
+"PO-Revision-Date: 2024-04-25 08:10+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -38,7 +38,7 @@ msgstr "Клонувати"
 msgid "Init"
 msgstr "Ініціалізація"
 
-#: dolphinplugins/actions.h:18 src/libkommitwidgets/actions/fileactions.cpp:84
+#: dolphinplugins/actions.h:18 src/libkommitwidgets/actions/fileactions.cpp:45
 #, kde-format
 msgid "Open"
 msgstr "Відкрити"
@@ -107,7 +107,7 @@ msgstr "Ігнорувати файл"
 msgid "History"
 msgstr "Журнал"
 
-#: dolphinplugins/actions.h:28 src/libkommitwidgets/actions/fileactions.cpp:92
+#: dolphinplugins/actions.h:28 src/libkommitwidgets/actions/fileactions.cpp:53
 #, kde-format
 msgid "Blame"
 msgstr "Визначити автора"
@@ -152,12 +152,12 @@ msgstr "Kommit"
 #: dolphinplugins/dolphinplugin.cpp:101
 #, kde-format
 msgid "Push/Commit to %0"
-msgstr ""
+msgstr "Записати/Внести до %0"
 
 #: dolphinplugins/dolphinplugin.cpp:103
 #, kde-format
 msgid "Push/Commit to submodule %0"
-msgstr ""
+msgstr "Записати/Внести до підмодуля %0"
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -266,7 +266,7 @@ msgstr "Об'єднати…"
 msgid "Diff branches..."
 msgstr "Різниця гілок…"
 
-#: src/gui/appwindow.cpp:191 src/libkommitwidgets/actions/fileactions.cpp:93
+#: src/gui/appwindow.cpp:191 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr "Шукати…"
@@ -379,6 +379,7 @@ msgstr "Схов."
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
 #: src/gui/merge/closeeventdialog.ui:14
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:73
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:14
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:105
 #, kde-format
@@ -570,47 +571,45 @@ msgstr "Основна гілка"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
 #: src/gui/pages/reportswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Reports"
-msgstr "Схов."
+msgstr "Звіти"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:33
 #, kde-format
 msgid "Table view"
-msgstr ""
+msgstr "Табличний перегляд"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:36
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "Таблиця"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:50
-#, fuzzy, kde-format
-#| msgid "Regular view"
+#, kde-format
 msgid "Chart view"
-msgstr "Звичайний перегляд"
+msgstr "Перегляд діаграми"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:53
 #, kde-format
 msgid "Chart"
-msgstr ""
+msgstr "Діаграма"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:80
 #, kde-format
 msgid "Refresh data"
-msgstr ""
+msgstr "Освіжити дані"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:83
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Освіжити"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
 #: src/gui/pages/stasheswidget.ui:14
@@ -1001,34 +1000,34 @@ msgid "Revert..."
 msgstr "Повернути…"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
-#: src/libkommitwidgets/actions/fileactions.cpp:87
+#: src/libkommitwidgets/actions/fileactions.cpp:48
 #: src/libkommitwidgets/actions/stashactions.cpp:23
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Diff with working dir"
 msgstr "Різниця з робочим каталогом"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:83
+#: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
 msgid "Preview"
 msgstr "Перегляд"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:85
+#: src/libkommitwidgets/actions/fileactions.cpp:46
 #, kde-format
 msgid "Open with..."
 msgstr "Відкрити за допомогою…"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:88
+#: src/libkommitwidgets/actions/fileactions.cpp:49
 #, kde-format
 msgid "Merge with working dir"
 msgstr "Об'єднати з робочим каталогом"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:90
+#: src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
 msgid "Save as..."
 msgstr "Зберегти як…"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:91
+#: src/libkommitwidgets/actions/fileactions.cpp:52
 #, kde-format
 msgid "Log"
 msgstr "Журнал"
@@ -1145,21 +1144,25 @@ msgid "Pop stash %1"
 msgstr "Підняти накопичення %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "У вас немає змін!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
 msgstr "Накопичити"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
 msgstr "Створити накопичення"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
 msgstr "Назва накопичення"
@@ -1232,19 +1235,6 @@ msgstr "Вилучити мітку"
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Ви справді хочете звірити копію із позначеною міткою?"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:31
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
-#, kde-format
-msgid "Commit/Push"
-msgstr "Внести/Записати"
-
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:38
-#: src/libkommitwidgets/windows/diffwindow.cpp:210
-#, kde-format
-msgid "Reload"
-msgstr "Перезавантажити"
-
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
 #, kde-format
@@ -1258,6 +1248,27 @@ msgstr "Змінені файли"
 #, kde-format
 msgid "Changed files:"
 msgstr "Змінені файли:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
+#: src/libkommitwidgets/windows/diffwindow.cpp:210
+#, kde-format
+msgid "Reload"
+msgstr "Перезавантажити"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonStashChanges)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
+#, fuzzy, kde-format
+#| msgid "Stashes"
+msgid "Stash changes"
+msgstr "Накопичення"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
+#, fuzzy, kde-format
+#| msgid "Commit/Push"
+msgid "Commit/push"
+msgstr "Внести/Записати"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -1405,6 +1416,12 @@ msgstr "TextLabel"
 #, kde-format
 msgid "Commit and push"
 msgstr "Внести і записати"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
+#, kde-format
+msgid "Commit/Push"
+msgstr "Внести/Записати"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:22
@@ -1751,7 +1768,7 @@ msgstr "Ліворуч"
 msgid "Right"
 msgstr "Праворуч"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:35
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
@@ -1763,18 +1780,18 @@ msgstr "Перегляд файлів: %1"
 msgid "Branch:"
 msgstr "Гілка:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:56
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:50
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Закриття попереднього перегляду"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:57
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:51
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Будь ласка, зачекайте доки вікно попереднього перегляду буде закрито…"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:90
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:84
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2395,7 +2412,7 @@ msgstr "Назва мітки:"
 #: src/libkommitwidgets/reports/authorsreport.cpp:53
 #, kde-format
 msgid "Commits count by author"
-msgstr ""
+msgstr "Кількість внесків автора"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format
@@ -2410,48 +2427,47 @@ msgstr "Автори"
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:46
 #, kde-format
 msgid "Commits by hour of day"
-msgstr ""
+msgstr "Внести за часом доби"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
 #, kde-format
 msgid "Hour"
-msgstr ""
+msgstr "Час"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:66
 #, kde-format
 msgid "Hour of day"
-msgstr ""
+msgstr "Час доби"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
 #, kde-format
 msgid "Commits by day of week"
-msgstr ""
+msgstr "Внески за днем тижня"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
 #, kde-format
 msgid "Day"
-msgstr ""
+msgstr "День"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:95
 #, kde-format
 msgid "Day of week"
-msgstr ""
+msgstr "День тижня"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:60
-#, fuzzy, kde-format
-#| msgid "Commit(s) behind"
+#, kde-format
 msgid "Commits by month"
-msgstr "Відсталі внески"
+msgstr "Внески за місяцями"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:70
 #, kde-format
 msgid "Month"
-msgstr ""
+msgstr "Місяць"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:80
 #, kde-format
 msgid "Month-year"
-msgstr ""
+msgstr "Місяць-рік"
 
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:41
 #, kde-format
@@ -2540,10 +2556,9 @@ msgstr "Приховати незмінене"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Report"
-msgstr "Схов."
+msgstr "Звіт"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format

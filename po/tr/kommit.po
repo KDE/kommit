@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-25 01:41+0000\n"
-"PO-Revision-Date: 2024-04-21 12:21+0300\n"
+"POT-Creation-Date: 2024-04-26 01:39+0000\n"
+"PO-Revision-Date: 2024-04-25 13:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -37,7 +37,7 @@ msgstr "Klonla"
 msgid "Init"
 msgstr "İlklendir"
 
-#: dolphinplugins/actions.h:18 src/libkommitwidgets/actions/fileactions.cpp:84
+#: dolphinplugins/actions.h:18 src/libkommitwidgets/actions/fileactions.cpp:45
 #, kde-format
 msgid "Open"
 msgstr "Aç"
@@ -106,7 +106,7 @@ msgstr "Dosyayı Yok Say"
 msgid "History"
 msgstr "Geçmiş"
 
-#: dolphinplugins/actions.h:28 src/libkommitwidgets/actions/fileactions.cpp:92
+#: dolphinplugins/actions.h:28 src/libkommitwidgets/actions/fileactions.cpp:53
 #, kde-format
 msgid "Blame"
 msgstr "Suçla"
@@ -151,12 +151,12 @@ msgstr "Kommit"
 #: dolphinplugins/dolphinplugin.cpp:101
 #, kde-format
 msgid "Push/Commit to %0"
-msgstr ""
+msgstr "Şuraya İt/İşle: %0"
 
 #: dolphinplugins/dolphinplugin.cpp:103
 #, kde-format
 msgid "Push/Commit to submodule %0"
-msgstr ""
+msgstr "Şu Altmodüle İt/İşle: %0"
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -265,7 +265,7 @@ msgstr "Birleştir..."
 msgid "Diff branches..."
 msgstr "Dalların Farkını Al..."
 
-#: src/gui/appwindow.cpp:191 src/libkommitwidgets/actions/fileactions.cpp:93
+#: src/gui/appwindow.cpp:191 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr "Ara..."
@@ -378,6 +378,7 @@ msgstr "Depo"
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
 #: src/gui/merge/closeeventdialog.ui:14
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:73
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:14
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:105
 #, kde-format
@@ -570,47 +571,45 @@ msgstr "Üst Kaynak"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
 #: src/gui/pages/reportswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Reports"
-msgstr "Depo"
+msgstr "Raporlar"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:33
 #, kde-format
 msgid "Table view"
-msgstr ""
+msgstr "Tablo görünümü"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:36
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "Tablo"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:50
-#, fuzzy, kde-format
-#| msgid "Regular view"
+#, kde-format
 msgid "Chart view"
-msgstr "Normal görünüm"
+msgstr "Çizelge görünümü"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:53
 #, kde-format
 msgid "Chart"
-msgstr ""
+msgstr "Çizelge"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:80
 #, kde-format
 msgid "Refresh data"
-msgstr ""
+msgstr "Veriyi yenile"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:83
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Yenile"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
 #: src/gui/pages/stasheswidget.ui:14
@@ -999,34 +998,34 @@ msgid "Revert..."
 msgstr "Geri Al..."
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
-#: src/libkommitwidgets/actions/fileactions.cpp:87
+#: src/libkommitwidgets/actions/fileactions.cpp:48
 #: src/libkommitwidgets/actions/stashactions.cpp:23
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Diff with working dir"
 msgstr "Çalışma Diziniyle Farkını Al"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:83
+#: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
 msgid "Preview"
 msgstr "Önizleme"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:85
+#: src/libkommitwidgets/actions/fileactions.cpp:46
 #, kde-format
 msgid "Open with..."
 msgstr "Birlikte Aç..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:88
+#: src/libkommitwidgets/actions/fileactions.cpp:49
 #, kde-format
 msgid "Merge with working dir"
 msgstr "Çalışma Diziniyle Birleştir"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:90
+#: src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
 msgid "Save as..."
 msgstr "Farklı Kaydet..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:91
+#: src/libkommitwidgets/actions/fileactions.cpp:52
 #, kde-format
 msgid "Log"
 msgstr "Günlük"
@@ -1143,21 +1142,25 @@ msgid "Pop stash %1"
 msgstr "%1 zulasını patlat"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Bir değişikliğiniz yok!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
 msgstr "Zulala"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
 msgstr "Yeni Zula Oluştur"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
 msgstr "Zulanın adı"
@@ -1230,19 +1233,6 @@ msgstr "Etiketi Kaldır"
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Seçili etikete çıkış yapmak istediğinizden emin misiniz?"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:31
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
-#, kde-format
-msgid "Commit/Push"
-msgstr "İşle/İt"
-
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:38
-#: src/libkommitwidgets/windows/diffwindow.cpp:210
-#, kde-format
-msgid "Reload"
-msgstr "Yeniden Yükle"
-
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
 #, kde-format
@@ -1256,6 +1246,27 @@ msgstr "Değiştirilen Dosyalar"
 #, kde-format
 msgid "Changed files:"
 msgstr "Değiştirilen dosyalar:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
+#: src/libkommitwidgets/windows/diffwindow.cpp:210
+#, kde-format
+msgid "Reload"
+msgstr "Yeniden Yükle"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonStashChanges)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
+#, fuzzy, kde-format
+#| msgid "Stashes"
+msgid "Stash changes"
+msgstr "Zulalar"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
+#, fuzzy, kde-format
+#| msgid "Commit/Push"
+msgid "Commit/push"
+msgstr "İşle/İt"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -1402,6 +1413,12 @@ msgstr "MetinEtiketi"
 #, kde-format
 msgid "Commit and push"
 msgstr "İşle ve İt"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
+#, kde-format
+msgid "Commit/Push"
+msgstr "İşle/İt"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:22
@@ -1747,7 +1764,7 @@ msgstr "Sol"
 msgid "Right"
 msgstr "Sağ"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:35
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
@@ -1759,18 +1776,18 @@ msgstr "Dosyalara göz at: %1"
 msgid "Branch:"
 msgstr "Dal:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:56
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:50
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Önizleme kapatılıyor"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:57
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:51
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Önizleme kapatılırken lütfen bekleyin..."
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:90
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:84
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2391,7 +2408,7 @@ msgstr "Etiket adı:"
 #: src/libkommitwidgets/reports/authorsreport.cpp:53
 #, kde-format
 msgid "Commits count by author"
-msgstr ""
+msgstr "Yazar başına işleme sayısı"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format
@@ -2406,48 +2423,47 @@ msgstr "Kimliği Doğrulananlar"
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:46
 #, kde-format
 msgid "Commits by hour of day"
-msgstr ""
+msgstr "Günün saatine göre işlemeler"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
 #, kde-format
 msgid "Hour"
-msgstr ""
+msgstr "Saat"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:66
 #, kde-format
 msgid "Hour of day"
-msgstr ""
+msgstr "Günün saati"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
 #, kde-format
 msgid "Commits by day of week"
-msgstr ""
+msgstr "Haftanın gününe göre işlemeler"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
 #, kde-format
 msgid "Day"
-msgstr ""
+msgstr "Gün"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:95
 #, kde-format
 msgid "Day of week"
-msgstr ""
+msgstr "Haftanın günü"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:60
-#, fuzzy, kde-format
-#| msgid "Commit(s) behind"
+#, kde-format
 msgid "Commits by month"
-msgstr "Arkadaki İşleme(ler)"
+msgstr "Aya göre işlemeler"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:70
 #, kde-format
 msgid "Month"
-msgstr ""
+msgstr "Ay"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:80
 #, kde-format
 msgid "Month-year"
-msgstr ""
+msgstr "Ay/Yıl"
 
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:41
 #, kde-format
@@ -2536,10 +2552,9 @@ msgstr "Değiştirilmeyenleri gizle"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Report"
-msgstr "Depo"
+msgstr "Rapor"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format

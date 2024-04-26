@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-25 01:41+0000\n"
-"PO-Revision-Date: 2024-04-21 08:28+0200\n"
+"POT-Creation-Date: 2024-04-26 01:39+0000\n"
+"PO-Revision-Date: 2024-04-25 12:50+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -40,7 +40,7 @@ msgstr "Clona"
 msgid "Init"
 msgstr "Inicialitza"
 
-#: dolphinplugins/actions.h:18 src/libkommitwidgets/actions/fileactions.cpp:84
+#: dolphinplugins/actions.h:18 src/libkommitwidgets/actions/fileactions.cpp:45
 #, kde-format
 msgid "Open"
 msgstr "Obre"
@@ -109,7 +109,7 @@ msgstr "Ignora el fitxer"
 msgid "History"
 msgstr "Historial"
 
-#: dolphinplugins/actions.h:28 src/libkommitwidgets/actions/fileactions.cpp:92
+#: dolphinplugins/actions.h:28 src/libkommitwidgets/actions/fileactions.cpp:53
 #, kde-format
 msgid "Blame"
 msgstr "«Blame»"
@@ -154,12 +154,12 @@ msgstr "Kommit"
 #: dolphinplugins/dolphinplugin.cpp:101
 #, kde-format
 msgid "Push/Commit to %0"
-msgstr ""
+msgstr "Pujada/Comissió a %0"
 
 #: dolphinplugins/dolphinplugin.cpp:103
 #, kde-format
 msgid "Push/Commit to submodule %0"
-msgstr ""
+msgstr "Pujada/Comissió al submòdul %0"
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -268,7 +268,7 @@ msgstr "Fusiona..."
 msgid "Diff branches..."
 msgstr "Diff de les branques..."
 
-#: src/gui/appwindow.cpp:191 src/libkommitwidgets/actions/fileactions.cpp:93
+#: src/gui/appwindow.cpp:191 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr "Cerca..."
@@ -381,6 +381,7 @@ msgstr "Repositori"
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
 #: src/gui/merge/closeeventdialog.ui:14
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:73
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:14
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:105
 #, kde-format
@@ -572,47 +573,45 @@ msgstr "Font"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
 #: src/gui/pages/reportswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Reports"
-msgstr "Repositori"
+msgstr "Informes"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:33
 #, kde-format
 msgid "Table view"
-msgstr ""
+msgstr "Vista de taula"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:36
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "Taula"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:50
-#, fuzzy, kde-format
-#| msgid "Regular view"
+#, kde-format
 msgid "Chart view"
-msgstr "Vista normal"
+msgstr "Vista de diagrama"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:53
 #, kde-format
 msgid "Chart"
-msgstr ""
+msgstr "Diagrama"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:80
 #, kde-format
 msgid "Refresh data"
-msgstr ""
+msgstr "Actualitza les dades"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:83
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Actualitza"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
 #: src/gui/pages/stasheswidget.ui:14
@@ -1003,34 +1002,34 @@ msgid "Revert..."
 msgstr "Reverteix..."
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
-#: src/libkommitwidgets/actions/fileactions.cpp:87
+#: src/libkommitwidgets/actions/fileactions.cpp:48
 #: src/libkommitwidgets/actions/stashactions.cpp:23
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Diff with working dir"
 msgstr "Diff amb el directori de treball"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:83
+#: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
 msgid "Preview"
 msgstr "Vista prèvia"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:85
+#: src/libkommitwidgets/actions/fileactions.cpp:46
 #, kde-format
 msgid "Open with..."
 msgstr "Obre amb..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:88
+#: src/libkommitwidgets/actions/fileactions.cpp:49
 #, kde-format
 msgid "Merge with working dir"
 msgstr "Fusió amb el directori de treball"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:90
+#: src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
 msgid "Save as..."
 msgstr "Desa com a..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:91
+#: src/libkommitwidgets/actions/fileactions.cpp:52
 #, kde-format
 msgid "Log"
 msgstr "Registre"
@@ -1147,21 +1146,25 @@ msgid "Pop stash %1"
 msgstr "Aplica («pop») el «stash» %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "No teniu cap canvi!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
 msgstr "«Stash»"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
 msgstr "Crea un «stash» nou"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
 msgstr "Nom del «stash»"
@@ -1234,19 +1237,6 @@ msgstr "Elimina l'etiqueta"
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Esteu segur d'extreure a l'etiqueta seleccionada?"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:31
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
-#, kde-format
-msgid "Commit/Push"
-msgstr "Comet/Puja"
-
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:38
-#: src/libkommitwidgets/windows/diffwindow.cpp:210
-#, kde-format
-msgid "Reload"
-msgstr "Torna a carregar"
-
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
 #, kde-format
@@ -1260,6 +1250,27 @@ msgstr "Fitxers canviats"
 #, kde-format
 msgid "Changed files:"
 msgstr "Fitxers canviats:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
+#: src/libkommitwidgets/windows/diffwindow.cpp:210
+#, kde-format
+msgid "Reload"
+msgstr "Torna a carregar"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonStashChanges)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
+#, fuzzy, kde-format
+#| msgid "Stashes"
+msgid "Stash changes"
+msgstr "«Stashes»"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
+#, fuzzy, kde-format
+#| msgid "Commit/Push"
+msgid "Commit/push"
+msgstr "Comet/Puja"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -1406,6 +1417,12 @@ msgstr "EtiquetaDeText"
 #, kde-format
 msgid "Commit and push"
 msgstr "Comet i puja"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
+#, kde-format
+msgid "Commit/Push"
+msgstr "Comet/Puja"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:22
@@ -1753,7 +1770,7 @@ msgstr "Esquerra"
 msgid "Right"
 msgstr "Dreta"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:35
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
@@ -1765,18 +1782,18 @@ msgstr "Navegació pels fitxers: %1"
 msgid "Branch:"
 msgstr "Branca:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:56
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:50
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Tancament de la vista prèvia"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:57
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:51
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Espereu mentre es tanca la vista prèvia..."
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:90
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:84
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2398,7 +2415,7 @@ msgstr "Nom de l'etiqueta:"
 #: src/libkommitwidgets/reports/authorsreport.cpp:53
 #, kde-format
 msgid "Commits count by author"
-msgstr ""
+msgstr "Nombre de comissions per autor"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format
@@ -2413,48 +2430,47 @@ msgstr "Autheds"
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:46
 #, kde-format
 msgid "Commits by hour of day"
-msgstr ""
+msgstr "Comissions per hora del dia"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
 #, kde-format
 msgid "Hour"
-msgstr ""
+msgstr "Hora"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:66
 #, kde-format
 msgid "Hour of day"
-msgstr ""
+msgstr "Hora del dia"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
 #, kde-format
 msgid "Commits by day of week"
-msgstr ""
+msgstr "Comissions per dia de la setmana"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
 #, kde-format
 msgid "Day"
-msgstr ""
+msgstr "Dia"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:95
 #, kde-format
 msgid "Day of week"
-msgstr ""
+msgstr "Dia de la setmana"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:60
-#, fuzzy, kde-format
-#| msgid "Commit(s) behind"
+#, kde-format
 msgid "Commits by month"
-msgstr "Comisió/ons darrere"
+msgstr "Comissions per mes"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:70
 #, kde-format
 msgid "Month"
-msgstr ""
+msgstr "Mes"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:80
 #, kde-format
 msgid "Month-year"
-msgstr ""
+msgstr "Mes-any"
 
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:41
 #, kde-format
@@ -2543,10 +2559,9 @@ msgstr "Oculta els no canviats"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Report"
-msgstr "Repositori"
+msgstr "Informe"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
