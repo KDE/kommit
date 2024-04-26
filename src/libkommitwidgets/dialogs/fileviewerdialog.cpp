@@ -9,15 +9,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KActionCollection>
 #include <KLocalizedString>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <KMimeTypeTrader>
-#endif
 #include <KParts/OpenUrlArguments>
 #include <KParts/PartLoader>
 #include <KStandardAction>
 #include <KXMLGUIFactory>
 
-#include "libkommitwidgets_appdebug.h"
 #include <QFile>
 #include <QMimeData>
 #include <QMimeDatabase>
@@ -26,7 +22,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QStandardPaths>
 #include <QStyle>
 
-FileViewerDialog::FileViewerDialog(Git::Manager *git, QSharedPointer<Git::File> file, QWidget *parent)
+FileViewerDialog::FileViewerDialog(Git::Manager *git, const QSharedPointer<Git::File> &file, QWidget *parent)
     : KParts::MainWindow(parent)
     , mGit(git)
 {
@@ -92,30 +88,6 @@ void FileViewerDialog::showFile(const Git::File &file)
         showAsImage(file);
     else
         showInEditor(file);
-
-    return;
-    auto ptr = getInternalViewer(mime);
-    if (ptr && ptr->isValid()) {
-        file.save(mFilePath);
-        if (viewInInternalViewer(ptr, mFilePath, mime))
-            return;
-    }
-
-    if (mime.name().startsWith(QStringLiteral("text/")))
-        showInEditor(file);
-    else if (mime.name().startsWith(QStringLiteral("image/")))
-        showAsImage(file);
-    else {
-        if (!ptr || !ptr->isValid()) {
-            showInEditor(file);
-            qCDebug(KOMMIT_WIDGETS_LOG()) << "fallback to text mode";
-        } else {
-            file.save(mFilePath);
-            if (!viewInInternalViewer(ptr, mFilePath, mime))
-                showInEditor(file);
-        }
-    }
-    qCDebug(KOMMIT_WIDGETS_LOG()) << "mime is" << mime.name() << fn << mimeDatabase.suffixForFileName(fn) << stackedWidget->currentIndex();
 }
 
 void FileViewerDialog::showInEditor(const Git::File &file)
@@ -133,62 +105,13 @@ void FileViewerDialog::showAsImage(const Git::File &file)
     labelImage->setPixmap(QPixmap::fromImage(img));
 }
 
-KService::Ptr FileViewerDialog::getInternalViewer(const QMimeType &mimeType)
-{
-#ifdef NO
-    // #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    // No point in even trying to find anything for application/octet-stream
-    if (mimeType == QLatin1String("application/octet-stream")) {
-        return {};
-    }
-
-    // Try to get a read-only kpart for the internal viewer
-    KService::List offers = KMimeTypeTrader::self()->query(mimeType, QStringLiteral("KParts/ReadOnlyPart"));
-
-    qCDebug(KOMMIT_WIDGETS_LOG()) << offers.size() << "offer(s) found for" << mimeType;
-    for (const auto &offer : std::as_const(offers))
-        qCDebug(KOMMIT_WIDGETS_LOG()) << " *" << offer->name() << offer->genericName();
-    /*auto arkPartIt = std::find_if(offers.begin(), offers.end(), [](KService::Ptr service) {
-        return service->storageId() == QLatin1String("ark_part.desktop");
-    });
-
-    // Use the Ark part only when the mime type matches an archive type directly.
-    // Many file types (e.g. Open Document) are technically just archives
-    // but browsing their internals is typically not what the user wants.
-    if (arkPartIt != offers.end()) {
-        // Not using hasMimeType() as we're explicitly not interested in inheritance.
-        if (!(*arkPartIt)->mimeTypes().contains(mimeType)) {
-            offers.erase(arkPartIt);
-        }
-    }*/
-
-    // Skip the KHTML part
-    auto khtmlPart = std::find_if(offers.begin(), offers.end(), [](KService::Ptr service) {
-        return service->desktopEntryName() == QLatin1String("khtml");
-    });
-
-    if (khtmlPart != offers.end()) {
-        offers.erase(khtmlPart);
-    }
-
-    if (!offers.isEmpty()) {
-        return offers.first();
-    } else {
-        return {};
-    }
-#else
-    qWarning() << "FileViewerDialog::getInternalViewer need to be port to QT6 ";
-    return {};
-
-#endif
-}
-
 bool FileViewerDialog::showWithParts(const QMimeType &mimeType, const Git::File &file)
 {
     auto parts = KParts::PartLoader::partsForMimeType(mimeType.name());
 
-    if (!parts.size())
+    if (parts.empty())
         return false;
+
     auto viewer = parts[0];
     auto icon = QIcon::fromTheme(mimeType.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize));
     setWindowIcon(icon);
@@ -217,67 +140,6 @@ void FileViewerDialog::keyPressEvent(QKeyEvent *event)
         close();
 
     KParts::MainWindow::keyPressEvent(event);
-}
-
-KService::Ptr FileViewerDialog::getExternalViewer(const QString &mimeType)
-{
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    qCDebug(KOMMIT_WIDGETS_LOG()) << mimeType;
-    const KService::List offers = KMimeTypeTrader::self()->query(mimeType);
-
-    if (!offers.isEmpty()) {
-        return offers.first();
-    } else {
-        return {};
-    }
-#else
-    qWarning() << "FileViewerDialog::getExternalViewer need to be port to QT6 ";
-    return {};
-#endif
-}
-
-bool FileViewerDialog::viewInInternalViewer(const KService::Ptr &viewer, const QString &fileName, const QMimeType &mimeType)
-{
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Q_UNUSED(mimeType)
-    // Set icon and comment for the mimetype.
-    //    m_iconLabel->setPixmap(QIcon::fromTheme(mimeType.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize)));
-    //    m_commentLabel->setText(mimeType.comment());
-
-    // Create the ReadOnlyPart instance.
-    QString error;
-    m_part = viewer->createInstance<KParts::ReadOnlyPart>(widgetContainer, widgetContainer, QVariantList(), &error);
-
-    if (!m_part.data()) {
-        qCDebug(KOMMIT_WIDGETS_LOG()) << "m_part is null" << error;
-        return false;
-    }
-
-    // Insert the KPart into its placeholder.
-    kPartWidgetLayout->addWidget(m_part.data()->widget());
-    stackedWidget->setCurrentIndex(2);
-    //    layout()->replaceWidget(plainTextEdit, m_part.data()->widget());
-    /*
-        QAction* action = actionCollection()->addAction(QStringLiteral("help_about_kpart"));
-        const KPluginMetaData partMetaData = m_part->metaData();
-        const QString iconName = partMetaData.iconName();
-        if (!iconName.isEmpty()) {
-            action->setIcon(QIcon::fromTheme(iconName));
-        }
-        action->setText(i18nc("@action", "About Viewer Component"));
-        connect(action, &QAction::triggered, this, &ArkViewer::aboutKPart);
-    */
-    createGUI(m_part.data());
-    //    setAutoSaveSettings(QStringLiteral("Viewer"), true);
-
-    m_part.data()->openUrl(QUrl::fromLocalFile(fileName));
-    m_part.data()->widget()->setFocus();
-    //    m_fileName = fileName;
-#else
-    qWarning() << "FileViewerDialog::viewInInternalViewer need to be port to QT6 ";
-    return {};
-#endif
-    return true;
 }
 
 #include "moc_fileviewerdialog.cpp"

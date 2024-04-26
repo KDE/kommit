@@ -70,7 +70,7 @@ FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QString &place, QWidge
 //     initModel(files);
 // }
 
-FilesTreeDialog::FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::ITree> tree, QWidget *parent)
+FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QSharedPointer<Git::ITree> &tree, QWidget *parent)
     : AppDialog(nullptr, parent)
     , mTreeModel(new TreeModel(this))
     , mPlace{}
@@ -81,6 +81,7 @@ FilesTreeDialog::FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::ITree> t
 
     auto files = tree->tree()->entries(Git::Tree::EntryType::File);
     lineEditBranchName->setText(tree->treeTitle());
+    setWindowTitle(i18nc("@title:window", "Browse files: %1", tree->treeTitle()));
 
     initModel(files);
 }

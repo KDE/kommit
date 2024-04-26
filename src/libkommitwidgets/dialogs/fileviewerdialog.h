@@ -26,7 +26,7 @@ class LIBKOMMITWIDGETS_EXPORT FileViewerDialog : public KParts::MainWindow, priv
     Q_OBJECT
 
 public:
-    explicit FileViewerDialog(Git::Manager *git, QSharedPointer<Git::File> file, QWidget *parent = nullptr);
+    explicit FileViewerDialog(Git::Manager *git, const QSharedPointer<Git::File> &file, QWidget *parent = nullptr);
 
     ~FileViewerDialog() override;
 
@@ -38,10 +38,6 @@ private:
     void showInEditor(const Git::File &file);
     void showAsImage(const Git::File &file);
     QPointer<KParts::ReadOnlyPart> m_part;
-
-    bool viewInInternalViewer(const KService::Ptr &viewer, const QString &fileName, const QMimeType &mimeType);
-    KService::Ptr getExternalViewer(const QString &mimeType);
-    KService::Ptr getInternalViewer(const QMimeType &mimeType);
 
     bool showWithParts(const QMimeType &mime, const Git::File &file);
 
