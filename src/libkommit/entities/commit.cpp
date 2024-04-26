@@ -12,8 +12,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "tree.h"
 #include "types.h"
 #include <git2/commit.h>
+#include <git2/errors.h>
 #include <git2/notes.h>
 #include <git2/revparse.h>
+#include <git2/signature.h>
 #include <utility>
 
 namespace Git
@@ -110,7 +112,7 @@ git_commit *Commit::gitCommit() const
 QSharedPointer<Note> Commit::note() const
 {
     git_note *note;
-    if (git_note_commit_read(&note, git_commit_owner(mGitCommit), mGitCommit, 0))
+    if (git_note_read(&note, git_commit_owner(mGitCommit), NULL, git_commit_id(mGitCommit)))
         return {};
     return QSharedPointer<Note>{new Note{note}};
 }
@@ -154,5 +156,22 @@ const QStringList &Commit::parents() const
 {
     return mParentHash;
 }
+bool Commit::createNote(const QString &message)
+{
+    git_oid oid;
+    auto repo = git_commit_owner(mGitCommit);
+    auto commitOid = git_commit_id(mGitCommit);
+    auto author = git_commit_author(mGitCommit);
+    auto committer = git_commit_committer(mGitCommit);
 
+    auto r = git_note_create(&oid, repo, NULL, author, committer, commitOid, message.toUtf8().data(), 1);
+    if (r) {
+        const git_error *lg2err;
+        if ((lg2err = git_error_last()) != NULL && lg2err->message != NULL) {
+            auto msg = QString{lg2err->message};
+            qDebug() << "Error" << Q_FUNC_INFO << r << ":" << msg;
+        }
+    }
+    return !r;
+}
 }

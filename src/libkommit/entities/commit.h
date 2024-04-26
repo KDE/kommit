@@ -51,12 +51,13 @@ public:
 
     Q_REQUIRED_RESULT QSharedPointer<Reference> reference() const;
 
-    QSharedPointer<Tree> tree() const override;
-    QString treeTitle() const override;
+    Q_REQUIRED_RESULT QSharedPointer<Tree> tree() const override;
+    Q_REQUIRED_RESULT QString treeTitle() const override;
 
     Q_REQUIRED_RESULT git_commit *gitCommit() const;
 
     Q_REQUIRED_RESULT QSharedPointer<Note> note() const;
+    bool createNote(const QString &message);
 
 private:
     git_commit *mGitCommit{nullptr};

@@ -11,14 +11,21 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "appdialog.h"
 #include "libkommitwidgets_export.h"
 
+namespace Git
+{
+class Commit;
+};
+
 class LIBKOMMITWIDGETS_EXPORT NoteDialog : public AppDialog, private Ui::NoteDialog
 {
     Q_OBJECT
 
 public:
     explicit NoteDialog(Git::Manager *git, const QString &branchName, QWidget *parent = nullptr);
+    explicit NoteDialog(Git::Manager *git, QSharedPointer<Git::Commit> commit, QWidget *parent = nullptr);
 
 private:
     void slotAccepted();
     QString mBranchName;
+    QSharedPointer<Git::Commit> mCommit;
 };

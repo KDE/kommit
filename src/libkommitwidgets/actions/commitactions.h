@@ -30,8 +30,11 @@ private:
     void browse();
     void checkout();
     void diff();
+    void note();
+
     DEFINE_ACTION(actionBrowse)
     DEFINE_ACTION(actionCheckout)
     DEFINE_ACTION(actionDiff)
+    DEFINE_ACTION(actionNote)
     QSharedPointer<Git::Commit> mCommit{nullptr};
 };

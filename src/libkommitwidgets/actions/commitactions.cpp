@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commitactions.h"
 #include "dialogs/filestreedialog.h"
+#include "dialogs/notedialog.h"
 #include "dialogs/runnerdialog.h"
 #include "windows/diffwindow.h"
 #include <entities/commit.h>
@@ -26,6 +27,7 @@ void CommitActions::setCommit(QSharedPointer<Git::Commit> commit)
     setActionEnabled(_actionBrowse, !commit.isNull());
     setActionEnabled(_actionCheckout, !commit.isNull());
     setActionEnabled(_actionDiff, !commit.isNull());
+    setActionEnabled(_actionNote, !commit.isNull());
 }
 
 CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
@@ -34,6 +36,7 @@ CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
     _actionBrowse = addAction(i18n("Browse"), this, &CommitActions::browse, false, true);
     _actionCheckout = addAction(i18n("Checkout"), this, &CommitActions::checkout, false, true);
     _actionDiff = addAction(i18n("Diff with working dir"), this, &CommitActions::diff, false, true);
+    _actionNote = addAction(i18n("Note"), this, &CommitActions::note, false, true);
 }
 
 void CommitActions::browse()
@@ -53,6 +56,11 @@ void CommitActions::diff()
 {
     auto d = new DiffWindow(mGit, mCommit->tree());
     d->showModal();
+}
+void CommitActions::note()
+{
+    NoteDialog d{mGit, mCommit, mParent};
+    d.exec();
 }
 
 #include "moc_commitactions.cpp"
