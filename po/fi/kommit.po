@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-26 01:39+0000\n"
+"POT-Creation-Date: 2024-04-27 01:38+0000\n"
 "PO-Revision-Date: 2023-06-07 16:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -169,7 +169,7 @@ msgstr "KDE:n Git-asiakaskäyttöliittymä"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Tekijänoikeudet 2021–2023, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:264
+#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:262
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
 msgid "Author"
@@ -474,7 +474,7 @@ msgstr "Uusi"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
-#: src/libkommitwidgets/actions/commitactions.cpp:35
+#: src/libkommitwidgets/actions/commitactions.cpp:37
 #: src/libkommitwidgets/actions/tagsactions.cpp:52
 #, kde-format
 msgid "Checkout"
@@ -482,7 +482,7 @@ msgstr "Vaihda"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/pages/branchesstatuswidget.ui:111
-#: src/libkommitwidgets/actions/commitactions.cpp:34
+#: src/libkommitwidgets/actions/commitactions.cpp:36
 #, kde-format
 msgid "Browse"
 msgstr "Selaa"
@@ -868,18 +868,18 @@ msgstr "Viite"
 msgid "Remote"
 msgstr "Etäkohde"
 
-#: src/libkommit/models/logsmodel.cpp:260
-#: src/libkommit/models/logsmodel.cpp:271
+#: src/libkommit/models/logsmodel.cpp:258
+#: src/libkommit/models/logsmodel.cpp:269
 #, kde-format
 msgid "Message"
 msgstr "Viesti"
 
-#: src/libkommit/models/logsmodel.cpp:262
+#: src/libkommit/models/logsmodel.cpp:260
 #, kde-format
 msgid "Date"
 msgstr "Päiväys"
 
-#: src/libkommit/models/logsmodel.cpp:269
+#: src/libkommit/models/logsmodel.cpp:267
 #, kde-format
 msgid "Graph"
 msgstr "Kaavio"
@@ -955,7 +955,7 @@ msgstr "Siirry"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
-#: src/libkommitwidgets/actions/stashactions.cpp:26
+#: src/libkommitwidgets/actions/stashactions.cpp:27
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Remove..."
@@ -991,13 +991,20 @@ msgstr "Diff…"
 msgid "Revert..."
 msgstr "Palaa takaisin…"
 
-#: src/libkommitwidgets/actions/commitactions.cpp:36
+#: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:48
-#: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/stashactions.cpp:24
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Diff with working dir"
 msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
+#: src/libkommitwidgets/actions/commitactions.cpp:39
+#: src/libkommitwidgets/dialogs/notedialog.ui:14
+#, kde-format
+msgid "Note"
+msgstr "Huomautus"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
@@ -1080,81 +1087,81 @@ msgstr "Muuta nimeä"
 msgid "New name"
 msgstr "Uusi nimi"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:22
+#: src/libkommitwidgets/actions/stashactions.cpp:23
 #, kde-format
 msgid "New stash..."
 msgstr "Uusi jemma…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:24
+#: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
 msgid "Pop..."
 msgstr "Palauta…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:26
 #, kde-format
 msgid "Apply..."
 msgstr "Käytä…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:34
+#: src/libkommitwidgets/actions/stashactions.cpp:35
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "Haluatko varmasti käyttää valittua jemmaa?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:34
+#: src/libkommitwidgets/actions/stashactions.cpp:35
 #, kde-format
 msgid "Apply stash %1"
 msgstr "Käytä jemmaa %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:36
+#: src/libkommitwidgets/actions/stashactions.cpp:37
 #, kde-format
 msgid "Unable to apply the selected stash"
 msgstr "Valittua jemmaa ei voida käyttää"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:42
+#: src/libkommitwidgets/actions/stashactions.cpp:43
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "Haluatko varmasti hylätä valitun jemman?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:42
+#: src/libkommitwidgets/actions/stashactions.cpp:43
 #, kde-format
 msgid "Drop stash %1"
 msgstr "Hylkää jemma %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:44
-#: src/libkommitwidgets/actions/stashactions.cpp:55
+#: src/libkommitwidgets/actions/stashactions.cpp:45
+#: src/libkommitwidgets/actions/stashactions.cpp:56
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "Valittua jemmaa ei voida poistaa"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:53
+#: src/libkommitwidgets/actions/stashactions.cpp:54
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "Haluatko varmasti palauttaa valitun jemman?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:53
+#: src/libkommitwidgets/actions/stashactions.cpp:54
 #, kde-format
 msgid "Pop stash %1"
 msgstr "Palauta jemma %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/actions/stashactions.cpp:72
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Muutoksia ei ole!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/actions/stashactions.cpp:72
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
 msgstr "Jemma"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/actions/stashactions.cpp:77
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
 msgstr "Luo uusi jemma"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/actions/stashactions.cpp:77
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
@@ -1738,7 +1745,8 @@ msgstr "Vasen"
 msgid "Right"
 msgstr "Oikea"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:38
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
@@ -1750,18 +1758,18 @@ msgstr "Selaa tiedostoja: %1"
 msgid "Branch:"
 msgstr "Haara:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:50
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Suljetaan esikatselua"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:51
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:49
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Odota kunnes esikatselu on sulkeutunut…"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:84
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2073,12 +2081,6 @@ msgstr "Etätiedosto:"
 #, kde-format
 msgid "Base file:"
 msgstr "Pohjatiedosto:"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
-#: src/libkommitwidgets/dialogs/notedialog.ui:14
-#, kde-format
-msgid "Note"
-msgstr "Huomautus"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PullDialog)
 #: src/libkommitwidgets/dialogs/pulldialog.ui:14

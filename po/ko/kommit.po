@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-26 01:39+0000\n"
+"POT-Creation-Date: 2024-04-27 01:38+0000\n"
 "PO-Revision-Date: 2024-02-09 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -169,7 +169,7 @@ msgstr "KDE의 Git 클라이언트 GUI"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:264
+#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:262
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
 msgid "Author"
@@ -473,7 +473,7 @@ msgstr "새로 만들기"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
-#: src/libkommitwidgets/actions/commitactions.cpp:35
+#: src/libkommitwidgets/actions/commitactions.cpp:37
 #: src/libkommitwidgets/actions/tagsactions.cpp:52
 #, kde-format
 msgid "Checkout"
@@ -481,7 +481,7 @@ msgstr "체크아웃"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/pages/branchesstatuswidget.ui:111
-#: src/libkommitwidgets/actions/commitactions.cpp:34
+#: src/libkommitwidgets/actions/commitactions.cpp:36
 #, kde-format
 msgid "Browse"
 msgstr "찾아보기"
@@ -876,18 +876,18 @@ msgstr "참조"
 msgid "Remote"
 msgstr "원격"
 
-#: src/libkommit/models/logsmodel.cpp:260
-#: src/libkommit/models/logsmodel.cpp:271
+#: src/libkommit/models/logsmodel.cpp:258
+#: src/libkommit/models/logsmodel.cpp:269
 #, kde-format
 msgid "Message"
 msgstr "메시지"
 
-#: src/libkommit/models/logsmodel.cpp:262
+#: src/libkommit/models/logsmodel.cpp:260
 #, kde-format
 msgid "Date"
 msgstr "날짜"
 
-#: src/libkommit/models/logsmodel.cpp:269
+#: src/libkommit/models/logsmodel.cpp:267
 #, kde-format
 msgid "Graph"
 msgstr "그래프"
@@ -962,7 +962,7 @@ msgstr "전환"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
-#: src/libkommitwidgets/actions/stashactions.cpp:26
+#: src/libkommitwidgets/actions/stashactions.cpp:27
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Remove..."
@@ -998,13 +998,20 @@ msgstr "차이점 보기..."
 msgid "Revert..."
 msgstr "되돌리기..."
 
-#: src/libkommitwidgets/actions/commitactions.cpp:36
+#: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:48
-#: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/stashactions.cpp:24
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Diff with working dir"
 msgstr "작업 디렉터리와 Diff"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
+#: src/libkommitwidgets/actions/commitactions.cpp:39
+#: src/libkommitwidgets/dialogs/notedialog.ui:14
+#, kde-format
+msgid "Note"
+msgstr "메모"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
@@ -1086,81 +1093,81 @@ msgstr "이름 바꾸기"
 msgid "New name"
 msgstr "새 이름"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:22
+#: src/libkommitwidgets/actions/stashactions.cpp:23
 #, kde-format
 msgid "New stash..."
 msgstr "새 스태시..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:24
+#: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
 msgid "Pop..."
 msgstr "팝..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:26
 #, kde-format
 msgid "Apply..."
 msgstr "적용..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:34
+#: src/libkommitwidgets/actions/stashactions.cpp:35
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "선택한 스태시를 적용하시겠습니까?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:34
+#: src/libkommitwidgets/actions/stashactions.cpp:35
 #, kde-format
 msgid "Apply stash %1"
 msgstr "스태시 %1 적용"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:36
+#: src/libkommitwidgets/actions/stashactions.cpp:37
 #, kde-format
 msgid "Unable to apply the selected stash"
 msgstr "선택한 스태시를 적용할 수 없음"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:42
+#: src/libkommitwidgets/actions/stashactions.cpp:43
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "선택한 스태시를 드롭하시겠습니까?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:42
+#: src/libkommitwidgets/actions/stashactions.cpp:43
 #, kde-format
 msgid "Drop stash %1"
 msgstr "스태시 %1 드롭"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:44
-#: src/libkommitwidgets/actions/stashactions.cpp:55
+#: src/libkommitwidgets/actions/stashactions.cpp:45
+#: src/libkommitwidgets/actions/stashactions.cpp:56
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "선택한 스태시를 삭제할 수 없음"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:53
+#: src/libkommitwidgets/actions/stashactions.cpp:54
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "선택한 스태시를 팝하시겠습니까?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:53
+#: src/libkommitwidgets/actions/stashactions.cpp:54
 #, kde-format
 msgid "Pop stash %1"
 msgstr "스태시 %1 팝"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/actions/stashactions.cpp:72
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "변경 사항이 없습니다!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/actions/stashactions.cpp:72
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
 msgstr "스태시"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/actions/stashactions.cpp:77
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
 msgstr "새 스태시 만들기"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/actions/stashactions.cpp:77
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
@@ -1763,7 +1770,8 @@ msgstr "왼쪽"
 msgid "Right"
 msgstr "오른쪽"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:38
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
@@ -1775,18 +1783,18 @@ msgstr "파일 탐색: %1"
 msgid "Branch:"
 msgstr "브랜치:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:50
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "미리 보기 닫는 중"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:51
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:49
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "미리 보기를 닫는 동안 기다려 주십시오..."
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:84
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2141,12 +2149,6 @@ msgstr "원격 파일:"
 #, kde-format
 msgid "Base file:"
 msgstr "기반 파일:"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
-#: src/libkommitwidgets/dialogs/notedialog.ui:14
-#, kde-format
-msgid "Note"
-msgstr "메모"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PullDialog)
 #: src/libkommitwidgets/dialogs/pulldialog.ui:14

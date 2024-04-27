@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-26 01:39+0000\n"
-"PO-Revision-Date: 2024-04-25 16:00+0200\n"
+"POT-Creation-Date: 2024-04-27 01:38+0000\n"
+"PO-Revision-Date: 2024-04-26 06:47+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -172,7 +172,7 @@ msgstr "Grafični uporabniški vmesnik odjemalca Git za KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:264
+#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:262
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
 msgid "Author"
@@ -476,7 +476,7 @@ msgstr "Novo"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
-#: src/libkommitwidgets/actions/commitactions.cpp:35
+#: src/libkommitwidgets/actions/commitactions.cpp:37
 #: src/libkommitwidgets/actions/tagsactions.cpp:52
 #, kde-format
 msgid "Checkout"
@@ -484,7 +484,7 @@ msgstr "Prevzemi"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/pages/branchesstatuswidget.ui:111
-#: src/libkommitwidgets/actions/commitactions.cpp:34
+#: src/libkommitwidgets/actions/commitactions.cpp:36
 #, kde-format
 msgid "Browse"
 msgstr "Prebrskaj"
@@ -878,18 +878,18 @@ msgstr "Ref"
 msgid "Remote"
 msgstr "Oddaljena"
 
-#: src/libkommit/models/logsmodel.cpp:260
-#: src/libkommit/models/logsmodel.cpp:271
+#: src/libkommit/models/logsmodel.cpp:258
+#: src/libkommit/models/logsmodel.cpp:269
 #, kde-format
 msgid "Message"
 msgstr "Sporočilo"
 
-#: src/libkommit/models/logsmodel.cpp:262
+#: src/libkommit/models/logsmodel.cpp:260
 #, kde-format
 msgid "Date"
 msgstr "Date"
 
-#: src/libkommit/models/logsmodel.cpp:269
+#: src/libkommit/models/logsmodel.cpp:267
 #, kde-format
 msgid "Graph"
 msgstr "Grafikon"
@@ -964,7 +964,7 @@ msgstr "Preklopi"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
-#: src/libkommitwidgets/actions/stashactions.cpp:26
+#: src/libkommitwidgets/actions/stashactions.cpp:27
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Remove..."
@@ -1000,13 +1000,20 @@ msgstr "Razlika..."
 msgid "Revert..."
 msgstr "Povrni …"
 
-#: src/libkommitwidgets/actions/commitactions.cpp:36
+#: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:48
-#: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/stashactions.cpp:24
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Diff with working dir"
 msgstr "Diff z delovnim imenikom"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
+#: src/libkommitwidgets/actions/commitactions.cpp:39
+#: src/libkommitwidgets/dialogs/notedialog.ui:14
+#, kde-format
+msgid "Note"
+msgstr "Opomba"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
@@ -1088,81 +1095,81 @@ msgstr "Preimenuj"
 msgid "New name"
 msgstr "Novo ime"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:22
+#: src/libkommitwidgets/actions/stashactions.cpp:23
 #, kde-format
 msgid "New stash..."
 msgstr "Nova zaloga …"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:24
+#: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
 msgid "Pop..."
 msgstr "Pojavi …"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:26
 #, kde-format
 msgid "Apply..."
 msgstr "Uveljavi..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:34
+#: src/libkommitwidgets/actions/stashactions.cpp:35
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "Ali ste prepričani, da želite uveljaviti izbrano zalogo?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:34
+#: src/libkommitwidgets/actions/stashactions.cpp:35
 #, kde-format
 msgid "Apply stash %1"
 msgstr "Uveljavi zalogo %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:36
+#: src/libkommitwidgets/actions/stashactions.cpp:37
 #, kde-format
 msgid "Unable to apply the selected stash"
 msgstr "Ni mogoče uveljaviti izbrano zalogo"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:42
+#: src/libkommitwidgets/actions/stashactions.cpp:43
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "Ali ste prepričani, da želite spustiti izbrano zalogo?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:42
+#: src/libkommitwidgets/actions/stashactions.cpp:43
 #, kde-format
 msgid "Drop stash %1"
 msgstr "Spusti zalogo %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:44
-#: src/libkommitwidgets/actions/stashactions.cpp:55
+#: src/libkommitwidgets/actions/stashactions.cpp:45
+#: src/libkommitwidgets/actions/stashactions.cpp:56
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "Ni mogoče odstraniti izbrane zaloge"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:53
+#: src/libkommitwidgets/actions/stashactions.cpp:54
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "Ali ste prepričani, da pobrati izbrano zalogo?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:53
+#: src/libkommitwidgets/actions/stashactions.cpp:54
 #, kde-format
 msgid "Pop stash %1"
 msgstr "Poberi zalogo %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/actions/stashactions.cpp:72
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Nimate nobenih sprememb!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/actions/stashactions.cpp:72
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
 msgstr "Zaloga"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/actions/stashactions.cpp:77
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
 msgstr "Ustvari novo zalogo"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/actions/stashactions.cpp:77
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
@@ -1259,15 +1266,13 @@ msgstr "Ponovno naloži"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonStashChanges)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
-#, fuzzy, kde-format
-#| msgid "Stashes"
+#, kde-format
 msgid "Stash changes"
-msgstr "Zaloge"
+msgstr "Spremembe zalog"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgid "Commit/push"
 msgstr "Objavi/potisni"
 
@@ -1766,7 +1771,8 @@ msgstr "Levo"
 msgid "Right"
 msgstr "Desno"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:38
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
@@ -1778,18 +1784,18 @@ msgstr "Brskaj po datotekah: %1"
 msgid "Branch:"
 msgstr "Veja:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:50
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Zapiranje predogleda"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:51
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:49
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Počakajte, da se predogled zapre ..."
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:84
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2151,12 +2157,6 @@ msgstr "Oddaljena datoteka:"
 #, kde-format
 msgid "Base file:"
 msgstr "Osnovna datoteka:"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
-#: src/libkommitwidgets/dialogs/notedialog.ui:14
-#, kde-format
-msgid "Note"
-msgstr "Opomba"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PullDialog)
 #: src/libkommitwidgets/dialogs/pulldialog.ui:14

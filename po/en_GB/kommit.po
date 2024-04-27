@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-26 01:39+0000\n"
+"POT-Creation-Date: 2024-04-27 01:38+0000\n"
 "PO-Revision-Date: 2023-06-17 12:09+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -169,7 +169,7 @@ msgstr "Git client GUI for KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:264
+#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:262
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
 msgid "Author"
@@ -473,7 +473,7 @@ msgstr "New"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
-#: src/libkommitwidgets/actions/commitactions.cpp:35
+#: src/libkommitwidgets/actions/commitactions.cpp:37
 #: src/libkommitwidgets/actions/tagsactions.cpp:52
 #, kde-format
 msgid "Checkout"
@@ -481,7 +481,7 @@ msgstr "Checkout"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/pages/branchesstatuswidget.ui:111
-#: src/libkommitwidgets/actions/commitactions.cpp:34
+#: src/libkommitwidgets/actions/commitactions.cpp:36
 #, kde-format
 msgid "Browse"
 msgstr "Browse"
@@ -879,18 +879,18 @@ msgstr "Ref"
 msgid "Remote"
 msgstr "Remote"
 
-#: src/libkommit/models/logsmodel.cpp:260
-#: src/libkommit/models/logsmodel.cpp:271
+#: src/libkommit/models/logsmodel.cpp:258
+#: src/libkommit/models/logsmodel.cpp:269
 #, kde-format
 msgid "Message"
 msgstr "Message"
 
-#: src/libkommit/models/logsmodel.cpp:262
+#: src/libkommit/models/logsmodel.cpp:260
 #, kde-format
 msgid "Date"
 msgstr "Date"
 
-#: src/libkommit/models/logsmodel.cpp:269
+#: src/libkommit/models/logsmodel.cpp:267
 #, kde-format
 msgid "Graph"
 msgstr "Graph"
@@ -966,7 +966,7 @@ msgstr "Switch"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
-#: src/libkommitwidgets/actions/stashactions.cpp:26
+#: src/libkommitwidgets/actions/stashactions.cpp:27
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Remove..."
@@ -1002,13 +1002,20 @@ msgstr "Diff..."
 msgid "Revert..."
 msgstr "Revert..."
 
-#: src/libkommitwidgets/actions/commitactions.cpp:36
+#: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:48
-#: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/stashactions.cpp:24
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Diff with working dir"
 msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
+#: src/libkommitwidgets/actions/commitactions.cpp:39
+#: src/libkommitwidgets/dialogs/notedialog.ui:14
+#, kde-format
+msgid "Note"
+msgstr "Note"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
@@ -1091,81 +1098,81 @@ msgstr "Rename"
 msgid "New name"
 msgstr "New name"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:22
+#: src/libkommitwidgets/actions/stashactions.cpp:23
 #, kde-format
 msgid "New stash..."
 msgstr "New stash..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:24
+#: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
 msgid "Pop..."
 msgstr "Pop..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:26
 #, kde-format
 msgid "Apply..."
 msgstr "Apply..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:34
+#: src/libkommitwidgets/actions/stashactions.cpp:35
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "Are you sure to apply the selected stash?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:34
+#: src/libkommitwidgets/actions/stashactions.cpp:35
 #, kde-format
 msgid "Apply stash %1"
 msgstr "Apply stash %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:36
+#: src/libkommitwidgets/actions/stashactions.cpp:37
 #, kde-format
 msgid "Unable to apply the selected stash"
 msgstr "Unable to apply the selected stash"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:42
+#: src/libkommitwidgets/actions/stashactions.cpp:43
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "Are you sure to drop the selected stash?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:42
+#: src/libkommitwidgets/actions/stashactions.cpp:43
 #, kde-format
 msgid "Drop stash %1"
 msgstr "Drop stash %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:44
-#: src/libkommitwidgets/actions/stashactions.cpp:55
+#: src/libkommitwidgets/actions/stashactions.cpp:45
+#: src/libkommitwidgets/actions/stashactions.cpp:56
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "Unable to remove the selected stash"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:53
+#: src/libkommitwidgets/actions/stashactions.cpp:54
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "Are you sure to pop the selected stash?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:53
+#: src/libkommitwidgets/actions/stashactions.cpp:54
 #, kde-format
 msgid "Pop stash %1"
 msgstr "Pop stash %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/actions/stashactions.cpp:72
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "You don't have any changes!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/actions/stashactions.cpp:72
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
 msgstr "Stash"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/actions/stashactions.cpp:77
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
 msgstr "Create new stash"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/actions/stashactions.cpp:77
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
@@ -1771,7 +1778,8 @@ msgstr "Left"
 msgid "Right"
 msgstr "Right"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:38
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
@@ -1783,18 +1791,18 @@ msgstr "Browse files: %1"
 msgid "Branch:"
 msgstr "Branch:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:50
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Closing preview"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:51
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:49
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Please wait while the preview is being closed..."
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:84
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2154,12 +2162,6 @@ msgstr "Remote file:"
 #, kde-format
 msgid "Base file:"
 msgstr "Base file:"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
-#: src/libkommitwidgets/dialogs/notedialog.ui:14
-#, kde-format
-msgid "Note"
-msgstr "Note"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PullDialog)
 #: src/libkommitwidgets/dialogs/pulldialog.ui:14
