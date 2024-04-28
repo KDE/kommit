@@ -8,7 +8,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_appdebug.h"
 
 #include <KLocalizedString>
-#include <KMessageBox>
 
 #include <QInputDialog>
 
@@ -60,7 +59,7 @@ void RemotesActions::remove()
 {
     if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected remote?"), i18n("Remove remote?"))) {
         if (!mGit->removeRemote(mRemoteName)) {
-            KMessageBox::information(mParent, i18n("Unable to remove the selected remote"));
+            KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected remote"));
             return;
         }
         mGit->remotesModel()->load();
@@ -76,7 +75,7 @@ void RemotesActions::changeUrl()
     const auto newUrl = QInputDialog::getText(mParent, i18n("Change url"), i18n("URL"), QLineEdit::Normal, remote->pushUrl());
     if (!newUrl.isEmpty()) {
         mGit->remotesModel()->setUrl(mRemoteName, newUrl);
-        KMessageBox::information(mParent, i18n("Url for remote changed successfully"));
+        KMessageBoxHelper::information(mParent, i18n("Url for remote changed successfully"));
     }
 }
 

@@ -13,7 +13,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "models/tagsmodel.h"
 
-#include <KMessageBox>
 #include <QAction>
 
 #include "windows/diffwindow.h"

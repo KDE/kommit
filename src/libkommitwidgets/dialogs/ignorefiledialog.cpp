@@ -8,12 +8,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitmanager.h"
 
+#include "core/kmessageboxhelper.h"
 #include "libkommitwidgets_appdebug.h"
 #include <QFileInfo>
 #include <QPushButton>
 
 #include <KLocalizedString>
-#include <KMessageBox>
 
 IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, QWidget *parent)
     : AppDialog(git, parent)
@@ -41,7 +41,7 @@ IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, Q
         groupBoxFileName->setEnabled(false);
         groupBoxIgnoreFile->setEnabled(false);
         groupBoxPath->setEnabled(false);
-        KMessageBox::error(this, i18n("The file is ignored already"));
+        KMessageBoxHelper::error(this, i18n("The file is ignored already"));
         mIsIgnoredAlready = true;
         buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
@@ -77,12 +77,12 @@ void IgnoreFileDialog::slotAccept()
     }
 
     if (lineEdit->text().trimmed().isEmpty()) {
-        KMessageBox::error(this, i18n("Please enter the pattern"));
+        KMessageBoxHelper::error(this, i18n("Please enter the pattern"));
         return;
     }
     QFile f(getIgnoreFile());
     if (!f.open(QIODevice::Append | QIODevice::Text)) {
-        KMessageBox::error(this, i18n("Unable to open file: %1", getIgnoreFile()));
+        KMessageBoxHelper::error(this, i18n("Unable to open file: %1", getIgnoreFile()));
         return;
     }
 
@@ -103,3 +103,5 @@ QString IgnoreFileDialog::getIgnoreFile() const
 }
 
 #include "moc_ignorefiledialog.cpp"
+
+#include <core/kmessageboxhelper.h>

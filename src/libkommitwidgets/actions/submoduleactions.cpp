@@ -16,7 +16,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QAction>
 
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <QDir>
 
 const QString &SubmoduleActions::subModuleName() const
@@ -80,14 +79,14 @@ void SubmoduleActions::deinit()
 
         QDir d(mGit->path() + QStringLiteral("/.git/modules/") + mSubModuleName);
         if (!d.removeRecursively()) {
-            KMessageBox::error(mParent, i18n("Unable to remove the module directory"));
+            KMessageBoxHelper::error(mParent, i18n("Unable to remove the module directory"));
             return;
         }
         qCDebug(KOMMIT_WIDGETS_LOG()) << d.path();
         mGit->runGit({QStringLiteral("config"), QStringLiteral("--remove-section"), QStringLiteral("submodule.") + mSubModuleName});
 
         mGit->submodulesModel()->load();
-        KMessageBox::information(mParent, i18n("The submodule %1 removed", mSubModuleName));
+        KMessageBoxHelper::information(mParent, i18n("The submodule %1 removed", mSubModuleName));
     }
 }
 

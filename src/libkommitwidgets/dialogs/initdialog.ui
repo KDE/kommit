@@ -27,7 +27,7 @@
       </widget>
      </item>
      <item>
-      <widget class="KUrlRequester" name="lineEditPath"/>
+      <widget class="UrlRequester" name="lineEditPath"/>
      </item>
     </layout>
    </item>
@@ -58,9 +58,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KUrlRequester</class>
+   <class>UrlRequester</class>
    <extends>QWidget</extends>
-   <header>kurlrequester.h</header>
+   <header>widgets/urlrequester.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -6,10 +6,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "runnerdialog.h"
 
+#include "core/kmessageboxhelper.h"
 #include "gitmanager.h"
 
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <QInputDialog>
 
 #include "libkommitwidgets_appdebug.h"
@@ -126,9 +126,9 @@ void RunnerDialog::git_finished(int exitCode, QProcess::ExitStatus exitStatus)
         exitMessage = i18n("Process finished");
     } else {
         if (mCmd)
-            KMessageBox::error(this, mCmd->errorMessage());
+            KMessageBoxHelper::error(this, mCmd->errorMessage());
         else
-            KMessageBox::error(this, i18n("The git process crashed"));
+            KMessageBoxHelper::error(this, i18n("The git process crashed"));
         exitMessage = i18n("Process finished with error");
     }
 

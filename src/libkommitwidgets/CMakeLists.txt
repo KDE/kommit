@@ -48,6 +48,8 @@ target_sources(libkommitwidgets PRIVATE
     widgets/difftreeview.cpp
     widgets/filesstatuseslist.cpp
     widgets/commitdetails.h
+    widgets/urlrequester.cpp
+    widgets/urlrequester.h
 
     core/kmessageboxhelper.h
     core/kmessageboxhelper.cpp

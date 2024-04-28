@@ -7,11 +7,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "submoduleinfodialog.h"
 
 #include "commands/addsubmodulecommand.h"
+#include "core/kmessageboxhelper.h"
 #include "gitmanager.h"
-#include "qdebug.h"
 
 #include <KLocalizedString>
-#include <KMessageBox>
 
 #include <QFileDialog>
 
@@ -20,8 +19,8 @@ SubmoduleInfoDialog::SubmoduleInfoDialog(Git::Manager *git, QWidget *parent)
 {
     setupUi(this);
     lineEditPath->setStartDir(QUrl::fromLocalFile(mGit->path()));
-    lineEditPath->setMode(KFile::Directory);
-    connect(lineEditPath, &KUrlRequester::urlSelected, this, &SubmoduleInfoDialog::slotLineEditPathUrlSelected);
+    // lineEditPath->setMode(KFile::Directory);
+    connect(lineEditPath, &UrlRequester::urlSelected, this, &SubmoduleInfoDialog::slotLineEditPathUrlSelected);
 }
 
 bool SubmoduleInfoDialog::force() const
@@ -91,7 +90,7 @@ void SubmoduleInfoDialog::slotLineEditPathUrlSelected(const QUrl &url)
     auto text = url.toLocalFile();
     if (text.isEmpty())
         return;
-    qDebug() << text << mGit->path();
+
     if (text.startsWith(mGit->path())) {
         auto t = text;
         t.remove(0, mGit->path().size());
@@ -99,7 +98,7 @@ void SubmoduleInfoDialog::slotLineEditPathUrlSelected(const QUrl &url)
             t.remove(0, 1);
         lineEditPath->setText(t);
     } else {
-        KMessageBox::error(this, i18n("The path is not inside of git directory"));
+        KMessageBoxHelper::error(this, i18n("The path is not inside of git directory"));
         lineEditPath->setText(QString{});
     }
 }

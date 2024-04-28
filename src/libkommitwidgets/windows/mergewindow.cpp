@@ -9,13 +9,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/mergeopenfilesdialog.h"
 // #include "settings/settingsmanager.h"
 #include "core/editactionsmapper.h"
+#include "core/kmessageboxhelper.h"
 #include "libkommitwidgets_appdebug.h"
 #include "widgets/codeeditor.h"
 #include "widgets/segmentsmapper.h"
 
 #include <KActionCollection>
 #include <KLocalizedString>
-#include <KMessageBox>
 
 #include "libkommitwidgets_appdebug.h"
 
@@ -433,7 +433,7 @@ void MergeWindow::fileSave()
 {
     QFile f(mFilePathResult);
     if (!f.open(QIODevice::Text | QIODevice::WriteOnly)) {
-        KMessageBox::information(this, i18n("Unable to open the file") + mFilePathResult);
+        KMessageBoxHelper::information(this, i18n("Unable to open the file") + mFilePathResult);
         return;
     }
     f.write(m_ui.plainTextEditResult->toPlainText().toUtf8());

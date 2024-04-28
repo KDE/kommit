@@ -35,3 +35,13 @@ bool KMessageBoxHelper::applyQuestion(QWidget *parent, const QString &text, cons
     return r == KMessageBox::Yes;
 #endif
 }
+
+void KMessageBoxHelper::error(QWidget *parent, const QString &text, const QString &title)
+{
+    KMessageBox::error(parent, text, title);
+}
+
+void KMessageBoxHelper::information(QWidget *parent, const QString &text, const QString &title)
+{
+    KMessageBox::information(parent, text, title);
+}

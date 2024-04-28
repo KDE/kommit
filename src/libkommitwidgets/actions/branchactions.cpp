@@ -7,7 +7,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "branchactions.h"
 
 #include <KLocalizedString>
-#include <KMessageBox>
 
 #include "libkommitwidgets_appdebug.h"
 #include <QDebug>
@@ -119,7 +118,7 @@ void BranchActions::remove()
 {
     if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected branch?"), i18n("Remove Branch"))) {
         if (!mGit->removeBranch(mBranchName->name()))
-            KMessageBox::information(mParent, i18n("Unable to remove the selected branch"));
+            KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected branch"));
         else
             mGit->branchesModel()->load();
     }

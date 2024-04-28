@@ -6,13 +6,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "switchbranchdialog.h"
 #include "commands/commandswitchbranch.h"
+#include "core/kmessageboxhelper.h"
 #include "gitmanager.h"
 #include "libkommitwidgets_appdebug.h"
 
 #include <QDebug>
 
 #include <KLocalizedString>
-#include <KMessageBox>
 
 #define BRANCH_TYPE_LOCAL 1
 #define BRANCH_TYPE_REMOTE 2
@@ -72,7 +72,7 @@ void SwitchBranchDialog::slotButtonBoxAccepted()
 {
     if (radioButtonExistingBranch->isChecked())
         if (_existingLocalBranches.contains(lineEditNewBranchName->text()) || _existingRemoteBranches.contains(lineEditNewBranchName->text())) {
-            KMessageBox::error(this, i18n("The branch already exists"));
+            KMessageBoxHelper::error(this, i18n("The branch already exists"));
             return;
         }
     accept();

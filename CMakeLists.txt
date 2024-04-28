@@ -12,22 +12,19 @@ set(LIBKOMMIT_LIB_VERSION "${RELEASE_SERVICE_VERSION}")
 set(LIBKOMMIT_LIB_SOVERSION "0")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
-#find_package(git2 REQUIRED)
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(LIBGIT2 "libgit2>=1.0" REQUIRED IMPORTED_TARGET)
 
-
-add_definitions(-DGK_VERSION="${RELEASE_SERVICE_VERSION}")
-set(KF_MIN_VERSION "5.90")
 set(QT_MIN_VERSION 5.15.2)
+set(KF_MIN_VERSION 5.90.0)
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
-#find_package(git2 REQUIRED)
+add_definitions(-DGK_VERSION="${RELEASE_SERVICE_VERSION}")
+
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(LIBGIT2 "libgit2>=1.0" REQUIRED IMPORTED_TARGET)
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
+
 set(
     CMAKE_MODULE_PATH
     ${ECM_MODULE_PATH}
@@ -48,6 +45,8 @@ include(GenerateExportHeader)
 include(KDEGitCommitHooks)
 include(KDEClangFormat)
 include(ECMDeprecationSettings)
+
+
 if (QT_MAJOR_VERSION STREQUAL "6")
     set(QT_REQUIRED_VERSION "6.4.0")
     set(KF_MIN_VERSION "5.240.0")

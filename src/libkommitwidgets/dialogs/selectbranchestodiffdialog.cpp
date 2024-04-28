@@ -5,10 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "selectbranchestodiffdialog.h"
+#include "core/kmessageboxhelper.h"
 
 #include "gitmanager.h"
 #include <KLocalizedString>
-#include <KMessageBox>
 
 SelectBranchesToDiffDialog::SelectBranchesToDiffDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(parent)
@@ -39,7 +39,7 @@ QString SelectBranchesToDiffDialog::newBranch() const
 void SelectBranchesToDiffDialog::slotAccepted()
 {
     if (oldBranch() == newBranch()) {
-        KMessageBox::error(this, i18n("The selected branches must be different!"), i18n("Select Branches"));
+        KMessageBoxHelper::error(this, i18n("The selected branches must be different!"), i18n("Select Branches"));
         return;
     }
     accept();

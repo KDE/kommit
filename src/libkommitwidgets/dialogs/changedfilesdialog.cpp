@@ -7,11 +7,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "changedfilesdialog.h"
 #include "actions/changedfileactions.h"
 #include "commitpushdialog.h"
+#include "core/kmessageboxhelper.h"
 #include "gitmanager.h"
 #include "models/changedfilesmodel.h"
 
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <KSharedConfig>
 #include <KWindowConfig>
 
@@ -57,7 +57,7 @@ void ChangedFilesDialog::slotPushCommit()
 void ChangedFilesDialog::slotStash()
 {
     if (mGit->changedFiles().empty()) {
-        KMessageBox::information(this, i18n("You don't have any changes!"), i18n("Stash"));
+        KMessageBoxHelper::information(this, i18n("You don't have any changes!"), i18n("Stash"));
         return;
     }
     bool ok;

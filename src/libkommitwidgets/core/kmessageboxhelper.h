@@ -17,4 +17,6 @@ public:
     KMessageBoxHelper();
     static bool removeQuestion(QWidget *parent, const QString &text, const QString &caption = QString());
     static bool applyQuestion(QWidget *parent, const QString &text, const QString &caption = QString());
+    static void error(QWidget *parent, const QString &text, const QString &title = QString());
+    static void information(QWidget *parent, const QString &text, const QString &title = QString());
 };

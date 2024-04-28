@@ -19,8 +19,8 @@ DiffOpenDialog::DiffOpenDialog(QWidget *parent)
     readSettings();
     // TODO update ok button enabled
 
-    lineEditNewDirectory->setMode(KFile::Mode::Directory);
-    lineEditOldDirectory->setMode(KFile::Mode::Directory);
+    lineEditNewDirectory->setMode(UrlRequester::Mode::Directory);
+    lineEditOldDirectory->setMode(UrlRequester::Mode::Directory);
 }
 
 DiffOpenDialog::~DiffOpenDialog()

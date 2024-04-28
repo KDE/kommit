@@ -27,7 +27,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="KUrlRequester" name="lineEditLocalFile" native="true"/>
+      <widget class="UrlRequester" name="lineEditLocalFile" native="true"/>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
@@ -37,7 +37,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="KUrlRequester" name="lineEditRemoteFile" native="true"/>
+      <widget class="UrlRequester" name="lineEditRemoteFile" native="true"/>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_3">
@@ -47,7 +47,7 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="KUrlRequester" name="lineEditBaseFile" native="true"/>
+      <widget class="UrlRequester" name="lineEditBaseFile" native="true"/>
      </item>
     </layout>
    </item>
@@ -78,9 +78,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KUrlRequester</class>
+   <class>UrlRequester</class>
    <extends>QWidget</extends>
-   <header>kurlrequester.h</header>
+   <header>widgets/urlrequester.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
