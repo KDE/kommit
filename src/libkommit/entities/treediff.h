@@ -43,9 +43,14 @@ class LIBKOMMIT_EXPORT TreeDiff : public QList<TreeDiffEntry>
 {
 public:
     TreeDiff();
+    TreeDiff(git_diff *diff);
+    ~TreeDiff();
 
     bool contains(const QString &entryPath) const;
     ChangeStatus status(const QString &entryPath) const;
+
+private:
+    git_diff *mDiff{nullptr};
 };
 
 } // namespace Git

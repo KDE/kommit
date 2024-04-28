@@ -18,6 +18,7 @@ namespace Git
 
 class Tree;
 class Note;
+class Commit;
 
 class LIBKOMMIT_EXPORT Branch : public ITree
 {
@@ -34,7 +35,9 @@ public:
 
     Q_REQUIRED_RESULT bool isHead() const;
 
-    QSharedPointer<Tree> tree() const override;
+    Q_REQUIRED_RESULT QSharedPointer<Tree> tree() const override;
+    Q_REQUIRED_RESULT QSharedPointer<Commit> commit() const;
+
     QString treeTitle() const override;
 
 private:

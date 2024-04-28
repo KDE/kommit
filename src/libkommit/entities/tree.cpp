@@ -5,8 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tree.h"
+#include "gitglobal.h"
 #include "qdebug.h"
 #include "types.h"
+
 #include <git2/commit.h>
 #include <git2/tree.h>
 

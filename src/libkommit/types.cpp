@@ -59,7 +59,7 @@ void addToArray(git_strarray *arr, const QString &value)
 {
     arr->strings = new char *[1];
     arr->strings[0] = value.toLocal8Bit().data();
-    arr->count = 0;
+    arr->count = 1;
 }
 
 QSharedPointer<git_tree> makeShared(git_tree *tree)

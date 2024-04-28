@@ -27,6 +27,7 @@ private Q_SLOTS:
     void addFile();
     void revertFile();
     void removeFile();
+    void revertFileOfFour();
 
 private:
     Git::Manager *mManager;

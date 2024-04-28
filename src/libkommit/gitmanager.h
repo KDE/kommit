@@ -196,6 +196,8 @@ public:
     Q_REQUIRED_RESULT QMap<QString, ChangeStatus> changedFiles() const;
     Q_REQUIRED_RESULT QMap<QString, ChangeStatus> changedFiles(const QString &hash) const;
     Q_REQUIRED_RESULT QStringList ignoredFiles() const;
+
+    Q_DECL_DEPRECATED
     Q_REQUIRED_RESULT QList<FileStatus> repoFilesStatus() const;
 
     // notes
@@ -225,7 +227,7 @@ public:
     Q_REQUIRED_RESULT PointerList<Submodule> submodules() const;
     QSharedPointer<Submodule> submodule(const QString &name) const;
 
-    Q_REQUIRED_RESULT Index *index() const;
+    Q_REQUIRED_RESULT QSharedPointer<Index> index() const;
     Q_REQUIRED_RESULT QSharedPointer<Tree> headTree() const;
 
     // models

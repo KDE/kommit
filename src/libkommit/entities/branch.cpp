@@ -5,7 +5,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "branch.h"
+#include "entities/commit.h"
 #include "entities/tree.h"
+#include "gitglobal.h"
 #include "types.h"
 
 #include <git2/branch.h>
@@ -94,6 +96,20 @@ QSharedPointer<Tree> Branch::tree() const
     END;
 
     RETURN_COND(QSharedPointer<Tree>{new Tree{tree}}, nullptr);
+}
+
+QSharedPointer<Commit> Branch::commit() const
+{
+    git_commit *commit;
+    git_object *obj;
+
+    auto repo = git_reference_owner(mBranch);
+    BEGIN
+    STEP git_revparse_single(&obj, repo, toConstChars(mRefName));
+    STEP git_commit_lookup(&commit, repo, git_object_id(obj));
+    END;
+
+    RETURN_COND(QSharedPointer<Commit>{new Commit{commit}}, nullptr);
 }
 
 QString Branch::treeTitle() const

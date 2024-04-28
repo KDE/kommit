@@ -40,14 +40,6 @@
 
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 
-#define BEGIN int err = 0;
-#define STEP err = err ? err:
-#define END                                                                                                                                                    \
-    do {                                                                                                                                                       \
-        if (err)                                                                                                                                               \
-            qDebug() << "Error" << Q_FUNC_INFO << err << ":" << gitErrorMessage(err);                                                                          \
-    } while (false)
-
 #define PRINT_ERROR                                                                                                                                            \
     do {                                                                                                                                                       \
         if (err) {                                                                                                                                             \
@@ -55,32 +47,6 @@
             qDebug() << "Error" << Q_FUNC_INFO << err << ":" << gitErrorMessage(err);                                                                          \
         }                                                                                                                                                      \
     } while (false)
-
-#define THROW                                                                                                                                                  \
-    do {                                                                                                                                                       \
-        if (!err)                                                                                                                                              \
-            throw new Exception{err, gitErrorMessage(err)};                                                                                                    \
-    } while (false)
-
-#define RETURN_IF_ERR_BOOL                                                                                                                                     \
-    do {                                                                                                                                                       \
-        if (err)                                                                                                                                               \
-            return false;                                                                                                                                      \
-    } while (false)
-
-#define RETURN_IF_ERR_VOID                                                                                                                                     \
-    do {                                                                                                                                                       \
-        if (err)                                                                                                                                               \
-            return;                                                                                                                                            \
-    } while (false)
-
-#define RETURN_IF_ERR(val)                                                                                                                                     \
-    do {                                                                                                                                                       \
-        if (err)                                                                                                                                               \
-            return val;                                                                                                                                        \
-    } while (false)
-
-#define toConstChars(s) s.toLocal8Bit().constData()
 
 namespace Git
 {
@@ -606,7 +572,7 @@ QSharedPointer<Submodule> Manager::submodule(const QString &name) const
     return QSharedPointer<Submodule>{new Submodule{submodule}};
 }
 
-Index *Manager::index() const
+QSharedPointer<Index> Manager::index() const
 {
     git_index *index;
     BEGIN
@@ -616,7 +582,7 @@ Index *Manager::index() const
     if (err)
         return nullptr;
 
-    return new Index{index};
+    return QSharedPointer<Index>{new Index{index}};
 }
 
 QSharedPointer<Tree> Manager::headTree() const
@@ -662,6 +628,8 @@ TreeDiff Manager::diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTre
 
     for (size_t i = 0; i < n; ++i)
         treeDiff << TreeDiffEntry{git_diff_get_delta(diff, i)};
+
+    git_diff_free(diff);
 
     return treeDiff;
 }
@@ -1685,11 +1653,15 @@ BlameData Manager::blame(const File &file) // TODO: change parametere to QShared
 bool Manager::revertFile(const QString &filePath) const
 {
     git_checkout_options opts = GIT_CHECKOUT_OPTIONS_INIT;
-    addToArray(&opts.paths, filePath);
+
+    const char *paths[] = {filePath.toStdString().c_str()};
+    opts.paths.strings = (char **)paths;
+    opts.paths.count = 1;
+
     opts.checkout_strategy = GIT_CHECKOUT_FORCE;
 
     BEGIN
-    STEP git_checkout_tree(mRepo, NULL, &opts);
+    STEP git_checkout_head(mRepo, &opts);
 
     PRINT_ERROR;
 

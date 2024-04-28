@@ -21,8 +21,9 @@ class LIBKOMMIT_EXPORT Index
 public:
     Index(git_index *index);
 
-    Q_REQUIRED_RESULT bool addByPath(const QString &path) const;
-    Q_REQUIRED_RESULT bool removeByPath(const QString &path) const;
+    bool addByPath(const QString &path) const;
+    bool removeByPath(const QString &path) const;
+
     bool write();
     QSharedPointer<Tree> tree() const;
 

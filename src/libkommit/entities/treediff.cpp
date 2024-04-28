@@ -14,6 +14,22 @@ TreeDiff::TreeDiff()
 {
 }
 
+TreeDiff::TreeDiff(git_diff *diff)
+    : mDiff{diff}
+{
+    git_diff_stats *stats;
+
+    git_diff_get_stats(&stats, diff);
+    auto n = git_diff_stats_files_changed(stats);
+    for (size_t i = 0; i < n; ++i)
+        append(TreeDiffEntry{git_diff_get_delta(diff, i)});
+}
+
+TreeDiff::~TreeDiff()
+{
+    git_diff_free(mDiff);
+}
+
 bool TreeDiff::contains(const QString &entryPath) const
 {
     auto i = std::find_if(begin(), end(), [&entryPath](const TreeDiffEntry &f) {
