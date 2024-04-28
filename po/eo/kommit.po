@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 01:38+0000\n"
-"PO-Revision-Date: 2024-04-23 21:12+0100\n"
+"PO-Revision-Date: 2024-04-27 19:00+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -152,12 +152,12 @@ msgstr "Kommit"
 #: dolphinplugins/dolphinplugin.cpp:101
 #, kde-format
 msgid "Push/Commit to %0"
-msgstr ""
+msgstr "Puŝi/Enmeti al %0"
 
 #: dolphinplugins/dolphinplugin.cpp:103
 #, kde-format
 msgid "Push/Commit to submodule %0"
-msgstr ""
+msgstr "Puŝi/Enmeti al submodulo %0"
 
 #: src/apps/main.cpp:36
 #, kde-format
@@ -572,47 +572,45 @@ msgstr "Kontraŭflue (upstream)"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
 #: src/gui/pages/reportswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Reports"
-msgstr "Repo"
+msgstr "Raportoj"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:33
 #, kde-format
 msgid "Table view"
-msgstr ""
+msgstr "Tabela vido"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:36
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "Tabelo"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:50
-#, fuzzy, kde-format
-#| msgid "Regular view"
+#, kde-format
 msgid "Chart view"
-msgstr "Regula vido"
+msgstr "Diagrama vido"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:53
 #, kde-format
 msgid "Chart"
-msgstr ""
+msgstr "Diagramo"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:80
 #, kde-format
 msgid "Refresh data"
-msgstr ""
+msgstr "Refreŝigi datumojn"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:83
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Refreŝigi"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
 #: src/gui/pages/stasheswidget.ui:14
@@ -1266,17 +1264,15 @@ msgstr "Reŝargi"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonStashChanges)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
-#, fuzzy, kde-format
-#| msgid "Stashes"
+#, kde-format
 msgid "Stash changes"
-msgstr "Kaŝkonservoj (stashes)"
+msgstr "Kaŝkonservi ŝanĝojn (stash)"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgid "Commit/push"
-msgstr "Enmeti/Puŝi"
+msgstr "Enmeti/push"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -2411,7 +2407,7 @@ msgstr "Etikedo nomo:"
 #: src/libkommitwidgets/reports/authorsreport.cpp:53
 #, kde-format
 msgid "Commits count by author"
-msgstr ""
+msgstr "Nombro da enmetoj laŭ aŭtoro"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format
@@ -2426,48 +2422,47 @@ msgstr "Aŭtentig-redaktoj (autheds)"
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:46
 #, kde-format
 msgid "Commits by hour of day"
-msgstr ""
+msgstr "Enmetoj laŭ horo de tago"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
 #, kde-format
 msgid "Hour"
-msgstr ""
+msgstr "Horo"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:66
 #, kde-format
 msgid "Hour of day"
-msgstr ""
+msgstr "Taghoro"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
 #, kde-format
 msgid "Commits by day of week"
-msgstr ""
+msgstr "Enmetoj laŭ tago de semajno"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
 #, kde-format
 msgid "Day"
-msgstr ""
+msgstr "Tago"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:95
 #, kde-format
 msgid "Day of week"
-msgstr ""
+msgstr "Semajntago"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:60
-#, fuzzy, kde-format
-#| msgid "Commit(s) behind"
+#, kde-format
 msgid "Commits by month"
-msgstr "Enmeto(j)n malaktuale"
+msgstr "Enmetoj laŭ monato"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:70
 #, kde-format
 msgid "Month"
-msgstr ""
+msgstr "Monato"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:80
 #, kde-format
 msgid "Month-year"
-msgstr ""
+msgstr "Monato-jaro"
 
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:41
 #, kde-format
@@ -2556,10 +2551,9 @@ msgstr "Kaŝi neŝanĝitajn"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Report"
-msgstr "Repo"
+msgstr "Raporto"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
@@ -2658,12 +2652,3 @@ msgstr "Sekva diferenco"
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Ne eblas malfermi la dosieron"
-
-#~ msgid "Diff with master..."
-#~ msgstr "Diferenco kun majstro..."
-
-#~ msgid "New tag"
-#~ msgstr "Nova etikedo"
-
-#~ msgid "Authors"
-#~ msgstr "Aŭtoroj"
