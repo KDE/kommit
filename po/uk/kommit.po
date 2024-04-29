@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 01:38+0000\n"
+"POT-Creation-Date: 2024-04-29 01:44+0000\n"
 "PO-Revision-Date: 2024-04-26 16:10+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -88,7 +88,7 @@ msgstr "Зміни"
 #: dolphinplugins/actions.h:25 src/gui/kommitmergeui.rc:17
 #: src/gui/pages/branchesstatuswidget.ui:121
 #: src/gui/settings/settingsmanager.cpp:96
-#: src/libkommitwidgets/actions/branchactions.cpp:39
+#: src/libkommitwidgets/actions/branchactions.cpp:38
 #, kde-format
 msgid "Diff"
 msgstr "Різниця"
@@ -211,7 +211,7 @@ msgid " (rebasing)"
 msgstr " (перенесення основи)"
 
 #: src/gui/appwindow.cpp:146
-#: src/libkommitwidgets/actions/submoduleactions.cpp:41
+#: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr "Ініціалізація…"
@@ -246,17 +246,17 @@ msgstr "Очищення…"
 msgid "Pull..."
 msgstr "Отримати…"
 
-#: src/gui/appwindow.cpp:176 src/libkommitwidgets/actions/branchactions.cpp:35
+#: src/gui/appwindow.cpp:176 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr "Отримати…"
 
-#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:29
+#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr "Записати…"
 
-#: src/gui/appwindow.cpp:184 src/libkommitwidgets/actions/branchactions.cpp:38
+#: src/gui/appwindow.cpp:184 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr "Об'єднати…"
@@ -442,13 +442,13 @@ msgid "Overview"
 msgstr "Огляд"
 
 #: src/gui/pages/branchesstatuswidget.cpp:71
-#: src/libkommitwidgets/actions/branchactions.cpp:120
+#: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Ви справді хочете вилучити позначену гілку?"
 
 #: src/gui/pages/branchesstatuswidget.cpp:75
-#: src/libkommitwidgets/actions/branchactions.cpp:122
+#: src/libkommitwidgets/actions/branchactions.cpp:121
 #, kde-format
 msgid "Unable to remove the selected branch"
 msgstr "Не вдалося вилучити позначену гілку"
@@ -474,7 +474,7 @@ msgstr "Створити"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
 #: src/libkommitwidgets/actions/commitactions.cpp:37
-#: src/libkommitwidgets/actions/tagsactions.cpp:52
+#: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Checkout"
 msgstr "Отримати"
@@ -946,45 +946,45 @@ msgstr "Мітки"
 msgid "Create time"
 msgstr "Час створення"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:32
+#: src/libkommitwidgets/actions/branchactions.cpp:31
 #, kde-format
 msgid "Create..."
 msgstr "Створити…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:36
+#: src/libkommitwidgets/actions/branchactions.cpp:35
 #, kde-format
 msgid "Browse..."
 msgstr "Вибрати…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgid "Switch"
 msgstr "Перемкнутися"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:40
-#: src/libkommitwidgets/actions/remotesactions.cpp:26
-#: src/libkommitwidgets/actions/stashactions.cpp:27
-#: src/libkommitwidgets/actions/tagsactions.cpp:26
+#: src/libkommitwidgets/actions/branchactions.cpp:39
+#: src/libkommitwidgets/actions/remotesactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:26
+#: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
 msgstr "Вилучити…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:41
+#: src/libkommitwidgets/actions/branchactions.cpp:40
 #, kde-format
 msgid "Note..."
 msgstr "Нотатка…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:71
+#: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Create new branch"
 msgstr "Створити гілку"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:71
+#: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Branch name"
 msgstr "Назва гілки"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:120
+#: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Remove Branch"
 msgstr "Вилучити гілку"
@@ -1001,8 +1001,8 @@ msgstr "Повернути…"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:48
-#: src/libkommitwidgets/actions/stashactions.cpp:24
-#: src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with working dir"
 msgstr "Різниця з робочим каталогом"
@@ -1039,205 +1039,205 @@ msgstr "Зберегти як…"
 msgid "Log"
 msgstr "Журнал"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:25
+#: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
 msgid "New..."
 msgstr "Створити…"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:27
+#: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, kde-format
 msgid "Rename..."
 msgstr "Перейменувати…"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:28
+#: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, kde-format
 msgid "Change url..."
 msgstr "Змінити адресу…"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:61
+#: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
 msgstr "Ви справді хочете вилучити вибране віддалене сховище?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:61
+#: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Remove remote?"
 msgstr "Вилучити віддалене?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:63
+#: src/libkommitwidgets/actions/remotesactions.cpp:62
 #, kde-format
 msgid "Unable to remove the selected remote"
 msgstr "Не вдалося вилучити позначене віддалене"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:76
+#: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
 msgid "Change url"
 msgstr "Змінити адресу"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:76
+#: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
 msgid "URL"
 msgstr "Адреса"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:79
+#: src/libkommitwidgets/actions/remotesactions.cpp:78
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "Адресу віддаленого сховища успішно змінено"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:85
+#: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
 msgid "Rename"
 msgstr "Перейменувати"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:85
+#: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
 msgid "New name"
 msgstr "Нова назва"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/stashactions.cpp:22
 #, kde-format
 msgid "New stash..."
 msgstr "Створити накопичення…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
 msgid "Pop..."
 msgstr "Виштовхнути…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:26
+#: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
 msgid "Apply..."
 msgstr "Застосувати…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:35
+#: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "Ви справді хочете застосувати вибране накопичення?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:35
+#: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Apply stash %1"
 msgstr "Застосувати накопичення %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:37
+#: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
 msgid "Unable to apply the selected stash"
 msgstr "Не вдалося застосувати вибране накопичення"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:43
+#: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "Ви справді хочете відкинути вибране накопичення?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:43
+#: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Drop stash %1"
 msgstr "Відкинути накопичення %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:45
-#: src/libkommitwidgets/actions/stashactions.cpp:56
+#: src/libkommitwidgets/actions/stashactions.cpp:44
+#: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "Не вдалося вилучити позначене накопичення"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:54
+#: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "Ви справді хочете підняти вибране накопичення?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:54
+#: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Pop stash %1"
 msgstr "Підняти накопичення %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:72
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "У вас немає змін!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:72
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
 msgstr "Накопичити"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:77
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
 msgstr "Створити накопичення"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:77
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
 msgstr "Назва накопичення"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:40
+#: src/libkommitwidgets/actions/submoduleactions.cpp:39
 #, kde-format
 msgid "Add..."
 msgstr "Додати…"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:42
+#: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, kde-format
 msgid "Update..."
 msgstr "Оновити…"
 
 #. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
-#: src/libkommitwidgets/actions/submoduleactions.cpp:44
+#: src/libkommitwidgets/actions/submoduleactions.cpp:43
 #, kde-format
 msgid "Sync..."
 msgstr "Синхронізувати…"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:76
+#: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
 msgstr "Ви справді хочете вилучити позначений підмодуль?"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:76
+#: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Remove Submodule"
 msgstr "Вилучити підмодуль"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:83
+#: src/libkommitwidgets/actions/submoduleactions.cpp:82
 #, kde-format
 msgid "Unable to remove the module directory"
 msgstr "Не вдалося вилучити каталог модуля"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:90
+#: src/libkommitwidgets/actions/submoduleactions.cpp:89
 #, kde-format
 msgid "The submodule %1 removed"
 msgstr "Підмодуль %1 вилучено"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:25
+#: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, kde-format
 msgid "New tag..."
 msgstr "Створити мітку…"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:27
+#: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Checkout..."
 msgstr "Звірити…"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:35
+#: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
 msgstr "Нова мітка"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:44
+#: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
 msgstr "Ви справді хочете вилучити позначену мітку?"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:44
+#: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, kde-format
 msgid "Remove tag"
 msgstr "Вилучити мітку"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:52
+#: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Ви справді хочете звірити копію із позначеною міткою?"
@@ -2387,7 +2387,7 @@ msgstr "Вибір гілки"
 msgid "HEAD"
 msgstr "HEAD"
 
-#: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:102
+#: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:101
 #, kde-format
 msgid "The path is not inside of git directory"
 msgstr "Шлях не є шляхом у каталозі git"

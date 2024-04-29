@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 01:38+0000\n"
+"POT-Creation-Date: 2024-04-29 01:44+0000\n"
 "PO-Revision-Date: 2023-06-09 23:19+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -97,7 +97,7 @@ msgstr "Modificações"
 #: dolphinplugins/actions.h:25 src/gui/kommitmergeui.rc:17
 #: src/gui/pages/branchesstatuswidget.ui:121
 #: src/gui/settings/settingsmanager.cpp:96
-#: src/libkommitwidgets/actions/branchactions.cpp:39
+#: src/libkommitwidgets/actions/branchactions.cpp:38
 #, kde-format
 msgid "Diff"
 msgstr "Diferenças"
@@ -221,7 +221,7 @@ msgid " (rebasing)"
 msgstr " (a avançar)"
 
 #: src/gui/appwindow.cpp:146
-#: src/libkommitwidgets/actions/submoduleactions.cpp:41
+#: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr "Inicializar..."
@@ -256,17 +256,17 @@ msgstr "Limpar..."
 msgid "Pull..."
 msgstr "Obter..."
 
-#: src/gui/appwindow.cpp:176 src/libkommitwidgets/actions/branchactions.cpp:35
+#: src/gui/appwindow.cpp:176 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr "Obter..."
 
-#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:29
+#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr "Enviar..."
 
-#: src/gui/appwindow.cpp:184 src/libkommitwidgets/actions/branchactions.cpp:38
+#: src/gui/appwindow.cpp:184 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr "Reunir..."
@@ -453,13 +453,13 @@ msgid "Overview"
 msgstr "Introdução"
 
 #: src/gui/pages/branchesstatuswidget.cpp:71
-#: src/libkommitwidgets/actions/branchactions.cpp:120
+#: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Tem a certeza que deseja remover a ramificação seleccionada?"
 
 #: src/gui/pages/branchesstatuswidget.cpp:75
-#: src/libkommitwidgets/actions/branchactions.cpp:122
+#: src/libkommitwidgets/actions/branchactions.cpp:121
 #, kde-format
 msgid "Unable to remove the selected branch"
 msgstr "Não é possível remover a ramificação seleccionada?"
@@ -485,7 +485,7 @@ msgstr "Nova"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
 #: src/libkommitwidgets/actions/commitactions.cpp:37
-#: src/libkommitwidgets/actions/tagsactions.cpp:52
+#: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Checkout"
 msgstr "Obter"
@@ -962,45 +962,45 @@ msgstr "Marcador"
 msgid "Create time"
 msgstr "Criar uma marca"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:32
+#: src/libkommitwidgets/actions/branchactions.cpp:31
 #, kde-format
 msgid "Create..."
 msgstr "Criar..."
 
-#: src/libkommitwidgets/actions/branchactions.cpp:36
+#: src/libkommitwidgets/actions/branchactions.cpp:35
 #, kde-format
 msgid "Browse..."
 msgstr "Escolher..."
 
-#: src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgid "Switch"
 msgstr "Mudar"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:40
-#: src/libkommitwidgets/actions/remotesactions.cpp:26
-#: src/libkommitwidgets/actions/stashactions.cpp:27
-#: src/libkommitwidgets/actions/tagsactions.cpp:26
+#: src/libkommitwidgets/actions/branchactions.cpp:39
+#: src/libkommitwidgets/actions/remotesactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:26
+#: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
 msgstr "Remover..."
 
-#: src/libkommitwidgets/actions/branchactions.cpp:41
+#: src/libkommitwidgets/actions/branchactions.cpp:40
 #, kde-format
 msgid "Note..."
 msgstr "Nota..."
 
-#: src/libkommitwidgets/actions/branchactions.cpp:71
+#: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Create new branch"
 msgstr "Criar uma nova ramificação"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:71
+#: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Branch name"
 msgstr "Nome da ramificação"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:120
+#: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Remove Branch"
 msgstr "Remover a Ramificação"
@@ -1017,8 +1017,8 @@ msgstr "Reverter..."
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:48
-#: src/libkommitwidgets/actions/stashactions.cpp:24
-#: src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with working dir"
 msgstr ""
@@ -1056,205 +1056,205 @@ msgstr "Gravar como..."
 msgid "Log"
 msgstr "Registo..."
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:25
+#: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
 msgid "New..."
 msgstr "Novo..."
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:27
+#: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, kde-format
 msgid "Rename..."
 msgstr "Mudar o Nome..."
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:28
+#: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, kde-format
 msgid "Change url..."
 msgstr "Modificar o URL..."
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:61
+#: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
 msgstr "Tem a certeza que deseja remover o servidor remoto seleccionado?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:61
+#: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Remove remote?"
 msgstr "Remover o remoto?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:63
+#: src/libkommitwidgets/actions/remotesactions.cpp:62
 #, kde-format
 msgid "Unable to remove the selected remote"
 msgstr "Não é possível remover o servidor remoto seleccionado"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:76
+#: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
 msgid "Change url"
 msgstr "Modificar o URL"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:76
+#: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
 msgid "URL"
 msgstr "URL"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:79
+#: src/libkommitwidgets/actions/remotesactions.cpp:78
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "Foi modificado com sucesso o URL do servidor remoto"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:85
+#: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
 msgid "Rename"
 msgstr "Mudar o Nome"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:85
+#: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
 msgid "New name"
 msgstr "Novo nome"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/stashactions.cpp:22
 #, kde-format
 msgid "New stash..."
 msgstr "Nova versão preparada..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
 msgid "Pop..."
 msgstr "Retirar..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:26
+#: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
 msgid "Apply..."
 msgstr "Aplicar..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:35
+#: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "Tem a certeza que deseja aplicar a versão preparada seleccionada?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:35
+#: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Apply stash %1"
 msgstr "Aplicar a versão preparada %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:37
+#: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
 msgid "Unable to apply the selected stash"
 msgstr "Não é possível aplicar a versão preparada seleccionada"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:43
+#: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "Tem a certeza que deseja remover a versão preparada seleccionada?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:43
+#: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Drop stash %1"
 msgstr "Remover a versão preparada %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:45
-#: src/libkommitwidgets/actions/stashactions.cpp:56
+#: src/libkommitwidgets/actions/stashactions.cpp:44
+#: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "Não é possível remover a versão preparada seleccionada"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:54
+#: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "Tem a certeza que deseja retirar a versão preparada seleccionada?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:54
+#: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Pop stash %1"
 msgstr "Retirar a versão preparada %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:72
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Não tem quaisquer modificações!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:72
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
 msgstr "Preparar"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:77
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
 msgstr "Criar uma nova versão preparada"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:77
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
 msgstr "Nome da versão preparada"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:40
+#: src/libkommitwidgets/actions/submoduleactions.cpp:39
 #, kde-format
 msgid "Add..."
 msgstr "Adicionar..."
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:42
+#: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, kde-format
 msgid "Update..."
 msgstr "Actualizar..."
 
 #. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
-#: src/libkommitwidgets/actions/submoduleactions.cpp:44
+#: src/libkommitwidgets/actions/submoduleactions.cpp:43
 #, kde-format
 msgid "Sync..."
 msgstr "Sincronizar..."
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:76
+#: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
 msgstr "Tem a certeza que deseja remover o sub-módulo seleccionado?"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:76
+#: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Remove Submodule"
 msgstr "Remover o Sub-Módulo"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:83
+#: src/libkommitwidgets/actions/submoduleactions.cpp:82
 #, kde-format
 msgid "Unable to remove the module directory"
 msgstr "Não foi possível remover a pasta do módulo"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:90
+#: src/libkommitwidgets/actions/submoduleactions.cpp:89
 #, kde-format
 msgid "The submodule %1 removed"
 msgstr "O sub-módulo %1 foi removido"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:25
+#: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, kde-format
 msgid "New tag..."
 msgstr "Nova marca..."
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:27
+#: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Checkout..."
 msgstr "Obter..."
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:35
+#: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
 msgstr "Nova marca"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:44
+#: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
 msgstr "Tem a certeza que deseja remover a marca seleccionada?"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:44
+#: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, kde-format
 msgid "Remove tag"
 msgstr "Remover a marca"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:52
+#: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Tem a certeza que deseja mudar para a marca seleccionada?"
@@ -2426,7 +2426,7 @@ msgstr "Seleccionar a ramificação"
 msgid "HEAD"
 msgstr "HEAD"
 
-#: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:102
+#: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:101
 #, kde-format
 msgid "The path is not inside of git directory"
 msgstr "A localização não está dentro de uma pasta do Git"

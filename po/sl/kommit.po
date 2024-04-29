@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 01:38+0000\n"
+"POT-Creation-Date: 2024-04-29 01:44+0000\n"
 "PO-Revision-Date: 2024-04-26 06:47+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -91,7 +91,7 @@ msgstr "Spremembe"
 #: dolphinplugins/actions.h:25 src/gui/kommitmergeui.rc:17
 #: src/gui/pages/branchesstatuswidget.ui:121
 #: src/gui/settings/settingsmanager.cpp:96
-#: src/libkommitwidgets/actions/branchactions.cpp:39
+#: src/libkommitwidgets/actions/branchactions.cpp:38
 #, kde-format
 msgid "Diff"
 msgstr "Razlike"
@@ -214,7 +214,7 @@ msgid " (rebasing)"
 msgstr " (zamenjava osnove)"
 
 #: src/gui/appwindow.cpp:146
-#: src/libkommitwidgets/actions/submoduleactions.cpp:41
+#: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr "Inicializiraj …"
@@ -249,17 +249,17 @@ msgstr "Čiščenje..."
 msgid "Pull..."
 msgstr "Potegni..."
 
-#: src/gui/appwindow.cpp:176 src/libkommitwidgets/actions/branchactions.cpp:35
+#: src/gui/appwindow.cpp:176 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr "Dobavi..."
 
-#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:29
+#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr "Porini..."
 
-#: src/gui/appwindow.cpp:184 src/libkommitwidgets/actions/branchactions.cpp:38
+#: src/gui/appwindow.cpp:184 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr "Zlij..."
@@ -445,13 +445,13 @@ msgid "Overview"
 msgstr "Pregled"
 
 #: src/gui/pages/branchesstatuswidget.cpp:71
-#: src/libkommitwidgets/actions/branchactions.cpp:120
+#: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Ali ste prepričani, da želite odstraniti izbrano vejo?"
 
 #: src/gui/pages/branchesstatuswidget.cpp:75
-#: src/libkommitwidgets/actions/branchactions.cpp:122
+#: src/libkommitwidgets/actions/branchactions.cpp:121
 #, kde-format
 msgid "Unable to remove the selected branch"
 msgstr "Ni mogoče odstraniti izbrane veje"
@@ -477,7 +477,7 @@ msgstr "Novo"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
 #: src/libkommitwidgets/actions/commitactions.cpp:37
-#: src/libkommitwidgets/actions/tagsactions.cpp:52
+#: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Checkout"
 msgstr "Prevzemi"
@@ -947,45 +947,45 @@ msgstr "Označevalnik"
 msgid "Create time"
 msgstr "Čas kreiranja"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:32
+#: src/libkommitwidgets/actions/branchactions.cpp:31
 #, kde-format
 msgid "Create..."
 msgstr "Ustvari..."
 
-#: src/libkommitwidgets/actions/branchactions.cpp:36
+#: src/libkommitwidgets/actions/branchactions.cpp:35
 #, kde-format
 msgid "Browse..."
 msgstr "Brskaj..."
 
-#: src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgid "Switch"
 msgstr "Preklopi"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:40
-#: src/libkommitwidgets/actions/remotesactions.cpp:26
-#: src/libkommitwidgets/actions/stashactions.cpp:27
-#: src/libkommitwidgets/actions/tagsactions.cpp:26
+#: src/libkommitwidgets/actions/branchactions.cpp:39
+#: src/libkommitwidgets/actions/remotesactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:26
+#: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
 msgstr "Odstrani..."
 
-#: src/libkommitwidgets/actions/branchactions.cpp:41
+#: src/libkommitwidgets/actions/branchactions.cpp:40
 #, kde-format
 msgid "Note..."
 msgstr "Opomba..."
 
-#: src/libkommitwidgets/actions/branchactions.cpp:71
+#: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Create new branch"
 msgstr "Ustvari novo vejo"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:71
+#: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Branch name"
 msgstr "Ime veje"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:120
+#: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Remove Branch"
 msgstr "Odstrani vejo"
@@ -1002,8 +1002,8 @@ msgstr "Povrni …"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:48
-#: src/libkommitwidgets/actions/stashactions.cpp:24
-#: src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with working dir"
 msgstr "Diff z delovnim imenikom"
@@ -1040,205 +1040,205 @@ msgstr "Shrani kot..."
 msgid "Log"
 msgstr "Dnevnik"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:25
+#: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
 msgid "New..."
 msgstr "Nova..."
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:27
+#: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, kde-format
 msgid "Rename..."
 msgstr "Preimenuj..."
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:28
+#: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, kde-format
 msgid "Change url..."
 msgstr "Spremeni URL …"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:61
+#: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
 msgstr "Ali ste prepričani, da odstranite izbrano oddaljeno?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:61
+#: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Remove remote?"
 msgstr "Odstranim oddaljeno?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:63
+#: src/libkommitwidgets/actions/remotesactions.cpp:62
 #, kde-format
 msgid "Unable to remove the selected remote"
 msgstr "Ni mogoče odstraniti izbrano oddaljeno"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:76
+#: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
 msgid "Change url"
 msgstr "Spremeni URL"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:76
+#: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
 msgid "URL"
 msgstr "URL"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:79
+#: src/libkommitwidgets/actions/remotesactions.cpp:78
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "Url za oddaljeno je uspešno spremenjen"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:85
+#: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
 msgid "Rename"
 msgstr "Preimenuj"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:85
+#: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
 msgid "New name"
 msgstr "Novo ime"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/stashactions.cpp:22
 #, kde-format
 msgid "New stash..."
 msgstr "Nova zaloga …"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
 msgid "Pop..."
 msgstr "Pojavi …"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:26
+#: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
 msgid "Apply..."
 msgstr "Uveljavi..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:35
+#: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "Ali ste prepričani, da želite uveljaviti izbrano zalogo?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:35
+#: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Apply stash %1"
 msgstr "Uveljavi zalogo %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:37
+#: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
 msgid "Unable to apply the selected stash"
 msgstr "Ni mogoče uveljaviti izbrano zalogo"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:43
+#: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "Ali ste prepričani, da želite spustiti izbrano zalogo?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:43
+#: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Drop stash %1"
 msgstr "Spusti zalogo %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:45
-#: src/libkommitwidgets/actions/stashactions.cpp:56
+#: src/libkommitwidgets/actions/stashactions.cpp:44
+#: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "Ni mogoče odstraniti izbrane zaloge"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:54
+#: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "Ali ste prepričani, da pobrati izbrano zalogo?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:54
+#: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Pop stash %1"
 msgstr "Poberi zalogo %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:72
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Nimate nobenih sprememb!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:72
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
 msgstr "Zaloga"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:77
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
 msgstr "Ustvari novo zalogo"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:77
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
 msgstr "Ime zaloge"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:40
+#: src/libkommitwidgets/actions/submoduleactions.cpp:39
 #, kde-format
 msgid "Add..."
 msgstr "Dodaj..."
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:42
+#: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, kde-format
 msgid "Update..."
 msgstr "Podosobi..."
 
 #. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
-#: src/libkommitwidgets/actions/submoduleactions.cpp:44
+#: src/libkommitwidgets/actions/submoduleactions.cpp:43
 #, kde-format
 msgid "Sync..."
 msgstr "Uskladi …"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:76
+#: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
 msgstr "Ali ste prepričani, da želite odstraniti izbran submodul?"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:76
+#: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Remove Submodule"
 msgstr "Odstrani podmodule"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:83
+#: src/libkommitwidgets/actions/submoduleactions.cpp:82
 #, kde-format
 msgid "Unable to remove the module directory"
 msgstr "Ni mogoče odstraniti imenika modula"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:90
+#: src/libkommitwidgets/actions/submoduleactions.cpp:89
 #, kde-format
 msgid "The submodule %1 removed"
 msgstr "Submodul %1 je odstranjen"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:25
+#: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, kde-format
 msgid "New tag..."
 msgstr "Nova oznaka..."
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:27
+#: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Checkout..."
 msgstr "Prevzemi ..."
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:35
+#: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
 msgstr "Nova značka"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:44
+#: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
 msgstr "Ali ste prepričani za odstranjevanje izbrane oznake?"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:44
+#: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, kde-format
 msgid "Remove tag"
 msgstr "Odstrani oznako"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:52
+#: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Ali ste prepričani, da bi prevzeli izbrano oznako?"
@@ -2385,7 +2385,7 @@ msgstr "Izberite vejo"
 msgid "HEAD"
 msgstr "GLAVA/HEAD"
 
-#: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:102
+#: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:101
 #, kde-format
 msgid "The path is not inside of git directory"
 msgstr "Pot ni znotraj skladišča git"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 01:38+0000\n"
+"POT-Creation-Date: 2024-04-29 01:44+0000\n"
 "PO-Revision-Date: 2023-06-07 16:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -87,7 +87,7 @@ msgstr "Muutokset"
 #: dolphinplugins/actions.h:25 src/gui/kommitmergeui.rc:17
 #: src/gui/pages/branchesstatuswidget.ui:121
 #: src/gui/settings/settingsmanager.cpp:96
-#: src/libkommitwidgets/actions/branchactions.cpp:39
+#: src/libkommitwidgets/actions/branchactions.cpp:38
 #, kde-format
 msgid "Diff"
 msgstr "Diff"
@@ -211,7 +211,7 @@ msgid " (rebasing)"
 msgstr " (pohjataan uudelleen)"
 
 #: src/gui/appwindow.cpp:146
-#: src/libkommitwidgets/actions/submoduleactions.cpp:41
+#: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr "Alusta…"
@@ -246,17 +246,17 @@ msgstr "Siivoa…"
 msgid "Pull..."
 msgstr "Tuo…"
 
-#: src/gui/appwindow.cpp:176 src/libkommitwidgets/actions/branchactions.cpp:35
+#: src/gui/appwindow.cpp:176 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr "Nouda…"
 
-#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:29
+#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr "Vie…"
 
-#: src/gui/appwindow.cpp:184 src/libkommitwidgets/actions/branchactions.cpp:38
+#: src/gui/appwindow.cpp:184 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr "Yhdistä…"
@@ -443,13 +443,13 @@ msgid "Overview"
 msgstr "Yleiskuva"
 
 #: src/gui/pages/branchesstatuswidget.cpp:71
-#: src/libkommitwidgets/actions/branchactions.cpp:120
+#: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Haluatko varmasti poistaa valitun haaran?"
 
 #: src/gui/pages/branchesstatuswidget.cpp:75
-#: src/libkommitwidgets/actions/branchactions.cpp:122
+#: src/libkommitwidgets/actions/branchactions.cpp:121
 #, kde-format
 msgid "Unable to remove the selected branch"
 msgstr "Valittua haaraa ei voida poistaa"
@@ -475,7 +475,7 @@ msgstr "Uusi"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
 #: src/libkommitwidgets/actions/commitactions.cpp:37
-#: src/libkommitwidgets/actions/tagsactions.cpp:52
+#: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Checkout"
 msgstr "Vaihda"
@@ -938,45 +938,45 @@ msgstr ""
 msgid "Create time"
 msgstr "Luo luokitus"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:32
+#: src/libkommitwidgets/actions/branchactions.cpp:31
 #, kde-format
 msgid "Create..."
 msgstr "Luo…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:36
+#: src/libkommitwidgets/actions/branchactions.cpp:35
 #, kde-format
 msgid "Browse..."
 msgstr "Selaa…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgid "Switch"
 msgstr "Siirry"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:40
-#: src/libkommitwidgets/actions/remotesactions.cpp:26
-#: src/libkommitwidgets/actions/stashactions.cpp:27
-#: src/libkommitwidgets/actions/tagsactions.cpp:26
+#: src/libkommitwidgets/actions/branchactions.cpp:39
+#: src/libkommitwidgets/actions/remotesactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:26
+#: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
 msgstr "Poista…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:41
+#: src/libkommitwidgets/actions/branchactions.cpp:40
 #, kde-format
 msgid "Note..."
 msgstr "Huomautus…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:71
+#: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Create new branch"
 msgstr "Luo uusi haara"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:71
+#: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Branch name"
 msgstr "Haaran nimi"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:120
+#: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Remove Branch"
 msgstr "Poista haara"
@@ -993,8 +993,8 @@ msgstr "Palaa takaisin…"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:48
-#: src/libkommitwidgets/actions/stashactions.cpp:24
-#: src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/tagsactions.cpp:27
 #, kde-format
 msgid "Diff with working dir"
 msgstr ""
@@ -1032,205 +1032,205 @@ msgstr "Tallenna nimellä…"
 msgid "Log"
 msgstr "Loki…"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:25
+#: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
 msgid "New..."
 msgstr "Uusi…"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:27
+#: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, kde-format
 msgid "Rename..."
 msgstr "Muuta nimeä…"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:28
+#: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, kde-format
 msgid "Change url..."
 msgstr "Muuta verkko-osoitetta…"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:61
+#: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
 msgstr "Haluatko varmasti poistaa valitun etäkohteen?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:61
+#: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Remove remote?"
 msgstr "Poistetaanko etäkohde?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:63
+#: src/libkommitwidgets/actions/remotesactions.cpp:62
 #, kde-format
 msgid "Unable to remove the selected remote"
 msgstr "Valittua etäkohdetta ei voida poistaa"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:76
+#: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
 msgid "Change url"
 msgstr "Muuta verkko-osoitetta"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:76
+#: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
 msgid "URL"
 msgstr "Verkko-osoite"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:79
+#: src/libkommitwidgets/actions/remotesactions.cpp:78
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "Etäkohteen verkko-osoitteen muutos onnistui"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:85
+#: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
 msgid "Rename"
 msgstr "Muuta nimeä"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:85
+#: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
 msgid "New name"
 msgstr "Uusi nimi"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:23
+#: src/libkommitwidgets/actions/stashactions.cpp:22
 #, kde-format
 msgid "New stash..."
 msgstr "Uusi jemma…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
 msgid "Pop..."
 msgstr "Palauta…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:26
+#: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
 msgid "Apply..."
 msgstr "Käytä…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:35
+#: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "Haluatko varmasti käyttää valittua jemmaa?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:35
+#: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Apply stash %1"
 msgstr "Käytä jemmaa %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:37
+#: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
 msgid "Unable to apply the selected stash"
 msgstr "Valittua jemmaa ei voida käyttää"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:43
+#: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "Haluatko varmasti hylätä valitun jemman?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:43
+#: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Drop stash %1"
 msgstr "Hylkää jemma %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:45
-#: src/libkommitwidgets/actions/stashactions.cpp:56
+#: src/libkommitwidgets/actions/stashactions.cpp:44
+#: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "Valittua jemmaa ei voida poistaa"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:54
+#: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "Haluatko varmasti palauttaa valitun jemman?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:54
+#: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Pop stash %1"
 msgstr "Palauta jemma %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:72
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Muutoksia ei ole!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:72
+#: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
 msgstr "Jemma"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:77
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
 msgstr "Luo uusi jemma"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:77
+#: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
 msgstr "Jemman nimi"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:40
+#: src/libkommitwidgets/actions/submoduleactions.cpp:39
 #, kde-format
 msgid "Add..."
 msgstr "Lisää…"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:42
+#: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, kde-format
 msgid "Update..."
 msgstr "Päivitä…"
 
 #. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
-#: src/libkommitwidgets/actions/submoduleactions.cpp:44
+#: src/libkommitwidgets/actions/submoduleactions.cpp:43
 #, kde-format
 msgid "Sync..."
 msgstr "Tahdista…"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:76
+#: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
 msgstr "Haluatko varmasti poistaa valitun alimoduulin?"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:76
+#: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Remove Submodule"
 msgstr "Poista alimoduuli"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:83
+#: src/libkommitwidgets/actions/submoduleactions.cpp:82
 #, kde-format
 msgid "Unable to remove the module directory"
 msgstr "Moduulikansiota ei voi poistaa"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:90
+#: src/libkommitwidgets/actions/submoduleactions.cpp:89
 #, kde-format
 msgid "The submodule %1 removed"
 msgstr "Alimoduuli %1 on poistettu"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:25
+#: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, kde-format
 msgid "New tag..."
 msgstr "Uusi tunniste…"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:27
+#: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Checkout..."
 msgstr "Vaihda…"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:35
+#: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:13
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
 msgstr "Uusi tunniste"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:44
+#: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
 msgstr "Haluatko varmasti poistaa valitun tunnisteen?"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:44
+#: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, kde-format
 msgid "Remove tag"
 msgstr "Poista tunniste"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:52
+#: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Haluatko varmasti vaihtaa valittuun tunnisteeseen?"
@@ -2317,7 +2317,7 @@ msgstr "Valitse haara"
 msgid "HEAD"
 msgstr "HEAD"
 
-#: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:102
+#: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:101
 #, fuzzy, kde-format
 #| msgid "The path is not git repo: %1"
 msgid "The path is not inside of git directory"
