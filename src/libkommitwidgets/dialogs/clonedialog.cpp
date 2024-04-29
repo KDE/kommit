@@ -79,6 +79,10 @@ void CloneDialog::slotCredentialRequeted(const QString &url, Git::Credential *cr
 
 void CloneDialog::slotUrlChanged(const QString &text)
 {
+    if (text.isEmpty()) {
+        lineEditPath->clear();
+        return;
+    }
     const auto parts = text.split(QLatin1Char('/'));
     if (!parts.isEmpty()) {
         auto local = parts.last();

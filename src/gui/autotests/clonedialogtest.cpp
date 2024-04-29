@@ -28,22 +28,27 @@ void CloneDialogTest::shouldHaveDefaultValues()
 
 void CloneDialogTest::shouldChangePath_data()
 {
-    QTest::addColumn<QString>("path");
+    QTest::addColumn<QString>("url");
+    QTest::addColumn<QString>("localPath");
     QTest::addColumn<QString>("result");
-    QTest::addRow("empty") << QString() << QString();
-    QTest::addRow("pathwithoutgit") << QStringLiteral("/bla/bla/bli") << QStringLiteral("/bla/bla/bli");
-    QTest::addRow("pathwitgit") << QStringLiteral("/bla/bla/bli.git") << QStringLiteral("/bla/bla/bli.git/bli");
+    QTest::addRow("empty") << QString() << QString() << QString();
+    QTest::addRow("pathwithoutgit") << QStringLiteral("http://bla.com/bla") << QStringLiteral("/path/to/a/dir") << QStringLiteral("/path/to/a/dir/bla");
+    QTest::addRow("pathwitgit") << QStringLiteral("http://bla.com/bla.git") << QStringLiteral("/path/to/a/dir") << QStringLiteral("/path/to/a/dir/bla");
 }
 
 void CloneDialogTest::shouldChangePath()
 {
-    QFETCH(QString, path);
+    QFETCH(QString, url);
+    QFETCH(QString, localPath);
     QFETCH(QString, result);
 
     CloneDialog d;
     auto lineEditPath = d.findChild<KUrlRequester *>(QStringLiteral("lineEditPath"));
+    auto lineEditUrl = d.findChild<QLineEdit *>(QStringLiteral("lineEditUrl"));
 
-    d.setLocalPath(path);
+    d.setLocalPath(localPath);
+    lineEditUrl->setText(url);
+
     QCOMPARE(lineEditPath->text(), result);
 }
 
