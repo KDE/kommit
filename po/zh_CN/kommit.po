@@ -570,10 +570,9 @@ msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
 #: src/gui/pages/reportswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Reports"
-msgstr "仓库"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:33
@@ -1261,17 +1260,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonStashChanges)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
-#, fuzzy, kde-format
-#| msgid "Stashes"
+#, kde-format
 msgid "Stash changes"
-msgstr "暂存"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgid "Commit/push"
-msgstr "提交/推送"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -2391,10 +2388,9 @@ msgid "Day of week"
 msgstr ""
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:60
-#, fuzzy, kde-format
-#| msgid "Commit(s) behind"
+#, kde-format
 msgid "Commits by month"
-msgstr "提交落后"
+msgstr ""
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:70
 #, kde-format
@@ -2493,10 +2489,9 @@ msgstr "隐藏未更改的"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Report"
-msgstr "仓库"
+msgstr ""
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
@@ -2595,9 +2590,3 @@ msgstr "下一个差异"
 #, kde-format
 msgid "Unable to open the file"
 msgstr "无法打开文件"
-
-#~ msgid "Diff with master..."
-#~ msgstr "与主分支的差异..."
-
-#~ msgid "New tag"
-#~ msgstr "新标签"

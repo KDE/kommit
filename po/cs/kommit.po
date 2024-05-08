@@ -572,7 +572,7 @@ msgstr ""
 #: src/gui/pages/reportswidget.ui:14
 #, kde-format
 msgid "Reports"
-msgstr ""
+msgstr "Hlášení"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:33
@@ -584,7 +584,7 @@ msgstr ""
 #: src/gui/pages/reportswidget.ui:36
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "Tabulka"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:50
@@ -596,7 +596,7 @@ msgstr ""
 #: src/gui/pages/reportswidget.ui:53
 #, kde-format
 msgid "Chart"
-msgstr ""
+msgstr "Graf"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:80
@@ -608,7 +608,7 @@ msgstr ""
 #: src/gui/pages/reportswidget.ui:83
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Obnovit"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
 #: src/gui/pages/stasheswidget.ui:14
@@ -1254,10 +1254,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit/push"
-msgstr "Commity"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -2345,15 +2344,14 @@ msgid "Day of week"
 msgstr ""
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:60
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commits by month"
-msgstr "Commity"
+msgstr ""
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:70
 #, kde-format
 msgid "Month"
-msgstr ""
+msgstr "Měsíc"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:80
 #, kde-format
@@ -2449,7 +2447,7 @@ msgstr ""
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
 #, kde-format
 msgid "Report"
-msgstr ""
+msgstr "Hlášení"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
@@ -2548,9 +2546,3 @@ msgstr ""
 #, kde-format
 msgid "Unable to open the file"
 msgstr ""
-
-#~ msgid "New tag"
-#~ msgstr "Nová značka"
-
-#~ msgid "Authors"
-#~ msgstr "Autoři"
