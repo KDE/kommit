@@ -216,22 +216,22 @@ msgstr " (en rebase)"
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
-msgstr "Restablix..."
+msgstr "Restablix…"
 
 #: src/gui/appwindow.cpp:149
 #, kde-format
 msgid "Open..."
-msgstr "Obri..."
+msgstr "Obri…"
 
 #: src/gui/appwindow.cpp:154
 #, kde-format
 msgid "Clone..."
-msgstr "Clona..."
+msgstr "Clona…"
 
 #: src/gui/appwindow.cpp:157
 #, kde-format
 msgid "Changed files..."
-msgstr "Fitxers canviats..."
+msgstr "Fitxers canviats…"
 
 #: src/gui/appwindow.cpp:163
 #, kde-format
@@ -241,47 +241,47 @@ msgstr "Repositoris recents"
 #: src/gui/appwindow.cpp:169
 #, kde-format
 msgid "Cleanup..."
-msgstr "Neteja..."
+msgstr "Neteja…"
 
 #: src/gui/appwindow.cpp:172
 #, kde-format
 msgid "Pull..."
-msgstr "Baixa..."
+msgstr "Baixa…"
 
 #: src/gui/appwindow.cpp:176 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
-msgstr "Obtín..."
+msgstr "Obtín…"
 
 #: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
-msgstr "Puja..."
+msgstr "Puja…"
 
 #: src/gui/appwindow.cpp:184 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
-msgstr "Fusiona..."
+msgstr "Fusiona…"
 
 #: src/gui/appwindow.cpp:188
 #, kde-format
 msgid "Diff branches..."
-msgstr "Diff de les branques..."
+msgstr "Diff de les branques…"
 
 #: src/gui/appwindow.cpp:191 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
-msgstr "Busca..."
+msgstr "Busca…"
 
 #: src/gui/appwindow.cpp:194
 #, kde-format
 msgid "Repo settings..."
-msgstr "Configureu el repositori..."
+msgstr "Configureu el repositori…"
 
 #: src/gui/appwindow.cpp:197
 #, kde-format
 msgid "Switch/Checkout..."
-msgstr "Canvia/Extrau..."
+msgstr "Canvia/Extrau…"
 
 #: src/gui/appwindow.cpp:200
 #, kde-format
@@ -506,7 +506,7 @@ msgstr "Comissions"
 #: src/gui/pages/commitswidget.ui:41
 #, kde-format
 msgid "Filter..."
-msgstr "Filtra..."
+msgstr "Filtra…"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
 #: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:56
@@ -640,7 +640,7 @@ msgstr ""
 "git-stash.txt-push-p--patch-k--no-keep-index-u--include-untracked-a--all-q--"
 "quiet-m--messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--"
 "ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
-"#2980b9;\">Més informació...</span></a></p></body></html>"
+"#2980b9;\">Més informació…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
 #: src/gui/pages/stasheswidget.ui:52
@@ -667,7 +667,7 @@ msgstr ""
 "<html><head/><body><p>Aplica «stash» damunt del directori de treball actual</"
 "p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
 "txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
-"underline; color:#2980b9;\">Més informació...</span></a></p></body></html>"
+"underline; color:#2980b9;\">Més informació…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
 #: src/gui/pages/stasheswidget.ui:69
@@ -951,12 +951,12 @@ msgstr "Hora de creació"
 #: src/libkommitwidgets/actions/branchactions.cpp:31
 #, kde-format
 msgid "Create..."
-msgstr "Crea..."
+msgstr "Crea…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
 #, kde-format
 msgid "Browse..."
-msgstr "Navega..."
+msgstr "Navega…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
@@ -969,12 +969,12 @@ msgstr "Canvia"
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, kde-format
 msgid "Remove..."
-msgstr "Elimina..."
+msgstr "Elimina…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #, kde-format
 msgid "Note..."
-msgstr "Nota..."
+msgstr "Nota…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -994,12 +994,12 @@ msgstr "Elimina la branca"
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, kde-format
 msgid "Diff..."
-msgstr "Diferència..."
+msgstr "Diferència…"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, kde-format
 msgid "Revert..."
-msgstr "Revertix..."
+msgstr "Revertix…"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:48
@@ -1024,7 +1024,7 @@ msgstr "Vista prèvia"
 #: src/libkommitwidgets/actions/fileactions.cpp:46
 #, kde-format
 msgid "Open with..."
-msgstr "Obri amb..."
+msgstr "Obri amb…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:49
 #, kde-format
@@ -1034,7 +1034,7 @@ msgstr "Fusió amb el directori de treball"
 #: src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
 msgid "Save as..."
-msgstr "Anomena i guarda..."
+msgstr "Anomena i guarda…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:52
 #, kde-format
@@ -1044,17 +1044,17 @@ msgstr "Registre"
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
 msgid "New..."
-msgstr "Nou..."
+msgstr "Nou…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, kde-format
 msgid "Rename..."
-msgstr "Canvia el nom..."
+msgstr "Canvia el nom…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, kde-format
 msgid "Change url..."
-msgstr "Canvia l'URL..."
+msgstr "Canvia l'URL…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
@@ -1099,17 +1099,17 @@ msgstr "Nom nou"
 #: src/libkommitwidgets/actions/stashactions.cpp:22
 #, kde-format
 msgid "New stash..."
-msgstr "«Stash» nou..."
+msgstr "«Stash» nou…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
 msgid "Pop..."
-msgstr "«Pop»..."
+msgstr "«Pop»…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
 msgid "Apply..."
-msgstr "Aplica..."
+msgstr "Aplica…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
@@ -1179,18 +1179,18 @@ msgstr "Nom de l'«stash»"
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
 #, kde-format
 msgid "Add..."
-msgstr "Afig..."
+msgstr "Afig…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, kde-format
 msgid "Update..."
-msgstr "Actualitza..."
+msgstr "Actualitza…"
 
 #. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
 #, kde-format
 msgid "Sync..."
-msgstr "Sincronitza..."
+msgstr "Sincronitza…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
@@ -1215,12 +1215,12 @@ msgstr "S'ha eliminat el submòdul %1"
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, kde-format
 msgid "New tag..."
-msgstr "Etiqueta nova..."
+msgstr "Etiqueta nova…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgid "Checkout..."
-msgstr "Extrau..."
+msgstr "Extrau…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:13
@@ -1476,7 +1476,7 @@ msgstr ""
 "comprovacions, i pot fer que el repositori remot perda les comissions; "
 "utilitzeu-lo amb cura.</p><p><br/><a href=\"https://git-scm.com/docs/git-"
 "push#Documentation/git-push.txt--f\"><span style=\" text-decoration: "
-"underline; color:#007af4;\">Més informació...</span></a></p></body></html>"
+"underline; color:#007af4;\">Més informació…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:91
@@ -1796,7 +1796,7 @@ msgstr "Tanqueu la vista prèvia"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:49
 #, kde-format
 msgid "Please wait while the preview is being closed..."
-msgstr "Espereu mentre es tanca la vista prèvia..."
+msgstr "Espereu mentre es tanca la vista prèvia…"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
 #, kde-format
@@ -2215,8 +2215,8 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Change CR/LF o no</p><p><a href=\"https://git-scm.com/"
 "docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
-"text-decoration: underline; color:#007af4;\">Més informació...</span></a></"
-"p></body></html>"
+"text-decoration: underline; color:#007af4;\">Més informació…</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:59
@@ -2237,8 +2237,8 @@ msgstr ""
 "<html><head/><body><p>Indica a Git si el bit executable dels fitxers en "
 "l'arbre de treball cal que es respecte. </p><p><a href=\"https://git-scm.com/"
 "docs/git-config#Documentation/git-config.txt-corefileMode\"><span style=\" "
-"text-decoration: underline; color:#007af4;\">Més informació...</span></a></"
-"p></body></html>"
+"text-decoration: underline; color:#007af4;\">Més informació…</span></a></p></"
+"body></html>"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:58
 #, kde-format
@@ -2577,7 +2577,7 @@ msgstr "Arbre"
 #: src/libkommitwidgets/windows/diffwindow.cpp:191
 #, kde-format
 msgid "View hidden chars..."
-msgstr "Mostra els caràcters ocults..."
+msgstr "Mostra els caràcters ocults…"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
 #: src/libkommitwidgets/windows/mergewindow.cpp:342
