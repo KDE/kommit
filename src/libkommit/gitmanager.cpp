@@ -1263,8 +1263,15 @@ void Manager::forEachTags(std::function<void(QSharedPointer<Tag>)> cb)
         Q_UNUSED(name)
         auto w = reinterpret_cast<wrapper *>(payload);
         git_tag *t;
-        git_tag_lookup(&t, w->repo, oid_c);
+        int ret = git_tag_lookup(&t, w->repo, oid_c);
 
+        if (ret) {
+            const auto err = git_error_last();
+            if (err) {
+                qWarning().noquote().nospace() << "libgit2 error: " << err->message;
+            }
+            return 0;
+        }
         if (!t)
             return 0;
         QSharedPointer<Tag> tag{new Tag{t}};
