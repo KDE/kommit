@@ -10,6 +10,7 @@
 #include "entities/submodule.h"
 #include "entities/tag.h"
 #include "entities/tree.h"
+#include "gitglobal_p.h"
 #include "models/branchesmodel.h"
 #include "models/logsmodel.h"
 #include "models/remotesmodel.h"
@@ -40,34 +41,8 @@
 
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 
-#define PRINT_ERROR                                                                                                                                            \
-    do {                                                                                                                                                       \
-        if (err) {                                                                                                                                             \
-            const_cast<Manager *>(this)->checkError(err);                                                                                                      \
-            qDebug() << "Error" << Q_FUNC_INFO << err << ":" << gitErrorMessage(err);                                                                          \
-        }                                                                                                                                                      \
-    } while (false)
-
 namespace Git
 {
-
-namespace
-{
-QString gitErrorMessage(int error)
-{
-    const git_error *lg2err;
-
-    if (!error)
-        return {};
-
-    if ((lg2err = git_error_last()) != NULL && lg2err->message != NULL) {
-        return lg2err->message;
-    }
-
-    return {};
-}
-
-}
 
 const QString &Manager::path() const
 {
@@ -81,9 +56,10 @@ bool Manager::open(const QString &newPath)
 
     BEGIN
     STEP git_repository_open_ext(&mRepo, newPath.toUtf8().data(), 0, NULL);
-    PRINT_ERROR;
 
-    if (err) {
+    END;
+
+    if (IS_ERROR) {
         mIsValid = false;
     } else {
         mPath = git_repository_workdir(mRepo);
@@ -95,7 +71,7 @@ bool Manager::open(const QString &newPath)
     Q_EMIT pathChanged();
     Q_EMIT reloadRequired();
 
-    return !err;
+    return IS_OK;
 }
 
 QMap<QString, ChangeStatus> Manager::changedFiles(const QString &hash) const
@@ -163,8 +139,8 @@ bool Manager::addRemote(const QString &name, const QString &url) const
     STEP git_remote_create(&remote, mRepo, name.toUtf8().data(), url.toUtf8().data());
     //    runGit({QStringLiteral("remote"), QStringLiteral("add"), name, url});
 
-    PRINT_ERROR;
-    return !err;
+    END;
+    return IS_OK;
 }
 
 bool Manager::removeRemote(const QString &name) const
@@ -173,8 +149,8 @@ bool Manager::removeRemote(const QString &name) const
     STEP git_remote_delete(mRepo, name.toUtf8().data());
     //    runGit({QStringLiteral("remote"), QStringLiteral("remove"), name});
 
-    PRINT_ERROR;
-    return !err;
+    END;
+    return IS_OK;
 }
 
 bool Manager::renameRemote(const QString &name, const QString &newName) const
@@ -186,7 +162,7 @@ bool Manager::renameRemote(const QString &name, const QString &newName) const
     git_strarray_free(&problems);
 
     //     runGit({QStringLiteral("remote"), QStringLiteral("rename"), name, newName});
-    return !err;
+    return IS_OK;
 }
 
 bool Manager::fetch(const QString &remoteName, FetchObserver *observer)
@@ -197,8 +173,8 @@ bool Manager::fetch(const QString &remoteName, FetchObserver *observer)
 
     STEP git_remote_lookup(&remote, mRepo, remoteName.toLocal8Bit().data());
 
-    if (err) {
-        PRINT_ERROR;
+    if (IS_ERROR) {
+        END;
         return false;
     }
 
@@ -217,7 +193,7 @@ bool Manager::fetch(const QString &remoteName, FetchObserver *observer)
 
     PRINT_ERROR;
 
-    return !err;
+    return IS_OK;
 }
 
 bool Manager::isIgnored(const QString &path)
@@ -241,13 +217,13 @@ QPair<int, int> Manager::uniqueCommitsOnBranches(const QString &branch1, const Q
     STEP git_branch_lookup(&ref1, mRepo, branch1.toLocal8Bit().constData(), GIT_BRANCH_LOCAL);
     STEP git_branch_lookup(&ref2, mRepo, branch2.toLocal8Bit().constData(), GIT_BRANCH_LOCAL);
 
-    if (err)
+    if (IS_ERROR)
         return qMakePair(0, 0);
     auto id1 = git_reference_target(ref1);
     auto id2 = git_reference_target(ref2);
     STEP git_graph_ahead_behind(&ahead, &behind, mRepo, id1, id2);
 
-    if (err)
+    if (IS_ERROR)
         return qMakePair(0, 0);
     PRINT_ERROR;
 
@@ -393,7 +369,7 @@ QList<FileStatus> Manager::diff(AbstractReference *from, AbstractReference *to) 
 
     STEP git_diff_tree_to_tree(&diff, mRepo, from->tree().data(), to->tree().data(), &opts);
 
-    if (err) {
+    if (IS_ERROR) {
         PRINT_ERROR;
         return {};
     }
@@ -526,11 +502,12 @@ bool Manager::addSubmodule(const AddSubmoduleOptions &options) const
     PRINT_ERROR;
 
     git_submodule_free(submodule);
-    return !err;
+    return IS_OK;
 }
 
 bool Manager::removeSubmodule(const QString &name) const
 {
+    Q_UNUSED(name)
     return false;
 }
 
@@ -566,7 +543,7 @@ QSharedPointer<Submodule> Manager::submodule(const QString &name) const
     STEP git_submodule_lookup(&submodule, mRepo, toConstChars(name));
     PRINT_ERROR;
 
-    if (err)
+    if (IS_ERROR)
         return nullptr;
 
     return QSharedPointer<Submodule>{new Submodule{submodule}};
@@ -579,7 +556,7 @@ QSharedPointer<Index> Manager::index() const
     STEP git_repository_index(&index, mRepo);
     PRINT_ERROR;
 
-    if (err)
+    if (IS_ERROR)
         return nullptr;
 
     return QSharedPointer<Index>{new Index{index}};
@@ -619,7 +596,7 @@ TreeDiff Manager::diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTre
     }
     STEP git_diff_get_stats(&stats, diff);
 
-    if (err)
+    if (IS_ERROR)
         return {};
 
     auto n = git_diff_stats_files_changed(stats);
@@ -674,7 +651,7 @@ bool Manager::configBool(const QString &name, ConfigType type) const
     STEP git_config_get_bool(&buf, cfg, name.toLatin1().data());
 
     PRINT_ERROR;
-    if (err)
+    if (IS_ERROR)
         return false;
 
     return buf;
@@ -880,7 +857,7 @@ Branch *Manager::branch(const QString &branchName) const
     BEGIN
     STEP git_branch_lookup(&ref, mRepo, branchName.toLocal8Bit().constData(), GIT_BRANCH_ALL);
 
-    if (!err)
+    if (IS_OK)
         return new Branch{ref};
 
     return nullptr;
@@ -976,7 +953,7 @@ QString Manager::currentBranch() const
     git_reference *ref;
     BEGIN
     STEP git_repository_head(&ref, mRepo);
-    if (err) {
+    if (IS_ERROR) {
         PRINT_ERROR;
         return {};
     }
@@ -1014,7 +991,7 @@ bool Manager::createBranch(const QString &branchName) const
 
     PRINT_ERROR;
 
-    return !err;
+    return IS_OK;
 }
 
 bool Manager::switchBranch(const QString &branchName) const
@@ -1032,7 +1009,7 @@ bool Manager::switchBranch(const QString &branchName) const
     STEP git_repository_set_head(mRepo, refName);
 
     git_reference_free(branch);
-    return !err;
+    return IS_OK;
 }
 
 QString Manager::run(const AbstractCommand &cmd) const
@@ -1048,7 +1025,7 @@ bool Manager::init(const QString &path)
     git_repository_init_options initopts = {GIT_REPOSITORY_INIT_OPTIONS_VERSION, GIT_REPOSITORY_INIT_MKPATH};
     STEP git_repository_init_ext(&mRepo, path.toLatin1().data(), &initopts);
 
-    if (err)
+    if (IS_ERROR)
         return false;
 
     mPath = path;
@@ -1082,11 +1059,11 @@ bool Manager::clone(const QString &url, const QString &localPath, CloneObserver 
 
     PRINT_ERROR;
 
-    if (err)
+    if (IS_ERROR)
         return false;
 
     mPath = git_repository_workdir(mRepo);
-    return !err;
+    return IS_OK;
 }
 
 QByteArray Manager::runGit(const QStringList &args) const
@@ -1162,7 +1139,7 @@ QString Manager::fileContent(const QString &place, const QString &fileName) cons
 
     PRINT_ERROR;
 
-    if (err)
+    if (IS_ERROR)
         return {};
 
     QString ch = (char *)git_blob_rawcontent(blob);
@@ -1263,24 +1240,23 @@ void Manager::forEachTags(std::function<void(QSharedPointer<Tag>)> cb)
         Q_UNUSED(name)
         auto w = reinterpret_cast<wrapper *>(payload);
         git_tag *t;
-        int ret = git_tag_lookup(&t, w->repo, oid_c);
 
-        if (ret) {
-            const auto err = git_error_last();
-            if (err) {
-                qWarning().noquote().nospace() << "libgit2 error: " << err->message;
-            }
+        BEGIN
+        STEP git_tag_lookup(&t, w->repo, oid_c);
 
+        if (IS_ERROR) {
             git_commit *commit;
-            ret = git_commit_lookup(&commit, w->repo, oid_c);
+            RESTART;
+            STEP git_commit_lookup(&commit, w->repo, oid_c);
 
-            if (!ret) {
-                QSharedPointer<Tag> tag{new Tag{commit}};
-                w->cb(tag);
-            }
+            PRINT_ERROR;
+            RETURN_IF_ERR(0);
 
+            QSharedPointer<Tag> tag{new Tag{commit}};
+            w->cb(tag);
             return 0;
         }
+
         if (!t)
             return 0;
         QSharedPointer<Tag> tag{new Tag{t}};
@@ -1352,7 +1328,7 @@ bool Manager::createTag(const QString &name, const QString &message) const
     //     runGit({QStringLiteral("tag"), QStringLiteral("-a"), name, QStringLiteral("--message"), message});
     PRINT_ERROR;
 
-    return !err;
+    return IS_OK;
 }
 
 bool Manager::removeTag(const QString &name) const
@@ -1360,7 +1336,7 @@ bool Manager::removeTag(const QString &name) const
     BEGIN
     STEP git_tag_delete(mRepo, name.toLocal8Bit().constData());
     PRINT_ERROR;
-    return !err;
+    return IS_OK;
 }
 
 bool Manager::removeTag(QSharedPointer<Tag> tag) const
@@ -1368,7 +1344,7 @@ bool Manager::removeTag(QSharedPointer<Tag> tag) const
     BEGIN
     STEP git_tag_delete(mRepo, tag->name().toLocal8Bit().constData());
     PRINT_ERROR;
-    return !err;
+    return IS_OK;
 }
 
 void Manager::forEachStash(std::function<void(QSharedPointer<Stash>)> cb)
@@ -1431,7 +1407,7 @@ bool Manager::applyStash(QSharedPointer<Stash> stash) const
 
     PRINT_ERROR;
 
-    return !err;
+    return IS_OK;
 }
 
 bool Manager::popStash(QSharedPointer<Stash> stash) const
@@ -1445,7 +1421,7 @@ bool Manager::popStash(QSharedPointer<Stash> stash) const
     STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
     STEP git_stash_pop(mRepo, stash->index(), &options);
 
-    return !err;
+    return IS_OK;
 }
 
 bool Manager::removeStash(QSharedPointer<Stash> stash) const
@@ -1456,7 +1432,7 @@ bool Manager::removeStash(QSharedPointer<Stash> stash) const
     BEGIN
     STEP git_stash_drop(mRepo, stash->index());
 
-    return !err;
+    return IS_OK;
 }
 
 bool Manager::createStash(const QString &name) const
@@ -1467,7 +1443,7 @@ bool Manager::createStash(const QString &name) const
     BEGIN
     STEP git_signature_default(&sign, mRepo);
     STEP git_stash_save(&oid, mRepo, sign, name.toUtf8().data(), GIT_STASH_DEFAULT);
-    return !err;
+    return IS_OK;
 
     QStringList args{QStringLiteral("stash"), QStringLiteral("push")};
 
@@ -1488,7 +1464,7 @@ bool Manager::removeStash(const QString &name) const
     BEGIN
     STEP git_stash_drop(mRepo, stashIndex);
 
-    return !err;
+    return IS_OK;
 }
 
 bool Manager::applyStash(const QString &name) const
@@ -1505,7 +1481,7 @@ bool Manager::applyStash(const QString &name) const
 
     PRINT_ERROR;
 
-    return !err;
+    return IS_OK;
 
     runGit({QStringLiteral("stash"), QStringLiteral("apply"), name});
     return true;
@@ -1523,7 +1499,7 @@ bool Manager::popStash(const QString &name) const
     STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
     STEP git_stash_pop(mRepo, stashIndex, &options);
 
-    return !err;
+    return IS_OK;
 }
 
 Remote *Manager::remote(const QString &name) const
@@ -1554,7 +1530,7 @@ bool Manager::removeBranch(const QString &branchName) const
     STEP git_branch_lookup(&ref, mRepo, branchName.toUtf8().data(), GIT_BRANCH_LOCAL);
     STEP git_branch_delete(ref);
     //    auto ret = readAllNonEmptyOutput({QStringLiteral("branch"), QStringLiteral("-D"), branchName});
-    return !err;
+    return IS_OK;
 }
 
 bool Manager::merge(const QString &branchName) const
@@ -1578,7 +1554,7 @@ bool Manager::merge(const QString &branchName) const
     BEGIN
     STEP git_merge(mRepo, (const git_annotated_commit **)annotated, annotated_count, &merge_opts, &checkout_opts);
 
-    return !err;
+    return IS_OK;
 }
 
 Commit *Manager::commitByHash(const QString &hash) const
@@ -1591,7 +1567,7 @@ Commit *Manager::commitByHash(const QString &hash) const
 
     PRINT_ERROR;
 
-    if (err)
+    if (IS_ERROR)
         return nullptr;
     return new Commit(commit);
 }
@@ -1681,7 +1657,7 @@ bool Manager::revertFile(const QString &filePath) const
 
     PRINT_ERROR;
 
-    return !err;
+    return IS_OK;
 }
 
 QMap<QString, ChangeStatus> Manager::changedFiles() const
@@ -1792,7 +1768,7 @@ bool Manager::removeFile(const QString &file, bool cached) const
 
     PRINT_ERROR;
 
-    return !err;
+    return IS_OK;
 
     QStringList args;
     args.append(QStringLiteral("rm"));
@@ -1819,21 +1795,6 @@ bool Manager::isRebasing() const
 bool Manager::isDetached() const
 {
     return git_repository_head_detached(mRepo) == 1;
-}
-
-void Manager::checkError(int code)
-{
-    auto err = git_error_last();
-
-    if (err != NULL) {
-        mErrorCode = code;
-        mErrorClass = err->klass;
-        mErrorMessage = QString{err->message};
-    }
-
-    if (code) {
-        qDebug().noquote().nospace() << "libgit2 error: " << code << ", class: " << mErrorClass << ", Mssage: " << mErrorMessage;
-    }
 }
 
 int Manager::errorClass() const

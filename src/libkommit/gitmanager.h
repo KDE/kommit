@@ -262,7 +262,6 @@ private:
     QStringList readAllNonEmptyOutput(const QStringList &cmd) const;
     QString escapeFileName(const QString &filePath) const;
     void loadAsync();
-    void checkError(int code);
 
     RemotesModel *const mRemotesModel;
     SubmodulesModel *const mSubmodulesModel;

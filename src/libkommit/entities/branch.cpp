@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "branch.h"
 #include "entities/commit.h"
 #include "entities/tree.h"
-#include "gitglobal.h"
+#include "gitglobal_p.h"
 #include "types.h"
 
 #include <git2/branch.h>

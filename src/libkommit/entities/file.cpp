@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "entities/file.h"
 #include "../gitmanager.h"
+#include "gitglobal_p.h"
 
 #include <QFile>
 #include <QFileInfo>
@@ -190,7 +191,7 @@ QString File::stringContent() const
         STEP git_blob_lookup(&blob, mGit->mRepo, git_tree_entry_id(entry));
     }
 
-    if (err)
+    if (IS_ERROR)
         return {};
 
     QString ch = (char *)git_blob_rawcontent(blob);

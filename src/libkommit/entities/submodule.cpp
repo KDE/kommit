@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "entities/submodule.h"
+#include "gitglobal_p.h"
 #include "qdebug.h"
 #include "types.h"
 

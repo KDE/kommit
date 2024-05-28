@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tree.h"
-#include "gitglobal.h"
+#include "gitglobal_p.h"
 #include "qdebug.h"
 #include "types.h"
 
@@ -57,7 +57,7 @@ QSharedPointer<File> Tree::file(const QString &path)
     BEGIN
     STEP git_tree_entry_bypath(&entry, ptr, toConstChars(path));
 
-    if (err)
+    if (IS_ERROR)
         return {};
 
     return QSharedPointer<File>{new File{git_tree_owner(ptr), entry}};
