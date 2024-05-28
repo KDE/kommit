@@ -16,12 +16,19 @@ Tag::Tag() = default;
 
 Tag::Tag(git_tag *tag)
     : mTagPtr{tag}
+    , mTagType{TagType::RegularTag}
 {
     mName = git_tag_name(tag);
     mMessage = QString{git_tag_message(tag)}.replace("\n", "");
     auto tagger = git_tag_tagger(tag);
 
     mTagger.reset(new Signature{tagger});
+}
+
+Tag::Tag(git_commit *commit)
+    : mTagType{TagType::LightTag}
+{
+    mLightTagCommit.reset(new Commit{commit});
 }
 
 const QString &Tag::name() const
@@ -46,11 +53,17 @@ void Tag::setMessage(const QString &newMessage)
 
 QSharedPointer<Signature> Tag::tagger() const
 {
+    if (mTagType == TagType::LightTag)
+        return mLightTagCommit->author();
+
     return mTagger;
 }
 
 QSharedPointer<Commit> Tag::commit() const
 {
+    if (mTagType == TagType::LightTag)
+        return mLightTagCommit;
+
     auto type = git_tag_target_type(mTagPtr);
 
     if (type != GIT_OBJECT_COMMIT)
@@ -62,5 +75,10 @@ QSharedPointer<Commit> Tag::commit() const
         return {};
 
     return QSharedPointer<Commit>(new Commit{commit});
+}
+
+Tag::TagType Tag::tagType() const
+{
+    return mTagType;
 }
 }

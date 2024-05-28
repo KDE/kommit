@@ -21,8 +21,11 @@ namespace Git
 class LIBKOMMIT_EXPORT Tag
 {
 public:
+    enum class TagType { RegularTag, LightTag };
+
     Tag();
     Tag(git_tag *tag);
+    Tag(git_commit *commit);
 
     Q_REQUIRED_RESULT const QString &name() const;
     void setName(const QString &newName);
@@ -36,8 +39,13 @@ public:
 
     QSharedPointer<Commit> commit() const;
 
+    Q_REQUIRED_RESULT TagType tagType() const;
+
 private:
     git_tag *mTagPtr{nullptr};
+    QSharedPointer<Commit> mLightTagCommit;
+
+    TagType mTagType;
     QSharedPointer<Signature> mTagger;
 
     QString mName;

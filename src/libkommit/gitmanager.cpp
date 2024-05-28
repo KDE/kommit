@@ -1270,6 +1270,15 @@ void Manager::forEachTags(std::function<void(QSharedPointer<Tag>)> cb)
             if (err) {
                 qWarning().noquote().nospace() << "libgit2 error: " << err->message;
             }
+
+            git_commit *commit;
+            ret = git_commit_lookup(&commit, w->repo, oid_c);
+
+            if (!ret) {
+                QSharedPointer<Tag> tag{new Tag{commit}};
+                w->cb(tag);
+            }
+
             return 0;
         }
         if (!t)
