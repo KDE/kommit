@@ -48,7 +48,7 @@ include(ECMDeprecationSettings)
 
 
 if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_MIN_VERSION "6.4.0")
+    set(QT_REQUIRED_VERSION "6.4.0")
     set(KF_MIN_VERSION "5.240.0")
     set(KF_MAJOR_VERSION "6")
 else()
@@ -98,8 +98,8 @@ add_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 add_definitions(-DQT_NO_FOREACH)
 #add_definitions(-DQT_NO_CAST_FROM_ASCII)
 
-ecm_set_disabled_deprecation_versions(QT 5.15.2
-    )
+ecm_set_disabled_deprecation_versions(QT 5.15.2)
+
 
 
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
