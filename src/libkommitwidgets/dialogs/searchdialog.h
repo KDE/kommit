@@ -27,10 +27,10 @@ public:
     void initModel();
 
 private:
-    void slotPushButtonSearchClicked();
-    void slotTreeViewDoubleClicked(const QModelIndex &index);
-    void beginSearch();
-    void searchOnPlace(const QString &place, const QString &commit);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotPushButtonSearchClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewDoubleClicked(const QModelIndex &index);
+    LIBKOMMITWIDGETS_NO_EXPORT void beginSearch();
+    LIBKOMMITWIDGETS_NO_EXPORT void searchOnPlace(const QString &place, const QString &commit);
 
     // QObject interface
 protected:

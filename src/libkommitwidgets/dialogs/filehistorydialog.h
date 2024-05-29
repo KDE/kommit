@@ -27,11 +27,11 @@ public:
 private:
     static constexpr int dataRole{Qt::UserRole + 1};
 
-    void slotListWidgetItemClicked(QListWidgetItem *item);
-    void slotTreeViewItemClicked(QTreeWidgetItem *item, int column);
-    void slotRadioButtonRegularViewToggled(bool toggle);
-    void slotRadioButtonDifferentialViewToggled(bool toggle);
-    void compareFiles();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotListWidgetItemClicked(QListWidgetItem *item);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewItemClicked(QTreeWidgetItem *item, int column);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotRadioButtonRegularViewToggled(bool toggle);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotRadioButtonDifferentialViewToggled(bool toggle);
+    LIBKOMMITWIDGETS_NO_EXPORT void compareFiles();
 
     const QString mFileName;
     QTreeWidgetItem *mLeftFile{nullptr};

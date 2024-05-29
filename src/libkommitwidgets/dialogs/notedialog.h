@@ -25,7 +25,7 @@ public:
     explicit NoteDialog(Git::Manager *git, QSharedPointer<Git::Commit> commit, QWidget *parent = nullptr);
 
 private:
-    void slotAccepted();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotAccepted();
     QString mBranchName;
     QSharedPointer<Git::Commit> mCommit;
 };

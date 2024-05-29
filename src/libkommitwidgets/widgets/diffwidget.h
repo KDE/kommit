@@ -53,12 +53,12 @@ Q_SIGNALS:
     void sameSizeChanged();
 
 private Q_SLOTS:
-    void slotSegmentsScrollbarHover(int y, double pos);
-    void slotSplitterSplitterMoved(int, int);
-    void oldCodeEditor_scroll(int value);
-    void newCodeEditor_scroll(int value);
-    void oldCodeEditor_blockSelected();
-    void newCodeEditor_blockSelected();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotSegmentsScrollbarHover(int y, double pos);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotSplitterSplitterMoved(int, int);
+    LIBKOMMITWIDGETS_NO_EXPORT void oldCodeEditor_scroll(int value);
+    LIBKOMMITWIDGETS_NO_EXPORT void newCodeEditor_scroll(int value);
+    LIBKOMMITWIDGETS_NO_EXPORT void oldCodeEditor_blockSelected();
+    LIBKOMMITWIDGETS_NO_EXPORT void newCodeEditor_blockSelected();
 
 protected:
     void resizeEvent(QResizeEvent *event) override;

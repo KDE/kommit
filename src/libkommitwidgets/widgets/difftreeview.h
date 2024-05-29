@@ -33,9 +33,9 @@ Q_SIGNALS:
     void hideUnchangedsChanged();
 
 private:
-    void slotTreeViewClicked(const QModelIndex &index);
-    void slotListViewClicked(const QModelIndex &index);
-    void lineEditFilterTextChanged(const QString &text);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewClicked(const QModelIndex &index);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotListViewClicked(const QModelIndex &index);
+    LIBKOMMITWIDGETS_NO_EXPORT void lineEditFilterTextChanged(const QString &text);
     DiffTreeModel *mDiffModel{nullptr};
     QSortFilterProxyModel *const mFilterModel;
     FilesModel *mFilesModel = nullptr;

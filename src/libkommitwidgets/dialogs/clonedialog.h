@@ -35,9 +35,9 @@ private Q_SLOTS:
     void slotCredentialRequeted(const QString &url, Git::Credential *cred);
 
 private:
-    void slotUrlChanged(const QString &text);
-    void slotAccepted();
-    void loadSettings();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotUrlChanged(const QString &text);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotAccepted();
+    LIBKOMMITWIDGETS_NO_EXPORT void loadSettings();
     QString mFixedPath;
 
     Git::CloneObserver *mCloneObserver;

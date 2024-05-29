@@ -24,7 +24,7 @@ public:
     Q_REQUIRED_RESULT Git::CommandMerge *command() const;
 
 private:
-    void slotComboBoxStrategyCurrentIndexChanged(int index);
-    void init(Git::Manager *git);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotComboBoxStrategyCurrentIndexChanged(int index);
+    LIBKOMMITWIDGETS_NO_EXPORT void init(Git::Manager *git);
     const QString mSourceBranch;
 };

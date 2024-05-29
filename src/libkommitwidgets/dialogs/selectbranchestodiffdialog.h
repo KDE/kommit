@@ -26,5 +26,5 @@ public:
     Q_REQUIRED_RESULT QString newBranch() const;
 
 private:
-    void slotAccepted();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotAccepted();
 };

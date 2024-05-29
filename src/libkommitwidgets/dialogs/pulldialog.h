@@ -22,5 +22,5 @@ public:
     explicit PullDialog(Git::Manager *git, QWidget *parent = nullptr);
 
 private:
-    void slotAccepted();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotAccepted();
 };

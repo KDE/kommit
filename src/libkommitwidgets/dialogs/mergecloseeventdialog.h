@@ -19,7 +19,7 @@ public:
     explicit MergeCloseEventDialog(QWidget *parent = nullptr);
 
 private:
-    void slotCommandLinkButtonMarkResolvedClicked();
-    void slotCommandLinkButtonLeaveAsIsClicked();
-    void slotCommandLinkButtonDontExitClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotCommandLinkButtonMarkResolvedClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotCommandLinkButtonLeaveAsIsClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotCommandLinkButtonDontExitClicked();
 };

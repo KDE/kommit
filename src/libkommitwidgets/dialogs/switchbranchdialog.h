@@ -24,7 +24,7 @@ public:
     Q_REQUIRED_RESULT Git::CommandSwitchBranch *command() const;
 
 private slots:
-    void slotButtonBoxAccepted();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotButtonBoxAccepted();
 
 private:
     QStringList _existingLocalBranches;

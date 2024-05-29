@@ -29,12 +29,12 @@ public:
     FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::ITree> tree, QWidget *parent = nullptr);
 
 private:
-    void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
-    void slotTreeViewClicked(const QModelIndex &index);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewClicked(const QModelIndex &index);
+    LIBKOMMITWIDGETS_NO_EXPORT void initModel(const QStringList &files);
     TreeModel *const mTreeModel;
     const QString mPlace;
     FileActions *const mActions;
-    void initModel(const QStringList &files);
 
     QSharedPointer<Git::Tree> mTree;
 };

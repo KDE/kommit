@@ -37,5 +37,5 @@ public:
     Q_REQUIRED_RESULT Git::AddSubmoduleCommand *command() const;
 
 private Q_SLOTS:
-    void slotLineEditPathUrlSelected(const QUrl &url);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotLineEditPathUrlSelected(const QUrl &url);
 };

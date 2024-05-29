@@ -34,12 +34,11 @@ private:
     Git::Manager *mGit = nullptr;
     QString mFilePath;
 
-    void showFile(const Git::File &file);
-    void showInEditor(const Git::File &file);
-    void showAsImage(const Git::File &file);
+    LIBKOMMITWIDGETS_NO_EXPORT void showFile(const Git::File &file);
+    LIBKOMMITWIDGETS_NO_EXPORT void showInEditor(const Git::File &file);
+    LIBKOMMITWIDGETS_NO_EXPORT void showAsImage(const Git::File &file);
+    LIBKOMMITWIDGETS_NO_EXPORT bool showWithParts(const QMimeType &mime, const Git::File &file);
     QPointer<KParts::ReadOnlyPart> m_part;
-
-    bool showWithParts(const QMimeType &mime, const Git::File &file);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;

@@ -112,13 +112,14 @@ bool FileViewerDialog::showWithParts(const QMimeType &mimeType, const Git::File 
     if (parts.empty())
         return false;
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     auto viewer = parts[0];
     auto icon = QIcon::fromTheme(mimeType.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize));
     setWindowIcon(icon);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     const auto result = KParts::PartLoader::createPartInstanceForMimeType<KParts::ReadOnlyPart>(mimeType.name(), this, this);
 #else
-    const auto result = KParts::PartLoader::instantiatePart<KParts::ReadOnlyPart>(m_part, this, this);
+    const auto result = KParts::PartLoader::instantiatePart<KParts::ReadOnlyPart>(/*m_part*/ {}, this, this);
 #endif
 
     m_part = result;
@@ -134,7 +135,9 @@ bool FileViewerDialog::showWithParts(const QMimeType &mimeType, const Git::File 
 
     auto f = file.saveAsTemp();
     m_part.data()->openUrl(QUrl::fromLocalFile(f));
-
+#else
+// TODO port to Qt6
+#endif
     return true;
 }
 

@@ -26,7 +26,7 @@ public:
     void setBranch(const QString &branch);
 
 private:
-    void slotAccept();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotAccept();
 
     Git::FetchObserver *mObserver;
 };

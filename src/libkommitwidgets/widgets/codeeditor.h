@@ -91,19 +91,19 @@ protected:
     void paintEvent(QPaintEvent *e) override;
 
 private:
-    int lineNumberOfBlock(const QTextBlock &block) const;
+    LIBKOMMITWIDGETS_NO_EXPORT int lineNumberOfBlock(const QTextBlock &block) const;
 
     QMap<BlockType, QTextBlockFormat> mFormats;
-    void setTheme(const KSyntaxHighlighting::Theme &theme);
+    LIBKOMMITWIDGETS_NO_EXPORT void setTheme(const KSyntaxHighlighting::Theme &theme);
 
-    void updateViewPortGeometry();
-    void updateSidebarArea(const QRect &rect, int dy);
-    void highlightCurrentLine();
+    LIBKOMMITWIDGETS_NO_EXPORT void updateViewPortGeometry();
+    LIBKOMMITWIDGETS_NO_EXPORT void updateSidebarArea(const QRect &rect, int dy);
+    LIBKOMMITWIDGETS_NO_EXPORT void highlightCurrentLine();
 
     QTextBlock blockAtPosition(int y) const;
-    bool isFoldable(const QTextBlock &block) const;
-    bool isFolded(const QTextBlock &block) const;
-    void toggleFold(const QTextBlock &block);
+    LIBKOMMITWIDGETS_NO_EXPORT bool isFoldable(const QTextBlock &block) const;
+    LIBKOMMITWIDGETS_NO_EXPORT bool isFolded(const QTextBlock &block) const;
+    LIBKOMMITWIDGETS_NO_EXPORT void toggleFold(const QTextBlock &block);
 
     KSyntaxHighlighting::Repository mRepository;
     QMap<int, Diff::Segment *> mSegments;

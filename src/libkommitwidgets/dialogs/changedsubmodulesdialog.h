@@ -23,6 +23,6 @@ private slots:
 
 private:
     ChangedFilesModel *mModel;
-    void reload();
+    LIBKOMMITWIDGETS_NO_EXPORT void reload();
     QMap<QPushButton *, QString> mButtonsMap;
 };

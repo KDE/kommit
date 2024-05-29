@@ -26,6 +26,6 @@ public:
     Q_REQUIRED_RESULT Mode mode() const;
 
 private:
-    void readSettings();
-    void saveSettings();
+    LIBKOMMITWIDGETS_NO_EXPORT void readSettings();
+    LIBKOMMITWIDGETS_NO_EXPORT void saveSettings();
 };

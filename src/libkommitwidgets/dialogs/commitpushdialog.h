@@ -25,24 +25,24 @@ public:
     ~CommitPushDialog() override;
 
 private:
-    void slotPushButtonCommitClicked();
-    void slotPushButtonPushClicked();
-    void slotToolButtonAddAllClicked();
-    void slotToolButtonAddNoneClicked();
-    void slotToolButtonAddIndexedClicked();
-    void slotToolButtonAddAddedClicked();
-    void slotToolButtonAddRemovedClicked();
-    void slotToolButtonAddModifiedClicked();
-    void slotListWidgetItemDoubleClicked(const QModelIndex &index);
-    void slotGroupBoxMakeCommitToggled(bool);
-    void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
-    void checkButtonsEnable();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotPushButtonCommitClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotPushButtonPushClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotToolButtonAddAllClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotToolButtonAddNoneClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotToolButtonAddIndexedClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotToolButtonAddAddedClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotToolButtonAddRemovedClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotToolButtonAddModifiedClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotListWidgetItemDoubleClicked(const QModelIndex &index);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotGroupBoxMakeCommitToggled(bool);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
+    LIBKOMMITWIDGETS_NO_EXPORT void checkButtonsEnable();
 
     enum Roles { StatusRole = Qt::UserRole + 1 };
-    void addFiles();
-    void reload();
-    void readConfig();
-    void writeConfig();
+    LIBKOMMITWIDGETS_NO_EXPORT void addFiles();
+    LIBKOMMITWIDGETS_NO_EXPORT void reload();
+    LIBKOMMITWIDGETS_NO_EXPORT void readConfig();
+    LIBKOMMITWIDGETS_NO_EXPORT void writeConfig();
     ChangedFileActions *mActions = nullptr;
     ChangedFilesModel *const mModel;
 };

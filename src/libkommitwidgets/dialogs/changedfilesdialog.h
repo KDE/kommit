@@ -21,13 +21,13 @@ public:
     ~ChangedFilesDialog() override;
 
 private:
-    void slotItemDoubleClicked(const QModelIndex &index);
-    void slotCustomContextMenuRequested(const QPoint &pos);
-    void slotPushCommit();
-    void slotStash();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotItemDoubleClicked(const QModelIndex &index);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotPushCommit();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotStash();
 
-    void readConfig();
-    void writeConfig();
+    LIBKOMMITWIDGETS_NO_EXPORT void readConfig();
+    LIBKOMMITWIDGETS_NO_EXPORT void writeConfig();
 
     ChangedFileActions *const mActions;
     ChangedFilesModel *const mModel;
