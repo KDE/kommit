@@ -51,8 +51,8 @@ private:
     void fillTableWidget();
 
 #ifdef QT_CHARTS_LIB
-    QValueAxis *axis;
-    QBarSeries *barSeries;
-    QBarCategoryAxis *axisX;
+    QValueAxis *axis = nullptr;
+    QBarSeries *barSeries = nullptr;
+    QBarCategoryAxis *axisX = nullptr;
 #endif
 };
