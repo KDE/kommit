@@ -17,7 +17,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
             auto __git_err = git_error_last();                                                                                                                 \
             auto __git_err_class = __git_err->klass;                                                                                                           \
             auto __git_err_msg = QString{__git_err->message};                                                                                                  \
-            qDebug().noquote().nospace() << "libgit2 error: " << LIBGIT_ERR_CHECK_VARIABLE << ", class: " << __git_err_class << ", Mssage: " << __git_err_msg; \
+            qDebug().noquote().nospace() << "libgit2 error: " << LIBGIT_ERR_CHECK_VARIABLE << ", class: " << __git_err_class                                   \
+                                         << ", Message: " << __git_err_msg;                                                                                    \
         }                                                                                                                                                      \
     } while (false)
 
