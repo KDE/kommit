@@ -30,8 +30,8 @@ Submodule::Submodule(git_submodule *submodule)
 }
 
 Submodule::Submodule(git_repository *repo, git_submodule *submodule)
-    : mRepo{repo}
-    , ptr{submodule}
+    : ptr{submodule}
+    , mRepo{repo}
 {
     mName = QString{git_submodule_name(submodule)};
     mPath = QString{git_submodule_path(submodule)};
