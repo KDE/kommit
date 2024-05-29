@@ -25,8 +25,9 @@ Tag::Tag(git_tag *tag)
     mTagger.reset(new Signature{tagger});
 }
 
-Tag::Tag(git_commit *commit)
+Tag::Tag(git_commit *commit, const QString &name)
     : mTagType{TagType::LightTag}
+    , mName{name}
 {
     mLightTagCommit.reset(new Commit{commit});
 }

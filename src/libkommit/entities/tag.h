@@ -25,7 +25,7 @@ public:
 
     Tag();
     Tag(git_tag *tag);
-    Tag(git_commit *commit);
+    Tag(git_commit *commit, const QString &name);
 
     Q_REQUIRED_RESULT const QString &name() const;
     void setName(const QString &newName);

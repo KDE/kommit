@@ -263,7 +263,7 @@ QList<FileStatus> Manager::diffBranches(const QString &from, const QString &to) 
 {
     BEGIN
 
-    git_tree *fromTree;
+    git_tree *fromTree{nullptr};
     git_tree *toTree{nullptr};
 
     git_object *fromObject;
@@ -1252,7 +1252,12 @@ void Manager::forEachTags(std::function<void(QSharedPointer<Tag>)> cb)
             PRINT_ERROR;
             RETURN_IF_ERR(0);
 
-            QSharedPointer<Tag> tag{new Tag{commit}};
+            git_reference *ref;
+            STEP git_reference_lookup(&ref, w->repo, name);
+            RETURN_IF_ERR(0);
+
+            auto lightTagName = QString{git_reference_shorthand(ref)};
+            QSharedPointer<Tag> tag{new Tag{commit, lightTagName}};
             w->cb(tag);
             return 0;
         }
