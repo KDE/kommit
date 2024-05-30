@@ -254,9 +254,9 @@ void AppWindow::initRepo()
 
 void AppWindow::openRepo()
 {
-    auto dir = QFileDialog::getExistingDirectory(this, i18n("Open repository"));
+    const auto dir = QFileDialog::getExistingDirectory(this, i18n("Open repository"));
 
-    if (dir != QString()) {
+    if (!dir.isEmpty()) {
         mGit->open(dir);
         initRecentFiles(dir);
     }
