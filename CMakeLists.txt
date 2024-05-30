@@ -87,7 +87,7 @@ find_package(
         TextEditor
         SyntaxHighlighting
 )
-find_package(DolphinVcs REQUIRED)
+find_package(DolphinVcs)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -126,7 +126,7 @@ endif()
 add_subdirectory(icons)
 add_subdirectory(src)
 #add_subdirectory(autotests)
-if (UNIX)
+if (UNIX AND TARGET DolphinVcs)
     add_subdirectory(dolphinplugins)
 endif (UNIX)
 
