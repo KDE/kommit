@@ -9,9 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-FetchOptions::FetchOptions()
-{
-}
+FetchOptions::FetchOptions() = default;
 
 void FetchOptions::applyToFetchOptions(git_fetch_options *opts) const
 {

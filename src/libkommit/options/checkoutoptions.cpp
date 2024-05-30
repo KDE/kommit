@@ -9,9 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-CheckoutOptions::CheckoutOptions()
-{
-}
+CheckoutOptions::CheckoutOptions() = default;
 
 void CheckoutOptions::applyToCheckoutOptions(git_checkout_options *opts) const
 {

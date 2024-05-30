@@ -3,11 +3,7 @@
 namespace Git
 {
 
-AbstractReference::AbstractReference()
-{
-}
+AbstractReference::AbstractReference() = default;
 
-AbstractReference::~AbstractReference()
-{
-}
+AbstractReference::~AbstractReference() = default;
 }
