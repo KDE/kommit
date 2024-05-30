@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "filestatus.h"
 #include <QAbstractListModel>
 
 #include <QList>
