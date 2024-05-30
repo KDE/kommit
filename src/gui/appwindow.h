@@ -65,7 +65,7 @@ private:
     QLabel *mStatusCurrentBranchLabel = nullptr;
 
     void initActions();
-    void initRecentFiles(const QString &newItem = QString());
+    void initRecentRepos(const QString &newItem = QString());
 
     template<class T>
     void addPage(const QString &actionName);

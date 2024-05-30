@@ -93,7 +93,7 @@ AppWindow::AppWindow()
 
         if (!p.isEmpty()) {
             mGit->open(p);
-            initRecentFiles(p);
+            initRecentRepos(p);
         }
     }
 }
@@ -162,7 +162,7 @@ void AppWindow::initActions()
         mRecentAction = actionCollection->addAction(QStringLiteral("recent"));
         mRecentAction->setText(i18n("Recent repos"));
         mRecentAction->setMenu(new QMenu(this));
-        initRecentFiles();
+        initRecentRepos();
     }
 
     auto repoCleanupAction = actionCollection->addAction(QStringLiteral("repo_cleanup"), this, &AppWindow::cleanup);
@@ -205,7 +205,7 @@ void AppWindow::initActions()
     connect(settingsManager, &SettingsManager::settingsUpdated, this, &AppWindow::settingsUpdated);
     KStandardAction::preferences(settingsManager, &SettingsManager::show, actionCollection);
 }
-void AppWindow::initRecentFiles(const QString &newItem)
+void AppWindow::initRecentRepos(const QString &newItem)
 {
     mRecentAction->menu()->clear();
     QSettings s;
@@ -258,7 +258,7 @@ void AppWindow::openRepo()
 
     if (!dir.isEmpty()) {
         mGit->open(dir);
-        initRecentFiles(dir);
+        initRecentRepos(dir);
     }
 }
 
@@ -271,7 +271,7 @@ void AppWindow::recentActionTriggered()
     auto p = action->data().toString();
     mGit->open(p);
 
-    initRecentFiles(p);
+    initRecentRepos(p);
 }
 
 void AppWindow::commitPushAction()
