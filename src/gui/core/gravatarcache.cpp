@@ -37,7 +37,7 @@ QString GravatarCache::avatarPath(const QString &email)
     if (mAvatarsCache.contains(emailHash))
         return mAvatarsCache[emailHash];
 
-    const auto avatarUrl = QStringLiteral("https://www.gravatar.com/avatar/%1").arg(emailHash);
+    const auto avatarUrl = QStringLiteral("https://www.gravatar.com/avatar/%1").arg(QString::fromLatin1(emailHash));
 
     QNetworkRequest request{QUrl{avatarUrl}};
 
