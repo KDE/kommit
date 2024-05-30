@@ -37,7 +37,7 @@ QVariant SubmodulesModel::data(const QModelIndex &index, int role) const
     auto submodule = mData.at(index.row());
 
     if (role == Qt::ToolTipRole) {
-        return submodule->statusTexts().join('\n');
+        return submodule->statusTexts().join(QLatin1Char('\n'));
     }
     if (role == Qt::DisplayRole) {
         switch (index.column()) {
