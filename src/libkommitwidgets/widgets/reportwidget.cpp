@@ -72,6 +72,7 @@ void ReportWidget::fillTableWidget()
     for (int row = 0; row < mReport->rowCount(); ++row) {
         for (auto col = 0; col < mReport->columnCount(); ++col) {
             auto item = new QTableWidgetItem(mReport->at(row, col).toString());
+            item->setFlags(item->flags() & ~Qt::ItemIsEditable);
             tableWidget->setItem(row, col, item);
         }
     }
