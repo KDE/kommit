@@ -94,7 +94,6 @@ void StashActions::setStash(QSharedPointer<Git::Stash> stash)
     setActionEnabled(_actionDiff, !stash.isNull());
     setActionEnabled(_actionDrop, !stash.isNull());
     setActionEnabled(_actionPop, !stash.isNull());
-
 }
 
 #include "moc_stashactions.cpp"
