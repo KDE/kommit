@@ -14,7 +14,6 @@ public:
     void setUserEmail(const QString &userEmail);
 
 private:
-    void slotAvatarDownloadFinished();
     QString mUserEmail;
     QString mAvatarFileName;
     QNetworkAccessManager mNet;

@@ -21,13 +21,13 @@ void AvatarView::setUserEmail(const QString &userEmail)
 {
     mUserEmail = userEmail;
 
-    auto emailHash = QCryptographicHash::hash(userEmail.toLower().toUtf8(), QCryptographicHash::Md5).toHex().toLower();
-    auto path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/avatars";
+    const auto emailHash = QCryptographicHash::hash(userEmail.toLower().toUtf8(), QCryptographicHash::Md5).toHex().toLower();
+    const auto path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/avatars");
 
     QDir d;
     d.mkpath(path);
 
-    mAvatarFileName = path + "/" + emailHash;
+    mAvatarFileName = path + QLatin1Char('/') + emailHash;
 
     if (QFile::exists(mAvatarFileName)) {
         setPixmap(QPixmap{mAvatarFileName});
@@ -37,20 +37,17 @@ void AvatarView::setUserEmail(const QString &userEmail)
         QNetworkRequest request{QUrl{avatarUrl}};
 
         QNetworkReply *reply = mNet.get(request);
-        connect(reply, &QNetworkReply::finished, this, &AvatarView::slotAvatarDownloadFinished);
+        connect(reply, &QNetworkReply::finished, this, [this, reply]() {
+            QFile avatarFile{mAvatarFileName};
+            if (avatarFile.open(QIODevice::WriteOnly)) {
+                avatarFile.write(reply->readAll());
+                avatarFile.close();
+
+                setPixmap(QPixmap{mAvatarFileName});
+            }
+            reply->deleteLater();
+        });
     }
-}
-
-void AvatarView::slotAvatarDownloadFinished()
-{
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    QFile avatarFile{mAvatarFileName};
-    if (!avatarFile.open(QIODevice::WriteOnly))
-        return;
-    avatarFile.write(reply->readAll());
-    avatarFile.close();
-
-    setPixmap(QPixmap{mAvatarFileName});
 }
 
 #include "moc_avatarview.cpp"
