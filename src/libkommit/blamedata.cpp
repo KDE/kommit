@@ -17,6 +17,6 @@ bool operator==(const BlameDataRow &l, const BlameDataRow &r)
 }
 bool operator!=(const BlameDataRow &l, const BlameDataRow &r)
 {
-    return !(l.log == r.log);
+    return !operator==(l, r);
 }
 }
