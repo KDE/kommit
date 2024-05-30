@@ -26,11 +26,9 @@ public:
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
 
-private Q_SLOTS:
+private:
     void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
     void slotTreeViewActivated(const QModelIndex &index);
-
-private:
     SubmoduleActions *const mActions;
     Git::SubmodulesModel *mModel = nullptr;
 };
