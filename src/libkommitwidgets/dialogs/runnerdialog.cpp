@@ -12,8 +12,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <QInputDialog>
 
-#include "libkommitwidgets_appdebug.h"
-
 RunnerDialog::RunnerDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(parent)
     , mGitProcess(new QProcess{this})
