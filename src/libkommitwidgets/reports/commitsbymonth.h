@@ -7,9 +7,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "abstractreport.h"
-#include "libkommit_export.h"
+#include "libkommitwidgets_export.h"
 
-class LIBKOMMIT_EXPORT CommitsByMonth : public AbstractReport
+class LIBKOMMITWIDGETS_EXPORT CommitsByMonth : public AbstractReport
 {
     Q_OBJECT
 public:

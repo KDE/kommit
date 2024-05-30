@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "libkommit_export.h"
+#include "libkommitwidgets_export.h"
 
 #include "abstractreport.h"
 #include <QDateTime>
@@ -17,7 +17,7 @@ namespace Git
 class Signature;
 };
 
-class LIBKOMMIT_EXPORT AuthorsReport : public AbstractReport
+class LIBKOMMITWIDGETS_EXPORT AuthorsReport : public AbstractReport
 {
     Q_OBJECT
 

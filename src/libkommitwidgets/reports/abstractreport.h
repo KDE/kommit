@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "libkommit_export.h"
+#include "libkommitwidgets_export.h"
 
 #include <QAbstractTableModel>
 
@@ -15,7 +15,7 @@ namespace Git
 class Manager;
 };
 
-class LIBKOMMIT_EXPORT AbstractReport : public QObject
+class LIBKOMMITWIDGETS_EXPORT AbstractReport : public QObject
 {
     Q_OBJECT
 
