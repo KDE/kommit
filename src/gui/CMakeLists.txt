@@ -1,8 +1,7 @@
 include_directories(${CMAKE_SOURCE_DIR}/core)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-add_library(libkommitgui SHARED
-    pages/reportswidget.h pages/reportswidget.cpp pages/reportswidget.ui)
+add_library(libkommitgui SHARED)
 generate_export_header(libkommitgui BASE_NAME libkommitgui)
 target_sources(libkommitgui PRIVATE
     core/listview.cpp
@@ -15,8 +14,10 @@ target_sources(libkommitgui PRIVATE
     core/commitsfiltermodel.cpp
     core/kmessageboxhelper.h
     core/kmessageboxhelper.cpp
-    core/repositorydata.h core/repositorydata.cpp
-    core/gravatarcache.h core/gravatarcache.cpp
+    core/repositorydata.h
+    core/repositorydata.cpp
+    core/gravatarcache.h
+    core/gravatarcache.cpp
 
     models/difftreemodel.cpp
     models/difftreemodel.h
@@ -27,15 +28,24 @@ target_sources(libkommitgui PRIVATE
     models/changedfilesmodel.h
     models/changedfilesmodel.cpp
 
-    pages/reportswidget.h  pages/reportswidget.cpp
-    pages/branchesstatuswidget.h  pages/branchesstatuswidget.cpp
-    pages/commitswidget.h  pages/commitswidget.cpp
-    pages/historyviewwidget.h  pages/historyviewwidget.cpp
-    pages/remoteswidget.h  pages/remoteswidget.cpp
-    pages/stasheswidget.h  pages/stasheswidget.cpp
-    pages/submoduleswidget.h  pages/submoduleswidget.cpp
-    pages/tagswidget.h  pages/tagswidget.cpp
-    pages/widgetbase.h  pages/widgetbase.cpp
+    pages/reportswidget.h
+    pages/reportswidget.cpp
+    pages/branchesstatuswidget.h
+    pages/branchesstatuswidget.cpp
+    pages/commitswidget.h
+    pages/commitswidget.cpp
+    pages/historyviewwidget.h
+    pages/historyviewwidget.cpp
+    pages/remoteswidget.h
+    pages/remoteswidget.cpp
+    pages/stasheswidget.h
+    pages/stasheswidget.cpp
+    pages/submoduleswidget.h
+    pages/submoduleswidget.cpp
+    pages/tagswidget.h
+    pages/tagswidget.cpp
+    pages/widgetbase.h
+    pages/widgetbase.cpp
 
     appwindow.cpp
     buttonsgroup.cpp
@@ -55,6 +65,9 @@ target_sources(libkommitgui PRIVATE
     settings/settingsmanager.h
     kommit.qrc
     icons/icons.qrc
+
+    pages/reportswidget.h
+    pages/reportswidget.cpp
 )
 
 set_target_properties(libkommitgui
@@ -93,6 +106,7 @@ ki18n_wrap_ui(
     pages/stasheswidget.ui
     pages/submoduleswidget.ui
     pages/tagswidget.ui
+    pages/reportswidget.ui
 )
 
 target_link_libraries(libkommitgui
