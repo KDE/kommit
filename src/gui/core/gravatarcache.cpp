@@ -22,6 +22,14 @@ GravatarCache::GravatarCache(QObject *parent)
     d.mkpath(path);
 }
 
+GravatarCache::~GravatarCache() = default;
+
+GravatarCache *GravatarCache::instance()
+{
+    static GravatarCache instance;
+    return &instance;
+}
+
 QString GravatarCache::avatarPath(const QString &email)
 {
     const auto emailHash = QCryptographicHash::hash(email.toUtf8(), QCryptographicHash::Md5).toHex().toLower();
