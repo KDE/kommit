@@ -47,7 +47,7 @@ private Q_SLOTS:
 #undef f
 
 private:
-    StatusCache *mCache;
+    StatusCache *mCache = nullptr;
     QAction *mMainActionGit = nullptr;
     QAction *mMainActionNonGit = nullptr;
     QString mPath;

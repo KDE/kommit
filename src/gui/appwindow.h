@@ -41,7 +41,6 @@ private Q_SLOTS:
     void repoStatus();
     void initRepo();
     void openRepo();
-    void recentActionTriggered();
     void commitPushAction();
     void pull();
     void fetch();

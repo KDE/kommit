@@ -21,12 +21,10 @@ public:
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
 
-private Q_SLOTS:
+private:
     void reloadReports();
     void slotToolButtonTableClicked();
     void slotToolButtonChartClicked();
-
-private:
     void addReport(AbstractReport *report);
     QList<ReportWidget *> mReportWidgets;
 };

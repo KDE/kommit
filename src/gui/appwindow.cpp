@@ -50,6 +50,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QStatusBar>
 #include <QtConcurrent>
 
+AppWindow::AppWindow()
+    : AppMainWindow()
+{
+    init();
+
+    if (KommitSettings::openLastRepo()) {
+        QSettings s;
+        auto p = s.value(QStringLiteral("last_repo")).toString();
+
+        if (!p.isEmpty()) {
+            mGit->open(p);
+            initRecentRepos(p);
+        }
+    }
+}
+
 void AppWindow::init()
 {
     mGit = Git::Manager::instance();
@@ -82,33 +98,17 @@ void AppWindow::init()
     settingsUpdated();
 }
 
-AppWindow::AppWindow()
-    : AppMainWindow()
+AppWindow::~AppWindow()
 {
-    init();
-
-    if (KommitSettings::openLastRepo()) {
-        QSettings s;
-        auto p = s.value(QStringLiteral("last_repo")).toString();
-
-        if (!p.isEmpty()) {
-            mGit->open(p);
-            initRecentRepos(p);
-        }
-    }
+    QSettings s;
+    for (auto &w : mBaseWidgets)
+        w->saveState(s);
 }
 
 AppWindow::AppWindow(const QString &path)
 {
     init();
     mGit->open(path);
-}
-
-AppWindow::~AppWindow()
-{
-    QSettings s;
-    for (auto &w : mBaseWidgets)
-        w->saveState(s);
 }
 
 AppWindow *AppWindow::instance()
@@ -227,8 +227,10 @@ void AppWindow::initRecentRepos(const QString &newItem)
     int index{1};
     for (const auto &item : std::as_const(recentList)) {
         auto action = mRecentAction->menu()->addAction(QStringLiteral("%1    %2").arg(index++).arg(item));
-        action->setData(item);
-        connect(action, &QAction::triggered, this, &AppWindow::recentActionTriggered);
+        connect(action, &QAction::triggered, this, [this, item]() {
+            mGit->open(item);
+            initRecentRepos(item);
+        });
     }
 }
 
@@ -243,12 +245,16 @@ void AppWindow::initRepo()
     InitDialog d(mGit, this);
     if (d.exec() == QDialog::Accepted) {
         QDir dir;
-        if (!dir.mkpath(d.path())) {
-            KMessageBox::error(this, i18n("Unable to create path: %1", d.path()), i18n("Init repo"));
+        const QString path = d.path();
+        if (!dir.mkpath(path)) {
+            KMessageBox::error(this, i18n("Unable to create path: %1", path), i18n("Init repo"));
             return;
         }
-        mGit->init(d.path());
-        mGit->open(d.path());
+        if (mGit->init(path)) {
+            mGit->open(path);
+        } else {
+            qWarning() << " Impossible to initialize git in " << path;
+        }
     }
 }
 
@@ -260,18 +266,6 @@ void AppWindow::openRepo()
         mGit->open(dir);
         initRecentRepos(dir);
     }
-}
-
-void AppWindow::recentActionTriggered()
-{
-    auto action = qobject_cast<QAction *>(sender());
-    if (!action)
-        return;
-
-    auto p = action->data().toString();
-    mGit->open(p);
-
-    initRecentRepos(p);
 }
 
 void AppWindow::commitPushAction()
