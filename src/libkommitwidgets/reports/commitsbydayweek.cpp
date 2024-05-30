@@ -19,19 +19,19 @@ QString dayToString(Qt::DayOfWeek dayOfWeek)
 {
     switch (dayOfWeek) {
     case Qt::Monday:
-        return "Monday";
+        return i18n("Monday");
     case Qt::Tuesday:
-        return "Tuesday";
+        return i18n("Tuesday");
     case Qt::Wednesday:
-        return "Wednesday";
+        return i18n("Wednesday");
     case Qt::Thursday:
-        return "Thursday";
+        return i18n("Thursday");
     case Qt::Friday:
-        return "Friday";
+        return i18n("Friday");
     case Qt::Saturday:
-        return "Saturday";
+        return i18n("Saturday");
     case Qt::Sunday:
-        return "Sunday";
+        return i18n("Sunday");
     }
     return "";
 }
