@@ -131,3 +131,5 @@ QList<QAction *> DolphinPlugin::outOfVersionControlActions(const KFileItemList &
 }
 
 #include "dolphinplugin.moc"
+
+#include "moc_dolphinplugin.cpp"

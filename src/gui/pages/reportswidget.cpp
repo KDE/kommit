@@ -81,3 +81,5 @@ void ReportsWidget::addReport(AbstractReport *report)
 
     mReportWidgets << reportWidget;
 }
+
+#include "moc_reportswidget.cpp"

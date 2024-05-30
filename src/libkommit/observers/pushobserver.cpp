@@ -106,3 +106,5 @@ void PushObserver::setTransferProgressTotal(unsigned int transferProgressTotal)
 }
 
 }
+
+#include "moc_pushobserver.cpp"

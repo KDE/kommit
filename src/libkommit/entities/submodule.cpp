@@ -162,3 +162,5 @@ Manager *Submodule::open() const
 }
 
 } // namespace Git
+
+#include "moc_submodule.cpp"

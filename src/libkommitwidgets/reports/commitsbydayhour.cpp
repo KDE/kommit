@@ -70,3 +70,5 @@ QString CommitsByDayHour::axisYTitle() const
 {
     return i18n("Commits");
 }
+
+#include "moc_commitsbydayhour.cpp"

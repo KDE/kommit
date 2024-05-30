@@ -63,3 +63,5 @@ void ChangedSubmodulesDialog::reload()
     auto extraSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
     scrollAreaVerticalLayout->addItem(extraSpacer);
 }
+
+#include "moc_changedsubmodulesdialog.cpp"

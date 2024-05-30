@@ -210,3 +210,5 @@ QString CommitDetails::generateCommitsLink(const QStringList &hashes)
 
     return ret.join(QStringLiteral(", "));
 }
+
+#include "moc_commitdetails.cpp"

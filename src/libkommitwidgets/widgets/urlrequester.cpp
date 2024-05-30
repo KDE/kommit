@@ -117,3 +117,5 @@ void UrlRequester::setMode(Mode mode)
 }
 
 #endif
+
+#include "moc_urlrequester.cpp"

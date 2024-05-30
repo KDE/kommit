@@ -104,3 +104,5 @@ int CommitsByDayWeek::labelsAngle() const
 {
     return 90;
 }
+
+#include "moc_commitsbydayweek.cpp"

@@ -36,3 +36,5 @@ void CredentialDialog::setUsername(const QString &username)
 {
     lineEditUsername->setText(username);
 }
+
+#include "moc_credentialdialog.cpp"

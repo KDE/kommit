@@ -119,3 +119,5 @@ void ReportWidget::reload()
     fillTableWidget();
     fillChart();
 }
+
+#include "moc_reportwidget.cpp"

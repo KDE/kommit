@@ -52,3 +52,5 @@ void AvatarView::slotAvatarDownloadFinished()
 
     setPixmap(QPixmap{mAvatarFileName});
 }
+
+#include "moc_avatarview.cpp"

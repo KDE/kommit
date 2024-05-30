@@ -225,3 +225,5 @@ void Credential::setAllowedTypes(const AllowedTypes &allowedTypes)
     mAllowedTypes = allowedTypes;
 }
 }
+
+#include "moc_fetchobserver.cpp"

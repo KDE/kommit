@@ -114,3 +114,5 @@ void AbstractReport::addData(std::initializer_list<QVariant> data)
 }
 
 #include "abstractreport.moc"
+
+#include "moc_abstractreport.cpp"

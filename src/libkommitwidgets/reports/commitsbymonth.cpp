@@ -89,3 +89,5 @@ int CommitsByMonth::labelsAngle() const
 {
     return 90;
 }
+
+#include "moc_commitsbymonth.cpp"

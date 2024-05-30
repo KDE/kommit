@@ -40,3 +40,5 @@ QString GravatarCache::avatarPath(const QString &email)
     });
     return {};
 }
+
+#include "moc_gravatarcache.cpp"

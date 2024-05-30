@@ -144,3 +144,5 @@ void AuthorsReport::DatesRange::increase(const QDateTime &time)
 }
 
 // #include "authorsreport.moc"
+
+#include "moc_authorsreport.cpp"

@@ -36,3 +36,5 @@ void RepositoryData::loadAll()
     mStashesCache->load();
     mTagsModel->load();
 }
+
+#include "moc_repositorydata.cpp"
