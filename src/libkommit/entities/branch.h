@@ -23,7 +23,7 @@ class Commit;
 class LIBKOMMIT_EXPORT Branch : public ITree
 {
 public:
-    Branch(git_reference *branch);
+    explicit Branch(git_reference *branch);
     ~Branch();
 
     Q_REQUIRED_RESULT QString name() const;
@@ -41,7 +41,7 @@ public:
     QString treeTitle() const override;
 
 private:
-    git_reference *mBranch;
+    git_reference *const mBranch;
     QString mName;
     QString mRefName;
     QString mUpStreamName;

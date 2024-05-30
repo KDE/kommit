@@ -12,10 +12,10 @@ class Manager;
 }
 class AppConfig
 {
-    Git::Manager *mGit;
-
 public:
     explicit AppConfig(Git::Manager *git);
-
     void apply();
+
+private:
+    Git::Manager *mGit = nullptr;
 };

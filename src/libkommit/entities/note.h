@@ -20,14 +20,14 @@ namespace Git
 class LIBKOMMIT_EXPORT Note
 {
 public:
-    Note(git_note *note);
+    explicit Note(git_note *note);
 
     Q_REQUIRED_RESULT QSharedPointer<Signature> author() const;
     Q_REQUIRED_RESULT QSharedPointer<Signature> committer() const;
     Q_REQUIRED_RESULT QString mesage() const;
 
 private:
-    git_note *mNote;
+    git_note *const mNote;
     QSharedPointer<Signature> mAuthor;
     QSharedPointer<Signature> mCommitter;
     QString mMesage;

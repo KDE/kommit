@@ -19,7 +19,7 @@ namespace Git
 class LIBKOMMIT_EXPORT Index
 {
 public:
-    Index(git_index *index);
+    explicit Index(git_index *index);
 
     bool addByPath(const QString &path) const;
     bool removeByPath(const QString &path) const;
@@ -28,7 +28,7 @@ public:
     QSharedPointer<Tree> tree() const;
 
 private:
-    git_index *ptr;
+    git_index *const ptr;
 };
 
 }

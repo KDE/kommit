@@ -28,9 +28,6 @@ class Manager;
 class AppWindow : public AppMainWindow
 {
     Q_OBJECT
-    Git::Manager *mGit = nullptr;
-    RepositoryData *mGitData{nullptr};
-
 public:
     AppWindow();
     explicit AppWindow(const QString &path);
@@ -59,6 +56,9 @@ private Q_SLOTS:
     void cleanup();
 
 private:
+    Git::Manager *mGit = nullptr;
+    RepositoryData *mGitData{nullptr};
+
     QAction *mRecentAction = nullptr;
     MultiPageWidget *mMainWidget = nullptr;
     QList<WidgetBase *> mBaseWidgets;
