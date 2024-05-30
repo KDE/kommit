@@ -103,7 +103,7 @@ void ReportWidget::fillChart()
 
 int ReportWidget::showMode() const
 {
-    return static_cast<ShowMode>(stackedWidget->currentIndex());
+    return stackedWidget->currentIndex();
 }
 
 void ReportWidget::setShowMode(int showMode)

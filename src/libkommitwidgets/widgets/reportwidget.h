@@ -37,7 +37,10 @@ class LIBKOMMITWIDGETS_EXPORT ReportWidget : public QWidget, private Ui::ReportW
     AbstractReport *mReport;
 
 public:
-    enum ShowMode { Table, Chart };
+    enum ShowMode {
+        Table = 0,
+        Chart = 1,
+    };
     explicit ReportWidget(AbstractReport *report, QWidget *parent = nullptr);
 
     Q_REQUIRED_RESULT int showMode() const;
