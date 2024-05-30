@@ -1,4 +1,5 @@
 #include "avatarview.h"
+// #include "gravatarcache.h"
 
 #include <QCryptographicHash>
 #include <QDir>
