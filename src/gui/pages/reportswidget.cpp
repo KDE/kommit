@@ -52,7 +52,7 @@ void ReportsWidget::restoreState(QSettings &settings)
 
 void ReportsWidget::reloadReports()
 {
-    for (auto &report : mReportWidgets)
+    for (auto &report : std::as_const(mReportWidgets))
         report->reload();
 }
 
@@ -60,7 +60,7 @@ void ReportsWidget::slotToolButtonTableClicked()
 {
     toolButtonTable->setChecked(true);
     toolButtonChart->setChecked(false);
-    for (auto &reportWidget : mReportWidgets)
+    for (auto &reportWidget : std::as_const(mReportWidgets))
         reportWidget->setShowMode(ReportWidget::Table);
 }
 
