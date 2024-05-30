@@ -110,7 +110,7 @@ void SearchDialog::searchOnPlace(const QString &branch, const QString &commit)
     const QString place = branch.isEmpty() ? commit : branch;
     const auto files = mGit->ls(place);
 
-    for (const auto &file : std::as_const(files)) {
+    for (const auto &file : files) {
         if (!lineEditPath->text().isEmpty() && !file.contains(lineEditPath->text()))
             continue;
 
