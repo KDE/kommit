@@ -29,5 +29,5 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotPlainTextEditBlockSelected();
 
     QString mFileName;
-    QSharedPointer<Git::File> mFile;
+    QSharedPointer<Git::File> const mFile;
 };
