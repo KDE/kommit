@@ -32,7 +32,7 @@ public:
     void restoreState(QSettings &settings) override;
     void settingsUpdated() override;
 
-private Q_SLOTS:
+private:
     void slotTreeViewRepoItemActivated(const QModelIndex &index);
     void slotTreeViewRepoCustomContextMenuRequested(const QPoint &pos);
     void slotTreeViewHistoryItemActivated(const QModelIndex &index);
@@ -42,7 +42,6 @@ private Q_SLOTS:
 
     void slotLineEditFilterTextChanged(const QString &arg1);
 
-private:
     void init();
     QMap<QString, QSharedPointer<Git::Branch>> mBranchesMap;
     TreeModel *mRepoModel{nullptr};
