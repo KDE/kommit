@@ -31,10 +31,8 @@ public:
 
     void setLocalPath(const QString &path);
 
-private Q_SLOTS:
-    void slotCredentialRequeted(const QString &url, Git::Credential *cred);
-
 private:
+    LIBKOMMITWIDGETS_NO_EXPORT void slotCredentialRequeted(const QString &url, Git::Credential *cred);
     LIBKOMMITWIDGETS_NO_EXPORT void slotUrlChanged(const QString &text);
     LIBKOMMITWIDGETS_NO_EXPORT void slotAccepted();
     LIBKOMMITWIDGETS_NO_EXPORT void loadSettings();
