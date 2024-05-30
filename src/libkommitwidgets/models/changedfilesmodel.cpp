@@ -8,6 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitmanager.h"
 
+#include <KLocalizedString>
+
 #include <QDebug>
 #include <QIcon>
 #include <QPainter>
@@ -134,9 +136,9 @@ QVariant ChangedFilesModel::data(const QModelIndex &index, int role) const
         }
         if (row.submodule) {
             if (row.submodule->status() & Git::Submodule::Status::WdModified)
-                return row.filePath + tr(" (new commit)");
+                return row.filePath + i18n(" (new commit)");
             if (row.submodule->status() & Git::Submodule::Status::WdWdModified)
-                return row.filePath + tr(" (content modified)");
+                return row.filePath + i18n(" (content modified)");
         }
         return row.filePath;
     }

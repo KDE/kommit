@@ -27,7 +27,7 @@ void ChangedSubmodulesDialog::mSlotComitPushButtonClicked()
     auto submodule = mButtonsMap.value(pushButton);
     auto g = mGit->submodule(submodule)->open();
     CommitPushDialog d{g};
-    d.setWindowTitle(tr("Commit/Push submodule: %1").arg(submodule));
+    d.setWindowTitle(i18n("Commit/Push submodule: %1", submodule));
     d.exec();
 }
 

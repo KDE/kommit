@@ -106,7 +106,7 @@ void CloneDialog::slotAccepted()
 
     // auto ok = git->clone(lineEditUrl->text(), lineEditPath->text(), mCloneObserver);
     // if (!ok)
-    //     QMessageBox::warning(this, tr("Clone"), git->errorMessage());
+    //     QMessageBox::warning(this, i18n("Clone"), git->errorMessage());
 }
 
 #include "moc_clonedialog.cpp"

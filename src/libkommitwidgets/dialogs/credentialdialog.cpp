@@ -24,7 +24,7 @@ QString CredentialDialog::url() const
 void CredentialDialog::setUrl(const QString &url)
 {
     mUrl = url;
-    labelCredentialsUrl->setText(tr("Credential for %1").arg(url));
+    labelCredentialsUrl->setText(i18n("Credential for %1", url));
 }
 
 QString CredentialDialog::username() const
