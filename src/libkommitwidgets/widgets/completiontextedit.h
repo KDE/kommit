@@ -32,13 +32,10 @@ protected:
     void keyPressEvent(QKeyEvent *e) override;
     void focusInEvent(QFocusEvent *e) override;
 
-private Q_SLOTS:
+private:
     void insertCompletion(const QString &completion);
+    Q_REQUIRED_RESULT QString textUnderCursor() const;
 
-private:
-    QString textUnderCursor() const;
-
-private:
     QStringList mWords;
     QStringListModel *const mCompletionModel;
     QCompleter *const mCompleter;

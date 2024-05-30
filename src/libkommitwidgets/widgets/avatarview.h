@@ -13,10 +13,8 @@ public:
     Q_REQUIRED_RESULT QString userEmail() const;
     void setUserEmail(const QString &userEmail);
 
-private Q_SLOTS:
-    void slotAvatarDownloadFinished();
-
 private:
+    void slotAvatarDownloadFinished();
     QString mUserEmail;
     QString mAvatarFileName;
     QNetworkAccessManager mNet;

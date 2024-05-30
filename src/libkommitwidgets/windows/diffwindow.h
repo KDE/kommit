@@ -45,20 +45,21 @@ private Q_SLOTS:
     void slotTreeViewFileSelected(const QString &file);
 
 private:
-    Git::Manager *mGit;
+    Git::Manager *mGit = nullptr;
     QSharedPointer<Git::File> mOldFile;
     QSharedPointer<Git::File> mNewFile;
 
     QString mOldBranch;
     QString mNewBranch;
 
-    QString mLeftDir, mRightDir;
+    QString mLeftDir;
+    QString mRightDir;
 
-    FilesModel *mFilesModel;
-    DiffTreeModel *mDiffModel;
-    DiffWidget *mDiffWidget;
-    DiffTreeView *mTreeView;
-    QDockWidget *mDock;
+    FilesModel *mFilesModel = nullptr;
+    DiffTreeModel *mDiffModel = nullptr;
+    DiffWidget *mDiffWidget = nullptr;
+    DiffTreeView *mTreeView = nullptr;
+    QDockWidget *mDock = nullptr;
 
     void initActions();
     void init(bool showSideBar);

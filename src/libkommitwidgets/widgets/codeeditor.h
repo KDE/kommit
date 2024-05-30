@@ -53,7 +53,7 @@ public:
     QPair<int, int> blockArea(int from, int to);
     QPair<int, int> visibleLines() const;
 
-    int currentLineNumber() const;
+    Q_REQUIRED_RESULT int currentLineNumber() const;
     void gotoLineNumber(int lineNumber);
     void gotoSegment(Diff::Segment *segment);
 
@@ -62,15 +62,15 @@ public:
 
     void clearAll();
 
-    bool showTitleBar() const;
+    Q_REQUIRED_RESULT bool showTitleBar() const;
     void setShowTitleBar(bool newShowTitleBar);
 
-    QString title() const;
+    Q_REQUIRED_RESULT QString title() const;
     void setTitle(const QString &title);
 
-    int titlebarHeight() const;
+    Q_REQUIRED_RESULT int titlebarHeight() const;
 
-    bool showFoldMarks() const;
+    Q_REQUIRED_RESULT bool showFoldMarks() const;
     void setShowFoldMarks(bool newShowFoldMarks);
 
     BlockData *currentBlockData() const;

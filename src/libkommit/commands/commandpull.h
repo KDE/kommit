@@ -83,8 +83,8 @@ private:
     FastForward mFastForward{Unset};
 
 #ifdef GIT_GUI
-    QWidget *mWidget;
-    Ui::CommandPullWidget *mUi;
+    QWidget *mWidget = nullptr;
+    Ui::CommandPullWidget *mUi = nullptr;
 #endif
 };
 
