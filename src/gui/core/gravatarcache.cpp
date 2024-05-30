@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gravatarcache.h"
 
 #include <QCryptographicHash>
+#include <QDir>
 #include <QFile>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -16,12 +17,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 GravatarCache::GravatarCache(QObject *parent)
     : QObject{parent}
 {
-    QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+    const auto path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/avatars");
+    QDir d;
+    d.mkpath(path);
 }
 
 QString GravatarCache::avatarPath(const QString &email)
 {
-    auto emailHash = QCryptographicHash::hash(email.toUtf8(), QCryptographicHash::Sha3_256).toHex().toLower();
+    const auto emailHash = QCryptographicHash::hash(email.toUtf8(), QCryptographicHash::Md5).toHex().toLower();
 
     if (mAvatarsCache.contains(emailHash))
         return mAvatarsCache[emailHash];
@@ -31,11 +34,12 @@ QString GravatarCache::avatarPath(const QString &email)
     QNetworkRequest request{QUrl{avatarUrl}};
 
     QNetworkReply *reply = mNet.get(request);
-    connect(reply, &QNetworkReply::finished, [reply]() {
+    connect(reply, &QNetworkReply::finished, this, [this, emailHash, avatarUrl, reply]() {
         QFile avatarFile;
         if (avatarFile.open(QIODevice::WriteOnly)) {
             avatarFile.write(reply->readAll());
             avatarFile.close();
+            mAvatarsCache.insert(emailHash, avatarUrl);
         }
         delete reply;
     });
