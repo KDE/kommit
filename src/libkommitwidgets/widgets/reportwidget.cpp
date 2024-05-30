@@ -110,7 +110,7 @@ void ReportWidget::setShowMode(int showMode)
 {
     if (!mReport->supportChart())
         return;
-    stackedWidget->setCurrentIndex(static_cast<int>(showMode));
+    stackedWidget->setCurrentIndex(showMode);
 }
 
 void ReportWidget::reload()
