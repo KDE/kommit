@@ -17,7 +17,6 @@ namespace Git
 {
 
 class Tree;
-class Note;
 class Commit;
 
 class LIBKOMMIT_EXPORT Branch : public ITree
@@ -30,8 +29,6 @@ public:
     Q_REQUIRED_RESULT QString refName() const;
     Q_REQUIRED_RESULT QString upStreamName() const;
     Q_REQUIRED_RESULT QString remoteName() const;
-
-    Note *note() const;
 
     Q_REQUIRED_RESULT bool isHead() const;
 

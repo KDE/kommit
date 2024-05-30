@@ -71,11 +71,6 @@ QString Branch::remoteName() const
     return mRemoteName;
 }
 
-Note *Branch::note() const
-{
-    return nullptr;
-}
-
 bool Branch::isHead() const
 {
     return mIsHead;

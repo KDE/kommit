@@ -48,9 +48,4 @@ void FilesModel::append(const QString &data)
         mFiles.append({data, data});
 }
 
-void FilesModel::addFile(const Git::FileStatus &file)
-{
-    Q_UNUSED(file)
-}
-
 #include "moc_filesmodel.cpp"
