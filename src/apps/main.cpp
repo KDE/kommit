@@ -37,8 +37,8 @@ int main(int argc, char **argv)
                          KAboutLicense::GPL_V3,
                          i18n("Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"));
 
-    aboutData.addAuthor(i18n("Hamed Masafi"), i18n("Author"), QStringLiteral("hamed.masafi@gmail.com"));
-    aboutData.addCredit(i18n("Laurent Montel"), i18n("Bug fixing"), QStringLiteral("montel@kde.org"));
+    aboutData.addAuthor(i18nc("@info:credit", "Hamed Masafi"), i18n("Author"), QStringLiteral("hamed.masafi@gmail.com"));
+    aboutData.addCredit(i18nc("@info:credit", "Laurent Montel"), i18n("Bug fixing"), QStringLiteral("montel@kde.org"));
     aboutData.setDesktopFileName(QStringLiteral("org.kde.kommit"));
 
     KAboutData::setApplicationData(aboutData);
