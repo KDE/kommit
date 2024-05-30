@@ -27,6 +27,6 @@ private slots:
     LIBKOMMITWIDGETS_NO_EXPORT void slotButtonBoxAccepted();
 
 private:
-    QStringList _existingLocalBranches;
+    QStringList mExistingLocalBranches;
     QStringList _existingRemoteBranches;
 };

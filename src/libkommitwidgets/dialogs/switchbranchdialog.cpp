@@ -22,8 +22,8 @@ SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
 {
     setupUi(this);
 
-    _existingLocalBranches = git->branchesNames(Git::Manager::BranchType::LocalBranch);
-    for (const auto &b : std::as_const(_existingLocalBranches))
+    mExistingLocalBranches = git->branchesNames(Git::Manager::BranchType::LocalBranch);
+    for (const auto &b : std::as_const(mExistingLocalBranches))
         comboBoxBranchSelect->addItem(b, BRANCH_TYPE_LOCAL);
     _existingRemoteBranches = git->branchesNames(Git::Manager::BranchType::RemoteBranch);
     for (const auto &b : std::as_const(_existingRemoteBranches))
@@ -71,7 +71,7 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
 void SwitchBranchDialog::slotButtonBoxAccepted()
 {
     if (radioButtonExistingBranch->isChecked())
-        if (_existingLocalBranches.contains(lineEditNewBranchName->text()) || _existingRemoteBranches.contains(lineEditNewBranchName->text())) {
+        if (mExistingLocalBranches.contains(lineEditNewBranchName->text()) || _existingRemoteBranches.contains(lineEditNewBranchName->text())) {
             KMessageBoxHelper::error(this, i18n("The branch already exists"));
             return;
         }
