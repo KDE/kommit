@@ -23,8 +23,8 @@ public:
 
 private Q_SLOTS:
     void reloadReports();
-    void mSlotToolButtonTableClicked();
-    void mSlotToolButtonChartClicked();
+    void slotToolButtonTableClicked();
+    void slotToolButtonChartClicked();
 
 private:
     void addReport(AbstractReport *report);

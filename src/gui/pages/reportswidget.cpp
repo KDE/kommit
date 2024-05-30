@@ -29,10 +29,10 @@ ReportsWidget::ReportsWidget(Git::Manager *git, AppWindow *parent)
 
     stackedWidget->setCurrentIndex(0);
 
-    connect(toolButtonTable, &QToolButton::clicked, this, &ReportsWidget::mSlotToolButtonTableClicked);
-    connect(toolButtonChart, &QToolButton::clicked, this, &ReportsWidget::mSlotToolButtonChartClicked);
+    connect(toolButtonTable, &QToolButton::clicked, this, &ReportsWidget::slotToolButtonTableClicked);
+    connect(toolButtonChart, &QToolButton::clicked, this, &ReportsWidget::slotToolButtonChartClicked);
 
-    mSlotToolButtonTableClicked();
+    slotToolButtonTableClicked();
 
 #ifndef QT_CHARTS_LIB
     toolButtonTable->hide();
@@ -56,7 +56,7 @@ void ReportsWidget::reloadReports()
         report->reload();
 }
 
-void ReportsWidget::mSlotToolButtonTableClicked()
+void ReportsWidget::slotToolButtonTableClicked()
 {
     toolButtonTable->setChecked(true);
     toolButtonChart->setChecked(false);
@@ -64,7 +64,7 @@ void ReportsWidget::mSlotToolButtonTableClicked()
         reportWidget->setShowMode(ReportWidget::Table);
 }
 
-void ReportsWidget::mSlotToolButtonChartClicked()
+void ReportsWidget::slotToolButtonChartClicked()
 {
     toolButtonTable->setChecked(false);
     toolButtonChart->setChecked(true);
