@@ -33,7 +33,7 @@ void AvatarView::setUserEmail(const QString &userEmail)
     if (QFile::exists(mAvatarFileName)) {
         setPixmap(QPixmap{mAvatarFileName});
     } else {
-        const auto avatarUrl = QStringLiteral("https://www.gravatar.com/avatar/%1").arg(emailHash);
+        const auto avatarUrl = QStringLiteral("https://www.gravatar.com/avatar/%1").arg(QString::fromLatin1(emailHash));
 
         QNetworkRequest request{QUrl{avatarUrl}};
 
