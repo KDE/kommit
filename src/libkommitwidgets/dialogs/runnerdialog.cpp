@@ -89,7 +89,7 @@ void RunnerDialog::git_readyReadStandardOutput()
     QRegularExpression r{"Username for '.*': "};
 
     if (r.match(buffer).hasMatch()) {
-        QInputDialog::getText(this, buffer, "Username:");
+        QInputDialog::getText(this, buffer, i18n("Username:"));
     }
 }
 
