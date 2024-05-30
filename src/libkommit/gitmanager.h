@@ -252,7 +252,7 @@ Q_SIGNALS:
     void reloadRequired();
 
 private:
-    int findStashIndex(const QString &message) const;
+    LIBKOMMIT_NO_EXPORT int findStashIndex(const QString &message) const;
 
     QString mPath;
     bool mIsValid{false};

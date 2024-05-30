@@ -29,8 +29,8 @@ public:
     Commit *findByHash(const QString &hash, int *index = nullptr) const;
 
 private:
-    Q_REQUIRED_RESULT QString branchName(const QString &refLog);
-    void initChilds();
+    Q_REQUIRED_RESULT LIBKOMMIT_NO_EXPORT QString branchName(const QString &refLog);
+    LIBKOMMIT_NO_EXPORT void initChilds();
     QString mBranch;
     QStringList mBranches;
     QMap<QString, Commit *> mDataByCommitHashLong;
