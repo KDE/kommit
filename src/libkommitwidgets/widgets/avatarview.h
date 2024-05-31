@@ -20,5 +20,5 @@ public:
     void setUserEmail(const QString &userEmail);
 
 private:
-    QString mUserEmail;
+    void updatePixmap(const QString &userEmail);
 };

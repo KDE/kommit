@@ -16,26 +16,26 @@ AvatarView::AvatarView(QWidget *parent)
     setScaledContents(true);
 }
 
-QString AvatarView::userEmail() const
+void AvatarView::updatePixmap(const QString &userEmail)
 {
-    return mUserEmail;
+    connect(GravatarCache::instance(), &GravatarCache::avatarUpdated, this, [this, userEmail](const QString &fileName, const QString &email) {
+        if (userEmail == email) {
+            setPixmap(QPixmap{fileName});
+        }
+    });
 }
 
 void AvatarView::setUserEmail(const QString &userEmail)
 {
-    mUserEmail = userEmail;
-
     const QString avatarFileName = GravatarCache::instance()->avatarPath(userEmail);
     if (!avatarFileName.isEmpty()) {
         if (QFile::exists(avatarFileName)) {
             setPixmap(QPixmap{avatarFileName});
+        } else {
+            updatePixmap(userEmail);
         }
     } else {
-        connect(GravatarCache::instance(), &GravatarCache::avatarUpdated, this, [this, userEmail](const QString &fileName, const QString &email) {
-            if (userEmail == email) {
-                setPixmap(QPixmap{fileName});
-            }
-        });
+        updatePixmap(userEmail);
     }
 }
 
