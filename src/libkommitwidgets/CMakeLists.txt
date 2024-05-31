@@ -4,21 +4,9 @@ add_library(libkommitwidgets SHARED)
 
 generate_export_header(libkommitwidgets BASE_NAME libkommitwidgets)
 
-macro(kommitwidgets_add_dir dir)
-    file(GLOB ${dir}_FILES ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/*.h)
-    file(GLOB ${dir}_UI_FILES ${CMAKE_CURRENT_SOURCE_DIR}/${dir}/*.ui)
-endmacro()
-
-# kommitwidgets_add_dir(core)
-# kommitwidgets_add_dir(widgets)
-# kommitwidgets_add_dir(windows)
-# kommitwidgets_add_dir(models)
-# kommitwidgets_add_dir(dialogs)
-# kommitwidgets_add_dir(actions)
-# kommitwidgets_add_dir(reports)
-
 target_sources(libkommitwidgets PRIVATE
-    kommitwidgetsglobaloptions.h kommitwidgetsglobaloptions.cpp
+    kommitwidgetsglobaloptions.h 
+    kommitwidgetsglobaloptions.cpp
 
     widgets/reportwidget.h
     widgets/graphpainter.cpp
@@ -55,6 +43,8 @@ target_sources(libkommitwidgets PRIVATE
     core/kmessageboxhelper.cpp
     core/editactionsmapper.h
     core/editactionsmapper.cpp
+    core/gravatarcache.cpp
+    core/gravatarcache.h
 
     reports/authorsreport.cpp
     reports/authorsreport.h

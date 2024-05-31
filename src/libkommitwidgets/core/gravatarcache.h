@@ -5,12 +5,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-#include "libkommitgui_export.h"
+#include "libkommitwidgets_export.h"
 #include <QMap>
 #include <QNetworkAccessManager>
 #include <QString>
 
-class LIBKOMMITGUI_EXPORT GravatarCache : public QObject
+class LIBKOMMITWIDGETS_EXPORT GravatarCache : public QObject
 {
     Q_OBJECT
 

@@ -16,8 +16,6 @@ target_sources(libkommitgui PRIVATE
     core/kmessageboxhelper.cpp
     core/repositorydata.h
     core/repositorydata.cpp
-    core/gravatarcache.h
-    core/gravatarcache.cpp
 
     models/difftreemodel.cpp
     models/difftreemodel.h
