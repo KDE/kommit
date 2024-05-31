@@ -26,7 +26,7 @@ public:
     Q_REQUIRED_RESULT QString cacheLocalPath() const;
 
 Q_SIGNALS:
-    void avatarUpdated(const QString &fileName);
+    void avatarUpdated(const QString &fileName, const QString &email);
 
 private:
     QNetworkAccessManager mNet;

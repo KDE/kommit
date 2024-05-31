@@ -1,11 +1,14 @@
-#include "avatarview.h"
-// #include "gravatarcache.h"
+/*
+SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
+SPDX-FileCopyrightText: 2024 Laurent Montel <montel@kde.org>
 
-#include <QCryptographicHash>
+SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
+#include "avatarview.h"
+#include "core/gravatarcache.h"
+
 #include <QDir>
-#include <QNetworkReply>
-#include <QNetworkRequest>
-#include <QStandardPaths>
 
 AvatarView::AvatarView(QWidget *parent)
     : QLabel{parent}
@@ -22,31 +25,16 @@ void AvatarView::setUserEmail(const QString &userEmail)
 {
     mUserEmail = userEmail;
 
-    const auto emailHash = QCryptographicHash::hash(userEmail.toLower().toUtf8(), QCryptographicHash::Md5).toHex().toLower();
-    const auto path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/avatars");
-
-    QDir d;
-    d.mkpath(path);
-
-    mAvatarFileName = path + QLatin1Char('/') + emailHash;
-
-    if (QFile::exists(mAvatarFileName)) {
-        setPixmap(QPixmap{mAvatarFileName});
+    const QString avatarFileName = GravatarCache::instance()->avatarPath(userEmail);
+    if (!avatarFileName.isEmpty()) {
+        if (QFile::exists(avatarFileName)) {
+            setPixmap(QPixmap{avatarFileName});
+        }
     } else {
-        const auto avatarUrl = QStringLiteral("https://www.gravatar.com/avatar/%1").arg(QString::fromLatin1(emailHash));
-
-        QNetworkRequest request{QUrl{avatarUrl}};
-
-        QNetworkReply *reply = mNet.get(request);
-        connect(reply, &QNetworkReply::finished, this, [this, reply]() {
-            QFile avatarFile{mAvatarFileName};
-            if (avatarFile.open(QIODevice::WriteOnly)) {
-                avatarFile.write(reply->readAll());
-                avatarFile.close();
-
-                setPixmap(QPixmap{mAvatarFileName});
+        connect(GravatarCache::instance(), &GravatarCache::avatarUpdated, this, [this, userEmail](const QString &fileName, const QString &email) {
+            if (userEmail == email) {
+                setPixmap(QPixmap{fileName});
             }
-            reply->deleteLater();
         });
     }
 }

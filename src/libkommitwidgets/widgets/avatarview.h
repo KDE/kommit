@@ -1,7 +1,13 @@
+/*
+SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
+SPDX-FileCopyrightText: 2024 Laurent Montel <montel@kde.org>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
 #pragma once
 
 #include <QLabel>
-#include <QNetworkAccessManager>
 
 class AvatarView : public QLabel
 {
@@ -15,6 +21,4 @@ public:
 
 private:
     QString mUserEmail;
-    QString mAvatarFileName;
-    QNetworkAccessManager mNet;
 };

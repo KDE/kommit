@@ -49,14 +49,14 @@ QString GravatarCache::avatarPath(const QString &email)
     QNetworkRequest request{QUrl{avatarUrl}};
 
     QNetworkReply *reply = mNet.get(request);
-    connect(reply, &QNetworkReply::finished, this, [this, emailHash, avatarUrl, reply]() {
+    connect(reply, &QNetworkReply::finished, this, [this, emailHash, avatarUrl, reply, email]() {
         const QString avatarFileName{cacheLocalPath() + QLatin1Char('/') + emailHash};
         QFile avatarFile(avatarFileName);
         if (avatarFile.open(QIODevice::WriteOnly)) {
             avatarFile.write(reply->readAll());
             avatarFile.close();
             mAvatarsCache.insert(emailHash, avatarFileName);
-            Q_EMIT avatarUpdated(avatarFileName);
+            Q_EMIT avatarUpdated(avatarFileName, email);
         }
         delete reply;
     });
