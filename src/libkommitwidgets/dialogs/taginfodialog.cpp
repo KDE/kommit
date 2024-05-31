@@ -13,6 +13,11 @@ TagInfoDialog::TagInfoDialog(QWidget *parent)
     setWindowTitle(i18nc("@title:window", "New tag"));
 
     connect(lineEditTagName, &QLineEdit::textChanged, this, &TagInfoDialog::slotLineEditTagNameTextChanged);
+    mOkButton = buttonBox->button(QDialogButtonBox::Ok);
+}
+
+void TagInfoDialog::updateOkButton()
+{
 }
 
 QString TagInfoDialog::tagName() const

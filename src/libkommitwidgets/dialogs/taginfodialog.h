@@ -22,5 +22,7 @@ public:
     void setMessage(const QString &newMessage);
 
 private:
-    void slotLineEditTagNameTextChanged(const QString &s);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotLineEditTagNameTextChanged(const QString &s);
+    LIBKOMMITWIDGETS_NO_EXPORT void updateOkButton();
+    QPushButton *mOkButton = nullptr;
 };
