@@ -27,10 +27,10 @@ public:
     void setCommit(QSharedPointer<Git::Commit> commit);
 
 private:
-    void browse();
-    void checkout();
-    void diff();
-    void note();
+    LIBKOMMITWIDGETS_NO_EXPORT void browse();
+    LIBKOMMITWIDGETS_NO_EXPORT void checkout();
+    LIBKOMMITWIDGETS_NO_EXPORT void diff();
+    LIBKOMMITWIDGETS_NO_EXPORT void note();
 
     DEFINE_ACTION(actionBrowse)
     DEFINE_ACTION(actionCheckout)

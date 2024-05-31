@@ -20,11 +20,11 @@ public:
     void setRemoteName(const QString &newRemoteName);
 
 private:
-    void create();
-    void remove();
-    void changeUrl();
-    void rename();
-    void update();
+    LIBKOMMITWIDGETS_NO_EXPORT void create();
+    LIBKOMMITWIDGETS_NO_EXPORT void remove();
+    LIBKOMMITWIDGETS_NO_EXPORT void changeUrl();
+    LIBKOMMITWIDGETS_NO_EXPORT void rename();
+    LIBKOMMITWIDGETS_NO_EXPORT void update();
     DEFINE_ACTION(actionCreate)
     DEFINE_ACTION(actionRemove)
     DEFINE_ACTION(actionRename)

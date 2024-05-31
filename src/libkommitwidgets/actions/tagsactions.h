@@ -28,11 +28,11 @@ public:
     void setTag(QSharedPointer<Git::Tag> tag);
 
 private:
-    void create();
-    void remove();
-    void checkout();
-    void diff();
-    void push();
+    LIBKOMMITWIDGETS_NO_EXPORT void create();
+    LIBKOMMITWIDGETS_NO_EXPORT void remove();
+    LIBKOMMITWIDGETS_NO_EXPORT void checkout();
+    LIBKOMMITWIDGETS_NO_EXPORT void diff();
+    LIBKOMMITWIDGETS_NO_EXPORT void push();
     DEFINE_ACTION(actionCreate)
     DEFINE_ACTION(actionRemove)
     DEFINE_ACTION(actionCheckout)

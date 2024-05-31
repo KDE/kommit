@@ -21,13 +21,11 @@ public:
     void setFilePaths(const QString &originalFilePath, const QString &renamedFilePath);
     void diff();
 
-private:
-    void revert();
-
 Q_SIGNALS:
     void reloadNeeded();
 
 private:
+    LIBKOMMITWIDGETS_NO_EXPORT void revert();
     QString mOriginalFilePath;
     QString mFilePath;
 

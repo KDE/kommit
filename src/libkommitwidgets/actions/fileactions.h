@@ -32,15 +32,15 @@ public:
     void setFile(QSharedPointer<Git::File> file);
 
 private:
-    void viewFile();
-    void openFile();
-    void saveAsFile();
-    void logFile();
-    void blameFile();
-    void search();
-    void openWith();
-    void diffWithHead();
-    void mergeWithHead();
+    LIBKOMMITWIDGETS_NO_EXPORT void viewFile();
+    LIBKOMMITWIDGETS_NO_EXPORT void openFile();
+    LIBKOMMITWIDGETS_NO_EXPORT void saveAsFile();
+    LIBKOMMITWIDGETS_NO_EXPORT void logFile();
+    LIBKOMMITWIDGETS_NO_EXPORT void blameFile();
+    LIBKOMMITWIDGETS_NO_EXPORT void search();
+    LIBKOMMITWIDGETS_NO_EXPORT void openWith();
+    LIBKOMMITWIDGETS_NO_EXPORT void diffWithHead();
+    LIBKOMMITWIDGETS_NO_EXPORT void mergeWithHead();
 
     DEFINE_ACTION(actionSaveAs)
 
