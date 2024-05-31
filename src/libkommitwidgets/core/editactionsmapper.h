@@ -24,25 +24,21 @@ public:
     void addTextEdit(QPlainTextEdit *control);
     void init(KActionCollection *actionCollection);
 
-private Q_SLOTS:
-    void control_undoAvailable(bool b);
-    void control_redoAvailable(bool b);
-    void control_copyAvailable(bool b);
-    void control_selectionChanged();
-
-    void actionUndo_triggered();
-    void actionRedo_triggered();
-    void actionCopy_triggered();
-    void actionCut_triggered();
-    void actionPaste_triggered();
-    void actionSelectAll_triggered();
-    void actionDelete_triggered();
-
-    // QObject interface
-public:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
+    LIBKOMMITWIDGETS_NO_EXPORT void control_undoAvailable(bool b);
+    LIBKOMMITWIDGETS_NO_EXPORT void control_redoAvailable(bool b);
+    LIBKOMMITWIDGETS_NO_EXPORT void control_copyAvailable(bool b);
+    LIBKOMMITWIDGETS_NO_EXPORT void control_selectionChanged();
+
+    LIBKOMMITWIDGETS_NO_EXPORT void actionUndo_triggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionRedo_triggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionCopy_triggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionCut_triggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionPaste_triggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionSelectAll_triggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionDelete_triggered();
     QList<QPlainTextEdit *> mTextEdits;
     QPlainTextEdit *mActiveControl{nullptr};
 
