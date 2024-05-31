@@ -47,6 +47,7 @@ public:
     void restore(QSettings &settings, QTreeView *treeView);
 
     virtual void settingsUpdated();
-private Q_SLOTS:
+
+private:
     void git_pathChanged();
 };

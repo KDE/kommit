@@ -49,10 +49,10 @@ protected:
     void fill() override;
 
 private:
-    bool mFullDetails{false};
-    void initChilds();
-    void initGraph();
+    LIBKOMMIT_NO_EXPORT void initChilds();
+    LIBKOMMIT_NO_EXPORT void initGraph();
 
+    bool mFullDetails{false};
     QString mBranch;
     QList<QSharedPointer<Commit>> mData;
     QStringList mBranches;
