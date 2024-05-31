@@ -1,5 +1,6 @@
 /*
 SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
+SPDX-FileCopyrightText: 2024 Laurent Montel <montel@kde.org>
 
 SPDX-License-Identifier: GPL-3.0-or-later
 */
@@ -17,7 +18,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 GravatarCache::GravatarCache(QObject *parent)
     : QObject{parent}
 {
-    const auto path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/avatars");
+    const auto path = cacheLocalPath();
     QDir d;
     d.mkpath(path);
 }
@@ -28,6 +29,12 @@ GravatarCache *GravatarCache::instance()
 {
     static GravatarCache instance;
     return &instance;
+}
+
+QString GravatarCache::cacheLocalPath() const
+{
+    const auto path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/avatars");
+    return path;
 }
 
 QString GravatarCache::avatarPath(const QString &email)
@@ -43,11 +50,13 @@ QString GravatarCache::avatarPath(const QString &email)
 
     QNetworkReply *reply = mNet.get(request);
     connect(reply, &QNetworkReply::finished, this, [this, emailHash, avatarUrl, reply]() {
-        QFile avatarFile;
+        const QString avatarFileName{cacheLocalPath() + QLatin1Char('/') + emailHash};
+        QFile avatarFile(avatarFileName);
         if (avatarFile.open(QIODevice::WriteOnly)) {
             avatarFile.write(reply->readAll());
             avatarFile.close();
-            mAvatarsCache.insert(emailHash, avatarUrl);
+            mAvatarsCache.insert(emailHash, avatarFileName);
+            Q_EMIT avatarUpdated(avatarFileName);
         }
         delete reply;
     });
