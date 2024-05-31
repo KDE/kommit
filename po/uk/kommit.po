@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-29 01:44+0000\n"
+"POT-Creation-Date: 2024-05-31 01:59+0000\n"
 "PO-Revision-Date: 2024-04-26 16:10+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -176,12 +176,16 @@ msgid "Author"
 msgstr "Автор"
 
 #: src/apps/main.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hamed Masafi"
+msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Laurent Montel"
+msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
@@ -190,7 +194,7 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Виправлення вад"
 
-#: src/gui/appwindow.cpp:80
+#: src/gui/appwindow.cpp:96
 #, kde-format
 msgid "No repo selected"
 msgstr "Не вибрано сховища"
@@ -286,27 +290,27 @@ msgstr "Перемкнутися/Отримати…"
 msgid "Diff tree"
 msgstr "Ієрархія різниці"
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:245
+#: src/gui/appwindow.cpp:250 src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Не вдалося створити шлях: %1"
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:245
+#: src/gui/appwindow.cpp:250 src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "Init repo"
 msgstr "Ініціалізувати сховище"
 
-#: src/gui/appwindow.cpp:257
+#: src/gui/appwindow.cpp:263
 #, kde-format
 msgid "Open repository"
 msgstr "Відкрити сховище"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:485
+#: src/gui/appwindow.cpp:342 src/gui/commandargsparser.cpp:485
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Неможливо перемикатися на гілку у процесі об'єднання"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:485
+#: src/gui/appwindow.cpp:342 src/gui/commandargsparser.cpp:485
 #, kde-format
 msgid "Switch branch"
 msgstr "Перемкнути гілку"
@@ -1275,6 +1279,12 @@ msgstr "Накопичити зміни"
 msgid "Commit/push"
 msgstr "Внести/Записати"
 
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
+#, fuzzy, kde-format
+#| msgid "Push/Commit to submodule %0"
+msgid "Commit/Push submodule: %1"
+msgstr "Записати/Внести до підмодуля %0"
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
 #, kde-format
@@ -1603,6 +1613,12 @@ msgstr "Змінено"
 msgid "None"
 msgstr "Немає"
 
+#: src/libkommitwidgets/dialogs/credentialdialog.cpp:27
+#, fuzzy, kde-format
+#| msgid "Credentials:"
+msgid "Credential for %1"
+msgstr "Реєстраційні дані:"
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, CredentialDialog)
@@ -1625,6 +1641,7 @@ msgstr "Реєстраційні дані:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:92
 #, kde-format
 msgid "Username:"
 msgstr "Користувач:"
@@ -2238,22 +2255,22 @@ msgstr ""
 "decoration: underline; color:#007af4;\">Докладніше…</span></a></p></body></"
 "html>"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:58
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:56
 #, kde-format
 msgid "View"
 msgstr "Перегляд"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:126
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:124
 #, kde-format
 msgid "Process finished"
 msgstr "Процес завершив роботу"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:131
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
 msgid "The git process crashed"
 msgstr "Процес git завершив роботу в аварійному режимі"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:132
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:130
 #, kde-format
 msgid "Process finished with error"
 msgstr "Виконання завершилося з помилкою"
@@ -2409,6 +2426,17 @@ msgstr "Мітка"
 msgid "Tag name:"
 msgstr "Назва мітки:"
 
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:139
+#, fuzzy, kde-format
+#| msgid "No commit"
+msgid " (new commit)"
+msgstr "Немає внеску"
+
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:141
+#, kde-format
+msgid " (content modified)"
+msgstr ""
+
 #: src/libkommitwidgets/reports/authorsreport.cpp:53
 #, kde-format
 msgid "Commits count by author"
@@ -2438,6 +2466,41 @@ msgstr "Час"
 #, kde-format
 msgid "Hour of day"
 msgstr "Час доби"
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:22
+#, kde-format
+msgid "Monday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:24
+#, kde-format
+msgid "Tuesday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:26
+#, kde-format
+msgid "Wednesday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:28
+#, kde-format
+msgid "Thursday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:30
+#, kde-format
+msgid "Friday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:32
+#, kde-format
+msgid "Saturday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:34
+#, kde-format
+msgid "Sunday"
+msgstr ""
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
 #, kde-format

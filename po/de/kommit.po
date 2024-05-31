@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-29 01:44+0000\n"
+"POT-Creation-Date: 2024-05-31 01:59+0000\n"
 "PO-Revision-Date: 2023-05-10 20:28+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -180,12 +180,16 @@ msgid "Author"
 msgstr "Autor"
 
 #: src/apps/main.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hamed Masafi"
+msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Laurent Montel"
+msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
@@ -194,7 +198,7 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Fehlerkorrekturen"
 
-#: src/gui/appwindow.cpp:80
+#: src/gui/appwindow.cpp:96
 #, kde-format
 msgid "No repo selected"
 msgstr ""
@@ -290,27 +294,27 @@ msgstr ""
 msgid "Diff tree"
 msgstr ""
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:245
+#: src/gui/appwindow.cpp:250 src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:245
+#: src/gui/appwindow.cpp:250 src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "Init repo"
 msgstr ""
 
-#: src/gui/appwindow.cpp:257
+#: src/gui/appwindow.cpp:263
 #, kde-format
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:485
+#: src/gui/appwindow.cpp:342 src/gui/commandargsparser.cpp:485
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:485
+#: src/gui/appwindow.cpp:342 src/gui/commandargsparser.cpp:485
 #, kde-format
 msgid "Switch branch"
 msgstr ""
@@ -1266,6 +1270,11 @@ msgstr ""
 msgid "Commit/push"
 msgstr ""
 
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
+#, kde-format
+msgid "Commit/Push submodule: %1"
+msgstr ""
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
 #, kde-format
@@ -1569,6 +1578,11 @@ msgstr ""
 msgid "None"
 msgstr ""
 
+#: src/libkommitwidgets/dialogs/credentialdialog.cpp:27
+#, kde-format
+msgid "Credential for %1"
+msgstr ""
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, CredentialDialog)
@@ -1591,6 +1605,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:92
 #, fuzzy, kde-format
 #| msgid "Rename"
 msgid "Username:"
@@ -2146,22 +2161,22 @@ msgid ""
 "body></html>"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:58
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:56
 #, kde-format
 msgid "View"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:126
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:124
 #, kde-format
 msgid "Process finished"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:131
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
 msgid "The git process crashed"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:132
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:130
 #, kde-format
 msgid "Process finished with error"
 msgstr ""
@@ -2308,6 +2323,16 @@ msgstr ""
 msgid "Tag name:"
 msgstr ""
 
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:139
+#, kde-format
+msgid " (new commit)"
+msgstr ""
+
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:141
+#, kde-format
+msgid " (content modified)"
+msgstr ""
+
 #: src/libkommitwidgets/reports/authorsreport.cpp:53
 #, kde-format
 msgid "Commits count by author"
@@ -2337,6 +2362,41 @@ msgstr ""
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:66
 #, kde-format
 msgid "Hour of day"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:22
+#, kde-format
+msgid "Monday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:24
+#, kde-format
+msgid "Tuesday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:26
+#, kde-format
+msgid "Wednesday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:28
+#, kde-format
+msgid "Thursday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:30
+#, kde-format
+msgid "Friday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:32
+#, kde-format
+msgid "Saturday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:34
+#, kde-format
+msgid "Sunday"
 msgstr ""
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75

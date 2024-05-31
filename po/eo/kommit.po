@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-29 01:44+0000\n"
+"POT-Creation-Date: 2024-05-31 01:59+0000\n"
 "PO-Revision-Date: 2024-04-27 19:00+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -176,12 +176,16 @@ msgid "Author"
 msgstr "Aŭtoro"
 
 #: src/apps/main.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hamed Masafi"
+msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Laurent Montel"
+msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
@@ -190,7 +194,7 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Cimkorektado"
 
-#: src/gui/appwindow.cpp:80
+#: src/gui/appwindow.cpp:96
 #, kde-format
 msgid "No repo selected"
 msgstr "Neniu deponejo elektita"
@@ -286,27 +290,27 @@ msgstr "Ŝalti/Elpreni (checkout)..."
 msgid "Diff tree"
 msgstr "Diff-arbo"
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:245
+#: src/gui/appwindow.cpp:250 src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ne eblas krei vojon: %1"
 
-#: src/gui/appwindow.cpp:247 src/gui/commandargsparser.cpp:245
+#: src/gui/appwindow.cpp:250 src/gui/commandargsparser.cpp:245
 #, kde-format
 msgid "Init repo"
 msgstr "Iniciati deponejon"
 
-#: src/gui/appwindow.cpp:257
+#: src/gui/appwindow.cpp:263
 #, kde-format
 msgid "Open repository"
 msgstr "Malfermi deponejon"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:485
+#: src/gui/appwindow.cpp:342 src/gui/commandargsparser.cpp:485
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Ne povas ŝanĝi branĉon dum kunfandado"
 
-#: src/gui/appwindow.cpp:348 src/gui/commandargsparser.cpp:485
+#: src/gui/appwindow.cpp:342 src/gui/commandargsparser.cpp:485
 #, kde-format
 msgid "Switch branch"
 msgstr "Ŝanĝi branĉon"
@@ -1274,6 +1278,12 @@ msgstr "Kaŝkonservi ŝanĝojn (stash)"
 msgid "Commit/push"
 msgstr "Enmeti/push"
 
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
+#, fuzzy, kde-format
+#| msgid "Push/Commit to submodule %0"
+msgid "Commit/Push submodule: %1"
+msgstr "Puŝi/Enmeti al submodulo %0"
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
 #, kde-format
@@ -1599,6 +1609,12 @@ msgstr "Modifita"
 msgid "None"
 msgstr "Neniu"
 
+#: src/libkommitwidgets/dialogs/credentialdialog.cpp:27
+#, fuzzy, kde-format
+#| msgid "Credentials:"
+msgid "Credential for %1"
+msgstr "Akreditaĵoj:"
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, CredentialDialog)
@@ -1621,6 +1637,7 @@ msgstr "Akreditaĵoj:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:92
 #, kde-format
 msgid "Username:"
 msgstr "Uzantnomo:"
@@ -2233,22 +2250,22 @@ msgstr ""
 "decoration: underline; color:#007af4;\">Pliaj informoj...</span></a></p></"
 "body></html>"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:58
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:56
 #, kde-format
 msgid "View"
 msgstr "Vido"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:126
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:124
 #, kde-format
 msgid "Process finished"
 msgstr "Procezo finita"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:131
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
 msgid "The git process crashed"
 msgstr "La git-procezo paneis"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:132
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:130
 #, kde-format
 msgid "Process finished with error"
 msgstr "Procezo finiĝis kun eraro"
@@ -2404,6 +2421,17 @@ msgstr "Etikedo"
 msgid "Tag name:"
 msgstr "Etikedo nomo:"
 
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:139
+#, fuzzy, kde-format
+#| msgid "No commit"
+msgid " (new commit)"
+msgstr "Neniu enmeto"
+
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:141
+#, kde-format
+msgid " (content modified)"
+msgstr ""
+
 #: src/libkommitwidgets/reports/authorsreport.cpp:53
 #, kde-format
 msgid "Commits count by author"
@@ -2433,6 +2461,41 @@ msgstr "Horo"
 #, kde-format
 msgid "Hour of day"
 msgstr "Taghoro"
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:22
+#, kde-format
+msgid "Monday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:24
+#, kde-format
+msgid "Tuesday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:26
+#, kde-format
+msgid "Wednesday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:28
+#, kde-format
+msgid "Thursday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:30
+#, kde-format
+msgid "Friday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:32
+#, kde-format
+msgid "Saturday"
+msgstr ""
+
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:34
+#, kde-format
+msgid "Sunday"
+msgstr ""
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
 #, kde-format
