@@ -92,6 +92,7 @@ void FileActions::blameFile()
 
 void FileActions::search()
 {
+    qWarning() << "FileActions::search() not implemented yet ";
     // SearchDialog d(mFilePath, mGit, mParent);
     // d.exec();
 }
