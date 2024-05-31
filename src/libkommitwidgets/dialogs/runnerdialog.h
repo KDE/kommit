@@ -40,7 +40,6 @@ private Q_SLOTS:
 
 private:
     QProcess *mGitProcess = nullptr;
-    Git::Manager *const mGit;
 
     enum Mode { None, RunByArgs, RunByCommand };
     Mode mMode{None};

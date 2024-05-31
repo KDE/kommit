@@ -15,7 +15,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 RunnerDialog::RunnerDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(parent)
     , mGitProcess(new QProcess{this})
-    , mGit(git)
 {
     setupUi(this);
 

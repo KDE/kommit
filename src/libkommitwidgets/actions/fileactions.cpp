@@ -61,7 +61,7 @@ void FileActions::popup(const QPoint &pos)
 
 void FileActions::viewFile()
 {
-    auto d = new FileViewerDialog(mGit, mFile, mParent);
+    auto d = new FileViewerDialog(mFile, mParent);
     d->setWindowModality(Qt::ApplicationModal);
     d->setAttribute(Qt::WA_DeleteOnClose, true);
     d->show();
