@@ -61,7 +61,7 @@ CommandArgsParser::~CommandArgsParser()
     delete mGit;
 }
 
-void CommandArgsParser::checkGitPath(const QString &path)
+bool CommandArgsParser::checkGitPath(const QString &path)
 {
     do {
         QFileInfo fi(path);
@@ -72,9 +72,10 @@ void CommandArgsParser::checkGitPath(const QString &path)
         }
         if (!mGit->isValid()) {
             KMessageBox::error(nullptr, i18n("The path is not git repo: %1", path));
-            return;
+            return false;
         }
     } while (false);
+    return true;
 }
 
 void CommandArgsParser::add(const QString &name, const CommandList &list)
@@ -278,7 +279,9 @@ ArgParserReturn CommandArgsParser::fetch(const QString &path)
 
 ArgParserReturn CommandArgsParser::push(const QString &path)
 {
-    checkGitPath(path);
+    if (!checkGitPath(path)) {
+        return 1;
+    }
 
     CommitPushDialog d(mGit);
     d.exec();
@@ -315,7 +318,9 @@ ArgParserReturn CommandArgsParser::changes()
 
 ArgParserReturn CommandArgsParser::changes(const QString &path)
 {
-    checkGitPath(path);
+    if (!checkGitPath(path)) {
+        return 1;
+    }
 
     ChangedFilesDialog d(mGit);
     d.exec();
@@ -324,7 +329,9 @@ ArgParserReturn CommandArgsParser::changes(const QString &path)
 
 ArgParserReturn CommandArgsParser::create_tag(const QString &path)
 {
-    checkGitPath(path);
+    if (!checkGitPath(path)) {
+        return 1;
+    }
 
     TagInfoDialog d(nullptr);
 
@@ -474,7 +481,9 @@ ArgParserReturn CommandArgsParser::ignore(const QString &path)
 
 ArgParserReturn CommandArgsParser::cleanup(const QString &path)
 {
-    checkGitPath(path);
+    if (!checkGitPath(path)) {
+        return 1;
+    }
 
     CleanupDialog d;
     if (d.exec() == QDialog::Accepted) {
@@ -487,7 +496,9 @@ ArgParserReturn CommandArgsParser::cleanup(const QString &path)
 
 ArgParserReturn CommandArgsParser::switch_checkout(const QString &path)
 {
-    checkGitPath(path);
+    if (!checkGitPath(path)) {
+        return 1;
+    }
 
     if (mGit->isMerging()) {
         KMessageBox::error(nullptr, i18n("Cannot switch branch while merging"), i18n("Switch branch"));
@@ -504,7 +515,10 @@ ArgParserReturn CommandArgsParser::switch_checkout(const QString &path)
 
 ArgParserReturn CommandArgsParser::diff_branches(const QString &path)
 {
-    checkGitPath(path);
+    if (!checkGitPath(path)) {
+        return 1;
+    }
+
     SelectBranchesToDiffDialog d(mGit);
     if (d.exec() == QDialog::Accepted) {
         auto diffWin = new DiffWindow(mGit, d.oldBranch(), d.newBranch());
@@ -516,7 +530,9 @@ ArgParserReturn CommandArgsParser::diff_branches(const QString &path)
 
 ArgParserReturn CommandArgsParser::browse(const QString &place)
 {
-    checkGitPath(QDir::currentPath());
+    if (!checkGitPath(QDir::currentPath())) {
+        return 1;
+    }
 
     FilesTreeDialog d{mGit, place};
     d.exec();
@@ -525,7 +541,9 @@ ArgParserReturn CommandArgsParser::browse(const QString &place)
 
 ArgParserReturn CommandArgsParser::browse(const QString &path, const QString &place)
 {
-    checkGitPath(path);
+    if (!checkGitPath(path)) {
+        return 1;
+    }
 
     FilesTreeDialog d{mGit, place};
     d.exec();
@@ -534,7 +552,9 @@ ArgParserReturn CommandArgsParser::browse(const QString &path, const QString &pl
 
 ArgParserReturn CommandArgsParser::add(const QString &path)
 {
-    checkGitPath(path);
+    if (!checkGitPath(path)) {
+        return 1;
+    }
 
     mGit->addFile(path);
     KMessageBox::information(nullptr, i18n("File(s) added to git successfully"));
@@ -543,7 +563,9 @@ ArgParserReturn CommandArgsParser::add(const QString &path)
 
 ArgParserReturn CommandArgsParser::remove(const QString &path)
 {
-    checkGitPath(path);
+    if (!checkGitPath(path)) {
+        return 1;
+    }
 
     auto cached = KMessageBoxHelper::removeQuestion(nullptr, i18n("Would you like to leave file(s) on disk?"), i18n("Remove from index"));
     mGit->removeFile(path, cached);

@@ -95,7 +95,7 @@ public Q_SLOTS:
     ArgParserReturn main(const QString &path);
 
 private:
-    void checkGitPath(const QString &path);
+    Q_REQUIRED_RESULT bool checkGitPath(const QString &path);
     QMap<QString, CommandList> mCommands;
     QMap<QString, QString> mParams;
     Git::Manager *const mGit;
