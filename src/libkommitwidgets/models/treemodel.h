@@ -8,9 +8,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QAbstractItemModel>
 
+#include "libkommitwidgets_export.h"
 #include <QIcon>
 
-class TreeModel : public QAbstractItemModel
+class LIBKOMMITWIDGETS_EXPORT TreeModel : public QAbstractItemModel
 {
     Q_OBJECT
 
@@ -103,14 +104,13 @@ public:
     void setShowRoot(bool newDefaultRoot);
 
 protected:
-    Node *mRootNode = nullptr;
+    Node *const mRootNode;
 
+private:
     Node *createPath(const QStringList &path);
     Node *find(QStringList &path, Node *node = nullptr);
     void getFullPath(QString &path, Node *node) const;
     void sortNode(Node *node);
-
-private:
     QString mSeparator{QStringLiteral("/")};
     bool mLastPartAsData{false};
     QIcon mDefaultIcon;
