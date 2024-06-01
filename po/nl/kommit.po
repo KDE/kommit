@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-31 01:59+0000\n"
-"PO-Revision-Date: 2024-04-26 11:36+0200\n"
+"POT-Creation-Date: 2024-06-01 01:42+0000\n"
+"PO-Revision-Date: 2024-05-31 13:23+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -175,15 +175,13 @@ msgid "Author"
 msgstr "Auteur"
 
 #: src/apps/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Hamed Masafi"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
@@ -1225,7 +1223,7 @@ msgid "Checkout..."
 msgstr "Checkout..."
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
-#: src/libkommitwidgets/dialogs/taginfodialog.cpp:13
+#: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
@@ -1280,10 +1278,9 @@ msgid "Commit/push"
 msgstr "Commit/push"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Push/Commit to submodule %0"
+#, kde-format
 msgid "Commit/Push submodule: %1"
-msgstr "Push/Commit naar submodule %0"
+msgstr "Commit/Push submodule: %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -1614,10 +1611,9 @@ msgid "None"
 msgstr "Geen"
 
 #: src/libkommitwidgets/dialogs/credentialdialog.cpp:27
-#, fuzzy, kde-format
-#| msgid "Credentials:"
+#, kde-format
 msgid "Credential for %1"
-msgstr "Credentials:"
+msgstr "Credential voor %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
@@ -1641,7 +1637,7 @@ msgstr "Credentials:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:92
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:91
 #, kde-format
 msgid "Username:"
 msgstr "Gebruikersnaam:"
@@ -1803,18 +1799,18 @@ msgstr "Door bestanden bladeren: %1"
 msgid "Branch:"
 msgstr "Branch:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Voorbeeld sluiten"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:49
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Even geduld terwijl het voorbeeld sluit..."
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2257,22 +2253,22 @@ msgstr ""
 "\" text-decoration: underline; color:#007af4;\">Meer informatie...</span></"
 "a></p></body></html>"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:56
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:55
 #, kde-format
 msgid "View"
 msgstr "Beeld"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:124
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:123
 #, kde-format
 msgid "Process finished"
 msgstr "Proces beëindigd"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:128
 #, kde-format
 msgid "The git process crashed"
 msgstr "Het git-proces is gecrasht"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:130
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
 msgid "Process finished with error"
 msgstr "Proces beëindigd met een fout"
@@ -2429,15 +2425,14 @@ msgid "Tag name:"
 msgstr "Tagnaam:"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:139
-#, fuzzy, kde-format
-#| msgid "No commit"
+#, kde-format
 msgid " (new commit)"
-msgstr "Geen commit"
+msgstr " (nieuwe commit)"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:141
 #, kde-format
 msgid " (content modified)"
-msgstr ""
+msgstr " (inhoud gewijzigd)"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:53
 #, kde-format
@@ -2472,37 +2467,37 @@ msgstr "Uur van de dag"
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:22
 #, kde-format
 msgid "Monday"
-msgstr ""
+msgstr "maandag"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:24
 #, kde-format
 msgid "Tuesday"
-msgstr ""
+msgstr "dinsdag"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:26
 #, kde-format
 msgid "Wednesday"
-msgstr ""
+msgstr "woensdag"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:28
 #, kde-format
 msgid "Thursday"
-msgstr ""
+msgstr "donderdag"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:30
 #, kde-format
 msgid "Friday"
-msgstr ""
+msgstr "vrijdag"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:32
 #, kde-format
 msgid "Saturday"
-msgstr ""
+msgstr "zaterdag"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:34
 #, kde-format
 msgid "Sunday"
-msgstr ""
+msgstr "zondag"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
 #, kde-format
@@ -2539,22 +2534,22 @@ msgstr "Maand-jaar"
 msgid "Uncommited"
 msgstr "Niet-gecommit"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:86
+#: src/libkommitwidgets/widgets/commitdetails.cpp:87
 #, kde-format
 msgid "Branch: "
 msgstr "Branch: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:88
+#: src/libkommitwidgets/widgets/commitdetails.cpp:89
 #, kde-format
 msgid "Note: "
 msgstr "Notitie: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:90
+#: src/libkommitwidgets/widgets/commitdetails.cpp:91
 #, kde-format
 msgid "Remote: "
 msgstr "Op afstand: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:92
+#: src/libkommitwidgets/widgets/commitdetails.cpp:93
 #, kde-format
 msgid "Tag: "
 msgstr "Tag: "

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-31 01:59+0000\n"
-"PO-Revision-Date: 2024-04-29 11:52+0200\n"
+"POT-Creation-Date: 2024-06-01 01:42+0000\n"
+"PO-Revision-Date: 2024-06-01 01:44+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -177,15 +177,13 @@ msgid "Author"
 msgstr "Autor"
 
 #: src/apps/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Hamed Masafi"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
@@ -1226,7 +1224,7 @@ msgid "Checkout..."
 msgstr "Cambiar rama..."
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
-#: src/libkommitwidgets/dialogs/taginfodialog.cpp:13
+#: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
@@ -1281,10 +1279,9 @@ msgid "Commit/push"
 msgstr "Confirmar/enviar"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Push/Commit to submodule %0"
+#, kde-format
 msgid "Commit/Push submodule: %1"
-msgstr "Enviar/confirmar al submódulo %0"
+msgstr "Confirmar/enviar submódulo: %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -1616,10 +1613,9 @@ msgid "None"
 msgstr "Ninguno"
 
 #: src/libkommitwidgets/dialogs/credentialdialog.cpp:27
-#, fuzzy, kde-format
-#| msgid "Credentials:"
+#, kde-format
 msgid "Credential for %1"
-msgstr "Credenciales:"
+msgstr "Credencial para %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
@@ -1643,7 +1639,7 @@ msgstr "Credenciales:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:92
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:91
 #, kde-format
 msgid "Username:"
 msgstr "Nombre de usuario:"
@@ -1805,18 +1801,18 @@ msgstr "Explorar archivos: %1"
 msgid "Branch:"
 msgstr "Rama:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Cerrando vista previa"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:49
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Espere mientras se cierra la vista previa..."
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2259,22 +2255,22 @@ msgstr ""
 "style=\" text-decoration: underline; color:#007af4;\">Más información...</"
 "span></a></p></body></html>"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:56
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:55
 #, kde-format
 msgid "View"
 msgstr "Ver"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:124
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:123
 #, kde-format
 msgid "Process finished"
 msgstr "Proceso finalizado"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:128
 #, kde-format
 msgid "The git process crashed"
 msgstr "El proceso git ha fallado"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:130
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
 msgid "Process finished with error"
 msgstr "Proceso finalizado con error"
@@ -2431,15 +2427,14 @@ msgid "Tag name:"
 msgstr "Nombre de la etiqueta:"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:139
-#, fuzzy, kde-format
-#| msgid "No commit"
+#, kde-format
 msgid " (new commit)"
-msgstr "No confirmar"
+msgstr " (nueva confirmación)"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:141
 #, kde-format
 msgid " (content modified)"
-msgstr ""
+msgstr " (contenido modificado)"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:53
 #, kde-format
@@ -2474,37 +2469,37 @@ msgstr "Hora del día"
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:22
 #, kde-format
 msgid "Monday"
-msgstr ""
+msgstr "Lunes"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:24
 #, kde-format
 msgid "Tuesday"
-msgstr ""
+msgstr "Martes"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:26
 #, kde-format
 msgid "Wednesday"
-msgstr ""
+msgstr "Miércoles"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:28
 #, kde-format
 msgid "Thursday"
-msgstr ""
+msgstr "Jueves"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:30
 #, kde-format
 msgid "Friday"
-msgstr ""
+msgstr "Viernes"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:32
 #, kde-format
 msgid "Saturday"
-msgstr ""
+msgstr "Sábado"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:34
 #, kde-format
 msgid "Sunday"
-msgstr ""
+msgstr "Domingo"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
 #, kde-format
@@ -2541,22 +2536,22 @@ msgstr "Mes-año"
 msgid "Uncommited"
 msgstr "Sin confirmar"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:86
+#: src/libkommitwidgets/widgets/commitdetails.cpp:87
 #, kde-format
 msgid "Branch: "
 msgstr "Rama: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:88
+#: src/libkommitwidgets/widgets/commitdetails.cpp:89
 #, kde-format
 msgid "Note: "
 msgstr "Nota: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:90
+#: src/libkommitwidgets/widgets/commitdetails.cpp:91
 #, kde-format
 msgid "Remote: "
 msgstr "Remoto: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:92
+#: src/libkommitwidgets/widgets/commitdetails.cpp:93
 #, kde-format
 msgid "Tag: "
 msgstr "Etiqueta: "

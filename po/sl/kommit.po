@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-31 01:59+0000\n"
-"PO-Revision-Date: 2024-04-26 06:47+0200\n"
+"POT-Creation-Date: 2024-06-01 01:42+0000\n"
+"PO-Revision-Date: 2024-05-31 11:57+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -179,15 +179,13 @@ msgid "Author"
 msgstr "Avtor"
 
 #: src/apps/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Hamed Masafi"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
@@ -1226,7 +1224,7 @@ msgid "Checkout..."
 msgstr "Prevzemi ..."
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
-#: src/libkommitwidgets/dialogs/taginfodialog.cpp:13
+#: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
@@ -1281,10 +1279,9 @@ msgid "Commit/push"
 msgstr "Objavi/potisni"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Push/Commit to submodule %0"
+#, kde-format
 msgid "Commit/Push submodule: %1"
-msgstr "Potisni/Objavi v podmodul %0"
+msgstr "Potisni/Objavi v podmodul %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -1612,10 +1609,9 @@ msgid "None"
 msgstr "Nič"
 
 #: src/libkommitwidgets/dialogs/credentialdialog.cpp:27
-#, fuzzy, kde-format
-#| msgid "Credentials:"
+#, kde-format
 msgid "Credential for %1"
-msgstr "Poverilnice:"
+msgstr "Poverilnica za %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
@@ -1639,7 +1635,7 @@ msgstr "Poverilnice:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:92
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:91
 #, kde-format
 msgid "Username:"
 msgstr "Uporabniško ime:"
@@ -1801,18 +1797,18 @@ msgstr "Brskaj po datotekah: %1"
 msgid "Branch:"
 msgstr "Veja:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Zapiranje predogleda"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:49
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Počakajte, da se predogled zapre ..."
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2253,22 +2249,22 @@ msgstr ""
 "decoration: underline; color:#007af4;\">Več informacij...</span></a></p></"
 "body></html>"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:56
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:55
 #, kde-format
 msgid "View"
 msgstr "Pogled"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:124
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:123
 #, kde-format
 msgid "Process finished"
 msgstr "Proces se je končal"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:128
 #, kde-format
 msgid "The git process crashed"
 msgstr "Proces git se je sesul"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:130
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
 msgid "Process finished with error"
 msgstr "Proces se je končal z napako"
@@ -2425,15 +2421,14 @@ msgid "Tag name:"
 msgstr "Ime značke:"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:139
-#, fuzzy, kde-format
-#| msgid "No commit"
+#, kde-format
 msgid " (new commit)"
-msgstr "Brez objave"
+msgstr " (nova potrditev)"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:141
 #, kde-format
 msgid " (content modified)"
-msgstr ""
+msgstr " (vsebina spremenjena)"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:53
 #, kde-format
@@ -2468,37 +2463,37 @@ msgstr "Ura dneva"
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:22
 #, kde-format
 msgid "Monday"
-msgstr ""
+msgstr "Ponedeljek"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:24
 #, kde-format
 msgid "Tuesday"
-msgstr ""
+msgstr "Torek"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:26
 #, kde-format
 msgid "Wednesday"
-msgstr ""
+msgstr "Sreda"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:28
 #, kde-format
 msgid "Thursday"
-msgstr ""
+msgstr "Četrtek"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:30
 #, kde-format
 msgid "Friday"
-msgstr ""
+msgstr "Petek"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:32
 #, kde-format
 msgid "Saturday"
-msgstr ""
+msgstr "Sobota"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:34
 #, kde-format
 msgid "Sunday"
-msgstr ""
+msgstr "Nedelja"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
 #, kde-format
@@ -2535,22 +2530,22 @@ msgstr "Mesec-leto"
 msgid "Uncommited"
 msgstr "Neobjavljeno"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:86
+#: src/libkommitwidgets/widgets/commitdetails.cpp:87
 #, kde-format
 msgid "Branch: "
 msgstr "Veja: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:88
+#: src/libkommitwidgets/widgets/commitdetails.cpp:89
 #, kde-format
 msgid "Note: "
 msgstr "Opomba: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:90
+#: src/libkommitwidgets/widgets/commitdetails.cpp:91
 #, kde-format
 msgid "Remote: "
 msgstr "Oddaljena: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:92
+#: src/libkommitwidgets/widgets/commitdetails.cpp:93
 #, kde-format
 msgid "Tag: "
 msgstr "Oznaka: "

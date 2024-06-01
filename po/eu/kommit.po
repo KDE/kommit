@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-31 01:59+0000\n"
+"POT-Creation-Date: 2024-06-01 01:42+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1228,7 +1228,7 @@ msgid "Checkout..."
 msgstr "Atera"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
-#: src/libkommitwidgets/dialogs/taginfodialog.cpp:13
+#: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
@@ -1621,7 +1621,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:92
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:91
 #, fuzzy, kde-format
 #| msgid "Rename"
 msgid "Username:"
@@ -1786,18 +1786,18 @@ msgstr "Arakatu fitxategiak: %1"
 msgid "Branch:"
 msgstr "Adarra:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Aurreikuspegia ixtea"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:49
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Mesedez, itxoin aurreikuspegia itxi bitartean..."
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2180,22 +2180,22 @@ msgid ""
 "body></html>"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:56
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:55
 #, kde-format
 msgid "View"
 msgstr "Ikuspegia"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:124
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:123
 #, kde-format
 msgid "Process finished"
 msgstr "Prozesua bukatu da"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:128
 #, kde-format
 msgid "The git process crashed"
 msgstr "Git prozesua kraskatu egin da"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:130
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
 msgid "Process finished with error"
 msgstr "Prozesua erroreekin bukatu da"
@@ -2456,25 +2456,25 @@ msgstr ""
 msgid "Uncommited"
 msgstr "Baliozkotu gabea"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:86
+#: src/libkommitwidgets/widgets/commitdetails.cpp:87
 #, fuzzy, kde-format
 #| msgid "Branch:"
 msgid "Branch: "
 msgstr "Adarra:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:88
+#: src/libkommitwidgets/widgets/commitdetails.cpp:89
 #, fuzzy, kde-format
 #| msgid "Note"
 msgid "Note: "
 msgstr "Oharra"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:90
+#: src/libkommitwidgets/widgets/commitdetails.cpp:91
 #, fuzzy, kde-format
 #| msgid "Remote:"
 msgid "Remote: "
 msgstr "Urrutikoa:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:92
+#: src/libkommitwidgets/widgets/commitdetails.cpp:93
 #, kde-format
 msgid "Tag: "
 msgstr ""

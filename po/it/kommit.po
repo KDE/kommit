@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-31 01:59+0000\n"
+"POT-Creation-Date: 2024-06-01 01:42+0000\n"
 "PO-Revision-Date: 2024-04-26 08:55+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1223,7 +1223,7 @@ msgid "Checkout..."
 msgstr "Checkout..."
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
-#: src/libkommitwidgets/dialogs/taginfodialog.cpp:13
+#: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
@@ -1639,7 +1639,7 @@ msgstr "Credenziali:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:92
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:91
 #, kde-format
 msgid "Username:"
 msgstr "Nome utente:"
@@ -1801,18 +1801,18 @@ msgstr "Sfoglia i file: %1"
 msgid "Branch:"
 msgstr "Ramo:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Chiusura anteprima"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:49
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgid "Please wait while the preview is being closed..."
 msgstr "Attendi la chiusura dell'anteprima..."
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2256,22 +2256,22 @@ msgstr ""
 "decoration: underline; color:#007af4;\">Ulteriori informazioni...</span></"
 "a></p></body></html>"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:56
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:55
 #, kde-format
 msgid "View"
 msgstr "Visualizza"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:124
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:123
 #, kde-format
 msgid "Process finished"
 msgstr "Processo terminato"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:128
 #, kde-format
 msgid "The git process crashed"
 msgstr "Il processo git si è arrestato in modo anomalo"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:130
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
 msgid "Process finished with error"
 msgstr "Processo terminato con errori"
@@ -2538,22 +2538,22 @@ msgstr "Mese-anno"
 msgid "Uncommited"
 msgstr "Senza commit"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:86
+#: src/libkommitwidgets/widgets/commitdetails.cpp:87
 #, kde-format
 msgid "Branch: "
 msgstr "Ramo: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:88
+#: src/libkommitwidgets/widgets/commitdetails.cpp:89
 #, kde-format
 msgid "Note: "
 msgstr "Nota: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:90
+#: src/libkommitwidgets/widgets/commitdetails.cpp:91
 #, kde-format
 msgid "Remote: "
 msgstr "Remoto: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:92
+#: src/libkommitwidgets/widgets/commitdetails.cpp:93
 #, kde-format
 msgid "Tag: "
 msgstr "Tag: "
