@@ -15,14 +15,8 @@ target_sources(libkommitgui PRIVATE
     core/repositorydata.h
     core/repositorydata.cpp
 
-    models/filesmodel.cpp
-    models/filesmodel.h
-    models/changedfilesmodel.h
-    models/changedfilesmodel.cpp
-    models/commitsfiltermodel.h
     models/commitsfiltermodel.cpp
-
-
+    models/commitsfiltermodel.h
     pages/reportswidget.h
     pages/reportswidget.cpp
     pages/branchesstatuswidget.h
