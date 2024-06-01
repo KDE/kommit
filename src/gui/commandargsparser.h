@@ -49,14 +49,9 @@ using CommandList = QList<Command>;
 class LIBKOMMITGUI_EXPORT CommandArgsParser : public QObject
 {
     Q_OBJECT
-
-    QMap<QString, CommandList> mCommands;
-    QMap<QString, QString> mParams;
-    Git::Manager *git = nullptr;
-    QMap<QString, QString> mHelpTexts;
-
 public:
     CommandArgsParser();
+    ~CommandArgsParser() override;
     void add(const QString &name, const CommandList &list);
     void add(const QString &name, const QString &list);
     bool check(const CommandList &commands);
@@ -98,4 +93,10 @@ public Q_SLOTS:
 
     ArgParserReturn main();
     ArgParserReturn main(const QString &path);
+
+private:
+    QMap<QString, CommandList> mCommands;
+    QMap<QString, QString> mParams;
+    Git::Manager *const git;
+    QMap<QString, QString> mHelpTexts;
 };

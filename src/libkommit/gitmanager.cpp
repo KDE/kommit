@@ -914,12 +914,12 @@ void Manager::forEachRefs(std::function<void(QSharedPointer<Reference>)> callbac
 
 Manager::Manager()
     : QObject()
-    , mRemotesModel{new RemotesModel(this)}
-    , mSubmodulesModel{new SubmodulesModel(this)}
-    , mBranchesModel{new BranchesModel(this)}
-    , mLogsCache{new LogsModel(this)}
-    , mStashesCache{new StashesModel(this)}
-    , mTagsModel{new TagsModel(this)}
+    , mRemotesModel{new RemotesModel(this, this)}
+    , mSubmodulesModel{new SubmodulesModel(this, this)}
+    , mBranchesModel{new BranchesModel(this, this)}
+    , mLogsCache{new LogsModel(this, this)}
+    , mStashesCache{new StashesModel(this, this)}
+    , mTagsModel{new TagsModel(this, this)}
 {
     git_libgit2_init();
 }

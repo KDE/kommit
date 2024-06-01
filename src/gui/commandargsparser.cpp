@@ -64,9 +64,14 @@ constexpr int InvalidPath = 1;
 
 CommandArgsParser::CommandArgsParser()
     : QObject()
+    , git(new Git::Manager)
 {
-    git = new Git::Manager;
     SettingsManager::applyToLib();
+}
+
+CommandArgsParser::~CommandArgsParser()
+{
+    delete git;
 }
 
 void CommandArgsParser::add(const QString &name, const CommandList &list)
