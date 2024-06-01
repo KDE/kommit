@@ -19,6 +19,11 @@ RemotesModel::RemotesModel(Manager *git, QObject *parent)
 {
 }
 
+RemotesModel::~RemotesModel()
+{
+    qDeleteAll(mData);
+}
+
 int RemotesModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)

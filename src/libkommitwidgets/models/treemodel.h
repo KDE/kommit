@@ -72,6 +72,7 @@ public:
     };
 
     explicit TreeModel(QObject *parent = nullptr);
+    ~TreeModel() override;
 
     QModelIndex index(const Node *node, int col) const;
     int rowCount(const QModelIndex &parent) const override;

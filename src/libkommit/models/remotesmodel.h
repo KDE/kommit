@@ -22,6 +22,7 @@ class LIBKOMMIT_EXPORT RemotesModel : public AbstractGitItemsModel
 
 public:
     explicit RemotesModel(Manager *git, QObject *parent = nullptr);
+    ~RemotesModel() override;
     int columnCount(const QModelIndex &parent) const override;
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;

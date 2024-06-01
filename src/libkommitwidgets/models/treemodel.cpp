@@ -55,6 +55,11 @@ TreeModel::TreeModel(QObject *parent)
 {
 }
 
+TreeModel::~TreeModel()
+{
+    delete mRootNode;
+}
+
 QModelIndex TreeModel::index(const Node *node, int col) const
 {
     if (node->parent)
