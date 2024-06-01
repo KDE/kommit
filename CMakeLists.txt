@@ -128,7 +128,7 @@ add_subdirectory(src)
 #add_subdirectory(autotests)
 if (UNIX AND TARGET DolphinVcs)
     add_subdirectory(dolphinplugins)
-endif (UNIX)
+endif ()
 
 
 ecm_qt_install_logging_categories(
