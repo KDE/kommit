@@ -14,7 +14,7 @@ class RepositoryData : public QObject
 
 public:
     explicit RepositoryData(QObject *parent = nullptr);
-
+    ~RepositoryData() override;
     void loadAll();
 
 private:

@@ -27,6 +27,11 @@ RepositoryData::RepositoryData(QObject *parent)
 {
 }
 
+RepositoryData::~RepositoryData()
+{
+    delete mManager;
+}
+
 void RepositoryData::loadAll()
 {
     mRemotesModel->load();
