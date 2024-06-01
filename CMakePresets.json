@@ -9,6 +9,14 @@
 	    "installDir": "$env{KF5}",
             "hidden": true
         },
+        {   
+            "name": "base-qt6",
+            "displayName": "base preset qt6",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-${presetName}",
+            "installDir": "$env{KF6}",
+            "hidden": true
+        },  	
         {
             "name": "dev-mold",
             "displayName": "Build as debug + using mold linker",
@@ -55,9 +63,22 @@
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
             },
             "inherits": [
-                "base"
+                "base-qt6"
             ]
         },
+        {
+            "name": "asan-qt6",
+            "displayName": "Build with Asan support.(qt6)",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+		"BUILD_WITH_QT6": "ON",
+                "ECM_ENABLE_SANITIZERS" : "'address;undefined'",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            },
+            "inherits": [
+                "base-qt6"
+            ]
+        },	
         {
             "name": "dev-disable-deprecated",
             "displayName": "Build as without deprecated methods",
@@ -195,6 +216,10 @@
             "name": "asan",
             "configurePreset": "asan"
         },
+        {
+            "name": "asan-qt6",
+            "configurePreset": "asan-qt6"
+        },	
         {
             "name": "unity",
             "configurePreset": "unity"
