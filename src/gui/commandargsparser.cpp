@@ -49,19 +49,6 @@ namespace Errors
 constexpr int InvalidPath = 1;
 };
 
-#define checkGitPath(path)                                                                                                                                     \
-    do {                                                                                                                                                       \
-        QFileInfo fi(path);                                                                                                                                    \
-        if (fi.isFile())                                                                                                                                       \
-            mGit->open(fi.absolutePath());                                                                                                                     \
-        else                                                                                                                                                   \
-            mGit->open(path);                                                                                                                                  \
-        if (!mGit->isValid()) {                                                                                                                                \
-            KMessageBox::error(nullptr, i18n("The path is not git repo: %1", path));                                                                           \
-            return 1;                                                                                                                                          \
-        }                                                                                                                                                      \
-    } while (false)
-
 CommandArgsParser::CommandArgsParser()
     : QObject()
     , mGit(new Git::Manager)
@@ -72,6 +59,22 @@ CommandArgsParser::CommandArgsParser()
 CommandArgsParser::~CommandArgsParser()
 {
     delete mGit;
+}
+
+void CommandArgsParser::checkGitPath(const QString &path)
+{
+    do {
+        QFileInfo fi(path);
+        if (fi.isFile()) {
+            mGit->open(fi.absolutePath());
+        } else {
+            mGit->open(path);
+        }
+        if (!mGit->isValid()) {
+            KMessageBox::error(nullptr, i18n("The path is not git repo: %1", path));
+            return;
+        }
+    } while (false);
 }
 
 void CommandArgsParser::add(const QString &name, const CommandList &list)
