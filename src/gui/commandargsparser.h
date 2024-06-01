@@ -97,6 +97,6 @@ public Q_SLOTS:
 private:
     QMap<QString, CommandList> mCommands;
     QMap<QString, QString> mParams;
-    Git::Manager *const git;
+    Git::Manager *const mGit;
     QMap<QString, QString> mHelpTexts;
 };
