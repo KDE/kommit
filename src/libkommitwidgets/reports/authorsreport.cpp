@@ -19,6 +19,11 @@ AuthorsReport::AuthorsReport(Git::Manager *git, QObject *parent)
     setValueColumn(2);
 }
 
+AuthorsReport::~AuthorsReport()
+{
+    qDeleteAll(mData);
+}
+
 void AuthorsReport::reload()
 {
     qDeleteAll(mData);
