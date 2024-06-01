@@ -10,8 +10,6 @@ target_sources(libkommitgui PRIVATE
     core/pushbutton.h
     core/treeview.cpp
     core/treeview.h
-    core/commitsfiltermodel.h
-    core/commitsfiltermodel.cpp
     core/kmessageboxhelper.h
     core/kmessageboxhelper.cpp
     core/repositorydata.h
@@ -25,6 +23,9 @@ target_sources(libkommitgui PRIVATE
     models/treemodel.h
     models/changedfilesmodel.h
     models/changedfilesmodel.cpp
+    models/commitsfiltermodel.h
+    models/commitsfiltermodel.cpp
+
 
     pages/reportswidget.h
     pages/reportswidget.cpp

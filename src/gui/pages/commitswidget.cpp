@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actions/branchactions.h"
 #include "actions/commitactions.h"
-#include "core/commitsfiltermodel.h"
+#include "models/commitsfiltermodel.h"
 
 #include <entities/branch.h>
 #include <entities/commit.h>
