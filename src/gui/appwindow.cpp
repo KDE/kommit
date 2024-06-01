@@ -103,6 +103,7 @@ AppWindow::~AppWindow()
     QSettings s;
     for (auto &w : mBaseWidgets)
         w->saveState(s);
+    qDeleteAll(mBaseWidgets);
 }
 
 AppWindow::AppWindow(const QString &path)

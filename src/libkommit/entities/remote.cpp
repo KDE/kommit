@@ -48,7 +48,10 @@ QString RefSpec::source() const
     return mSource;
 }
 
-Remote::Remote() = default;
+Remote::Remote()
+{
+    qDeleteAll(mRefSpecList);
+}
 
 Remote::Remote(git_remote *remote)
 {
