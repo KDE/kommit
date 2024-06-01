@@ -21,8 +21,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-Commit::Commit() = default;
-
 Commit::Commit(git_commit *commit)
     : mGitCommit{commit}
 {

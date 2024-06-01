@@ -30,8 +30,7 @@ class LIBKOMMIT_EXPORT Commit : public ITree
 public:
     enum CommitType { NormalCommit, InitialCommit, ForkCommit, MergeCommit };
 
-    Commit();
-    Commit(git_commit *commit);
+    explicit Commit(git_commit *commit);
     ~Commit();
 
     Q_REQUIRED_RESULT QSharedPointer<Signature> author() const;
@@ -60,7 +59,7 @@ public:
     bool createNote(const QString &message);
 
 private:
-    git_commit *mGitCommit{nullptr};
+    git_commit *const mGitCommit;
     QSharedPointer<Signature> mAuthor;
     QSharedPointer<Signature> mCommitter;
     QString mMessage;
