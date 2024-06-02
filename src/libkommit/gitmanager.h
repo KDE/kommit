@@ -106,8 +106,15 @@ class LIBKOMMIT_EXPORT Manager : public QObject
     Q_OBJECT
 
 public:
-    enum class BranchType { LocalBranch, RemoteBranch, AllBranches };
-    enum ConfigType { ConfigGlobal, ConfigLocal };
+    enum class BranchType {
+        LocalBranch,
+        RemoteBranch,
+        AllBranches,
+    };
+    enum ConfigType {
+        ConfigGlobal,
+        ConfigLocal,
+    };
 
     Manager();
     explicit Manager(git_repository *repo);

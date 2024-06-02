@@ -19,7 +19,15 @@ struct LanesFactory;
 class LIBKOMMIT_EXPORT GraphLane
 {
 public:
-    enum Type { None, Start, Pipe, Node, End, Transparent, Test };
+    enum Type {
+        None,
+        Start,
+        Pipe,
+        Node,
+        End,
+        Transparent,
+        Test,
+    };
     GraphLane();
     GraphLane(Type type);
 
