@@ -19,7 +19,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class Commit;
 class LIBKOMMIT_EXPORT Tree
 {
 public:

@@ -18,7 +18,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 class QMimeType;
 namespace Git
 {
-class Manager;
 class File;
 }
 class LIBKOMMITWIDGETS_EXPORT FileViewerDialog : public KParts::MainWindow, private Ui::FileViewerDialog
