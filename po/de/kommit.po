@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-01 01:42+0000\n"
+"POT-Creation-Date: 2024-06-02 01:42+0000\n"
 "PO-Revision-Date: 2023-05-10 20:28+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -147,7 +147,7 @@ msgid "Diff branches"
 msgstr ""
 
 #: dolphinplugins/dolphinplugin.cpp:31 dolphinplugins/dolphinplugin.cpp:35
-#: src/apps/main.cpp:34
+#: src/apps/main.cpp:53
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
@@ -162,38 +162,38 @@ msgstr ""
 msgid "Push/Commit to submodule %0"
 msgstr ""
 
-#: src/apps/main.cpp:36
+#: src/apps/main.cpp:55
 #, kde-format
 msgid "Git client gui for KDE"
 msgstr "Git-Programm für KDE"
 
-#: src/apps/main.cpp:38
+#: src/apps/main.cpp:57
 #, fuzzy, kde-format
 #| msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:40 src/libkommit/models/logsmodel.cpp:262
-#: src/libkommitwidgets/reports/authorsreport.cpp:73
+#: src/apps/main.cpp:59 src/libkommit/models/logsmodel.cpp:262
+#: src/libkommitwidgets/reports/authorsreport.cpp:78
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: src/apps/main.cpp:40
+#: src/apps/main.cpp:59
 #, fuzzy, kde-format
 #| msgid "Hamed Masafi"
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
-#: src/apps/main.cpp:41
+#: src/apps/main.cpp:60
 #, fuzzy, kde-format
 #| msgid "Laurent Montel"
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/apps/main.cpp:41
+#: src/apps/main.cpp:60
 #, kde-format
 msgid "Bug fixing"
 msgstr "Fehlerkorrekturen"
@@ -203,148 +203,148 @@ msgstr "Fehlerkorrekturen"
 msgid "No repo selected"
 msgstr ""
 
-#: src/gui/appwindow.cpp:125
+#: src/gui/appwindow.cpp:126
 #, kde-format
 msgid "Current branch: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:127
+#: src/gui/appwindow.cpp:128
 #, kde-format
 msgid " (merging)"
 msgstr ""
 
-#: src/gui/appwindow.cpp:129
+#: src/gui/appwindow.cpp:130
 #, kde-format
 msgid " (rebasing)"
 msgstr ""
 
-#: src/gui/appwindow.cpp:146
+#: src/gui/appwindow.cpp:147
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:149
+#: src/gui/appwindow.cpp:150
 #, kde-format
 msgid "Open..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:154
+#: src/gui/appwindow.cpp:155
 #, kde-format
 msgid "Clone..."
 msgstr "Klonen ..."
 
-#: src/gui/appwindow.cpp:157
+#: src/gui/appwindow.cpp:158
 #, kde-format
 msgid "Changed files..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:163
+#: src/gui/appwindow.cpp:164
 #, kde-format
 msgid "Recent repos"
 msgstr ""
 
-#: src/gui/appwindow.cpp:169
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Cleanup..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:172
+#: src/gui/appwindow.cpp:173
 #, kde-format
 msgid "Pull..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:176 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:177 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr "Abholen ..."
 
-#: src/gui/appwindow.cpp:180 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:181 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:184 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:185 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr "Zusammenführen ..."
 
-#: src/gui/appwindow.cpp:188
+#: src/gui/appwindow.cpp:189
 #, kde-format
 msgid "Diff branches..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:191 src/libkommitwidgets/actions/fileactions.cpp:54
+#: src/gui/appwindow.cpp:192 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr "Suchen ..."
 
-#: src/gui/appwindow.cpp:194
+#: src/gui/appwindow.cpp:195
 #, kde-format
 msgid "Repo settings..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:197
+#: src/gui/appwindow.cpp:198
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:200
+#: src/gui/appwindow.cpp:201
 #, kde-format
 msgid "Diff tree"
 msgstr ""
 
-#: src/gui/appwindow.cpp:250 src/gui/commandargsparser.cpp:245
+#: src/gui/appwindow.cpp:251 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:250 src/gui/commandargsparser.cpp:245
+#: src/gui/appwindow.cpp:251 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr ""
 
-#: src/gui/appwindow.cpp:263
+#: src/gui/appwindow.cpp:264
 #, kde-format
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:342 src/gui/commandargsparser.cpp:485
+#: src/gui/appwindow.cpp:343 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:342 src/gui/commandargsparser.cpp:485
+#: src/gui/appwindow.cpp:343 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:60
+#: src/gui/commandargsparser.cpp:74
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:250
+#: src/gui/commandargsparser.cpp:259
 #, kde-format
 msgid "The repo inited successfully"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:532
+#: src/gui/commandargsparser.cpp:560
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:540
+#: src/gui/commandargsparser.cpp:570
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:540
+#: src/gui/commandargsparser.cpp:570
 #, kde-format
 msgid "Remove from index"
 msgstr ""
 
-#: src/gui/commandargsparser.cpp:542
+#: src/gui/commandargsparser.cpp:572
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr ""
@@ -422,26 +422,6 @@ msgstr ""
 msgid "Don't exit"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
-#: src/gui/models/treemodel.cpp:141 src/gui/pages/remoteswidget.ui:164
-#: src/libkommit/models/branchesmodel.cpp:65
-#: src/libkommit/models/tagsmodel.cpp:61
-#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
-#: src/libkommitwidgets/models/treemodel.cpp:141
-#: src/libkommitwidgets/reports/authorsreport.cpp:63
-#, kde-format
-msgid "Name"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/gui/models/treemodel.cpp:143 src/gui/pages/remoteswidget.ui:179
-#: src/libkommit/models/submodulesmodel.cpp:64
-#: src/libkommitwidgets/models/treemodel.cpp:143
-#, kde-format
-msgid "Status"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QLabel, labelTitle)
 #. i18n: ectx: property (windowTitle), widget (QWidget, HistoryViewWidget)
 #: src/gui/multipagewidget.ui:131 src/gui/pages/historyviewwidget.ui:14
@@ -496,8 +476,8 @@ msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
 #: src/gui/pages/commitswidget.ui:14
-#: src/libkommitwidgets/reports/authorsreport.cpp:63
-#: src/libkommitwidgets/reports/authorsreport.cpp:78
+#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#: src/libkommitwidgets/reports/authorsreport.cpp:83
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:71
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
@@ -566,6 +546,17 @@ msgid "Branches:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
+#: src/gui/pages/remoteswidget.ui:164 src/libkommit/models/branchesmodel.cpp:65
+#: src/libkommit/models/tagsmodel.cpp:61
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
+#: src/libkommitwidgets/models/treemodel.cpp:146
+#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#, kde-format
+msgid "Name"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:169
 #, fuzzy, kde-format
 #| msgid "Rename"
@@ -576,6 +567,14 @@ msgstr "Umbenennen"
 #: src/gui/pages/remoteswidget.ui:174 src/libkommit/models/branchesmodel.cpp:75
 #, kde-format
 msgid "Upstream"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/pages/remoteswidget.ui:179
+#: src/libkommit/models/submodulesmodel.cpp:64
+#: src/libkommitwidgets/models/treemodel.cpp:148
+#, kde-format
+msgid "Status"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
@@ -690,7 +689,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:108
 #: src/libkommitwidgets/dialogs/pulldialog.ui:153
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:54
-#: src/libkommitwidgets/reports/authorsreport.cpp:63
+#: src/libkommitwidgets/reports/authorsreport.cpp:68
 #, kde-format
 msgid "Tags"
 msgstr ""
@@ -820,22 +819,22 @@ msgid ""
 "Please commit your changes or stash them before you switch branches."
 msgstr ""
 
-#: src/libkommit/entities/remote.cpp:214
+#: src/libkommit/entities/remote.cpp:217
 #, kde-format
 msgid "Unknown"
 msgstr ""
 
-#: src/libkommit/entities/remote.cpp:216
+#: src/libkommit/entities/remote.cpp:219
 #, kde-format
 msgid "Up to date"
 msgstr ""
 
-#: src/libkommit/entities/remote.cpp:218
+#: src/libkommit/entities/remote.cpp:221
 #, kde-format
 msgid "Fast forwardable"
 msgstr ""
 
-#: src/libkommit/entities/remote.cpp:220
+#: src/libkommit/entities/remote.cpp:223
 #, kde-format
 msgid "Local out of date"
 msgstr ""
@@ -2333,17 +2332,17 @@ msgstr ""
 msgid " (content modified)"
 msgstr ""
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:53
+#: src/libkommitwidgets/reports/authorsreport.cpp:58
 #, kde-format
 msgid "Commits count by author"
 msgstr ""
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:63
+#: src/libkommitwidgets/reports/authorsreport.cpp:68
 #, kde-format
 msgid "Email"
 msgstr ""
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:63
+#: src/libkommitwidgets/reports/authorsreport.cpp:68
 #, fuzzy, kde-format
 #| msgid "Author"
 msgid "Autheds"
