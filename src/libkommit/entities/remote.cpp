@@ -5,7 +5,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "entities/remote.h"
-#include "libkommit_debug.h"
 #include "types.h"
 
 #include <git2/buffer.h>
