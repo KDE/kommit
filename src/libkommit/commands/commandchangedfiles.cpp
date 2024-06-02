@@ -71,7 +71,7 @@ void CommandChangedFiles::parseOutputSection(const QByteArray &output, const QBy
     const auto buffer = QString(output).split(QLatin1Char('\n'));
 
     for (const auto &item : buffer) {
-        if (!item.trimmed().size())
+        if (item.trimmed().isEmpty())
             continue;
         FileStatus fs;
         fs.parseStatusLine(item);
