@@ -16,16 +16,15 @@ class LIBKOMMITWIDGETS_EXPORT SubmoduleActions : public AbstractActions
 public:
     explicit SubmoduleActions(Git::Manager *git, QWidget *parent = nullptr);
 
+    Q_REQUIRED_RESULT const QString &subModuleName() const;
+    void setSubModuleName(const QString &newSubModuleName);
+
+private:
     void init();
     void update();
     void create();
     void deinit();
     void sync();
-
-    Q_REQUIRED_RESULT const QString &subModuleName() const;
-    void setSubModuleName(const QString &newSubModuleName);
-
-private:
     QString mSubModuleName;
     DEFINE_ACTION(actionInit)
     DEFINE_ACTION(actionUpdate)
