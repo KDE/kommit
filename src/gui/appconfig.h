@@ -17,5 +17,5 @@ public:
     void apply();
 
 private:
-    Git::Manager *mGit = nullptr;
+    Git::Manager *const mGit;
 };

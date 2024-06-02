@@ -23,7 +23,7 @@ public:
     void setFilterTerm(const QString &newFilterTerm);
 
 protected:
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+    Q_REQUIRED_RESULT bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
     QString mFilterTerm;

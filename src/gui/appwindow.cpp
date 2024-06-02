@@ -57,7 +57,7 @@ AppWindow::AppWindow()
 
     if (KommitSettings::openLastRepo()) {
         QSettings s;
-        auto p = s.value(QStringLiteral("last_repo")).toString();
+        const QString p = s.value(QStringLiteral("last_repo")).toString();
 
         if (!p.isEmpty()) {
             mGit->open(p);

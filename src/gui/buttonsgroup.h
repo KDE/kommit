@@ -22,13 +22,11 @@ public:
     QAbstractButton *at(int i) const;
     void simulateClickOn(int index);
 
-private Q_SLOTS:
-    void buttonClicked();
-
 Q_SIGNALS:
     void clicked(int index);
 
 private:
+    void buttonClicked();
     QList<QAbstractButton *> mButtons;
     QMap<QAbstractButton *, QObject *> mData;
 };
