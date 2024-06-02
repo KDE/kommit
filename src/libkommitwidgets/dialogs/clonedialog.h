@@ -38,5 +38,5 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void loadSettings();
     QString mFixedPath;
 
-    Git::CloneObserver *mCloneObserver;
+    Git::CloneObserver *const mCloneObserver;
 };
