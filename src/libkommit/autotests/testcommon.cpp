@@ -65,7 +65,7 @@ bool makePath(Git::Manager *manager, const QString &path)
 QString touch(Git::Manager *manager, const QString &fileName)
 {
     QString content;
-    if (fileName.startsWith("/"))
+    if (fileName.startsWith(QLatin1Char('/')))
         content = touch(manager->path() + fileName);
     else
         content = touch(manager->path() + "/" + fileName);

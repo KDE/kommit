@@ -57,7 +57,7 @@ File::File(Manager *git, QString place, QString filePath)
 {
     Q_ASSERT(mGit);
 
-    if (mFilePath.startsWith("/"))
+    if (mFilePath.startsWith(QLatin1Char('/')))
         mFilePath = mFilePath.mid(1);
 }
 

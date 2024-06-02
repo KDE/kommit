@@ -21,7 +21,7 @@ Index::Index(git_index *index)
 
 bool Index::addByPath(const QString &path) const
 {
-    if (path.startsWith("/"))
+    if (path.startsWith(QLatin1Char('/')))
         return !git_index_add_bypath(ptr, toConstChars(path.mid(1)));
     else
         return !git_index_add_bypath(ptr, toConstChars(path));

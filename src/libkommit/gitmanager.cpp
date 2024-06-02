@@ -1739,7 +1739,7 @@ void Manager::addFile(const QString &file) const
 
     BEGIN
     STEP git_repository_index(&index, mRepo);
-    if (file.startsWith("/"))
+    if (file.startsWith(QLatin1Char('/')))
         STEP git_index_add_bypath(index, toConstChars(file.mid(1)));
     else
         STEP git_index_add_bypath(index, toConstChars(file));
