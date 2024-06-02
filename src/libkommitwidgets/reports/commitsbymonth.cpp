@@ -33,14 +33,14 @@ void CommitsByMonth::reload()
     auto commitCb = [&data](QSharedPointer<Git::Commit> commit) {
         auto time = commit->committer()->time();
 
-        auto sortKey = time.toString("yyyyMM").toInt();
+        auto sortKey = time.toString(QStringLiteral("yyyyMM")).toInt();
         auto i = std::find_if(data.begin(), data.end(), [&sortKey](const DataRow &row) {
             return row.sortKey == sortKey;
         });
         if (i == data.end()) {
             DataRow row;
             row.sortKey = sortKey;
-            row.month = time.toString("MMM-yy");
+            row.month = time.toString(QStringLiteral("MMM-yy"));
             data << row;
         } else {
             (*i).count++;

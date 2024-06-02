@@ -33,7 +33,7 @@ QString dayToString(Qt::DayOfWeek dayOfWeek)
     case Qt::Sunday:
         return i18n("Sunday");
     }
-    return "";
+    return QString();
 }
 }
 

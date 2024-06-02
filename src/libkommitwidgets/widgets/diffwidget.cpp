@@ -76,7 +76,7 @@ void DiffWidget::createPreviewWidget()
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(segmentConnector->width() + 2 * (splitter->handleWidth()));
 
-    mPreviewWidget->setStyleSheet("QPlainTextEdit{border: 3px solid gray;}");
+    mPreviewWidget->setStyleSheet(QStringLiteral("QPlainTextEdit{border: 3px solid gray;}"));
     mPreviewWidget->setLayout(layout);
     mPreviewWidget->hide();
 }
@@ -94,7 +94,7 @@ void DiffWidget::setOldFile(QSharedPointer<Git::File> newOldFile)
 {
     mOldFile = newOldFile;
     if (newOldFile.isNull())
-        setOldFileText("");
+        setOldFileText(QString());
     else
         setOldFileText(newOldFile->displayName());
 }
