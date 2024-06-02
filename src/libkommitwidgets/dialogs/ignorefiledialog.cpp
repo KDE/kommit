@@ -103,5 +103,3 @@ QString IgnoreFileDialog::getIgnoreFile() const
 }
 
 #include "moc_ignorefiledialog.cpp"
-
-#include <core/kmessageboxhelper.h>
