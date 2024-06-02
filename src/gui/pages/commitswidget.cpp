@@ -128,10 +128,10 @@ void CommitsWidget::slotTextBrowserFileClicked(const QString &file)
 {
     auto commit = widgetCommitDetails->commit();
 
-    if (!commit || !commit->parents().size())
+    if (!commit || commit->parents().isEmpty())
         return;
 
-    QSharedPointer<Git::File> oldFile{new Git::File{mGit, commit->parents().first(), file}};
+    QSharedPointer<Git::File> oldFile{new Git::File{mGit, commit->parents().constFirst(), file}};
     QSharedPointer<Git::File> newFile{new Git::File{mGit, commit->commitHash(), file}};
 
     auto diffWin = new DiffWindow(oldFile, newFile);
