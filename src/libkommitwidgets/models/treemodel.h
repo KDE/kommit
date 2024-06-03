@@ -81,27 +81,27 @@ public:
     QModelIndex index(int row, int column, const QModelIndex &parent) const override;
     QModelIndex parent(const QModelIndex &child) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    QStringList rootData() const;
-    QStringList data(const QModelIndex &index) const;
-    QString fullPath(const QModelIndex &index) const;
-    QString key(const QModelIndex &index) const;
-    QString section(const QModelIndex &index) const;
+    Q_REQUIRED_RESULT QStringList rootData() const;
+    Q_REQUIRED_RESULT QStringList data(const QModelIndex &index) const;
+    Q_REQUIRED_RESULT QString fullPath(const QModelIndex &index) const;
+    Q_REQUIRED_RESULT QString key(const QModelIndex &index) const;
+    Q_REQUIRED_RESULT QString section(const QModelIndex &index) const;
     void sortItems();
 
     void addData(const QStringList &data, const QString &prefix = QString(), bool split = true);
 
-    const QString &separator() const;
+    Q_REQUIRED_RESULT const QString &separator() const;
     void setSeparator(const QString &newSeparator);
 
-    bool lastPartAsData() const;
+    Q_REQUIRED_RESULT bool lastPartAsData() const;
     void setLastPartAsData(bool newLastPartAsData);
 
-    const QIcon &defaultIcon() const;
+    Q_REQUIRED_RESULT const QIcon &defaultIcon() const;
     void setDefaultIcon(const QIcon &newDefaultIcon);
 
     void clear();
 
-    bool showRoot() const;
+    Q_REQUIRED_RESULT bool showRoot() const;
     void setShowRoot(bool newDefaultRoot);
 
 protected:
