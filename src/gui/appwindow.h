@@ -55,6 +55,14 @@ private Q_SLOTS:
     void cleanup();
 
 private:
+    void initActions();
+    void initRecentRepos(const QString &newItem = QString());
+
+    template<class T>
+    void addPage(const QString &actionName);
+    void init();
+    void updateActions(bool enabled);
+
     Git::Manager *mGit = nullptr;
     RepositoryData *mGitData{nullptr};
 
@@ -63,10 +71,18 @@ private:
     QList<WidgetBase *> mBaseWidgets;
     QLabel *mStatusCurrentBranchLabel = nullptr;
 
-    void initActions();
-    void initRecentRepos(const QString &newItem = QString());
-
-    template<class T>
-    void addPage(const QString &actionName);
-    void init();
+    QAction *mRepoInitAction = nullptr;
+    QAction *mRepoOpenAction = nullptr;
+    QAction *mRepoCloneAction = nullptr;
+    QAction *mRepoStatusAction = nullptr;
+    QAction *mRepoCleanupAction = nullptr;
+    QAction *mRepoPullAction = nullptr;
+    QAction *mRepoFetchAction = nullptr;
+    QAction *mRepoPushAction = nullptr;
+    QAction *mRepoMergeAction = nullptr;
+    QAction *mDiffBranchesAction = nullptr;
+    QAction *mRepoSearchAction = nullptr;
+    QAction *mRepoSettingsAction = nullptr;
+    QAction *mRepoSwitchAction = nullptr;
+    QAction *mRepoDiffTreeAction = nullptr;
 };
