@@ -1651,7 +1651,8 @@ bool Manager::revertFile(const QString &filePath) const
 {
     git_checkout_options opts = GIT_CHECKOUT_OPTIONS_INIT;
 
-    const char *paths[] = {filePath.toStdString().c_str()};
+    const auto s = filePath.toStdString();
+    const char *paths[] = {s.c_str()};
     opts.paths.strings = (char **)paths;
     opts.paths.count = 1;
 
