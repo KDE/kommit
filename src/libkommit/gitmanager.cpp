@@ -613,6 +613,9 @@ TreeDiff Manager::diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTre
 
 QString Manager::config(const QString &name, ConfigType type) const
 {
+    if (!mRepo) {
+        return {};
+    }
     BEGIN
     git_config *cfg;
     switch (type) {
@@ -1212,10 +1215,13 @@ PointerList<Branch> Manager::branches(BranchType type) const
         git_branch_iterator_new(&it, mRepo, GIT_BRANCH_REMOTE);
         break;
     }
+    PointerList<Branch> list;
+    if (!it) {
+        return list;
+    }
     git_reference *ref;
     git_branch_t b;
-
-    PointerList<Branch> list;
+    qDebug() << " *it " << it;
     while (!git_branch_next(&ref, &b, it)) {
         auto branch = new Branch{ref};
         list << QSharedPointer<Branch>{branch};

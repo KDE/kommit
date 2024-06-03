@@ -378,6 +378,9 @@ void LogsModel::fill()
         git_branch_t b;
 
         QStringList list;
+        if (!it) {
+            return;
+        }
         while (!git_branch_next(&ref, &b, it)) {
             //        if (!git_reference_is_branch(ref))
             //            continue;
