@@ -22,7 +22,10 @@ class LIBKOMMITWIDGETS_EXPORT MergeWindow : public AppMainWindow
 {
     Q_OBJECT
 public:
-    enum Mode { NoParams, MergeByParams };
+    enum Mode {
+        NoParams,
+        MergeByParams,
+    };
 
     explicit MergeWindow(Git::Manager *git, Mode mode = NoParams, QWidget *parent = nullptr);
     ~MergeWindow() override;
@@ -46,19 +49,19 @@ private Q_SLOTS:
     void fileOpen();
     void fillSegments();
 
-    void actionKeepMine_clicked();
-    void actionKeepTheir_clicked();
-    void actionKeepMineBeforeTheir_clicked();
-    void actionKeepTheirBeforeMine_clicked();
-    void actionKeepMyFile_clicked();
-    void actionKeepTheirFile_clicked();
-    void actionGotoPrevDiff_clicked();
-    void actionGotoNextDiff_clicked();
+    void actionKeepMineClicked();
+    void actionKeepTheirClicked();
+    void actionKeepMineBeforeTheirClicked();
+    void actionKeepTheirBeforeMineClicked();
+    void actionKeepMyFileClicked();
+    void actionKeepTheirFileClicked();
+    void actionGotoPrevDiffClicked();
+    void actionGotoNextDiffClicked();
 
-    void actionViewFiles_clicked();
-    void actionViewBlocks_clicked();
+    void actionViewFilesClicked();
+    void actionViewBlocksClicked();
 
-    void codeEditors_customContextMenuRequested(QPoint pos);
+    void codeEditorsCustomContextMenuRequested(QPoint pos);
 
     void slotPlainTextEditResultTextChanged();
     void slotPlainTextEditResultBlockSelected();
