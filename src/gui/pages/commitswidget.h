@@ -44,7 +44,7 @@ private:
 
     void init();
     QMap<QString, QSharedPointer<Git::Branch>> mBranchesMap;
-    TreeModel *mRepoModel{nullptr};
+    TreeModel *const mRepoModel;
     BranchActions *mActions{nullptr};
     CommitActions *mCommitActions{nullptr};
     Git::LogsModel *mHistoryModel{nullptr};

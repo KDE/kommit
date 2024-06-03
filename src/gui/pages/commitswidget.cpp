@@ -21,6 +21,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 CommitsWidget::CommitsWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
+    , mRepoModel(new TreeModel(this))
 {
     setupUi(this);
     init();
@@ -90,7 +91,6 @@ void CommitsWidget::init()
 
     treeViewHistory->setModel(mFilterModel);
 
-    mRepoModel = new TreeModel(this);
     treeViewRepo->setModel(mRepoModel);
 
     mActions = new BranchActions(mGit, this);
