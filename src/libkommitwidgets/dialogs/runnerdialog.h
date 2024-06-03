@@ -28,20 +28,23 @@ public:
     void run(const QStringList &args);
     void run(Git::AbstractCommand *command);
 
-    bool autoClose() const;
+    Q_REQUIRED_RESULT bool autoClose() const;
     void setAutoClose(bool newAutoClose);
 
-private Q_SLOTS:
-    void git_readyReadStandardOutput();
-    void git_readyReadStandardError();
-    void git_finished(int exitCode, QProcess::ExitStatus exitStatus);
-    void slotPushButtonCloseClicked();
-    void slotPushButtonStopClicked();
-
 private:
+    LIBKOMMITWIDGETS_NO_EXPORT void git_readyReadStandardOutput();
+    LIBKOMMITWIDGETS_NO_EXPORT void git_readyReadStandardError();
+    LIBKOMMITWIDGETS_NO_EXPORT void git_finished(int exitCode, QProcess::ExitStatus exitStatus);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotPushButtonCloseClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotPushButtonStopClicked();
+
     QProcess *mGitProcess = nullptr;
 
-    enum Mode { None, RunByArgs, RunByCommand };
+    enum Mode {
+        None,
+        RunByArgs,
+        RunByCommand,
+    };
     Mode mMode{None};
     Git::AbstractCommand *mCmd{nullptr};
 

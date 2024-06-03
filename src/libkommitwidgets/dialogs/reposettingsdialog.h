@@ -15,10 +15,19 @@ class LIBKOMMITWIDGETS_EXPORT RepoSettingsDialog : public AppDialog, private Ui:
     Q_OBJECT
 
 public:
-    enum class AutoCrlf { Unset, Enable, Disable, Input };
+    enum class AutoCrlf {
+        Unset,
+        Enable,
+        Disable,
+        Input,
+    };
     Q_ENUM(AutoCrlf)
 
-    enum class FileMode { Unset, Enable, Disable };
+    enum class FileMode {
+        Unset,
+        Enable,
+        Disable,
+    };
     Q_ENUM(FileMode)
 
     explicit RepoSettingsDialog(Git::Manager *git, QWidget *parent = nullptr);

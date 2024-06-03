@@ -15,7 +15,11 @@ class LIBKOMMITWIDGETS_EXPORT MergeCloseEventDialog : public AppDialog, private 
     Q_OBJECT
 
 public:
-    enum ReturnType { LeaveAsIs = QDialog::Rejected, MarkAsResolved = QDialog::Accepted, DontExit };
+    enum ReturnType {
+        LeaveAsIs = QDialog::Rejected,
+        MarkAsResolved = QDialog::Accepted,
+        DontExit,
+    };
     explicit MergeCloseEventDialog(QWidget *parent = nullptr);
 
 private:

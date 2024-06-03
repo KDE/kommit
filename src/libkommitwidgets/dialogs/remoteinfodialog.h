@@ -20,5 +20,5 @@ public:
 
     Q_REQUIRED_RESULT QString remoteName() const;
     Q_REQUIRED_RESULT QString remoteUrl() const;
-    Git::CommandAddRemote *command();
+    Q_REQUIRED_RESULT Git::CommandAddRemote *command();
 };
