@@ -18,11 +18,9 @@ class LIBKOMMITWIDGETS_EXPORT ChangedSubmodulesDialog : public AppDialog, privat
 public:
     ChangedSubmodulesDialog(Git::Manager *git, QWidget *parent = nullptr);
 
-private slots:
-    void mSlotComitPushButtonClicked();
-
 private:
-    ChangedFilesModel *mModel;
+    LIBKOMMITWIDGETS_NO_EXPORT void slotComitPushButtonClicked();
     LIBKOMMITWIDGETS_NO_EXPORT void reload();
+    ChangedFilesModel *mModel = nullptr;
     QMap<QPushButton *, QString> mButtonsMap;
 };

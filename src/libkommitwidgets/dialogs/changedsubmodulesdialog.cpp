@@ -20,7 +20,7 @@ ChangedSubmodulesDialog::ChangedSubmodulesDialog(Git::Manager *git, QWidget *par
     connect(buttonBox->button(QDialogButtonBox::Close), &QPushButton::clicked, this, &QDialog::close);
 }
 
-void ChangedSubmodulesDialog::mSlotComitPushButtonClicked()
+void ChangedSubmodulesDialog::slotComitPushButtonClicked()
 {
     auto pushButton = qobject_cast<QPushButton *>(sender());
 
@@ -57,7 +57,7 @@ void ChangedSubmodulesDialog::reload()
         scrollAreaVerticalLayout->addWidget(w);
 
         mButtonsMap.insert(btn, submodule->name());
-        connect(btn, &QPushButton::clicked, this, &ChangedSubmodulesDialog::mSlotComitPushButtonClicked);
+        connect(btn, &QPushButton::clicked, this, &ChangedSubmodulesDialog::slotComitPushButtonClicked);
     }
 
     auto extraSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
