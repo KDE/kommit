@@ -5,11 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "mergewindow.h"
 
-#include "dialogs/mergecloseeventdialog.h"
-#include "dialogs/mergeopenfilesdialog.h"
-// #include "settings/settingsmanager.h"
 #include "core/editactionsmapper.h"
 #include "core/kmessageboxhelper.h"
+#include "dialogs/mergecloseeventdialog.h"
+#include "dialogs/mergeopenfilesdialog.h"
 #include "libkommitwidgets_appdebug.h"
 #include "widgets/codeeditor.h"
 #include "widgets/segmentsmapper.h"
@@ -109,13 +108,8 @@ void MergeWindow::init()
 
     connect(m_ui.plainTextEditMine, &CodeEditor::customContextMenuRequested, this, &MergeWindow::codeEditors_customContextMenuRequested);
     connect(m_ui.plainTextEditTheir, &CodeEditor::customContextMenuRequested, this, &MergeWindow::codeEditors_customContextMenuRequested);
-    // TODO: check these dulicated lines
-    connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::slotPlainTextEditResultBlockSelected);
-    connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::slotPlainTextEditResultBlockSelected);
-    connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::slotPlainTextEditResultBlockSelected);
     connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::slotPlainTextEditResultBlockSelected);
     connect(m_ui.plainTextEditResult, &CodeEditor::textChanged, this, &MergeWindow::slotPlainTextEditResultTextChanged);
-    connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::slotPlainTextEditResultBlockSelected);
 
     mConflictsLabel = new QLabel(this);
     statusBar()->addPermanentWidget(mConflictsLabel);
