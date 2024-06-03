@@ -70,7 +70,7 @@ void FileActions::viewFile()
 void FileActions::saveAsFile()
 {
     QFileInfo fi{mFile->fileName()};
-    auto filter = QStringLiteral("%1 file (*.%1);;All files(*)").arg(fi.suffix());
+    const auto filter = i18n("%1 file (*.%1);;All files(*)", fi.suffix());
     const auto fileName = QFileDialog::getSaveFileName(mParent, {}, mFile->fileName(), filter);
 
     if (!fileName.isEmpty()) {
