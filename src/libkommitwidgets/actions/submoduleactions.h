@@ -20,11 +20,11 @@ public:
     void setSubModuleName(const QString &newSubModuleName);
 
 private:
-    void init();
-    void update();
-    void create();
-    void deinit();
-    void sync();
+    LIBKOMMITWIDGETS_NO_EXPORT void init();
+    LIBKOMMITWIDGETS_NO_EXPORT void update();
+    LIBKOMMITWIDGETS_NO_EXPORT void create();
+    LIBKOMMITWIDGETS_NO_EXPORT void deinit();
+    LIBKOMMITWIDGETS_NO_EXPORT void sync();
     QString mSubModuleName;
     DEFINE_ACTION(actionInit)
     DEFINE_ACTION(actionUpdate)

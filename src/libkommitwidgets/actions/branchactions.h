@@ -24,14 +24,14 @@ public:
     void setOtherBranch(QSharedPointer<Git::Branch> newOtherBranch);
 
 private:
-    void fetch();
-    void create();
-    void browse();
-    void checkout();
-    void diff();
-    void remove();
-    void merge();
-    void note();
+    LIBKOMMITWIDGETS_NO_EXPORT void fetch();
+    LIBKOMMITWIDGETS_NO_EXPORT void create();
+    LIBKOMMITWIDGETS_NO_EXPORT void browse();
+    LIBKOMMITWIDGETS_NO_EXPORT void checkout();
+    LIBKOMMITWIDGETS_NO_EXPORT void diff();
+    LIBKOMMITWIDGETS_NO_EXPORT void remove();
+    LIBKOMMITWIDGETS_NO_EXPORT void merge();
+    LIBKOMMITWIDGETS_NO_EXPORT void note();
 
     QSharedPointer<Git::Branch> mBranchName;
     QSharedPointer<Git::Branch> mOtherBranch;
