@@ -68,7 +68,7 @@ void ReportsWidget::slotToolButtonChartClicked()
 {
     toolButtonTable->setChecked(false);
     toolButtonChart->setChecked(true);
-    for (auto &reportWidget : mReportWidgets)
+    for (auto &reportWidget : std::as_const(mReportWidgets))
         reportWidget->setShowMode(ReportWidget::Chart);
 }
 

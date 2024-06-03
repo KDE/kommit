@@ -64,16 +64,14 @@ void ReportWidget::initChart()
 
 void ReportWidget::fillTableWidget()
 {
-    tableWidget->clear();
-    tableWidget->setRowCount(mReport->rowCount());
-    tableWidget->setColumnCount(mReport->columnCount());
-    tableWidget->setHorizontalHeaderLabels(mReport->headerData());
+    treeWidget->clear();
+    treeWidget->setColumnCount(mReport->columnCount());
+    treeWidget->setHeaderLabels(mReport->headerData());
 
     for (int row = 0; row < mReport->rowCount(); ++row) {
+        auto item = new QTreeWidgetItem(treeWidget);
         for (auto col = 0; col < mReport->columnCount(); ++col) {
-            auto item = new QTableWidgetItem(mReport->at(row, col).toString());
-            item->setFlags(item->flags() & ~Qt::ItemIsEditable);
-            tableWidget->setItem(row, col, item);
+            item->setText(col, mReport->at(row, col).toString());
         }
     }
 }
