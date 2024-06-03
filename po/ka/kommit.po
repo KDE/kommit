@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-02 01:42+0000\n"
+"POT-Creation-Date: 2024-06-03 01:41+0000\n"
 "PO-Revision-Date: 2024-01-21 11:56+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -819,22 +819,22 @@ msgstr ""
 "თქვენი ლოკალური თვისებებს შემდეგ ფაილებში გამოთხოვის დროს თავზე გადაეწერება. "
 "ბრენჩების გადართვამდე დააკომიტეთ ცვლილებები ან შეინახეთ ისინი."
 
-#: src/libkommit/entities/remote.cpp:217
+#: src/libkommit/entities/remote.cpp:216
 #, kde-format
 msgid "Unknown"
 msgstr "უცნობი"
 
-#: src/libkommit/entities/remote.cpp:219
+#: src/libkommit/entities/remote.cpp:218
 #, kde-format
 msgid "Up to date"
 msgstr "განახლებულია"
 
-#: src/libkommit/entities/remote.cpp:221
+#: src/libkommit/entities/remote.cpp:220
 #, kde-format
 msgid "Fast forwardable"
 msgstr "სწრაფად გადახვევადი"
 
-#: src/libkommit/entities/remote.cpp:223
+#: src/libkommit/entities/remote.cpp:222
 #, kde-format
 msgid "Local out of date"
 msgstr "ლოკალური მოძველებულია"

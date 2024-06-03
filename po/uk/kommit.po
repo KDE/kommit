@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-02 01:42+0000\n"
+"POT-Creation-Date: 2024-06-03 01:41+0000\n"
 "PO-Revision-Date: 2024-05-31 09:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -828,22 +828,22 @@ msgstr ""
 "даних. Будь ласка, створіть внесок або накопичення з ваших змін, перш ніж "
 "перемикати гілки."
 
-#: src/libkommit/entities/remote.cpp:217
+#: src/libkommit/entities/remote.cpp:216
 #, kde-format
 msgid "Unknown"
 msgstr "Невідоме"
 
-#: src/libkommit/entities/remote.cpp:219
+#: src/libkommit/entities/remote.cpp:218
 #, kde-format
 msgid "Up to date"
 msgstr "Не потребує оновлення"
 
-#: src/libkommit/entities/remote.cpp:221
+#: src/libkommit/entities/remote.cpp:220
 #, kde-format
 msgid "Fast forwardable"
 msgstr "Придатне до швидкого переспрямування"
 
-#: src/libkommit/entities/remote.cpp:223
+#: src/libkommit/entities/remote.cpp:222
 #, kde-format
 msgid "Local out of date"
 msgstr "Локальна є застарілою"

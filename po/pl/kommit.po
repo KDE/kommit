@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-02 01:42+0000\n"
+"POT-Creation-Date: 2024-06-03 01:41+0000\n"
 "PO-Revision-Date: 2023-10-22 10:49+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -830,22 +830,22 @@ msgstr ""
 "Twoje miejscowe zmiany w plikach zostałyby zastąpione po pobraniu wersji "
 "wyjściowej. Wdroż swoje zmiany lub zeskładuj je zanim przełączysz gałęzie."
 
-#: src/libkommit/entities/remote.cpp:217
+#: src/libkommit/entities/remote.cpp:216
 #, kde-format
 msgid "Unknown"
 msgstr "Nieznany"
 
-#: src/libkommit/entities/remote.cpp:219
+#: src/libkommit/entities/remote.cpp:218
 #, kde-format
 msgid "Up to date"
 msgstr "Aktualne"
 
-#: src/libkommit/entities/remote.cpp:221
+#: src/libkommit/entities/remote.cpp:220
 #, kde-format
 msgid "Fast forwardable"
 msgstr "Da się przewinąć do przodu"
 
-#: src/libkommit/entities/remote.cpp:223
+#: src/libkommit/entities/remote.cpp:222
 #, kde-format
 msgid "Local out of date"
 msgstr "Miejscowe nieaktualne"

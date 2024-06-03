@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-02 01:42+0000\n"
+"POT-Creation-Date: 2024-06-03 01:41+0000\n"
 "PO-Revision-Date: 2024-06-01 01:44+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -829,22 +829,22 @@ msgstr ""
 "cambio de rama. Confirme sus cambios o póngalos en una reserva  antes de "
 "cambiar de rama."
 
-#: src/libkommit/entities/remote.cpp:217
+#: src/libkommit/entities/remote.cpp:216
 #, kde-format
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: src/libkommit/entities/remote.cpp:219
+#: src/libkommit/entities/remote.cpp:218
 #, kde-format
 msgid "Up to date"
 msgstr "Actualizado"
 
-#: src/libkommit/entities/remote.cpp:221
+#: src/libkommit/entities/remote.cpp:220
 #, kde-format
 msgid "Fast forwardable"
 msgstr "Se puede avanzar rápidamente"
 
-#: src/libkommit/entities/remote.cpp:223
+#: src/libkommit/entities/remote.cpp:222
 #, kde-format
 msgid "Local out of date"
 msgstr "Local no actualizado"

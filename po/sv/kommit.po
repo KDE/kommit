@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-02 01:42+0000\n"
+"POT-Creation-Date: 2024-06-03 01:41+0000\n"
 "PO-Revision-Date: 2024-06-01 06:54+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -825,22 +825,22 @@ msgstr ""
 "Dina lokala ändringar av följande filer skulle skrivas över av arkivering. "
 "Arkivera dina ändringar eller göm undan dem innan du byter grenar."
 
-#: src/libkommit/entities/remote.cpp:217
+#: src/libkommit/entities/remote.cpp:216
 #, kde-format
 msgid "Unknown"
 msgstr "Okänd"
 
-#: src/libkommit/entities/remote.cpp:219
+#: src/libkommit/entities/remote.cpp:218
 #, kde-format
 msgid "Up to date"
 msgstr "Aktuell"
 
-#: src/libkommit/entities/remote.cpp:221
+#: src/libkommit/entities/remote.cpp:220
 #, kde-format
 msgid "Fast forwardable"
 msgstr "Kan snabbspolas framåt"
 
-#: src/libkommit/entities/remote.cpp:223
+#: src/libkommit/entities/remote.cpp:222
 #, kde-format
 msgid "Local out of date"
 msgstr "Lokal inaktuell"
