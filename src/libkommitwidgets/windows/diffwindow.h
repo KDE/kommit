@@ -40,11 +40,9 @@ public:
     DiffWindow(Git::Manager *git, QSharedPointer<Git::Tree> leftTree);
     DiffWindow(const QString &oldDir, const QString &newDir);
 
-private Q_SLOTS:
-    void fileOpen();
-    void slotTreeViewFileSelected(const QString &file);
-
 private:
+    LIBKOMMITWIDGETS_NO_EXPORT void fileOpen();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewFileSelected(const QString &file);
     Git::Manager *mGit = nullptr;
     QSharedPointer<Git::File> mOldFile;
     QSharedPointer<Git::File> mNewFile;
