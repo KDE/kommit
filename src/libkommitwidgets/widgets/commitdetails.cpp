@@ -51,8 +51,8 @@ CommitDetails::CommitDetails(QWidget *parent)
     connect(labelParent, &QLabel::linkActivated, this, &CommitDetails::hashClicked);
     connect(labelChildren, &QLabel::linkActivated, this, &CommitDetails::hashClicked);
 
-    connect(labelAuthor, &QLabel::linkActivated, this, &CommitDetails::mSlotEmailLinkClicked);
-    connect(labelCommitter, &QLabel::linkActivated, this, &CommitDetails::mSlotEmailLinkClicked);
+    connect(labelAuthor, &QLabel::linkActivated, this, &CommitDetails::slotEmailLinkClicked);
+    connect(labelCommitter, &QLabel::linkActivated, this, &CommitDetails::slotEmailLinkClicked);
 
     stackedWidget->setCurrentIndex(0);
 }
@@ -154,7 +154,7 @@ void CommitDetails::setEnableFilesLinks(bool enableFilesLinks)
     emit enableFilesLinksChanged();
 }
 
-void CommitDetails::mSlotEmailLinkClicked(const QString &link)
+void CommitDetails::slotEmailLinkClicked(const QString &link)
 {
     QDesktopServices::openUrl(QUrl{link});
 }

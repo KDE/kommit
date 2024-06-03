@@ -45,7 +45,7 @@ Q_SIGNALS:
     void enableFilesLinksChanged();
 
 private:
-    LIBKOMMITWIDGETS_NO_EXPORT void mSlotEmailLinkClicked(const QString &link);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotEmailLinkClicked(const QString &link);
 
     Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT QString createChangedFiles();
     Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT QString generateCommitLink(const QString &hash);

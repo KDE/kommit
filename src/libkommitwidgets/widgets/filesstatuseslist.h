@@ -18,7 +18,7 @@ public:
 
     const QList<Git::FileStatus> &files() const;
     void setFiles(const QList<Git::FileStatus> &newFiles);
-    bool showCheckboxes() const;
+    Q_REQUIRED_RESULT bool showCheckboxes() const;
     void setShowCheckboxes(bool newShowCheckboxes);
 
 private:
