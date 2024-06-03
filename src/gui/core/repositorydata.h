@@ -18,11 +18,11 @@ public:
     void loadAll();
 
 private:
-    Git::Manager *const mManager{nullptr};
-    Git::RemotesModel *const mRemotesModel{nullptr};
-    Git::SubmodulesModel *const mSubmodulesModel{nullptr};
-    Git::BranchesModel *const mBranchesModel{nullptr};
-    Git::LogsModel *const mLogsCache{nullptr};
-    Git::StashesModel *const mStashesCache{nullptr};
-    Git::TagsModel *const mTagsModel{nullptr};
+    Git::Manager *const mManager;
+    Git::RemotesModel *const mRemotesModel;
+    Git::SubmodulesModel *const mSubmodulesModel;
+    Git::BranchesModel *const mBranchesModel;
+    Git::LogsModel *const mLogsCache;
+    Git::StashesModel *const mStashesCache;
+    Git::TagsModel *const mTagsModel;
 };
