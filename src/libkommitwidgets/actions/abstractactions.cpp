@@ -12,6 +12,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QMenu>
 #include <QWidget>
 
+AbstractActions::AbstractActions(Git::Manager *git, QWidget *parent)
+    : QObject{parent}
+    , mGit{git}
+    , mParent{parent}
+{
+    mMenu = new QMenu(parent);
+    connect(git, &Git::Manager::pathChanged, this, &AbstractActions::git_reloaded);
+}
+
 void AbstractActions::setActionEnabled(QAction *action, bool enabled)
 {
     if (mGit->isValid()) {
@@ -20,15 +29,6 @@ void AbstractActions::setActionEnabled(QAction *action, bool enabled)
         action->setEnabled(false);
         mActionStatuses.insert(action, enabled);
     }
-}
-
-AbstractActions::AbstractActions(Git::Manager *git, QWidget *parent)
-    : QObject{parent}
-    , mGit{git}
-    , mParent{parent}
-{
-    mMenu = new QMenu(parent);
-    connect(git, &Git::Manager::pathChanged, this, &AbstractActions::git_reloaded);
 }
 
 void AbstractActions::popup()
