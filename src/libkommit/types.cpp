@@ -31,6 +31,7 @@ QString convertToQString(git_buf *buf)
 QStringList convert(git_strarray *arr)
 {
     QStringList list;
+    list.reserve(arr->count);
     for (size_t i = 0; i < arr->count; ++i) {
         list << QString{arr->strings[i]};
     }
