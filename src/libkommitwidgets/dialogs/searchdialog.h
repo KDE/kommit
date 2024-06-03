@@ -26,17 +26,14 @@ public:
 
     void initModel();
 
+protected:
+    void timerEvent(QTimerEvent *event) override;
+
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotPushButtonSearchClicked();
     LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewDoubleClicked(const QModelIndex &index);
     LIBKOMMITWIDGETS_NO_EXPORT void beginSearch();
     LIBKOMMITWIDGETS_NO_EXPORT void searchOnPlace(const QString &place, const QString &commit);
-
-    // QObject interface
-protected:
-    void timerEvent(QTimerEvent *event) override;
-
-private:
     struct {
         int value;
         int total;

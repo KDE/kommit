@@ -61,7 +61,7 @@ private:
         AuthoredCommit,
         Tag,
     };
+    LIBKOMMITWIDGETS_NO_EXPORT Author *findOrCreate(QSharedPointer<Git::Signature> signature, AuthorCreateReason reason);
 
-    Author *findOrCreate(QSharedPointer<Git::Signature> signature, AuthorCreateReason reason);
     QList<Author *> mData;
 };
