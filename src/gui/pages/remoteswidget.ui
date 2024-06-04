@@ -21,7 +21,7 @@
    <item>
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="childrenCollapsible">
       <bool>false</bool>
@@ -31,7 +31,7 @@
        <item>
         <widget class="ListView" name="listView">
          <property name="contextMenuPolicy">
-          <enum>Qt::CustomContextMenu</enum>
+          <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
          </property>
         </widget>
        </item>
@@ -40,7 +40,7 @@
          <item>
           <spacer name="horizontalSpacer">
            <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+            <enum>Qt::Orientation::Horizontal</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -92,7 +92,7 @@
              <string>---</string>
             </property>
             <property name="wordWrap">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -109,7 +109,10 @@
              <string>---</string>
             </property>
             <property name="wordWrap">
-             <bool>true</bool>
+             <bool>false</bool>
+            </property>
+            <property name="textInteractionFlags">
+             <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
             </property>
            </widget>
           </item>
@@ -126,7 +129,7 @@
              <string>---</string>
             </property>
             <property name="wordWrap">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -143,7 +146,7 @@
              <string>---</string>
             </property>
             <property name="wordWrap">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
            </widget>
           </item>
