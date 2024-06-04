@@ -88,8 +88,11 @@ find_package(
         SyntaxHighlighting
 )
 find_package(DolphinVcs)
-
-feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+set_package_properties(DolphinVcs PROPERTIES
+    TYPE OPTIONAL
+    PURPOSE "Required for building dolphin plugins"
+    DESCRIPTION "Use for building dolphin plugin"
+)
 
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 add_definitions(-DQT_NO_CAST_TO_ASCII)
@@ -99,8 +102,6 @@ add_definitions(-DQT_NO_FOREACH)
 #add_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 ecm_set_disabled_deprecation_versions(QT 5.15.2)
-
-
 
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
 
@@ -181,3 +182,4 @@ set(CPACK_COMPONENTS_GROUPING ONE_PER_GROUP)
 # without this you won't be able to pack only specified component
 set(CPACK_DEB_COMPONENT_INSTALL YES)
 set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
