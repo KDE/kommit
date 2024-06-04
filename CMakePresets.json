@@ -142,6 +142,19 @@
                 "base"
             ]
         },
+        {   
+            "name": "unity-qt6",
+            "displayName": "Build with CMake unity support. (qt6)",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "USE_UNITY_CMAKE_SUPPORT": "ON",
+		"BUILD_WITH_QT6": "ON",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            },  
+            "inherits": [
+                "base-qt6"
+            ]
+        },	
         {
             "name": "release",
             "displayName": "Build as release mode.",
@@ -224,6 +237,10 @@
             "name": "unity",
             "configurePreset": "unity"
         },
+        {
+            "name": "unity-qt6",
+            "configurePreset": "unity-qt6"
+        },	
         {
             "name": "clazy",
             "configurePreset": "clazy",
