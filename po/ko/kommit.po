@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 01:41+0000\n"
+"POT-Creation-Date: 2024-06-04 01:41+0000\n"
 "PO-Revision-Date: 2024-02-09 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -199,118 +199,118 @@ msgstr "버그 수정"
 msgid "No repo selected"
 msgstr "선택한 저장소 없음"
 
-#: src/gui/appwindow.cpp:126
+#: src/gui/appwindow.cpp:128
 #, kde-format
 msgid "Current branch: %1"
 msgstr "현재 브랜치: %1"
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:130
 #, kde-format
 msgid " (merging)"
 msgstr " (병합 중)"
 
-#: src/gui/appwindow.cpp:130
+#: src/gui/appwindow.cpp:132
 #, kde-format
 msgid " (rebasing)"
 msgstr " (리베이스 중)"
 
-#: src/gui/appwindow.cpp:147
+#: src/gui/appwindow.cpp:167
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr "초기화..."
 
-#: src/gui/appwindow.cpp:150
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Open..."
 msgstr "열기..."
 
-#: src/gui/appwindow.cpp:155
+#: src/gui/appwindow.cpp:175
 #, kde-format
 msgid "Clone..."
 msgstr "복제..."
 
-#: src/gui/appwindow.cpp:158
+#: src/gui/appwindow.cpp:178
 #, kde-format
 msgid "Changed files..."
 msgstr "변경된 파일..."
 
-#: src/gui/appwindow.cpp:164
+#: src/gui/appwindow.cpp:184
 #, kde-format
 msgid "Recent repos"
 msgstr "최근 저장소"
 
-#: src/gui/appwindow.cpp:170
+#: src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Cleanup..."
 msgstr "정리..."
 
-#: src/gui/appwindow.cpp:173
+#: src/gui/appwindow.cpp:193
 #, kde-format
 msgid "Pull..."
 msgstr "풀..."
 
-#: src/gui/appwindow.cpp:177 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:197 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr "가져오기..."
 
-#: src/gui/appwindow.cpp:181 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:201 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr "푸시..."
 
-#: src/gui/appwindow.cpp:185 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:205 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr "병합..."
 
-#: src/gui/appwindow.cpp:189
+#: src/gui/appwindow.cpp:209
 #, kde-format
 msgid "Diff branches..."
 msgstr "브랜치간 차이점 보기..."
 
-#: src/gui/appwindow.cpp:192 src/libkommitwidgets/actions/fileactions.cpp:54
+#: src/gui/appwindow.cpp:212 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr "검색..."
 
-#: src/gui/appwindow.cpp:195
+#: src/gui/appwindow.cpp:215
 #, kde-format
 msgid "Repo settings..."
 msgstr "저장소 설정..."
 
-#: src/gui/appwindow.cpp:198
+#: src/gui/appwindow.cpp:218
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "전환/체크아웃..."
 
-#: src/gui/appwindow.cpp:201
+#: src/gui/appwindow.cpp:221
 #, kde-format
 msgid "Diff tree"
 msgstr "트리 차이점 보기"
 
-#: src/gui/appwindow.cpp:251 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:272 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "경로를 만들 수 없음: %1"
 
-#: src/gui/appwindow.cpp:251 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:272 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "저장소 초기화"
 
-#: src/gui/appwindow.cpp:264
+#: src/gui/appwindow.cpp:285
 #, kde-format
 msgid "Open repository"
 msgstr "저장소 열기"
 
-#: src/gui/appwindow.cpp:343 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:364 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "병합 중에는 브랜치를 전환할 수 없음"
 
-#: src/gui/appwindow.cpp:343 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:364 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "브랜치 전환"
@@ -1040,6 +1040,11 @@ msgstr "다른 이름으로 저장..."
 #, kde-format
 msgid "Log"
 msgstr "로그"
+
+#: src/libkommitwidgets/actions/fileactions.cpp:73
+#, kde-format
+msgid "%1 file (*.%1);;All files(*)"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
@@ -2632,7 +2637,7 @@ msgid "View hidden chars..."
 msgstr "숨겨진 글자 보기..."
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
-#: src/libkommitwidgets/windows/mergewindow.cpp:342
+#: src/libkommitwidgets/windows/mergewindow.cpp:336
 #, kde-format
 msgid "Same size blocks"
 msgstr "같은 크기 블록"
@@ -2652,62 +2657,62 @@ msgstr "트리 표시"
 msgid "Unchanged"
 msgstr "변경하지 않음"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:284
+#: src/libkommitwidgets/windows/mergewindow.cpp:278
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "충돌: %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:292
+#: src/libkommitwidgets/windows/mergewindow.cpp:286
 #, kde-format
 msgid "Keep mine"
 msgstr "내 항목 유지"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:297
+#: src/libkommitwidgets/windows/mergewindow.cpp:291
 #, kde-format
 msgid "Keep their"
 msgstr "상대편 항목 유지"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:303
+#: src/libkommitwidgets/windows/mergewindow.cpp:297
 #, kde-format
 msgid "Keep mine before their"
 msgstr "내 항목 이후에 상대방 항목 유지"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:308
+#: src/libkommitwidgets/windows/mergewindow.cpp:302
 #, kde-format
 msgid "Keep their before mine"
 msgstr "상대편 항목 이후에 내 항목 유지"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:313
+#: src/libkommitwidgets/windows/mergewindow.cpp:307
 #, kde-format
 msgid "Keep my file"
 msgstr "내 파일 유지"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:318
+#: src/libkommitwidgets/windows/mergewindow.cpp:312
 #, kde-format
 msgid "Keep their file"
 msgstr "상대편 파일 유지"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:323
+#: src/libkommitwidgets/windows/mergewindow.cpp:317
 #, kde-format
 msgid "Blocks"
 msgstr "블록"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:327
+#: src/libkommitwidgets/windows/mergewindow.cpp:321
 #, kde-format
 msgid "Files"
 msgstr "파일"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:331
+#: src/libkommitwidgets/windows/mergewindow.cpp:325
 #, kde-format
 msgid "Previous diff"
 msgstr "이전 차이점"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:337
+#: src/libkommitwidgets/windows/mergewindow.cpp:331
 #, kde-format
 msgid "Next diff"
 msgstr "다음 차이점"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:436
+#: src/libkommitwidgets/windows/mergewindow.cpp:430
 #, kde-format
 msgid "Unable to open the file"
 msgstr "파일을 열 수 없음"

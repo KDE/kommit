@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 01:41+0000\n"
+"POT-Creation-Date: 2024-06-04 01:41+0000\n"
 "PO-Revision-Date: 2024-06-01 01:44+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -198,118 +198,118 @@ msgstr "Corrección de errores"
 msgid "No repo selected"
 msgstr "No se ha seleccionado ningún repositorio"
 
-#: src/gui/appwindow.cpp:126
+#: src/gui/appwindow.cpp:128
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Rama actual: %1"
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:130
 #, kde-format
 msgid " (merging)"
 msgstr " (fusionando)"
 
-#: src/gui/appwindow.cpp:130
+#: src/gui/appwindow.cpp:132
 #, kde-format
 msgid " (rebasing)"
 msgstr " (rebasando)"
 
-#: src/gui/appwindow.cpp:147
+#: src/gui/appwindow.cpp:167
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr "Iniciar..."
 
-#: src/gui/appwindow.cpp:150
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Open..."
 msgstr "Abrir..."
 
-#: src/gui/appwindow.cpp:155
+#: src/gui/appwindow.cpp:175
 #, kde-format
 msgid "Clone..."
 msgstr "Clonar..."
 
-#: src/gui/appwindow.cpp:158
+#: src/gui/appwindow.cpp:178
 #, kde-format
 msgid "Changed files..."
 msgstr "Archivos cambiados..."
 
-#: src/gui/appwindow.cpp:164
+#: src/gui/appwindow.cpp:184
 #, kde-format
 msgid "Recent repos"
 msgstr "Repositorios recientes"
 
-#: src/gui/appwindow.cpp:170
+#: src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Cleanup..."
 msgstr "Limpiar..."
 
-#: src/gui/appwindow.cpp:173
+#: src/gui/appwindow.cpp:193
 #, kde-format
 msgid "Pull..."
 msgstr "Descargar..."
 
-#: src/gui/appwindow.cpp:177 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:197 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr "Extraer..."
 
-#: src/gui/appwindow.cpp:181 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:201 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr "Enviar..."
 
-#: src/gui/appwindow.cpp:185 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:205 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr "Fusionar..."
 
-#: src/gui/appwindow.cpp:189
+#: src/gui/appwindow.cpp:209
 #, kde-format
 msgid "Diff branches..."
 msgstr "Diferencias entre ramas..."
 
-#: src/gui/appwindow.cpp:192 src/libkommitwidgets/actions/fileactions.cpp:54
+#: src/gui/appwindow.cpp:212 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr "Buscar..."
 
-#: src/gui/appwindow.cpp:195
+#: src/gui/appwindow.cpp:215
 #, kde-format
 msgid "Repo settings..."
 msgstr "Preferencias del repositorio..."
 
-#: src/gui/appwindow.cpp:198
+#: src/gui/appwindow.cpp:218
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Cambiar/cambiar rama..."
 
-#: src/gui/appwindow.cpp:201
+#: src/gui/appwindow.cpp:221
 #, kde-format
 msgid "Diff tree"
 msgstr "Árbol de diferencias"
 
-#: src/gui/appwindow.cpp:251 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:272 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "No se ha podido crear la ruta: %1"
 
-#: src/gui/appwindow.cpp:251 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:272 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "Iniciar repositorio"
 
-#: src/gui/appwindow.cpp:264
+#: src/gui/appwindow.cpp:285
 #, kde-format
 msgid "Open repository"
 msgstr "Abrir repositorio"
 
-#: src/gui/appwindow.cpp:343 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:364 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No se puede cambiar de rama durante la fusión"
 
-#: src/gui/appwindow.cpp:343 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:364 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Cambiar rama"
@@ -1040,6 +1040,11 @@ msgstr "Guardar como..."
 #, kde-format
 msgid "Log"
 msgstr "Registro"
+
+#: src/libkommitwidgets/actions/fileactions.cpp:73
+#, kde-format
+msgid "%1 file (*.%1);;All files(*)"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
@@ -2639,7 +2644,7 @@ msgid "View hidden chars..."
 msgstr "Ver caracteres ocultos..."
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
-#: src/libkommitwidgets/windows/mergewindow.cpp:342
+#: src/libkommitwidgets/windows/mergewindow.cpp:336
 #, kde-format
 msgid "Same size blocks"
 msgstr "Bloques del mismo tamaño"
@@ -2659,62 +2664,62 @@ msgstr "Mostrar árbol"
 msgid "Unchanged"
 msgstr "Sin cambios"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:284
+#: src/libkommitwidgets/windows/mergewindow.cpp:278
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Conflictos: %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:292
+#: src/libkommitwidgets/windows/mergewindow.cpp:286
 #, kde-format
 msgid "Keep mine"
 msgstr "Mantener el mío"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:297
+#: src/libkommitwidgets/windows/mergewindow.cpp:291
 #, kde-format
 msgid "Keep their"
 msgstr "Mantener el suyo"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:303
+#: src/libkommitwidgets/windows/mergewindow.cpp:297
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Mantener el mío antes que el suyo"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:308
+#: src/libkommitwidgets/windows/mergewindow.cpp:302
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Mantener el suyo antes que el mío"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:313
+#: src/libkommitwidgets/windows/mergewindow.cpp:307
 #, kde-format
 msgid "Keep my file"
 msgstr "Mantener mi archivo"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:318
+#: src/libkommitwidgets/windows/mergewindow.cpp:312
 #, kde-format
 msgid "Keep their file"
 msgstr "Mantener su archivo"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:323
+#: src/libkommitwidgets/windows/mergewindow.cpp:317
 #, kde-format
 msgid "Blocks"
 msgstr "Bloques"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:327
+#: src/libkommitwidgets/windows/mergewindow.cpp:321
 #, kde-format
 msgid "Files"
 msgstr "Archivos"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:331
+#: src/libkommitwidgets/windows/mergewindow.cpp:325
 #, kde-format
 msgid "Previous diff"
 msgstr "Diferencia anterior"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:337
+#: src/libkommitwidgets/windows/mergewindow.cpp:331
 #, kde-format
 msgid "Next diff"
 msgstr "Diferencia siguiente"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:436
+#: src/libkommitwidgets/windows/mergewindow.cpp:430
 #, kde-format
 msgid "Unable to open the file"
 msgstr "No se puede abrir el archivo"

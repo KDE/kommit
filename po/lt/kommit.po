@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 01:41+0000\n"
+"POT-Creation-Date: 2024-06-04 01:41+0000\n"
 "PO-Revision-Date: 2023-02-13 00:59+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -197,118 +197,118 @@ msgstr ""
 msgid "No repo selected"
 msgstr ""
 
-#: src/gui/appwindow.cpp:126
+#: src/gui/appwindow.cpp:128
 #, kde-format
 msgid "Current branch: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:130
 #, kde-format
 msgid " (merging)"
 msgstr ""
 
-#: src/gui/appwindow.cpp:130
+#: src/gui/appwindow.cpp:132
 #, kde-format
 msgid " (rebasing)"
 msgstr ""
 
-#: src/gui/appwindow.cpp:147
+#: src/gui/appwindow.cpp:167
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:150
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Open..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:155
+#: src/gui/appwindow.cpp:175
 #, kde-format
 msgid "Clone..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:158
+#: src/gui/appwindow.cpp:178
 #, kde-format
 msgid "Changed files..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:164
+#: src/gui/appwindow.cpp:184
 #, kde-format
 msgid "Recent repos"
 msgstr ""
 
-#: src/gui/appwindow.cpp:170
+#: src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Cleanup..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:173
+#: src/gui/appwindow.cpp:193
 #, kde-format
 msgid "Pull..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:177 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:197 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:181 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:201 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:185 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:205 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:189
+#: src/gui/appwindow.cpp:209
 #, kde-format
 msgid "Diff branches..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:192 src/libkommitwidgets/actions/fileactions.cpp:54
+#: src/gui/appwindow.cpp:212 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:195
+#: src/gui/appwindow.cpp:215
 #, kde-format
 msgid "Repo settings..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:198
+#: src/gui/appwindow.cpp:218
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr ""
 
-#: src/gui/appwindow.cpp:201
+#: src/gui/appwindow.cpp:221
 #, kde-format
 msgid "Diff tree"
 msgstr ""
 
-#: src/gui/appwindow.cpp:251 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:272 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:251 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:272 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr ""
 
-#: src/gui/appwindow.cpp:264
+#: src/gui/appwindow.cpp:285
 #, kde-format
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:343 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:364 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:343 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:364 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr ""
@@ -1022,6 +1022,11 @@ msgstr ""
 #: src/libkommitwidgets/actions/fileactions.cpp:52
 #, kde-format
 msgid "Log"
+msgstr ""
+
+#: src/libkommitwidgets/actions/fileactions.cpp:73
+#, kde-format
+msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
@@ -2525,7 +2530,7 @@ msgid "View hidden chars..."
 msgstr ""
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
-#: src/libkommitwidgets/windows/mergewindow.cpp:342
+#: src/libkommitwidgets/windows/mergewindow.cpp:336
 #, kde-format
 msgid "Same size blocks"
 msgstr ""
@@ -2545,62 +2550,62 @@ msgstr ""
 msgid "Unchanged"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:284
+#: src/libkommitwidgets/windows/mergewindow.cpp:278
 #, kde-format
 msgid "Conflicts: %1"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:292
+#: src/libkommitwidgets/windows/mergewindow.cpp:286
 #, kde-format
 msgid "Keep mine"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:297
+#: src/libkommitwidgets/windows/mergewindow.cpp:291
 #, kde-format
 msgid "Keep their"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:303
+#: src/libkommitwidgets/windows/mergewindow.cpp:297
 #, kde-format
 msgid "Keep mine before their"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:308
+#: src/libkommitwidgets/windows/mergewindow.cpp:302
 #, kde-format
 msgid "Keep their before mine"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:313
+#: src/libkommitwidgets/windows/mergewindow.cpp:307
 #, kde-format
 msgid "Keep my file"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:318
+#: src/libkommitwidgets/windows/mergewindow.cpp:312
 #, kde-format
 msgid "Keep their file"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:323
+#: src/libkommitwidgets/windows/mergewindow.cpp:317
 #, kde-format
 msgid "Blocks"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:327
+#: src/libkommitwidgets/windows/mergewindow.cpp:321
 #, kde-format
 msgid "Files"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:331
+#: src/libkommitwidgets/windows/mergewindow.cpp:325
 #, kde-format
 msgid "Previous diff"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:337
+#: src/libkommitwidgets/windows/mergewindow.cpp:331
 #, kde-format
 msgid "Next diff"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:436
+#: src/libkommitwidgets/windows/mergewindow.cpp:430
 #, kde-format
 msgid "Unable to open the file"
 msgstr ""

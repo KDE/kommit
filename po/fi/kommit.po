@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 01:41+0000\n"
+"POT-Creation-Date: 2024-06-04 01:41+0000\n"
 "PO-Revision-Date: 2023-06-07 16:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -199,119 +199,119 @@ msgstr "Virheiden korjaus"
 msgid "No repo selected"
 msgstr "Lähdettä ei ole valittu"
 
-#: src/gui/appwindow.cpp:126
+#: src/gui/appwindow.cpp:128
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Nykyinen haara: %1"
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:130
 #, kde-format
 msgid " (merging)"
 msgstr " (yhdistetään)"
 
-#: src/gui/appwindow.cpp:130
+#: src/gui/appwindow.cpp:132
 #, kde-format
 msgid " (rebasing)"
 msgstr " (pohjataan uudelleen)"
 
-#: src/gui/appwindow.cpp:147
+#: src/gui/appwindow.cpp:167
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr "Alusta…"
 
-#: src/gui/appwindow.cpp:150
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgid "Open..."
 msgstr "Avaa…"
 
-#: src/gui/appwindow.cpp:155
+#: src/gui/appwindow.cpp:175
 #, kde-format
 msgid "Clone..."
 msgstr "Monista…"
 
-#: src/gui/appwindow.cpp:158
+#: src/gui/appwindow.cpp:178
 #, kde-format
 msgid "Changed files..."
 msgstr "Muuttuneet tiedostot…"
 
-#: src/gui/appwindow.cpp:164
+#: src/gui/appwindow.cpp:184
 #, kde-format
 msgid "Recent repos"
 msgstr "Viimeaikaiset lähteet"
 
-#: src/gui/appwindow.cpp:170
+#: src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Cleanup..."
 msgstr "Siivoa…"
 
-#: src/gui/appwindow.cpp:173
+#: src/gui/appwindow.cpp:193
 #, kde-format
 msgid "Pull..."
 msgstr "Tuo…"
 
-#: src/gui/appwindow.cpp:177 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:197 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr "Nouda…"
 
-#: src/gui/appwindow.cpp:181 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:201 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr "Vie…"
 
-#: src/gui/appwindow.cpp:185 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:205 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr "Yhdistä…"
 
-#: src/gui/appwindow.cpp:189
+#: src/gui/appwindow.cpp:209
 #, kde-format
 msgid "Diff branches..."
 msgstr "Vertaa haaroja…"
 
-#: src/gui/appwindow.cpp:192 src/libkommitwidgets/actions/fileactions.cpp:54
+#: src/gui/appwindow.cpp:212 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr "Etsi…"
 
-#: src/gui/appwindow.cpp:195
+#: src/gui/appwindow.cpp:215
 #, kde-format
 msgid "Repo settings..."
 msgstr "Lähdeasetukset…"
 
 # Käännös perustuu siihen, että checkout = switch + jotakin lisää. ”Switch” näin ollen vain siirtyy toiseen haaraan, kun taas ”checkout” oikeasti vaihtaa haaraa.
-#: src/gui/appwindow.cpp:198
+#: src/gui/appwindow.cpp:218
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Siirry/vaihda…"
 
-#: src/gui/appwindow.cpp:201
+#: src/gui/appwindow.cpp:221
 #, kde-format
 msgid "Diff tree"
 msgstr "Vertaa puuta"
 
-#: src/gui/appwindow.cpp:251 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:272 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Polkua ei voi luoda: %1"
 
-#: src/gui/appwindow.cpp:251 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:272 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "Alusta lähde"
 
-#: src/gui/appwindow.cpp:264
+#: src/gui/appwindow.cpp:285
 #, kde-format
 msgid "Open repository"
 msgstr "Avaa lähde"
 
-#: src/gui/appwindow.cpp:343 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:364 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Yhdistettäessä haarasta toiseen ei voi siirtyä"
 
-#: src/gui/appwindow.cpp:343 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:364 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Siirry haaraan"
@@ -1034,6 +1034,11 @@ msgstr "Tallenna nimellä…"
 #| msgid "Log..."
 msgid "Log"
 msgstr "Loki…"
+
+#: src/libkommitwidgets/actions/fileactions.cpp:73
+#, kde-format
+msgid "%1 file (*.%1);;All files(*)"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
@@ -2581,7 +2586,7 @@ msgid "View hidden chars..."
 msgstr "Näytä piilomerkit…"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
-#: src/libkommitwidgets/windows/mergewindow.cpp:342
+#: src/libkommitwidgets/windows/mergewindow.cpp:336
 #, kde-format
 msgid "Same size blocks"
 msgstr "Saman kokoiset lohkot"
@@ -2601,62 +2606,62 @@ msgstr "Näytä puu"
 msgid "Unchanged"
 msgstr "Ei muutettu"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:284
+#: src/libkommitwidgets/windows/mergewindow.cpp:278
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Ristiriitoja: %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:292
+#: src/libkommitwidgets/windows/mergewindow.cpp:286
 #, kde-format
 msgid "Keep mine"
 msgstr "Pidä minun"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:297
+#: src/libkommitwidgets/windows/mergewindow.cpp:291
 #, kde-format
 msgid "Keep their"
 msgstr "Pidä heidän"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:303
+#: src/libkommitwidgets/windows/mergewindow.cpp:297
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Pidä minun ennen kuin heidän"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:308
+#: src/libkommitwidgets/windows/mergewindow.cpp:302
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Pidä heidän ennen kuin minun"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:313
+#: src/libkommitwidgets/windows/mergewindow.cpp:307
 #, kde-format
 msgid "Keep my file"
 msgstr "Pidä minun tiedostoni"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:318
+#: src/libkommitwidgets/windows/mergewindow.cpp:312
 #, kde-format
 msgid "Keep their file"
 msgstr "Pidä heidän tiedostonsa"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:323
+#: src/libkommitwidgets/windows/mergewindow.cpp:317
 #, kde-format
 msgid "Blocks"
 msgstr "Lohkot"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:327
+#: src/libkommitwidgets/windows/mergewindow.cpp:321
 #, kde-format
 msgid "Files"
 msgstr "Tiedostot"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:331
+#: src/libkommitwidgets/windows/mergewindow.cpp:325
 #, kde-format
 msgid "Previous diff"
 msgstr "Edellinen diff"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:337
+#: src/libkommitwidgets/windows/mergewindow.cpp:331
 #, kde-format
 msgid "Next diff"
 msgstr "Seuraava diff"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:436
+#: src/libkommitwidgets/windows/mergewindow.cpp:430
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Tiedostoa ei voi avata"
