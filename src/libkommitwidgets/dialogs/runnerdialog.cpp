@@ -32,6 +32,11 @@ RunnerDialog::RunnerDialog(Git::Manager *git, QWidget *parent)
     pushButtonClose->show();
 }
 
+RunnerDialog::~RunnerDialog()
+{
+    delete mCmd;
+}
+
 void RunnerDialog::run(const QStringList &args)
 {
     progressBar->hide();

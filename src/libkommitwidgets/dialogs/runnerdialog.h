@@ -25,6 +25,7 @@ class LIBKOMMITWIDGETS_EXPORT RunnerDialog : public AppDialog, private Ui::Runne
 
 public:
     explicit RunnerDialog(Git::Manager *git, QWidget *parent = nullptr);
+    ~RunnerDialog() override;
     void run(const QStringList &args);
     void run(Git::AbstractCommand *command);
 

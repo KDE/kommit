@@ -33,20 +33,20 @@ void FetchDialog::setBranch(const QString &branch)
 void FetchDialog::slotAccept()
 {
     //    mGit->fetch(comboBoxRemote->currentText(), mObserver);
-    Git::CommandFetch cmd;
+    Git::CommandFetch *cmd = new Git::CommandFetch;
 
-    cmd.setRemote(comboBoxRemote->currentText());
+    cmd->setRemote(comboBoxRemote->currentText());
 
     if (!checkBoxAllBranches->isChecked())
-        cmd.setBranch(comboBoxBranch->currentText());
-    cmd.setNoFf(checkBoxNoFastForward->isChecked());
-    cmd.setFfOnly(checkBoxFastForwardOnly->isChecked());
-    cmd.setNoCommit(checkBoxNoCommit->isChecked());
-    cmd.setPrune(checkBoxPrune->isChecked());
-    cmd.setTags(checkBoxTags->isChecked());
+        cmd->setBranch(comboBoxBranch->currentText());
+    cmd->setNoFf(checkBoxNoFastForward->isChecked());
+    cmd->setFfOnly(checkBoxFastForwardOnly->isChecked());
+    cmd->setNoCommit(checkBoxNoCommit->isChecked());
+    cmd->setPrune(checkBoxPrune->isChecked());
+    cmd->setTags(checkBoxTags->isChecked());
 
     RunnerDialog d(mGit, this);
-    d.run(&cmd);
+    d.run(cmd);
     d.exec();
 
     accept();

@@ -150,13 +150,13 @@ void CommitPushDialog::checkButtonsEnable()
 void CommitPushDialog::slotPushButtonCommitClicked()
 {
     addFiles();
-    Git::CommandCommit cmd;
-    cmd.setAmend(checkBoxAmend->isChecked());
-    cmd.setMessage(textEditMessage->toPlainText());
-    cmd.setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
+    Git::CommandCommit *cmd = new Git::CommandCommit;
+    cmd->setAmend(checkBoxAmend->isChecked());
+    cmd->setMessage(textEditMessage->toPlainText());
+    cmd->setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
 
     RunnerDialog d(mGit);
-    d.run(&cmd);
+    d.run(cmd);
     d.exec();
 
     accept();
@@ -168,34 +168,34 @@ void CommitPushDialog::slotPushButtonPushClicked()
 
     if (groupBoxMakeCommit->isChecked()) {
         addFiles();
-        Git::CommandCommit commitCommand;
-        commitCommand.setAmend(checkBoxAmend->isChecked());
-        commitCommand.setMessage(textEditMessage->toPlainText());
-        commitCommand.setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
+        Git::CommandCommit *commitCommand = new Git::CommandCommit;
+        commitCommand->setAmend(checkBoxAmend->isChecked());
+        commitCommand->setMessage(textEditMessage->toPlainText());
+        commitCommand->setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
 
         RunnerDialog d(mGit, this);
         d.setAutoClose(true);
-        d.run(&commitCommand);
+        d.run(commitCommand);
         auto dd = d.exec();
         //        qDebug() << dd;
         if (dd != QDialog::Accepted)
             return;
     }
 
-    Git::CommandPush cmd;
-    cmd.setRemote(comboBoxRemote->currentText());
+    Git::CommandPush *cmd = new Git::CommandPush;
+    cmd->setRemote(comboBoxRemote->currentText());
 
     if (radioButtonCurrentBranch->isChecked())
-        cmd.setLocalBranch(labelCurrentBranchName->text());
+        cmd->setLocalBranch(labelCurrentBranchName->text());
     else if (radioButtonExistingBranch->isChecked())
-        cmd.setLocalBranch(comboBoxBranch->currentText());
+        cmd->setLocalBranch(comboBoxBranch->currentText());
     else
-        cmd.setLocalBranch(lineEditNewBranchName->text());
-    cmd.setForce(checkBoxForce->isChecked());
+        cmd->setLocalBranch(lineEditNewBranchName->text());
+    cmd->setForce(checkBoxForce->isChecked());
 
     mGit->commit(textEditMessage->toPlainText());
     RunnerDialog d(mGit, this);
-    d.run(&cmd);
+    d.run(cmd);
     d.exec();
     accept();
 }

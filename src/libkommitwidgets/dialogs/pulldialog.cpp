@@ -28,21 +28,21 @@ PullDialog::PullDialog(Git::Manager *git, QWidget *parent)
 
 void PullDialog::slotAccepted()
 {
-    Git::CommandPull cmd;
+    Git::CommandPull *cmd = new Git::CommandPull;
 
-    cmd.setRemote(comboBoxRemote->currentText());
-    cmd.setBranch(comboBoxBranch->currentText());
-    cmd.setSquash(checkBoxSquash->isChecked());
+    cmd->setRemote(comboBoxRemote->currentText());
+    cmd->setBranch(comboBoxBranch->currentText());
+    cmd->setSquash(checkBoxSquash->isChecked());
 
-    cmd.setNoCommit(checkBoxNoCommit->isChecked());
-    cmd.setPrune(checkBoxPrune->isChecked());
-    cmd.setTags(checkBoxTags->isChecked());
+    cmd->setNoCommit(checkBoxNoCommit->isChecked());
+    cmd->setPrune(checkBoxPrune->isChecked());
+    cmd->setTags(checkBoxTags->isChecked());
 
-    cmd.setRebase(comboBoxCurrentValue<Git::CommandPull::Rebase>(comboBoxRebase));
-    cmd.setFastForward(comboBoxCurrentValue<Git::CommandPull::FastForward>(comboBoxFastForward));
+    cmd->setRebase(comboBoxCurrentValue<Git::CommandPull::Rebase>(comboBoxRebase));
+    cmd->setFastForward(comboBoxCurrentValue<Git::CommandPull::FastForward>(comboBoxFastForward));
 
     RunnerDialog d(mGit, this);
-    d.run(&cmd);
+    d.run(cmd);
     d.exec();
 
     accept();
