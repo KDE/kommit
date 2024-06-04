@@ -24,9 +24,9 @@ ReportWidget::ReportWidget(AbstractReport *report, QWidget *parent)
     , mReport{report}
 {
     setupUi(this);
-    treeWidget->setSortingEnabled(true);
-    treeWidget->header()->setSortIndicatorShown(true);
-    treeWidget->header()->setSectionsClickable(true);
+    // treeWidget->setSortingEnabled(true);
+    // treeWidget->header()->setSortIndicatorShown(true);
+    // treeWidget->header()->setSectionsClickable(true);
 
     initChart();
 }
