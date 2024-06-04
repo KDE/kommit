@@ -125,10 +125,24 @@ void ReportWidget::fillChart()
     auto barSet = new QBarSet{mReport->name(), this};
     axisX->clear();
 
-    QStringList names;
+    // QChart doesn't support duplicate entries
+    QMap<QString, qreal> listElements;
+
     for (int row = 0; row < mReport->rowCount(); ++row) {
-        barSet->append(mReport->at(row, mReport->valueColumn()).toReal());
-        names << mReport->at(row, mReport->categoryColumn()).toString();
+        const QString name = mReport->at(row, mReport->categoryColumn()).toString();
+        const qreal value = mReport->at(row, mReport->valueColumn()).toReal();
+        if (listElements.contains(name)) {
+            listElements[name] = listElements[name] + value;
+        } else {
+            listElements.insert(name, value);
+        }
+    }
+    QStringList names;
+    QMapIterator<QString, qreal> i(listElements);
+    while (i.hasNext()) {
+        i.next();
+        barSet->append(i.value());
+        names << i.key();
     }
     axisX->append(names);
     axisX->setLabelsAngle(mReport->labelsAngle());
