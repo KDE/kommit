@@ -21,7 +21,7 @@ class LIBKOMMITWIDGETS_EXPORT AbstractReport : public QObject
 
 public:
     AbstractReport(Git::Manager *git, QObject *parent = nullptr);
-    virtual ~AbstractReport();
+    ~AbstractReport() override;
 
     virtual void reload() = 0;
     Q_REQUIRED_RESULT virtual QString name() const = 0;
