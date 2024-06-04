@@ -50,6 +50,7 @@ QString RefSpec::source() const
 Remote::Remote()
 {
     qDeleteAll(mRefSpecList);
+    qDeleteAll(mBranches);
 }
 
 Remote::Remote(git_remote *remote)
