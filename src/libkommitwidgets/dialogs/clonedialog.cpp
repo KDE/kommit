@@ -23,6 +23,7 @@ CloneDialog::CloneDialog(QWidget *parent)
 {
     setupUi(this);
     loadSettings();
+    lineEditPath->setMode(UrlRequester::Mode::Directory);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CloneDialog::slotAccepted);
     connect(lineEditUrl, &QLineEdit::textChanged, this, &CloneDialog::slotUrlChanged);
 
