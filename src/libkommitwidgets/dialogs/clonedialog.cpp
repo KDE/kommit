@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 CloneDialog::CloneDialog(QWidget *parent)
     : AppDialog(parent)
     , mFixedPath(QStandardPaths::writableLocation(QStandardPaths::HomeLocation))
-    , mCloneObserver{new Git::CloneObserver}
+    , mCloneObserver{new Git::CloneObserver(this)}
 {
     setupUi(this);
     loadSettings();
