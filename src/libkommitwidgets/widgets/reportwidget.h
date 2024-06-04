@@ -18,6 +18,7 @@ namespace QtCharts
 class QValueAxis;
 class QBarSeries;
 class QBarCategoryAxis;
+class QChart;
 };
 
 using namespace QtCharts;
@@ -25,6 +26,7 @@ using namespace QtCharts;
 class QValueAxis;
 class QBarSeries;
 class QBarCategoryAxis;
+class QChart;
 #endif
 
 #endif
@@ -49,13 +51,17 @@ public:
     void reload();
 
 private:
-    void initChart();
-    void fillChart();
-    void fillTableWidget();
+    LIBKOMMITWIDGETS_NO_EXPORT void initChart();
+    LIBKOMMITWIDGETS_NO_EXPORT void fillChart();
+    LIBKOMMITWIDGETS_NO_EXPORT void fillTableWidget();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotZoomIn();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotZoomOut();
+    LIBKOMMITWIDGETS_NO_EXPORT void zoomResetShortcut();
 
 #ifdef QT_CHARTS_LIB
     QValueAxis *axis = nullptr;
     QBarSeries *barSeries = nullptr;
     QBarCategoryAxis *axisX = nullptr;
+    QChart *mChart = nullptr;
 #endif
 };

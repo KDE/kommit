@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QChart>
 #include <QChartView>
 #include <QLineSeries>
+#include <QShortcut>
 #include <QVXYModelMapper>
 #include <QValueAxis>
 #endif
@@ -29,6 +30,44 @@ ReportWidget::ReportWidget(AbstractReport *report, QWidget *parent)
     // treeWidget->header()->setSectionsClickable(true);
 
     initChart();
+    auto zoomInShortcut = new QShortcut(QKeySequence(QKeySequence::ZoomIn), this);
+    zoomInShortcut->setContext(Qt::WidgetWithChildrenShortcut);
+    connect(zoomInShortcut, &QShortcut::activated, this, &ReportWidget::slotZoomIn);
+
+    auto zoomOutShortcut = new QShortcut(QKeySequence(QKeySequence::ZoomOut), this);
+    zoomOutShortcut->setContext(Qt::WidgetWithChildrenShortcut);
+    connect(zoomOutShortcut, &QShortcut::activated, this, &ReportWidget::slotZoomOut);
+
+    auto zoomResetShortcut = new QShortcut(QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_0), this);
+    zoomResetShortcut->setContext(Qt::WidgetWithChildrenShortcut);
+    connect(zoomResetShortcut, &QShortcut::activated, this, &ReportWidget::zoomResetShortcut);
+}
+
+void ReportWidget::zoomResetShortcut()
+{
+#ifdef QT_CHARTS_LIB
+    if (!mReport->supportChart())
+        return;
+    mChart->zoomReset();
+#endif
+}
+
+void ReportWidget::slotZoomIn()
+{
+#ifdef QT_CHARTS_LIB
+    if (!mReport->supportChart())
+        return;
+    mChart->zoomIn();
+#endif
+}
+
+void ReportWidget::slotZoomOut()
+{
+#ifdef QT_CHARTS_LIB
+    if (!mReport->supportChart())
+        return;
+    mChart->zoomOut();
+#endif
 }
 
 void ReportWidget::initChart()
@@ -37,29 +76,30 @@ void ReportWidget::initChart()
     if (!mReport->supportChart())
         return;
 
-    auto chart = new QChart;
+    mChart = new QChart;
     barSeries = new QBarSeries;
 
-    chart->addSeries(barSeries);
+    mChart->addSeries(barSeries);
     axisX = new QBarCategoryAxis();
     axisX->append(mReport->headerData());
-    chart->addAxis(axisX, Qt::AlignBottom);
+    mChart->addAxis(axisX, Qt::AlignBottom);
     barSeries->attachAxis(axisX);
 
     axis = new QValueAxis();
-    chart->addAxis(axis, Qt::AlignLeft);
+    mChart->addAxis(axis, Qt::AlignLeft);
     barSeries->attachAxis(axis);
 
-    auto chartView = new QChartView{chart, stackedWidget};
+    auto chartView = new QChartView{mChart, stackedWidget};
     chartView->setRenderHint(QPainter::Antialiasing);
     chartView->setMinimumSize(640, 480);
+    chartView->setRubberBand(QChartView::RectangleRubberBand);
 
     stackedWidget->addWidget(chartView);
     // stackedWidget->setCurrentIndex(1);
     chartView->show();
-    chart->setTitle(mReport->name());
+    mChart->setTitle(mReport->name());
 
-    chart->legend()->hide();
+    mChart->legend()->hide();
 #else
     stackedWidget->setCurrentIndex(0);
 #endif
