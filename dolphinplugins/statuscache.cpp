@@ -183,6 +183,9 @@ bool StatusCache::setPath(const QString &path)
 
     mPath = path;
 
+    if (mRepo)
+        git_repository_free(mRepo);
+
     int n = git_repository_open_ext(&mRepo, path.toUtf8().data(), 0, NULL);
 
     if (n) {
