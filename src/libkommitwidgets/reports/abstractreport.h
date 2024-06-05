@@ -54,7 +54,7 @@ private:
     int mValueColumn{1};
 
 protected:
-    Git::Manager *mGit;
+    Git::Manager *mGit = nullptr;
 
     void clear();
     void setColumnCount(int columnCount);
