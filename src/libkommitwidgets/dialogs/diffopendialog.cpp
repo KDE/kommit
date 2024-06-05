@@ -36,7 +36,12 @@ DiffOpenDialog::~DiffOpenDialog()
 
 void DiffOpenDialog::updateOkButton()
 {
-    buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!lineEditOldDirectory->text().trimmed().isEmpty() && !lineEditNewDirectory->text().trimmed().isEmpty());
+    if (mode() == Files) {
+        buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!lineEditOldFile->text().trimmed().isEmpty() && !lineEditOldFile->text().trimmed().isEmpty());
+    } else {
+        buttonBox->button(QDialogButtonBox::Ok)
+            ->setEnabled(!lineEditOldDirectory->text().trimmed().isEmpty() && !lineEditNewDirectory->text().trimmed().isEmpty());
+    }
 }
 
 void DiffOpenDialog::readSettings()
