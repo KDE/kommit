@@ -93,7 +93,7 @@ DiffWindow::DiffWindow(Git::Manager *git, QSharedPointer<Git::Tag> tag)
     auto tree = tag->commit()->tree();
     const auto diffs = git->diff(tree);
 
-    for (auto &f : diffs) {
+    for (const auto &f : diffs) {
         mDiffModel->addFile(f);
         //        qCDebug(KOMMIT_LOG) << f.name() << f.status();
         mFilesModel->append(f.newFile());
