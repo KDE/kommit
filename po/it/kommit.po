@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 01:41+0000\n"
-"PO-Revision-Date: 2024-04-26 08:55+0200\n"
+"POT-Creation-Date: 2024-06-05 02:06+0000\n"
+"PO-Revision-Date: 2024-06-04 15:20+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -175,15 +175,13 @@ msgid "Author"
 msgstr "Autore"
 
 #: src/apps/main.cpp:59
-#, fuzzy, kde-format
-#| msgid "Hamed Masafi"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:60
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
@@ -213,103 +211,103 @@ msgstr " (unione)"
 msgid " (rebasing)"
 msgstr " (rebasing)"
 
-#: src/gui/appwindow.cpp:167
+#: src/gui/appwindow.cpp:166
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr "Inizializza..."
 
-#: src/gui/appwindow.cpp:170
+#: src/gui/appwindow.cpp:169
 #, kde-format
 msgid "Open..."
 msgstr "Apri..."
 
-#: src/gui/appwindow.cpp:175
+#: src/gui/appwindow.cpp:174
 #, kde-format
 msgid "Clone..."
 msgstr "Clona..."
 
-#: src/gui/appwindow.cpp:178
+#: src/gui/appwindow.cpp:177
 #, kde-format
 msgid "Changed files..."
 msgstr "File modificati..."
 
-#: src/gui/appwindow.cpp:184
+#: src/gui/appwindow.cpp:183
 #, kde-format
 msgid "Recent repos"
 msgstr "Depositi recenti"
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:189
 #, kde-format
 msgid "Cleanup..."
 msgstr "Pulizia..."
 
-#: src/gui/appwindow.cpp:193
+#: src/gui/appwindow.cpp:192
 #, kde-format
 msgid "Pull..."
 msgstr "Pull..."
 
-#: src/gui/appwindow.cpp:197 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:196 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr "Fetch..."
 
-#: src/gui/appwindow.cpp:201 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:200 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr "Push..."
 
-#: src/gui/appwindow.cpp:205 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:204 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr "Unisci..."
 
-#: src/gui/appwindow.cpp:209
+#: src/gui/appwindow.cpp:208
 #, kde-format
 msgid "Diff branches..."
 msgstr "Differenze tra i rami..."
 
-#: src/gui/appwindow.cpp:212 src/libkommitwidgets/actions/fileactions.cpp:54
+#: src/gui/appwindow.cpp:211 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr "Cerca..."
 
-#: src/gui/appwindow.cpp:215
+#: src/gui/appwindow.cpp:214
 #, kde-format
 msgid "Repo settings..."
 msgstr "Impostazioni del deposito..."
 
-#: src/gui/appwindow.cpp:218
+#: src/gui/appwindow.cpp:217
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Switch/Checkout..."
 
-#: src/gui/appwindow.cpp:221
+#: src/gui/appwindow.cpp:220
 #, kde-format
 msgid "Diff tree"
 msgstr "Albero delle differenze"
 
-#: src/gui/appwindow.cpp:272 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:271 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Impossibile creare il percorso: %1"
 
-#: src/gui/appwindow.cpp:272 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:271 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "Inizializza il deposito"
 
-#: src/gui/appwindow.cpp:285
+#: src/gui/appwindow.cpp:284
 #, kde-format
 msgid "Open repository"
 msgstr "Apri deposito"
 
-#: src/gui/appwindow.cpp:364 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Impossibile cambiare ramo durante l'unione"
 
-#: src/gui/appwindow.cpp:364 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Cambia ramo"
@@ -357,8 +355,8 @@ msgstr "Stato:"
 #. i18n: ectx: property (text), widget (QLabel, labelRemoteName)
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName)
 #: src/gui/commandpullwidget.ui:26 src/gui/pages/remoteswidget.ui:92
-#: src/gui/pages/remoteswidget.ui:109 src/gui/pages/remoteswidget.ui:126
-#: src/gui/pages/remoteswidget.ui:143
+#: src/gui/pages/remoteswidget.ui:109 src/gui/pages/remoteswidget.ui:129
+#: src/gui/pages/remoteswidget.ui:146
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:78
 #, kde-format
 msgid "---"
@@ -520,14 +518,14 @@ msgid "Fetch url:"
 msgstr "URL Fetch:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/gui/pages/remoteswidget.ui:119
+#: src/gui/pages/remoteswidget.ui:122
 #, kde-format
 msgid "Push url:"
 msgstr "URL Push:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/gui/pages/remoteswidget.ui:136
+#: src/gui/pages/remoteswidget.ui:139
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:25
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:25
 #, kde-format
@@ -535,14 +533,14 @@ msgid "Name:"
 msgstr "Nome:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/gui/pages/remoteswidget.ui:156
+#: src/gui/pages/remoteswidget.ui:159
 #, kde-format
 msgid "Branches:"
 msgstr "Rami:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
-#: src/gui/pages/remoteswidget.ui:164 src/libkommit/models/branchesmodel.cpp:65
+#: src/gui/pages/remoteswidget.ui:167 src/libkommit/models/branchesmodel.cpp:65
 #: src/libkommit/models/tagsmodel.cpp:61
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
 #: src/libkommitwidgets/models/treemodel.cpp:146
@@ -552,19 +550,19 @@ msgid "Name"
 msgstr "Nome"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/gui/pages/remoteswidget.ui:169
+#: src/gui/pages/remoteswidget.ui:172
 #, kde-format
 msgid "Ref name"
 msgstr "Nome riferimento"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/gui/pages/remoteswidget.ui:174 src/libkommit/models/branchesmodel.cpp:75
+#: src/gui/pages/remoteswidget.ui:177 src/libkommit/models/branchesmodel.cpp:75
 #, kde-format
 msgid "Upstream"
 msgstr "Upstream"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/gui/pages/remoteswidget.ui:179
+#: src/gui/pages/remoteswidget.ui:182
 #: src/libkommit/models/submodulesmodel.cpp:64
 #: src/libkommitwidgets/models/treemodel.cpp:148
 #, kde-format
@@ -828,22 +826,22 @@ msgstr ""
 "Le modifiche locali ai seguenti file verrebbero sovrascritte dal checkout. "
 "Esegui il commit delle modifiche o lo stash prima di cambiare ramo."
 
-#: src/libkommit/entities/remote.cpp:216
+#: src/libkommit/entities/remote.cpp:217
 #, kde-format
 msgid "Unknown"
 msgstr "Sconosciuto"
 
-#: src/libkommit/entities/remote.cpp:218
+#: src/libkommit/entities/remote.cpp:219
 #, kde-format
 msgid "Up to date"
 msgstr "Aggiornato"
 
-#: src/libkommit/entities/remote.cpp:220
+#: src/libkommit/entities/remote.cpp:221
 #, kde-format
 msgid "Fast forwardable"
 msgstr "Avanzamento rapido"
 
-#: src/libkommit/entities/remote.cpp:222
+#: src/libkommit/entities/remote.cpp:223
 #, kde-format
 msgid "Local out of date"
 msgstr "Locale non aggiornato"
@@ -1043,7 +1041,7 @@ msgstr "Registro"
 #: src/libkommitwidgets/actions/fileactions.cpp:73
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
-msgstr ""
+msgstr "File %1 (*.%1);;Tutti i file(*)"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
@@ -1282,10 +1280,9 @@ msgid "Commit/push"
 msgstr "Commit/push"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Push/Commit to submodule %0"
+#, kde-format
 msgid "Commit/Push submodule: %1"
-msgstr "Push/Commit sul sotto-modulo %0"
+msgstr "Push/Commit sul sotto-modulo :%1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -1343,7 +1340,7 @@ msgstr "Clona un deposito"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:38
+#: src/libkommitwidgets/dialogs/clonedialog.ui:53
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:35
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:28
 #, kde-format
@@ -1351,7 +1348,7 @@ msgid "Url:"
 msgstr "Url:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:45
+#: src/libkommitwidgets/dialogs/clonedialog.ui:60
 #: src/libkommitwidgets/dialogs/initdialog.ui:25
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:35
 #, kde-format
@@ -1359,13 +1356,13 @@ msgid "Directory:"
 msgstr "Cartella:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRecursive)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:66
+#: src/libkommitwidgets/dialogs/clonedialog.ui:81
 #, kde-format
 msgid "Recursive"
 msgstr "Ricorsivo"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxDepth)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:73
+#: src/libkommitwidgets/dialogs/clonedialog.ui:88
 #, kde-format
 msgid "Depth"
 msgstr "Profondità"
@@ -1373,7 +1370,7 @@ msgstr "Profondità"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxBranch)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:93
+#: src/libkommitwidgets/dialogs/clonedialog.ui:108
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:34
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:75
 #: src/libkommitwidgets/dialogs/pulldialog.ui:36
@@ -1384,13 +1381,13 @@ msgid "Branch"
 msgstr "Ramo"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxOriginName)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:107
+#: src/libkommitwidgets/dialogs/clonedialog.ui:122
 #, kde-format
 msgid "Origin name"
 msgstr "Nome origine"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:147
+#: src/libkommitwidgets/dialogs/clonedialog.ui:162
 #, kde-format
 msgid "Cloning into:"
 msgstr "Clonazione in:"
@@ -1406,7 +1403,7 @@ msgstr "Clonazione in:"
 #. i18n: ectx: property (text), widget (QLabel, labelAuthTime)
 #. i18n: ectx: property (text), widget (QLabel, labelCommitter)
 #. i18n: ectx: property (text), widget (QLabel, labelCommitTime)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:154
+#: src/libkommitwidgets/dialogs/clonedialog.ui:169
 #: src/libkommitwidgets/dialogs/mergedialog.ui:53
 #: src/libkommitwidgets/widgets/commitdetails.ui:69
 #: src/libkommitwidgets/widgets/commitdetails.ui:82
@@ -1422,7 +1419,7 @@ msgid "-"
 msgstr "-"
 
 #. i18n: ectx: property (text), widget (QLabel, labelMessage)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:161
+#: src/libkommitwidgets/dialogs/clonedialog.ui:176
 #, kde-format
 msgid "TextLabel"
 msgstr "EtichettaTesto"
@@ -1616,10 +1613,9 @@ msgid "None"
 msgstr "Nessuno"
 
 #: src/libkommitwidgets/dialogs/credentialdialog.cpp:27
-#, fuzzy, kde-format
-#| msgid "Credentials:"
+#, kde-format
 msgid "Credential for %1"
-msgstr "Credenziali:"
+msgstr "Credenziali per %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
@@ -1643,7 +1639,7 @@ msgstr "Credenziali:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:91
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:96
 #, kde-format
 msgid "Username:"
 msgstr "Nome utente:"
@@ -2260,22 +2256,22 @@ msgstr ""
 "decoration: underline; color:#007af4;\">Ulteriori informazioni...</span></"
 "a></p></body></html>"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:55
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:60
 #, kde-format
 msgid "View"
 msgstr "Visualizza"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:123
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:128
 #, kde-format
 msgid "Process finished"
 msgstr "Processo terminato"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:128
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:133
 #, kde-format
 msgid "The git process crashed"
 msgstr "Il processo git si è arrestato in modo anomalo"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:134
 #, kde-format
 msgid "Process finished with error"
 msgstr "Processo terminato con errori"
@@ -2432,15 +2428,14 @@ msgid "Tag name:"
 msgstr "Nome del tag:"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:139
-#, fuzzy, kde-format
-#| msgid "No commit"
+#, kde-format
 msgid " (new commit)"
-msgstr "Nessun commit."
+msgstr " (nuovo commit)"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:141
 #, kde-format
 msgid " (content modified)"
-msgstr ""
+msgstr " (contenuto modificato)"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:58
 #, kde-format
@@ -2475,37 +2470,37 @@ msgstr "Ora del giorno"
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:22
 #, kde-format
 msgid "Monday"
-msgstr ""
+msgstr "Lunedì"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:24
 #, kde-format
 msgid "Tuesday"
-msgstr ""
+msgstr "Martedì"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:26
 #, kde-format
 msgid "Wednesday"
-msgstr ""
+msgstr "Mercoledì"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:28
 #, kde-format
 msgid "Thursday"
-msgstr ""
+msgstr "Giovedì"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:30
 #, kde-format
 msgid "Friday"
-msgstr ""
+msgstr "Venerdì"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:32
 #, kde-format
 msgid "Saturday"
-msgstr ""
+msgstr "Sabato"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:34
 #, kde-format
 msgid "Sunday"
-msgstr ""
+msgstr "Domenica"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
 #, kde-format
