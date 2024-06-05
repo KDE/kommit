@@ -126,23 +126,28 @@ void ReportWidget::fillChart()
     axisX->clear();
 
     // QChart doesn't support duplicate entries
-    QMap<QString, qreal> listElements;
 
+    struct Info {
+        QString name;
+        qreal value = 0;
+    };
+    QList<Info> listElements;
     for (int row = 0; row < mReport->rowCount(); ++row) {
         const QString name = mReport->at(row, mReport->categoryColumn()).toString();
         const qreal value = mReport->at(row, mReport->valueColumn()).toReal();
-        if (listElements.contains(name)) {
-            listElements[name] = listElements[name] + value;
+        auto i = std::find_if(listElements.begin(), listElements.end(), [name](const Info &info) {
+            return info.name == name;
+        });
+        if (i == listElements.end()) {
+            listElements.append(Info{name, value});
         } else {
-            listElements.insert(name, value);
+            (*i).value += value;
         }
     }
     QStringList names;
-    QMapIterator<QString, qreal> i(listElements);
-    while (i.hasNext()) {
-        i.next();
-        barSet->append(i.value());
-        names << i.key();
+    for (const Info &info : listElements) {
+        barSet->append(info.value);
+        names << info.name;
     }
     axisX->append(names);
     axisX->setLabelsAngle(mReport->labelsAngle());
