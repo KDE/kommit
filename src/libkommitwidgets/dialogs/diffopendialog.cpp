@@ -21,11 +21,22 @@ DiffOpenDialog::DiffOpenDialog(QWidget *parent)
 
     lineEditNewDirectory->setMode(UrlRequester::Mode::Directory);
     lineEditOldDirectory->setMode(UrlRequester::Mode::Directory);
+    connect(lineEditOldDirectory, &KUrlRequester::textChanged, this, &DiffOpenDialog::updateOkButton);
+    connect(lineEditNewDirectory, &KUrlRequester::textChanged, this, &DiffOpenDialog::updateOkButton);
+
+    connect(lineEditOldFile, &KUrlRequester::textChanged, this, &DiffOpenDialog::updateOkButton);
+    connect(lineEditOldFile, &KUrlRequester::textChanged, this, &DiffOpenDialog::updateOkButton);
+    buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
 }
 
 DiffOpenDialog::~DiffOpenDialog()
 {
     readSettings();
+}
+
+void DiffOpenDialog::updateOkButton()
+{
+    buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!lineEditOldDirectory->text().trimmed().isEmpty() && !lineEditNewDirectory->text().trimmed().isEmpty());
 }
 
 void DiffOpenDialog::readSettings()

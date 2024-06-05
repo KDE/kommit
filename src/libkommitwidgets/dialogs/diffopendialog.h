@@ -28,4 +28,5 @@ public:
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void readSettings();
     LIBKOMMITWIDGETS_NO_EXPORT void saveSettings();
+    LIBKOMMITWIDGETS_NO_EXPORT void updateOkButton();
 };
