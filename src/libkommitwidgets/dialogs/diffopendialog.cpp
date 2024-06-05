@@ -17,7 +17,6 @@ DiffOpenDialog::DiffOpenDialog(QWidget *parent)
     radioButtonCompareFiles->setChecked(true);
     widgetSelectDirectories->hide();
     readSettings();
-    // TODO update ok button enabled
 
     lineEditNewDirectory->setMode(UrlRequester::Mode::Directory);
     lineEditOldDirectory->setMode(UrlRequester::Mode::Directory);
