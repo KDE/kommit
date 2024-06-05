@@ -143,8 +143,6 @@ void AppWindow::settingsUpdated()
 
 void AppWindow::updateActions(bool enabled)
 {
-    mRepoInitAction->setEnabled(enabled);
-    mRepoOpenAction->setEnabled(enabled);
     mRepoStatusAction->setEnabled(enabled);
     mRepoCleanupAction->setEnabled(enabled);
     mRepoPullAction->setEnabled(enabled);
