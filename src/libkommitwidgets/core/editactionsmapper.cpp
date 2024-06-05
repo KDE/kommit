@@ -24,23 +24,23 @@ void EditActionsMapper::addTextEdit(QPlainTextEdit *control)
     control->installEventFilter(this);
 
     control->setContextMenuPolicy(Qt::DefaultContextMenu);
-    connect(control, &QPlainTextEdit::copyAvailable, this, &EditActionsMapper::control_copyAvailable);
-    connect(control, &QPlainTextEdit::selectionChanged, this, &EditActionsMapper::control_selectionChanged);
-    connect(control, &QPlainTextEdit::undoAvailable, this, &EditActionsMapper::control_undoAvailable);
-    connect(control, &QPlainTextEdit::redoAvailable, this, &EditActionsMapper::control_redoAvailable);
+    connect(control, &QPlainTextEdit::copyAvailable, this, &EditActionsMapper::controlCopyAvailable);
+    connect(control, &QPlainTextEdit::selectionChanged, this, &EditActionsMapper::controlSelectionChanged);
+    connect(control, &QPlainTextEdit::undoAvailable, this, &EditActionsMapper::controlUndoAvailable);
+    connect(control, &QPlainTextEdit::redoAvailable, this, &EditActionsMapper::controlRedoAvailable);
 }
 
 void EditActionsMapper::init(KActionCollection *actionCollection)
 {
-    mActionCut = KStandardAction::cut(this, &EditActionsMapper::actionCut_triggered, actionCollection);
-    mActionCopy = KStandardAction::copy(this, &EditActionsMapper::actionCopy_triggered, actionCollection);
-    mActionPaste = KStandardAction::paste(this, &EditActionsMapper::actionPaste_triggered, actionCollection);
-    mSelectAll = KStandardAction::selectAll(this, &EditActionsMapper::actionSelectAll_triggered, actionCollection);
-    mActionUndo = KStandardAction::undo(this, &EditActionsMapper::actionUndo_triggered, actionCollection);
-    mActionRedo = KStandardAction::redo(this, &EditActionsMapper::actionRedo_triggered, actionCollection);
+    mActionCut = KStandardAction::cut(this, &EditActionsMapper::actionCutTriggered, actionCollection);
+    mActionCopy = KStandardAction::copy(this, &EditActionsMapper::actionCopyTriggered, actionCollection);
+    mActionPaste = KStandardAction::paste(this, &EditActionsMapper::actionPasteTriggered, actionCollection);
+    mSelectAll = KStandardAction::selectAll(this, &EditActionsMapper::actionSelectAllTriggered, actionCollection);
+    mActionUndo = KStandardAction::undo(this, &EditActionsMapper::actionUndoTriggered, actionCollection);
+    mActionRedo = KStandardAction::redo(this, &EditActionsMapper::actionRedoTriggered, actionCollection);
 }
 
-void EditActionsMapper::control_undoAvailable(bool b)
+void EditActionsMapper::controlUndoAvailable(bool b)
 {
     auto control = qobject_cast<QPlainTextEdit *>(sender());
     if (control != mActiveControl)
@@ -49,7 +49,7 @@ void EditActionsMapper::control_undoAvailable(bool b)
     mActionUndo->setEnabled(b);
 }
 
-void EditActionsMapper::control_redoAvailable(bool b)
+void EditActionsMapper::controlRedoAvailable(bool b)
 {
     auto control = qobject_cast<QPlainTextEdit *>(sender());
     if (control != mActiveControl)
@@ -58,7 +58,7 @@ void EditActionsMapper::control_redoAvailable(bool b)
     mActionRedo->setEnabled(b);
 }
 
-void EditActionsMapper::control_copyAvailable(bool b)
+void EditActionsMapper::controlCopyAvailable(bool b)
 {
     auto control = qobject_cast<QPlainTextEdit *>(sender());
     if (control != mActiveControl)
@@ -67,47 +67,47 @@ void EditActionsMapper::control_copyAvailable(bool b)
     mActionCopy->setEnabled(b);
 }
 
-void EditActionsMapper::control_selectionChanged()
+void EditActionsMapper::controlSelectionChanged()
 {
 }
 
-void EditActionsMapper::actionUndo_triggered()
+void EditActionsMapper::actionUndoTriggered()
 {
     if (mActiveControl)
         mActiveControl->undo();
 }
 
-void EditActionsMapper::actionRedo_triggered()
+void EditActionsMapper::actionRedoTriggered()
 {
     if (mActiveControl)
         mActiveControl->redo();
 }
 
-void EditActionsMapper::actionCopy_triggered()
+void EditActionsMapper::actionCopyTriggered()
 {
     if (mActiveControl)
         mActiveControl->copy();
 }
 
-void EditActionsMapper::actionCut_triggered()
+void EditActionsMapper::actionCutTriggered()
 {
     if (mActiveControl)
         mActiveControl->cut();
 }
 
-void EditActionsMapper::actionPaste_triggered()
+void EditActionsMapper::actionPasteTriggered()
 {
     if (mActiveControl)
         mActiveControl->paste();
 }
 
-void EditActionsMapper::actionSelectAll_triggered()
+void EditActionsMapper::actionSelectAllTriggered()
 {
     if (mActiveControl)
         mActiveControl->selectAll();
 }
 
-void EditActionsMapper::actionDelete_triggered()
+void EditActionsMapper::actionDeleteTriggered()
 {
 }
 

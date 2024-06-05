@@ -27,18 +27,18 @@ public:
     Q_REQUIRED_RESULT bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
-    LIBKOMMITWIDGETS_NO_EXPORT void control_undoAvailable(bool b);
-    LIBKOMMITWIDGETS_NO_EXPORT void control_redoAvailable(bool b);
-    LIBKOMMITWIDGETS_NO_EXPORT void control_copyAvailable(bool b);
-    LIBKOMMITWIDGETS_NO_EXPORT void control_selectionChanged();
+    LIBKOMMITWIDGETS_NO_EXPORT void controlUndoAvailable(bool b);
+    LIBKOMMITWIDGETS_NO_EXPORT void controlRedoAvailable(bool b);
+    LIBKOMMITWIDGETS_NO_EXPORT void controlCopyAvailable(bool b);
+    LIBKOMMITWIDGETS_NO_EXPORT void controlSelectionChanged();
 
-    LIBKOMMITWIDGETS_NO_EXPORT void actionUndo_triggered();
-    LIBKOMMITWIDGETS_NO_EXPORT void actionRedo_triggered();
-    LIBKOMMITWIDGETS_NO_EXPORT void actionCopy_triggered();
-    LIBKOMMITWIDGETS_NO_EXPORT void actionCut_triggered();
-    LIBKOMMITWIDGETS_NO_EXPORT void actionPaste_triggered();
-    LIBKOMMITWIDGETS_NO_EXPORT void actionSelectAll_triggered();
-    LIBKOMMITWIDGETS_NO_EXPORT void actionDelete_triggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionUndoTriggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionRedoTriggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionCopyTriggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionCutTriggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionPasteTriggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionSelectAllTriggered();
+    LIBKOMMITWIDGETS_NO_EXPORT void actionDeleteTriggered();
     QList<QPlainTextEdit *> mTextEdits;
     QPlainTextEdit *mActiveControl{nullptr};
 
