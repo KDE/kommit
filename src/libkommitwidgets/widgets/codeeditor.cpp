@@ -105,7 +105,10 @@ CodeEditor::CodeEditor(QWidget *parent)
     updateViewPortGeometry();
 }
 
-CodeEditor::~CodeEditor() = default;
+CodeEditor::~CodeEditor()
+{
+    clearAll();
+}
 
 void CodeEditor::resizeEvent(QResizeEvent *event)
 {
