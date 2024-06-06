@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 02:06+0000\n"
-"PO-Revision-Date: 2024-06-03 10:09+0200\n"
+"POT-Creation-Date: 2024-06-06 01:48+0000\n"
+"PO-Revision-Date: 2024-06-05 07:22+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -212,103 +212,103 @@ msgstr "(fusion)"
 msgid " (rebasing)"
 msgstr "(rebasage)"
 
-#: src/gui/appwindow.cpp:166
+#: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr "Initialiser…"
 
-#: src/gui/appwindow.cpp:169
+#: src/gui/appwindow.cpp:167
 #, kde-format
 msgid "Open..."
 msgstr "Ouvrir…"
 
-#: src/gui/appwindow.cpp:174
+#: src/gui/appwindow.cpp:172
 #, kde-format
 msgid "Clone..."
 msgstr "Cloner…"
 
-#: src/gui/appwindow.cpp:177
+#: src/gui/appwindow.cpp:175
 #, kde-format
 msgid "Changed files..."
 msgstr "Fichiers modifiés…"
 
-#: src/gui/appwindow.cpp:183
+#: src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Recent repos"
 msgstr "Dépôts récents"
 
-#: src/gui/appwindow.cpp:189
+#: src/gui/appwindow.cpp:187
 #, kde-format
 msgid "Cleanup..."
 msgstr "Nettoyage…"
 
-#: src/gui/appwindow.cpp:192
+#: src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Pull..."
 msgstr "Tirer…"
 
-#: src/gui/appwindow.cpp:196 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr "Rechercher…"
 
-#: src/gui/appwindow.cpp:200 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr "Pousser…"
 
-#: src/gui/appwindow.cpp:204 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr "Fusionner…"
 
-#: src/gui/appwindow.cpp:208
+#: src/gui/appwindow.cpp:206
 #, kde-format
 msgid "Diff branches..."
 msgstr "Différences entre branches…"
 
-#: src/gui/appwindow.cpp:211 src/libkommitwidgets/actions/fileactions.cpp:54
+#: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr "Chercher…"
 
-#: src/gui/appwindow.cpp:214
+#: src/gui/appwindow.cpp:212
 #, kde-format
 msgid "Repo settings..."
 msgstr "Paramètres des dépôts…"
 
-#: src/gui/appwindow.cpp:217
+#: src/gui/appwindow.cpp:215
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Basculer / Obtenir…"
 
-#: src/gui/appwindow.cpp:220
+#: src/gui/appwindow.cpp:218
 #, kde-format
 msgid "Diff tree"
 msgstr "Arborescence des différences"
 
-#: src/gui/appwindow.cpp:271 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Impossible de créer l'emplacement : %1"
 
-#: src/gui/appwindow.cpp:271 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "Initialiser le dépôt"
 
-#: src/gui/appwindow.cpp:284
+#: src/gui/appwindow.cpp:282
 #, kde-format
 msgid "Open repository"
 msgstr "Ouvrir un dépôt"
 
-#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Impossible de changer de branch pendant une fusion"
 
-#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Changer de branche"
@@ -491,7 +491,7 @@ msgid "Filter..."
 msgstr "Filtrer…"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
-#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:56
+#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:59
 #, kde-format
 msgid "Update"
 msgstr "Mettre à jour"
@@ -622,7 +622,7 @@ msgstr "Remises"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
-#: src/gui/pages/stasheswidget.ui:49 src/gui/pages/submoduleswidget.ui:53
+#: src/gui/pages/stasheswidget.ui:49 src/gui/pages/submoduleswidget.ui:56
 #, kde-format
 msgid ""
 "<html><head/><body><p>Save your local modifications to a new stash entry and "
@@ -685,7 +685,7 @@ msgstr "sous-modules"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
-#: src/gui/pages/submoduleswidget.ui:46
+#: src/gui/pages/submoduleswidget.ui:49
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:14
 #, kde-format
 msgid "Add new submodule"
@@ -1045,7 +1045,7 @@ msgstr "Journal"
 #: src/libkommitwidgets/actions/fileactions.cpp:73
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
-msgstr ""
+msgstr "Fichier %1 (*.%1);;Tous les fichiers(*)"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
@@ -1554,7 +1554,7 @@ msgstr "Amender la validation précédente"
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:152
-#: src/libkommitwidgets/dialogs/taginfodialog.ui:32
+#: src/libkommitwidgets/dialogs/taginfodialog.ui:36
 #, kde-format
 msgid "Message:"
 msgstr "Message :"
@@ -1618,7 +1618,7 @@ msgstr "Modifiés"
 msgid "None"
 msgstr "Aucun"
 
-#: src/libkommitwidgets/dialogs/credentialdialog.cpp:27
+#: src/libkommitwidgets/dialogs/credentialdialog.cpp:32
 #, kde-format
 msgid "Credential for %1"
 msgstr "Identifiants pour %1"

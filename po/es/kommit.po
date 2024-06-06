@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 02:06+0000\n"
-"PO-Revision-Date: 2024-06-01 01:44+0200\n"
+"POT-Creation-Date: 2024-06-06 01:48+0000\n"
+"PO-Revision-Date: 2024-06-05 17:54+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -213,103 +213,103 @@ msgstr " (fusionando)"
 msgid " (rebasing)"
 msgstr " (rebasando)"
 
-#: src/gui/appwindow.cpp:166
+#: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr "Iniciar..."
 
-#: src/gui/appwindow.cpp:169
+#: src/gui/appwindow.cpp:167
 #, kde-format
 msgid "Open..."
 msgstr "Abrir..."
 
-#: src/gui/appwindow.cpp:174
+#: src/gui/appwindow.cpp:172
 #, kde-format
 msgid "Clone..."
 msgstr "Clonar..."
 
-#: src/gui/appwindow.cpp:177
+#: src/gui/appwindow.cpp:175
 #, kde-format
 msgid "Changed files..."
 msgstr "Archivos cambiados..."
 
-#: src/gui/appwindow.cpp:183
+#: src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Recent repos"
 msgstr "Repositorios recientes"
 
-#: src/gui/appwindow.cpp:189
+#: src/gui/appwindow.cpp:187
 #, kde-format
 msgid "Cleanup..."
 msgstr "Limpiar..."
 
-#: src/gui/appwindow.cpp:192
+#: src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Pull..."
 msgstr "Descargar..."
 
-#: src/gui/appwindow.cpp:196 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr "Extraer..."
 
-#: src/gui/appwindow.cpp:200 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr "Enviar..."
 
-#: src/gui/appwindow.cpp:204 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr "Fusionar..."
 
-#: src/gui/appwindow.cpp:208
+#: src/gui/appwindow.cpp:206
 #, kde-format
 msgid "Diff branches..."
 msgstr "Diferencias entre ramas..."
 
-#: src/gui/appwindow.cpp:211 src/libkommitwidgets/actions/fileactions.cpp:54
+#: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr "Buscar..."
 
-#: src/gui/appwindow.cpp:214
+#: src/gui/appwindow.cpp:212
 #, kde-format
 msgid "Repo settings..."
 msgstr "Preferencias del repositorio..."
 
-#: src/gui/appwindow.cpp:217
+#: src/gui/appwindow.cpp:215
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "Cambiar/cambiar rama..."
 
-#: src/gui/appwindow.cpp:220
+#: src/gui/appwindow.cpp:218
 #, kde-format
 msgid "Diff tree"
 msgstr "Árbol de diferencias"
 
-#: src/gui/appwindow.cpp:271 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "No se ha podido crear la ruta: %1"
 
-#: src/gui/appwindow.cpp:271 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "Iniciar repositorio"
 
-#: src/gui/appwindow.cpp:284
+#: src/gui/appwindow.cpp:282
 #, kde-format
 msgid "Open repository"
 msgstr "Abrir repositorio"
 
-#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No se puede cambiar de rama durante la fusión"
 
-#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Cambiar rama"
@@ -491,7 +491,7 @@ msgid "Filter..."
 msgstr "Filtrar..."
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
-#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:56
+#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:59
 #, kde-format
 msgid "Update"
 msgstr "Actualizar"
@@ -622,7 +622,7 @@ msgstr "Reservas"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
-#: src/gui/pages/stasheswidget.ui:49 src/gui/pages/submoduleswidget.ui:53
+#: src/gui/pages/stasheswidget.ui:49 src/gui/pages/submoduleswidget.ui:56
 #, kde-format
 msgid ""
 "<html><head/><body><p>Save your local modifications to a new stash entry and "
@@ -684,7 +684,7 @@ msgstr "Submódulos"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
-#: src/gui/pages/submoduleswidget.ui:46
+#: src/gui/pages/submoduleswidget.ui:49
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:14
 #, kde-format
 msgid "Add new submodule"
@@ -1044,7 +1044,7 @@ msgstr "Registro"
 #: src/libkommitwidgets/actions/fileactions.cpp:73
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
-msgstr ""
+msgstr "Archivo %1 (*.%1);;Todos los archivos (*)"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
@@ -1551,7 +1551,7 @@ msgstr "Modificar la confirmación anterior"
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:152
-#: src/libkommitwidgets/dialogs/taginfodialog.ui:32
+#: src/libkommitwidgets/dialogs/taginfodialog.ui:36
 #, kde-format
 msgid "Message:"
 msgstr "Mensaje:"
@@ -1616,7 +1616,7 @@ msgstr "Modificado"
 msgid "None"
 msgstr "Ninguno"
 
-#: src/libkommitwidgets/dialogs/credentialdialog.cpp:27
+#: src/libkommitwidgets/dialogs/credentialdialog.cpp:32
 #, kde-format
 msgid "Credential for %1"
 msgstr "Credencial para %1"

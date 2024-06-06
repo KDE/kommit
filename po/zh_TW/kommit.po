@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 02:06+0000\n"
+"POT-Creation-Date: 2024-06-06 01:48+0000\n"
 "PO-Revision-Date: 2024-03-06 20:20+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -214,103 +214,103 @@ msgstr "（合併中）"
 msgid " (rebasing)"
 msgstr "（重定基底中）"
 
-#: src/gui/appwindow.cpp:166
+#: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgid "Init..."
 msgstr "初始化…"
 
-#: src/gui/appwindow.cpp:169
+#: src/gui/appwindow.cpp:167
 #, kde-format
 msgid "Open..."
 msgstr "開啟…"
 
-#: src/gui/appwindow.cpp:174
+#: src/gui/appwindow.cpp:172
 #, kde-format
 msgid "Clone..."
 msgstr "建立複本…"
 
-#: src/gui/appwindow.cpp:177
+#: src/gui/appwindow.cpp:175
 #, kde-format
 msgid "Changed files..."
 msgstr "已變更的檔案…"
 
-#: src/gui/appwindow.cpp:183
+#: src/gui/appwindow.cpp:181
 #, kde-format
 msgid "Recent repos"
 msgstr "最近版本庫"
 
-#: src/gui/appwindow.cpp:189
+#: src/gui/appwindow.cpp:187
 #, kde-format
 msgid "Cleanup..."
 msgstr "清理…"
 
-#: src/gui/appwindow.cpp:192
+#: src/gui/appwindow.cpp:190
 #, kde-format
 msgid "Pull..."
 msgstr "拉取 (pull)…"
 
-#: src/gui/appwindow.cpp:196 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgid "Fetch..."
 msgstr "抓取 (fetch)…"
 
-#: src/gui/appwindow.cpp:200 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgid "Push..."
 msgstr "推送 (push)…"
 
-#: src/gui/appwindow.cpp:204 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgid "Merge..."
 msgstr "合併…"
 
-#: src/gui/appwindow.cpp:208
+#: src/gui/appwindow.cpp:206
 #, kde-format
 msgid "Diff branches..."
 msgstr "比對分支差異…"
 
-#: src/gui/appwindow.cpp:211 src/libkommitwidgets/actions/fileactions.cpp:54
+#: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
 msgid "Search..."
 msgstr "搜尋…"
 
-#: src/gui/appwindow.cpp:214
+#: src/gui/appwindow.cpp:212
 #, kde-format
 msgid "Repo settings..."
 msgstr "版本庫設定…"
 
-#: src/gui/appwindow.cpp:217
+#: src/gui/appwindow.cpp:215
 #, kde-format
 msgid "Switch/Checkout..."
 msgstr "切換/簽出…"
 
-#: src/gui/appwindow.cpp:220
+#: src/gui/appwindow.cpp:218
 #, kde-format
 msgid "Diff tree"
 msgstr "比對樹狀圖差異"
 
-#: src/gui/appwindow.cpp:271 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "無法建立路徑：%1"
 
-#: src/gui/appwindow.cpp:271 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "初始化版本庫"
 
-#: src/gui/appwindow.cpp:284
+#: src/gui/appwindow.cpp:282
 #, kde-format
 msgid "Open repository"
 msgstr "開啟版本庫"
 
-#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "合併中無法切換分支"
 
-#: src/gui/appwindow.cpp:363 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "切換分支"
@@ -491,7 +491,7 @@ msgid "Filter..."
 msgstr "過濾…"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
-#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:56
+#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:59
 #, kde-format
 msgid "Update"
 msgstr "更新"
@@ -625,7 +625,7 @@ msgstr "貯存"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
-#: src/gui/pages/stasheswidget.ui:49 src/gui/pages/submoduleswidget.ui:53
+#: src/gui/pages/stasheswidget.ui:49 src/gui/pages/submoduleswidget.ui:56
 #, kde-format
 msgid ""
 "<html><head/><body><p>Save your local modifications to a new stash entry and "
@@ -675,7 +675,7 @@ msgstr "子模組"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
-#: src/gui/pages/submoduleswidget.ui:46
+#: src/gui/pages/submoduleswidget.ui:49
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:14
 #, kde-format
 msgid "Add new submodule"
@@ -1527,7 +1527,7 @@ msgstr "編輯 (amend) 最近的提交"
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:152
-#: src/libkommitwidgets/dialogs/taginfodialog.ui:32
+#: src/libkommitwidgets/dialogs/taginfodialog.ui:36
 #, kde-format
 msgid "Message:"
 msgstr "訊息："
@@ -1587,7 +1587,7 @@ msgstr "已修改"
 msgid "None"
 msgstr "無"
 
-#: src/libkommitwidgets/dialogs/credentialdialog.cpp:27
+#: src/libkommitwidgets/dialogs/credentialdialog.cpp:32
 #, fuzzy, kde-format
 #| msgid "Credentials:"
 msgid "Credential for %1"
