@@ -4,7 +4,7 @@ project(kommit)
 
 set(PROJECT_VERSION_MAJOR 1)
 set(PROJECT_VERSION_MINOR 5)
-set(PROJECT_VERSION_PATCH 0)
+set(PROJECT_VERSION_PATCH 1)
 
 set (RELEASE_SERVICE_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
 
@@ -99,6 +99,7 @@ add_definitions(-DQT_NO_CAST_TO_ASCII)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 add_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 add_definitions(-DQT_NO_FOREACH)
+add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
 #add_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 ecm_set_disabled_deprecation_versions(QT 5.15.2)
