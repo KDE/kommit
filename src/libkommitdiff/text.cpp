@@ -16,22 +16,22 @@ Text readLines(const QString &text)
         return {};
 
     LineEnding le{LineEnding::None};
-    QString seprator;
+    QString separator;
     for (const auto &ch : text) {
         if (le == LineEnding::Cr) {
             if (ch == QLatin1Char('\n')) {
                 le = LineEnding::CrLf;
-                seprator = QStringLiteral("\r\n");
+                separator = QStringLiteral("\r\n");
             }
             break;
         }
         if (ch == QLatin1Char('\r')) {
             le = LineEnding::Cr;
-            seprator = QStringLiteral("\r");
+            separator = QStringLiteral("\r");
             continue;
         }
         if (ch == QLatin1Char('\n')) {
-            seprator = QStringLiteral("\n");
+            separator = QStringLiteral("\n");
             le = LineEnding::Lf;
             break;
         }
@@ -46,11 +46,11 @@ Text readLines(const QString &text)
     Text t;
     t.lineEnding = le;
     while (i != -1) {
-        auto n = text.indexOf(seprator, i);
+        auto n = text.indexOf(separator, i);
         if (n == -1)
             break;
         t.lines.append(text.mid(i, n - i));
-        i = n + seprator.size();
+        i = n + separator.size();
     }
 
     return t;
