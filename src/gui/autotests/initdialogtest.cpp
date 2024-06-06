@@ -17,6 +17,12 @@ void InitDialogTest::shouldHaveDefaultValues()
 {
     InitDialog d(nullptr);
     QVERIFY(d.path().isEmpty());
+    auto buttonBox = d.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
+    QVERIFY(buttonBox);
+    QVERIFY(!buttonBox->button(QDialogButtonBox::Ok)->isEnabled());
+
+    d.setPath(QStringLiteral("bla"));
+    QVERIFY(buttonBox->button(QDialogButtonBox::Ok)->isEnabled());
 }
 
 #include "moc_initdialogtest.cpp"
