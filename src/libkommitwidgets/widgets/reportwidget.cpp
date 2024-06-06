@@ -4,6 +4,8 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
+#include <QShortcut>
+
 #ifdef QT_CHARTS_LIB
 #include <QBarCategoryAxis>
 #include <QBarSeries>
@@ -11,7 +13,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QChart>
 #include <QChartView>
 #include <QLineSeries>
-#include <QShortcut>
 #include <QVXYModelMapper>
 #include <QValueAxis>
 #endif
@@ -182,3 +183,5 @@ void ReportWidget::reload()
 }
 
 #include "moc_reportwidget.cpp"
+
+#include <QShortcut>
