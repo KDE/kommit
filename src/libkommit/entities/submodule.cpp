@@ -107,6 +107,7 @@ QStringList Submodule::statusTexts() const
     auto status = this->status();
     QStringList list;
 
+    // TODO i18n ?
     if (status & Status::InHead)
         list << "superproject head contains submodule";
     if (status & Status::InIndex)
