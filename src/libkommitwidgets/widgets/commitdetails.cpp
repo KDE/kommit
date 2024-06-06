@@ -125,7 +125,7 @@ void CommitDetails::setEnableCommitsLinks(bool enableCommitsLinks)
     if (mEnableCommitsLinks == enableCommitsLinks)
         return;
     mEnableCommitsLinks = enableCommitsLinks;
-    emit enableCommitsLinksChanged();
+    Q_EMIT enableCommitsLinksChanged();
 }
 
 bool CommitDetails::enableEmailsLinks() const
@@ -138,7 +138,7 @@ void CommitDetails::setEnableEmailsLinks(bool enableEmailsLinks)
     if (mEnableEmailsLinks == enableEmailsLinks)
         return;
     mEnableEmailsLinks = enableEmailsLinks;
-    emit enableEmailsLinksChanged();
+    Q_EMIT enableEmailsLinksChanged();
 }
 
 bool CommitDetails::enableFilesLinks() const
@@ -151,7 +151,7 @@ void CommitDetails::setEnableFilesLinks(bool enableFilesLinks)
     if (mEnableFilesLinks == enableFilesLinks)
         return;
     mEnableFilesLinks = enableFilesLinks;
-    emit enableFilesLinksChanged();
+    Q_EMIT enableFilesLinksChanged();
 }
 
 void CommitDetails::slotEmailLinkClicked(const QString &link)

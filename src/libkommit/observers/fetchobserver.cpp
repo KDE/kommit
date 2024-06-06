@@ -111,7 +111,7 @@ void FetchObserver::setTotalObjects(unsigned int totalObjects)
     if (mTotalObjects == totalObjects)
         return;
     mTotalObjects = totalObjects;
-    emit totalObjectsChanged(totalObjects);
+    Q_EMIT totalObjectsChanged(totalObjects);
 }
 
 unsigned int FetchObserver::indexedObjects() const
@@ -124,7 +124,7 @@ void FetchObserver::setIndexedObjects(unsigned int indexedObjects)
     if (mIndexedObjects == indexedObjects)
         return;
     mIndexedObjects = indexedObjects;
-    emit indexedObjectsChanged();
+    Q_EMIT indexedObjectsChanged();
 }
 
 unsigned int FetchObserver::receivedObjects() const
@@ -137,7 +137,7 @@ void FetchObserver::setReceivedObjects(unsigned int receivedObjects)
     if (mReceivedObjects == receivedObjects)
         return;
     mReceivedObjects = receivedObjects;
-    emit receivedObjectsChanged(receivedObjects);
+    Q_EMIT receivedObjectsChanged(receivedObjects);
 }
 
 unsigned int FetchObserver::localObjects() const
@@ -150,7 +150,7 @@ void FetchObserver::setLocalObjects(unsigned int localObjects)
     if (mLocalObjects == localObjects)
         return;
     mLocalObjects = localObjects;
-    emit localObjectsChanged();
+    Q_EMIT localObjectsChanged();
 }
 
 unsigned int FetchObserver::totalDeltas() const
@@ -163,7 +163,7 @@ void FetchObserver::setTotalDeltas(unsigned int totalDeltas)
     if (mTotalDeltas == totalDeltas)
         return;
     mTotalDeltas = totalDeltas;
-    emit totalDeltasChanged();
+    Q_EMIT totalDeltasChanged();
 }
 
 unsigned int FetchObserver::indexedDeltas() const
@@ -176,7 +176,7 @@ void FetchObserver::setIndexedDeltas(unsigned int indexedDeltas)
     if (mIndexedDeltas == indexedDeltas)
         return;
     mIndexedDeltas = indexedDeltas;
-    emit indexedDeltasChanged();
+    Q_EMIT indexedDeltasChanged();
 }
 
 void FetchObserver::setCredential(const QString &username, const QString &password)

@@ -55,7 +55,7 @@ KVersionControlPlugin::ItemVersion convertToItemVersion(unsigned int status_flag
 
 QString removeSlashAtEnd(const QString &s)
 {
-    if (s.endsWith("/"))
+    if (s.endsWith(QLatin1Char('/')))
         return s.mid(0, s.length() - 1);
     return s;
 }
@@ -78,10 +78,10 @@ auto callback(const char *pa, unsigned int status_flags, void *payload) -> int
 
     QString entryName;
     QString childPath;
-    if (path.indexOf("/", w->prefix.length()) == -1) {
+    if (path.indexOf(QLatin1Char('/'), w->prefix.length()) == -1) {
         entryName = path.mid(w->prefix.length());
     } else {
-        entryName = path.mid(w->prefix.length(), path.indexOf("/", w->prefix.length()) + 1 - w->prefix.length());
+        entryName = path.mid(w->prefix.length(), path.indexOf(QLatin1Char('/'), w->prefix.length()) + 1 - w->prefix.length());
         childPath = path.mid(w->prefix.length() + entryName.length());
     }
 
@@ -110,11 +110,11 @@ QString findParentContansGit(const QString &dir)
     auto path = removeSlashAtEnd(dir);
 
     QDir d;
-    while (path.contains("/")) {
+    while (path.contains(QLatin1Char('/'))) {
         if (d.exists(path + "/.git/"))
             return path;
 
-        path = path.mid(0, path.lastIndexOf("/"));
+        path = path.mid(0, path.lastIndexOf(QLatin1Char('/')));
     }
 
     return {};
@@ -170,7 +170,7 @@ StatusCache::StatusCache() = default;
 
 KVersionControlPlugin::ItemVersion StatusCache::status(const QString &name)
 {
-    if (mCurrentPathIsIgnored || name.startsWith(".git/") || name == ".git")
+    if (mCurrentPathIsIgnored || name.startsWith(QStringLiteral(".git/")) || name == QStringLiteral(".git"))
         return KVersionControlPlugin::IgnoredVersion;
 
     return mStatuses.value(name, KVersionControlPlugin::ItemVersion::NormalVersion);
@@ -208,12 +208,12 @@ bool StatusCache::setPath(const QString &path)
 
     Impl::wrapper w;
     w.currentPath = path;
-    if (!w.currentPath.endsWith("/"))
-        w.currentPath.append("/");
+    if (!w.currentPath.endsWith(QLatin1Char('/')))
+        w.currentPath.append(QLatin1Char('/'));
     w.rootPath = mRepoRootPath;
-    if (!w.rootPath.endsWith("/"))
-        w.rootPath.append("/");
-    w.prefix = w.currentPath.replace(w.rootPath, "");
+    if (!w.rootPath.endsWith(QLatin1Char('/')))
+        w.rootPath.append(QLatin1Char('/'));
+    w.prefix = w.currentPath.remove(w.rootPath);
 
     git_status_options opts;
     git_status_options_init(&opts, GIT_STATUS_OPTIONS_VERSION);

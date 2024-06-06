@@ -31,7 +31,7 @@ public:
     Q_REQUIRED_RESULT unsigned int transferProgressTotal() const;
     void setTransferProgressTotal(unsigned int transferProgressTotal);
 
-signals:
+Q_SIGNALS:
     void packProgressValueChanged();
     void packProgressTotalChanged();
     void transferProgressValueChanged();

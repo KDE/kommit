@@ -71,7 +71,7 @@ bool CommandCommit::parseOutput(const QByteArray &output, const QByteArray &erro
     bool errorFound = false;
     for (const auto &line : lines) {
         if (errorFound)
-            error.append("\n" + line);
+            error.append(QLatin1Char('/') + line);
         if (line.startsWith("ERROR: ")) {
             errorFound = true;
             error = line.mid(7);

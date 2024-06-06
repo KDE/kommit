@@ -63,7 +63,7 @@ void PushObserver::setPackProgressValue(unsigned int packProgressValue)
     if (mPackProgressValue == packProgressValue)
         return;
     mPackProgressValue = packProgressValue;
-    emit packProgressValueChanged();
+    Q_EMIT packProgressValueChanged();
 }
 
 unsigned int PushObserver::packProgressTotal() const
@@ -76,7 +76,7 @@ void PushObserver::setPackProgressTotal(unsigned int packProgressTotal)
     if (mPackProgressTotal == packProgressTotal)
         return;
     mPackProgressTotal = packProgressTotal;
-    emit packProgressTotalChanged();
+    Q_EMIT packProgressTotalChanged();
 }
 
 unsigned int PushObserver::transferProgressValue() const
@@ -89,7 +89,7 @@ void PushObserver::setTransferProgressValue(unsigned int transferProgressValue)
     if (mTransferProgressValue == transferProgressValue)
         return;
     mTransferProgressValue = transferProgressValue;
-    emit transferProgressValueChanged();
+    Q_EMIT transferProgressValueChanged();
 }
 
 unsigned int PushObserver::transferProgressTotal() const
@@ -102,7 +102,7 @@ void PushObserver::setTransferProgressTotal(unsigned int transferProgressTotal)
     if (mTransferProgressTotal == transferProgressTotal)
         return;
     mTransferProgressTotal = transferProgressTotal;
-    emit transferProgressTotalChanged();
+    Q_EMIT transferProgressTotalChanged();
 }
 
 }

@@ -46,7 +46,7 @@ QStringList Tree::entries(EntryType filter) const
 {
     QStringList list;
 
-    browseNestedEntities(filter, "", list);
+    browseNestedEntities(filter, QString(), list);
 
     return list;
 }
@@ -75,7 +75,7 @@ void Tree::initTree()
         QString path{root};
         QString name{git_tree_entry_name(entry)};
 
-        if (path.endsWith("/"))
+        if (path.endsWith(QLatin1Char('/')))
             path = path.mid(0, path.length() - 1);
 
         auto type = git_tree_entry_type(entry);
@@ -103,8 +103,8 @@ void Tree::initTree()
 void Tree::browseNestedEntities(EntryType type, const QString &path, QStringList &list) const
 {
     QString prefix;
-    if (path != "")
-        prefix = path + "/";
+    if (!path.isEmpty())
+        prefix = path + QLatin1Char('/');
 
     auto dirs = entries(path, EntryType::Dir);
     auto files = entries(path, EntryType::File);
