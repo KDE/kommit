@@ -125,10 +125,10 @@ void AppWindow::gitPathChanged()
     setWindowFilePath(mGit->path());
     //    setWindowTitle(_git->path());
 
-    auto statusText = i18n("Current branch: %1", mGit->currentBranch());
+    QString statusText = i18n("Current branch: %1", mGit->currentBranch());
     if (mGit->isMerging())
         statusText.append(i18n(" (merging)"));
-    if (mGit->isRebasing())
+    else if (mGit->isRebasing())
         statusText.append(i18n(" (rebasing)"));
 
     mStatusCurrentBranchLabel->setText(statusText);
@@ -136,7 +136,7 @@ void AppWindow::gitPathChanged()
 
 void AppWindow::settingsUpdated()
 {
-    for (auto &w : mBaseWidgets)
+    for (const auto &w : std::as_const(mBaseWidgets))
         w->settingsUpdated();
     mGit->logsModel()->setCalendarType(KommitSettings::calendarType());
 }
