@@ -35,7 +35,7 @@ public:
     Q_REQUIRED_RESULT QSharedPointer<Tree> tree() const override;
     Q_REQUIRED_RESULT QSharedPointer<Commit> commit() const;
 
-    QString treeTitle() const override;
+    Q_REQUIRED_RESULT QString treeTitle() const override;
 
 private:
     git_reference *const mBranch;
