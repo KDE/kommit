@@ -11,14 +11,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QEvent>
 #include <QWhatsThisClickedEvent>
 
-AppDialog::AppDialog(QWidget *parent, Qt::WindowFlags f)
-    : QDialog(parent, f)
+AppDialog::AppDialog(QWidget *parent)
+    : QDialog(parent)
     , mGit(Git::Manager::instance())
 {
 }
 
-AppDialog::AppDialog(Git::Manager *git, QWidget *parent, Qt::WindowFlags f)
-    : QDialog(parent, f)
+AppDialog::AppDialog(Git::Manager *git, QWidget *parent)
+    : QDialog(parent)
     , mGit(git)
 {
 }

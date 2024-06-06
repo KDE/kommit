@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "initdialog.h"
 #include <QPushButton>
 
-InitDialog::InitDialog(Git::Manager *git, QWidget *parent, Qt::WindowFlags f)
-    : AppDialog(git, parent, f)
+InitDialog::InitDialog(Git::Manager *git, QWidget *parent)
+    : AppDialog(git, parent)
 {
     setupUi(this);
     lineEditPath->setMode(UrlRequester::Mode::Directory);

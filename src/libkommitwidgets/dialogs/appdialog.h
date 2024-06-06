@@ -21,8 +21,8 @@ class LIBKOMMITWIDGETS_EXPORT AppDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit AppDialog(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
-    explicit AppDialog(Git::Manager *git, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
+    explicit AppDialog(QWidget *parent = nullptr);
+    explicit AppDialog(Git::Manager *git, QWidget *parent = nullptr);
 
     bool event(QEvent *event) override;
 
