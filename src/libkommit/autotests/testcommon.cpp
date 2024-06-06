@@ -32,7 +32,7 @@ QString touch(const QString &fileName)
 
 QString getTempPath()
 {
-    auto path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/') + QUuid::createUuid().toString(QUuid::Id128);
+    const auto path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/') + QUuid::createUuid().toString(QUuid::Id128);
     QDir d;
     d.mkpath(path);
     return path;
@@ -51,7 +51,7 @@ QString readFile(const QString &fileName)
     QFile f(fileName);
     if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
         return {};
-    auto buffer = f.readAll();
+    const auto buffer = f.readAll();
     f.close();
     return buffer;
 }
@@ -59,7 +59,7 @@ QString readFile(const QString &fileName)
 bool makePath(Git::Manager *manager, const QString &path)
 {
     QDir d{};
-    return d.mkpath(manager->path() + "/" + path);
+    return d.mkpath(manager->path() + QLatin1Char('/') + path);
 }
 
 QString touch(Git::Manager *manager, const QString &fileName)
@@ -68,7 +68,7 @@ QString touch(Git::Manager *manager, const QString &fileName)
     if (fileName.startsWith(QLatin1Char('/')))
         content = touch(manager->path() + fileName);
     else
-        content = touch(manager->path() + "/" + fileName);
+        content = touch(manager->path() + QLatin1Char('/') + fileName);
     manager->addFile(fileName);
     return content;
 }
