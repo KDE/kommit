@@ -35,8 +35,8 @@ public:
 
     static AppWindow *instance();
 
-private Q_SLOTS:
-    void git_pathChanged();
+private:
+    void gitPathChanged();
     void settingsUpdated();
     void repoStatus();
     void initRepo();
@@ -53,8 +53,6 @@ private Q_SLOTS:
     void repoDiffTree();
     void merge();
     void cleanup();
-
-private:
     void initActions();
     void initRecentRepos(const QString &newItem = QString());
 

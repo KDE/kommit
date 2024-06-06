@@ -49,5 +49,5 @@ public:
     virtual void settingsUpdated();
 
 private:
-    void git_pathChanged();
+    void gitPathChanged();
 };

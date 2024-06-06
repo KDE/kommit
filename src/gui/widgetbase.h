@@ -26,5 +26,5 @@ public:
     int exec(QWidget *parent = nullptr);
 
 private slots:
-    void git_pathChanged();
+    void gitPathChanged();
 };

@@ -21,7 +21,7 @@ WidgetBase::WidgetBase(QWidget *parent)
 {
     // TODO: remove this singelton call
     mGit = Git::Manager::instance();
-    connect(mGit, &Git::Manager::pathChanged, this, &WidgetBase::git_pathChanged);
+    connect(mGit, &Git::Manager::pathChanged, this, &WidgetBase::gitPathChanged);
 }
 
 WidgetBase::WidgetBase(Git::Manager *git, AppWindow *parent)
@@ -32,7 +32,7 @@ WidgetBase::WidgetBase(Git::Manager *git, AppWindow *parent)
     // TODO: do we need this?
     if (!mGit)
         mGit = Git::Manager::instance();
-    connect(mGit, &Git::Manager::pathChanged, this, &WidgetBase::git_pathChanged);
+    connect(mGit, &Git::Manager::pathChanged, this, &WidgetBase::gitPathChanged);
 }
 
 Git::Manager *WidgetBase::git() const
@@ -98,7 +98,7 @@ void WidgetBase::settingsUpdated()
 {
 }
 
-void WidgetBase::git_pathChanged()
+void WidgetBase::gitPathChanged()
 {
     reload();
 }

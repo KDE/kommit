@@ -72,7 +72,7 @@ void AppWindow::init()
 
     mGitData = new RepositoryData{this};
 
-    connect(mGit, &Git::Manager::pathChanged, this, &AppWindow::git_pathChanged);
+    connect(mGit, &Git::Manager::pathChanged, this, &AppWindow::gitPathChanged);
 
     initActions();
     mMainWidget = new MultiPageWidget(this);
@@ -119,7 +119,7 @@ AppWindow *AppWindow::instance()
     return instance;
 }
 
-void AppWindow::git_pathChanged()
+void AppWindow::gitPathChanged()
 {
     updateActions(true);
     setWindowFilePath(mGit->path());
