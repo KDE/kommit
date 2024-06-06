@@ -183,5 +183,3 @@ void ReportWidget::reload()
 }
 
 #include "moc_reportwidget.cpp"
-
-#include <QShortcut>
