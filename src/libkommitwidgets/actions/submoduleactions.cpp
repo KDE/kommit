@@ -36,11 +36,11 @@ void SubmoduleActions::setSubModuleName(const QString &newSubModuleName)
 SubmoduleActions::SubmoduleActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
-    _actionCreate = addActionHidden(i18n("Add..."), this, &SubmoduleActions::create);
-    _actionInit = addAction(i18n("Init..."), this, &SubmoduleActions::init, false);
-    _actionUpdate = addAction(i18n("Update..."), this, &SubmoduleActions::update, false);
-    //    _actionDeinit = addAction(i18n("Remove..."), this, &SubmoduleActions::deinit, false);
-    _actionSync = addAction(i18n("Sync..."), this, &SubmoduleActions::sync, false);
+    _actionCreate = addActionHidden(i18nc("@action", "Add..."), this, &SubmoduleActions::create);
+    _actionInit = addAction(i18nc("@action", "Init..."), this, &SubmoduleActions::init, false);
+    _actionUpdate = addAction(i18nc("@action", "Update..."), this, &SubmoduleActions::update, false);
+    //    _actionDeinit = addAction(i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
+    _actionSync = addAction(i18nc("@action", "Sync..."), this, &SubmoduleActions::sync, false);
 
     _actionCreate->setIcon(QIcon::fromTheme(QStringLiteral("list-add")));
 }

@@ -41,17 +41,17 @@ FileActions::FileActions(Git::Manager *git, QWidget *parent)
 {
     mOpenWithMenu = new QMenu(parent);
 
-    _actionView = addAction(i18n("Preview"), this, &FileActions::viewFile, false, true);
-    _actionOpen = addAction(i18n("Open"), this, &FileActions::openFile, false, true);
-    _actionOpenWith = addAction(i18n("Open with..."), this, &FileActions::openWith, false, true);
+    _actionView = addAction(i18nc("@action", "Preview"), this, &FileActions::viewFile, false, true);
+    _actionOpen = addAction(i18nc("@action", "Open"), this, &FileActions::openFile, false, true);
+    _actionOpenWith = addAction(i18nc("@action", "Open with..."), this, &FileActions::openWith, false, true);
 
-    _actionDiffWithHead = addAction(i18n("Diff with working dir"), this, &FileActions::diffWithHead, false, true);
-    _actionMergeWithHead = addAction(i18n("Merge with working dir"), this, &FileActions::mergeWithHead, false, true);
+    _actionDiffWithHead = addAction(i18nc("@action", "Diff with working dir"), this, &FileActions::diffWithHead, false, true);
+    _actionMergeWithHead = addAction(i18nc("@action", "Merge with working dir"), this, &FileActions::mergeWithHead, false, true);
 
-    _actionSaveAs = addAction(i18n("Save as..."), this, &FileActions::saveAsFile, false, true);
-    _actionHistory = addAction(i18n("Log"), this, &FileActions::logFile, false, true);
-    _actionBlame = addAction(i18n("Blame"), this, &FileActions::blameFile, false, true);
-    _actionSearch = addAction(i18n("Search..."), this, &FileActions::search, false, true);
+    _actionSaveAs = addAction(i18nc("@action", "Save as..."), this, &FileActions::saveAsFile, false, true);
+    _actionHistory = addAction(i18nc("@action", "Log"), this, &FileActions::logFile, false, true);
+    _actionBlame = addAction(i18nc("@action", "Blame"), this, &FileActions::blameFile, false, true);
+    _actionSearch = addAction(i18nc("@action", "Search..."), this, &FileActions::search, false, true);
 }
 
 void FileActions::popup(const QPoint &pos)

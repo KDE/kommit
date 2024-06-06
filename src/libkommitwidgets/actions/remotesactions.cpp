@@ -21,10 +21,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 RemotesActions::RemotesActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
-    _actionCreate = addActionHidden(i18n("New..."), this, &RemotesActions::create);
-    _actionRemove = addActionDisabled(i18n("Remove..."), this, &RemotesActions::remove);
-    _actionRename = addActionDisabled(i18n("Rename..."), this, &RemotesActions::rename);
-    _actionChangeUrl = addActionDisabled(i18n("Change url..."), this, &RemotesActions::changeUrl);
+    _actionCreate = addActionHidden(i18nc("@action", "New..."), this, &RemotesActions::create);
+    _actionRemove = addActionDisabled(i18nc("@action", "Remove..."), this, &RemotesActions::remove);
+    _actionRename = addActionDisabled(i18nc("@action", "Rename..."), this, &RemotesActions::rename);
+    _actionChangeUrl = addActionDisabled(i18nc("@action", "Change url..."), this, &RemotesActions::changeUrl);
     _actionUpdate = nullptr;
 }
 

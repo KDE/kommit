@@ -33,10 +33,10 @@ void CommitActions::setCommit(QSharedPointer<Git::Commit> commit)
 CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
-    _actionBrowse = addAction(i18n("Browse"), this, &CommitActions::browse, false, true);
-    _actionCheckout = addAction(i18n("Checkout"), this, &CommitActions::checkout, false, true);
-    _actionDiff = addAction(i18n("Diff with working dir"), this, &CommitActions::diff, false, true);
-    _actionNote = addAction(i18n("Note"), this, &CommitActions::note, false, true);
+    _actionBrowse = addAction(i18nc("@action", "Browse"), this, &CommitActions::browse, false, true);
+    _actionCheckout = addAction(i18nc("@action", "Checkout"), this, &CommitActions::checkout, false, true);
+    _actionDiff = addAction(i18nc("@action", "Diff with working dir"), this, &CommitActions::diff, false, true);
+    _actionNote = addAction(i18nc("@action", "Note"), this, &CommitActions::note, false, true);
 }
 
 void CommitActions::browse()

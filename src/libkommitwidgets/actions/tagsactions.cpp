@@ -21,11 +21,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 TagsActions::TagsActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
-    _actionCreate = addActionHidden(i18n("New tag..."), this, &TagsActions::create);
-    _actionRemove = addActionDisabled(i18n("Remove..."), this, &TagsActions::remove);
-    _actionCheckout = addActionDisabled(i18n("Checkout..."), this, &TagsActions::checkout);
-    _actionDiff = addActionDisabled(i18n("Diff with working dir"), this, &TagsActions::diff);
-    _actionPush = addAction(i18n("Push..."), this, &TagsActions::push);
+    _actionCreate = addActionHidden(i18nc("@action", "New tag..."), this, &TagsActions::create);
+    _actionRemove = addActionDisabled(i18nc("@action", "Remove..."), this, &TagsActions::remove);
+    _actionCheckout = addActionDisabled(i18nc("@action", "Checkout..."), this, &TagsActions::checkout);
+    _actionDiff = addActionDisabled(i18nc("@action", "Diff with working dir"), this, &TagsActions::diff);
+    _actionPush = addAction(i18nc("@action", "Push..."), this, &TagsActions::push);
 }
 
 void TagsActions::create()
