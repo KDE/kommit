@@ -98,9 +98,9 @@ bool DolphinPlugin::beginRetrieval(const QString &directory)
         return false;
 
     if (mCache->submoduleName().isEmpty())
-        actionPush->setText(i18n("Push/Commit to %0").arg(mCache->currentBranch()));
+        actionPush->setText(i18n("Push/Commit to %1", mCache->currentBranch()));
     else
-        actionPush->setText(i18n("Push/Commit to submodule %0").arg(mCache->submoduleName()));
+        actionPush->setText(i18n("Push/Commit to submodule %1", mCache->submoduleName()));
 
     return true;
 }
