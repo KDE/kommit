@@ -102,7 +102,7 @@ add_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
 #add_definitions(-DQT_NO_CAST_FROM_ASCII)
 
-ecm_set_disabled_deprecation_versions(QT 5.15.2)
+ecm_set_disabled_deprecation_versions(QT 5.15.2 KF 6.3)
 
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
 
@@ -117,13 +117,8 @@ if(BUILD_TESTING)
 endif(BUILD_TESTING)
 
 
-if(KF${KF_MAJOR_VERSION}DocTools_FOUND) # For the moment on kf6 it doesn't build depend against deprecated &kf5
-    add_subdirectory(doc)
-    kdoctools_install(po)
-else()
-
-    message(WARNING "DocTools not found. NEED TO FIX IT IN QT6")
-endif()
+add_subdirectory(doc)
+kdoctools_install(po)
 
 add_subdirectory(icons)
 add_subdirectory(src)
