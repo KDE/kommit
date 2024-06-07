@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-06 01:48+0000\n"
+"POT-Creation-Date: 2024-06-07 01:43+0000\n"
 "PO-Revision-Date: 2022-09-07 22:16-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Init"
 msgstr ""
 
-#: dolphinplugins/actions.h:18 src/libkommitwidgets/actions/fileactions.cpp:45
+#: dolphinplugins/actions.h:18
 #, kde-format
 msgid "Open"
 msgstr ""
@@ -84,7 +84,6 @@ msgstr ""
 #: dolphinplugins/actions.h:25 src/gui/kommitmergeui.rc:17
 #: src/gui/pages/branchesstatuswidget.ui:121
 #: src/gui/settings/settingsmanager.cpp:96
-#: src/libkommitwidgets/actions/branchactions.cpp:38
 #, kde-format
 msgid "Diff"
 msgstr ""
@@ -103,7 +102,7 @@ msgstr ""
 msgid "History"
 msgstr ""
 
-#: dolphinplugins/actions.h:28 src/libkommitwidgets/actions/fileactions.cpp:53
+#: dolphinplugins/actions.h:28
 #, kde-format
 msgid "Blame"
 msgstr ""
@@ -211,76 +210,91 @@ msgstr ""
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
+msgctxt "@action"
 msgid "Init..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:167
 #, kde-format
+msgctxt "@action"
 msgid "Open..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:172
 #, kde-format
+msgctxt "@action"
 msgid "Clone..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:175
 #, kde-format
+msgctxt "@action"
 msgid "Changed files..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:181
 #, kde-format
+msgctxt "@action"
 msgid "Recent repos"
 msgstr ""
 
 #: src/gui/appwindow.cpp:187
 #, kde-format
+msgctxt "@action"
 msgid "Cleanup..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:190
 #, kde-format
+msgctxt "@action"
 msgid "Pull..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
+msgctxt "@action"
 msgid "Fetch..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
+msgctxt "@action"
 msgid "Push..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
+msgctxt "@action"
 msgid "Merge..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:206
 #, kde-format
+msgctxt "@action"
 msgid "Diff branches..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:54
 #, kde-format
+msgctxt "@action"
 msgid "Search..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:212
 #, kde-format
+msgctxt "@action"
 msgid "Repo settings..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:215
 #, kde-format
+msgctxt "@action"
 msgid "Switch/Checkout..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:218
 #, kde-format
+msgctxt "@action"
 msgid "Diff tree"
 msgstr ""
 
@@ -451,7 +465,6 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
-#: src/libkommitwidgets/actions/commitactions.cpp:37
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Checkout"
@@ -459,7 +472,6 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/pages/branchesstatuswidget.ui:111
-#: src/libkommitwidgets/actions/commitactions.cpp:36
 #, kde-format
 msgid "Browse"
 msgstr ""
@@ -929,17 +941,26 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:31
 #, kde-format
+msgctxt "@action"
 msgid "Create..."
 msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
 #, kde-format
+msgctxt "@action"
 msgid "Browse..."
 msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
+msgctxt "@action"
 msgid "Switch"
+msgstr ""
+
+#: src/libkommitwidgets/actions/branchactions.cpp:38
+#, kde-format
+msgctxt "@action"
+msgid "Diff"
 msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:39
@@ -947,11 +968,13 @@ msgstr ""
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, kde-format
+msgctxt "@action"
 msgid "Remove..."
 msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #, kde-format
+msgctxt "@action"
 msgid "Note..."
 msgstr ""
 
@@ -972,12 +995,26 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, kde-format
+msgctxt "@action"
 msgid "Diff..."
 msgstr ""
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, kde-format
+msgctxt "@action"
 msgid "Revert..."
+msgstr ""
+
+#: src/libkommitwidgets/actions/commitactions.cpp:36
+#, kde-format
+msgctxt "@action"
+msgid "Browse"
+msgstr ""
+
+#: src/libkommitwidgets/actions/commitactions.cpp:37
+#, kde-format
+msgctxt "@action"
+msgid "Checkout"
 msgstr ""
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
@@ -985,39 +1022,56 @@ msgstr ""
 #: src/libkommitwidgets/actions/stashactions.cpp:23
 #: src/libkommitwidgets/actions/tagsactions.cpp:27
 #, kde-format
+msgctxt "@action"
 msgid "Diff with working dir"
 msgstr ""
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
 #: src/libkommitwidgets/actions/commitactions.cpp:39
-#: src/libkommitwidgets/dialogs/notedialog.ui:14
 #, kde-format
+msgctxt "@action"
 msgid "Note"
 msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
+msgctxt "@action"
 msgid "Preview"
+msgstr ""
+
+#: src/libkommitwidgets/actions/fileactions.cpp:45
+#, kde-format
+msgctxt "@action"
+msgid "Open"
 msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:46
 #, kde-format
+msgctxt "@action"
 msgid "Open with..."
 msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:49
 #, kde-format
+msgctxt "@action"
 msgid "Merge with working dir"
 msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
+msgctxt "@action"
 msgid "Save as..."
 msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:52
 #, kde-format
+msgctxt "@action"
 msgid "Log"
+msgstr ""
+
+#: src/libkommitwidgets/actions/fileactions.cpp:53
+#, kde-format
+msgctxt "@action"
+msgid "Blame"
 msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:73
@@ -1027,16 +1081,19 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
+msgctxt "@action"
 msgid "New..."
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, kde-format
+msgctxt "@action"
 msgid "Rename..."
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, kde-format
+msgctxt "@action"
 msgid "Change url..."
 msgstr ""
 
@@ -1082,16 +1139,19 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:22
 #, kde-format
+msgctxt "@action"
 msgid "New stash..."
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
+msgctxt "@action"
 msgid "Pop..."
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
+msgctxt "@action"
 msgid "Apply..."
 msgstr ""
 
@@ -1162,17 +1222,20 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
 #, kde-format
+msgctxt "@action"
 msgid "Add..."
 msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, kde-format
+msgctxt "@action"
 msgid "Update..."
 msgstr ""
 
-#. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
+#. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
 #, kde-format
+msgctxt "@action"
 msgid "Sync..."
 msgstr ""
 
@@ -1198,11 +1261,13 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, kde-format
+msgctxt "@action"
 msgid "New tag..."
 msgstr ""
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
+msgctxt "@action"
 msgid "Checkout..."
 msgstr ""
 
@@ -2080,6 +2145,12 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:45
 #, kde-format
 msgid "Base file:"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
+#: src/libkommitwidgets/dialogs/notedialog.ui:14
+#, kde-format
+msgid "Note"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PullDialog)

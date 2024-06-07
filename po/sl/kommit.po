@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-06 01:48+0000\n"
+"POT-Creation-Date: 2024-06-07 01:43+0000\n"
 "PO-Revision-Date: 2024-06-04 06:46+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -41,7 +41,7 @@ msgstr "Kloniraj"
 msgid "Init"
 msgstr "Inicializiraj"
 
-#: dolphinplugins/actions.h:18 src/libkommitwidgets/actions/fileactions.cpp:45
+#: dolphinplugins/actions.h:18
 #, kde-format
 msgid "Open"
 msgstr "Odpri"
@@ -91,7 +91,6 @@ msgstr "Spremembe"
 #: dolphinplugins/actions.h:25 src/gui/kommitmergeui.rc:17
 #: src/gui/pages/branchesstatuswidget.ui:121
 #: src/gui/settings/settingsmanager.cpp:96
-#: src/libkommitwidgets/actions/branchactions.cpp:38
 #, kde-format
 msgid "Diff"
 msgstr "Razlike"
@@ -110,7 +109,7 @@ msgstr "Prezri datoteko"
 msgid "History"
 msgstr "Zgodovina"
 
-#: dolphinplugins/actions.h:28 src/libkommitwidgets/actions/fileactions.cpp:53
+#: dolphinplugins/actions.h:28
 #, kde-format
 msgid "Blame"
 msgstr "Odgovornost (blame)"
@@ -217,77 +216,107 @@ msgstr " (zamenjava osnove)"
 
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Init..."
+msgctxt "@action"
 msgid "Init..."
 msgstr "Inicializiraj …"
 
 #: src/gui/appwindow.cpp:167
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open..."
+msgctxt "@action"
 msgid "Open..."
 msgstr "Odpri..."
 
 #: src/gui/appwindow.cpp:172
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clone..."
+msgctxt "@action"
 msgid "Clone..."
 msgstr "Kloniraj..."
 
 #: src/gui/appwindow.cpp:175
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Changed files..."
+msgctxt "@action"
 msgid "Changed files..."
 msgstr "Spremenjene datoteke..."
 
 #: src/gui/appwindow.cpp:181
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Recent repos"
+msgctxt "@action"
 msgid "Recent repos"
 msgstr "Nedavna skladišča"
 
 #: src/gui/appwindow.cpp:187
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cleanup..."
+msgctxt "@action"
 msgid "Cleanup..."
 msgstr "Čiščenje..."
 
 #: src/gui/appwindow.cpp:190
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pull..."
+msgctxt "@action"
 msgid "Pull..."
 msgstr "Potegni..."
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fetch..."
+msgctxt "@action"
 msgid "Fetch..."
 msgstr "Dobavi..."
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Push..."
+msgctxt "@action"
 msgid "Push..."
 msgstr "Porini..."
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Merge..."
+msgctxt "@action"
 msgid "Merge..."
 msgstr "Zlij..."
 
 #: src/gui/appwindow.cpp:206
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Diff branches..."
+msgctxt "@action"
 msgid "Diff branches..."
 msgstr "Razlika vej..."
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:54
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search..."
+msgctxt "@action"
 msgid "Search..."
 msgstr "Išči..."
 
 #: src/gui/appwindow.cpp:212
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Repo settings..."
+msgctxt "@action"
 msgid "Repo settings..."
 msgstr "Nastavitve skladišča ..."
 
 #: src/gui/appwindow.cpp:215
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Switch/Checkout..."
+msgctxt "@action"
 msgid "Switch/Checkout..."
 msgstr "Preklopi/prevzemi ..."
 
 #: src/gui/appwindow.cpp:218
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Diff tree"
+msgctxt "@action"
 msgid "Diff tree"
 msgstr "Drevo razlik"
 
@@ -458,7 +487,6 @@ msgstr "Novo"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
-#: src/libkommitwidgets/actions/commitactions.cpp:37
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Checkout"
@@ -466,7 +494,6 @@ msgstr "Prevzemi"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/pages/branchesstatuswidget.ui:111
-#: src/libkommitwidgets/actions/commitactions.cpp:36
 #, kde-format
 msgid "Browse"
 msgstr "Prebrskaj"
@@ -949,30 +976,47 @@ msgid "Create time"
 msgstr "Čas kreiranja"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create..."
+msgctxt "@action"
 msgid "Create..."
 msgstr "Ustvari..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Browse..."
+msgctxt "@action"
 msgid "Browse..."
 msgstr "Brskaj..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Switch"
+msgctxt "@action"
 msgid "Switch"
 msgstr "Preklopi"
+
+#: src/libkommitwidgets/actions/branchactions.cpp:38
+#, fuzzy, kde-format
+#| msgid "Diff"
+msgctxt "@action"
+msgid "Diff"
+msgstr "Razlike"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:39
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove..."
+msgctxt "@action"
 msgid "Remove..."
 msgstr "Odstrani..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Note..."
+msgctxt "@action"
 msgid "Note..."
 msgstr "Opomba..."
 
@@ -992,54 +1036,98 @@ msgid "Remove Branch"
 msgstr "Odstrani vejo"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Diff..."
+msgctxt "@action"
 msgid "Diff..."
 msgstr "Razlika..."
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Revert..."
+msgctxt "@action"
 msgid "Revert..."
 msgstr "Povrni …"
+
+#: src/libkommitwidgets/actions/commitactions.cpp:36
+#, fuzzy, kde-format
+#| msgid "Browse"
+msgctxt "@action"
+msgid "Browse"
+msgstr "Prebrskaj"
+
+#: src/libkommitwidgets/actions/commitactions.cpp:37
+#, fuzzy, kde-format
+#| msgid "Checkout"
+msgctxt "@action"
+msgid "Checkout"
+msgstr "Prevzemi"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:48
 #: src/libkommitwidgets/actions/stashactions.cpp:23
 #: src/libkommitwidgets/actions/tagsactions.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Diff with working dir"
+msgctxt "@action"
 msgid "Diff with working dir"
 msgstr "Diff z delovnim imenikom"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
 #: src/libkommitwidgets/actions/commitactions.cpp:39
-#: src/libkommitwidgets/dialogs/notedialog.ui:14
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Note"
+msgctxt "@action"
 msgid "Note"
 msgstr "Opomba"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Preview"
+msgctxt "@action"
 msgid "Preview"
 msgstr "Predogled"
 
+#: src/libkommitwidgets/actions/fileactions.cpp:45
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action"
+msgid "Open"
+msgstr "Odpri"
+
 #: src/libkommitwidgets/actions/fileactions.cpp:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open with..."
+msgctxt "@action"
 msgid "Open with..."
 msgstr "Odpri z..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Merge with working dir"
+msgctxt "@action"
 msgid "Merge with working dir"
 msgstr "Zlij z delovnim imenikom"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Save as..."
+msgctxt "@action"
 msgid "Save as..."
 msgstr "Shrani kot..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Log"
+msgctxt "@action"
 msgid "Log"
 msgstr "Dnevnik"
+
+#: src/libkommitwidgets/actions/fileactions.cpp:53
+#, fuzzy, kde-format
+#| msgid "Blame"
+msgctxt "@action"
+msgid "Blame"
+msgstr "Odgovornost (blame)"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:73
 #, kde-format
@@ -1047,17 +1135,23 @@ msgid "%1 file (*.%1);;All files(*)"
 msgstr "%1 datoteka (*.%1);;Vse datoteke(*)"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New..."
+msgctxt "@action"
 msgid "New..."
 msgstr "Nova..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rename..."
+msgctxt "@action"
 msgid "Rename..."
 msgstr "Preimenuj..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change url..."
+msgctxt "@action"
 msgid "Change url..."
 msgstr "Spremeni URL …"
 
@@ -1102,17 +1196,23 @@ msgid "New name"
 msgstr "Novo ime"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New stash..."
+msgctxt "@action"
 msgid "New stash..."
 msgstr "Nova zaloga …"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pop..."
+msgctxt "@action"
 msgid "Pop..."
 msgstr "Pojavi …"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Apply..."
+msgctxt "@action"
 msgid "Apply..."
 msgstr "Uveljavi..."
 
@@ -1182,18 +1282,24 @@ msgid "Name of stash"
 msgstr "Ime zaloge"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add..."
+msgctxt "@action"
 msgid "Add..."
 msgstr "Dodaj..."
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Update..."
+msgctxt "@action"
 msgid "Update..."
 msgstr "Podosobi..."
 
-#. i18n("Remove..."), this, &SubmoduleActions::deinit, false);
+#. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sync..."
+msgctxt "@action"
 msgid "Sync..."
 msgstr "Uskladi …"
 
@@ -1218,12 +1324,16 @@ msgid "The submodule %1 removed"
 msgstr "Submodul %1 je odstranjen"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New tag..."
+msgctxt "@action"
 msgid "New tag..."
 msgstr "Nova oznaka..."
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Checkout..."
+msgctxt "@action"
 msgid "Checkout..."
 msgstr "Prevzemi ..."
 
@@ -2174,6 +2284,12 @@ msgstr "Oddaljena datoteka:"
 #, kde-format
 msgid "Base file:"
 msgstr "Osnovna datoteka:"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
+#: src/libkommitwidgets/dialogs/notedialog.ui:14
+#, kde-format
+msgid "Note"
+msgstr "Opomba"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PullDialog)
 #: src/libkommitwidgets/dialogs/pulldialog.ui:14
