@@ -111,9 +111,11 @@ void IndexTest::revertFileOfFour()
     auto changedfiles = mManager->changedFiles();
 
     QString s{"1.txt"};
-    auto ch1 = s.toUtf8().data();
-    auto ch2 = s.toStdString().c_str();
-    QCOMPARE(ch1, ch2);
+    auto ch1 = s.toUtf8();
+    auto constCh1 = ch1.constData();
+    auto ch2 = s.toStdString();
+    auto ch2Str = ch2.c_str();
+    QCOMPARE(constCh1, ch2Str);
 
     QCOMPARE(fileContent1, fileOriginalContent1);
     QCOMPARE(fileContent2, fileTouchedContent2);
