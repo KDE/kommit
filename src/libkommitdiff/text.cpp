@@ -10,6 +10,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Diff
 {
+
+Text::Text()
+    : lineEnding(LineEnding::None)
+{
+}
+
 Text readLines(const QString &text)
 {
     if (text.isEmpty())
@@ -54,10 +60,5 @@ Text readLines(const QString &text)
     }
 
     return t;
-}
-
-Text::Text()
-    : lineEnding(LineEnding::None)
-{
 }
 }
