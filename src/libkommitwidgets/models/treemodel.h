@@ -108,10 +108,11 @@ protected:
     Node *const mRootNode;
 
 private:
-    Node *createPath(const QStringList &path);
-    Node *find(QStringList &path, Node *node = nullptr);
-    void getFullPath(QString &path, Node *node) const;
-    void sortNode(Node *node);
+    LIBKOMMITWIDGETS_NO_EXPORT Node *createPath(const QStringList &path);
+    LIBKOMMITWIDGETS_NO_EXPORT Node *find(QStringList &path, Node *node = nullptr);
+    LIBKOMMITWIDGETS_NO_EXPORT void getFullPath(QString &path, Node *node) const;
+    LIBKOMMITWIDGETS_NO_EXPORT void sortNode(Node *node);
+
     QString mSeparator{QStringLiteral("/")};
     bool mLastPartAsData{false};
     QIcon mDefaultIcon;
