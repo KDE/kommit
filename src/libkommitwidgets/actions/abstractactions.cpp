@@ -18,7 +18,7 @@ AbstractActions::AbstractActions(Git::Manager *git, QWidget *parent)
     , mParent{parent}
 {
     mMenu = new QMenu(parent);
-    connect(git, &Git::Manager::pathChanged, this, &AbstractActions::git_reloaded);
+    connect(git, &Git::Manager::pathChanged, this, &AbstractActions::gitReloaded);
 }
 
 void AbstractActions::setActionEnabled(QAction *action, bool enabled)
@@ -41,7 +41,7 @@ void AbstractActions::popup(const QPoint &pos)
     mMenu->popup(pos);
 }
 
-void AbstractActions::git_reloaded()
+void AbstractActions::gitReloaded()
 {
     if (!mGit->isValid()) {
         for (auto &a : std::as_const(mActions))
