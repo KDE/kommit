@@ -38,9 +38,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 FileActions::FileActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
+    , mOpenWithMenu(new QMenu(parent))
 {
-    mOpenWithMenu = new QMenu(parent);
-
     _actionView = addAction(i18nc("@action", "Preview"), this, &FileActions::viewFile, false, true);
     _actionOpen = addAction(i18nc("@action", "Open"), this, &FileActions::openFile, false, true);
     _actionOpenWith = addAction(i18nc("@action", "Open with..."), this, &FileActions::openWith, false, true);

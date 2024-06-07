@@ -53,6 +53,6 @@ private:
     DEFINE_ACTION(actionDiffWithHead)
     DEFINE_ACTION(actionMergeWithHead)
 
-    QMenu *mOpenWithMenu = nullptr;
+    QMenu *const mOpenWithMenu;
     QSharedPointer<Git::File> mFile;
 };
