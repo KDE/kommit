@@ -18,7 +18,7 @@ class FileTest : public QObject
     Q_OBJECT
 public:
     explicit FileTest(QObject *parent = nullptr);
-    ~FileTest() override = default;
+    ~FileTest() override;
 
 private Q_SLOTS:
     void initTestCase();

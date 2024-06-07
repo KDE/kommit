@@ -20,6 +20,11 @@ FileTest::FileTest(QObject *parent)
 {
 }
 
+FileTest::~FileTest()
+{
+    delete mManager;
+}
+
 void FileTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
