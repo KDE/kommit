@@ -111,32 +111,36 @@ bool FileViewerDialog::showWithParts(const QMimeType &mimeType, const Git::File 
     if (parts.empty())
         return false;
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     auto viewer = parts[0];
     auto icon = QIcon::fromTheme(mimeType.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize));
     setWindowIcon(icon);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     const auto result = KParts::PartLoader::createPartInstanceForMimeType<KParts::ReadOnlyPart>(mimeType.name(), this, this);
 #else
-    const auto result = KParts::PartLoader::instantiatePart<KParts::ReadOnlyPart>(/*m_part*/ {}, this, this);
+    const auto result = KParts::PartLoader::instantiatePart<KParts::ReadOnlyPart>(mimeType.name(), this, this);
 #endif
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     m_part = result;
+#else
+    m_part = result.plugin;
+#endif
     if (!result) {
         qDebug() << "Failed to create internal viewer";
         return false;
     }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     kPartWidgetLayout->addWidget(result->widget());
+#else
+    kPartWidgetLayout->addWidget(m_part->widget());
+#endif
     stackedWidget->setCurrentIndex(2);
 
     createGUI(m_part.data());
 
     auto f = file.saveAsTemp();
     m_part.data()->openUrl(QUrl::fromLocalFile(f));
-#else
-// TODO port to Qt6
-#endif
     return true;
 }
 
