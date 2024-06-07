@@ -114,7 +114,7 @@ void DiffWidget::setNewFile(QSharedPointer<Git::File> newNewFile)
     mNewFile = newNewFile;
 
     if (newNewFile.isNull())
-        setNewFileText("");
+        setNewFileText({});
     else
         setNewFileText(newNewFile->displayName());
 }

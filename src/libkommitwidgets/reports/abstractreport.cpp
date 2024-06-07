@@ -45,12 +45,12 @@ QVariant AbstractReport::at(int row, int column) const
 
 QString AbstractReport::axisXTitle() const
 {
-    return "";
+    return {};
 }
 
 QString AbstractReport::axisYTitle() const
 {
-    return "";
+    return {};
 }
 
 int AbstractReport::minValue() const

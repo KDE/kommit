@@ -62,7 +62,7 @@ void CommitsByDayWeek::reload()
         map[static_cast<Qt::DayOfWeek>(time.date().dayOfWeek())] = count + 1;
     };
 
-    mGit->forEachCommits(commitCb, "");
+    mGit->forEachCommits(commitCb, {});
 
     for (auto d = map.constBegin(); d != map.constEnd(); ++d) {
         addData({dayToString(d.key()), d.value()});

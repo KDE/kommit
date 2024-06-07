@@ -41,7 +41,7 @@ void AuthorsReport::reload()
         findOrCreate(tag->tagger(), AuthorCreateReason::Tag);
     };
 
-    mGit->forEachCommits(commitCb, "");
+    mGit->forEachCommits(commitCb, {});
     mGit->forEachTags(tagCb);
 
     clear();
@@ -147,7 +147,5 @@ void AuthorsReport::DatesRange::increase(const QDateTime &time)
     last = time;
     count++;
 }
-
-// #include "authorsreport.moc"
 
 #include "moc_authorsreport.cpp"

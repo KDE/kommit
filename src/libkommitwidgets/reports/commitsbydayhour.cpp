@@ -33,7 +33,7 @@ void CommitsByDayHour::reload()
         map[time.time().hour()] = c;
     };
 
-    mGit->forEachCommits(commitCb, "");
+    mGit->forEachCommits(commitCb, {});
 
     for (auto d = map.constBegin(); d != map.constEnd(); ++d) {
         addData({d.key(), d.value()});

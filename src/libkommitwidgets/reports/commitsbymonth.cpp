@@ -47,7 +47,7 @@ void CommitsByMonth::reload()
         }
     };
 
-    mGit->forEachCommits(commitCb, "");
+    mGit->forEachCommits(commitCb, {});
 
     for (auto const &d : data) {
         addData({d.month, d.count});
