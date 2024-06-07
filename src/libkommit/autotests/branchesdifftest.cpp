@@ -18,6 +18,11 @@ BranchesDiffTest::BranchesDiffTest(QObject *parent)
 {
 }
 
+BranchesDiffTest::~BranchesDiffTest()
+{
+    delete mManager;
+}
+
 void BranchesDiffTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
@@ -61,6 +66,7 @@ void BranchesDiffTest::createBranch()
 
     auto newBranch = mManager->branch(newBranchName);
     QVERIFY(newBranch != nullptr);
+    delete newBranch;
 }
 
 void BranchesDiffTest::switchToNewBranch()

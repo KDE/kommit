@@ -18,7 +18,7 @@ class BranchesDiffTest : public QObject
     Q_OBJECT
 public:
     explicit BranchesDiffTest(QObject *parent = nullptr);
-    ~BranchesDiffTest() override = default;
+    ~BranchesDiffTest() override;
 
 private Q_SLOTS:
     void initTestCase();
