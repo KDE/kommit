@@ -111,7 +111,7 @@ QString findParentContansGit(const QString &dir)
 
     QDir d;
     while (path.contains(QLatin1Char('/'))) {
-        if (d.exists(path + "/.git/"))
+        if (d.exists(path + QStringLiteral("/.git/")))
             return path;
 
         path = path.mid(0, path.lastIndexOf(QLatin1Char('/')));
@@ -199,7 +199,7 @@ bool StatusCache::setPath(const QString &path)
     qDebug() << Q_FUNC_INFO << mSubmoduleName;
 
     mRepoRootPath = git_repository_workdir(mRepo);
-    if (path.startsWith(mRepoRootPath + ".git/")) {
+    if (path.startsWith(mRepoRootPath + QStringLiteral(".git/"))) {
         mCurrentPathIsIgnored = true;
 
         git_repository_free(mRepo);
