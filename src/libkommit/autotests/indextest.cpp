@@ -17,6 +17,11 @@ IndexTest::IndexTest(QObject *parent)
 {
 }
 
+IndexTest::~IndexTest()
+{
+    delete mManager;
+}
+
 void IndexTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();

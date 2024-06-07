@@ -18,7 +18,7 @@ class IndexTest : public QObject
     Q_OBJECT
 public:
     explicit IndexTest(QObject *parent = nullptr);
-    ~IndexTest() override = default;
+    ~IndexTest() override;
 
 private Q_SLOTS:
     void initTestCase();
