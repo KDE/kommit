@@ -24,7 +24,7 @@ namespace Git
 Commit::Commit(git_commit *commit)
     : mGitCommit{commit}
 {
-    mSubject = QString{git_commit_message(commit)}.replace("\n", "");
+    mSubject = QString{git_commit_message(commit)}.remove(QLatin1Char('\n'));
 
     auto committer = git_commit_committer(commit);
     mCommitter.reset(new Signature{committer});
@@ -32,7 +32,7 @@ Commit::Commit(git_commit *commit)
     auto author = git_commit_author(commit);
     mAuthor.reset(new Signature{author});
 
-    mBody = QString{git_commit_body(commit)}.replace("\n", "");
+    mBody = QString{git_commit_body(commit)}.remove(QLatin1Char('\n'));
 
     auto id = git_commit_id(commit);
     mCommitHash = git_oid_tostr_s(id);

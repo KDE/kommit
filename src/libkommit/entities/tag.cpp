@@ -19,7 +19,7 @@ Tag::Tag(git_tag *tag)
     , mTagType{TagType::RegularTag}
 {
     mName = git_tag_name(tag);
-    mMessage = QString{git_tag_message(tag)}.replace("\n", "");
+    mMessage = QString{git_tag_message(tag)}.remove(QLatin1Char('\n'));
     auto tagger = git_tag_tagger(tag);
 
     mTagger.reset(new Signature{tagger});

@@ -31,7 +31,7 @@ Stash::Stash(size_t index, git_repository *repo, const char *message, const git_
 
     mMessage = message;
 
-    mSubject = QString{git_commit_message(commit)}.replace("\n", "");
+    mSubject = QString{git_commit_message(commit)}.remove(QLatin1Char('\n'));
 
     mCommitHash = git_oid_tostr_s(stash_id);
 }
