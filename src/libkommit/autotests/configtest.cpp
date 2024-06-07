@@ -17,6 +17,11 @@ ConfigTest::ConfigTest(QObject *parent)
 {
 }
 
+ConfigTest::~ConfigTest()
+{
+    delete mManager;
+}
+
 void ConfigTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();

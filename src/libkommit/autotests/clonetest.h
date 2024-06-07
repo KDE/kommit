@@ -18,7 +18,7 @@ class CloneTest : public QObject
     Q_OBJECT
 public:
     explicit CloneTest(QObject *parent = nullptr);
-    ~CloneTest() override = default;
+    ~CloneTest() override;
 
 private Q_SLOTS:
     void initTestCase();

@@ -18,7 +18,7 @@ class ConfigTest : public QObject
     Q_OBJECT
 public:
     explicit ConfigTest(QObject *parent = nullptr);
-    ~ConfigTest() override = default;
+    ~ConfigTest() override;
 
 private Q_SLOTS:
     void initTestCase();

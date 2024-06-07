@@ -18,6 +18,11 @@ RemoteTest::RemoteTest(QObject *parent)
 {
 }
 
+RemoteTest::~RemoteTest()
+{
+    delete mManager;
+}
+
 void RemoteTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
@@ -52,6 +57,7 @@ void RemoteTest::fetch()
 
     QVERIFY(ok);
     QCOMPARE(observer->receivedObjects(), observer->totalObjects());
+    delete observer;
 }
 
 void RemoteTest::renameRemote()

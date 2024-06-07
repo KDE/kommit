@@ -18,7 +18,7 @@ class RemoteTest : public QObject
     Q_OBJECT
 public:
     explicit RemoteTest(QObject *parent = nullptr);
-    ~RemoteTest() override = default;
+    ~RemoteTest() override;
 
 private Q_SLOTS:
     void initTestCase();

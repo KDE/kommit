@@ -19,6 +19,11 @@ CloneTest::CloneTest(QObject *parent)
 {
 }
 
+CloneTest::~CloneTest()
+{
+    delete mManager;
+}
+
 void CloneTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
@@ -78,6 +83,7 @@ void CloneTest::initialCommitTree()
     QVERIFY(src.contains("dialogs"));
     QVERIFY(src.contains("core"));
     QVERIFY(src.contains("actions"));
+    delete commit;
 }
 
 void CloneTest::cleanupTestCase()

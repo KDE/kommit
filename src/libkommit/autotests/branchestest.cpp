@@ -18,6 +18,11 @@ BranchesTest::BranchesTest(QObject *parent)
 {
 }
 
+BranchesTest::~BranchesTest()
+{
+    delete mManager;
+}
+
 void BranchesTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
@@ -54,6 +59,7 @@ void BranchesTest::createBranch()
 
     auto newBranch = mManager->branch(newBranchName);
     QVERIFY(newBranch != nullptr);
+    delete newBranch;
 }
 
 void BranchesTest::switchToNewBranch()
