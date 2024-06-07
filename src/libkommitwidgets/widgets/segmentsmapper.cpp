@@ -44,7 +44,7 @@ int SegmentsMapper::map(int from, int to, int index) const
     int &offsetTo = to == 1 ? offset1 : (to == 2 ? offset2 : offset3);
 
     for (auto &s : mSegments) {
-        auto ms = dynamic_cast<Diff::MergeSegment *>(s);
+        auto ms = static_cast<Diff::MergeSegment *>(s);
 
         if (offsetFrom + s->get(from).size() > index) {
             if (s->type != Diff::SegmentType::DifferentOnBoth)
@@ -107,7 +107,7 @@ void SegmentsMapper::refresh()
 {
     if (!mCurrentSegment)
         return;
-    for (auto &editor : mEditors) {
+    for (auto &editor : std::as_const(mEditors)) {
         editor->highlightSegment(mCurrentSegment);
         editor->gotoSegment(mCurrentSegment);
     }
@@ -122,7 +122,7 @@ void SegmentsMapper::setCurrentSegment(Diff::Segment *newCurrentSegment)
 bool SegmentsMapper::isMergeable() const
 {
     for (auto &s : mSegments) {
-        auto ms = dynamic_cast<Diff::MergeSegment *>(s);
+        auto ms = static_cast<Diff::MergeSegment *>(s);
         if (ms->mergeType == Diff::MergeType::None)
             return false;
     }
@@ -133,7 +133,7 @@ int SegmentsMapper::conflicts() const
 {
     int r{0};
     for (auto &s : mSegments) {
-        auto ms = dynamic_cast<Diff::MergeSegment *>(s);
+        auto ms = static_cast<Diff::MergeSegment *>(s);
         if (ms->mergeType == Diff::None)
             r++;
     }
