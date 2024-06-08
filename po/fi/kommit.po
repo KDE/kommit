@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-07 01:43+0000\n"
+"POT-Creation-Date: 2024-06-08 01:50+0000\n"
 "PO-Revision-Date: 2023-06-07 16:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -149,13 +149,14 @@ msgstr "Kommit"
 
 #: dolphinplugins/dolphinplugin.cpp:101
 #, kde-format
-msgid "Push/Commit to %0"
+msgid "Push/Commit to %1"
 msgstr ""
 
 #: dolphinplugins/dolphinplugin.cpp:103
-#, kde-format
-msgid "Push/Commit to submodule %0"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Commit/Push"
+msgid "Push/Commit to submodule %1"
+msgstr "Toimita/vie"
 
 #: src/apps/main.cpp:55
 #, kde-format
@@ -291,7 +292,7 @@ msgctxt "@action"
 msgid "Diff branches..."
 msgstr "Vertaa haaroja…"
 
-#: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:54
+#: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
 #, fuzzy, kde-format
 #| msgid "Search..."
 msgctxt "@action"
@@ -1057,7 +1058,7 @@ msgid "Checkout"
 msgstr "Vaihda"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
-#: src/libkommitwidgets/actions/fileactions.cpp:48
+#: src/libkommitwidgets/actions/fileactions.cpp:47
 #: src/libkommitwidgets/actions/stashactions.cpp:23
 #: src/libkommitwidgets/actions/tagsactions.cpp:27
 #, kde-format
@@ -1072,55 +1073,55 @@ msgctxt "@action"
 msgid "Note"
 msgstr "Huomautus"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:44
+#: src/libkommitwidgets/actions/fileactions.cpp:43
 #, fuzzy, kde-format
 #| msgid "Preview"
 msgctxt "@action"
 msgid "Preview"
 msgstr "Esikatselu"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:45
+#: src/libkommitwidgets/actions/fileactions.cpp:44
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action"
 msgid "Open"
 msgstr "Avaa"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:46
+#: src/libkommitwidgets/actions/fileactions.cpp:45
 #, fuzzy, kde-format
 #| msgid "Open with..."
 msgctxt "@action"
 msgid "Open with..."
 msgstr "Avaa ohjelmalla…"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:49
+#: src/libkommitwidgets/actions/fileactions.cpp:48
 #, kde-format
 msgctxt "@action"
 msgid "Merge with working dir"
 msgstr ""
 
-#: src/libkommitwidgets/actions/fileactions.cpp:51
+#: src/libkommitwidgets/actions/fileactions.cpp:50
 #, fuzzy, kde-format
 #| msgid "Save as..."
 msgctxt "@action"
 msgid "Save as..."
 msgstr "Tallenna nimellä…"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:52
+#: src/libkommitwidgets/actions/fileactions.cpp:51
 #, fuzzy, kde-format
 #| msgid "Log..."
 msgctxt "@action"
 msgid "Log"
 msgstr "Loki…"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/libkommitwidgets/actions/fileactions.cpp:52
 #, fuzzy, kde-format
 #| msgid "Blame"
 msgctxt "@action"
 msgid "Blame"
 msgstr "Moiti"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:73
+#: src/libkommitwidgets/actions/fileactions.cpp:72
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
