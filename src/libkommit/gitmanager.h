@@ -260,15 +260,14 @@ Q_SIGNALS:
 
 private:
     LIBKOMMIT_NO_EXPORT int findStashIndex(const QString &message) const;
+    LIBKOMMIT_NO_EXPORT QStringList readAllNonEmptyOutput(const QStringList &cmd) const;
+    LIBKOMMIT_NO_EXPORT QString escapeFileName(const QString &filePath) const;
+    LIBKOMMIT_NO_EXPORT void loadAsync();
 
     QString mPath;
     bool mIsValid{false};
     QMap<QString, Remote> mRemotes;
     LoadFlags mLoadFlags{LoadAll};
-
-    QStringList readAllNonEmptyOutput(const QStringList &cmd) const;
-    QString escapeFileName(const QString &filePath) const;
-    void loadAsync();
 
     RemotesModel *const mRemotesModel;
     SubmodulesModel *const mSubmodulesModel;

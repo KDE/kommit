@@ -37,7 +37,7 @@ public:
     void setType(Type newType);
 
 private:
-    void generateRandomColor();
+    LIBKOMMIT_NO_EXPORT void generateRandomColor();
 
     Type mType{None};
     QList<int> mBottomJoins;
