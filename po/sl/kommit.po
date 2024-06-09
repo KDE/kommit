@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 01:50+0000\n"
-"PO-Revision-Date: 2024-06-07 06:31+0200\n"
+"PO-Revision-Date: 2024-06-08 07:18+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -152,16 +152,14 @@ msgid "Kommit"
 msgstr "Kommit"
 
 #: dolphinplugins/dolphinplugin.cpp:101
-#, fuzzy, kde-format
-#| msgid "Push/Commit to %0"
+#, kde-format
 msgid "Push/Commit to %1"
-msgstr "Potisni/Objavi na %0"
+msgstr "Potisni/Objavi na %1"
 
 #: dolphinplugins/dolphinplugin.cpp:103
-#, fuzzy, kde-format
-#| msgid "Push/Commit to submodule %0"
+#, kde-format
 msgid "Push/Commit to submodule %1"
-msgstr "Potisni/Objavi v podmodul %0"
+msgstr "Potisni/Objavi v podmodul %1"
 
 #: src/apps/main.cpp:55
 #, kde-format

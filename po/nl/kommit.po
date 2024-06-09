@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 01:50+0000\n"
-"PO-Revision-Date: 2024-06-07 09:46+0200\n"
+"PO-Revision-Date: 2024-06-08 12:48+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -148,16 +148,14 @@ msgid "Kommit"
 msgstr "Kommit"
 
 #: dolphinplugins/dolphinplugin.cpp:101
-#, fuzzy, kde-format
-#| msgid "Push/Commit to %0"
+#, kde-format
 msgid "Push/Commit to %1"
-msgstr "Push/Commit naar %0"
+msgstr "Push/Commit naar %1"
 
 #: dolphinplugins/dolphinplugin.cpp:103
-#, fuzzy, kde-format
-#| msgid "Push/Commit to submodule %0"
+#, kde-format
 msgid "Push/Commit to submodule %1"
-msgstr "Push/Commit naar submodule %0"
+msgstr "Push/Commit naar submodule %1"
 
 #: src/apps/main.cpp:55
 #, kde-format

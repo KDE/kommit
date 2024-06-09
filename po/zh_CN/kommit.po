@@ -212,39 +212,34 @@ msgstr ""
 
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Init..."
+#, kde-format
 msgctxt "@action"
 msgid "Init..."
-msgstr "初始化..."
+msgstr ""
 
 #: src/gui/appwindow.cpp:167
-#, fuzzy, kde-format
-#| msgid "Open..."
+#, kde-format
 msgctxt "@action"
 msgid "Open..."
-msgstr "打开..."
+msgstr ""
 
 #: src/gui/appwindow.cpp:172
-#, fuzzy, kde-format
-#| msgid "Clone..."
+#, kde-format
 msgctxt "@action"
 msgid "Clone..."
-msgstr "克隆..."
+msgstr ""
 
 #: src/gui/appwindow.cpp:175
-#, fuzzy, kde-format
-#| msgid "Changed files..."
+#, kde-format
 msgctxt "@action"
 msgid "Changed files..."
-msgstr "已更改的文件..."
+msgstr ""
 
 #: src/gui/appwindow.cpp:181
-#, fuzzy, kde-format
-#| msgid "Recent repos"
+#, kde-format
 msgctxt "@action"
 msgid "Recent repos"
-msgstr "最近仓库"
+msgstr ""
 
 #: src/gui/appwindow.cpp:187
 #, kde-format
@@ -253,67 +248,58 @@ msgid "Cleanup..."
 msgstr ""
 
 #: src/gui/appwindow.cpp:190
-#, fuzzy, kde-format
-#| msgid "Pull..."
+#, kde-format
 msgctxt "@action"
 msgid "Pull..."
-msgstr "拉取..."
+msgstr ""
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
-#, fuzzy, kde-format
-#| msgid "Fetch..."
+#, kde-format
 msgctxt "@action"
 msgid "Fetch..."
-msgstr "获取..."
+msgstr ""
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
-#, fuzzy, kde-format
-#| msgid "Push..."
+#, kde-format
 msgctxt "@action"
 msgid "Push..."
-msgstr "推送..."
+msgstr ""
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Merge..."
+#, kde-format
 msgctxt "@action"
 msgid "Merge..."
-msgstr "合并..."
+msgstr ""
 
 #: src/gui/appwindow.cpp:206
-#, fuzzy, kde-format
-#| msgid "Diff branches..."
+#, kde-format
 msgctxt "@action"
 msgid "Diff branches..."
-msgstr "分支间相差..."
+msgstr ""
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Search..."
+#, kde-format
 msgctxt "@action"
 msgid "Search..."
-msgstr "搜索..."
+msgstr ""
 
 #: src/gui/appwindow.cpp:212
-#, fuzzy, kde-format
-#| msgid "Repo settings..."
+#, kde-format
 msgctxt "@action"
 msgid "Repo settings..."
-msgstr "仓库设置..."
+msgstr ""
 
 #: src/gui/appwindow.cpp:215
-#, fuzzy, kde-format
-#| msgid "Switch/Checkout..."
+#, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout..."
-msgstr "切换/检出..."
+msgstr ""
 
 #: src/gui/appwindow.cpp:218
-#, fuzzy, kde-format
-#| msgid "Diff tree"
+#, kde-format
 msgctxt "@action"
 msgid "Diff tree"
-msgstr "查看树差异"
+msgstr ""
 
 #: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
 #, kde-format
@@ -969,49 +955,43 @@ msgid "Create time"
 msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:31
-#, fuzzy, kde-format
-#| msgid "Create..."
+#, kde-format
 msgctxt "@action"
 msgid "Create..."
-msgstr "新建..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
-#, fuzzy, kde-format
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action"
 msgid "Browse..."
-msgstr "浏览…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Switch"
+#, kde-format
 msgctxt "@action"
 msgid "Switch"
-msgstr "切换"
+msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:38
-#, fuzzy, kde-format
-#| msgid "Diff"
+#, kde-format
 msgctxt "@action"
 msgid "Diff"
-msgstr "差异"
+msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:39
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Remove..."
+#, kde-format
 msgctxt "@action"
 msgid "Remove..."
-msgstr "移除..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Note..."
+#, kde-format
 msgctxt "@action"
 msgid "Note..."
-msgstr "注解..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -1029,32 +1009,28 @@ msgid "Remove Branch"
 msgstr "删除分支"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
-#, fuzzy, kde-format
-#| msgid "Diff..."
+#, kde-format
 msgctxt "@action"
 msgid "Diff..."
-msgstr "差异..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
-#, fuzzy, kde-format
-#| msgid "Revert..."
+#, kde-format
 msgctxt "@action"
 msgid "Revert..."
-msgstr "还原..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Browse"
+#, kde-format
 msgctxt "@action"
 msgid "Browse"
-msgstr "浏览"
+msgstr ""
 
 #: src/libkommitwidgets/actions/commitactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Checkout"
-msgstr "检出"
+msgstr ""
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:47
@@ -1066,32 +1042,28 @@ msgid "Diff with working dir"
 msgstr ""
 
 #: src/libkommitwidgets/actions/commitactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Note"
+#, kde-format
 msgctxt "@action"
 msgid "Note"
-msgstr "注解"
+msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Overview"
+#, kde-format
 msgctxt "@action"
 msgid "Preview"
-msgstr "概览"
+msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Open..."
+#, kde-format
 msgctxt "@action"
 msgid "Open"
-msgstr "打开..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:45
-#, fuzzy, kde-format
-#| msgid "Open with..."
+#, kde-format
 msgctxt "@action"
 msgid "Open with..."
-msgstr "打开方式..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
 #, kde-format
@@ -1100,11 +1072,10 @@ msgid "Merge with working dir"
 msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:50
-#, fuzzy, kde-format
-#| msgid "Save as..."
+#, kde-format
 msgctxt "@action"
 msgid "Save as..."
-msgstr "另存为..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
@@ -1124,25 +1095,22 @@ msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New..."
+#, kde-format
 msgctxt "@action"
 msgid "New..."
-msgstr "新建…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
-#, fuzzy, kde-format
-#| msgid "Rename..."
+#, kde-format
 msgctxt "@action"
 msgid "Rename..."
-msgstr "重命名…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
-#, fuzzy, kde-format
-#| msgid "Change url..."
+#, kde-format
 msgctxt "@action"
 msgid "Change url..."
-msgstr "更改 URL..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
@@ -1185,25 +1153,22 @@ msgid "New name"
 msgstr "新名称"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:22
-#, fuzzy, kde-format
-#| msgid "New stash..."
+#, kde-format
 msgctxt "@action"
 msgid "New stash..."
-msgstr "新建暂存…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "Pop..."
+#, kde-format
 msgctxt "@action"
 msgid "Pop..."
-msgstr "弹出..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Apply..."
+#, kde-format
 msgctxt "@action"
 msgid "Apply..."
-msgstr "应用..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
@@ -1271,26 +1236,23 @@ msgid "Name of stash"
 msgstr "暂存名称"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action"
 msgid "Add..."
-msgstr "添加..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
-#, fuzzy, kde-format
-#| msgid "Update..."
+#, kde-format
 msgctxt "@action"
 msgid "Update..."
-msgstr "更新..."
+msgstr ""
 
 #. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Sync..."
+#, kde-format
 msgctxt "@action"
 msgid "Sync..."
-msgstr "同步..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
@@ -1313,18 +1275,16 @@ msgid "The submodule %1 removed"
 msgstr "子模块 %1 已删除"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New tag..."
+#, kde-format
 msgctxt "@action"
 msgid "New tag..."
-msgstr "新标签..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
-#, fuzzy, kde-format
-#| msgid "Checkout..."
+#, kde-format
 msgctxt "@action"
 msgid "Checkout..."
-msgstr "检出..."
+msgstr ""
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14

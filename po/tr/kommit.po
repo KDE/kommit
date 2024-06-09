@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 01:50+0000\n"
-"PO-Revision-Date: 2024-06-04 12:15+0300\n"
+"PO-Revision-Date: 2024-06-08 13:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -148,16 +148,14 @@ msgid "Kommit"
 msgstr "Kommit"
 
 #: dolphinplugins/dolphinplugin.cpp:101
-#, fuzzy, kde-format
-#| msgid "Push/Commit to %0"
+#, kde-format
 msgid "Push/Commit to %1"
-msgstr "Şuraya İt/İşle: %0"
+msgstr "Şuraya İt/İşle: %1"
 
 #: dolphinplugins/dolphinplugin.cpp:103
-#, fuzzy, kde-format
-#| msgid "Push/Commit to submodule %0"
+#, kde-format
 msgid "Push/Commit to submodule %1"
-msgstr "Şu Altmodüle İt/İşle: %0"
+msgstr "Şu Altmodüle İt/İşle: %1"
 
 #: src/apps/main.cpp:55
 #, kde-format
@@ -167,7 +165,7 @@ msgstr "KDE için Git Grafik Kullanıcı Arayüzü"
 #: src/apps/main.cpp:57
 #, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr "Telif hakkı 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
+msgstr "Telif hakkı 2021–2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:59 src/libkommit/models/logsmodel.cpp:262
 #: src/libkommitwidgets/reports/authorsreport.cpp:78
@@ -214,106 +212,91 @@ msgstr " (yeniden temellendiriliyor)"
 
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Init..."
+#, kde-format
 msgctxt "@action"
 msgid "Init..."
-msgstr "İlklendir..."
+msgstr "İlklendir…"
 
 #: src/gui/appwindow.cpp:167
-#, fuzzy, kde-format
-#| msgid "Open..."
+#, kde-format
 msgctxt "@action"
 msgid "Open..."
-msgstr "Aç..."
+msgstr "Aç…"
 
 #: src/gui/appwindow.cpp:172
-#, fuzzy, kde-format
-#| msgid "Clone..."
+#, kde-format
 msgctxt "@action"
 msgid "Clone..."
-msgstr "Klonla..."
+msgstr "Klonla…"
 
 #: src/gui/appwindow.cpp:175
-#, fuzzy, kde-format
-#| msgid "Changed files..."
+#, kde-format
 msgctxt "@action"
 msgid "Changed files..."
-msgstr "Değiştirilen Dosyalar..."
+msgstr "Değiştirilen Dosyalar…"
 
 #: src/gui/appwindow.cpp:181
-#, fuzzy, kde-format
-#| msgid "Recent repos"
+#, kde-format
 msgctxt "@action"
 msgid "Recent repos"
-msgstr "Son kullanılan depolar"
+msgstr "Son Kullanılan Depolar"
 
 #: src/gui/appwindow.cpp:187
-#, fuzzy, kde-format
-#| msgid "Cleanup..."
+#, kde-format
 msgctxt "@action"
 msgid "Cleanup..."
-msgstr "Toparla..."
+msgstr "Toparla…"
 
 #: src/gui/appwindow.cpp:190
-#, fuzzy, kde-format
-#| msgid "Pull..."
+#, kde-format
 msgctxt "@action"
 msgid "Pull..."
-msgstr "Çek..."
+msgstr "Çek…"
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
-#, fuzzy, kde-format
-#| msgid "Fetch..."
+#, kde-format
 msgctxt "@action"
 msgid "Fetch..."
-msgstr "Getir..."
+msgstr "Getir…"
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
-#, fuzzy, kde-format
-#| msgid "Push..."
+#, kde-format
 msgctxt "@action"
 msgid "Push..."
-msgstr "İt..."
+msgstr "İt…"
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Merge..."
+#, kde-format
 msgctxt "@action"
 msgid "Merge..."
-msgstr "Birleştir..."
+msgstr "Birleştir…"
 
 #: src/gui/appwindow.cpp:206
-#, fuzzy, kde-format
-#| msgid "Diff branches..."
+#, kde-format
 msgctxt "@action"
 msgid "Diff branches..."
-msgstr "Dalların Farkını Al..."
+msgstr "Dalların Farkını Al…"
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Search..."
+#, kde-format
 msgctxt "@action"
 msgid "Search..."
-msgstr "Ara..."
+msgstr "Ara…"
 
 #: src/gui/appwindow.cpp:212
-#, fuzzy, kde-format
-#| msgid "Repo settings..."
+#, kde-format
 msgctxt "@action"
 msgid "Repo settings..."
-msgstr "Depo Ayarları..."
+msgstr "Depo Ayarları…"
 
 #: src/gui/appwindow.cpp:215
-#, fuzzy, kde-format
-#| msgid "Switch/Checkout..."
+#, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout..."
-msgstr "Değiştir/Çıkış Yap..."
+msgstr "Değiştir/Çıkış Yap…"
 
 #: src/gui/appwindow.cpp:218
-#, fuzzy, kde-format
-#| msgid "Diff tree"
+#, kde-format
 msgctxt "@action"
 msgid "Diff tree"
 msgstr "Diff Ağacı"
@@ -351,12 +334,12 @@ msgstr "Yol, bir git deposu değil: %1"
 #: src/gui/commandargsparser.cpp:259
 #, kde-format
 msgid "The repo inited successfully"
-msgstr "Depo, başarıyla ilklendirildi"
+msgstr "Depo başarıyla ilklendirildi"
 
 #: src/gui/commandargsparser.cpp:560
 #, kde-format
 msgid "File(s) added to git successfully"
-msgstr "Dosya(lar), başarıyla git'e eklendi"
+msgstr "Dosyalar Git'e başarıyla eklendi"
 
 #: src/gui/commandargsparser.cpp:570
 #, kde-format
@@ -371,7 +354,7 @@ msgstr "İndeksten kaldır"
 #: src/gui/commandargsparser.cpp:572
 #, kde-format
 msgid "File(s) removed from git successfully"
-msgstr "Dosya(lar), Git'ten başarıyla kaldırıldı"
+msgstr "Dosyalar Git’ten başarıyla kaldırıldı"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus_2)
 #: src/gui/commandpullwidget.ui:19
@@ -515,7 +498,7 @@ msgstr "İşlemeler"
 #: src/gui/pages/commitswidget.ui:41
 #, kde-format
 msgid "Filter..."
-msgstr "Süz..."
+msgstr "Süz…"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
 #: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:59
@@ -545,13 +528,13 @@ msgstr "Öntanımlı dal:"
 #: src/gui/pages/remoteswidget.ui:102
 #, kde-format
 msgid "Fetch url:"
-msgstr "Getirme URL'si:"
+msgstr "Getirme URL’si:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/pages/remoteswidget.ui:122
 #, kde-format
 msgid "Push url:"
-msgstr "İtme URL'si:"
+msgstr "İtme URL’si:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -662,13 +645,13 @@ msgid ""
 "#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
 "<html><head/><body><p>Yerel değişikliklerinizi yeni bir zula girdisine "
-"kaydedin ve onları HEAD'e geri sarın (çalışma ağacında ve indekste). Bu "
+"kaydedin ve onları HEAD’e geri sarın (çalışma ağacında ve indekste). Bu "
 "kısım isteğe bağlıdır ve açıklamayı zulalanan durum ile birlikte verir.</"
 "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/"
 "git-stash.txt-push-p--patch-k--no-keep-index-u--include-untracked-a--all-q--"
 "quiet-m--messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--"
 "ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
-"#2980b9;\">Daha Fazla Bilgi...</span></a></p></body></html>"
+"#2980b9;\">Daha Fazla Bilgi…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
 #: src/gui/pages/stasheswidget.ui:52
@@ -695,7 +678,7 @@ msgstr ""
 "<html><head/><body><p>Zulayı, geçerli çalışma dizininin üzerine uygula</"
 "p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
 "txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
-"underline; color:#2980b9;\">Daha Fazla Bilgi...</span></a></p></body></html>"
+"underline; color:#2980b9;\">Daha Fazla Bilgi…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
 #: src/gui/pages/stasheswidget.ui:69
@@ -975,29 +958,25 @@ msgid "Create time"
 msgstr "Oluşturma zamanı"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:31
-#, fuzzy, kde-format
-#| msgid "Create..."
+#, kde-format
 msgctxt "@action"
 msgid "Create..."
-msgstr "Oluştur..."
+msgstr "Oluştur…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
-#, fuzzy, kde-format
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action"
 msgid "Browse..."
-msgstr "Göz At..."
+msgstr "Göz At…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Switch"
+#, kde-format
 msgctxt "@action"
 msgid "Switch"
 msgstr "Değiştir"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:38
-#, fuzzy, kde-format
-#| msgid "Diff"
+#, kde-format
 msgctxt "@action"
 msgid "Diff"
 msgstr "Diff"
@@ -1006,18 +985,16 @@ msgstr "Diff"
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Remove..."
+#, kde-format
 msgctxt "@action"
 msgid "Remove..."
-msgstr "Kaldır..."
+msgstr "Kaldır…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Note..."
+#, kde-format
 msgctxt "@action"
 msgid "Note..."
-msgstr "Not..."
+msgstr "Not…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -1035,29 +1012,25 @@ msgid "Remove Branch"
 msgstr "Dalı Kaldır"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
-#, fuzzy, kde-format
-#| msgid "Diff..."
+#, kde-format
 msgctxt "@action"
 msgid "Diff..."
-msgstr "Diff..."
+msgstr "Diff…"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
-#, fuzzy, kde-format
-#| msgid "Revert..."
+#, kde-format
 msgctxt "@action"
 msgid "Revert..."
-msgstr "Geri Al..."
+msgstr "Geri Al…"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Browse"
+#, kde-format
 msgctxt "@action"
 msgid "Browse"
 msgstr "Göz At"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Checkout"
 msgstr "Çıkış Yap"
@@ -1066,64 +1039,55 @@ msgstr "Çıkış Yap"
 #: src/libkommitwidgets/actions/fileactions.cpp:47
 #: src/libkommitwidgets/actions/stashactions.cpp:23
 #: src/libkommitwidgets/actions/tagsactions.cpp:27
-#, fuzzy, kde-format
-#| msgid "Diff with working dir"
+#, kde-format
 msgctxt "@action"
 msgid "Diff with working dir"
 msgstr "Çalışma Diziniyle Farkını Al"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Note"
+#, kde-format
 msgctxt "@action"
 msgid "Note"
 msgstr "Not"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Preview"
+#, kde-format
 msgctxt "@action"
 msgid "Preview"
 msgstr "Önizleme"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action"
 msgid "Open"
 msgstr "Aç"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:45
-#, fuzzy, kde-format
-#| msgid "Open with..."
+#, kde-format
 msgctxt "@action"
 msgid "Open with..."
-msgstr "Birlikte Aç..."
+msgstr "Birlikte Aç…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
-#, fuzzy, kde-format
-#| msgid "Merge with working dir"
+#, kde-format
 msgctxt "@action"
 msgid "Merge with working dir"
 msgstr "Çalışma Diziniyle Birleştir"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:50
-#, fuzzy, kde-format
-#| msgid "Save as..."
+#, kde-format
 msgctxt "@action"
 msgid "Save as..."
-msgstr "Farklı Kaydet..."
+msgstr "Farklı Kaydet…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Log"
+#, kde-format
 msgctxt "@action"
 msgid "Log"
 msgstr "Günlük"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:52
-#, fuzzy, kde-format
-#| msgid "Blame"
+#, kde-format
 msgctxt "@action"
 msgid "Blame"
 msgstr "Suçla"
@@ -1134,25 +1098,22 @@ msgid "%1 file (*.%1);;All files(*)"
 msgstr "%1 dosyası (*.%1);;Tüm dosyalar (*)"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New..."
+#, kde-format
 msgctxt "@action"
 msgid "New..."
-msgstr "Yeni..."
+msgstr "Yeni…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
-#, fuzzy, kde-format
-#| msgid "Rename..."
+#, kde-format
 msgctxt "@action"
 msgid "Rename..."
-msgstr "Yeniden Adlandır..."
+msgstr "Yeniden Adlandır…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
-#, fuzzy, kde-format
-#| msgid "Change url..."
+#, kde-format
 msgctxt "@action"
 msgid "Change url..."
-msgstr "URL Değiştir..."
+msgstr "URL Değiştir…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
@@ -1182,7 +1143,7 @@ msgstr "URL"
 #: src/libkommitwidgets/actions/remotesactions.cpp:78
 #, kde-format
 msgid "Url for remote changed successfully"
-msgstr "Uzak konum URL'si, başarıyla değiştirildi"
+msgstr "Uzak konum URL’si başarıyla değiştirildi"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
@@ -1195,25 +1156,22 @@ msgid "New name"
 msgstr "Yeni ad"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:22
-#, fuzzy, kde-format
-#| msgid "New stash..."
+#, kde-format
 msgctxt "@action"
 msgid "New stash..."
-msgstr "Yeni Zula..."
+msgstr "Yeni Zula…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "Pop..."
+#, kde-format
 msgctxt "@action"
 msgid "Pop..."
-msgstr "Patlat..."
+msgstr "Patlat…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Apply..."
+#, kde-format
 msgctxt "@action"
 msgid "Apply..."
-msgstr "Uygula..."
+msgstr "Uygula…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
@@ -1281,26 +1239,23 @@ msgid "Name of stash"
 msgstr "Zulanın adı"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action"
 msgid "Add..."
-msgstr "Ekle..."
+msgstr "Ekle…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
-#, fuzzy, kde-format
-#| msgid "Update..."
+#, kde-format
 msgctxt "@action"
 msgid "Update..."
-msgstr "Güncelle..."
+msgstr "Güncelle…"
 
 #. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Sync..."
+#, kde-format
 msgctxt "@action"
 msgid "Sync..."
-msgstr "Eşzamanla..."
+msgstr "Eşzamanla…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
@@ -1323,18 +1278,16 @@ msgid "The submodule %1 removed"
 msgstr "%1 altmodülü kaldırıldı"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New tag..."
+#, kde-format
 msgctxt "@action"
 msgid "New tag..."
-msgstr "Yeni Etiket..."
+msgstr "Yeni Etiket…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
-#, fuzzy, kde-format
-#| msgid "Checkout..."
+#, kde-format
 msgctxt "@action"
 msgid "Checkout..."
-msgstr "Çıkış Yap..."
+msgstr "Çıkış Yap…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1594,7 +1547,7 @@ msgstr ""
 "bayrak, bu denetimleri devre dışı bırakır ve uzak deponun işlemeleri "
 "kaybetmesine neden olabilir; dikkatli kullanın.</p><p><br/></p><p><a href="
 "\"https://git-scm.com/docs/git-push#Documentation/git-push.txt--f\"><span "
-"style=\" text-decoration: underline; color:#007af4;\">Daha Fazla Bilgi...</"
+"style=\" text-decoration: underline; color:#007af4;\">Daha Fazla Bilgi…</"
 "span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
@@ -1625,7 +1578,7 @@ msgstr ""
 "kullanıldığında, &quot;git status&quot; çıktısını işleme iletisi şablonunda "
 "içer.</p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/git-"
 "commit.txt---status\"><span style=\" text-decoration: underline; color:"
-"#2980b9;\">Daha Fazla Bilgi...</span></a></p></body></html>"
+"#2980b9;\">Daha Fazla Bilgi…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:110
@@ -1646,7 +1599,7 @@ msgstr ""
 "<html><head/><body><p>Yeni bir işleme oluşturarak geçerli dalın ucunu "
 "değiştir.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
 "commit#Documentation/git-commit.txt---amend\"><span style=\" text-"
-"decoration: underline; color:#2980b9;\">Daha Fazla Bilgi...</span></a></p></"
+"decoration: underline; color:#2980b9;\">Daha Fazla Bilgi…</span></a></p></"
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAmend)
@@ -1675,7 +1628,7 @@ msgstr ""
 "<html><head/><body><p>Verilen metni, işleme iletisi olarak kullan.</p><p><a "
 "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
 "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-"\">Daha Fazla Bilgi...</span></a></p></body></html>"
+"\">Daha Fazla Bilgi…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:175
@@ -1920,7 +1873,7 @@ msgstr "Önizleme kapatılıyor"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgid "Please wait while the preview is being closed..."
-msgstr "Önizleme kapatılırken lütfen bekleyin..."
+msgstr "Önizleme kapatılırken lütfen bekleyin…"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
@@ -2105,7 +2058,7 @@ msgstr ""
 "değişkeni yoktur ve eklenmeyecektir.</p><p><br/></p><p><a href=\"https://git-"
 "scm.com/docs/git-merge#Documentation/git-merge.txt---allow-unrelated-"
 "histories\"><span style=\" text-decoration: underline; color:#007af4;\">Daha "
-"Fazla Bilgi...</span></a></p></body></html>"
+"Fazla Bilgi…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:97
@@ -2129,13 +2082,13 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Çalışma ağacı ve indeks durumunu sanki gerçek bir "
 "birleştirme gerçekleşmiş gibi üret (birleştirme bilgisi dışında); ancak bir "
-"işleme kılma, HEAD'i taşıma veya $GIT_DIR/MERGE_HEAD kaydını yazma (bir "
+"işleme kılma, HEAD’i taşıma veya $GIT_DIR/MERGE_HEAD kaydını yazma (bir "
 "sonraki git commit komutunun bir birleştirme işlemesi oluşturması için) Bu, "
 "geçerli dalın tepesine tek bir işleme oluşturmanıza izin verir (bunun "
 "etkisi, başka bir dalı birleştirmekle aynıdır veya bir ahtapot durumunda "
 "daha fazla).</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
 "merge#Documentation/git-merge.txt---squash\"><span style=\" text-decoration: "
-"underline; color:#007af4;\">Daha Fazla Bilgi...</span></a></p></body></html>"
+"underline; color:#007af4;\">Daha Fazla Bilgi…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:110
@@ -2344,7 +2297,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>CR/LF değiştir/değiştirme</p><p><a href=\"https://git-"
 "scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-"style=\" text-decoration: underline; color:#007af4;\">Daha Fazla Bilgi...</"
+"style=\" text-decoration: underline; color:#007af4;\">Daha Fazla Bilgi…</"
 "span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
@@ -2364,10 +2317,10 @@ msgid ""
 "body></html>"
 msgstr ""
 "<html><head/><body><p>Çalışma ağacındaki dosyaların yürütülebilir "
-"parçalarının tanınıp tanınmayacağını Git'e söyler. </p><p><a href=\"https://"
+"parçalarının tanınıp tanınmayacağını Git’e söyler. </p><p><a href=\"https://"
 "git-scm.com/docs/git-config#Documentation/git-config.txt-corefileMode"
 "\"><span style=\" text-decoration: underline; color:#007af4;\">Daha Fazla "
-"Bilgi...</span></a></p></body></html>"
+"Bilgi…</span></a></p></body></html>"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:60
 #, kde-format
@@ -2710,7 +2663,7 @@ msgstr "Alt öge:"
 #: src/libkommitwidgets/widgets/commitdetails.ui:181
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
-msgstr "<html><head/><body><p>-</p></body></html>"
+msgstr "<html><head/><body><p>—</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
 #: src/libkommitwidgets/widgets/commitdetails.ui:196
@@ -2740,7 +2693,7 @@ msgstr "Rapor"
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
-msgstr "Kommit Diff'i[*]"
+msgstr "Kommit Diff’i[*]"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:164
 #, kde-format
@@ -2751,7 +2704,7 @@ msgstr "Ağaç"
 #: src/libkommitwidgets/windows/diffwindow.cpp:191
 #, kde-format
 msgid "View hidden chars..."
-msgstr "Gizli Karakterleri Görüntüle..."
+msgstr "Gizli Karakterleri Görüntüle…"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
 #: src/libkommitwidgets/windows/mergewindow.cpp:336

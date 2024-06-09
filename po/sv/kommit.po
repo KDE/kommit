@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 01:50+0000\n"
-"PO-Revision-Date: 2024-06-07 07:32+0200\n"
+"PO-Revision-Date: 2024-06-08 07:05+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -148,16 +148,14 @@ msgid "Kommit"
 msgstr "Kommit"
 
 #: dolphinplugins/dolphinplugin.cpp:101
-#, fuzzy, kde-format
-#| msgid "Push/Commit to %0"
+#, kde-format
 msgid "Push/Commit to %1"
-msgstr "Skicka/arkivera till %0"
+msgstr "Skicka/arkivera till %1"
 
 #: dolphinplugins/dolphinplugin.cpp:103
-#, fuzzy, kde-format
-#| msgid "Push/Commit to submodule %0"
+#, kde-format
 msgid "Push/Commit to submodule %1"
-msgstr "Skicka/arkivera till delmodul %0"
+msgstr "Skicka/arkivera till delmodul %1"
 
 #: src/apps/main.cpp:55
 #, kde-format
