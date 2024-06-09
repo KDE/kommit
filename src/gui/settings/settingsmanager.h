@@ -33,13 +33,14 @@ Q_SIGNALS:
     void settingsUpdated();
 
 private:
-    Git::Manager *const mGit;
     void settingsChanged();
-    Ui::SettingsPageBase pageBase{};
-    Ui::SettingsPageDiff pageDiff{};
-    Ui::SettingsPageGit pageGit{};
     QWidget *createBasePage();
     QWidget *createGitPage();
     QWidget *createDiffPage();
+
+    Git::Manager *const mGit;
+    Ui::SettingsPageBase pageBase{};
+    Ui::SettingsPageDiff pageDiff{};
+    Ui::SettingsPageGit pageGit{};
     QWidget *const mParentWidget;
 };

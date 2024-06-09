@@ -32,18 +32,18 @@ public:
     Tree(git_tree *tree);
     ~Tree();
 
-    QList<Entry> entries(const QString &path) const;
-    QStringList entries(const QString &path, EntryType filter) const;
-    QStringList entries(EntryType filter) const;
+    Q_REQUIRED_RESULT QList<Entry> entries(const QString &path) const;
+    Q_REQUIRED_RESULT QStringList entries(const QString &path, EntryType filter) const;
+    Q_REQUIRED_RESULT QStringList entries(EntryType filter) const;
     QSharedPointer<File> file(const QString &path);
 
-    git_tree *gitTree() const;
+    Q_REQUIRED_RESULT git_tree *gitTree() const;
 
 private:
+    LIBKOMMIT_NO_EXPORT void initTree();
+    LIBKOMMIT_NO_EXPORT void browseNestedEntities(EntryType type, const QString &path, QStringList &list) const;
     git_tree *ptr{nullptr};
-    void initTree();
     QMultiMap<QString, Entry> mTreeData;
-    void browseNestedEntities(EntryType type, const QString &path, QStringList &list) const;
 };
 
 }

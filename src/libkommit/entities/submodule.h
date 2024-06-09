@@ -63,8 +63,8 @@ public:
     Q_REQUIRED_RESULT Manager *open() const;
 
 private:
-    git_submodule *ptr;
-    git_repository *mRepo;
+    git_submodule *ptr = nullptr;
+    git_repository *mRepo = nullptr;
     QString mName;
     QString mUrl;
     QString mPath;

@@ -41,8 +41,9 @@ private:
     void slotTreeViewHistoryCustomContextMenuRequested(const QPoint &pos);
 
     void slotLineEditFilterTextChanged(const QString &arg1);
-
+    void setBranch(const QString &branchName);
     void init();
+
     QMap<QString, QSharedPointer<Git::Branch>> mBranchesMap;
     TreeModel *const mRepoModel;
     BranchActions *mActions{nullptr};
@@ -50,5 +51,4 @@ private:
     Git::LogsModel *mHistoryModel{nullptr};
     CommitsFilterModel *mFilterModel{nullptr};
     QString mMainBranch;
-    void setBranch(const QString &branchName);
 };
