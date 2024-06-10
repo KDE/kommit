@@ -316,8 +316,8 @@ void DiffWindow::Storage::setGitBranch(Git::Manager *manager, const QString &bra
 void DiffWindow::Storage::setPath(const QString &path)
 {
     mPath = path;
-    if (!mPath.endsWith("/"))
-        mPath += "/";
+    if (!mPath.endsWith(QLatin1Char('/')))
+        mPath += QLatin1Char('/');
     mMode = Mode::FileSystem;
 }
 
