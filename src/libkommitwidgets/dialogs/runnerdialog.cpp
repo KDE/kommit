@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 #include <QInputDialog>
+#include <QPushButton>
 
 RunnerDialog::RunnerDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(parent)
@@ -23,13 +24,13 @@ RunnerDialog::RunnerDialog(Git::Manager *git, QWidget *parent)
 
     connect(mGitProcess, &QProcess::readyReadStandardOutput, this, &RunnerDialog::git_readyReadStandardOutput);
     connect(mGitProcess, &QProcess::readyReadStandardError, this, &RunnerDialog::git_readyReadStandardError);
-    connect(pushButtonStop, &QAbstractButton::clicked, this, &RunnerDialog::slotPushButtonStopClicked);
-    connect(pushButtonClose, &QAbstractButton::clicked, this, &RunnerDialog::slotPushButtonCloseClicked);
+    connect(buttonBox->button(QDialogButtonBox::Ok), &QAbstractButton::clicked, this, &RunnerDialog::slotPushButtonStopClicked);
+    connect(buttonBox->button(QDialogButtonBox::Cancel), &QAbstractButton::clicked, this, &RunnerDialog::slotPushButtonCloseClicked);
 
     connect(mGitProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &RunnerDialog::git_finished);
 
-    pushButtonStop->hide();
-    pushButtonClose->show();
+    buttonBox->button(QDialogButtonBox::Ok)->hide();
+    buttonBox->button(QDialogButtonBox::Cancel)->show();
 }
 
 RunnerDialog::~RunnerDialog()
@@ -48,8 +49,8 @@ void RunnerDialog::run(const QStringList &args)
     mGitProcess->setArguments(args);
     mGitProcess->start();
 
-    pushButtonStop->show();
-    pushButtonClose->hide();
+    buttonBox->button(QDialogButtonBox::Ok)->show();
+    buttonBox->button(QDialogButtonBox::Cancel)->hide();
 }
 
 void RunnerDialog::run(Git::AbstractCommand *command)
@@ -77,8 +78,8 @@ void RunnerDialog::run(Git::AbstractCommand *command)
 
     mTimer.start();
 
-    pushButtonStop->show();
-    pushButtonClose->hide();
+    buttonBox->button(QDialogButtonBox::Ok)->show();
+    buttonBox->button(QDialogButtonBox::Cancel)->hide();
 }
 
 void RunnerDialog::git_readyReadStandardOutput()
@@ -110,8 +111,8 @@ void RunnerDialog::git_readyReadStandardError()
 void RunnerDialog::git_finished(int exitCode, QProcess::ExitStatus exitStatus)
 {
     Q_UNUSED(exitCode)
-    pushButtonStop->hide();
-    pushButtonClose->show();
+    buttonBox->button(QDialogButtonBox::Ok)->hide();
+    buttonBox->button(QDialogButtonBox::Cancel)->show();
 
     if (mCmd)
         mCmd->parseOutputSection(mStandardOutput, mErrorOutput);
