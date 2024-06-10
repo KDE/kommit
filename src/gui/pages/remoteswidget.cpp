@@ -59,7 +59,7 @@ void RemotesWidget::slotListViewItemActivated(const QModelIndex &index)
         item->setText(0, rb->name());
         item->setText(1, rb->refName());
         item->setText(2, rb->upStreamName());
-        item->setText(2, rb->isHead() ? i18n("Update") : "");
+        item->setText(2, rb->isHead() ? i18n("Update") : QString());
 
         treeWidget->addTopLevelItem(item);
     }
