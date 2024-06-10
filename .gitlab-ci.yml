@@ -14,4 +14,5 @@ include:
       - /gitlab-templates/craft-windows-appx-qt6.yml
       - /gitlab-templates/craft-macos-arm64-qt6.yml
       - /gitlab-templates/craft-macos-x86-64-qt6.yml
-      - /gitlab-templates/cppcheck.yml      
+      - /gitlab-templates/cppcheck.yml
+      - /gitlab-templates/flatpak.yml      
