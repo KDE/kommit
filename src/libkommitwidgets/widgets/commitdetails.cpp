@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 #include <QDesktopServices>
+#include <QLocale>
 #include <QUrl>
 
 namespace
@@ -36,9 +37,9 @@ void showSignature(QSharedPointer<Git::Signature> sign, AvatarView *avatarView, 
 
     auto cal = KommitWidgetsGlobalOptions::instance()->calendar();
     if (cal.isValid())
-        timeLabel->setText(sign->time().toString("yyyy-MM-dd HH:mm:ss", cal));
+        timeLabel->setText(QLocale().toString(sign->time(), QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal));
     else
-        timeLabel->setText(sign->time().toString());
+        timeLabel->setText(QLocale().toString(sign->time()));
 }
 }
 
