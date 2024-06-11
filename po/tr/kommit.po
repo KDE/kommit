@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-08 01:50+0000\n"
+"POT-Creation-Date: 2024-06-11 01:50+0000\n"
 "PO-Revision-Date: 2024-06-08 13:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -391,12 +391,11 @@ msgid "Repo"
 msgstr "Depo"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
 #: src/gui/merge/closeeventdialog.ui:14
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:73
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:14
-#: src/libkommitwidgets/dialogs/runnerdialog.ui:105
 #, kde-format
 msgid "Close"
 msgstr "Kapat"
@@ -1702,7 +1701,7 @@ msgstr "Oturum açma bilgileri:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:96
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:97
 #, kde-format
 msgid "Username:"
 msgstr "Kullanıcı adı:"
@@ -2322,22 +2321,22 @@ msgstr ""
 "\"><span style=\" text-decoration: underline; color:#007af4;\">Daha Fazla "
 "Bilgi…</span></a></p></body></html>"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:60
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
 #, kde-format
 msgid "View"
 msgstr "Görüntüle"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:128
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
 msgid "Process finished"
 msgstr "Süreç bitti"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:133
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:134
 #, kde-format
 msgid "The git process crashed"
 msgstr "Git süreci çöktü"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:134
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:135
 #, kde-format
 msgid "Process finished with error"
 msgstr "Süreç, hatayla bitti"
@@ -2349,26 +2348,40 @@ msgid "Run command"
 msgstr "Komut Çalıştır"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar)
-#: src/libkommitwidgets/dialogs/runnerdialog.ui:37
+#: src/libkommitwidgets/dialogs/runnerdialog.ui:36
 #, no-c-format, kde-format
 msgid "%p%"
 msgstr "%​%p"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: src/libkommitwidgets/dialogs/runnerdialog.ui:48
+#: src/libkommitwidgets/dialogs/runnerdialog.ui:47
 #, kde-format
 msgid "Output"
 msgstr "Çıktı"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
-#: src/libkommitwidgets/dialogs/runnerdialog.ui:72
-#, kde-format
+#: src/libkommitwidgets/dialogs/runnerdialog.ui:74
+#, fuzzy, kde-format
+#| msgid ""
+#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#| "REC-html40/strict.dtd\">\n"
+#| "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#| "css\">\n"
+#| "p, li { white-space: pre-wrap; }\n"
+#| "</style></head><body style=\" font-family:'Monospace'; font-size:10pt; "
+#| "font-weight:400; font-style:normal;\">\n"
+#| "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#| "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#| "font-size:9pt;\"><br /></p></body></html>"
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
@@ -2385,12 +2398,6 @@ msgstr ""
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
 "size:9pt;\"><br /></p></body></html>"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonStop)
-#: src/libkommitwidgets/dialogs/runnerdialog.ui:98
-#, kde-format
-msgid "Stop"
-msgstr "Durdur"
 
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:35
 #, kde-format
@@ -2603,22 +2610,22 @@ msgstr "Ay/Yıl"
 msgid "Uncommited"
 msgstr "İşlenmemiş"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:87
+#: src/libkommitwidgets/widgets/commitdetails.cpp:88
 #, kde-format
 msgid "Branch: "
 msgstr "Dal: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:89
+#: src/libkommitwidgets/widgets/commitdetails.cpp:90
 #, kde-format
 msgid "Note: "
 msgstr "Not: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:91
+#: src/libkommitwidgets/widgets/commitdetails.cpp:92
 #, kde-format
 msgid "Remote: "
 msgstr "Uzak konum: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:93
+#: src/libkommitwidgets/widgets/commitdetails.cpp:94
 #, kde-format
 msgid "Tag: "
 msgstr "Etiket: "
@@ -2786,6 +2793,9 @@ msgstr "Sonraki Diff"
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Dosya açılamıyor"
+
+#~ msgid "Stop"
+#~ msgstr "Durdur"
 
 #~ msgid "Diff with master..."
 #~ msgstr "Ana Dal ile Diff..."

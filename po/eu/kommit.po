@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-08 01:50+0000\n"
+"POT-Creation-Date: 2024-06-11 01:50+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -418,12 +418,11 @@ msgid "Repo"
 msgstr "Gordetegia"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
 #: src/gui/merge/closeeventdialog.ui:14
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:73
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:14
-#: src/libkommitwidgets/dialogs/runnerdialog.ui:105
 #, kde-format
 msgid "Close"
 msgstr "Itxi"
@@ -1727,7 +1726,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:96
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:97
 #, fuzzy, kde-format
 #| msgid "Rename"
 msgid "Username:"
@@ -2292,22 +2291,22 @@ msgid ""
 "body></html>"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:60
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
 #, kde-format
 msgid "View"
 msgstr "Ikuspegia"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:128
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
 msgid "Process finished"
 msgstr "Prozesua bukatu da"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:133
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:134
 #, kde-format
 msgid "The git process crashed"
 msgstr "Git prozesua kraskatu egin da"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:134
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:135
 #, kde-format
 msgid "Process finished with error"
 msgstr "Prozesua erroreekin bukatu da"
@@ -2319,38 +2318,35 @@ msgid "Run command"
 msgstr "Exekutatu komandoa"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar)
-#: src/libkommitwidgets/dialogs/runnerdialog.ui:37
+#: src/libkommitwidgets/dialogs/runnerdialog.ui:36
 #, no-c-format, kde-format
 msgid "%p%"
 msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: src/libkommitwidgets/dialogs/runnerdialog.ui:48
+#: src/libkommitwidgets/dialogs/runnerdialog.ui:47
 #, kde-format
 msgid "Output"
 msgstr "Irteera"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
-#: src/libkommitwidgets/dialogs/runnerdialog.ui:72
+#: src/libkommitwidgets/dialogs/runnerdialog.ui:74
 #, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
 "size:9pt;\"><br /></p></body></html>"
 msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonStop)
-#: src/libkommitwidgets/dialogs/runnerdialog.ui:98
-#, kde-format
-msgid "Stop"
-msgstr "Gelditu"
 
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:35
 #, kde-format
@@ -2568,25 +2564,25 @@ msgstr ""
 msgid "Uncommited"
 msgstr "Baliozkotu gabea"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:87
+#: src/libkommitwidgets/widgets/commitdetails.cpp:88
 #, fuzzy, kde-format
 #| msgid "Branch:"
 msgid "Branch: "
 msgstr "Adarra:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:89
+#: src/libkommitwidgets/widgets/commitdetails.cpp:90
 #, fuzzy, kde-format
 #| msgid "Note"
 msgid "Note: "
 msgstr "Oharra"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:91
+#: src/libkommitwidgets/widgets/commitdetails.cpp:92
 #, fuzzy, kde-format
 #| msgid "Remote:"
 msgid "Remote: "
 msgstr "Urrutikoa:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:93
+#: src/libkommitwidgets/widgets/commitdetails.cpp:94
 #, kde-format
 msgid "Tag: "
 msgstr ""
@@ -2762,6 +2758,9 @@ msgstr "Hurrengo diff"
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Ez da fitxategia irekitzeko gai"
+
+#~ msgid "Stop"
+#~ msgstr "Gelditu"
 
 #~ msgid "Diff with master..."
 #~ msgstr "Diff nagusiarekin..."
