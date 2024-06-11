@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "clonedialog.h"
 
+#include <KLineEdit>
 #include <KLocalizedString>
 #include <QMessageBox>
 #include <QPointer>
@@ -31,11 +32,18 @@ CloneDialog::CloneDialog(QWidget *parent)
     connect(mCloneObserver, &Git::CloneObserver::receivedObjectsChanged, progressBar, &QProgressBar::setValue);
     connect(mCloneObserver, &Git::CloneObserver::credentialRequeted, this, &CloneDialog::slotCredentialRequeted);
     connect(mCloneObserver, &Git::CloneObserver::message, labelMessage, &QLabel::setText);
+    connect(lineEditPath->lineEdit(), &KLineEdit::textChanged, this, &CloneDialog::slotUrlChanged);
 
     stackedWidget->setCurrentIndex(0);
+    updateOkButton();
 }
 
 CloneDialog::~CloneDialog() = default;
+
+void CloneDialog::updateOkButton()
+{
+    buttonBox->button(QDialogButtonBox::Ok)->setEnabled(!lineEditUrl->text().trimmed().isEmpty() && !lineEditPath->text().trimmed().isEmpty());
+}
 
 void CloneDialog::loadSettings()
 {
@@ -80,6 +88,7 @@ void CloneDialog::slotCredentialRequeted(const QString &url, Git::Credential *cr
 
 void CloneDialog::slotUrlChanged(const QString &text)
 {
+    updateOkButton();
     if (text.isEmpty()) {
         lineEditPath->clear();
         return;

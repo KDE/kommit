@@ -36,6 +36,7 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotUrlChanged(const QString &text);
     LIBKOMMITWIDGETS_NO_EXPORT void slotAccepted();
     LIBKOMMITWIDGETS_NO_EXPORT void loadSettings();
+    LIBKOMMITWIDGETS_NO_EXPORT void updateOkButton();
     QString mFixedPath;
 
     Git::CloneObserver *const mCloneObserver;
