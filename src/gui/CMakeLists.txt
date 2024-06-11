@@ -112,7 +112,6 @@ target_link_libraries(libkommitgui
     KF${KF_MAJOR_VERSION}::I18n
     KF${KF_MAJOR_VERSION}::XmlGui
     KF${KF_MAJOR_VERSION}::ConfigWidgets
-    KF${KF_MAJOR_VERSION}::DBusAddons
     KF${KF_MAJOR_VERSION}::Crash
     KF${KF_MAJOR_VERSION}::KIOCore
     KF${KF_MAJOR_VERSION}::KIOFileWidgets
@@ -123,6 +122,10 @@ target_link_libraries(libkommitgui
 
     KF${KF_MAJOR_VERSION}::SyntaxHighlighting
 )
+
+if (TARGET KF${KF_MAJOR_VERSION}::DBusAddons)
+    target_link_libraries(libkommitgui KF${KF_MAJOR_VERSION}::DBusAddons)
+endif()	
 
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(libkommitgui PROPERTIES UNITY_BUILD ON)
