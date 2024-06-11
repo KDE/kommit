@@ -78,7 +78,6 @@ find_package(
         ConfigWidgets
         CoreAddons
         Crash
-        DBusAddons
         DocTools
         I18n
         XmlGui
@@ -87,6 +86,12 @@ find_package(
         TextEditor
         SyntaxHighlighting
 )
+
+if (NOT WIN32 AND NOT APPLE)
+    find_package(KF${KF_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+    set(HAVE_KDBUSADDONS true)
+endif()
+
 find_package(DolphinVcs)
 set_package_properties(DolphinVcs PROPERTIES
     TYPE OPTIONAL
@@ -101,6 +106,8 @@ add_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 add_definitions(-DQT_NO_FOREACH)
 add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
 #add_definitions(-DQT_NO_CAST_FROM_ASCII)
+
+configure_file(config-kommit.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kommit.h)
 
 ecm_set_disabled_deprecation_versions(QT 5.15.2 KF 6.3)
 

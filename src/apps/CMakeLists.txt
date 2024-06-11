@@ -1,5 +1,6 @@
-# SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2022-2024 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
+include_directories(${CMAKE_BINARY_DIR})
 add_executable(kommit main.cpp)
 
 target_link_libraries(kommit

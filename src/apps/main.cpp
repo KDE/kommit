@@ -6,12 +6,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 // application header
 #include "commandargsparser.h"
+#include "config-kommit.h"
 #include "dialogs/changedfilesdialog.h"
 
 // KF headers
 #include <KAboutData>
 #include <KCrash>
+#if HAVE_KDBUSADDONS
 #include <KDBusService>
+#endif
 #include <KLocalizedString>
 
 // Qt headers
@@ -69,7 +72,9 @@ int main(int argc, char **argv)
     parser.process(application);
     aboutData.processCommandLine(&parser);
 
+#if HAVE_KDBUSADDONS
     KDBusService appDBusService(KDBusService::Multiple | KDBusService::NoExitOnFailure);
+#endif
 
     CommandArgsParser p;
     const auto w = p.run(application.arguments());

@@ -26,3 +26,11 @@ Dependencies:
     'frameworks/syntax-highlighting': '@latest-kf6'
     'frameworks/kxmlgui': '@latest-kf6'
     'system/dolphin': '@latest-kf6'
+
+- 'on': ['Linux/Qt6', 'FreeBSD/Qt6']
+  'require':
+    'frameworks/kdbusaddons': '@latest-kf6'
+
+- 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
+  'require':
+    'frameworks/kdbusaddons': '@stable'    
