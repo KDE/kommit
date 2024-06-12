@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-11 01:50+0000\n"
+"POT-Creation-Date: 2024-06-12 01:49+0000\n"
 "PO-Revision-Date: 2023-10-22 10:49+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -142,7 +142,7 @@ msgid "Diff branches"
 msgstr "Różnica gałęzi"
 
 #: dolphinplugins/dolphinplugin.cpp:31 dolphinplugins/dolphinplugin.cpp:35
-#: src/apps/main.cpp:53
+#: src/apps/main.cpp:56
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
@@ -158,38 +158,38 @@ msgstr ""
 msgid "Push/Commit to submodule %1"
 msgstr "Wdroż/Wypchnij"
 
-#: src/apps/main.cpp:55
+#: src/apps/main.cpp:58
 #, kde-format
 msgid "Git client gui for KDE"
 msgstr "Interfejs Gita dla KDE"
 
-#: src/apps/main.cpp:57
+#: src/apps/main.cpp:60
 #, fuzzy, kde-format
 #| msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:59 src/libkommit/models/logsmodel.cpp:262
+#: src/apps/main.cpp:62 src/libkommit/models/logsmodel.cpp:262
 #: src/libkommitwidgets/reports/authorsreport.cpp:78
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: src/apps/main.cpp:59
+#: src/apps/main.cpp:62
 #, fuzzy, kde-format
 #| msgid "Hamed Masafi"
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
-#: src/apps/main.cpp:60
+#: src/apps/main.cpp:63
 #, fuzzy, kde-format
 #| msgid "Laurent Montel"
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/apps/main.cpp:60
+#: src/apps/main.cpp:63
 #, kde-format
 msgid "Bug fixing"
 msgstr "Naprawa błędów"
