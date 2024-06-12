@@ -82,6 +82,7 @@
   </description>
   <url type="homepage">https://invent.kde.org/sdk/kommit</url>
   <url type="bugtracker">https://invent.kde.org/sdk/kommit/-/issues</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=kommit&amp;source=appdata</url>
   <screenshots>
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/kommit/kommit.png</image>
@@ -104,4 +105,5 @@
     </release>
   </releases>
   <content_rating type="oars-1.1"/>
+  <launchable type="desktop-id">org.kde.kommit.desktop</launchable>
 </component>
