@@ -97,7 +97,7 @@
     <release version="1.0.2" date="2023-05-04">
       <artifacts>
         <artifact type="source">
-          <location>https://download.kde.org/stable/stable/kommit/kommit-1.0.2.tar.xz</location>
+          <location>https://download.kde.org/stable/kommit/kommit-1.0.2.tar.xz</location>
           <checksum type="sha256">1e8ecad23aa10508d0685a2e9169fc562e12fad5a6adaacd4542d9007a68e96e</checksum>
         </artifact>
       </artifacts>
