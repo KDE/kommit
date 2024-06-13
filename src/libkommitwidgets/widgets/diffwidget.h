@@ -24,6 +24,7 @@ class LIBKOMMITWIDGETS_EXPORT DiffWidget : public QWidget, private Ui::DiffWIdge
 public:
     explicit DiffWidget(QWidget *parent = nullptr);
     DiffWidget(QSharedPointer<Git::File> oldFile, QSharedPointer<Git::File> newFile, QWidget *parent = nullptr);
+    ~DiffWidget();
 
     QSharedPointer<Git::File> oldFile() const;
     void setOldFile(QSharedPointer<Git::File> newOldFile);
@@ -65,6 +66,7 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
+    bool mDestroying{false};
     constexpr static int mPreviewWidgetHeight{160};
     QWidget *mPreviewWidget = nullptr;
     int mPreviewMargin{0};
