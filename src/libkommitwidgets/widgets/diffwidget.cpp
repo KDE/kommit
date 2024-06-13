@@ -29,6 +29,11 @@ DiffWidget::DiffWidget(QSharedPointer<Git::File> oldFile, QSharedPointer<Git::Fi
     init();
 }
 
+DiffWidget::~DiffWidget()
+{
+    mDestroying = true;
+}
+
 void DiffWidget::init()
 {
     createPreviewWidget();
@@ -234,6 +239,8 @@ CodeEditor *DiffWidget::newCodeEditor() const
 
 void DiffWidget::oldCodeEditor_scroll(int value)
 {
+    if (Q_UNLIKELY(mDestroying))
+        return;
     static bool b{false};
     if (b)
         return;
@@ -247,6 +254,8 @@ void DiffWidget::oldCodeEditor_scroll(int value)
 
 void DiffWidget::newCodeEditor_scroll(int value)
 {
+    if (Q_UNLIKELY(mDestroying))
+        return;
     static bool b{false};
     if (b)
         return;
