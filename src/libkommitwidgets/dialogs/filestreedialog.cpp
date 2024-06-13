@@ -141,4 +141,3 @@ void FilesTreeDialog::slotListWidgetCustomContextMenuRequested(const QPoint &pos
 }
 
 #include "moc_filestreedialog.cpp"
-#include <entities/tree.h>

@@ -77,7 +77,7 @@ void BranchActions::create()
 
 void BranchActions::browse()
 {
-    FilesTreeDialog d(mGit, mBranchName->name(), mParent);
+    FilesTreeDialog d(mGit, mBranchName, mParent);
     d.exec();
 }
 

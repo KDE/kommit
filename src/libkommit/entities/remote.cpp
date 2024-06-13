@@ -200,7 +200,7 @@ QString Remote::defaultBranch() const
     return mDefaultBranch;
 }
 
-QList<Branch *> Remote::branches() const
+const QList<Branch *> &Remote::branches() const
 {
     return mBranches;
 }

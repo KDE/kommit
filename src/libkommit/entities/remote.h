@@ -66,7 +66,7 @@ public:
     Q_REQUIRED_RESULT QString fetchUrl() const;
     Q_REQUIRED_RESULT QString defaultBranch() const;
 
-    Q_REQUIRED_RESULT QList<Branch *> branches() const;
+    Q_REQUIRED_RESULT const QList<Branch *> &branches() const;
 
     Q_REQUIRED_RESULT bool connected() const;
 
