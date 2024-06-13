@@ -15,8 +15,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 SearchDialog::SearchDialog(const QString &path, Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
+    , mModel(new QStandardItemModel(this))
 {
     setupUi(this);
+    treeView->setModel(mModel);
+
     initModel();
     lineEditPath->setText(path);
 
@@ -26,11 +29,6 @@ SearchDialog::SearchDialog(const QString &path, Git::Manager *git, QWidget *pare
 
 void SearchDialog::initModel()
 {
-    if (!mModel) {
-        mModel = new QStandardItemModel(this);
-        treeView->setModel(mModel);
-    }
-
     mModel->setColumnCount(3);
     mModel->setHeaderData(0, Qt::Horizontal, i18n("File name"));
     mModel->setHeaderData(1, Qt::Horizontal, i18n("Branch"));
@@ -39,8 +37,10 @@ void SearchDialog::initModel()
 
 SearchDialog::SearchDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
+    , mModel(new QStandardItemModel(this))
 {
     setupUi(this);
+    treeView->setModel(mModel);
     initModel();
 
     connect(pushButtonSearch, &QPushButton::clicked, this, &SearchDialog::slotPushButtonSearchClicked);

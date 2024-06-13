@@ -39,5 +39,5 @@ private:
         int total;
         QString message;
     } mProgress;
-    QStandardItemModel *mModel{nullptr};
+    QStandardItemModel *const mModel;
 };
