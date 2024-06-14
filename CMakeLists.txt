@@ -129,7 +129,6 @@ kdoctools_install(po)
 
 add_subdirectory(icons)
 add_subdirectory(src)
-#add_subdirectory(autotests)
 if (UNIX AND TARGET DolphinVcs)
     add_subdirectory(dolphinplugins)
 endif ()
