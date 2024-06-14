@@ -251,6 +251,14 @@ void AppWindow::initRecentRepos(const QString &newItem)
             }
         });
     }
+    mRecentAction->menu()->addSeparator();
+    auto clearAction = mRecentAction->menu()->addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")), i18n("Clear"));
+    connect(clearAction, &QAction::triggered, this, [this]() {
+        QSettings s;
+        s.setValue(QStringLiteral("recent_files"), QStringList());
+        s.sync();
+        initRecentRepos();
+    });
 }
 
 void AppWindow::repoStatus()
