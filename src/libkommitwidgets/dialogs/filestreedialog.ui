@@ -50,6 +50,9 @@
       <bool>false</bool>
      </property>
      <widget class="QTreeView" name="treeView">
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
       <attribute name="headerVisible">
        <bool>false</bool>
       </attribute>

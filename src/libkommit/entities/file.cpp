@@ -131,8 +131,18 @@ bool File::save(const QString &path) const
     QFile f{path};
     if (!f.open(QIODevice::WriteOnly))
         return false;
-    const auto buffer = content(); // mGit->runGit({QStringLiteral("show"), mPlace + QLatin1Char(':') + mFilePath});
-    f.write(buffer.toUtf8());
+    if (mStorage == Entry) {
+        git_blob *blob;
+        BEGIN
+        STEP git_blob_lookup(&blob, mRepo, git_tree_entry_id(mEntry));
+
+        if (IS_ERROR)
+            return false;
+        f.write((char *)git_blob_rawcontent(blob), git_blob_rawsize(blob));
+    } else {
+        const auto buffer = content(); // mGit->runGit({QStringLiteral("show"), mPlace + QLatin1Char(':') + mFilePath});
+        f.write(buffer.toUtf8());
+    }
     f.close();
     return true;
 }

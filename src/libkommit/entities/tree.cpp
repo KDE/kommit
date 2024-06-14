@@ -12,6 +12,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/commit.h>
 #include <git2/tree.h>
 
+#include <QDir>
+#include <QFileInfo>
+
 namespace Git
 {
 
@@ -55,7 +58,11 @@ QSharedPointer<File> Tree::file(const QString &path)
 {
     git_tree_entry *entry;
     BEGIN
-    STEP git_tree_entry_bypath(&entry, ptr, toConstChars(path));
+
+    if (path.startsWith("/"))
+        STEP git_tree_entry_bypath(&entry, ptr, toConstChars(path.mid(1)));
+    else
+        STEP git_tree_entry_bypath(&entry, ptr, toConstChars(path));
 
     if (IS_ERROR)
         return {};
@@ -66,6 +73,63 @@ QSharedPointer<File> Tree::file(const QString &path)
 git_tree *Tree::gitTree() const
 {
     return ptr;
+}
+
+bool Tree::extract(const QString &destinationFolder, const QString &perfix)
+{
+    struct wrapper {
+        QString destinationFolder;
+        QString perfix;
+        Tree *tree;
+    };
+
+    auto cb = [](const char *root, const git_tree_entry *entry, void *payload) -> int {
+        auto type = git_tree_entry_type(entry);
+
+        if (type != GIT_OBJECT_BLOB)
+            return 0;
+
+        auto w = reinterpret_cast<wrapper *>(payload);
+        QString path{root};
+        // if (path.endsWith("/"))
+        // path = path.mid(0, path.lastIndexOf("/"));
+
+        if (!path.endsWith("/"))
+            path = path.append("/");
+        if (!path.startsWith("/"))
+            path = path.prepend("/");
+
+        QString name{git_tree_entry_name(entry)};
+
+        if (path.startsWith(w->perfix)) {
+            qDebug() << "Path=" << path;
+            auto newFilePath = w->destinationFolder + "/" + path.mid(w->perfix.size()) + "/" + name;
+            QFileInfo fi{newFilePath};
+            QDir d;
+            d.mkpath(fi.absolutePath());
+            QSharedPointer<File> file;
+
+            file = w->tree->file(path + name);
+
+            if (file.isNull()) {
+                qDebug() << "File is null" << path << name;
+                return 1;
+            }
+            return file->save(newFilePath) ? 0 : 1;
+        }
+
+        return 0;
+    };
+
+    wrapper w;
+    w.destinationFolder = destinationFolder;
+    w.tree = this;
+    if (!perfix.startsWith("/"))
+        w.perfix = "/" + perfix;
+    else
+        w.perfix = perfix;
+
+    return !git_tree_walk(ptr, GIT_TREEWALK_PRE, cb, &w);
 }
 
 void Tree::initTree()

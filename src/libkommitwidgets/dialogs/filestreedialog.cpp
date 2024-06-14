@@ -6,13 +6,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "filestreedialog.h"
 #include "actions/fileactions.h"
+#include "core/kmessageboxhelper.h"
 #include "gitmanager.h"
 #include "models/treemodel.h"
 
 #include <entities/tree.h>
 
 #include <KLocalizedString>
+#include <QFileDialog>
 #include <QFileIconProvider>
+#include <QMenu>
 #include <interfaces.h>
 
 FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QString &place, QWidget *parent)
@@ -76,6 +79,7 @@ FilesTreeDialog::FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::ITree> t
     , mPlace{}
     , mActions(new FileActions(git, this))
     , mTree{tree->tree()}
+    , mTreeViewMenu{new QMenu{this}}
 {
     setupUi(this);
 
@@ -84,6 +88,13 @@ FilesTreeDialog::FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::ITree> t
     setWindowTitle(i18nc("@title:window", "Browse files: %1", tree->treeTitle()));
 
     initModel(files);
+}
+
+void FilesTreeDialog::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
+{
+    mExtractPerfix = mTreeModel->fullPath(treeView->currentIndex());
+
+    mTreeViewMenu->popup(treeView->mapToGlobal(pos));
 }
 
 void FilesTreeDialog::slotTreeViewClicked(const QModelIndex &index)
@@ -100,6 +111,19 @@ void FilesTreeDialog::slotTreeViewClicked(const QModelIndex &index)
         item->setIcon(icon);
         listWidget->addItem(item);
     }
+}
+
+void FilesTreeDialog::slotExtract()
+{
+    auto path = QFileDialog::getExistingDirectory(this, i18n("Extract to"));
+    if (path.isEmpty())
+        return;
+    auto ok = mTree->extract(path, mExtractPerfix);
+
+    if (ok)
+        KMessageBoxHelper::information(this, i18n("All file(s) extracted successfully"));
+    else
+        KMessageBoxHelper::error(this, i18n("An error occurred while extracting file(s)"));
 }
 
 void FilesTreeDialog::initModel(const QStringList &files)
@@ -123,6 +147,10 @@ void FilesTreeDialog::initModel(const QStringList &files)
 
     connect(treeView, &QTreeView::clicked, this, &FilesTreeDialog::slotTreeViewClicked);
     connect(listWidget, &QListWidget::customContextMenuRequested, this, &FilesTreeDialog::slotListWidgetCustomContextMenuRequested);
+    connect(treeView, &QTreeView::customContextMenuRequested, this, &FilesTreeDialog::slotTreeViewCustomContextMenuRequested);
+
+    auto extractAction = mTreeViewMenu->addAction(i18n("Extract"));
+    connect(extractAction, &QAction::triggered, this, &FilesTreeDialog::slotExtract);
 }
 
 void FilesTreeDialog::slotListWidgetCustomContextMenuRequested(const QPoint &pos)
