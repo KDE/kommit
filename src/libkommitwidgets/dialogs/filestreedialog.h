@@ -39,6 +39,6 @@ private:
     const QString mPlace;
     FileActions *const mActions;
     QSharedPointer<Git::Tree> mTree;
-    QMenu *mTreeViewMenu;
+    QMenu *mTreeViewMenu = nullptr;
     QString mExtractPerfix;
 };
