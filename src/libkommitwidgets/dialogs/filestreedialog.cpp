@@ -23,6 +23,7 @@ FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QString &place, QWidge
     , mTreeModel(new TreeModel(this))
     , mPlace(place)
     , mActions(new FileActions(git, this))
+    , mTreeViewMenu{new QMenu{this}}
 {
     setupUi(this);
 
