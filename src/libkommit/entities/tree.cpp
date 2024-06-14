@@ -94,16 +94,16 @@ bool Tree::extract(const QString &destinationFolder, const QString &perfix)
         // if (path.endsWith("/"))
         // path = path.mid(0, path.lastIndexOf("/"));
 
-        if (!path.endsWith("/"))
-            path = path.append("/");
-        if (!path.startsWith("/"))
-            path = path.prepend("/");
+        if (!path.endsWith(QLatin1Char('/')))
+            path = path.append(QLatin1Char('/'));
+        if (!path.startsWith(QLatin1Char('/')))
+            path = path.prepend(QLatin1Char('/'));
 
         QString name{git_tree_entry_name(entry)};
 
         if (path.startsWith(w->perfix)) {
             qDebug() << "Path=" << path;
-            auto newFilePath = w->destinationFolder + "/" + path.mid(w->perfix.size()) + "/" + name;
+            auto newFilePath = w->destinationFolder + QLatin1Char('/') + path.mid(w->perfix.size()) + "/" + name;
             QFileInfo fi{newFilePath};
             QDir d;
             d.mkpath(fi.absolutePath());
