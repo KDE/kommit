@@ -188,7 +188,7 @@ void DiffWindow::initActions()
     auto actionCollection = this->actionCollection();
 
     auto viewHiddenCharsAction = actionCollection->addAction(QStringLiteral("view_hidden_chars"));
-    viewHiddenCharsAction->setText(i18n("View hidden chars..."));
+    viewHiddenCharsAction->setText(i18n("View hidden chars…"));
     viewHiddenCharsAction->setCheckable(true);
     connect(viewHiddenCharsAction, &QAction::triggered, mDiffWidget, &DiffWidget::showHiddenChars);
 

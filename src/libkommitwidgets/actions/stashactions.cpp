@@ -19,11 +19,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 StashActions::StashActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
-    _actionNew = addActionHidden(i18nc("@action", "New stash..."), this, &StashActions::create);
+    _actionNew = addActionHidden(i18nc("@action", "New stash…"), this, &StashActions::create);
     _actionDiff = addAction(i18nc("@action", "Diff with working dir"), this, &StashActions::diff);
-    _actionPop = addAction(i18nc("@action", "Pop..."), this, &StashActions::pop, false, true);
-    _actionApply = addAction(i18nc("@action", "Apply..."), this, &StashActions::apply, false, true);
-    _actionDrop = addAction(i18nc("@action", "Remove..."), this, &StashActions::drop, false, true);
+    _actionPop = addAction(i18nc("@action", "Pop…"), this, &StashActions::pop, false, true);
+    _actionApply = addAction(i18nc("@action", "Apply…"), this, &StashActions::apply, false, true);
+    _actionDrop = addAction(i18nc("@action", "Remove…"), this, &StashActions::drop, false, true);
 
     _actionDrop->setIcon(QIcon::fromTheme(QStringLiteral("list-remove")));
     _actionNew->setIcon(QIcon::fromTheme(QStringLiteral("list-add")));

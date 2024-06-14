@@ -28,16 +28,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 BranchActions::BranchActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
-    _actionCreate = addActionHidden(i18nc("@action", "Create..."), this, &BranchActions::create);
+    _actionCreate = addActionHidden(i18nc("@action", "Create…"), this, &BranchActions::create);
     _actionCreate->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
 
-    _actionFetch = addActionDisabled(i18nc("@action", "Fetch..."), this, &BranchActions::fetch);
-    _actionBrowse = addActionDisabled(i18nc("@action", "Browse..."), this, &BranchActions::browse);
+    _actionFetch = addActionDisabled(i18nc("@action", "Fetch…"), this, &BranchActions::fetch);
+    _actionBrowse = addActionDisabled(i18nc("@action", "Browse…"), this, &BranchActions::browse);
     _actionCheckout = addActionDisabled(i18nc("@action", "Switch"), this, &BranchActions::checkout);
-    _actionMerge = addActionDisabled(i18nc("@action", "Merge..."), this, &BranchActions::merge);
+    _actionMerge = addActionDisabled(i18nc("@action", "Merge…"), this, &BranchActions::merge);
     _actionDiff = addActionDisabled(i18nc("@action", "Diff"), this, &BranchActions::diff);
-    _actionRemove = addActionDisabled(i18nc("@action", "Remove..."), this, &BranchActions::remove);
-    _actionNote = addActionDisabled(i18nc("@action", "Note..."), this, &BranchActions::note);
+    _actionRemove = addActionDisabled(i18nc("@action", "Remove…"), this, &BranchActions::remove);
+    _actionNote = addActionDisabled(i18nc("@action", "Note…"), this, &BranchActions::note);
 }
 
 void BranchActions::setBranchName(QSharedPointer<Git::Branch> newBranchName)

@@ -161,18 +161,18 @@ void AppWindow::initActions()
     KActionCollection *actionCollection = this->actionCollection();
 
     mRepoInitAction = actionCollection->addAction(QStringLiteral("repo_init"), this, &AppWindow::initRepo);
-    mRepoInitAction->setText(i18nc("@action", "Init..."));
+    mRepoInitAction->setText(i18nc("@action", "Init…"));
 
     mRepoOpenAction = actionCollection->addAction(QStringLiteral("repo_open"), this, &AppWindow::openRepo);
-    mRepoOpenAction->setText(i18nc("@action", "Open..."));
+    mRepoOpenAction->setText(i18nc("@action", "Open…"));
     actionCollection->setDefaultShortcuts(mRepoOpenAction, KStandardShortcut::open());
     mRepoOpenAction->setIcon(QIcon::fromTheme(QStringLiteral("folder-open")));
 
     mRepoCloneAction = actionCollection->addAction(QStringLiteral("repo_clone"), this, &AppWindow::clone);
-    mRepoCloneAction->setText(i18nc("@action", "Clone..."));
+    mRepoCloneAction->setText(i18nc("@action", "Clone…"));
 
     mRepoStatusAction = actionCollection->addAction(QStringLiteral("repo_status"), this, &AppWindow::repoStatus);
-    mRepoStatusAction->setText(i18nc("@action", "Changed files..."));
+    mRepoStatusAction->setText(i18nc("@action", "Changed files…"));
     mRepoStatusAction->setIcon(QIcon::fromTheme(QStringLiteral("kommit-changedfiles")));
     actionCollection->setDefaultShortcut(mRepoStatusAction, QKeySequence(Qt::CTRL | Qt::Key_S));
 
@@ -184,38 +184,38 @@ void AppWindow::initActions()
     }
 
     mRepoCleanupAction = actionCollection->addAction(QStringLiteral("repo_cleanup"), this, &AppWindow::cleanup);
-    mRepoCleanupAction->setText(i18nc("@action", "Cleanup..."));
+    mRepoCleanupAction->setText(i18nc("@action", "Cleanup…"));
 
     mRepoPullAction = actionCollection->addAction(QStringLiteral("repo_pull"), this, &AppWindow::pull);
-    mRepoPullAction->setText(i18nc("@action", "Pull..."));
+    mRepoPullAction->setText(i18nc("@action", "Pull…"));
     mRepoPullAction->setIcon(QIcon::fromTheme(QStringLiteral("git-pull")));
 
     mRepoFetchAction = actionCollection->addAction(QStringLiteral("repo_fetch"), this, &AppWindow::fetch);
-    mRepoFetchAction->setText(i18nc("@action", "Fetch..."));
+    mRepoFetchAction->setText(i18nc("@action", "Fetch…"));
     mRepoFetchAction->setIcon(QIcon::fromTheme(QStringLiteral("git-fetch")));
 
     mRepoPushAction = actionCollection->addAction(QStringLiteral("repo_push"), this, &AppWindow::commitPushAction);
-    mRepoPushAction->setText(i18nc("@action", "Push..."));
+    mRepoPushAction->setText(i18nc("@action", "Push…"));
     mRepoPushAction->setIcon(QIcon::fromTheme(QStringLiteral("git-push")));
 
     mRepoMergeAction = actionCollection->addAction(QStringLiteral("repo_merge"), this, &AppWindow::merge);
-    mRepoMergeAction->setText(i18nc("@action", "Merge..."));
+    mRepoMergeAction->setText(i18nc("@action", "Merge…"));
     mRepoMergeAction->setIcon(QIcon::fromTheme(QStringLiteral("git-merge")));
 
     mDiffBranchesAction = actionCollection->addAction(QStringLiteral("diff_branches"), this, &AppWindow::diffBranches);
-    mDiffBranchesAction->setText(i18nc("@action", "Diff branches..."));
+    mDiffBranchesAction->setText(i18nc("@action", "Diff branches…"));
 
     mRepoSearchAction = actionCollection->addAction(QStringLiteral("repo_search"), this, &AppWindow::search);
-    mRepoSearchAction->setText(i18nc("@action", "Search..."));
+    mRepoSearchAction->setText(i18nc("@action", "Search…"));
 
     mRepoSettingsAction = actionCollection->addAction(QStringLiteral("repo_settings"), this, &AppWindow::repoSettings);
-    mRepoSettingsAction->setText(i18nc("@action", "Repo settings..."));
+    mRepoSettingsAction->setText(i18nc("@action", "Repo settings…"));
 
     mRepoSwitchAction = actionCollection->addAction(QStringLiteral("repo_switch"), this, &AppWindow::repoSwitch);
-    mRepoSwitchAction->setText(i18nc("@action", "Switch/Checkout..."));
+    mRepoSwitchAction->setText(i18nc("@action", "Switch/Checkout…"));
 
     mRepoDiffTreeAction = actionCollection->addAction(QStringLiteral("repo_diff_tree"), this, &AppWindow::repoDiffTree);
-    mRepoDiffTreeAction->setText(i18nc("@action", "Diff tree"));
+    mRepoDiffTreeAction->setText(i18nc("@action", "Diff tree…"));
 
     KStandardAction::quit(this, &QMainWindow::close, actionCollection);
 
