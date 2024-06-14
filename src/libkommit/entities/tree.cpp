@@ -80,7 +80,7 @@ bool Tree::extract(const QString &destinationFolder, const QString &perfix)
     struct wrapper {
         QString destinationFolder;
         QString perfix;
-        Tree *tree;
+        Tree *tree = nullptr;
     };
 
     auto cb = [](const char *root, const git_tree_entry *entry, void *payload) -> int {
