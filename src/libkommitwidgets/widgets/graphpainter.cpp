@@ -215,3 +215,5 @@ QSize GraphPainter::sizeHint(const QStyleOptionViewItem &option, const QModelInd
     Q_UNUSED(index)
     return {0, HEIGHT};
 }
+
+#include "moc_graphpainter.cpp"
