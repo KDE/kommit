@@ -1,21 +1,21 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the gitklient package.
-# SPDX-FileCopyrightText: 2023 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2023, 2024 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 01:49+0000\n"
-"PO-Revision-Date: 2023-11-02 13:36+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"POT-Creation-Date: 2024-06-14 01:40+0000\n"
+"PO-Revision-Date: 2024-06-13 15:05+0200\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -177,7 +177,7 @@ msgstr "Autor"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
-msgstr ""
+msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:63
 #, kde-format
@@ -215,25 +215,25 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Init..."
-msgstr ""
+msgstr "Inicializace..."
 
 #: src/gui/appwindow.cpp:167
 #, kde-format
 msgctxt "@action"
 msgid "Open..."
-msgstr ""
+msgstr "Otevřít..."
 
 #: src/gui/appwindow.cpp:172
 #, kde-format
 msgctxt "@action"
 msgid "Clone..."
-msgstr ""
+msgstr "Klonovat..."
 
 #: src/gui/appwindow.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Changed files..."
-msgstr ""
+msgstr "Změněné soubory..."
 
 #: src/gui/appwindow.cpp:181
 #, kde-format
@@ -245,49 +245,49 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup..."
-msgstr ""
+msgstr "Cleanup..."
 
 #: src/gui/appwindow.cpp:190
 #, kde-format
 msgctxt "@action"
 msgid "Pull..."
-msgstr ""
+msgstr "Pull..."
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgctxt "@action"
 msgid "Fetch..."
-msgstr ""
+msgstr "Fetch..."
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Push..."
-msgstr ""
+msgstr "Push..."
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Merge..."
-msgstr ""
+msgstr "Merge..."
 
 #: src/gui/appwindow.cpp:206
 #, kde-format
 msgctxt "@action"
 msgid "Diff branches..."
-msgstr ""
+msgstr "Rozdíly mezi větvemi..."
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
 #, kde-format
 msgctxt "@action"
 msgid "Search..."
-msgstr ""
+msgstr "Hledat..."
 
 #: src/gui/appwindow.cpp:212
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings..."
-msgstr ""
+msgstr "Nastavení repozitáře..."
 
 #: src/gui/appwindow.cpp:215
 #, kde-format
@@ -614,7 +614,7 @@ msgstr "Graf"
 #: src/gui/pages/reportswidget.ui:80
 #, kde-format
 msgid "Refresh data"
-msgstr ""
+msgstr "Obnovit data"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:83
@@ -899,7 +899,7 @@ msgstr "Předmět"
 #: src/libkommit/models/stashesmodel.cpp:68
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:37
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "Commit"
 msgstr "Commit"
@@ -945,25 +945,25 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Create..."
-msgstr ""
+msgstr "Vytvořit..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
 #, kde-format
 msgctxt "@action"
 msgid "Browse..."
-msgstr ""
+msgstr "Procházet..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Switch"
-msgstr ""
+msgstr "Přepnout"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:38
 #, kde-format
 msgctxt "@action"
 msgid "Diff"
-msgstr ""
+msgstr "Rozdíl"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:39
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
@@ -972,13 +972,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Remove..."
-msgstr ""
+msgstr "Odstranit..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #, kde-format
 msgctxt "@action"
 msgid "Note..."
-msgstr ""
+msgstr "Poznámka..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -999,25 +999,25 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Diff..."
-msgstr ""
+msgstr "Rozdíl..."
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, kde-format
 msgctxt "@action"
 msgid "Revert..."
-msgstr ""
+msgstr "Vrátit zpět..."
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Browse"
-msgstr ""
+msgstr "Procházet"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Checkout"
-msgstr ""
+msgstr "Checkout"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:47
@@ -1032,13 +1032,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Note"
-msgstr ""
+msgstr "Poznámka"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:43
 #, kde-format
 msgctxt "@action"
 msgid "Preview"
-msgstr ""
+msgstr "Náhled"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
@@ -1050,7 +1050,7 @@ msgstr "Otevřít"
 #, kde-format
 msgctxt "@action"
 msgid "Open with..."
-msgstr ""
+msgstr "Otevřít pomocí..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
 #, kde-format
@@ -1062,13 +1062,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Save as..."
-msgstr ""
+msgstr "Uložit jako..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
 msgctxt "@action"
 msgid "Log"
-msgstr ""
+msgstr "Záznam"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:52
 #, kde-format
@@ -1079,25 +1079,25 @@ msgstr ""
 #: src/libkommitwidgets/actions/fileactions.cpp:72
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
-msgstr ""
+msgstr "%1 soubor (*.%1);;Všechny soubory(*)"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
 msgctxt "@action"
 msgid "New..."
-msgstr ""
+msgstr "Nový..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Rename..."
-msgstr ""
+msgstr "Přejmenovat..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Change url..."
-msgstr ""
+msgstr "Změnit URL..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
@@ -1155,7 +1155,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Apply..."
-msgstr ""
+msgstr "Použít..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
@@ -1226,13 +1226,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Add..."
-msgstr ""
+msgstr "Přidat..."
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, kde-format
 msgctxt "@action"
 msgid "Update..."
-msgstr ""
+msgstr "Aktualizovat..."
 
 #. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
@@ -1265,13 +1265,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "New tag..."
-msgstr ""
+msgstr "Nová značka..."
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Checkout..."
-msgstr ""
+msgstr "Checkout..."
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1423,7 +1423,7 @@ msgstr "Hloubka"
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:34
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:75
 #: src/libkommitwidgets/dialogs/pulldialog.ui:36
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:36
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:34
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:66
 #, kde-format
 msgid "Branch"
@@ -2254,7 +2254,7 @@ msgstr "Spustit příkaz"
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:36
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:47
@@ -2281,7 +2281,7 @@ msgid ""
 "size:9pt;\"><br /></p></body></html>"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:35
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:33
 #, kde-format
 msgid "File name"
 msgstr "Název souboru"
@@ -2415,7 +2415,7 @@ msgstr ""
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
 #, kde-format
 msgid "Hour"
-msgstr ""
+msgstr "Hodina"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:66
 #, kde-format
@@ -2465,12 +2465,12 @@ msgstr ""
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
 #, kde-format
 msgid "Day"
-msgstr ""
+msgstr "Den"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:95
 #, kde-format
 msgid "Day of week"
-msgstr ""
+msgstr "Den týdne"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:60
 #, kde-format
@@ -2540,19 +2540,19 @@ msgstr ""
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
 #, kde-format
 msgid "Parent:"
-msgstr ""
+msgstr "Rodič:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
 #, kde-format
 msgid "Child:"
-msgstr ""
+msgstr "Potomek:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>-</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
 #: src/libkommitwidgets/widgets/commitdetails.ui:196

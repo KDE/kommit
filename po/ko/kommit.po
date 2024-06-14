@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 01:49+0000\n"
+"POT-Creation-Date: 2024-06-14 01:40+0000\n"
 "PO-Revision-Date: 2024-02-09 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -933,7 +933,7 @@ msgstr "제목"
 #: src/libkommit/models/stashesmodel.cpp:68
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:37
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "Commit"
 msgstr "커밋"
@@ -1491,7 +1491,7 @@ msgstr "깊이"
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:34
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:75
 #: src/libkommitwidgets/dialogs/pulldialog.ui:36
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:36
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:34
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:66
 #, kde-format
 msgid "Branch"
@@ -2443,7 +2443,7 @@ msgstr ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
 "size:9pt;\"><br /></p></body></html>"
 
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:35
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:33
 #, kde-format
 msgid "File name"
 msgstr "파일 이름"

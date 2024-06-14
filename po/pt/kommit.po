@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 01:49+0000\n"
+"POT-Creation-Date: 2024-06-14 01:40+0000\n"
 "PO-Revision-Date: 2023-06-09 23:19+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -949,7 +949,7 @@ msgstr "Assunto"
 #: src/libkommit/models/stashesmodel.cpp:68
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:37
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "Commit"
 msgstr "Enviar"
@@ -1506,7 +1506,7 @@ msgstr "Profundidade"
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:34
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:75
 #: src/libkommitwidgets/dialogs/pulldialog.ui:36
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:36
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:34
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:66
 #, kde-format
 msgid "Branch"
@@ -2477,7 +2477,7 @@ msgstr ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
 "\"><br /></p></body></html>"
 
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:35
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:33
 #, kde-format
 msgid "File name"
 msgstr "Nome do ficheiro"
