@@ -575,8 +575,8 @@ void CodeEditor::highlightSegment(Diff::Segment *segment)
 
 void CodeEditor::clearAll()
 {
-    mSegments.clear();
     qDeleteAll(mSegments);
+    mSegments.clear();
     clear();
     mLastLineNumber = 0;
     auto tmp = mBlocksData.values();
