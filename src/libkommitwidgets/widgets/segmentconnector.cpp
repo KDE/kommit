@@ -28,6 +28,8 @@ const QList<Diff::DiffSegment *> &SegmentConnector::segments() const
 
 void SegmentConnector::setSegments(const QList<Diff::DiffSegment *> &newSegments)
 {
+    qDeleteAll(mSegments);
+    mSegments.clear();
     mSegments = newSegments;
 
     int oldIndex{0};
