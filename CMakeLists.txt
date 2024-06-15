@@ -124,7 +124,6 @@ if(BUILD_TESTING)
 endif(BUILD_TESTING)
 
 
-add_subdirectory(doc)
 kdoctools_install(po)
 
 add_subdirectory(icons)
