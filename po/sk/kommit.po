@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 01:40+0000\n"
+"POT-Creation-Date: 2024-06-15 01:45+0000\n"
 "PO-Revision-Date: 2023-12-08 19:34+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -216,30 +216,30 @@ msgstr ""
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, fuzzy, kde-format
-#| msgid "Init..."
+#| msgid "Init"
 msgctxt "@action"
-msgid "Init..."
-msgstr "Začiatok..."
+msgid "Init…"
+msgstr "Začiatok"
 
 #: src/gui/appwindow.cpp:167
 #, fuzzy, kde-format
-#| msgid "Open..."
+#| msgid "Open"
 msgctxt "@action"
-msgid "Open..."
-msgstr "Otvoriť..."
+msgid "Open…"
+msgstr "Otvoriť"
 
 #: src/gui/appwindow.cpp:172
 #, fuzzy, kde-format
-#| msgid "Clone..."
+#| msgid "Clone"
 msgctxt "@action"
-msgid "Clone..."
-msgstr "Klonovať..."
+msgid "Clone…"
+msgstr "Klonovať"
 
 #: src/gui/appwindow.cpp:175
 #, fuzzy, kde-format
 #| msgid "Change url..."
 msgctxt "@action"
-msgid "Changed files..."
+msgid "Changed files…"
 msgstr "Zmeniť URL..."
 
 #: src/gui/appwindow.cpp:181
@@ -251,93 +251,100 @@ msgstr "Hľadať"
 
 #: src/gui/appwindow.cpp:187
 #, fuzzy, kde-format
+#| msgid "Search"
 msgctxt "@action"
-msgid "Cleanup..."
+msgid "Cleanup…"
 msgstr "Vyčistenie"
 
 #: src/gui/appwindow.cpp:190
 #, fuzzy, kde-format
-#| msgid "Pull..."
+#| msgid "Pull"
 msgctxt "@action"
-msgid "Pull..."
-msgstr "Ťahať..."
+msgid "Pull…"
+msgstr "Ťahať"
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, fuzzy, kde-format
-#| msgid "Fetch..."
+#| msgid "Fetch"
 msgctxt "@action"
-msgid "Fetch..."
-msgstr "Získať..."
+msgid "Fetch…"
+msgstr "Získať"
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, fuzzy, kde-format
-#| msgid "Push..."
+#| msgid "Push"
 msgctxt "@action"
-msgid "Push..."
-msgstr "Tlačiť..."
+msgid "Push…"
+msgstr "Tlačiť"
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, fuzzy, kde-format
-#| msgid "Merge..."
+#| msgid "Merge"
 msgctxt "@action"
-msgid "Merge..."
-msgstr "Zlúčiť..."
+msgid "Merge…"
+msgstr "Spojiť"
 
 #: src/gui/appwindow.cpp:206
 #, fuzzy, kde-format
 #| msgid "Branches"
 msgctxt "@action"
-msgid "Diff branches..."
+msgid "Diff branches…"
 msgstr "Vetvy"
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
 #, fuzzy, kde-format
-#| msgid "Search..."
+#| msgid "Search"
 msgctxt "@action"
-msgid "Search..."
-msgstr "Hľadať..."
+msgid "Search…"
+msgstr "Hľadať"
 
 #: src/gui/appwindow.cpp:212
 #, kde-format
 msgctxt "@action"
-msgid "Repo settings..."
+msgid "Repo settings…"
 msgstr ""
 
 #: src/gui/appwindow.cpp:215
 #, fuzzy, kde-format
 #| msgid "Checkout..."
 msgctxt "@action"
-msgid "Switch/Checkout..."
+msgid "Switch/Checkout…"
 msgstr "Získať..."
 
 #: src/gui/appwindow.cpp:218
 #, fuzzy, kde-format
 #| msgid "Branches"
 msgctxt "@action"
-msgid "Diff tree"
+msgid "Diff tree…"
 msgstr "Vetvy"
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:255
+#, fuzzy, kde-format
+#| msgid "Search"
+msgid "Clear"
+msgstr "Vyčistenie"
+
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr ""
 
-#: src/gui/appwindow.cpp:282
+#: src/gui/appwindow.cpp:290
 #, kde-format
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Prepnúť vetvu"
@@ -966,15 +973,15 @@ msgstr "Vytvoriť značku"
 #, fuzzy, kde-format
 #| msgid "Create..."
 msgctxt "@action"
-msgid "Create..."
+msgid "Create…"
 msgstr "Vytvoriť..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
 #, fuzzy, kde-format
-#| msgid "Browse..."
+#| msgid "Browse"
 msgctxt "@action"
-msgid "Browse..."
-msgstr "Prechádzať..."
+msgid "Browse…"
+msgstr "Prehliadať"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, fuzzy, kde-format
@@ -995,17 +1002,17 @@ msgstr "Diff"
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, fuzzy, kde-format
-#| msgid "Remove..."
+#| msgid "Remove"
 msgctxt "@action"
-msgid "Remove..."
-msgstr "Odstrániť..."
+msgid "Remove…"
+msgstr "Odstrániť"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #, fuzzy, kde-format
-#| msgid "Note..."
+#| msgid "Note"
 msgctxt "@action"
-msgid "Note..."
-msgstr "Poznámka..."
+msgid "Note…"
+msgstr "Poznámka"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -1025,16 +1032,16 @@ msgstr "Odstrániť"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, fuzzy, kde-format
-#| msgid "Diff..."
+#| msgid "Diff"
 msgctxt "@action"
-msgid "Diff..."
-msgstr "Diff..."
+msgid "Diff…"
+msgstr "Diff"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, fuzzy, kde-format
 #| msgid "Revert..."
 msgctxt "@action"
-msgid "Revert..."
+msgid "Revert…"
 msgstr "Vrátiť..."
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
@@ -1085,7 +1092,7 @@ msgstr "Otvoriť"
 #, fuzzy, kde-format
 #| msgid "Open with..."
 msgctxt "@action"
-msgid "Open with..."
+msgid "Open with…"
 msgstr "Otvoriť s..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
@@ -1098,7 +1105,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Save as..."
 msgctxt "@action"
-msgid "Save as..."
+msgid "Save as…"
 msgstr "Uložiť ako..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
@@ -1121,24 +1128,23 @@ msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New..."
+#, kde-format
 msgctxt "@action"
-msgid "New..."
-msgstr "Nové..."
+msgid "New…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, fuzzy, kde-format
-#| msgid "Rename..."
+#| msgid "Rename"
 msgctxt "@action"
-msgid "Rename..."
-msgstr "Premenovať..."
+msgid "Rename…"
+msgstr "Premenovať"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, fuzzy, kde-format
-#| msgid "Change url..."
+#| msgid "Change url"
 msgctxt "@action"
-msgid "Change url..."
+msgid "Change url…"
 msgstr "Zmeniť URL..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
@@ -1185,21 +1191,20 @@ msgstr "Nové meno"
 #, fuzzy, kde-format
 #| msgid "New tag..."
 msgctxt "@action"
-msgid "New stash..."
+msgid "New stash…"
 msgstr "Nová značka..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "Pop..."
+#, kde-format
 msgctxt "@action"
-msgid "Pop..."
-msgstr "Pop..."
+msgid "Pop…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #, fuzzy, kde-format
 #| msgid "Apply..."
 msgctxt "@action"
-msgid "Apply..."
+msgid "Apply…"
 msgstr "Použiť..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
@@ -1268,26 +1273,24 @@ msgid "Name of stash"
 msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action"
-msgid "Add..."
-msgstr "Pridať..."
+msgid "Add…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, fuzzy, kde-format
-#| msgid "Update..."
+#| msgid "Update"
 msgctxt "@action"
-msgid "Update..."
-msgstr "Aktualizovať..."
+msgid "Update…"
+msgstr "Aktualizovať"
 
-#. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
+#. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Sync..."
+#, kde-format
 msgctxt "@action"
-msgid "Sync..."
-msgstr "Synchronizovať..."
+msgid "Sync…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
@@ -1312,17 +1315,17 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, fuzzy, kde-format
-#| msgid "New tag..."
+#| msgid "New tag"
 msgctxt "@action"
-msgid "New tag..."
-msgstr "Nová značka..."
+msgid "New tag…"
+msgstr "Nová značka"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, fuzzy, kde-format
-#| msgid "Checkout..."
+#| msgid "Checkout"
 msgctxt "@action"
-msgid "Checkout..."
-msgstr "Získať..."
+msgid "Checkout…"
+msgstr "Získať"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1873,13 +1876,33 @@ msgstr "Vľavo"
 msgid "Right"
 msgstr "Vpravo"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:43
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:89
 #, fuzzy, kde-format
 #| msgid "Browse files: %1"
 msgctxt "@title:window"
 msgid "Browse files: %1"
 msgstr "Prehliadať súbory"
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:119
+#, kde-format
+msgid "Extract to"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:125
+#, kde-format
+msgid "All file(s) extracted successfully"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:127
+#, kde-format
+msgid "An error occurred while extracting file(s)"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:153
+#, kde-format
+msgid "Extract"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/filestreedialog.ui:31
@@ -1894,8 +1917,9 @@ msgid "Closing preview"
 msgstr "Zatvára sa náhľad"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, kde-format
-msgid "Please wait while the preview is being closed..."
+#, fuzzy, kde-format
+#| msgid "Please wait while the preview is being closed..."
+msgid "Please wait while the preview is being closed…"
 msgstr "Čakajte, prosím kým sa uzavrie náhľad..."
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
@@ -2678,7 +2702,7 @@ msgstr "Strom"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:191
 #, kde-format
-msgid "View hidden chars..."
+msgid "View hidden chars…"
 msgstr ""
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
@@ -2762,11 +2786,145 @@ msgstr ""
 msgid "Unable to open the file"
 msgstr ""
 
+#, fuzzy
+#~| msgid "Init..."
+#~ msgctxt "@action"
+#~ msgid "Init..."
+#~ msgstr "Začiatok..."
+
+#, fuzzy
+#~| msgid "Open..."
+#~ msgctxt "@action"
+#~ msgid "Open..."
+#~ msgstr "Otvoriť..."
+
+#, fuzzy
+#~| msgid "Clone..."
+#~ msgctxt "@action"
+#~ msgid "Clone..."
+#~ msgstr "Klonovať..."
+
+#, fuzzy
+#~ msgctxt "@action"
+#~ msgid "Cleanup..."
+#~ msgstr "Vyčistenie"
+
+#, fuzzy
+#~| msgid "Pull..."
+#~ msgctxt "@action"
+#~ msgid "Pull..."
+#~ msgstr "Ťahať..."
+
+#, fuzzy
+#~| msgid "Fetch..."
+#~ msgctxt "@action"
+#~ msgid "Fetch..."
+#~ msgstr "Získať..."
+
+#, fuzzy
+#~| msgid "Push..."
+#~ msgctxt "@action"
+#~ msgid "Push..."
+#~ msgstr "Tlačiť..."
+
+#, fuzzy
+#~| msgid "Merge..."
+#~ msgctxt "@action"
+#~ msgid "Merge..."
+#~ msgstr "Zlúčiť..."
+
+#, fuzzy
+#~| msgid "Branches"
+#~ msgctxt "@action"
+#~ msgid "Diff branches..."
+#~ msgstr "Vetvy"
+
+#, fuzzy
+#~| msgid "Search..."
+#~ msgctxt "@action"
+#~ msgid "Search..."
+#~ msgstr "Hľadať..."
+
+#, fuzzy
+#~| msgid "Browse..."
+#~ msgctxt "@action"
+#~ msgid "Browse..."
+#~ msgstr "Prechádzať..."
+
+#, fuzzy
+#~| msgid "Remove..."
+#~ msgctxt "@action"
+#~ msgid "Remove..."
+#~ msgstr "Odstrániť..."
+
+#, fuzzy
+#~| msgid "Note..."
+#~ msgctxt "@action"
+#~ msgid "Note..."
+#~ msgstr "Poznámka..."
+
+#, fuzzy
+#~| msgid "Diff..."
+#~ msgctxt "@action"
+#~ msgid "Diff..."
+#~ msgstr "Diff..."
+
+#, fuzzy
+#~| msgid "New..."
+#~ msgctxt "@action"
+#~ msgid "New..."
+#~ msgstr "Nové..."
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgctxt "@action"
+#~ msgid "Rename..."
+#~ msgstr "Premenovať..."
+
+#, fuzzy
+#~| msgid "Change url..."
+#~ msgctxt "@action"
+#~ msgid "Change url..."
+#~ msgstr "Zmeniť URL..."
+
+#, fuzzy
+#~| msgid "Pop..."
+#~ msgctxt "@action"
+#~ msgid "Pop..."
+#~ msgstr "Pop..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action"
+#~ msgid "Add..."
+#~ msgstr "Pridať..."
+
+#, fuzzy
+#~| msgid "Update..."
+#~ msgctxt "@action"
+#~ msgid "Update..."
+#~ msgstr "Aktualizovať..."
+
+#, fuzzy
+#~| msgid "Sync..."
+#~ msgctxt "@action"
+#~ msgid "Sync..."
+#~ msgstr "Synchronizovať..."
+
+#, fuzzy
+#~| msgid "New tag..."
+#~ msgctxt "@action"
+#~ msgid "New tag..."
+#~ msgstr "Nová značka..."
+
+#, fuzzy
+#~| msgid "Checkout..."
+#~ msgctxt "@action"
+#~ msgid "Checkout..."
+#~ msgstr "Získať..."
+
 #~ msgid "Stop"
 #~ msgstr "Zastaviť"
-
-#~ msgid "New tag"
-#~ msgstr "Nová značka"
 
 #, fuzzy
 #~| msgid "Author"

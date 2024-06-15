@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 01:40+0000\n"
+"POT-Creation-Date: 2024-06-15 01:45+0000\n"
 "PO-Revision-Date: 2024-06-11 09:03+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -213,28 +213,32 @@ msgstr " (перенесення основи)"
 
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Init"
 msgctxt "@action"
-msgid "Init..."
-msgstr "Ініціалізація…"
+msgid "Init…"
+msgstr "Ініціалізація"
 
 #: src/gui/appwindow.cpp:167
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open"
 msgctxt "@action"
-msgid "Open..."
-msgstr "Відкрити…"
+msgid "Open…"
+msgstr "Відкрити"
 
 #: src/gui/appwindow.cpp:172
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clone"
 msgctxt "@action"
-msgid "Clone..."
-msgstr "Клонувати…"
+msgid "Clone…"
+msgstr "Клонувати"
 
 #: src/gui/appwindow.cpp:175
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Changed files"
 msgctxt "@action"
-msgid "Changed files..."
-msgstr "Змінені файли…"
+msgid "Changed files…"
+msgstr "Змінені файли"
 
 #: src/gui/appwindow.cpp:181
 #, kde-format
@@ -243,86 +247,103 @@ msgid "Recent repos"
 msgstr "Нещодавні сховища"
 
 #: src/gui/appwindow.cpp:187
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cleanup"
 msgctxt "@action"
-msgid "Cleanup..."
-msgstr "Очищення…"
+msgid "Cleanup…"
+msgstr "Очищення"
 
 #: src/gui/appwindow.cpp:190
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pull"
 msgctxt "@action"
-msgid "Pull..."
-msgstr "Отримати…"
+msgid "Pull…"
+msgstr "Отримати"
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fetch"
 msgctxt "@action"
-msgid "Fetch..."
-msgstr "Отримати…"
+msgid "Fetch…"
+msgstr "Отримати"
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Push"
 msgctxt "@action"
-msgid "Push..."
-msgstr "Записати…"
+msgid "Push…"
+msgstr "Надіслати"
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Merge"
 msgctxt "@action"
-msgid "Merge..."
-msgstr "Об'єднати…"
+msgid "Merge…"
+msgstr "Об'єднання"
 
 #: src/gui/appwindow.cpp:206
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Diff branches"
 msgctxt "@action"
-msgid "Diff branches..."
-msgstr "Різниця гілок…"
+msgid "Diff branches…"
+msgstr "Різниця гілок"
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search"
 msgctxt "@action"
-msgid "Search..."
-msgstr "Шукати…"
+msgid "Search…"
+msgstr "Шукати"
 
 #: src/gui/appwindow.cpp:212
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Repo settings"
 msgctxt "@action"
-msgid "Repo settings..."
-msgstr "Параметри сховища…"
+msgid "Repo settings…"
+msgstr "Параметри сховища"
 
 #: src/gui/appwindow.cpp:215
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Switch/Checkout"
 msgctxt "@action"
-msgid "Switch/Checkout..."
-msgstr "Перемкнутися/Отримати…"
+msgid "Switch/Checkout…"
+msgstr "Перемкнутися/Отримати"
 
 #: src/gui/appwindow.cpp:218
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Diff tree"
 msgctxt "@action"
-msgid "Diff tree"
+msgid "Diff tree…"
 msgstr "Ієрархія різниці"
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:255
+#, fuzzy, kde-format
+#| msgid "Cleanup"
+msgid "Clear"
+msgstr "Очищення"
+
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Не вдалося створити шлях: %1"
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "Ініціалізувати сховище"
 
-#: src/gui/appwindow.cpp:282
+#: src/gui/appwindow.cpp:290
 #, kde-format
 msgid "Open repository"
 msgstr "Відкрити сховище"
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Неможливо перемикатися на гілку у процесі об'єднання"
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Перемкнути гілку"
@@ -959,16 +980,19 @@ msgid "Create time"
 msgstr "Час створення"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Create..."
 msgctxt "@action"
-msgid "Create..."
+msgid "Create…"
 msgstr "Створити…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Browse"
 msgctxt "@action"
-msgid "Browse..."
-msgstr "Вибрати…"
+msgid "Browse…"
+msgstr "Вибрати"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
@@ -986,16 +1010,19 @@ msgstr "Різниця"
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove"
 msgctxt "@action"
-msgid "Remove..."
-msgstr "Вилучити…"
+msgid "Remove…"
+msgstr "Вилучити"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Note"
 msgctxt "@action"
-msgid "Note..."
-msgstr "Нотатка…"
+msgid "Note…"
+msgstr "Нотатка"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -1013,15 +1040,18 @@ msgid "Remove Branch"
 msgstr "Вилучити гілку"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Diff"
 msgctxt "@action"
-msgid "Diff..."
-msgstr "Різниця…"
+msgid "Diff…"
+msgstr "Різниця"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Revert..."
 msgctxt "@action"
-msgid "Revert..."
+msgid "Revert…"
 msgstr "Повернути…"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
@@ -1064,9 +1094,11 @@ msgid "Open"
 msgstr "Відкрити"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:45
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Open with..."
 msgctxt "@action"
-msgid "Open with..."
+msgid "Open with…"
 msgstr "Відкрити за допомогою…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
@@ -1076,9 +1108,11 @@ msgid "Merge with working dir"
 msgstr "Об'єднати з робочим каталогом"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Save as..."
 msgctxt "@action"
-msgid "Save as..."
+msgid "Save as…"
 msgstr "Зберегти як…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
@@ -1101,20 +1135,22 @@ msgstr "файл %1 (*.%1);;усі файли(*)"
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
 msgctxt "@action"
-msgid "New..."
-msgstr "Створити…"
+msgid "New…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rename"
 msgctxt "@action"
-msgid "Rename..."
-msgstr "Перейменувати…"
+msgid "Rename…"
+msgstr "Перейменувати"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change url"
 msgctxt "@action"
-msgid "Change url..."
-msgstr "Змінити адресу…"
+msgid "Change url…"
+msgstr "Змінити адресу"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
@@ -1157,21 +1193,25 @@ msgid "New name"
 msgstr "Нова назва"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "New stash..."
 msgctxt "@action"
-msgid "New stash..."
+msgid "New stash…"
 msgstr "Створити накопичення…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
 msgctxt "@action"
-msgid "Pop..."
-msgstr "Виштовхнути…"
+msgid "Pop…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Apply..."
 msgctxt "@action"
-msgid "Apply..."
+msgid "Apply…"
 msgstr "Застосувати…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
@@ -1242,21 +1282,22 @@ msgstr "Назва накопичення"
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
 #, kde-format
 msgctxt "@action"
-msgid "Add..."
-msgstr "Додати…"
+msgid "Add…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Update"
 msgctxt "@action"
-msgid "Update..."
-msgstr "Оновити…"
+msgid "Update…"
+msgstr "Оновити"
 
-#. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
+#. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
 #, kde-format
 msgctxt "@action"
-msgid "Sync..."
-msgstr "Синхронізувати…"
+msgid "Sync…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
@@ -1279,16 +1320,18 @@ msgid "The submodule %1 removed"
 msgstr "Підмодуль %1 вилучено"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New tag"
 msgctxt "@action"
-msgid "New tag..."
-msgstr "Створити мітку…"
+msgid "New tag…"
+msgstr "Нова мітка"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Checkout"
 msgctxt "@action"
-msgid "Checkout..."
-msgstr "Звірити…"
+msgid "Checkout…"
+msgstr "Отримати"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1854,12 +1897,33 @@ msgstr "Ліворуч"
 msgid "Right"
 msgstr "Праворуч"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:43
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
 msgstr "Перегляд файлів: %1"
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:119
+#, kde-format
+msgid "Extract to"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:125
+#, fuzzy, kde-format
+#| msgid "File(s) added to git successfully"
+msgid "All file(s) extracted successfully"
+msgstr "Файли успішно додано до git"
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:127
+#, kde-format
+msgid "An error occurred while extracting file(s)"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:153
+#, kde-format
+msgid "Extract"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/filestreedialog.ui:31
@@ -1874,8 +1938,9 @@ msgid "Closing preview"
 msgstr "Закриття попереднього перегляду"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, kde-format
-msgid "Please wait while the preview is being closed..."
+#, fuzzy, kde-format
+#| msgid "Please wait while the preview is being closed..."
+msgid "Please wait while the preview is being closed…"
 msgstr "Будь ласка, зачекайте доки вікно попереднього перегляду буде закрито…"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
@@ -2705,8 +2770,9 @@ msgid "Tree"
 msgstr "Ієрархія"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:191
-#, kde-format
-msgid "View hidden chars..."
+#, fuzzy, kde-format
+#| msgid "View hidden chars..."
+msgid "View hidden chars…"
 msgstr "Переглянути приховані символи…"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
@@ -2790,14 +2856,115 @@ msgstr "Наступна відмінність"
 msgid "Unable to open the file"
 msgstr "Не вдалося відкрити файл"
 
+#~ msgctxt "@action"
+#~ msgid "Init..."
+#~ msgstr "Ініціалізація…"
+
+#~ msgctxt "@action"
+#~ msgid "Open..."
+#~ msgstr "Відкрити…"
+
+#~ msgctxt "@action"
+#~ msgid "Clone..."
+#~ msgstr "Клонувати…"
+
+#~ msgctxt "@action"
+#~ msgid "Changed files..."
+#~ msgstr "Змінені файли…"
+
+#~ msgctxt "@action"
+#~ msgid "Cleanup..."
+#~ msgstr "Очищення…"
+
+#~ msgctxt "@action"
+#~ msgid "Pull..."
+#~ msgstr "Отримати…"
+
+#~ msgctxt "@action"
+#~ msgid "Fetch..."
+#~ msgstr "Отримати…"
+
+#~ msgctxt "@action"
+#~ msgid "Push..."
+#~ msgstr "Записати…"
+
+#~ msgctxt "@action"
+#~ msgid "Merge..."
+#~ msgstr "Об'єднати…"
+
+#~ msgctxt "@action"
+#~ msgid "Diff branches..."
+#~ msgstr "Різниця гілок…"
+
+#~ msgctxt "@action"
+#~ msgid "Search..."
+#~ msgstr "Шукати…"
+
+#~ msgctxt "@action"
+#~ msgid "Repo settings..."
+#~ msgstr "Параметри сховища…"
+
+#~ msgctxt "@action"
+#~ msgid "Switch/Checkout..."
+#~ msgstr "Перемкнутися/Отримати…"
+
+#~ msgctxt "@action"
+#~ msgid "Browse..."
+#~ msgstr "Вибрати…"
+
+#~ msgctxt "@action"
+#~ msgid "Remove..."
+#~ msgstr "Вилучити…"
+
+#~ msgctxt "@action"
+#~ msgid "Note..."
+#~ msgstr "Нотатка…"
+
+#~ msgctxt "@action"
+#~ msgid "Diff..."
+#~ msgstr "Різниця…"
+
+#~ msgctxt "@action"
+#~ msgid "New..."
+#~ msgstr "Створити…"
+
+#~ msgctxt "@action"
+#~ msgid "Rename..."
+#~ msgstr "Перейменувати…"
+
+#~ msgctxt "@action"
+#~ msgid "Change url..."
+#~ msgstr "Змінити адресу…"
+
+#~ msgctxt "@action"
+#~ msgid "Pop..."
+#~ msgstr "Виштовхнути…"
+
+#~ msgctxt "@action"
+#~ msgid "Add..."
+#~ msgstr "Додати…"
+
+#~ msgctxt "@action"
+#~ msgid "Update..."
+#~ msgstr "Оновити…"
+
+#~ msgctxt "@action"
+#~ msgid "Sync..."
+#~ msgstr "Синхронізувати…"
+
+#~ msgctxt "@action"
+#~ msgid "New tag..."
+#~ msgstr "Створити мітку…"
+
+#~ msgctxt "@action"
+#~ msgid "Checkout..."
+#~ msgstr "Звірити…"
+
 #~ msgid "Stop"
 #~ msgstr "Зупинити"
 
 #~ msgid "Diff with master..."
 #~ msgstr "Різниця з master…"
-
-#~ msgid "New tag"
-#~ msgstr "Нова мітка"
 
 #~ msgid "Authors"
 #~ msgstr "Автори"

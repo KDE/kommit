@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 01:40+0000\n"
+"POT-Creation-Date: 2024-06-15 01:45+0000\n"
 "PO-Revision-Date: 2024-03-06 20:20+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -217,31 +217,31 @@ msgstr "（重定基底中）"
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, fuzzy, kde-format
-#| msgid "Init..."
+#| msgid "Init"
 msgctxt "@action"
-msgid "Init..."
-msgstr "初始化…"
+msgid "Init…"
+msgstr "初始化"
 
 #: src/gui/appwindow.cpp:167
 #, fuzzy, kde-format
-#| msgid "Open..."
+#| msgid "Open"
 msgctxt "@action"
-msgid "Open..."
-msgstr "開啟…"
+msgid "Open…"
+msgstr "開啟"
 
 #: src/gui/appwindow.cpp:172
 #, fuzzy, kde-format
-#| msgid "Clone..."
+#| msgid "Clone"
 msgctxt "@action"
-msgid "Clone..."
-msgstr "建立複本…"
+msgid "Clone…"
+msgstr "建立複本"
 
 #: src/gui/appwindow.cpp:175
 #, fuzzy, kde-format
-#| msgid "Changed files..."
+#| msgid "Changed files"
 msgctxt "@action"
-msgid "Changed files..."
-msgstr "已變更的檔案…"
+msgid "Changed files…"
+msgstr "已變更的檔案"
 
 #: src/gui/appwindow.cpp:181
 #, fuzzy, kde-format
@@ -252,95 +252,101 @@ msgstr "最近版本庫"
 
 #: src/gui/appwindow.cpp:187
 #, fuzzy, kde-format
-#| msgid "Cleanup..."
+#| msgid "Cleanup"
 msgctxt "@action"
-msgid "Cleanup..."
-msgstr "清理…"
+msgid "Cleanup…"
+msgstr "清理"
 
 #: src/gui/appwindow.cpp:190
 #, fuzzy, kde-format
-#| msgid "Pull..."
+#| msgid "Pull"
 msgctxt "@action"
-msgid "Pull..."
-msgstr "拉取 (pull)…"
+msgid "Pull…"
+msgstr "拉取"
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, fuzzy, kde-format
-#| msgid "Fetch..."
+#| msgid "Fetch"
 msgctxt "@action"
-msgid "Fetch..."
-msgstr "抓取 (fetch)…"
+msgid "Fetch…"
+msgstr "抓取"
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, fuzzy, kde-format
-#| msgid "Push..."
+#| msgid "Push"
 msgctxt "@action"
-msgid "Push..."
-msgstr "推送 (push)…"
+msgid "Push…"
+msgstr "推送"
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, fuzzy, kde-format
-#| msgid "Merge..."
+#| msgid "Merge"
 msgctxt "@action"
-msgid "Merge..."
-msgstr "合併…"
+msgid "Merge…"
+msgstr "合併"
 
 #: src/gui/appwindow.cpp:206
 #, fuzzy, kde-format
-#| msgid "Diff branches..."
+#| msgid "Diff branches"
 msgctxt "@action"
-msgid "Diff branches..."
-msgstr "比對分支差異…"
+msgid "Diff branches…"
+msgstr "比對分支差異"
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
 #, fuzzy, kde-format
-#| msgid "Search..."
+#| msgid "Search"
 msgctxt "@action"
-msgid "Search..."
-msgstr "搜尋…"
+msgid "Search…"
+msgstr "搜尋"
 
 #: src/gui/appwindow.cpp:212
 #, fuzzy, kde-format
-#| msgid "Repo settings..."
+#| msgid "Repo settings"
 msgctxt "@action"
-msgid "Repo settings..."
-msgstr "版本庫設定…"
+msgid "Repo settings…"
+msgstr "版本庫設定"
 
 #: src/gui/appwindow.cpp:215
 #, fuzzy, kde-format
-#| msgid "Switch/Checkout..."
+#| msgid "Switch/Checkout"
 msgctxt "@action"
-msgid "Switch/Checkout..."
-msgstr "切換/簽出…"
+msgid "Switch/Checkout…"
+msgstr "切換/簽出"
 
 #: src/gui/appwindow.cpp:218
 #, fuzzy, kde-format
 #| msgid "Diff tree"
 msgctxt "@action"
-msgid "Diff tree"
+msgid "Diff tree…"
 msgstr "比對樹狀圖差異"
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:255
+#, fuzzy, kde-format
+#| msgid "Cleanup"
+msgid "Clear"
+msgstr "清理"
+
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "無法建立路徑：%1"
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "初始化版本庫"
 
-#: src/gui/appwindow.cpp:282
+#: src/gui/appwindow.cpp:290
 #, kde-format
 msgid "Open repository"
 msgstr "開啟版本庫"
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "合併中無法切換分支"
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "切換分支"
@@ -968,15 +974,15 @@ msgstr "建立時間"
 #, fuzzy, kde-format
 #| msgid "Create..."
 msgctxt "@action"
-msgid "Create..."
+msgid "Create…"
 msgstr "建立…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
 #, fuzzy, kde-format
-#| msgid "Browse..."
+#| msgid "Browse"
 msgctxt "@action"
-msgid "Browse..."
-msgstr "瀏覽…"
+msgid "Browse…"
+msgstr "瀏覽"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, fuzzy, kde-format
@@ -997,17 +1003,17 @@ msgstr "比對差異"
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, fuzzy, kde-format
-#| msgid "Remove..."
+#| msgid "Remove"
 msgctxt "@action"
-msgid "Remove..."
-msgstr "移除…"
+msgid "Remove…"
+msgstr "移除"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #, fuzzy, kde-format
-#| msgid "Note..."
+#| msgid "Note"
 msgctxt "@action"
-msgid "Note..."
-msgstr "備註…"
+msgid "Note…"
+msgstr "備註"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -1026,16 +1032,16 @@ msgstr "移除分支"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, fuzzy, kde-format
-#| msgid "Diff..."
+#| msgid "Diff"
 msgctxt "@action"
-msgid "Diff..."
-msgstr "比對…"
+msgid "Diff…"
+msgstr "比對差異"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, fuzzy, kde-format
 #| msgid "Revert..."
 msgctxt "@action"
-msgid "Revert..."
+msgid "Revert…"
 msgstr "還原…"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
@@ -1087,7 +1093,7 @@ msgstr "開啟"
 #, fuzzy, kde-format
 #| msgid "Open with..."
 msgctxt "@action"
-msgid "Open with..."
+msgid "Open with…"
 msgstr "開啟方式…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
@@ -1101,7 +1107,7 @@ msgstr "與工作目錄合併"
 #, fuzzy, kde-format
 #| msgid "Save as..."
 msgctxt "@action"
-msgid "Save as..."
+msgid "Save as…"
 msgstr "另存為…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
@@ -1124,25 +1130,24 @@ msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New..."
+#, kde-format
 msgctxt "@action"
-msgid "New..."
-msgstr "新增…"
+msgid "New…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, fuzzy, kde-format
-#| msgid "Rename..."
+#| msgid "Rename"
 msgctxt "@action"
-msgid "Rename..."
-msgstr "重新命名…"
+msgid "Rename…"
+msgstr "重新命名"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, fuzzy, kde-format
-#| msgid "Change url..."
+#| msgid "Change url"
 msgctxt "@action"
-msgid "Change url..."
-msgstr "變更網址…"
+msgid "Change url…"
+msgstr "變更網址"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
@@ -1188,21 +1193,20 @@ msgstr "新名稱"
 #, fuzzy, kde-format
 #| msgid "New stash..."
 msgctxt "@action"
-msgid "New stash..."
+msgid "New stash…"
 msgstr "新貯存…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "Pop..."
+#, kde-format
 msgctxt "@action"
-msgid "Pop..."
-msgstr "彈出…"
+msgid "Pop…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #, fuzzy, kde-format
 #| msgid "Apply..."
 msgctxt "@action"
-msgid "Apply..."
+msgid "Apply…"
 msgstr "套用…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
@@ -1271,26 +1275,24 @@ msgid "Name of stash"
 msgstr "貯存名稱"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action"
-msgid "Add..."
-msgstr "新增..."
+msgid "Add…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, fuzzy, kde-format
-#| msgid "Update..."
+#| msgid "Update"
 msgctxt "@action"
-msgid "Update..."
-msgstr "更新…"
+msgid "Update…"
+msgstr "更新"
 
-#. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
+#. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Sync..."
+#, kde-format
 msgctxt "@action"
-msgid "Sync..."
-msgstr "同步…"
+msgid "Sync…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
@@ -1314,17 +1316,17 @@ msgstr "移除了子模組 %1"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, fuzzy, kde-format
-#| msgid "New tag..."
+#| msgid "New tag"
 msgctxt "@action"
-msgid "New tag..."
-msgstr "建立標籤…"
+msgid "New tag…"
+msgstr "新標籤"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, fuzzy, kde-format
-#| msgid "Checkout..."
+#| msgid "Checkout"
 msgctxt "@action"
-msgid "Checkout..."
-msgstr "簽出…"
+msgid "Checkout…"
+msgstr "簽出"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1874,12 +1876,33 @@ msgstr "左側"
 msgid "Right"
 msgstr "右側"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:43
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
 msgstr "瀏覽檔案：%1"
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:119
+#, kde-format
+msgid "Extract to"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:125
+#, fuzzy, kde-format
+#| msgid "File(s) added to git successfully"
+msgid "All file(s) extracted successfully"
+msgstr "檔案成功加入到 git"
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:127
+#, kde-format
+msgid "An error occurred while extracting file(s)"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:153
+#, kde-format
+msgid "Extract"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/filestreedialog.ui:31
@@ -1894,8 +1917,9 @@ msgid "Closing preview"
 msgstr "關閉預覽"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, kde-format
-msgid "Please wait while the preview is being closed..."
+#, fuzzy, kde-format
+#| msgid "Please wait while the preview is being closed..."
+msgid "Please wait while the preview is being closed…"
 msgstr "請稍候，預覽正在關閉中..."
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
@@ -2688,8 +2712,9 @@ msgid "Tree"
 msgstr "樹狀圖"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:191
-#, kde-format
-msgid "View hidden chars..."
+#, fuzzy, kde-format
+#| msgid "View hidden chars..."
+msgid "View hidden chars…"
 msgstr "檢視隱藏字元…"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
@@ -2773,14 +2798,167 @@ msgstr "下一個差異"
 msgid "Unable to open the file"
 msgstr "無法開啟檔案"
 
+#, fuzzy
+#~| msgid "Init..."
+#~ msgctxt "@action"
+#~ msgid "Init..."
+#~ msgstr "初始化…"
+
+#, fuzzy
+#~| msgid "Open..."
+#~ msgctxt "@action"
+#~ msgid "Open..."
+#~ msgstr "開啟…"
+
+#, fuzzy
+#~| msgid "Clone..."
+#~ msgctxt "@action"
+#~ msgid "Clone..."
+#~ msgstr "建立複本…"
+
+#, fuzzy
+#~| msgid "Changed files..."
+#~ msgctxt "@action"
+#~ msgid "Changed files..."
+#~ msgstr "已變更的檔案…"
+
+#, fuzzy
+#~| msgid "Cleanup..."
+#~ msgctxt "@action"
+#~ msgid "Cleanup..."
+#~ msgstr "清理…"
+
+#, fuzzy
+#~| msgid "Pull..."
+#~ msgctxt "@action"
+#~ msgid "Pull..."
+#~ msgstr "拉取 (pull)…"
+
+#, fuzzy
+#~| msgid "Fetch..."
+#~ msgctxt "@action"
+#~ msgid "Fetch..."
+#~ msgstr "抓取 (fetch)…"
+
+#, fuzzy
+#~| msgid "Push..."
+#~ msgctxt "@action"
+#~ msgid "Push..."
+#~ msgstr "推送 (push)…"
+
+#, fuzzy
+#~| msgid "Merge..."
+#~ msgctxt "@action"
+#~ msgid "Merge..."
+#~ msgstr "合併…"
+
+#, fuzzy
+#~| msgid "Diff branches..."
+#~ msgctxt "@action"
+#~ msgid "Diff branches..."
+#~ msgstr "比對分支差異…"
+
+#, fuzzy
+#~| msgid "Search..."
+#~ msgctxt "@action"
+#~ msgid "Search..."
+#~ msgstr "搜尋…"
+
+#, fuzzy
+#~| msgid "Repo settings..."
+#~ msgctxt "@action"
+#~ msgid "Repo settings..."
+#~ msgstr "版本庫設定…"
+
+#, fuzzy
+#~| msgid "Switch/Checkout..."
+#~ msgctxt "@action"
+#~ msgid "Switch/Checkout..."
+#~ msgstr "切換/簽出…"
+
+#, fuzzy
+#~| msgid "Browse..."
+#~ msgctxt "@action"
+#~ msgid "Browse..."
+#~ msgstr "瀏覽…"
+
+#, fuzzy
+#~| msgid "Remove..."
+#~ msgctxt "@action"
+#~ msgid "Remove..."
+#~ msgstr "移除…"
+
+#, fuzzy
+#~| msgid "Note..."
+#~ msgctxt "@action"
+#~ msgid "Note..."
+#~ msgstr "備註…"
+
+#, fuzzy
+#~| msgid "Diff..."
+#~ msgctxt "@action"
+#~ msgid "Diff..."
+#~ msgstr "比對…"
+
+#, fuzzy
+#~| msgid "New..."
+#~ msgctxt "@action"
+#~ msgid "New..."
+#~ msgstr "新增…"
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgctxt "@action"
+#~ msgid "Rename..."
+#~ msgstr "重新命名…"
+
+#, fuzzy
+#~| msgid "Change url..."
+#~ msgctxt "@action"
+#~ msgid "Change url..."
+#~ msgstr "變更網址…"
+
+#, fuzzy
+#~| msgid "Pop..."
+#~ msgctxt "@action"
+#~ msgid "Pop..."
+#~ msgstr "彈出…"
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action"
+#~ msgid "Add..."
+#~ msgstr "新增..."
+
+#, fuzzy
+#~| msgid "Update..."
+#~ msgctxt "@action"
+#~ msgid "Update..."
+#~ msgstr "更新…"
+
+#, fuzzy
+#~| msgid "Sync..."
+#~ msgctxt "@action"
+#~ msgid "Sync..."
+#~ msgstr "同步…"
+
+#, fuzzy
+#~| msgid "New tag..."
+#~ msgctxt "@action"
+#~ msgid "New tag..."
+#~ msgstr "建立標籤…"
+
+#, fuzzy
+#~| msgid "Checkout..."
+#~ msgctxt "@action"
+#~ msgid "Checkout..."
+#~ msgstr "簽出…"
+
 #~ msgid "Stop"
 #~ msgstr "停止"
 
 #~ msgid "Diff with master..."
 #~ msgstr "與 master 比對差異…"
-
-#~ msgid "New tag"
-#~ msgstr "新標籤"
 
 #~ msgid "Authors"
 #~ msgstr "作者群"

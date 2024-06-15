@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 01:40+0000\n"
+"POT-Creation-Date: 2024-06-15 01:45+0000\n"
 "PO-Revision-Date: 2024-02-09 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -217,31 +217,31 @@ msgstr " (리베이스 중)"
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, fuzzy, kde-format
-#| msgid "Init..."
+#| msgid "Init"
 msgctxt "@action"
-msgid "Init..."
-msgstr "초기화..."
+msgid "Init…"
+msgstr "초기화"
 
 #: src/gui/appwindow.cpp:167
 #, fuzzy, kde-format
-#| msgid "Open..."
+#| msgid "Open"
 msgctxt "@action"
-msgid "Open..."
-msgstr "열기..."
+msgid "Open…"
+msgstr "열기"
 
 #: src/gui/appwindow.cpp:172
 #, fuzzy, kde-format
-#| msgid "Clone..."
+#| msgid "Clone"
 msgctxt "@action"
-msgid "Clone..."
-msgstr "복제..."
+msgid "Clone…"
+msgstr "복제"
 
 #: src/gui/appwindow.cpp:175
 #, fuzzy, kde-format
-#| msgid "Changed files..."
+#| msgid "Changed files"
 msgctxt "@action"
-msgid "Changed files..."
-msgstr "변경된 파일..."
+msgid "Changed files…"
+msgstr "변경된 파일"
 
 #: src/gui/appwindow.cpp:181
 #, fuzzy, kde-format
@@ -252,95 +252,101 @@ msgstr "최근 저장소"
 
 #: src/gui/appwindow.cpp:187
 #, fuzzy, kde-format
-#| msgid "Cleanup..."
+#| msgid "Cleanup"
 msgctxt "@action"
-msgid "Cleanup..."
-msgstr "정리..."
+msgid "Cleanup…"
+msgstr "정리"
 
 #: src/gui/appwindow.cpp:190
 #, fuzzy, kde-format
-#| msgid "Pull..."
+#| msgid "Pull"
 msgctxt "@action"
-msgid "Pull..."
-msgstr "풀..."
+msgid "Pull…"
+msgstr "풀"
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, fuzzy, kde-format
-#| msgid "Fetch..."
+#| msgid "Fetch"
 msgctxt "@action"
-msgid "Fetch..."
-msgstr "가져오기..."
+msgid "Fetch…"
+msgstr "가져오기"
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, fuzzy, kde-format
-#| msgid "Push..."
+#| msgid "Push"
 msgctxt "@action"
-msgid "Push..."
-msgstr "푸시..."
+msgid "Push…"
+msgstr "푸시"
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, fuzzy, kde-format
-#| msgid "Merge..."
+#| msgid "Merge"
 msgctxt "@action"
-msgid "Merge..."
-msgstr "병합..."
+msgid "Merge…"
+msgstr "병합"
 
 #: src/gui/appwindow.cpp:206
 #, fuzzy, kde-format
-#| msgid "Diff branches..."
+#| msgid "Diff branches"
 msgctxt "@action"
-msgid "Diff branches..."
-msgstr "브랜치간 차이점 보기..."
+msgid "Diff branches…"
+msgstr "브랜치간 Diff"
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
 #, fuzzy, kde-format
-#| msgid "Search..."
+#| msgid "Search"
 msgctxt "@action"
-msgid "Search..."
-msgstr "검색..."
+msgid "Search…"
+msgstr "검색"
 
 #: src/gui/appwindow.cpp:212
 #, fuzzy, kde-format
-#| msgid "Repo settings..."
+#| msgid "Repo settings"
 msgctxt "@action"
-msgid "Repo settings..."
-msgstr "저장소 설정..."
+msgid "Repo settings…"
+msgstr "저장소 설정"
 
 #: src/gui/appwindow.cpp:215
 #, fuzzy, kde-format
-#| msgid "Switch/Checkout..."
+#| msgid "Switch/Checkout"
 msgctxt "@action"
-msgid "Switch/Checkout..."
-msgstr "전환/체크아웃..."
+msgid "Switch/Checkout…"
+msgstr "전환/체크아웃"
 
 #: src/gui/appwindow.cpp:218
 #, fuzzy, kde-format
 #| msgid "Diff tree"
 msgctxt "@action"
-msgid "Diff tree"
+msgid "Diff tree…"
 msgstr "트리 차이점 보기"
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:255
+#, fuzzy, kde-format
+#| msgid "Cleanup"
+msgid "Clear"
+msgstr "정리"
+
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "경로를 만들 수 없음: %1"
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "저장소 초기화"
 
-#: src/gui/appwindow.cpp:282
+#: src/gui/appwindow.cpp:290
 #, kde-format
 msgid "Open repository"
 msgstr "저장소 열기"
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "병합 중에는 브랜치를 전환할 수 없음"
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "브랜치 전환"
@@ -979,15 +985,15 @@ msgstr "생성 시간"
 #, fuzzy, kde-format
 #| msgid "Create..."
 msgctxt "@action"
-msgid "Create..."
+msgid "Create…"
 msgstr "만들기..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
 #, fuzzy, kde-format
-#| msgid "Browse..."
+#| msgid "Browse"
 msgctxt "@action"
-msgid "Browse..."
-msgstr "찾아보기..."
+msgid "Browse…"
+msgstr "찾아보기"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, fuzzy, kde-format
@@ -1008,17 +1014,17 @@ msgstr "차이점"
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, fuzzy, kde-format
-#| msgid "Remove..."
+#| msgid "Remove"
 msgctxt "@action"
-msgid "Remove..."
-msgstr "삭제..."
+msgid "Remove…"
+msgstr "삭제"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #, fuzzy, kde-format
-#| msgid "Note..."
+#| msgid "Note"
 msgctxt "@action"
-msgid "Note..."
-msgstr "메모..."
+msgid "Note…"
+msgstr "메모"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -1037,16 +1043,16 @@ msgstr "브랜치 삭제"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, fuzzy, kde-format
-#| msgid "Diff..."
+#| msgid "Diff"
 msgctxt "@action"
-msgid "Diff..."
-msgstr "차이점 보기..."
+msgid "Diff…"
+msgstr "차이점"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, fuzzy, kde-format
 #| msgid "Revert..."
 msgctxt "@action"
-msgid "Revert..."
+msgid "Revert…"
 msgstr "되돌리기..."
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
@@ -1098,7 +1104,7 @@ msgstr "열기"
 #, fuzzy, kde-format
 #| msgid "Open with..."
 msgctxt "@action"
-msgid "Open with..."
+msgid "Open with…"
 msgstr "다음으로 열기..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
@@ -1112,7 +1118,7 @@ msgstr "작업 디렉터리와 합치기"
 #, fuzzy, kde-format
 #| msgid "Save as..."
 msgctxt "@action"
-msgid "Save as..."
+msgid "Save as…"
 msgstr "다른 이름으로 저장..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
@@ -1135,25 +1141,24 @@ msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New..."
+#, kde-format
 msgctxt "@action"
-msgid "New..."
-msgstr "새로 만들기..."
+msgid "New…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, fuzzy, kde-format
-#| msgid "Rename..."
+#| msgid "Rename"
 msgctxt "@action"
-msgid "Rename..."
-msgstr "이름 바꾸기..."
+msgid "Rename…"
+msgstr "이름 바꾸기"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, fuzzy, kde-format
-#| msgid "Change url..."
+#| msgid "Change url"
 msgctxt "@action"
-msgid "Change url..."
-msgstr "URL 변경..."
+msgid "Change url…"
+msgstr "URL 변경"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
@@ -1199,21 +1204,20 @@ msgstr "새 이름"
 #, fuzzy, kde-format
 #| msgid "New stash..."
 msgctxt "@action"
-msgid "New stash..."
+msgid "New stash…"
 msgstr "새 스태시..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "Pop..."
+#, kde-format
 msgctxt "@action"
-msgid "Pop..."
-msgstr "팝..."
+msgid "Pop…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #, fuzzy, kde-format
 #| msgid "Apply..."
 msgctxt "@action"
-msgid "Apply..."
+msgid "Apply…"
 msgstr "적용..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
@@ -1282,26 +1286,24 @@ msgid "Name of stash"
 msgstr "스태시 이름"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action"
-msgid "Add..."
-msgstr "추가..."
+msgid "Add…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, fuzzy, kde-format
-#| msgid "Update..."
+#| msgid "Update"
 msgctxt "@action"
-msgid "Update..."
-msgstr "업데이트..."
+msgid "Update…"
+msgstr "업데이트"
 
-#. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
+#. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Sync..."
+#, kde-format
 msgctxt "@action"
-msgid "Sync..."
-msgstr "동기화..."
+msgid "Sync…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
@@ -1325,17 +1327,17 @@ msgstr "하위 모듈 %1 삭제됨"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, fuzzy, kde-format
-#| msgid "New tag..."
+#| msgid "New tag"
 msgctxt "@action"
-msgid "New tag..."
-msgstr "새 태그..."
+msgid "New tag…"
+msgstr "새 태그"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, fuzzy, kde-format
-#| msgid "Checkout..."
+#| msgid "Checkout"
 msgctxt "@action"
-msgid "Checkout..."
-msgstr "체크아웃..."
+msgid "Checkout…"
+msgstr "체크아웃"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1901,12 +1903,33 @@ msgstr "왼쪽"
 msgid "Right"
 msgstr "오른쪽"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:43
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
 msgstr "파일 탐색: %1"
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:119
+#, kde-format
+msgid "Extract to"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:125
+#, fuzzy, kde-format
+#| msgid "File(s) added to git successfully"
+msgid "All file(s) extracted successfully"
+msgstr "Git에 파일을 추가함"
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:127
+#, kde-format
+msgid "An error occurred while extracting file(s)"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:153
+#, kde-format
+msgid "Extract"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/filestreedialog.ui:31
@@ -1921,8 +1944,9 @@ msgid "Closing preview"
 msgstr "미리 보기 닫는 중"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, kde-format
-msgid "Please wait while the preview is being closed..."
+#, fuzzy, kde-format
+#| msgid "Please wait while the preview is being closed..."
+msgid "Please wait while the preview is being closed…"
 msgstr "미리 보기를 닫는 동안 기다려 주십시오..."
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
@@ -2756,8 +2780,9 @@ msgid "Tree"
 msgstr "트리"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:191
-#, kde-format
-msgid "View hidden chars..."
+#, fuzzy, kde-format
+#| msgid "View hidden chars..."
+msgid "View hidden chars…"
 msgstr "숨겨진 글자 보기..."
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
@@ -2841,14 +2866,167 @@ msgstr "다음 차이점"
 msgid "Unable to open the file"
 msgstr "파일을 열 수 없음"
 
+#, fuzzy
+#~| msgid "Init..."
+#~ msgctxt "@action"
+#~ msgid "Init..."
+#~ msgstr "초기화..."
+
+#, fuzzy
+#~| msgid "Open..."
+#~ msgctxt "@action"
+#~ msgid "Open..."
+#~ msgstr "열기..."
+
+#, fuzzy
+#~| msgid "Clone..."
+#~ msgctxt "@action"
+#~ msgid "Clone..."
+#~ msgstr "복제..."
+
+#, fuzzy
+#~| msgid "Changed files..."
+#~ msgctxt "@action"
+#~ msgid "Changed files..."
+#~ msgstr "변경된 파일..."
+
+#, fuzzy
+#~| msgid "Cleanup..."
+#~ msgctxt "@action"
+#~ msgid "Cleanup..."
+#~ msgstr "정리..."
+
+#, fuzzy
+#~| msgid "Pull..."
+#~ msgctxt "@action"
+#~ msgid "Pull..."
+#~ msgstr "풀..."
+
+#, fuzzy
+#~| msgid "Fetch..."
+#~ msgctxt "@action"
+#~ msgid "Fetch..."
+#~ msgstr "가져오기..."
+
+#, fuzzy
+#~| msgid "Push..."
+#~ msgctxt "@action"
+#~ msgid "Push..."
+#~ msgstr "푸시..."
+
+#, fuzzy
+#~| msgid "Merge..."
+#~ msgctxt "@action"
+#~ msgid "Merge..."
+#~ msgstr "병합..."
+
+#, fuzzy
+#~| msgid "Diff branches..."
+#~ msgctxt "@action"
+#~ msgid "Diff branches..."
+#~ msgstr "브랜치간 차이점 보기..."
+
+#, fuzzy
+#~| msgid "Search..."
+#~ msgctxt "@action"
+#~ msgid "Search..."
+#~ msgstr "검색..."
+
+#, fuzzy
+#~| msgid "Repo settings..."
+#~ msgctxt "@action"
+#~ msgid "Repo settings..."
+#~ msgstr "저장소 설정..."
+
+#, fuzzy
+#~| msgid "Switch/Checkout..."
+#~ msgctxt "@action"
+#~ msgid "Switch/Checkout..."
+#~ msgstr "전환/체크아웃..."
+
+#, fuzzy
+#~| msgid "Browse..."
+#~ msgctxt "@action"
+#~ msgid "Browse..."
+#~ msgstr "찾아보기..."
+
+#, fuzzy
+#~| msgid "Remove..."
+#~ msgctxt "@action"
+#~ msgid "Remove..."
+#~ msgstr "삭제..."
+
+#, fuzzy
+#~| msgid "Note..."
+#~ msgctxt "@action"
+#~ msgid "Note..."
+#~ msgstr "메모..."
+
+#, fuzzy
+#~| msgid "Diff..."
+#~ msgctxt "@action"
+#~ msgid "Diff..."
+#~ msgstr "차이점 보기..."
+
+#, fuzzy
+#~| msgid "New..."
+#~ msgctxt "@action"
+#~ msgid "New..."
+#~ msgstr "새로 만들기..."
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgctxt "@action"
+#~ msgid "Rename..."
+#~ msgstr "이름 바꾸기..."
+
+#, fuzzy
+#~| msgid "Change url..."
+#~ msgctxt "@action"
+#~ msgid "Change url..."
+#~ msgstr "URL 변경..."
+
+#, fuzzy
+#~| msgid "Pop..."
+#~ msgctxt "@action"
+#~ msgid "Pop..."
+#~ msgstr "팝..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action"
+#~ msgid "Add..."
+#~ msgstr "추가..."
+
+#, fuzzy
+#~| msgid "Update..."
+#~ msgctxt "@action"
+#~ msgid "Update..."
+#~ msgstr "업데이트..."
+
+#, fuzzy
+#~| msgid "Sync..."
+#~ msgctxt "@action"
+#~ msgid "Sync..."
+#~ msgstr "동기화..."
+
+#, fuzzy
+#~| msgid "New tag..."
+#~ msgctxt "@action"
+#~ msgid "New tag..."
+#~ msgstr "새 태그..."
+
+#, fuzzy
+#~| msgid "Checkout..."
+#~ msgctxt "@action"
+#~ msgid "Checkout..."
+#~ msgstr "체크아웃..."
+
 #~ msgid "Stop"
 #~ msgstr "정지"
 
 #~ msgid "Diff with master..."
 #~ msgstr "master와의 차이점 보기..."
-
-#~ msgid "New tag"
-#~ msgstr "새 태그"
 
 #~ msgid "Authors"
 #~ msgstr "작성자"

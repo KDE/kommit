@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 01:40+0000\n"
+"POT-Creation-Date: 2024-06-15 01:45+0000\n"
 "PO-Revision-Date: 2023-06-09 23:19+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -227,31 +227,31 @@ msgstr " (a avançar)"
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, fuzzy, kde-format
-#| msgid "Init..."
+#| msgid "Init"
 msgctxt "@action"
-msgid "Init..."
-msgstr "Inicializar..."
+msgid "Init…"
+msgstr "Inicializar"
 
 #: src/gui/appwindow.cpp:167
 #, fuzzy, kde-format
-#| msgid "Open..."
+#| msgid "Open"
 msgctxt "@action"
-msgid "Open..."
-msgstr "Abrir..."
+msgid "Open…"
+msgstr "Abrir"
 
 #: src/gui/appwindow.cpp:172
 #, fuzzy, kde-format
-#| msgid "Clone..."
+#| msgid "Clone"
 msgctxt "@action"
-msgid "Clone..."
-msgstr "Clonar..."
+msgid "Clone…"
+msgstr "Clonar"
 
 #: src/gui/appwindow.cpp:175
 #, fuzzy, kde-format
-#| msgid "Changed files..."
+#| msgid "Changed files"
 msgctxt "@action"
-msgid "Changed files..."
-msgstr "Ficheiros modificados..."
+msgid "Changed files…"
+msgstr "Ficheiros modificados"
 
 #: src/gui/appwindow.cpp:181
 #, fuzzy, kde-format
@@ -262,95 +262,101 @@ msgstr "Repositórios recentes"
 
 #: src/gui/appwindow.cpp:187
 #, fuzzy, kde-format
-#| msgid "Cleanup..."
+#| msgid "Cleanup"
 msgctxt "@action"
-msgid "Cleanup..."
-msgstr "Limpar..."
+msgid "Cleanup…"
+msgstr "Limpeza"
 
 #: src/gui/appwindow.cpp:190
 #, fuzzy, kde-format
-#| msgid "Pull..."
+#| msgid "Pull"
 msgctxt "@action"
-msgid "Pull..."
-msgstr "Obter..."
+msgid "Pull…"
+msgstr "Obter"
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, fuzzy, kde-format
-#| msgid "Fetch..."
+#| msgid "Fetch"
 msgctxt "@action"
-msgid "Fetch..."
-msgstr "Obter..."
+msgid "Fetch…"
+msgstr "Obter"
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, fuzzy, kde-format
-#| msgid "Push..."
+#| msgid "Push"
 msgctxt "@action"
-msgid "Push..."
-msgstr "Enviar..."
+msgid "Push…"
+msgstr "Enviar"
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, fuzzy, kde-format
-#| msgid "Merge..."
+#| msgid "Merge"
 msgctxt "@action"
-msgid "Merge..."
-msgstr "Reunir..."
+msgid "Merge…"
+msgstr "Reunir"
 
 #: src/gui/appwindow.cpp:206
 #, fuzzy, kde-format
-#| msgid "Diff branches..."
+#| msgid "Diff branches"
 msgctxt "@action"
-msgid "Diff branches..."
-msgstr "Diferenças entre ramificações..."
+msgid "Diff branches…"
+msgstr "Diferenças entre ramificações"
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
 #, fuzzy, kde-format
-#| msgid "Search..."
+#| msgid "Search"
 msgctxt "@action"
-msgid "Search..."
-msgstr "Procurar..."
+msgid "Search…"
+msgstr "Procurar"
 
 #: src/gui/appwindow.cpp:212
 #, fuzzy, kde-format
-#| msgid "Repo settings..."
+#| msgid "Repo settings"
 msgctxt "@action"
-msgid "Repo settings..."
-msgstr "Configuração do repositório..."
+msgid "Repo settings…"
+msgstr "Configuração do repositório"
 
 #: src/gui/appwindow.cpp:215
 #, fuzzy, kde-format
-#| msgid "Switch/Checkout..."
+#| msgid "Switch/Checkout"
 msgctxt "@action"
-msgid "Switch/Checkout..."
-msgstr "Mudar/Seleccionar..."
+msgid "Switch/Checkout…"
+msgstr "Mudar/Seleccionar"
 
 #: src/gui/appwindow.cpp:218
 #, fuzzy, kde-format
 #| msgid "Diff tree"
 msgctxt "@action"
-msgid "Diff tree"
+msgid "Diff tree…"
 msgstr "Diferenças da árvore"
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:255
+#, fuzzy, kde-format
+#| msgid "Cleanup"
+msgid "Clear"
+msgstr "Limpeza"
+
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Não é possível criar a localização: %1"
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializar o repositório"
 
-#: src/gui/appwindow.cpp:282
+#: src/gui/appwindow.cpp:290
 #, kde-format
 msgid "Open repository"
 msgstr "Abrir um repositório"
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Não é possível mudar de ramificação durante uma junção"
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Mudar de ramificação"
@@ -996,15 +1002,15 @@ msgstr "Criar uma marca"
 #, fuzzy, kde-format
 #| msgid "Create..."
 msgctxt "@action"
-msgid "Create..."
+msgid "Create…"
 msgstr "Criar..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
 #, fuzzy, kde-format
-#| msgid "Browse..."
+#| msgid "Browse"
 msgctxt "@action"
-msgid "Browse..."
-msgstr "Escolher..."
+msgid "Browse…"
+msgstr "Escolher"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, fuzzy, kde-format
@@ -1025,17 +1031,17 @@ msgstr "Diferenças"
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, fuzzy, kde-format
-#| msgid "Remove..."
+#| msgid "Remove"
 msgctxt "@action"
-msgid "Remove..."
-msgstr "Remover..."
+msgid "Remove…"
+msgstr "Remover"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #, fuzzy, kde-format
-#| msgid "Note..."
+#| msgid "Note"
 msgctxt "@action"
-msgid "Note..."
-msgstr "Nota..."
+msgid "Note…"
+msgstr "Nota"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -1054,16 +1060,16 @@ msgstr "Remover a Ramificação"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, fuzzy, kde-format
-#| msgid "Diff..."
+#| msgid "Diff"
 msgctxt "@action"
-msgid "Diff..."
-msgstr "Diferenças..."
+msgid "Diff…"
+msgstr "Diferenças"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, fuzzy, kde-format
 #| msgid "Revert..."
 msgctxt "@action"
-msgid "Revert..."
+msgid "Revert…"
 msgstr "Reverter..."
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
@@ -1114,7 +1120,7 @@ msgstr "Abrir"
 #, fuzzy, kde-format
 #| msgid "Open with..."
 msgctxt "@action"
-msgid "Open with..."
+msgid "Open with…"
 msgstr "Abrir com..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
@@ -1127,7 +1133,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Save as..."
 msgctxt "@action"
-msgid "Save as..."
+msgid "Save as…"
 msgstr "Gravar como..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
@@ -1150,25 +1156,24 @@ msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New..."
+#, kde-format
 msgctxt "@action"
-msgid "New..."
-msgstr "Novo..."
+msgid "New…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, fuzzy, kde-format
-#| msgid "Rename..."
+#| msgid "Rename"
 msgctxt "@action"
-msgid "Rename..."
-msgstr "Mudar o Nome..."
+msgid "Rename…"
+msgstr "Mudar o Nome"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, fuzzy, kde-format
-#| msgid "Change url..."
+#| msgid "Change url"
 msgctxt "@action"
-msgid "Change url..."
-msgstr "Modificar o URL..."
+msgid "Change url…"
+msgstr "Modificar o URL"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
@@ -1214,21 +1219,20 @@ msgstr "Novo nome"
 #, fuzzy, kde-format
 #| msgid "New stash..."
 msgctxt "@action"
-msgid "New stash..."
+msgid "New stash…"
 msgstr "Nova versão preparada..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "Pop..."
+#, kde-format
 msgctxt "@action"
-msgid "Pop..."
-msgstr "Retirar..."
+msgid "Pop…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #, fuzzy, kde-format
 #| msgid "Apply..."
 msgctxt "@action"
-msgid "Apply..."
+msgid "Apply…"
 msgstr "Aplicar..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
@@ -1297,26 +1301,24 @@ msgid "Name of stash"
 msgstr "Nome da versão preparada"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action"
-msgid "Add..."
-msgstr "Adicionar..."
+msgid "Add…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, fuzzy, kde-format
-#| msgid "Update..."
+#| msgid "Update"
 msgctxt "@action"
-msgid "Update..."
-msgstr "Actualizar..."
+msgid "Update…"
+msgstr "Actualizar"
 
-#. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
+#. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Sync..."
+#, kde-format
 msgctxt "@action"
-msgid "Sync..."
-msgstr "Sincronizar..."
+msgid "Sync…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
@@ -1340,17 +1342,17 @@ msgstr "O sub-módulo %1 foi removido"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, fuzzy, kde-format
-#| msgid "New tag..."
+#| msgid "New tag"
 msgctxt "@action"
-msgid "New tag..."
-msgstr "Nova marca..."
+msgid "New tag…"
+msgstr "Nova marca"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, fuzzy, kde-format
-#| msgid "Checkout..."
+#| msgid "Checkout"
 msgctxt "@action"
-msgid "Checkout..."
-msgstr "Obter..."
+msgid "Checkout…"
+msgstr "Obter"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1920,12 +1922,33 @@ msgstr "Esquerda"
 msgid "Right"
 msgstr "Direita"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:43
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
 msgstr "Navegação pelos ficheiros: %1"
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:119
+#, kde-format
+msgid "Extract to"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:125
+#, fuzzy, kde-format
+#| msgid "File(s) added to git successfully"
+msgid "All file(s) extracted successfully"
+msgstr "Os ficheiros foram adicionados com sucesso ao Git"
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:127
+#, kde-format
+msgid "An error occurred while extracting file(s)"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:153
+#, kde-format
+msgid "Extract"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/filestreedialog.ui:31
@@ -1940,8 +1963,9 @@ msgid "Closing preview"
 msgstr "A fechar a antevisão"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, kde-format
-msgid "Please wait while the preview is being closed..."
+#, fuzzy, kde-format
+#| msgid "Please wait while the preview is being closed..."
+msgid "Please wait while the preview is being closed…"
 msgstr "Espere por favor enquanto se fecha a antevisão..."
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
@@ -2799,8 +2823,9 @@ msgid "Tree"
 msgstr "Árvore"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:191
-#, kde-format
-msgid "View hidden chars..."
+#, fuzzy, kde-format
+#| msgid "View hidden chars..."
+msgid "View hidden chars…"
 msgstr "Ver os caracteres escondidos..."
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
@@ -2884,14 +2909,167 @@ msgstr "Diferença seguinte"
 msgid "Unable to open the file"
 msgstr "Não é possível aceder ao ficheiro"
 
+#, fuzzy
+#~| msgid "Init..."
+#~ msgctxt "@action"
+#~ msgid "Init..."
+#~ msgstr "Inicializar..."
+
+#, fuzzy
+#~| msgid "Open..."
+#~ msgctxt "@action"
+#~ msgid "Open..."
+#~ msgstr "Abrir..."
+
+#, fuzzy
+#~| msgid "Clone..."
+#~ msgctxt "@action"
+#~ msgid "Clone..."
+#~ msgstr "Clonar..."
+
+#, fuzzy
+#~| msgid "Changed files..."
+#~ msgctxt "@action"
+#~ msgid "Changed files..."
+#~ msgstr "Ficheiros modificados..."
+
+#, fuzzy
+#~| msgid "Cleanup..."
+#~ msgctxt "@action"
+#~ msgid "Cleanup..."
+#~ msgstr "Limpar..."
+
+#, fuzzy
+#~| msgid "Pull..."
+#~ msgctxt "@action"
+#~ msgid "Pull..."
+#~ msgstr "Obter..."
+
+#, fuzzy
+#~| msgid "Fetch..."
+#~ msgctxt "@action"
+#~ msgid "Fetch..."
+#~ msgstr "Obter..."
+
+#, fuzzy
+#~| msgid "Push..."
+#~ msgctxt "@action"
+#~ msgid "Push..."
+#~ msgstr "Enviar..."
+
+#, fuzzy
+#~| msgid "Merge..."
+#~ msgctxt "@action"
+#~ msgid "Merge..."
+#~ msgstr "Reunir..."
+
+#, fuzzy
+#~| msgid "Diff branches..."
+#~ msgctxt "@action"
+#~ msgid "Diff branches..."
+#~ msgstr "Diferenças entre ramificações..."
+
+#, fuzzy
+#~| msgid "Search..."
+#~ msgctxt "@action"
+#~ msgid "Search..."
+#~ msgstr "Procurar..."
+
+#, fuzzy
+#~| msgid "Repo settings..."
+#~ msgctxt "@action"
+#~ msgid "Repo settings..."
+#~ msgstr "Configuração do repositório..."
+
+#, fuzzy
+#~| msgid "Switch/Checkout..."
+#~ msgctxt "@action"
+#~ msgid "Switch/Checkout..."
+#~ msgstr "Mudar/Seleccionar..."
+
+#, fuzzy
+#~| msgid "Browse..."
+#~ msgctxt "@action"
+#~ msgid "Browse..."
+#~ msgstr "Escolher..."
+
+#, fuzzy
+#~| msgid "Remove..."
+#~ msgctxt "@action"
+#~ msgid "Remove..."
+#~ msgstr "Remover..."
+
+#, fuzzy
+#~| msgid "Note..."
+#~ msgctxt "@action"
+#~ msgid "Note..."
+#~ msgstr "Nota..."
+
+#, fuzzy
+#~| msgid "Diff..."
+#~ msgctxt "@action"
+#~ msgid "Diff..."
+#~ msgstr "Diferenças..."
+
+#, fuzzy
+#~| msgid "New..."
+#~ msgctxt "@action"
+#~ msgid "New..."
+#~ msgstr "Novo..."
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgctxt "@action"
+#~ msgid "Rename..."
+#~ msgstr "Mudar o Nome..."
+
+#, fuzzy
+#~| msgid "Change url..."
+#~ msgctxt "@action"
+#~ msgid "Change url..."
+#~ msgstr "Modificar o URL..."
+
+#, fuzzy
+#~| msgid "Pop..."
+#~ msgctxt "@action"
+#~ msgid "Pop..."
+#~ msgstr "Retirar..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action"
+#~ msgid "Add..."
+#~ msgstr "Adicionar..."
+
+#, fuzzy
+#~| msgid "Update..."
+#~ msgctxt "@action"
+#~ msgid "Update..."
+#~ msgstr "Actualizar..."
+
+#, fuzzy
+#~| msgid "Sync..."
+#~ msgctxt "@action"
+#~ msgid "Sync..."
+#~ msgstr "Sincronizar..."
+
+#, fuzzy
+#~| msgid "New tag..."
+#~ msgctxt "@action"
+#~ msgid "New tag..."
+#~ msgstr "Nova marca..."
+
+#, fuzzy
+#~| msgid "Checkout..."
+#~ msgctxt "@action"
+#~ msgid "Checkout..."
+#~ msgstr "Obter..."
+
 #~ msgid "Stop"
 #~ msgstr "Parar"
 
 #~ msgid "Diff with master..."
 #~ msgstr "Diferenças do 'master'..."
-
-#~ msgid "New tag"
-#~ msgstr "Nova marca"
 
 #~ msgid "Authors"
 #~ msgstr "Autores"

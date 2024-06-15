@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 01:40+0000\n"
+"POT-Creation-Date: 2024-06-15 01:45+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -228,29 +228,29 @@ msgstr " (bateratzen)"
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, fuzzy, kde-format
 msgctxt "@action"
-msgid "Init..."
+msgid "Init…"
 msgstr "Hasieratu"
 
 #: src/gui/appwindow.cpp:167
 #, fuzzy, kde-format
-#| msgid "Open..."
+#| msgid "Open"
 msgctxt "@action"
-msgid "Open..."
-msgstr "Ireki..."
+msgid "Open…"
+msgstr "Ireki"
 
 #: src/gui/appwindow.cpp:172
 #, fuzzy, kde-format
 #| msgid "Clone..."
 msgctxt "@action"
-msgid "Clone..."
+msgid "Clone…"
 msgstr "Itxi..."
 
 #: src/gui/appwindow.cpp:175
 #, fuzzy, kde-format
-#| msgid "Changed files..."
+#| msgid "Changed files"
 msgctxt "@action"
-msgid "Changed files..."
-msgstr "Aldatutako fitxategiak..."
+msgid "Changed files…"
+msgstr "Aldatutako fitxategiak"
 
 #: src/gui/appwindow.cpp:181
 #, fuzzy, kde-format
@@ -263,92 +263,98 @@ msgstr "Azkenaldiko gordetegiak"
 #, fuzzy, kde-format
 #| msgid "Cleanup..."
 msgctxt "@action"
-msgid "Cleanup..."
+msgid "Cleanup…"
 msgstr "Txukuntzea..."
 
 #: src/gui/appwindow.cpp:190
 #, fuzzy, kde-format
 #| msgid "Pull..."
 msgctxt "@action"
-msgid "Pull..."
+msgid "Pull…"
 msgstr "Tira egin..."
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, fuzzy, kde-format
-#| msgid "Fetch..."
+#| msgid "Fetch"
 msgctxt "@action"
-msgid "Fetch..."
-msgstr "Ekarri..."
+msgid "Fetch…"
+msgstr "Ekarri"
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, fuzzy, kde-format
-#| msgid "Push..."
+#| msgid "Push"
 msgctxt "@action"
-msgid "Push..."
-msgstr "Bultzatu..."
+msgid "Push…"
+msgstr "Bultzatu"
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, fuzzy, kde-format
-#| msgid "Merge..."
+#| msgid "Merge"
 msgctxt "@action"
-msgid "Merge..."
-msgstr "Bateratu..."
+msgid "Merge…"
+msgstr "Bateratu"
 
 #: src/gui/appwindow.cpp:206
 #, fuzzy, kde-format
 #| msgid "Diff branches..."
 msgctxt "@action"
-msgid "Diff branches..."
+msgid "Diff branches…"
 msgstr "Diff adarrak..."
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
 #, fuzzy, kde-format
-#| msgid "Search..."
+#| msgid "Search"
 msgctxt "@action"
-msgid "Search..."
-msgstr "Bilatu..."
+msgid "Search…"
+msgstr "Bilatu"
 
 #: src/gui/appwindow.cpp:212
 #, fuzzy, kde-format
-#| msgid "Repo settings..."
+#| msgid "Repo settings"
 msgctxt "@action"
-msgid "Repo settings..."
-msgstr "Gordetegiaren ezarpenak..."
+msgid "Repo settings…"
+msgstr "Gordetegiaren ezarpenak"
 
 #: src/gui/appwindow.cpp:215
 #, fuzzy, kde-format
 msgctxt "@action"
-msgid "Switch/Checkout..."
+msgid "Switch/Checkout…"
 msgstr "Atera"
 
 #: src/gui/appwindow.cpp:218
 #, fuzzy, kde-format
 #| msgid "Diff tree"
 msgctxt "@action"
-msgid "Diff tree"
+msgid "Diff tree…"
 msgstr "Diff zuhaitza"
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:255
+#, fuzzy, kde-format
+#| msgid "Cleanup..."
+msgid "Clear"
+msgstr "Txukuntzea..."
+
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ez da bide-izena sortzeko gai: %1"
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "Hasieratu gordetegia"
 
-#: src/gui/appwindow.cpp:282
+#: src/gui/appwindow.cpp:290
 #, kde-format
 msgid "Open repository"
 msgstr "Ireki gordetegia"
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Ezin du adarra aldatu bateratu bitartean"
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Adarrez aldatu"
@@ -978,15 +984,15 @@ msgstr "Sortu berria"
 #, fuzzy, kde-format
 #| msgid "Create..."
 msgctxt "@action"
-msgid "Create..."
+msgid "Create…"
 msgstr "Sortu..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
 #, fuzzy, kde-format
-#| msgid "Browse..."
+#| msgid "Browse"
 msgctxt "@action"
-msgid "Browse..."
-msgstr "Arakatu..."
+msgid "Browse…"
+msgstr "Arakatu"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, fuzzy, kde-format
@@ -1007,17 +1013,17 @@ msgstr "Diff"
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, fuzzy, kde-format
-#| msgid "Remove..."
+#| msgid "Remove"
 msgctxt "@action"
-msgid "Remove..."
-msgstr "Kendu..."
+msgid "Remove…"
+msgstr "Kendu"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #, fuzzy, kde-format
-#| msgid "Note..."
+#| msgid "Note"
 msgctxt "@action"
-msgid "Note..."
-msgstr "Oharra..."
+msgid "Note…"
+msgstr "Oharra"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -1036,16 +1042,16 @@ msgstr "Kendu adarra"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, fuzzy, kde-format
-#| msgid "Diff..."
+#| msgid "Diff"
 msgctxt "@action"
-msgid "Diff..."
-msgstr "Diff..."
+msgid "Diff…"
+msgstr "Diff"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, fuzzy, kde-format
 #| msgid "Revert..."
 msgctxt "@action"
-msgid "Revert..."
+msgid "Revert…"
 msgstr "Lehengoratu..."
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
@@ -1095,7 +1101,7 @@ msgstr "Ireki"
 #, fuzzy, kde-format
 #| msgid "Open with..."
 msgctxt "@action"
-msgid "Open with..."
+msgid "Open with…"
 msgstr "Ireki honekin..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
@@ -1108,7 +1114,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Save as..."
 msgctxt "@action"
-msgid "Save as..."
+msgid "Save as…"
 msgstr "Gorde honela..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
@@ -1129,24 +1135,23 @@ msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New..."
+#, kde-format
 msgctxt "@action"
-msgid "New..."
-msgstr "Berria..."
+msgid "New…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, fuzzy, kde-format
-#| msgid "Rename..."
+#| msgid "Rename"
 msgctxt "@action"
-msgid "Rename..."
-msgstr "Berrizendatu..."
+msgid "Rename…"
+msgstr "Berrizendatu"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, fuzzy, kde-format
-#| msgid "Change url..."
+#| msgid "Change url"
 msgctxt "@action"
-msgid "Change url..."
+msgid "Change url…"
 msgstr "Aldatu URLa..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
@@ -1194,20 +1199,20 @@ msgstr "Izen berria"
 #, fuzzy, kde-format
 #| msgid "New stash..."
 msgctxt "@action"
-msgid "New stash..."
+msgid "New stash…"
 msgstr "Gordeleku berria..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
-msgid "Pop..."
-msgstr "POP3"
+msgid "Pop…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #, fuzzy, kde-format
 #| msgid "Apply..."
 msgctxt "@action"
-msgid "Apply..."
+msgid "Apply…"
 msgstr "Ezarri..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
@@ -1278,26 +1283,24 @@ msgid "Name of stash"
 msgstr "Gordelekuaren izena"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action"
-msgid "Add..."
-msgstr "Gehitu..."
+msgid "Add…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, fuzzy, kde-format
-#| msgid "Update..."
+#| msgid "Update"
 msgctxt "@action"
-msgid "Update..."
-msgstr "Eguneratu..."
+msgid "Update…"
+msgstr "Eguneratu"
 
-#. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
+#. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Sync..."
+#, kde-format
 msgctxt "@action"
-msgid "Sync..."
-msgstr "Sink..."
+msgid "Sync…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
@@ -1321,15 +1324,15 @@ msgstr "%1 azpimodulua kendu da"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, fuzzy, kde-format
-#| msgid "New tag..."
+#| msgid "New tag"
 msgctxt "@action"
-msgid "New tag..."
-msgstr "Etiketa berria..."
+msgid "New tag…"
+msgstr "Etiketa berria"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, fuzzy, kde-format
 msgctxt "@action"
-msgid "Checkout..."
+msgid "Checkout…"
 msgstr "Atera"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
@@ -1878,12 +1881,33 @@ msgstr "Ezkerrean"
 msgid "Right"
 msgstr "Eskuinean"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:43
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
 msgstr "Arakatu fitxategiak: %1"
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:119
+#, kde-format
+msgid "Extract to"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:125
+#, fuzzy, kde-format
+#| msgid "File(s) added to git successfully"
+msgid "All file(s) extracted successfully"
+msgstr "Fitxategia(k) git-era ondo gehitu dira"
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:127
+#, kde-format
+msgid "An error occurred while extracting file(s)"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:153
+#, kde-format
+msgid "Extract"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/filestreedialog.ui:31
@@ -1898,8 +1922,9 @@ msgid "Closing preview"
 msgstr "Aurreikuspegia ixtea"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, kde-format
-msgid "Please wait while the preview is being closed..."
+#, fuzzy, kde-format
+#| msgid "Please wait while the preview is being closed..."
+msgid "Please wait while the preview is being closed…"
 msgstr "Mesedez, itxoin aurreikuspegia itxi bitartean..."
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
@@ -2674,8 +2699,9 @@ msgid "Tree"
 msgstr "Zuhaitza"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:191
-#, kde-format
-msgid "View hidden chars..."
+#, fuzzy, kde-format
+#| msgid "View hidden chars..."
+msgid "View hidden chars…"
 msgstr "Ikusi ezkutuko karaktereak..."
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
@@ -2759,14 +2785,158 @@ msgstr "Hurrengo diff"
 msgid "Unable to open the file"
 msgstr "Ez da fitxategia irekitzeko gai"
 
+#, fuzzy
+#~ msgctxt "@action"
+#~ msgid "Init..."
+#~ msgstr "Hasieratu"
+
+#, fuzzy
+#~| msgid "Open..."
+#~ msgctxt "@action"
+#~ msgid "Open..."
+#~ msgstr "Ireki..."
+
+#, fuzzy
+#~| msgid "Clone..."
+#~ msgctxt "@action"
+#~ msgid "Clone..."
+#~ msgstr "Itxi..."
+
+#, fuzzy
+#~| msgid "Changed files..."
+#~ msgctxt "@action"
+#~ msgid "Changed files..."
+#~ msgstr "Aldatutako fitxategiak..."
+
+#, fuzzy
+#~| msgid "Cleanup..."
+#~ msgctxt "@action"
+#~ msgid "Cleanup..."
+#~ msgstr "Txukuntzea..."
+
+#, fuzzy
+#~| msgid "Pull..."
+#~ msgctxt "@action"
+#~ msgid "Pull..."
+#~ msgstr "Tira egin..."
+
+#, fuzzy
+#~| msgid "Fetch..."
+#~ msgctxt "@action"
+#~ msgid "Fetch..."
+#~ msgstr "Ekarri..."
+
+#, fuzzy
+#~| msgid "Push..."
+#~ msgctxt "@action"
+#~ msgid "Push..."
+#~ msgstr "Bultzatu..."
+
+#, fuzzy
+#~| msgid "Merge..."
+#~ msgctxt "@action"
+#~ msgid "Merge..."
+#~ msgstr "Bateratu..."
+
+#, fuzzy
+#~| msgid "Diff branches..."
+#~ msgctxt "@action"
+#~ msgid "Diff branches..."
+#~ msgstr "Diff adarrak..."
+
+#, fuzzy
+#~| msgid "Search..."
+#~ msgctxt "@action"
+#~ msgid "Search..."
+#~ msgstr "Bilatu..."
+
+#, fuzzy
+#~| msgid "Repo settings..."
+#~ msgctxt "@action"
+#~ msgid "Repo settings..."
+#~ msgstr "Gordetegiaren ezarpenak..."
+
+#, fuzzy
+#~| msgid "Browse..."
+#~ msgctxt "@action"
+#~ msgid "Browse..."
+#~ msgstr "Arakatu..."
+
+#, fuzzy
+#~| msgid "Remove..."
+#~ msgctxt "@action"
+#~ msgid "Remove..."
+#~ msgstr "Kendu..."
+
+#, fuzzy
+#~| msgid "Note..."
+#~ msgctxt "@action"
+#~ msgid "Note..."
+#~ msgstr "Oharra..."
+
+#, fuzzy
+#~| msgid "Diff..."
+#~ msgctxt "@action"
+#~ msgid "Diff..."
+#~ msgstr "Diff..."
+
+#, fuzzy
+#~| msgid "New..."
+#~ msgctxt "@action"
+#~ msgid "New..."
+#~ msgstr "Berria..."
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgctxt "@action"
+#~ msgid "Rename..."
+#~ msgstr "Berrizendatu..."
+
+#, fuzzy
+#~| msgid "Change url..."
+#~ msgctxt "@action"
+#~ msgid "Change url..."
+#~ msgstr "Aldatu URLa..."
+
+#, fuzzy
+#~ msgctxt "@action"
+#~ msgid "Pop..."
+#~ msgstr "POP3"
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action"
+#~ msgid "Add..."
+#~ msgstr "Gehitu..."
+
+#, fuzzy
+#~| msgid "Update..."
+#~ msgctxt "@action"
+#~ msgid "Update..."
+#~ msgstr "Eguneratu..."
+
+#, fuzzy
+#~| msgid "Sync..."
+#~ msgctxt "@action"
+#~ msgid "Sync..."
+#~ msgstr "Sink..."
+
+#, fuzzy
+#~| msgid "New tag..."
+#~ msgctxt "@action"
+#~ msgid "New tag..."
+#~ msgstr "Etiketa berria..."
+
+#, fuzzy
+#~ msgctxt "@action"
+#~ msgid "Checkout..."
+#~ msgstr "Atera"
+
 #~ msgid "Stop"
 #~ msgstr "Gelditu"
 
 #~ msgid "Diff with master..."
 #~ msgstr "Diff nagusiarekin..."
-
-#~ msgid "New tag"
-#~ msgstr "Etiketa berria"
 
 #~ msgid "Authors"
 #~ msgstr "Egileak"

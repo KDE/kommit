@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 01:40+0000\n"
+"POT-Creation-Date: 2024-06-15 01:45+0000\n"
 "PO-Revision-Date: 2024-01-21 11:56+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -219,29 +219,29 @@ msgstr " (ბაზის შეცვლა)"
 #, fuzzy, kde-format
 #| msgid "Init"
 msgctxt "@action"
-msgid "Init..."
+msgid "Init…"
 msgstr "ერთეული"
 
 #: src/gui/appwindow.cpp:167
 #, fuzzy, kde-format
-#| msgid "Open..."
+#| msgid "Open"
 msgctxt "@action"
-msgid "Open..."
-msgstr "გახსნა..."
+msgid "Open…"
+msgstr "გახსნა"
 
 #: src/gui/appwindow.cpp:172
 #, fuzzy, kde-format
-#| msgid "Clone..."
+#| msgid "Clone"
 msgctxt "@action"
-msgid "Clone..."
-msgstr "კლონირება..."
+msgid "Clone…"
+msgstr "კლონირება"
 
 #: src/gui/appwindow.cpp:175
 #, fuzzy, kde-format
-#| msgid "Changed files..."
+#| msgid "Changed files"
 msgctxt "@action"
-msgid "Changed files..."
-msgstr "შეცვლილი ფაილები..."
+msgid "Changed files…"
+msgstr "შეცვლილი ფაილები"
 
 #: src/gui/appwindow.cpp:181
 #, fuzzy, kde-format
@@ -252,94 +252,100 @@ msgstr "უახლესი რეპოები"
 
 #: src/gui/appwindow.cpp:187
 #, fuzzy, kde-format
-#| msgid "Cleanup..."
+#| msgid "Cleanup"
 msgctxt "@action"
-msgid "Cleanup..."
-msgstr "მოსუფთავება..."
+msgid "Cleanup…"
+msgstr "გასუფთავება"
 
 #: src/gui/appwindow.cpp:190
 #, fuzzy, kde-format
 #| msgid "Pull"
 msgctxt "@action"
-msgid "Pull..."
+msgid "Pull…"
 msgstr "მიღება"
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, fuzzy, kde-format
-#| msgid "Fetch..."
+#| msgid "Fetch"
 msgctxt "@action"
-msgid "Fetch..."
-msgstr "გამოთხოვა..."
+msgid "Fetch…"
+msgstr "გამოთხოვა"
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, fuzzy, kde-format
 #| msgid "Push"
 msgctxt "@action"
-msgid "Push..."
+msgid "Push…"
 msgstr "გადაცემა"
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, fuzzy, kde-format
-#| msgid "Merge..."
+#| msgid "Merge"
 msgctxt "@action"
-msgid "Merge..."
-msgstr "შერწყმა..."
+msgid "Merge…"
+msgstr "შერწყმა"
 
 #: src/gui/appwindow.cpp:206
 #, fuzzy, kde-format
 #| msgid "Diff branches"
 msgctxt "@action"
-msgid "Diff branches..."
+msgid "Diff branches…"
 msgstr "ბრენჩების diff"
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
 #, fuzzy, kde-format
-#| msgid "Search..."
+#| msgid "Search"
 msgctxt "@action"
-msgid "Search..."
-msgstr "ძებნა..."
+msgid "Search…"
+msgstr "ძებნა"
 
 #: src/gui/appwindow.cpp:212
 #, kde-format
 msgctxt "@action"
-msgid "Repo settings..."
+msgid "Repo settings…"
 msgstr ""
 
 #: src/gui/appwindow.cpp:215
 #, fuzzy, kde-format
 #| msgid "Checkout..."
 msgctxt "@action"
-msgid "Switch/Checkout..."
+msgid "Switch/Checkout…"
 msgstr "გამოთხოვა..."
 
 #: src/gui/appwindow.cpp:218
 #, fuzzy, kde-format
 #| msgid "Diff branches"
 msgctxt "@action"
-msgid "Diff tree"
+msgid "Diff tree…"
 msgstr "ბრენჩების diff"
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:255
+#, fuzzy, kde-format
+#| msgid "Cleanup"
+msgid "Clear"
+msgstr "გასუფთავება"
+
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr ""
 
-#: src/gui/appwindow.cpp:282
+#: src/gui/appwindow.cpp:290
 #, kde-format
 msgid "Open repository"
 msgstr "რეპოზიტორიის გახსნა"
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "ბრენჩის შეცვლა"
@@ -967,15 +973,15 @@ msgstr "შექმნის დრო"
 #, fuzzy, kde-format
 #| msgid "Create..."
 msgctxt "@action"
-msgid "Create..."
+msgid "Create…"
 msgstr "შექმნა..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
 #, fuzzy, kde-format
-#| msgid "Browse..."
+#| msgid "Browse"
 msgctxt "@action"
-msgid "Browse..."
-msgstr "ამორჩევა..."
+msgid "Browse…"
+msgstr "ნუსხა"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, fuzzy, kde-format
@@ -996,17 +1002,17 @@ msgstr "სხვაობა"
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, fuzzy, kde-format
-#| msgid "Remove..."
+#| msgid "Remove"
 msgctxt "@action"
-msgid "Remove..."
-msgstr "წაშლა..."
+msgid "Remove…"
+msgstr "წაშლა"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #, fuzzy, kde-format
-#| msgid "Note..."
+#| msgid "Note"
 msgctxt "@action"
-msgid "Note..."
-msgstr "შენიშვნა..."
+msgid "Note…"
+msgstr "არცერთი"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -1025,16 +1031,16 @@ msgstr "ბრენჩის წაშლა"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, fuzzy, kde-format
-#| msgid "Diff..."
+#| msgid "Diff"
 msgctxt "@action"
-msgid "Diff..."
-msgstr "განსხვავება..."
+msgid "Diff…"
+msgstr "სხვაობა"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, fuzzy, kde-format
 #| msgid "Revert..."
 msgctxt "@action"
-msgid "Revert..."
+msgid "Revert…"
 msgstr "დაბრუნება..."
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
@@ -1085,7 +1091,7 @@ msgstr "გახსნა"
 #, fuzzy, kde-format
 #| msgid "Open with..."
 msgctxt "@action"
-msgid "Open with..."
+msgid "Open with…"
 msgstr "გამხსნელი პროგრამა..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
@@ -1098,7 +1104,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Save as..."
 msgctxt "@action"
-msgid "Save as..."
+msgid "Save as…"
 msgstr "შენახვა როგორც..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
@@ -1121,25 +1127,24 @@ msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New..."
+#, kde-format
 msgctxt "@action"
-msgid "New..."
-msgstr "ახალი..."
+msgid "New…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, fuzzy, kde-format
-#| msgid "Rename..."
+#| msgid "Rename"
 msgctxt "@action"
-msgid "Rename..."
-msgstr "სახელის გადარქმევა..."
+msgid "Rename…"
+msgstr "გადარქმევა"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, fuzzy, kde-format
-#| msgid "Change url..."
+#| msgid "Change url"
 msgctxt "@action"
-msgid "Change url..."
-msgstr "URL-ის შეცვლა..."
+msgid "Change url…"
+msgstr "URL-ის შეცვლა"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
@@ -1185,20 +1190,20 @@ msgstr "ახალი სახელი"
 #, fuzzy, kde-format
 #| msgid "New tag..."
 msgctxt "@action"
-msgid "New stash..."
+msgid "New stash…"
 msgstr "ახალი ჭდე..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
 msgctxt "@action"
-msgid "Pop..."
+msgid "Pop…"
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #, fuzzy, kde-format
 #| msgid "Apply..."
 msgctxt "@action"
-msgid "Apply..."
+msgid "Apply…"
 msgstr "გადატარება..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
@@ -1267,26 +1272,24 @@ msgid "Name of stash"
 msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action"
-msgid "Add..."
-msgstr "დამატება..."
+msgid "Add…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, fuzzy, kde-format
-#| msgid "Update..."
+#| msgid "Update"
 msgctxt "@action"
-msgid "Update..."
-msgstr "განახლება..."
+msgid "Update…"
+msgstr "განახლება"
 
-#. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
+#. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Sync..."
+#, kde-format
 msgctxt "@action"
-msgid "Sync..."
-msgstr "სინქრონიზაცია..."
+msgid "Sync…"
+msgstr ""
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
@@ -1310,17 +1313,17 @@ msgstr "ქვემოდული %1 აშლილია"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, fuzzy, kde-format
-#| msgid "New tag..."
+#| msgid "New tag"
 msgctxt "@action"
-msgid "New tag..."
-msgstr "ახალი ჭდე..."
+msgid "New tag…"
+msgstr "ახალი ჭდე"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, fuzzy, kde-format
-#| msgid "Checkout..."
+#| msgid "Checkout"
 msgctxt "@action"
-msgid "Checkout..."
-msgstr "გამოთხოვა..."
+msgid "Checkout…"
+msgstr "წამოღება"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1863,11 +1866,31 @@ msgstr "მარცხენა"
 msgid "Right"
 msgstr "მარჯვენა"
 
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
-#: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:43
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:119
+#, kde-format
+msgid "Extract to"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:125
+#, kde-format
+msgid "All file(s) extracted successfully"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:127
+#, kde-format
+msgid "An error occurred while extracting file(s)"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/filestreedialog.cpp:153
+#, kde-format
+msgid "Extract"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -1883,8 +1906,9 @@ msgid "Closing preview"
 msgstr "გადახედვის დახურვა"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, kde-format
-msgid "Please wait while the preview is being closed..."
+#, fuzzy, kde-format
+#| msgid "Please wait while the preview is being closed..."
+msgid "Please wait while the preview is being closed…"
 msgstr "მიმდინარეობს მინიატურის დახურვა. მოითმინეთ..."
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
@@ -2645,7 +2669,7 @@ msgstr "ხე"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:191
 #, kde-format
-msgid "View hidden chars..."
+msgid "View hidden chars…"
 msgstr ""
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
@@ -2729,11 +2753,146 @@ msgstr ""
 msgid "Unable to open the file"
 msgstr ""
 
+#, fuzzy
+#~| msgid "Init"
+#~ msgctxt "@action"
+#~ msgid "Init..."
+#~ msgstr "ერთეული"
+
+#, fuzzy
+#~| msgid "Open..."
+#~ msgctxt "@action"
+#~ msgid "Open..."
+#~ msgstr "გახსნა..."
+
+#, fuzzy
+#~| msgid "Clone..."
+#~ msgctxt "@action"
+#~ msgid "Clone..."
+#~ msgstr "კლონირება..."
+
+#, fuzzy
+#~| msgid "Changed files..."
+#~ msgctxt "@action"
+#~ msgid "Changed files..."
+#~ msgstr "შეცვლილი ფაილები..."
+
+#, fuzzy
+#~| msgid "Cleanup..."
+#~ msgctxt "@action"
+#~ msgid "Cleanup..."
+#~ msgstr "მოსუფთავება..."
+
+#, fuzzy
+#~| msgid "Pull"
+#~ msgctxt "@action"
+#~ msgid "Pull..."
+#~ msgstr "მიღება"
+
+#, fuzzy
+#~| msgid "Fetch..."
+#~ msgctxt "@action"
+#~ msgid "Fetch..."
+#~ msgstr "გამოთხოვა..."
+
+#, fuzzy
+#~| msgid "Push"
+#~ msgctxt "@action"
+#~ msgid "Push..."
+#~ msgstr "გადაცემა"
+
+#, fuzzy
+#~| msgid "Merge..."
+#~ msgctxt "@action"
+#~ msgid "Merge..."
+#~ msgstr "შერწყმა..."
+
+#, fuzzy
+#~| msgid "Diff branches"
+#~ msgctxt "@action"
+#~ msgid "Diff branches..."
+#~ msgstr "ბრენჩების diff"
+
+#, fuzzy
+#~| msgid "Search..."
+#~ msgctxt "@action"
+#~ msgid "Search..."
+#~ msgstr "ძებნა..."
+
+#, fuzzy
+#~| msgid "Browse..."
+#~ msgctxt "@action"
+#~ msgid "Browse..."
+#~ msgstr "ამორჩევა..."
+
+#, fuzzy
+#~| msgid "Remove..."
+#~ msgctxt "@action"
+#~ msgid "Remove..."
+#~ msgstr "წაშლა..."
+
+#, fuzzy
+#~| msgid "Note..."
+#~ msgctxt "@action"
+#~ msgid "Note..."
+#~ msgstr "შენიშვნა..."
+
+#, fuzzy
+#~| msgid "Diff..."
+#~ msgctxt "@action"
+#~ msgid "Diff..."
+#~ msgstr "განსხვავება..."
+
+#, fuzzy
+#~| msgid "New..."
+#~ msgctxt "@action"
+#~ msgid "New..."
+#~ msgstr "ახალი..."
+
+#, fuzzy
+#~| msgid "Rename..."
+#~ msgctxt "@action"
+#~ msgid "Rename..."
+#~ msgstr "სახელის გადარქმევა..."
+
+#, fuzzy
+#~| msgid "Change url..."
+#~ msgctxt "@action"
+#~ msgid "Change url..."
+#~ msgstr "URL-ის შეცვლა..."
+
+#, fuzzy
+#~| msgid "Add..."
+#~ msgctxt "@action"
+#~ msgid "Add..."
+#~ msgstr "დამატება..."
+
+#, fuzzy
+#~| msgid "Update..."
+#~ msgctxt "@action"
+#~ msgid "Update..."
+#~ msgstr "განახლება..."
+
+#, fuzzy
+#~| msgid "Sync..."
+#~ msgctxt "@action"
+#~ msgid "Sync..."
+#~ msgstr "სინქრონიზაცია..."
+
+#, fuzzy
+#~| msgid "New tag..."
+#~ msgctxt "@action"
+#~ msgid "New tag..."
+#~ msgstr "ახალი ჭდე..."
+
+#, fuzzy
+#~| msgid "Checkout..."
+#~ msgctxt "@action"
+#~ msgid "Checkout..."
+#~ msgstr "გამოთხოვა..."
+
 #~ msgid "Stop"
 #~ msgstr "შეჩერება"
-
-#~ msgid "New tag"
-#~ msgstr "ახალი ჭდე"
 
 #~ msgid "Authors"
 #~ msgstr "ავტორები"
