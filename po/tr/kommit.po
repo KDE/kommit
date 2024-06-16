@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-15 01:45+0000\n"
-"PO-Revision-Date: 2024-06-12 00:46+0300\n"
+"PO-Revision-Date: 2024-06-15 13:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -212,32 +212,28 @@ msgstr " (yeniden temellendiriliyor)"
 
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Init"
+#, kde-format
 msgctxt "@action"
 msgid "Init…"
-msgstr "İlklendir"
+msgstr "İlklendir…"
 
 #: src/gui/appwindow.cpp:167
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action"
 msgid "Open…"
-msgstr "Aç"
+msgstr "Aç…"
 
 #: src/gui/appwindow.cpp:172
-#, fuzzy, kde-format
-#| msgid "Clone"
+#, kde-format
 msgctxt "@action"
 msgid "Clone…"
-msgstr "Klonla"
+msgstr "Klonla…"
 
 #: src/gui/appwindow.cpp:175
-#, fuzzy, kde-format
-#| msgid "Changed files"
+#, kde-format
 msgctxt "@action"
 msgid "Changed files…"
-msgstr "Değiştirilen Dosyalar"
+msgstr "Değiştirilen Dosyalar…"
 
 #: src/gui/appwindow.cpp:181
 #, kde-format
@@ -246,79 +242,67 @@ msgid "Recent repos"
 msgstr "Son Kullanılan Depolar"
 
 #: src/gui/appwindow.cpp:187
-#, fuzzy, kde-format
-#| msgid "Cleanup"
+#, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
-msgstr "Toparla"
+msgstr "Toparla…"
 
 #: src/gui/appwindow.cpp:190
-#, fuzzy, kde-format
-#| msgid "Pull"
+#, kde-format
 msgctxt "@action"
 msgid "Pull…"
-msgstr "Çek"
+msgstr "Çek…"
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
-#, fuzzy, kde-format
-#| msgid "Fetch"
+#, kde-format
 msgctxt "@action"
 msgid "Fetch…"
-msgstr "Getir"
+msgstr "Getir…"
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
-#, fuzzy, kde-format
-#| msgid "Push"
+#, kde-format
 msgctxt "@action"
 msgid "Push…"
-msgstr "İt"
+msgstr "İt…"
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Merge"
+#, kde-format
 msgctxt "@action"
 msgid "Merge…"
-msgstr "Birleştir"
+msgstr "Birleştir…"
 
 #: src/gui/appwindow.cpp:206
-#, fuzzy, kde-format
-#| msgid "Diff branches"
+#, kde-format
 msgctxt "@action"
 msgid "Diff branches…"
-msgstr "Dalların Farkını Al"
+msgstr "Dalların Farkını Al…"
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action"
 msgid "Search…"
-msgstr "Ara"
+msgstr "Ara…"
 
 #: src/gui/appwindow.cpp:212
-#, fuzzy, kde-format
-#| msgid "Repo settings"
+#, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
-msgstr "Depo Ayarları"
+msgstr "Depo Ayarları…"
 
 #: src/gui/appwindow.cpp:215
-#, fuzzy, kde-format
-#| msgid "Switch/Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
-msgstr "Değiştir/Çıkış Yap"
+msgstr "Değiştir/Çıkış Yap…"
 
 #: src/gui/appwindow.cpp:218
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Diff tree"
+#, kde-format
 msgctxt "@action"
 msgid "Diff tree…"
-msgstr "Diff Ağacı"
+msgstr "Diff Ağacı…"
 
 #: src/gui/appwindow.cpp:255
-#, fuzzy, kde-format
-#| msgid "Cleanup"
+#, kde-format
 msgid "Clear"
 msgstr "Toparla"
 
@@ -978,19 +962,16 @@ msgid "Create time"
 msgstr "Oluşturma zamanı"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Create..."
+#, kde-format
 msgctxt "@action"
 msgid "Create…"
 msgstr "Oluştur…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
-#, fuzzy, kde-format
-#| msgid "Browse"
+#, kde-format
 msgctxt "@action"
 msgid "Browse…"
-msgstr "Göz At"
+msgstr "Göz At…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
@@ -1008,19 +989,16 @@ msgstr "Diff"
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action"
 msgid "Remove…"
-msgstr "Kaldır"
+msgstr "Kaldır…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Note"
+#, kde-format
 msgctxt "@action"
 msgid "Note…"
-msgstr "Not"
+msgstr "Not…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -1038,16 +1016,13 @@ msgid "Remove Branch"
 msgstr "Dalı Kaldır"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
-#, fuzzy, kde-format
-#| msgid "Diff"
+#, kde-format
 msgctxt "@action"
 msgid "Diff…"
-msgstr "Diff"
+msgstr "Diff…"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Revert..."
+#, kde-format
 msgctxt "@action"
 msgid "Revert…"
 msgstr "Geri Al…"
@@ -1092,9 +1067,7 @@ msgid "Open"
 msgstr "Aç"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:45
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Open with..."
+#, kde-format
 msgctxt "@action"
 msgid "Open with…"
 msgstr "Birlikte Aç…"
@@ -1106,9 +1079,7 @@ msgid "Merge with working dir"
 msgstr "Çalışma Diziniyle Birleştir"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Save as..."
+#, kde-format
 msgctxt "@action"
 msgid "Save as…"
 msgstr "Farklı Kaydet…"
@@ -1134,21 +1105,19 @@ msgstr "%1 dosyası (*.%1);;Tüm dosyalar (*)"
 #, kde-format
 msgctxt "@action"
 msgid "New…"
-msgstr ""
+msgstr "Yeni…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action"
 msgid "Rename…"
-msgstr "Yeniden Adlandır"
+msgstr "Yeniden Adlandır…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@action"
 msgid "Change url…"
-msgstr "URL Değiştir"
+msgstr "URL Değiştir…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
@@ -1191,9 +1160,7 @@ msgid "New name"
 msgstr "Yeni ad"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "New stash..."
+#, kde-format
 msgctxt "@action"
 msgid "New stash…"
 msgstr "Yeni Zula…"
@@ -1202,12 +1169,10 @@ msgstr "Yeni Zula…"
 #, kde-format
 msgctxt "@action"
 msgid "Pop…"
-msgstr ""
+msgstr "Patlat…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Apply..."
+#, kde-format
 msgctxt "@action"
 msgid "Apply…"
 msgstr "Uygula…"
@@ -1281,21 +1246,20 @@ msgstr "Zulanın adı"
 #, kde-format
 msgctxt "@action"
 msgid "Add…"
-msgstr ""
+msgstr "Ekle…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
-#, fuzzy, kde-format
-#| msgid "Update"
+#, kde-format
 msgctxt "@action"
 msgid "Update…"
-msgstr "Güncelle"
+msgstr "Güncelle…"
 
 #. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
 #, kde-format
 msgctxt "@action"
 msgid "Sync…"
-msgstr ""
+msgstr "Eşzamanla…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
@@ -1318,18 +1282,16 @@ msgid "The submodule %1 removed"
 msgstr "%1 altmodülü kaldırıldı"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New tag"
+#, kde-format
 msgctxt "@action"
 msgid "New tag…"
-msgstr "Yeni Etiket"
+msgstr "Yeni Etiket…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Checkout…"
-msgstr "Çıkış Yap"
+msgstr "Çıkış Yap…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1903,23 +1865,22 @@ msgstr "Dosyalara göz at: %1"
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:119
 #, kde-format
 msgid "Extract to"
-msgstr ""
+msgstr "Şuraya çıkar:"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:125
-#, fuzzy, kde-format
-#| msgid "File(s) added to git successfully"
+#, kde-format
 msgid "All file(s) extracted successfully"
-msgstr "Dosyalar Git'e başarıyla eklendi"
+msgstr "Tüm dosyalar başarıyla çıkarıldı"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:127
 #, kde-format
 msgid "An error occurred while extracting file(s)"
-msgstr ""
+msgstr "Dosyalar çıkarılırken bir hata oluştu"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:153
 #, kde-format
 msgid "Extract"
-msgstr ""
+msgstr "Çıkar"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/filestreedialog.ui:31
@@ -1934,8 +1895,7 @@ msgid "Closing preview"
 msgstr "Önizleme kapatılıyor"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Please wait while the preview is being closed..."
+#, kde-format
 msgid "Please wait while the preview is being closed…"
 msgstr "Önizleme kapatılırken lütfen bekleyin…"
 
@@ -2766,8 +2726,7 @@ msgid "Tree"
 msgstr "Ağaç"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:191
-#, fuzzy, kde-format
-#| msgid "View hidden chars..."
+#, kde-format
 msgid "View hidden chars…"
 msgstr "Gizli Karakterleri Görüntüle…"
 
