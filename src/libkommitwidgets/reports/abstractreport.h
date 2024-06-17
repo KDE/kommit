@@ -20,7 +20,7 @@ class LIBKOMMITWIDGETS_EXPORT AbstractReport : public QObject
     Q_OBJECT
 
 public:
-    AbstractReport(Git::Manager *git, QObject *parent = nullptr);
+    explicit AbstractReport(Git::Manager *git, QObject *parent = nullptr);
     ~AbstractReport() override;
 
     virtual void reload() = 0;
@@ -54,7 +54,7 @@ private:
     int mValueColumn{1};
 
 protected:
-    Git::Manager *mGit = nullptr;
+    Git::Manager *const mGit;
 
     void clear();
     void setColumnCount(int columnCount);
