@@ -16,8 +16,8 @@ AbstractActions::AbstractActions(Git::Manager *git, QWidget *parent)
     : QObject{parent}
     , mGit{git}
     , mParent{parent}
+    , mMenu(new QMenu(parent))
 {
-    mMenu = new QMenu(parent);
     connect(git, &Git::Manager::pathChanged, this, &AbstractActions::gitReloaded);
 }
 

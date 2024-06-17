@@ -55,8 +55,8 @@ class LIBKOMMITWIDGETS_EXPORT AbstractActions : public QObject
 protected:
     Git::Manager *mGit = nullptr;
     QList<QAction *> mActions;
-    QMenu *mMenu = nullptr;
     QWidget *mParent = nullptr;
+    QMenu *const mMenu;
     void setActionEnabled(QAction *action, bool enabled = true);
 
     template<class Receiver, class Func>
