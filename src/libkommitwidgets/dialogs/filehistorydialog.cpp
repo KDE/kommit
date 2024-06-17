@@ -39,7 +39,7 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
     plainTextEdit->setHighlighting(fileName);
     setWindowTitle(i18nc("@title:window", "File log: %1", fileName));
 
-    connect(listWidget, &QListWidget::itemClicked, this, &FileHistoryDialog::slotListWidgetItemClicked);
+    connect(listWidget, &QListWidget::currentItemChanged, this, &FileHistoryDialog::slotListWidgetItemClicked);
     connect(treeWidget, &QTreeWidget::itemClicked, this, &FileHistoryDialog::slotTreeViewItemClicked);
     connect(radioButtonRegularView, &QRadioButton::toggled, this, &FileHistoryDialog::slotRadioButtonRegularViewToggled);
     connect(radioButtonDifferentialView, &QRadioButton::toggled, this, &FileHistoryDialog::slotRadioButtonDifferentialViewToggled);
