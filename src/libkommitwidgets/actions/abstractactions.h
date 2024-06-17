@@ -87,10 +87,8 @@ public:
     void popup();
     void popup(const QPoint &pos);
 
-private Q_SLOTS:
-    void gitReloaded();
-
 private:
+    void gitReloaded();
     QAction *createAction(const QString &text, bool enabled, bool addToMenu);
     QMap<QAction *, bool> mActionStatuses;
 };
