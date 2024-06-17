@@ -48,8 +48,6 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
     treeWidget->header()->setSectionResizeMode(0, QHeaderView::Stretch);
     treeWidget->header()->setSectionResizeMode(1, QHeaderView::Fixed);
     treeWidget->header()->setSectionResizeMode(2, QHeaderView::Fixed);
-    treeWidget->header()->resizeSection(1, 50);
-    treeWidget->header()->resizeSection(2, 50);
     treeWidget->header()->setStretchLastSection(false);
     radioButtonRegularView->setChecked(true);
 }
