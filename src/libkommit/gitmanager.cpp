@@ -342,20 +342,6 @@ QList<FileStatus> Manager::diffBranches(const QString &from, const QString &to) 
         files2 << fs;
     }
 
-    const auto buffer = QString(runGit({QStringLiteral("diff"), from + QStringLiteral("..") + to, QStringLiteral("--name-status")})).split(QLatin1Char('\n'));
-    QList<FileStatus> files;
-    for (const auto &item : buffer) {
-        if (!item.trimmed().size())
-            continue;
-        const auto parts = item.split(QLatin1Char('\t'));
-        if (parts.size() != 2)
-            continue;
-
-        FileStatus fs;
-        fs.setStatus(parts.at(0));
-        fs.setName(parts.at(1));
-        files.append(fs);
-    }
     return files2;
 }
 
@@ -1540,7 +1526,6 @@ bool Manager::removeBranch(const QString &branchName) const
     BEGIN
     STEP git_branch_lookup(&ref, mRepo, branchName.toUtf8().data(), GIT_BRANCH_LOCAL);
     STEP git_branch_delete(ref);
-    //    auto ret = readAllNonEmptyOutput({QStringLiteral("branch"), QStringLiteral("-D"), branchName});
     return IS_OK;
 }
 
