@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 01:45+0000\n"
-"PO-Revision-Date: 2024-06-13 15:05+0200\n"
+"POT-Creation-Date: 2024-06-18 01:52+0000\n"
+"PO-Revision-Date: 2024-06-17 14:31+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -212,33 +212,28 @@ msgstr ""
 
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Init"
+#, kde-format
 msgctxt "@action"
 msgid "Init…"
-msgstr "Inicializace"
+msgstr "Inicializovat..."
 
 #: src/gui/appwindow.cpp:167
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action"
 msgid "Open…"
-msgstr "Otevřít"
+msgstr "Otevřít…"
 
 #: src/gui/appwindow.cpp:172
-#, fuzzy, kde-format
-#| msgid "Clone"
+#, kde-format
 msgctxt "@action"
 msgid "Clone…"
-msgstr "Klonovat"
+msgstr "Clone…"
 
 #: src/gui/appwindow.cpp:175
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Changed files..."
+#, kde-format
 msgctxt "@action"
 msgid "Changed files…"
-msgstr "Změněné soubory..."
+msgstr "Změněné soubory…"
 
 #: src/gui/appwindow.cpp:181
 #, kde-format
@@ -247,68 +242,58 @@ msgid "Recent repos"
 msgstr ""
 
 #: src/gui/appwindow.cpp:187
-#, fuzzy, kde-format
-#| msgid "Cleanup"
+#, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
-msgstr "Úklid"
+msgstr "Cleanup…"
 
 #: src/gui/appwindow.cpp:190
-#, fuzzy, kde-format
-#| msgid "Pull"
+#, kde-format
 msgctxt "@action"
 msgid "Pull…"
-msgstr "Stáhnout"
+msgstr "Pull…"
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
-#, fuzzy, kde-format
-#| msgid "Fetch"
+#, kde-format
 msgctxt "@action"
 msgid "Fetch…"
-msgstr "Stáhnout"
+msgstr "Fetch…"
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
-#, fuzzy, kde-format
-#| msgid "Push"
+#, kde-format
 msgctxt "@action"
 msgid "Push…"
-msgstr "Odeslat"
+msgstr "Push…"
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Merge"
+#, kde-format
 msgctxt "@action"
 msgid "Merge…"
-msgstr "Sloučit"
+msgstr "Merge…"
 
 #: src/gui/appwindow.cpp:206
-#, fuzzy, kde-format
-#| msgid "Diff branches"
+#, kde-format
 msgctxt "@action"
 msgid "Diff branches…"
-msgstr "Rozdíly mezi větvemi"
+msgstr "Rozdíly mezi větvemi…"
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action"
 msgid "Search…"
-msgstr "Hledat"
+msgstr "Hledat…"
 
 #: src/gui/appwindow.cpp:212
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Repo settings..."
+#, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
-msgstr "Nastavení repozitáře..."
+msgstr "Nastavení repozitáře…"
 
 #: src/gui/appwindow.cpp:215
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
-msgstr "Checkout"
+msgstr "Switch/Checkout…"
 
 #: src/gui/appwindow.cpp:218
 #, kde-format
@@ -317,10 +302,9 @@ msgid "Diff tree…"
 msgstr ""
 
 #: src/gui/appwindow.cpp:255
-#, fuzzy, kde-format
-#| msgid "Cleanup"
+#, kde-format
 msgid "Clear"
-msgstr "Úklid"
+msgstr "Vyprázdnit"
 
 #: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
 #, kde-format
@@ -963,19 +947,16 @@ msgid "Create time"
 msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Create..."
+#, kde-format
 msgctxt "@action"
 msgid "Create…"
-msgstr "Vytvořit..."
+msgstr "Vytvořit…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
-#, fuzzy, kde-format
-#| msgid "Browse"
+#, kde-format
 msgctxt "@action"
 msgid "Browse…"
-msgstr "Procházet"
+msgstr "Procházet…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
@@ -993,19 +974,16 @@ msgstr "Rozdíl"
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action"
 msgid "Remove…"
-msgstr "Odstranit"
+msgstr "Odstranit…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Note"
+#, kde-format
 msgctxt "@action"
 msgid "Note…"
-msgstr "Poznámka"
+msgstr "Poznámka…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
@@ -1023,19 +1001,16 @@ msgid "Remove Branch"
 msgstr ""
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
-#, fuzzy, kde-format
-#| msgid "Diff"
+#, kde-format
 msgctxt "@action"
 msgid "Diff…"
-msgstr "Rozdíl"
+msgstr "Rozdíl…"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Revert..."
+#, kde-format
 msgctxt "@action"
 msgid "Revert…"
-msgstr "Vrátit zpět..."
+msgstr "Vrátit zpět…"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
 #, kde-format
@@ -1077,9 +1052,7 @@ msgid "Open"
 msgstr "Otevřít"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:45
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Open with..."
+#, kde-format
 msgctxt "@action"
 msgid "Open with…"
 msgstr "Otevřít pomocí..."
@@ -1091,12 +1064,10 @@ msgid "Merge with working dir"
 msgstr ""
 
 #: src/libkommitwidgets/actions/fileactions.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Save as..."
+#, kde-format
 msgctxt "@action"
 msgid "Save as…"
-msgstr "Uložit jako..."
+msgstr "Uložit jako…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
@@ -1119,21 +1090,19 @@ msgstr "%1 soubor (*.%1);;Všechny soubory(*)"
 #, kde-format
 msgctxt "@action"
 msgid "New…"
-msgstr ""
+msgstr "Nový…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action"
 msgid "Rename…"
-msgstr "Přejmenovat"
+msgstr "Přejmenovat…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@action"
 msgid "Change url…"
-msgstr "Změnit URL"
+msgstr "Změnit URL…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
@@ -1176,12 +1145,10 @@ msgid "New name"
 msgstr "Nový název"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New tag"
+#, kde-format
 msgctxt "@action"
 msgid "New stash…"
-msgstr "Nová značka"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
@@ -1190,12 +1157,10 @@ msgid "Pop…"
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Apply..."
+#, kde-format
 msgctxt "@action"
 msgid "Apply…"
-msgstr "Použít..."
+msgstr "Použít…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
@@ -1266,21 +1231,20 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Add…"
-msgstr ""
+msgstr "Přidat…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
-#, fuzzy, kde-format
-#| msgid "Update"
+#, kde-format
 msgctxt "@action"
 msgid "Update…"
-msgstr "Aktualizovat"
+msgstr "Aktualizovat…"
 
 #. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
 #, kde-format
 msgctxt "@action"
 msgid "Sync…"
-msgstr ""
+msgstr "Synchronizovat…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
@@ -1303,19 +1267,16 @@ msgid "The submodule %1 removed"
 msgstr ""
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "New tag"
+#, kde-format
 msgctxt "@action"
 msgid "New tag…"
-msgstr "Nová značka"
+msgstr "Nová značka…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Checkout…"
-msgstr "Checkout"
+msgstr "Checkout…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1866,7 +1827,7 @@ msgstr "Procházet soubory: %1"
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:119
 #, kde-format
 msgid "Extract to"
-msgstr ""
+msgstr "Rozbalit do"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:125
 #, kde-format
@@ -1881,7 +1842,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:153
 #, kde-format
 msgid "Extract"
-msgstr ""
+msgstr "Rozbalit"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/filestreedialog.ui:31
@@ -1896,10 +1857,9 @@ msgid "Closing preview"
 msgstr "Zavírám náhled"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Please wait while the preview is being closed..."
+#, kde-format
 msgid "Please wait while the preview is being closed…"
-msgstr "Prosím, vyčkejte, než se náhled uzavře..."
+msgstr ""
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
@@ -2339,11 +2299,11 @@ msgid ""
 "hr { height: 1px; border-width: 0; }\n"
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
+"</style></head><body style=\" font-family:'Monospace'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
-"size:9pt;\"><br /></p></body></html>"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
 msgstr ""
 
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:33
@@ -2740,87 +2700,3 @@ msgstr ""
 #, kde-format
 msgid "Unable to open the file"
 msgstr ""
-
-#~ msgctxt "@action"
-#~ msgid "Init..."
-#~ msgstr "Inicializace..."
-
-#~ msgctxt "@action"
-#~ msgid "Open..."
-#~ msgstr "Otevřít..."
-
-#~ msgctxt "@action"
-#~ msgid "Clone..."
-#~ msgstr "Klonovat..."
-
-#~ msgctxt "@action"
-#~ msgid "Cleanup..."
-#~ msgstr "Cleanup..."
-
-#~ msgctxt "@action"
-#~ msgid "Pull..."
-#~ msgstr "Pull..."
-
-#~ msgctxt "@action"
-#~ msgid "Fetch..."
-#~ msgstr "Fetch..."
-
-#~ msgctxt "@action"
-#~ msgid "Push..."
-#~ msgstr "Push..."
-
-#~ msgctxt "@action"
-#~ msgid "Merge..."
-#~ msgstr "Merge..."
-
-#~ msgctxt "@action"
-#~ msgid "Diff branches..."
-#~ msgstr "Rozdíly mezi větvemi..."
-
-#~ msgctxt "@action"
-#~ msgid "Search..."
-#~ msgstr "Hledat..."
-
-#~ msgctxt "@action"
-#~ msgid "Browse..."
-#~ msgstr "Procházet..."
-
-#~ msgctxt "@action"
-#~ msgid "Remove..."
-#~ msgstr "Odstranit..."
-
-#~ msgctxt "@action"
-#~ msgid "Note..."
-#~ msgstr "Poznámka..."
-
-#~ msgctxt "@action"
-#~ msgid "Diff..."
-#~ msgstr "Rozdíl..."
-
-#~ msgctxt "@action"
-#~ msgid "New..."
-#~ msgstr "Nový..."
-
-#~ msgctxt "@action"
-#~ msgid "Rename..."
-#~ msgstr "Přejmenovat..."
-
-#~ msgctxt "@action"
-#~ msgid "Change url..."
-#~ msgstr "Změnit URL..."
-
-#~ msgctxt "@action"
-#~ msgid "Add..."
-#~ msgstr "Přidat..."
-
-#~ msgctxt "@action"
-#~ msgid "Update..."
-#~ msgstr "Aktualizovat..."
-
-#~ msgctxt "@action"
-#~ msgid "New tag..."
-#~ msgstr "Nová značka..."
-
-#~ msgctxt "@action"
-#~ msgid "Checkout..."
-#~ msgstr "Checkout..."
