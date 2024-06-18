@@ -8,12 +8,12 @@ Git gui client for KDE
 
 Install Qt via online installer or your distro's package manager
 ```
-sudo apt install qt5-default qt5-qmake qt5-qmake-bin libqt5core5a libqt5gui5 libqt5concurrent5
+sudo apt install qt5-qmake qt5-qmake-bin libqt5core5a libqt5gui5 libqt5concurrent5
 ```
 
 Install required packages
 ```
-sudo apt install libkf5config-dev libkf5configwidgets5 libkf5configwidgets-dev libkf5coreaddons-dev libkf5crash-dev libkf5dbusaddons-dev libkf5doctools-dev kdoctools-dev libkf5i18n-dev libkf5xmlgui-dev libkf5kio-dev libkf5kiocore5 libkf5kiogui5 libkf5kiowidgets5 libkf5textwidgets-dev libkf5texteditor-dev cmake make extra-cmake-modules gettext libkf5syntaxhighlighting-dev libkf5syntaxhighlighting-data libkf5syntaxhighlighting-tools
+sudo apt install libkf5config-dev libkf5configwidgets5 libkf5configwidgets-dev libkf5coreaddons-dev libkf5crash-dev libkf5dbusaddons-dev libkf5doctools-dev libkf5i18n-dev libkf5xmlgui-dev libkf5kio-dev libkf5kiocore5 libkf5kiogui5 libkf5kiowidgets5 libkf5textwidgets-dev libkf5texteditor-dev cmake make extra-cmake-modules gettext libkf5syntaxhighlighting-dev libkf5syntaxhighlighting-data libkf5syntaxhighlighting-tools libgit2-dev
 ```
 
 Navigate to source dir and do these steps
