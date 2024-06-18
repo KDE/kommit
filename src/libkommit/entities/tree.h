@@ -29,7 +29,7 @@ public:
         EntryType type;
     };
 
-    Tree(git_tree *tree);
+    explicit Tree(git_tree *tree);
     ~Tree();
 
     Q_REQUIRED_RESULT QList<Entry> entries(const QString &path) const;

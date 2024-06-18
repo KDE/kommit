@@ -19,8 +19,8 @@ namespace Git
 class LIBKOMMIT_EXPORT Signature
 {
 public:
-    Signature(git_signature *signature);
-    Signature(const git_signature *signature);
+    explicit Signature(git_signature *signature);
+    explicit Signature(const git_signature *signature);
     ~Signature();
 
     Q_REQUIRED_RESULT QString name() const;

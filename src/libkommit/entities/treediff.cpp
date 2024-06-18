@@ -54,10 +54,9 @@ TreeDiffEntry::TreeDiffEntry()
 }
 
 TreeDiffEntry::TreeDiffEntry(const git_diff_delta *delta)
+    : mOldFile(delta->old_file.path)
+    , mNewFile(delta->new_file.path)
 {
-    mOldFile = delta->old_file.path;
-    mNewFile = delta->new_file.path;
-
     switch (delta->status) {
     case GIT_DELTA_UNMODIFIED:
         mStatus = ChangeStatus::Unmodified;

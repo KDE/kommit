@@ -39,7 +39,7 @@ QStringList Tree::entries(const QString &path, EntryType filter) const
 {
     auto entries = this->entries(path);
     QStringList ret;
-    for (auto &en : entries)
+    for (const auto &en : entries)
         if (filter == EntryType::All || en.type == filter)
             ret << en.name;
     return ret;
@@ -177,8 +177,8 @@ void Tree::browseNestedEntities(EntryType type, const QString &path, QStringList
             list.append(prefix + dir);
     }
     if (type == EntryType::File || type == EntryType::All) {
-        for (auto const &file : files)
-            list.append(prefix + file);
+        for (const auto &f : files)
+            list.append(prefix + f);
     }
     for (auto const &dir : dirs)
         browseNestedEntities(type, prefix + dir, list);

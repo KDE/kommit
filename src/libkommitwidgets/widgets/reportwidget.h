@@ -56,7 +56,7 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void fillTableWidget();
     LIBKOMMITWIDGETS_NO_EXPORT void slotZoomIn();
     LIBKOMMITWIDGETS_NO_EXPORT void slotZoomOut();
-    LIBKOMMITWIDGETS_NO_EXPORT void zoomResetShortcut();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotZoomResetShortcut();
 
 #ifdef QT_CHARTS_LIB
     QValueAxis *axis = nullptr;

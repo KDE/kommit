@@ -38,10 +38,10 @@ ReportWidget::ReportWidget(AbstractReport *report, QWidget *parent)
 
     auto zoomResetShortcut = new QShortcut(QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_0), this);
     zoomResetShortcut->setContext(Qt::WidgetWithChildrenShortcut);
-    connect(zoomResetShortcut, &QShortcut::activated, this, &ReportWidget::zoomResetShortcut);
+    connect(zoomResetShortcut, &QShortcut::activated, this, &ReportWidget::slotZoomResetShortcut);
 }
 
-void ReportWidget::zoomResetShortcut()
+void ReportWidget::slotZoomResetShortcut()
 {
 #ifdef QT_CHARTS_LIB
     if (!mReport->supportChart())
