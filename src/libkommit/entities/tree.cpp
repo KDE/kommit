@@ -59,7 +59,7 @@ QSharedPointer<File> Tree::file(const QString &path)
     git_tree_entry *entry;
     BEGIN
 
-    if (path.startsWith("/"))
+    if (path.startsWith(QLatin1Char('/')))
         STEP git_tree_entry_bypath(&entry, ptr, toConstChars(path.mid(1)));
     else
         STEP git_tree_entry_bypath(&entry, ptr, toConstChars(path));
@@ -103,7 +103,7 @@ bool Tree::extract(const QString &destinationFolder, const QString &perfix)
 
         if (path.startsWith(w->perfix)) {
             qDebug() << "Path=" << path;
-            auto newFilePath = w->destinationFolder + QLatin1Char('/') + path.mid(w->perfix.size()) + "/" + name;
+            auto newFilePath = w->destinationFolder + QLatin1Char('/') + path.mid(w->perfix.size()) + QLatin1Char('/') + name;
             QFileInfo fi{newFilePath};
             QDir d;
             d.mkpath(fi.absolutePath());
