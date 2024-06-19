@@ -107,12 +107,12 @@ QStringList Manager::ignoredFiles() const
 
 QList<FileStatus> Manager::repoFilesStatus() const
 {
-    const auto buffer = QString(runGit({QStringLiteral("status"),
-                                        QStringLiteral("--untracked-files=all"),
-                                        QStringLiteral("--ignored"),
-                                        QStringLiteral("--short"),
-                                        QStringLiteral("--ignore-submodules"),
-                                        QStringLiteral("--porcelain")}))
+    const auto buffer = QString::fromUtf8(runGit({QStringLiteral("status"),
+                                                  QStringLiteral("--untracked-files=all"),
+                                                  QStringLiteral("--ignored"),
+                                                  QStringLiteral("--short"),
+                                                  QStringLiteral("--ignore-submodules"),
+                                                  QStringLiteral("--porcelain")}))
                             .split(QLatin1Char('\n'));
     QList<FileStatus> files;
     for (const auto &item : buffer) {
@@ -1620,7 +1620,7 @@ BlameData Manager::blame(const File &file) // TODO: change parametere to QShared
 
     BlameData b;
 
-    auto lines = file.content().split('\n');
+    auto lines = file.content().split(QLatin1Char('\n'));
 
     auto count = git_blame_get_hunk_count(blame);
     for (size_t i = 0; i < count; ++i) {
@@ -1628,7 +1628,7 @@ BlameData Manager::blame(const File &file) // TODO: change parametere to QShared
 
         BlameDataRow row;
         row.commitHash = convertToString(&hunk->final_commit_id, 20);
-        row.code = lines.mid(hunk->final_start_line_number, hunk->lines_in_hunk).join('\n');
+        row.code = lines.mid(hunk->final_start_line_number, hunk->lines_in_hunk).join(QLatin1Char('\n'));
         row.log = mLogsCache->findLogByHash(row.commitHash, LogsModel::LogMatchType::BeginMatch);
 
         b.append(row);

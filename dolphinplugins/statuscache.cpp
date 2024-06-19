@@ -159,7 +159,7 @@ QString submodulePath(const QString &rootPath, const QString &childPath)
     auto submodulesList = submodules(repo);
     for (auto const &submodule : submodulesList) {
         qDebug() << "FFFFF" << submodule << rootPath << childPath;
-        if (rootPath + "/" + submodule + "/" == childPath)
+        if (rootPath + QLatin1Char('/') + submodule + QLatin1Char('/') == childPath)
             return submodule;
     }
     return {};

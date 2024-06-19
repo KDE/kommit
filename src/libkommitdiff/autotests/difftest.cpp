@@ -31,12 +31,12 @@ void DiffTest::solutionTest()
 
 void DiffTest::basicList()
 {
-    QStringList oldList{"a", "b", "c", "e"};
-    QStringList newList{"a", "b", "d", "e"};
+    QStringList oldList{QStringLiteral("a"), QStringLiteral("b"), QStringLiteral("c"), QStringLiteral("e")};
+    QStringList newList{QStringLiteral("a"), QStringLiteral("b"), QStringLiteral("d"), QStringLiteral("e")};
     auto diffResult = Diff::diff(oldList, newList);
     QCOMPARE(diffResult.size(), 3);
 
-    QStringList f1{"a", "b"};
+    QStringList f1{QStringLiteral("a"), QStringLiteral("b")};
 
     auto r = diffResult.at(0);
     QCOMPARE(r->type, Diff::SegmentType::SameOnBoth);
@@ -102,12 +102,12 @@ void DiffTest::randomMissedNumber()
 
 void DiffTest::removeFromLast()
 {
-    QStringList oldList{"a", "b", "c"};
-    QStringList newList{"a", "b"};
+    QStringList oldList{QStringLiteral("a"), QStringLiteral("b"), QStringLiteral("c")};
+    QStringList newList{QStringLiteral("a"), QStringLiteral("b")};
     auto diffResult = Diff::diff(oldList, newList);
 
-    QStringList ab{"a", "b"};
-    QStringList c{"c"};
+    QStringList ab{QStringLiteral("a"), QStringLiteral("b")};
+    QStringList c{QStringLiteral("c")};
     QCOMPARE(diffResult.size(), 2);
 
     auto r = diffResult.at(0);
@@ -123,7 +123,16 @@ void DiffTest::removeFromLast()
 
 void DiffTest::allPlacesRemove()
 {
-    QStringList baseList{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+    QStringList baseList{QStringLiteral("a"),
+                         QStringLiteral("b"),
+                         QStringLiteral("c"),
+                         QStringLiteral("d"),
+                         QStringLiteral("e"),
+                         QStringLiteral("f"),
+                         QStringLiteral("g"),
+                         QStringLiteral("h"),
+                         QStringLiteral("i"),
+                         QStringLiteral("j")};
     auto total = baseList.size();
 
     for (auto i = 0; i < total; i++) {
@@ -156,13 +165,13 @@ void DiffTest::allPlacesRemove()
 
 void DiffTest::removedTest()
 {
-    QStringList oldList{"a", "b", "c"};
-    QStringList newList{"a", "c"};
+    QStringList oldList{QStringLiteral("a"), QStringLiteral("b"), QStringLiteral("c")};
+    QStringList newList{QStringLiteral("a"), QStringLiteral("c")};
     auto diffResult = Diff::diff(oldList, newList);
 
-    QStringList a{"a"};
-    QStringList b{"b"};
-    QStringList c{"c"};
+    QStringList a{QStringLiteral("a")};
+    QStringList b{QStringLiteral("b")};
+    QStringList c{QStringLiteral("c")};
     QCOMPARE(diffResult.size(), 3);
 
     auto r = diffResult.at(0);

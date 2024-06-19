@@ -109,33 +109,33 @@ QStringList Submodule::statusTexts() const
 
     // TODO i18n ?
     if (status & Status::InHead)
-        list << "superproject head contains submodule";
+        list << QStringLiteral("superproject head contains submodule");
     if (status & Status::InIndex)
-        list << "superproject index contains submodule";
+        list << QStringLiteral("superproject index contains submodule");
     if (status & Status::InConfig)
-        list << "superproject gitmodules has submodule";
+        list << QStringLiteral("superproject gitmodules has submodule");
     if (status & Status::InWd)
-        list << "superproject workdir has submodule";
+        list << QStringLiteral("superproject workdir has submodule");
     if (status & Status::IndexAdded)
-        list << "in index, not in head";
+        list << QStringLiteral("in index, not in head");
     if (status & Status::IndexDeleted)
-        list << "in head, not in index";
+        list << QStringLiteral("in head, not in index");
     if (status & Status::IndexModified)
-        list << "index and head don't match";
+        list << QStringLiteral("index and head don't match");
     if (status & Status::WdUninitialized)
-        list << "workdir contains empty directory";
+        list << QStringLiteral("workdir contains empty directory");
     if (status & Status::WdAdded)
-        list << "in workdir, not index";
+        list << QStringLiteral("in workdir, not index");
     if (status & Status::WdDeleted)
-        list << "in index, not workdir";
+        list << QStringLiteral("in index, not workdir");
     if (status & Status::WdModified)
-        list << "index and workdir head don't match";
+        list << QStringLiteral("index and workdir head don't match");
     if (status & Status::WdIndexModified)
-        list << "submodule workdir index is dirty";
+        list << QStringLiteral("submodule workdir index is dirty");
     if (status & Status::WdWdModified)
-        list << "submodule workdir has modified files";
+        list << QStringLiteral("submodule workdir has modified files");
     if (status & Status::WdUntracked)
-        list << "wd contains untracked files";
+        list << QStringLiteral("wd contains untracked files");
     return list;
 }
 

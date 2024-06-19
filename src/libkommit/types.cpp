@@ -40,15 +40,15 @@ QStringList convert(git_strarray *arr)
 
 QString convertToString(const git_oid *id, const int len)
 {
-    QString result = "";
+    QString result;
     int lengthOfString = len;
 
     QString s;
     for (int i = 0; i < lengthOfString; i++) {
-        s = QString("%1").arg(id->id[i], 0, 16);
+        s = QStringLiteral("%1").arg(id->id[i], 0, 16);
 
         if (s.length() == 1)
-            result.append("0");
+            result.append(QLatin1Char('0'));
 
         result.append(s);
     }

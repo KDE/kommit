@@ -124,8 +124,8 @@ bool Tree::extract(const QString &destinationFolder, const QString &perfix)
     wrapper w;
     w.destinationFolder = destinationFolder;
     w.tree = this;
-    if (!perfix.startsWith("/"))
-        w.perfix = "/" + perfix;
+    if (!perfix.startsWith(QLatin1Char('/')))
+        w.perfix = QLatin1Char('/') + perfix;
     else
         w.perfix = perfix;
 
