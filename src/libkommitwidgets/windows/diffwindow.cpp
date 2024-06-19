@@ -86,7 +86,7 @@ DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QStrin
 DiffWindow::DiffWindow(Git::Manager *git, QSharedPointer<Git::Tag> tag)
     : AppMainWindow()
     , mOldBranch(tag->name())
-    , mNewBranch("Working dir")
+    , mNewBranch(QStringLiteral("Working dir"))
 {
     init(true);
 
