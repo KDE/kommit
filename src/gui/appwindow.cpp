@@ -21,6 +21,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/searchdialog.h"
 #include "dialogs/selectbranchestodiffdialog.h"
 #include "dialogs/switchbranchdialog.h"
+#include "kommit_appdebug.h"
 #include "models/logsmodel.h"
 #include "multipagewidget.h"
 #include "pages/branchesstatuswidget.h"
@@ -280,7 +281,7 @@ void AppWindow::initRepo()
         if (mGit->init(path)) {
             mGit->open(path);
         } else {
-            qWarning() << " Impossible to initialize git in " << path;
+            qCWarning(KOMMIT_LOG) << " Impossible to initialize git in " << path;
         }
     }
 }

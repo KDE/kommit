@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitglobal.h"
 
+#include "libkommit_debug.h"
 #include <QDebug>
 #include <QIcon>
 #include <QProcess>
@@ -92,7 +93,7 @@ QIcon statusIcon(ChangeStatus status)
     case ChangeStatus::Unknown:
         return {};
     default:
-        qWarning() << "Unknown icon" << (int)status;
+        qCWarning(KOMMITLIB_LOG) << "Unknown icon" << (int)status;
     }
     return QIcon::fromTheme(QStringLiteral("git-status-update"));
 }
