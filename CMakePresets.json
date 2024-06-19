@@ -78,7 +78,20 @@
             "inherits": [
                 "base-qt6"
             ]
-        },	
+        },
+        {   
+            "name": "dev-mold-qt6",
+            "displayName": "Build as debug + using mold linker (qt6)",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+		"BUILD_WITH_QT6": "ON",
+                "CMAKE_SHARED_LINKER_FLAGS": "-fuse-ld=mold"
+            },
+            "inherits": [
+                "base-qt6"
+            ]
+        }, 	
         {
             "name": "dev-disable-deprecated",
             "displayName": "Build as without deprecated methods",
@@ -204,6 +217,10 @@
         {
             "name": "dev-qt6",
             "configurePreset": "dev-qt6"
+        },
+        {
+            "name": "dev-mold-qt6",
+            "configurePreset": "dev-mold-qt6"
         },
         {
             "name": "dev-disable-deprecated",
