@@ -107,12 +107,12 @@ void CommitDetails::setCommit(Git::Commit *commit)
 
     labelParentsText->setVisible(!parents.isEmpty());
     labelParent->setVisible(!parents.isEmpty());
-    labelParentsText->setText(commit->parents().size() > 1 ? QStringLiteral("Parents:") : QStringLiteral("Parent:"));
+    labelParentsText->setText(i18np("Parent:", "Parents:", commit->parents().size()));
     labelParent->setText(parents);
 
     labelChildrenText->setVisible(!children.isEmpty());
     labelChildren->setVisible(!children.isEmpty());
-    labelChildrenText->setText(commit->children().size() > 1 ? QStringLiteral("Children:") : QStringLiteral("Child:"));
+    labelChildrenText->setText(i18np("Child:", "Children:", commit->children().size()));
     labelChildren->setText(children);
 }
 
@@ -207,6 +207,7 @@ QString CommitDetails::generateCommitLink(const QString &hash)
 QString CommitDetails::generateCommitsLink(const QStringList &hashes)
 {
     QStringList ret;
+    ret.reserve(hashes.count());
     for (auto const &hash : hashes)
         ret << generateCommitLink(hash);
 
