@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 01:52+0000\n"
+"POT-Creation-Date: 2024-06-20 01:50+0000\n"
 "PO-Revision-Date: 2024-06-12 08:54+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -192,27 +192,27 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Correction de bugs"
 
-#: src/gui/appwindow.cpp:96
+#: src/gui/appwindow.cpp:97
 #, kde-format
 msgid "No repo selected"
 msgstr "Aucun dépôt sélectionné"
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:129
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Branche courante : %1"
 
-#: src/gui/appwindow.cpp:130
+#: src/gui/appwindow.cpp:131
 #, kde-format
 msgid " (merging)"
 msgstr "(fusion)"
 
-#: src/gui/appwindow.cpp:132
+#: src/gui/appwindow.cpp:133
 #, kde-format
 msgid " (rebasing)"
 msgstr "(re-localisation)"
 
-#: src/gui/appwindow.cpp:164
+#: src/gui/appwindow.cpp:165
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, fuzzy, kde-format
 #| msgid "Init"
@@ -220,97 +220,97 @@ msgctxt "@action"
 msgid "Init…"
 msgstr "Initialiser"
 
-#: src/gui/appwindow.cpp:167
+#: src/gui/appwindow.cpp:168
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action"
 msgid "Open…"
 msgstr "Ouvrir"
 
-#: src/gui/appwindow.cpp:172
+#: src/gui/appwindow.cpp:173
 #, fuzzy, kde-format
 #| msgid "Clone"
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Cloner"
 
-#: src/gui/appwindow.cpp:175
+#: src/gui/appwindow.cpp:176
 #, fuzzy, kde-format
 #| msgid "Changed files"
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Fichiers modifiés"
 
-#: src/gui/appwindow.cpp:181
+#: src/gui/appwindow.cpp:182
 #, kde-format
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Dépôts récents"
 
-#: src/gui/appwindow.cpp:187
+#: src/gui/appwindow.cpp:188
 #, fuzzy, kde-format
 #| msgid "Cleanup"
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Nettoyer"
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:191
 #, fuzzy, kde-format
 #| msgid "Pull"
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Tirer"
 
-#: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:195 src/libkommitwidgets/actions/branchactions.cpp:34
 #, fuzzy, kde-format
 #| msgid "Fetch"
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Rechercher"
 
-#: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:199 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, fuzzy, kde-format
 #| msgid "Push"
 msgctxt "@action"
 msgid "Push…"
 msgstr "Pousser"
 
-#: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:203 src/libkommitwidgets/actions/branchactions.cpp:37
 #, fuzzy, kde-format
 #| msgid "Merge"
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Fusionner"
 
-#: src/gui/appwindow.cpp:206
+#: src/gui/appwindow.cpp:207
 #, fuzzy, kde-format
 #| msgid "Diff branches"
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Calculer la différence entre branches"
 
-#: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/gui/appwindow.cpp:210 src/libkommitwidgets/actions/fileactions.cpp:53
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@action"
 msgid "Search…"
 msgstr "Chercher"
 
-#: src/gui/appwindow.cpp:212
+#: src/gui/appwindow.cpp:213
 #, fuzzy, kde-format
 #| msgid "Repo settings"
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "Paramètres du dépôt"
 
-#: src/gui/appwindow.cpp:215
+#: src/gui/appwindow.cpp:216
 #, fuzzy, kde-format
 #| msgid "Switch/Checkout"
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Basculer / Extraire"
 
-#: src/gui/appwindow.cpp:218
+#: src/gui/appwindow.cpp:219
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Diff tree"
@@ -318,33 +318,33 @@ msgctxt "@action"
 msgid "Diff tree…"
 msgstr "Arborescence des différences"
 
-#: src/gui/appwindow.cpp:255
+#: src/gui/appwindow.cpp:256
 #, fuzzy, kde-format
 #| msgid "Cleanup"
 msgid "Clear"
 msgstr "Nettoyer"
 
-#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Impossible de créer l'emplacement : %1"
 
-#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "Initialiser le dépôt"
 
-#: src/gui/appwindow.cpp:290
+#: src/gui/appwindow.cpp:291
 #, kde-format
 msgid "Open repository"
 msgstr "Ouvrir un dépôt"
 
-#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Impossible de changer de branche pendant une fusion"
 
-#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Changer de branche"
@@ -2711,6 +2711,26 @@ msgstr "Distant :"
 msgid "Tag: "
 msgstr "Étiquette :"
 
+#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.ui:130
+#, fuzzy, kde-format
+#| msgid "Parent:"
+msgid "Parent:"
+msgid_plural "Parents:"
+msgstr[0] "Parent :"
+msgstr[1] "Parent :"
+
+#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#: src/libkommitwidgets/widgets/commitdetails.ui:152
+#, fuzzy, kde-format
+#| msgid "Child:"
+msgid "Child:"
+msgid_plural "Children:"
+msgstr[0] "Fils :"
+msgstr[1] "Fils :"
+
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
 #, kde-format
@@ -2734,18 +2754,6 @@ msgstr "Auteur :"
 #, kde-format
 msgid "Committer:"
 msgstr "Validateur :"
-
-#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, kde-format
-msgid "Parent:"
-msgstr "Parent :"
-
-#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, kde-format
-msgid "Child:"
-msgstr "Fils :"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181

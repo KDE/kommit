@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 01:52+0000\n"
+"POT-Creation-Date: 2024-06-20 01:50+0000\n"
 "PO-Revision-Date: 2023-06-07 16:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -194,27 +194,27 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Virheiden korjaus"
 
-#: src/gui/appwindow.cpp:96
+#: src/gui/appwindow.cpp:97
 #, kde-format
 msgid "No repo selected"
 msgstr "Lähdettä ei ole valittu"
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:129
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Nykyinen haara: %1"
 
-#: src/gui/appwindow.cpp:130
+#: src/gui/appwindow.cpp:131
 #, kde-format
 msgid " (merging)"
 msgstr " (yhdistetään)"
 
-#: src/gui/appwindow.cpp:132
+#: src/gui/appwindow.cpp:133
 #, kde-format
 msgid " (rebasing)"
 msgstr " (pohjataan uudelleen)"
 
-#: src/gui/appwindow.cpp:164
+#: src/gui/appwindow.cpp:165
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, fuzzy, kde-format
 #| msgid "Init"
@@ -222,131 +222,131 @@ msgctxt "@action"
 msgid "Init…"
 msgstr "Alusta"
 
-#: src/gui/appwindow.cpp:167
+#: src/gui/appwindow.cpp:168
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action"
 msgid "Open…"
 msgstr "Avaa"
 
-#: src/gui/appwindow.cpp:172
+#: src/gui/appwindow.cpp:173
 #, fuzzy, kde-format
 #| msgid "Clone"
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Monista"
 
-#: src/gui/appwindow.cpp:175
+#: src/gui/appwindow.cpp:176
 #, fuzzy, kde-format
 #| msgid "Changed files"
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Muuttuneet tiedostot"
 
-#: src/gui/appwindow.cpp:181
+#: src/gui/appwindow.cpp:182
 #, fuzzy, kde-format
 #| msgid "Recent repos"
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Viimeaikaiset lähteet"
 
-#: src/gui/appwindow.cpp:187
+#: src/gui/appwindow.cpp:188
 #, fuzzy, kde-format
 #| msgid "Cleanup"
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Siivoa"
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:191
 #, fuzzy, kde-format
 #| msgid "Pull"
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Tuo"
 
-#: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:195 src/libkommitwidgets/actions/branchactions.cpp:34
 #, fuzzy, kde-format
 #| msgid "Fetch"
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Nouda"
 
-#: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:199 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, fuzzy, kde-format
 #| msgid "Push"
 msgctxt "@action"
 msgid "Push…"
 msgstr "Vie"
 
-#: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:203 src/libkommitwidgets/actions/branchactions.cpp:37
 #, fuzzy, kde-format
 #| msgid "Merge"
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Yhdistä"
 
-#: src/gui/appwindow.cpp:206
+#: src/gui/appwindow.cpp:207
 #, fuzzy, kde-format
 #| msgid "Diff branches"
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Vertaa haaroja"
 
-#: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/gui/appwindow.cpp:210 src/libkommitwidgets/actions/fileactions.cpp:53
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@action"
 msgid "Search…"
 msgstr "Etsi"
 
-#: src/gui/appwindow.cpp:212
+#: src/gui/appwindow.cpp:213
 #, fuzzy, kde-format
 #| msgid "Repo settings"
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "Lähdeasetukset"
 
-#: src/gui/appwindow.cpp:215
+#: src/gui/appwindow.cpp:216
 #, fuzzy, kde-format
 #| msgid "Switch/Checkout"
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Siirry/vaihda"
 
-#: src/gui/appwindow.cpp:218
+#: src/gui/appwindow.cpp:219
 #, fuzzy, kde-format
 #| msgid "Diff tree"
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr "Vertaa puuta"
 
-#: src/gui/appwindow.cpp:255
+#: src/gui/appwindow.cpp:256
 #, fuzzy, kde-format
 #| msgid "Cleanup"
 msgid "Clear"
 msgstr "Siivoa"
 
-#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Polkua ei voi luoda: %1"
 
-#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "Alusta lähde"
 
-#: src/gui/appwindow.cpp:290
+#: src/gui/appwindow.cpp:291
 #, kde-format
 msgid "Open repository"
 msgstr "Avaa lähde"
 
-#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Yhdistettäessä haarasta toiseen ei voi siirtyä"
 
-#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Siirry haaraan"
@@ -2629,6 +2629,26 @@ msgstr "Etäkohde: "
 msgid "Tag: "
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.ui:130
+#, fuzzy, kde-format
+#| msgid "Parent"
+msgid "Parent:"
+msgid_plural "Parents:"
+msgstr[0] "Vanhempi"
+msgstr[1] "Vanhempi"
+
+#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#: src/libkommitwidgets/widgets/commitdetails.ui:152
+#, fuzzy, kde-format
+#| msgid "Child"
+msgid "Child:"
+msgid_plural "Children:"
+msgstr[0] "Lapsi"
+msgstr[1] "Lapsi"
+
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
 #, kde-format
@@ -2655,20 +2675,6 @@ msgstr "Tekijä"
 #| msgid "Committer"
 msgid "Committer:"
 msgstr "Toimittaja"
-
-#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, fuzzy, kde-format
-#| msgid "Parent"
-msgid "Parent:"
-msgstr "Vanhempi"
-
-#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, fuzzy, kde-format
-#| msgid "Child"
-msgid "Child:"
-msgstr "Lapsi"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181

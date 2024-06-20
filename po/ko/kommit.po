@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 01:52+0000\n"
+"POT-Creation-Date: 2024-06-20 01:50+0000\n"
 "PO-Revision-Date: 2024-02-09 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -194,27 +194,27 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "버그 수정"
 
-#: src/gui/appwindow.cpp:96
+#: src/gui/appwindow.cpp:97
 #, kde-format
 msgid "No repo selected"
 msgstr "선택한 저장소 없음"
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:129
 #, kde-format
 msgid "Current branch: %1"
 msgstr "현재 브랜치: %1"
 
-#: src/gui/appwindow.cpp:130
+#: src/gui/appwindow.cpp:131
 #, kde-format
 msgid " (merging)"
 msgstr " (병합 중)"
 
-#: src/gui/appwindow.cpp:132
+#: src/gui/appwindow.cpp:133
 #, kde-format
 msgid " (rebasing)"
 msgstr " (리베이스 중)"
 
-#: src/gui/appwindow.cpp:164
+#: src/gui/appwindow.cpp:165
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, fuzzy, kde-format
 #| msgid "Init"
@@ -222,131 +222,131 @@ msgctxt "@action"
 msgid "Init…"
 msgstr "초기화"
 
-#: src/gui/appwindow.cpp:167
+#: src/gui/appwindow.cpp:168
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action"
 msgid "Open…"
 msgstr "열기"
 
-#: src/gui/appwindow.cpp:172
+#: src/gui/appwindow.cpp:173
 #, fuzzy, kde-format
 #| msgid "Clone"
 msgctxt "@action"
 msgid "Clone…"
 msgstr "복제"
 
-#: src/gui/appwindow.cpp:175
+#: src/gui/appwindow.cpp:176
 #, fuzzy, kde-format
 #| msgid "Changed files"
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "변경된 파일"
 
-#: src/gui/appwindow.cpp:181
+#: src/gui/appwindow.cpp:182
 #, fuzzy, kde-format
 #| msgid "Recent repos"
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "최근 저장소"
 
-#: src/gui/appwindow.cpp:187
+#: src/gui/appwindow.cpp:188
 #, fuzzy, kde-format
 #| msgid "Cleanup"
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "정리"
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:191
 #, fuzzy, kde-format
 #| msgid "Pull"
 msgctxt "@action"
 msgid "Pull…"
 msgstr "풀"
 
-#: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:195 src/libkommitwidgets/actions/branchactions.cpp:34
 #, fuzzy, kde-format
 #| msgid "Fetch"
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "가져오기"
 
-#: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:199 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, fuzzy, kde-format
 #| msgid "Push"
 msgctxt "@action"
 msgid "Push…"
 msgstr "푸시"
 
-#: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:203 src/libkommitwidgets/actions/branchactions.cpp:37
 #, fuzzy, kde-format
 #| msgid "Merge"
 msgctxt "@action"
 msgid "Merge…"
 msgstr "병합"
 
-#: src/gui/appwindow.cpp:206
+#: src/gui/appwindow.cpp:207
 #, fuzzy, kde-format
 #| msgid "Diff branches"
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "브랜치간 Diff"
 
-#: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/gui/appwindow.cpp:210 src/libkommitwidgets/actions/fileactions.cpp:53
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@action"
 msgid "Search…"
 msgstr "검색"
 
-#: src/gui/appwindow.cpp:212
+#: src/gui/appwindow.cpp:213
 #, fuzzy, kde-format
 #| msgid "Repo settings"
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "저장소 설정"
 
-#: src/gui/appwindow.cpp:215
+#: src/gui/appwindow.cpp:216
 #, fuzzy, kde-format
 #| msgid "Switch/Checkout"
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "전환/체크아웃"
 
-#: src/gui/appwindow.cpp:218
+#: src/gui/appwindow.cpp:219
 #, fuzzy, kde-format
 #| msgid "Diff tree"
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr "트리 차이점 보기"
 
-#: src/gui/appwindow.cpp:255
+#: src/gui/appwindow.cpp:256
 #, fuzzy, kde-format
 #| msgid "Cleanup"
 msgid "Clear"
 msgstr "정리"
 
-#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "경로를 만들 수 없음: %1"
 
-#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "저장소 초기화"
 
-#: src/gui/appwindow.cpp:290
+#: src/gui/appwindow.cpp:291
 #, kde-format
 msgid "Open repository"
 msgstr "저장소 열기"
 
-#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "병합 중에는 브랜치를 전환할 수 없음"
 
-#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "브랜치 전환"
@@ -2700,6 +2700,24 @@ msgstr "원격:"
 msgid "Tag: "
 msgstr "태그:"
 
+#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.ui:130
+#, fuzzy, kde-format
+#| msgid "Parent:"
+msgid "Parent:"
+msgid_plural "Parents:"
+msgstr[0] "상위:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#: src/libkommitwidgets/widgets/commitdetails.ui:152
+#, fuzzy, kde-format
+#| msgid "Child:"
+msgid "Child:"
+msgid_plural "Children:"
+msgstr[0] "하위:"
+
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
 #, kde-format
@@ -2723,18 +2741,6 @@ msgstr "작성자:"
 #, kde-format
 msgid "Committer:"
 msgstr "커미터:"
-
-#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, kde-format
-msgid "Parent:"
-msgstr "상위:"
-
-#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, kde-format
-msgid "Child:"
-msgstr "하위:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181

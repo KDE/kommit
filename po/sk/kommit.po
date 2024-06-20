@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 01:52+0000\n"
+"POT-Creation-Date: 2024-06-20 01:50+0000\n"
 "PO-Revision-Date: 2023-12-08 19:34+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -193,27 +193,27 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Oprava chýb"
 
-#: src/gui/appwindow.cpp:96
+#: src/gui/appwindow.cpp:97
 #, kde-format
 msgid "No repo selected"
 msgstr ""
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:129
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Aktuálna vetva: %1"
 
-#: src/gui/appwindow.cpp:130
+#: src/gui/appwindow.cpp:131
 #, kde-format
 msgid " (merging)"
 msgstr ""
 
-#: src/gui/appwindow.cpp:132
+#: src/gui/appwindow.cpp:133
 #, kde-format
 msgid " (rebasing)"
 msgstr ""
 
-#: src/gui/appwindow.cpp:164
+#: src/gui/appwindow.cpp:165
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, fuzzy, kde-format
 #| msgid "Init"
@@ -221,130 +221,130 @@ msgctxt "@action"
 msgid "Init…"
 msgstr "Začiatok"
 
-#: src/gui/appwindow.cpp:167
+#: src/gui/appwindow.cpp:168
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action"
 msgid "Open…"
 msgstr "Otvoriť"
 
-#: src/gui/appwindow.cpp:172
+#: src/gui/appwindow.cpp:173
 #, fuzzy, kde-format
 #| msgid "Clone"
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Klonovať"
 
-#: src/gui/appwindow.cpp:175
+#: src/gui/appwindow.cpp:176
 #, fuzzy, kde-format
 #| msgid "Change url..."
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Zmeniť URL..."
 
-#: src/gui/appwindow.cpp:181
+#: src/gui/appwindow.cpp:182
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Hľadať"
 
-#: src/gui/appwindow.cpp:187
+#: src/gui/appwindow.cpp:188
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Vyčistenie"
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:191
 #, fuzzy, kde-format
 #| msgid "Pull"
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Ťahať"
 
-#: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:195 src/libkommitwidgets/actions/branchactions.cpp:34
 #, fuzzy, kde-format
 #| msgid "Fetch"
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Získať"
 
-#: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:199 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, fuzzy, kde-format
 #| msgid "Push"
 msgctxt "@action"
 msgid "Push…"
 msgstr "Tlačiť"
 
-#: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:203 src/libkommitwidgets/actions/branchactions.cpp:37
 #, fuzzy, kde-format
 #| msgid "Merge"
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Spojiť"
 
-#: src/gui/appwindow.cpp:206
+#: src/gui/appwindow.cpp:207
 #, fuzzy, kde-format
 #| msgid "Branches"
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Vetvy"
 
-#: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/gui/appwindow.cpp:210 src/libkommitwidgets/actions/fileactions.cpp:53
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@action"
 msgid "Search…"
 msgstr "Hľadať"
 
-#: src/gui/appwindow.cpp:212
+#: src/gui/appwindow.cpp:213
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr ""
 
-#: src/gui/appwindow.cpp:215
+#: src/gui/appwindow.cpp:216
 #, fuzzy, kde-format
 #| msgid "Checkout..."
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Získať..."
 
-#: src/gui/appwindow.cpp:218
+#: src/gui/appwindow.cpp:219
 #, fuzzy, kde-format
 #| msgid "Branches"
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr "Vetvy"
 
-#: src/gui/appwindow.cpp:255
+#: src/gui/appwindow.cpp:256
 #, fuzzy, kde-format
 #| msgid "Search"
 msgid "Clear"
 msgstr "Vyčistenie"
 
-#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr ""
 
-#: src/gui/appwindow.cpp:290
+#: src/gui/appwindow.cpp:291
 #, kde-format
 msgid "Open repository"
 msgstr ""
 
-#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Prepnúť vetvu"
@@ -2616,6 +2616,28 @@ msgstr "Vzdialené"
 msgid "Tag: "
 msgstr "Značka"
 
+#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.ui:130
+#, fuzzy, kde-format
+#| msgid "Parent"
+msgid "Parent:"
+msgid_plural "Parents:"
+msgstr[0] "Rodič"
+msgstr[1] "Rodič"
+msgstr[2] "Rodič"
+
+#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#: src/libkommitwidgets/widgets/commitdetails.ui:152
+#, fuzzy, kde-format
+#| msgid "Child"
+msgid "Child:"
+msgid_plural "Children:"
+msgstr[0] "Potomok"
+msgstr[1] "Potomok"
+msgstr[2] "Potomok"
+
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
 #, kde-format
@@ -2641,20 +2663,6 @@ msgstr "Autor"
 #| msgid "Commit"
 msgid "Committer:"
 msgstr "Začleniť"
-
-#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, fuzzy, kde-format
-#| msgid "Parent"
-msgid "Parent:"
-msgstr "Rodič"
-
-#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, fuzzy, kde-format
-#| msgid "Child"
-msgid "Child:"
-msgstr "Potomok"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181

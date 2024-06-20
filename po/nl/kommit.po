@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 01:52+0000\n"
+"POT-Creation-Date: 2024-06-20 01:50+0000\n"
 "PO-Revision-Date: 2024-06-15 16:14+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -190,143 +190,143 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Repareren van bugs"
 
-#: src/gui/appwindow.cpp:96
+#: src/gui/appwindow.cpp:97
 #, kde-format
 msgid "No repo selected"
 msgstr "Geen repo geselecteerd"
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:129
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Huidige branch: %1"
 
-#: src/gui/appwindow.cpp:130
+#: src/gui/appwindow.cpp:131
 #, kde-format
 msgid " (merging)"
 msgstr " (samenvoeging)"
 
-#: src/gui/appwindow.cpp:132
+#: src/gui/appwindow.cpp:133
 #, kde-format
 msgid " (rebasing)"
 msgstr " (rebasing)"
 
-#: src/gui/appwindow.cpp:164
+#: src/gui/appwindow.cpp:165
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgctxt "@action"
 msgid "Init…"
 msgstr "Initialiseren…"
 
-#: src/gui/appwindow.cpp:167
+#: src/gui/appwindow.cpp:168
 #, kde-format
 msgctxt "@action"
 msgid "Open…"
 msgstr "Openen…"
 
-#: src/gui/appwindow.cpp:172
+#: src/gui/appwindow.cpp:173
 #, kde-format
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Klonen…"
 
-#: src/gui/appwindow.cpp:175
+#: src/gui/appwindow.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Gewijzigde bestanden…"
 
-#: src/gui/appwindow.cpp:181
+#: src/gui/appwindow.cpp:182
 #, kde-format
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Recente repo's"
 
-#: src/gui/appwindow.cpp:187
+#: src/gui/appwindow.cpp:188
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Opschonen…"
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:191
 #, kde-format
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Pull…"
 
-#: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:195 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Ophalen…"
 
-#: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:199 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Push…"
 msgstr "Push…"
 
-#: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:203 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Samenvoegen…"
 
-#: src/gui/appwindow.cpp:206
+#: src/gui/appwindow.cpp:207
 #, kde-format
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Diff branches…"
 
-#: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/gui/appwindow.cpp:210 src/libkommitwidgets/actions/fileactions.cpp:53
 #, kde-format
 msgctxt "@action"
 msgid "Search…"
 msgstr "Zoeken…"
 
-#: src/gui/appwindow.cpp:212
+#: src/gui/appwindow.cpp:213
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "Repo-instellingen…"
 
-#: src/gui/appwindow.cpp:215
+#: src/gui/appwindow.cpp:216
 #, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Omschakelen/checkout…"
 
-#: src/gui/appwindow.cpp:218
+#: src/gui/appwindow.cpp:219
 #, kde-format
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr "Diff tree…"
 
-#: src/gui/appwindow.cpp:255
+#: src/gui/appwindow.cpp:256
 #, kde-format
 msgid "Clear"
 msgstr "Wissen"
 
-#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Kan pad '%1' niet aanmaken"
 
-#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "Repo initialiseren"
 
-#: src/gui/appwindow.cpp:290
+#: src/gui/appwindow.cpp:291
 #, kde-format
 msgid "Open repository"
 msgstr "Opslagruimte openen"
 
-#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Kan branch niet omschakelen tijdens samenvoegen"
 
-#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Branch omschakelen"
@@ -2667,6 +2667,26 @@ msgstr "Op afstand: "
 msgid "Tag: "
 msgstr "Tag: "
 
+#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.ui:130
+#, fuzzy, kde-format
+#| msgid "Parent:"
+msgid "Parent:"
+msgid_plural "Parents:"
+msgstr[0] "Ouder:"
+msgstr[1] "Ouder:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#: src/libkommitwidgets/widgets/commitdetails.ui:152
+#, fuzzy, kde-format
+#| msgid "Child:"
+msgid "Child:"
+msgid_plural "Children:"
+msgstr[0] "Kind:"
+msgstr[1] "Kind:"
+
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
 #, kde-format
@@ -2690,18 +2710,6 @@ msgstr "Auteur:"
 #, kde-format
 msgid "Committer:"
 msgstr "Committer:"
-
-#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, kde-format
-msgid "Parent:"
-msgstr "Ouder:"
-
-#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, kde-format
-msgid "Child:"
-msgstr "Kind:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181

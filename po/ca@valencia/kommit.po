@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 01:52+0000\n"
-"PO-Revision-Date: 2024-06-15 14:00+0200\n"
+"POT-Creation-Date: 2024-06-20 01:50+0000\n"
+"PO-Revision-Date: 2024-06-18 10:29+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -193,144 +193,144 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Esmena d'errors"
 
-#: src/gui/appwindow.cpp:96
+#: src/gui/appwindow.cpp:97
 #, kde-format
 msgid "No repo selected"
 msgstr "Cap repositori seleccionat"
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:129
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Branca actual: %1"
 
-#: src/gui/appwindow.cpp:130
+#: src/gui/appwindow.cpp:131
 #, kde-format
 msgid " (merging)"
 msgstr " (en fusió)"
 
-#: src/gui/appwindow.cpp:132
+#: src/gui/appwindow.cpp:133
 #, kde-format
 msgid " (rebasing)"
 msgstr " (en rebase)"
 
-#: src/gui/appwindow.cpp:164
+#: src/gui/appwindow.cpp:165
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgctxt "@action"
 msgid "Init…"
 msgstr "Restablix…"
 
-#: src/gui/appwindow.cpp:167
+#: src/gui/appwindow.cpp:168
 #, kde-format
 msgctxt "@action"
 msgid "Open…"
 msgstr "Obri…"
 
-#: src/gui/appwindow.cpp:172
+#: src/gui/appwindow.cpp:173
 #, kde-format
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Clona…"
 
-#: src/gui/appwindow.cpp:175
+#: src/gui/appwindow.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Fitxers canviats…"
 
-#: src/gui/appwindow.cpp:181
+#: src/gui/appwindow.cpp:182
 #, kde-format
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Repositoris recents"
 
-#: src/gui/appwindow.cpp:187
+#: src/gui/appwindow.cpp:188
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Neteja…"
 
 # skip-rule: punctuation-3period
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:191
 #, kde-format
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Extrau… («Pull»)"
 
-#: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:195 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Obtín…"
 
-#: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:199 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Push…"
 msgstr "Puja…"
 
-#: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:203 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Fusiona…"
 
-#: src/gui/appwindow.cpp:206
+#: src/gui/appwindow.cpp:207
 #, kde-format
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Diff de les branques…"
 
-#: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/gui/appwindow.cpp:210 src/libkommitwidgets/actions/fileactions.cpp:53
 #, kde-format
 msgctxt "@action"
 msgid "Search…"
 msgstr "Busca…"
 
-#: src/gui/appwindow.cpp:212
+#: src/gui/appwindow.cpp:213
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "Configureu el repositori…"
 
-#: src/gui/appwindow.cpp:215
+#: src/gui/appwindow.cpp:216
 #, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Canvia/Extrau…"
 
-#: src/gui/appwindow.cpp:218
+#: src/gui/appwindow.cpp:219
 #, kde-format
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr "Arbre de diferències…"
 
-#: src/gui/appwindow.cpp:255
+#: src/gui/appwindow.cpp:256
 #, kde-format
 msgid "Clear"
 msgstr "Neteja"
 
-#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "No s'ha pogut crear el camí: %1"
 
-#: src/gui/appwindow.cpp:277 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
 msgstr "Restablix el repositori"
 
-#: src/gui/appwindow.cpp:290
+#: src/gui/appwindow.cpp:291
 #, kde-format
 msgid "Open repository"
 msgstr "Obri el repositori"
 
-#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No es pot canviar de branca mentre s'està fusionant"
 
-#: src/gui/appwindow.cpp:369 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
 msgstr "Canvia de branca"
@@ -2393,21 +2393,7 @@ msgstr "Eixida"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:74
-#, fuzzy, kde-format
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\">\n"
-#| "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
-#| "\"utf-8\" /><style type=\"text/css\">\n"
-#| "p, li { white-space: pre-wrap; }\n"
-#| "hr { height: 1px; border-width: 0; }\n"
-#| "li.unchecked::marker { content: \"\\2610\"; }\n"
-#| "li.checked::marker { content: \"\\2612\"; }\n"
-#| "</style></head><body style=\" font-family:'Monospace'; font-size:10pt; "
-#| "font-weight:400; font-style:normal;\">\n"
-#| "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#| "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#| "font-size:9pt;\"><br /></p></body></html>"
+#, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
@@ -2431,11 +2417,11 @@ msgstr ""
 "hr { height: 1px; border-width: 0; }\n"
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
+"</style></head><body style=\" font-family:'Monospace'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
-"size:9pt;\"><br /></p></body></html>"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
 
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:33
 #, kde-format
@@ -2668,6 +2654,26 @@ msgstr "Remot: "
 msgid "Tag: "
 msgstr "Etiqueta: "
 
+#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.ui:130
+#, fuzzy, kde-format
+#| msgid "Parent:"
+msgid "Parent:"
+msgid_plural "Parents:"
+msgstr[0] "Pare:"
+msgstr[1] "Pare:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#: src/libkommitwidgets/widgets/commitdetails.ui:152
+#, fuzzy, kde-format
+#| msgid "Child:"
+msgid "Child:"
+msgid_plural "Children:"
+msgstr[0] "Fill:"
+msgstr[1] "Fill:"
+
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
 #, kde-format
@@ -2691,18 +2697,6 @@ msgstr "Autoria:"
 #, kde-format
 msgid "Committer:"
 msgstr "Comitent:"
-
-#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, kde-format
-msgid "Parent:"
-msgstr "Pare:"
-
-#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, kde-format
-msgid "Child:"
-msgstr "Fill:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181
