@@ -6,7 +6,7 @@ set(PROJECT_VERSION_MAJOR 1)
 set(PROJECT_VERSION_MINOR 6)
 set(PROJECT_VERSION_PATCH 40)
 
-set (RELEASE_SERVICE_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
+set(RELEASE_SERVICE_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
 
 set(LIBKOMMIT_LIB_VERSION "${RELEASE_SERVICE_VERSION}")
 set(LIBKOMMIT_LIB_SOVERSION "0")
@@ -40,7 +40,7 @@ include(KDEClangFormat)
 include(ECMDeprecationSettings)
 
 
-if (QT_MAJOR_VERSION STREQUAL "6")
+if(QT_MAJOR_VERSION STREQUAL "6")
     set(QT_MIN_VERSION "6.4.0")
     set(KF_MIN_VERSION "5.240.0")
     set(KF_MAJOR_VERSION "6")
@@ -48,7 +48,7 @@ else()
     set(KF_MAJOR_VERSION "5")
 endif()
 
-set (CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 17)
 
 find_package(
     Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION}
@@ -80,7 +80,7 @@ find_package(
         SyntaxHighlighting
 )
 
-if (NOT WIN32 AND NOT APPLE)
+if(NOT WIN32 AND NOT APPLE)
     find_package(KF${KF_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
     set(HAVE_KDBUSADDONS true)
 endif()
@@ -107,23 +107,23 @@ ecm_set_disabled_deprecation_versions(QT 5.15.2 KF 6.3)
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
 
 set(COMPILE_WITH_UNITY_CMAKE_SUPPORT OFF)
-if (USE_UNITY_CMAKE_SUPPORT)
+if(USE_UNITY_CMAKE_SUPPORT)
     set(COMPILE_WITH_UNITY_CMAKE_SUPPORT ON)
 endif()
 
 if(BUILD_TESTING)
     find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Test)
     add_definitions(-DBUILD_TESTING)
-endif(BUILD_TESTING)
+endif()
 
 
 kdoctools_install(po)
 
 add_subdirectory(icons)
 add_subdirectory(src)
-if (UNIX AND TARGET DolphinVcs)
+if(UNIX AND TARGET DolphinVcs)
     add_subdirectory(dolphinplugins)
-endif ()
+endif()
 
 
 ecm_qt_install_logging_categories(
@@ -132,7 +132,7 @@ ecm_qt_install_logging_categories(
     DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
 )
 
-if (KOMMIT_BUILD_DIR)
+if(KOMMIT_BUILD_DIR)
     file(WRITE ${KOMMIT_BUILD_DIR}/version "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
     message("-- Version in file ${KOMMIT_BUILD_DIR}/version saved")
 endif()
@@ -161,7 +161,7 @@ set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Hamed Masafi")
 
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 
-if (KOMMIT_BUILD_DIR)
+if(KOMMIT_BUILD_DIR)
     set(CPACK_PACKAGE_FILE_NAME "kommit")
 else()
     set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)

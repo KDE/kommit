@@ -125,11 +125,11 @@ target_link_libraries(libkommitgui
     KF${KF_MAJOR_VERSION}::SyntaxHighlighting
 )
 
-if (TARGET KF${KF_MAJOR_VERSION}::DBusAddons)
+if(TARGET KF${KF_MAJOR_VERSION}::DBusAddons)
     target_link_libraries(libkommitgui KF${KF_MAJOR_VERSION}::DBusAddons)
 endif()	
 
-if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
+if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(libkommitgui PROPERTIES UNITY_BUILD ON)
 endif()
 
@@ -143,6 +143,6 @@ set_target_properties(
     WIN32_EXECUTABLE TRUE
 )
 
-if (BUILD_TESTING)
+if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()

@@ -144,7 +144,7 @@ target_link_libraries(libkommit
     KF${KF_MAJOR_VERSION}::I18n
 )
 
-if (BUILD_TESTING)
+if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
 

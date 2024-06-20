@@ -33,6 +33,6 @@ target_link_libraries(kommitdolphinplugin PRIVATE
 
 #install(FILES fileviewgitpluginsettings.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 
-if (BUILD_TESTING)
+if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()

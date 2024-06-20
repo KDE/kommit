@@ -219,7 +219,7 @@ ki18n_wrap_ui(
     dialogs/taginfodialog.ui
 )
 
-if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
+if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(libkommitwidgets PROPERTIES UNITY_BUILD ON)
 endif()
 
