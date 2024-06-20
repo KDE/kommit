@@ -120,7 +120,7 @@ target_sources(libkommit PRIVATE ${SOURCES} ${HEADERS})
 #     PUBLIC FILE_SET HEADERS
 #     BASE_DIRS ${MY_LIB_SOURCE_DIR}
 #     FILES ${HEADERS}
-# )
+#)
 
 generate_export_header(libkommit BASE_NAME libkommit)
 

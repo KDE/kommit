@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 macro(add_libkommit_test _source)
     set(_test ${_source} testcommon.cpp testcommon.h)
-    get_filename_component( _name ${_source} NAME_WE )
+    get_filename_component(_name ${_source} NAME_WE)
     add_executable(${_name} ${_test} ${ARGN} ${_name}.h)
     add_test(NAME ${_name} COMMAND ${_name})
     ecm_mark_as_test(${_name})
