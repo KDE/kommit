@@ -63,18 +63,16 @@ CommandArgsParser::~CommandArgsParser()
 
 bool CommandArgsParser::checkGitPath(const QString &path)
 {
-    do {
-        QFileInfo fi(path);
-        if (fi.isFile()) {
-            mGit->open(fi.absolutePath());
-        } else {
-            mGit->open(path);
-        }
-        if (!mGit->isValid()) {
-            KMessageBox::error(nullptr, i18n("The path is not git repo: %1", path));
-            return false;
-        }
-    } while (false);
+    QFileInfo fi(path);
+    if (fi.isFile()) {
+        mGit->open(fi.absolutePath());
+    } else {
+        mGit->open(path);
+    }
+    if (!mGit->isValid()) {
+        KMessageBox::error(nullptr, i18n("The path is not git repo: %1", path));
+        return false;
+    }
     return true;
 }
 
