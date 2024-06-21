@@ -107,12 +107,12 @@ QStringList Manager::ignoredFiles() const
 
 QList<FileStatus> Manager::repoFilesStatus() const
 {
-    const auto buffer = QString::fromUtf8(runGit({QStringLiteral("status"),
-                                                  QStringLiteral("--untracked-files=all"),
-                                                  QStringLiteral("--ignored"),
-                                                  QStringLiteral("--short"),
-                                                  QStringLiteral("--ignore-submodules"),
-                                                  QStringLiteral("--porcelain")}))
+    const auto buffer = runGit({QStringLiteral("status"),
+                                QStringLiteral("--untracked-files=all"),
+                                QStringLiteral("--ignored"),
+                                QStringLiteral("--short"),
+                                QStringLiteral("--ignore-submodules"),
+                                QStringLiteral("--porcelain")})
                             .split(QLatin1Char('\n'));
     QList<FileStatus> files;
     for (const auto &item : buffer) {
@@ -748,7 +748,7 @@ int Manager::findStashIndex(const QString &message) const
 QStringList Manager::readAllNonEmptyOutput(const QStringList &cmd) const
 {
     QStringList list;
-    const auto out = QString(runGit(cmd)).split(QLatin1Char('\n'));
+    const auto out = runGit(cmd).split(QLatin1Char('\n'));
 
     for (const auto &line : out) {
         const auto b = line.trimmed();
@@ -1003,7 +1003,7 @@ bool Manager::switchBranch(const QString &branchName) const
 
 QString Manager::run(const AbstractCommand &cmd) const
 {
-    return QString(runGit(cmd.generateArgs()));
+    return runGit(cmd.generateArgs());
 }
 
 bool Manager::init(const QString &path)
@@ -1055,7 +1055,7 @@ bool Manager::clone(const QString &url, const QString &localPath, CloneObserver 
     return IS_OK;
 }
 
-QByteArray Manager::runGit(const QStringList &args) const
+QString Manager::runGit(const QStringList &args) const
 {
     //    qCDebug(KOMMITLIB_LOG).noquote() << "Running: git " << args.join(" ");
 
@@ -1073,7 +1073,7 @@ QByteArray Manager::runGit(const QStringList &args) const
         qWarning() << "====\nERROR:\n====\n" << err;
         qWarning() << "====\nOUTPUR:\n====\n" << out;
     }
-    return out; // + err;
+    return QString::fromUtf8(out); // + err;
 }
 
 QStringList Manager::ls(const QString &place) const
@@ -1150,7 +1150,7 @@ void Manager::saveFile(const QString &place, const QString &fileName, const QStr
     QFile f{localFile};
     if (!f.open(QIODevice::WriteOnly))
         return;
-    f.write(buffer);
+    f.write(buffer.toUtf8());
     f.close();
 }
 
@@ -1513,7 +1513,7 @@ Remote Manager::remoteDetails(const QString &remoteName)
     if (mRemotes.contains(remoteName))
         return mRemotes.value(remoteName);
     Remote r;
-    auto ret = QString(runGit({QStringLiteral("remote"), QStringLiteral("show"), remoteName}));
+    auto ret = runGit({QStringLiteral("remote"), QStringLiteral("show"), remoteName});
     r.parse(ret);
     mRemotes.insert(remoteName, r);
     return r;

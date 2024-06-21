@@ -123,7 +123,7 @@ public:
 
     // run
     QString run(const AbstractCommand &cmd) const;
-    QByteArray runGit(const QStringList &args) const;
+    QString runGit(const QStringList &args) const;
 
     // common actions
     bool init(const QString &path);

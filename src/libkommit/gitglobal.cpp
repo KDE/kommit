@@ -33,7 +33,7 @@ void run(const QString &workingDir, const AbstractCommand &cmd)
     p.waitForFinished();
 }
 
-QByteArray runGit(const QString &workingDir, const QStringList &args)
+QString runGit(const QString &workingDir, const QStringList &args)
 {
     //    qCDebug(KOMMITLIB_LOG).noquote() << "Running: git " << args.join(" ");
 
@@ -43,7 +43,7 @@ QByteArray runGit(const QString &workingDir, const QStringList &args)
     p.setWorkingDirectory(workingDir);
     p.start();
     p.waitForFinished();
-    auto out = p.readAllStandardOutput();
+    auto out = QString::fromUtf8(p.readAllStandardOutput());
     //    auto err = p.readAllStandardError();
 
     return out; // + err;
@@ -52,7 +52,7 @@ QByteArray runGit(const QString &workingDir, const QStringList &args)
 QStringList readAllNonEmptyOutput(const QString &workingDir, const QStringList &cmd, bool trim)
 {
     QStringList list;
-    const auto out = QString(runGit(workingDir, cmd)).split(QLatin1Char('\n'));
+    const auto out = runGit(workingDir, cmd).split(QLatin1Char('\n'));
 
     for (const auto &line : out) {
         QString b;
