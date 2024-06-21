@@ -1207,7 +1207,7 @@ PointerList<Branch> Manager::branches(BranchType type) const
     }
     git_reference *ref;
     git_branch_t b;
-    qDebug() << " *it " << it;
+    // qDebug() << " *it " << it;
     while (!git_branch_next(&ref, &b, it)) {
         auto branch = new Branch{ref};
         list << QSharedPointer<Branch>{branch};
