@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-20 01:50+0000\n"
-"PO-Revision-Date: 2024-06-18 12:04+0200\n"
+"POT-Creation-Date: 2024-06-21 01:45+0000\n"
+"PO-Revision-Date: 2024-06-20 17:52+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -308,12 +308,12 @@ msgstr "Árbol de diferencias..."
 msgid "Clear"
 msgstr "Limpiar"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:252
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "No se ha podido crear la ruta: %1"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:252
 #, kde-format
 msgid "Init repo"
 msgstr "Iniciar repositorio"
@@ -323,42 +323,42 @@ msgstr "Iniciar repositorio"
 msgid "Open repository"
 msgstr "Abrir repositorio"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:502
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No se puede cambiar de rama durante la fusión"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:502
 #, kde-format
 msgid "Switch branch"
 msgstr "Cambiar rama"
 
-#: src/gui/commandargsparser.cpp:74
+#: src/gui/commandargsparser.cpp:73
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "La ruta no es un repositorio de git: %1"
 
-#: src/gui/commandargsparser.cpp:259
+#: src/gui/commandargsparser.cpp:257
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Repositorio iniciado correctamente"
 
-#: src/gui/commandargsparser.cpp:560
+#: src/gui/commandargsparser.cpp:558
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Archivos añadidos a git correctamente"
 
-#: src/gui/commandargsparser.cpp:570
+#: src/gui/commandargsparser.cpp:568
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "¿Desea dejar los archivos en el disco?"
 
-#: src/gui/commandargsparser.cpp:570
+#: src/gui/commandargsparser.cpp:568
 #, kde-format
 msgid "Remove from index"
 msgstr "Eliminar del índice"
 
-#: src/gui/commandargsparser.cpp:572
+#: src/gui/commandargsparser.cpp:570
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Archivos eliminados de git correctamente"
@@ -2658,22 +2658,20 @@ msgstr "Etiqueta: "
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:110
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, fuzzy, kde-format
-#| msgid "Parent:"
+#, kde-format
 msgid "Parent:"
 msgid_plural "Parents:"
 msgstr[0] "Padre:"
-msgstr[1] "Padre:"
+msgstr[1] "Padres:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:115
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, fuzzy, kde-format
-#| msgid "Child:"
+#, kde-format
 msgid "Child:"
 msgid_plural "Children:"
 msgstr[0] "Hijo:"
-msgstr[1] "Hijo:"
+msgstr[1] "Hijos:"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #: src/libkommitwidgets/widgets/commitdetails.ui:14

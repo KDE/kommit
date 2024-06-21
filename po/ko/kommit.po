@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-20 01:50+0000\n"
+"POT-Creation-Date: 2024-06-21 01:45+0000\n"
 "PO-Revision-Date: 2024-02-09 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -326,12 +326,12 @@ msgstr "트리 차이점 보기"
 msgid "Clear"
 msgstr "정리"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:252
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "경로를 만들 수 없음: %1"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:252
 #, kde-format
 msgid "Init repo"
 msgstr "저장소 초기화"
@@ -341,42 +341,42 @@ msgstr "저장소 초기화"
 msgid "Open repository"
 msgstr "저장소 열기"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:502
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "병합 중에는 브랜치를 전환할 수 없음"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:502
 #, kde-format
 msgid "Switch branch"
 msgstr "브랜치 전환"
 
-#: src/gui/commandargsparser.cpp:74
+#: src/gui/commandargsparser.cpp:73
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "경로가 Git 저장소가 아님: %1"
 
-#: src/gui/commandargsparser.cpp:259
+#: src/gui/commandargsparser.cpp:257
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "저장소가 초기화됨"
 
-#: src/gui/commandargsparser.cpp:560
+#: src/gui/commandargsparser.cpp:558
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Git에 파일을 추가함"
 
-#: src/gui/commandargsparser.cpp:570
+#: src/gui/commandargsparser.cpp:568
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "디스크에 파일을 유지하시겠습니까?"
 
-#: src/gui/commandargsparser.cpp:570
+#: src/gui/commandargsparser.cpp:568
 #, kde-format
 msgid "Remove from index"
 msgstr "색인에서 삭제"
 
-#: src/gui/commandargsparser.cpp:572
+#: src/gui/commandargsparser.cpp:570
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Git에서 파일을 삭제함"

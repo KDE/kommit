@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-20 01:50+0000\n"
+"POT-Creation-Date: 2024-06-21 01:45+0000\n"
 "PO-Revision-Date: 2024-06-16 07:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -307,12 +307,12 @@ msgstr "Dif-i arbon…"
 msgid "Clear"
 msgstr "Purigi"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:252
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ne eblas krei vojon: %1"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:252
 #, kde-format
 msgid "Init repo"
 msgstr "Iniciati deponejon"
@@ -322,42 +322,42 @@ msgstr "Iniciati deponejon"
 msgid "Open repository"
 msgstr "Malfermi deponejon"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:502
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Ne povas ŝanĝi branĉon dum kunfandado"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:502
 #, kde-format
 msgid "Switch branch"
 msgstr "Ŝanĝi branĉon"
 
-#: src/gui/commandargsparser.cpp:74
+#: src/gui/commandargsparser.cpp:73
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "La vojo ne estas git-repo: %1"
 
-#: src/gui/commandargsparser.cpp:259
+#: src/gui/commandargsparser.cpp:257
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "La deponejo sukcese initiciatiĝis"
 
-#: src/gui/commandargsparser.cpp:560
+#: src/gui/commandargsparser.cpp:558
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Dosiero(j) aldonita(j) al git sukcese"
 
-#: src/gui/commandargsparser.cpp:570
+#: src/gui/commandargsparser.cpp:568
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Ĉu vi ŝatus lasi dosiero(j)n sur disko?"
 
-#: src/gui/commandargsparser.cpp:570
+#: src/gui/commandargsparser.cpp:568
 #, kde-format
 msgid "Remove from index"
 msgstr "Forigi el indekso"
 
-#: src/gui/commandargsparser.cpp:572
+#: src/gui/commandargsparser.cpp:570
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Dosiero(j) forigita(j) de git sukcese"

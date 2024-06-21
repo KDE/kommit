@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-20 01:50+0000\n"
+"POT-Creation-Date: 2024-06-21 01:45+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -334,12 +334,12 @@ msgstr "Diff zuhaitza"
 msgid "Clear"
 msgstr "Txukuntzea..."
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:252
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ez da bide-izena sortzeko gai: %1"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:252
 #, kde-format
 msgid "Init repo"
 msgstr "Hasieratu gordetegia"
@@ -349,42 +349,42 @@ msgstr "Hasieratu gordetegia"
 msgid "Open repository"
 msgstr "Ireki gordetegia"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:502
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Ezin du adarra aldatu bateratu bitartean"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:502
 #, kde-format
 msgid "Switch branch"
 msgstr "Adarrez aldatu"
 
-#: src/gui/commandargsparser.cpp:74
+#: src/gui/commandargsparser.cpp:73
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Bide-izena ez da git gordetegia: %1"
 
-#: src/gui/commandargsparser.cpp:259
+#: src/gui/commandargsparser.cpp:257
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Gordetegia ondo hasieratu da"
 
-#: src/gui/commandargsparser.cpp:560
+#: src/gui/commandargsparser.cpp:558
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Fitxategia(k) git-era ondo gehitu dira"
 
-#: src/gui/commandargsparser.cpp:570
+#: src/gui/commandargsparser.cpp:568
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Fitxateia(k) diskoan utzi nahi zen(it)u(z)ke?"
 
-#: src/gui/commandargsparser.cpp:570
+#: src/gui/commandargsparser.cpp:568
 #, kde-format
 msgid "Remove from index"
 msgstr "Kendu indizetik"
 
-#: src/gui/commandargsparser.cpp:572
+#: src/gui/commandargsparser.cpp:570
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Fitxategia(k) git-etik ondo kendu d(ir)a"

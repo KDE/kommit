@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-20 01:50+0000\n"
-"PO-Revision-Date: 2024-06-15 16:14+0200\n"
+"POT-Creation-Date: 2024-06-21 01:45+0000\n"
+"PO-Revision-Date: 2024-06-20 14:07+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -306,12 +306,12 @@ msgstr "Diff tree…"
 msgid "Clear"
 msgstr "Wissen"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:252
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Kan pad '%1' niet aanmaken"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:254
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:252
 #, kde-format
 msgid "Init repo"
 msgstr "Repo initialiseren"
@@ -321,42 +321,42 @@ msgstr "Repo initialiseren"
 msgid "Open repository"
 msgstr "Opslagruimte openen"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:502
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Kan branch niet omschakelen tijdens samenvoegen"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:504
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:502
 #, kde-format
 msgid "Switch branch"
 msgstr "Branch omschakelen"
 
-#: src/gui/commandargsparser.cpp:74
+#: src/gui/commandargsparser.cpp:73
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Het pad is geen git-repo: %1"
 
-#: src/gui/commandargsparser.cpp:259
+#: src/gui/commandargsparser.cpp:257
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "De repo is met succes geïnitialiseerd"
 
-#: src/gui/commandargsparser.cpp:560
+#: src/gui/commandargsparser.cpp:558
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Bestand(en) met succes toegevoegd aan git "
 
-#: src/gui/commandargsparser.cpp:570
+#: src/gui/commandargsparser.cpp:568
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Wilt u bestand(en) op schijf laten?"
 
-#: src/gui/commandargsparser.cpp:570
+#: src/gui/commandargsparser.cpp:568
 #, kde-format
 msgid "Remove from index"
 msgstr "Uit index verwijderen"
 
-#: src/gui/commandargsparser.cpp:572
+#: src/gui/commandargsparser.cpp:570
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Bestand(en) met succes verwijderd uit git "
@@ -2392,21 +2392,7 @@ msgstr "Uitvoer"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:74
-#, fuzzy, kde-format
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\">\n"
-#| "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
-#| "\"utf-8\" /><style type=\"text/css\">\n"
-#| "p, li { white-space: pre-wrap; }\n"
-#| "hr { height: 1px; border-width: 0; }\n"
-#| "li.unchecked::marker { content: \"\\2610\"; }\n"
-#| "li.checked::marker { content: \"\\2612\"; }\n"
-#| "</style></head><body style=\" font-family:'Monospace'; font-size:10pt; "
-#| "font-weight:400; font-style:normal;\">\n"
-#| "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#| "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#| "font-size:9pt;\"><br /></p></body></html>"
+#, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
@@ -2430,7 +2416,7 @@ msgstr ""
 "hr { height: 1px; border-width: 0; }\n"
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
+"</style></head><body style=\" font-family:'Monospace'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
@@ -2670,22 +2656,20 @@ msgstr "Tag: "
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:110
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, fuzzy, kde-format
-#| msgid "Parent:"
+#, kde-format
 msgid "Parent:"
 msgid_plural "Parents:"
 msgstr[0] "Ouder:"
-msgstr[1] "Ouder:"
+msgstr[1] "Ouders:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:115
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, fuzzy, kde-format
-#| msgid "Child:"
+#, kde-format
 msgid "Child:"
 msgid_plural "Children:"
 msgstr[0] "Kind:"
-msgstr[1] "Kind:"
+msgstr[1] "Kinderen:"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
