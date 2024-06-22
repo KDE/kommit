@@ -26,10 +26,10 @@ public:
     void restoreState(QSettings &settings) override;
 
 private:
-    void init(Git::Manager *git);
+    void init();
     void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
     void slotPushButtonRemoveSelectedClicked();
     void slotComboBoxReferenceBranchCurrentIndexChanged(int selectedBranch);
-    BranchActions *mActions = nullptr;
-    Git::BranchesModel *mModel = nullptr;
+    BranchActions *const mActions;
+    Git::BranchesModel *const mModel;
 };

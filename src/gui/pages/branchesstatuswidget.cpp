@@ -19,16 +19,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 BranchesStatusWidget::BranchesStatusWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
+    , mActions(new BranchActions(git, this))
+    , mModel(git->branchesModel())
 
 {
     setupUi(this);
-    init(git);
+    init();
 }
 
-void BranchesStatusWidget::init(Git::Manager *git)
+void BranchesStatusWidget::init()
 {
-    mActions = new BranchActions(git, this);
-    mModel = git->branchesModel();
     treeView->setModel(mModel);
 
     comboBoxReferenceBranch->setModel(mModel);
