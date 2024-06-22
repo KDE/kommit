@@ -28,7 +28,7 @@ public:
 private:
     void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
     void slotTreeViewItemActivated(const QModelIndex &index);
-    void init(Git::Manager *git);
-    StashActions *mActions = nullptr;
-    Git::StashesModel *mModel = nullptr;
+    void init();
+    StashActions *const mActions;
+    Git::StashesModel *const mModel;
 };

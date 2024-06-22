@@ -11,20 +11,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 StashesWidget::StashesWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
+    , mActions(new StashActions(git, this))
+    , mModel(git->stashesModel())
 {
     setupUi(this);
-    init(git);
+    init();
 }
 
-void StashesWidget::init(Git::Manager *git)
+void StashesWidget::init()
 {
-    mActions = new StashActions(git, this);
-
     pushButtonApply->setAction(mActions->actionApply());
     pushButtonRemoveSelected->setAction(mActions->actionDrop());
     pushButtonCreateNew->setAction(mActions->actionNew());
 
-    mModel = git->stashesModel();
     treeView->setModel(mModel);
 
     connect(treeView, &QTreeView::customContextMenuRequested, this, &StashesWidget::slotTreeViewCustomContextMenuRequested);
