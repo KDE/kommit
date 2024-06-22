@@ -13,8 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/types.h>
 namespace Impl
 {
-QString removeSlashAtEnd(const QString &s);
-};
+Q_REQUIRED_RESULT QString removeSlashAtEnd(const QString &s);
+}
 
 class QFileInfo;
 class StatusCache
