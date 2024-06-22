@@ -2658,13 +2658,15 @@ msgstr "Validateur :"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Parent:"
 msgid "Parent:"
 msgstr "Parent :"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Child:"
 msgid "Child:"
 msgstr "Fils :"
 
