@@ -25,9 +25,8 @@ public:
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
 
-    void init(Git::Manager *git);
-
 private:
+    void init(Git::Manager *git);
     void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
     void slotPushButtonRemoveSelectedClicked();
     void slotComboBoxReferenceBranchCurrentIndexChanged(int selectedBranch);
