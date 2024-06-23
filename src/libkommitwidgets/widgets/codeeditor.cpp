@@ -575,7 +575,6 @@ void CodeEditor::highlightSegment(Diff::Segment *segment)
 
 void CodeEditor::clearAll()
 {
-    qDeleteAll(mSegments);
     mSegments.clear();
     clear();
     mLastLineNumber = 0;
