@@ -1069,9 +1069,9 @@ QString Manager::runGit(const QStringList &args) const
     auto err = p.readAllStandardError();
 
     if (p.exitStatus() == QProcess::CrashExit) {
-        qWarning() << "=== Crash on git process ===";
-        qWarning() << "====\nERROR:\n====\n" << err;
-        qWarning() << "====\nOUTPUR:\n====\n" << out;
+        qCWarning(KOMMITLIB_LOG) << "=== Crash on git process ===";
+        qCWarning(KOMMITLIB_LOG) << "====\nERROR:\n====\n" << err;
+        qCWarning(KOMMITLIB_LOG) << "====\nOUTPUR:\n====\n" << out;
     }
     return QString::fromUtf8(out); // + err;
 }
@@ -1176,7 +1176,7 @@ QStringList Manager::branchesNames(BranchType type)
         //        if (git_branch_is_head(ref))
         //            continue;
 
-        qDebug() << git_reference_name(ref);
+        qCDebug(KOMMITLIB_LOG) << git_reference_name(ref);
         const char *branchName;
         git_branch_name(&branchName, ref);
         list << branchName;
