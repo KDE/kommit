@@ -84,7 +84,7 @@ void AppWindow::init()
     addPage<SubmodulesWidget>(QStringLiteral("view_submodules"));
     addPage<RemotesWidget>(QStringLiteral("view_remotes"));
     addPage<TagsWidget>(QStringLiteral("view_tags"));
-    addPage<ReportsWidget>(QStringLiteral("view_tags"));
+    addPage<ReportsWidget>(QStringLiteral("view_reports"));
 
     setupGUI(StandardWindowOption::Default, QStringLiteral("kommitui.rc"));
     mMainWidget->setCurrentIndex(0);

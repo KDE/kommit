@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gui name="kommit"
-     version="2"
+     version="3"
      xmlns="http://www.kde.org/standards/kxmlgui/1.0"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
@@ -21,6 +21,7 @@
     <Action name="view_submodules"/>
     <Action name="view_remotes"/>
     <Action name="view_tags"/>
+    <Action name="view_reports"/>
   </Menu>
   <Menu name="repo">
     <text>Repo</text>
