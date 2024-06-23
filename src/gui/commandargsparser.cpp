@@ -1,3 +1,4 @@
+
 /*
 SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 
@@ -428,8 +429,14 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
 
 ArgParserReturn CommandArgsParser::history(const QString &file)
 {
-    mGit->open(file.mid(0, file.lastIndexOf(QLatin1Char('/'))));
-    auto fileCopy = file.mid(mGit->path().size() + 1);
+    QFileInfo fi{file};
+
+    if (!fi.exists()) {
+        KMessageBox::error(nullptr, i18n("Cannot find the file"), i18n("History"));
+        return 0;
+    }
+    mGit->open(fi.absolutePath());
+    auto fileCopy = file.mid(mGit->path().size());
     FileHistoryDialog d(mGit, fileCopy);
     d.exec();
     return 0;
