@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 01:49+0000\n"
+"POT-Creation-Date: 2024-06-24 03:05+0000\n"
 "PO-Revision-Date: 2024-04-05 00:32-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -395,14 +395,14 @@ msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
-#: src/gui/kommitui.rc:45
+#: src/gui/kommitui.rc:46
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Barra de ferramentas principal"
 
 #. i18n: ectx: Menu (file)
 #. i18n: ectx: Menu (repo)
-#: src/gui/kommitui.rc:10 src/gui/kommitui.rc:26
+#: src/gui/kommitui.rc:10 src/gui/kommitui.rc:27
 #, kde-format
 msgid "Repo"
 msgstr "Repositório"
