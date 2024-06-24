@@ -58,7 +58,7 @@ void BranchesStatusWidget::restoreState(QSettings &settings)
 
 void BranchesStatusWidget::slotComboBoxReferenceBranchCurrentIndexChanged(int)
 {
-    auto selectedBranch = comboBoxReferenceBranch->currentText();
+    const auto selectedBranch = comboBoxReferenceBranch->currentText();
     mModel->setReferenceBranch(selectedBranch);
     mActions->setOtherBranch(mModel->findByName(selectedBranch));
 }

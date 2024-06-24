@@ -31,8 +31,8 @@ void CommitsWidget::reload()
 {
     mRepoModel->clear();
     QStringList branchNames;
-    auto branches = git()->branches(Git::Manager::BranchType::AllBranches);
-    for (auto &branch : branches) {
+    const auto branches = git()->branches(Git::Manager::BranchType::AllBranches);
+    for (const auto &branch : branches) {
         branchNames << branch->name();
         mBranchesMap.insert(branch->name(), branch);
     }
