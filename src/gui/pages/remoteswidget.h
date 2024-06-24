@@ -28,7 +28,7 @@ public:
 private:
     void slotListViewItemActivated(const QModelIndex &index);
     void slotListViewCustomContextMenuRequested(const QPoint &pos);
-    void init(Git::Manager *git);
-    Git::RemotesModel *mModel = nullptr;
-    RemotesActions *mActions = nullptr;
+    void init();
+    Git::RemotesModel *const mModel;
+    RemotesActions *const mActions;
 };

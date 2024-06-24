@@ -13,10 +13,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 RemotesWidget::RemotesWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
+    , mModel(git->remotesModel())
+    , mActions(new RemotesActions(git, this))
+
 {
     setupUi(this);
-
-    init(git);
+    init();
 }
 
 void RemotesWidget::saveState(QSettings &settings) const
@@ -76,13 +78,11 @@ void RemotesWidget::slotListViewCustomContextMenuRequested(const QPoint &pos)
     mActions->popup();
 }
 
-void RemotesWidget::init(Git::Manager *git)
+void RemotesWidget::init()
 {
-    mModel = git->remotesModel();
     listView->setModelColumn(0);
     listView->setModel(mModel);
 
-    mActions = new RemotesActions(git, this);
     pushButtonAdd->setAction(mActions->actionCreate());
     pushButtonRemove->setAction(mActions->actionRemove());
 

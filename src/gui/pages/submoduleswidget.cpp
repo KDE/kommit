@@ -14,13 +14,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 SubmodulesWidget::SubmodulesWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
     , mActions(new SubmoduleActions(git, this))
+    , mModel(git->submodulesModel())
 {
     setupUi(this);
 
     pushButtonAddNew->setAction(mActions->actionCreate());
     pushButtonUpdate->setAction(mActions->actionUpdate());
 
-    mModel = git->submodulesModel();
     treeView->setModel(mModel);
 
     connect(treeView, &QTreeView::customContextMenuRequested, this, &SubmodulesWidget::slotTreeViewCustomContextMenuRequested);

@@ -30,5 +30,5 @@ private:
     void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
     void slotTreeViewActivated(const QModelIndex &index);
     SubmoduleActions *const mActions;
-    Git::SubmodulesModel *mModel = nullptr;
+    Git::SubmodulesModel *const mModel;
 };
