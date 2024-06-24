@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-22 01:53+0000\n"
+"POT-Creation-Date: 2024-06-24 01:41+0000\n"
 "PO-Revision-Date: 2024-06-20 10:50+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -103,7 +103,7 @@ msgstr "Diferència"
 msgid "Ignore file"
 msgstr "Ignora el fitxer"
 
-#: dolphinplugins/actions.h:27
+#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:435
 #, kde-format
 msgid "History"
 msgstr "Historial"
@@ -310,12 +310,12 @@ msgstr "Arbre de diferències…"
 msgid "Clear"
 msgstr "Neteja"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:252
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:253
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "No s'ha pogut crear el camí: %1"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:252
+#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:253
 #, kde-format
 msgid "Init repo"
 msgstr "Restablix el repositori"
@@ -325,42 +325,48 @@ msgstr "Restablix el repositori"
 msgid "Open repository"
 msgstr "Obri el repositori"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:502
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:509
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No es pot canviar de branca mentre s'està fusionant"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:502
+#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:509
 #, kde-format
 msgid "Switch branch"
 msgstr "Canvia de branca"
 
-#: src/gui/commandargsparser.cpp:73
+#: src/gui/commandargsparser.cpp:74
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "El camí no és un repositori de Git: %1"
 
-#: src/gui/commandargsparser.cpp:257
+#: src/gui/commandargsparser.cpp:258
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "El repositori s'ha inicialitzat correctament"
 
-#: src/gui/commandargsparser.cpp:558
+#: src/gui/commandargsparser.cpp:435
+#, fuzzy, kde-format
+#| msgid "Unable to open the file"
+msgid "Cannot find the file"
+msgstr "No s'ha pogut obrir el fitxer"
+
+#: src/gui/commandargsparser.cpp:565
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Els fitxers s'han afegit correctament"
 
-#: src/gui/commandargsparser.cpp:568
+#: src/gui/commandargsparser.cpp:575
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Voleu deixar els fitxers en el disc?"
 
-#: src/gui/commandargsparser.cpp:568
+#: src/gui/commandargsparser.cpp:575
 #, kde-format
 msgid "Remove from index"
 msgstr "Elimina des de l'índex"
 
-#: src/gui/commandargsparser.cpp:570
+#: src/gui/commandargsparser.cpp:577
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Els fitxers s'han eliminat correctament de Git"
@@ -387,14 +393,14 @@ msgstr "---"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
-#: src/gui/kommitui.rc:45
+#: src/gui/kommitui.rc:46
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Barra d'eines principal"
 
 #. i18n: ectx: Menu (file)
 #. i18n: ectx: Menu (repo)
-#: src/gui/kommitui.rc:10 src/gui/kommitui.rc:26
+#: src/gui/kommitui.rc:10 src/gui/kommitui.rc:27
 #, kde-format
 msgid "Repo"
 msgstr "Repositori"
