@@ -84,7 +84,7 @@ void MultiPageWidget::addPage(const QString &title, const QIcon &icon, WidgetBas
 
     stackedWidget->addWidget(widget);
 
-    widget->layout()->setContentsMargins(0, 0, 0, 0);
+    widget->layout()->setContentsMargins({});
 
     verticalLayoutButtons->insertWidget(m_actionGroup->actions().size() - 1, btn);
 }
@@ -106,7 +106,7 @@ void MultiPageWidget::addPage(WidgetBase *widget, QAction *action)
 
     stackedWidget->addWidget(widget);
 
-    widget->layout()->setContentsMargins(0, 0, 0, 0);
+    widget->layout()->setContentsMargins({});
 
     verticalLayoutButtons->insertWidget(m_actionGroup->actions().size() - 1, btn);
 }
