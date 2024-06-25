@@ -141,7 +141,7 @@ void CodeEditor::setTheme(const KSyntaxHighlighting::Theme &theme)
 
 int CodeEditor::sidebarWidth() const
 {
-    auto longestText = std::max_element(mBlocksData.begin(), mBlocksData.end(), [](BlockData *d1, BlockData *d2) {
+    const auto longestText = std::max_element(mBlocksData.begin(), mBlocksData.end(), [](BlockData *d1, BlockData *d2) {
         return d1->extraText.size() < d2->extraText.size();
     });
     int count = int(std::log10(blockCount() + 1));
@@ -479,8 +479,8 @@ int CodeEditor::append(const QString &code, CodeEditor::BlockType type, BlockDat
 
 QPair<int, int> CodeEditor::blockArea(int from, int to)
 {
-    auto firstBlock = document()->findBlockByLineNumber(from);
-    auto secondBlock = document()->findBlockByLineNumber(to);
+    const auto firstBlock = document()->findBlockByLineNumber(from);
+    const auto secondBlock = document()->findBlockByLineNumber(to);
     //    qCDebug(KOMMIT_LOG) << from << " to " << to << firstBlock.text() << secondBlock.text();
 
     int top = qRound(blockBoundingGeometry(firstBlock).translated(contentOffset()).top());
@@ -496,7 +496,7 @@ QPair<int, int> CodeEditor::blockArea(int from, int to)
 
 QPair<int, int> CodeEditor::visibleLines() const
 {
-    auto block = firstVisibleBlock();
+    const auto block = firstVisibleBlock();
     auto ret = qMakePair(block.blockNumber(), 0);
 
     //    while (block.isVisible() && block.isValid()) {

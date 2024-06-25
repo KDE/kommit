@@ -78,7 +78,7 @@ void DiffWidget::createPreviewWidget()
     mPreviewEditorRight->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     layout->addWidget(mPreviewEditorRight);
 
-    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setContentsMargins({});
     layout->setSpacing(segmentConnector->width() + 2 * (splitter->handleWidth()));
 
     mPreviewWidget->setStyleSheet(QStringLiteral("QPlainTextEdit{border: 3px solid gray;}"));

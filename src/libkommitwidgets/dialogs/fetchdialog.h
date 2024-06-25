@@ -28,5 +28,5 @@ public:
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotAccept();
 
-    Git::FetchObserver *mObserver;
+    Git::FetchObserver *const mObserver;
 };

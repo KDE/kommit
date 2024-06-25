@@ -36,7 +36,7 @@ void SegmentConnector::setSegments(const QList<Diff::DiffSegment *> &newSegments
     int newIndex{0};
     mSegmentPos.clear();
 
-    for (auto &s : mSegments) {
+    for (auto &s : std::as_const(mSegments)) {
         if (m_sameSize) {
             auto sizeMax = qMax(s->oldText.size(), s->newText.size());
 
