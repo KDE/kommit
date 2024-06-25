@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-24 01:41+0000\n"
+"POT-Creation-Date: 2024-06-25 01:43+0000\n"
 "PO-Revision-Date: 2022-09-07 22:16-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -506,7 +506,7 @@ msgid "Filter..."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
-#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:59
+#: src/gui/pages/remoteswidget.cpp:64 src/gui/pages/submoduleswidget.ui:59
 #, kde-format
 msgid "Update"
 msgstr ""

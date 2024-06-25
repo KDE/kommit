@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-24 01:41+0000\n"
-"PO-Revision-Date: 2024-06-22 10:14+0200\n"
+"POT-Creation-Date: 2024-06-25 01:43+0000\n"
+"PO-Revision-Date: 2024-06-24 08:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 # NdT: Com que és una capa gràfica del Git, he intentat seguir la terminologia pròpia de la traducció del Git (https://github.com/Softcatala/git-po/blob/master/po/ca.po)
 #, kde-format
@@ -346,10 +346,9 @@ msgid "The repo inited successfully"
 msgstr "El repositori s'ha inicialitzat correctament"
 
 #: src/gui/commandargsparser.cpp:435
-#, fuzzy, kde-format
-#| msgid "Unable to open the file"
+#, kde-format
 msgid "Cannot find the file"
-msgstr "No s'ha pogut obrir el fitxer"
+msgstr "No s'ha pogut trobar el fitxer"
 
 #: src/gui/commandargsparser.cpp:565
 #, kde-format
@@ -514,7 +513,7 @@ msgid "Filter..."
 msgstr "Filtra..."
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
-#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:59
+#: src/gui/pages/remoteswidget.cpp:64 src/gui/pages/submoduleswidget.ui:59
 #, kde-format
 msgid "Update"
 msgstr "Actualitza"
