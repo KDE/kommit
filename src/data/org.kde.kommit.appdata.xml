@@ -96,6 +96,13 @@
   <project_group>KDE</project_group>
   <releases>
     <release version="1.6.0" date="2024-06-25">
+      <artifacts>
+        <artifact type="source">
+          <location>https://download.kde.org/stable/kommit/kommit-1.6.0.tar.xz</location>
+          <checksum type="sha256">ac30eb5f1a8c4035c6499d27325d499121ac2de7b3d381cacb0dd7427fb45025</checksum>
+        </artifact>
+      </artifacts>
+    </release>
     <release version="1.0.2" date="2023-05-04">
       <artifacts>
         <artifact type="source">
