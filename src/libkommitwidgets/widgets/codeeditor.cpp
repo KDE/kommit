@@ -20,8 +20,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QPainter>
 #include <QPalette>
 
-#include <QtMath>
-
 class BlockUserData : public QTextBlockUserData
 {
 public:

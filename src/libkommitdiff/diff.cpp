@@ -12,7 +12,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "solution.h"
 #include "text.h"
 
-#include <QDebug>
 #include <QDir>
 
 #include <set>

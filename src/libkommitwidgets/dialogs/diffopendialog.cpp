@@ -7,7 +7,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "diffopendialog.h"
 
 #include <KLocalizedString>
-#include <QFileDialog>
 #include <QSettings>
 
 DiffOpenDialog::DiffOpenDialog(QWidget *parent)

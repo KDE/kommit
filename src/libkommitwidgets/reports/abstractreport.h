@@ -7,8 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "libkommitwidgets_export.h"
-
-#include <QAbstractTableModel>
+#include <QObject>
 
 namespace Git
 {

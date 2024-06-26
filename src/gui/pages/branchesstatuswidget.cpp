@@ -15,7 +15,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <QDebug>
 
 BranchesStatusWidget::BranchesStatusWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)

@@ -10,7 +10,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QCryptographicHash>
 #include <QDir>
 #include <QFile>
-#include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QStandardPaths>

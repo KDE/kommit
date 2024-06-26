@@ -7,8 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "avatarview.h"
 #include "core/gravatarcache.h"
-
-#include <QDir>
+#include <QFile>
 
 AvatarView::AvatarView(QWidget *parent)
     : QLabel{parent}

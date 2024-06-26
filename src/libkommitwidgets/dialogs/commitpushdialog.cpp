@@ -15,7 +15,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/changedfilesmodel.h"
 #include "runnerdialog.h"
 
-#include <QPainter>
 #include <QWindow>
 
 #include <KSharedConfig>

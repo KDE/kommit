@@ -49,7 +49,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QMenu>
 #include <QSettings>
 #include <QStatusBar>
-#include <QtConcurrent>
 
 AppWindow::AppWindow()
     : AppMainWindow()

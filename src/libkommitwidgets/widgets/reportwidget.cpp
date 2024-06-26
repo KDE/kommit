@@ -12,8 +12,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QBarSet>
 #include <QChart>
 #include <QChartView>
-#include <QLineSeries>
-#include <QVXYModelMapper>
 #include <QValueAxis>
 #endif
 

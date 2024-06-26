@@ -7,7 +7,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "mergeopenfilesdialog.h"
 
 #include <KLocalizedString>
-#include <QFileDialog>
 
 MergeOpenFilesDialog::MergeOpenFilesDialog(QWidget *parent)
     : AppDialog(parent)

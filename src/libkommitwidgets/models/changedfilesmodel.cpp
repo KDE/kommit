@@ -12,8 +12,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QDebug>
 #include <QIcon>
-#include <QPainter>
-#include <QPixmap>
 #include <entities/submodule.h>
 
 QIcon ChangedFilesModel::createIcon(Git::ChangeStatus status)

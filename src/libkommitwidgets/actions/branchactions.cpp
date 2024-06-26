@@ -9,7 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 
 #include "libkommitwidgets_appdebug.h"
-#include <QDebug>
 #include <QInputDialog>
 
 #include <commands/commandmerge.h>

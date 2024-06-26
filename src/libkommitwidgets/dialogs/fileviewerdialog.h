@@ -13,7 +13,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KParts/MainWindow>
 #include <KParts/ReadOnlyPart>
-#include <KService>
 
 class QMimeType;
 namespace Git

@@ -7,7 +7,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitglobal.h"
 
 #include "libkommit_debug.h"
-#include <QDebug>
 #include <QIcon>
 #include <QProcess>
 

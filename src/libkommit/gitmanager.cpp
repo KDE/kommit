@@ -26,7 +26,6 @@
 #include "libkommit_debug.h"
 #include <QFile>
 #include <QProcess>
-#include <QSortFilterProxyModel>
 #include <QtConcurrent>
 
 #include <abstractreference.h>

@@ -10,8 +10,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include "libkommitwidgets_appdebug.h"
 
-#include <QDebug>
-
 #include <KLocalizedString>
 
 #define BRANCH_TYPE_LOCAL 1

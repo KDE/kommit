@@ -9,7 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KActionCollection>
 #include <KLocalizedString>
 
-#include <QDebug>
 #include <QDockWidget>
 #include <QTreeView>
 
