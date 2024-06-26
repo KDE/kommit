@@ -31,7 +31,6 @@ DiffWindow::DiffWindow()
 
 DiffWindow::DiffWindow(Git::Manager *git)
     : AppMainWindow()
-    , mGit(git)
 {
     init(true);
 
@@ -62,7 +61,6 @@ DiffWindow::DiffWindow(QSharedPointer<Git::File> oldFile, QSharedPointer<Git::Fi
 
 DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QString &newBranch)
     : AppMainWindow()
-    , mGit(git)
     , mOldBranch(oldBranch)
     , mNewBranch(newBranch)
 {

@@ -61,7 +61,6 @@ QString readFile(const QString &filePath)
 
 MergeWindow::MergeWindow(Git::Manager *git, Mode mode, QWidget *parent)
     : AppMainWindow(parent)
-    , mGit(git)
 {
     Q_UNUSED(mode)
     auto w = new QWidget(this);

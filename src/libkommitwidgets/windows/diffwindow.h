@@ -43,7 +43,6 @@ public:
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void fileOpen();
     LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewFileSelected(const QString &file);
-    Git::Manager *mGit = nullptr;
     QSharedPointer<Git::File> mOldFile;
     QSharedPointer<Git::File> mNewFile;
 

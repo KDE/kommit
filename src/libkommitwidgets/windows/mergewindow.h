@@ -67,7 +67,6 @@ private Q_SLOTS:
     void slotPlainTextEditResultBlockSelected();
 
 private:
-    Git::Manager *const mGit;
     Ui::MainMergeWidget m_ui;
     void updateResult();
     void initActions();
