@@ -27,7 +27,7 @@ public:
     bool event(QEvent *event) override;
 
 protected:
-    Git::Manager *mGit = nullptr;
+    Git::Manager *const mGit;
 
     template<typename _Enum>
     void initComboBox(QComboBox *comboBox)

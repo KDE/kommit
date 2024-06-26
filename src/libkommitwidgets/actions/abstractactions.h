@@ -53,7 +53,7 @@ class LIBKOMMITWIDGETS_EXPORT AbstractActions : public QObject
     Q_OBJECT
 
 protected:
-    Git::Manager *mGit = nullptr;
+    Git::Manager *const mGit;
     QList<QAction *> mActions;
     QWidget *mParent = nullptr;
     QMenu *const mMenu;
