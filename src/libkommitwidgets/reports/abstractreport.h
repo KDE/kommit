@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "libkommitwidgets_export.h"
 #include <QObject>
-
+#include <QVariant>
 namespace Git
 {
 class Manager;
