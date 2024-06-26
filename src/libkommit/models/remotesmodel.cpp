@@ -78,6 +78,13 @@ void RemotesModel::setUrl(const QString &remoteName, const QString &newUrl)
     load();
 }
 
+void RemotesModel::clear()
+{
+    beginResetModel();
+    mData.clear();
+    endResetModel();
+}
+
 void RemotesModel::fill()
 {
     qDeleteAll(mData.begin(), mData.end());

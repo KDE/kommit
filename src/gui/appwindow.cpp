@@ -122,17 +122,20 @@ AppWindow *AppWindow::instance()
 
 void AppWindow::gitPathChanged()
 {
-    updateActions(true);
+    updateActions(mGit->isValid());
     setWindowFilePath(mGit->path());
-    //    setWindowTitle(_git->path());
 
-    QString statusText = i18n("Current branch: %1", mGit->currentBranch());
-    if (mGit->isMerging())
-        statusText.append(i18n(" (merging)"));
-    else if (mGit->isRebasing())
-        statusText.append(i18n(" (rebasing)"));
+    if (mGit->isValid()) {
+        QString statusText = i18n("Current branch: %1", mGit->currentBranch());
+        if (mGit->isMerging())
+            statusText.append(i18n(" (merging)"));
+        else if (mGit->isRebasing())
+            statusText.append(i18n(" (rebasing)"));
 
-    mStatusCurrentBranchLabel->setText(statusText);
+        mStatusCurrentBranchLabel->setText(statusText);
+    } else {
+        mStatusCurrentBranchLabel->setText(i18n("No repo selected"));
+    }
 }
 
 void AppWindow::settingsUpdated()

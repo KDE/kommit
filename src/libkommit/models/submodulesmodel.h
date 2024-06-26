@@ -27,6 +27,8 @@ public:
     bool append(Submodule *module);
     Submodule *fromIndex(const QModelIndex &index);
 
+    void clear() override;
+
 protected:
     void fill() override;
 

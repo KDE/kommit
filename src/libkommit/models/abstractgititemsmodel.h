@@ -28,6 +28,7 @@ public:
     Q_ENUM(Status)
     Q_REQUIRED_RESULT bool isLoaded() const;
     Q_REQUIRED_RESULT Status status() const;
+    virtual void clear() = 0;
 
 public Q_SLOTS:
     void load();

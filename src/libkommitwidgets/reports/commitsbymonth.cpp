@@ -22,37 +22,41 @@ void CommitsByMonth::reload()
 {
     clear();
 
-    struct DataRow {
-        int sortKey;
-        int count{0};
-        QString month;
-    };
+    if (mGit->isValid()) {
+        struct DataRow {
+            int sortKey;
+            int count{0};
+            QString month;
+        };
 
-    QList<DataRow> data;
+        QList<DataRow> data;
 
-    auto commitCb = [&data](QSharedPointer<Git::Commit> commit) {
-        auto time = commit->committer()->time();
+        auto commitCb = [&data](QSharedPointer<Git::Commit> commit) {
+            auto time = commit->committer()->time();
 
-        auto sortKey = time.toString(QStringLiteral("yyyyMM")).toInt();
-        auto i = std::find_if(data.begin(), data.end(), [&sortKey](const DataRow &row) {
-            return row.sortKey == sortKey;
-        });
-        if (i == data.end()) {
-            DataRow row;
-            row.sortKey = sortKey;
-            row.month = time.toString(QStringLiteral("MMM-yy"));
-            data << row;
-        } else {
-            (*i).count++;
+            auto sortKey = time.toString(QStringLiteral("yyyyMM")).toInt();
+            auto i = std::find_if(data.begin(), data.end(), [&sortKey](const DataRow &row) {
+                return row.sortKey == sortKey;
+            });
+            if (i == data.end()) {
+                DataRow row;
+                row.sortKey = sortKey;
+                row.month = time.toString(QStringLiteral("MMM-yy"));
+                data << row;
+            } else {
+                (*i).count++;
+            }
+        };
+
+        mGit->forEachCommits(commitCb, {});
+
+        for (auto const &d : data) {
+            addData({d.month, d.count});
+            extendRange(d.count);
         }
-    };
-
-    mGit->forEachCommits(commitCb, {});
-
-    for (auto const &d : data) {
-        addData({d.month, d.count});
-        extendRange(d.count);
     }
+
+    Q_EMIT reloaded();
 }
 
 QString CommitsByMonth::name() const

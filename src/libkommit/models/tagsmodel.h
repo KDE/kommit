@@ -33,6 +33,8 @@ public:
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     QSharedPointer<Tag> fromIndex(const QModelIndex &index) const;
 
+    void clear() override;
+
 protected:
     void fill() override;
 

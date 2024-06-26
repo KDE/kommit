@@ -46,6 +46,12 @@ void CommitsWidget::reload()
     setBranch(QString());
 }
 
+void CommitsWidget::clear()
+{
+    mRepoModel->clear();
+    mHistoryModel->clear();
+}
+
 void CommitsWidget::saveState(QSettings &settings) const
 {
     save(settings, splitter);

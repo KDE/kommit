@@ -34,6 +34,7 @@ public:
     void setGit(Git::Manager *newGit);
 
     virtual void reload();
+    virtual void clear();
 
     int exec(QWidget *parent = nullptr);
 

@@ -28,26 +28,29 @@ void AuthorsReport::reload()
 {
     qDeleteAll(mData);
     mData.clear();
-
-    auto max{0};
-
-    auto commitCb = [this, &max](QSharedPointer<Git::Commit> commit) {
-        findOrCreate(commit->author(), AuthorCreateReason::AuthoredCommit);
-        auto a = findOrCreate(commit->committer(), AuthorCreateReason::Commit);
-
-        max = qMax(max, a->commits.count);
-    };
-    auto tagCb = [this](QSharedPointer<Git::Tag> tag) {
-        findOrCreate(tag->tagger(), AuthorCreateReason::Tag);
-    };
-
-    mGit->forEachCommits(commitCb, {});
-    mGit->forEachTags(tagCb);
-
     clear();
-    for (auto const &data : std::as_const(mData)) {
-        addData({data->name, data->email, data->commits.count, data->authoredCommits.count, data->tags.count});
-        extendRange(data->commits.count);
+
+    if (mGit->isValid()) {
+        auto max{0};
+
+        auto commitCb = [this, &max](QSharedPointer<Git::Commit> commit) {
+            findOrCreate(commit->author(), AuthorCreateReason::AuthoredCommit);
+            auto a = findOrCreate(commit->committer(), AuthorCreateReason::Commit);
+
+            max = qMax(max, a->commits.count);
+        };
+        auto tagCb = [this](QSharedPointer<Git::Tag> tag) {
+            findOrCreate(tag->tagger(), AuthorCreateReason::Tag);
+        };
+
+        mGit->forEachCommits(commitCb, {});
+        mGit->forEachTags(tagCb);
+
+        clear();
+        for (auto const &data : std::as_const(mData)) {
+            addData({data->name, data->email, data->commits.count, data->authoredCommits.count, data->tags.count});
+            extendRange(data->commits.count);
+        }
     }
 
     Q_EMIT reloaded();

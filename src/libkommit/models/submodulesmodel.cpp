@@ -83,6 +83,13 @@ Submodule *SubmodulesModel::fromIndex(const QModelIndex &index)
     return mData.at(index.row());
 }
 
+void SubmodulesModel::clear()
+{
+    beginResetModel();
+    mData.clear();
+    endResetModel();
+}
+
 void SubmodulesModel::fill()
 {
     beginResetModel();

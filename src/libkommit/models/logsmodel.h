@@ -45,6 +45,8 @@ public:
     Q_REQUIRED_RESULT QString calendarType() const;
     void setCalendarType(const QString &newCalendarType);
 
+    void clear() override;
+
 protected:
     void fill() override;
 

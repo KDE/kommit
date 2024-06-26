@@ -78,6 +78,13 @@ QSharedPointer<Tag> TagsModel::fromIndex(const QModelIndex &index) const
     return mData.at(index.row());
 }
 
+void TagsModel::clear()
+{
+    beginResetModel();
+    mData.clear();
+    endResetModel();
+}
+
 void TagsModel::fill()
 {
     mData.clear();

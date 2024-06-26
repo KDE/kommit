@@ -27,6 +27,7 @@ class CommitsWidget : public WidgetBase, private Ui::CommitsWidget
 public:
     explicit CommitsWidget(Git::Manager *git, AppWindow *parent = nullptr);
     void reload() override;
+    void clear() override;
 
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;

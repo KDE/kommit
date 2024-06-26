@@ -46,28 +46,32 @@ void CommitsByDayWeek::reload()
 {
     clear();
 
-    QMap<Qt::DayOfWeek, int> map;
+    if (mGit->isValid()) {
+        QMap<Qt::DayOfWeek, int> map;
 
-    map.insert(Qt::Monday, 0);
-    map.insert(Qt::Tuesday, 0);
-    map.insert(Qt::Wednesday, 0);
-    map.insert(Qt::Thursday, 0);
-    map.insert(Qt::Friday, 0);
-    map.insert(Qt::Saturday, 0);
-    map.insert(Qt::Sunday, 0);
-    auto commitCb = [&map](QSharedPointer<Git::Commit> commit) {
-        auto time = commit->committer()->time();
+        map.insert(Qt::Monday, 0);
+        map.insert(Qt::Tuesday, 0);
+        map.insert(Qt::Wednesday, 0);
+        map.insert(Qt::Thursday, 0);
+        map.insert(Qt::Friday, 0);
+        map.insert(Qt::Saturday, 0);
+        map.insert(Qt::Sunday, 0);
+        auto commitCb = [&map](QSharedPointer<Git::Commit> commit) {
+            auto time = commit->committer()->time();
 
-        auto count = map.value(static_cast<Qt::DayOfWeek>(time.date().dayOfWeek()), 0);
-        map[static_cast<Qt::DayOfWeek>(time.date().dayOfWeek())] = count + 1;
-    };
+            auto count = map.value(static_cast<Qt::DayOfWeek>(time.date().dayOfWeek()), 0);
+            map[static_cast<Qt::DayOfWeek>(time.date().dayOfWeek())] = count + 1;
+        };
 
-    mGit->forEachCommits(commitCb, {});
+        mGit->forEachCommits(commitCb, {});
 
-    for (auto d = map.constBegin(); d != map.constEnd(); ++d) {
-        addData({dayToString(d.key()), d.value()});
-        extendRange(d.value());
+        for (auto d = map.constBegin(); d != map.constEnd(); ++d) {
+            addData({dayToString(d.key()), d.value()});
+            extendRange(d.value());
+        }
     }
+
+    Q_EMIT reloaded();
 }
 
 QString CommitsByDayWeek::name() const

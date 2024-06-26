@@ -49,6 +49,10 @@ void WidgetBase::reload()
 {
 }
 
+void WidgetBase::clear()
+{
+}
+
 int WidgetBase::exec(QWidget *parent)
 {
     auto oldParent = this->parentWidget();
@@ -100,7 +104,10 @@ void WidgetBase::settingsUpdated()
 
 void WidgetBase::gitPathChanged()
 {
-    reload();
+    if (mGit->isValid())
+        reload();
+    else
+        clear();
 }
 
 QString WidgetBase::stateName(QWidget *w) const

@@ -32,6 +32,8 @@ public:
     void rename(const QString &oldName, const QString &newName);
     void setUrl(const QString &remoteName, const QString &newUrl);
 
+    void clear() override;
+
 protected:
     void fill() override;
 

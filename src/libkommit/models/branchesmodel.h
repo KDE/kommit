@@ -39,6 +39,8 @@ public:
     Q_REQUIRED_RESULT const QString &referenceBranch() const;
     void setReferenceBranch(const QString &newReferenceBranch);
 
+    void clear() override;
+
 protected:
     void fill() override;
 

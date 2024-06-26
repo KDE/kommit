@@ -85,6 +85,13 @@ QSharedPointer<Stash> StashesModel::fromIndex(const QModelIndex &index) const
     return mData.at(index.row());
 }
 
+void StashesModel::clear()
+{
+    beginResetModel();
+    mData.clear();
+    endResetModel();
+}
+
 void StashesModel::fill()
 {
     mData.clear();

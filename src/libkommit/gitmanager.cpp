@@ -54,6 +54,10 @@ bool Manager::open(const QString &newPath)
     if (mPath == newPath)
         return false;
 
+    if (mRepo) {
+        git_repository_free(mRepo);
+        mRepo = nullptr;
+    }
     BEGIN
     STEP git_repository_open_ext(&mRepo, newPath.toUtf8().data(), 0, NULL);
 
@@ -61,6 +65,13 @@ bool Manager::open(const QString &newPath)
 
     if (IS_ERROR) {
         mIsValid = false;
+
+        mRemotesModel->clear();
+        mSubmodulesModel->clear();
+        mBranchesModel->clear();
+        mLogsCache->clear();
+        mStashesCache->clear();
+        mTagsModel->clear();
     } else {
         mPath = git_repository_workdir(mRepo);
         mIsValid = true;
@@ -1777,6 +1788,9 @@ bool Manager::removeFile(const QString &file, bool cached) const
 
 bool Manager::isMerging() const
 {
+    if (Q_UNLIKELY(!mRepo))
+        return false;
+
     auto state = git_repository_state(mRepo);
 
     return state == GIT_REPOSITORY_STATE_MERGE;
@@ -1784,6 +1798,9 @@ bool Manager::isMerging() const
 
 bool Manager::isRebasing() const
 {
+    if (Q_UNLIKELY(!mRepo))
+        return false;
+
     auto state = git_repository_state(mRepo);
 
     return state == GIT_REPOSITORY_STATE_REBASE || state == GIT_REPOSITORY_STATE_REBASE_INTERACTIVE || state == GIT_REPOSITORY_STATE_REBASE_MERGE;
@@ -1791,6 +1808,8 @@ bool Manager::isRebasing() const
 
 bool Manager::isDetached() const
 {
+    if (Q_UNLIKELY(!mRepo))
+        return false;
     return git_repository_head_detached(mRepo) == 1;
 }
 

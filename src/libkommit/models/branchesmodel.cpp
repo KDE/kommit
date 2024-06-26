@@ -151,6 +151,13 @@ void BranchesModel::setReferenceBranch(const QString &newReferenceBranch)
     calculateCommitStats();
 }
 
+void BranchesModel::clear()
+{
+    beginResetModel();
+    mData.clear();
+    endResetModel();
+}
+
 const QString &BranchesModel::currentBranch() const
 {
     return mCurrentBranch;

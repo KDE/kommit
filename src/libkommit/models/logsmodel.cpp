@@ -503,6 +503,13 @@ void LogsModel::setCalendarType(const QString &newCalendarType)
         endResetModel();
     }
 }
+
+void LogsModel::clear()
+{
+    beginResetModel();
+    mData.clear();
+    endResetModel();
+}
 }
 
 #include "moc_logsmodel.cpp"
