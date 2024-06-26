@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-24 03:05+0000\n"
-"PO-Revision-Date: 2024-06-20 16:29+0200\n"
+"PO-Revision-Date: 2024-06-25 10:58+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -388,7 +388,7 @@ msgstr "Hlavní panel nástrojů"
 #: src/gui/kommitui.rc:10 src/gui/kommitui.rc:27
 #, kde-format
 msgid "Repo"
-msgstr ""
+msgstr "Repozitář"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
@@ -808,7 +808,7 @@ msgstr ""
 #: src/libkommit/commands/commandpull.cpp:62
 #, kde-format
 msgid "Already up to date."
-msgstr ""
+msgstr "Již je aktuální."
 
 #: src/libkommit/commands/commandpull.cpp:66
 #, kde-format
