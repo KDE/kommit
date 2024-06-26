@@ -52,6 +52,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 AppWindow::AppWindow()
     : AppMainWindow()
+    , mGit(Git::Manager::instance())
 {
     init();
 
@@ -68,8 +69,6 @@ AppWindow::AppWindow()
 
 void AppWindow::init()
 {
-    mGit = Git::Manager::instance();
-
     mGitData = new RepositoryData{this};
 
     connect(mGit, &Git::Manager::pathChanged, this, &AppWindow::gitPathChanged);
@@ -108,6 +107,7 @@ AppWindow::~AppWindow()
 }
 
 AppWindow::AppWindow(const QString &path)
+    : mGit(Git::Manager::instance())
 {
     init();
     mGit->open(path);

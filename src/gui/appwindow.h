@@ -61,7 +61,7 @@ private:
     void init();
     void updateActions(bool enabled);
 
-    Git::Manager *mGit = nullptr;
+    Git::Manager *const mGit;
     RepositoryData *mGitData{nullptr};
 
     QAction *mRecentAction = nullptr;
