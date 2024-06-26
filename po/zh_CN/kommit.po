@@ -342,10 +342,9 @@ msgid "The repo inited successfully"
 msgstr "仓库初始化成功"
 
 #: src/gui/commandargsparser.cpp:435
-#, fuzzy, kde-format
-#| msgid "Unable to open the file"
+#, kde-format
 msgid "Cannot find the file"
-msgstr "无法打开文件"
+msgstr ""
 
 #: src/gui/commandargsparser.cpp:565
 #, kde-format

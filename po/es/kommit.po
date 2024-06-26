@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-25 01:43+0000\n"
-"PO-Revision-Date: 2024-06-23 02:40+0200\n"
+"PO-Revision-Date: 2024-06-25 17:46+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -344,10 +344,9 @@ msgid "The repo inited successfully"
 msgstr "Repositorio iniciado correctamente"
 
 #: src/gui/commandargsparser.cpp:435
-#, fuzzy, kde-format
-#| msgid "Unable to open the file"
+#, kde-format
 msgid "Cannot find the file"
-msgstr "No se puede abrir el archivo"
+msgstr "No se puede encontrar el archivo"
 
 #: src/gui/commandargsparser.cpp:565
 #, kde-format

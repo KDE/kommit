@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-25 01:43+0000\n"
-"PO-Revision-Date: 2024-06-22 07:36+0200\n"
+"PO-Revision-Date: 2024-06-25 19:15+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -342,10 +342,9 @@ msgid "The repo inited successfully"
 msgstr "Arkivet initierat med lyckat resultat"
 
 #: src/gui/commandargsparser.cpp:435
-#, fuzzy, kde-format
-#| msgid "Unable to open the file"
+#, kde-format
 msgid "Cannot find the file"
-msgstr "Kan inte öppna filen"
+msgstr "Kan inte hitta filen"
 
 #: src/gui/commandargsparser.cpp:565
 #, kde-format
