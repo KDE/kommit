@@ -17,9 +17,9 @@
    <item>
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
         <widget class="QGroupBox" name="groupBox">
@@ -30,14 +30,14 @@
           <item>
            <widget class="QRadioButton" name="radioButtonRegularView">
             <property name="text">
-             <string>Regular view</string>
+             <string>&amp;Regular view</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QRadioButton" name="radioButtonDifferentialView">
             <property name="text">
-             <string>Differential view</string>
+             <string>Differential &amp;view</string>
             </property>
            </widget>
           </item>
@@ -60,6 +60,9 @@
           <layout class="QVBoxLayout" name="verticalLayout_5">
            <item>
             <widget class="QTreeWidget" name="treeWidget">
+             <property name="rootIsDecorated">
+              <bool>false</bool>
+             </property>
              <column>
               <property name="text">
                <string>Commit</string>
