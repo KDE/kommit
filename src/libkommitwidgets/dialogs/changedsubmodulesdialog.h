@@ -19,8 +19,7 @@ public:
     explicit ChangedSubmodulesDialog(Git::Manager *git, QWidget *parent = nullptr);
 
 private:
-    LIBKOMMITWIDGETS_NO_EXPORT void slotComitPushButtonClicked();
+    LIBKOMMITWIDGETS_NO_EXPORT void slotComitPushButtonClicked(const QString &moduleName);
     LIBKOMMITWIDGETS_NO_EXPORT void reload();
     ChangedFilesModel *mModel = nullptr;
-    QMap<QPushButton *, QString> mButtonsMap;
 };

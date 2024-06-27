@@ -8,26 +8,23 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/commitpushdialog.h"
 #include "entities/submodule.h"
 #include "gitmanager.h"
-#include <models/changedfilesmodel.h>
+#include "models/changedfilesmodel.h"
 
 ChangedSubmodulesDialog::ChangedSubmodulesDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
+    , mModel(new ChangedFilesModel(git, true, this))
 {
     setupUi(this);
 
-    mModel = new ChangedFilesModel(git, true, this);
     reload();
     connect(buttonBox->button(QDialogButtonBox::Close), &QPushButton::clicked, this, &QDialog::close);
 }
 
-void ChangedSubmodulesDialog::slotComitPushButtonClicked()
+void ChangedSubmodulesDialog::slotComitPushButtonClicked(const QString &submodule)
 {
-    auto pushButton = qobject_cast<QPushButton *>(sender());
-
-    auto submodule = mButtonsMap.value(pushButton);
     auto g = mGit->submodule(submodule)->open();
     CommitPushDialog d{g};
-    d.setWindowTitle(i18n("Commit/Push submodule: %1", submodule));
+    d.setWindowTitle(i18nc("@title:window", "Commit/Push submodule: %1", submodule));
     d.exec();
 }
 
@@ -44,20 +41,21 @@ void ChangedSubmodulesDialog::reload()
         auto hl = new QHBoxLayout{w};
 
         auto lbl = new QLabel{w};
-        lbl->setText(submodule->name());
+        const QString submoduleName{submodule->name()};
+        lbl->setText(submoduleName);
         hl->addWidget(lbl);
         auto horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         hl->addItem(horizontalSpacer);
 
-        auto btn = new QPushButton{w};
-        btn->setText("Commit/Push");
+        auto btn = new QPushButton{i18nc("@action", "Commit/Push"), w};
         hl->addWidget(btn);
 
         scrollAreaVerticalLayout->addWidget(w);
 
-        mButtonsMap.insert(btn, submodule->name());
-        connect(btn, &QPushButton::clicked, this, &ChangedSubmodulesDialog::slotComitPushButtonClicked);
+        connect(btn, &QPushButton::clicked, this, [this, submoduleName]() {
+            slotComitPushButtonClicked(submoduleName);
+        });
     }
 
     auto extraSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
