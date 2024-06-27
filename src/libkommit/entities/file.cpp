@@ -193,12 +193,12 @@ QString File::stringContent() const
     if (mEntry) {
         STEP git_blob_lookup(&blob, mRepo, git_tree_entry_id(mEntry));
     } else {
-        STEP git_revparse_single(&placeObject, mGit->mRepo, toConstChars(mPlace));
-        STEP git_commit_lookup(&commit, mGit->mRepo, git_object_id(placeObject));
+        STEP git_revparse_single(&placeObject, mGit->repoPtr(), toConstChars(mPlace));
+        STEP git_commit_lookup(&commit, mGit->repoPtr(), git_object_id(placeObject));
         STEP git_commit_tree(&tree, commit);
 
         STEP git_tree_entry_bypath(&entry, tree, toConstChars(mFilePath));
-        STEP git_blob_lookup(&blob, mGit->mRepo, git_tree_entry_id(entry));
+        STEP git_blob_lookup(&blob, mGit->repoPtr(), git_tree_entry_id(entry));
     }
 
     if (IS_ERROR)

@@ -365,14 +365,14 @@ void LogsModel::fill()
     git_revwalk *walker;
     git_oid oid;
 
-    git_revwalk_new(&walker, mGit->mRepo);
+    git_revwalk_new(&walker, mGit->repoPtr());
     git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL | GIT_SORT_TIME);
 
     if (mBranch.isEmpty()) {
         // git_revwalk_push_head(walker);
 
         git_branch_iterator *it;
-        git_branch_iterator_new(&it, mGit->mRepo, GIT_BRANCH_ALL);
+        git_branch_iterator_new(&it, mGit->repoPtr(), GIT_BRANCH_ALL);
 
         git_reference *ref;
         git_branch_t b;
@@ -392,7 +392,7 @@ void LogsModel::fill()
 
     } else {
         git_reference *ref;
-        auto n = git_branch_lookup(&ref, mGit->mRepo, mBranch.toLocal8Bit().data(), GIT_BRANCH_ALL);
+        auto n = git_branch_lookup(&ref, mGit->repoPtr(), mBranch.toLocal8Bit().data(), GIT_BRANCH_ALL);
 
         if (n)
             return;
@@ -406,7 +406,7 @@ void LogsModel::fill()
     while (git_revwalk_next(&oid, walker) == GIT_SUCCESS) {
         git_commit *commit;
 
-        if (git_commit_lookup(&commit, mGit->mRepo, &oid)) {
+        if (git_commit_lookup(&commit, mGit->repoPtr(), &oid)) {
             fprintf(stderr, "Failed to lookup the next object\n");
             return;
         }
@@ -453,8 +453,8 @@ void LogsModel::fill()
     w.mData = mData;
     w.mDataByCommitHashLong = mDataByCommitHashLong;
     w.mDataByCommitHashShort = mDataByCommitHashShort;
-    w.repo = mGit->mRepo;
-    git_reference_foreach(mGit->mRepo, cb, &w);
+    w.repo = mGit->repoPtr();
+    git_reference_foreach(mGit->repoPtr(), cb, &w);
 
     initChilds();
     initGraph();

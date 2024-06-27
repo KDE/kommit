@@ -1,12 +1,22 @@
 #pragma once
 
+#include <QMap>
 #include <QSharedPointer>
+#include <git2/types.h>
+
+#include "libkommit_export.h"
+
+namespace Git
+{
+
+class Commit;
 
 template<class T>
-class AbstractCache
+class LIBKOMMIT_EXPORT AbstractCache
 {
 public:
-    AbstractCache();
+    AbstractCache(git_repository *repo);
+    virtual ~AbstractCache();
 
     void clear();
 
@@ -14,31 +24,23 @@ public:
 
     template<typename... Args>
     QSharedPointer<T> findOrCreate(const QString &key, Args... args);
+    QSharedPointer<T> findOrCreate(const QString &key);
+
+protected:
+    virtual T *create(const QString &key);
+    git_repository *mRepo;
 
 private:
     QMap<QString, QSharedPointer<T>> mData;
 };
 
-template<class T>
-template<typename... Args>
-inline QSharedPointer<T> AbstractCache<T>::findOrCreate(const QString &key, Args... args)
+class LIBKOMMIT_EXPORT CommitsCache : public AbstractCache<Commit>
 {
-    if (mData.contains(key))
-        return mData.value(key);
+public:
+    CommitsCache(git_repository *repo);
 
-    auto en = QSharedPointer<T>{new T{args...}};
-    mData.insert(key, en);
-    return en;
-}
+protected:
+    Commit *create(const QString &key) override;
+};
 
-template<class T>
-Q_OUTOFLINE_TEMPLATE void AbstractCache<T>::clear()
-{
-    mData.clear();
-}
-
-template<class T>
-Q_OUTOFLINE_TEMPLATE int AbstractCache<T>::count() const
-{
-    return mData.size();
-}
+};

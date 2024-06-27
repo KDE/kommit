@@ -256,6 +256,8 @@ public:
 
     Q_REQUIRED_RESULT int errorClass() const;
 
+    Q_REQUIRED_RESULT git_repository *repoPtr() const;
+
 Q_SIGNALS:
     void pathChanged();
     void reloadRequired();
@@ -263,9 +265,6 @@ Q_SIGNALS:
 private:
     ManagerPrivate *d_ptr;
     Q_DECLARE_PRIVATE(Manager);
-
-    // TODO: move this to ManagerPrivate
-    git_repository *mRepo{nullptr};
 
     LIBKOMMIT_NO_EXPORT int findStashIndex(const QString &message) const;
     LIBKOMMIT_NO_EXPORT QStringList readAllNonEmptyOutput(const QStringList &cmd) const;

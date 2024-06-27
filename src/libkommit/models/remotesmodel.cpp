@@ -96,13 +96,13 @@ void RemotesModel::fill()
     QMap<QString, Remote *> remotesMap;
 
     git_strarray list{};
-    git_remote_list(&list, mGit->mRepo);
+    git_remote_list(&list, mGit->repoPtr());
     auto remotes = convert(&list);
     git_strarray_free(&list);
 
     for (auto &r : remotes) {
         git_remote *remote;
-        if (!git_remote_lookup(&remote, mGit->mRepo, r.toLatin1().data())) {
+        if (!git_remote_lookup(&remote, mGit->repoPtr(), r.toLatin1().data())) {
             auto rem = new Remote{remote};
             mData << rem;
 
@@ -111,7 +111,7 @@ void RemotesModel::fill()
     }
 
     git_branch_iterator *it;
-    git_branch_iterator_new(&it, mGit->mRepo, GIT_BRANCH_ALL);
+    git_branch_iterator_new(&it, mGit->repoPtr(), GIT_BRANCH_ALL);
 
     git_reference *ref;
     git_branch_t b;
