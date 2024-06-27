@@ -43,14 +43,37 @@
 namespace Git
 {
 
+class ManagerData : public QSharedData
+{
+public:
+    ManagerData(Manager *parent);
+
+    Manager *parent;
+    QString path;
+    bool isValid{false};
+    QMap<QString, Remote> remotes;
+    LoadFlags loadFlags{LoadAll};
+
+    RemotesModel *const remotesModel;
+    SubmodulesModel *const submodulesModel;
+    BranchesModel *const branchesModel;
+    LogsModel *const logsCache;
+    StashesModel *const stashesCache;
+    TagsModel *const tagsModel;
+
+    int errorCode{};
+    int errorClass{};
+    QString errorMessage;
+};
+
 const QString &Manager::path() const
 {
-    return mPath;
+    return d->path;
 }
 
 bool Manager::open(const QString &newPath)
 {
-    if (mPath == newPath)
+    if (d->path == newPath)
         return false;
 
     if (mRepo) {
@@ -63,17 +86,17 @@ bool Manager::open(const QString &newPath)
     END;
 
     if (IS_ERROR) {
-        mIsValid = false;
+        d->isValid = false;
 
-        mRemotesModel->clear();
-        mSubmodulesModel->clear();
-        mBranchesModel->clear();
-        mLogsCache->clear();
-        mStashesCache->clear();
-        mTagsModel->clear();
+        d->remotesModel->clear();
+        d->submodulesModel->clear();
+        d->branchesModel->clear();
+        d->logsCache->clear();
+        d->stashesCache->clear();
+        d->tagsModel->clear();
     } else {
-        mPath = git_repository_workdir(mRepo);
-        mIsValid = true;
+        d->path = git_repository_workdir(mRepo);
+        d->isValid = true;
 
         loadAsync();
     }
@@ -82,6 +105,18 @@ bool Manager::open(const QString &newPath)
     Q_EMIT reloadRequired();
 
     return IS_OK;
+}
+
+QSharedPointer<Reference> Manager::head() const
+{
+    git_reference *head{nullptr};
+
+    BEGIN
+    STEP git_repository_head(&head, mRepo);
+
+    if (IS_OK)
+        return QSharedPointer<Reference>{new Reference{head}};
+    return {};
 }
 
 QMap<QString, ChangeStatus> Manager::changedFiles(const QString &hash) const
@@ -131,7 +166,7 @@ QList<FileStatus> Manager::repoFilesStatus() const
         FileStatus fs;
         fs.parseStatusLine(item);
         qCDebug(KOMMITLIB_LOG) << "[STATUS]" << fs.name() << fs.status();
-        fs.setFullPath(mPath + QLatin1Char('/') + fs.name());
+        fs.setFullPath(d->path + QLatin1Char('/') + fs.name());
         files.append(fs);
     }
     return files;
@@ -139,7 +174,7 @@ QList<FileStatus> Manager::repoFilesStatus() const
 
 bool Manager::isValid() const
 {
-    return mIsValid;
+    return d->isValid;
 }
 
 bool Manager::addRemote(const QString &name, const QString &url) const
@@ -787,18 +822,18 @@ void Manager::loadAsync()
 {
     QList<AbstractGitItemsModel *> models;
 
-    if (mLoadFlags & LoadStashes)
-        models << mStashesCache;
-    if (mLoadFlags & LoadRemotes)
-        models << mRemotesModel;
-    if (mLoadFlags & LoadSubmodules)
-        models << mSubmodulesModel;
-    if (mLoadFlags & LoadBranches)
-        models << mBranchesModel;
-    if (mLoadFlags & LoadLogs)
-        models << mLogsCache;
-    if (mLoadFlags & LoadTags)
-        models << mTagsModel;
+    if (d->loadFlags & LoadStashes)
+        models << d->stashesCache;
+    if (d->loadFlags & LoadRemotes)
+        models << d->remotesModel;
+    if (d->loadFlags & LoadSubmodules)
+        models << d->submodulesModel;
+    if (d->loadFlags & LoadBranches)
+        models << d->branchesModel;
+    if (d->loadFlags & LoadLogs)
+        models << d->logsCache;
+    if (d->loadFlags & LoadTags)
+        models << d->tagsModel;
 
     if (!models.empty()) {
 #ifdef QT_CONCURRENT_LIB
@@ -812,42 +847,42 @@ void Manager::loadAsync()
 
 TagsModel *Manager::tagsModel() const
 {
-    return mTagsModel;
+    return d->tagsModel;
 }
 
 StashesModel *Manager::stashesModel() const
 {
-    return mStashesCache;
+    return d->stashesCache;
 }
 
 LogsModel *Manager::logsModel() const
 {
-    return mLogsCache;
+    return d->logsCache;
 }
 
 BranchesModel *Manager::branchesModel() const
 {
-    return mBranchesModel;
+    return d->branchesModel;
 }
 
 SubmodulesModel *Manager::submodulesModel() const
 {
-    return mSubmodulesModel;
+    return d->submodulesModel;
 }
 
 RemotesModel *Manager::remotesModel() const
 {
-    return mRemotesModel;
+    return d->remotesModel;
 }
 
 const LoadFlags &Manager::loadFlags() const
 {
-    return mLoadFlags;
+    return d->loadFlags;
 }
 
 void Manager::setLoadFlags(Git::LoadFlags newLoadFlags)
 {
-    mLoadFlags = newLoadFlags;
+    d->loadFlags = newLoadFlags;
 }
 
 Branch *Manager::branch(const QString &branchName) const
@@ -913,12 +948,7 @@ void Manager::forEachRefs(std::function<void(QSharedPointer<Reference>)> callbac
 
 Manager::Manager()
     : QObject()
-    , mRemotesModel{new RemotesModel(this, this)}
-    , mSubmodulesModel{new SubmodulesModel(this, this)}
-    , mBranchesModel{new BranchesModel(this, this)}
-    , mLogsCache{new LogsModel(this, this)}
-    , mStashesCache{new StashesModel(this, this)}
-    , mTagsModel{new TagsModel(this, this)}
+    , d{new ManagerData{this}}
 {
     git_libgit2_init();
 }
@@ -928,7 +958,7 @@ Manager::Manager(git_repository *repo)
 {
     git_libgit2_init();
     mRepo = repo;
-    mPath = git_repository_workdir(mRepo);
+    d->path = git_repository_workdir(mRepo);
 }
 
 Manager::Manager(const QString &path)
@@ -1027,8 +1057,8 @@ bool Manager::init(const QString &path)
     if (IS_ERROR)
         return false;
 
-    mPath = path;
-    mIsValid = true;
+    d->path = path;
+    d->isValid = true;
     return true;
 }
 
@@ -1061,7 +1091,7 @@ bool Manager::clone(const QString &url, const QString &localPath, CloneObserver 
     if (IS_ERROR)
         return false;
 
-    mPath = git_repository_workdir(mRepo);
+    d->path = git_repository_workdir(mRepo);
     return IS_OK;
 }
 
@@ -1072,7 +1102,7 @@ QString Manager::runGit(const QStringList &args) const
     QProcess p;
     p.setProgram(QStringLiteral("git"));
     p.setArguments(args);
-    p.setWorkingDirectory(mPath);
+    p.setWorkingDirectory(d->path);
     p.start();
     p.waitForFinished();
     auto out = p.readAllStandardOutput();
@@ -1520,12 +1550,12 @@ Remote *Manager::remote(const QString &name) const
 
 Remote Manager::remoteDetails(const QString &remoteName)
 {
-    if (mRemotes.contains(remoteName))
-        return mRemotes.value(remoteName);
+    if (d->remotes.contains(remoteName))
+        return d->remotes.value(remoteName);
     Remote r;
     auto ret = runGit({QStringLiteral("remote"), QStringLiteral("show"), remoteName});
     r.parse(ret);
-    mRemotes.insert(remoteName, r);
+    d->remotes.insert(remoteName, r);
     return r;
 }
 
@@ -1639,7 +1669,7 @@ BlameData Manager::blame(const File &file) // TODO: change parametere to QShared
         BlameDataRow row;
         row.commitHash = convertToString(&hunk->final_commit_id, 20);
         row.code = lines.mid(hunk->final_start_line_number, hunk->lines_in_hunk).join(QLatin1Char('\n'));
-        row.log = mLogsCache->findLogByHash(row.commitHash, LogsModel::LogMatchType::BeginMatch);
+        row.log = d->logsCache->findLogByHash(row.commitHash, LogsModel::LogMatchType::BeginMatch);
 
         b.append(row);
     }
@@ -1814,17 +1844,28 @@ bool Manager::isDetached() const
 
 int Manager::errorClass() const
 {
-    return mErrorClass;
+    return d->errorClass;
 }
 
 QString Manager::errorMessage() const
 {
-    return mErrorMessage;
+    return d->errorMessage;
 }
 
 int Manager::errorCode() const
 {
-    return mErrorCode;
+    return d->errorCode;
+}
+
+ManagerData::ManagerData(Manager *parent)
+    : parent{parent}
+    , remotesModel{new RemotesModel(parent, parent)}
+    , submodulesModel{new SubmodulesModel(parent, parent)}
+    , branchesModel{new BranchesModel(parent, parent)}
+    , logsCache{new LogsModel(parent, parent)}
+    , stashesCache{new StashesModel(parent, parent)}
+    , tagsModel{new TagsModel(parent, parent)}
+{
 }
 
 } // namespace Git

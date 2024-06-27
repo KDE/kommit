@@ -41,6 +41,7 @@ class AddSubmoduleOptions;
 class Index;
 class Tree;
 class Note;
+class ManagerData;
 
 enum LoadFlag {
     LoadNone = 0,
@@ -131,6 +132,7 @@ public:
     void commit(const QString &message);
     void push(PushObserver *observer = nullptr) const;
     bool open(const QString &newPath);
+    QSharedPointer<Reference> head() const;
 
     // properties
     Q_REQUIRED_RESULT const QString &path() const;
@@ -259,28 +261,13 @@ Q_SIGNALS:
     void reloadRequired();
 
 private:
+    QSharedDataPointer<ManagerData> d;
+    git_repository *mRepo{nullptr};
+
     LIBKOMMIT_NO_EXPORT int findStashIndex(const QString &message) const;
     LIBKOMMIT_NO_EXPORT QStringList readAllNonEmptyOutput(const QStringList &cmd) const;
     LIBKOMMIT_NO_EXPORT QString escapeFileName(const QString &filePath) const;
     LIBKOMMIT_NO_EXPORT void loadAsync();
-
-    QString mPath;
-    bool mIsValid{false};
-    QMap<QString, Remote> mRemotes;
-    LoadFlags mLoadFlags{LoadAll};
-
-    RemotesModel *const mRemotesModel;
-    SubmodulesModel *const mSubmodulesModel;
-    BranchesModel *const mBranchesModel;
-    LogsModel *const mLogsCache;
-    StashesModel *const mStashesCache;
-    TagsModel *const mTagsModel;
-
-    git_repository *mRepo{nullptr};
-
-    int mErrorCode{};
-    int mErrorClass{};
-    QString mErrorMessage;
 
     friend class File;
     friend class Stash;

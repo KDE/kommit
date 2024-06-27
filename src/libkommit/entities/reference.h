@@ -10,10 +10,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <git2/types.h>
 
+#include <QSharedPointer>
 #include <QString>
 
 namespace Git
 {
+
+class Note;
+class Branch;
+class Tag;
+class Remote;
 
 class LIBKOMMIT_EXPORT Reference
 {
@@ -28,6 +34,11 @@ public:
     Q_REQUIRED_RESULT bool isRemote() const;
     Q_REQUIRED_RESULT QString name() const;
     Q_REQUIRED_RESULT QString shorthand() const;
+
+    Q_REQUIRED_RESULT QSharedPointer<Note> toNote() const;
+    Q_REQUIRED_RESULT QSharedPointer<Branch> toBranch() const;
+    Q_REQUIRED_RESULT QSharedPointer<Tag> toTag() const;
+    Q_REQUIRED_RESULT QSharedPointer<Remote> toRemote() const;
 
 private:
     git_reference *ptr{nullptr};

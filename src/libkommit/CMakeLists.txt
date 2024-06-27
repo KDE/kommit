@@ -11,6 +11,8 @@ set(SOURCES
     blamedata.cpp
     types.cpp
     abstractreference.cpp
+    abstractcache.h
+    abstractcache.cpp
 
     models/abstractgititemsmodel.cpp
     models/logsmodel.cpp
