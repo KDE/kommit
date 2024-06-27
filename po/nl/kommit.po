@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 01:43+0000\n"
+"POT-Creation-Date: 2024-06-27 01:49+0000\n"
 "PO-Revision-Date: 2024-06-24 10:18+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -57,8 +57,8 @@ msgstr "Ophalen"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #: dolphinplugins/actions.h:21 src/gui/pages/tagswidget.ui:69
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:101
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:100
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:267
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:299
 #, kde-format
 msgid "Push"
@@ -168,7 +168,7 @@ msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:62 src/libkommit/models/logsmodel.cpp:262
-#: src/libkommitwidgets/reports/authorsreport.cpp:78
+#: src/libkommitwidgets/reports/authorsreport.cpp:81
 #, kde-format
 msgid "Author"
 msgstr "Auteur"
@@ -190,143 +190,143 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Repareren van bugs"
 
-#: src/gui/appwindow.cpp:97
+#: src/gui/appwindow.cpp:95 src/gui/appwindow.cpp:136
 #, kde-format
 msgid "No repo selected"
 msgstr "Geen repo geselecteerd"
 
-#: src/gui/appwindow.cpp:129
+#: src/gui/appwindow.cpp:128
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Huidige branch: %1"
 
-#: src/gui/appwindow.cpp:131
+#: src/gui/appwindow.cpp:130
 #, kde-format
 msgid " (merging)"
 msgstr " (samenvoeging)"
 
-#: src/gui/appwindow.cpp:133
+#: src/gui/appwindow.cpp:132
 #, kde-format
 msgid " (rebasing)"
 msgstr " (rebasing)"
 
-#: src/gui/appwindow.cpp:165
+#: src/gui/appwindow.cpp:167
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgctxt "@action"
 msgid "Init…"
 msgstr "Initialiseren…"
 
-#: src/gui/appwindow.cpp:168
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgctxt "@action"
 msgid "Open…"
 msgstr "Openen…"
 
-#: src/gui/appwindow.cpp:173
+#: src/gui/appwindow.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Klonen…"
 
-#: src/gui/appwindow.cpp:176
+#: src/gui/appwindow.cpp:178
 #, kde-format
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Gewijzigde bestanden…"
 
-#: src/gui/appwindow.cpp:182
+#: src/gui/appwindow.cpp:184
 #, kde-format
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Recente repo's"
 
-#: src/gui/appwindow.cpp:188
+#: src/gui/appwindow.cpp:190
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Opschonen…"
 
-#: src/gui/appwindow.cpp:191
+#: src/gui/appwindow.cpp:193
 #, kde-format
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Pull…"
 
-#: src/gui/appwindow.cpp:195 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:197 src/libkommitwidgets/actions/branchactions.cpp:33
 #, kde-format
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Ophalen…"
 
-#: src/gui/appwindow.cpp:199 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:201 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Push…"
 msgstr "Push…"
 
-#: src/gui/appwindow.cpp:203 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:205 src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Samenvoegen…"
 
-#: src/gui/appwindow.cpp:207
+#: src/gui/appwindow.cpp:209
 #, kde-format
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Diff branches…"
 
-#: src/gui/appwindow.cpp:210 src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/gui/appwindow.cpp:212 src/libkommitwidgets/actions/fileactions.cpp:53
 #, kde-format
 msgctxt "@action"
 msgid "Search…"
 msgstr "Zoeken…"
 
-#: src/gui/appwindow.cpp:213
+#: src/gui/appwindow.cpp:215
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "Repo-instellingen…"
 
-#: src/gui/appwindow.cpp:216
+#: src/gui/appwindow.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Omschakelen/checkout…"
 
-#: src/gui/appwindow.cpp:219
+#: src/gui/appwindow.cpp:221
 #, kde-format
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr "Diff tree…"
 
-#: src/gui/appwindow.cpp:256
+#: src/gui/appwindow.cpp:258
 #, kde-format
 msgid "Clear"
 msgstr "Wissen"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:253
+#: src/gui/appwindow.cpp:280 src/gui/commandargsparser.cpp:253
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Kan pad '%1' niet aanmaken"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:253
+#: src/gui/appwindow.cpp:280 src/gui/commandargsparser.cpp:253
 #, kde-format
 msgid "Init repo"
 msgstr "Repo initialiseren"
 
-#: src/gui/appwindow.cpp:291
+#: src/gui/appwindow.cpp:293
 #, kde-format
 msgid "Open repository"
 msgstr "Opslagruimte openen"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:509
+#: src/gui/appwindow.cpp:372 src/gui/commandargsparser.cpp:509
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Kan branch niet omschakelen tijdens samenvoegen"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:509
+#: src/gui/appwindow.cpp:372 src/gui/commandargsparser.cpp:509
 #, kde-format
 msgid "Switch branch"
 msgstr "Branch omschakelen"
@@ -447,14 +447,14 @@ msgstr "Niet afsluiten"
 msgid "Overview"
 msgstr "Overzicht"
 
-#: src/gui/pages/branchesstatuswidget.cpp:71
-#: src/libkommitwidgets/actions/branchactions.cpp:119
+#: src/gui/pages/branchesstatuswidget.cpp:70
+#: src/libkommitwidgets/actions/branchactions.cpp:118
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Wilt u de geselecteerde branch verwijderen?"
 
-#: src/gui/pages/branchesstatuswidget.cpp:75
-#: src/libkommitwidgets/actions/branchactions.cpp:121
+#: src/gui/pages/branchesstatuswidget.cpp:74
+#: src/libkommitwidgets/actions/branchactions.cpp:120
 #, kde-format
 msgid "Unable to remove the selected branch"
 msgstr "Kan de geselecteerde branch niet verwijderen"
@@ -492,14 +492,14 @@ msgstr "Bladeren"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
 #: src/gui/pages/commitswidget.ui:14
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
-#: src/libkommitwidgets/reports/authorsreport.cpp:83
-#: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
-#: src/libkommitwidgets/reports/commitsbydayhour.cpp:71
-#: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
-#: src/libkommitwidgets/reports/commitsbydayweek.cpp:100
-#: src/libkommitwidgets/reports/commitsbymonth.cpp:70
-#: src/libkommitwidgets/reports/commitsbymonth.cpp:85
+#: src/libkommitwidgets/reports/authorsreport.cpp:71
+#: src/libkommitwidgets/reports/authorsreport.cpp:86
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:59
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:74
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:89
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:104
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:74
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:89
 #, kde-format
 msgid "Commits"
 msgstr "Commits"
@@ -567,7 +567,7 @@ msgstr "Branches:"
 #: src/libkommit/models/tagsmodel.cpp:61
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
 #: src/libkommitwidgets/models/treemodel.cpp:146
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#: src/libkommitwidgets/reports/authorsreport.cpp:71
 #, kde-format
 msgid "Name"
 msgstr "Naam"
@@ -716,7 +716,7 @@ msgstr "Nieuw submodule toevoegen"
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:108
 #: src/libkommitwidgets/dialogs/pulldialog.ui:153
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:54
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#: src/libkommitwidgets/reports/authorsreport.cpp:71
 #, kde-format
 msgid "Tags"
 msgstr "Tags"
@@ -925,7 +925,7 @@ msgstr "Onderwerp"
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommit/models/stashesmodel.cpp:68
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:68
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "Commit"
@@ -968,31 +968,31 @@ msgstr "Tagger"
 msgid "Create time"
 msgstr "Aanmaaktijd"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:31
+#: src/libkommitwidgets/actions/branchactions.cpp:30
 #, kde-format
 msgctxt "@action"
 msgid "Create…"
 msgstr "Aanmaken…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:35
+#: src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgctxt "@action"
 msgid "Browse…"
 msgstr "Bladeren…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:36
+#: src/libkommitwidgets/actions/branchactions.cpp:35
 #, kde-format
 msgctxt "@action"
 msgid "Switch"
 msgstr "Omschakelen"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:38
+#: src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Diff"
 msgstr "Diff"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:39
+#: src/libkommitwidgets/actions/branchactions.cpp:38
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
@@ -1001,23 +1001,23 @@ msgctxt "@action"
 msgid "Remove…"
 msgstr "Verwijderen…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:40
+#: src/libkommitwidgets/actions/branchactions.cpp:39
 #, kde-format
 msgctxt "@action"
 msgid "Note…"
 msgstr "Notitie…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:70
+#: src/libkommitwidgets/actions/branchactions.cpp:69
 #, kde-format
 msgid "Create new branch"
 msgstr "Nieuwe branch aanmaken:"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:70
+#: src/libkommitwidgets/actions/branchactions.cpp:69
 #, kde-format
 msgid "Branch name"
 msgstr "Naam van branch"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:119
+#: src/libkommitwidgets/actions/branchactions.cpp:118
 #, kde-format
 msgid "Remove Branch"
 msgstr "Branch verwijderen"
@@ -1338,7 +1338,7 @@ msgstr "Gewijzigde bestanden:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
-#: src/libkommitwidgets/windows/diffwindow.cpp:210
+#: src/libkommitwidgets/windows/diffwindow.cpp:207
 #, kde-format
 msgid "Reload"
 msgstr "Herladen"
@@ -1500,8 +1500,8 @@ msgstr "-"
 msgid "TextLabel"
 msgstr "Tekstlabel"
 
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:103
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:102
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:267
 #, kde-format
 msgid "Commit and push"
 msgstr "Commit en push"
@@ -1663,21 +1663,21 @@ msgstr "Geïndexeerd"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:273
+#: src/libkommitwidgets/windows/diffwindow.cpp:270
 #, kde-format
 msgid "Added"
 msgstr "Toegevoegd"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:275
+#: src/libkommitwidgets/windows/diffwindow.cpp:272
 #, kde-format
 msgid "Removed"
 msgstr "Verwijderd"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:277
+#: src/libkommitwidgets/windows/diffwindow.cpp:274
 #, kde-format
 msgid "Modified"
 msgstr "Gewijzigd"
@@ -1838,19 +1838,21 @@ msgstr "Weergavetype"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:33
-#, kde-format
-msgid "Regular view"
+#, fuzzy, kde-format
+#| msgid "Regular view"
+msgid "&Regular view"
 msgstr "Reguliere weergave"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:40
-#, kde-format
-msgid "Differential view"
+#, fuzzy, kde-format
+#| msgid "Differential view"
+msgid "Differential &view"
 msgstr "Differentiële weergave"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:70
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:73
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:25
 #, kde-format
 msgid "Left"
@@ -1858,7 +1860,7 @@ msgstr "Links"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:75
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:78
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:54
 #, kde-format
 msgid "Right"
@@ -1897,18 +1899,18 @@ msgstr "Uitpakken"
 msgid "Branch:"
 msgstr "Branch:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:46
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Voorbeeld sluiten"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
 #, kde-format
 msgid "Please wait while the preview is being closed…"
 msgstr "Even geduld terwijl het voorbeeld sluit…"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2506,12 +2508,12 @@ msgstr "Branch selecteren"
 msgid "HEAD"
 msgstr "HEAD"
 
-#: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:101
+#: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:99
 #, kde-format
 msgid "The path is not inside of git directory"
 msgstr "Het pad is niet binnen de git-map"
 
-#: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:75
+#: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:73
 #, kde-format
 msgid "The branch already exists"
 msgstr "De branch bestaat al"
@@ -2528,42 +2530,42 @@ msgstr "Tag"
 msgid "Tag name:"
 msgstr "Tagnaam:"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:139
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:137
 #, kde-format
 msgid " (new commit)"
 msgstr " (nieuwe commit)"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:141
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:139
 #, kde-format
 msgid " (content modified)"
 msgstr " (inhoud gewijzigd)"
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:58
+#: src/libkommitwidgets/reports/authorsreport.cpp:61
 #, kde-format
 msgid "Commits count by author"
 msgstr "Aantal vastleggingen (commits) door auteur"
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#: src/libkommitwidgets/reports/authorsreport.cpp:71
 #, kde-format
 msgid "Email"
 msgstr "E-mail"
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#: src/libkommitwidgets/reports/authorsreport.cpp:71
 #, kde-format
 msgid "Autheds"
 msgstr "Geautoriseerden"
 
-#: src/libkommitwidgets/reports/commitsbydayhour.cpp:46
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:49
 #, kde-format
 msgid "Commits by hour of day"
 msgstr "Commits op uur van de dag"
 
-#: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:59
 #, kde-format
 msgid "Hour"
 msgstr "Uur"
 
-#: src/libkommitwidgets/reports/commitsbydayhour.cpp:66
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:69
 #, kde-format
 msgid "Hour of day"
 msgstr "Uur van de dag"
@@ -2603,32 +2605,32 @@ msgstr "zaterdag"
 msgid "Sunday"
 msgstr "zondag"
 
-#: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:79
 #, kde-format
 msgid "Commits by day of week"
 msgstr "Commits op dag van de week"
 
-#: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:89
 #, kde-format
 msgid "Day"
 msgstr "Dag"
 
-#: src/libkommitwidgets/reports/commitsbydayweek.cpp:95
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:99
 #, kde-format
 msgid "Day of week"
 msgstr "Dag van de week"
 
-#: src/libkommitwidgets/reports/commitsbymonth.cpp:60
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:64
 #, kde-format
 msgid "Commits by month"
 msgstr "Commits per maand"
 
-#: src/libkommitwidgets/reports/commitsbymonth.cpp:70
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:74
 #, kde-format
 msgid "Month"
 msgstr "Maand"
 
-#: src/libkommitwidgets/reports/commitsbymonth.cpp:80
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:84
 #, kde-format
 msgid "Month-year"
 msgstr "Maand-jaar"
@@ -2730,100 +2732,100 @@ msgstr "Ongewijzigden verbergen"
 msgid "Report"
 msgstr "Rapport"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:161
+#: src/libkommitwidgets/windows/diffwindow.cpp:158
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "Kommit Diff[*]"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:164
+#: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Boomstructuur"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:191
+#: src/libkommitwidgets/windows/diffwindow.cpp:188
 #, kde-format
 msgid "View hidden chars…"
 msgstr "Verborgen tekens bekijken…"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:196
-#: src/libkommitwidgets/windows/mergewindow.cpp:336
+#: src/libkommitwidgets/windows/diffwindow.cpp:193
+#: src/libkommitwidgets/windows/mergewindow.cpp:335
 #, kde-format
 msgid "Same size blocks"
 msgstr "Blokken met dezelfde grootte"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:201
+#: src/libkommitwidgets/windows/diffwindow.cpp:198
 #, kde-format
 msgid "Show files names"
 msgstr "Bestandsnamen tonen"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:207
+#: src/libkommitwidgets/windows/diffwindow.cpp:204
 #, kde-format
 msgid "Show Tree"
 msgstr "Boomstructuur tonen"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:271
+#: src/libkommitwidgets/windows/diffwindow.cpp:268
 #, kde-format
 msgid "Unchanged"
 msgstr "Ongewijzigd"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:278
+#: src/libkommitwidgets/windows/mergewindow.cpp:277
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Conflicten: %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:286
+#: src/libkommitwidgets/windows/mergewindow.cpp:285
 #, kde-format
 msgid "Keep mine"
 msgstr "De mijne behouden"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:291
+#: src/libkommitwidgets/windows/mergewindow.cpp:290
 #, kde-format
 msgid "Keep their"
 msgstr "De hunne behouden"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:297
+#: src/libkommitwidgets/windows/mergewindow.cpp:296
 #, kde-format
 msgid "Keep mine before their"
 msgstr "De mijne behouden boven de hunne"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:302
+#: src/libkommitwidgets/windows/mergewindow.cpp:301
 #, kde-format
 msgid "Keep their before mine"
 msgstr "De hunne behouden voor de mijne"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:307
+#: src/libkommitwidgets/windows/mergewindow.cpp:306
 #, kde-format
 msgid "Keep my file"
 msgstr "Mijn bestand behouden"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:312
+#: src/libkommitwidgets/windows/mergewindow.cpp:311
 #, kde-format
 msgid "Keep their file"
 msgstr "Hun bestand behouden"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:317
+#: src/libkommitwidgets/windows/mergewindow.cpp:316
 #, kde-format
 msgid "Blocks"
 msgstr "Blokken"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:321
+#: src/libkommitwidgets/windows/mergewindow.cpp:320
 #, kde-format
 msgid "Files"
 msgstr "Bestanden"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:325
+#: src/libkommitwidgets/windows/mergewindow.cpp:324
 #, kde-format
 msgid "Previous diff"
 msgstr "Vorige diff"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:331
+#: src/libkommitwidgets/windows/mergewindow.cpp:330
 #, kde-format
 msgid "Next diff"
 msgstr "Volgende diff"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:430
+#: src/libkommitwidgets/windows/mergewindow.cpp:429
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Kan het bestand niet openen"

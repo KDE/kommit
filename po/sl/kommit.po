@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 01:43+0000\n"
+"POT-Creation-Date: 2024-06-27 01:49+0000\n"
 "PO-Revision-Date: 2024-06-24 08:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -61,8 +61,8 @@ msgstr "Pridobi"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #: dolphinplugins/actions.h:21 src/gui/pages/tagswidget.ui:69
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:101
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:100
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:267
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:299
 #, kde-format
 msgid "Push"
@@ -172,7 +172,7 @@ msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:62 src/libkommit/models/logsmodel.cpp:262
-#: src/libkommitwidgets/reports/authorsreport.cpp:78
+#: src/libkommitwidgets/reports/authorsreport.cpp:81
 #, kde-format
 msgid "Author"
 msgstr "Avtor"
@@ -194,143 +194,143 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Popravljanje napak"
 
-#: src/gui/appwindow.cpp:97
+#: src/gui/appwindow.cpp:95 src/gui/appwindow.cpp:136
 #, kde-format
 msgid "No repo selected"
 msgstr "Nobeno skladišče ni izbrano"
 
-#: src/gui/appwindow.cpp:129
+#: src/gui/appwindow.cpp:128
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Trenutna veja: %1"
 
-#: src/gui/appwindow.cpp:131
+#: src/gui/appwindow.cpp:130
 #, kde-format
 msgid " (merging)"
 msgstr " (zlivanje)"
 
-#: src/gui/appwindow.cpp:133
+#: src/gui/appwindow.cpp:132
 #, kde-format
 msgid " (rebasing)"
 msgstr " (zamenjava osnove)"
 
-#: src/gui/appwindow.cpp:165
+#: src/gui/appwindow.cpp:167
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
 #, kde-format
 msgctxt "@action"
 msgid "Init…"
 msgstr "Init…"
 
-#: src/gui/appwindow.cpp:168
+#: src/gui/appwindow.cpp:170
 #, kde-format
 msgctxt "@action"
 msgid "Open…"
 msgstr "Odpri…"
 
-#: src/gui/appwindow.cpp:173
+#: src/gui/appwindow.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Kloniraj…"
 
-#: src/gui/appwindow.cpp:176
+#: src/gui/appwindow.cpp:178
 #, kde-format
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Spremenjene datoteke…"
 
-#: src/gui/appwindow.cpp:182
+#: src/gui/appwindow.cpp:184
 #, kde-format
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Nedavna skladišča"
 
-#: src/gui/appwindow.cpp:188
+#: src/gui/appwindow.cpp:190
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Očisti…"
 
-#: src/gui/appwindow.cpp:191
+#: src/gui/appwindow.cpp:193
 #, kde-format
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Potegni…"
 
-#: src/gui/appwindow.cpp:195 src/libkommitwidgets/actions/branchactions.cpp:34
+#: src/gui/appwindow.cpp:197 src/libkommitwidgets/actions/branchactions.cpp:33
 #, kde-format
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Pridobi…"
 
-#: src/gui/appwindow.cpp:199 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:201 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Push…"
 msgstr "Porini…"
 
-#: src/gui/appwindow.cpp:203 src/libkommitwidgets/actions/branchactions.cpp:37
+#: src/gui/appwindow.cpp:205 src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Spoji…"
 
-#: src/gui/appwindow.cpp:207
+#: src/gui/appwindow.cpp:209
 #, kde-format
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Razlika vej…"
 
-#: src/gui/appwindow.cpp:210 src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/gui/appwindow.cpp:212 src/libkommitwidgets/actions/fileactions.cpp:53
 #, kde-format
 msgctxt "@action"
 msgid "Search…"
 msgstr "Iskanje…"
 
-#: src/gui/appwindow.cpp:213
+#: src/gui/appwindow.cpp:215
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "Nastavitve skladišča…"
 
-#: src/gui/appwindow.cpp:216
+#: src/gui/appwindow.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Preklopi/prevzemi…"
 
-#: src/gui/appwindow.cpp:219
+#: src/gui/appwindow.cpp:221
 #, kde-format
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr "Drevo razlik…"
 
-#: src/gui/appwindow.cpp:256
+#: src/gui/appwindow.cpp:258
 #, kde-format
 msgid "Clear"
 msgstr "Očisti"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:253
+#: src/gui/appwindow.cpp:280 src/gui/commandargsparser.cpp:253
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ni mogoče ustvariti poti: %1"
 
-#: src/gui/appwindow.cpp:278 src/gui/commandargsparser.cpp:253
+#: src/gui/appwindow.cpp:280 src/gui/commandargsparser.cpp:253
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializiraj skladišče"
 
-#: src/gui/appwindow.cpp:291
+#: src/gui/appwindow.cpp:293
 #, kde-format
 msgid "Open repository"
 msgstr "Odpri skladišče"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:509
+#: src/gui/appwindow.cpp:372 src/gui/commandargsparser.cpp:509
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Med spajanjem ni mogoče preklopiti veje"
 
-#: src/gui/appwindow.cpp:370 src/gui/commandargsparser.cpp:509
+#: src/gui/appwindow.cpp:372 src/gui/commandargsparser.cpp:509
 #, kde-format
 msgid "Switch branch"
 msgstr "Preklopi vejo"
@@ -449,14 +449,14 @@ msgstr "Ne izstopi"
 msgid "Overview"
 msgstr "Pregled"
 
-#: src/gui/pages/branchesstatuswidget.cpp:71
-#: src/libkommitwidgets/actions/branchactions.cpp:119
+#: src/gui/pages/branchesstatuswidget.cpp:70
+#: src/libkommitwidgets/actions/branchactions.cpp:118
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Ali ste prepričani, da želite odstraniti izbrano vejo?"
 
-#: src/gui/pages/branchesstatuswidget.cpp:75
-#: src/libkommitwidgets/actions/branchactions.cpp:121
+#: src/gui/pages/branchesstatuswidget.cpp:74
+#: src/libkommitwidgets/actions/branchactions.cpp:120
 #, kde-format
 msgid "Unable to remove the selected branch"
 msgstr "Ni mogoče odstraniti izbrane veje"
@@ -494,14 +494,14 @@ msgstr "Prebrskaj"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
 #: src/gui/pages/commitswidget.ui:14
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
-#: src/libkommitwidgets/reports/authorsreport.cpp:83
-#: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
-#: src/libkommitwidgets/reports/commitsbydayhour.cpp:71
-#: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
-#: src/libkommitwidgets/reports/commitsbydayweek.cpp:100
-#: src/libkommitwidgets/reports/commitsbymonth.cpp:70
-#: src/libkommitwidgets/reports/commitsbymonth.cpp:85
+#: src/libkommitwidgets/reports/authorsreport.cpp:71
+#: src/libkommitwidgets/reports/authorsreport.cpp:86
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:59
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:74
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:89
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:104
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:74
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:89
 #, kde-format
 msgid "Commits"
 msgstr "Objave"
@@ -569,7 +569,7 @@ msgstr "Veje:"
 #: src/libkommit/models/tagsmodel.cpp:61
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
 #: src/libkommitwidgets/models/treemodel.cpp:146
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#: src/libkommitwidgets/reports/authorsreport.cpp:71
 #, kde-format
 msgid "Name"
 msgstr "Ime"
@@ -718,7 +718,7 @@ msgstr "Dodaj nov podmodul"
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:108
 #: src/libkommitwidgets/dialogs/pulldialog.ui:153
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:54
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#: src/libkommitwidgets/reports/authorsreport.cpp:71
 #, kde-format
 msgid "Tags"
 msgstr "Oznake"
@@ -926,7 +926,7 @@ msgstr "Zadeva"
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommit/models/stashesmodel.cpp:68
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:68
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "Commit"
@@ -969,31 +969,31 @@ msgstr "Označevalnik"
 msgid "Create time"
 msgstr "Čas kreiranja"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:31
+#: src/libkommitwidgets/actions/branchactions.cpp:30
 #, kde-format
 msgctxt "@action"
 msgid "Create…"
 msgstr "Ustvari…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:35
+#: src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgctxt "@action"
 msgid "Browse…"
 msgstr "Prebrskaj…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:36
+#: src/libkommitwidgets/actions/branchactions.cpp:35
 #, kde-format
 msgctxt "@action"
 msgid "Switch"
 msgstr "Preklopi"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:38
+#: src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Diff"
 msgstr "Razlike"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:39
+#: src/libkommitwidgets/actions/branchactions.cpp:38
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
@@ -1002,23 +1002,23 @@ msgctxt "@action"
 msgid "Remove…"
 msgstr "Odstrani…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:40
+#: src/libkommitwidgets/actions/branchactions.cpp:39
 #, kde-format
 msgctxt "@action"
 msgid "Note…"
 msgstr "Opomba…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:70
+#: src/libkommitwidgets/actions/branchactions.cpp:69
 #, kde-format
 msgid "Create new branch"
 msgstr "Ustvari novo vejo"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:70
+#: src/libkommitwidgets/actions/branchactions.cpp:69
 #, kde-format
 msgid "Branch name"
 msgstr "Ime veje"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:119
+#: src/libkommitwidgets/actions/branchactions.cpp:118
 #, kde-format
 msgid "Remove Branch"
 msgstr "Odstrani vejo"
@@ -1339,7 +1339,7 @@ msgstr "Spremenjene datoteke:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
-#: src/libkommitwidgets/windows/diffwindow.cpp:210
+#: src/libkommitwidgets/windows/diffwindow.cpp:207
 #, kde-format
 msgid "Reload"
 msgstr "Ponovno naloži"
@@ -1501,8 +1501,8 @@ msgstr "-"
 msgid "TextLabel"
 msgstr "TextLabel"
 
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:103
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:102
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:267
 #, kde-format
 msgid "Commit and push"
 msgstr "Objavi in potisni"
@@ -1661,21 +1661,21 @@ msgstr "Indeksirano"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:273
+#: src/libkommitwidgets/windows/diffwindow.cpp:270
 #, kde-format
 msgid "Added"
 msgstr "Dodano"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:275
+#: src/libkommitwidgets/windows/diffwindow.cpp:272
 #, kde-format
 msgid "Removed"
 msgstr "Odstranjeno"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:277
+#: src/libkommitwidgets/windows/diffwindow.cpp:274
 #, kde-format
 msgid "Modified"
 msgstr "Spremenjena"
@@ -1836,19 +1836,21 @@ msgstr "Pogled vrste"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:33
-#, kde-format
-msgid "Regular view"
+#, fuzzy, kde-format
+#| msgid "Regular view"
+msgid "&Regular view"
 msgstr "Regularni pogled"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:40
-#, kde-format
-msgid "Differential view"
+#, fuzzy, kde-format
+#| msgid "Differential view"
+msgid "Differential &view"
 msgstr "Pogled razlike"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:70
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:73
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:25
 #, kde-format
 msgid "Left"
@@ -1856,7 +1858,7 @@ msgstr "Levo"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:75
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:78
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:54
 #, kde-format
 msgid "Right"
@@ -1895,18 +1897,18 @@ msgstr "Izvleci"
 msgid "Branch:"
 msgstr "Veja:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:46
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Zapiranje predogleda"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
 #, kde-format
 msgid "Please wait while the preview is being closed…"
 msgstr "Počakajte, da se predogled zapre…"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2502,12 +2504,12 @@ msgstr "Izberite vejo"
 msgid "HEAD"
 msgstr "GLAVA/HEAD"
 
-#: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:101
+#: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:99
 #, kde-format
 msgid "The path is not inside of git directory"
 msgstr "Pot ni znotraj skladišča git"
 
-#: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:75
+#: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:73
 #, kde-format
 msgid "The branch already exists"
 msgstr "Veja že obstaja"
@@ -2524,42 +2526,42 @@ msgstr "Značka"
 msgid "Tag name:"
 msgstr "Ime značke:"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:139
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:137
 #, kde-format
 msgid " (new commit)"
 msgstr " (nova potrditev)"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:141
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:139
 #, kde-format
 msgid " (content modified)"
 msgstr " (vsebina spremenjena)"
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:58
+#: src/libkommitwidgets/reports/authorsreport.cpp:61
 #, kde-format
 msgid "Commits count by author"
 msgstr "Število objav po avtorju"
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#: src/libkommitwidgets/reports/authorsreport.cpp:71
 #, kde-format
 msgid "Email"
 msgstr "E-pošta"
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#: src/libkommitwidgets/reports/authorsreport.cpp:71
 #, kde-format
 msgid "Autheds"
 msgstr "Avtentikacije"
 
-#: src/libkommitwidgets/reports/commitsbydayhour.cpp:46
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:49
 #, kde-format
 msgid "Commits by hour of day"
 msgstr "Objave po uri dneva"
 
-#: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:59
 #, kde-format
 msgid "Hour"
 msgstr "Ura"
 
-#: src/libkommitwidgets/reports/commitsbydayhour.cpp:66
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:69
 #, kde-format
 msgid "Hour of day"
 msgstr "Ura dneva"
@@ -2599,32 +2601,32 @@ msgstr "Sobota"
 msgid "Sunday"
 msgstr "Nedelja"
 
-#: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:79
 #, kde-format
 msgid "Commits by day of week"
 msgstr "Objav po dnevu v tednu"
 
-#: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:89
 #, kde-format
 msgid "Day"
 msgstr "Dan"
 
-#: src/libkommitwidgets/reports/commitsbydayweek.cpp:95
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:99
 #, kde-format
 msgid "Day of week"
 msgstr "Dan v tednu"
 
-#: src/libkommitwidgets/reports/commitsbymonth.cpp:60
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:64
 #, kde-format
 msgid "Commits by month"
 msgstr "Objave po mesecu"
 
-#: src/libkommitwidgets/reports/commitsbymonth.cpp:70
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:74
 #, kde-format
 msgid "Month"
 msgstr "Mesec"
 
-#: src/libkommitwidgets/reports/commitsbymonth.cpp:80
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:84
 #, kde-format
 msgid "Month-year"
 msgstr "Mesec-leto"
@@ -2730,100 +2732,100 @@ msgstr "Skrij nespremenjene"
 msgid "Report"
 msgstr "Poročilo"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:161
+#: src/libkommitwidgets/windows/diffwindow.cpp:158
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "Kommit Diff[*]"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:164
+#: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Drevo"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:191
+#: src/libkommitwidgets/windows/diffwindow.cpp:188
 #, kde-format
 msgid "View hidden chars…"
 msgstr "Pokaži skrite znake…"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:196
-#: src/libkommitwidgets/windows/mergewindow.cpp:336
+#: src/libkommitwidgets/windows/diffwindow.cpp:193
+#: src/libkommitwidgets/windows/mergewindow.cpp:335
 #, kde-format
 msgid "Same size blocks"
 msgstr "Bloki enake velikosti"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:201
+#: src/libkommitwidgets/windows/diffwindow.cpp:198
 #, kde-format
 msgid "Show files names"
 msgstr "Pokaži imena datotek"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:207
+#: src/libkommitwidgets/windows/diffwindow.cpp:204
 #, kde-format
 msgid "Show Tree"
 msgstr "Pokaži drevo"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:271
+#: src/libkommitwidgets/windows/diffwindow.cpp:268
 #, kde-format
 msgid "Unchanged"
 msgstr "Nespremenjeno"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:278
+#: src/libkommitwidgets/windows/mergewindow.cpp:277
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Spori: %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:286
+#: src/libkommitwidgets/windows/mergewindow.cpp:285
 #, kde-format
 msgid "Keep mine"
 msgstr "Obdrži moje"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:291
+#: src/libkommitwidgets/windows/mergewindow.cpp:290
 #, kde-format
 msgid "Keep their"
 msgstr "Obdrži njihovo"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:297
+#: src/libkommitwidgets/windows/mergewindow.cpp:296
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Obdrži moje pred njihovim"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:302
+#: src/libkommitwidgets/windows/mergewindow.cpp:301
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Obdrži njihovo pred mojim"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:307
+#: src/libkommitwidgets/windows/mergewindow.cpp:306
 #, kde-format
 msgid "Keep my file"
 msgstr "Obdrži mojo datoteko"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:312
+#: src/libkommitwidgets/windows/mergewindow.cpp:311
 #, kde-format
 msgid "Keep their file"
 msgstr "Obdrži njihovo datoteko"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:317
+#: src/libkommitwidgets/windows/mergewindow.cpp:316
 #, kde-format
 msgid "Blocks"
 msgstr "Bloki"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:321
+#: src/libkommitwidgets/windows/mergewindow.cpp:320
 #, kde-format
 msgid "Files"
 msgstr "Datoteke"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:325
+#: src/libkommitwidgets/windows/mergewindow.cpp:324
 #, kde-format
 msgid "Previous diff"
 msgstr "Prejšnja razlika"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:331
+#: src/libkommitwidgets/windows/mergewindow.cpp:330
 #, kde-format
 msgid "Next diff"
 msgstr "Naslednja razlika"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:430
+#: src/libkommitwidgets/windows/mergewindow.cpp:429
 #, kde-format
 msgid "Unable to open the file"
 msgstr "Datoteke ni mogoče odpreti"
