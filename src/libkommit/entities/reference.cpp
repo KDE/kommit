@@ -5,7 +5,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "reference.h"
+#include "entities/branch.h"
+#include "entities/note.h"
+#include "entities/remote.h"
+#include "entities/tag.h"
+#include <git2/notes.h>
 #include <git2/refs.h>
+#include <git2/remote.h>
+#include <git2/tag.h>
 
 namespace Git
 {
@@ -61,4 +68,52 @@ QString Reference::shorthand() const
     return mShorthand;
 }
 
+QSharedPointer<Note> Reference::toNote() const
+{
+    if (!isNote())
+        return {};
+
+    auto oid = git_reference_target(ptr);
+    auto repo = git_reference_owner(ptr);
+
+    git_note *note;
+    git_note_read(&note, repo, NULL, oid);
+
+    return QSharedPointer<Note>{new Note{note}};
+}
+
+QSharedPointer<Branch> Reference::toBranch() const
+{
+    if (!isBranch())
+        return {};
+
+    return QSharedPointer<Branch>{new Branch{ptr}};
+}
+
+QSharedPointer<Tag> Reference::toTag() const
+{
+    if (!isTag())
+        return {};
+
+    auto oid = git_reference_target(ptr);
+    auto repo = git_reference_owner(ptr);
+
+    git_tag *tag;
+    git_tag_lookup(&tag, repo, oid);
+
+    return QSharedPointer<Tag>{new Tag{tag}};
+}
+
+QSharedPointer<Remote> Reference::toRemote() const
+{
+    if (!isBranch())
+        return {};
+
+    auto repo = git_reference_owner(ptr);
+
+    git_remote *remote;
+    git_remote_lookup(&remote, repo, git_reference_name(ptr));
+
+    return QSharedPointer<Remote>{new Remote{remote}};
+}
 }
