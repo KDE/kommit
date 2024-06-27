@@ -43,12 +43,14 @@
 namespace Git
 {
 
-class ManagerData : public QSharedData
+class ManagerPrivate
 {
 public:
-    ManagerData(Manager *parent);
+    ManagerPrivate(Manager *parent);
 
-    Manager *parent;
+    Manager *q_ptr;
+    Q_DECLARE_PUBLIC(Manager);
+
     QString path;
     bool isValid{false};
     QMap<QString, Remote> remotes;
@@ -68,11 +70,14 @@ public:
 
 const QString &Manager::path() const
 {
+    Q_D(const Manager);
     return d->path;
 }
 
 bool Manager::open(const QString &newPath)
 {
+    Q_D(Manager);
+
     if (d->path == newPath)
         return false;
 
@@ -152,6 +157,8 @@ QStringList Manager::ignoredFiles() const
 
 QList<FileStatus> Manager::repoFilesStatus() const
 {
+    Q_D(const Manager);
+
     const auto buffer = runGit({QStringLiteral("status"),
                                 QStringLiteral("--untracked-files=all"),
                                 QStringLiteral("--ignored"),
@@ -174,6 +181,7 @@ QList<FileStatus> Manager::repoFilesStatus() const
 
 bool Manager::isValid() const
 {
+    Q_D(const Manager);
     return d->isValid;
 }
 
@@ -820,6 +828,8 @@ bool load(AbstractGitItemsModel *cache)
 
 void Manager::loadAsync()
 {
+    Q_D(Manager);
+
     QList<AbstractGitItemsModel *> models;
 
     if (d->loadFlags & LoadStashes)
@@ -847,41 +857,49 @@ void Manager::loadAsync()
 
 TagsModel *Manager::tagsModel() const
 {
+    Q_D(const Manager);
     return d->tagsModel;
 }
 
 StashesModel *Manager::stashesModel() const
 {
+    Q_D(const Manager);
     return d->stashesCache;
 }
 
 LogsModel *Manager::logsModel() const
 {
+    Q_D(const Manager);
     return d->logsCache;
 }
 
 BranchesModel *Manager::branchesModel() const
 {
+    Q_D(const Manager);
     return d->branchesModel;
 }
 
 SubmodulesModel *Manager::submodulesModel() const
 {
+    Q_D(const Manager);
     return d->submodulesModel;
 }
 
 RemotesModel *Manager::remotesModel() const
 {
+    Q_D(const Manager);
     return d->remotesModel;
 }
 
 const LoadFlags &Manager::loadFlags() const
 {
+    Q_D(const Manager);
     return d->loadFlags;
 }
 
 void Manager::setLoadFlags(Git::LoadFlags newLoadFlags)
 {
+    Q_D(Manager);
     d->loadFlags = newLoadFlags;
 }
 
@@ -948,7 +966,7 @@ void Manager::forEachRefs(std::function<void(QSharedPointer<Reference>)> callbac
 
 Manager::Manager()
     : QObject()
-    , d{new ManagerData{this}}
+    , d_ptr{new ManagerPrivate{this}}
 {
     git_libgit2_init();
 }
@@ -956,6 +974,7 @@ Manager::Manager()
 Manager::Manager(git_repository *repo)
     : Manager()
 {
+    Q_D(Manager);
     git_libgit2_init();
     mRepo = repo;
     d->path = git_repository_workdir(mRepo);
@@ -1048,7 +1067,7 @@ QString Manager::run(const AbstractCommand &cmd) const
 
 bool Manager::init(const QString &path)
 {
-    //    runGit({QStringLiteral("init")});
+    Q_D(Manager);
 
     BEGIN
     git_repository_init_options initopts = {GIT_REPOSITORY_INIT_OPTIONS_VERSION, GIT_REPOSITORY_INIT_MKPATH};
@@ -1064,6 +1083,8 @@ bool Manager::init(const QString &path)
 
 bool Manager::clone(const QString &url, const QString &localPath, CloneObserver *observer)
 {
+    Q_D(Manager);
+
     // TODO: free _repo
     git_clone_options opts = GIT_CLONE_OPTIONS_INIT;
 
@@ -1097,7 +1118,7 @@ bool Manager::clone(const QString &url, const QString &localPath, CloneObserver 
 
 QString Manager::runGit(const QStringList &args) const
 {
-    //    qCDebug(KOMMITLIB_LOG).noquote() << "Running: git " << args.join(" ");
+    Q_D(const Manager); //    qCDebug(KOMMITLIB_LOG).noquote() << "Running: git " << args.join(" ");
 
     QProcess p;
     p.setProgram(QStringLiteral("git"));
@@ -1550,6 +1571,8 @@ Remote *Manager::remote(const QString &name) const
 
 Remote Manager::remoteDetails(const QString &remoteName)
 {
+    Q_D(Manager);
+
     if (d->remotes.contains(remoteName))
         return d->remotes.value(remoteName);
     Remote r;
@@ -1647,6 +1670,8 @@ PointerList<Commit> Manager::commits(const QString &branchName) const
 
 BlameData Manager::blame(const File &file) // TODO: change parametere to QSharedPointer<File>
 {
+    Q_D(Manager);
+
     git_blame *blame;
     git_blame_options options;
 
@@ -1844,21 +1869,24 @@ bool Manager::isDetached() const
 
 int Manager::errorClass() const
 {
+    Q_D(const Manager);
     return d->errorClass;
 }
 
 QString Manager::errorMessage() const
 {
+    Q_D(const Manager);
     return d->errorMessage;
 }
 
 int Manager::errorCode() const
 {
+    Q_D(const Manager);
     return d->errorCode;
 }
 
-ManagerData::ManagerData(Manager *parent)
-    : parent{parent}
+ManagerPrivate::ManagerPrivate(Manager *parent)
+    : q_ptr{parent}
     , remotesModel{new RemotesModel(parent, parent)}
     , submodulesModel{new SubmodulesModel(parent, parent)}
     , branchesModel{new BranchesModel(parent, parent)}

@@ -41,7 +41,7 @@ class AddSubmoduleOptions;
 class Index;
 class Tree;
 class Note;
-class ManagerData;
+class ManagerPrivate;
 
 enum LoadFlag {
     LoadNone = 0,
@@ -261,7 +261,10 @@ Q_SIGNALS:
     void reloadRequired();
 
 private:
-    QSharedDataPointer<ManagerData> d;
+    ManagerPrivate *d_ptr;
+    Q_DECLARE_PRIVATE(Manager);
+
+    // TODO: move this to ManagerPrivate
     git_repository *mRepo{nullptr};
 
     LIBKOMMIT_NO_EXPORT int findStashIndex(const QString &message) const;
