@@ -137,7 +137,7 @@ struct LanesFactory {
 
     void fork(const QStringList &childrenList, QVector<GraphLane> &lanes, int myInedx)
     {
-        auto list = setHashes(childrenList, -1);
+        const auto list = setHashes(childrenList, -1);
         auto children = childrenList;
         lanes.reserve(_hashes.size());
 
@@ -159,7 +159,7 @@ struct LanesFactory {
 
             return;
         }
-        for (int &i : list) {
+        for (int i : list) {
             if (lanes.size() <= i)
                 lanes.resize(i + 1);
 
