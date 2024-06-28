@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-27 01:49+0000\n"
+"POT-Creation-Date: 2024-06-28 01:54+0000\n"
 "PO-Revision-Date: 2024-04-22 16:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1350,10 +1350,19 @@ msgstr ""
 msgid "Commit/push"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
-#, kde-format
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:27
+#, fuzzy, kde-format
+#| msgid "Commit/Push"
+msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
-msgstr ""
+msgstr "提交/推送"
+
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:51
+#, fuzzy, kde-format
+#| msgid "Commit/Push"
+msgctxt "@action"
+msgid "Commit/Push"
+msgstr "提交/推送"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14

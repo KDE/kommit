@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-27 01:49+0000\n"
-"PO-Revision-Date: 2024-06-25 10:58+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"POT-Creation-Date: 2024-06-28 01:54+0000\n"
+"PO-Revision-Date: 2024-06-27 15:49+0200\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -1338,10 +1338,18 @@ msgstr ""
 msgid "Commit/push"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:27
 #, kde-format
+msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
 msgstr ""
+
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:51
+#, fuzzy, kde-format
+#| msgid "Commits"
+msgctxt "@action"
+msgid "Commit/Push"
+msgstr "Commity"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -1798,13 +1806,13 @@ msgstr "Typ pohledu"
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:33
 #, kde-format
 msgid "&Regular view"
-msgstr ""
+msgstr "Normální pohled"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:40
 #, kde-format
 msgid "Differential &view"
-msgstr ""
+msgstr "Rozdílový pohled"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)

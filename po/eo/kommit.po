@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-27 01:49+0000\n"
+"POT-Creation-Date: 2024-06-28 01:54+0000\n"
 "PO-Revision-Date: 2024-06-16 07:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -1355,10 +1355,19 @@ msgstr "Kaŝkonservi ŝanĝojn (stash)"
 msgid "Commit/push"
 msgstr "Enmeti/push"
 
-#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
-#, kde-format
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:27
+#, fuzzy, kde-format
+#| msgid "Commit/Push submodule: %1"
+msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
 msgstr "Puŝi/Enmeti al submodulo: %1"
+
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:51
+#, fuzzy, kde-format
+#| msgid "Commit/Push"
+msgctxt "@action"
+msgid "Commit/Push"
+msgstr "Enmeti/Puŝi"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14

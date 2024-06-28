@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-27 01:49+0000\n"
+"POT-Creation-Date: 2024-06-28 01:54+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1398,10 +1398,18 @@ msgstr "Gordelekuak"
 msgid "Commit/push"
 msgstr "Baliozkotu/Bultzatu"
 
-#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Commit/Push"
+msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
+msgstr "Baliozkotu/Bultzatu"
+
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:51
+#, fuzzy, kde-format
+#| msgid "Commit/Push"
+msgctxt "@action"
+msgid "Commit/Push"
 msgstr "Baliozkotu/Bultzatu"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)

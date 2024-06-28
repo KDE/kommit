@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-27 01:49+0000\n"
+"POT-Creation-Date: 2024-06-28 01:54+0000\n"
 "PO-Revision-Date: 2023-10-22 10:49+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -1401,10 +1401,18 @@ msgstr "Składowiska"
 msgid "Commit/push"
 msgstr "Wdroż/Wypchnij"
 
-#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Commit/Push"
+msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
+msgstr "Wdroż/Wypchnij"
+
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:51
+#, fuzzy, kde-format
+#| msgid "Commit/Push"
+msgctxt "@action"
+msgid "Commit/Push"
 msgstr "Wdroż/Wypchnij"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
