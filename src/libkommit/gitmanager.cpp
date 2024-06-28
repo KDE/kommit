@@ -1591,14 +1591,6 @@ bool Manager::createStash(const QString &name) const
     STEP git_signature_default(&sign, d->repo);
     STEP git_stash_save(&oid, d->repo, sign, name.toUtf8().data(), GIT_STASH_DEFAULT);
     return IS_OK;
-
-    QStringList args{QStringLiteral("stash"), QStringLiteral("push")};
-
-    if (!name.isEmpty())
-        args.append({QStringLiteral("--message"), name});
-
-    const auto ret = runGit(args);
-    qCDebug(KOMMITLIB_LOG) << ret;
 }
 
 bool Manager::removeStash(const QString &name) const
