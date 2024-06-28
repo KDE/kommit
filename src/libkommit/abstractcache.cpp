@@ -40,6 +40,7 @@ QSharedPointer<T> AbstractCache<T>::findOrCreate(const QString &key)
 template<class T>
 T *AbstractCache<T>::create(const QString &key)
 {
+    Q_UNUSED(key)
     return nullptr;
 }
 
@@ -62,6 +63,7 @@ CommitsCache::CommitsCache(git_repository *repo)
 
 Commit *CommitsCache::create(const QString &key)
 {
+    Q_UNUSED(key)
     return nullptr;
 }
 
