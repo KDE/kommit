@@ -197,8 +197,6 @@ bool Manager::addRemote(const QString &name, const QString &url) const
     git_remote *remote;
     BEGIN
     STEP git_remote_create(&remote, d->repo, name.toUtf8().data(), url.toUtf8().data());
-    //    runGit({QStringLiteral("remote"), QStringLiteral("add"), name, url});
-
     END;
     return IS_OK;
 }
@@ -209,8 +207,6 @@ bool Manager::removeRemote(const QString &name) const
 
     BEGIN
     STEP git_remote_delete(d->repo, name.toUtf8().data());
-    //    runGit({QStringLiteral("remote"), QStringLiteral("remove"), name});
-
     END;
     return IS_OK;
 }
@@ -225,7 +221,6 @@ bool Manager::renameRemote(const QString &name, const QString &newName) const
     STEP git_remote_rename(&problems, d->repo, name.toUtf8().data(), newName.toUtf8().data());
     git_strarray_free(&problems);
 
-    //     runGit({QStringLiteral("remote"), QStringLiteral("rename"), name, newName});
     return IS_OK;
 }
 
@@ -754,20 +749,7 @@ void Manager::setConfig(const QString &name, const QString &value, ConfigType ty
         break;
     }
     STEP git_config_set_string(cfg, name.toLatin1().data(), value.toLatin1().data());
-
-    return;
-
-    QStringList cmd;
-    switch (type) {
-    case ConfigLocal:
-        cmd = QStringList{QStringLiteral("config"), name, value};
-        break;
-    case ConfigGlobal:
-        cmd = QStringList{QStringLiteral("config"), QStringLiteral("--global"), name, value};
-        break;
-    }
-
-    runGit(cmd);
+    END;
 }
 
 void Manager::unsetConfig(const QString &name, ConfigType type) const
@@ -1933,13 +1915,6 @@ bool Manager::removeFile(const QString &file, bool cached) const
     PRINT_ERROR;
 
     return IS_OK;
-
-    QStringList args;
-    args.append(QStringLiteral("rm"));
-    if (cached)
-        args.append(QStringLiteral("--cached"));
-    args.append(file);
-    runGit(args);
 }
 
 bool Manager::isMerging() const
