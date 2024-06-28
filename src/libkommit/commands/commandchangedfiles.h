@@ -19,15 +19,15 @@ class CommandChangedFiles : public AbstractCommand
 public:
     explicit CommandChangedFiles(Manager *git);
 
-    [[nodiscard]] const QList<FileStatus> &files() const;
-    [[nodiscard]] bool ignored() const;
+    Q_REQUIRED_RESULT const QList<FileStatus> &files() const;
+    Q_REQUIRED_RESULT bool ignored() const;
     void setIgnored(bool newIgnored);
-    [[nodiscard]] bool untracked() const;
+    Q_REQUIRED_RESULT bool untracked() const;
     void setUntracked(bool newUntracked);
-    [[nodiscard]] bool ignoreSubmodules() const;
+    Q_REQUIRED_RESULT bool ignoreSubmodules() const;
     void setIgnoreSubmodules(bool newIgnoreSubmodules);
 
-    [[nodiscard]] QStringList generateArgs() const override;
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
     void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput) override;
 
 private:

@@ -26,7 +26,7 @@ struct LIBKOMMITDIFF_EXPORT Segment {
 struct LIBKOMMITDIFF_EXPORT DiffSegment : Segment {
     ~DiffSegment() override = default;
 
-    [[nodiscard]] QStringList get(int index) override;
+    Q_REQUIRED_RESULT QStringList get(int index) override;
 };
 
 struct LIBKOMMITDIFF_EXPORT MergeSegment : Segment {
@@ -37,7 +37,7 @@ struct LIBKOMMITDIFF_EXPORT MergeSegment : Segment {
     //    MergeDiffType type;
     MergeType mergeType{None};
 
-    [[nodiscard]] QStringList get(int index) override;
+    Q_REQUIRED_RESULT QStringList get(int index) override;
     MergeSegment();
     MergeSegment(const QStringList &base, const QStringList &local, const QStringList &remote);
 };

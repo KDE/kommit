@@ -26,8 +26,8 @@ public:
 
     enum Status { NotLoaded, Loading, Loaded };
     Q_ENUM(Status)
-    [[nodiscard]] bool isLoaded() const;
-    [[nodiscard]] Status status() const;
+    Q_REQUIRED_RESULT bool isLoaded() const;
+    Q_REQUIRED_RESULT Status status() const;
     virtual void clear() = 0;
 
 public Q_SLOTS:

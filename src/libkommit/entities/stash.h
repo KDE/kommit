@@ -27,21 +27,21 @@ public:
     Stash(size_t index, git_repository *repo, const char *message, const git_oid *stash_id);
     ~Stash();
 
-    [[nodiscard]] const QString &message() const;
-    [[nodiscard]] const QString &subject() const;
-    [[nodiscard]] const QString &branch() const;
-    [[nodiscard]] const QDateTime &pushTime() const;
+    Q_REQUIRED_RESULT const QString &message() const;
+    Q_REQUIRED_RESULT const QString &subject() const;
+    Q_REQUIRED_RESULT const QString &branch() const;
+    Q_REQUIRED_RESULT const QDateTime &pushTime() const;
 
-    [[nodiscard]] QSharedPointer<Signature> author() const;
-    [[nodiscard]] QSharedPointer<Signature> committer() const;
-    [[nodiscard]] QSharedPointer<Commit> commit() const;
+    Q_REQUIRED_RESULT QSharedPointer<Signature> author() const;
+    Q_REQUIRED_RESULT QSharedPointer<Signature> committer() const;
+    Q_REQUIRED_RESULT QSharedPointer<Commit> commit() const;
 
     friend class Manager;
     friend class StashesModel;
 
-    [[nodiscard]] QString commitHash() const;
+    Q_REQUIRED_RESULT QString commitHash() const;
 
-    [[nodiscard]] size_t index() const;
+    Q_REQUIRED_RESULT size_t index() const;
 
 private:
     git_commit *ptr{nullptr};

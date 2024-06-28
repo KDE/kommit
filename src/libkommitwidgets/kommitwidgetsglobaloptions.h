@@ -19,9 +19,9 @@ public:
     KommitWidgetsGlobalOptions();
 
     void setColor(Git::ChangeStatus status, const QColor &color);
-    [[nodiscard]] QColor statucColor(Git::ChangeStatus status) const;
+    Q_REQUIRED_RESULT QColor statucColor(Git::ChangeStatus status) const;
 
-    [[nodiscard]] QCalendar calendar() const;
+    Q_REQUIRED_RESULT QCalendar calendar() const;
     void setCalendar(const QCalendar &calendar);
 
     static KommitWidgetsGlobalOptions *instance();

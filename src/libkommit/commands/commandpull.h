@@ -42,34 +42,34 @@ public:
 
     CommandPull();
     ~CommandPull() override;
-    [[nodiscard]] QStringList generateArgs() const override;
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
 
-    [[nodiscard]] bool squash() const;
+    Q_REQUIRED_RESULT bool squash() const;
     void setSquash(bool newSquash);
 
-    [[nodiscard]] bool noCommit() const;
+    Q_REQUIRED_RESULT bool noCommit() const;
     void setNoCommit(bool newNoCommit);
 
-    [[nodiscard]] bool prune() const;
+    Q_REQUIRED_RESULT bool prune() const;
     void setPrune(bool newPrune);
 
-    [[nodiscard]] bool tags() const;
+    Q_REQUIRED_RESULT bool tags() const;
     void setTags(bool newTags);
 
     void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput) override;
     bool supportWidget() const override;
     QWidget *createWidget() override;
 
-    [[nodiscard]] const QString &remote() const;
+    Q_REQUIRED_RESULT const QString &remote() const;
     void setRemote(const QString &newRemote);
 
-    [[nodiscard]] const QString &branch() const;
+    Q_REQUIRED_RESULT const QString &branch() const;
     void setBranch(const QString &newBranch);
 
-    [[nodiscard]] Rebase rebase() const;
+    Q_REQUIRED_RESULT Rebase rebase() const;
     void setRebase(Rebase newRebase);
 
-    [[nodiscard]] FastForward fastForward() const;
+    Q_REQUIRED_RESULT FastForward fastForward() const;
     void setFastForward(FastForward newFastForward);
 
 private:

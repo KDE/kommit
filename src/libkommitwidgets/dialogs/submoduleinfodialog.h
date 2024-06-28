@@ -22,19 +22,19 @@ class LIBKOMMITWIDGETS_EXPORT SubmoduleInfoDialog : public AppDialog, private Ui
 public:
     explicit SubmoduleInfoDialog(Git::Manager *git, QWidget *parent = nullptr);
 
-    [[nodiscard]] bool force() const;
+    Q_REQUIRED_RESULT bool force() const;
     void setForce(bool newForce);
 
-    [[nodiscard]] QString url() const;
+    Q_REQUIRED_RESULT QString url() const;
     void setUrl(const QString &newUrl);
 
-    [[nodiscard]] QString path() const;
+    Q_REQUIRED_RESULT QString path() const;
     void setPath(const QString &newPath);
 
-    [[nodiscard]] QString branch() const;
+    Q_REQUIRED_RESULT QString branch() const;
     void setBranch(const QString &newBranch);
 
-    [[nodiscard]] Git::AddSubmoduleCommand *command() const;
+    Q_REQUIRED_RESULT Git::AddSubmoduleCommand *command() const;
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotLineEditPathUrlSelected(const QUrl &url);

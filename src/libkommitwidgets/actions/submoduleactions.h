@@ -16,7 +16,7 @@ class LIBKOMMITWIDGETS_EXPORT SubmoduleActions : public AbstractActions
 public:
     explicit SubmoduleActions(Git::Manager *git, QWidget *parent = nullptr);
 
-    [[nodiscard]] const QString &subModuleName() const;
+    Q_REQUIRED_RESULT const QString &subModuleName() const;
     void setSubModuleName(const QString &newSubModuleName);
 
 private:

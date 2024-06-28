@@ -30,17 +30,17 @@ public:
     File &operator=(const File &other);
 
     bool save(const QString &path) const;
-    [[nodiscard]] QString saveAsTemp() const;
+    Q_REQUIRED_RESULT QString saveAsTemp() const;
 
-    [[nodiscard]] QString content() const;
-    [[nodiscard]] const QString &place() const;
+    Q_REQUIRED_RESULT QString content() const;
+    Q_REQUIRED_RESULT const QString &place() const;
     void setPlace(const QString &newPlace);
-    [[nodiscard]] QString fileName() const;
+    Q_REQUIRED_RESULT QString fileName() const;
     void setFileName(const QString &newFileName);
     Manager *git() const;
 
-    [[nodiscard]] QString displayName() const;
-    [[nodiscard]] StorageType storage() const;
+    Q_REQUIRED_RESULT QString displayName() const;
+    Q_REQUIRED_RESULT StorageType storage() const;
 
 private:
     git_repository *mRepo{nullptr};

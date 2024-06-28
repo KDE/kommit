@@ -24,7 +24,7 @@ public:
     void addTextEdit(QPlainTextEdit *control);
     void init(KActionCollection *actionCollection);
 
-    [[nodiscard]] bool eventFilter(QObject *watched, QEvent *event) override;
+    Q_REQUIRED_RESULT bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void controlUndoAvailable(bool b);

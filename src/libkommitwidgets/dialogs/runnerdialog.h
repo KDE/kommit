@@ -29,7 +29,7 @@ public:
     void run(const QStringList &args);
     void run(Git::AbstractCommand *command);
 
-    [[nodiscard]] bool autoClose() const;
+    Q_REQUIRED_RESULT bool autoClose() const;
     void setAutoClose(bool newAutoClose);
 
 private:

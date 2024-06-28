@@ -33,10 +33,10 @@ public:
     Diff::Segment *currentSegment() const;
     void setCurrentSegment(Diff::Segment *newCurrentSegment);
 
-    [[nodiscard]] bool sameSize() const;
+    Q_REQUIRED_RESULT bool sameSize() const;
     void setSameSize(bool newSameSize);
 
-    [[nodiscard]] int topMargin() const;
+    Q_REQUIRED_RESULT int topMargin() const;
     void setTopMargin(int newTopMargin);
 
 Q_SIGNALS:

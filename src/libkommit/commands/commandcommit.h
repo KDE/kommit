@@ -15,18 +15,18 @@ class LIBKOMMIT_EXPORT CommandCommit : public AbstractCommand
 {
 public:
     CommandCommit();
-    [[nodiscard]] QStringList generateArgs() const override;
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
 
-    [[nodiscard]] const QString &message() const;
+    Q_REQUIRED_RESULT const QString &message() const;
     void setMessage(const QString &newMessage);
 
-    [[nodiscard]] bool amend() const;
+    Q_REQUIRED_RESULT bool amend() const;
     void setAmend(bool newAmend);
 
-    [[nodiscard]] OptionalBool includeStatus() const;
+    Q_REQUIRED_RESULT OptionalBool includeStatus() const;
     void setIncludeStatus(OptionalBool newIncludeStatus);
 
-    [[nodiscard]] bool parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
+    Q_REQUIRED_RESULT bool parseOutput(const QByteArray &output, const QByteArray &errorOutput) override;
 
 private:
     QString mMessage;

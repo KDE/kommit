@@ -23,13 +23,13 @@ public:
     void load(Git::Manager *git);
     void initGraph();
 
-    [[nodiscard]] const QString &branch() const;
+    Q_REQUIRED_RESULT const QString &branch() const;
     void setBranch(const QString &newBranch);
 
     Commit *findByHash(const QString &hash, int *index = nullptr) const;
 
 private:
-    [[nodiscard]] LIBKOMMIT_NO_EXPORT QString branchName(const QString &refLog);
+    Q_REQUIRED_RESULT LIBKOMMIT_NO_EXPORT QString branchName(const QString &refLog);
     LIBKOMMIT_NO_EXPORT void initChilds();
     QString mBranch;
     QStringList mBranches;

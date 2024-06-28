@@ -19,9 +19,9 @@ class FilesModel : public QAbstractListModel
 public:
     explicit FilesModel(QObject *parent = nullptr);
 
-    [[nodiscard]] int rowCount(const QModelIndex &parent) const override;
-    [[nodiscard]] int columnCount(const QModelIndex &parent) const override;
-    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent) const override;
+    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
     void append(const QString &data);
 
 private:

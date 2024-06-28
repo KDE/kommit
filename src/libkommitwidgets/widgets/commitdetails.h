@@ -26,14 +26,14 @@ class LIBKOMMITWIDGETS_EXPORT CommitDetails : public QWidget, private Ui::Commit
 public:
     explicit CommitDetails(QWidget *parent = nullptr);
 
-    [[nodiscard]] Git::Commit *commit() const;
+    Q_REQUIRED_RESULT Git::Commit *commit() const;
     void setCommit(Git::Commit *commit);
 
-    [[nodiscard]] bool enableCommitsLinks() const;
+    Q_REQUIRED_RESULT bool enableCommitsLinks() const;
     void setEnableCommitsLinks(bool enableCommitsLinks);
-    [[nodiscard]] bool enableEmailsLinks() const;
+    Q_REQUIRED_RESULT bool enableEmailsLinks() const;
     void setEnableEmailsLinks(bool enableEmailsLinks);
-    [[nodiscard]] bool enableFilesLinks() const;
+    Q_REQUIRED_RESULT bool enableFilesLinks() const;
     void setEnableFilesLinks(bool enableFilesLinks);
 
 Q_SIGNALS:
@@ -47,9 +47,9 @@ Q_SIGNALS:
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotEmailLinkClicked(const QString &link);
 
-    [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT QString createChangedFiles();
-    [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT QString generateCommitLink(const QString &hash);
-    [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT QString generateCommitsLink(const QStringList &hashes);
+    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT QString createChangedFiles();
+    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT QString generateCommitLink(const QString &hash);
+    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT QString generateCommitsLink(const QStringList &hashes);
 
     Git::LogsModel *mLogsModel{nullptr};
 

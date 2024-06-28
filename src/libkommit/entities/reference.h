@@ -28,17 +28,17 @@ public:
     Reference(git_reference *ref);
     ~Reference();
 
-    [[nodiscard]] bool isNote() const;
-    [[nodiscard]] bool isBranch() const;
-    [[nodiscard]] bool isTag() const;
-    [[nodiscard]] bool isRemote() const;
-    [[nodiscard]] QString name() const;
-    [[nodiscard]] QString shorthand() const;
+    Q_REQUIRED_RESULT bool isNote() const;
+    Q_REQUIRED_RESULT bool isBranch() const;
+    Q_REQUIRED_RESULT bool isTag() const;
+    Q_REQUIRED_RESULT bool isRemote() const;
+    Q_REQUIRED_RESULT QString name() const;
+    Q_REQUIRED_RESULT QString shorthand() const;
 
-    [[nodiscard]] QSharedPointer<Note> toNote() const;
-    [[nodiscard]] QSharedPointer<Branch> toBranch() const;
-    [[nodiscard]] QSharedPointer<Tag> toTag() const;
-    [[nodiscard]] QSharedPointer<Remote> toRemote() const;
+    Q_REQUIRED_RESULT QSharedPointer<Note> toNote() const;
+    Q_REQUIRED_RESULT QSharedPointer<Branch> toBranch() const;
+    Q_REQUIRED_RESULT QSharedPointer<Tag> toTag() const;
+    Q_REQUIRED_RESULT QSharedPointer<Remote> toRemote() const;
 
 private:
     git_reference *ptr{nullptr};

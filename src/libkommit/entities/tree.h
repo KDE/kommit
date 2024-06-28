@@ -32,13 +32,13 @@ public:
     explicit Tree(git_tree *tree);
     ~Tree();
 
-    [[nodiscard]] QList<Entry> entries(const QString &path) const;
-    [[nodiscard]] QStringList entries(const QString &path, EntryType filter) const;
-    [[nodiscard]] QStringList entries(EntryType filter) const;
+    Q_REQUIRED_RESULT QList<Entry> entries(const QString &path) const;
+    Q_REQUIRED_RESULT QStringList entries(const QString &path, EntryType filter) const;
+    Q_REQUIRED_RESULT QStringList entries(EntryType filter) const;
     QSharedPointer<File> file(const QString &path);
 
-    [[nodiscard]] git_tree *gitTree() const;
-    [[nodiscard]] bool extract(const QString &destinationFolder, const QString &perfix = {});
+    Q_REQUIRED_RESULT git_tree *gitTree() const;
+    Q_REQUIRED_RESULT bool extract(const QString &destinationFolder, const QString &perfix = {});
 
 private:
     LIBKOMMIT_NO_EXPORT void initTree();

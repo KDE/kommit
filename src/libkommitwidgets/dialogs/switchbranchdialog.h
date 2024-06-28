@@ -21,7 +21,7 @@ class LIBKOMMITWIDGETS_EXPORT SwitchBranchDialog : public AppDialog, private Ui:
 public:
     explicit SwitchBranchDialog(Git::Manager *git, QWidget *parent = nullptr);
 
-    [[nodiscard]] Git::CommandSwitchBranch *command() const;
+    Q_REQUIRED_RESULT Git::CommandSwitchBranch *command() const;
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotButtonBoxAccepted();

@@ -37,7 +37,7 @@ public:
 
     CodeEditor *newCodeEditor() const;
 
-    [[nodiscard]] bool sameSize() const;
+    Q_REQUIRED_RESULT bool sameSize() const;
     void setSameSize(bool newSameSize);
 
     void scrollToTop();

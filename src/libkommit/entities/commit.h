@@ -33,29 +33,29 @@ public:
     explicit Commit(git_commit *commit);
     ~Commit();
 
-    [[nodiscard]] QSharedPointer<Signature> author() const;
-    [[nodiscard]] QSharedPointer<Signature> committer() const;
-    [[nodiscard]] const QString &message() const;
-    [[nodiscard]] const QString &subject() const;
-    [[nodiscard]] const QString &body() const;
-    [[nodiscard]] const QString &commitHash() const;
-    [[nodiscard]] const QStringList &parents() const;
-    [[nodiscard]] const QString &branch() const;
-    [[nodiscard]] const QString &extraData() const;
-    [[nodiscard]] CommitType type() const;
-    [[nodiscard]] const QVector<GraphLane> &lanes() const;
-    [[nodiscard]] const QStringList &children() const;
-    [[nodiscard]] const QString &commitShortHash() const;
-    [[nodiscard]] QDateTime commitTime() const;
+    Q_REQUIRED_RESULT QSharedPointer<Signature> author() const;
+    Q_REQUIRED_RESULT QSharedPointer<Signature> committer() const;
+    Q_REQUIRED_RESULT const QString &message() const;
+    Q_REQUIRED_RESULT const QString &subject() const;
+    Q_REQUIRED_RESULT const QString &body() const;
+    Q_REQUIRED_RESULT const QString &commitHash() const;
+    Q_REQUIRED_RESULT const QStringList &parents() const;
+    Q_REQUIRED_RESULT const QString &branch() const;
+    Q_REQUIRED_RESULT const QString &extraData() const;
+    Q_REQUIRED_RESULT CommitType type() const;
+    Q_REQUIRED_RESULT const QVector<GraphLane> &lanes() const;
+    Q_REQUIRED_RESULT const QStringList &children() const;
+    Q_REQUIRED_RESULT const QString &commitShortHash() const;
+    Q_REQUIRED_RESULT QDateTime commitTime() const;
 
-    [[nodiscard]] QSharedPointer<Reference> reference() const;
+    Q_REQUIRED_RESULT QSharedPointer<Reference> reference() const;
 
-    [[nodiscard]] QSharedPointer<Tree> tree() const override;
-    [[nodiscard]] QString treeTitle() const override;
+    Q_REQUIRED_RESULT QSharedPointer<Tree> tree() const override;
+    Q_REQUIRED_RESULT QString treeTitle() const override;
 
-    [[nodiscard]] git_commit *gitCommit() const;
+    Q_REQUIRED_RESULT git_commit *gitCommit() const;
 
-    [[nodiscard]] QSharedPointer<Note> note() const;
+    Q_REQUIRED_RESULT QSharedPointer<Note> note() const;
     bool createNote(const QString &message);
 
 private:

@@ -17,12 +17,12 @@ class LIBKOMMITWIDGETS_EXPORT MergeOpenFilesDialog : public AppDialog, private U
 public:
     explicit MergeOpenFilesDialog(QWidget *parent = nullptr);
 
-    [[nodiscard]] QString filePathLocal() const;
+    Q_REQUIRED_RESULT QString filePathLocal() const;
     void setFilePathLocal(const QString &newFilePathLocal);
 
-    [[nodiscard]] QString filePathRemote() const;
+    Q_REQUIRED_RESULT QString filePathRemote() const;
     void setFilePathRemote(const QString &newFilePathRemote);
 
-    [[nodiscard]] QString filePathBase() const;
+    Q_REQUIRED_RESULT QString filePathBase() const;
     void setFilePathBase(const QString &newFilePathBase);
 };

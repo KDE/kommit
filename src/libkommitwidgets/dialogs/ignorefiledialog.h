@@ -21,7 +21,7 @@ public:
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void generateIgnorePattern();
     LIBKOMMITWIDGETS_NO_EXPORT void slotAccept();
-    [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT QString getIgnoreFile() const;
+    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT QString getIgnoreFile() const;
     bool mIsIgnoredAlready{false};
     QString mPath;
     QString mName;

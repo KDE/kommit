@@ -21,10 +21,10 @@ class LIBKOMMITWIDGETS_EXPORT TagsActions : public AbstractActions
 public:
     explicit TagsActions(Git::Manager *git, QWidget *parent = nullptr);
 
-    [[nodiscard]] const QString &tagName() const;
+    Q_REQUIRED_RESULT const QString &tagName() const;
     void setTagName(const QString &newTagName);
 
-    [[nodiscard]] QSharedPointer<Git::Tag> tag() const;
+    Q_REQUIRED_RESULT QSharedPointer<Git::Tag> tag() const;
     void setTag(QSharedPointer<Git::Tag> tag);
 
 private:

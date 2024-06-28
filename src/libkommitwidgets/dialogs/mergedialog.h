@@ -21,7 +21,7 @@ class LIBKOMMITWIDGETS_EXPORT MergeDialog : public AppDialog, private Ui::MergeD
 public:
     explicit MergeDialog(Git::Manager *git, QWidget *parent = nullptr);
     explicit MergeDialog(Git::Manager *git, const QString &sourceBranch, QWidget *parent = nullptr);
-    [[nodiscard]] Git::CommandMerge *command() const;
+    Q_REQUIRED_RESULT Git::CommandMerge *command() const;
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotComboBoxStrategyCurrentIndexChanged(int index);

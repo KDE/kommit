@@ -31,45 +31,45 @@ public:
     Q_ENUM(DiffAlgorithm)
 
     explicit CommandMerge(Manager *git);
-    [[nodiscard]] QStringList generateArgs() const override;
+    Q_REQUIRED_RESULT QStringList generateArgs() const override;
 
-    [[nodiscard]] OptionalBool commit() const;
+    Q_REQUIRED_RESULT OptionalBool commit() const;
     void setCommit(OptionalBool newCommit);
 
-    [[nodiscard]] OptionalBool allowUnrelatedHistories() const;
+    Q_REQUIRED_RESULT OptionalBool allowUnrelatedHistories() const;
     void setAllowUnrelatedHistories(OptionalBool newAllowUnrelatedHistories);
 
-    [[nodiscard]] FastForwardType ff() const;
+    Q_REQUIRED_RESULT FastForwardType ff() const;
     void setFf(FastForwardType newFf);
 
-    [[nodiscard]] OptionalBool squash() const;
+    Q_REQUIRED_RESULT OptionalBool squash() const;
     void setSquash(OptionalBool newSquash);
 
-    [[nodiscard]] const QString &fromBranch() const;
+    Q_REQUIRED_RESULT const QString &fromBranch() const;
     void setFromBranch(const QString &newFromBranch);
 
-    [[nodiscard]] const Strategy &strategy() const;
+    Q_REQUIRED_RESULT const Strategy &strategy() const;
     void setStrategy(Git::CommandMerge::Strategy newStrategy);
 
-    [[nodiscard]] bool ignoreSpaceChange() const;
+    Q_REQUIRED_RESULT bool ignoreSpaceChange() const;
     void setIgnoreSpaceChange(bool newIgnoreSpaceChange);
-    [[nodiscard]] bool ignoreAllSpace() const;
+    Q_REQUIRED_RESULT bool ignoreAllSpace() const;
     void setIgnoreAllSpace(bool newIgnoreAllSpace);
-    [[nodiscard]] bool ignoreSpaceAtEol() const;
+    Q_REQUIRED_RESULT bool ignoreSpaceAtEol() const;
     void setIgnoreSpaceAtEol(bool newIgnoreSpaceAtEol);
-    [[nodiscard]] bool ignoreCrAtEol() const;
+    Q_REQUIRED_RESULT bool ignoreCrAtEol() const;
     void setIgnoreCrAtEol(bool newIgnoreCrAtEol);
-    [[nodiscard]] bool renormalize() const;
+    Q_REQUIRED_RESULT bool renormalize() const;
     void setRenormalize(bool newRenormalize);
-    [[nodiscard]] bool noRenames() const;
+    Q_REQUIRED_RESULT bool noRenames() const;
     void setNoRenames(bool newNoRenames);
-    [[nodiscard]] DiffAlgorithm diffAlgorithm() const;
+    Q_REQUIRED_RESULT DiffAlgorithm diffAlgorithm() const;
     void setDiffAlgorithm(DiffAlgorithm newDiffAlgorithm);
 
-    [[nodiscard]] bool ours() const;
+    Q_REQUIRED_RESULT bool ours() const;
     void setOurs(bool newOurs);
 
-    [[nodiscard]] bool theirs() const;
+    Q_REQUIRED_RESULT bool theirs() const;
     void setTheirs(bool newTheirs);
 
 private:

@@ -22,10 +22,10 @@ public:
     TreeDiffEntry();
     explicit TreeDiffEntry(const git_diff_delta *delta);
 
-    [[nodiscard]] git_diff_delta *deltaPtr() const;
-    [[nodiscard]] QString oldFile() const;
-    [[nodiscard]] QString newFile() const;
-    [[nodiscard]] ChangeStatus status() const;
+    Q_REQUIRED_RESULT git_diff_delta *deltaPtr() const;
+    Q_REQUIRED_RESULT QString oldFile() const;
+    Q_REQUIRED_RESULT QString newFile() const;
+    Q_REQUIRED_RESULT ChangeStatus status() const;
 
     bool operator==(const TreeDiffEntry &other) const;
 

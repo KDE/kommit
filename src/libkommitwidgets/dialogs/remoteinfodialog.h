@@ -18,7 +18,7 @@ class RemoteInfoDialog : public QDialog, private Ui::RemoteInfoDialog
 public:
     explicit RemoteInfoDialog(QWidget *parent = nullptr);
 
-    [[nodiscard]] QString remoteName() const;
-    [[nodiscard]] QString remoteUrl() const;
-    [[nodiscard]] Git::CommandAddRemote *command();
+    Q_REQUIRED_RESULT QString remoteName() const;
+    Q_REQUIRED_RESULT QString remoteUrl() const;
+    Q_REQUIRED_RESULT Git::CommandAddRemote *command();
 };

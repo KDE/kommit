@@ -21,7 +21,7 @@ class LIBKOMMITWIDGETS_EXPORT StashActions : public AbstractActions
 public:
     explicit StashActions(Git::Manager *git, QWidget *parent = nullptr);
 
-    [[nodiscard]] QSharedPointer<Git::Stash> stash() const;
+    Q_REQUIRED_RESULT QSharedPointer<Git::Stash> stash() const;
     void setStash(QSharedPointer<Git::Stash> stash);
 
 private:

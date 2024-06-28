@@ -27,19 +27,19 @@ public:
     Tag(git_tag *tag);
     Tag(git_commit *commit, const QString &name);
 
-    [[nodiscard]] const QString &name() const;
+    Q_REQUIRED_RESULT const QString &name() const;
     void setName(const QString &newName);
 
-    [[nodiscard]] const QString &message() const;
+    Q_REQUIRED_RESULT const QString &message() const;
     void setMessage(const QString &newMessage);
 
-    [[nodiscard]] QDateTime createTime() const;
+    Q_REQUIRED_RESULT QDateTime createTime() const;
 
-    [[nodiscard]] QSharedPointer<Signature> tagger() const;
+    Q_REQUIRED_RESULT QSharedPointer<Signature> tagger() const;
 
     QSharedPointer<Commit> commit() const;
 
-    [[nodiscard]] TagType tagType() const;
+    Q_REQUIRED_RESULT TagType tagType() const;
 
 private:
     git_tag *mTagPtr{nullptr};

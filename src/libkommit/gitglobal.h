@@ -31,9 +31,9 @@ enum class ChangeStatus {
 LIBKOMMIT_EXPORT void run(const QString &workingDir, const QStringList &args);
 LIBKOMMIT_EXPORT void run(const QString &workingDir, const AbstractCommand &cmd);
 
-[[nodiscard]] LIBKOMMIT_EXPORT QIcon statusIcon(ChangeStatus status);
+Q_REQUIRED_RESULT LIBKOMMIT_EXPORT QIcon statusIcon(ChangeStatus status);
 
-[[nodiscard]] LIBKOMMIT_EXPORT QString runGit(const QString &workingDir, const QStringList &args);
-[[nodiscard]] LIBKOMMIT_EXPORT QStringList readAllNonEmptyOutput(const QString &workingDir, const QStringList &cmd, bool trim = true);
+Q_REQUIRED_RESULT LIBKOMMIT_EXPORT QString runGit(const QString &workingDir, const QStringList &args);
+Q_REQUIRED_RESULT LIBKOMMIT_EXPORT QStringList readAllNonEmptyOutput(const QString &workingDir, const QStringList &cmd, bool trim = true);
 
 } // namespace Git

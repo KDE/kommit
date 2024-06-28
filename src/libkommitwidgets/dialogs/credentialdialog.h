@@ -14,13 +14,13 @@ class CredentialDialog : public QDialog, private Ui::CredentialDialog
 public:
     explicit CredentialDialog(QWidget *parent = nullptr);
 
-    [[nodiscard]] QString username() const;
+    Q_REQUIRED_RESULT QString username() const;
     void setUsername(const QString &username);
 
-    [[nodiscard]] QString password() const;
+    Q_REQUIRED_RESULT QString password() const;
     void setPassword(const QString &password);
 
-    [[nodiscard]] QString url() const;
+    Q_REQUIRED_RESULT QString url() const;
     void setUrl(const QString &url);
 
 private:
