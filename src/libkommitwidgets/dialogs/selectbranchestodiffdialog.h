@@ -22,8 +22,8 @@ class LIBKOMMITWIDGETS_EXPORT SelectBranchesToDiffDialog : public AppDialog, pri
 public:
     explicit SelectBranchesToDiffDialog(Git::Manager *git, QWidget *parent = nullptr);
 
-    Q_REQUIRED_RESULT QString oldBranch() const;
-    Q_REQUIRED_RESULT QString newBranch() const;
+    [[nodiscard]] QString oldBranch() const;
+    [[nodiscard]] QString newBranch() const;
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotAccepted();

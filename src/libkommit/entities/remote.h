@@ -27,7 +27,7 @@ public:
     enum class Status { Unknown, UpToDate, FastForwardable, LocalOutOfDate };
     Status status{Status::Unknown};
 
-    Q_REQUIRED_RESULT QString statusText() const;
+    [[nodiscard]] QString statusText() const;
 };
 
 class LIBKOMMIT_EXPORT RefSpec
@@ -38,10 +38,10 @@ public:
     RefSpec(const git_refspec *refspecs);
     ~RefSpec();
 
-    Q_REQUIRED_RESULT QString name() const;
-    Q_REQUIRED_RESULT Direction direction() const;
-    Q_REQUIRED_RESULT QString destionation() const;
-    Q_REQUIRED_RESULT QString source() const;
+    [[nodiscard]] QString name() const;
+    [[nodiscard]] Direction direction() const;
+    [[nodiscard]] QString destionation() const;
+    [[nodiscard]] QString source() const;
 
 private:
     QString mName;
@@ -60,15 +60,15 @@ public:
     //    QString headBranch;
     //    QList<RemoteBranch> branches;
 
-    Q_REQUIRED_RESULT QString name() const;
-    Q_REQUIRED_RESULT QList<RefSpec *> refSpecList() const;
-    Q_REQUIRED_RESULT QString pushUrl() const;
-    Q_REQUIRED_RESULT QString fetchUrl() const;
-    Q_REQUIRED_RESULT QString defaultBranch() const;
+    [[nodiscard]] QString name() const;
+    [[nodiscard]] QList<RefSpec *> refSpecList() const;
+    [[nodiscard]] QString pushUrl() const;
+    [[nodiscard]] QString fetchUrl() const;
+    [[nodiscard]] QString defaultBranch() const;
 
-    Q_REQUIRED_RESULT const QList<Branch *> &branches() const;
+    [[nodiscard]] const QList<Branch *> &branches() const;
 
-    Q_REQUIRED_RESULT bool connected() const;
+    [[nodiscard]] bool connected() const;
 
 private:
     QList<RefSpec *> mRefSpecList;

@@ -36,13 +36,13 @@ public:
     QModelIndex findIndexByHash(const QString &hash) const;
     QSharedPointer<Commit> findLogByHash(const QString &hash, LogMatchType matchType = LogMatchType::ExactMatch) const;
 
-    Q_REQUIRED_RESULT const QString &branch() const;
+    [[nodiscard]] const QString &branch() const;
     void setBranch(const QString &newBranch);
 
-    Q_REQUIRED_RESULT bool fullDetails() const;
+    [[nodiscard]] bool fullDetails() const;
     void setFullDetails(bool newFullDetails);
 
-    Q_REQUIRED_RESULT QString calendarType() const;
+    [[nodiscard]] QString calendarType() const;
     void setCalendarType(const QString &newCalendarType);
 
     void clear() override;

@@ -14,7 +14,7 @@ class PushButton : public QPushButton
 
 public:
     explicit PushButton(QWidget *parent = nullptr);
-    Q_REQUIRED_RESULT QAction *action() const;
+    [[nodiscard]] QAction *action() const;
     void setAction(QAction *newAction);
 
 private:

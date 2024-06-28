@@ -31,7 +31,7 @@ public:
     GraphLane();
     GraphLane(Type type);
 
-    Q_REQUIRED_RESULT Type type() const;
+    [[nodiscard]] Type type() const;
     const QList<int> &bottomJoins() const;
     const QList<int> &upJoins() const;
     void setType(Type newType);

@@ -27,18 +27,18 @@ public:
         RemoteBranch,
     };
 
-    Q_REQUIRED_RESULT const QString &target() const;
+    [[nodiscard]] const QString &target() const;
     void setTarget(const QString &newTarget);
 
-    Q_REQUIRED_RESULT Mode mode() const;
+    [[nodiscard]] Mode mode() const;
     void setMode(Mode newMode);
 
-    Q_REQUIRED_RESULT QStringList generateArgs() const override;
+    [[nodiscard]] QStringList generateArgs() const override;
 
-    Q_REQUIRED_RESULT bool force() const;
+    [[nodiscard]] bool force() const;
     void setForce(bool newForce);
 
-    Q_REQUIRED_RESULT QString remoteBranch() const;
+    [[nodiscard]] QString remoteBranch() const;
     void setRemoteBranch(const QString &newRemoteBranch);
 
 private:

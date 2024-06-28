@@ -23,23 +23,23 @@ public:
     ~AbstractReport() override;
 
     virtual void reload() = 0;
-    Q_REQUIRED_RESULT virtual QString name() const = 0;
+    [[nodiscard]] virtual QString name() const = 0;
 
-    Q_REQUIRED_RESULT virtual bool supportChart() const;
+    [[nodiscard]] virtual bool supportChart() const;
 
-    Q_REQUIRED_RESULT virtual QStringList headerData() const = 0;
-    Q_REQUIRED_RESULT virtual int rowCount() const;
-    Q_REQUIRED_RESULT virtual int columnCount() const = 0;
-    Q_REQUIRED_RESULT QVariantList at(int index) const;
-    Q_REQUIRED_RESULT QVariant at(int row, int column) const;
+    [[nodiscard]] virtual QStringList headerData() const = 0;
+    [[nodiscard]] virtual int rowCount() const;
+    [[nodiscard]] virtual int columnCount() const = 0;
+    [[nodiscard]] QVariantList at(int index) const;
+    [[nodiscard]] QVariant at(int row, int column) const;
 
-    Q_REQUIRED_RESULT virtual QString axisXTitle() const;
-    Q_REQUIRED_RESULT virtual QString axisYTitle() const;
-    Q_REQUIRED_RESULT int minValue() const;
-    Q_REQUIRED_RESULT int maxValue() const;
-    Q_REQUIRED_RESULT int categoryColumn() const;
-    Q_REQUIRED_RESULT int valueColumn() const;
-    Q_REQUIRED_RESULT virtual int labelsAngle() const;
+    [[nodiscard]] virtual QString axisXTitle() const;
+    [[nodiscard]] virtual QString axisYTitle() const;
+    [[nodiscard]] int minValue() const;
+    [[nodiscard]] int maxValue() const;
+    [[nodiscard]] int categoryColumn() const;
+    [[nodiscard]] int valueColumn() const;
+    [[nodiscard]] virtual int labelsAngle() const;
 
 Q_SIGNALS:
     void reloaded();

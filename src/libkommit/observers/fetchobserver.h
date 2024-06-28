@@ -43,13 +43,13 @@ public:
     Q_DECLARE_FLAGS(AllowedTypes, AllowedType)
     Q_FLAG(AllowedTypes)
 
-    Q_REQUIRED_RESULT QString username() const;
+    [[nodiscard]] QString username() const;
     void setUsername(const QString &username);
 
-    Q_REQUIRED_RESULT QString password() const;
+    [[nodiscard]] QString password() const;
     void setPassword(const QString &password);
 
-    Q_REQUIRED_RESULT AllowedTypes allowedTypes() const;
+    [[nodiscard]] AllowedTypes allowedTypes() const;
     void setAllowedTypes(const AllowedTypes &allowedTypes);
 
 private:
@@ -72,27 +72,27 @@ class LIBKOMMIT_EXPORT FetchObserver : public QObject
 public:
     explicit FetchObserver(QObject *parent = nullptr);
 
-    Q_REQUIRED_RESULT unsigned int totalObjects() const;
+    [[nodiscard]] unsigned int totalObjects() const;
     void setTotalObjects(unsigned int totalObjects);
 
-    Q_REQUIRED_RESULT unsigned int indexedObjects() const;
+    [[nodiscard]] unsigned int indexedObjects() const;
     void setIndexedObjects(unsigned int indexedObjects);
 
-    Q_REQUIRED_RESULT unsigned int receivedObjects() const;
+    [[nodiscard]] unsigned int receivedObjects() const;
     void setReceivedObjects(unsigned int receivedObjects);
 
-    Q_REQUIRED_RESULT unsigned int localObjects() const;
+    [[nodiscard]] unsigned int localObjects() const;
     void setLocalObjects(unsigned int localObjects);
 
-    Q_REQUIRED_RESULT unsigned int totalDeltas() const;
+    [[nodiscard]] unsigned int totalDeltas() const;
     void setTotalDeltas(unsigned int totalDeltas);
 
-    Q_REQUIRED_RESULT unsigned int indexedDeltas() const;
+    [[nodiscard]] unsigned int indexedDeltas() const;
     void setIndexedDeltas(unsigned int indexedDeltas);
 
     void setCredential(const QString &username, const QString &password);
-    Q_REQUIRED_RESULT QString username() const;
-    Q_REQUIRED_RESULT QString password() const;
+    [[nodiscard]] QString username() const;
+    [[nodiscard]] QString password() const;
 
 Q_SIGNALS:
     void totalObjectsChanged(int value);

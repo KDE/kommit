@@ -22,13 +22,13 @@ class PushObserver : public QObject
 public:
     explicit PushObserver(QObject *parent = nullptr);
 
-    Q_REQUIRED_RESULT unsigned int packProgressValue() const;
+    [[nodiscard]] unsigned int packProgressValue() const;
     void setPackProgressValue(unsigned int packProgressValue);
-    Q_REQUIRED_RESULT unsigned int packProgressTotal() const;
+    [[nodiscard]] unsigned int packProgressTotal() const;
     void setPackProgressTotal(unsigned int packProgressTotal);
-    Q_REQUIRED_RESULT unsigned int transferProgressValue() const;
+    [[nodiscard]] unsigned int transferProgressValue() const;
     void setTransferProgressValue(unsigned int transferProgressValue);
-    Q_REQUIRED_RESULT unsigned int transferProgressTotal() const;
+    [[nodiscard]] unsigned int transferProgressTotal() const;
     void setTransferProgressTotal(unsigned int transferProgressTotal);
 
 Q_SIGNALS:

@@ -28,7 +28,7 @@ public:
     void emitAll();
 
 private:
-    Q_REQUIRED_RESULT Diff::DiffType toDiffType(Git::FileStatus::Status status) const;
-    Q_REQUIRED_RESULT Diff::DiffType toDiffType(Git::ChangeStatus status) const;
+    [[nodiscard]] Diff::DiffType toDiffType(Git::FileStatus::Status status) const;
+    [[nodiscard]] Diff::DiffType toDiffType(Git::ChangeStatus status) const;
     Node *createPath(const QStringList &path, Diff::DiffType status);
 };

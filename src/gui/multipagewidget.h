@@ -34,7 +34,7 @@ public:
     Git::Manager *defaultGitManager() const;
     void setDefaultGitManager(Git::Manager *newDefaultGitManager);
 
-    Q_REQUIRED_RESULT int count() const;
+    [[nodiscard]] int count() const;
 
 private:
     void slotPageSelected(QAction *action);

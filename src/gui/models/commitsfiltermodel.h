@@ -19,11 +19,11 @@ class CommitsFilterModel : public QSortFilterProxyModel
 public:
     explicit CommitsFilterModel(Git::LogsModel *sourceModel, QObject *parent = nullptr);
 
-    Q_REQUIRED_RESULT const QString &filterTerm() const;
+    [[nodiscard]] const QString &filterTerm() const;
     void setFilterTerm(const QString &newFilterTerm);
 
 protected:
-    Q_REQUIRED_RESULT bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+    [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
     QString mFilterTerm;

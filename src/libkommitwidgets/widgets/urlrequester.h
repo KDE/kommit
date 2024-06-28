@@ -48,16 +48,16 @@ public:
         ModeMax = 65536,
     };
     UrlRequester(QWidget *parent = nullptr);
-    Q_REQUIRED_RESULT QUrl url() const;
+    [[nodiscard]] QUrl url() const;
     void setUrl(const QUrl &url);
 
-    Q_REQUIRED_RESULT QString text() const;
+    [[nodiscard]] QString text() const;
     void setText(const QString &text);
 
-    Q_REQUIRED_RESULT QUrl startDir() const;
+    [[nodiscard]] QUrl startDir() const;
     void setStartDir(const QUrl &startDir);
 
-    Q_REQUIRED_RESULT Mode mode() const;
+    [[nodiscard]] Mode mode() const;
     void setMode(Mode mode);
 
 private:

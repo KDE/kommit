@@ -22,9 +22,9 @@ class LIBKOMMIT_EXPORT Note
 public:
     explicit Note(git_note *note);
 
-    Q_REQUIRED_RESULT QSharedPointer<Signature> author() const;
-    Q_REQUIRED_RESULT QSharedPointer<Signature> committer() const;
-    Q_REQUIRED_RESULT QString mesage() const;
+    [[nodiscard]] QSharedPointer<Signature> author() const;
+    [[nodiscard]] QSharedPointer<Signature> committer() const;
+    [[nodiscard]] QString mesage() const;
 
 private:
     git_note *const mNote;

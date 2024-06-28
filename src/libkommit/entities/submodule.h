@@ -47,20 +47,20 @@ public:
     Submodule(git_repository *repo, git_submodule *submodule);
     ~Submodule();
 
-    Q_REQUIRED_RESULT const QString &path() const;
-    Q_REQUIRED_RESULT const QString &commitHash() const;
-    Q_REQUIRED_RESULT const QString &refName() const;
-    Q_REQUIRED_RESULT QString url() const;
-    Q_REQUIRED_RESULT QString name() const;
-    Q_REQUIRED_RESULT QString branch();
-    Q_REQUIRED_RESULT StatusFlags status() const;
-    Q_REQUIRED_RESULT QStringList statusTexts() const;
+    [[nodiscard]] const QString &path() const;
+    [[nodiscard]] const QString &commitHash() const;
+    [[nodiscard]] const QString &refName() const;
+    [[nodiscard]] QString url() const;
+    [[nodiscard]] QString name() const;
+    [[nodiscard]] QString branch();
+    [[nodiscard]] StatusFlags status() const;
+    [[nodiscard]] QStringList statusTexts() const;
 
     void setUrl(const QString &newUrl);
     bool sync() const;
     bool reload(bool force = false) const;
 
-    Q_REQUIRED_RESULT Manager *open() const;
+    [[nodiscard]] Manager *open() const;
 
 private:
     git_submodule *ptr = nullptr;

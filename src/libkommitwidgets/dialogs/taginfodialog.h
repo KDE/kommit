@@ -16,9 +16,9 @@ class LIBKOMMITWIDGETS_EXPORT TagInfoDialog : public AppDialog, private Ui::TagI
 
 public:
     explicit TagInfoDialog(QWidget *parent = nullptr);
-    Q_REQUIRED_RESULT QString tagName() const;
+    [[nodiscard]] QString tagName() const;
     void setTagName(const QString &newTagName);
-    Q_REQUIRED_RESULT QString message() const;
+    [[nodiscard]] QString message() const;
     void setMessage(const QString &newMessage);
 
 private:

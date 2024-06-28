@@ -20,7 +20,7 @@ public:
 
     void clear();
 
-    Q_REQUIRED_RESULT int count() const;
+    [[nodiscard]] int count() const;
 
     template<typename... Args>
     QSharedPointer<T> findOrCreate(const QString &key, Args... args);

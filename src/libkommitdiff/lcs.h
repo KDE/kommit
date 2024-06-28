@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Diff
 {
-Q_REQUIRED_RESULT Solution longestCommonSubsequence(const QStringList &source, const QStringList &target);
+[[nodiscard]] Solution longestCommonSubsequence(const QStringList &source, const QStringList &target);
 
-Q_REQUIRED_RESULT Solution3 longestCommonSubsequence(const QStringList &source, const QStringList &target, const QStringList &target2);
+[[nodiscard]] Solution3 longestCommonSubsequence(const QStringList &source, const QStringList &target, const QStringList &target2);
 }

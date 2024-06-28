@@ -23,9 +23,9 @@ public:
     explicit Signature(const git_signature *signature);
     ~Signature();
 
-    Q_REQUIRED_RESULT QString name() const;
-    Q_REQUIRED_RESULT QString email() const;
-    Q_REQUIRED_RESULT QDateTime time() const;
+    [[nodiscard]] QString name() const;
+    [[nodiscard]] QString email() const;
+    [[nodiscard]] QDateTime time() const;
 
 private:
     git_signature *mSignature{nullptr};

@@ -16,14 +16,14 @@ public:
     CommitsByDayHour(Git::Manager *git, QObject *parent = nullptr);
 
     void reload() override;
-    Q_REQUIRED_RESULT QString name() const override;
+    [[nodiscard]] QString name() const override;
 
-    Q_REQUIRED_RESULT int columnCount() const override;
-    Q_REQUIRED_RESULT QStringList headerData() const override;
+    [[nodiscard]] int columnCount() const override;
+    [[nodiscard]] QStringList headerData() const override;
 
-    Q_REQUIRED_RESULT bool supportChart() const override;
-    Q_REQUIRED_RESULT QString axisXTitle() const override;
-    Q_REQUIRED_RESULT QString axisYTitle() const override;
+    [[nodiscard]] bool supportChart() const override;
+    [[nodiscard]] QString axisXTitle() const override;
+    [[nodiscard]] QString axisYTitle() const override;
 
 private:
     enum CommitsByDayHourRoles {

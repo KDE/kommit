@@ -16,21 +16,21 @@ class LIBKOMMIT_EXPORT CommandAddRemote : public AbstractCommand
 public:
     explicit CommandAddRemote(QObject *parent = nullptr);
 
-    Q_REQUIRED_RESULT QStringList generateArgs() const override;
+    [[nodiscard]] QStringList generateArgs() const override;
 
-    Q_REQUIRED_RESULT const QString &remoteName() const;
+    [[nodiscard]] const QString &remoteName() const;
     void setRemoteName(const QString &newRemoteName);
-    Q_REQUIRED_RESULT OptionalBool tags() const;
+    [[nodiscard]] OptionalBool tags() const;
     void setTags(OptionalBool newTags);
     void setTags(Qt::CheckState newTags);
-    Q_REQUIRED_RESULT bool mirror() const;
+    [[nodiscard]] bool mirror() const;
     void setMirror(bool newMirror);
-    Q_REQUIRED_RESULT const QString &master() const;
+    [[nodiscard]] const QString &master() const;
     void setMaster(const QString &newMaster);
-    Q_REQUIRED_RESULT bool fetch() const;
+    [[nodiscard]] bool fetch() const;
     void setFetch(bool newFetch);
 
-    Q_REQUIRED_RESULT const QString &url() const;
+    [[nodiscard]] const QString &url() const;
     void setUrl(const QString &newUrl);
 
 private:

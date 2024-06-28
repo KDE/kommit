@@ -16,7 +16,7 @@ class AvatarView : public QLabel
 public:
     explicit AvatarView(QWidget *parent = nullptr);
 
-    Q_REQUIRED_RESULT QString userEmail() const;
+    [[nodiscard]] QString userEmail() const;
     void setUserEmail(const QString &userEmail);
 
 private:
