@@ -32,6 +32,13 @@ bool Index::removeByPath(const QString &path) const
     return !git_index_remove_bypath(ptr, toConstChars(path));
 }
 
+bool Index::removeAll() const
+{
+    git_strarray arr;
+    addToArray(&arr, QStringLiteral("/"));
+    return !git_index_remove_all(ptr, &arr, NULL, NULL);
+}
+
 bool Index::write()
 {
     return !git_index_write(ptr);
