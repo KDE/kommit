@@ -1625,9 +1625,6 @@ bool Manager::applyStash(const QString &name) const
     PRINT_ERROR;
 
     return IS_OK;
-
-    runGit({QStringLiteral("stash"), QStringLiteral("apply"), name});
-    return true;
 }
 
 bool Manager::popStash(const QString &name) const
