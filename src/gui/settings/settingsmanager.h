@@ -21,12 +21,10 @@ class SettingsManager : public QObject
     Q_OBJECT
 
 public:
-    SettingsManager(Git::Manager *git, QWidget *parentWidget);
+    explicit SettingsManager(Git::Manager *git, QWidget *parentWidget);
 
     void exec(QWidget *parentWidget);
     static void applyToLib();
-
-public Q_SLOTS:
     void show();
 
 Q_SIGNALS:

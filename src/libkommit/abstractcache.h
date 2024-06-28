@@ -15,12 +15,12 @@ template<class T>
 class LIBKOMMIT_EXPORT AbstractCache
 {
 public:
-    AbstractCache(git_repository *repo);
+    explicit AbstractCache(git_repository *repo);
     virtual ~AbstractCache();
 
     void clear();
 
-    int count() const;
+    Q_REQUIRED_RESULT int count() const;
 
     template<typename... Args>
     QSharedPointer<T> findOrCreate(const QString &key, Args... args);
@@ -37,7 +37,7 @@ private:
 class LIBKOMMIT_EXPORT CommitsCache : public AbstractCache<Commit>
 {
 public:
-    CommitsCache(git_repository *repo);
+    explicit CommitsCache(git_repository *repo);
 
 protected:
     Commit *create(const QString &key) override;
