@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include <QMap>
+#include <QObject>
 #include <QSharedPointer>
 #include <git2/types.h>
 
