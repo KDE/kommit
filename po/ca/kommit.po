@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-28 01:54+0000\n"
-"PO-Revision-Date: 2024-06-27 11:14+0200\n"
+"PO-Revision-Date: 2024-06-28 13:04+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1359,15 +1359,13 @@ msgid "Commit/push"
 msgstr "Comet/puja"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:27
-#, fuzzy, kde-format
-#| msgid "Commit/Push submodule: %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
 msgstr "Comissió/Pujada del submòdul %1"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:51
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgctxt "@action"
 msgid "Commit/Push"
 msgstr "Comet/Puja"

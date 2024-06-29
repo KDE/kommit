@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-28 01:54+0000\n"
-"PO-Revision-Date: 2024-06-27 15:49+0300\n"
+"PO-Revision-Date: 2024-06-28 14:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1354,15 +1354,13 @@ msgid "Commit/push"
 msgstr "İşle/İt"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:27
-#, fuzzy, kde-format
-#| msgid "Commit/Push submodule: %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
-msgstr "Altmodülü işle/it: %1"
+msgstr "Altmodülü İşle/İt: %1"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:51
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgctxt "@action"
 msgid "Commit/Push"
 msgstr "İşle/İt"

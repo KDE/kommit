@@ -1351,18 +1351,16 @@ msgid "Commit/push"
 msgstr ""
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:27
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
-msgstr "提交/推送"
+msgstr ""
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:51
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgctxt "@action"
 msgid "Commit/Push"
-msgstr "提交/推送"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
