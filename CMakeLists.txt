@@ -80,7 +80,7 @@ find_package(
         SyntaxHighlighting
 )
 
-if(NOT WIN32 AND NOT APPLE)
+if(NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     find_package(KF${KF_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
     set(HAVE_KDBUSADDONS true)
 endif()
