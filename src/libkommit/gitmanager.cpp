@@ -69,6 +69,15 @@ public:
     int errorCode{};
     int errorClass{};
     QString errorMessage;
+
+    CommitsCache commitsCache;
+    BranchesCache branchesCache;
+    TagsCache tagsCache;
+    RemotesCache remotesCache;
+    NotesCache notesCache;
+
+    void changeRepo();
+    void resetCaches();
 };
 
 const QString &Manager::path() const
@@ -102,12 +111,15 @@ bool Manager::open(const QString &newPath)
         d->logsCache->clear();
         d->stashesCache->clear();
         d->tagsModel->clear();
+
+        d->repo = nullptr;
     } else {
         d->path = git_repository_workdir(d->repo);
         d->isValid = true;
 
         loadAsync();
     }
+    d->changeRepo();
 
     Q_EMIT pathChanged();
     Q_EMIT reloadRequired();
@@ -1982,7 +1994,32 @@ ManagerPrivate::ManagerPrivate(Manager *parent)
     , logsCache{new LogsModel(parent, parent)}
     , stashesCache{new StashesModel(parent, parent)}
     , tagsModel{new TagsModel(parent, parent)}
+    , commitsCache{repo}
+    , branchesCache{repo}
+    , tagsCache{repo}
+    , remotesCache{repo}
+    , notesCache{repo}
 {
+}
+
+void ManagerPrivate::changeRepo()
+{
+    commitsCache.setRepo(repo);
+    branchesCache.setRepo(repo);
+    tagsCache.setRepo(repo);
+    remotesCache.setRepo(repo);
+    notesCache.setRepo(repo);
+
+    resetCaches();
+}
+
+void ManagerPrivate::resetCaches()
+{
+    commitsCache.clear();
+    branchesCache.clear();
+    tagsCache.clear();
+    remotesCache.clear();
+    notesCache.clear();
 }
 
 } // namespace Git

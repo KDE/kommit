@@ -23,6 +23,7 @@ public:
 
     bool addByPath(const QString &path) const;
     bool removeByPath(const QString &path) const;
+    bool removeAll() const;
 
     bool write();
     QSharedPointer<Tree> tree() const;
