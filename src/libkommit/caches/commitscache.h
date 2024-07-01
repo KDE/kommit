@@ -15,6 +15,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class Commit;
+class Branch;
 class LIBKOMMIT_EXPORT CommitsCache : public QObject, public AbstractCache<Commit>
 {
     Q_OBJECT

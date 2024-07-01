@@ -14,9 +14,7 @@ namespace Git
 {
 
 class Note;
-class Branch;
 class Tag;
-class Remote;
 class Oid;
 class Tree;
 class Commit;

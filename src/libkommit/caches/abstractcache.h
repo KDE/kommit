@@ -17,11 +17,6 @@ namespace Git
 {
 
 class Manager;
-class Commit;
-class Branch;
-class Tag;
-class Note;
-class Remote;
 
 template<class T>
 class LIBKOMMIT_EXPORT AbstractCache
