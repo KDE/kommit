@@ -9,7 +9,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/note.h"
 #include "entities/remote.h"
 #include "entities/tag.h"
+#include "oid.h"
+
 #include <git2/notes.h>
+#include <git2/oid.h>
 #include <git2/refs.h>
 #include <git2/remote.h>
 #include <git2/tag.h>
@@ -24,12 +27,6 @@ Reference::Reference()
 Reference::Reference(git_reference *ref)
     : ptr{ref}
 {
-    mIsNote = git_reference_is_note(ref);
-    mIsBranch = git_reference_is_branch(ref);
-    mIsRemote = git_reference_is_remote(ref);
-    mIsTag = git_reference_is_tag(ref);
-    mName = git_reference_name(ref);
-    mShorthand = git_reference_shorthand(ref);
 }
 
 Reference::~Reference()
@@ -40,32 +37,38 @@ Reference::~Reference()
 
 bool Reference::isNote() const
 {
-    return mIsNote;
+    return git_reference_is_note(ptr);
 }
 
 bool Reference::isBranch() const
 {
-    return mIsBranch;
+    return git_reference_is_branch(ptr);
 }
 
 bool Reference::isTag() const
 {
-    return mIsTag;
+    return git_reference_is_tag(ptr);
 }
 
 bool Reference::isRemote() const
 {
-    return mIsRemote;
+    return git_reference_is_remote(ptr);
 }
 
 QString Reference::name() const
 {
-    return mName;
+    return QString{git_reference_name(ptr)};
 }
 
 QString Reference::shorthand() const
 {
-    return mShorthand;
+    return QString{git_reference_shorthand(ptr)};
+}
+
+QSharedPointer<Oid> Reference::target() const
+{
+    auto oid = git_reference_target(ptr);
+    return QSharedPointer<Oid>{new Oid{oid}};
 }
 
 QSharedPointer<Note> Reference::toNote() const

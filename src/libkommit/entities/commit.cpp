@@ -5,7 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "commit.h"
+#include "branch.h"
+#include "gitmanager.h"
 #include "note.h"
+#include "oid.h"
 
 #include <QTimeZone>
 
@@ -16,24 +19,30 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/notes.h>
 #include <git2/revparse.h>
 #include <git2/signature.h>
-#include <utility>
 
 namespace Git
 {
 
-Commit::Commit(git_commit *commit)
-    : mGitCommit{commit}
+class CommitPrivate
 {
-    mSubject = QString{git_commit_message(commit)}.remove(QLatin1Char('\n'));
+    Commit *q_ptr;
+    Q_DECLARE_PUBLIC(Commit)
+public:
+    CommitPrivate(Commit *parent, git_commit *commit);
 
-    auto committer = git_commit_committer(commit);
-    mCommitter.reset(new Signature{committer});
+    git_commit *const gitCommitPtr;
+    QSharedPointer<Signature> author;
+    QSharedPointer<Signature> committer;
+    QSharedPointer<Reference> mReference;
+    QSharedPointer<Branch> branch;
+    QVector<GraphLane> mLanes;
+    QSharedPointer<Note> note;
+    Commit::CommitType type;
+};
 
-    auto author = git_commit_author(commit);
-    mAuthor.reset(new Signature{author});
-
-    mBody = QString{git_commit_body(commit)}.remove(QLatin1Char('\n'));
-
+Commit::Commit(git_commit *commit)
+    : d_ptr{new CommitPrivate{this, commit}}
+{
     auto id = git_commit_id(commit);
     mCommitHash = git_oid_tostr_s(id);
 
@@ -42,21 +51,18 @@ Commit::Commit(git_commit *commit)
         auto pid = git_commit_parent_id(commit, i);
         mParentHash << convertToString(pid, 20);
     }
-
-    auto time = git_commit_time(commit);
-    auto timeOffset = git_commit_time_offset(commit);
-
-    mCommitTime = QDateTime::fromSecsSinceEpoch(time, QTimeZone{timeOffset});
 }
 
 Commit::~Commit()
 {
-    git_commit_free(mGitCommit);
+    Q_D(Commit);
+    git_commit_free(d->gitCommitPtr);
 }
 
-const QString &Commit::branch() const
+QSharedPointer<Branch> Commit::branch() const
 {
-    return mBranch;
+    Q_D(const Commit);
+    return d->branch;
 }
 
 const QString &Commit::extraData() const
@@ -91,58 +97,82 @@ QSharedPointer<Reference> Commit::reference() const
 
 QSharedPointer<Tree> Commit::tree() const
 {
+    Q_D(const Commit);
     git_tree *tree;
-    if (git_commit_tree(&tree, mGitCommit))
+    if (git_commit_tree(&tree, d->gitCommitPtr))
         return nullptr;
     return QSharedPointer<Tree>{new Tree{tree}};
 }
 
 QString Commit::treeTitle() const
 {
-    return mSubject;
+    return message();
 }
 
 git_commit *Commit::gitCommit() const
 {
-    return mGitCommit;
+    Q_D(const Commit);
+    return d->gitCommitPtr;
 }
 
-QSharedPointer<Note> Commit::note() const
+QSharedPointer<Note> Commit::note()
 {
-    git_note *note;
-    if (git_note_read(&note, git_commit_owner(mGitCommit), NULL, git_commit_id(mGitCommit)))
-        return {};
-    return QSharedPointer<Note>{new Note{note}};
+    Q_D(Commit);
+
+    if (d->note.isNull()) {
+        git_note *note;
+
+        if (!git_note_read(&note, git_commit_owner(d->gitCommitPtr), NULL, git_commit_id(d->gitCommitPtr)))
+            d->note = QSharedPointer<Note>{new Note{note}};
+    }
+    return d->note;
 }
 
 QDateTime Commit::commitTime() const
 {
-    return mCommitTime;
+    Q_D(const Commit);
+    auto time = git_commit_time(d->gitCommitPtr);
+    auto timeOffset = git_commit_time_offset(d->gitCommitPtr);
+
+    return QDateTime::fromSecsSinceEpoch(time, QTimeZone{timeOffset});
 }
 
-QSharedPointer<Signature> Commit::author() const
+QSharedPointer<Signature> Commit::author()
 {
-    return mAuthor;
+    Q_D(Commit);
+    if (d->author.isNull()) {
+        auto sign = git_commit_author(d->gitCommitPtr);
+        d->author.reset(new Signature{sign});
+    }
+    return d->author;
 }
 
-QSharedPointer<Signature> Commit::committer() const
+QSharedPointer<Signature> Commit::committer()
 {
-    return mCommitter;
+    Q_D(Commit);
+    if (d->committer.isNull()) {
+        auto committer = git_commit_committer(d->gitCommitPtr);
+        d->committer.reset(new Signature{committer});
+    }
+    return d->committer;
 }
 
-const QString &Commit::message() const
+QString Commit::message() const
 {
-    return mMessage;
+    Q_D(const Commit);
+    return QString{git_commit_message(d->gitCommitPtr)}.remove(QLatin1Char('\n'));
 }
 
-const QString &Commit::subject() const
+QString Commit::subject() const
 {
-    return mSubject;
+    Q_D(const Commit);
+    return QString{git_commit_message(d->gitCommitPtr)}.remove(QLatin1Char('\n'));
 }
 
-const QString &Commit::body() const
+QString Commit::body() const
 {
-    return mBody;
+    Q_D(const Commit);
+    return QString{git_commit_body(d->gitCommitPtr)}.remove(QLatin1Char('\n'));
 }
 
 const QString &Commit::commitHash() const
@@ -156,11 +186,12 @@ const QStringList &Commit::parents() const
 }
 bool Commit::createNote(const QString &message)
 {
+    Q_D(Commit);
     git_oid oid;
-    auto repo = git_commit_owner(mGitCommit);
-    auto commitOid = git_commit_id(mGitCommit);
-    auto author = git_commit_author(mGitCommit);
-    auto committer = git_commit_committer(mGitCommit);
+    auto repo = git_commit_owner(d->gitCommitPtr);
+    auto commitOid = git_commit_id(d->gitCommitPtr);
+    auto author = git_commit_author(d->gitCommitPtr);
+    auto committer = git_commit_committer(d->gitCommitPtr);
 
     auto r = git_note_create(&oid, repo, NULL, author, committer, commitOid, message.toUtf8().data(), 1);
     if (r) {
@@ -171,5 +202,17 @@ bool Commit::createNote(const QString &message)
         }
     }
     return !r;
+}
+
+QSharedPointer<Oid> Commit::oid() const
+{
+    Q_D(const Commit);
+    return QSharedPointer<Oid>{new Oid{git_commit_id(d->gitCommitPtr)}};
+}
+
+CommitPrivate::CommitPrivate(Commit *parent, git_commit *commit)
+    : q_ptr{parent}
+    , gitCommitPtr{commit}
+{
 }
 }

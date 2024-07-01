@@ -24,8 +24,9 @@ namespace Git
 
 class Tree;
 class Note;
+class CommitPrivate;
 
-class LIBKOMMIT_EXPORT Commit : public ITree
+class LIBKOMMIT_EXPORT Commit : public ITree, public IOid
 {
 public:
     enum CommitType { NormalCommit, InitialCommit, ForkCommit, MergeCommit };
@@ -33,14 +34,15 @@ public:
     explicit Commit(git_commit *commit);
     ~Commit();
 
-    Q_REQUIRED_RESULT QSharedPointer<Signature> author() const;
-    Q_REQUIRED_RESULT QSharedPointer<Signature> committer() const;
-    Q_REQUIRED_RESULT const QString &message() const;
-    Q_REQUIRED_RESULT const QString &subject() const;
-    Q_REQUIRED_RESULT const QString &body() const;
+    Q_REQUIRED_RESULT QSharedPointer<Signature> author();
+    Q_REQUIRED_RESULT QSharedPointer<Signature> committer();
+    Q_REQUIRED_RESULT QString message() const;
+    Q_DECL_DEPRECATED_X("Use message")
+    Q_REQUIRED_RESULT QString subject() const;
+    Q_REQUIRED_RESULT QString body() const;
     Q_REQUIRED_RESULT const QString &commitHash() const;
     Q_REQUIRED_RESULT const QStringList &parents() const;
-    Q_REQUIRED_RESULT const QString &branch() const;
+    Q_REQUIRED_RESULT QSharedPointer<Branch> branch() const;
     Q_REQUIRED_RESULT const QString &extraData() const;
     Q_REQUIRED_RESULT CommitType type() const;
     Q_REQUIRED_RESULT const QVector<GraphLane> &lanes() const;
@@ -55,30 +57,28 @@ public:
 
     Q_REQUIRED_RESULT git_commit *gitCommit() const;
 
-    Q_REQUIRED_RESULT QSharedPointer<Note> note() const;
+    Q_REQUIRED_RESULT QSharedPointer<Note> note();
     bool createNote(const QString &message);
+    QSharedPointer<Oid> oid() const override;
 
 private:
-    git_commit *const mGitCommit;
-    QSharedPointer<Signature> mAuthor;
-    QSharedPointer<Signature> mCommitter;
-    QString mMessage;
-    QString mSubject;
-    QString mBody;
+    CommitPrivate *d_ptr;
+    Q_DECLARE_PRIVATE(Commit);
+
+    // QString mMessage;
+    // QString mSubject;
+    // QString mBody;
     QString mCommitHash;
     QString mCommitShortHash;
     QStringList mParentHash;
-    QString mBranch;
     QString mExtraData;
     CommitType mType;
     QVector<GraphLane> mLanes;
     QStringList mChildren;
     QSharedPointer<Reference> mReference;
-    QDateTime mCommitTime;
 
     friend class LogList;
     friend class Manager;
     friend class LogsModel;
 };
-
 }

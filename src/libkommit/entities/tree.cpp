@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "tree.h"
 #include "gitglobal_p.h"
+#include "oid.h"
 #include "qdebug.h"
 #include "types.h"
 
@@ -130,6 +131,11 @@ bool Tree::extract(const QString &destinationFolder, const QString &perfix)
         w.perfix = perfix;
 
     return !git_tree_walk(ptr, GIT_TREEWALK_PRE, cb, &w);
+}
+
+QSharedPointer<Oid> Tree::oid() const
+{
+    return QSharedPointer<Oid>{new Oid{git_tree_id(ptr)}};
 }
 
 void Tree::initTree()

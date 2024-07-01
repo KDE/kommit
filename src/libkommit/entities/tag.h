@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class LIBKOMMIT_EXPORT Tag
+class LIBKOMMIT_EXPORT Tag : public IOid
 {
 public:
     enum class TagType { RegularTag, LightTag };
@@ -40,6 +40,7 @@ public:
     QSharedPointer<Commit> commit() const;
 
     Q_REQUIRED_RESULT TagType tagType() const;
+    QSharedPointer<Oid> oid() const override;
 
 private:
     git_tag *mTagPtr{nullptr};

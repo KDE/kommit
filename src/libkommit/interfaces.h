@@ -14,6 +14,8 @@ namespace Git
 {
 
 class Tree;
+class Oid;
+
 class LIBKOMMIT_EXPORT ITree
 {
 public:
@@ -28,4 +30,9 @@ inline ITree::~ITree()
 {
 }
 
+class LIBKOMMIT_EXPORT IOid
+{
+public:
+    virtual QSharedPointer<Oid> oid() const = 0;
+};
 }

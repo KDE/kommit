@@ -16,6 +16,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class Manager;
 class Commit;
 class Branch;
 class Tag;
@@ -27,6 +28,7 @@ class LIBKOMMIT_EXPORT AbstractCache
 {
 public:
     explicit AbstractCache(git_repository *repo);
+    explicit AbstractCache(Manager *parent);
     virtual ~AbstractCache();
 
     void clear();
@@ -35,23 +37,72 @@ public:
     Q_REQUIRED_RESULT int count() const;
 
     template<typename... Args>
-    QSharedPointer<T> findOrCreate(const QString &key, Args... args);
-    QSharedPointer<T> findOrLookup(const QString &key, bool *isNew = nullptr);
+    QSharedPointer<T> findOrCreate(const QString &key, Args... args) const
+    {
+        if (mMap.contains(key))
+            return mMap.value(key);
 
-    QList<QSharedPointer<T>> values() const;
-    void insert(const QString &key, QSharedPointer<T> obj);
+        auto en = QSharedPointer<T>{new T{args...}};
+        mMap.insert(key, en);
+        return en;
+    }
+    QSharedPointer<T> findOrLookup(const QString &key, bool *isNew = nullptr)
+    {
+        if (mMap.contains(key)) {
+            if (isNew)
+                *isNew = false;
+            return mMap.value(key);
+        }
+
+        auto en = QSharedPointer<T>{lookup(key, mRepo)};
+        mMap.insert(key, en);
+
+        if (isNew)
+            *isNew = true;
+        return en;
+    }
+
+    QList<QSharedPointer<T>> values() const
+    {
+        return mMap.values();
+    }
+    void insert(const QString &key, QSharedPointer<T> obj)
+    {
+        mMap.insert(key, obj);
+    }
 
     Q_REQUIRED_RESULT git_repository *repo() const;
     void setRepo(git_repository *newRepo);
 
 protected:
-    virtual T *lookup(const QString &key, git_repository *repo);
+    virtual T *lookup(const QString &key, git_repository *repo)
+    {
+        Q_UNUSED(key)
+        Q_UNUSED(repo)
+        return nullptr;
+    }
     git_repository *mRepo;
 
 private:
     QMap<QString, QSharedPointer<T>> mMap;
     QList<QSharedPointer<T>> mList;
 };
+
+template<class T>
+Q_OUTOFLINE_TEMPLATE AbstractCache<T>::AbstractCache(git_repository *repo)
+    : mRepo{repo}
+{
+}
+
+template<class T>
+inline AbstractCache<T>::AbstractCache(Manager *parent)
+{
+}
+
+template<class T>
+Q_OUTOFLINE_TEMPLATE AbstractCache<T>::~AbstractCache()
+{
+}
 
 template<class T>
 Q_OUTOFLINE_TEMPLATE void AbstractCache<T>::clear()
@@ -84,46 +135,5 @@ Q_OUTOFLINE_TEMPLATE void AbstractCache<T>::setRepo(git_repository *newRepo)
     mRepo = newRepo;
 }
 
-class LIBKOMMIT_EXPORT CommitsCache : public QObject, public AbstractCache<Commit>
-{
-    Q_OBJECT
-public:
-    explicit CommitsCache(git_repository *repo);
-
-protected:
-    Commit *lookup(const QString &key, git_repository *repo) override;
 };
 
-class LIBKOMMIT_EXPORT BranchesCache : public AbstractCache<Branch>
-{
-public:
-    explicit BranchesCache(git_repository *repo);
-
-protected:
-    Branch *lookup(const QString &key, git_repository *repo) override;
-};
-
-class LIBKOMMIT_EXPORT TagsCache : public AbstractCache<Tag>
-{
-public:
-    explicit TagsCache(git_repository *repo);
-
-protected:
-    Tag *lookup(const QString &key, git_repository *repo) override;
-};
-
-class LIBKOMMIT_EXPORT RemotesCache : public AbstractCache<Remote>
-{
-public:
-    explicit RemotesCache(git_repository *repo);
-
-protected:
-    Remote *lookup(const QString &key, git_repository *repo) override;
-};
-
-class LIBKOMMIT_EXPORT NotesCache : public AbstractCache<Note>
-{
-public:
-    explicit NotesCache(git_repository *repo);
-};
-}

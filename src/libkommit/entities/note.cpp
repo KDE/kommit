@@ -6,6 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "note.h"
 
+#include "oid.h"
+#include "signature.h"
+
 #include <git2/notes.h>
 
 namespace Git
@@ -35,4 +38,8 @@ QString Note::mesage() const
     return mMesage;
 }
 
+QSharedPointer<Oid> Note::oid() const
+{
+    return QSharedPointer<Oid>{new Oid{git_note_id(mNote)}};
+}
 }

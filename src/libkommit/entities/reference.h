@@ -20,6 +20,7 @@ class Note;
 class Branch;
 class Tag;
 class Remote;
+class Oid;
 
 class LIBKOMMIT_EXPORT Reference
 {
@@ -34,6 +35,7 @@ public:
     Q_REQUIRED_RESULT bool isRemote() const;
     Q_REQUIRED_RESULT QString name() const;
     Q_REQUIRED_RESULT QString shorthand() const;
+    [[nodiscard]] QSharedPointer<Oid> target() const;
 
     Q_REQUIRED_RESULT QSharedPointer<Note> toNote() const;
     Q_REQUIRED_RESULT QSharedPointer<Branch> toBranch() const;
@@ -42,13 +44,6 @@ public:
 
 private:
     git_reference *ptr{nullptr};
-    bool mIsNote{false};
-    bool mIsBranch{false};
-    bool mIsTag{false};
-    bool mIsRemote{false};
-
-    QString mName;
-    QString mShorthand;
 };
 
 }

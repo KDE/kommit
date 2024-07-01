@@ -65,8 +65,7 @@ void BranchesDiffTest::createBranch()
     QVERIFY(mManager->branchesNames(Git::Manager::BranchType::LocalBranch).contains(newBranchName));
 
     auto newBranch = mManager->branch(newBranchName);
-    QVERIFY(newBranch != nullptr);
-    delete newBranch;
+    QVERIFY(!newBranch.isNull());
 }
 
 void BranchesDiffTest::switchToNewBranch()

@@ -11,8 +11,6 @@ set(SOURCES
     blamedata.cpp
     types.cpp
     abstractreference.cpp
-    abstractcache.h
-    abstractcache.cpp
 
     models/abstractgititemsmodel.cpp
     models/logsmodel.cpp
@@ -22,6 +20,18 @@ set(SOURCES
     models/stashesmodel.cpp
     models/tagsmodel.cpp
 
+    caches/abstractcache.cpp
+    caches/abstractcache.h
+    caches/branchescache.cpp
+    caches/branchescache.h
+    caches/commitscache.cpp
+    caches/commitscache.h
+    caches/remotescache.cpp
+    caches/remotescache.h
+    caches/tagscache.cpp
+    caches/tagscache.h
+    caches/notescache.cpp
+    caches/notescache.h
 
     commands/abstractcommand.cpp
     commands/commandchangedfiles.cpp
@@ -50,6 +60,10 @@ set(SOURCES
     entities/submodule.cpp
     entities/index.cpp
     entities/treediff.cpp
+    entities/oid.h
+    entities/oid.cpp
+    entities/object.h
+    entities/object.cpp
 
     observers/fetchobserver.cpp
     observers/cloneobserver.cpp

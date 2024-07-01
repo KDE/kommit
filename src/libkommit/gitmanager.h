@@ -143,7 +143,7 @@ public:
     void setLoadFlags(Git::LoadFlags newLoadFlags);
 
     // branches
-    Q_REQUIRED_RESULT Branch *branch(const QString &branchName) const;
+    Q_REQUIRED_RESULT QSharedPointer<Branch> branch(const QString &branchName);
     Q_REQUIRED_RESULT QString currentBranch() const;
     bool createBranch(const QString &branchName) const;
     bool switchBranch(const QString &branchName) const;
@@ -212,7 +212,7 @@ public:
     // notes
     Q_REQUIRED_RESULT QString readNote(const QString &branchName) const;
     void saveNote(const QString &branchName, const QString &note) const;
-    QList<QSharedPointer<Note>> notes() const;
+    QList<QSharedPointer<Note>> notes();
 
     // refs
     void forEachRefs(std::function<void(QSharedPointer<Reference>)> callback) const;
@@ -257,6 +257,7 @@ public:
     Q_REQUIRED_RESULT int errorClass() const;
 
     Q_REQUIRED_RESULT git_repository *repoPtr() const;
+    static Q_REQUIRED_RESULT Manager *owner(git_repository *repo);
 
 Q_SIGNALS:
     void pathChanged();

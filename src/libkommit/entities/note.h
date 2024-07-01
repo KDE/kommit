@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include "interfaces.h"
 #include "libkommit_export.h"
-#include "signature.h"
 
 #include <QSharedPointer>
 #include <QString>
@@ -17,7 +17,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class LIBKOMMIT_EXPORT Note
+class Signature;
+
+class LIBKOMMIT_EXPORT Note : public IOid
 {
 public:
     explicit Note(git_note *note);
@@ -25,6 +27,7 @@ public:
     Q_REQUIRED_RESULT QSharedPointer<Signature> author() const;
     Q_REQUIRED_RESULT QSharedPointer<Signature> committer() const;
     Q_REQUIRED_RESULT QString mesage() const;
+    QSharedPointer<Oid> oid() const override;
 
 private:
     git_note *const mNote;
@@ -32,5 +35,4 @@ private:
     QSharedPointer<Signature> mCommitter;
     QString mMesage;
 };
-
 }

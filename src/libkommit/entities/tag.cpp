@@ -6,6 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "tag.h"
 
+#include "oid.h"
+
 #include <git2/commit.h>
 #include <git2/tag.h>
 
@@ -81,5 +83,10 @@ QSharedPointer<Commit> Tag::commit() const
 Tag::TagType Tag::tagType() const
 {
     return mTagType;
+}
+
+QSharedPointer<Oid> Tag::oid() const
+{
+    return QSharedPointer<Oid>(new Oid{git_tag_id(mTagPtr)});
 }
 }

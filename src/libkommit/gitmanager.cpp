@@ -3,7 +3,11 @@
 
 #include "gitmanager.h"
 
-#include "abstractcache.h"
+#include "caches/abstractcache.h"
+#include "caches/branchescache.h"
+#include "caches/commitscache.h"
+#include "caches/notescache.h"
+#include "caches/tagscache.h"
 #include "entities/branch.h"
 #include "entities/commit.h"
 #include "entities/index.h"
@@ -35,6 +39,7 @@
 #include <git2/diff.h>
 #include <git2/errors.h>
 #include <git2/refs.h>
+#include <git2/repository.h>
 #include <git2/stash.h>
 #include <git2/submodule.h>
 #include <git2/tag.h>
@@ -73,12 +78,16 @@ public:
     CommitsCache commitsCache;
     BranchesCache branchesCache;
     TagsCache tagsCache;
-    RemotesCache remotesCache;
+    NotesCache remotesCache;
     NotesCache notesCache;
 
-    void changeRepo();
+    void changeRepo(git_repository *repo);
     void resetCaches();
+
+    void freeRepo();
+    static QHash<git_repository *, Manager *> managerMap;
 };
+QHash<git_repository *, Manager *> ManagerPrivate::managerMap;
 
 const QString &Manager::path() const
 {
@@ -93,18 +102,13 @@ bool Manager::open(const QString &newPath)
     if (d->path == newPath)
         return false;
 
-    if (d->repo) {
-        git_repository_free(d->repo);
-        d->repo = nullptr;
-    }
     BEGIN
-    STEP git_repository_open_ext(&d->repo, newPath.toUtf8().data(), 0, NULL);
+    git_repository *repo{};
+    STEP git_repository_open_ext(&repo, newPath.toUtf8().data(), 0, NULL);
 
     END;
 
     if (IS_ERROR) {
-        d->isValid = false;
-
         d->remotesModel->clear();
         d->submodulesModel->clear();
         d->branchesModel->clear();
@@ -112,14 +116,11 @@ bool Manager::open(const QString &newPath)
         d->stashesCache->clear();
         d->tagsModel->clear();
 
-        d->repo = nullptr;
+        d->changeRepo(nullptr);
     } else {
-        d->path = git_repository_workdir(d->repo);
-        d->isValid = true;
-
+        d->changeRepo(repo);
         loadAsync();
     }
-    d->changeRepo();
 
     Q_EMIT pathChanged();
     Q_EMIT reloadRequired();
@@ -942,18 +943,17 @@ void Manager::setLoadFlags(Git::LoadFlags newLoadFlags)
     d->loadFlags = newLoadFlags;
 }
 
-Branch *Manager::branch(const QString &branchName) const
+QSharedPointer<Branch> Manager::branch(const QString &branchName)
 {
-    Q_D(const Manager);
+    Q_D(Manager);
+    return d->branchesCache.findOrLookup(branchName);
+    // git_reference *ref;
+    // BEGIN
+    // STEP git_branch_lookup(&ref, d->repo, branchName.toLocal8Bit().constData(), GIT_BRANCH_ALL);
+    // if (IS_OK)
+    //     return new Branch{ref};
 
-    git_reference *ref;
-    BEGIN
-    STEP git_branch_lookup(&ref, d->repo, branchName.toLocal8Bit().constData(), GIT_BRANCH_ALL);
-
-    if (IS_OK)
-        return new Branch{ref};
-
-    return nullptr;
+    // return nullptr;
 }
 
 QString Manager::readNote(const QString &branchName) const
@@ -966,12 +966,13 @@ void Manager::saveNote(const QString &branchName, const QString &note) const
     runGit({QStringLiteral("notes"), QStringLiteral("add"), branchName, QStringLiteral("-f"), QStringLiteral("--message=") + note});
 }
 
-QList<QSharedPointer<Note>> Manager::notes() const
+QList<QSharedPointer<Note>> Manager::notes()
 {
-    Q_D(const Manager);
+    Q_D(Manager);
 
     struct wrapper {
         git_repository *repo;
+        NotesCache &notesCache;
         QList<QSharedPointer<Note>> notes;
     };
     auto cb = [](const git_oid *blob_id, const git_oid *annotated_object_id, void *payload) -> int {
@@ -983,8 +984,7 @@ QList<QSharedPointer<Note>> Manager::notes() const
             w->notes.append(QSharedPointer<Note>{new Note{note}});
         return 0;
     };
-    wrapper w;
-    w.repo = d->repo;
+    wrapper w{d->repo, d->notesCache};
     git_note_foreach(d->repo, NULL, cb, &w);
     return w.notes;
 }
@@ -1309,29 +1309,33 @@ PointerList<Branch> Manager::branches(BranchType type) const
 {
     Q_D(const Manager);
 
+    git_branch_t t{GIT_BRANCH_ALL};
     git_branch_iterator *it;
     switch (type) {
     case BranchType::AllBranches:
-        git_branch_iterator_new(&it, d->repo, GIT_BRANCH_ALL);
+        t = GIT_BRANCH_ALL;
         break;
     case BranchType::LocalBranch:
-        git_branch_iterator_new(&it, d->repo, GIT_BRANCH_LOCAL);
+        t = GIT_BRANCH_LOCAL;
         break;
     case BranchType::RemoteBranch:
-        git_branch_iterator_new(&it, d->repo, GIT_BRANCH_REMOTE);
+        t = GIT_BRANCH_REMOTE;
         break;
     }
+    git_branch_iterator_new(&it, d->repo, t);
     PointerList<Branch> list;
     if (!it) {
         return list;
     }
     git_reference *ref;
     git_branch_t b;
-    // qDebug() << " *it " << it;
+
     while (!git_branch_next(&ref, &b, it)) {
         auto branch = new Branch{ref};
+        git_reference_target(ref);
         list << QSharedPointer<Branch>{branch};
     }
+
     git_branch_iterator_free(it);
 
     return list;
@@ -1974,6 +1978,11 @@ git_repository *Manager::repoPtr() const
     return d->repo;
 }
 
+Manager *Manager::owner(git_repository *repo)
+{
+    return ManagerPrivate::managerMap.value(repo, nullptr);
+}
+
 QString Manager::errorMessage() const
 {
     Q_D(const Manager);
@@ -2002,8 +2011,20 @@ ManagerPrivate::ManagerPrivate(Manager *parent)
 {
 }
 
-void ManagerPrivate::changeRepo()
+void ManagerPrivate::changeRepo(git_repository *repo)
 {
+    Q_Q(Manager);
+
+    freeRepo();
+
+    if (repo) {
+        this->repo = repo;
+        managerMap.insert(repo, q);
+        path = git_repository_workdir(repo);
+    }
+
+    isValid = repo;
+
     commitsCache.setRepo(repo);
     branchesCache.setRepo(repo);
     tagsCache.setRepo(repo);
@@ -2020,6 +2041,15 @@ void ManagerPrivate::resetCaches()
     tagsCache.clear();
     remotesCache.clear();
     notesCache.clear();
+}
+
+void ManagerPrivate::freeRepo()
+{
+    if (repo) {
+        managerMap.remove(repo);
+        git_repository_free(repo);
+        repo = nullptr;
+    }
 }
 
 } // namespace Git

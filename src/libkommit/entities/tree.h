@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "file.h"
+#include "interfaces.h"
 #include "libkommit_export.h"
 
 #include <git2/types.h>
@@ -19,7 +20,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class LIBKOMMIT_EXPORT Tree
+class LIBKOMMIT_EXPORT Tree : public IOid
 {
 public:
     enum class EntryType { Unknown, File, Dir, All = Unknown };
@@ -39,6 +40,7 @@ public:
 
     Q_REQUIRED_RESULT git_tree *gitTree() const;
     Q_REQUIRED_RESULT bool extract(const QString &destinationFolder, const QString &perfix = {});
+    QSharedPointer<Oid> oid() const override;
 
 private:
     LIBKOMMIT_NO_EXPORT void initTree();
@@ -46,7 +48,6 @@ private:
     git_tree *ptr{nullptr};
     QMultiMap<QString, Entry> mTreeData;
 };
-
 }
 
 template<>
