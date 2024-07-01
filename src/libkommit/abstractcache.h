@@ -126,4 +126,4 @@ class LIBKOMMIT_EXPORT NotesCache : public AbstractCache<Note>
 public:
     explicit NotesCache(git_repository *repo);
 };
-};
+}
