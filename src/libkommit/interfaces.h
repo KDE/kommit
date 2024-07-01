@@ -33,6 +33,11 @@ inline ITree::~ITree()
 class LIBKOMMIT_EXPORT IOid
 {
 public:
+    virtual ~IOid();
     virtual QSharedPointer<Oid> oid() const = 0;
 };
+
+inline IOid::~IOid()
+{
+}
 }
