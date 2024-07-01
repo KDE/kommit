@@ -37,3 +37,5 @@ Commit *CommitsCache::lookup(const QString &key, git_repository *repo)
 }
 
 };
+
+#include "moc_commitscache.cpp"
