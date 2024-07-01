@@ -257,7 +257,7 @@ public:
     Q_REQUIRED_RESULT int errorClass() const;
 
     Q_REQUIRED_RESULT git_repository *repoPtr() const;
-    static Q_REQUIRED_RESULT Manager *owner(git_repository *repo);
+    Q_REQUIRED_RESULT static Manager *owner(git_repository *repo);
 
 Q_SIGNALS:
     void pathChanged();
