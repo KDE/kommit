@@ -154,3 +154,5 @@ Remote *RemotesCache::lookup(const QString &key, git_repository *repo)
     return nullptr;
 }
 };
+
+#include "moc_abstractcache.cpp"
