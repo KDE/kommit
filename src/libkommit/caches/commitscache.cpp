@@ -1,3 +1,9 @@
+/*
+SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
 #include "commitscache.h"
 #include "entities/commit.h"
 #include "gitglobal_p.h"
