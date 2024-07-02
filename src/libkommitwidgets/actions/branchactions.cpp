@@ -66,7 +66,7 @@ void BranchActions::fetch()
 
 void BranchActions::create()
 {
-    const auto newBranchName = QInputDialog::getText(mParent, i18n("Create new branch"), i18n("Branch name"));
+    const auto newBranchName = QInputDialog::getText(mParent, i18nc("@title:window", "Create new branch"), i18n("Branch name"));
 
     if (!newBranchName.isEmpty()) {
         mGit->runGit({QStringLiteral("checkout"), QStringLiteral("-b"), newBranchName});

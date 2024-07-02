@@ -68,12 +68,12 @@ void StashActions::diff()
 void StashActions::create()
 {
     if (mGit->changedFiles().empty()) {
-        KMessageBoxHelper::information(mParent, i18n("You don't have any changes!"), i18n("Stash"));
+        KMessageBoxHelper::information(mParent, i18n("You don't have any changes!"), i18nc("@title:window", "Stash"));
         return;
     }
     bool ok;
 
-    const auto name = QInputDialog::getText(mParent, i18n("Create new stash"), i18n("Name of stash"), QLineEdit::Normal, QString(), &ok);
+    const auto name = QInputDialog::getText(mParent, i18nc("@title:window", "Create new stash"), i18n("Name of stash"), QLineEdit::Normal, QString(), &ok);
 
     if (ok) {
         mGit->createStash(name);

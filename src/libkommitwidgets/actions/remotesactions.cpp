@@ -72,7 +72,7 @@ void RemotesActions::changeUrl()
 
     if (!remote)
         return;
-    const auto newUrl = QInputDialog::getText(mParent, i18n("Change url"), i18n("URL"), QLineEdit::Normal, remote->pushUrl());
+    const auto newUrl = QInputDialog::getText(mParent, i18nc("@title:window", "Change url"), i18n("URL"), QLineEdit::Normal, remote->pushUrl());
     if (!newUrl.isEmpty()) {
         mGit->remotesModel()->setUrl(mRemoteName, newUrl);
         KMessageBoxHelper::information(mParent, i18n("Url for remote changed successfully"));
@@ -81,7 +81,7 @@ void RemotesActions::changeUrl()
 
 void RemotesActions::rename()
 {
-    const auto newName = QInputDialog::getText(mParent, i18n("Rename"), i18n("New name"), QLineEdit::Normal, mRemoteName);
+    const auto newName = QInputDialog::getText(mParent, i18nc("@title:window", "Rename"), i18n("New name"), QLineEdit::Normal, mRemoteName);
 
     if (!newName.isEmpty()) {
         mGit->remotesModel()->rename(mRemoteName, newName);

@@ -57,12 +57,12 @@ void ChangedFilesDialog::slotPushCommit()
 void ChangedFilesDialog::slotStash()
 {
     if (mGit->changedFiles().empty()) {
-        KMessageBoxHelper::information(this, i18n("You don't have any changes!"), i18n("Stash"));
+        KMessageBoxHelper::information(this, i18n("You don't have any changes!"), i18nc("@title:window", "Stash"));
         return;
     }
     bool ok;
 
-    const auto name = QInputDialog::getText(this, i18n("Create new stash"), i18n("Name of stash"), QLineEdit::Normal, QString(), &ok);
+    const auto name = QInputDialog::getText(this, i18nc("@title:window", "Create new stash"), i18n("Name of stash"), QLineEdit::Normal, QString(), &ok);
 
     if (ok) {
         mGit->createStash(name);
