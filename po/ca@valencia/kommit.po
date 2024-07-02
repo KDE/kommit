@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-28 01:54+0000\n"
-"PO-Revision-Date: 2024-06-24 08:46+0200\n"
+"PO-Revision-Date: 2024-06-28 13:04+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 # NdT: Com que és una capa gràfica del Git, he intentat seguir la terminologia pròpia de la traducció del Git (https://github.com/Softcatala/git-po/blob/master/po/ca.po)
 #, kde-format
@@ -1359,15 +1359,13 @@ msgid "Commit/push"
 msgstr "Comet i puja"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:27
-#, fuzzy, kde-format
-#| msgid "Commit/Push submodule: %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
 msgstr "Comissió/Pujada del submòdul %1"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:51
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgctxt "@action"
 msgid "Commit/Push"
 msgstr "Comet i puja"
@@ -1849,17 +1847,15 @@ msgstr "Tipus de vista"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:33
-#, fuzzy, kde-format
-#| msgid "Regular view"
+#, kde-format
 msgid "&Regular view"
-msgstr "Vista normal"
+msgstr "Vista no&rmal"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:40
-#, fuzzy, kde-format
-#| msgid "Differential view"
+#, kde-format
 msgid "Differential &view"
-msgstr "Vista diferencial"
+msgstr "&Vista diferencial"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
