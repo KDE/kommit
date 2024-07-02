@@ -37,8 +37,6 @@ public:
     Q_REQUIRED_RESULT QSharedPointer<Signature> author();
     Q_REQUIRED_RESULT QSharedPointer<Signature> committer();
     Q_REQUIRED_RESULT QString message() const;
-    Q_DECL_DEPRECATED_X("Use message")
-    Q_REQUIRED_RESULT QString subject() const;
     Q_REQUIRED_RESULT QString body() const;
     Q_REQUIRED_RESULT const QString &commitHash() const;
     Q_REQUIRED_RESULT const QStringList &parents() const;

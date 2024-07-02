@@ -163,12 +163,6 @@ QString Commit::message() const
     return QString{git_commit_message(d->gitCommitPtr)}.remove(QLatin1Char('\n'));
 }
 
-QString Commit::subject() const
-{
-    Q_D(const Commit);
-    return QString{git_commit_message(d->gitCommitPtr)}.remove(QLatin1Char('\n'));
-}
-
 QString Commit::body() const
 {
     Q_D(const Commit);
