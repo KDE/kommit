@@ -72,7 +72,7 @@ void CommitDetails::setCommit(Git::Commit *commit)
         return;
 
     labelCommitHash->setText(commit->commitHash());
-    labelCommitSubject->setText(commit->subject());
+    labelCommitSubject->setText(commit->message());
 
     showSignature(commit->author(), labelAuthorAvatar, labelAuthor, labelAuthTime, mEnableEmailsLinks);
     showSignature(commit->committer(), labelCommiterAvatar, labelCommitter, labelCommitTime, mEnableEmailsLinks);
@@ -196,7 +196,7 @@ QString CommitDetails::generateCommitLink(const QString &hash)
     if (mLogsModel) {
         auto commit = mLogsModel->findLogByHash(hash);
         if (commit)
-            subject = commit->subject();
+            subject = commit->message();
     }
     if (mEnableCommitsLinks)
         return QStringLiteral(R"(<a href="%1">%2</a> )").arg(hash, subject);

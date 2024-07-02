@@ -69,9 +69,9 @@ void FileTest::checkContents()
 {
     auto commits = mManager->commits();
     QCOMPARE(commits.size(), 3);
-    QCOMPARE(commits.at(2)->subject(), "first commit");
-    QCOMPARE(commits.at(1)->subject(), "second commit");
-    QCOMPARE(commits.at(0)->subject(), "third commit");
+    QCOMPARE(commits.at(2)->message(), "first commit");
+    QCOMPARE(commits.at(1)->message(), "second commit");
+    QCOMPARE(commits.at(0)->message(), "third commit");
 
     Git::File firstFile{mManager, commits.at(2)->commitHash(), "README.md"};
     Git::File secondFile{mManager, commits.at(1)->commitHash(), "README.md"};

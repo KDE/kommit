@@ -27,12 +27,12 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
         if (!log)
             continue;
 
-        auto item = new QListWidgetItem(log->subject());
+        auto item = new QListWidgetItem(log->message());
         item->setData(dataRole, log->commitHash());
         listWidget->addItem(item);
 
         auto treeItem = new QTreeWidgetItem{treeWidget};
-        treeItem->setText(0, log->subject());
+        treeItem->setText(0, log->message());
         treeItem->setData(0, dataRole, log->commitHash());
         treeWidget->addTopLevelItem(treeItem);
     }

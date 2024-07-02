@@ -121,7 +121,7 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
         paintLane(painter, l, x);
     }
 
-    QRect rc(log->lanes().size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(log->subject()), HEIGHT);
+    QRect rc(log->lanes().size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(log->message()), HEIGHT);
 
     painter->setPen(option.palette.color(QPalette::Text));
     if (!log->reference().isNull()) {
@@ -148,7 +148,7 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
         painter->drawText(rcBox, Qt::AlignVCenter | Qt::AlignHCenter, ref);
         rc.moveLeft(rc.left() + rcBox.width() + 6);
     }
-    painter->drawText(rc, Qt::AlignVCenter, log->subject());
+    painter->drawText(rc, Qt::AlignVCenter, log->message());
 
     painter->restore();
 }

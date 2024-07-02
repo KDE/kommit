@@ -38,7 +38,7 @@ bool CommitsFilterModel::filterAcceptsRow(int source_row, const QModelIndex &sou
 
     return log->message().contains(mFilterTerm, Qt::CaseInsensitive) || log->commitHash().contains(mFilterTerm, Qt::CaseInsensitive)
         || log->body().contains(mFilterTerm, Qt::CaseInsensitive) || log->author()->email().contains(mFilterTerm, Qt::CaseInsensitive)
-        || log->author()->name().contains(mFilterTerm, Qt::CaseInsensitive) || log->subject().contains(mFilterTerm, Qt::CaseInsensitive);
+        || log->author()->name().contains(mFilterTerm, Qt::CaseInsensitive) || log->message().contains(mFilterTerm, Qt::CaseInsensitive);
 }
 
 #include "moc_commitsfiltermodel.cpp"

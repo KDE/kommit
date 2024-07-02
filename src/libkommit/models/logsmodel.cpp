@@ -291,7 +291,7 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
     if (mFullDetails) {
         switch (index.column()) {
         case 0:
-            return log->subject();
+            return log->message();
         case 1: {
             if (mCalendar.isValid())
                 return log->committer()->time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), mCalendar);
@@ -306,7 +306,7 @@ QVariant LogsModel::data(const QModelIndex &index, int role) const
         case 0:
             return QString();
         case 1:
-            return log->subject();
+            return log->message();
         }
     }
 
