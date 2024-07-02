@@ -18,7 +18,7 @@ namespace Git
 class LIBKOMMIT_EXPORT Oid
 {
 public:
-    Oid(const git_oid *oid);
+    explicit Oid(const git_oid *oid);
 
     Q_REQUIRED_RESULT QString toString() const;
     Q_REQUIRED_RESULT bool isNull() const;
