@@ -131,4 +131,3 @@ Q_OUTOFLINE_TEMPLATE void AbstractCache<T>::setRepo(git_repository *newRepo)
 }
 
 };
-
