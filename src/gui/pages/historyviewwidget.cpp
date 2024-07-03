@@ -17,11 +17,11 @@ HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
     : WidgetBase(git, parent)
     , mActions(new CommitActions(git, this))
     , mHistoryModel(git->logsModel())
+    , mGraphPainter(new GraphPainter(mHistoryModel, this))
 {
     setupUi(this);
     treeViewHistory->setModel(mHistoryModel);
 
-    mGraphPainter = new GraphPainter(mHistoryModel, this);
     treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);
 
     // textBrowser->setEnableCommitsLinks(true);

@@ -34,5 +34,5 @@ private:
     void slotTreeViewHistoryCustomContextMenuRequested(const QPoint &pos);
     CommitActions *const mActions;
     Git::LogsModel *const mHistoryModel;
-    GraphPainter *mGraphPainter{nullptr};
+    GraphPainter *const mGraphPainter;
 };
