@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-28 01:54+0000\n"
+"POT-Creation-Date: 2024-07-03 01:47+0000\n"
 "PO-Revision-Date: 2024-06-28 20:51+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1009,7 +1009,9 @@ msgid "Note…"
 msgstr "Nota..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create new branch"
+msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Crear nueva rama"
 
@@ -1143,7 +1145,9 @@ msgid "Unable to remove the selected remote"
 msgstr "No se puede eliminar el remoto seleccionado"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change url"
+msgctxt "@title:window"
 msgid "Change url"
 msgstr "Cambiar URL"
 
@@ -1158,7 +1162,9 @@ msgid "Url for remote changed successfully"
 msgstr "URL remota cambiada correctamente"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgctxt "@title:window"
 msgid "Rename"
 msgstr "Cambiar nombre"
 
@@ -1234,13 +1240,17 @@ msgstr "No hay ningún cambio"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stash"
+msgctxt "@title:window"
 msgid "Stash"
 msgstr "Reservar"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create new stash"
+msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Crear nueva reserva"
 

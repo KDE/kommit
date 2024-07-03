@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-28 01:54+0000\n"
+"POT-Creation-Date: 2024-07-03 01:47+0000\n"
 "PO-Revision-Date: 2024-06-26 20:33+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -1014,7 +1014,9 @@ msgid "Note…"
 msgstr "Remarque..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create new branch"
+msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Créer une nouvelle branche"
 
@@ -1148,7 +1150,9 @@ msgid "Unable to remove the selected remote"
 msgstr "Impossible de supprimer la branche sélectionnée distante"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change url"
+msgctxt "@title:window"
 msgid "Change url"
 msgstr "Changer l'URL"
 
@@ -1163,7 +1167,9 @@ msgid "Url for remote changed successfully"
 msgstr "L'URL de la référence distante modifiée avec succès"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgctxt "@title:window"
 msgid "Rename"
 msgstr "Renommer"
 
@@ -1241,13 +1247,17 @@ msgstr "Vous n'avez aucune modification !"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stash"
+msgctxt "@title:window"
 msgid "Stash"
 msgstr "Remiser"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create new stash"
+msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Créer une nouvelle remise"
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-28 01:54+0000\n"
+"POT-Creation-Date: 2024-07-03 01:47+0000\n"
 "PO-Revision-Date: 2024-04-22 16:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1003,7 +1003,9 @@ msgid "Note…"
 msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create new branch"
+msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "创建新分支"
 
@@ -1137,7 +1139,9 @@ msgid "Unable to remove the selected remote"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change url"
+msgctxt "@title:window"
 msgid "Change url"
 msgstr "更改 URL"
 
@@ -1152,7 +1156,9 @@ msgid "Url for remote changed successfully"
 msgstr "远端 URL 更改成功"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgctxt "@title:window"
 msgid "Rename"
 msgstr "重命名"
 
@@ -1228,13 +1234,17 @@ msgstr "您没有任何更改！"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stash"
+msgctxt "@title:window"
 msgid "Stash"
 msgstr "暂存"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create new stash"
+msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "建立新暂存"
 

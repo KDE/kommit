@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-28 01:54+0000\n"
+"POT-Creation-Date: 2024-07-03 01:47+0000\n"
 "PO-Revision-Date: 2024-04-05 00:32-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1015,6 +1015,7 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
 #, kde-format
+msgctxt "@title:window"
 msgid "Create new branch"
 msgstr ""
 
@@ -1155,9 +1156,11 @@ msgid "Unable to remove the selected remote"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Changed files..."
+msgctxt "@title:window"
 msgid "Change url"
-msgstr ""
+msgstr "Arquivos alterados..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
@@ -1171,6 +1174,7 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
+msgctxt "@title:window"
 msgid "Rename"
 msgstr ""
 
@@ -1248,14 +1252,17 @@ msgstr ""
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
+msgctxt "@title:window"
 msgid "Stash"
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create tag"
+msgctxt "@title:window"
 msgid "Create new stash"
-msgstr ""
+msgstr "Criar marcador"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65

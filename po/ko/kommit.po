@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-28 01:54+0000\n"
+"POT-Creation-Date: 2024-07-03 01:47+0000\n"
 "PO-Revision-Date: 2024-02-09 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1033,7 +1033,9 @@ msgid "Note…"
 msgstr "메모"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create new branch"
+msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "새 브랜치 만들기"
 
@@ -1182,7 +1184,9 @@ msgid "Unable to remove the selected remote"
 msgstr "선택한 리모트를 삭제할 수 없음"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change url"
+msgctxt "@title:window"
 msgid "Change url"
 msgstr "URL 변경"
 
@@ -1197,7 +1201,9 @@ msgid "Url for remote changed successfully"
 msgstr "리모트 URL을 변경함"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgctxt "@title:window"
 msgid "Rename"
 msgstr "이름 바꾸기"
 
@@ -1275,13 +1281,17 @@ msgstr "변경 사항이 없습니다!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stash"
+msgctxt "@title:window"
 msgid "Stash"
 msgstr "스태시"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create new stash"
+msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "새 스태시 만들기"
 

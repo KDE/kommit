@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-28 01:54+0000\n"
+"POT-Creation-Date: 2024-07-03 01:47+0000\n"
 "PO-Revision-Date: 2024-06-30 19:38+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1005,7 +1005,9 @@ msgid "Note…"
 msgstr "Anmärkning…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create new branch"
+msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Skapa ny gren"
 
@@ -1139,7 +1141,9 @@ msgid "Unable to remove the selected remote"
 msgstr "Kan inte ta bort det markerade fjärrarkivet"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Change url"
+msgctxt "@title:window"
 msgid "Change url"
 msgstr "Ändra webbadress..."
 
@@ -1154,7 +1158,9 @@ msgid "Url for remote changed successfully"
 msgstr "Webbadress för fjärrarkiv ändrad med lyckat resultat"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgctxt "@title:window"
 msgid "Rename"
 msgstr "Byt namn"
 
@@ -1230,13 +1236,17 @@ msgstr "Du har inga ändringar."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stash"
+msgctxt "@title:window"
 msgid "Stash"
 msgstr "Göm undan"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create new stash"
+msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Skapa nytt gömsle"
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-28 01:54+0000\n"
+"POT-Creation-Date: 2024-07-03 01:47+0000\n"
 "PO-Revision-Date: 2022-09-07 22:16-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -989,6 +989,7 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
 #, kde-format
+msgctxt "@title:window"
 msgid "Create new branch"
 msgstr ""
 
@@ -1123,6 +1124,7 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
+msgctxt "@title:window"
 msgid "Change url"
 msgstr ""
 
@@ -1138,6 +1140,7 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
+msgctxt "@title:window"
 msgid "Rename"
 msgstr ""
 
@@ -1214,12 +1217,14 @@ msgstr ""
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
+msgctxt "@title:window"
 msgid "Stash"
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
+msgctxt "@title:window"
 msgid "Create new stash"
 msgstr ""
 
