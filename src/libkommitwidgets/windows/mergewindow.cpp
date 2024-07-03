@@ -541,7 +541,7 @@ void MergeWindow::setFilePathLocal(const QString &newFilePathLocal)
 
 void MergeWindow::slotPlainTextEditResultTextChanged()
 {
-    qCDebug(KOMMIT_WIDGETS_LOG()) << "**********************";
+    qCDebug(KOMMIT_WIDGETS_LOG) << "**********************";
     //    auto segment = static_cast<Diff::MergeSegment *>(_mapper->currentSegment());
     //    if (segment) {
     //        segment->mergeType = Diff::MergeCustom;

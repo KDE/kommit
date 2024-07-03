@@ -290,7 +290,7 @@ void TreeModel::getFullPath(QString &path, Node *node) const
 
 void TreeModel::sortNode(Node *node)
 {
-    qCDebug(KOMMIT_WIDGETS_LOG()) << "Sorting" << node->title;
+    qCDebug(KOMMIT_WIDGETS_LOG) << "Sorting" << node->title;
     std::sort(node->childs.begin(), node->childs.end(), [](Node *l, Node *r) {
         if (l->childs.empty() && !r->childs.empty())
             return false;

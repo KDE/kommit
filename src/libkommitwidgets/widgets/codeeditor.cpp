@@ -568,9 +568,9 @@ void CodeEditor::highlightSegment(Diff::Segment *segment)
     }
     //    _currentSegment = segment;
     mSideBar->update();
-    qCDebug(KOMMIT_WIDGETS_LOG()) << mCurrentSegment;
+    qCDebug(KOMMIT_WIDGETS_LOG) << mCurrentSegment;
     return;
-    qCDebug(KOMMIT_WIDGETS_LOG()) << "Segment not found";
+    qCDebug(KOMMIT_WIDGETS_LOG) << "Segment not found";
 }
 
 void CodeEditor::clearAll()

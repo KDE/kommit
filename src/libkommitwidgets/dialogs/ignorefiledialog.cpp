@@ -66,7 +66,7 @@ void IgnoreFileDialog::generateIgnorePattern()
         s = mPath + s;
 
     lineEdit->setText(s);
-    qCDebug(KOMMIT_WIDGETS_LOG()) << getIgnoreFile();
+    qCDebug(KOMMIT_WIDGETS_LOG) << getIgnoreFile();
 }
 
 void IgnoreFileDialog::slotAccept()

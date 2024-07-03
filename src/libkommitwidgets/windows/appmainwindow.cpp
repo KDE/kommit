@@ -26,7 +26,7 @@ int AppMainWindow::exec()
     showModal();
     (void)eventLoop.exec(QEventLoop::DialogExec);
     mLoop = nullptr;
-    qCDebug(KOMMIT_WIDGETS_LOG()) << "returnCode=" << mReturnCode;
+    qCDebug(KOMMIT_WIDGETS_LOG) << "returnCode=" << mReturnCode;
     return mReturnCode;
 }
 
