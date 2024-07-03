@@ -426,7 +426,7 @@ void MergeWindow::fileSave()
 {
     QFile f(mFilePathResult);
     if (!f.open(QIODevice::Text | QIODevice::WriteOnly)) {
-        KMessageBoxHelper::information(this, i18n("Unable to open the file") + mFilePathResult);
+        KMessageBoxHelper::information(this, i18n("Unable to open the file %1", mFilePathResult));
         return;
     }
     f.write(m_ui.plainTextEditResult->toPlainText().toUtf8());
@@ -555,8 +555,8 @@ void MergeWindow::slotPlainTextEditResultBlockSelected()
     if (!segment)
         return;
     if (segment->type == Diff::SegmentType::DifferentOnBoth) {
-        m_ui.codeEditorMyBlock->setPlainText(segment->local.join(QStringLiteral("\n")));
-        m_ui.codeEditorTheirBlock->setPlainText(segment->remote.join(QStringLiteral("\n")));
+        m_ui.codeEditorMyBlock->setPlainText(segment->local.join(QLatin1Char('\n')));
+        m_ui.codeEditorTheirBlock->setPlainText(segment->remote.join(QLatin1Char('\n')));
     } else {
         m_ui.codeEditorMyBlock->clear();
         m_ui.codeEditorTheirBlock->clear();
