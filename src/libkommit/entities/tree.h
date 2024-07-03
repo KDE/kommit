@@ -39,7 +39,7 @@ public:
     QSharedPointer<File> file(const QString &path);
 
     Q_REQUIRED_RESULT git_tree *gitTree() const;
-    Q_REQUIRED_RESULT bool extract(const QString &destinationFolder, const QString &perfix = {});
+    Q_REQUIRED_RESULT bool extract(const QString &destinationFolder, const QString &prefix = {});
     QSharedPointer<Oid> oid() const override;
 
 private:

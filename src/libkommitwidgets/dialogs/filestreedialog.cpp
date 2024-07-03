@@ -93,7 +93,7 @@ FilesTreeDialog::FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::ITree> t
 
 void FilesTreeDialog::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
 {
-    mExtractPerfix = mTreeModel->fullPath(treeView->currentIndex());
+    mExtractPrefix = mTreeModel->fullPath(treeView->currentIndex());
 
     mTreeViewMenu->popup(treeView->mapToGlobal(pos));
 }
@@ -119,7 +119,7 @@ void FilesTreeDialog::slotExtract()
     auto path = QFileDialog::getExistingDirectory(this, i18n("Extract to"));
     if (path.isEmpty())
         return;
-    auto ok = mTree->extract(path, mExtractPerfix);
+    auto ok = mTree->extract(path, mExtractPrefix);
 
     if (ok)
         KMessageBoxHelper::information(this, i18n("All file(s) extracted successfully"));

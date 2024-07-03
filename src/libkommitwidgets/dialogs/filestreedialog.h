@@ -40,5 +40,5 @@ private:
     FileActions *const mActions;
     QSharedPointer<Git::Tree> mTree;
     QMenu *const mTreeViewMenu;
-    QString mExtractPerfix;
+    QString mExtractPrefix;
 };

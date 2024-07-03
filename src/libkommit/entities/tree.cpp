@@ -76,11 +76,11 @@ git_tree *Tree::gitTree() const
     return ptr;
 }
 
-bool Tree::extract(const QString &destinationFolder, const QString &perfix)
+bool Tree::extract(const QString &destinationFolder, const QString &prefix)
 {
     struct wrapper {
         QString destinationFolder;
-        QString perfix;
+        QString prefix;
         Tree *tree = nullptr;
     };
 
@@ -102,9 +102,9 @@ bool Tree::extract(const QString &destinationFolder, const QString &perfix)
 
         QString name{git_tree_entry_name(entry)};
 
-        if (path.startsWith(w->perfix)) {
+        if (path.startsWith(w->prefix)) {
             qDebug() << "Path=" << path;
-            auto newFilePath = w->destinationFolder + QLatin1Char('/') + path.mid(w->perfix.size()) + QLatin1Char('/') + name;
+            auto newFilePath = w->destinationFolder + QLatin1Char('/') + path.mid(w->prefix.size()) + QLatin1Char('/') + name;
             QFileInfo fi{newFilePath};
             QDir d;
             d.mkpath(fi.absolutePath());
@@ -125,10 +125,10 @@ bool Tree::extract(const QString &destinationFolder, const QString &perfix)
     wrapper w;
     w.destinationFolder = destinationFolder;
     w.tree = this;
-    if (!perfix.startsWith(QLatin1Char('/')))
-        w.perfix = QLatin1Char('/') + perfix;
+    if (!prefix.startsWith(QLatin1Char('/')))
+        w.prefix = QLatin1Char('/') + prefix;
     else
-        w.perfix = perfix;
+        w.prefix = prefix;
 
     return !git_tree_walk(ptr, GIT_TREEWALK_PRE, cb, &w);
 }
