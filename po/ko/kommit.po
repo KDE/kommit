@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 01:47+0000\n"
+"POT-Creation-Date: 2024-07-04 01:44+0000\n"
 "PO-Revision-Date: 2024-02-09 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2894,8 +2894,9 @@ msgid "Next diff"
 msgstr "다음 차이점"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:429
-#, kde-format
-msgid "Unable to open the file"
+#, fuzzy, kde-format
+#| msgid "Unable to open the file"
+msgid "Unable to open the file %1"
 msgstr "파일을 열 수 없음"
 
 #, fuzzy

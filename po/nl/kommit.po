@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 01:47+0000\n"
-"PO-Revision-Date: 2024-06-28 11:22+0200\n"
+"POT-Creation-Date: 2024-07-04 01:44+0000\n"
+"PO-Revision-Date: 2024-07-03 11:04+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1008,11 +1008,10 @@ msgid "Note…"
 msgstr "Notitie…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
-#, fuzzy, kde-format
-#| msgid "Create new branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new branch"
-msgstr "Nieuwe branch aanmaken:"
+msgstr "Nieuwe branch aanmaken"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
 #, kde-format
@@ -1144,8 +1143,7 @@ msgid "Unable to remove the selected remote"
 msgstr "Kan de geselecteerde remote niet verwijderen"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "URL wijzigen"
@@ -1161,8 +1159,7 @@ msgid "Url for remote changed successfully"
 msgstr "Url voor remote met succes gewijzigd"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "Hernoemen"
@@ -1239,16 +1236,14 @@ msgstr "U hebt geen wijzigingen!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stash"
 msgstr "Stapel"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
-#, fuzzy, kde-format
-#| msgid "Create new stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Nieuwe stapel aanmaken"
@@ -2841,8 +2836,9 @@ msgid "Next diff"
 msgstr "Volgende diff"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:429
-#, kde-format
-msgid "Unable to open the file"
+#, fuzzy, kde-format
+#| msgid "Unable to open the file"
+msgid "Unable to open the file %1"
 msgstr "Kan het bestand niet openen"
 
 #~ msgctxt "@action"

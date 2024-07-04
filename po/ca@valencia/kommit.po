@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 01:47+0000\n"
-"PO-Revision-Date: 2024-06-28 13:04+0200\n"
+"POT-Creation-Date: 2024-07-04 01:44+0000\n"
+"PO-Revision-Date: 2024-07-03 09:54+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1011,8 +1011,7 @@ msgid "Note…"
 msgstr "Nota…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
-#, fuzzy, kde-format
-#| msgid "Create new branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Crea una branca nova"
@@ -1147,8 +1146,7 @@ msgid "Unable to remove the selected remote"
 msgstr "No s'ha pogut eliminar el remot seleccionat"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "Canvia l'URL"
@@ -1164,8 +1162,7 @@ msgid "Url for remote changed successfully"
 msgstr "L'URL del remot s'ha canviat correctament"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "Canvia el nom"
@@ -1242,16 +1239,14 @@ msgstr "No teniu cap canvi!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stash"
 msgstr "«Stash»"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
-#, fuzzy, kde-format
-#| msgid "Create new stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Crea un «stash» nou"
@@ -2842,6 +2837,7 @@ msgid "Next diff"
 msgstr "Diferència següent"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:429
-#, kde-format
-msgid "Unable to open the file"
+#, fuzzy, kde-format
+#| msgid "Unable to open the file"
+msgid "Unable to open the file %1"
 msgstr "No s'ha pogut obrir el fitxer"

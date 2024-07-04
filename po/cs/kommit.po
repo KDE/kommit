@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 01:47+0000\n"
-"PO-Revision-Date: 2024-06-27 15:49+0200\n"
+"POT-Creation-Date: 2024-07-04 01:44+0000\n"
+"PO-Revision-Date: 2024-07-03 15:53+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -991,8 +991,7 @@ msgid "Note…"
 msgstr "Poznámka…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
-#, fuzzy, kde-format
-#| msgid "Create new branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Vytvořit novou větev"
@@ -1127,8 +1126,7 @@ msgid "Unable to remove the selected remote"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "Změnit URL"
@@ -1144,8 +1142,7 @@ msgid "Url for remote changed successfully"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "Přejmenovat"
@@ -1222,19 +1219,17 @@ msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stash"
-msgstr "Úschovna"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
-#, fuzzy, kde-format
-#| msgid "Create new branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
-msgstr "Vytvořit novou větev"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
@@ -1355,11 +1350,10 @@ msgid "Commit/Push submodule: %1"
 msgstr ""
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:51
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgctxt "@action"
 msgid "Commit/Push"
-msgstr "Commity"
+msgstr "Commit/Push"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -2728,6 +2722,7 @@ msgid "Next diff"
 msgstr ""
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:429
-#, kde-format
-msgid "Unable to open the file"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Unable to open file: %1"
+msgid "Unable to open the file %1"
+msgstr "Nelze otevřít soubor: %1"

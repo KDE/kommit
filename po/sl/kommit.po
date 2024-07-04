@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 01:47+0000\n"
-"PO-Revision-Date: 2024-06-28 06:45+0200\n"
+"POT-Creation-Date: 2024-07-04 01:44+0000\n"
+"PO-Revision-Date: 2024-07-03 07:27+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1009,8 +1009,7 @@ msgid "Note…"
 msgstr "Opomba…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
-#, fuzzy, kde-format
-#| msgid "Create new branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Ustvari novo vejo"
@@ -1145,11 +1144,10 @@ msgid "Unable to remove the selected remote"
 msgstr "Ni mogoče odstraniti izbrano oddaljeno"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change url"
-msgstr "Spremeni URL"
+msgstr "Spremeni url"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
@@ -1162,8 +1160,7 @@ msgid "Url for remote changed successfully"
 msgstr "Url za oddaljeno je uspešno spremenjen"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "Preimenuj"
@@ -1240,16 +1237,14 @@ msgstr "Nimate nobenih sprememb!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stash"
 msgstr "Zaloga"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
-#, fuzzy, kde-format
-#| msgid "Create new stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Ustvari novo zalogo"
@@ -2841,8 +2836,9 @@ msgid "Next diff"
 msgstr "Naslednja razlika"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:429
-#, kde-format
-msgid "Unable to open the file"
+#, fuzzy, kde-format
+#| msgid "Unable to open the file"
+msgid "Unable to open the file %1"
 msgstr "Datoteke ni mogoče odpreti"
 
 #~ msgctxt "@action"

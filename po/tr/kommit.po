@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-03 01:47+0000\n"
-"PO-Revision-Date: 2024-06-28 14:06+0300\n"
+"POT-Creation-Date: 2024-07-04 01:44+0000\n"
+"PO-Revision-Date: 2024-07-03 13:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1006,8 +1006,7 @@ msgid "Note…"
 msgstr "Not…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
-#, fuzzy, kde-format
-#| msgid "Create new branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Yeni Dal Oluştur"
@@ -1142,8 +1141,7 @@ msgid "Unable to remove the selected remote"
 msgstr "Seçili uzak konum kaldırılamıyor"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "URL Değiştir"
@@ -1159,8 +1157,7 @@ msgid "Url for remote changed successfully"
 msgstr "Uzak konum URL’si başarıyla değiştirildi"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "Yeniden Adlandır"
@@ -1237,16 +1234,14 @@ msgstr "Bir değişikliğiniz yok!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stash"
 msgstr "Zulala"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
-#, fuzzy, kde-format
-#| msgid "Create new stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Yeni Zula Oluştur"
@@ -2835,8 +2830,9 @@ msgid "Next diff"
 msgstr "Sonraki Diff"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:429
-#, kde-format
-msgid "Unable to open the file"
+#, fuzzy, kde-format
+#| msgid "Unable to open the file"
+msgid "Unable to open the file %1"
 msgstr "Dosya açılamıyor"
 
 #~ msgctxt "@action"
