@@ -2762,7 +2762,6 @@ msgid "Next diff"
 msgstr "下一个差异"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "Unable to open the file"
+#, kde-format
 msgid "Unable to open the file %1"
-msgstr "无法打开文件"
+msgstr ""

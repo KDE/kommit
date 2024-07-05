@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-04 01:44+0000\n"
-"PO-Revision-Date: 2024-07-03 15:53+0200\n"
+"PO-Revision-Date: 2024-07-04 14:40+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -2722,7 +2722,6 @@ msgid "Next diff"
 msgstr ""
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "Unable to open file: %1"
+#, kde-format
 msgid "Unable to open the file %1"
-msgstr "Nelze otevřít soubor: %1"
+msgstr "Nelze otevřít soubor %1"
