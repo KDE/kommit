@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-04 01:44+0000\n"
-"PO-Revision-Date: 2024-06-26 20:33+0200\n"
+"PO-Revision-Date: 2024-07-04 18:08+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1150,8 +1150,7 @@ msgid "Unable to remove the selected remote"
 msgstr "Impossible de supprimer la branche sélectionnée distante"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "Changer l'URL"
@@ -1167,8 +1166,7 @@ msgid "Url for remote changed successfully"
 msgstr "L'URL de la référence distante modifiée avec succès"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "Renommer"
@@ -1868,17 +1866,15 @@ msgstr "Type d'affichage"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:33
-#, fuzzy, kde-format
-#| msgid "Regular view"
+#, kde-format
 msgid "&Regular view"
-msgstr "Vue standard"
+msgstr "Vue no&rmale"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:40
-#, fuzzy, kde-format
-#| msgid "Differential view"
+#, kde-format
 msgid "Differential &view"
-msgstr "Vue différentielle"
+msgstr "&Vue différentielle"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
