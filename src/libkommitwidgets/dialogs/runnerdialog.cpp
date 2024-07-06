@@ -135,8 +135,7 @@ void RunnerDialog::git_finished(int exitCode, QProcess::ExitStatus exitStatus)
         exitMessage = i18n("Process finished with error");
     }
 
-    textBrowser->append(
-        QStringLiteral("%1: (Elapsed time: %2)").arg(exitMessage, QTime::fromMSecsSinceStartOfDay(mTimer.elapsed()).toString(QStringLiteral("HH:mm:ss"))));
+    textBrowser->append(i18n("%1: (Elapsed time: %2)", exitMessage, QTime::fromMSecsSinceStartOfDay(mTimer.elapsed()).toString(QStringLiteral("HH:mm:ss"))));
 
     if (mAutoClose) {
         if (isSuccessful)
