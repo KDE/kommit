@@ -91,7 +91,7 @@ void RunnerDialog::git_readyReadStandardOutput()
     if (mCmd && mCmd->supportProgress())
         mCmd->parseOutputSection(buffer, QByteArray());
 
-    QRegularExpression r{"Username for '.*': "};
+    QRegularExpression r{QStringLiteral("Username for '.*': ")};
 
     if (r.match(buffer).hasMatch()) {
         QInputDialog::getText(this, buffer, i18n("Username:"));
