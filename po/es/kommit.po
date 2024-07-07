@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 01:44+0000\n"
+"POT-Creation-Date: 2024-07-07 01:46+0000\n"
 "PO-Revision-Date: 2024-07-05 02:27+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2390,6 +2390,11 @@ msgstr "El proceso git ha fallado"
 #, kde-format
 msgid "Process finished with error"
 msgstr "Proceso finalizado con error"
+
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
+#, kde-format
+msgid "%1: (Elapsed time: %2)"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14

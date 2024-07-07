@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 01:44+0000\n"
+"POT-Creation-Date: 2024-07-07 01:46+0000\n"
 "PO-Revision-Date: 2024-02-09 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2434,6 +2434,11 @@ msgstr "git 프로세스가 충돌함"
 #, kde-format
 msgid "Process finished with error"
 msgstr "프로세스가 종료 오류를 반환함"
+
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
+#, kde-format
+msgid "%1: (Elapsed time: %2)"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14

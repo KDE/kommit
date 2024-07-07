@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 01:44+0000\n"
+"POT-Creation-Date: 2024-07-07 01:46+0000\n"
 "PO-Revision-Date: 2024-04-05 00:32-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -2319,6 +2319,11 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:135
 #, kde-format
 msgid "Process finished with error"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
+#, kde-format
+msgid "%1: (Elapsed time: %2)"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)

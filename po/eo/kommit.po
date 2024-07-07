@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 01:44+0000\n"
-"PO-Revision-Date: 2024-06-28 21:02+0200\n"
+"POT-Creation-Date: 2024-07-07 01:46+0000\n"
+"PO-Revision-Date: 2024-07-06 16:50+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -1007,8 +1007,7 @@ msgid "Note…"
 msgstr "Prinoti…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:69
-#, fuzzy, kde-format
-#| msgid "Create new branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Krei novan branĉon"
@@ -1143,8 +1142,7 @@ msgid "Unable to remove the selected remote"
 msgstr "Ne eblas forigi la elektitan forilon"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "Ŝanĝi URL"
@@ -1160,8 +1158,7 @@ msgid "Url for remote changed successfully"
 msgstr "Url por forilo sukcese ŝanĝita"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "Alinomi"
@@ -1238,16 +1235,14 @@ msgstr "Vi ne havas ŝanĝojn!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stash"
-msgstr "Stash"
+msgstr "Kaŝi (stash)"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
-#, fuzzy, kde-format
-#| msgid "Create new stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Kreu novan kaŝejon"
@@ -2387,6 +2382,11 @@ msgstr "La git-procezo paneis"
 msgid "Process finished with error"
 msgstr "Procezo finiĝis kun eraro"
 
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
+#, kde-format
+msgid "%1: (Elapsed time: %2)"
+msgstr ""
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14
 #, kde-format
@@ -2834,7 +2834,6 @@ msgid "Next diff"
 msgstr "Sekva diferenco"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "Unable to open the file"
+#, kde-format
 msgid "Unable to open the file %1"
-msgstr "Ne eblas malfermi la dosieron"
+msgstr "Ne eblas malfermi la dosieron %1"
