@@ -68,11 +68,11 @@ private Q_SLOTS:
 
 private:
     Ui::MainMergeWidget m_ui;
-    void updateResult();
-    void initActions();
-    void init();
-    void doMergeAction(Diff::MergeType type);
-    bool isFullyResolved() const;
+    LIBKOMMITWIDGETS_NO_EXPORT void updateResult();
+    LIBKOMMITWIDGETS_NO_EXPORT void initActions();
+    LIBKOMMITWIDGETS_NO_EXPORT void init();
+    LIBKOMMITWIDGETS_NO_EXPORT void doMergeAction(Diff::MergeType type);
+    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT bool isFullyResolved() const;
 
     QList<Diff::MergeSegment *> mDiffs;
     QMenu *mCodeEditorContextMenu = nullptr;

@@ -37,7 +37,7 @@ void SegmentConnector::setSegments(const QList<Diff::DiffSegment *> &newSegments
     mSegmentPos.clear();
 
     for (auto &s : std::as_const(mSegments)) {
-        if (m_sameSize) {
+        if (mSameSize) {
             auto sizeMax = qMax(s->oldText.size(), s->newText.size());
 
             SegmentPos pos{oldIndex, static_cast<int>(oldIndex + s->oldText.size() - 1), newIndex, static_cast<int>(newIndex + s->newText.size() - 1)};
@@ -79,12 +79,12 @@ void SegmentConnector::setCurrentSegment(Diff::Segment *newCurrentSegment)
 
 bool SegmentConnector::sameSize() const
 {
-    return m_sameSize;
+    return mSameSize;
 }
 
 void SegmentConnector::setSameSize(bool newSameSize)
 {
-    m_sameSize = newSameSize;
+    mSameSize = newSameSize;
     Q_EMIT sameSizeChanged();
 }
 
@@ -117,8 +117,8 @@ void SegmentConnector::paintEvent(QPaintEvent *event)
 
     QPainter painter(this);
 
-    if (m_topMargin)
-        painter.translate(QPoint(0, m_topMargin));
+    if (mTopMargin)
+        painter.translate(QPoint(0, mTopMargin));
 
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.fillRect(rect(), Qt::white);
@@ -161,12 +161,12 @@ void SegmentConnector::paintEvent(QPaintEvent *event)
 
 int SegmentConnector::topMargin() const
 {
-    return m_topMargin;
+    return mTopMargin;
 }
 
 void SegmentConnector::setTopMargin(int newTopMargin)
 {
-    m_topMargin = newTopMargin;
+    mTopMargin = newTopMargin;
     update();
 }
 

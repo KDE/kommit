@@ -15,7 +15,10 @@ class LIBKOMMITWIDGETS_EXPORT DiffOpenDialog : public AppDialog, private Ui::Dif
     Q_OBJECT
 
 public:
-    enum Mode { Files, Dirs };
+    enum Mode {
+        Files,
+        Dirs,
+    };
     explicit DiffOpenDialog(QWidget *parent = nullptr);
     ~DiffOpenDialog() override;
 

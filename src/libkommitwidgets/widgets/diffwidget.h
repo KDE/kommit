@@ -66,6 +66,10 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
+    void recalculateInfoPaneSize();
+    void init();
+    void createPreviewWidget();
+
     bool mDestroying{false};
     constexpr static int mPreviewWidgetHeight{160};
     QWidget *mPreviewWidget = nullptr;
@@ -77,8 +81,4 @@ private:
     QSharedPointer<Git::File> mNewFile;
 
     QTextOption mDefaultOption;
-
-    void recalculateInfoPaneSize();
-    void init();
-    void createPreviewWidget();
 };

@@ -24,9 +24,9 @@ public:
     DiffTreeModel *diffModel() const;
     void setModels(DiffTreeModel *newDiffModel, FilesModel *filesModel);
 
-    bool hideUnchangeds() const;
+    Q_REQUIRED_RESULT bool hideUnchangeds() const;
     void setHideUnchangeds(bool newHideUnchangeds);
-    bool eventFilter(QObject *watched, QEvent *event) override;
+    Q_REQUIRED_RESULT bool eventFilter(QObject *watched, QEvent *event) override;
 
 Q_SIGNALS:
     void fileSelected(const QString &file);

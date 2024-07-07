@@ -43,6 +43,7 @@ public:
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void fileOpen();
     LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewFileSelected(const QString &file);
+    LIBKOMMITWIDGETS_NO_EXPORT void compareDirs();
     QSharedPointer<Git::File> mOldFile;
     QSharedPointer<Git::File> mNewFile;
 
@@ -82,5 +83,4 @@ private:
 
     Storage mLeftStorage;
     Storage mRightStorage;
-    void compareDirs();
 };

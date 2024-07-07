@@ -48,7 +48,7 @@ private:
     SegmentConnector *mSegmentConnector{nullptr};
     QImage mSegmentsImage;
 
-    void generateSegmentsImage();
+    LIBKOMMITWIDGETS_NO_EXPORT void generateSegmentsImage();
 
     inline void paintSection(QPainter &painter, SegmentsScrollBar::Side side, int from, int len, const QBrush &brush, bool drawRect = false);
 };

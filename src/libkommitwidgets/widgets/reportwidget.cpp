@@ -73,17 +73,17 @@ void ReportWidget::initChart()
         return;
 
     mChart = new QChart;
-    barSeries = new QBarSeries;
+    mBarSeries = new QBarSeries;
 
-    mChart->addSeries(barSeries);
-    axisX = new QBarCategoryAxis();
-    axisX->append(mReport->headerData());
-    mChart->addAxis(axisX, Qt::AlignBottom);
-    barSeries->attachAxis(axisX);
+    mChart->addSeries(mBarSeries);
+    mAxisX = new QBarCategoryAxis();
+    mAxisX->append(mReport->headerData());
+    mChart->addAxis(mAxisX, Qt::AlignBottom);
+    mBarSeries->attachAxis(mAxisX);
 
-    axis = new QValueAxis();
-    mChart->addAxis(axis, Qt::AlignLeft);
-    barSeries->attachAxis(axis);
+    mAxis = new QValueAxis();
+    mChart->addAxis(mAxis, Qt::AlignLeft);
+    mBarSeries->attachAxis(mAxis);
 
     auto chartView = new QChartView{mChart, stackedWidget};
     chartView->setRenderHint(QPainter::Antialiasing);
@@ -119,7 +119,7 @@ void ReportWidget::fillChart()
 {
 #ifdef QT_CHARTS_LIB
     auto barSet = new QBarSet{mReport->name(), this};
-    axisX->clear();
+    mAxisX->clear();
 
     // QChart doesn't support duplicate entries
 
@@ -145,15 +145,15 @@ void ReportWidget::fillChart()
         barSet->append(info.value);
         names << info.name;
     }
-    axisX->append(names);
-    axisX->setLabelsAngle(mReport->labelsAngle());
+    mAxisX->append(names);
+    mAxisX->setLabelsAngle(mReport->labelsAngle());
 
-    barSeries->clear();
-    barSeries->append(barSet);
+    mBarSeries->clear();
+    mBarSeries->append(barSet);
 
-    axis->setMin(mReport->minValue());
-    axis->setMax(mReport->maxValue());
-    axis->setTitleText(mReport->axisYTitle());
+    mAxis->setMin(mReport->minValue());
+    mAxis->setMax(mReport->maxValue());
+    mAxis->setTitleText(mReport->axisYTitle());
 #endif
 }
 

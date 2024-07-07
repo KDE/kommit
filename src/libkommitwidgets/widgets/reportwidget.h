@@ -59,9 +59,9 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotZoomResetShortcut();
 
 #ifdef QT_CHARTS_LIB
-    QValueAxis *axis = nullptr;
-    QBarSeries *barSeries = nullptr;
-    QBarCategoryAxis *axisX = nullptr;
+    QValueAxis *mAxis = nullptr;
+    QBarSeries *mBarSeries = nullptr;
+    QBarCategoryAxis *mAxisX = nullptr;
     QChart *mChart = nullptr;
 #endif
 };

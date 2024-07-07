@@ -16,7 +16,7 @@ class LIBKOMMITWIDGETS_EXPORT CodeEditorSidebar : public QWidget
     Q_OBJECT
 public:
     explicit CodeEditorSidebar(CodeEditor *editor);
-    QSize sizeHint() const override;
+    Q_REQUIRED_RESULT QSize sizeHint() const override;
 
 protected:
     void paintEvent(QPaintEvent *event) override;

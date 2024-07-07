@@ -28,6 +28,9 @@ public:
 
     ~FileViewerDialog() override;
 
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
+
 private:
     QString mFilePath;
 
@@ -35,8 +38,5 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void showInEditor(const Git::File &file);
     LIBKOMMITWIDGETS_NO_EXPORT void showAsImage(const Git::File &file);
     LIBKOMMITWIDGETS_NO_EXPORT bool showWithParts(const QMimeType &mime, const Git::File &file);
-    QPointer<KParts::ReadOnlyPart> m_part;
-
-protected:
-    void keyPressEvent(QKeyEvent *event) override;
+    QPointer<KParts::ReadOnlyPart> mPart;
 };

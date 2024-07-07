@@ -51,8 +51,8 @@ private:
     CodeEditor *mRight{nullptr};
     QList<Diff::DiffSegment *> mSegments;
     Diff::Segment *mCurrentSegment{nullptr};
-    bool m_sameSize{false};
-    int m_topMargin = 0;
+    bool mSameSize{false};
+    int mTopMargin = 0;
     struct SegmentPos {
         int leftStart;
         int leftEnd;

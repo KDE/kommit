@@ -82,29 +82,27 @@ protected:
     void resizeEvent(QResizeEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
+    void paintEvent(QPaintEvent *e) override;
     int sidebarWidth() const;
     void sidebarPaintEvent(QPaintEvent *event);
     KSyntaxHighlighting::SyntaxHighlighter *const mHighlighter;
     CodeEditorSidebar *const mSideBar;
 
-protected:
-    void paintEvent(QPaintEvent *e) override;
-
 private:
-    LIBKOMMITWIDGETS_NO_EXPORT int lineNumberOfBlock(const QTextBlock &block) const;
+    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT int lineNumberOfBlock(const QTextBlock &block) const;
 
-    QMap<BlockType, QTextBlockFormat> mFormats;
     LIBKOMMITWIDGETS_NO_EXPORT void setTheme(const KSyntaxHighlighting::Theme &theme);
 
     LIBKOMMITWIDGETS_NO_EXPORT void updateViewPortGeometry();
     LIBKOMMITWIDGETS_NO_EXPORT void updateSidebarArea(const QRect &rect, int dy);
     LIBKOMMITWIDGETS_NO_EXPORT void highlightCurrentLine();
 
-    QTextBlock blockAtPosition(int y) const;
-    LIBKOMMITWIDGETS_NO_EXPORT bool isFoldable(const QTextBlock &block) const;
-    LIBKOMMITWIDGETS_NO_EXPORT bool isFolded(const QTextBlock &block) const;
+    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT QTextBlock blockAtPosition(int y) const;
+    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT bool isFoldable(const QTextBlock &block) const;
+    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT bool isFolded(const QTextBlock &block) const;
     LIBKOMMITWIDGETS_NO_EXPORT void toggleFold(const QTextBlock &block);
 
+    QMap<BlockType, QTextBlockFormat> mFormats;
     KSyntaxHighlighting::Repository mRepository;
     QMap<int, Diff::Segment *> mSegments;
     QMap<QTextBlock, BlockData *> mBlocksData;

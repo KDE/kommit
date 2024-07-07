@@ -38,8 +38,8 @@ public:
     void findNext(Diff::SegmentType type);
 
 private:
-    void codeEditor_blockSelected();
-    void codeEditor_scroll(int value);
+    LIBKOMMITWIDGETS_NO_EXPORT void codeEditor_blockSelected();
+    LIBKOMMITWIDGETS_NO_EXPORT void codeEditor_scroll(int value);
     Diff::Segment *mCurrentSegment{nullptr};
     QList<Diff::Segment *> mSegments;
     QList<CodeEditor *> mEditors;

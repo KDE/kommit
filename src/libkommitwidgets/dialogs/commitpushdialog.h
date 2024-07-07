@@ -38,7 +38,9 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
     LIBKOMMITWIDGETS_NO_EXPORT void checkButtonsEnable();
 
-    enum Roles { StatusRole = Qt::UserRole + 1 };
+    enum Roles {
+        StatusRole = Qt::UserRole + 1,
+    };
     LIBKOMMITWIDGETS_NO_EXPORT void addFiles();
     LIBKOMMITWIDGETS_NO_EXPORT void reload();
     LIBKOMMITWIDGETS_NO_EXPORT void readConfig();

@@ -41,7 +41,7 @@ FileViewerDialog::~FileViewerDialog()
     if (!mFilePath.isEmpty() && QFile::exists(mFilePath))
         QFile::remove(mFilePath);
 
-    if (m_part) {
+    if (mPart) {
         QProgressDialog progressDialog(this);
         progressDialog.setWindowTitle(i18nc("@title:window", "Closing preview"));
         progressDialog.setLabelText(i18n("Please wait while the preview is being closed…"));
@@ -54,15 +54,15 @@ FileViewerDialog::~FileViewerDialog()
         // #261785: this preview dialog is not modal, so we need to delete
         //          the previewed file ourselves when the dialog is closed;
 
-        m_part.data()->closeUrl();
+        mPart.data()->closeUrl();
 
         //        if (!m_fileName.isEmpty()) {
         //            QFile::remove(m_fileName);
         //        }
     }
 
-    guiFactory()->removeClient(m_part);
-    delete m_part;
+    guiFactory()->removeClient(mPart);
+    delete mPart;
 }
 
 void FileViewerDialog::showFile(const Git::File &file)
@@ -122,7 +122,7 @@ bool FileViewerDialog::showWithParts(const QMimeType &mimeType, const Git::File 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     m_part = result;
 #else
-    m_part = result.plugin;
+    mPart = result.plugin;
 #endif
     if (!result) {
         qDebug() << "Failed to create internal viewer";
@@ -132,14 +132,14 @@ bool FileViewerDialog::showWithParts(const QMimeType &mimeType, const Git::File 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     kPartWidgetLayout->addWidget(result->widget());
 #else
-    kPartWidgetLayout->addWidget(m_part->widget());
+    kPartWidgetLayout->addWidget(mPart->widget());
 #endif
     stackedWidget->setCurrentIndex(2);
 
-    createGUI(m_part.data());
+    createGUI(mPart.data());
 
     auto f = file.saveAsTemp();
-    m_part.data()->openUrl(QUrl::fromLocalFile(f));
+    mPart.data()->openUrl(QUrl::fromLocalFile(f));
     return true;
 }
 
