@@ -572,7 +572,7 @@ ArgParserReturn CommandArgsParser::remove(const QString &path)
         return 1;
     }
 
-    auto cached = KMessageBoxHelper::removeQuestion(nullptr, i18n("Would you like to leave file(s) on disk?"), i18n("Remove from index"));
+    auto cached = KMessageBoxHelper::removeQuestion(nullptr, i18n("Would you like to leave file(s) on disk?"), i18nc("@title:window", "Remove from index"));
     mGit->removeFile(path, cached);
     KMessageBox::information(nullptr, i18n("File(s) removed from git successfully"));
 

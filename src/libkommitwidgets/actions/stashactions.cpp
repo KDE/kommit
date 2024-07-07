@@ -31,7 +31,9 @@ StashActions::StashActions(Git::Manager *git, QWidget *parent)
 
 void StashActions::apply()
 {
-    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStash->message()))) {
+    if (KMessageBoxHelper::applyQuestion(mParent,
+                                         i18n("Are you sure to apply the selected stash?"),
+                                         i18nc("@title:window", "Apply stash %1", mStash->message()))) {
         if (!mGit->applyStash(mStash))
             KMessageBoxHelper::information(mParent, i18n("Unable to apply the selected stash"));
     }
@@ -39,7 +41,9 @@ void StashActions::apply()
 
 void StashActions::drop()
 {
-    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to drop the selected stash?"), i18n("Drop stash %1", mStash->message()))) {
+    if (KMessageBoxHelper::removeQuestion(mParent,
+                                          i18n("Are you sure to drop the selected stash?"),
+                                          i18nc("@title:window", "Drop stash %1", mStash->message()))) {
         if (!mGit->removeStash(mStash)) {
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected stash"));
             return;
@@ -50,7 +54,7 @@ void StashActions::drop()
 
 void StashActions::pop()
 {
-    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to pop the selected stash?"), i18n("Pop stash %1", mStash->message()))) {
+    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to pop the selected stash?"), i18nc("@title:window", "Pop stash %1", mStash->message()))) {
         if (!mGit->popStash(mStash)) {
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected stash"));
             return;

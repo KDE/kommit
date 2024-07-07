@@ -57,7 +57,7 @@ void RemotesActions::create()
 
 void RemotesActions::remove()
 {
-    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected remote?"), i18n("Remove remote?"))) {
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected remote?"), i18nc("@title:window", "Remove remote?"))) {
         if (!mGit->removeRemote(mRemoteName)) {
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected remote"));
             return;

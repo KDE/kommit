@@ -40,7 +40,7 @@ void TagsActions::create()
 
 void TagsActions::remove()
 {
-    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected tag?"), i18n("Remove tag"))) {
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected tag?"), i18nc("@title:window", "Remove tag"))) {
         mGit->runGit({QStringLiteral("tag"), QStringLiteral("-d"), mTag->name()});
         mGit->tagsModel()->load();
     }
@@ -48,7 +48,7 @@ void TagsActions::remove()
 
 void TagsActions::checkout()
 {
-    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to checkout to the selected tag?"), i18n("Checkout"))) {
+    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to checkout to the selected tag?"), i18nc("@title:window", "Checkout"))) {
         mGit->runGit({QStringLiteral("tag"), QStringLiteral("checkout"), QStringLiteral("tags/") + mTag->name()});
     }
 }

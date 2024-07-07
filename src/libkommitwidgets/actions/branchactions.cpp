@@ -115,7 +115,7 @@ void BranchActions::diff()
 
 void BranchActions::remove()
 {
-    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected branch?"), i18n("Remove Branch"))) {
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected branch?"), i18nc("@title:window", "Remove Branch"))) {
         if (!mGit->removeBranch(mBranchName->name()))
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected branch"));
         else
