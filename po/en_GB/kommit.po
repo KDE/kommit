@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-07 01:46+0000\n"
+"POT-Creation-Date: 2024-07-08 01:45+0000\n"
 "PO-Revision-Date: 2024-07-05 14:14+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -357,7 +357,9 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Would you like to leave file(s) on disk?"
 
 #: src/gui/commandargsparser.cpp:575
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove from index"
+msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Remove from index"
 
@@ -477,7 +479,6 @@ msgstr "New"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
-#: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Checkout"
 msgstr "Checkout"
@@ -1016,7 +1017,9 @@ msgid "Branch name"
 msgstr "Branch name"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Branch"
+msgctxt "@title:window"
 msgid "Remove Branch"
 msgstr "Remove Branch"
 
@@ -1130,7 +1133,9 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Are you sure to remove the selected remote?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove remote?"
+msgctxt "@title:window"
 msgid "Remove remote?"
 msgstr "Remove remote?"
 
@@ -1184,68 +1189,74 @@ msgctxt "@action"
 msgid "Apply…"
 msgstr "Apply…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:34
+#: src/libkommitwidgets/actions/stashactions.cpp:35
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "Are you sure to apply the selected stash?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:34
-#, kde-format
+#: src/libkommitwidgets/actions/stashactions.cpp:36
+#, fuzzy, kde-format
+#| msgid "Apply stash %1"
+msgctxt "@title:window"
 msgid "Apply stash %1"
 msgstr "Apply stash %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:36
+#: src/libkommitwidgets/actions/stashactions.cpp:38
 #, kde-format
 msgid "Unable to apply the selected stash"
 msgstr "Unable to apply the selected stash"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:42
+#: src/libkommitwidgets/actions/stashactions.cpp:45
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "Are you sure to drop the selected stash?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:42
-#, kde-format
+#: src/libkommitwidgets/actions/stashactions.cpp:46
+#, fuzzy, kde-format
+#| msgid "Drop stash %1"
+msgctxt "@title:window"
 msgid "Drop stash %1"
 msgstr "Drop stash %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:44
-#: src/libkommitwidgets/actions/stashactions.cpp:55
+#: src/libkommitwidgets/actions/stashactions.cpp:48
+#: src/libkommitwidgets/actions/stashactions.cpp:59
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "Unable to remove the selected stash"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:53
+#: src/libkommitwidgets/actions/stashactions.cpp:57
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "Are you sure to pop the selected stash?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:53
-#, kde-format
+#: src/libkommitwidgets/actions/stashactions.cpp:57
+#, fuzzy, kde-format
+#| msgid "Pop stash %1"
+msgctxt "@title:window"
 msgid "Pop stash %1"
 msgstr "Pop stash %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/actions/stashactions.cpp:75
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "You don't have any changes!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/actions/stashactions.cpp:75
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgctxt "@title:window"
 msgid "Stash"
 msgstr "Stash"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/actions/stashactions.cpp:80
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Create new stash"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/actions/stashactions.cpp:80
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
@@ -1315,7 +1326,9 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Are you sure to remove the selected tag?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove tag"
+msgctxt "@title:window"
 msgid "Remove tag"
 msgstr "Remove tag"
 
@@ -1323,6 +1336,13 @@ msgstr "Remove tag"
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Are you sure to checkout to the selected tag?"
+
+#: src/libkommitwidgets/actions/tagsactions.cpp:51
+#, fuzzy, kde-format
+#| msgid "Checkout"
+msgctxt "@title:window"
+msgid "Checkout"
+msgstr "Checkout"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
@@ -2487,7 +2507,9 @@ msgid "The selected branches must be different!"
 msgstr "The selected branches must be different!"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Branches"
+msgctxt "@title:window"
 msgid "Select Branches"
 msgstr "Select Branches"
 
