@@ -120,7 +120,7 @@ bool FileViewerDialog::showWithParts(const QMimeType &mimeType, const Git::File 
 #endif
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    m_part = result;
+    mPart = result;
 #else
     mPart = result.plugin;
 #endif
