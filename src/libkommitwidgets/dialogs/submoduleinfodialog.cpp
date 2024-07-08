@@ -97,7 +97,7 @@ void SubmoduleInfoDialog::slotLineEditPathUrlSelected(const QUrl &url)
         lineEditPath->setText(t);
     } else {
         KMessageBoxHelper::error(this, i18n("The path is not inside of git directory"));
-        lineEditPath->setText(QString{});
+        lineEditPath->clear();
     }
 }
 
