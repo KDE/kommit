@@ -14,14 +14,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QIcon>
 #include <entities/submodule.h>
 
-QIcon ChangedFilesModel::createIcon(Git::ChangeStatus status)
+void ChangedFilesModel::createIcon(Git::ChangeStatus status)
 {
     if (mIcons.contains(status))
-        return mIcons[status];
+        return;
 
     const QIcon icon = Git::statusIcon(status);
     mIcons.insert(status, icon);
-    return icon;
 }
 
 bool ChangedFilesModel::setData(const QModelIndex &index, const QVariant &value, int role)

@@ -47,7 +47,7 @@ Q_SIGNALS:
     void checkedCountChanged();
 
 private:
-    QIcon createIcon(Git::ChangeStatus status);
+    void createIcon(Git::ChangeStatus status);
 
     Git::Manager *mGit{nullptr};
     QList<Row> mData;
