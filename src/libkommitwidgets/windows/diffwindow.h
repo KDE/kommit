@@ -62,7 +62,11 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void initActions();
     LIBKOMMITWIDGETS_NO_EXPORT void init(bool showSideBar);
 
-    enum Mode { None, Dirs, Files };
+    enum Mode {
+        None,
+        Dirs,
+        Files,
+    };
 
     struct Storage {
         enum class Mode { NoStorage, FileSystem, Git, Tree };

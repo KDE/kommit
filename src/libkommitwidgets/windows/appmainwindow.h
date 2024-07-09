@@ -23,7 +23,10 @@ class LIBKOMMITWIDGETS_EXPORT AppMainWindow : public
     Q_OBJECT
 
 public:
-    enum DialogCode { Rejected, Accepted };
+    enum DialogCode {
+        Rejected,
+        Accepted,
+    };
 
     explicit AppMainWindow(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
 
