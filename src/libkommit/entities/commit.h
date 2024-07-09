@@ -41,12 +41,11 @@ public:
     Q_REQUIRED_RESULT const QStringList &parents() const;
     Q_REQUIRED_RESULT QSharedPointer<Branch> branch() const;
     Q_REQUIRED_RESULT const QString &extraData() const;
-    // Q_REQUIRED_RESULT CommitType type() const;
     Q_REQUIRED_RESULT const QStringList &children() const;
     Q_REQUIRED_RESULT const QString &commitShortHash() const;
     Q_REQUIRED_RESULT QDateTime commitTime() const;
 
-    Q_REQUIRED_RESULT QSharedPointer<Reference> reference() const;
+    Q_REQUIRED_RESULT QList<QSharedPointer<Reference>> reference() const;
 
     Q_REQUIRED_RESULT QSharedPointer<Tree> tree() const override;
     Q_REQUIRED_RESULT QString treeTitle() const override;
@@ -71,7 +70,7 @@ private:
     QString mExtraData;
     // CommitType mType;
     QStringList mChildren;
-    QSharedPointer<Reference> mReference;
+    QList<QSharedPointer<Reference>> mReference;
 
     friend class LogList;
     friend class Manager;

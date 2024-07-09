@@ -50,7 +50,7 @@ public:
     using DataList = QList<QSharedPointer<ObjectType>>;
     explicit Cache(Manager *git);
 
-    DataMember findByPtr(PtrType *ptr);
+    DataMember findByPtr(PtrType *ptr, bool *isNew = nullptr);
 
     bool insert(PtrType *ptr, QSharedPointer<ObjectType> obj);
 
@@ -75,7 +75,7 @@ public:
     explicit OidCache(Manager *git);
     OidCache(Manager *git, GitLookupFunc func);
 
-    QSharedPointer<ObjectType> findByOid(git_oid *oid);
+    QSharedPointer<ObjectType> findByOid(const git_oid *oid, bool *isNew = nullptr);
 
 protected:
     GitLookupFunc gitLookupFunc{nullptr};
@@ -95,13 +95,15 @@ Q_OUTOFLINE_TEMPLATE OidCache<ObjectType, PtrType>::OidCache(Manager *git, GitLo
 }
 
 template<class ObjectType, class PtrType>
-Q_OUTOFLINE_TEMPLATE QSharedPointer<ObjectType> OidCache<ObjectType, PtrType>::findByOid(git_oid *oid)
+Q_OUTOFLINE_TEMPLATE QSharedPointer<ObjectType> OidCache<ObjectType, PtrType>::findByOid(const git_oid *oid, bool *isNew)
 {
     PtrType *ptr;
     auto r = gitLookupFunc(&ptr, Impl::getRepo(Cache<ObjectType, PtrType>::manager), oid);
     if (!r)
-        return Cache<ObjectType, PtrType>::findByPtr(ptr);
+        return Cache<ObjectType, PtrType>::findByPtr(ptr, isNew);
 
+    if (isNew)
+        *isNew = false;
     return QSharedPointer<ObjectType>{};
 }
 
@@ -112,14 +114,20 @@ Q_OUTOFLINE_TEMPLATE Cache<ObjectType, PtrType>::Cache(Manager *git)
 }
 
 template<class ObjectType, class PtrType>
-Q_OUTOFLINE_TEMPLATE QSharedPointer<ObjectType> Cache<ObjectType, PtrType>::findByPtr(PtrType *ptr)
+Q_OUTOFLINE_TEMPLATE QSharedPointer<ObjectType> Cache<ObjectType, PtrType>::findByPtr(PtrType *ptr, bool *isNew)
 {
-    if (mHash.contains(ptr))
+    if (mHash.contains(ptr)) {
+        if (isNew)
+            *isNew = false;
         return mHash.value(ptr);
+    }
 
     auto entity = DataMember{new ObjectType{ptr}};
     mList << entity;
     mHash.insert(ptr, entity);
+
+    if (isNew)
+        *isNew = true;
     return entity;
 }
 

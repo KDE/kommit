@@ -34,6 +34,10 @@ bool Oid::isNull() const
     return git_oid_is_zero(mOidPtr);
 }
 
+const git_oid *Oid::oidPtr() const
+{
+    return mOidPtr;
+}
 }
 
 bool operator==(const Git::Oid &oid, const QString &hash)

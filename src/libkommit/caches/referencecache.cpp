@@ -6,17 +6,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "referencecache.h"
 
+#include "caches/commitscache.h"
 #include "entities/commit.h"
 #include "entities/oid.h"
 #include "entities/reference.h"
 #include "entities/remote.h"
+#include "entities/tag.h"
 #include "gitglobal_p.h"
 #include "gitmanager.h"
 
 #include <git2/refs.h>
 
 #include <QDebug>
-#include <iostream>
 
 namespace Git
 {
@@ -78,17 +79,18 @@ ReferenceCache::DataMember ReferenceCache::findForRemote(QSharedPointer<Remote> 
     return {};
 }
 
-ReferenceCache::DataMember ReferenceCache::findForCommit(QSharedPointer<Commit> commit)
+ReferenceCache::DataList ReferenceCache::findForCommit(QSharedPointer<Commit> commit)
 {
     if (!mList.size())
         fill();
-    auto i = std::find_if(mList.begin(), mList.end(), [&commit](DataMember c) {
-        return *c->target().data() == commit->commitHash();
-    });
 
-    if (i != mList.end())
-        return *i;
-    return {};
+    DataList list;
+    for (auto const &ref : mList)
+        if ((ref->isBranch() && *ref->target().data() == commit->commitHash())
+            || (ref->isTag() && ref->toTag()->commit()->commitHash() == commit->commitHash()))
+            list << ref;
+
+    return list;
 }
 
 void ReferenceCache::fill()
@@ -101,10 +103,8 @@ void ReferenceCache::fill()
     if (IS_ERROR)
         return;
 
-    while (!git_reference_next(&reference, iterator)) {
-        auto p = findByPtr(reference);
-        std::cout << "   " << p->name().toStdString();
-    }
+    while (!git_reference_next(&reference, iterator))
+        findByPtr(reference);
 
     git_reference_iterator_free(iterator);
 }

@@ -82,24 +82,33 @@ void CommitDetails::setCommit(Git::Commit *commit)
 
     labelChangedFiles->setText(createChangedFiles());
 
-    auto ref = commit->reference();
-    if (!ref.isNull()) {
-        if (ref->isBranch())
-            labelRefType->setText(i18n("Branch: "));
-        else if (ref->isNote())
-            labelRefType->setText(i18n("Note: "));
-        else if (ref->isRemote())
-            labelRefType->setText(i18n("Remote: "));
-        else if (ref->isTag())
-            labelRefType->setText(i18n("Tag: "));
-
-        labelRefName->setText(ref->shorthand());
-
-        labelRefType->setVisible(true);
-        labelRefName->setVisible(true);
-    } else {
+    auto refs = commit->reference();
+    if (refs.isEmpty()) {
         labelRefType->setVisible(false);
         labelRefName->setVisible(false);
+    } else {
+        QString refsText;
+        for (auto const &ref : refs) {
+            QString refText;
+            if (ref->isBranch())
+                refText = i18n("Branch: ");
+            else if (ref->isNote())
+                refText = i18n("Note: ");
+            else if (ref->isRemote())
+                refText = i18n("Remote: ");
+            else if (ref->isTag())
+                refText = i18n("Tag: ");
+            refText.append(ref->shorthand());
+
+            if (!refsText.isEmpty()) {
+                refsText.append(QStringLiteral(", "));
+            }
+            refsText.append(refText);
+        }
+        labelRefName->setText(refsText);
+        labelRefType->setText(refs.size() == 1 ? i18n("Ref:") : i18n("Refs:"));
+        labelRefType->setVisible(true);
+        labelRefName->setVisible(true);
     }
 
     auto parents = generateCommitsLink(commit->parents());

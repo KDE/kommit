@@ -11,8 +11,45 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QPainter>
 #include <QPainterPath>
 
+#include <KLocalizedString>
+
 #define HEIGHT 25
 #define WIDTH 18
+
+int drawReference(QPainter *painter, QSharedPointer<Git::Reference> reference, int lanesSize)
+{
+    QString refStr;
+    if (reference->isBranch())
+        refStr = i18n("Branch: ");
+    else if (reference->isNote())
+        refStr = i18n("Note: ");
+    else if (reference->isRemote())
+        refStr = i18n("Remote: ");
+    else if (reference->isTag())
+        refStr = i18n("Tag: ");
+
+    const auto ref = refStr + reference->shorthand();
+    QRect rcBox(lanesSize * WIDTH, 0, painter->fontMetrics().horizontalAdvance(ref) + 8, painter->fontMetrics().height() + 4);
+    rcBox.moveTop((HEIGHT - rcBox.height()) / 2);
+
+    // QLinearGradient linearGrad(rcBox.topLeft(), rcBox.bottomRight());
+    // linearGrad.setFinalStop(rcBox.bottomLeft());
+    // linearGrad.setColorAt(0, Qt::white);
+    // linearGrad.setColorAt(1, QColor(100, 100, 255));
+
+    // painter->fillRect(rcBox.left(), rcBox.top(), painter->fontMetrics().horizontalAdvance(refStr) + 2, rcBox.height(), QBrush(linearGrad));
+
+    /*painter->fillRect(rcBox.left() + painter->fontMetrics().horizontalAdvance(refStr) + 2,
+                      rcBox.top(),
+                      rcBox.width() - painter->fontMetrics().horizontalAdvance(refStr) - 2,
+                      rcBox.height(),
+                      Qt::white);*/
+
+    painter->setBrush(Qt::transparent);
+    painter->drawRoundedRect(rcBox, 5, 5);
+    painter->drawText(rcBox, Qt::AlignVCenter | Qt::AlignHCenter, ref);
+    return rcBox.width();
+}
 
 QPoint center(int x)
 {
@@ -125,29 +162,10 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
     QRect rc(lanes.size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(log->message()), HEIGHT);
 
     painter->setPen(option.palette.color(QPalette::Text));
-    if (!log->reference().isNull()) {
-        const QString refStr{QStringLiteral("ref: ")};
-        const auto ref = refStr + log->reference()->shorthand();
-        QRect rcBox(lanes.size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(ref) + 8, painter->fontMetrics().height() + 4);
-        rcBox.moveTop((HEIGHT - rcBox.height()) / 2);
-
-        QLinearGradient linearGrad(rcBox.topLeft(), rcBox.bottomRight());
-        linearGrad.setFinalStop(rcBox.bottomLeft());
-        linearGrad.setColorAt(0, Qt::white);
-        linearGrad.setColorAt(1, QColor(100, 100, 255));
-
-        //        painter->fillRect(rcBox.left(), rcBox.top(), painter->fontMetrics().horizontalAdvance(refStr) + 2, rcBox.height(), QBrush(linearGrad));
-
-        /*painter->fillRect(rcBox.left() + painter->fontMetrics().horizontalAdvance(refStr) + 2,
-                          rcBox.top(),
-                          rcBox.width() - painter->fontMetrics().horizontalAdvance(refStr) - 2,
-                          rcBox.height(),
-                          Qt::white);*/
-
-        painter->setBrush(Qt::transparent);
-        painter->drawRoundedRect(rcBox, 5, 5);
-        painter->drawText(rcBox, Qt::AlignVCenter | Qt::AlignHCenter, ref);
-        rc.moveLeft(rc.left() + rcBox.width() + 6);
+    auto refs = log->reference();
+    for (auto const &ref : refs) {
+        auto w = drawReference(painter, ref, lanes.size());
+        rc.moveLeft(rc.left() + w + 6);
     }
     painter->drawText(rc, Qt::AlignVCenter, log->message());
 

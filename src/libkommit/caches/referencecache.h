@@ -29,7 +29,7 @@ public:
     DataMember findForBranch(QSharedPointer<Branch> branch);
     DataMember findForTag(QSharedPointer<Tag> tag);
     DataMember findForRemote(QSharedPointer<Remote> remote);
-    DataMember findForCommit(QSharedPointer<Commit> commit);
+    DataList findForCommit(QSharedPointer<Commit> commit);
 
 private:
     void fill();

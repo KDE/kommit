@@ -33,7 +33,7 @@ public:
     git_commit *const gitCommitPtr;
     QSharedPointer<Signature> author;
     QSharedPointer<Signature> committer;
-    QSharedPointer<Reference> mReference;
+    QList<QSharedPointer<Reference>> mReference;
     QSharedPointer<Branch> branch;
     QSharedPointer<Note> note;
     Commit::CommitType type;
@@ -70,11 +70,6 @@ const QString &Commit::extraData() const
     return mExtraData;
 }
 
-// Commit::CommitType Commit::type() const
-// {
-//     return mType;
-// }
-
 const QStringList &Commit::children() const
 {
     return mChildren;
@@ -85,7 +80,7 @@ const QString &Commit::commitShortHash() const
     return mCommitShortHash;
 }
 
-QSharedPointer<Reference> Commit::reference() const
+QList<QSharedPointer<Reference>> Commit::reference() const
 {
     return mReference;
 }

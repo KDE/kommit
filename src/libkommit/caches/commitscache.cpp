@@ -39,6 +39,7 @@ QSharedPointer<Commit> CommitsCache::find(const QString &hash)
 QList<QSharedPointer<Commit>> CommitsCache::allCommits()
 {
     PointerList<Commit> list;
+    PointerList<Commit> newList;
 
     git_revwalk *walker;
     git_oid oid;
@@ -51,15 +52,20 @@ QList<QSharedPointer<Commit>> CommitsCache::allCommits()
     if (IS_ERROR)
         return list;
 
-    while (!git_revwalk_next(&oid, walker))
-        list << findByOid(&oid);
+    while (!git_revwalk_next(&oid, walker)) {
+        bool isNew;
+        auto en = findByOid(&oid, &isNew);
+        if (isNew)
+            newList << en;
+        list << en;
+    }
 
-    for (auto &commit : list) {
+    for (auto &commit : newList) {
         for (auto const &parentHash : commit->parents()) {
             auto parent = find(parentHash);
             parent->mChildren << commit->commitHash();
         }
-        commit->mReference = manager->referencesCache()->findForCommit(commit);
+        commit->mReference << manager->referencesCache()->findForCommit(commit);
     }
 
     git_revwalk_free(walker);
