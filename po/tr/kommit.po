@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-08 01:45+0000\n"
-"PO-Revision-Date: 2024-07-07 16:59+0300\n"
+"PO-Revision-Date: 2024-07-08 14:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -357,11 +357,10 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Dosya(lar)ı, diskte bırakmak ister misiniz?"
 
 #: src/gui/commandargsparser.cpp:575
-#, fuzzy, kde-format
-#| msgid "Remove from index"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
-msgstr "İndeksten kaldır"
+msgstr "İndeksten Kaldır"
 
 #: src/gui/commandargsparser.cpp:577
 #, kde-format
@@ -1018,8 +1017,7 @@ msgid "Branch name"
 msgstr "Dal adı"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:118
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Branch"
 msgstr "Dalı Kaldır"
@@ -1134,11 +1132,10 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Seçili uzak konumu kaldırmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove remote?"
-msgstr "Uzak konum kaldırılsın mı?"
+msgstr "Uzak Konumu Kaldır?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:62
 #, kde-format
@@ -1196,11 +1193,10 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Seçili zulayı uygulamak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Apply stash %1"
-msgstr "%1 zulasını uygula"
+msgstr "%1 Zulasını Uygula"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:38
 #, kde-format
@@ -1213,11 +1209,10 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Seçili zulayı bırakmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:46
-#, fuzzy, kde-format
-#| msgid "Drop stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Drop stash %1"
-msgstr "%1 zulasını bırak"
+msgstr "%1 Zulasını Bırak"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:48
 #: src/libkommitwidgets/actions/stashactions.cpp:59
@@ -1231,11 +1226,10 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Seçili zulayı patlatmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Pop stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pop stash %1"
-msgstr "%1 zulasını patlat"
+msgstr "%1 Zulasını Patlat"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:75
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
@@ -1327,8 +1321,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Seçili etiketi kaldırmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove tag"
 msgstr "Etiketi Kaldır"
@@ -1339,8 +1332,7 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr "Seçili etikete çıkış yapmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
 msgstr "Çıkış Yap"
@@ -2511,11 +2503,10 @@ msgid "The selected branches must be different!"
 msgstr "Seçili dallar farklı olmalı!"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Select Branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
-msgstr "Dalları Seç"
+msgstr "Dallar Seç"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:14

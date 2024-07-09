@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-08 01:45+0000\n"
-"PO-Revision-Date: 2024-07-07 10:53+0200\n"
+"PO-Revision-Date: 2024-07-08 18:16+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -357,8 +357,7 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Quere deixar os ficheiros no disco?"
 
 #: src/gui/commandargsparser.cpp:575
-#, fuzzy, kde-format
-#| msgid "Remove from index"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Retirar do índice"
@@ -1017,8 +1016,7 @@ msgid "Branch name"
 msgstr "Nome da rama"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:118
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Branch"
 msgstr "Eliminar a rama"
@@ -1133,8 +1131,7 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Seguro que quere eliminar a remota seleccionada?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove remote?"
 msgstr "Eliminar a remota?"
@@ -1195,8 +1192,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Seguro que quere aplicar a reserva seleccionada?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Apply stash %1"
 msgstr "Aplicar a reserva %1"
@@ -1212,11 +1208,10 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Seguro que quere desbotar a reserva seleccionada?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:46
-#, fuzzy, kde-format
-#| msgid "Drop stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Drop stash %1"
-msgstr "Desbotar aa reserva %1"
+msgstr "Desbotar a reserva %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:48
 #: src/libkommitwidgets/actions/stashactions.cpp:59
@@ -1230,8 +1225,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Seguro que quere sacar a reserva seleccionada?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Pop stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pop stash %1"
 msgstr "Sacar a reserva %1"
@@ -1326,8 +1320,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Seguro que quere eliminar a etiqueta seleccionada?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove tag"
 msgstr "Eliminar a etiqueta"
@@ -1338,8 +1331,7 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr "Seguro que quere cargar a etiqueta seleccionada?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
 msgstr "Cargar"
@@ -2407,7 +2399,7 @@ msgstr "O proceso rematou cun erro"
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
 #, kde-format
 msgid "%1: (Elapsed time: %2)"
-msgstr ""
+msgstr "%1: (tempo transcorrido: %2)"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14
@@ -2512,8 +2504,7 @@ msgid "The selected branches must be different!"
 msgstr "As ramas seleccionadas deben ser distintas!"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Select Branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
 msgstr "Seleccionar ramas"

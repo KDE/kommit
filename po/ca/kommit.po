@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-08 01:45+0000\n"
-"PO-Revision-Date: 2024-07-07 09:55+0200\n"
+"PO-Revision-Date: 2024-07-08 09:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -361,11 +361,10 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Voleu deixar el/s fitxer/s en el disc?"
 
 #: src/gui/commandargsparser.cpp:575
-#, fuzzy, kde-format
-#| msgid "Remove from index"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
-msgstr "Elimina des de l'índex"
+msgstr "Eliminació d'índex"
 
 #: src/gui/commandargsparser.cpp:577
 #, kde-format
@@ -1023,11 +1022,10 @@ msgid "Branch name"
 msgstr "Nom de la branca"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:118
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Branch"
-msgstr "Elimina la branca"
+msgstr "Eliminació de branca"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, kde-format
@@ -1139,11 +1137,10 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Esteu segur d'eliminar el remot seleccionat?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove remote?"
-msgstr "Elimino el remot?"
+msgstr "Eliminació de remot?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:62
 #, kde-format
@@ -1201,11 +1198,10 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Esteu segur d'aplicar el «stash» seleccionat?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Apply stash %1"
-msgstr "Aplica el «stash» %1"
+msgstr "Aplicació de «stash» %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:38
 #, kde-format
@@ -1218,8 +1214,7 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Esteu segur de llençar el «stash» seleccionat?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:46
-#, fuzzy, kde-format
-#| msgid "Drop stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Drop stash %1"
 msgstr "Llença el «stash» %1"
@@ -1236,11 +1231,10 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Esteu segur d'aplicar («pop») el «stash» seleccionat?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Pop stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pop stash %1"
-msgstr "Aplica («pop») el «stash» %1"
+msgstr "Aplicació («pop») de «stash» %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:75
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
@@ -1332,11 +1326,10 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Esteu segur d'eliminar l'etiqueta seleccionada?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove tag"
-msgstr "Elimina l'etiqueta"
+msgstr "Eliminació d'etiqueta"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
@@ -1344,11 +1337,10 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr "Esteu segur d'extreure a l'etiqueta seleccionada?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
-msgstr "Extreu"
+msgstr "Extracció"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
@@ -2519,8 +2511,7 @@ msgid "The selected branches must be different!"
 msgstr "Cal que les branques seleccionades siguin diferents!"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Select Branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
 msgstr "Selecció de branques"

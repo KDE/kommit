@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-08 01:45+0000\n"
-"PO-Revision-Date: 2024-07-07 16:09+0200\n"
+"PO-Revision-Date: 2024-07-08 16:24+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -357,8 +357,7 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Wilt u bestand(en) op schijf laten?"
 
 #: src/gui/commandargsparser.cpp:575
-#, fuzzy, kde-format
-#| msgid "Remove from index"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Uit index verwijderen"
@@ -1020,8 +1019,7 @@ msgid "Branch name"
 msgstr "Naam van branch"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:118
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Branch"
 msgstr "Branch verwijderen"
@@ -1136,8 +1134,7 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Wilt u de geselecteerde remote verwijderen?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove remote?"
 msgstr "Remote verwijderen?"
@@ -1198,8 +1195,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Wilt u de geselecteerde stapel toepassen?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Apply stash %1"
 msgstr "Stapel toepassen %1"
@@ -1215,8 +1211,7 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Wilt u de geselecteerde stapel laten vallen?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:46
-#, fuzzy, kde-format
-#| msgid "Drop stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Drop stash %1"
 msgstr "Stapel %1 laten vallen"
@@ -1233,8 +1228,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Wilt u de geselecteerde stapel omhoog halen?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Pop stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pop stash %1"
 msgstr "Stapel %1 omhoog halen"
@@ -1329,8 +1323,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Wilt u de geselecteerde tag verwijderen?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove tag"
 msgstr "Tag verwijderen"
@@ -1341,8 +1334,7 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr "Wilt u een checkout doen op de geselecteerde tag?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
 msgstr "Checkout"
@@ -2517,8 +2509,7 @@ msgid "The selected branches must be different!"
 msgstr "De geselecteerde branches moeten verschillend zijn!"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Select Branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
 msgstr "Branches selecteren"

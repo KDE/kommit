@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-08 01:45+0000\n"
-"PO-Revision-Date: 2024-07-07 08:48+0200\n"
+"PO-Revision-Date: 2024-07-08 17:26+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -357,8 +357,7 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Skulle du vilja lämna filen eller filerna på disk?"
 
 #: src/gui/commandargsparser.cpp:575
-#, fuzzy, kde-format
-#| msgid "Remove from index"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Ta bort från index"
@@ -1017,8 +1016,7 @@ msgid "Branch name"
 msgstr "Grennamn"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:118
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Branch"
 msgstr "Tar bort gren"
@@ -1133,11 +1131,10 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Är du säker på att du vill ta bort det markerade fjärrarkivet?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove remote?"
-msgstr "Ta bort fjärrarkiv:"
+msgstr "Ta bort fjärrarkiv?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:62
 #, kde-format
@@ -1195,8 +1192,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Är du säker på att du vill använda det valda gömslet?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Apply stash %1"
 msgstr "Verkställ gömsle %1"
@@ -1212,8 +1208,7 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Är du säker på att du vill rensa det valda gömslet?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:46
-#, fuzzy, kde-format
-#| msgid "Drop stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Drop stash %1"
 msgstr "Rensa gömsle %1"
@@ -1230,8 +1225,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Är du säker på att du vill plocka bort från det valda gömslet?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Pop stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pop stash %1"
 msgstr "Plocka bort från gömsle %1"
@@ -1326,8 +1320,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Är du säker på att du vill ta bort den valda taggen?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove tag"
 msgstr "Ta bort tagg"
@@ -1338,8 +1331,7 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr "Är du säker på att du vill checka ut den valda taggen?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
 msgstr "Checka ut"
@@ -2512,8 +2504,7 @@ msgid "The selected branches must be different!"
 msgstr "De valda grenarna måste vara olika."
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Select Branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
 msgstr "Välj grenar"
