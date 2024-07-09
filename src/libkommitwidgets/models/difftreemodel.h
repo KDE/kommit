@@ -23,7 +23,7 @@ public:
     void addFile(const QString &file, Diff::DiffType type);
     void addFile(const Git::TreeDiffEntry &diffEntry);
 
-    QVariant data(const QModelIndex &index, int role) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void emitAll();
 

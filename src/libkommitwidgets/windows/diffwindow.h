@@ -59,8 +59,8 @@ private:
     DiffTreeView *mTreeView = nullptr;
     QDockWidget *mDock = nullptr;
 
-    void initActions();
-    void init(bool showSideBar);
+    LIBKOMMITWIDGETS_NO_EXPORT void initActions();
+    LIBKOMMITWIDGETS_NO_EXPORT void init(bool showSideBar);
 
     enum Mode { None, Dirs, Files };
 
@@ -69,9 +69,9 @@ private:
 
         QSharedPointer<Git::File> file(const QString &path) const;
 
-        void setGitBranch(Git::Manager *manager, const QString &branchName);
-        void setPath(const QString &path);
-        void setTree(QSharedPointer<Git::Tree> tree);
+        LIBKOMMITWIDGETS_NO_EXPORT void setGitBranch(Git::Manager *manager, const QString &branchName);
+        LIBKOMMITWIDGETS_NO_EXPORT void setPath(const QString &path);
+        LIBKOMMITWIDGETS_NO_EXPORT void setTree(QSharedPointer<Git::Tree> tree);
 
     private:
         QString mPath;

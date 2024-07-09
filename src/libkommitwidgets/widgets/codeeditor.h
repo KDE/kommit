@@ -73,7 +73,7 @@ public:
     Q_REQUIRED_RESULT bool showFoldMarks() const;
     void setShowFoldMarks(bool newShowFoldMarks);
 
-    BlockData *currentBlockData() const;
+    Q_REQUIRED_RESULT BlockData *currentBlockData() const;
 
 Q_SIGNALS:
     void blockSelected();

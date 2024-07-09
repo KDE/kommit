@@ -20,11 +20,11 @@ public:
     explicit ChangedFilesModel(Git::Manager *git, bool checkable = false, QObject *parent = nullptr);
     void reload();
 
-    int rowCount(const QModelIndex &parent) const override;
-    int columnCount(const QModelIndex &parent) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent) const override;
+    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
-    Qt::ItemFlags flags(const QModelIndex &index) const override;
+    Q_REQUIRED_RESULT Qt::ItemFlags flags(const QModelIndex &index) const override;
     Q_REQUIRED_RESULT QString filePath(int index) const;
     Q_REQUIRED_RESULT int size() const;
     Q_REQUIRED_RESULT QStringList checkedFiles() const;

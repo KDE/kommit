@@ -66,9 +66,9 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
-    void recalculateInfoPaneSize();
-    void init();
-    void createPreviewWidget();
+    LIBKOMMITWIDGETS_NO_EXPORT void recalculateInfoPaneSize();
+    LIBKOMMITWIDGETS_NO_EXPORT void init();
+    LIBKOMMITWIDGETS_NO_EXPORT void createPreviewWidget();
 
     bool mDestroying{false};
     constexpr static int mPreviewWidgetHeight{160};
