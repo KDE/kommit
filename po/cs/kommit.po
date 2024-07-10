@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 01:45+0000\n"
-"PO-Revision-Date: 2024-07-04 14:40+0200\n"
+"POT-Creation-Date: 2024-07-10 01:46+0000\n"
+"PO-Revision-Date: 2024-07-09 16:31+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -360,7 +360,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
-msgstr ""
+msgstr "Odstranit z indexu"
 
 #: src/gui/commandargsparser.cpp:577
 #, kde-format
@@ -1002,11 +1002,10 @@ msgid "Branch name"
 msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:118
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Branch"
-msgstr "Odstranit značku"
+msgstr "Odstranit větev"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, kde-format
@@ -1118,11 +1117,10 @@ msgid "Are you sure to remove the selected remote?"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
-#, fuzzy, kde-format
-#| msgid "Remove selected"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove remote?"
-msgstr "Odstranit vybrané"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:62
 #, kde-format
@@ -1308,8 +1306,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr ""
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove tag"
 msgstr "Odstranit značku"
@@ -1320,8 +1317,7 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr ""
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
 msgstr "Checkout"
@@ -2305,7 +2301,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
 #, kde-format
 msgid "%1: (Elapsed time: %2)"
-msgstr ""
+msgstr "%1: (Uplynulý čas: %2)"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14
@@ -2397,11 +2393,10 @@ msgid "The selected branches must be different!"
 msgstr ""
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Select Branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
-msgstr "Vyberte větve"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:14
@@ -2447,12 +2442,12 @@ msgstr "Značka"
 msgid "Tag name:"
 msgstr "Název značky:"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:137
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:136
 #, kde-format
 msgid " (new commit)"
 msgstr ""
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:139
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:138
 #, kde-format
 msgid " (content modified)"
 msgstr ""

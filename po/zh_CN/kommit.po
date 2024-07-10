@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 01:45+0000\n"
+"POT-Creation-Date: 2024-07-10 01:46+0000\n"
 "PO-Revision-Date: 2024-04-22 16:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2495,12 +2495,12 @@ msgstr "标签"
 msgid "Tag name:"
 msgstr "标签名称："
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:137
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:136
 #, kde-format
 msgid " (new commit)"
 msgstr ""
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:139
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:138
 #, kde-format
 msgid " (content modified)"
 msgstr ""

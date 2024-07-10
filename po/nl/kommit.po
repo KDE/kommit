@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 01:45+0000\n"
+"POT-Creation-Date: 2024-07-10 01:46+0000\n"
 "PO-Revision-Date: 2024-07-08 16:24+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -2558,12 +2558,12 @@ msgstr "Tag"
 msgid "Tag name:"
 msgstr "Tagnaam:"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:137
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:136
 #, kde-format
 msgid " (new commit)"
 msgstr " (nieuwe commit)"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:139
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:138
 #, kde-format
 msgid " (content modified)"
 msgstr " (inhoud gewijzigd)"

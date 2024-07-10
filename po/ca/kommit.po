@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 01:45+0000\n"
+"POT-Creation-Date: 2024-07-10 01:46+0000\n"
 "PO-Revision-Date: 2024-07-08 09:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2560,12 +2560,12 @@ msgstr "Etiqueta"
 msgid "Tag name:"
 msgstr "Nom de l'etiqueta:"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:137
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:136
 #, kde-format
 msgid " (new commit)"
 msgstr " (comissió nova)"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:139
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:138
 #, kde-format
 msgid " (content modified)"
 msgstr " (contingut modificat)"

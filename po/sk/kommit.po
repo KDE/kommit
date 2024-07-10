@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 01:45+0000\n"
+"POT-Creation-Date: 2024-07-10 01:46+0000\n"
 "PO-Revision-Date: 2023-12-08 19:34+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2526,12 +2526,12 @@ msgstr "Značka"
 msgid "Tag name:"
 msgstr "Názov značky:"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:137
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:136
 #, kde-format
 msgid " (new commit)"
 msgstr ""
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:139
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:138
 #, kde-format
 msgid " (content modified)"
 msgstr ""
