@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tagsmodel.h"
+#include "caches/tagscache.h"
 #include "entities/tag.h"
 #include "gitmanager.h"
 
@@ -84,11 +85,7 @@ void TagsModel::clear()
 
 void TagsModel::reload()
 {
-    mData.clear();
-
-    mGit->forEachTags([this](QSharedPointer<Git::Tag> tag) {
-        mData.append(tag);
-    });
+    mData = mGit->tags()->allTags();
 }
 
 #include "moc_tagsmodel.cpp"

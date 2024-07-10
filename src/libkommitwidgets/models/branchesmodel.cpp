@@ -100,7 +100,7 @@ void BranchesModel::reload()
 {
     mData.clear();
 
-    mData = mGit->branches(Git::Manager::BranchType::AllBranches);
+    mData = mGit->branches()->allBranches(Git::BranchType::AllBranches);
     calculateCommitStats();
 }
 

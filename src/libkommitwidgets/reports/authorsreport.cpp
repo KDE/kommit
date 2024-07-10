@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "authorsreport.h"
+#include "caches/tagscache.h"
 
 #include <entities/commit.h>
 #include <entities/signature.h>
@@ -44,7 +45,7 @@ void AuthorsReport::reload()
         };
 
         mGit->forEachCommits(commitCb, {});
-        mGit->forEachTags(tagCb);
+        mGit->tags()->forEach(tagCb);
 
         clear();
         for (auto const &data : std::as_const(mData)) {

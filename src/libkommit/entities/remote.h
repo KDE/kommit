@@ -68,6 +68,8 @@ public:
 
     Q_REQUIRED_RESULT bool connected() const;
 
+    Q_REQUIRED_RESULT git_remote *remotePtr() const;
+
 private:
     git_remote *mRemotePtr;
     QList<RefSpec *> mRefSpecList;

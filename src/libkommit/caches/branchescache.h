@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "caches/abstractcache.h"
 #include "libkommit_export.h"
+#include "types.h"
 
 #include <QObject>
 #include <git2/types.h>
@@ -27,12 +28,6 @@ public:
     using DataMember = QSharedPointer<Branch>;
     using DataList = QList<DataMember>;
 
-    enum class BranchType {
-        LocalBranch,
-        RemoteBranch,
-        AllBranches,
-    };
-
     explicit BranchesCache(Manager *manager);
     virtual ~BranchesCache();
 
@@ -45,6 +40,7 @@ public:
     DataList allBranches(BranchType type = BranchType::AllBranches);
     QStringList names(BranchType type = BranchType::AllBranches);
     DataMember current();
+    QString currentName();
 
     void clear();
 

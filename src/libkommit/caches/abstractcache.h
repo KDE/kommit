@@ -49,6 +49,7 @@ public:
     using DataMember = QSharedPointer<ObjectType>;
     using DataList = QList<QSharedPointer<ObjectType>>;
     explicit Cache(Manager *git);
+    virtual ~Cache();
 
     DataMember findByPtr(PtrType *ptr, bool *isNew = nullptr);
 
@@ -110,6 +111,11 @@ Q_OUTOFLINE_TEMPLATE QSharedPointer<ObjectType> OidCache<ObjectType, PtrType>::f
 template<class ObjectType, class PtrType>
 Q_OUTOFLINE_TEMPLATE Cache<ObjectType, PtrType>::Cache(Manager *git)
     : manager{git}
+{
+}
+
+template<class ObjectType, class PtrType>
+Q_OUTOFLINE_TEMPLATE Cache<ObjectType, PtrType>::~Cache()
 {
 }
 

@@ -34,14 +34,14 @@ void TagsActions::create()
     TagInfoDialog d(mParent);
     d.setWindowTitle(i18nc("@title:window", "New tag"));
     if (d.exec() == QDialog::Accepted) {
-        mGit->tagsCache()->create(d.tagName(), d.message());
+        mGit->tags()->create(d.tagName(), d.message());
     }
 }
 
 void TagsActions::remove()
 {
     if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected tag?"), i18n("Remove tag"))) {
-        mGit->tagsCache()->remove(mTag);
+        mGit->tags()->remove(mTag);
     }
 }
 

@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 // application headers
 #include "appwindow.h"
+#include "caches/branchescache.h"
 #include "commands/commandmerge.h"
 #include "core/repositorydata.h"
 #include "dialogs/changedfilesdialog.h"
@@ -123,7 +124,7 @@ void AppWindow::gitPathChanged()
     setWindowFilePath(mGitData->manager()->path());
 
     if (mGitData->manager()->isValid()) {
-        QString statusText = i18n("Current branch: %1", mGitData->manager()->currentBranch());
+        QString statusText = i18n("Current branch: %1", mGitData->manager()->branches()->currentName());
         if (mGitData->manager()->isMerging())
             statusText.append(i18n(" (merging)"));
         else if (mGitData->manager()->isRebasing())

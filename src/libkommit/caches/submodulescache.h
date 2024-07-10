@@ -21,9 +21,10 @@ class LIBKOMMIT_EXPORT SubmodulesCache : public QObject, public Cache<Submodule,
 public:
     explicit SubmodulesCache(Manager *manager);
 
-    DataMember create(const AddSubmoduleOptions &options);
+    DataMember add(const AddSubmoduleOptions &options);
     QList<QSharedPointer<Submodule>> allSubmodules();
     QSharedPointer<Submodule> findByName(const QString &name);
+    DataMember findByPtr(git_submodule *ptr, bool *isNew = nullptr);
 
 Q_SIGNALS:
     void added(DataMember submodule);

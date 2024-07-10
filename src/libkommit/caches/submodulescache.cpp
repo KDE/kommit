@@ -24,7 +24,7 @@ SubmodulesCache::SubmodulesCache(Manager *manager)
 {
 }
 
-SubmodulesCache::DataMember SubmodulesCache::create(const AddSubmoduleOptions &options)
+SubmodulesCache::DataMember SubmodulesCache::add(const AddSubmoduleOptions &options)
 {
     git_submodule *submodule{nullptr};
     git_repository *submoduleRepo;
@@ -90,5 +90,22 @@ QSharedPointer<Submodule> SubmodulesCache::findByName(const QString &name)
         return nullptr;
 
     return findByPtr(submodule);
+}
+
+SubmodulesCache::DataMember SubmodulesCache::findByPtr(git_submodule *ptr, bool *isNew)
+{
+    if (mHash.contains(ptr)) {
+        if (isNew)
+            *isNew = false;
+        return mHash.value(ptr);
+    }
+
+    QSharedPointer<Submodule> entity{new Submodule{manager->repoPtr(), ptr}};
+    mList << entity;
+    mHash.insert(ptr, entity);
+
+    if (isNew)
+        *isNew = true;
+    return entity;
 }
 }

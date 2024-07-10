@@ -43,6 +43,15 @@ QList<QSharedPointer<Remote>> RemotesCache::allRemotes()
     return list;
 }
 
+QStringList RemotesCache::allNames()
+{
+    git_strarray list{};
+    git_remote_list(&list, manager->repoPtr());
+    auto r = convert(&list);
+    git_strarray_free(&list);
+    return r;
+}
+
 QSharedPointer<Remote> RemotesCache::findByName(const QString &name)
 {
     git_remote *remote;
@@ -70,13 +79,25 @@ bool RemotesCache::create(const QString &name, const QString &url)
 
 bool RemotesCache::setUrl(DataMember remote, const QString &url)
 {
-    return false;
+    BEGIN;
+    STEP git_remote_set_url(manager->repoPtr(), remote->name().toUtf8().data(), url.toUtf8().data());
+
+    return IS_OK;
 }
 
 bool RemotesCache::remove(QSharedPointer<Remote> remote)
 {
     BEGIN
     STEP git_remote_delete(manager->repoPtr(), remote->name().toUtf8().data());
+    END;
+
+    return IS_OK;
+}
+
+bool RemotesCache::remove(const QString &name) const
+{
+    BEGIN
+    STEP git_remote_delete(manager->repoPtr(), name.toUtf8().data());
     END;
 
     return IS_OK;
@@ -89,6 +110,7 @@ bool RemotesCache::rename(QSharedPointer<Remote> remote, const QString &newName)
     BEGIN
     STEP git_remote_rename(&problems, manager->repoPtr(), remote->name().toUtf8().data(), newName.toUtf8().data());
     git_strarray_free(&problems);
+    END;
 
     return IS_OK;
 }

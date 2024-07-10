@@ -70,7 +70,7 @@ void BranchActions::create()
     const auto newBranchName = QInputDialog::getText(mParent, i18nc("@title:window", "Create new branch"), i18n("Branch name"));
 
     if (!newBranchName.isEmpty()) {
-        mGit->branchesCache()->create(newBranchName);
+        mGit->branches()->create(newBranchName);
         // mGit->runGit({QStringLiteral("checkout"), QStringLiteral("-b"), newBranchName});
         // mGit->branchesModel()->load();
     }
@@ -94,12 +94,12 @@ void BranchActions::diff()
     QString branchToDiff = mOtherBranch->name();
 
     if (branchToDiff.isEmpty()) {
-        auto currentBranch = mGit->currentBranch();
+        auto currentBranch = mGit->branches()->currentName();
 
         if (currentBranch != branchToDiff) {
             branchToDiff = currentBranch;
         } else {
-            auto branches = mGit->branchesNames(Git::Manager::BranchType::LocalBranch);
+            auto branches = mGit->branches()->names(Git::BranchType::LocalBranch);
             if (branches.contains(QStringLiteral("master")))
                 branchToDiff = QStringLiteral("master");
             else if (branches.contains(QStringLiteral("main")))
@@ -118,7 +118,7 @@ void BranchActions::diff()
 void BranchActions::remove()
 {
     if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected branch?"), i18n("Remove Branch"))) {
-        if (!mGit->branchesCache()->remove(mBranchName))
+        if (!mGit->branches()->remove(mBranchName))
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected branch"));
     }
 }

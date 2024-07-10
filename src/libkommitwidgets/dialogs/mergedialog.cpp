@@ -13,8 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 void MergeDialog::init(Git::Manager *git)
 {
-    comboBoxBranchName->addItems(git->branchesCache()->names());
-    labelToBranchName->setText(git->currentBranch());
+    comboBoxBranchName->addItems(git->branches()->names());
+    labelToBranchName->setText(git->branches()->currentName());
 
     checkBoxAllowUnrelatedHistories->setCheckState(Qt::PartiallyChecked);
     checkBoxSquash->setCheckState(Qt::PartiallyChecked);

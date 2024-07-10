@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "changedfilesmodel.h"
 
+#include "caches/submodulescache.h"
 #include "gitmanager.h"
 
 #include <libkommitwidgets_appdebug.h>
@@ -90,7 +91,7 @@ void ChangedFilesModel::reload()
 
     mData.clear();
 
-    auto submodules = mGit->submodules();
+    auto submodules = mGit->submodulesCache()->allSubmodules();
     for (auto const &submodule : std::as_const(submodules)) {
         using Status = Git::Submodule::Status;
         auto status = submodule->status();

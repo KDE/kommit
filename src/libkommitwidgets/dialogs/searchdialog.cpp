@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "searchdialog.h"
+#include "caches/branchescache.h"
 #include "caches/commitscache.h"
 #include "fileviewerdialog.h"
 
@@ -88,7 +89,7 @@ void SearchDialog::slotTreeViewDoubleClicked(const QModelIndex &index)
 void SearchDialog::beginSearch()
 {
     if (radioButtonSearchBranches->isChecked()) {
-        const auto branchesList = mGit->branchesNames(Git::Manager::BranchType::LocalBranch);
+        const auto branchesList = mGit->branches()->names(Git::BranchType::LocalBranch);
         mProgress.total = branchesList.size();
         for (const auto &branch : branchesList) {
             searchOnPlace(branch, QString());

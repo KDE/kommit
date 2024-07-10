@@ -115,7 +115,7 @@ const QList<QSharedPointer<Branch>> &Remote::branches()
     if (!mBranches.size()) {
         auto owner = Manager::owner(git_remote_owner(mRemotePtr));
 
-        auto branches = owner->branchesCache()->allBranches();
+        auto branches = owner->branches()->allBranches();
         for (auto const &branch : branches)
             if (branch->remoteName() == name())
                 mBranches << branch;
@@ -126,6 +126,11 @@ const QList<QSharedPointer<Branch>> &Remote::branches()
 bool Remote::connected() const
 {
     return mConnected;
+}
+
+git_remote *Remote::remotePtr() const
+{
+    return mRemotePtr;
 }
 
 QString RemoteBranch::statusText() const

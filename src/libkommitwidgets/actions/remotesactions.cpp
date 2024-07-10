@@ -48,14 +48,14 @@ void RemotesActions::create()
     RemoteInfoDialog d{mParent};
     if (d.exec() == QDialog::Accepted) {
         // TODO: show a message in case of error
-        (void)mGit->remotesCache()->create(d.remoteName(), d.remoteUrl());
+        (void)mGit->remotes()->create(d.remoteName(), d.remoteUrl());
     }
 }
 
 void RemotesActions::remove()
 {
     if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected remote?"), i18n("Remove remote?"))) {
-        if (!mGit->remotesCache()->remove(mRemote)) {
+        if (!mGit->remotes()->remove(mRemote)) {
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected remote"));
             return;
         }
@@ -64,13 +64,13 @@ void RemotesActions::remove()
 
 void RemotesActions::changeUrl()
 {
-    auto remote = mGit->remotesCache()->findByName(mRemoteName);
+    auto remote = mGit->remotes()->findByName(mRemoteName);
 
     if (!remote)
         return;
     const auto newUrl = QInputDialog::getText(mParent, i18nc("@title:window", "Change url"), i18n("URL"), QLineEdit::Normal, remote->pushUrl());
     if (!newUrl.isEmpty()) {
-        mGit->remotesCache()->setUrl(mRemote, newUrl);
+        mGit->remotes()->setUrl(mRemote, newUrl);
         KMessageBoxHelper::information(mParent, i18n("Url for remote changed successfully"));
     }
 }
@@ -80,7 +80,7 @@ void RemotesActions::rename()
     const auto newName = QInputDialog::getText(mParent, i18nc("@title:window", "Rename"), i18n("New name"), QLineEdit::Normal, mRemoteName);
 
     if (!newName.isEmpty()) {
-        mGit->remotesCache()->rename(mRemote, newName);
+        mGit->remotes()->rename(mRemote, newName);
         mRemoteName = newName;
     }
 }

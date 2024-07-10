@@ -18,6 +18,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+enum class BranchType {
+    LocalBranch,
+    RemoteBranch,
+    AllBranches,
+};
+
 class Buf : public QSharedPointer<git_buf>
 {
 public:

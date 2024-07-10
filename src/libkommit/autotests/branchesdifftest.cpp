@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "branchesdifftest.h"
+#include "caches/branchescache.h"
 #include "testcommon.h"
 
 #include <QTest>
@@ -59,12 +60,12 @@ void BranchesDiffTest::makeACommit()
 
 void BranchesDiffTest::createBranch()
 {
-    auto ok = mManager->createBranch(newBranchName);
+    auto ok = mManager->branches()->create(newBranchName);
     QVERIFY(ok);
 
-    QVERIFY(mManager->branchesNames(Git::Manager::BranchType::LocalBranch).contains(newBranchName));
+    QVERIFY(mManager->branches()->names(Git::BranchType::LocalBranch).contains(newBranchName));
 
-    auto newBranch = mManager->branch(newBranchName);
+    auto newBranch = mManager->branches()->find(newBranchName);
     QVERIFY(!newBranch.isNull());
 }
 
@@ -72,7 +73,7 @@ void BranchesDiffTest::switchToNewBranch()
 {
     auto ok = mManager->switchBranch(newBranchName);
     QVERIFY(ok);
-    QCOMPARE(mManager->currentBranch(), newBranchName);
+    QCOMPARE(mManager->branches()->currentName(), newBranchName);
 
     TestCommon::touch(mManager, "/changed_in_both");
     TestCommon::touch(mManager, "/changed_in_dev");
@@ -103,7 +104,7 @@ void BranchesDiffTest::switchToMaster()
 
 void BranchesDiffTest::diff()
 {
-    auto branches = mManager->branches(Git::Manager::BranchType::LocalBranch);
+    auto branches = mManager->branches()->allBranches(Git::BranchType::LocalBranch);
     QCOMPARE(branches.size(), 2);
 
     QCOMPARE(branches.at(0)->name(), "dev");

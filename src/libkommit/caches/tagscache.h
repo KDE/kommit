@@ -25,11 +25,12 @@ public:
     explicit TagsCache(Manager *parent);
 
     QSharedPointer<Tag> find(const QString &key);
+    QList<QSharedPointer<Tag>> allTags();
+    QStringList allNames();
 
     void forEach(std::function<void(QSharedPointer<Tag>)> cb);
     bool create(const QString &name, const QString &message);
     bool remove(QSharedPointer<Tag> tag);
-    QList<QSharedPointer<Tag>> list();
 
 protected:
     QHash<git_commit *, QSharedPointer<Tag>> mTagsByCommit;

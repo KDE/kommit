@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actions/branchactions.h"
 #include "actions/commitactions.h"
+#include "caches/branchescache.h"
 #include "models/commitsfiltermodel.h"
 
 #include <core/repositorydata.h>
@@ -32,7 +33,7 @@ void CommitsWidget::reload()
 {
     mRepoModel->clear();
     QStringList branchNames;
-    const auto branches = git()->manager()->branches(Git::Manager::BranchType::AllBranches);
+    const auto branches = git()->manager()->branches()->allBranches(Git::BranchType::AllBranches);
     for (const auto &branch : branches) {
         branchNames << branch->name();
         mBranchesMap.insert(branch->name(), branch);

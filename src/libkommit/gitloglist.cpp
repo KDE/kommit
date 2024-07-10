@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "gitloglist.h"
+#include "caches/branchescache.h"
 #include "entities/commit.h"
 #include "gitmanager.h"
 
@@ -276,7 +277,7 @@ H -- commit hash              c -- committer details        m -- mark           
     clear();
     mDataByCommitHashLong.clear();
 
-    mBranches = git->branchesNames(Git::Manager::BranchType::LocalBranch);
+    mBranches = git->branches()->names(Git::BranchType::LocalBranch);
 
     QStringList args{QStringLiteral("--no-pager"),
                      QStringLiteral("log"),

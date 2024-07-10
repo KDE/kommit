@@ -5,6 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tagtest.h"
+#include "caches/branchescache.h"
+#include "caches/tagscache.h"
 #include "testcommon.h"
 
 #include <QTest>
@@ -41,11 +43,11 @@ void TagTest::shouldHaveDefaultValues()
 
 void TagTest::addTagNoHead()
 {
-    auto ok = mManager->createTag("tag1", "sample message");
+    auto ok = mManager->tags()->create("tag1", "sample message");
 
     QVERIFY(!ok);
 
-    auto tags = mManager->tagsNames();
+    auto tags = mManager->tags()->allNames();
     QVERIFY(!tags.contains("tag1"));
 }
 
@@ -59,21 +61,22 @@ void TagTest::makeACommit()
 
 void TagTest::addTag()
 {
-    auto ok = mManager->createTag("tag1", "sample message");
+    auto ok = mManager->tags()->create("tag1", "sample message");
 
     QVERIFY(ok);
 
-    auto tags = mManager->tagsNames();
+    auto tags = mManager->tags()->allNames();
     QVERIFY(tags.contains("tag1"));
 }
 
 void TagTest::removeTag()
 {
-    auto ok = mManager->removeTag("tag1");
+    auto tag = mManager->tags()->find("tag1");
+    auto ok = mManager->tags()->remove(tag);
 
     QVERIFY(ok);
 
-    auto tags = mManager->tagsNames();
+    auto tags = mManager->tags()->allNames();
     QVERIFY(!tags.contains("tag1"));
 }
 

@@ -67,7 +67,7 @@ void SubmoduleActions::create()
         Git::AddSubmoduleOptions opts;
         opts.url = d.url();
         opts.path = d.path();
-        mGit->submodulesCache()->create(opts);
+        mGit->submodulesCache()->add(opts);
     }
 }
 

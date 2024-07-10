@@ -86,7 +86,7 @@ void RemotesModel::reload()
 {
     beginResetModel();
     if (mGit->isValid()) {
-        mData = mGit->remotesCache()->allRemotes();
+        mData = mGit->remotes()->allRemotes();
     } else {
         mData.clear();
         return;

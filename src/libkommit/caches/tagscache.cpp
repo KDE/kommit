@@ -104,14 +104,30 @@ bool TagsCache::create(const QString &name, const QString &message)
     git_object *target = NULL;
     git_oid oid;
     git_signature *sign;
+    git_reference *head;
 
     auto repo = manager->repoPtr();
     BEGIN
     STEP git_signature_default(&sign, repo);
-    STEP git_revparse_single(&target, repo, "HEAD^{commit}");
+    // STEP git_revparse_single(&target, repo, "HEAD^{commit}");
+    STEP git_repository_head(&head, repo);
+
+    if (IS_ERROR) {
+        END;
+        return false;
+    }
+
+    auto targetId = git_reference_target(head);
+    STEP git_object_lookup(&target, repo, targetId, GIT_OBJECT_COMMIT);
     STEP git_tag_create(&oid, repo, name.toLatin1().data(), target, sign, message.toUtf8().data(), 0);
 
     PRINT_ERROR;
+
+    if (IS_ERROR)
+        return false;
+
+    findByOid(&oid);
+    END;
 
     return IS_OK;
 }
@@ -130,11 +146,21 @@ bool TagsCache::remove(QSharedPointer<Tag> tag)
     return IS_OK;
 }
 
-QList<QSharedPointer<Tag>> TagsCache::list()
+QList<QSharedPointer<Tag>> TagsCache::allTags()
 {
     QList<QSharedPointer<Tag>> list;
     forEach([&list](QSharedPointer<Tag> tag) {
         list << tag;
+    });
+    return list;
+}
+
+QStringList TagsCache::allNames()
+{
+    QStringList list;
+
+    forEach([&list](QSharedPointer<Tag> tag) {
+        list << tag->name();
     });
     return list;
 }
