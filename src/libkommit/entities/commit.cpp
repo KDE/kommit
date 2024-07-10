@@ -193,7 +193,7 @@ bool Commit::createNote(const QString &message)
         const git_error *lg2err;
         if ((lg2err = git_error_last()) != NULL && lg2err->message != NULL) {
             const QString msg = QString::fromLatin1(lg2err->message);
-            qDebug() << "Error" << Q_FUNC_INFO << r << ":" << msg;
+            qWarning() << "Error" << Q_FUNC_INFO << r << ":" << msg;
         }
     }
     return !r;
