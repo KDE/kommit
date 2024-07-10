@@ -136,7 +136,7 @@ struct LanesFactory {
             if (list.first() == myInedx) {
                 if (l.type() == GraphLane::None)
                     l.mType = GraphLane::Transparent;
-                if (l.type() == GraphLane::End)
+                else if (l.type() == GraphLane::End)
                     l.mType = GraphLane::Node;
             } else {
                 l.mUpJoins.append(myInedx);
@@ -155,7 +155,7 @@ struct LanesFactory {
             } else {
                 if (l.type() == GraphLane::None)
                     l.mType = GraphLane::Transparent;
-                if (l.type() == GraphLane::End)
+                else if (l.type() == GraphLane::End)
                     l.mType = GraphLane::Node;
 
                 l.mUpJoins.append(myInedx);
