@@ -22,8 +22,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class ReferenceCachePrivate
+{
+    ReferenceCache *q_ptr;
+    Q_DECLARE_PUBLIC(ReferenceCache)
+
+public:
+    ReferenceCachePrivate(ReferenceCache *parent);
+
+    QList<QSharedPointer<Reference>> list;
+    QMultiMap<QSharedPointer<Commit>, QSharedPointer<Reference>> dataByCommit;
+    void fill();
+};
+
 ReferenceCache::ReferenceCache(Manager *parent)
     : Git::Cache<Reference, git_reference>{parent}
+    , d_ptr{new ReferenceCachePrivate{this}}
 {
 }
 
@@ -81,30 +95,44 @@ ReferenceCache::DataMember ReferenceCache::findForRemote(QSharedPointer<Remote> 
 
 ReferenceCache::DataList ReferenceCache::findForCommit(QSharedPointer<Commit> commit)
 {
+    Q_D(ReferenceCache);
     if (!mList.size())
         fill();
 
-    DataList list;
-    for (auto const &ref : mList)
-        if ((ref->isBranch() && *ref->target().data() == commit->commitHash())
-            || (ref->isTag() && ref->toTag()->commit()->commitHash() == commit->commitHash()))
-            list << ref;
-
-    return list;
+    return d->dataByCommit.values(commit);
 }
 
 void ReferenceCache::fill()
 {
+    Q_D(ReferenceCache);
+    d->fill();
+}
+
+ReferenceCachePrivate::ReferenceCachePrivate(ReferenceCache *parent)
+    : q_ptr{parent}
+{
+}
+
+void ReferenceCachePrivate::fill()
+{
+    Q_Q(ReferenceCache);
+
     git_reference_iterator *iterator;
     git_reference *reference;
     BEGIN;
-    STEP git_reference_iterator_new(&iterator, manager->repoPtr());
+    STEP git_reference_iterator_new(&iterator, q->manager->repoPtr());
 
     if (IS_ERROR)
         return;
 
-    while (!git_reference_next(&reference, iterator))
-        findByPtr(reference);
+    while (!git_reference_next(&reference, iterator)) {
+        auto ref = q->findByPtr(reference);
+        list << ref;
+        auto hash = ref->target()->toString();
+        auto commit = q->manager->commitsCache()->find(hash);
+        if (Q_LIKELY(!commit.isNull())) // TODO: check if is this possible?
+            dataByCommit.insert(commit, ref);
+    }
 
     git_reference_iterator_free(iterator);
 }

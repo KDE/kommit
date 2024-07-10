@@ -82,7 +82,7 @@ void CommitDetails::setCommit(Git::Commit *commit)
 
     labelChangedFiles->setText(createChangedFiles());
 
-    auto refs = commit->reference();
+    auto refs = commit->references();
     if (refs.isEmpty()) {
         labelRefType->setVisible(false);
         labelRefName->setVisible(false);

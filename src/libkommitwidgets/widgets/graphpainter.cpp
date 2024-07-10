@@ -16,114 +16,37 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #define HEIGHT 25
 #define WIDTH 18
 
-int drawReference(QPainter *painter, QSharedPointer<Git::Reference> reference, int lanesSize)
+class GraphPainterPrivate
 {
-    QString refStr;
-    if (reference->isBranch())
-        refStr = i18n("Branch: ");
-    else if (reference->isNote())
-        refStr = i18n("Note: ");
-    else if (reference->isRemote())
-        refStr = i18n("Remote: ");
-    else if (reference->isTag())
-        refStr = i18n("Tag: ");
+    GraphPainter *q_ptr;
+    Q_DECLARE_PUBLIC(GraphPainter)
 
-    const auto ref = refStr + reference->shorthand();
-    QRect rcBox(lanesSize * WIDTH, 0, painter->fontMetrics().horizontalAdvance(ref) + 8, painter->fontMetrics().height() + 4);
-    rcBox.moveTop((HEIGHT - rcBox.height()) / 2);
+public:
+    GraphPainterPrivate(GraphPainter *parent, CommitsModel *model);
 
-    // QLinearGradient linearGrad(rcBox.topLeft(), rcBox.bottomRight());
-    // linearGrad.setFinalStop(rcBox.bottomLeft());
-    // linearGrad.setColorAt(0, Qt::white);
-    // linearGrad.setColorAt(1, QColor(100, 100, 255));
+    CommitsModel *const model;
+    QVector<QColor> colors;
 
-    // painter->fillRect(rcBox.left(), rcBox.top(), painter->fontMetrics().horizontalAdvance(refStr) + 2, rcBox.height(), QBrush(linearGrad));
-
-    /*painter->fillRect(rcBox.left() + painter->fontMetrics().horizontalAdvance(refStr) + 2,
-                      rcBox.top(),
-                      rcBox.width() - painter->fontMetrics().horizontalAdvance(refStr) - 2,
-                      rcBox.height(),
-                      Qt::white);*/
-
-    painter->setBrush(Qt::transparent);
-    painter->drawRoundedRect(rcBox, 5, 5);
-    painter->drawText(rcBox, Qt::AlignVCenter | Qt::AlignHCenter, ref);
-    return rcBox.width();
-}
-
-QPoint center(int x)
-{
-    return {(x * WIDTH) + (WIDTH / 2), HEIGHT / 2};
-}
-QPoint centerEdge(int x, Qt::Edge edge)
-{
-    switch (edge) {
-    case Qt::TopEdge:
-        return {(x * WIDTH) + (WIDTH / 2), 0};
-    case Qt::LeftEdge:
-        return {(x * WIDTH), HEIGHT / 2};
-    case Qt::RightEdge:
-        return {(x + 1) * WIDTH, HEIGHT / 2};
-    case Qt::BottomEdge:
-        return {(x * WIDTH) + (WIDTH / 2), HEIGHT};
-    }
-    return {};
-}
-
-QPoint point(int col, Qt::Alignment align = Qt::AlignCenter)
-{
-    int y;
-    int x = col * WIDTH;
-
-    if (align & Qt::AlignTop)
-        y = 0;
-    else if (align & Qt::AlignBottom)
-        y = HEIGHT;
-    else
-        y = HEIGHT / 2;
-
-    if (align & Qt::AlignLeft)
-        x += 0;
-    else if (align & Qt::AlignRight)
-        x += WIDTH;
-    else
-        x += WIDTH / 2;
-
-    return {x, y};
-}
-QPoint centerGuide(int x, Qt::Edge edge)
-{
-    constexpr const int tel{5};
-
-    QPoint pt = point(x);
-    switch (edge) {
-    case Qt::TopEdge:
-        pt.setY(pt.y() - tel);
-        break;
-    case Qt::LeftEdge:
-        pt.setX(pt.x() - tel);
-        break;
-    case Qt::RightEdge:
-        pt.setX(pt.x() + tel);
-        break;
-    case Qt::BottomEdge:
-        pt.setY(pt.y() + tel);
-        break;
-    }
-    return pt;
-}
+    int colX(int col) const;
+    void paintLane(QPainter *painter, const GraphLane &lane, int index) const;
+    void drawReference(QPainter *painter, QSharedPointer<Git::Reference> reference, int &x) const;
+    QPoint center(int x) const;
+    QPoint centerEdge(int x, Qt::Edge edge) const;
+    QPoint point(int col, Qt::Alignment align = Qt::AlignCenter) const;
+    QPoint centerGuide(int x, Qt::Edge edge) const;
+};
 
 GraphPainter::GraphPainter(CommitsModel *model, QObject *parent)
     : QStyledItemDelegate(parent)
-    , mModel(model)
+    , d_ptr{new GraphPainterPrivate{this, model}}
 {
-    mColors = {Qt::red, Qt::blue, Qt::darkGreen, Qt::magenta, Qt::darkMagenta, Qt::darkBlue, Qt::darkBlue, Qt::darkRed, Qt::darkYellow, Qt::darkGreen};
 }
 
 void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    auto lanes = mModel->lanesFromIndex(index);
-    auto log = mModel->fromIndex(index);
+    Q_D(const GraphPainter);
+    auto lanes = d->model->lanesFromIndex(index);
+    auto log = d->model->fromIndex(index);
 
     painter->setRenderHints(QPainter::Antialiasing);
 
@@ -147,32 +70,74 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
         if (l.type() == GraphLane::None)
             continue;
 
-        if (x >= mColors.size()) {
+        if (x >= d->colors.size()) {
             painter->setPen(Qt::black);
             painter->setBrush(Qt::black);
         } else {
-            painter->setPen(mColors.at(x));
-            painter->setBrush(mColors.at(x));
+            painter->setPen(d->colors.at(x));
+            painter->setBrush(d->colors.at(x));
         }
         //        painter->setPen(l.color());
         //        painter->setBrush(l.color());
-        paintLane(painter, l, x);
+        d->paintLane(painter, l, x);
     }
 
     QRect rc(lanes.size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(log->message()), HEIGHT);
 
     painter->setPen(option.palette.color(QPalette::Text));
-    auto refs = log->reference();
+    auto refs = log->references();
+    auto refBoxX = lanes.size() * WIDTH;
     for (auto const &ref : refs) {
-        auto w = drawReference(painter, ref, lanes.size());
-        rc.moveLeft(rc.left() + w + 6);
+        d->drawReference(painter, ref, refBoxX);
     }
+    rc.moveLeft(refBoxX + 6);
     painter->drawText(rc, Qt::AlignVCenter, log->message());
 
     painter->restore();
 }
 
-void GraphPainter::paintLane(QPainter *painter, const GraphLane &lane, int index) const
+QSize GraphPainter::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_UNUSED(option)
+    Q_UNUSED(index)
+    return {0, HEIGHT};
+}
+
+GraphPainterPrivate::GraphPainterPrivate(GraphPainter *parent, CommitsModel *model)
+    : q_ptr{parent}
+    , model{model}
+{
+    colors = {Qt::red, Qt::blue, Qt::darkGreen, Qt::magenta, Qt::darkMagenta, Qt::darkBlue, Qt::darkBlue, Qt::darkRed, Qt::darkYellow, Qt::darkGreen};
+}
+
+void GraphPainterPrivate::drawReference(QPainter *painter, QSharedPointer<Git::Reference> reference, int &x) const
+{
+    QString refStr;
+    if (reference->isBranch())
+        refStr = i18n("Branch: ");
+    else if (reference->isNote())
+        refStr = i18n("Note: ");
+    else if (reference->isRemote())
+        refStr = i18n("Remote: ");
+    else if (reference->isTag())
+        refStr = i18n("Tag: ");
+
+    const auto ref = refStr + reference->shorthand();
+    QRect rcBox(x, 0, painter->fontMetrics().horizontalAdvance(ref) + 8, painter->fontMetrics().height() + 4);
+    rcBox.moveTop((HEIGHT - rcBox.height()) / 2);
+
+    painter->setBrush(Qt::transparent);
+    painter->drawRoundedRect(rcBox, 5, 5);
+    painter->drawText(rcBox, Qt::AlignVCenter | Qt::AlignHCenter, ref);
+    x += rcBox.width() + 4;
+}
+
+int GraphPainterPrivate::colX(int col) const
+{
+    return col * WIDTH;
+}
+
+void GraphPainterPrivate::paintLane(QPainter *painter, const GraphLane &lane, int index) const
 {
     switch (lane.type()) {
     case GraphLane::Start:
@@ -223,16 +188,66 @@ void GraphPainter::paintLane(QPainter *painter, const GraphLane &lane, int index
     }
 }
 
-int GraphPainter::colX(int col) const
+QPoint GraphPainterPrivate::center(int x) const
 {
-    return col * WIDTH;
+    return {(x * WIDTH) + (WIDTH / 2), HEIGHT / 2};
+}
+QPoint GraphPainterPrivate::centerEdge(int x, Qt::Edge edge) const
+{
+    switch (edge) {
+    case Qt::TopEdge:
+        return {(x * WIDTH) + (WIDTH / 2), 0};
+    case Qt::LeftEdge:
+        return {(x * WIDTH), HEIGHT / 2};
+    case Qt::RightEdge:
+        return {(x + 1) * WIDTH, HEIGHT / 2};
+    case Qt::BottomEdge:
+        return {(x * WIDTH) + (WIDTH / 2), HEIGHT};
+    }
+    return {};
 }
 
-QSize GraphPainter::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+QPoint GraphPainterPrivate::point(int col, Qt::Alignment align) const
 {
-    Q_UNUSED(option)
-    Q_UNUSED(index)
-    return {0, HEIGHT};
+    int y;
+    int x = col * WIDTH;
+
+    if (align & Qt::AlignTop)
+        y = 0;
+    else if (align & Qt::AlignBottom)
+        y = HEIGHT;
+    else
+        y = HEIGHT / 2;
+
+    if (align & Qt::AlignLeft)
+        x += 0;
+    else if (align & Qt::AlignRight)
+        x += WIDTH;
+    else
+        x += WIDTH / 2;
+
+    return {x, y};
+}
+QPoint GraphPainterPrivate::centerGuide(int x, Qt::Edge edge) const
+{
+    constexpr const int tel{5};
+
+    QPoint pt = point(x);
+    switch (edge) {
+    case Qt::TopEdge:
+        pt.setY(pt.y() - tel);
+        break;
+    case Qt::LeftEdge:
+        pt.setX(pt.x() - tel);
+        break;
+    case Qt::RightEdge:
+        pt.setX(pt.x() + tel);
+        break;
+    case Qt::BottomEdge:
+        pt.setY(pt.y() + tel);
+        break;
+    }
+    return pt;
 }
 
 #include "moc_graphpainter.cpp"

@@ -101,4 +101,8 @@ QList<QSharedPointer<Stash>> StashesCache::allStashes()
     git_stash_foreach(w.repo, callback, &w);
     return w.list;
 }
+
+void StashesCache::clear()
+{
+}
 }

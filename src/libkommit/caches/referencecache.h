@@ -20,6 +20,7 @@ class Reference;
 class Commit;
 class Remote;
 
+class ReferenceCachePrivate;
 class LIBKOMMIT_EXPORT ReferenceCache : public Cache<Reference, git_reference>
 {
 public:
@@ -33,6 +34,9 @@ public:
 
 private:
     void fill();
+
+    ReferenceCachePrivate *d_ptr;
+    Q_DECLARE_PRIVATE(ReferenceCache)
 };
 
 }

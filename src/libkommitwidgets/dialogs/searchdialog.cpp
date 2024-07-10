@@ -5,7 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "searchdialog.h"
+#include "caches/commitscache.h"
 #include "fileviewerdialog.h"
+
+#include <entities/tree.h>
 
 #include <KLocalizedString>
 #include <QStandardItemModel>
@@ -92,6 +95,7 @@ void SearchDialog::beginSearch()
             mProgress.value++;
         }
     } else {
+        auto commits = mGit->commitsCache()->allCommits();
         Git::LogList list;
         list.load(mGit);
 
@@ -119,6 +123,13 @@ void SearchDialog::searchOnPlace(const QString &branch, const QString &commit)
             mModel->appendRow({new QStandardItem(file), new QStandardItem(branch), new QStandardItem(commit)});
         }
     }
+}
+
+void SearchDialog::searchOnCommit(QSharedPointer<Git::Commit> commit)
+{
+    mProgress.currentPlace = commit->message();
+    // auto tree = commit->tree();
+    // tree.create()
 }
 
 void SearchDialog::timerEvent(QTimerEvent *event)

@@ -102,13 +102,14 @@ bool Manager::open(const QString &newPath)
 
     END;
 
-    if (IS_ERROR) {
-        // d->remotesModel->clear();
-        // d->branchesModel->clear();
-        // d->logsCache->clear();
-        // d->stashesCache->clear();
-        // d->tagsModel->clear();
+    d->remotesCache->clear();
+    d->branchesCache->clear();
+    d->commitsCache->clear();
+    d->stashesCache->clear();
+    d->tagsCache->clear();
+    d->isValid = IS_OK;
 
+    if (IS_ERROR) {
         d->changeRepo(nullptr);
     } else {
         d->changeRepo(repo);

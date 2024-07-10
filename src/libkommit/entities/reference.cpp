@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/remote.h"
 #include "entities/tag.h"
 #include "oid.h"
+#include "qdebug.h"
 
 #include <git2/notes.h>
 #include <git2/oid.h>
@@ -101,6 +102,8 @@ QSharedPointer<Tag> Reference::toTag() const
     auto oid = git_reference_target(ptr);
     auto repo = git_reference_owner(ptr);
 
+    QString ss = git_reference_name(ptr);
+    qDebug() << "ref name:" << ss;
     git_tag *tag;
     git_tag_lookup(&tag, repo, oid);
 

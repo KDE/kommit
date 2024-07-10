@@ -222,8 +222,8 @@ void LogList::initChilds()
 {
     for (auto i = rbegin(); i != rend(); i++) {
         auto &log = *i;
-        for (auto &p : log->parents())
-            mDataByCommitHashLong.value(p)->mChildren.append(log->commitHash());
+        // for (auto &p : log->parents())
+        // mDataByCommitHashLong.value(p)->mChildren.append(log->commitHash());
     }
 }
 

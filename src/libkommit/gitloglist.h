@@ -14,6 +14,7 @@ namespace Git
 
 class Manager;
 class Commit;
+// TODO: remove this class
 class LIBKOMMIT_EXPORT LogList : public QList<Commit *>
 {
 public:

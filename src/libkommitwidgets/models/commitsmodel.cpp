@@ -233,6 +233,7 @@ CommitsModel::CommitsModel(Git::Manager *git, QObject *parent)
     , d_ptr{new CommitsModelPrivate{this}}
 {
     connect(git->commitsCache(), &Git::CommitsCache::added, this, &CommitsModel::reload);
+    connect(git, &Git::Manager::pathChanged, this, &CommitsModel::reload);
 }
 
 CommitsModel::~CommitsModel()

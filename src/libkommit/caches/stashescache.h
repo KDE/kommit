@@ -29,6 +29,8 @@ public:
 
     QList<QSharedPointer<Stash>> allStashes();
 
+    void clear();
+
 private:
     Manager *manager;
 };

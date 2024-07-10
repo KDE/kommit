@@ -33,22 +33,25 @@ public:
     git_commit *const gitCommitPtr;
     QSharedPointer<Signature> author;
     QSharedPointer<Signature> committer;
-    QList<QSharedPointer<Reference>> mReference;
+    QList<QSharedPointer<Reference>> references;
     QSharedPointer<Branch> branch;
     QSharedPointer<Note> note;
     Commit::CommitType type;
+    QStringList parentHashes;
+    QStringList children;
 };
 
 Commit::Commit(git_commit *commit)
     : d_ptr{new CommitPrivate{this, commit}}
 {
+    Q_D(Commit);
     auto id = git_commit_id(commit);
     mCommitHash = git_oid_tostr_s(id);
 
     auto parentCount = git_commit_parentcount(commit);
     for (unsigned int i = 0; i < parentCount; ++i) {
         auto pid = git_commit_parent_id(commit, i);
-        mParentHash << convertToString(pid, 20);
+        d->parentHashes << convertToString(pid, 20);
     }
 }
 
@@ -65,14 +68,10 @@ QSharedPointer<Branch> Commit::branch() const
     return d->branch;
 }
 
-const QString &Commit::extraData() const
-{
-    return mExtraData;
-}
-
 const QStringList &Commit::children() const
 {
-    return mChildren;
+    Q_D(const Commit);
+    return d->children;
 }
 
 const QString &Commit::commitShortHash() const
@@ -80,9 +79,10 @@ const QString &Commit::commitShortHash() const
     return mCommitShortHash;
 }
 
-QList<QSharedPointer<Reference>> Commit::reference() const
+QList<QSharedPointer<Reference>> Commit::references() const
 {
-    return mReference;
+    Q_D(const Commit);
+    return d->references;
 }
 
 QSharedPointer<Tree> Commit::tree() const
@@ -166,7 +166,8 @@ const QString &Commit::commitHash() const
 
 const QStringList &Commit::parents() const
 {
-    return mParentHash;
+    Q_D(const Commit);
+    return d->parentHashes;
 }
 bool Commit::createNote(const QString &message)
 {
@@ -192,6 +193,24 @@ QSharedPointer<Oid> Commit::oid() const
 {
     Q_D(const Commit);
     return QSharedPointer<Oid>{new Oid{git_commit_id(d->gitCommitPtr)}};
+}
+
+void Commit::clearChildren()
+{
+    Q_D(Commit);
+    d->children.clear();
+}
+
+void Commit::setReferences(QList<QSharedPointer<Reference>> refs)
+{
+    Q_D(Commit);
+    d->references = refs;
+}
+
+void Commit::addChild(const QString &childHash)
+{
+    Q_D(Commit);
+    d->children << childHash;
 }
 
 CommitPrivate::CommitPrivate(Commit *parent, git_commit *commit)

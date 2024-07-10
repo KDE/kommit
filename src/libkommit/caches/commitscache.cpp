@@ -39,33 +39,43 @@ QSharedPointer<Commit> CommitsCache::find(const QString &hash)
 QList<QSharedPointer<Commit>> CommitsCache::allCommits()
 {
     PointerList<Commit> list;
-    PointerList<Commit> newList;
 
     git_revwalk *walker;
     git_oid oid;
 
     BEGIN
     STEP git_revwalk_new(&walker, manager->repoPtr());
-    STEP git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL);
-    STEP git_revwalk_push_head(walker);
+    STEP git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL | GIT_SORT_TIME);
+    // STEP git_revwalk_push_head(walker);
+
+    // include all branches
+    git_reference *ref;
+    git_branch_iterator *it;
+    git_branch_t b;
+
+    git_branch_iterator_new(&it, manager->repoPtr(), GIT_BRANCH_ALL);
+
+    while (!git_branch_next(&ref, &b, it)) {
+        auto refname = git_reference_name(ref);
+        git_revwalk_push_ref(walker, refname);
+    }
+    git_branch_iterator_free(it);
 
     if (IS_ERROR)
         return list;
 
     while (!git_revwalk_next(&oid, walker)) {
-        bool isNew;
-        auto en = findByOid(&oid, &isNew);
-        if (isNew)
-            newList << en;
+        auto en = findByOid(&oid);
+        en->clearChildren();
         list << en;
     }
 
-    for (auto &commit : newList) {
+    for (auto &commit : list) {
         for (auto const &parentHash : commit->parents()) {
             auto parent = find(parentHash);
-            parent->mChildren << commit->commitHash();
+            parent->addChild(commit->commitHash());
         }
-        commit->mReference << manager->referencesCache()->findForCommit(commit);
+        commit->setReferences(manager->referencesCache()->findForCommit(commit));
     }
 
     git_revwalk_free(walker);
