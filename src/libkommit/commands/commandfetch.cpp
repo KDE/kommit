@@ -90,12 +90,12 @@ QStringList CommandFetch::generateArgs() const
     QStringList args{QStringLiteral("fetch"), mRemote};
     if (!mBranch.isEmpty())
         args.append(mBranch);
-    if (mNoFf)
-        args.append(QStringLiteral("--no-ff"));
-    if (mFfOnly)
-        args.append(QStringLiteral("--ff-only"));
-    if (mNoCommit)
-        args.append(QStringLiteral("--no-commit"));
+    // if (mNoFf)
+    //     args.append(QStringLiteral("--no-ff"));
+    // if (mFfOnly)
+    //     args.append(QStringLiteral("--ff-only"));
+    // if (mNoCommit)
+    //     args.append(QStringLiteral("--no-commit"));
     if (mPrune)
         args.append(QStringLiteral("--prune"));
     if (mTags)
