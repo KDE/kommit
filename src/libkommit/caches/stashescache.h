@@ -16,23 +16,31 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class Stash;
+class StashesCachePrivate;
 class LIBKOMMIT_EXPORT StashesCache
 {
 public:
     explicit StashesCache(Manager *manager);
 
+    QSharedPointer<Stash> find(const QString &name);
     bool create(const QString &name = QString());
     Q_REQUIRED_RESULT bool apply(QSharedPointer<Stash> stash);
     Q_REQUIRED_RESULT bool pop(QSharedPointer<Stash> stash);
     Q_REQUIRED_RESULT bool remove(QSharedPointer<Stash> stash);
-    Q_REQUIRED_RESULT bool drop(QSharedPointer<Stash> stash);
+
+    Q_REQUIRED_RESULT bool apply(const QString &name);
+    Q_REQUIRED_RESULT bool pop(const QString &name);
+    Q_REQUIRED_RESULT bool remove(const QString &name);
 
     QList<QSharedPointer<Stash>> allStashes();
 
     void clear();
 
+    Q_REQUIRED_RESULT int findIndex(const QString &message) const;
+
 private:
-    Manager *manager;
+    StashesCachePrivate *d_ptr;
+    Q_DECLARE_PRIVATE(StashesCache)
 };
 
 };

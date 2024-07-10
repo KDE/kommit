@@ -46,52 +46,6 @@ class SubmodulesCache;
 class StashesCache;
 class ReferenceCache;
 
-template<typename T>
-class Expeced
-{
-public:
-    Expeced(const T &data, bool success)
-        : mData{data}
-        , mSuccess{success}
-    {
-    }
-    Expeced(const QString &msg, bool success)
-        : mErrorMessage{msg}
-        , mSuccess{success}
-    {
-    }
-
-    operator bool()
-    {
-        return mSuccess;
-    }
-
-    Q_REQUIRED_RESULT T data() const
-    {
-        return mData;
-    }
-    Q_REQUIRED_RESULT bool success() const
-    {
-        return mSuccess;
-    }
-    Q_REQUIRED_RESULT QString errorMessage() const
-    {
-        return mErrorMessage;
-    }
-
-private:
-    T mData;
-    bool mSuccess;
-    QString mErrorMessage;
-
-    friend class Manager;
-};
-
-struct Exception {
-    const int id;
-    const QString message;
-};
-
 class LIBKOMMIT_EXPORT Manager : public QObject
 {
     Q_OBJECT
@@ -111,6 +65,7 @@ public:
     explicit Manager(git_repository *repo);
     explicit Manager(const QString &path);
     static Manager *instance();
+    virtual ~Manager();
 
     // run
     QString run(const AbstractCommand &cmd) const;
@@ -151,18 +106,6 @@ public:
     bool createTag(const QString &name, const QString &message) const;
     bool removeTag(const QString &name) const;
     bool removeTag(QSharedPointer<Tag> tag) const;
-
-    // stashes
-    void forEachStash(std::function<void(QSharedPointer<Stash>)> cb);
-    PointerList<Stash> stashes() const;
-    Q_REQUIRED_RESULT bool applyStash(QSharedPointer<Stash> stash) const;
-    Q_REQUIRED_RESULT bool popStash(QSharedPointer<Stash> stash) const;
-    Q_REQUIRED_RESULT bool removeStash(QSharedPointer<Stash> stash) const;
-    Q_REQUIRED_RESULT bool removeStash(const QString &name) const;
-    Q_REQUIRED_RESULT bool applyStash(const QString &name) const;
-    Q_REQUIRED_RESULT bool popStash(const QString &name) const;
-
-    bool createStash(const QString &name = QString()) const;
 
     // remotes
     QSharedPointer<Remote> remote(const QString &name) const;
@@ -243,7 +186,7 @@ public:
     Q_REQUIRED_RESULT BranchesCache *branchesCache() const;
     Q_REQUIRED_RESULT TagsCache *tagsCache() const;
     Q_REQUIRED_RESULT NotesCache *notesCache() const;
-    Q_REQUIRED_RESULT StashesCache *stashesCache() const;
+    Q_REQUIRED_RESULT StashesCache *stashes() const;
     Q_REQUIRED_RESULT ReferenceCache *referencesCache() const;
 
 Q_SIGNALS:

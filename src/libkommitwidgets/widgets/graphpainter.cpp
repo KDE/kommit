@@ -42,6 +42,12 @@ GraphPainter::GraphPainter(CommitsModel *model, QObject *parent)
 {
 }
 
+GraphPainter::~GraphPainter()
+{
+    Q_D(GraphPainter);
+    delete d;
+}
+
 void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     Q_D(const GraphPainter);

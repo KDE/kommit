@@ -29,6 +29,12 @@ SubmodulesModel::SubmodulesModel(Git::Manager *manager)
     connect(manager->submodulesCache(), &Git::SubmodulesCache::added, this, &SubmodulesModel::append);
 }
 
+SubmodulesModel::~SubmodulesModel()
+{
+    Q_D(SubmodulesModel);
+    delete d;
+}
+
 int SubmodulesModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)

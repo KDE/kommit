@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "changedfilesdialog.h"
 #include "actions/changedfileactions.h"
+#include "caches/stashescache.h"
 #include "commitpushdialog.h"
 #include "core/kmessageboxhelper.h"
 #include "gitmanager.h"
@@ -65,7 +66,7 @@ void ChangedFilesDialog::slotStash()
     const auto name = QInputDialog::getText(this, i18nc("@title:window", "Create new stash"), i18n("Name of stash"), QLineEdit::Normal, QString(), &ok);
 
     if (ok) {
-        mGit->createStash(name);
+        mGit->stashes()->create(name);
         mModel->reload();
     }
 }

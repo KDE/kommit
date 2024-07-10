@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "stashesmodel.h"
 
+#include "caches/stashescache.h"
 #include "entities/commit.h"
 #include "entities/signature.h"
 #include "gitmanager.h"
@@ -39,9 +40,9 @@ QVariant StashesModel::data(const QModelIndex &index, int role) const
 
     switch (index.column()) {
     case Subject:
-        return remote->subject();
+        return remote->message();
     case CommitHash:
-        return remote->commitHash();
+        return remote->commit()->commitHash();
     case AuthorName:
         return remote->commit()->author()->name();
     case AuthorEmail:
@@ -91,30 +92,7 @@ void StashesModel::clear()
 
 void StashesModel::reload()
 {
-    mData.clear();
-
-    mGit->forEachStash([this](QSharedPointer<Git::Stash> stash) {
-        mData << stash;
-    });
-
-    //    const auto list = mGit->readAllNonEmptyOutput({QStringLiteral("stash"), QStringLiteral("list"), QStringLiteral("--format=format:%s%m%an%m%ae%m%aD")});
-    //    int id{0};
-    //    for (const auto &item : std::as_const(list)) {
-    //        const auto parts = item.split(QLatin1Char('>'));
-    //        if (parts.size() != 4)
-    //            continue;
-
-    //        const auto subject = parts.first();
-    //        auto stash = new Stash(mGit, QStringLiteral("stash@{%1}").arg(id));
-
-    //        stash->mSubject = subject;
-    //        stash->mAuthorName = parts.at(1);
-    //        stash->mAuthorEmail = parts.at(2);
-    //        stash->mPushTime = QDateTime::fromString(parts.at(3), Qt::RFC2822Date);
-
-    //        mData.append(stash);
-    //        id++;
-    //    }
+    mData = mGit->stashes()->allStashes();
 }
 
 #include "moc_stashesmodel.cpp"

@@ -18,6 +18,7 @@ class LIBKOMMITWIDGETS_EXPORT GraphPainter : public QStyledItemDelegate
 
 public:
     explicit GraphPainter(CommitsModel *model, QObject *parent = nullptr);
+    virtual ~GraphPainter();
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;

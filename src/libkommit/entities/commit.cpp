@@ -59,7 +59,7 @@ Commit::~Commit()
 {
     Q_D(Commit);
     git_commit_free(d->gitCommitPtr);
-    delete d_ptr;
+    delete d;
 }
 
 QSharedPointer<Branch> Commit::branch() const

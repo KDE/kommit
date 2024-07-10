@@ -25,6 +25,7 @@ class LIBKOMMIT_EXPORT ReferenceCache : public Cache<Reference, git_reference>
 {
 public:
     ReferenceCache(Manager *parent);
+    virtual ~ReferenceCache();
 
     DataMember findForNote(QSharedPointer<Note> note);
     DataMember findForBranch(QSharedPointer<Branch> branch);

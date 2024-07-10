@@ -955,6 +955,14 @@ Manager *Manager::instance()
     return &instance;
 }
 
+Manager::~Manager()
+{
+    Q_D(Manager);
+    if (d->repo)
+        git_repository_free(d->repo);
+    delete d;
+}
+
 QString Manager::currentBranch() const
 {
     Q_D(const Manager);
@@ -1397,168 +1405,6 @@ bool Manager::removeTag(QSharedPointer<Tag> tag) const
     return IS_OK;
 }
 
-void Manager::forEachStash(std::function<void(QSharedPointer<Stash>)> cb)
-{
-    Q_D(Manager);
-
-    struct wrapper {
-        git_repository *repo;
-        std::function<void(QSharedPointer<Stash>)> cb;
-    };
-
-    auto callback = [](size_t index, const char *message, const git_oid *stash_id, void *payload) {
-        auto w = static_cast<wrapper *>(payload);
-
-        QSharedPointer<Stash> ptr{new Stash{index, w->repo, message, stash_id}};
-        //        Stash s{index, w->manager->d->repo, message, stash_id};
-
-        w->cb(ptr);
-
-        return 0;
-    };
-
-    wrapper w;
-    w.cb = cb;
-    w.repo = d->repo;
-    git_stash_foreach(d->repo, callback, &w);
-}
-
-PointerList<Stash> Manager::stashes() const
-{
-    Q_D(const Manager);
-
-    struct wrapper {
-        git_repository *repo;
-        PointerList<Stash> list;
-    };
-
-    auto callback = [](size_t index, const char *message, const git_oid *stash_id, void *payload) {
-        auto w = static_cast<wrapper *>(payload);
-
-        QSharedPointer<Stash> ptr{new Stash{index, w->repo, message, stash_id}};
-
-        w->list << ptr;
-
-        return 0;
-    };
-
-    wrapper w;
-    w.repo = d->repo;
-    git_stash_foreach(d->repo, callback, &w);
-    return w.list;
-}
-
-bool Manager::applyStash(QSharedPointer<Stash> stash) const
-{
-    Q_D(const Manager);
-
-    if (stash.isNull())
-        return false;
-
-    git_stash_apply_options options;
-
-    BEGIN
-    STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
-    STEP git_stash_apply(d->repo, stash->index(), &options);
-
-    PRINT_ERROR;
-
-    return IS_OK;
-}
-
-bool Manager::popStash(QSharedPointer<Stash> stash) const
-{
-    Q_D(const Manager);
-
-    if (stash.isNull())
-        return false;
-
-    git_stash_apply_options options;
-
-    BEGIN
-    STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
-    STEP git_stash_pop(d->repo, stash->index(), &options);
-
-    return IS_OK;
-}
-
-bool Manager::removeStash(QSharedPointer<Stash> stash) const
-{
-    Q_D(const Manager);
-
-    if (stash.isNull())
-        return false;
-
-    BEGIN
-    STEP git_stash_drop(d->repo, stash->index());
-
-    return IS_OK;
-}
-
-bool Manager::createStash(const QString &name) const
-{
-    Q_D(const Manager);
-
-    git_oid oid;
-    git_signature *sign;
-
-    BEGIN
-    STEP git_signature_default(&sign, d->repo);
-    STEP git_stash_save(&oid, d->repo, sign, name.toUtf8().data(), GIT_STASH_DEFAULT);
-    return IS_OK;
-}
-
-bool Manager::removeStash(const QString &name) const
-{
-    Q_D(const Manager);
-
-    auto stashIndex = findStashIndex(name);
-
-    if (stashIndex == -1)
-        return false;
-
-    BEGIN
-    STEP git_stash_drop(d->repo, stashIndex);
-
-    return IS_OK;
-}
-
-bool Manager::applyStash(const QString &name) const
-{
-    Q_D(const Manager);
-
-    auto stashIndex = findStashIndex(name);
-    git_stash_apply_options options;
-
-    if (stashIndex == -1)
-        return false;
-
-    BEGIN
-    STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
-    STEP git_stash_apply(d->repo, stashIndex, &options);
-
-    PRINT_ERROR;
-
-    return IS_OK;
-}
-
-bool Manager::popStash(const QString &name) const
-{
-    Q_D(const Manager);
-
-    auto stashIndex = findStashIndex(name);
-    git_stash_apply_options options;
-
-    if (stashIndex == -1)
-        return false;
-
-    BEGIN
-    STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
-    STEP git_stash_pop(d->repo, stashIndex, &options);
-
-    return IS_OK;
-}
-
 QSharedPointer<Remote> Manager::remote(const QString &name) const
 {
     Q_D(const Manager);
@@ -1924,7 +1770,7 @@ NotesCache *Manager::notesCache() const
     return d->notesCache;
 }
 
-StashesCache *Manager::stashesCache() const
+StashesCache *Manager::stashes() const
 {
     Q_D(const Manager);
     return d->stashesCache;

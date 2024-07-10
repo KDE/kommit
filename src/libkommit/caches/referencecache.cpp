@@ -41,6 +41,12 @@ ReferenceCache::ReferenceCache(Manager *parent)
 {
 }
 
+ReferenceCache::~ReferenceCache()
+{
+    Q_D(ReferenceCache);
+    delete d;
+}
+
 ReferenceCache::DataMember ReferenceCache::findForNote(QSharedPointer<Note> note)
 {
     if (!mList.size())

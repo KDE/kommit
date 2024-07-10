@@ -47,6 +47,7 @@ Tree::~Tree()
     Q_D(const Tree);
     if (d->gitTreePtr)
         git_tree_free(d->gitTreePtr);
+    delete d;
 }
 
 QList<Tree::Entry> Tree::entries(const QString &path) const
