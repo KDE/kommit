@@ -35,3 +35,13 @@ bool Oid::isNull() const
 }
 
 }
+
+bool operator==(const Git::Oid &oid, const QString &hash)
+{
+    return oid.toString() == hash;
+}
+
+bool operator!=(const Git::Oid &oid, const QString &hash)
+{
+    return oid.toString() != hash;
+}

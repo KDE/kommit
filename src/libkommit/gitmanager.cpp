@@ -3,10 +3,15 @@
 
 #include "gitmanager.h"
 
+#include "abstractreference.h"
 #include "caches/abstractcache.h"
 #include "caches/branchescache.h"
 #include "caches/commitscache.h"
 #include "caches/notescache.h"
+#include "caches/referencecache.h"
+#include "caches/remotescache.h"
+#include "caches/stashescache.h"
+#include "caches/submodulescache.h"
 #include "caches/tagscache.h"
 #include "entities/branch.h"
 #include "entities/commit.h"
@@ -16,12 +21,6 @@
 #include "entities/tag.h"
 #include "entities/tree.h"
 #include "gitglobal_p.h"
-#include "models/branchesmodel.h"
-#include "models/logsmodel.h"
-#include "models/remotesmodel.h"
-#include "models/stashesmodel.h"
-#include "models/submodulesmodel.h"
-#include "models/tagsmodel.h"
 #include "observers/cloneobserver.h"
 #include "observers/fetchobserver.h"
 #include "observers/pushobserver.h"
@@ -31,9 +30,7 @@
 #include "libkommit_debug.h"
 #include <QFile>
 #include <QProcess>
-#include <QtConcurrent>
 
-#include <abstractreference.h>
 #include <git2.h>
 #include <git2/branch.h>
 #include <git2/diff.h>
@@ -62,29 +59,26 @@ public:
     QString path;
     bool isValid{false};
     QMap<QString, Remote> remotes;
-    LoadFlags loadFlags{LoadAll};
-
-    RemotesModel *const remotesModel;
-    SubmodulesModel *const submodulesModel;
-    BranchesModel *const branchesModel;
-    LogsModel *const logsCache;
-    StashesModel *const stashesCache;
-    TagsModel *const tagsModel;
 
     int errorCode{};
     int errorClass{};
     QString errorMessage;
 
-    CommitsCache commitsCache;
-    BranchesCache branchesCache;
-    TagsCache tagsCache;
-    NotesCache remotesCache;
-    NotesCache notesCache;
+    CommitsCache *commitsCache;
+    BranchesCache *branchesCache;
+    TagsCache *tagsCache;
+    RemotesCache *remotesCache;
+    NotesCache *notesCache;
+    SubmodulesCache *submodulesCache;
+    StashesCache *stashesCache;
+    ReferenceCache *referenceCache;
 
     void changeRepo(git_repository *repo);
     void resetCaches();
 
     void freeRepo();
+
+    void checkError();
     static QHash<git_repository *, Manager *> managerMap;
 };
 QHash<git_repository *, Manager *> ManagerPrivate::managerMap;
@@ -109,17 +103,15 @@ bool Manager::open(const QString &newPath)
     END;
 
     if (IS_ERROR) {
-        d->remotesModel->clear();
-        d->submodulesModel->clear();
-        d->branchesModel->clear();
-        d->logsCache->clear();
-        d->stashesCache->clear();
-        d->tagsModel->clear();
+        // d->remotesModel->clear();
+        // d->branchesModel->clear();
+        // d->logsCache->clear();
+        // d->stashesCache->clear();
+        // d->tagsModel->clear();
 
         d->changeRepo(nullptr);
     } else {
         d->changeRepo(repo);
-        loadAsync();
     }
 
     Q_EMIT pathChanged();
@@ -211,6 +203,10 @@ bool Manager::addRemote(const QString &name, const QString &url) const
     BEGIN
     STEP git_remote_create(&remote, d->repo, name.toUtf8().data(), url.toUtf8().data());
     END;
+
+    if (IS_OK)
+        d->remotesCache->findByPtr(remote);
+
     return IS_OK;
 }
 
@@ -221,6 +217,7 @@ bool Manager::removeRemote(const QString &name) const
     BEGIN
     STEP git_remote_delete(d->repo, name.toUtf8().data());
     END;
+
     return IS_OK;
 }
 
@@ -574,6 +571,7 @@ bool Manager::addSubmodule(const AddSubmoduleOptions &options) const
     PRINT_ERROR;
 
     git_submodule_free(submodule);
+
     return IS_OK;
 }
 
@@ -860,100 +858,18 @@ QString Manager::escapeFileName(const QString &filePath) const
     return filePath;
 }
 
-bool load(AbstractGitItemsModel *cache)
-{
-    cache->load();
-    return true;
-}
-
-void Manager::loadAsync()
-{
-    Q_D(Manager);
-
-    QList<AbstractGitItemsModel *> models;
-
-    if (d->loadFlags & LoadStashes)
-        models << d->stashesCache;
-    if (d->loadFlags & LoadRemotes)
-        models << d->remotesModel;
-    if (d->loadFlags & LoadSubmodules)
-        models << d->submodulesModel;
-    if (d->loadFlags & LoadBranches)
-        models << d->branchesModel;
-    if (d->loadFlags & LoadLogs)
-        models << d->logsCache;
-    if (d->loadFlags & LoadTags)
-        models << d->tagsModel;
-
-    if (!models.empty()) {
-#ifdef QT_CONCURRENT_LIB
-        QtConcurrent::mapped(models, load);
-#else
-        for (auto &m : models)
-            m->load();
-#endif
-    }
-}
-
-TagsModel *Manager::tagsModel() const
-{
-    Q_D(const Manager);
-    return d->tagsModel;
-}
-
-StashesModel *Manager::stashesModel() const
-{
-    Q_D(const Manager);
-    return d->stashesCache;
-}
-
-LogsModel *Manager::logsModel() const
-{
-    Q_D(const Manager);
-    return d->logsCache;
-}
-
-BranchesModel *Manager::branchesModel() const
-{
-    Q_D(const Manager);
-    return d->branchesModel;
-}
-
-SubmodulesModel *Manager::submodulesModel() const
-{
-    Q_D(const Manager);
-    return d->submodulesModel;
-}
-
-RemotesModel *Manager::remotesModel() const
-{
-    Q_D(const Manager);
-    return d->remotesModel;
-}
-
-const LoadFlags &Manager::loadFlags() const
-{
-    Q_D(const Manager);
-    return d->loadFlags;
-}
-
-void Manager::setLoadFlags(Git::LoadFlags newLoadFlags)
-{
-    Q_D(Manager);
-    d->loadFlags = newLoadFlags;
-}
-
 QSharedPointer<Branch> Manager::branch(const QString &branchName)
 {
     Q_D(Manager);
-    return d->branchesCache.findOrLookup(branchName);
-    // git_reference *ref;
-    // BEGIN
-    // STEP git_branch_lookup(&ref, d->repo, branchName.toLocal8Bit().constData(), GIT_BRANCH_ALL);
-    // if (IS_OK)
-    //     return new Branch{ref};
 
-    // return nullptr;
+    git_reference *ref;
+    BEGIN
+    STEP git_branch_lookup(&ref, d->repo, branchName.toLocal8Bit().constData(), GIT_BRANCH_ALL);
+    if (IS_OK) {
+        QSharedPointer<Branch> b{new Branch{ref}};
+        return b;
+    }
+    return {};
 }
 
 QString Manager::readNote(const QString &branchName) const
@@ -972,7 +888,7 @@ QList<QSharedPointer<Note>> Manager::notes()
 
     struct wrapper {
         git_repository *repo;
-        NotesCache &notesCache;
+        NotesCache *notesCache;
         QList<QSharedPointer<Note>> notes;
     };
     auto cb = [](const git_oid *blob_id, const git_oid *annotated_object_id, void *payload) -> int {
@@ -1305,9 +1221,9 @@ QStringList Manager::branchesNames(BranchType type)
     return list;
 }
 
-PointerList<Branch> Manager::branches(BranchType type) const
+PointerList<Branch> Manager::branches(BranchType type)
 {
-    Q_D(const Manager);
+    Q_D(Manager);
 
     git_branch_t t{GIT_BRANCH_ALL};
     git_branch_iterator *it;
@@ -1642,28 +1558,16 @@ bool Manager::popStash(const QString &name) const
     return IS_OK;
 }
 
-Remote *Manager::remote(const QString &name) const
+QSharedPointer<Remote> Manager::remote(const QString &name) const
 {
     Q_D(const Manager);
 
     git_remote *remote;
     if (!git_remote_lookup(&remote, d->repo, name.toLocal8Bit().data()))
-        return new Remote{remote};
+        return d->remotesCache->findByPtr(remote);
+    // return new Remote{remote};
 
     return nullptr;
-}
-
-Remote Manager::remoteDetails(const QString &remoteName)
-{
-    Q_D(Manager);
-
-    if (d->remotes.contains(remoteName))
-        return d->remotes.value(remoteName);
-    Remote r;
-    auto ret = runGit({QStringLiteral("remote"), QStringLiteral("show"), remoteName});
-    r.parse(ret);
-    d->remotes.insert(remoteName, r);
-    return r;
 }
 
 bool Manager::removeBranch(const QString &branchName) const
@@ -1786,7 +1690,7 @@ BlameData Manager::blame(const File &file) // TODO: change parametere to QShared
         BlameDataRow row;
         row.commitHash = convertToString(&hunk->final_commit_id, 20);
         row.code = lines.mid(hunk->final_start_line_number, hunk->lines_in_hunk).join(QLatin1Char('\n'));
-        row.log = d->logsCache->findLogByHash(row.commitHash, LogsModel::LogMatchType::BeginMatch);
+        row.log = d->commitsCache->find(row.commitHash);
 
         b.append(row);
     }
@@ -1983,10 +1887,57 @@ Manager *Manager::owner(git_repository *repo)
     return ManagerPrivate::managerMap.value(repo, nullptr);
 }
 
-QString Manager::errorMessage() const
+CommitsCache *Manager::commitsCache() const
 {
     Q_D(const Manager);
-    return d->errorMessage;
+    return d->commitsCache;
+}
+
+SubmodulesCache *Manager::submodulesCache() const
+{
+    Q_D(const Manager);
+    return d->submodulesCache;
+}
+
+RemotesCache *Manager::remotesCache() const
+{
+    Q_D(const Manager);
+    return d->remotesCache;
+}
+
+BranchesCache *Manager::branchesCache() const
+{
+    Q_D(const Manager);
+    return d->branchesCache;
+}
+
+TagsCache *Manager::tagsCache() const
+{
+    Q_D(const Manager);
+    return d->tagsCache;
+}
+
+NotesCache *Manager::notesCache() const
+{
+    Q_D(const Manager);
+    return d->notesCache;
+}
+
+StashesCache *Manager::stashesCache() const
+{
+    Q_D(const Manager);
+    return d->stashesCache;
+}
+
+ReferenceCache *Manager::referencesCache() const
+{
+    Q_D(const Manager);
+    return d->referenceCache;
+}
+
+QString Manager::errorMessage() const
+{
+    return QString{git_error_last()->message};
 }
 
 int Manager::errorCode() const
@@ -1997,17 +1948,14 @@ int Manager::errorCode() const
 
 ManagerPrivate::ManagerPrivate(Manager *parent)
     : q_ptr{parent}
-    , remotesModel{new RemotesModel(parent, parent)}
-    , submodulesModel{new SubmodulesModel(parent, parent)}
-    , branchesModel{new BranchesModel(parent, parent)}
-    , logsCache{new LogsModel(parent, parent)}
-    , stashesCache{new StashesModel(parent, parent)}
-    , tagsModel{new TagsModel(parent, parent)}
-    , commitsCache{repo}
-    , branchesCache{repo}
-    , tagsCache{repo}
-    , remotesCache{repo}
-    , notesCache{repo}
+    , commitsCache{new CommitsCache{parent}}
+    , branchesCache{new BranchesCache{parent}}
+    , tagsCache{new TagsCache{parent}}
+    , remotesCache{new RemotesCache{parent}}
+    , notesCache{new NotesCache{parent}}
+    , submodulesCache{new SubmodulesCache{parent}}
+    , stashesCache{new StashesCache(parent)}
+    , referenceCache{new ReferenceCache{parent}}
 {
 }
 
@@ -2025,22 +1973,21 @@ void ManagerPrivate::changeRepo(git_repository *repo)
 
     isValid = repo;
 
-    commitsCache.setRepo(repo);
-    branchesCache.setRepo(repo);
-    tagsCache.setRepo(repo);
-    remotesCache.setRepo(repo);
-    notesCache.setRepo(repo);
+    // commitsCache->setRepo(repo);
+    // tagsCache.setRepo(repo);
+    // remotesCache.setRepo(repo);
+    // notesCache.setRepo(repo);
 
     resetCaches();
 }
 
 void ManagerPrivate::resetCaches()
 {
-    commitsCache.clear();
-    branchesCache.clear();
-    tagsCache.clear();
-    remotesCache.clear();
-    notesCache.clear();
+    commitsCache->clear();
+    branchesCache->clear();
+    tagsCache->clear();
+    remotesCache->clear();
+    notesCache->clear();
 }
 
 void ManagerPrivate::freeRepo()
@@ -2050,6 +1997,13 @@ void ManagerPrivate::freeRepo()
         git_repository_free(repo);
         repo = nullptr;
     }
+}
+
+void ManagerPrivate::checkError()
+{
+    auto __git_err = git_error_last();
+    errorClass = __git_err->klass;
+    errorMessage = QString{__git_err->message};
 }
 
 } // namespace Git

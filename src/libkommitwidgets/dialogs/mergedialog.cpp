@@ -6,13 +6,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "mergedialog.h"
 
+#include "caches/branchescache.h"
 #include "commands/commandmerge.h"
 #include "gitmanager.h"
 #include "models/branchesmodel.h"
 
 void MergeDialog::init(Git::Manager *git)
 {
-    comboBoxBranchName->setModel(git->branchesModel());
+    comboBoxBranchName->addItems(git->branchesCache()->names());
     labelToBranchName->setText(git->currentBranch());
 
     checkBoxAllowUnrelatedHistories->setCheckState(Qt::PartiallyChecked);

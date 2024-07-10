@@ -7,13 +7,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "submoduleswidget.h"
 #include "actions/submoduleactions.h"
 
+#include <core/repositorydata.h>
 #include <entities/submodule.h>
 #include <gitmanager.h>
 #include <models/submodulesmodel.h>
 
-SubmodulesWidget::SubmodulesWidget(Git::Manager *git, AppWindow *parent)
+SubmodulesWidget::SubmodulesWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)
-    , mActions(new SubmoduleActions(git, this))
+    , mActions(new SubmoduleActions(git->manager(), this))
     , mModel(git->submodulesModel())
 {
     setupUi(this);
@@ -47,7 +48,7 @@ void SubmodulesWidget::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
     auto s = mModel->fromIndex(treeView->currentIndex());
     if (!s)
         return;
-    mActions->setSubModuleName(s->path());
+    mActions->setSubmodule(s);
     mActions->popup();
 }
 

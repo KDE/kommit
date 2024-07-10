@@ -34,6 +34,12 @@ Tag::Tag(git_commit *commit, const QString &name)
     mLightTagCommit.reset(new Commit{commit});
 }
 
+Tag::Tag(Commit *parentCommit)
+    : mLightTagCommit{parentCommit}
+    , mTagType{TagType::LightTag}
+{
+}
+
 const QString &Tag::name() const
 {
     return mName;
@@ -88,5 +94,10 @@ Tag::TagType Tag::tagType() const
 QSharedPointer<Oid> Tag::oid() const
 {
     return QSharedPointer<Oid>(new Oid{git_tag_id(mTagPtr)});
+}
+
+git_tag *Tag::tagPtr() const
+{
+    return mTagPtr;
 }
 }

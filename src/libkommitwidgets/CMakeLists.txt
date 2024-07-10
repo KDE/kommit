@@ -7,6 +7,8 @@ generate_export_header(libkommitwidgets BASE_NAME libkommitwidgets)
 target_sources(libkommitwidgets PRIVATE
     kommitwidgetsglobaloptions.h 
     kommitwidgetsglobaloptions.cpp
+    gitgraphlane.h
+    gitgraphlane.cpp
 
     widgets/reportwidget.h
     widgets/graphpainter.cpp
@@ -91,6 +93,22 @@ target_sources(libkommitwidgets PRIVATE
     models/filesmodel.cpp
     models/changedfilesmodel.cpp
     models/filesmodel.h
+
+    models/abstractgititemsmodel.h
+    models/abstractgititemsmodel.cpp
+    models/submodulesmodel.cpp
+    models/submodulesmodel.h
+    models/branchesmodel.cpp
+    models/branchesmodel.h
+    models/commitsmodel.cpp
+    models/commitsmodel.h
+    models/remotesmodel.cpp
+    models/remotesmodel.h
+    models/stashesmodel.cpp
+    models/stashesmodel.h
+    models/tagsmodel.cpp
+    models/tagsmodel.h
+
 
     dialogs/appdialog.h
     dialogs/runnerdialog.cpp

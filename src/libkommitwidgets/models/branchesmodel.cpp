@@ -5,15 +5,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "branchesmodel.h"
+#include "caches/branchescache.h"
 #include "entities/branch.h"
 #include "gitmanager.h"
 
 #include <KLocalizedString>
 
-namespace Git
-{
-
-BranchesModel::BranchesModel(Manager *git, QObject *parent)
+BranchesModel::BranchesModel(Git::Manager *git, QObject *parent)
     : AbstractGitItemsModel{git, parent}
 {
 }
@@ -79,7 +77,7 @@ QVariant BranchesModel::headerData(int section, Qt::Orientation orientation, int
     return {};
 }
 
-QSharedPointer<Branch> BranchesModel::fromIndex(const QModelIndex &index) const
+QSharedPointer<Git::Branch> BranchesModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
@@ -87,9 +85,9 @@ QSharedPointer<Branch> BranchesModel::fromIndex(const QModelIndex &index) const
     return mData.at(index.row());
 }
 
-QSharedPointer<Branch> BranchesModel::findByName(const QString &branchName) const
+QSharedPointer<Git::Branch> BranchesModel::findByName(const QString &branchName) const
 {
-    auto i = std::find_if(mData.begin(), mData.end(), [&branchName](QSharedPointer<Branch> branch) {
+    auto i = std::find_if(mData.begin(), mData.end(), [&branchName](QSharedPointer<Git::Branch> branch) {
         return branch->name() == branchName;
     });
     if (i == mData.end())
@@ -98,7 +96,7 @@ QSharedPointer<Branch> BranchesModel::findByName(const QString &branchName) cons
     return *i;
 }
 
-void BranchesModel::fill()
+void BranchesModel::reload()
 {
     mData.clear();
 
@@ -162,7 +160,5 @@ const QString &BranchesModel::currentBranch() const
 {
     return mCurrentBranch;
 }
-
-} // namespace Git
 
 #include "moc_branchesmodel.cpp"

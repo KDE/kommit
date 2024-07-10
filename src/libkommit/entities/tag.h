@@ -24,8 +24,9 @@ public:
     enum class TagType { RegularTag, LightTag };
 
     Tag();
-    Tag(git_tag *tag);
+    explicit Tag(git_tag *tag);
     Tag(git_commit *commit, const QString &name);
+    explicit Tag(Commit *parentCommit);
 
     Q_REQUIRED_RESULT const QString &name() const;
     void setName(const QString &newName);
@@ -41,6 +42,8 @@ public:
 
     Q_REQUIRED_RESULT TagType tagType() const;
     QSharedPointer<Oid> oid() const override;
+
+    Q_REQUIRED_RESULT git_tag *tagPtr() const;
 
 private:
     git_tag *mTagPtr{nullptr};

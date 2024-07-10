@@ -19,13 +19,18 @@ namespace Git
 
 class Remote;
 
-class LIBKOMMIT_EXPORT RemotesCache : public AbstractCache<Remote>
+class LIBKOMMIT_EXPORT RemotesCache : public Cache<Remote, git_remote>
 {
 public:
-    explicit RemotesCache(git_repository *repo);
+    explicit RemotesCache(Manager *manager);
 
-protected:
-    Remote *lookup(const QString &key, git_repository *repo) override;
+    QList<QSharedPointer<Remote>> allRemotes();
+    QSharedPointer<Remote> findByName(const QString &name);
+    Q_REQUIRED_RESULT bool create(const QString &name, const QString &url);
+    Q_REQUIRED_RESULT bool setUrl(DataMember remote, const QString &url);
+
+    Q_REQUIRED_RESULT bool remove(QSharedPointer<Remote> remote);
+    Q_REQUIRED_RESULT bool rename(QSharedPointer<Remote> remote, const QString &newName);
 };
 
 };

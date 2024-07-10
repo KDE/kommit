@@ -36,6 +36,7 @@ public:
     Q_REQUIRED_RESULT QSharedPointer<Commit> commit() const;
 
     Q_REQUIRED_RESULT QString treeTitle() const override;
+    git_reference *refPtr() const;
 
 private:
     git_reference *const mBranch;

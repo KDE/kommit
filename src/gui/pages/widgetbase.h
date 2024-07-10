@@ -13,25 +13,21 @@ SPDX-License-Identifier: GPL-3.0-or-later
 class QSplitter;
 class QTreeView;
 class AppWindow;
+class RepositoryData;
 
-namespace Git
-{
-class Manager;
-}
 class WidgetBase : public QWidget
 {
     Q_OBJECT
 
 protected:
-    Git::Manager *mGit{nullptr};
+    RepositoryData *mGit{nullptr};
     AppWindow *mParent{nullptr};
     QString stateName(QWidget *w) const;
 
 public:
-    explicit WidgetBase(QWidget *parent = nullptr);
-    explicit WidgetBase(Git::Manager *git, AppWindow *parent = nullptr);
-    Git::Manager *git() const;
-    void setGit(Git::Manager *newGit);
+    explicit WidgetBase(RepositoryData *git, AppWindow *parent = nullptr);
+    RepositoryData *git() const;
+    void setGit(RepositoryData *newGit);
 
     virtual void reload();
     virtual void clear();

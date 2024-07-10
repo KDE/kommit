@@ -6,32 +6,20 @@ set(SOURCES
     gitglobal.cpp
     gitloglist.cpp
     filestatus.cpp
-    gitgraphlane.cpp
     gitmanager.cpp
     blamedata.cpp
     types.cpp
     abstractreference.cpp
 
-    models/abstractgititemsmodel.cpp
-    models/logsmodel.cpp
-    models/remotesmodel.cpp
-    models/submodulesmodel.cpp
-    models/branchesmodel.cpp
-    models/stashesmodel.cpp
-    models/tagsmodel.cpp
-
     caches/abstractcache.cpp
-    caches/abstractcache.h
     caches/branchescache.cpp
-    caches/branchescache.h
     caches/commitscache.cpp
-    caches/commitscache.h
     caches/remotescache.cpp
-    caches/remotescache.h
     caches/tagscache.cpp
-    caches/tagscache.h
     caches/notescache.cpp
-    caches/notescache.h
+    caches/stashescache.cpp
+    caches/submodulescache.cpp
+    caches/referencecache.cpp
 
     commands/abstractcommand.cpp
     commands/commandchangedfiles.cpp
@@ -78,20 +66,20 @@ set(HEADERS
     gitglobal.h
     gitloglist.h
     filestatus.h
-    gitgraphlane.h
     gitmanager.h
     blamedata.h
     types.h
     abstractreference.h
 
-    models/abstractgititemsmodel.h
-    models/logsmodel.h
-    models/remotesmodel.h
-    models/submodulesmodel.h
-    models/branchesmodel.h
-    models/stashesmodel.h
-    models/tagsmodel.h
-
+    caches/abstractcache.h
+    caches/branchescache.h
+    caches/commitscache.h
+    caches/remotescache.h
+    caches/tagscache.h
+    caches/notescache.h
+    caches/stashescache.h
+    caches/submodulescache.h
+    caches/referencecache.h
 
     commands/abstractcommand.h
     commands/commandchangedfiles.h
@@ -155,8 +143,6 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/kommit)
 target_link_libraries(libkommit
     PkgConfig::LIBGIT2
     Qt::Core
-    Qt::Widgets
-    Qt::Concurrent
     KF${KF_MAJOR_VERSION}::I18n
 )
 

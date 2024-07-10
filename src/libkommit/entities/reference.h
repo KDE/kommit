@@ -42,6 +42,8 @@ public:
     Q_REQUIRED_RESULT QSharedPointer<Tag> toTag() const;
     Q_REQUIRED_RESULT QSharedPointer<Remote> toRemote() const;
 
+    Q_REQUIRED_RESULT git_reference *refPtr() const;
+
 private:
     git_reference *ptr{nullptr};
 };

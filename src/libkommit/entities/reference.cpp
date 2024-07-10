@@ -119,4 +119,9 @@ QSharedPointer<Remote> Reference::toRemote() const
 
     return QSharedPointer<Remote>{new Remote{remote}};
 }
+
+git_reference *Reference::refPtr() const
+{
+    return ptr;
+}
 }

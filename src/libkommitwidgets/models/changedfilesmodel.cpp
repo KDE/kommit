@@ -8,18 +8,51 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "gitmanager.h"
 
+#include <libkommitwidgets_appdebug.h>
+
 #include <KLocalizedString>
 
 #include <QDebug>
 #include <QIcon>
 #include <entities/submodule.h>
 
+namespace Impl
+{
+QIcon statusIcon(Git::ChangeStatus status)
+{
+    switch (status) {
+    case Git::ChangeStatus::Added:
+        return QIcon::fromTheme(QStringLiteral("git-status-added"));
+    case Git::ChangeStatus::Ignored:
+        return QIcon::fromTheme(QStringLiteral("git-status-ignored"));
+    case Git::ChangeStatus::Modified:
+        return QIcon::fromTheme(QStringLiteral("git-status-modified"));
+    case Git::ChangeStatus::Removed:
+        return QIcon::fromTheme(QStringLiteral("git-status-removed"));
+    case Git::ChangeStatus::Renamed:
+        return QIcon::fromTheme(QStringLiteral("git-status-renamed"));
+        //    case ChangeStatus::Unknown:
+    case Git::ChangeStatus::Untracked:
+        return QIcon::fromTheme(QStringLiteral("git-status-unknown"));
+    case Git::ChangeStatus::Copied:
+    case Git::ChangeStatus::UpdatedButInmerged:
+    case Git::ChangeStatus::Unmodified:
+        return QIcon::fromTheme(QStringLiteral("git-status-update"));
+    case Git::ChangeStatus::Unknown:
+        return {};
+    default:
+        qCWarning(KOMMIT_WIDGETS_LOG) << "Unknown icon" << (int)status;
+    }
+    return QIcon::fromTheme(QStringLiteral("git-status-update"));
+}
+}
+
 void ChangedFilesModel::createIcon(Git::ChangeStatus status)
 {
     if (mIcons.contains(status))
         return;
 
-    const QIcon icon = Git::statusIcon(status);
+    const QIcon icon = Impl::statusIcon(status);
     mIcons.insert(status, icon);
 }
 

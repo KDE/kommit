@@ -418,7 +418,6 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
         return 0;
     }
 
-    mGit->setLoadFlags(Git::LoadLogs);
     mGit->open(fi.absolutePath());
     auto fileName = file.mid(mGit->path().size());
     auto f = QSharedPointer<Git::File>{new Git::File{mGit, mGit->currentBranch(), fileName}};

@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "gitgraphlane.h"
 #include "interfaces.h"
 #include "libkommit_export.h"
 #include "reference.h"
@@ -42,8 +41,7 @@ public:
     Q_REQUIRED_RESULT const QStringList &parents() const;
     Q_REQUIRED_RESULT QSharedPointer<Branch> branch() const;
     Q_REQUIRED_RESULT const QString &extraData() const;
-    Q_REQUIRED_RESULT CommitType type() const;
-    Q_REQUIRED_RESULT const QVector<GraphLane> &lanes() const;
+    // Q_REQUIRED_RESULT CommitType type() const;
     Q_REQUIRED_RESULT const QStringList &children() const;
     Q_REQUIRED_RESULT const QString &commitShortHash() const;
     Q_REQUIRED_RESULT QDateTime commitTime() const;
@@ -63,20 +61,20 @@ private:
     CommitPrivate *d_ptr;
     Q_DECLARE_PRIVATE(Commit);
 
-    // QString mMessage;
-    // QString mSubject;
-    // QString mBody;
+    // TODO: move these to d_ptr
+    //  QString mMessage;
+    //  QString mSubject;
+    //  QString mBody;
     QString mCommitHash;
     QString mCommitShortHash;
     QStringList mParentHash;
     QString mExtraData;
-    CommitType mType;
-    QVector<GraphLane> mLanes;
+    // CommitType mType;
     QStringList mChildren;
     QSharedPointer<Reference> mReference;
 
     friend class LogList;
     friend class Manager;
-    friend class LogsModel;
+    friend class CommitsCache;
 };
 }

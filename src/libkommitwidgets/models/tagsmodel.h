@@ -12,6 +12,8 @@ namespace Git
 {
 
 class Tag;
+}
+
 class LIBKOMMIT_EXPORT TagsModel : public AbstractGitItemsModel
 {
     Q_OBJECT
@@ -25,21 +27,19 @@ public:
         LastColumn = Time,
     };
     Q_ENUM(TagsModelRoles)
-    explicit TagsModel(Manager *git, QObject *parent = nullptr);
+    explicit TagsModel(Git::Manager *git, QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    QSharedPointer<Tag> fromIndex(const QModelIndex &index) const;
+    QSharedPointer<Git::Tag> fromIndex(const QModelIndex &index) const;
 
     void clear() override;
 
 protected:
-    void fill() override;
+    void reload() override;
 
 private:
-    QList<QSharedPointer<Tag>> mData;
+    QList<QSharedPointer<Git::Tag>> mData;
 };
-
-} // namespace Git

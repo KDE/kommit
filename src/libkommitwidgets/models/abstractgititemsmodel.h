@@ -9,34 +9,35 @@ SPDX-License-Identifier: GPL-3.0-or-later
 //
 
 #pragma once
-#include "libkommit_export.h"
+#include "libkommitwidgets_export.h"
 #include <QAbstractListModel>
 
 namespace Git
 {
-
 class Manager;
-class LIBKOMMIT_EXPORT AbstractGitItemsModel : public QAbstractListModel
+}
+
+class LIBKOMMITWIDGETS_EXPORT AbstractGitItemsModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(Status status READ status WRITE setStatus NOTIFY statusChanged)
 
 public:
-    explicit AbstractGitItemsModel(Manager *git, QObject *parent = nullptr);
+    explicit AbstractGitItemsModel(Git::Manager *git, QObject *parent = nullptr);
 
     enum Status { NotLoaded, Loading, Loaded };
     Q_ENUM(Status)
     Q_REQUIRED_RESULT bool isLoaded() const;
     Q_REQUIRED_RESULT Status status() const;
-    virtual void clear() = 0;
+    virtual void clear();
 
 public Q_SLOTS:
     void load();
 
 protected:
     void setStatus(Status newStatus);
-    Manager *mGit{nullptr};
-    virtual void fill() = 0;
+    Git::Manager *mGit{nullptr};
+    virtual void reload() = 0;
 
 Q_SIGNALS:
     void loaded();
@@ -45,4 +46,3 @@ Q_SIGNALS:
 private:
     Status m_status{NotLoaded};
 };
-} // namespace Git

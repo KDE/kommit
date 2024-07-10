@@ -7,7 +7,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitglobal.h"
 
 #include "libkommit_debug.h"
-#include <QIcon>
 #include <QProcess>
 
 namespace Git
@@ -67,34 +66,6 @@ QStringList readAllNonEmptyOutput(const QString &workingDir, const QStringList &
         list.append(b);
     }
     return list;
-}
-
-QIcon statusIcon(ChangeStatus status)
-{
-    switch (status) {
-    case ChangeStatus::Added:
-        return QIcon::fromTheme(QStringLiteral("git-status-added"));
-    case ChangeStatus::Ignored:
-        return QIcon::fromTheme(QStringLiteral("git-status-ignored"));
-    case ChangeStatus::Modified:
-        return QIcon::fromTheme(QStringLiteral("git-status-modified"));
-    case ChangeStatus::Removed:
-        return QIcon::fromTheme(QStringLiteral("git-status-removed"));
-    case ChangeStatus::Renamed:
-        return QIcon::fromTheme(QStringLiteral("git-status-renamed"));
-        //    case ChangeStatus::Unknown:
-    case ChangeStatus::Untracked:
-        return QIcon::fromTheme(QStringLiteral("git-status-unknown"));
-    case ChangeStatus::Copied:
-    case ChangeStatus::UpdatedButInmerged:
-    case ChangeStatus::Unmodified:
-        return QIcon::fromTheme(QStringLiteral("git-status-update"));
-    case ChangeStatus::Unknown:
-        return {};
-    default:
-        qCWarning(KOMMITLIB_LOG) << "Unknown icon" << (int)status;
-    }
-    return QIcon::fromTheme(QStringLiteral("git-status-update"));
 }
 
 } // namespace Git

@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 
+#include "caches/branchescache.h"
 #include "libkommitwidgets_appdebug.h"
 #include <QInputDialog>
 
@@ -69,8 +70,9 @@ void BranchActions::create()
     const auto newBranchName = QInputDialog::getText(mParent, i18nc("@title:window", "Create new branch"), i18n("Branch name"));
 
     if (!newBranchName.isEmpty()) {
-        mGit->runGit({QStringLiteral("checkout"), QStringLiteral("-b"), newBranchName});
-        mGit->branchesModel()->load();
+        mGit->branchesCache()->create(newBranchName);
+        // mGit->runGit({QStringLiteral("checkout"), QStringLiteral("-b"), newBranchName});
+        // mGit->branchesModel()->load();
     }
 }
 
@@ -115,11 +117,9 @@ void BranchActions::diff()
 
 void BranchActions::remove()
 {
-    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected branch?"), i18nc("@title:window", "Remove Branch"))) {
-        if (!mGit->removeBranch(mBranchName->name()))
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected branch?"), i18n("Remove Branch"))) {
+        if (!mGit->branchesCache()->remove(mBranchName))
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected branch"));
-        else
-            mGit->branchesModel()->load();
     }
 }
 

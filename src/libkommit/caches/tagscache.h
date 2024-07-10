@@ -19,13 +19,20 @@ namespace Git
 
 class Tag;
 
-class LIBKOMMIT_EXPORT TagsCache : public AbstractCache<Tag>
+class LIBKOMMIT_EXPORT TagsCache : public OidCache<Tag, git_tag>
 {
 public:
-    explicit TagsCache(git_repository *repo);
+    explicit TagsCache(Manager *parent);
+
+    QSharedPointer<Tag> find(const QString &key);
+
+    void forEach(std::function<void(QSharedPointer<Tag>)> cb);
+    bool create(const QString &name, const QString &message);
+    bool remove(QSharedPointer<Tag> tag);
+    QList<QSharedPointer<Tag>> list();
 
 protected:
-    Tag *lookup(const QString &key, git_repository *repo) override;
+    QHash<git_commit *, QSharedPointer<Tag>> mTagsByCommit;
 };
 
 };

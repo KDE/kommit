@@ -8,16 +8,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QSortFilterProxyModel>
 
-namespace Git
-{
-class LogsModel;
-};
+class CommitsModel;
 
 class CommitsFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit CommitsFilterModel(Git::LogsModel *sourceModel, QObject *parent = nullptr);
+    explicit CommitsFilterModel(CommitsModel *sourceModel, QObject *parent = nullptr);
 
     Q_REQUIRED_RESULT const QString &filterTerm() const;
     void setFilterTerm(const QString &newFilterTerm);
@@ -27,5 +24,5 @@ protected:
 
 private:
     QString mFilterTerm;
-    Git::LogsModel *const mSourceModel;
+    CommitsModel *const mSourceModel;
 };

@@ -35,7 +35,6 @@ public:
     QSharedPointer<Signature> committer;
     QSharedPointer<Reference> mReference;
     QSharedPointer<Branch> branch;
-    QVector<GraphLane> mLanes;
     QSharedPointer<Note> note;
     Commit::CommitType type;
 };
@@ -71,15 +70,10 @@ const QString &Commit::extraData() const
     return mExtraData;
 }
 
-Commit::CommitType Commit::type() const
-{
-    return mType;
-}
-
-const QVector<GraphLane> &Commit::lanes() const
-{
-    return mLanes;
-}
+// Commit::CommitType Commit::type() const
+// {
+//     return mType;
+// }
 
 const QStringList &Commit::children() const
 {

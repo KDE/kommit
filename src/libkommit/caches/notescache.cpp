@@ -10,9 +10,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-NotesCache::NotesCache(git_repository *repo)
-    : Git::AbstractCache<Note>{repo}
+NotesCache::NotesCache(Manager *parent)
+    : Cache<git_note, Note>{parent}
 {
 }
 
-};
+}

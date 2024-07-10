@@ -22,13 +22,7 @@
 namespace Git
 {
 
-class RemotesModel;
 class Branch;
-class SubmodulesModel;
-class BranchesModel;
-class LogsModel;
-class StashesModel;
-class TagsModel;
 class Tag;
 class Manager;
 class Submodule;
@@ -43,18 +37,14 @@ class Tree;
 class Note;
 class ManagerPrivate;
 
-enum LoadFlag {
-    LoadNone = 0,
-    LoadStashes = 1,
-    LoadRemotes = 2,
-    LoadSubmodules = 4,
-    LoadBranches = 8,
-    LoadLogs = 16,
-    LoadTags = 32,
-    LoadAll = LoadStashes | LoadRemotes | LoadSubmodules | LoadBranches | LoadLogs | LoadTags
-};
-Q_DECLARE_FLAGS(LoadFlags, LoadFlag)
-Q_DECLARE_OPERATORS_FOR_FLAGS(LoadFlags)
+class CommitsCache;
+class BranchesCache;
+class TagsCache;
+class RemotesCache;
+class NotesCache;
+class SubmodulesCache;
+class StashesCache;
+class ReferenceCache;
 
 template<typename T>
 class Expeced
@@ -139,19 +129,16 @@ public:
     Q_REQUIRED_RESULT bool isValid() const;
     Q_REQUIRED_RESULT bool isMerging() const;
 
-    Q_REQUIRED_RESULT const LoadFlags &loadFlags() const;
-    void setLoadFlags(Git::LoadFlags newLoadFlags);
-
     // branches
     Q_REQUIRED_RESULT QSharedPointer<Branch> branch(const QString &branchName);
     Q_REQUIRED_RESULT QString currentBranch() const;
     bool createBranch(const QString &branchName) const;
     bool switchBranch(const QString &branchName) const;
-    Q_REQUIRED_RESULT QPair<int, int> uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const;
     Q_REQUIRED_RESULT QStringList branchesNames(BranchType type);
-    Q_REQUIRED_RESULT PointerList<Branch> branches(BranchType type) const;
+    Q_REQUIRED_RESULT PointerList<Branch> branches(BranchType type);
     Q_REQUIRED_RESULT bool removeBranch(const QString &branchName) const;
     bool merge(const QString &branchName) const;
+    Q_REQUIRED_RESULT QPair<int, int> uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const;
 
     // commits
     Commit *commitByHash(const QString &hash) const;
@@ -178,9 +165,8 @@ public:
     bool createStash(const QString &name = QString()) const;
 
     // remotes
-    Remote *remote(const QString &name) const;
+    QSharedPointer<Remote> remote(const QString &name) const;
     Q_REQUIRED_RESULT QStringList remotes() const;
-    Remote remoteDetails(const QString &remoteName);
     Q_REQUIRED_RESULT bool addRemote(const QString &name, const QString &url) const;
     Q_REQUIRED_RESULT bool removeRemote(const QString &name) const;
     Q_REQUIRED_RESULT bool renameRemote(const QString &name, const QString &newName) const;
@@ -239,14 +225,6 @@ public:
     Q_REQUIRED_RESULT QSharedPointer<Index> index() const;
     Q_REQUIRED_RESULT QSharedPointer<Tree> headTree() const;
 
-    // models
-    Q_REQUIRED_RESULT RemotesModel *remotesModel() const;
-    Q_REQUIRED_RESULT SubmodulesModel *submodulesModel() const;
-    Q_REQUIRED_RESULT BranchesModel *branchesModel() const;
-    Q_REQUIRED_RESULT LogsModel *logsModel() const;
-    Q_REQUIRED_RESULT StashesModel *stashesModel() const;
-    Q_REQUIRED_RESULT TagsModel *tagsModel() const;
-
     Q_REQUIRED_RESULT bool isRebasing() const;
     Q_REQUIRED_RESULT bool isDetached() const;
 
@@ -259,27 +237,29 @@ public:
     Q_REQUIRED_RESULT git_repository *repoPtr() const;
     Q_REQUIRED_RESULT static Manager *owner(git_repository *repo);
 
+    Q_REQUIRED_RESULT CommitsCache *commitsCache() const;
+    Q_REQUIRED_RESULT SubmodulesCache *submodulesCache() const;
+    Q_REQUIRED_RESULT RemotesCache *remotesCache() const;
+    Q_REQUIRED_RESULT BranchesCache *branchesCache() const;
+    Q_REQUIRED_RESULT TagsCache *tagsCache() const;
+    Q_REQUIRED_RESULT NotesCache *notesCache() const;
+    Q_REQUIRED_RESULT StashesCache *stashesCache() const;
+    Q_REQUIRED_RESULT ReferenceCache *referencesCache() const;
+
 Q_SIGNALS:
     void pathChanged();
     void reloadRequired();
 
 private:
     ManagerPrivate *d_ptr;
-    Q_DECLARE_PRIVATE(Manager);
+    Q_DECLARE_PRIVATE(Manager)
 
     LIBKOMMIT_NO_EXPORT int findStashIndex(const QString &message) const;
     LIBKOMMIT_NO_EXPORT QStringList readAllNonEmptyOutput(const QStringList &cmd) const;
     LIBKOMMIT_NO_EXPORT QString escapeFileName(const QString &filePath) const;
-    LIBKOMMIT_NO_EXPORT void loadAsync();
 
     friend class File;
     friend class Stash;
-    friend class RemotesModel;
-    friend class SubmodulesModel;
-    friend class BranchesModel;
-    friend class LogsModel;
-    friend class StashesModel;
-    friend class TagsModel;
 };
 
 } // namespace Git

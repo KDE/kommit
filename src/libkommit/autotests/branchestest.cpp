@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "testcommon.h"
 
 #include <QTest>
+#include <caches/branchescache.h>
 #include <entities/branch.h>
 #include <gitmanager.h>
 

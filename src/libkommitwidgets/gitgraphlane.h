@@ -5,18 +5,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-#include "libkommit_export.h"
+#include "libkommitwidgets_export.h"
 #include <QList>
-
-namespace Git
-{
 
 namespace Impl
 {
 struct LanesFactory;
 }
 
-class LIBKOMMIT_EXPORT GraphLane
+class LIBKOMMITWIDGETS_EXPORT GraphLane
 {
 public:
     enum Type {
@@ -37,7 +34,7 @@ public:
     void setType(Type newType);
 
 private:
-    LIBKOMMIT_NO_EXPORT void generateRandomColor();
+    LIBKOMMITWIDGETS_NO_EXPORT void generateRandomColor();
 
     Type mType{None};
     QList<int> mBottomJoins;
@@ -48,5 +45,3 @@ private:
     friend struct Impl::LanesFactory;
 };
 bool operator==(const GraphLane &, const GraphLane &);
-
-}

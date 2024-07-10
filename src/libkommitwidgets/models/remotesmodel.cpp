@@ -5,23 +5,20 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "remotesmodel.h"
+#include "caches/branchescache.h"
+#include "caches/remotescache.h"
 #include "entities/branch.h"
 #include "entities/remote.h"
 #include "gitmanager.h"
 #include "qdebug.h"
-#include "types.h"
 
-namespace Git
-{
-
-RemotesModel::RemotesModel(Manager *git, QObject *parent)
+RemotesModel::RemotesModel(Git::Manager *git, QObject *parent)
     : AbstractGitItemsModel(git, parent)
 {
 }
 
 RemotesModel::~RemotesModel()
 {
-    qDeleteAll(mData);
 }
 
 int RemotesModel::columnCount(const QModelIndex &parent) const
@@ -50,7 +47,7 @@ QVariant RemotesModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-Remote *RemotesModel::fromIndex(const QModelIndex &index)
+QSharedPointer<Git::Remote> RemotesModel::fromIndex(const QModelIndex &index)
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
@@ -58,7 +55,7 @@ Remote *RemotesModel::fromIndex(const QModelIndex &index)
     return mData.at(index.row());
 }
 
-Remote *RemotesModel::findByName(const QString &name)
+QSharedPointer<Git::Remote> RemotesModel::findByName(const QString &name)
 {
     for (const auto &d : std::as_const(mData))
         if (d->name() == name)
@@ -85,57 +82,16 @@ void RemotesModel::clear()
     endResetModel();
 }
 
-void RemotesModel::fill()
+void RemotesModel::reload()
 {
-    qDeleteAll(mData.begin(), mData.end());
-    mData.clear();
-
-    if (!mGit)
+    beginResetModel();
+    if (mGit->isValid()) {
+        mData = mGit->remotesCache()->allRemotes();
+    } else {
+        mData.clear();
         return;
-
-    QMap<QString, Remote *> remotesMap;
-
-    git_strarray list{};
-    git_remote_list(&list, mGit->repoPtr());
-    auto remotes = convert(&list);
-    git_strarray_free(&list);
-
-    for (auto &r : remotes) {
-        git_remote *remote;
-        if (!git_remote_lookup(&remote, mGit->repoPtr(), r.toLatin1().data())) {
-            auto rem = new Remote{remote};
-            mData << rem;
-
-            remotesMap.insert(rem->name(), rem);
-        }
     }
-
-    git_branch_iterator *it;
-    git_branch_iterator_new(&it, mGit->repoPtr(), GIT_BRANCH_ALL);
-
-    git_reference *ref;
-    git_branch_t b;
-    qDebug() << remotesMap;
-    while (!git_branch_next(&ref, &b, it)) {
-        auto b = new Branch{ref};
-
-        auto remote = remotesMap.value(b->remoteName());
-
-        if (remote)
-            remote->mBranches << b;
-    }
-    git_branch_iterator_free(it);
-
-    //    const auto remotes = mGit->remotes();
-    //    for (const auto &remote : remotes) {
-    //        auto r = new Remote;
-    //        r->name = remote;
-    //        auto ret = QString(mGit->runGit({QStringLiteral("remote"), QStringLiteral("show"), remote}));
-    //        r->parse(ret);
-    //        mData.append(r);
-    //    }
-}
-
+    endResetModel();
 }
 
 #include "moc_remotesmodel.cpp"

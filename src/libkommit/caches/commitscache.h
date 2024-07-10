@@ -16,15 +16,20 @@ namespace Git
 {
 class Commit;
 class Branch;
-class LIBKOMMIT_EXPORT CommitsCache : public QObject, public AbstractCache<Commit>
+class LIBKOMMIT_EXPORT CommitsCache : public QObject, public OidCache<Commit, git_commit>
 {
     Q_OBJECT
-public:
-    explicit CommitsCache(git_repository *repo);
 
+public:
+    explicit CommitsCache(Manager *parent);
+
+    QSharedPointer<Commit> find(const QString &hash);
+
+    QList<QSharedPointer<Commit>> allCommits();
     QList<QSharedPointer<Commit>> commitsInBranch(QSharedPointer<Branch> branch);
 
-protected:
-    Commit *lookup(const QString &key, git_repository *repo) override;
+Q_SIGNALS:
+    void added(DataMember commit);
+    void removed(DataMember commit);
 };
 }

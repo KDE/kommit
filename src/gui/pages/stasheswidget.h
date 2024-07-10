@@ -10,17 +10,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "widgetbase.h"
 #include <entities/stash.h>
 
-namespace Git
-{
 class StashesModel;
-}
 class StashActions;
 class StashesWidget : public WidgetBase, private Ui::StashesWidget
 {
     Q_OBJECT
 
 public:
-    explicit StashesWidget(Git::Manager *git, AppWindow *parent = nullptr);
+    explicit StashesWidget(RepositoryData *git, AppWindow *parent = nullptr);
 
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
@@ -30,5 +27,5 @@ private:
     void slotTreeViewItemActivated(const QModelIndex &index);
     void init();
     StashActions *const mActions;
-    Git::StashesModel *const mModel;
+    StashesModel *const mModel;
 };

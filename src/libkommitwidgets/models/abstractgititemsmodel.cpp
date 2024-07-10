@@ -7,14 +7,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractgititemsmodel.h"
 #include "gitmanager.h"
 
-namespace Git
-{
-
-AbstractGitItemsModel::AbstractGitItemsModel(Manager *git, QObject *parent)
+AbstractGitItemsModel::AbstractGitItemsModel(Git::Manager *git, QObject *parent)
     : QAbstractListModel(parent)
     , mGit(git)
 {
-    //    connect(git, &Manager::pathChanged, this, &Cache::load);
+    connect(git, &Git::Manager::pathChanged, this, &AbstractGitItemsModel::load);
 }
 
 bool AbstractGitItemsModel::isLoaded() const
@@ -27,6 +24,10 @@ AbstractGitItemsModel::Status AbstractGitItemsModel::status() const
     return m_status;
 }
 
+void AbstractGitItemsModel::clear()
+{
+}
+
 void AbstractGitItemsModel::load()
 {
     if (!mGit->isValid())
@@ -34,7 +35,7 @@ void AbstractGitItemsModel::load()
 
     setStatus(Loading);
     beginResetModel();
-    fill();
+    reload();
     endResetModel();
     setStatus(Loaded);
 }
@@ -50,7 +51,5 @@ void AbstractGitItemsModel::setStatus(Status newStatus)
 
     Q_EMIT statusChanged();
 }
-
-} // namespace Git
 
 #include "moc_abstractgititemsmodel.cpp"

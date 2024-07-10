@@ -13,10 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <git2/stash.h>
 
-namespace Git
-{
-
-StashesModel::StashesModel(Manager *git, QObject *parent)
+StashesModel::StashesModel(Git::Manager *git, QObject *parent)
     : AbstractGitItemsModel(git, parent)
 {
 }
@@ -77,7 +74,7 @@ QVariant StashesModel::headerData(int section, Qt::Orientation orientation, int 
     return {};
 }
 
-QSharedPointer<Stash> StashesModel::fromIndex(const QModelIndex &index) const
+QSharedPointer<Git::Stash> StashesModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return {};
@@ -92,11 +89,11 @@ void StashesModel::clear()
     endResetModel();
 }
 
-void StashesModel::fill()
+void StashesModel::reload()
 {
     mData.clear();
 
-    mGit->forEachStash([this](QSharedPointer<Stash> stash) {
+    mGit->forEachStash([this](QSharedPointer<Git::Stash> stash) {
         mData << stash;
     });
 
@@ -118,7 +115,6 @@ void StashesModel::fill()
     //        mData.append(stash);
     //        id++;
     //    }
-}
 }
 
 #include "moc_stashesmodel.cpp"

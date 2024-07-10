@@ -28,3 +28,6 @@ private:
 };
 
 };
+
+bool operator==(const Git::Oid &oid, const QString &hash);
+bool operator!=(const Git::Oid &oid, const QString &hash);

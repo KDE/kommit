@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "graphpainter.h"
 
 #include "entities/commit.h"
-#include "models/logsmodel.h"
+#include "models/commitsmodel.h"
 #include <QPainter>
 #include <QPainterPath>
 
@@ -76,7 +76,7 @@ QPoint centerGuide(int x, Qt::Edge edge)
     return pt;
 }
 
-GraphPainter::GraphPainter(Git::LogsModel *model, QObject *parent)
+GraphPainter::GraphPainter(CommitsModel *model, QObject *parent)
     : QStyledItemDelegate(parent)
     , mModel(model)
 {
@@ -85,6 +85,7 @@ GraphPainter::GraphPainter(Git::LogsModel *model, QObject *parent)
 
 void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    auto lanes = mModel->lanesFromIndex(index);
     auto log = mModel->fromIndex(index);
 
     painter->setRenderHints(QPainter::Antialiasing);
@@ -104,9 +105,9 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
     painter->translate(option.rect.topLeft());
 
     int x{-1};
-    for (auto &l : log->lanes()) {
+    for (auto &l : lanes) {
         ++x;
-        if (l.type() == Git::GraphLane::None)
+        if (l.type() == GraphLane::None)
             continue;
 
         if (x >= mColors.size()) {
@@ -121,13 +122,13 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
         paintLane(painter, l, x);
     }
 
-    QRect rc(log->lanes().size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(log->message()), HEIGHT);
+    QRect rc(lanes.size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(log->message()), HEIGHT);
 
     painter->setPen(option.palette.color(QPalette::Text));
     if (!log->reference().isNull()) {
         const QString refStr{QStringLiteral("ref: ")};
         const auto ref = refStr + log->reference()->shorthand();
-        QRect rcBox(log->lanes().size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(ref) + 8, painter->fontMetrics().height() + 4);
+        QRect rcBox(lanes.size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(ref) + 8, painter->fontMetrics().height() + 4);
         rcBox.moveTop((HEIGHT - rcBox.height()) / 2);
 
         QLinearGradient linearGrad(rcBox.topLeft(), rcBox.bottomRight());
@@ -153,34 +154,34 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
     painter->restore();
 }
 
-void GraphPainter::paintLane(QPainter *painter, const Git::GraphLane &lane, int index) const
+void GraphPainter::paintLane(QPainter *painter, const GraphLane &lane, int index) const
 {
     switch (lane.type()) {
-    case Git::GraphLane::Start:
+    case GraphLane::Start:
         painter->drawLine(point(index), point(index, Qt::AlignTop));
         painter->setBrush(Qt::white);
         painter->drawEllipse(point(index), 3, 3);
         break;
-    case Git::GraphLane::Pipe:
+    case GraphLane::Pipe:
         painter->drawLine(point(index, Qt::AlignTop), point(index, Qt::AlignBottom));
         break;
-    case Git::GraphLane::Node:
+    case GraphLane::Node:
         painter->drawLine(point(index, Qt::AlignTop), point(index, Qt::AlignBottom));
         painter->setBrush(Qt::white);
         painter->drawEllipse(point(index), 3, 3);
         break;
-    case Git::GraphLane::End:
+    case GraphLane::End:
         painter->drawLine(point(index), point(index, Qt::AlignBottom));
         painter->setBrush(Qt::white);
         painter->drawEllipse(point(index), 3, 3);
         break;
-    case Git::GraphLane::Test:
+    case GraphLane::Test:
         painter->drawLine(point(index, Qt::AlignTop | Qt::AlignLeft), point(index, Qt::AlignBottom | Qt::AlignRight));
         painter->drawLine(point(index, Qt::AlignTop | Qt::AlignRight), point(index, Qt::AlignBottom | Qt::AlignLeft));
         break;
 
-    case Git::GraphLane::None:
-    case Git::GraphLane::Transparent:
+    case GraphLane::None:
+    case GraphLane::Transparent:
         break; // just to avoid compiler warning
     }
 

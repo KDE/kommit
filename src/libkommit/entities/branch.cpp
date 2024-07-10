@@ -111,4 +111,9 @@ QString Branch::treeTitle() const
 {
     return name();
 }
+
+git_reference *Branch::refPtr() const
+{
+    return mBranch;
+}
 }

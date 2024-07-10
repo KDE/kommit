@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "remotesactions.h"
+#include "caches/remotescache.h"
 #include "libkommitwidgets_appdebug.h"
 
 #include <KLocalizedString>
@@ -46,35 +47,30 @@ void RemotesActions::create()
 {
     RemoteInfoDialog d{mParent};
     if (d.exec() == QDialog::Accepted) {
-        //        _git->addRemote(d.remoteName(), d.remoteUrl());
-
-        RunnerDialog runner(mGit);
-        runner.run(d.command());
-        runner.exec();
-        mGit->remotesModel()->load();
+        // TODO: show a message in case of error
+        (void)mGit->remotesCache()->create(d.remoteName(), d.remoteUrl());
     }
 }
 
 void RemotesActions::remove()
 {
-    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected remote?"), i18nc("@title:window", "Remove remote?"))) {
-        if (!mGit->removeRemote(mRemoteName)) {
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected remote?"), i18n("Remove remote?"))) {
+        if (!mGit->remotesCache()->remove(mRemote)) {
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected remote"));
             return;
         }
-        mGit->remotesModel()->load();
     }
 }
 
 void RemotesActions::changeUrl()
 {
-    auto remote = mGit->remotesModel()->findByName(mRemoteName);
+    auto remote = mGit->remotesCache()->findByName(mRemoteName);
 
     if (!remote)
         return;
     const auto newUrl = QInputDialog::getText(mParent, i18nc("@title:window", "Change url"), i18n("URL"), QLineEdit::Normal, remote->pushUrl());
     if (!newUrl.isEmpty()) {
-        mGit->remotesModel()->setUrl(mRemoteName, newUrl);
+        mGit->remotesCache()->setUrl(mRemote, newUrl);
         KMessageBoxHelper::information(mParent, i18n("Url for remote changed successfully"));
     }
 }
@@ -84,7 +80,7 @@ void RemotesActions::rename()
     const auto newName = QInputDialog::getText(mParent, i18nc("@title:window", "Rename"), i18n("New name"), QLineEdit::Normal, mRemoteName);
 
     if (!newName.isEmpty()) {
-        mGit->remotesModel()->rename(mRemoteName, newName);
+        mGit->remotesCache()->rename(mRemote, newName);
         mRemoteName = newName;
     }
 }
@@ -93,6 +89,16 @@ void RemotesActions::update()
 {
     // TODO implement it.
     qCWarning(KOMMIT_WIDGETS_LOG()) << "RemotesActions::update not implemented";
+}
+
+QSharedPointer<Git::Remote> RemotesActions::remote() const
+{
+    return mRemote;
+}
+
+void RemotesActions::setRemote(QSharedPointer<Git::Remote> newRemote)
+{
+    mRemote = newRemote;
 }
 
 #include "moc_remotesactions.cpp"
