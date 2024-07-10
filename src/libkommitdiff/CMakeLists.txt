@@ -38,7 +38,6 @@ set_target_properties(libkommitdiff
 
 target_link_libraries(libkommitdiff
     Qt::Core
-    Qt::Gui
 )
 
 install(
