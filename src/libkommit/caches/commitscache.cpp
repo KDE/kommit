@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/commit.h"
 #include "gitglobal_p.h"
 #include "gitmanager.h"
+#include "types.h"
 
 #include <git2/commit.h>
 #include <git2/revparse.h>

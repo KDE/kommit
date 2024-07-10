@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "branchesdifftest.h"
 #include "caches/branchescache.h"
+#include "entities/treediff.h"
 #include "testcommon.h"
 
 #include <QTest>

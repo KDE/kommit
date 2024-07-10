@@ -3,18 +3,12 @@
 
 #pragma once
 
-#include "blamedata.h"
-#include "commands/abstractcommand.h"
-#include "entities/file.h"
-#include "entities/remote.h"
-#include "entities/stash.h"
-#include "entities/treediff.h"
-#include "filestatus.h"
-#include "gitglobal.h"
 #include "libkommit_export.h"
+
 #include "types.h"
 
 #include <QObject>
+#include <QSharedPointer>
 #include <QString>
 
 #include <git2.h>
@@ -36,7 +30,7 @@ class Index;
 class Tree;
 class Note;
 class ManagerPrivate;
-
+class Commit;
 class CommitsCache;
 class BranchesCache;
 class TagsCache;
@@ -45,6 +39,11 @@ class NotesCache;
 class SubmodulesCache;
 class StashesCache;
 class ReferenceCache;
+class AbstractCommand;
+class BlameData;
+class FileStatus;
+class File;
+class TreeDiff;
 
 class LIBKOMMIT_EXPORT Manager : public QObject
 {
@@ -85,30 +84,10 @@ public:
     Q_REQUIRED_RESULT bool isMerging() const;
 
     // branches
-    // Q_REQUIRED_RESULT QSharedPointer<Branch> branch(const QString &branchName);
-    // Q_REQUIRED_RESULT QString currentBranch() const;
-    // bool createBranch(const QString &branchName) const;
     bool switchBranch(const QString &branchName) const;
-    // Q_REQUIRED_RESULT QStringList branchesNames(BranchType type);
-    // Q_REQUIRED_RESULT PointerList<Branch> branches(BranchType type);
-    // Q_REQUIRED_RESULT bool removeBranch(const QString &branchName) const;
-    // bool merge(const QString &branchName) const;
     Q_REQUIRED_RESULT QPair<int, int> uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const;
 
-    // tags
-    // void forEachTags(std::function<void(QSharedPointer<Tag>)> cb);
-    // Q_REQUIRED_RESULT QStringList tagsNames() const;
-    // Q_REQUIRED_RESULT QList<QSharedPointer<Tag>> tags() const;
-    // bool createTag(const QString &name, const QString &message) const;
-    // bool removeTag(const QString &name) const;
-    // bool removeTag(QSharedPointer<Tag> tag) const;
-
     // remotes
-    // QSharedPointer<Remote> remote(const QString &name) const;
-    // Q_REQUIRED_RESULT QStringList remotes() const;
-    // Q_REQUIRED_RESULT bool addRemote(const QString &name, const QString &url) const;
-    // Q_REQUIRED_RESULT bool removeRemote(const QString &name) const;
-    // Q_REQUIRED_RESULT bool renameRemote(const QString &name, const QString &newName) const;
     bool fetch(const QString &remoteName, FetchObserver *observer = nullptr);
 
     // config
@@ -154,13 +133,6 @@ public:
 
     void forEachCommits(std::function<void(QSharedPointer<Commit>)> callback, const QString &branchName) const;
 
-    // submodules
-    // void forEachSubmodules(std::function<void(Submodule *)> callback);
-    // bool addSubmodule(const AddSubmoduleOptions &options) const;
-    // bool removeSubmodule(const QString &name) const;
-    // Q_REQUIRED_RESULT PointerList<Submodule> submodules() const;
-    // QSharedPointer<Submodule> submodule(const QString &name) const;
-
     Q_REQUIRED_RESULT QSharedPointer<Index> index() const;
     Q_REQUIRED_RESULT QSharedPointer<Tree> headTree() const;
 
@@ -193,12 +165,7 @@ private:
     ManagerPrivate *d_ptr;
     Q_DECLARE_PRIVATE(Manager)
 
-    LIBKOMMIT_NO_EXPORT int findStashIndex(const QString &message) const;
     LIBKOMMIT_NO_EXPORT QStringList readAllNonEmptyOutput(const QStringList &cmd) const;
-    LIBKOMMIT_NO_EXPORT QString escapeFileName(const QString &filePath) const;
-
-    friend class File;
-    friend class Stash;
 };
 
 } // namespace Git

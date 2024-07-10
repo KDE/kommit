@@ -23,6 +23,21 @@ enum class BranchType {
     RemoteBranch,
     AllBranches,
 };
+enum class ChangeStatus {
+    Unknown,
+    Unmodified,
+    Modified,
+    Added,
+    Removed,
+    Renamed,
+    Copied,
+    UpdatedButInmerged,
+    Ignored,
+    Untracked,
+    TypeChange,
+    Unreadable,
+    Conflicted,
+};
 
 class Buf : public QSharedPointer<git_buf>
 {

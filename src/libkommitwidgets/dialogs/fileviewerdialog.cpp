@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "fileviewerdialog.h"
+#include "entities/file.h"
 #include "gitmanager.h"
 
 #include <KActionCollection>

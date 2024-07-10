@@ -15,6 +15,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QStandardItemModel>
 #include <QtConcurrent>
 #include <entities/commit.h>
+#include <gitloglist.h>
 #include <gitmanager.h>
 
 SearchDialog::SearchDialog(const QString &path, Git::Manager *git, QWidget *parent)

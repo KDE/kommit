@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommit_export.h"
 #include <QList>
 #include <QMap>
+#include <entities/commit.h>
 
 namespace Git
 {

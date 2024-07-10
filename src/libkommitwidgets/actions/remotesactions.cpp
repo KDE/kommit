@@ -6,13 +6,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "remotesactions.h"
 #include "caches/remotescache.h"
+#include "entities/remote.h"
 #include "libkommitwidgets_appdebug.h"
 
 #include <KLocalizedString>
 
 #include <QInputDialog>
 
-#include "commands/commandaddremote.h"
 #include "core/kmessageboxhelper.h"
 #include "dialogs/remoteinfodialog.h"
 #include "dialogs/runnerdialog.h"

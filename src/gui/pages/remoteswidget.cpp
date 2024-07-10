@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "remoteswidget.h"
 #include "actions/remotesactions.h"
+#include "entities/remote.h"
 #include "models/remotesmodel.h"
 
 #include <core/repositorydata.h>

@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/stash.h"
 #include "gitglobal_p.h"
 #include "gitmanager.h"
+#include "types.h"
 
 #include <git2/errors.h>
 #include <git2/stash.h>

@@ -7,26 +7,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 #include "commands/abstractcommand.h"
 #include "libkommit_export.h"
+#include "types.h"
 
 #include <QStringList>
 
 namespace Git
 {
-enum class ChangeStatus {
-    Unknown,
-    Unmodified,
-    Modified,
-    Added,
-    Removed,
-    Renamed,
-    Copied,
-    UpdatedButInmerged,
-    Ignored,
-    Untracked,
-    TypeChange,
-    Unreadable,
-    Conflicted,
-};
 
 LIBKOMMIT_EXPORT void run(const QString &workingDir, const QStringList &args);
 LIBKOMMIT_EXPORT void run(const QString &workingDir, const AbstractCommand &cmd);
