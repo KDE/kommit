@@ -14,6 +14,7 @@
 #include "caches/stashescache.h"
 #include "caches/submodulescache.h"
 #include "caches/tagscache.h"
+#include "commands/abstractcommand.h"
 #include "entities/branch.h"
 #include "entities/commit.h"
 #include "entities/index.h"
