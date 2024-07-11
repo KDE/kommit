@@ -26,7 +26,7 @@ SubmodulesModel::SubmodulesModel(Git::Manager *manager)
     : AbstractGitItemsModel{manager}
     , d_ptr{new SubmodulesModelPrivate{this, manager}}
 {
-    connect(manager->submodulesCache(), &Git::SubmodulesCache::added, this, &SubmodulesModel::append);
+    connect(manager->submodules(), &Git::SubmodulesCache::added, this, &SubmodulesModel::append);
 }
 
 SubmodulesModel::~SubmodulesModel()
@@ -121,7 +121,7 @@ void SubmodulesModel::reload()
 
 SubmodulesModelPrivate::SubmodulesModelPrivate(SubmodulesModel *parent, Git::Manager *manager)
     : manager{manager}
-    , cache{manager->submodulesCache()}
+    , cache{manager->submodules()}
     , q_ptr{parent}
 {
 }

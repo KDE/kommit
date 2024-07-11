@@ -1142,7 +1142,7 @@ CommitsCache *Manager::commits() const
     return d->commitsCache;
 }
 
-SubmodulesCache *Manager::submodulesCache() const
+SubmodulesCache *Manager::submodules() const
 {
     Q_D(const Manager);
     return d->submodulesCache;

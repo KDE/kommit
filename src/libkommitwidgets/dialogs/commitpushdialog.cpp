@@ -60,7 +60,7 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     mModel->reload();
     readConfig();
 
-    auto submodules = mGit->submodulesCache()->allSubmodules();
+    auto submodules = mGit->submodules()->allSubmodules();
     auto modifiedSubmoduleFound = std::any_of(submodules.constBegin(), submodules.constEnd(), [](const QSharedPointer<Git::Submodule> &submodule) {
         return submodule->status() & Git::Submodule::Status::WdWdModified;
     });

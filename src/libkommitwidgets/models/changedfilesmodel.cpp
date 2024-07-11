@@ -91,7 +91,7 @@ void ChangedFilesModel::reload()
 
     mData.clear();
 
-    auto submodules = mGit->submodulesCache()->allSubmodules();
+    auto submodules = mGit->submodules()->allSubmodules();
     for (auto const &submodule : std::as_const(submodules)) {
         using Status = Git::Submodule::Status;
         auto status = submodule->status();

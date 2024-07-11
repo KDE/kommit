@@ -141,7 +141,7 @@ public:
     Q_REQUIRED_RESULT static Manager *owner(git_repository *repo);
 
     Q_REQUIRED_RESULT CommitsCache *commits() const;
-    Q_REQUIRED_RESULT SubmodulesCache *submodulesCache() const;
+    Q_REQUIRED_RESULT SubmodulesCache *submodules() const;
     Q_REQUIRED_RESULT RemotesCache *remotes() const;
     Q_REQUIRED_RESULT BranchesCache *branches() const;
     Q_REQUIRED_RESULT TagsCache *tags() const;

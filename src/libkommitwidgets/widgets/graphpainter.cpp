@@ -16,6 +16,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #define HEIGHT 25
 #define WIDTH 18
 
+namespace Sizes
+{
+constexpr const int dotSize{3};
+}
 class GraphPainterPrivate
 {
     GraphPainter *q_ptr;
@@ -34,6 +38,8 @@ public:
     QPoint centerEdge(int x, Qt::Edge edge) const;
     QPoint point(int col, Qt::Alignment align = Qt::AlignCenter) const;
     QPoint centerGuide(int x, Qt::Edge edge) const;
+    void paintPathToTop(QPainter *painter, int from, int to) const;
+    void paintPathToDown(QPainter *painter, int from, int to) const;
 };
 
 GraphPainter::GraphPainter(CommitsModel *model, QObject *parent)
@@ -149,7 +155,7 @@ void GraphPainterPrivate::paintLane(QPainter *painter, const GraphLane &lane, in
     case GraphLane::Start:
         painter->drawLine(point(index), point(index, Qt::AlignTop));
         painter->setBrush(Qt::white);
-        painter->drawEllipse(point(index), 3, 3);
+        painter->drawEllipse(point(index), Sizes::dotSize, Sizes::dotSize);
         break;
     case GraphLane::Pipe:
         painter->drawLine(point(index, Qt::AlignTop), point(index, Qt::AlignBottom));
@@ -157,12 +163,12 @@ void GraphPainterPrivate::paintLane(QPainter *painter, const GraphLane &lane, in
     case GraphLane::Node:
         painter->drawLine(point(index, Qt::AlignTop), point(index, Qt::AlignBottom));
         painter->setBrush(Qt::white);
-        painter->drawEllipse(point(index), 3, 3);
+        painter->drawEllipse(point(index), Sizes::dotSize, Sizes::dotSize);
         break;
     case GraphLane::End:
         painter->drawLine(point(index), point(index, Qt::AlignBottom));
         painter->setBrush(Qt::white);
-        painter->drawEllipse(point(index), 3, 3);
+        painter->drawEllipse(point(index), Sizes::dotSize, Sizes::dotSize);
         break;
     case GraphLane::Test:
         painter->drawLine(point(index, Qt::AlignTop | Qt::AlignLeft), point(index, Qt::AlignBottom | Qt::AlignRight));
@@ -175,22 +181,11 @@ void GraphPainterPrivate::paintLane(QPainter *painter, const GraphLane &lane, in
     }
 
     for (const auto &i : lane.upJoins()) {
-        painter->drawEllipse(point(i), 2, 2);
-        QPainterPath p;
-        p.moveTo(point(i));
-        p.cubicTo(centerGuide(index, Qt::LeftEdge), centerGuide(index, Qt::TopEdge), point(index, Qt::AlignTop));
-        painter->setBrush(Qt::transparent);
-        painter->drawPath(p);
+        paintPathToTop(painter, i, index);
     }
     for (const auto &i : lane.bottomJoins()) {
-        painter->drawEllipse(point(i), 2, 2);
-
-        QPainterPath p;
-        p.moveTo(point(index, Qt::AlignBottom));
-        p.cubicTo(centerGuide(index, Qt::BottomEdge), centerGuide(index, Qt::LeftEdge), point(i));
-        painter->setBrush(Qt::transparent);
-        //        painter->setPen(Qt::DotLine);
-        painter->drawPath(p);
+        // painter->drawEllipse(point(i), 2, 2);
+        paintPathToDown(painter, i, index);
     }
 }
 
@@ -254,6 +249,41 @@ QPoint GraphPainterPrivate::centerGuide(int x, Qt::Edge edge) const
         break;
     }
     return pt;
+}
+
+void GraphPainterPrivate::paintPathToTop(QPainter *painter, int from, int to) const
+{
+    QPainterPath p;
+
+    if (from < to) {
+        p.moveTo(centerGuide(from, Qt::RightEdge));
+        p.lineTo(centerEdge(to, Qt::LeftEdge));
+        p.cubicTo(centerGuide(to, Qt::LeftEdge), centerGuide(to, Qt::TopEdge), centerEdge(to, Qt::TopEdge));
+
+    } else {
+        p.moveTo(centerGuide(from, Qt::LeftEdge));
+        p.lineTo(centerEdge(to, Qt::RightEdge));
+        p.cubicTo(centerGuide(to, Qt::RightEdge), centerGuide(to, Qt::TopEdge), centerEdge(to, Qt::TopEdge));
+    }
+    painter->setBrush(Qt::transparent);
+    painter->drawPath(p);
+}
+
+void GraphPainterPrivate::paintPathToDown(QPainter *painter, int from, int to) const
+{
+    QPainterPath p;
+
+    if (from < to) {
+        p.moveTo(centerGuide(from, Qt::RightEdge));
+        p.lineTo(centerEdge(to, Qt::LeftEdge));
+        p.cubicTo(centerGuide(to, Qt::LeftEdge), centerGuide(to, Qt::BottomEdge), centerEdge(to, Qt::BottomEdge));
+    } else {
+        p.moveTo(centerGuide(from, Qt::LeftEdge));
+        p.lineTo(centerEdge(to, Qt::RightEdge));
+        p.cubicTo(centerGuide(to, Qt::RightEdge), centerGuide(to, Qt::BottomEdge), centerEdge(to, Qt::BottomEdge));
+    }
+    painter->setBrush(Qt::transparent);
+    painter->drawPath(p);
 }
 
 #include "moc_graphpainter.cpp"

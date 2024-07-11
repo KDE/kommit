@@ -58,11 +58,11 @@ void SubmoduleTest::addSubmodule()
     opts.path = "3rdparty/libgit2";
     TestCommon::makePath(mManager, "3rdparty/libgit2");
 
-    auto ok = mManager->submodulesCache()->add(opts);
+    auto ok = mManager->submodules()->add(opts);
 
     QVERIFY(ok);
 
-    auto submodules = mManager->submodulesCache()->allSubmodules();
+    auto submodules = mManager->submodules()->allSubmodules();
     QCOMPARE(submodules.size(), 1);
 
     auto newSubmodule = submodules.first();
@@ -97,7 +97,7 @@ void SubmoduleTest::addInSameLocation()
     opts.url = "https://github.com/HamedMasafi/Logger.git";
     opts.path = "3rdparty/libgit2";
 
-    auto ok = mManager->submodulesCache()->add(opts);
+    auto ok = mManager->submodules()->add(opts);
 
     QVERIFY(!ok);
 
@@ -108,7 +108,7 @@ void SubmoduleTest::addInSameLocation()
 
 void SubmoduleTest::checkExists()
 {
-    auto submodules = mManager->submodulesCache()->allSubmodules();
+    auto submodules = mManager->submodules()->allSubmodules();
     QCOMPARE(submodules.size(), 1);
 
     auto submodule = submodules.first();
@@ -120,7 +120,7 @@ void SubmoduleTest::checkExists()
 
 void SubmoduleTest::lookup()
 {
-    auto submodule = mManager->submodulesCache()->findByName("3rdparty/libgit2");
+    auto submodule = mManager->submodules()->findByName("3rdparty/libgit2");
 
     QVERIFY(submodule != nullptr);
     QCOMPARE(submodule->name(), "3rdparty/libgit2");
