@@ -37,19 +37,19 @@ QVariant StashesModel::data(const QModelIndex &index, int role) const
     if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return {};
 
-    auto remote = mData.at(index.row());
+    auto stash = mData.at(index.row());
 
     switch (index.column()) {
     case Subject:
-        return remote->message();
+        return stash->message();
     case CommitHash:
-        return remote->commit()->commitHash();
+        return stash->commit()->commitHash();
     case AuthorName:
-        return remote->commit()->author()->name();
+        return stash->commit()->author()->name();
     case AuthorEmail:
-        return remote->commit()->author()->email();
+        return stash->commit()->author()->email();
     case Time:
-        return remote->commit()->author()->time();
+        return stash->commit()->author()->time();
     }
     return {};
 }

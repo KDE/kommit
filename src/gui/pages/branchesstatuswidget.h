@@ -28,6 +28,7 @@ public:
 private:
     void init();
     void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
+    void slotTreeViewActivated(const QModelIndex &index);
     void slotPushButtonRemoveSelectedClicked();
     void slotComboBoxReferenceBranchCurrentIndexChanged(int selectedBranch);
     BranchActions *const mActions;

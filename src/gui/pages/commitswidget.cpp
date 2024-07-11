@@ -86,7 +86,7 @@ void CommitsWidget::slotTreeViewRepoCustomContextMenuRequested(const QPoint &pos
 {
     Q_UNUSED(pos)
     auto branchName = mRepoModel->fullPath(treeViewRepo->currentIndex());
-    mActions->setBranchName(mBranchesMap.value(branchName));
+    mActions->setBranch(mBranchesMap.value(branchName));
     mActions->popup();
 }
 

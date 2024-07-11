@@ -45,6 +45,8 @@ void BranchesStatusWidget::init()
     connect(comboBoxReferenceBranch, &QComboBox::currentIndexChanged, this, &BranchesStatusWidget::slotComboBoxReferenceBranchCurrentIndexChanged);
     connect(pushButtonRemoveSelected, &QPushButton::clicked, this, &BranchesStatusWidget::slotPushButtonRemoveSelectedClicked);
     connect(treeView, &QTreeView::customContextMenuRequested, this, &BranchesStatusWidget::slotTreeViewCustomContextMenuRequested);
+    connect(treeView, &QTreeView::activated, this, &BranchesStatusWidget::slotTreeViewActivated);
+    connect(treeView, &QTreeView::clicked, this, &BranchesStatusWidget::slotTreeViewActivated);
 }
 
 void BranchesStatusWidget::saveState(QSettings &settings) const
@@ -88,8 +90,16 @@ void BranchesStatusWidget::slotTreeViewCustomContextMenuRequested(const QPoint &
     auto b = mModel->fromIndex(treeView->currentIndex());
     if (!b)
         return;
-    mActions->setBranchName(b);
+    mActions->setBranch(b);
     mActions->popup();
+}
+
+void BranchesStatusWidget::slotTreeViewActivated(const QModelIndex &index)
+{
+    auto b = mModel->fromIndex(index);
+    if (!b)
+        return;
+    mActions->setBranch(b);
 }
 
 #include "moc_branchesstatuswidget.cpp"

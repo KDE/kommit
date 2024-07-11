@@ -38,16 +38,16 @@ BranchActions::BranchActions(Git::Manager *git, QWidget *parent)
     _actionRemove = addActionDisabled(i18nc("@action", "Remove…"), this, &BranchActions::remove);
 }
 
-void BranchActions::setBranchName(QSharedPointer<Git::Branch> newBranchName)
+void BranchActions::setBranch(QSharedPointer<Git::Branch> newBranch)
 {
-    mBranchName = newBranchName;
+    mBranch = newBranch;
 
-    setActionEnabled(_actionFetch, true);
-    setActionEnabled(_actionBrowse, true);
-    setActionEnabled(_actionCheckout, true);
-    setActionEnabled(_actionMerge, true);
-    setActionEnabled(_actionDiff, true);
-    setActionEnabled(_actionRemove, true);
+    setActionEnabled(_actionFetch, !newBranch.isNull());
+    setActionEnabled(_actionBrowse, !newBranch.isNull());
+    setActionEnabled(_actionCheckout, !newBranch.isNull());
+    setActionEnabled(_actionMerge, !newBranch.isNull());
+    setActionEnabled(_actionDiff, !newBranch.isNull());
+    setActionEnabled(_actionRemove, !newBranch.isNull());
 }
 
 void BranchActions::setOtherBranch(QSharedPointer<Git::Branch> newOtherBranch)
@@ -58,7 +58,7 @@ void BranchActions::setOtherBranch(QSharedPointer<Git::Branch> newOtherBranch)
 void BranchActions::fetch()
 {
     FetchDialog d(mGit, mParent);
-    d.setBranch(mBranchName->name());
+    d.setBranch(mBranch->name());
     d.exec();
 }
 
@@ -73,14 +73,14 @@ void BranchActions::create()
 
 void BranchActions::browse()
 {
-    FilesTreeDialog d(mGit, mBranchName, mParent);
+    FilesTreeDialog d(mGit, mBranch, mParent);
     d.exec();
 }
 
 void BranchActions::checkout()
 {
     RunnerDialog d(mGit, mParent);
-    d.run({QStringLiteral("checkout"), mBranchName->name()});
+    d.run({QStringLiteral("checkout"), mBranch->name()});
     d.exec();
 }
 
@@ -106,21 +106,21 @@ void BranchActions::diff()
         }
     }
 
-    auto d = new DiffWindow(mGit, branchToDiff, mBranchName->name());
+    auto d = new DiffWindow(mGit, branchToDiff, mBranch->name());
     d->showModal();
 }
 
 void BranchActions::remove()
 {
     if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected branch?"), i18n("Remove Branch"))) {
-        if (!mGit->branches()->remove(mBranchName))
+        if (!mGit->branches()->remove(mBranch))
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected branch"));
     }
 }
 
 void BranchActions::merge()
 {
-    MergeDialog d{mGit, mBranchName->name(), mParent};
+    MergeDialog d{mGit, mBranch->name(), mParent};
     if (d.exec() == QDialog::Accepted) {
         auto cmd = d.command();
         RunnerDialog runner(mGit, mParent);

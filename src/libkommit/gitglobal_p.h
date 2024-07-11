@@ -11,6 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #define BEGIN int LIBGIT_ERR_CHECK_VARIABLE = 0;
 #define RESTART LIBGIT_ERR_CHECK_VARIABLE = 0;
 #define STEP LIBGIT_ERR_CHECK_VARIABLE = LIBGIT_ERR_CHECK_VARIABLE ? LIBGIT_ERR_CHECK_VARIABLE:
+
+#ifdef QDEBUG_H
 #define END                                                                                                                                                    \
     do {                                                                                                                                                       \
         if (LIBGIT_ERR_CHECK_VARIABLE) {                                                                                                                       \
@@ -21,6 +23,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
                                          << ", Message: " << __git_err_msg;                                                                                    \
         }                                                                                                                                                      \
     } while (false)
+#else
+#define END
+#endif
 
 #define PRINT_ERROR END
 #define RETURN_COND(ok, error)                                                                                                                                 \
