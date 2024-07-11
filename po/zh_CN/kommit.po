@@ -357,11 +357,10 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "您想要保留磁盘上的文件吗？"
 
 #: src/gui/commandargsparser.cpp:575
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
-msgstr "移除远端？"
+msgstr ""
 
 #: src/gui/commandargsparser.cpp:577
 #, kde-format
@@ -1015,11 +1014,10 @@ msgid "Branch name"
 msgstr "分支名称"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:118
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Branch"
-msgstr "删除分支"
+msgstr ""
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, kde-format
@@ -1131,11 +1129,10 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "您确定要删除所选远端吗？"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove remote?"
-msgstr "移除远端？"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:62
 #, kde-format
@@ -1193,11 +1190,10 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "您确定要应用选定的暂存？"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Apply stash %1"
-msgstr "应用暂存 %1"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:38
 #, kde-format
@@ -1210,11 +1206,10 @@ msgid "Are you sure to drop the selected stash?"
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:46
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Drop stash %1"
-msgstr "应用暂存 %1"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:48
 #: src/libkommitwidgets/actions/stashactions.cpp:59
@@ -1228,11 +1223,10 @@ msgid "Are you sure to pop the selected stash?"
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pop stash %1"
-msgstr "应用暂存 %1"
+msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:75
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
@@ -1324,11 +1318,10 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "您确定要删除选中的标签吗？"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove tag"
-msgstr "移除"
+msgstr ""
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
@@ -1336,11 +1329,10 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr ""
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
-msgstr "检出"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
@@ -2445,11 +2437,10 @@ msgid "The selected branches must be different!"
 msgstr "所选分支必须不同！"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Select branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
-msgstr "选择分支"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:14
