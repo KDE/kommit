@@ -33,6 +33,8 @@ public:
     DataMember findForRemote(QSharedPointer<Remote> remote);
     DataList findForCommit(QSharedPointer<Commit> commit);
 
+    void forEach(std::function<void(DataMember)> callback) const;
+
 private:
     void fill();
 

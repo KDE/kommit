@@ -232,7 +232,7 @@ CommitsModel::CommitsModel(Git::Manager *git, QObject *parent)
     : AbstractGitItemsModel(git, parent)
     , d_ptr{new CommitsModelPrivate{this}}
 {
-    connect(git->commitsCache(), &Git::CommitsCache::added, this, &CommitsModel::reload);
+    connect(git->commits(), &Git::CommitsCache::added, this, &CommitsModel::reload);
     connect(git, &Git::Manager::pathChanged, this, &CommitsModel::reload);
 }
 
@@ -414,7 +414,7 @@ void CommitsModel::reload()
     Q_D(CommitsModel);
 
     if (mGit->isValid()) {
-        d->list = mGit->commitsCache()->allCommits();
+        d->list = mGit->commits()->allCommits();
         d->dataByCommitHashLong.clear();
         d->data.clear();
 

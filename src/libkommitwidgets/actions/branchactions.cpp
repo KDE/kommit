@@ -20,7 +20,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/fetchdialog.h"
 #include "dialogs/filestreedialog.h"
 #include "dialogs/mergedialog.h"
-#include "dialogs/notedialog.h"
 #include "dialogs/runnerdialog.h"
 #include "models/branchesmodel.h"
 #include "windows/diffwindow.h"
@@ -37,7 +36,6 @@ BranchActions::BranchActions(Git::Manager *git, QWidget *parent)
     _actionMerge = addActionDisabled(i18nc("@action", "Merge…"), this, &BranchActions::merge);
     _actionDiff = addActionDisabled(i18nc("@action", "Diff"), this, &BranchActions::diff);
     _actionRemove = addActionDisabled(i18nc("@action", "Remove…"), this, &BranchActions::remove);
-    _actionNote = addActionDisabled(i18nc("@action", "Note…"), this, &BranchActions::note);
 }
 
 void BranchActions::setBranchName(QSharedPointer<Git::Branch> newBranchName)
@@ -50,7 +48,6 @@ void BranchActions::setBranchName(QSharedPointer<Git::Branch> newBranchName)
     setActionEnabled(_actionMerge, true);
     setActionEnabled(_actionDiff, true);
     setActionEnabled(_actionRemove, true);
-    setActionEnabled(_actionNote, true);
 }
 
 void BranchActions::setOtherBranch(QSharedPointer<Git::Branch> newOtherBranch)
@@ -71,8 +68,6 @@ void BranchActions::create()
 
     if (!newBranchName.isEmpty()) {
         mGit->branches()->create(newBranchName);
-        // mGit->runGit({QStringLiteral("checkout"), QStringLiteral("-b"), newBranchName});
-        // mGit->branchesModel()->load();
     }
 }
 
@@ -132,12 +127,6 @@ void BranchActions::merge()
         runner.run(cmd);
         runner.exec();
     }
-}
-
-void BranchActions::note()
-{
-    NoteDialog d{mGit, mBranchName->name(), mParent};
-    d.exec();
 }
 
 #include "moc_branchactions.cpp"

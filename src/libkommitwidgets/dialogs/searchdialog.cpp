@@ -97,7 +97,7 @@ void SearchDialog::beginSearch()
             mProgress.value++;
         }
     } else {
-        auto commits = mGit->commitsCache()->allCommits();
+        auto commits = mGit->commits()->allCommits();
         Git::LogList list;
         list.load(mGit);
 

@@ -19,9 +19,11 @@ namespace Git
 
 class Note;
 
-class LIBKOMMIT_EXPORT NotesCache : public Cache<git_note, Note>
+class LIBKOMMIT_EXPORT NotesCache : public Cache<Note, git_note>
 {
 public:
     explicit NotesCache(Manager *parent);
+
+    DataList allNotes();
 };
 };

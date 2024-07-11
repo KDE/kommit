@@ -31,7 +31,6 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void diff();
     LIBKOMMITWIDGETS_NO_EXPORT void remove();
     LIBKOMMITWIDGETS_NO_EXPORT void merge();
-    LIBKOMMITWIDGETS_NO_EXPORT void note();
 
     QSharedPointer<Git::Branch> mBranchName;
     QSharedPointer<Git::Branch> mOtherBranch;
@@ -43,5 +42,4 @@ private:
     DEFINE_ACTION(actionMerge)
     DEFINE_ACTION(actionCreate)
     DEFINE_ACTION(actionRemove)
-    DEFINE_ACTION(actionNote)
 };

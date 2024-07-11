@@ -16,8 +16,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 HistoryViewWidget::HistoryViewWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)
-    , mActions(new CommitActions(git, this))
-    , mHistoryModel(git->logsModel())
+    , mActions(new CommitActions(git->manager(), this))
+    , mHistoryModel(git->commitsModel())
     , mGraphPainter(new GraphPainter(mHistoryModel, this))
 {
     setupUi(this);

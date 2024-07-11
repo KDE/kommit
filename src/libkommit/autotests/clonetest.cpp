@@ -50,7 +50,7 @@ void CloneTest::clone()
 
 void CloneTest::initialCommitTree()
 {
-    auto commit = mManager->commitsCache()->find("05659b9f92b7932bb2c04ced181dbdde294cb0bb");
+    auto commit = mManager->commits()->find("05659b9f92b7932bb2c04ced181dbdde294cb0bb");
     qDebug() << commit->message();
     QVERIFY(commit);
 

@@ -69,7 +69,7 @@ void FileTest::makeThirdCommit()
 
 void FileTest::checkContents()
 {
-    auto commits = mManager->commitsCache()->allCommits();
+    auto commits = mManager->commits()->allCommits();
     QCOMPARE(commits.size(), 3);
     QCOMPARE(commits.at(2)->message(), "first commit");
     QCOMPARE(commits.at(1)->message(), "second commit");

@@ -113,14 +113,6 @@ public:
     Q_DECL_DEPRECATED
     Q_REQUIRED_RESULT QList<FileStatus> repoFilesStatus() const;
 
-    // notes
-    Q_REQUIRED_RESULT QString readNote(const QString &branchName) const;
-    void saveNote(const QString &branchName, const QString &note) const;
-    QList<QSharedPointer<Note>> notes();
-
-    // refs
-    void forEachRefs(std::function<void(QSharedPointer<Reference>)> callback) const;
-
     // ignores
     bool isIgnored(const QString &path);
 
@@ -148,12 +140,12 @@ public:
     Q_REQUIRED_RESULT git_repository *repoPtr() const;
     Q_REQUIRED_RESULT static Manager *owner(git_repository *repo);
 
-    Q_REQUIRED_RESULT CommitsCache *commitsCache() const;
+    Q_REQUIRED_RESULT CommitsCache *commits() const;
     Q_REQUIRED_RESULT SubmodulesCache *submodulesCache() const;
     Q_REQUIRED_RESULT RemotesCache *remotes() const;
     Q_REQUIRED_RESULT BranchesCache *branches() const;
     Q_REQUIRED_RESULT TagsCache *tags() const;
-    Q_REQUIRED_RESULT NotesCache *notesCache() const;
+    Q_REQUIRED_RESULT NotesCache *notes() const;
     Q_REQUIRED_RESULT StashesCache *stashes() const;
     Q_REQUIRED_RESULT ReferenceCache *referencesCache() const;
 

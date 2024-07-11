@@ -108,6 +108,24 @@ ReferenceCache::DataList ReferenceCache::findForCommit(QSharedPointer<Commit> co
     return d->dataByCommit.values(commit);
 }
 
+void ReferenceCache::forEach(std::function<void(DataMember)> callback) const
+{
+    struct wrapper {
+        std::function<void(QSharedPointer<Reference>)> cb;
+    };
+    auto cb = [](git_reference *reference, void *payload) -> int {
+        auto w = reinterpret_cast<wrapper *>(payload);
+
+        auto refPtr = QSharedPointer<Reference>(new Reference{reference});
+        w->cb(refPtr);
+        return 0;
+    };
+
+    wrapper w;
+    w.cb = callback;
+    git_reference_foreach(manager->repoPtr(), cb, &w);
+}
+
 void ReferenceCache::fill()
 {
     Q_D(ReferenceCache);
@@ -135,7 +153,7 @@ void ReferenceCachePrivate::fill()
         auto ref = q->findByPtr(reference);
         list << ref;
         auto hash = ref->target()->toString();
-        auto commit = q->manager->commitsCache()->find(hash);
+        auto commit = q->manager->commits()->find(hash);
         if (Q_LIKELY(!commit.isNull())) // TODO: check if is this possible?
             dataByCommit.insert(commit, ref);
     }

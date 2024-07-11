@@ -109,5 +109,3 @@ void SubmoduleActions::setSubmodule(QSharedPointer<Git::Submodule> newSubmodule)
 }
 
 #include "moc_submoduleactions.cpp"
-
-#include <options/addsubmoduleoptions.h>

@@ -21,7 +21,6 @@ class LIBKOMMITWIDGETS_EXPORT NoteDialog : public AppDialog, private Ui::NoteDia
     Q_OBJECT
 
 public:
-    explicit NoteDialog(Git::Manager *git, const QString &branchName, QWidget *parent = nullptr);
     explicit NoteDialog(Git::Manager *git, QSharedPointer<Git::Commit> commit, QWidget *parent = nullptr);
 
 private:

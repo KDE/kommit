@@ -696,59 +696,6 @@ QStringList Manager::readAllNonEmptyOutput(const QStringList &cmd) const
     return list;
 }
 
-QString Manager::readNote(const QString &branchName) const
-{
-    return runGit({QStringLiteral("notes"), QStringLiteral("show"), branchName});
-}
-
-void Manager::saveNote(const QString &branchName, const QString &note) const
-{
-    runGit({QStringLiteral("notes"), QStringLiteral("add"), branchName, QStringLiteral("-f"), QStringLiteral("--message=") + note});
-}
-
-QList<QSharedPointer<Note>> Manager::notes()
-{
-    Q_D(Manager);
-
-    struct wrapper {
-        git_repository *repo;
-        NotesCache *notesCache;
-        QList<QSharedPointer<Note>> notes;
-    };
-    auto cb = [](const git_oid *blob_id, const git_oid *annotated_object_id, void *payload) -> int {
-        Q_UNUSED(blob_id);
-
-        auto w = reinterpret_cast<wrapper *>(payload);
-        git_note *note;
-        if (!git_note_read(&note, w->repo, NULL, annotated_object_id))
-            w->notes.append(QSharedPointer<Note>{new Note{note}});
-        return 0;
-    };
-    wrapper w{d->repo, d->notesCache};
-    git_note_foreach(d->repo, NULL, cb, &w);
-    return w.notes;
-}
-
-void Manager::forEachRefs(std::function<void(QSharedPointer<Reference>)> callback) const
-{
-    Q_D(const Manager);
-
-    struct wrapper {
-        std::function<void(QSharedPointer<Reference>)> cb;
-    };
-    auto cb = [](git_reference *reference, void *payload) -> int {
-        auto w = reinterpret_cast<wrapper *>(payload);
-
-        auto refPtr = QSharedPointer<Reference>(new Reference{reference});
-        w->cb(refPtr);
-        return 0;
-    };
-
-    wrapper w;
-    w.cb = callback;
-    git_reference_foreach(d->repo, cb, &w);
-}
-
 Manager::Manager()
     : QObject()
     , d_ptr{new ManagerPrivate{this}}
@@ -1188,7 +1135,7 @@ Manager *Manager::owner(git_repository *repo)
     return ManagerPrivate::managerMap.value(repo, nullptr);
 }
 
-CommitsCache *Manager::commitsCache() const
+CommitsCache *Manager::commits() const
 {
     Q_D(const Manager);
     return d->commitsCache;
@@ -1218,7 +1165,7 @@ TagsCache *Manager::tags() const
     return d->tagsCache;
 }
 
-NotesCache *Manager::notesCache() const
+NotesCache *Manager::notes() const
 {
     Q_D(const Manager);
     return d->notesCache;

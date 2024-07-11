@@ -21,7 +21,7 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
 
     const auto hashes = git->fileLog(fileName);
 
-    const auto logs = git->commitsCache();
+    const auto logs = git->commits();
 
     for (const auto &hash : hashes) {
         auto log = logs->find(hash);

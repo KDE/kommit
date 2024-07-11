@@ -26,7 +26,7 @@ public:
 
     Q_REQUIRED_RESULT QSharedPointer<Signature> author() const;
     Q_REQUIRED_RESULT QSharedPointer<Signature> committer() const;
-    Q_REQUIRED_RESULT QString mesage() const;
+    Q_REQUIRED_RESULT QString message() const;
     QSharedPointer<Oid> oid() const override;
 
 private:

@@ -58,7 +58,7 @@ QSharedPointer<Commit> Stash::commit()
     Q_D(Stash);
 
     if (d->commit.isNull())
-        d->commit = d->manager->commitsCache()->findByOid(d->stash_id);
+        d->commit = d->manager->commits()->findByOid(d->stash_id);
     return d->commit;
 }
 
