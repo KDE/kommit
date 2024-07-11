@@ -11,15 +11,39 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 
+class BranchesModelPrivate
+{
+    BranchesModel *q_ptr;
+    Q_DECLARE_PUBLIC(BranchesModel)
+
+public:
+    BranchesModelPrivate(BranchesModel *parent);
+
+    void calculateCommitStats();
+
+    QMap<QSharedPointer<Git::Branch>, QPair<int, int>> mCompareWithRef;
+    QList<QSharedPointer<Git::Branch>> mData;
+    QString mCurrentBranch;
+    QString mReferenceBranch;
+};
+
 BranchesModel::BranchesModel(Git::Manager *git, QObject *parent)
     : AbstractGitItemsModel{git, parent}
+    , d_ptr{new BranchesModelPrivate{this}}
 {
+}
+
+BranchesModel::~BranchesModel()
+{
+    Q_D(BranchesModel);
+    delete d;
 }
 
 int BranchesModel::rowCount(const QModelIndex &parent) const
 {
+    Q_D(const BranchesModel);
     Q_UNUSED(parent)
-    return mData.size();
+    return d->mData.size();
 }
 
 int BranchesModel::columnCount(const QModelIndex &parent) const
@@ -30,24 +54,26 @@ int BranchesModel::columnCount(const QModelIndex &parent) const
 
 QVariant BranchesModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= mData.size())
+    Q_D(const BranchesModel);
+
+    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= d->mData.size())
         return {};
 
     switch (index.column()) {
     case 0:
-        return mData.at(index.row())->name();
+        return d->mData.at(index.row())->name();
     case 1:
-        return mCompareWithRef.value(mData.at(index.row())).first;
+        return d->mCompareWithRef.value(d->mData.at(index.row())).first;
     case 2:
-        return mCompareWithRef.value(mData.at(index.row())).second;
+        return d->mCompareWithRef.value(d->mData.at(index.row())).second;
     case 3:
-        return mData.at(index.row())->isHead();
+        return d->mData.at(index.row())->isHead();
     case 4:
-        return mData.at(index.row())->refName(); // mData.at(index.row())->commitsBehind;
+        return d->mData.at(index.row())->refName(); // d->mData.at(index.row())->commitsBehind;
     case 5:
-        return mData.at(index.row())->upStreamName(); // mData.at(index.row())->commitsAhead;
+        return d->mData.at(index.row())->upStreamName(); // d->mData.at(index.row())->commitsAhead;
     case 6:
-        return mData.at(index.row())->remoteName();
+        return d->mData.at(index.row())->remoteName();
     }
 
     return {};
@@ -79,18 +105,22 @@ QVariant BranchesModel::headerData(int section, Qt::Orientation orientation, int
 
 QSharedPointer<Git::Branch> BranchesModel::fromIndex(const QModelIndex &index) const
 {
-    if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
+    Q_D(const BranchesModel);
+
+    if (!index.isValid() || index.row() < 0 || index.row() >= d->mData.size())
         return nullptr;
 
-    return mData.at(index.row());
+    return d->mData.at(index.row());
 }
 
 QSharedPointer<Git::Branch> BranchesModel::findByName(const QString &branchName) const
 {
-    auto i = std::find_if(mData.begin(), mData.end(), [&branchName](QSharedPointer<Git::Branch> branch) {
+    Q_D(const BranchesModel);
+
+    auto i = std::find_if(d->mData.begin(), d->mData.end(), [&branchName](QSharedPointer<Git::Branch> branch) {
         return branch->name() == branchName;
     });
-    if (i == mData.end())
+    if (i == d->mData.end())
         return nullptr;
 
     return *i;
@@ -98,67 +128,54 @@ QSharedPointer<Git::Branch> BranchesModel::findByName(const QString &branchName)
 
 void BranchesModel::reload()
 {
-    mData.clear();
+    Q_D(BranchesModel);
 
-    mData = mGit->branches()->allBranches(Git::BranchType::AllBranches);
-    calculateCommitStats();
+    d->mData.clear();
+
+    d->mData = mGit->branches()->allBranches(Git::BranchType::AllBranches);
+    d->calculateCommitStats();
 }
 
 const QString &BranchesModel::referenceBranch() const
 {
-    return mReferenceBranch;
+    Q_D(const BranchesModel);
+    return d->mReferenceBranch;
 }
 
-void BranchesModel::calculateCommitStats()
+BranchesModelPrivate::BranchesModelPrivate(BranchesModel *parent)
+    : q_ptr{parent}
 {
+}
+
+void BranchesModelPrivate::calculateCommitStats()
+{
+    Q_Q(BranchesModel);
     for (auto &b : mData) {
-        const auto commitsInfo = mGit->uniqueCommitsOnBranches(mReferenceBranch, b->name());
+        const auto commitsInfo = q->manager()->uniqueCommitsOnBranches(mReferenceBranch, b->name());
         mCompareWithRef[b] = commitsInfo;
-        //        b->commitsBehind = commitsInfo.first;
-        //        b->commitsAhead = commitsInfo.second;
     }
-    Q_EMIT dataChanged(index(0, 1), index(mData.size() - 1, 2));
-}
-
-void BranchesModel::calc()
-{
-    //    git_revwalk *walk;
-    //    git_oid oid;
-    //    git_sort_t sort;
-    //    char buf[100+1];
-
-    //    revwalk_parse_options(&sort, &args);
-
-    //    git_revwalk_new(&walk,mGit->_repo);
-    //    git_revwalk_sorting(walk, sort);
-    //    revwalk_parse_revs(mGit->_repo, walk, &args);
-
-    //    while (!git_revwalk_next(&oid, walk)) {
-    //        git_oid_fmt(buf, &oid);
-    //        //buf[GIT_OID_SHA1_HEXSIZE] = '\0';
-    //        printf("%s\n", buf);
-    //    }
-
-    //    git_revwalk_free(walk);
+    Q_EMIT q->dataChanged(q->index(0, 1), q->index(mData.size() - 1, 2));
 }
 
 void BranchesModel::setReferenceBranch(const QString &newReferenceBranch)
 {
-    mReferenceBranch = newReferenceBranch;
-
-    calculateCommitStats();
+    Q_D(BranchesModel);
+    d->mReferenceBranch = newReferenceBranch;
+    d->calculateCommitStats();
 }
 
 void BranchesModel::clear()
 {
+    Q_D(BranchesModel);
     beginResetModel();
-    mData.clear();
+    d->mData.clear();
     endResetModel();
 }
 
 const QString &BranchesModel::currentBranch() const
 {
-    return mCurrentBranch;
+    Q_D(const BranchesModel);
+    return d->mCurrentBranch;
 }
 
 #include "moc_branchesmodel.cpp"

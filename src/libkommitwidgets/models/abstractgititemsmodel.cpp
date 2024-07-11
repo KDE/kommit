@@ -28,6 +28,11 @@ void AbstractGitItemsModel::clear()
 {
 }
 
+Git::Manager *AbstractGitItemsModel::manager() const
+{
+    return mGit;
+}
+
 void AbstractGitItemsModel::load()
 {
     if (!mGit->isValid())

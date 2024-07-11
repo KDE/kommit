@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include <QIcon>
 
+class TreeModelPrivate;
 class LIBKOMMITWIDGETS_EXPORT TreeModel : public QAbstractItemModel
 {
     Q_OBJECT
@@ -105,16 +106,9 @@ public:
     void setShowRoot(bool newDefaultRoot);
 
 protected:
-    Node *const mRootNode;
+    Node *rootNode() const;
 
 private:
-    LIBKOMMITWIDGETS_NO_EXPORT Node *createPath(const QStringList &path);
-    LIBKOMMITWIDGETS_NO_EXPORT Node *find(QStringList &path, Node *node = nullptr);
-    LIBKOMMITWIDGETS_NO_EXPORT void getFullPath(QString &path, Node *node) const;
-    LIBKOMMITWIDGETS_NO_EXPORT void sortNode(Node *node);
-
-    QString mSeparator{QStringLiteral("/")};
-    bool mLastPartAsData{false};
-    QIcon mDefaultIcon;
-    bool mShowRoot{false};
+    TreeModelPrivate *d_ptr;
+    Q_DECLARE_PRIVATE(TreeModel)
 };

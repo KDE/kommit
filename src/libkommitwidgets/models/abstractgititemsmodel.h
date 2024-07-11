@@ -31,6 +31,8 @@ public:
     Q_REQUIRED_RESULT Status status() const;
     virtual void clear();
 
+    Q_REQUIRED_RESULT Git::Manager *manager() const;
+
 public Q_SLOTS:
     void load();
 

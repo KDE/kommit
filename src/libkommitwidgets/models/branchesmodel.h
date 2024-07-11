@@ -15,7 +15,7 @@ namespace Git
 class Branch;
 class Manager;
 }
-
+class BranchesModelPrivate;
 class LIBKOMMITWIDGETS_EXPORT BranchesModel : public AbstractGitItemsModel
 {
     Q_OBJECT
@@ -27,6 +27,7 @@ public:
         int commitsBehind;
     };
     explicit BranchesModel(Git::Manager *git, QObject *parent = nullptr);
+    ~BranchesModel();
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent) const override;
@@ -40,15 +41,10 @@ public:
     Q_REQUIRED_RESULT const QString &referenceBranch() const;
     void setReferenceBranch(const QString &newReferenceBranch);
 
-    void clear();
-
-    void reload();
+    void clear() override;
+    void reload() override;
 
 private:
-    QMap<QSharedPointer<Git::Branch>, QPair<int, int>> mCompareWithRef;
-    QList<QSharedPointer<Git::Branch>> mData;
-    QString mCurrentBranch;
-    QString mReferenceBranch;
-    void calculateCommitStats();
-    void calc();
+    BranchesModelPrivate *d_ptr;
+    Q_DECLARE_PRIVATE(BranchesModel)
 };
