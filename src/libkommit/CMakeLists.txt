@@ -3,6 +3,8 @@
 add_library(libkommit SHARED)
 
 set(SOURCES
+    libkommit_global.h
+
     gitglobal.cpp
     gitloglist.cpp
     filestatus.cpp

@@ -28,15 +28,8 @@ public:
     ~Stash();
 
     Q_REQUIRED_RESULT const QString &message() const;
-    Q_REQUIRED_RESULT const QString &branch() const;
-    Q_REQUIRED_RESULT const QDateTime &pushTime() const;
-
-    Q_REQUIRED_RESULT QSharedPointer<Signature> author() const;
-    Q_REQUIRED_RESULT QSharedPointer<Signature> committer() const;
     Q_REQUIRED_RESULT QSharedPointer<Commit> commit();
-
     Q_REQUIRED_RESULT size_t index() const;
-
     Q_REQUIRED_RESULT QSharedPointer<Oid> oid() const override;
 
 private:
