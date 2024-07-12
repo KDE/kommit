@@ -12,6 +12,7 @@ set(SOURCES
     blamedata.cpp
     types.cpp
     abstractreference.cpp
+    buffer.cpp
 
     caches/abstractcache.cpp
     caches/branchescache.cpp
@@ -72,6 +73,7 @@ set(HEADERS
     blamedata.h
     types.h
     abstractreference.h
+    buffer.h
 
     caches/abstractcache.h
     caches/branchescache.h

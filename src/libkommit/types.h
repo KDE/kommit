@@ -39,15 +39,6 @@ enum class ChangeStatus {
     Conflicted,
 };
 
-class Buf : public QSharedPointer<git_buf>
-{
-public:
-    Buf()
-        : QSharedPointer<git_buf>{nullptr, git_buf_dispose}
-    {
-    }
-};
-
 template<class T>
 using PointerList = QList<QSharedPointer<T>>;
 
