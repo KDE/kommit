@@ -42,4 +42,9 @@ NotesCache::DataList NotesCache::allNotes()
     git_note_foreach(manager->repoPtr(), NULL, cb, &w);
     return w.notes;
 }
+
+void NotesCache::clearChildData()
+{
+
+}
 }

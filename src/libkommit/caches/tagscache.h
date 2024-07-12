@@ -33,6 +33,9 @@ public:
     bool remove(QSharedPointer<Tag> tag);
 
 protected:
+    void clearChildData() override;
+
+private:
     QHash<git_commit *, QSharedPointer<Tag>> mTagsByCommit;
 };
 

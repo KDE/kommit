@@ -34,5 +34,8 @@ public:
     Q_REQUIRED_RESULT bool remove(const QString &name) const;
 
     Q_REQUIRED_RESULT bool rename(QSharedPointer<Remote> remote, const QString &newName);
+
+protected:
+    void clearChildData() override;
 };
 };

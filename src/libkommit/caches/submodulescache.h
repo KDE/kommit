@@ -26,6 +26,9 @@ public:
     QSharedPointer<Submodule> findByName(const QString &name);
     DataMember findByPtr(git_submodule *ptr, bool *isNew = nullptr);
 
+protected:
+    void clearChildData() override;
+
 Q_SIGNALS:
     void added(DataMember submodule);
 };

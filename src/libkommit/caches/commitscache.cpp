@@ -106,6 +106,11 @@ QList<QSharedPointer<Commit>> CommitsCache::commitsInBranch(QSharedPointer<Branc
     git_revwalk_free(walker);
     return list;
 }
+
+void CommitsCache::clearChildData()
+{
+
+}
 };
 
 #include "moc_commitscache.cpp"

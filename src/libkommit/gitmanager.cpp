@@ -103,11 +103,15 @@ bool Manager::open(const QString &newPath)
 
     END;
 
-    d->remotesCache->clear();
-    d->branchesCache->clear();
     d->commitsCache->clear();
-    d->stashesCache->clear();
+    d->branchesCache->clear();
     d->tagsCache->clear();
+    d->remotesCache->clear();
+    d->notesCache->clear();
+    d->submodulesCache->clear();
+    d->stashesCache->clear();
+    d->referenceCache->clear();
+
     d->isValid = IS_OK;
 
     if (IS_ERROR) {

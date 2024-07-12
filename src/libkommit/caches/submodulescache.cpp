@@ -108,4 +108,9 @@ SubmodulesCache::DataMember SubmodulesCache::findByPtr(git_submodule *ptr, bool 
         *isNew = true;
     return entity;
 }
+
+void SubmodulesCache::clearChildData()
+{
+
+}
 }

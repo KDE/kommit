@@ -25,5 +25,8 @@ public:
     explicit NotesCache(Manager *parent);
 
     DataList allNotes();
+
+protected:
+    void clearChildData() override;
 };
 };

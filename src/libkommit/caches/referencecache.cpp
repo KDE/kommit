@@ -126,6 +126,13 @@ void ReferenceCache::forEach(std::function<void(DataMember)> callback) const
     git_reference_foreach(manager->repoPtr(), cb, &w);
 }
 
+void ReferenceCache::clearChildData()
+{
+    Q_D(ReferenceCache);
+    d->list.clear();
+    d->dataByCommit.clear();
+}
+
 void ReferenceCache::fill()
 {
     Q_D(ReferenceCache);

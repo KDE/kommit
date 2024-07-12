@@ -72,9 +72,8 @@ void BranchesStatusWidget::slotPushButtonRemoveSelectedClicked()
         return;
 
     if (KMessageBoxHelper::removeQuestion(this, i18n("Are you sure to remove the selected branch?"))) {
-        auto branchData = mGit->branchesModel()->fromIndex(treeView->currentIndex());
-        if (branchData) {
-            auto branch = mGit->manager()->branches()->find(branchData->name());
+        auto branch = mGit->branchesModel()->fromIndex(treeView->currentIndex());
+        if (branch) {
             if (!mGit->manager()->branches()->remove(branch)) {
                 KMessageBox::information(this, i18n("Unable to remove the selected branch"));
                 return;

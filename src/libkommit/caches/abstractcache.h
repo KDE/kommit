@@ -60,6 +60,7 @@ public:
     void clear();
 
 protected:
+    virtual void clearChildData() = 0;
     bool removeFromList(PtrType *ptr);
 
     Manager *manager;
@@ -166,6 +167,7 @@ Q_OUTOFLINE_TEMPLATE void Cache<ObjectType, PtrType>::clear()
 {
     mList.clear();
     mHash.clear();
+    clearChildData();
 }
 
 template<class ObjectType, class PtrType>

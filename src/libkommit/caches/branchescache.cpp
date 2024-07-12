@@ -36,7 +36,7 @@ public:
 
 BranchesCache::BranchesCache(Manager *manager)
     : QObject{manager}
-    , Git::BranchCache{manager}
+    , Cache<Branch, git_reference>{manager}
     , d_ptr{new BranchesCachePrivate{this, manager}}
 {
 }
@@ -47,7 +47,7 @@ BranchesCache::~BranchesCache()
     delete d;
 }
 
-BranchesCache::DataMember BranchesCache::find(const QString &key)
+BranchesCache::DataMember BranchesCache::findByName(const QString &key)
 {
     Q_D(BranchesCache);
 
@@ -63,23 +63,6 @@ BranchesCache::DataMember BranchesCache::find(const QString &key)
         return b;
     }
     return {};
-}
-
-BranchesCache::DataMember BranchesCache::find(git_reference *ref)
-{
-    Q_D(BranchesCache);
-    if (d->dataByRef.contains(ref))
-        return d->dataByRef.value(ref);
-    auto b = DataMember{new Branch{ref}};
-    d->add(b);
-
-    Q_EMIT added(b);
-    return b;
-}
-
-BranchesCache::DataMember BranchesCache::find(Reference *ref)
-{
-    return find(ref->refPtr());
 }
 
 bool BranchesCache::create(const QString &name)
@@ -150,7 +133,7 @@ QList<BranchesCache::DataMember> BranchesCache::allBranches(BranchType type)
     git_branch_t b;
 
     while (!git_branch_next(&ref, &b, it))
-        list << find(ref);
+        list << findByPtr(ref);
 
     git_branch_iterator_free(it);
 
@@ -178,7 +161,7 @@ BranchesCache::DataMember BranchesCache::current()
         return {};
     }
 
-    auto b = find(ref);
+    auto b = findByPtr(ref);
     return b;
 }
 
@@ -199,40 +182,16 @@ QString BranchesCache::currentName()
     return branchName;
 }
 
-void BranchesCache::clear()
+void BranchesCache::clearChildData()
 {
     Q_D(BranchesCache);
     d->dataByName.clear();
     d->dataByRef.clear();
     d->list.clear();
+
+    Q_EMIT reseted();
 }
 
-Branch *BranchesCache::lookup(const QString &key, git_repository *repo)
-{
-    git_reference *ref;
-    BEGIN
-    STEP git_branch_lookup(&ref, repo, key.toLocal8Bit().data(), GIT_BRANCH_ALL);
-
-    if (IS_OK)
-        return new Branch{ref};
-    return nullptr;
-}
-
-Branch *BranchesCache::lookup(git_oid *oid, git_repository *repo)
-{
-    git_reference *branch;
-    auto name = git_oid_tostr_s(oid);
-    if (git_branch_lookup(&branch, repo, name, GIT_BRANCH_ALL))
-        return nullptr;
-    return new Branch{branch};
-}
-
-void BranchesCache::inserted(QSharedPointer<Branch> branch)
-{
-    // AbstractCache<Branch>::mList << branch;
-    // StringLookupProvider<Branch>::mMap.insert(branch->name(), branch);
-    //  OidLookupProvider<Branch>{}
-}
 
 BranchesCachePrivate::BranchesCachePrivate(BranchesCache *parent, Manager *manager)
     : q_ptr{parent}

@@ -35,6 +35,9 @@ public:
 
     void forEach(std::function<void(DataMember)> callback) const;
 
+protected:
+    void clearChildData() override;
+
 private:
     void fill();
 

@@ -20,7 +20,7 @@ class BranchesCachePrivate;
 class Manager;
 class Reference;
 
-class LIBKOMMIT_EXPORT BranchesCache : public QObject, public BranchCache
+class LIBKOMMIT_EXPORT BranchesCache : public QObject, public Cache<Branch, git_reference>
 {
     Q_OBJECT
 
@@ -31,9 +31,8 @@ public:
     explicit BranchesCache(Manager *manager);
     virtual ~BranchesCache();
 
-    DataMember find(const QString &key);
-    DataMember find(git_reference *ref);
-    DataMember find(Reference *ref);
+    DataMember findByName(const QString &key);
+
     bool create(const QString &name);
     bool remove(DataMember branch);
 
@@ -42,12 +41,8 @@ public:
     DataMember current();
     QString currentName();
 
-    void clear();
-
 protected:
-    Branch *lookup(const QString &key, git_repository *repo);
-    Branch *lookup(git_oid *oid, git_repository *repo);
-    void inserted(QSharedPointer<Branch> branch);
+    void clearChildData() override;
 
 Q_SIGNALS:
     void currentChanged(DataMember oldBranch, DataMember newBranch);

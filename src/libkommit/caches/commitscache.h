@@ -28,6 +28,9 @@ public:
     QList<QSharedPointer<Commit>> allCommits();
     QList<QSharedPointer<Commit>> commitsInBranch(QSharedPointer<Branch> branch);
 
+protected:
+    void clearChildData() override;
+
 Q_SIGNALS:
     void added(DataMember commit);
     void removed(DataMember commit);

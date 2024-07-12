@@ -146,6 +146,11 @@ bool TagsCache::remove(QSharedPointer<Tag> tag)
     return IS_OK;
 }
 
+void TagsCache::clearChildData()
+{
+    mTagsByCommit.clear();
+}
+
 QList<QSharedPointer<Tag>> TagsCache::allTags()
 {
     QList<QSharedPointer<Tag>> list;

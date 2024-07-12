@@ -58,7 +58,7 @@ void BranchesTest::createBranch()
 
     QVERIFY(mManager->branches()->names(Git::BranchType::LocalBranch).contains(newBranchName));
 
-    auto newBranch = mManager->branches()->find(newBranchName);
+    auto newBranch = mManager->branches()->findByName(newBranchName);
     QVERIFY(!newBranch.isNull());
 }
 
@@ -71,7 +71,7 @@ void BranchesTest::switchToNewBranch()
 
 void BranchesTest::removeCurrentBranch()
 {
-    auto branch = mManager->branches()->find(newBranchName);
+    auto branch = mManager->branches()->findByName(newBranchName);
     auto ok = mManager->branches()->remove(branch);
     QVERIFY(!ok); // we can't remove current branch
 }
@@ -84,7 +84,7 @@ void BranchesTest::switchToMaster()
 
 void BranchesTest::removeNewBranch()
 {
-    auto branch = mManager->branches()->find(newBranchName);
+    auto branch = mManager->branches()->findByName(newBranchName);
     auto ok = mManager->branches()->remove(branch);
     QVERIFY(ok);
 }

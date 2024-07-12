@@ -114,4 +114,9 @@ bool RemotesCache::rename(QSharedPointer<Remote> remote, const QString &newName)
 
     return IS_OK;
 }
+
+void RemotesCache::clearChildData()
+{
+
+}
 };
