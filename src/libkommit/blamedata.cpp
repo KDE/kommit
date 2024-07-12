@@ -13,7 +13,7 @@ BlameData::BlameData() = default;
 
 bool operator==(const BlameDataRow &l, const BlameDataRow &r)
 {
-    return l.log == r.log;
+    return l.finalCommit == r.finalCommit;
 }
 bool operator!=(const BlameDataRow &l, const BlameDataRow &r)
 {

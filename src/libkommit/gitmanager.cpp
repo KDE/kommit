@@ -913,7 +913,7 @@ void Manager::saveFile(const QString &place, const QString &fileName, const QStr
     f.close();
 }
 
-BlameData Manager::blame(const File &file) // TODO: change parametere to QSharedPointer<File>
+BlameData Manager::blame(QSharedPointer<File> file)
 {
     Q_D(Manager);
 
@@ -922,7 +922,7 @@ BlameData Manager::blame(const File &file) // TODO: change parametere to QShared
 
     BEGIN
     STEP git_blame_options_init(&options, GIT_BLAME_OPTIONS_VERSION);
-    STEP git_blame_file(&blame, d->repo, file.fileName().toUtf8().data(), &options);
+    STEP git_blame_file(&blame, d->repo, file->fileName().toUtf8().data(), &options);
     END;
 
     PRINT_ERROR;
@@ -930,17 +930,24 @@ BlameData Manager::blame(const File &file) // TODO: change parametere to QShared
 
     BlameData b;
 
-    auto lines = file.content().split(QLatin1Char('\n'));
+    auto lines = file->content().split(QLatin1Char('\n'));
 
     auto count = git_blame_get_hunk_count(blame);
     for (size_t i = 0; i < count; ++i) {
         auto hunk = git_blame_get_hunk_byindex(blame, i);
 
-        BlameDataRow row;
-        row.commitHash = convertToString(&hunk->final_commit_id, 20);
-        row.code = lines.mid(hunk->final_start_line_number, hunk->lines_in_hunk).join(QLatin1Char('\n'));
-        row.log = d->commitsCache->find(row.commitHash);
+        BlameDataRow row{convertToString(&hunk->final_commit_id, 20),
+                         lines.mid(hunk->final_start_line_number, hunk->lines_in_hunk).join(QLatin1Char('\n')),
+                         QString{hunk->orig_path},
 
+                         d->commitsCache->findByOid(&hunk->final_commit_id),
+                         d->commitsCache->findByOid(&hunk->orig_commit_id),
+
+                         QSharedPointer<Signature>{new Signature{hunk->orig_signature}},
+                         QSharedPointer<Signature>{new Signature{hunk->final_signature}},
+
+                         hunk->final_start_line_number,
+                         hunk->orig_start_line_number};
         b.append(row);
     }
     git_blame_free(blame);

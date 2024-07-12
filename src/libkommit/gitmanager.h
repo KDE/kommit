@@ -105,7 +105,7 @@ public:
     bool revertFile(const QString &filePath) const;
     bool removeFile(const QString &file, bool cached) const;
     Q_REQUIRED_RESULT QStringList fileLog(const QString &fileName) const;
-    BlameData blame(const File &file);
+    BlameData blame(QSharedPointer<File> file);
     Q_REQUIRED_RESULT QMap<QString, ChangeStatus> changedFiles() const;
     Q_REQUIRED_RESULT QMap<QString, ChangeStatus> changedFiles(const QString &hash) const;
     Q_REQUIRED_RESULT QStringList ignoredFiles() const;

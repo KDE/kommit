@@ -30,7 +30,7 @@ void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
     mBlameData = newBlameData;
     QString lastCommit;
     for (const auto &blame : newBlameData) {
-        const QString commitHash = blame.log ? blame.log->commitHash() : QString();
+        const QString commitHash = blame.finalCommit ? blame.finalCommit->commitHash() : QString();
 
         if (lastCommit != commitHash) {
             currentColor = (currentColor + 1) % colors.size();
@@ -38,8 +38,8 @@ void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
         }
 
         auto data = new BlockData{-1, nullptr, type};
-        data->extraText = blame.log ? blame.log->committer()->name() : i18n("Uncommited");
-        data->data = blame.log.data();
+        data->extraText = blame.finalCommit ? blame.finalCommit->committer()->name() : i18n("Uncommited");
+        data->data = blame.finalCommit.data();
 
         append(blame.code, type, data);
         lastCommit = commitHash;

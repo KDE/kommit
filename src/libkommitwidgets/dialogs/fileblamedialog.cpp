@@ -33,7 +33,7 @@ void FileBlameDialog::loadData()
 {
     plainTextEdit->setHighlighting(mFile->fileName());
 
-    const auto b = mGit->blame(*mFile.data());
+    const auto b = mGit->blame(mFile);
     plainTextEdit->setBlameData(b);
 
     setWindowTitle(i18nc("@title:window", "Blame file: %1", mFile->fileName()));
