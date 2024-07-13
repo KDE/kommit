@@ -73,10 +73,15 @@ void HistoryViewWidget::slotTextBrowserFileClicked(const QString &file)
 {
     auto log = widgetCommit->commit();
 
-    if (!log || !log->parents().size())
+    if (!log)
         return;
+    // TODO: let user choose the parent if they're more than one
 
-    QSharedPointer<Git::File> oldFile{new Git::File{mGit->manager(), log->parents().first(), file}};
+    QSharedPointer<Git::File> oldFile;
+
+    if (log->parents().size()) {
+        oldFile.reset(new Git::File{mGit->manager(), log->parents().first(), file});
+    };
     QSharedPointer<Git::File> newFile{new Git::File{mGit->manager(), log->commitHash(), file}};
 
     auto diffWin = new DiffWindow(oldFile, newFile);

@@ -126,10 +126,7 @@ void DiffWidget::setNewFile(QSharedPointer<Git::File> newNewFile)
 
 void DiffWidget::compare()
 {
-    if (!mOldFile || !mNewFile)
-        return;
-
-    const auto segments = Diff::diff(mOldFile->content(), mNewFile->content());
+    const auto segments = Diff::diff(mOldFile.isNull() ? QLatin1String() : mOldFile->content(), mNewFile.isNull() ? QLatin1String() : mNewFile->content());
 
     leftCodeEditor->clearAll();
     rightCodeEditor->clearAll();
@@ -137,11 +134,14 @@ void DiffWidget::compare()
     mPreviewEditorLeft->clearAll();
     mPreviewEditorRight->clearAll();
 
-    leftCodeEditor->setHighlighting(mOldFile->fileName());
-    rightCodeEditor->setHighlighting(mNewFile->fileName());
-
-    mPreviewEditorLeft->setHighlighting(mOldFile->fileName());
-    mPreviewEditorRight->setHighlighting(mNewFile->fileName());
+    if (Q_UNLIKELY(!mOldFile.isNull())) {
+        leftCodeEditor->setHighlighting(mOldFile->fileName());
+        mPreviewEditorLeft->setHighlighting(mOldFile->fileName());
+    }
+    if (Q_UNLIKELY(!mNewFile.isNull())) {
+        rightCodeEditor->setHighlighting(mNewFile->fileName());
+        mPreviewEditorRight->setHighlighting(mNewFile->fileName());
+    }
 
     segmentConnector->setSegments(segments);
     segmentConnector->update();
