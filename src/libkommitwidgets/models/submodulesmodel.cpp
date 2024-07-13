@@ -109,15 +109,11 @@ QSharedPointer<Git::Submodule> SubmodulesModel::fromIndex(const QModelIndex &ind
 void SubmodulesModel::reload()
 {
     Q_D(SubmodulesModel);
-    beginResetModel();
     if (d->manager->isValid())
-        d->list = d->cache->allSubmodules();
+        d->list = d->manager->submodules()->allSubmodules();
     else
         d->list.clear();
-    endResetModel();
 }
-
-#include "moc_submodulesmodel.cpp"
 
 SubmodulesModelPrivate::SubmodulesModelPrivate(SubmodulesModel *parent, Git::Manager *manager)
     : manager{manager}
@@ -125,3 +121,5 @@ SubmodulesModelPrivate::SubmodulesModelPrivate(SubmodulesModel *parent, Git::Man
     , q_ptr{parent}
 {
 }
+
+#include "moc_submodulesmodel.cpp"

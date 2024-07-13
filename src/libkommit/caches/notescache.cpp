@@ -45,6 +45,5 @@ NotesCache::DataList NotesCache::allNotes()
 
 void NotesCache::clearChildData()
 {
-
 }
 }

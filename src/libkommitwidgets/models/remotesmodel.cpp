@@ -10,10 +10,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/branch.h"
 #include "entities/remote.h"
 #include "gitmanager.h"
-#include "qdebug.h"
 
-RemotesModel::RemotesModel(Git::Manager *git, QObject *parent)
-    : AbstractGitItemsModel(git, parent)
+RemotesModel::RemotesModel(Git::Manager *git)
+    : AbstractGitItemsModel(git)
 {
 }
 
@@ -84,14 +83,11 @@ void RemotesModel::clear()
 
 void RemotesModel::reload()
 {
-    beginResetModel();
     if (mGit->isValid()) {
         mData = mGit->remotes()->allRemotes();
     } else {
         mData.clear();
-        return;
     }
-    endResetModel();
 }
 
 #include "moc_remotesmodel.cpp"

@@ -110,6 +110,9 @@ QList<BranchesCache::DataMember> BranchesCache::allBranches(BranchType type)
 {
     Q_D(BranchesCache);
 
+    if (!manager->isValid())
+        return QList<BranchesCache::DataMember>{};
+
     git_branch_t t{GIT_BRANCH_ALL};
     git_branch_iterator *it;
     switch (type) {
@@ -191,7 +194,6 @@ void BranchesCache::clearChildData()
 
     Q_EMIT reseted();
 }
-
 
 BranchesCachePrivate::BranchesCachePrivate(BranchesCache *parent, Manager *manager)
     : q_ptr{parent}

@@ -27,8 +27,8 @@ public:
     QString referenceBranch;
 };
 
-BranchesModel::BranchesModel(Git::Manager *git, QObject *parent)
-    : AbstractGitItemsModel{git, parent}
+BranchesModel::BranchesModel(Git::Manager *git)
+    : AbstractGitItemsModel{git}
     , d_ptr{new BranchesModelPrivate{this}}
 {
     connect(git->branches(), &Git::BranchesCache::reseted, this, &BranchesModel::reload);

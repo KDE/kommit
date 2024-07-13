@@ -111,6 +111,5 @@ SubmodulesCache::DataMember SubmodulesCache::findByPtr(git_submodule *ptr, bool 
 
 void SubmodulesCache::clearChildData()
 {
-
 }
 }

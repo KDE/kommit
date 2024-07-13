@@ -413,10 +413,12 @@ void CommitsModel::reload()
 {
     Q_D(CommitsModel);
 
+    qDeleteAll(d->data);
+    d->data.clear();
+
     if (mGit->isValid()) {
         d->list = mGit->commits()->allCommits();
         d->dataByCommitHashLong.clear();
-        d->data.clear();
 
         d->data.reserve(d->list.size());
         for (auto const &commit : std::as_const(d->list)) {

@@ -41,6 +41,9 @@ QList<QSharedPointer<Commit>> CommitsCache::allCommits()
 {
     PointerList<Commit> list;
 
+    if (!manager->isValid())
+        return list;
+
     git_revwalk *walker;
     git_oid oid;
 
@@ -109,7 +112,6 @@ QList<QSharedPointer<Commit>> CommitsCache::commitsInBranch(QSharedPointer<Branc
 
 void CommitsCache::clearChildData()
 {
-
 }
 };
 

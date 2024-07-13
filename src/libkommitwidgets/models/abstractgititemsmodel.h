@@ -23,7 +23,8 @@ class LIBKOMMITWIDGETS_EXPORT AbstractGitItemsModel : public QAbstractListModel
     Q_PROPERTY(Status status READ status WRITE setStatus NOTIFY statusChanged)
 
 public:
-    explicit AbstractGitItemsModel(Git::Manager *git, QObject *parent = nullptr);
+    explicit AbstractGitItemsModel(Git::Manager *git);
+    explicit AbstractGitItemsModel(Git::Manager *git, QObject *parent);
 
     enum Status { NotLoaded, Loading, Loaded };
     Q_ENUM(Status)

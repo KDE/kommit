@@ -85,7 +85,10 @@ void TagsModel::clear()
 
 void TagsModel::reload()
 {
-    mData = mGit->tags()->allTags();
+    if (mGit->isValid())
+        mData = mGit->tags()->allTags();
+    else
+        mData.clear();
 }
 
 #include "moc_tagsmodel.cpp"

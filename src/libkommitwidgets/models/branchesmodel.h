@@ -26,7 +26,7 @@ public:
         int commitsAhead;
         int commitsBehind;
     };
-    explicit BranchesModel(Git::Manager *git, QObject *parent = nullptr);
+    explicit BranchesModel(Git::Manager *git);
     ~BranchesModel();
 
     int rowCount(const QModelIndex &parent) const override;

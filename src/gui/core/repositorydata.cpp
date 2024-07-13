@@ -18,9 +18,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 RepositoryData::RepositoryData(Git::Manager *git)
     : QObject{git}
     , mManager{git}
-    , mRemotesModel{new RemotesModel{mManager, this}}
+    , mRemotesModel{new RemotesModel{mManager}}
     , mSubmodulesModel{new SubmodulesModel{mManager}}
-    , mBranchesModel{new BranchesModel{mManager, this}}
+    , mBranchesModel{new BranchesModel{mManager}}
     , mLogsCache{new CommitsModel{mManager, this}}
     , mStashesCache{new StashesModel{mManager, this}}
     , mTagsModel{new TagsModel{mManager, this}}

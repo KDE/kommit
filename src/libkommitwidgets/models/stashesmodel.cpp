@@ -93,7 +93,10 @@ void StashesModel::clear()
 
 void StashesModel::reload()
 {
-    mData = mGit->stashes()->allStashes();
+    if (mGit->isValid())
+        mData = mGit->stashes()->allStashes();
+    else
+        mData.clear();
 }
 
 #include "moc_stashesmodel.cpp"

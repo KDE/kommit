@@ -18,6 +18,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class Branch;
+class Commit;
+class Tag;
+class Remote;
+
 enum class BranchType {
     LocalBranch,
     RemoteBranch,
@@ -40,7 +45,18 @@ enum class ChangeStatus {
 };
 
 template<class T>
+using Pointer = QSharedPointer<T>;
+template<class T>
 using PointerList = QList<QSharedPointer<T>>;
+
+#define DECLARE_TYPE(x)                                                                                                                                        \
+    using x##Pointer = Pointer<Git::x>;                                                                                                                        \
+    using x##List = PointerList<Git::x>;
+
+DECLARE_TYPE(Commit)
+DECLARE_TYPE(Tag)
+DECLARE_TYPE(Branch)
+DECLARE_TYPE(Remote)
 
 LIBKOMMIT_EXPORT inline const char *toChar(const QString &s);
 
