@@ -98,7 +98,7 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
 
     painter->setPen(option.palette.color(QPalette::Text));
     auto refs = log->references();
-    auto refBoxX = lanes.size() * WIDTH;
+    int refBoxX = lanes.size() * WIDTH;
     for (auto const &ref : refs) {
         d->drawReference(painter, ref, refBoxX);
     }
