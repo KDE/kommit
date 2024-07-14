@@ -20,6 +20,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+struct GitSubmodulePointerDeleter {
+    static inline void cleanup(git_submodule *sm)
+    {
+        git_submodule_free(sm);
+    }
+};
+
 class SubmodulePrivate
 {
     Submodule *q_ptr;
@@ -34,7 +41,7 @@ public:
     QString path;
     QString refName;
     QString branch;
-    git_submodule *find() const;
+    QScopedPointer<git_submodule, GitSubmodulePointerDeleter> find() const;
 };
 
 Submodule::Submodule(git_submodule *submodule, git_repository *repo)
@@ -166,21 +173,21 @@ QSharedPointer<Oid> Submodule::headId()
 {
     Q_D(Submodule);
     auto submodule = d->find();
-    return QSharedPointer<Oid>{new Oid{git_submodule_head_id(submodule)}};
+    return QSharedPointer<Oid>{new Oid{git_submodule_head_id(submodule.get())}};
 }
 
 QSharedPointer<Oid> Submodule::indexId()
 {
     Q_D(Submodule);
     auto submodule = d->find();
-    return QSharedPointer<Oid>{new Oid{git_submodule_index_id(submodule)}};
+    return QSharedPointer<Oid>{new Oid{git_submodule_index_id(submodule.get())}};
 }
 
 QSharedPointer<Oid> Submodule::workingDirectoryId()
 {
     Q_D(Submodule);
     auto submodule = d->find();
-    return QSharedPointer<Oid>{new Oid{git_submodule_wd_id(submodule)}};
+    return QSharedPointer<Oid>{new Oid{git_submodule_wd_id(submodule.get())}};
 }
 
 bool Submodule::sync() const
@@ -191,7 +198,7 @@ bool Submodule::sync() const
     if (Q_UNLIKELY(!submodule))
         return false;
 
-    return !git_submodule_sync(submodule);
+    return !git_submodule_sync(submodule.get());
 }
 
 bool Submodule::reload(bool force) const
@@ -200,7 +207,7 @@ bool Submodule::reload(bool force) const
     auto submodule = d->find();
     if (Q_UNLIKELY(!submodule))
         return false;
-    return !git_submodule_reload(submodule, force);
+    return !git_submodule_reload(submodule.get(), force);
 }
 
 Manager *Submodule::open() const
@@ -208,7 +215,7 @@ Manager *Submodule::open() const
     Q_D(const Submodule);
     auto submodule = d->find();
     git_repository *repo;
-    if (git_submodule_open(&repo, submodule))
+    if (git_submodule_open(&repo, submodule.get()))
         return nullptr;
 
     return new Git::Manager{repo};
@@ -225,7 +232,7 @@ bool Submodule::update(const FetchOptions &opts, FetchObserver *observer)
         observer->applyOfFetchOptions(&update_options.fetch_opts);
 
     auto submodule = d->find();
-    auto r = git_submodule_update(submodule, 1, &update_options);
+    auto r = git_submodule_update(submodule.get(), 1, &update_options);
 
     if (observer)
         Q_EMIT observer->finished();
@@ -239,13 +246,13 @@ SubmodulePrivate::SubmodulePrivate(Submodule *parent, git_repository *repo)
 {
 }
 
-git_submodule *SubmodulePrivate::find() const
+QScopedPointer<git_submodule, GitSubmodulePointerDeleter> SubmodulePrivate::find() const
 {
     git_submodule *sm;
-    BEGIN
-    STEP git_submodule_lookup(&sm, repo, name.toUtf8().data());
 
-    RETURN_COND(sm, nullptr);
+    git_submodule_lookup(&sm, repo, name.toUtf8().data());
+
+    return QScopedPointer<git_submodule, GitSubmodulePointerDeleter>{sm};
 }
 
 } // namespace Git
