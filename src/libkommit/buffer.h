@@ -21,6 +21,5 @@ public:
     ~Buf();
     git_buf *operator&();
     QString toString() const;
-    bool isBinary() const;
 };
 }

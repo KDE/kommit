@@ -25,10 +25,4 @@ QString Buf::toString() const
 {
     return QString{buf.ptr};
 }
-
-bool Buf::isBinary() const
-{
-    return git_buf_is_binary(&buf) == 1;
-}
-
 };

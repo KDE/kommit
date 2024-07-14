@@ -34,7 +34,6 @@ class SubmodulePrivate
 public:
     SubmodulePrivate(Submodule *parent, git_repository *repo = nullptr);
 
-    // git_submodule *ptr{nullptr};
     git_repository *repo{nullptr};
     QString name;
     QString url;
