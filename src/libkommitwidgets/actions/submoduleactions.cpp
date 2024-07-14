@@ -42,20 +42,20 @@ void SubmoduleActions::init()
 
 void SubmoduleActions::update()
 {
-    // RunnerDialog d(mGit, mParent);
-    // d.run({QStringLiteral("submodule"), QStringLiteral("update"), mSubmodule->name()});
-    // d.exec();
+    RunnerDialog d(mGit, mParent);
+    d.run({QStringLiteral("submodule"), QStringLiteral("update"), mSubmodule->name()});
+    d.exec();
 
-    Git::FetchOptions options;
-    auto observer = new Git::FetchObserver{mGit};
+    // Git::FetchOptions options;
+    // auto observer = new Git::FetchObserver{mGit};
 
-    auto w = new FetchResultWidget;
-    w->setObserver(observer);
-    w->setWindowModality(Qt::ApplicationModal);
+    // auto w = new FetchResultWidget;
+    // w->setObserver(observer);
+    // w->setWindowModality(Qt::ApplicationModal);
 
-    mSubmodule->update(options, observer);
+    // mSubmodule->update(options, observer);
 
-    w->show();
+    // w->show();
 }
 
 void SubmoduleActions::create()
