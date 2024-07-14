@@ -15,6 +15,9 @@ namespace Git
 {
 
 struct BlameDataRow {
+    BlameDataRow()
+    {
+    }
     BlameDataRow(QString commitHash,
                  QString code,
                  QString originPath,
