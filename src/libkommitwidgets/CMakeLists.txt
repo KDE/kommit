@@ -5,7 +5,7 @@ add_library(libkommitwidgets SHARED)
 generate_export_header(libkommitwidgets BASE_NAME libkommitwidgets)
 
 target_sources(libkommitwidgets PRIVATE
-    kommitwidgetsglobaloptions.h 
+    kommitwidgetsglobaloptions.h
     kommitwidgetsglobaloptions.cpp
     gitgraphlane.h
     gitgraphlane.cpp
@@ -40,6 +40,8 @@ target_sources(libkommitwidgets PRIVATE
     widgets/commitdetails.h
     widgets/urlrequester.cpp
     widgets/urlrequester.h
+    widgets/fetchresultwidget.h
+    widgets/fetchresultwidget.cpp
 
     core/kmessageboxhelper.h
     core/kmessageboxhelper.cpp
@@ -208,6 +210,8 @@ ki18n_wrap_ui(
     widgets/reportwidget.ui
     widgets/difftreeview.ui
     windows/kommitmergeview.ui
+    widgets/fetchresultwidget.ui
+
     dialogs/mergecloseeventdialog.ui
     dialogs/searchdialog.ui
     dialogs/credentialdialog.ui

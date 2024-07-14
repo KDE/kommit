@@ -22,25 +22,25 @@ class LIBKOMMIT_EXPORT StashesCache
 public:
     explicit StashesCache(Manager *manager);
 
-    QSharedPointer<Stash> find(const QString &name);
+    Q_REQUIRED_RESULT QList<QSharedPointer<Stash>> allStashes();
+
+    Q_REQUIRED_RESULT QSharedPointer<Stash> findByName(const QString &name);
+    Q_REQUIRED_RESULT int findIndex(const QString &message) const;
+
     bool create(const QString &name = QString());
-    Q_REQUIRED_RESULT bool apply(QSharedPointer<Stash> stash);
-    Q_REQUIRED_RESULT bool pop(QSharedPointer<Stash> stash);
-    Q_REQUIRED_RESULT bool remove(QSharedPointer<Stash> stash);
 
-    Q_REQUIRED_RESULT bool apply(const QString &name);
-    Q_REQUIRED_RESULT bool pop(const QString &name);
-    Q_REQUIRED_RESULT bool remove(const QString &name);
+    bool apply(QSharedPointer<Stash> stash);
+    bool pop(QSharedPointer<Stash> stash);
+    bool remove(QSharedPointer<Stash> stash);
 
-    QList<QSharedPointer<Stash>> allStashes();
+    bool apply(const QString &name);
+    bool pop(const QString &name);
+    bool remove(const QString &name);
 
     void clear();
-
-    Q_REQUIRED_RESULT int findIndex(const QString &message) const;
 
 private:
     StashesCachePrivate *d_ptr;
     Q_DECLARE_PRIVATE(StashesCache)
 };
-
 };

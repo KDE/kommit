@@ -31,15 +31,14 @@ public:
     explicit BranchesCache(Manager *manager);
     virtual ~BranchesCache();
 
-    DataMember findByName(const QString &key);
+    Q_REQUIRED_RESULT DataList allBranches(BranchType type = BranchType::AllBranches);
+    Q_REQUIRED_RESULT DataMember findByName(const QString &key);
+    Q_REQUIRED_RESULT QStringList names(BranchType type = BranchType::AllBranches);
+    Q_REQUIRED_RESULT DataMember current();
+    Q_REQUIRED_RESULT QString currentName();
 
     bool create(const QString &name);
     bool remove(DataMember branch);
-
-    DataList allBranches(BranchType type = BranchType::AllBranches);
-    QStringList names(BranchType type = BranchType::AllBranches);
-    DataMember current();
-    QString currentName();
 
 protected:
     void clearChildData() override;

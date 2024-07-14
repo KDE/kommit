@@ -145,7 +145,7 @@ QSharedPointer<Reference> Branch::reference() const
 {
     Q_D(const Branch);
     auto manager = Manager::owner(git_reference_owner(d->branch));
-    return manager->referencesCache()->findByPtr(d->branch);
+    return manager->references()->findByPtr(d->branch);
 }
 
 QString Branch::treeTitle() const

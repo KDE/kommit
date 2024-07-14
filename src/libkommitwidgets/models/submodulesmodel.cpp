@@ -45,7 +45,7 @@ int SubmodulesModel::rowCount(const QModelIndex &parent) const
 int SubmodulesModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return 2;
+    return 3;
 }
 
 QVariant SubmodulesModel::data(const QModelIndex &index, int role) const
@@ -65,7 +65,10 @@ QVariant SubmodulesModel::data(const QModelIndex &index, int role) const
         case 0:
             return submodule->path();
         case 1:
-            return submodule->refName();
+            return submodule->branch();
+        case 2:
+            return submodule->statusTexts().join(QStringLiteral(", "));
+            // submodule->hasModifiedFiles() ? i18n("Modified") : QLatin1String();
         }
     }
     return {};

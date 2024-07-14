@@ -22,9 +22,10 @@ public:
     explicit SubmodulesCache(Manager *manager);
 
     DataMember add(const AddSubmoduleOptions &options);
-    QList<QSharedPointer<Submodule>> allSubmodules();
-    QSharedPointer<Submodule> findByName(const QString &name);
-    DataMember findByPtr(git_submodule *ptr, bool *isNew = nullptr);
+
+    Q_REQUIRED_RESULT QList<QSharedPointer<Submodule>> allSubmodules();
+    Q_REQUIRED_RESULT QSharedPointer<Submodule> findByName(const QString &name);
+    Q_REQUIRED_RESULT DataMember findByPtr(git_submodule *ptr, bool *isNew = nullptr);
 
 protected:
     void clearChildData() override;

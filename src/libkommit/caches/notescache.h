@@ -18,13 +18,15 @@ namespace Git
 {
 
 class Note;
+class Oid;
 
 class LIBKOMMIT_EXPORT NotesCache : public Cache<Note, git_note>
 {
 public:
     explicit NotesCache(Manager *parent);
 
-    DataList allNotes();
+    Q_REQUIRED_RESULT DataList allNotes();
+    Q_REQUIRED_RESULT DataMember findByOid(const git_oid *oid);
 
 protected:
     void clearChildData() override;

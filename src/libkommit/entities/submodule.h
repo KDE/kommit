@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "libkommit_export.h"
 
+#include <git2/submodule.h>
 #include <git2/types.h>
 
 #include <QObject>
@@ -16,7 +17,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class FetchOptions;
+
+class FetchObserver;
+
+class Oid;
 class Manager;
+class SubmodulePrivate;
 class LIBKOMMIT_EXPORT Submodule
 {
     Q_GADGET
@@ -24,31 +31,29 @@ class LIBKOMMIT_EXPORT Submodule
 public:
     enum class Status {
         Unknown = 0,
-        InHead = (1u << 0), // superproject head contains submodule
-        InIndex = (1u << 1), // superproject index contains submodule
-        InConfig = (1u << 2), // superproject gitmodules has submodule
-        InWd = (1u << 3), // superproject workdir has submodule
-        IndexAdded = (1u << 4), // in index, not in head
-        IndexDeleted = (1u << 5), // in head, not in index
-        IndexModified = (1u << 6), // index and head don't match
-        WdUninitialized = (1u << 7), // workdir contains empty directory
-        WdAdded = (1u << 8), // in workdir, not index
-        WdDeleted = (1u << 9), // in index, not workdir
-        WdModified = (1u << 10), // index and workdir head don't match
-        WdIndexModified = (1u << 11), // submodule workdir index is dirty
-        WdWdModified = (1u << 12), // submodule workdir has modified files
-        WdUntracked = (1u << 13), // wd contains untracked files
+        InHead = GIT_SUBMODULE_STATUS_IN_HEAD, // superproject head contains submodule
+        InIndex = GIT_SUBMODULE_STATUS_IN_INDEX, // superproject index contains submodule
+        InConfig = GIT_SUBMODULE_STATUS_IN_CONFIG, // superproject gitmodules has submodule
+        InWd = GIT_SUBMODULE_STATUS_IN_WD, // superproject workdir has submodule
+        IndexAdded = GIT_SUBMODULE_STATUS_INDEX_ADDED, // in index, not in head
+        IndexDeleted = GIT_SUBMODULE_STATUS_INDEX_DELETED, // in head, not in index
+        IndexModified = GIT_SUBMODULE_STATUS_INDEX_MODIFIED, // index and head don't match
+        WdUninitialized = GIT_SUBMODULE_STATUS_WD_UNINITIALIZED, // workdir contains empty directory
+        WdAdded = GIT_SUBMODULE_STATUS_WD_ADDED, // in workdir, not index
+        WdDeleted = GIT_SUBMODULE_STATUS_WD_DELETED, // in index, not workdir
+        WdModified = GIT_SUBMODULE_STATUS_WD_MODIFIED, // index and workdir head don't match
+        WdIndexModified = GIT_SUBMODULE_STATUS_WD_INDEX_MODIFIED, // submodule workdir index is dirty
+        WdWdModified = GIT_SUBMODULE_STATUS_WD_WD_MODIFIED, // submodule workdir has modified files
+        WdUntracked = GIT_SUBMODULE_STATUS_WD_UNTRACKED, // wd contains untracked files
     };
+
     Q_DECLARE_FLAGS(StatusFlags, Status)
     Q_FLAG(StatusFlags)
 
-    Submodule();
-    explicit Submodule(git_submodule *submodule);
-    Submodule(git_repository *repo, git_submodule *submodule);
+    Submodule(git_submodule *submodule, git_repository *repo = nullptr);
     ~Submodule();
 
     Q_REQUIRED_RESULT const QString &path() const;
-    Q_REQUIRED_RESULT const QString &commitHash() const;
     Q_REQUIRED_RESULT const QString &refName() const;
     Q_REQUIRED_RESULT QString url() const;
     Q_REQUIRED_RESULT QString name() const;
@@ -56,21 +61,22 @@ public:
     Q_REQUIRED_RESULT StatusFlags status() const;
     Q_REQUIRED_RESULT QStringList statusTexts() const;
 
+    Q_REQUIRED_RESULT bool hasModifiedFiles() const;
+
+    Q_REQUIRED_RESULT QSharedPointer<Oid> headId();
+    Q_REQUIRED_RESULT QSharedPointer<Oid> indexId();
+    Q_REQUIRED_RESULT QSharedPointer<Oid> workingDirectoryId();
+
     void setUrl(const QString &newUrl);
     bool sync() const;
     bool reload(bool force = false) const;
 
     Q_REQUIRED_RESULT Manager *open() const;
+    bool update(const FetchOptions &opts, FetchObserver *observer = nullptr);
 
 private:
-    git_submodule *ptr = nullptr;
-    git_repository *mRepo = nullptr;
-    QString mName;
-    QString mUrl;
-    QString mPath;
-    QString mCommitHash;
-    QString mRefName;
-    QString mBranch;
+    SubmodulePrivate *d_ptr;
+    Q_DECLARE_PRIVATE(Submodule)
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(Submodule::StatusFlags)

@@ -47,6 +47,19 @@ ReferenceCache::~ReferenceCache()
     delete d;
 }
 
+ReferenceCache::DataMember ReferenceCache::findByName(const QString &name)
+{
+    git_reference *ref;
+
+    BEGIN;
+    STEP git_reference_lookup(&ref, manager->repoPtr(), name.toUtf8().data());
+
+    if (IS_ERROR)
+        return DataMember{};
+
+    return findByPtr(ref);
+}
+
 ReferenceCache::DataMember ReferenceCache::findForNote(QSharedPointer<Note> note)
 {
     if (!mList.size())

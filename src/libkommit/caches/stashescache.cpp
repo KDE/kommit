@@ -34,7 +34,7 @@ StashesCache::StashesCache(Manager *manager)
 {
 }
 
-QSharedPointer<Stash> StashesCache::find(const QString &name)
+QSharedPointer<Stash> StashesCache::findByName(const QString &name)
 {
     auto list = allStashes();
 
@@ -73,6 +73,8 @@ bool StashesCache::apply(QSharedPointer<Stash> stash)
     STEP git_stash_apply(d->manager->repoPtr(), stash->index(), &options);
 
     PRINT_ERROR;
+
+    // TODO: update commits model
 
     return IS_OK;
 }
@@ -120,6 +122,7 @@ bool StashesCache::apply(const QString &name)
     STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
     STEP git_stash_apply(d->manager->repoPtr(), stashIndex, &options);
 
+    // TODO: update commits model
     PRINT_ERROR;
 
     return IS_OK;

@@ -27,6 +27,7 @@ public:
     ReferenceCache(Manager *parent);
     virtual ~ReferenceCache();
 
+    DataMember findByName(const QString &name);
     DataMember findForNote(QSharedPointer<Note> note);
     DataMember findForBranch(QSharedPointer<Branch> branch);
     DataMember findForTag(QSharedPointer<Tag> tag);

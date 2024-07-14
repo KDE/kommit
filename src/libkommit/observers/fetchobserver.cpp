@@ -5,54 +5,69 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "fetchobserver.h"
+#include "caches/referencecache.h"
+#include "entities/oid.h"
+#include "gitmanager.h"
+
 #include <git2/oid.h>
 
 namespace Git
 {
 
+struct FetchObserverBridge {
+    FetchObserver *observer;
+    Manager *manager;
+};
 namespace FetchObserverCallbacks
 {
 
 int git_helper_update_tips_cb(const char *refname, const git_oid *a, const git_oid *b, void *data)
 {
-    auto observer = reinterpret_cast<Git::FetchObserver *>(data);
+    auto bridge = reinterpret_cast<Git::FetchObserverBridge *>(data);
 
+    auto ref = bridge->manager->references()->findByName(QString{refname});
+    auto oidA = QSharedPointer<Oid>{new Oid{a}};
+    auto oidB = QSharedPointer<Oid>{new Oid{b}};
+
+    Q_EMIT bridge->observer->updateRef(ref, oidA, oidB);
     return 0;
 }
 
 int git_helper_sideband_progress_cb(const char *str, int len, void *payload)
 {
-    auto observer = reinterpret_cast<Git::FetchObserver *>(payload);
+    auto bridge = reinterpret_cast<Git::FetchObserverBridge *>(payload);
 
-    if (!observer)
+    if (!bridge)
         return 0;
 
-    Q_EMIT observer->message(QString::fromLocal8Bit(str, len));
+    Q_EMIT bridge->observer->message(QString::fromLocal8Bit(str, len));
 
     return 0;
 }
 
 int git_helper_transfer_progress_cb(const git_indexer_progress *stats, void *payload)
 {
-    auto observer = reinterpret_cast<Git::FetchObserver *>(payload);
+    auto bridge = reinterpret_cast<Git::FetchObserverBridge *>(payload);
 
-    if (!observer)
+    if (!bridge)
         return 0;
 
-    observer->setTotalObjects(stats->total_objects);
-    observer->setIndexedObjects(stats->indexed_objects);
-    observer->setReceivedObjects(stats->received_objects);
-    observer->setLocalObjects(stats->local_objects);
-    observer->setTotalDeltas(stats->total_deltas);
-    observer->setIndexedDeltas(stats->indexed_deltas);
+    FetchTransferStat stat{stats->total_objects,
+                           stats->indexed_objects,
+                           stats->received_objects,
+                           stats->local_objects,
+                           stats->total_deltas,
+                           stats->indexed_deltas,
+                           stats->received_bytes};
+    Q_EMIT bridge->observer->transferProgress(&stat);
     return 0;
 }
 
 int git_helper_credentials_cb(git_credential **out, const char *url, const char *username_from_url, unsigned int allowed_types, void *payload)
 {
-    auto observer = reinterpret_cast<Git::FetchObserver *>(payload);
+    auto bridge = reinterpret_cast<Git::FetchObserverBridge *>(payload);
 
-    if (!observer)
+    if (!bridge)
         return 0;
 
     Credential cred;
@@ -77,10 +92,10 @@ int git_helper_credentials_cb(git_credential **out, const char *url, const char 
 
     cred.setAllowedTypes(credAllowedType);
 
-    Q_EMIT observer->credentialRequeted(QString{url}, &cred);
+    Q_EMIT bridge->observer->credentialRequeted(QString{url}, &cred);
 
-    git_credential_userpass_plaintext_new(out, observer->username().toLocal8Bit().data(), observer->password().toLocal8Bit().data());
-    //    git_credential_username_new(out, observer->username().toLocal8Bit().data());
+    git_credential_userpass_plaintext_new(out, cred.username().toLocal8Bit().data(), cred.password().toLocal8Bit().data());
+
     return 0;
 }
 
@@ -96,87 +111,25 @@ int git_helper_transport_cb(git_transport **out, git_remote *owner, void *param)
 
 }
 
-FetchObserver::FetchObserver(QObject *parent)
+FetchObserver::FetchObserver(Manager *parent)
     : QObject{parent}
 {
 }
 
-unsigned int FetchObserver::totalObjects() const
+void FetchObserver::applyOfFetchOptions(git_fetch_options *opts)
 {
-    return mTotalObjects;
-}
+    opts->callbacks.update_tips = &FetchObserverCallbacks::git_helper_update_tips_cb;
+    opts->callbacks.sideband_progress = &FetchObserverCallbacks::git_helper_sideband_progress_cb;
+    opts->callbacks.transfer_progress = &FetchObserverCallbacks::git_helper_transfer_progress_cb;
+    opts->callbacks.credentials = &FetchObserverCallbacks::git_helper_credentials_cb;
+    opts->callbacks.pack_progress = &FetchObserverCallbacks::git_helper_packbuilder_progress;
+    opts->callbacks.transport = &FetchObserverCallbacks::git_helper_transport_cb;
 
-void FetchObserver::setTotalObjects(unsigned int totalObjects)
-{
-    if (mTotalObjects == totalObjects)
-        return;
-    mTotalObjects = totalObjects;
-    Q_EMIT totalObjectsChanged(totalObjects);
-}
+    if (!mBridge)
+        mBridge = new FetchObserverBridge;
 
-unsigned int FetchObserver::indexedObjects() const
-{
-    return mIndexedObjects;
-}
-
-void FetchObserver::setIndexedObjects(unsigned int indexedObjects)
-{
-    if (mIndexedObjects == indexedObjects)
-        return;
-    mIndexedObjects = indexedObjects;
-    Q_EMIT indexedObjectsChanged();
-}
-
-unsigned int FetchObserver::receivedObjects() const
-{
-    return mReceivedObjects;
-}
-
-void FetchObserver::setReceivedObjects(unsigned int receivedObjects)
-{
-    if (mReceivedObjects == receivedObjects)
-        return;
-    mReceivedObjects = receivedObjects;
-    Q_EMIT receivedObjectsChanged(receivedObjects);
-}
-
-unsigned int FetchObserver::localObjects() const
-{
-    return mLocalObjects;
-}
-
-void FetchObserver::setLocalObjects(unsigned int localObjects)
-{
-    if (mLocalObjects == localObjects)
-        return;
-    mLocalObjects = localObjects;
-    Q_EMIT localObjectsChanged();
-}
-
-unsigned int FetchObserver::totalDeltas() const
-{
-    return mTotalDeltas;
-}
-
-void FetchObserver::setTotalDeltas(unsigned int totalDeltas)
-{
-    if (mTotalDeltas == totalDeltas)
-        return;
-    mTotalDeltas = totalDeltas;
-    Q_EMIT totalDeltasChanged();
-}
-
-unsigned int FetchObserver::indexedDeltas() const
-{
-    return mIndexedDeltas;
-}
-
-void FetchObserver::setIndexedDeltas(unsigned int indexedDeltas)
-{
-    if (mIndexedDeltas == indexedDeltas)
-        return;
-    mIndexedDeltas = indexedDeltas;
-    Q_EMIT indexedDeltasChanged();
+    mBridge->observer = this;
+    opts->callbacks.payload = mBridge;
 }
 
 void FetchObserver::setCredential(const QString &username, const QString &password)

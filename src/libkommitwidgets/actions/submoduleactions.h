@@ -21,9 +21,6 @@ class LIBKOMMITWIDGETS_EXPORT SubmoduleActions : public AbstractActions
 public:
     explicit SubmoduleActions(Git::Manager *git, QWidget *parent = nullptr);
 
-    Q_REQUIRED_RESULT const QString &subModuleName() const;
-    void setSubModuleName(const QString &newSubModuleName);
-
     Q_REQUIRED_RESULT QSharedPointer<Git::Submodule> submodule() const;
     void setSubmodule(QSharedPointer<Git::Submodule> newSubmodule);
 
@@ -39,6 +36,5 @@ private:
     DEFINE_ACTION(actionDeinit)
     DEFINE_ACTION(actionSync)
 
-    QString mSubModuleName;
     QSharedPointer<Git::Submodule> mSubmodule;
 };

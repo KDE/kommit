@@ -6,9 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "notescache.h"
 #include "entities/commit.h"
+#include "entities/oid.h"
 #include "gitmanager.h"
 
 #include <git2/notes.h>
+#include <git2/types.h>
 
 #include <entities/note.h>
 
@@ -41,6 +43,15 @@ NotesCache::DataList NotesCache::allNotes()
     w.repo = manager->repoPtr();
     git_note_foreach(manager->repoPtr(), NULL, cb, &w);
     return w.notes;
+}
+
+NotesCache::DataMember NotesCache::findByOid(const git_oid *oid)
+{
+    git_note *note;
+    if (git_note_read(&note, manager->repoPtr(), NULL, oid))
+        return {};
+
+    return findByPtr(note);
 }
 
 void NotesCache::clearChildData()

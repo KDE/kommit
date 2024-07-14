@@ -48,7 +48,7 @@ void git_helper_checkout_perfdata_cb(const git_checkout_perfdata *perfdata, void
 }
 
 CloneObserver::CloneObserver(QObject *parent)
-    : FetchObserver{parent}
+    : FetchObserver{nullptr}
 {
 }
 

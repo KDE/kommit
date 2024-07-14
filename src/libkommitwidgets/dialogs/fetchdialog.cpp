@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDialogButtonBox>
 FetchDialog::FetchDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
-    , mObserver{new Git::FetchObserver{this}}
+    , mObserver{new Git::FetchObserver{git}}
 {
     setupUi(this);
 

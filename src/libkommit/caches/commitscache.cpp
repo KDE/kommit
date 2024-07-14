@@ -79,7 +79,7 @@ QList<QSharedPointer<Commit>> CommitsCache::allCommits()
             auto parent = find(parentHash);
             parent->addChild(commit->commitHash());
         }
-        commit->setReferences(manager->referencesCache()->findForCommit(commit));
+        commit->setReferences(manager->references()->findForCommit(commit));
     }
 
     git_revwalk_free(walker);

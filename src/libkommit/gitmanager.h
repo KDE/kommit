@@ -147,7 +147,7 @@ public:
     Q_REQUIRED_RESULT TagsCache *tags() const;
     Q_REQUIRED_RESULT NotesCache *notes() const;
     Q_REQUIRED_RESULT StashesCache *stashes() const;
-    Q_REQUIRED_RESULT ReferenceCache *referencesCache() const;
+    Q_REQUIRED_RESULT ReferenceCache *references() const;
 
 Q_SIGNALS:
     void pathChanged();

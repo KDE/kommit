@@ -9,7 +9,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/runnerdialog.h"
 #include "dialogs/submoduleinfodialog.h"
 
-#include "libkommitwidgets_appdebug.h"
+#include "entities/submodule.h"
+#include "observers/fetchobserver.h"
+#include "widgets/fetchresultwidget.h"
 
 #include <caches/submodulescache.h>
 #include <gitmanager.h>
@@ -18,21 +20,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <QAction>
 #include <QDir>
-
-const QString &SubmoduleActions::subModuleName() const
-{
-    return mSubModuleName;
-}
-
-void SubmoduleActions::setSubModuleName(const QString &newSubModuleName)
-{
-    mSubModuleName = newSubModuleName.trimmed();
-
-    setActionEnabled(_actionInit, true);
-    setActionEnabled(_actionUpdate, true);
-    //    setActionEnabled(_actionDeinit, true);
-    setActionEnabled(_actionSync, true);
-}
 
 SubmoduleActions::SubmoduleActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
@@ -49,15 +36,26 @@ SubmoduleActions::SubmoduleActions(Git::Manager *git, QWidget *parent)
 void SubmoduleActions::init()
 {
     RunnerDialog d(mGit, mParent);
-    d.run({QStringLiteral("submodule"), QStringLiteral("init"), mSubModuleName});
+    d.run({QStringLiteral("submodule"), QStringLiteral("init"), mSubmodule->name()});
     d.exec();
 }
 
 void SubmoduleActions::update()
 {
-    RunnerDialog d(mGit, mParent);
-    d.run({QStringLiteral("submodule"), QStringLiteral("update"), mSubModuleName});
-    d.exec();
+    // RunnerDialog d(mGit, mParent);
+    // d.run({QStringLiteral("submodule"), QStringLiteral("update"), mSubmodule->name()});
+    // d.exec();
+
+    Git::FetchOptions options;
+    auto observer = new Git::FetchObserver{mGit};
+
+    auto w = new FetchResultWidget;
+    w->setObserver(observer);
+    w->setWindowModality(Qt::ApplicationModal);
+
+    mSubmodule->update(options, observer);
+
+    w->show();
 }
 
 void SubmoduleActions::create()
@@ -94,7 +92,7 @@ void SubmoduleActions::deinit()
 void SubmoduleActions::sync()
 {
     RunnerDialog d(mGit, mParent);
-    d.run({QStringLiteral("submodule"), QStringLiteral("sync"), mSubModuleName});
+    d.run({QStringLiteral("submodule"), QStringLiteral("sync"), mSubmodule->name()});
     d.exec();
 }
 
@@ -106,6 +104,10 @@ QSharedPointer<Git::Submodule> SubmoduleActions::submodule() const
 void SubmoduleActions::setSubmodule(QSharedPointer<Git::Submodule> newSubmodule)
 {
     mSubmodule = newSubmodule;
+
+    _actionInit->setEnabled(!newSubmodule.isNull());
+    _actionUpdate->setEnabled(!newSubmodule.isNull());
+    _actionSync->setEnabled(!newSubmodule.isNull());
 }
 
 #include "moc_submoduleactions.cpp"

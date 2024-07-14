@@ -25,7 +25,7 @@ SubmodulesWidget::SubmodulesWidget(RepositoryData *git, AppWindow *parent)
     treeView->setModel(mModel);
 
     connect(treeView, &QTreeView::customContextMenuRequested, this, &SubmodulesWidget::slotTreeViewCustomContextMenuRequested);
-    connect(treeView, &QTreeView::activated, this, &SubmodulesWidget::slotTreeViewActivated);
+    connect(treeView, &TreeView::itemActivated, this, &SubmodulesWidget::slotTreeViewActivated);
 }
 
 void SubmodulesWidget::saveState(QSettings &settings) const
@@ -57,7 +57,7 @@ void SubmodulesWidget::slotTreeViewActivated(const QModelIndex &index)
     auto s = mModel->fromIndex(index);
     if (!s)
         return;
-    mActions->setSubModuleName(s->path());
+    mActions->setSubmodule(s);
 }
 
 #include "moc_submoduleswidget.cpp"
