@@ -30,20 +30,8 @@ namespace Impl
 git_repository *getRepo(Manager *manager);
 }
 
-template<class T>
-using EntitiesList = QList<QSharedPointer<T>>;
-
-template<class ObjectType>
-struct CacheData {
-    Manager *manager;
-    EntitiesList<ObjectType> list;
-};
-
-template<class T>
-class OidLookupProvider;
-
 template<class ObjectType, class PtrType>
-class Cache
+class LIBKOMMIT_EXPORT Cache
 {
 public:
     using DataMember = QSharedPointer<ObjectType>;
@@ -69,7 +57,7 @@ protected:
 };
 
 template<class ObjectType, class PtrType>
-class OidCache : public Cache<ObjectType, PtrType>
+class LIBKOMMIT_EXPORT OidCache : public Cache<ObjectType, PtrType>
 {
 public:
     using GitLookupFunc = int (*)(PtrType **, git_repository *, const git_oid *);
@@ -180,184 +168,4 @@ Q_OUTOFLINE_TEMPLATE bool Cache<ObjectType, PtrType>::removeFromList(PtrType *pt
     mHash.remove(ptr);
     return true;
 }
-
-using BranchCache = Cache<Branch, git_reference>;
-using TagCache = Cache<Tag, git_tag>;
-using NoteCache = Cache<Note, git_note>;
-using RemoteCache = Cache<Remote, git_remote>;
-using CommitCache = Cache<Commit, git_commit>;
-
-template<class T>
-class LIBKOMMIT_EXPORT AbstractCache
-{
-public:
-    explicit AbstractCache(git_repository *repo);
-    explicit AbstractCache(Manager *parent);
-    virtual ~AbstractCache();
-
-    void clear();
-    QSharedPointer<T> at(int index) const;
-
-    Q_REQUIRED_RESULT int count() const;
-
-    // template<typename... Args>
-    // QSharedPointer<T> findOrCreate(const QString &key, Args... args) const
-    // {
-    //     if (mMap.contains(key))
-    //         return mMap.value(key);
-
-    //     auto en = QSharedPointer<T>{new T{args...}};
-    //     mMap.insert(key, en);
-    //     return en;
-    // }
-    QList<QSharedPointer<T>> values() const
-    {
-        return mList;
-    }
-
-    Q_REQUIRED_RESULT git_repository *repo() const;
-    void setRepo(git_repository *newRepo);
-
-protected:
-    virtual void inserted(QSharedPointer<T>)
-    {
-    }
-    git_repository *mRepo;
-    QList<QSharedPointer<T>> mList;
-};
-
-template<class T>
-class OidLookupProvider
-{
-public:
-    QSharedPointer<T> findOrLookupByOid(git_oid *oid, bool *isNew = nullptr)
-    {
-        if (mOidHash.contains(oid)) {
-            if (isNew)
-                *isNew = false;
-            return mOidHash.value(oid);
-        }
-
-        auto en = QSharedPointer<T>{lookup(oid, nullptr)};
-        mOidHash.insert(oid, en);
-        static_cast<AbstractCache<T>>(this).inserted(en);
-
-        if (isNew)
-            *isNew = true;
-        return en;
-    }
-
-    virtual ~OidLookupProvider()
-    {
-    }
-
-protected:
-    virtual T *lookup(git_oid *oid, git_repository *repo) = 0;
-    QHash<git_oid *, QSharedPointer<T>> mOidHash;
-};
-
-template<class T>
-class StringLookupProvider
-{
-public:
-    QSharedPointer<T> findOrLookupByKey(const QString &key, bool *isNew = nullptr)
-    {
-        if (mMap.contains(key)) {
-            if (isNew)
-                *isNew = false;
-            return mMap.value(key);
-        }
-
-        auto en = QSharedPointer<T>{lookup(key, nullptr)};
-        mMap.insert(key, en);
-        // static_cast<AbstractCache<T>>(this)->mList << en;
-        if (isNew)
-            *isNew = true;
-        return en;
-    }
-    void insert(const QString &key, QSharedPointer<T> obj)
-    {
-        mMap.insert(key, obj);
-    }
-
-    virtual ~StringLookupProvider()
-    {
-    }
-
-protected:
-    virtual T *lookup(const QString &key, git_repository *repo) = 0;
-    QMap<QString, QSharedPointer<T>> mMap;
-};
-
-template<class T, class Ptr>
-class LookupProvider
-{
-    QSharedPointer<T> find(Ptr *oid, bool *isNew = nullptr)
-    {
-        if (mHash.contains(oid)) {
-            if (isNew)
-                *isNew = false;
-            return mHash.value(oid);
-        }
-
-        auto en = QSharedPointer<T>{lookup(oid, nullptr)};
-        mHash.insert(oid, en);
-        static_cast<AbstractCache<T>>(this).inserted(en);
-
-        if (isNew)
-            *isNew = true;
-        return en;
-    }
-    virtual T *lookup(Ptr *oid, git_repository *repo) = 0;
-
-    QHash<Ptr *, QSharedPointer<T>> mHash;
-};
-
-template<class T>
-Q_OUTOFLINE_TEMPLATE AbstractCache<T>::AbstractCache(git_repository *repo)
-    : mRepo{repo}
-{
-}
-
-template<class T>
-inline AbstractCache<T>::AbstractCache(Manager *parent)
-{
-}
-
-template<class T>
-Q_OUTOFLINE_TEMPLATE AbstractCache<T>::~AbstractCache()
-{
-}
-
-template<class T>
-Q_OUTOFLINE_TEMPLATE void AbstractCache<T>::clear()
-{
-    mList.clear();
-    // mMap.clear();
-}
-
-template<class T>
-Q_OUTOFLINE_TEMPLATE QSharedPointer<T> AbstractCache<T>::at(int index) const
-{
-    return mList.at(index);
-}
-
-template<class T>
-Q_OUTOFLINE_TEMPLATE int AbstractCache<T>::count() const
-{
-    return mList.size();
-}
-
-template<class T>
-Q_OUTOFLINE_TEMPLATE git_repository *AbstractCache<T>::repo() const
-{
-    return mRepo;
-}
-
-template<class T>
-Q_OUTOFLINE_TEMPLATE void AbstractCache<T>::setRepo(git_repository *newRepo)
-{
-    mRepo = newRepo;
-}
-
 };
