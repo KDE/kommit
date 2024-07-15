@@ -31,7 +31,7 @@ git_repository *getRepo(Manager *manager);
 }
 
 template<class ObjectType, class PtrType>
-class LIBKOMMIT_EXPORT Cache
+class Cache
 {
 public:
     using DataMember = QSharedPointer<ObjectType>;
@@ -57,7 +57,7 @@ protected:
 };
 
 template<class ObjectType, class PtrType>
-class LIBKOMMIT_EXPORT OidCache : public Cache<ObjectType, PtrType>
+class OidCache : public Cache<ObjectType, PtrType>
 {
 public:
     using GitLookupFunc = int (*)(PtrType **, git_repository *, const git_oid *);
