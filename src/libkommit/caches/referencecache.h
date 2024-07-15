@@ -12,11 +12,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/types.h>
 
 #include "abstractcache.h"
+#include "entities/reference.h"
 #include "libkommit_export.h"
 
 namespace Git
 {
-class Reference;
+
 class Commit;
 class Remote;
 

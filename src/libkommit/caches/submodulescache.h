@@ -7,11 +7,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "caches/abstractcache.h"
+#include "entities/submodule.h"
 #include "libkommit_export.h"
 
 namespace Git
 {
-class Submodule;
+
 class AddSubmoduleOptions;
 
 class LIBKOMMIT_EXPORT SubmodulesCache : public QObject, public Cache<Submodule, git_submodule>

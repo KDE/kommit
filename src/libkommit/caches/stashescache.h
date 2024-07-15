@@ -11,12 +11,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/types.h>
 
 #include "abstractcache.h"
+#include "entities/stash.h"
 #include "libkommit_export.h"
 
 namespace Git
 {
-class Stash;
+
 class StashesCachePrivate;
+
 class LIBKOMMIT_EXPORT StashesCache
 {
 public:

@@ -12,12 +12,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/types.h>
 
 #include "abstractcache.h"
+#include "entities/tag.h"
 #include "libkommit_export.h"
 
 namespace Git
 {
-
-class Tag;
 
 class LIBKOMMIT_EXPORT TagsCache : public OidCache<Tag, git_tag>
 {

@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "caches/abstractcache.h"
+#include "entities/branch.h"
 #include "libkommit_export.h"
 #include "types.h"
 
@@ -15,7 +16,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Branch;
+
 class BranchesCachePrivate;
 class Manager;
 class Reference;

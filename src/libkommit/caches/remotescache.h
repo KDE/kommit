@@ -12,12 +12,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/types.h>
 
 #include "abstractcache.h"
+#include "entities/remote.h"
 #include "libkommit_export.h"
 
 namespace Git
 {
-
-class Remote;
 
 class LIBKOMMIT_EXPORT RemotesCache : public Cache<Remote, git_remote>
 {

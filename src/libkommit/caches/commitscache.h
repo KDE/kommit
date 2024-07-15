@@ -9,13 +9,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QObject>
 
 #include "abstractcache.h"
+#include "entities/commit.h"
 #include "libkommit_export.h"
+
 #include <git2/types.h>
 
 namespace Git
 {
-class Commit;
+
 class Branch;
+
 class LIBKOMMIT_EXPORT CommitsCache : public QObject, public OidCache<Commit, git_commit>
 {
     Q_OBJECT

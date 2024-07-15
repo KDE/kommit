@@ -12,12 +12,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/types.h>
 
 #include "abstractcache.h"
+#include "entities/note.h"
 #include "libkommit_export.h"
 
 namespace Git
 {
 
-class Note;
 class Oid;
 
 class LIBKOMMIT_EXPORT NotesCache : public Cache<Note, git_note>
