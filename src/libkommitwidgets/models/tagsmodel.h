@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 #include "abstractgititemsmodel.h"
-#include "libkommit_export.h"
+#include "libkommitwidgets_export.h"
 
 namespace Git
 {
@@ -14,7 +14,7 @@ namespace Git
 class Tag;
 }
 
-class LIBKOMMIT_EXPORT TagsModel : public AbstractGitItemsModel
+class LIBKOMMITWIDGETS_EXPORT TagsModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 
