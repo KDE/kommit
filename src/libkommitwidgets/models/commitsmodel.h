@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 #include "abstractgititemsmodel.h"
 #include "gitgraphlane.h"
-#include "libkommit_export.h"
+#include "libkommitwidgets_export.h"
 
 #include <QCalendar>
 #include <QSet>
@@ -20,7 +20,7 @@ class Manager;
 }
 
 class CommitsModelPrivate;
-class LIBKOMMIT_EXPORT CommitsModel : public AbstractGitItemsModel
+class LIBKOMMITWIDGETS_EXPORT CommitsModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 

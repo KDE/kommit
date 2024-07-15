@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 #include "abstractgititemsmodel.h"
-#include "libkommit_export.h"
+#include "libkommitwidgets_export.h"
 
 namespace Git
 {
@@ -15,7 +15,7 @@ class Manager;
 class Stash;
 }
 
-class LIBKOMMIT_EXPORT StashesModel : public AbstractGitItemsModel
+class LIBKOMMITWIDGETS_EXPORT StashesModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 
