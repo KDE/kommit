@@ -68,3 +68,5 @@ void FetchResultWidget::slotFinished()
 {
     textBrowser->append("Finished!");
 }
+
+#include "moc_fetchresultwidget.cpp"

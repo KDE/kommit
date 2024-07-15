@@ -115,3 +115,5 @@ void SubmodulesCache::clearChildData()
 {
 }
 }
+
+#include "moc_submodulescache.cpp"
