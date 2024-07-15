@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "selectbranchestodiffdialog.h"
+#include "caches/branchescache.h"
 #include "core/kmessageboxhelper.h"
 
 #include "gitmanager.h"
@@ -15,7 +16,7 @@ SelectBranchesToDiffDialog::SelectBranchesToDiffDialog(Git::Manager *git, QWidge
 {
     setupUi(this);
 
-    const auto branches = git->branchesNames(Git::Manager::BranchType::LocalBranch);
+    const auto branches = git->branches()->names(Git::BranchType::LocalBranch);
 
     comboBoxOldBranch->addItems(branches);
     comboBoxNewBranch->addItems(branches);

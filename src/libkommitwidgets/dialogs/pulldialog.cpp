@@ -5,6 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "pulldialog.h"
+#include "caches/branchescache.h"
+#include "caches/remotescache.h"
 #include "runnerdialog.h"
 
 #include "commands/commandpull.h"
@@ -17,10 +19,10 @@ PullDialog::PullDialog(Git::Manager *git, QWidget *parent)
 {
     setupUi(this);
 
-    comboBoxRemote->addItems(git->remotes());
-    comboBoxBranch->addItems(git->branchesNames(Git::Manager::BranchType::LocalBranch));
+    comboBoxRemote->addItems(git->remotes()->allNames());
+    comboBoxBranch->addItems(git->branches()->names(Git::BranchType::LocalBranch));
 
-    comboBoxBranch->setCurrentText(git->currentBranch());
+    comboBoxBranch->setCurrentText(git->branches()->currentName());
     connect(buttonBox->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &PullDialog::slotAccepted);
 
     initComboBox<Git::CommandPull::Rebase>(comboBoxRebase);

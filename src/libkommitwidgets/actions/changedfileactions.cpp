@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "changedfileactions.h"
+#include "caches/branchescache.h"
 #include "gitmanager.h"
 #include "windows/diffwindow.h"
 
@@ -51,9 +52,9 @@ void ChangedFileActions::diff()
     QSharedPointer<Git::File> original;
 
     if (mOriginalFilePath == QString())
-        original.reset(new Git::File{mGit, mGit->currentBranch(), mFilePath});
+        original.reset(new Git::File{mGit, mGit->branches()->currentName(), mFilePath});
     else
-        original.reset(new Git::File{mGit, mGit->currentBranch(), mOriginalFilePath});
+        original.reset(new Git::File{mGit, mGit->branches()->currentName(), mOriginalFilePath});
 
     QSharedPointer<Git::File> changed{new Git::File{mGit->path() + QLatin1Char('/') + mFilePath}};
 

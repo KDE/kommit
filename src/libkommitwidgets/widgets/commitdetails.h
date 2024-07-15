@@ -12,8 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class Commit;
-class LogsModel;
 }
+class CommitsModel;
 
 class LIBKOMMITWIDGETS_EXPORT CommitDetails : public QWidget, private Ui::CommitDetails
 {
@@ -51,7 +51,7 @@ private:
     Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT QString generateCommitLink(const QString &hash);
     Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT QString generateCommitsLink(const QStringList &hashes);
 
-    Git::LogsModel *mLogsModel{nullptr};
+    CommitsModel *mLogsModel{nullptr};
 
     Git::Commit *mCommit{nullptr};
     bool mEnableCommitsLinks{true};

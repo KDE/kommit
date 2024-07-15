@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "testcommon.h"
 
 #include <QTest>
+#include <caches/branchescache.h>
 #include <entities/branch.h>
 #include <gitmanager.h>
 
@@ -52,12 +53,12 @@ void BranchesTest::makeACommit()
 
 void BranchesTest::createBranch()
 {
-    auto ok = mManager->createBranch(newBranchName);
+    auto ok = mManager->branches()->create(newBranchName);
     QVERIFY(ok);
 
-    QVERIFY(mManager->branchesNames(Git::Manager::BranchType::LocalBranch).contains(newBranchName));
+    QVERIFY(mManager->branches()->names(Git::BranchType::LocalBranch).contains(newBranchName));
 
-    auto newBranch = mManager->branch(newBranchName);
+    auto newBranch = mManager->branches()->findByName(newBranchName);
     QVERIFY(!newBranch.isNull());
 }
 
@@ -65,12 +66,13 @@ void BranchesTest::switchToNewBranch()
 {
     auto ok = mManager->switchBranch(newBranchName);
     QVERIFY(ok);
-    QCOMPARE(mManager->currentBranch(), newBranchName);
+    QCOMPARE(mManager->branches()->currentName(), newBranchName);
 }
 
 void BranchesTest::removeCurrentBranch()
 {
-    auto ok = mManager->removeBranch(newBranchName);
+    auto branch = mManager->branches()->findByName(newBranchName);
+    auto ok = mManager->branches()->remove(branch);
     QVERIFY(!ok); // we can't remove current branch
 }
 
@@ -82,7 +84,8 @@ void BranchesTest::switchToMaster()
 
 void BranchesTest::removeNewBranch()
 {
-    auto ok = mManager->removeBranch(newBranchName);
+    auto branch = mManager->branches()->findByName(newBranchName);
+    auto ok = mManager->branches()->remove(branch);
     QVERIFY(ok);
 }
 

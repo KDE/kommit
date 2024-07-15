@@ -11,11 +11,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-
 class Branch;
-class LogsModel;
 };
 
+class CommitsModel;
 class BranchActions;
 class CommitActions;
 class TreeModel;
@@ -25,7 +24,7 @@ class CommitsWidget : public WidgetBase, private Ui::CommitsWidget
     Q_OBJECT
 
 public:
-    explicit CommitsWidget(Git::Manager *git, AppWindow *parent = nullptr);
+    explicit CommitsWidget(RepositoryData *git, AppWindow *parent = nullptr);
     void reload() override;
     void clear() override;
 
@@ -49,7 +48,7 @@ private:
     TreeModel *const mRepoModel;
     BranchActions *mActions{nullptr};
     CommitActions *mCommitActions{nullptr};
-    Git::LogsModel *mHistoryModel{nullptr};
+    CommitsModel *mHistoryModel{nullptr};
     CommitsFilterModel *mFilterModel{nullptr};
     QString mMainBranch;
 };

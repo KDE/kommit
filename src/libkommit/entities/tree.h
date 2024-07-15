@@ -20,6 +20,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class TreePrivate;
 class LIBKOMMIT_EXPORT Tree : public IOid
 {
 public:
@@ -28,6 +29,7 @@ public:
     struct Entry {
         QString name;
         EntryType type;
+        QString path;
     };
 
     explicit Tree(git_tree *tree);
@@ -43,10 +45,8 @@ public:
     QSharedPointer<Oid> oid() const override;
 
 private:
-    LIBKOMMIT_NO_EXPORT void initTree();
-    LIBKOMMIT_NO_EXPORT void browseNestedEntities(EntryType type, const QString &path, QStringList &list) const;
-    git_tree *ptr{nullptr};
-    QMultiMap<QString, Entry> mTreeData;
+    TreePrivate *d_ptr;
+    Q_DECLARE_PRIVATE(Tree);
 };
 }
 

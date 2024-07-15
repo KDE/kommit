@@ -7,13 +7,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "submoduleswidget.h"
 #include "actions/submoduleactions.h"
 
+#include <core/repositorydata.h>
 #include <entities/submodule.h>
 #include <gitmanager.h>
 #include <models/submodulesmodel.h>
 
-SubmodulesWidget::SubmodulesWidget(Git::Manager *git, AppWindow *parent)
+SubmodulesWidget::SubmodulesWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)
-    , mActions(new SubmoduleActions(git, this))
+    , mActions(new SubmoduleActions(git->manager(), this))
     , mModel(git->submodulesModel())
 {
     setupUi(this);
@@ -24,7 +25,7 @@ SubmodulesWidget::SubmodulesWidget(Git::Manager *git, AppWindow *parent)
     treeView->setModel(mModel);
 
     connect(treeView, &QTreeView::customContextMenuRequested, this, &SubmodulesWidget::slotTreeViewCustomContextMenuRequested);
-    connect(treeView, &QTreeView::activated, this, &SubmodulesWidget::slotTreeViewActivated);
+    connect(treeView, &TreeView::itemActivated, this, &SubmodulesWidget::slotTreeViewActivated);
 }
 
 void SubmodulesWidget::saveState(QSettings &settings) const
@@ -47,7 +48,7 @@ void SubmodulesWidget::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
     auto s = mModel->fromIndex(treeView->currentIndex());
     if (!s)
         return;
-    mActions->setSubModuleName(s->path());
+    mActions->setSubmodule(s);
     mActions->popup();
 }
 
@@ -56,7 +57,7 @@ void SubmodulesWidget::slotTreeViewActivated(const QModelIndex &index)
     auto s = mModel->fromIndex(index);
     if (!s)
         return;
-    mActions->setSubModuleName(s->path());
+    mActions->setSubmodule(s);
 }
 
 #include "moc_submoduleswidget.cpp"

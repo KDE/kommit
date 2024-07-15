@@ -15,10 +15,42 @@ namespace Git
 {
 
 struct BlameDataRow {
+    BlameDataRow()
+    {
+    }
+    BlameDataRow(QString commitHash,
+                 QString code,
+                 QString originPath,
+                 QSharedPointer<Commit> finalCommit,
+                 QSharedPointer<Commit> originCommit,
+                 QSharedPointer<Signature> finalSignature,
+                 QSharedPointer<Signature> originSignature,
+                 size_t finalStartLineNumber,
+                 size_t originStartLineNumber)
+        : commitHash(std::move(commitHash))
+        , code(std::move(code))
+        , originPath(std::move(originPath))
+        , finalCommit(std::move(finalCommit))
+        , originCommit(std::move(originCommit))
+        , finalSignature(std::move(finalSignature))
+        , originSignature(std::move(originSignature))
+        , finalStartLineNumber(finalStartLineNumber)
+        , originStartLineNumber(originStartLineNumber)
+    {
+    }
+
     QString commitHash;
     QString code;
 
-    QSharedPointer<Commit> log = nullptr; // TODO: change to QSharedPointer
+    QString originPath;
+    QSharedPointer<Commit> finalCommit;
+    QSharedPointer<Commit> originCommit;
+
+    QSharedPointer<Signature> finalSignature;
+    QSharedPointer<Signature> originSignature;
+
+    size_t finalStartLineNumber;
+    size_t originStartLineNumber;
 };
 bool operator==(const BlameDataRow &l, const BlameDataRow &r);
 bool operator!=(const BlameDataRow &l, const BlameDataRow &r);

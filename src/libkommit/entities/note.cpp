@@ -33,7 +33,7 @@ QSharedPointer<Signature> Note::committer() const
     return mCommitter;
 }
 
-QString Note::mesage() const
+QString Note::message() const
 {
     return mMesage;
 }

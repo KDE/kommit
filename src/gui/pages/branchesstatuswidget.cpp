@@ -7,18 +7,20 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "branchesstatuswidget.h"
 
 #include "actions/branchactions.h"
+#include "caches/branchescache.h"
 #include "core/kmessageboxhelper.h"
 #include "models/branchesmodel.h"
 
+#include <core/repositorydata.h>
 #include <entities/branch.h>
 #include <gitmanager.h>
 
 #include <KLocalizedString>
 #include <KMessageBox>
 
-BranchesStatusWidget::BranchesStatusWidget(Git::Manager *git, AppWindow *parent)
+BranchesStatusWidget::BranchesStatusWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)
-    , mActions(new BranchActions(git, this))
+    , mActions(new BranchActions(git->manager(), this))
     , mModel(git->branchesModel())
 
 {
@@ -43,6 +45,8 @@ void BranchesStatusWidget::init()
     connect(comboBoxReferenceBranch, &QComboBox::currentIndexChanged, this, &BranchesStatusWidget::slotComboBoxReferenceBranchCurrentIndexChanged);
     connect(pushButtonRemoveSelected, &QPushButton::clicked, this, &BranchesStatusWidget::slotPushButtonRemoveSelectedClicked);
     connect(treeView, &QTreeView::customContextMenuRequested, this, &BranchesStatusWidget::slotTreeViewCustomContextMenuRequested);
+    connect(treeView, &QTreeView::activated, this, &BranchesStatusWidget::slotTreeViewActivated);
+    connect(treeView, &QTreeView::clicked, this, &BranchesStatusWidget::slotTreeViewActivated);
 }
 
 void BranchesStatusWidget::saveState(QSettings &settings) const
@@ -68,9 +72,9 @@ void BranchesStatusWidget::slotPushButtonRemoveSelectedClicked()
         return;
 
     if (KMessageBoxHelper::removeQuestion(this, i18n("Are you sure to remove the selected branch?"))) {
-        auto branchData = mGit->branchesModel()->fromIndex(treeView->currentIndex());
-        if (branchData) {
-            if (!mGit->removeBranch(branchData->name())) {
+        auto branch = mGit->branchesModel()->fromIndex(treeView->currentIndex());
+        if (branch) {
+            if (!mGit->manager()->branches()->remove(branch)) {
                 KMessageBox::information(this, i18n("Unable to remove the selected branch"));
                 return;
             }
@@ -85,8 +89,16 @@ void BranchesStatusWidget::slotTreeViewCustomContextMenuRequested(const QPoint &
     auto b = mModel->fromIndex(treeView->currentIndex());
     if (!b)
         return;
-    mActions->setBranchName(b);
+    mActions->setBranch(b);
     mActions->popup();
+}
+
+void BranchesStatusWidget::slotTreeViewActivated(const QModelIndex &index)
+{
+    auto b = mModel->fromIndex(index);
+    if (!b)
+        return;
+    mActions->setBranch(b);
 }
 
 #include "moc_branchesstatuswidget.cpp"

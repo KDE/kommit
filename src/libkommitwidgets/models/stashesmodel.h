@@ -6,40 +6,41 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 #include "abstractgititemsmodel.h"
-#include "libkommit_export.h"
+#include "libkommitwidgets_export.h"
 
 namespace Git
 {
 
-class Tag;
-class LIBKOMMIT_EXPORT TagsModel : public AbstractGitItemsModel
+class Manager;
+class Stash;
+}
+
+class LIBKOMMITWIDGETS_EXPORT StashesModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 
 public:
-    enum class TagsModelRoles {
-        Name,
+    enum StashesModelRoles {
         Subject,
-        Tagger,
+        CommitHash,
+        AuthorName,
+        AuthorEmail,
         Time,
         LastColumn = Time,
     };
-    Q_ENUM(TagsModelRoles)
-    explicit TagsModel(Manager *git, QObject *parent = nullptr);
+    explicit StashesModel(Git::Manager *git, QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    QSharedPointer<Tag> fromIndex(const QModelIndex &index) const;
+    QSharedPointer<Git::Stash> fromIndex(const QModelIndex &index) const;
 
     void clear() override;
 
 protected:
-    void fill() override;
+    void reload() override;
 
 private:
-    QList<QSharedPointer<Tag>> mData;
+    QList<QSharedPointer<Git::Stash>> mData;
 };
-
-} // namespace Git

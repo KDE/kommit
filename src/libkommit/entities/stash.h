@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
+#include "interfaces.h"
 #include "libkommit_export.h"
 
 #include <QDateTime>
@@ -19,39 +20,21 @@ namespace Git
 class Signature;
 class Manager;
 class Commit;
-
-class LIBKOMMIT_EXPORT Stash
+class StashPrivate;
+class LIBKOMMIT_EXPORT Stash : IOid
 {
 public:
-    explicit Stash(Git::Manager *git, QString name);
-    Stash(size_t index, git_repository *repo, const char *message, const git_oid *stash_id);
+    Stash(Manager *manager, size_t index, const char *message, const git_oid *stash_id);
     ~Stash();
 
     Q_REQUIRED_RESULT const QString &message() const;
-    Q_REQUIRED_RESULT const QString &subject() const;
-    Q_REQUIRED_RESULT const QString &branch() const;
-    Q_REQUIRED_RESULT const QDateTime &pushTime() const;
-
-    Q_REQUIRED_RESULT QSharedPointer<Signature> author() const;
-    Q_REQUIRED_RESULT QSharedPointer<Signature> committer() const;
-    Q_REQUIRED_RESULT QSharedPointer<Commit> commit() const;
-
-    friend class Manager;
-    friend class StashesModel;
-
-    Q_REQUIRED_RESULT QString commitHash() const;
-
+    Q_REQUIRED_RESULT QSharedPointer<Commit> commit();
     Q_REQUIRED_RESULT size_t index() const;
+    Q_REQUIRED_RESULT QSharedPointer<Oid> oid() const override;
 
 private:
-    git_commit *ptr{nullptr};
-    Git::Manager *mGit = nullptr;
-
-    QSharedPointer<Commit> mCommit;
-    QString mMessage;
-    QString mCommitHash;
-    QString mSubject;
-    size_t mIndex;
+    StashPrivate *d_ptr;
+    Q_DECLARE_PRIVATE(Stash)
 };
 
 } // namespace Git

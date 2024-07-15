@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "gitgraphlane.h"
 #include "interfaces.h"
 #include "libkommit_export.h"
 #include "reference.h"
@@ -41,14 +40,11 @@ public:
     Q_REQUIRED_RESULT const QString &commitHash() const;
     Q_REQUIRED_RESULT const QStringList &parents() const;
     Q_REQUIRED_RESULT QSharedPointer<Branch> branch() const;
-    Q_REQUIRED_RESULT const QString &extraData() const;
-    Q_REQUIRED_RESULT CommitType type() const;
-    Q_REQUIRED_RESULT const QVector<GraphLane> &lanes() const;
     Q_REQUIRED_RESULT const QStringList &children() const;
     Q_REQUIRED_RESULT const QString &commitShortHash() const;
     Q_REQUIRED_RESULT QDateTime commitTime() const;
 
-    Q_REQUIRED_RESULT QSharedPointer<Reference> reference() const;
+    Q_REQUIRED_RESULT QList<QSharedPointer<Reference>> references() const;
 
     Q_REQUIRED_RESULT QSharedPointer<Tree> tree() const override;
     Q_REQUIRED_RESULT QString treeTitle() const override;
@@ -63,20 +59,15 @@ private:
     CommitPrivate *d_ptr;
     Q_DECLARE_PRIVATE(Commit);
 
-    // QString mMessage;
-    // QString mSubject;
-    // QString mBody;
     QString mCommitHash;
     QString mCommitShortHash;
-    QStringList mParentHash;
-    QString mExtraData;
-    CommitType mType;
-    QVector<GraphLane> mLanes;
-    QStringList mChildren;
-    QSharedPointer<Reference> mReference;
+
+    void clearChildren();
+    void setReferences(QList<QSharedPointer<Reference>> refs);
+    void addChild(const QString &childHash);
 
     friend class LogList;
     friend class Manager;
-    friend class LogsModel;
+    friend class CommitsCache;
 };
 }

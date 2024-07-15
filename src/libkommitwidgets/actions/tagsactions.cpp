@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "tagsactions.h"
 
+#include "caches/tagscache.h"
 #include "core/kmessageboxhelper.h"
 #include "dialogs/runnerdialog.h"
 #include "dialogs/taginfodialog.h"
@@ -33,16 +34,14 @@ void TagsActions::create()
     TagInfoDialog d(mParent);
     d.setWindowTitle(i18nc("@title:window", "New tag"));
     if (d.exec() == QDialog::Accepted) {
-        mGit->createTag(d.tagName(), d.message());
-        mGit->tagsModel()->load();
+        mGit->tags()->create(d.tagName(), d.message());
     }
 }
 
 void TagsActions::remove()
 {
-    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected tag?"), i18nc("@title:window", "Remove tag"))) {
-        mGit->runGit({QStringLiteral("tag"), QStringLiteral("-d"), mTag->name()});
-        mGit->tagsModel()->load();
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected tag?"), i18n("Remove tag"))) {
+        mGit->tags()->remove(mTag);
     }
 }
 

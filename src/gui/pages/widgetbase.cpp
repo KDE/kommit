@@ -16,31 +16,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QTreeView>
 #include <QVBoxLayout>
 
-WidgetBase::WidgetBase(QWidget *parent)
-    : QWidget(parent)
-{
-    // TODO: remove this singelton call
-    mGit = Git::Manager::instance();
-    connect(mGit, &Git::Manager::pathChanged, this, &WidgetBase::gitPathChanged);
-}
+#include <core/repositorydata.h>
 
-WidgetBase::WidgetBase(Git::Manager *git, AppWindow *parent)
+WidgetBase::WidgetBase(RepositoryData *git, AppWindow *parent)
     : QWidget(parent)
     , mGit(git)
     , mParent{parent}
 {
-    // TODO: do we need this?
-    if (!mGit)
-        mGit = Git::Manager::instance();
-    connect(mGit, &Git::Manager::pathChanged, this, &WidgetBase::gitPathChanged);
+    connect(mGit->manager(), &Git::Manager::pathChanged, this, &WidgetBase::gitPathChanged);
 }
 
-Git::Manager *WidgetBase::git() const
+RepositoryData *WidgetBase::git() const
 {
     return mGit;
 }
 
-void WidgetBase::setGit(Git::Manager *newGit)
+void WidgetBase::setGit(RepositoryData *newGit)
 {
     mGit = newGit;
 }
@@ -104,7 +95,7 @@ void WidgetBase::settingsUpdated()
 
 void WidgetBase::gitPathChanged()
 {
-    if (mGit->isValid())
+    if (mGit->manager()->isValid())
         reload();
     else
         clear();

@@ -8,6 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "commandargsparser.h"
 
 #include "appwindow.h"
+#include "caches/branchescache.h"
+#include "caches/tagscache.h"
 #include "commands/commandclean.h"
 #include "commands/commandmerge.h"
 #include "commands/commandswitchbranch.h"
@@ -335,7 +337,7 @@ ArgParserReturn CommandArgsParser::create_tag(const QString &path)
     TagInfoDialog d(nullptr);
 
     if (d.exec() == QDialog::Accepted) {
-        mGit->createTag(d.tagName(), d.message());
+        mGit->tags()->create(d.tagName(), d.message());
     }
     return 0;
 }
@@ -356,7 +358,7 @@ ArgParserReturn CommandArgsParser::diff(const QString &file)
         mGit->open(fi.absolutePath());
         const QDir dir{mGit->path()};
 
-        QSharedPointer<Git::File> headFile{new Git::File{mGit, mGit->currentBranch(), dir.relativeFilePath(file)}};
+        QSharedPointer<Git::File> headFile{new Git::File{mGit, mGit->branches()->currentName(), dir.relativeFilePath(file)}};
         QSharedPointer<Git::File> changedFile{new Git::File{file}};
         auto d = new DiffWindow{headFile, changedFile};
         d->exec();
@@ -418,10 +420,9 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
         return 0;
     }
 
-    mGit->setLoadFlags(Git::LoadLogs);
     mGit->open(fi.absolutePath());
     auto fileName = file.mid(mGit->path().size());
-    auto f = QSharedPointer<Git::File>{new Git::File{mGit, mGit->currentBranch(), fileName}};
+    auto f = QSharedPointer<Git::File>{new Git::File{mGit, mGit->branches()->currentName(), fileName}};
     FileBlameDialog d(mGit, f);
     d.exec();
     return 0;

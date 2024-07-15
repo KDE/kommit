@@ -28,8 +28,6 @@ CloneDialog::CloneDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CloneDialog::slotAccepted);
     connect(lineEditUrl, &QLineEdit::textChanged, this, &CloneDialog::slotUrlChanged);
 
-    connect(mCloneObserver, &Git::CloneObserver::totalObjectsChanged, progressBar, &QProgressBar::setMaximum);
-    connect(mCloneObserver, &Git::CloneObserver::receivedObjectsChanged, progressBar, &QProgressBar::setValue);
     connect(mCloneObserver, &Git::CloneObserver::credentialRequeted, this, &CloneDialog::slotCredentialRequeted);
     connect(mCloneObserver, &Git::CloneObserver::message, labelMessage, &QLabel::setText);
     connect(lineEditPath->lineEdit(), &KLineEdit::textChanged, this, &CloneDialog::slotUrlChanged);

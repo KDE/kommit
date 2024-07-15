@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "libkommit_export.h"
+#include "qobjectdefs.h"
 
 #include <git2/checkout.h>
 
@@ -18,30 +19,33 @@ namespace Git
 class LIBKOMMIT_EXPORT CheckoutOptions
 {
 public:
-    //    enum CheckoutStrategy {
-    //        None = 0,
-    //        Safe = (1u << 0),
-    //        Force = (1u << 1),
-    //        RecreateMissing = (1u << 2),
-    //        AllowConflicts = (1u << 4),
-    //        RemoveUntracked = (1u << 5),
-    //        RemoveIgnored = (1u << 6),
-    //        UpdateOnly = (1u << 7),
-    //        DontUpdateIndex = (1u << 8),
-    //        NoRefresh = (1u << 9),
-    //        SkipUnmerged = (1u << 10),
-    //        UseOurs = (1u << 11),
-    //        UseTheirs = (1u << 12),
-    //        DisablePathspecMatch = (1u << 13),
-    //        SkipLockedDirectories = (1u << 18),
-    //        DontOverwriteIgnored = (1u << 19),
-    //        ConflictStyleMerge = (1u << 20),
-    //        ConflictStyleDiFF3 = (1u << 21),
-    //        DontRemoveExisting = (1u << 22),
-    //        DontWriteIndex = (1u << 23),
-    //        UpdateSubmodules = (1u << 16),
-    //        UpdateSubmodulesIfChanged = (1u << 17),
-    //    };
+    enum class CheckoutStrategy {
+        None = 0,
+        Safe = GIT_CHECKOUT_SAFE,
+        Force = GIT_CHECKOUT_FORCE,
+        RecreateMissing = GIT_CHECKOUT_RECREATE_MISSING,
+        AllowConflicts = GIT_CHECKOUT_ALLOW_CONFLICTS,
+        RemoveUntracked = GIT_CHECKOUT_REMOVE_UNTRACKED,
+        RemoveIgnored = GIT_CHECKOUT_REMOVE_IGNORED,
+        UpdateOnly = GIT_CHECKOUT_UPDATE_ONLY,
+        DontUpdateIndex = GIT_CHECKOUT_DONT_UPDATE_INDEX,
+        NoRefresh = GIT_CHECKOUT_NO_REFRESH,
+        SkipUnmerged = GIT_CHECKOUT_SKIP_UNMERGED,
+        UseOurs = GIT_CHECKOUT_USE_OURS,
+        UseTheirs = GIT_CHECKOUT_USE_THEIRS,
+        DisablePathspecMatch = GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH,
+        SkipLockedDirectories = GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES,
+        DontOverwriteIgnored = GIT_CHECKOUT_DONT_OVERWRITE_IGNORED,
+        ConflictStyleMerge = GIT_CHECKOUT_CONFLICT_STYLE_MERGE,
+        ConflictStyleDiFF3 = GIT_CHECKOUT_CONFLICT_STYLE_DIFF3,
+        DontRemoveExisting = GIT_CHECKOUT_DONT_REMOVE_EXISTING,
+        DontWriteIndex = GIT_CHECKOUT_DONT_WRITE_INDEX,
+        UpdateSubmodules = GIT_CHECKOUT_UPDATE_SUBMODULES,
+        UpdateSubmodulesIfChanged = GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED,
+    };
+
+    // Q_DECLARE_FLAGS(CheckoutStrategies, CheckoutStrategy)
+    // Q_FLAG(CheckoutStrategies);
 
     bool mSafe{false};
     bool mForce{false};

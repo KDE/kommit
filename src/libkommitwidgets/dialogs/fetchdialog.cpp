@@ -6,6 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "fetchdialog.h"
 
+#include "caches/branchescache.h"
+#include "caches/remotescache.h"
 #include "commands/commandfetch.h"
 #include "gitmanager.h"
 #include "observers/fetchobserver.h"
@@ -14,14 +16,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDialogButtonBox>
 FetchDialog::FetchDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(git, parent)
-    , mObserver{new Git::FetchObserver{this}}
+    , mObserver{new Git::FetchObserver{git}}
 {
     setupUi(this);
 
-    comboBoxRemote->addItems(git->remotes());
-    comboBoxBranch->addItems(git->branchesNames(Git::Manager::BranchType::LocalBranch));
+    comboBoxRemote->addItems(git->remotes()->allNames());
+    comboBoxBranch->addItems(git->branches()->names(Git::BranchType::LocalBranch));
 
-    comboBoxRemote->setCurrentText(git->currentBranch());
+    comboBoxRemote->setCurrentText(git->branches()->currentName());
     connect(buttonBox, &QDialogButtonBox::accepted, this, &FetchDialog::slotAccept);
 }
 

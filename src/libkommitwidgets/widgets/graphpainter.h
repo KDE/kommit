@@ -6,29 +6,24 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "gitgraphlane.h"
 #include <QStyledItemDelegate>
 
 #include "libkommitwidgets_export.h"
 
-namespace Git
-{
-class LogsModel;
-}
+class GraphPainterPrivate;
+class CommitsModel;
 class LIBKOMMITWIDGETS_EXPORT GraphPainter : public QStyledItemDelegate
 {
     Q_OBJECT
 
 public:
-    explicit GraphPainter(Git::LogsModel *model, QObject *parent = nullptr);
+    explicit GraphPainter(CommitsModel *model, QObject *parent = nullptr);
+    virtual ~GraphPainter();
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-    void paintLane(QPainter *painter, const Git::GraphLane &lane, int index) const;
-    int colX(int col) const;
-
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
-    Git::LogsModel *const mModel;
-    QVector<QColor> mColors;
+    GraphPainterPrivate *d_ptr;
+    Q_DECLARE_PRIVATE(GraphPainter)
 };

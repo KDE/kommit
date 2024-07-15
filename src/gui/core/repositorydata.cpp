@@ -6,40 +6,74 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "repositorydata.h"
 
-#include <models/branchesmodel.h>
-#include <models/logsmodel.h>
-#include <models/remotesmodel.h>
-#include <models/stashesmodel.h>
-#include <models/submodulesmodel.h>
-#include <models/tagsmodel.h>
+#include "models/branchesmodel.h"
+#include "models/commitsmodel.h"
+#include "models/remotesmodel.h"
+#include "models/stashesmodel.h"
+#include "models/submodulesmodel.h"
+#include "models/tagsmodel.h"
 
 #include <gitmanager.h>
 
-RepositoryData::RepositoryData(QObject *parent)
-    : QObject{parent}
-    , mManager{new Git::Manager}
-    , mRemotesModel{new Git::RemotesModel{mManager, this}}
-    , mSubmodulesModel{new Git::SubmodulesModel{mManager, this}}
-    , mBranchesModel{new Git::BranchesModel{mManager, this}}
-    , mLogsCache{new Git::LogsModel{mManager, this}}
-    , mStashesCache{new Git::StashesModel{mManager, this}}
-    , mTagsModel{new Git::TagsModel{mManager, this}}
+RepositoryData::RepositoryData(Git::Manager *git)
+    : QObject{git}
+    , mManager{git}
+    , mRemotesModel{new RemotesModel{mManager}}
+    , mSubmodulesModel{new SubmodulesModel{mManager}}
+    , mBranchesModel{new BranchesModel{mManager}}
+    , mLogsCache{new CommitsModel{mManager, this}}
+    , mStashesCache{new StashesModel{mManager, this}}
+    , mTagsModel{new TagsModel{mManager, this}}
 {
 }
 
 RepositoryData::~RepositoryData()
 {
-    delete mManager;
 }
 
 void RepositoryData::loadAll()
 {
     mRemotesModel->load();
-    mSubmodulesModel->load();
+    mSubmodulesModel->reload();
     mBranchesModel->load();
     mLogsCache->load();
     mStashesCache->load();
     mTagsModel->load();
+}
+
+Git::Manager *RepositoryData::manager() const
+{
+    return mManager;
+}
+
+SubmodulesModel *RepositoryData::submodulesModel() const
+{
+    return mSubmodulesModel;
+}
+
+RemotesModel *RepositoryData::remotesModel() const
+{
+    return mRemotesModel;
+}
+
+BranchesModel *RepositoryData::branchesModel() const
+{
+    return mBranchesModel;
+}
+
+CommitsModel *RepositoryData::commitsModel() const
+{
+    return mLogsCache;
+}
+
+StashesModel *RepositoryData::stashesModel() const
+{
+    return mStashesCache;
+}
+
+TagsModel *RepositoryData::tagsModel() const
+{
+    return mTagsModel;
 }
 
 #include "moc_repositorydata.cpp"

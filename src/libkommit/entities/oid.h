@@ -23,8 +23,13 @@ public:
     Q_REQUIRED_RESULT QString toString() const;
     Q_REQUIRED_RESULT bool isNull() const;
 
+    Q_REQUIRED_RESULT const git_oid *oidPtr() const;
+
 private:
     const git_oid *mOidPtr;
 };
 
 };
+
+bool operator==(const Git::Oid &oid, const QString &hash);
+bool operator!=(const Git::Oid &oid, const QString &hash);

@@ -37,7 +37,7 @@ void DiffTreeModel::addFile(const Git::TreeDiffEntry &file)
 
 TreeModel::Node *DiffTreeModel::createPath(const QStringList &path, Diff::DiffType status)
 {
-    Node *parent = mRootNode;
+    Node *parent = rootNode();
     for (auto &p : path) {
         auto child = parent->find(p);
         if (!child) {

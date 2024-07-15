@@ -5,6 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "clonetest.h"
+#include "caches/commitscache.h"
+#include "caches/tagscache.h"
 #include "testcommon.h"
 #include <entities/commit.h>
 #include <entities/tree.h>
@@ -42,13 +44,13 @@ void CloneTest::clone()
     path.append("/");
     QCOMPARE(path, mManager->path());
 
-    auto tags = mManager->tagsNames();
+    auto tags = mManager->tags()->allNames();
     QVERIFY(tags.contains("v1.0.1"));
 }
 
 void CloneTest::initialCommitTree()
 {
-    auto commit = mManager->commitByHash("05659b9f92b7932bb2c04ced181dbdde294cb0bb");
+    auto commit = mManager->commits()->find("05659b9f92b7932bb2c04ced181dbdde294cb0bb");
     qDebug() << commit->message();
     QVERIFY(commit);
 
@@ -83,7 +85,6 @@ void CloneTest::initialCommitTree()
     QVERIFY(src.contains("dialogs"));
     QVERIFY(src.contains("core"));
     QVERIFY(src.contains("actions"));
-    delete commit;
 }
 
 void CloneTest::cleanupTestCase()

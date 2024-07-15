@@ -11,11 +11,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 
 class SegmentConnector;
+class SegmentsScrollBarPrivate;
+
 class LIBKOMMITWIDGETS_EXPORT SegmentsScrollBar : public QWidget
 {
     Q_OBJECT
 public:
     explicit SegmentsScrollBar(QWidget *parent = nullptr);
+    virtual ~SegmentsScrollBar();
 
     SegmentConnector *segmentConnector() const;
     void setSegmentConnector(SegmentConnector *newSegmentConnector);
@@ -41,14 +44,6 @@ Q_SIGNALS:
     void mouseLeaved();
 
 private:
-    enum Side { Left, Right };
-
-    int leftCount{0};
-    int rightCount{0};
-    SegmentConnector *mSegmentConnector{nullptr};
-    QImage mSegmentsImage;
-
-    LIBKOMMITWIDGETS_NO_EXPORT void generateSegmentsImage();
-
-    inline void paintSection(QPainter &painter, SegmentsScrollBar::Side side, int from, int len, const QBrush &brush, bool drawRect = false);
+    SegmentsScrollBarPrivate *d_ptr;
+    Q_DECLARE_PRIVATE(SegmentsScrollBar)
 };

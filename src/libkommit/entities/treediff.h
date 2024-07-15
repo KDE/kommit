@@ -8,8 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QList>
 
-#include "gitglobal.h"
 #include "libkommit_export.h"
+#include "types.h"
 
 #include <git2/diff.h>
 

@@ -5,15 +5,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tagsmodel.h"
+#include "caches/tagscache.h"
 #include "entities/tag.h"
 #include "gitmanager.h"
 
 #include <KLocalizedString>
 
-namespace Git
-{
-
-TagsModel::TagsModel(Manager *git, QObject *parent)
+TagsModel::TagsModel(Git::Manager *git, QObject *parent)
     : AbstractGitItemsModel(git, parent)
 {
 }
@@ -70,7 +68,7 @@ QVariant TagsModel::headerData(int section, Qt::Orientation orientation, int rol
     return {};
 }
 
-QSharedPointer<Tag> TagsModel::fromIndex(const QModelIndex &index) const
+QSharedPointer<Git::Tag> TagsModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
@@ -85,15 +83,12 @@ void TagsModel::clear()
     endResetModel();
 }
 
-void TagsModel::fill()
+void TagsModel::reload()
 {
-    mData.clear();
-
-    mGit->forEachTags([this](QSharedPointer<Tag> tag) {
-        mData.append(tag);
-    });
+    if (mGit->isValid())
+        mData = mGit->tags()->allTags();
+    else
+        mData.clear();
 }
-
-} // namespace Git
 
 #include "moc_tagsmodel.cpp"

@@ -6,15 +6,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "remoteswidget.h"
 #include "actions/remotesactions.h"
+#include "entities/remote.h"
 #include "models/remotesmodel.h"
 
+#include <core/repositorydata.h>
 #include <entities/branch.h>
 #include <gitmanager.h>
 
-RemotesWidget::RemotesWidget(Git::Manager *git, AppWindow *parent)
+RemotesWidget::RemotesWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)
     , mModel(git->remotesModel())
-    , mActions(new RemotesActions(git, this))
+    , mActions(new RemotesActions(git->manager(), this))
 
 {
     setupUi(this);
@@ -39,7 +41,7 @@ void RemotesWidget::slotListViewItemActivated(const QModelIndex &index)
     if (!remote)
         return;
 
-    mActions->setRemoteName(remote->name());
+    mActions->setRemote(remote);
     labelRemoteName->setText(remote->name());
     labelFetchUrl->setText(remote->fetchUrl());
     labelPushUrl->setText(remote->pushUrl());

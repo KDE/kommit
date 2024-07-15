@@ -11,6 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <git2/remote.h>
 
+#include <QSharedPointer>
+
 namespace Git
 {
 
@@ -53,12 +55,8 @@ private:
 class LIBKOMMIT_EXPORT Remote
 {
 public:
-    Remote();
     Remote(git_remote *remote);
-
-    void parse(const QString &output);
-    //    QString headBranch;
-    //    QList<RemoteBranch> branches;
+    virtual ~Remote();
 
     Q_REQUIRED_RESULT QString name() const;
     Q_REQUIRED_RESULT QList<RefSpec *> refSpecList() const;
@@ -66,18 +64,21 @@ public:
     Q_REQUIRED_RESULT QString fetchUrl() const;
     Q_REQUIRED_RESULT QString defaultBranch() const;
 
-    Q_REQUIRED_RESULT const QList<Branch *> &branches() const;
+    Q_REQUIRED_RESULT const QList<QSharedPointer<Branch>> &branches();
 
     Q_REQUIRED_RESULT bool connected() const;
 
+    Q_REQUIRED_RESULT git_remote *remotePtr() const;
+
 private:
+    git_remote *mRemotePtr;
     QList<RefSpec *> mRefSpecList;
     bool mConnected{false};
     QString mName;
     QString mPushUrl;
     QString mFetchUrl;
     QString mDefaultBranch;
-    QList<Branch *> mBranches;
+    QList<QSharedPointer<Branch>> mBranches;
 
     friend class RemotesModel;
 };

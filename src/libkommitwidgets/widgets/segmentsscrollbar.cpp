@@ -14,24 +14,53 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QPainter>
 #include <kommitwidgetsglobaloptions.h>
 
+class SegmentsScrollBarPrivate
+{
+    SegmentsScrollBar *q_ptr;
+    Q_DECLARE_PUBLIC(SegmentsScrollBar)
+
+public:
+    SegmentsScrollBarPrivate(SegmentsScrollBar *parent);
+    enum Side { Left, Right };
+
+    int leftCount{0};
+    int rightCount{0};
+    SegmentConnector *mSegmentConnector{nullptr};
+    QImage mSegmentsImage;
+
+    LIBKOMMITWIDGETS_NO_EXPORT void generateSegmentsImage();
+
+    inline void paintSection(QPainter &painter, Side side, int from, int len, const QBrush &brush, bool drawRect = false);
+};
+
 SegmentsScrollBar::SegmentsScrollBar(QWidget *parent)
     : QWidget{parent}
+    , d_ptr{new SegmentsScrollBarPrivate{this}}
 {
     setMouseTracking(true);
 }
 
+SegmentsScrollBar::~SegmentsScrollBar()
+{
+    Q_D(SegmentsScrollBar);
+    delete d;
+}
+
 SegmentConnector *SegmentsScrollBar::segmentConnector() const
 {
-    return mSegmentConnector;
+    Q_D(const SegmentsScrollBar);
+    return d->mSegmentConnector;
 }
 
 void SegmentsScrollBar::setSegmentConnector(SegmentConnector *newSegmentConnector)
 {
-    if (mSegmentConnector) {
+    Q_D(SegmentsScrollBar);
+
+    if (d->mSegmentConnector) {
         disconnect(newSegmentConnector, &SegmentConnector::segmentsChanged, this, &SegmentsScrollBar::reload);
         disconnect(newSegmentConnector, &SegmentConnector::sameSizeChanged, this, &SegmentsScrollBar::reload);
     }
-    mSegmentConnector = newSegmentConnector;
+    d->mSegmentConnector = newSegmentConnector;
     connect(newSegmentConnector, &SegmentConnector::segmentsChanged, this, &SegmentsScrollBar::reload);
     connect(newSegmentConnector, &SegmentConnector::sameSizeChanged, this, &SegmentsScrollBar::reload);
     update();
@@ -39,16 +68,18 @@ void SegmentsScrollBar::setSegmentConnector(SegmentConnector *newSegmentConnecto
 
 void SegmentsScrollBar::paintEvent(QPaintEvent *event)
 {
+    Q_D(SegmentsScrollBar);
+
     QPainter painter(this);
     painter.fillRect(event->rect(), Qt::white);
 
-    if (!Q_UNLIKELY(mSegmentConnector))
+    if (!Q_UNLIKELY(d->mSegmentConnector))
         return;
 
-    painter.drawImage(0, 0, mSegmentsImage);
+    painter.drawImage(0, 0, d->mSegmentsImage);
 
-    auto leftArea = mSegmentConnector->left()->visibleLines();
-    auto rightArea = mSegmentConnector->right()->visibleLines();
+    auto leftArea = d->mSegmentConnector->left()->visibleLines();
+    auto rightArea = d->mSegmentConnector->right()->visibleLines();
 
     QBrush br(Qt::gray);
 
@@ -57,8 +88,8 @@ void SegmentsScrollBar::paintEvent(QPaintEvent *event)
     painter.drawLine(width() * .6, 0, width() * .6, height() - 1);
 
     painter.setOpacity(.3);
-    paintSection(painter, Left, leftArea.first, leftArea.second, br, true);
-    paintSection(painter, Right, rightArea.first, rightArea.second, br, true);
+    d->paintSection(painter, SegmentsScrollBarPrivate::Side::Left, leftArea.first, leftArea.second, br, true);
+    d->paintSection(painter, SegmentsScrollBarPrivate::Side::Right, rightArea.first, rightArea.second, br, true);
     painter.setOpacity(1);
     painter.drawRect(QRect{0, 0, width() - 1, height() - 1});
 }
@@ -71,9 +102,10 @@ void SegmentsScrollBar::mouseMoveEvent(QMouseEvent *event)
 
 void SegmentsScrollBar::resizeEvent(QResizeEvent *event)
 {
+    Q_D(SegmentsScrollBar);
     Q_UNUSED(event)
-    if (Q_LIKELY(mSegmentConnector))
-        generateSegmentsImage();
+    if (Q_LIKELY(d->mSegmentConnector))
+        d->generateSegmentsImage();
 }
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -94,23 +126,25 @@ void SegmentsScrollBar::leaveEvent(QEvent *event)
 
 void SegmentsScrollBar::reload()
 {
-    leftCount = rightCount = 0;
-    for (const auto &segment : qAsConst(mSegmentConnector->segments())) {
-        if (mSegmentConnector->sameSize()) {
+    Q_D(SegmentsScrollBar);
+    d->leftCount = d->rightCount = 0;
+    for (const auto &segment : qAsConst(d->mSegmentConnector->segments())) {
+        if (d->mSegmentConnector->sameSize()) {
             auto m = qMax(segment->oldText.size(), segment->newText.size());
-            leftCount += m;
-            rightCount += m;
+            d->leftCount += m;
+            d->rightCount += m;
         } else {
-            leftCount += segment->oldText.size();
-            rightCount += segment->newText.size();
+            d->leftCount += segment->oldText.size();
+            d->rightCount += segment->newText.size();
         }
     }
     update();
 }
 
-void SegmentsScrollBar::generateSegmentsImage()
+void SegmentsScrollBarPrivate::generateSegmentsImage()
 {
-    mSegmentsImage = QImage{width(), height(), QImage::Format_ARGB32};
+    Q_Q(SegmentsScrollBar);
+    mSegmentsImage = QImage{q->width(), q->height(), QImage::Format_ARGB32};
 
     mSegmentsImage.fill(Qt::white);
     QPainter painter{&mSegmentsImage};
@@ -137,14 +171,14 @@ void SegmentsScrollBar::generateSegmentsImage()
             break;
         }
 
-        paintSection(painter, Left, countLeft, segment->oldText.size(), brush);
-        paintSection(painter, Right, countRight, segment->newText.size(), brush);
+        paintSection(painter, Side::Left, countLeft, segment->oldText.size(), brush);
+        paintSection(painter, Side::Right, countRight, segment->newText.size(), brush);
 
         if (mSegmentConnector->sameSize()) {
             auto m = qMax(segment->oldText.size(), segment->newText.size());
 
-            paintSection(painter, Left, countLeft + segment->oldText.size(), m - segment->oldText.size(), Qt::darkGray);
-            paintSection(painter, Right, countRight + segment->newText.size(), m - segment->newText.size(), Qt::darkGray);
+            paintSection(painter, Side::Left, countLeft + segment->oldText.size(), m - segment->oldText.size(), Qt::darkGray);
+            paintSection(painter, Side::Right, countRight + segment->newText.size(), m - segment->newText.size(), Qt::darkGray);
 
             countLeft += m;
             countRight += m;
@@ -154,8 +188,8 @@ void SegmentsScrollBar::generateSegmentsImage()
         }
     }
     /*
-        auto leftArea = mSegmentConnector->left()->visibleLines();
-        auto rightArea = mSegmentConnector->right()->visibleLines();
+        auto leftArea = d->mSegmentConnector->left()->visibleLines();
+        auto rightArea = d->mSegmentConnector->right()->visibleLines();
 
         QBrush br(Qt::gray);
 
@@ -170,18 +204,24 @@ void SegmentsScrollBar::generateSegmentsImage()
         painter.drawRect(QRect{0, 0, width() - 1, height() - 1});*/
 }
 
-void SegmentsScrollBar::paintSection(QPainter &painter, SegmentsScrollBar::Side side, int from, int len, const QBrush &brush, bool drawRect)
+void SegmentsScrollBarPrivate::paintSection(QPainter &painter, Side side, int from, int len, const QBrush &brush, bool drawRect)
 {
+    Q_Q(SegmentsScrollBar);
     if (len <= 0)
         return;
-    int w = width() * .4;
-    int l = side == Left ? 0 : width() - w;
+    int w = q->width() * .4;
+    int l = side == Left ? 0 : q->width() - w;
     int &c = side == Left ? leftCount : rightCount;
 
-    QRect rc{l, static_cast<int>((from / (double)c) * height()) - 1, w, static_cast<int>((len / (double)c) * height())};
+    QRect rc{l, static_cast<int>((from / (double)c) * q->height()) - 1, w, static_cast<int>((len / (double)c) * q->height())};
     painter.fillRect(rc, brush);
     if (drawRect)
         painter.drawRect(rc);
 }
 
 #include "moc_segmentsscrollbar.cpp"
+
+SegmentsScrollBarPrivate::SegmentsScrollBarPrivate(SegmentsScrollBar *parent)
+    : q_ptr{parent}
+{
+}

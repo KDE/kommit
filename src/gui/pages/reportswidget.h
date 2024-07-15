@@ -16,7 +16,7 @@ class ReportsWidget : public WidgetBase, private Ui::ReportsWidget
     Q_OBJECT
 
 public:
-    explicit ReportsWidget(Git::Manager *git, AppWindow *parent = nullptr);
+    explicit ReportsWidget(RepositoryData *git, AppWindow *parent = nullptr);
 
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;

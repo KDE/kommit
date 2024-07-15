@@ -1,0 +1,4 @@
+1.6.1
+    - Improve graph painting
+    - Improve on kommit lib (remove extra dependencies like kf)
+    - Fix many small bugs

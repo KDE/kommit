@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "changedsubmodulesdialog.h"
+#include "caches/submodulescache.h"
 #include "dialogs/commitpushdialog.h"
 #include "entities/submodule.h"
 #include "gitmanager.h"
@@ -22,7 +23,7 @@ ChangedSubmodulesDialog::ChangedSubmodulesDialog(Git::Manager *git, QWidget *par
 
 void ChangedSubmodulesDialog::slotComitPushButtonClicked(const QString &submodule)
 {
-    auto g = mGit->submodule(submodule)->open();
+    auto g{mGit->submodules()->findByName(submodule)->open()};
     CommitPushDialog d{g};
     d.setWindowTitle(i18nc("@title:window", "Commit/Push submodule: %1", submodule));
     d.exec();
@@ -30,7 +31,7 @@ void ChangedSubmodulesDialog::slotComitPushButtonClicked(const QString &submodul
 
 void ChangedSubmodulesDialog::reload()
 {
-    auto modules = mGit->submodules();
+    auto modules = mGit->submodules()->allSubmodules();
 
     for (auto const &submodule : std::as_const(modules)) {
         if ((submodule->status() & Git::Submodule::Status::WdWdModified) == 0)

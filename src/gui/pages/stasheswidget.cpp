@@ -8,10 +8,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "actions/stashactions.h"
 #include "gitmanager.h"
 #include "models/stashesmodel.h"
+#include <core/repositorydata.h>
 
-StashesWidget::StashesWidget(Git::Manager *git, AppWindow *parent)
+StashesWidget::StashesWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)
-    , mActions(new StashActions(git, this))
+    , mActions(new StashActions(git->manager(), this))
     , mModel(git->stashesModel())
 {
     setupUi(this);

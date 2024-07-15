@@ -5,33 +5,21 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "submoduleactions.h"
-#include "commands/addsubmodulecommand.h"
 #include "core/kmessageboxhelper.h"
 #include "dialogs/runnerdialog.h"
 #include "dialogs/submoduleinfodialog.h"
-#include "gitmanager.h"
-#include "models/submodulesmodel.h"
 
-#include "libkommitwidgets_appdebug.h"
-#include <QAction>
+#include "entities/submodule.h"
+#include "observers/fetchobserver.h"
+#include "widgets/fetchresultwidget.h"
+
+#include <caches/submodulescache.h>
+#include <gitmanager.h>
+#include <options/addsubmoduleoptions.h>
 
 #include <KLocalizedString>
+#include <QAction>
 #include <QDir>
-
-const QString &SubmoduleActions::subModuleName() const
-{
-    return mSubModuleName;
-}
-
-void SubmoduleActions::setSubModuleName(const QString &newSubModuleName)
-{
-    mSubModuleName = newSubModuleName.trimmed();
-
-    setActionEnabled(_actionInit, true);
-    setActionEnabled(_actionUpdate, true);
-    //    setActionEnabled(_actionDeinit, true);
-    setActionEnabled(_actionSync, true);
-}
 
 SubmoduleActions::SubmoduleActions(Git::Manager *git, QWidget *parent)
     : AbstractActions(git, parent)
@@ -48,53 +36,78 @@ SubmoduleActions::SubmoduleActions(Git::Manager *git, QWidget *parent)
 void SubmoduleActions::init()
 {
     RunnerDialog d(mGit, mParent);
-    d.run({QStringLiteral("submodule"), QStringLiteral("init"), mSubModuleName});
+    d.run({QStringLiteral("submodule"), QStringLiteral("init"), mSubmodule->name()});
     d.exec();
 }
 
 void SubmoduleActions::update()
 {
     RunnerDialog d(mGit, mParent);
-    d.run({QStringLiteral("submodule"), QStringLiteral("update"), mSubModuleName});
+    d.run({QStringLiteral("submodule"), QStringLiteral("update"), mSubmodule->name()});
     d.exec();
+
+    // Git::FetchOptions options;
+    // auto observer = new Git::FetchObserver{mGit};
+
+    // auto w = new FetchResultWidget;
+    // w->setObserver(observer);
+    // w->setWindowModality(Qt::ApplicationModal);
+
+    // mSubmodule->update(options, observer);
+
+    // w->show();
 }
 
 void SubmoduleActions::create()
 {
     SubmoduleInfoDialog d(mGit, mParent);
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog runner(mGit);
-        runner.run(d.command());
-        runner.exec();
-        mGit->submodulesModel()->load();
+        Git::AddSubmoduleOptions opts;
+        opts.url = d.url();
+        opts.path = d.path();
+        mGit->submodules()->add(opts);
     }
 }
 
 void SubmoduleActions::deinit()
 {
-    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected submodule?"), i18n("Remove Submodule"))) {
-        qCDebug(KOMMIT_WIDGETS_LOG) << mGit->runGit(
-            {QStringLiteral("submodule"), QStringLiteral("deinit"), QStringLiteral("-f"), QStringLiteral("--"), mSubModuleName});
-        qCDebug(KOMMIT_WIDGETS_LOG) << mGit->runGit({QStringLiteral("rm"), mSubModuleName});
+    // if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to remove the selected submodule?"), i18n("Remove Submodule"))) {
+    //     qCDebug(KOMMIT_WIDGETS_LOG()) << mGit->runGit(
+    //         {QStringLiteral("submodule"), QStringLiteral("deinit"), QStringLiteral("-f"), QStringLiteral("--"), mSubModuleName});
+    //     qCDebug(KOMMIT_WIDGETS_LOG()) << mGit->runGit({QStringLiteral("rm"), mSubModuleName});
 
-        QDir d(mGit->path() + QStringLiteral("/.git/modules/") + mSubModuleName);
-        if (!d.removeRecursively()) {
-            KMessageBoxHelper::error(mParent, i18n("Unable to remove the module directory"));
-            return;
-        }
-        qCDebug(KOMMIT_WIDGETS_LOG) << d.path();
-        mGit->runGit({QStringLiteral("config"), QStringLiteral("--remove-section"), QStringLiteral("submodule.") + mSubModuleName});
+    //     QDir d(mGit->path() + QStringLiteral("/.git/modules/") + mSubModuleName);
+    //     if (!d.removeRecursively()) {
+    //         KMessageBoxHelper::error(mParent, i18n("Unable to remove the module directory"));
+    //         return;
+    //     }
+    //     qCDebug(KOMMIT_WIDGETS_LOG()) << d.path();
+    //     mGit->runGit({QStringLiteral("config"), QStringLiteral("--remove-section"), QStringLiteral("submodule.") + mSubModuleName});
 
-        mGit->submodulesModel()->load();
-        KMessageBoxHelper::information(mParent, i18n("The submodule %1 removed", mSubModuleName));
-    }
+    //     mGit->submodulesModel()->load();
+    //     KMessageBoxHelper::information(mParent, i18n("The submodule %1 removed", mSubModuleName));
+    // }
 }
 
 void SubmoduleActions::sync()
 {
     RunnerDialog d(mGit, mParent);
-    d.run({QStringLiteral("submodule"), QStringLiteral("sync"), mSubModuleName});
+    d.run({QStringLiteral("submodule"), QStringLiteral("sync"), mSubmodule->name()});
     d.exec();
+}
+
+QSharedPointer<Git::Submodule> SubmoduleActions::submodule() const
+{
+    return mSubmodule;
+}
+
+void SubmoduleActions::setSubmodule(QSharedPointer<Git::Submodule> newSubmodule)
+{
+    mSubmodule = newSubmodule;
+
+    _actionInit->setEnabled(!newSubmodule.isNull());
+    _actionUpdate->setEnabled(!newSubmodule.isNull());
+    _actionSync->setEnabled(!newSubmodule.isNull());
 }
 
 #include "moc_submoduleactions.cpp"

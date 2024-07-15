@@ -5,66 +5,84 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "stash.h"
-#include "entities/commit.h"
 
+#include "caches/commitscache.h"
+#include "entities/commit.h"
+#include "entities/oid.h"
 #include "gitmanager.h"
-#include <utility>
 
 #include <git2/stash.h>
+
 namespace Git
 {
-Stash::Stash(Manager *git, QString name)
-    : mGit(git)
-    , mMessage(std::move(name))
+
+class StashPrivate
 {
-}
+    Stash *q_ptr;
+    Q_DECLARE_PUBLIC(Stash)
 
-Stash::Stash(size_t index, git_repository *repo, const char *message, const git_oid *stash_id)
-    : mIndex{index}
+public:
+    StashPrivate(Stash *parent);
+    Manager *manager;
+    size_t index;
+    QString message;
+    git_oid stash_id;
+
+    QSharedPointer<Commit> commit;
+};
+
+Stash::Stash(Manager *manager, size_t index, const char *message, const git_oid *stash_id)
+    : d_ptr{new StashPrivate{this}}
 {
-    git_commit *commit = NULL;
+    Q_D(Stash);
 
-    git_commit_lookup(&commit, repo, stash_id);
-    mCommit.reset(new Commit{commit});
+    git_oid oid_cpy;
+    git_oid_cpy(&oid_cpy, stash_id);
 
-    mSubject = git_commit_body(commit);
-
-    mMessage = message;
-
-    mSubject = QString{git_commit_message(commit)}.remove(QLatin1Char('\n'));
-
-    mCommitHash = git_oid_tostr_s(stash_id);
+    d->index = index;
+    d->stash_id = oid_cpy;
+    d->message = QString{message};
+    d->manager = manager;
 }
 
 Stash::~Stash()
 {
-    if (ptr)
-        git_commit_free(ptr);
+    Q_D(Stash);
+
+    delete d;
 }
 
 const QString &Stash::message() const
 {
-    return mMessage;
+    Q_D(const Stash);
+    return d->message;
 }
 
-const QString &Stash::subject() const
+QSharedPointer<Commit> Stash::commit()
 {
-    return mSubject;
-}
+    Q_D(Stash);
 
-QSharedPointer<Commit> Stash::commit() const
-{
-    return mCommit;
-}
-
-QString Stash::commitHash() const
-{
-    return mCommitHash;
+    if (d->commit.isNull()) {
+        d->commit = d->manager->commits()->findByOid(&d->stash_id);
+    }
+    return d->commit;
 }
 
 size_t Stash::index() const
 {
-    return mIndex;
+    Q_D(const Stash);
+    return d->index;
+}
+
+QSharedPointer<Oid> Stash::oid() const
+{
+    Q_D(const Stash);
+    return QSharedPointer<Oid>{new Oid{&d->stash_id}};
+}
+
+StashPrivate::StashPrivate(Stash *parent)
+    : q_ptr{parent}
+{
 }
 
 } // namespace Git

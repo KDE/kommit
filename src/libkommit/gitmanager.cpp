@@ -3,37 +3,36 @@
 
 #include "gitmanager.h"
 
+#include "abstractreference.h"
+#include "blamedata.h"
 #include "caches/abstractcache.h"
 #include "caches/branchescache.h"
 #include "caches/commitscache.h"
 #include "caches/notescache.h"
+#include "caches/referencecache.h"
+#include "caches/remotescache.h"
+#include "caches/stashescache.h"
+#include "caches/submodulescache.h"
 #include "caches/tagscache.h"
+#include "commands/abstractcommand.h"
 #include "entities/branch.h"
 #include "entities/commit.h"
 #include "entities/index.h"
 #include "entities/note.h"
 #include "entities/submodule.h"
-#include "entities/tag.h"
 #include "entities/tree.h"
+#include "entities/treediff.h"
+#include "filestatus.h"
 #include "gitglobal_p.h"
-#include "models/branchesmodel.h"
-#include "models/logsmodel.h"
-#include "models/remotesmodel.h"
-#include "models/stashesmodel.h"
-#include "models/submodulesmodel.h"
-#include "models/tagsmodel.h"
 #include "observers/cloneobserver.h"
 #include "observers/fetchobserver.h"
 #include "observers/pushobserver.h"
-#include "options/addsubmoduleoptions.h"
 #include "types.h"
 
 #include "libkommit_debug.h"
 #include <QFile>
 #include <QProcess>
-#include <QtConcurrent>
 
-#include <abstractreference.h>
 #include <git2.h>
 #include <git2/branch.h>
 #include <git2/diff.h>
@@ -51,40 +50,36 @@ namespace Git
 
 class ManagerPrivate
 {
-public:
-    ManagerPrivate(Manager *parent);
-
     Manager *q_ptr;
     Q_DECLARE_PUBLIC(Manager);
+
+public:
+    ManagerPrivate(Manager *parent);
 
     git_repository *repo{nullptr};
 
     QString path;
     bool isValid{false};
-    QMap<QString, Remote> remotes;
-    LoadFlags loadFlags{LoadAll};
-
-    RemotesModel *const remotesModel;
-    SubmodulesModel *const submodulesModel;
-    BranchesModel *const branchesModel;
-    LogsModel *const logsCache;
-    StashesModel *const stashesCache;
-    TagsModel *const tagsModel;
 
     int errorCode{};
     int errorClass{};
     QString errorMessage;
 
-    CommitsCache commitsCache;
-    BranchesCache branchesCache;
-    TagsCache tagsCache;
-    NotesCache remotesCache;
-    NotesCache notesCache;
+    CommitsCache *commitsCache;
+    BranchesCache *branchesCache;
+    TagsCache *tagsCache;
+    RemotesCache *remotesCache;
+    NotesCache *notesCache;
+    SubmodulesCache *submodulesCache;
+    StashesCache *stashesCache;
+    ReferenceCache *referenceCache;
 
     void changeRepo(git_repository *repo);
     void resetCaches();
 
     void freeRepo();
+
+    void checkError();
     static QHash<git_repository *, Manager *> managerMap;
 };
 QHash<git_repository *, Manager *> ManagerPrivate::managerMap;
@@ -108,18 +103,21 @@ bool Manager::open(const QString &newPath)
 
     END;
 
-    if (IS_ERROR) {
-        d->remotesModel->clear();
-        d->submodulesModel->clear();
-        d->branchesModel->clear();
-        d->logsCache->clear();
-        d->stashesCache->clear();
-        d->tagsModel->clear();
+    d->commitsCache->clear();
+    d->branchesCache->clear();
+    d->tagsCache->clear();
+    d->remotesCache->clear();
+    d->notesCache->clear();
+    d->submodulesCache->clear();
+    d->stashesCache->clear();
+    d->referenceCache->clear();
 
+    d->isValid = IS_OK;
+
+    if (IS_ERROR) {
         d->changeRepo(nullptr);
     } else {
         d->changeRepo(repo);
-        loadAsync();
     }
 
     Q_EMIT pathChanged();
@@ -203,40 +201,6 @@ bool Manager::isValid() const
     return d->isValid;
 }
 
-bool Manager::addRemote(const QString &name, const QString &url) const
-{
-    Q_D(const Manager);
-
-    git_remote *remote;
-    BEGIN
-    STEP git_remote_create(&remote, d->repo, name.toUtf8().data(), url.toUtf8().data());
-    END;
-    return IS_OK;
-}
-
-bool Manager::removeRemote(const QString &name) const
-{
-    Q_D(const Manager);
-
-    BEGIN
-    STEP git_remote_delete(d->repo, name.toUtf8().data());
-    END;
-    return IS_OK;
-}
-
-bool Manager::renameRemote(const QString &name, const QString &newName) const
-{
-    Q_D(const Manager);
-
-    git_strarray problems = {0};
-
-    BEGIN
-    STEP git_remote_rename(&problems, d->repo, name.toUtf8().data(), newName.toUtf8().data());
-    git_strarray_free(&problems);
-
-    return IS_OK;
-}
-
 bool Manager::fetch(const QString &remoteName, FetchObserver *observer)
 {
     Q_D(Manager);
@@ -255,11 +219,7 @@ bool Manager::fetch(const QString &remoteName, FetchObserver *observer)
     git_fetch_options fetch_opts = GIT_FETCH_OPTIONS_INIT;
 
     if (observer) {
-        fetch_opts.callbacks.update_tips = &FetchObserverCallbacks::git_helper_update_tips_cb;
-        fetch_opts.callbacks.sideband_progress = &FetchObserverCallbacks::git_helper_sideband_progress_cb;
-        fetch_opts.callbacks.transfer_progress = &FetchObserverCallbacks::git_helper_transfer_progress_cb;
-        fetch_opts.callbacks.credentials = &FetchObserverCallbacks::git_helper_credentials_cb;
-        fetch_opts.callbacks.payload = observer;
+        observer->applyOfFetchOptions(&fetch_opts);
     }
 
     STEP git_remote_fetch(remote, NULL, &fetch_opts, "fetch");
@@ -531,100 +491,6 @@ void Manager::forEachCommits(std::function<void(QSharedPointer<Commit>)> callbac
     git_revwalk_free(walker);
 }
 
-void Manager::forEachSubmodules(std::function<void(Submodule *)> callback)
-{
-    Q_D(Manager);
-
-    struct wrapper {
-        std::function<void(Submodule *)> callback;
-        git_repository *repo;
-    };
-
-    auto cb = [](git_submodule *sm, const char *name, void *payload) -> int {
-        Q_UNUSED(name)
-
-        auto w = reinterpret_cast<wrapper *>(payload);
-        auto submodule = new Submodule{w->repo, sm};
-
-        w->callback(submodule);
-        return 0;
-    };
-
-    wrapper w;
-    w.callback = callback;
-    w.repo = d->repo;
-    git_submodule_foreach(d->repo, cb, &w);
-}
-
-bool Manager::addSubmodule(const AddSubmoduleOptions &options) const
-{
-    Q_D(const Manager);
-
-    git_submodule *submodule{nullptr};
-    git_repository *submoduleRepo;
-    git_submodule_update_options opts = GIT_SUBMODULE_UPDATE_OPTIONS_INIT;
-
-    options.applyToFetchOptions(&opts.fetch_opts);
-    options.applyToCheckoutOptions(&opts.checkout_opts);
-
-    BEGIN
-    STEP git_submodule_add_setup(&submodule, d->repo, toConstChars(options.url), toConstChars(options.path), 1);
-    STEP git_submodule_clone(&submoduleRepo, submodule, &opts);
-    STEP git_submodule_add_finalize(submodule);
-    PRINT_ERROR;
-
-    git_submodule_free(submodule);
-    return IS_OK;
-}
-
-bool Manager::removeSubmodule(const QString &name) const
-{
-    Q_UNUSED(name)
-    return false;
-}
-
-PointerList<Submodule> Manager::submodules() const
-{
-    Q_D(const Manager);
-
-    struct Data {
-        PointerList<Submodule> list;
-        git_repository *repo;
-    };
-
-    auto cb = [](git_submodule *sm, const char *name, void *payload) -> int {
-        Q_UNUSED(name);
-
-        auto data = reinterpret_cast<Data *>(payload);
-
-        QSharedPointer<Submodule> submodule{new Submodule{data->repo, sm}};
-        data->list.append(submodule);
-
-        return 0;
-    };
-
-    Data data;
-    data.repo = d->repo;
-    git_submodule_foreach(d->repo, cb, &data);
-
-    return data.list;
-}
-
-QSharedPointer<Submodule> Manager::submodule(const QString &name) const
-{
-    Q_D(const Manager);
-
-    git_submodule *submodule{nullptr};
-    BEGIN
-    STEP git_submodule_lookup(&submodule, d->repo, toConstChars(name));
-    PRINT_ERROR;
-
-    if (IS_ERROR)
-        return nullptr;
-
-    return QSharedPointer<Submodule>{new Submodule{submodule}};
-}
-
 QSharedPointer<Index> Manager::index() const
 {
     Q_D(const Manager);
@@ -816,28 +682,6 @@ void Manager::forEachConfig(std::function<void(QString, QString)> calback)
     git_config_free(cfg);
 }
 
-int Manager::findStashIndex(const QString &message) const
-{
-    Q_D(const Manager);
-
-    struct wrapper {
-        int index{-1};
-        QString name;
-    };
-    wrapper w;
-    w.name = message;
-    auto callback = [](size_t index, const char *message, const git_oid *stash_id, void *payload) {
-        Q_UNUSED(stash_id)
-        auto w = reinterpret_cast<wrapper *>(payload);
-        if (message == w->name)
-            w->index = index;
-        return 0;
-    };
-    git_stash_foreach(d->repo, callback, &w);
-
-    return w.index;
-}
-
 QStringList Manager::readAllNonEmptyOutput(const QStringList &cmd) const
 {
     QStringList list;
@@ -851,162 +695,6 @@ QStringList Manager::readAllNonEmptyOutput(const QStringList &cmd) const
         list.append(b.trimmed());
     }
     return list;
-}
-
-QString Manager::escapeFileName(const QString &filePath) const
-{
-    if (filePath.contains(QLatin1Char(' ')))
-        return QLatin1Char('\'') + filePath + QLatin1Char('\'');
-    return filePath;
-}
-
-bool load(AbstractGitItemsModel *cache)
-{
-    cache->load();
-    return true;
-}
-
-void Manager::loadAsync()
-{
-    Q_D(Manager);
-
-    QList<AbstractGitItemsModel *> models;
-
-    if (d->loadFlags & LoadStashes)
-        models << d->stashesCache;
-    if (d->loadFlags & LoadRemotes)
-        models << d->remotesModel;
-    if (d->loadFlags & LoadSubmodules)
-        models << d->submodulesModel;
-    if (d->loadFlags & LoadBranches)
-        models << d->branchesModel;
-    if (d->loadFlags & LoadLogs)
-        models << d->logsCache;
-    if (d->loadFlags & LoadTags)
-        models << d->tagsModel;
-
-    if (!models.empty()) {
-#ifdef QT_CONCURRENT_LIB
-        QtConcurrent::mapped(models, load);
-#else
-        for (auto &m : models)
-            m->load();
-#endif
-    }
-}
-
-TagsModel *Manager::tagsModel() const
-{
-    Q_D(const Manager);
-    return d->tagsModel;
-}
-
-StashesModel *Manager::stashesModel() const
-{
-    Q_D(const Manager);
-    return d->stashesCache;
-}
-
-LogsModel *Manager::logsModel() const
-{
-    Q_D(const Manager);
-    return d->logsCache;
-}
-
-BranchesModel *Manager::branchesModel() const
-{
-    Q_D(const Manager);
-    return d->branchesModel;
-}
-
-SubmodulesModel *Manager::submodulesModel() const
-{
-    Q_D(const Manager);
-    return d->submodulesModel;
-}
-
-RemotesModel *Manager::remotesModel() const
-{
-    Q_D(const Manager);
-    return d->remotesModel;
-}
-
-const LoadFlags &Manager::loadFlags() const
-{
-    Q_D(const Manager);
-    return d->loadFlags;
-}
-
-void Manager::setLoadFlags(Git::LoadFlags newLoadFlags)
-{
-    Q_D(Manager);
-    d->loadFlags = newLoadFlags;
-}
-
-QSharedPointer<Branch> Manager::branch(const QString &branchName)
-{
-    Q_D(Manager);
-    return d->branchesCache.findOrLookup(branchName);
-    // git_reference *ref;
-    // BEGIN
-    // STEP git_branch_lookup(&ref, d->repo, branchName.toLocal8Bit().constData(), GIT_BRANCH_ALL);
-    // if (IS_OK)
-    //     return new Branch{ref};
-
-    // return nullptr;
-}
-
-QString Manager::readNote(const QString &branchName) const
-{
-    return runGit({QStringLiteral("notes"), QStringLiteral("show"), branchName});
-}
-
-void Manager::saveNote(const QString &branchName, const QString &note) const
-{
-    runGit({QStringLiteral("notes"), QStringLiteral("add"), branchName, QStringLiteral("-f"), QStringLiteral("--message=") + note});
-}
-
-QList<QSharedPointer<Note>> Manager::notes()
-{
-    Q_D(Manager);
-
-    struct wrapper {
-        git_repository *repo;
-        NotesCache &notesCache;
-        QList<QSharedPointer<Note>> notes;
-    };
-    auto cb = [](const git_oid *blob_id, const git_oid *annotated_object_id, void *payload) -> int {
-        Q_UNUSED(blob_id);
-
-        auto w = reinterpret_cast<wrapper *>(payload);
-        git_note *note;
-        if (!git_note_read(&note, w->repo, NULL, annotated_object_id))
-            w->notes.append(QSharedPointer<Note>{new Note{note}});
-        return 0;
-    };
-    wrapper w{d->repo, d->notesCache};
-    git_note_foreach(d->repo, NULL, cb, &w);
-    return w.notes;
-}
-
-void Manager::forEachRefs(std::function<void(QSharedPointer<Reference>)> callback) const
-{
-    Q_D(const Manager);
-
-    struct wrapper {
-        std::function<void(QSharedPointer<Reference>)> cb;
-    };
-    auto cb = [](git_reference *reference, void *payload) -> int {
-        auto w = reinterpret_cast<wrapper *>(payload);
-
-        auto refPtr = QSharedPointer<Reference>(new Reference{reference});
-        w->cb(refPtr);
-        return 0;
-    };
-
-    wrapper w;
-    w.cb = callback;
-    git_reference_foreach(d->repo, cb, &w);
 }
 
 Manager::Manager()
@@ -1038,57 +726,12 @@ Manager *Manager::instance()
     return &instance;
 }
 
-QString Manager::currentBranch() const
+Manager::~Manager()
 {
-    Q_D(const Manager);
-
-    if (isDetached())
-        return {};
-
-    git_reference *ref;
-    BEGIN
-    STEP git_repository_head(&ref, d->repo);
-    if (IS_ERROR) {
-        PRINT_ERROR;
-        return {};
-    }
-
-    QString branchName{git_reference_shorthand(ref)};
-
-    git_reference_free(ref);
-
-    return branchName;
-    //    const auto ret = QString(runGit({QStringLiteral("rev-parse"), QStringLiteral("--abbrev-ref"), QStringLiteral("HEAD")}))
-    //                         .remove(QLatin1Char('\n'))
-    //                         .remove(QLatin1Char('\r'));
-    //    return ret;
-}
-
-bool Manager::createBranch(const QString &branchName) const
-{
-    Q_D(const Manager);
-
-    git_reference *ref{nullptr};
-    git_commit *commit{nullptr};
-    git_reference *head{nullptr};
-
-    BEGIN
-    STEP git_repository_head(&head, d->repo);
-
-    if (!head)
-        return false;
-
-    auto targetId = git_reference_target(head);
-    STEP git_commit_lookup(&commit, d->repo, targetId);
-    STEP git_branch_create(&ref, d->repo, branchName.toLocal8Bit().constData(), commit, 0);
-
-    git_reference_free(ref);
-    git_reference_free(head);
-    git_commit_free(commit);
-
-    PRINT_ERROR;
-
-    return IS_OK;
+    Q_D(Manager);
+    if (d->repo)
+        git_repository_free(d->repo);
+    delete d;
 }
 
 bool Manager::switchBranch(const QString &branchName) const
@@ -1140,12 +783,8 @@ bool Manager::clone(const QString &url, const QString &localPath, CloneObserver 
     git_clone_options opts = GIT_CLONE_OPTIONS_INIT;
 
     if (observer) {
-        opts.fetch_opts.callbacks.update_tips = &FetchObserverCallbacks::git_helper_update_tips_cb;
-        opts.fetch_opts.callbacks.sideband_progress = &FetchObserverCallbacks::git_helper_sideband_progress_cb;
-        opts.fetch_opts.callbacks.transfer_progress = &FetchObserverCallbacks::git_helper_transfer_progress_cb;
-        opts.fetch_opts.callbacks.credentials = &FetchObserverCallbacks::git_helper_credentials_cb;
-        opts.fetch_opts.callbacks.pack_progress = &FetchObserverCallbacks::git_helper_packbuilder_progress;
-        opts.fetch_opts.callbacks.transport = &FetchObserverCallbacks::git_helper_transport_cb;
+        observer->applyOfFetchOptions(&opts.fetch_opts);
+
         // opts.checkout_opts.progress_cb = &CloneCallbacks::git_helper_checkout_progress_cb;
         // opts.checkout_opts.notify_cb = &CloneCallbacks::git_helper_checkout_notify_cb;
         // opts.checkout_opts.perfdata_cb = &CloneCallbacks::git_helper_checkout_perfdata_cb;
@@ -1270,497 +909,7 @@ void Manager::saveFile(const QString &place, const QString &fileName, const QStr
     f.close();
 }
 
-QStringList Manager::branchesNames(BranchType type)
-{
-    Q_D(Manager);
-
-    git_branch_iterator *it;
-    switch (type) {
-    case BranchType::AllBranches:
-        git_branch_iterator_new(&it, d->repo, GIT_BRANCH_ALL);
-        break;
-    case BranchType::LocalBranch:
-        git_branch_iterator_new(&it, d->repo, GIT_BRANCH_LOCAL);
-        break;
-    case BranchType::RemoteBranch:
-        git_branch_iterator_new(&it, d->repo, GIT_BRANCH_REMOTE);
-        break;
-    }
-    git_reference *ref;
-    git_branch_t b;
-
-    QStringList list;
-    while (!git_branch_next(&ref, &b, it)) {
-        //        if (git_branch_is_head(ref))
-        //            continue;
-
-        qCDebug(KOMMITLIB_LOG) << git_reference_name(ref);
-        const char *branchName;
-        git_branch_name(&branchName, ref);
-        list << branchName;
-        git_reference_free(ref);
-    }
-    git_branch_iterator_free(it);
-
-    return list;
-}
-
-PointerList<Branch> Manager::branches(BranchType type) const
-{
-    Q_D(const Manager);
-
-    git_branch_t t{GIT_BRANCH_ALL};
-    git_branch_iterator *it;
-    switch (type) {
-    case BranchType::AllBranches:
-        t = GIT_BRANCH_ALL;
-        break;
-    case BranchType::LocalBranch:
-        t = GIT_BRANCH_LOCAL;
-        break;
-    case BranchType::RemoteBranch:
-        t = GIT_BRANCH_REMOTE;
-        break;
-    }
-    git_branch_iterator_new(&it, d->repo, t);
-    PointerList<Branch> list;
-    if (!it) {
-        return list;
-    }
-    git_reference *ref;
-    git_branch_t b;
-
-    while (!git_branch_next(&ref, &b, it)) {
-        auto branch = new Branch{ref};
-        git_reference_target(ref);
-        list << QSharedPointer<Branch>{branch};
-    }
-
-    git_branch_iterator_free(it);
-
-    return list;
-}
-
-void Manager::forEachTags(std::function<void(QSharedPointer<Tag>)> cb)
-{
-    Q_D(Manager);
-
-    struct wrapper {
-        git_repository *repo;
-        std::function<void(QSharedPointer<Tag>)> cb;
-    };
-
-    wrapper w;
-    w.cb = cb;
-    w.repo = d->repo;
-
-    auto callback_c = [](const char *name, git_oid *oid_c, void *payload) {
-        Q_UNUSED(name)
-        auto w = reinterpret_cast<wrapper *>(payload);
-        git_tag *t;
-
-        BEGIN
-        STEP git_tag_lookup(&t, w->repo, oid_c);
-
-        if (IS_ERROR) {
-            git_commit *commit;
-            RESTART;
-            STEP git_commit_lookup(&commit, w->repo, oid_c);
-
-            PRINT_ERROR;
-            RETURN_IF_ERR(0);
-
-            git_reference *ref;
-            STEP git_reference_lookup(&ref, w->repo, name);
-            RETURN_IF_ERR(0);
-
-            auto lightTagName = QString{git_reference_shorthand(ref)};
-            QSharedPointer<Tag> tag{new Tag{commit, lightTagName}};
-            w->cb(tag);
-            return 0;
-        }
-
-        if (!t)
-            return 0;
-        QSharedPointer<Tag> tag{new Tag{t}};
-
-        w->cb(tag);
-
-        return 0;
-    };
-
-    git_tag_foreach(d->repo, callback_c, &w);
-}
-
-QStringList Manager::remotes() const
-{
-    Q_D(const Manager);
-
-    git_strarray list{};
-    git_remote_list(&list, d->repo);
-    auto r = convert(&list);
-    git_strarray_free(&list);
-    return r;
-}
-
-QStringList Manager::tagsNames() const
-{
-    return readAllNonEmptyOutput({QStringLiteral("tag"), QStringLiteral("--list")});
-}
-
-QList<QSharedPointer<Tag>> Manager::tags() const
-{
-    Q_D(const Manager);
-
-    struct wrapper {
-        git_repository *repo;
-        QList<QSharedPointer<Tag>> tags;
-    };
-
-    wrapper w;
-    w.repo = d->repo;
-
-    auto callback_c = [](const char *name, git_oid *oid_c, void *payload) {
-        Q_UNUSED(name)
-        auto w = reinterpret_cast<wrapper *>(payload);
-        git_tag *t{};
-        if (git_tag_lookup(&t, w->repo, oid_c))
-            return 0;
-
-        if (!t)
-            return 0;
-
-        w->tags << QSharedPointer<Tag>::create(t);
-
-        return 0;
-    };
-
-    git_tag_foreach(d->repo, callback_c, &w);
-
-    return w.tags;
-}
-
-bool Manager::createTag(const QString &name, const QString &message) const
-{
-    Q_D(const Manager);
-
-    git_object *target = NULL;
-    git_oid oid;
-    git_signature *sign;
-
-    BEGIN
-    STEP git_signature_default(&sign, d->repo);
-    STEP git_revparse_single(&target, d->repo, "HEAD^{commit}");
-    STEP git_tag_create(&oid, d->repo, name.toLatin1().data(), target, sign, message.toUtf8().data(), 0);
-
-    // check_lg2(err);
-    //     runGit({QStringLiteral("tag"), QStringLiteral("-a"), name, QStringLiteral("--message"), message});
-    PRINT_ERROR;
-
-    return IS_OK;
-}
-
-bool Manager::removeTag(const QString &name) const
-{
-    Q_D(const Manager);
-
-    BEGIN
-    STEP git_tag_delete(d->repo, name.toLocal8Bit().constData());
-    PRINT_ERROR;
-    return IS_OK;
-}
-
-bool Manager::removeTag(QSharedPointer<Tag> tag) const
-{
-    Q_D(const Manager);
-
-    BEGIN
-    STEP git_tag_delete(d->repo, tag->name().toLocal8Bit().constData());
-    PRINT_ERROR;
-    return IS_OK;
-}
-
-void Manager::forEachStash(std::function<void(QSharedPointer<Stash>)> cb)
-{
-    Q_D(Manager);
-
-    struct wrapper {
-        git_repository *repo;
-        std::function<void(QSharedPointer<Stash>)> cb;
-    };
-
-    auto callback = [](size_t index, const char *message, const git_oid *stash_id, void *payload) {
-        auto w = static_cast<wrapper *>(payload);
-
-        QSharedPointer<Stash> ptr{new Stash{index, w->repo, message, stash_id}};
-        //        Stash s{index, w->manager->d->repo, message, stash_id};
-
-        w->cb(ptr);
-
-        return 0;
-    };
-
-    wrapper w;
-    w.cb = cb;
-    w.repo = d->repo;
-    git_stash_foreach(d->repo, callback, &w);
-}
-
-PointerList<Stash> Manager::stashes() const
-{
-    Q_D(const Manager);
-
-    struct wrapper {
-        git_repository *repo;
-        PointerList<Stash> list;
-    };
-
-    auto callback = [](size_t index, const char *message, const git_oid *stash_id, void *payload) {
-        auto w = static_cast<wrapper *>(payload);
-
-        QSharedPointer<Stash> ptr{new Stash{index, w->repo, message, stash_id}};
-
-        w->list << ptr;
-
-        return 0;
-    };
-
-    wrapper w;
-    w.repo = d->repo;
-    git_stash_foreach(d->repo, callback, &w);
-    return w.list;
-}
-
-bool Manager::applyStash(QSharedPointer<Stash> stash) const
-{
-    Q_D(const Manager);
-
-    if (stash.isNull())
-        return false;
-
-    git_stash_apply_options options;
-
-    BEGIN
-    STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
-    STEP git_stash_apply(d->repo, stash->index(), &options);
-
-    PRINT_ERROR;
-
-    return IS_OK;
-}
-
-bool Manager::popStash(QSharedPointer<Stash> stash) const
-{
-    Q_D(const Manager);
-
-    if (stash.isNull())
-        return false;
-
-    git_stash_apply_options options;
-
-    BEGIN
-    STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
-    STEP git_stash_pop(d->repo, stash->index(), &options);
-
-    return IS_OK;
-}
-
-bool Manager::removeStash(QSharedPointer<Stash> stash) const
-{
-    Q_D(const Manager);
-
-    if (stash.isNull())
-        return false;
-
-    BEGIN
-    STEP git_stash_drop(d->repo, stash->index());
-
-    return IS_OK;
-}
-
-bool Manager::createStash(const QString &name) const
-{
-    Q_D(const Manager);
-
-    git_oid oid;
-    git_signature *sign;
-
-    BEGIN
-    STEP git_signature_default(&sign, d->repo);
-    STEP git_stash_save(&oid, d->repo, sign, name.toUtf8().data(), GIT_STASH_DEFAULT);
-    return IS_OK;
-}
-
-bool Manager::removeStash(const QString &name) const
-{
-    Q_D(const Manager);
-
-    auto stashIndex = findStashIndex(name);
-
-    if (stashIndex == -1)
-        return false;
-
-    BEGIN
-    STEP git_stash_drop(d->repo, stashIndex);
-
-    return IS_OK;
-}
-
-bool Manager::applyStash(const QString &name) const
-{
-    Q_D(const Manager);
-
-    auto stashIndex = findStashIndex(name);
-    git_stash_apply_options options;
-
-    if (stashIndex == -1)
-        return false;
-
-    BEGIN
-    STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
-    STEP git_stash_apply(d->repo, stashIndex, &options);
-
-    PRINT_ERROR;
-
-    return IS_OK;
-}
-
-bool Manager::popStash(const QString &name) const
-{
-    Q_D(const Manager);
-
-    auto stashIndex = findStashIndex(name);
-    git_stash_apply_options options;
-
-    if (stashIndex == -1)
-        return false;
-
-    BEGIN
-    STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
-    STEP git_stash_pop(d->repo, stashIndex, &options);
-
-    return IS_OK;
-}
-
-Remote *Manager::remote(const QString &name) const
-{
-    Q_D(const Manager);
-
-    git_remote *remote;
-    if (!git_remote_lookup(&remote, d->repo, name.toLocal8Bit().data()))
-        return new Remote{remote};
-
-    return nullptr;
-}
-
-Remote Manager::remoteDetails(const QString &remoteName)
-{
-    Q_D(Manager);
-
-    if (d->remotes.contains(remoteName))
-        return d->remotes.value(remoteName);
-    Remote r;
-    auto ret = runGit({QStringLiteral("remote"), QStringLiteral("show"), remoteName});
-    r.parse(ret);
-    d->remotes.insert(remoteName, r);
-    return r;
-}
-
-bool Manager::removeBranch(const QString &branchName) const
-{
-    Q_D(const Manager);
-
-    git_reference *ref;
-
-    BEGIN
-    STEP git_branch_lookup(&ref, d->repo, branchName.toUtf8().data(), GIT_BRANCH_LOCAL);
-    STEP git_branch_delete(ref);
-    return IS_OK;
-}
-
-bool Manager::merge(const QString &branchName) const
-{
-    Q_D(const Manager);
-
-    auto state = git_repository_state(d->repo);
-    if (state != GIT_REPOSITORY_STATE_NONE) {
-        fprintf(stderr, "repository is in unexpected state %d\n", state);
-        return false;
-    }
-
-    git_merge_options merge_opts = GIT_MERGE_OPTIONS_INIT;
-    git_checkout_options checkout_opts = GIT_CHECKOUT_OPTIONS_INIT;
-    git_annotated_commit **annotated;
-    size_t annotated_count;
-
-    merge_opts.flags = 0;
-    merge_opts.file_flags = GIT_MERGE_FILE_STYLE_DIFF3;
-
-    checkout_opts.checkout_strategy = GIT_CHECKOUT_FORCE | GIT_CHECKOUT_ALLOW_CONFLICTS;
-
-    BEGIN
-    STEP git_merge(d->repo, (const git_annotated_commit **)annotated, annotated_count, &merge_opts, &checkout_opts);
-
-    return IS_OK;
-}
-
-Commit *Manager::commitByHash(const QString &hash) const
-{
-    Q_D(const Manager);
-
-    git_commit *commit;
-    git_object *commitObject;
-    BEGIN
-    STEP git_revparse_single(&commitObject, d->repo, hash.toLatin1().constData());
-    STEP git_commit_lookup(&commit, d->repo, git_object_id(commitObject));
-
-    PRINT_ERROR;
-
-    if (IS_ERROR)
-        return nullptr;
-    return new Commit(commit);
-}
-
-PointerList<Commit> Manager::commits(const QString &branchName) const
-{
-    Q_D(const Manager);
-
-    PointerList<Commit> list;
-
-    git_revwalk *walker;
-    git_commit *commit;
-    git_oid oid;
-
-    git_revwalk_new(&walker, d->repo);
-    git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL);
-
-    if (branchName.isEmpty()) {
-        git_revwalk_push_head(walker);
-    } else {
-        git_reference *ref;
-        auto n = git_branch_lookup(&ref, d->repo, branchName.toLocal8Bit().data(), GIT_BRANCH_ALL);
-
-        if (n)
-            return list;
-
-        auto refName = git_reference_name(ref);
-        git_revwalk_push_ref(walker, refName);
-    }
-
-    while (!git_revwalk_next(&oid, walker)) {
-        if (git_commit_lookup(&commit, d->repo, &oid)) {
-            fprintf(stderr, "Failed to lookup the next object\n");
-            return list;
-        }
-
-        list << QSharedPointer<Commit>{new Commit{commit}};
-    }
-
-    git_revwalk_free(walker);
-    return list;
-}
-
-BlameData Manager::blame(const File &file) // TODO: change parametere to QSharedPointer<File>
+BlameData Manager::blame(QSharedPointer<File> file)
 {
     Q_D(Manager);
 
@@ -1769,7 +918,7 @@ BlameData Manager::blame(const File &file) // TODO: change parametere to QShared
 
     BEGIN
     STEP git_blame_options_init(&options, GIT_BLAME_OPTIONS_VERSION);
-    STEP git_blame_file(&blame, d->repo, file.fileName().toUtf8().data(), &options);
+    STEP git_blame_file(&blame, d->repo, file->fileName().toUtf8().data(), &options);
     END;
 
     PRINT_ERROR;
@@ -1777,17 +926,24 @@ BlameData Manager::blame(const File &file) // TODO: change parametere to QShared
 
     BlameData b;
 
-    auto lines = file.content().split(QLatin1Char('\n'));
+    auto lines = file->content().split(QLatin1Char('\n'));
 
     auto count = git_blame_get_hunk_count(blame);
     for (size_t i = 0; i < count; ++i) {
         auto hunk = git_blame_get_hunk_byindex(blame, i);
 
-        BlameDataRow row;
-        row.commitHash = convertToString(&hunk->final_commit_id, 20);
-        row.code = lines.mid(hunk->final_start_line_number, hunk->lines_in_hunk).join(QLatin1Char('\n'));
-        row.log = d->logsCache->findLogByHash(row.commitHash, LogsModel::LogMatchType::BeginMatch);
+        BlameDataRow row{convertToString(&hunk->final_commit_id, 20),
+                         lines.mid(hunk->final_start_line_number, hunk->lines_in_hunk).join(QLatin1Char('\n')),
+                         QString{hunk->orig_path},
 
+                         d->commitsCache->findByOid(&hunk->final_commit_id),
+                         d->commitsCache->findByOid(&hunk->orig_commit_id),
+
+                         QSharedPointer<Signature>{new Signature{hunk->orig_signature}},
+                         QSharedPointer<Signature>{new Signature{hunk->final_signature}},
+
+                         hunk->final_start_line_number,
+                         hunk->orig_start_line_number};
         b.append(row);
     }
     git_blame_free(blame);
@@ -1983,10 +1139,57 @@ Manager *Manager::owner(git_repository *repo)
     return ManagerPrivate::managerMap.value(repo, nullptr);
 }
 
-QString Manager::errorMessage() const
+CommitsCache *Manager::commits() const
 {
     Q_D(const Manager);
-    return d->errorMessage;
+    return d->commitsCache;
+}
+
+SubmodulesCache *Manager::submodules() const
+{
+    Q_D(const Manager);
+    return d->submodulesCache;
+}
+
+RemotesCache *Manager::remotes() const
+{
+    Q_D(const Manager);
+    return d->remotesCache;
+}
+
+BranchesCache *Manager::branches() const
+{
+    Q_D(const Manager);
+    return d->branchesCache;
+}
+
+TagsCache *Manager::tags() const
+{
+    Q_D(const Manager);
+    return d->tagsCache;
+}
+
+NotesCache *Manager::notes() const
+{
+    Q_D(const Manager);
+    return d->notesCache;
+}
+
+StashesCache *Manager::stashes() const
+{
+    Q_D(const Manager);
+    return d->stashesCache;
+}
+
+ReferenceCache *Manager::references() const
+{
+    Q_D(const Manager);
+    return d->referenceCache;
+}
+
+QString Manager::errorMessage() const
+{
+    return QString{git_error_last()->message};
 }
 
 int Manager::errorCode() const
@@ -1997,17 +1200,14 @@ int Manager::errorCode() const
 
 ManagerPrivate::ManagerPrivate(Manager *parent)
     : q_ptr{parent}
-    , remotesModel{new RemotesModel(parent, parent)}
-    , submodulesModel{new SubmodulesModel(parent, parent)}
-    , branchesModel{new BranchesModel(parent, parent)}
-    , logsCache{new LogsModel(parent, parent)}
-    , stashesCache{new StashesModel(parent, parent)}
-    , tagsModel{new TagsModel(parent, parent)}
-    , commitsCache{repo}
-    , branchesCache{repo}
-    , tagsCache{repo}
-    , remotesCache{repo}
-    , notesCache{repo}
+    , commitsCache{new CommitsCache{parent}}
+    , branchesCache{new BranchesCache{parent}}
+    , tagsCache{new TagsCache{parent}}
+    , remotesCache{new RemotesCache{parent}}
+    , notesCache{new NotesCache{parent}}
+    , submodulesCache{new SubmodulesCache{parent}}
+    , stashesCache{new StashesCache(parent)}
+    , referenceCache{new ReferenceCache{parent}}
 {
 }
 
@@ -2025,22 +1225,16 @@ void ManagerPrivate::changeRepo(git_repository *repo)
 
     isValid = repo;
 
-    commitsCache.setRepo(repo);
-    branchesCache.setRepo(repo);
-    tagsCache.setRepo(repo);
-    remotesCache.setRepo(repo);
-    notesCache.setRepo(repo);
-
     resetCaches();
 }
 
 void ManagerPrivate::resetCaches()
 {
-    commitsCache.clear();
-    branchesCache.clear();
-    tagsCache.clear();
-    remotesCache.clear();
-    notesCache.clear();
+    commitsCache->clear();
+    branchesCache->clear();
+    tagsCache->clear();
+    remotesCache->clear();
+    notesCache->clear();
 }
 
 void ManagerPrivate::freeRepo()
@@ -2050,6 +1244,13 @@ void ManagerPrivate::freeRepo()
         git_repository_free(repo);
         repo = nullptr;
     }
+}
+
+void ManagerPrivate::checkError()
+{
+    auto __git_err = git_error_last();
+    errorClass = __git_err->klass;
+    errorMessage = QString{__git_err->message};
 }
 
 } // namespace Git

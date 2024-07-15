@@ -10,24 +10,25 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 #include "abstractgititemsmodel.h"
-#include "libkommit_export.h"
+#include "libkommitwidgets_export.h"
 
 namespace Git
 {
 class Remote;
+}
 
-class LIBKOMMIT_EXPORT RemotesModel : public AbstractGitItemsModel
+class LIBKOMMITWIDGETS_EXPORT RemotesModel : public AbstractGitItemsModel
 {
     Q_OBJECT
 
 public:
-    explicit RemotesModel(Manager *git, QObject *parent = nullptr);
+    explicit RemotesModel(Git::Manager *git);
     ~RemotesModel() override;
     int columnCount(const QModelIndex &parent) const override;
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
-    Remote *fromIndex(const QModelIndex &index);
-    Remote *findByName(const QString &name);
+    QSharedPointer<Git::Remote> fromIndex(const QModelIndex &index);
+    QSharedPointer<Git::Remote> findByName(const QString &name);
 
     void rename(const QString &oldName, const QString &newName);
     void setUrl(const QString &remoteName, const QString &newUrl);
@@ -35,9 +36,8 @@ public:
     void clear() override;
 
 protected:
-    void fill() override;
+    void reload() override;
 
 private:
-    QList<Remote *> mData;
+    QList<QSharedPointer<Git::Remote>> mData;
 };
-} // namespace Git

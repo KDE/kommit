@@ -8,21 +8,38 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <gitmanager.h>
 
+class RemotesModel;
+class BranchesModel;
+class CommitsModel;
+class StashesModel;
+class TagsModel;
+class SubmodulesModel;
+
 class RepositoryData : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit RepositoryData(QObject *parent = nullptr);
+    explicit RepositoryData(Git::Manager *git);
     ~RepositoryData() override;
     void loadAll();
 
+    Q_REQUIRED_RESULT Git::Manager *manager() const;
+
+    Q_REQUIRED_RESULT SubmodulesModel *submodulesModel() const;
+
+    Q_REQUIRED_RESULT RemotesModel *remotesModel() const;
+    Q_REQUIRED_RESULT BranchesModel *branchesModel() const;
+    Q_REQUIRED_RESULT CommitsModel *commitsModel() const;
+    Q_REQUIRED_RESULT StashesModel *stashesModel() const;
+    Q_REQUIRED_RESULT TagsModel *tagsModel() const;
+
 private:
     Git::Manager *const mManager;
-    Git::RemotesModel *const mRemotesModel;
-    Git::SubmodulesModel *const mSubmodulesModel;
-    Git::BranchesModel *const mBranchesModel;
-    Git::LogsModel *const mLogsCache;
-    Git::StashesModel *const mStashesCache;
-    Git::TagsModel *const mTagsModel;
+    RemotesModel *const mRemotesModel;
+    SubmodulesModel *const mSubmodulesModel;
+    BranchesModel *const mBranchesModel;
+    CommitsModel *const mLogsCache;
+    StashesModel *const mStashesCache;
+    TagsModel *const mTagsModel;
 };

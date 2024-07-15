@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "gitglobal.h"
+#include "types.h"
 #include <entities/submodule.h>
 
 #include <QAbstractListModel>

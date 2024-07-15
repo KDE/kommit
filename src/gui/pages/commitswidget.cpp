@@ -8,18 +8,20 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actions/branchactions.h"
 #include "actions/commitactions.h"
+#include "caches/branchescache.h"
 #include "models/commitsfiltermodel.h"
 
+#include <core/repositorydata.h>
 #include <entities/branch.h>
 #include <entities/commit.h>
 #include <gitmanager.h>
-#include <models/logsmodel.h>
+#include <models/commitsmodel.h>
 #include <models/treemodel.h>
 #include <windows/diffwindow.h>
 
 #include <KommitSettings.h>
 
-CommitsWidget::CommitsWidget(Git::Manager *git, AppWindow *parent)
+CommitsWidget::CommitsWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)
     , mRepoModel(new TreeModel(this))
 {
@@ -31,7 +33,7 @@ void CommitsWidget::reload()
 {
     mRepoModel->clear();
     QStringList branchNames;
-    const auto branches = git()->branches(Git::Manager::BranchType::AllBranches);
+    const auto branches = git()->manager()->branches()->allBranches(Git::BranchType::AllBranches);
     for (const auto &branch : branches) {
         branchNames << branch->name();
         mBranchesMap.insert(branch->name(), branch);
@@ -84,13 +86,13 @@ void CommitsWidget::slotTreeViewRepoCustomContextMenuRequested(const QPoint &pos
 {
     Q_UNUSED(pos)
     auto branchName = mRepoModel->fullPath(treeViewRepo->currentIndex());
-    mActions->setBranchName(mBranchesMap.value(branchName));
+    mActions->setBranch(mBranchesMap.value(branchName));
     mActions->popup();
 }
 
 void CommitsWidget::init()
 {
-    mHistoryModel = new Git::LogsModel(mGit, this);
+    mHistoryModel = new CommitsModel(mGit->manager(), this);
     mHistoryModel->setCalendarType(KommitSettings::calendarType());
     mHistoryModel->setFullDetails(true);
     mFilterModel = new CommitsFilterModel(mHistoryModel, this);
@@ -99,8 +101,8 @@ void CommitsWidget::init()
 
     treeViewRepo->setModel(mRepoModel);
 
-    mActions = new BranchActions(mGit, this);
-    mCommitActions = new CommitActions(mGit, this);
+    mActions = new BranchActions(mGit->manager(), this);
+    mCommitActions = new CommitActions(mGit->manager(), this);
 
     connect(treeViewRepo, &TreeView::itemActivated, this, &CommitsWidget::slotTreeViewRepoItemActivated);
     connect(treeViewRepo, &QTreeView::customContextMenuRequested, this, &CommitsWidget::slotTreeViewRepoCustomContextMenuRequested);
@@ -137,8 +139,8 @@ void CommitsWidget::slotTextBrowserFileClicked(const QString &file)
     if (!commit || commit->parents().isEmpty())
         return;
 
-    QSharedPointer<Git::File> oldFile{new Git::File{mGit, commit->parents().constFirst(), file}};
-    QSharedPointer<Git::File> newFile{new Git::File{mGit, commit->commitHash(), file}};
+    QSharedPointer<Git::File> oldFile{new Git::File{mGit->manager(), commit->parents().constFirst(), file}};
+    QSharedPointer<Git::File> newFile{new Git::File{mGit->manager(), commit->commitHash(), file}};
 
     auto diffWin = new DiffWindow(oldFile, newFile);
     diffWin->showModal();

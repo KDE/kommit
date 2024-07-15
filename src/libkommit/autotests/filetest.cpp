@@ -5,6 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "filetest.h"
+#include "caches/branchescache.h"
+#include "caches/commitscache.h"
 #include "entities/branch.h"
 #include "entities/tree.h"
 #include "gitmanager.h"
@@ -67,7 +69,7 @@ void FileTest::makeThirdCommit()
 
 void FileTest::checkContents()
 {
-    auto commits = mManager->commits();
+    auto commits = mManager->commits()->allCommits();
     QCOMPARE(commits.size(), 3);
     QCOMPARE(commits.at(2)->message(), "first commit");
     QCOMPARE(commits.at(1)->message(), "second commit");
@@ -88,7 +90,7 @@ void FileTest::checkContents()
 
 void FileTest::checkContentInBranch()
 {
-    auto branches = mManager->branches(Git::Manager::BranchType::LocalBranch);
+    auto branches = mManager->branches()->allBranches(Git::BranchType::LocalBranch);
     QCOMPARE(branches.size(), 1);
 
     auto mainBranch = branches.at(0);

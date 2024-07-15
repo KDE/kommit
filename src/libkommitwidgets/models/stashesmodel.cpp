@@ -6,17 +6,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "stashesmodel.h"
 
+#include "caches/stashescache.h"
 #include "entities/commit.h"
 #include "entities/signature.h"
+#include "entities/stash.h"
 #include "gitmanager.h"
 #include <KLocalizedString>
 
 #include <git2/stash.h>
 
-namespace Git
-{
-
-StashesModel::StashesModel(Manager *git, QObject *parent)
+StashesModel::StashesModel(Git::Manager *git, QObject *parent)
     : AbstractGitItemsModel(git, parent)
 {
 }
@@ -38,19 +37,19 @@ QVariant StashesModel::data(const QModelIndex &index, int role) const
     if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return {};
 
-    auto remote = mData.at(index.row());
+    auto stash = mData.at(index.row());
 
     switch (index.column()) {
     case Subject:
-        return remote->subject();
+        return stash->message();
     case CommitHash:
-        return remote->commitHash();
+        return stash->commit()->commitHash();
     case AuthorName:
-        return remote->commit()->author()->name();
+        return stash->commit()->author()->name();
     case AuthorEmail:
-        return remote->commit()->author()->email();
+        return stash->commit()->author()->email();
     case Time:
-        return remote->commit()->author()->time();
+        return stash->commit()->author()->time();
     }
     return {};
 }
@@ -77,7 +76,7 @@ QVariant StashesModel::headerData(int section, Qt::Orientation orientation, int 
     return {};
 }
 
-QSharedPointer<Stash> StashesModel::fromIndex(const QModelIndex &index) const
+QSharedPointer<Git::Stash> StashesModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return {};
@@ -92,33 +91,12 @@ void StashesModel::clear()
     endResetModel();
 }
 
-void StashesModel::fill()
+void StashesModel::reload()
 {
-    mData.clear();
-
-    mGit->forEachStash([this](QSharedPointer<Stash> stash) {
-        mData << stash;
-    });
-
-    //    const auto list = mGit->readAllNonEmptyOutput({QStringLiteral("stash"), QStringLiteral("list"), QStringLiteral("--format=format:%s%m%an%m%ae%m%aD")});
-    //    int id{0};
-    //    for (const auto &item : std::as_const(list)) {
-    //        const auto parts = item.split(QLatin1Char('>'));
-    //        if (parts.size() != 4)
-    //            continue;
-
-    //        const auto subject = parts.first();
-    //        auto stash = new Stash(mGit, QStringLiteral("stash@{%1}").arg(id));
-
-    //        stash->mSubject = subject;
-    //        stash->mAuthorName = parts.at(1);
-    //        stash->mAuthorEmail = parts.at(2);
-    //        stash->mPushTime = QDateTime::fromString(parts.at(3), Qt::RFC2822Date);
-
-    //        mData.append(stash);
-    //        id++;
-    //    }
-}
+    if (mGit->isValid())
+        mData = mGit->stashes()->allStashes();
+    else
+        mData.clear();
 }
 
 #include "moc_stashesmodel.cpp"

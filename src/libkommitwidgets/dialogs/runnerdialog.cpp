@@ -6,12 +6,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "runnerdialog.h"
 
+#include "commands/abstractcommand.h"
 #include "core/kmessageboxhelper.h"
 #include "gitmanager.h"
 
 #include <KLocalizedString>
 #include <QInputDialog>
 #include <QPushButton>
+#include <QTime>
 
 RunnerDialog::RunnerDialog(Git::Manager *git, QWidget *parent)
     : AppDialog(parent)
@@ -43,9 +45,7 @@ void RunnerDialog::run(const QStringList &args)
     progressBar->hide();
     mMode = RunByArgs;
     lineEditCommand->setText(QStringLiteral("git ") + args.join(QLatin1Char(' ')));
-    textBrowser->append(lineEditCommand->text());
 
-    textBrowser->append(QStringLiteral("$ ") + lineEditCommand->text());
     mGitProcess->setArguments(args);
     mGitProcess->start();
 

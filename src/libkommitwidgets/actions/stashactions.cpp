@@ -10,7 +10,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QInputDialog>
 
+#include "caches/stashescache.h"
 #include "core/kmessageboxhelper.h"
+#include "entities/stash.h"
 #include "gitmanager.h"
 #include "models/stashesmodel.h"
 #include "windows/diffwindow.h"
@@ -31,35 +33,29 @@ StashActions::StashActions(Git::Manager *git, QWidget *parent)
 
 void StashActions::apply()
 {
-    if (KMessageBoxHelper::applyQuestion(mParent,
-                                         i18n("Are you sure to apply the selected stash?"),
-                                         i18nc("@title:window", "Apply stash %1", mStash->message()))) {
-        if (!mGit->applyStash(mStash))
+    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStash->message()))) {
+        if (!mGit->stashes()->apply(mStash))
             KMessageBoxHelper::information(mParent, i18n("Unable to apply the selected stash"));
     }
 }
 
 void StashActions::drop()
 {
-    if (KMessageBoxHelper::removeQuestion(mParent,
-                                          i18n("Are you sure to drop the selected stash?"),
-                                          i18nc("@title:window", "Drop stash %1", mStash->message()))) {
-        if (!mGit->removeStash(mStash)) {
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to drop the selected stash?"), i18n("Drop stash %1", mStash->message()))) {
+        if (!mGit->stashes()->remove(mStash)) {
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected stash"));
             return;
         }
-        mGit->stashesModel()->load();
     }
 }
 
 void StashActions::pop()
 {
-    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to pop the selected stash?"), i18nc("@title:window", "Pop stash %1", mStash->message()))) {
-        if (!mGit->popStash(mStash)) {
+    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to pop the selected stash?"), i18n("Pop stash %1", mStash->message()))) {
+        if (!mGit->stashes()->pop(mStash)) {
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected stash"));
             return;
         }
-        mGit->stashesModel()->load();
     }
 }
 
@@ -80,8 +76,7 @@ void StashActions::create()
     const auto name = QInputDialog::getText(mParent, i18nc("@title:window", "Create new stash"), i18n("Name of stash"), QLineEdit::Normal, QString(), &ok);
 
     if (ok) {
-        mGit->createStash(name);
-        mGit->stashesModel()->load();
+        mGit->stashes()->create(name);
     }
 }
 

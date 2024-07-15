@@ -5,6 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "switchbranchdialog.h"
+#include "caches/branchescache.h"
+#include "caches/tagscache.h"
 #include "commands/commandswitchbranch.h"
 #include "core/kmessageboxhelper.h"
 #include "gitmanager.h"
@@ -20,14 +22,14 @@ SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
 {
     setupUi(this);
 
-    mExistingLocalBranches = git->branchesNames(Git::Manager::BranchType::LocalBranch);
+    mExistingLocalBranches = git->branches()->names(Git::BranchType::LocalBranch);
     for (const auto &b : std::as_const(mExistingLocalBranches))
         comboBoxBranchSelect->addItem(b, BRANCH_TYPE_LOCAL);
-    mExistingRemoteBranches = git->branchesNames(Git::Manager::BranchType::RemoteBranch);
+    mExistingRemoteBranches = git->branches()->names(Git::BranchType::RemoteBranch);
     for (const auto &b : std::as_const(mExistingRemoteBranches))
         comboBoxBranchSelect->addItem(b, BRANCH_TYPE_REMOTE);
 
-    comboBoxTags->addItems(git->tagsNames());
+    comboBoxTags->addItems(git->tags()->allNames());
     // TODO: comboBoxTags->setModel(git->tagsModel());
 
     radioButtonTag->setEnabled(comboBoxTags->count());

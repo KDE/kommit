@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "gitloglist.h"
+#include "caches/branchescache.h"
 #include "entities/commit.h"
-#include "gitgraphlane.h"
 #include "gitmanager.h"
 
 #include <QDateTime>
@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-
+/*
 struct LanesFactory {
     QStringList mHashes;
 
@@ -192,7 +192,7 @@ struct LanesFactory {
         return lanes;
     }
 };
-
+*/
 void readLine(const QString &line, const QString &seprator, QList<QString *> list)
 {
     const auto parts = line.split(seprator);
@@ -223,8 +223,8 @@ void LogList::initChilds()
 {
     for (auto i = rbegin(); i != rend(); i++) {
         auto &log = *i;
-        for (auto &p : log->parents())
-            mDataByCommitHashLong.value(p)->mChildren.append(log->commitHash());
+        // for (auto &p : log->parents())
+        // mDataByCommitHashLong.value(p)->mChildren.append(log->commitHash());
     }
 }
 
@@ -277,7 +277,7 @@ H -- commit hash              c -- committer details        m -- mark           
     clear();
     mDataByCommitHashLong.clear();
 
-    mBranches = git->branchesNames(Git::Manager::BranchType::LocalBranch);
+    mBranches = git->branches()->names(Git::BranchType::LocalBranch);
 
     QStringList args{QStringLiteral("--no-pager"),
                      QStringLiteral("log"),
@@ -336,11 +336,11 @@ H -- commit hash              c -- committer details        m -- mark           
 
 void LogList::initGraph()
 {
-    LanesFactory factory;
-    for (auto i = rbegin(); i != rend(); i++) {
-        auto &log = *i;
-        log->mLanes = factory.apply(log);
-    }
+    // LanesFactory factory;
+    // for (auto i = rbegin(); i != rend(); i++) {
+    //     auto &log = *i;
+    //     log->mLanes = factory.apply(log);
+    // }
 }
 
 }

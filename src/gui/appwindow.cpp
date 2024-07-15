@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 // application headers
 #include "appwindow.h"
+#include "caches/branchescache.h"
 #include "commands/commandmerge.h"
 #include "core/repositorydata.h"
 #include "dialogs/changedfilesdialog.h"
@@ -22,7 +23,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/selectbranchestodiffdialog.h"
 #include "dialogs/switchbranchdialog.h"
 #include "kommit_appdebug.h"
-#include "models/logsmodel.h"
+#include "models/commitsmodel.h"
 #include "multipagewidget.h"
 #include "pages/branchesstatuswidget.h"
 #include "pages/commitswidget.h"
@@ -52,7 +53,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 AppWindow::AppWindow()
     : AppMainWindow()
-    , mGit(Git::Manager::instance())
+    , mGitData{new RepositoryData{Git::Manager::instance()}}
 {
     init();
 
@@ -61,7 +62,7 @@ AppWindow::AppWindow()
         const QString p = s.value(QStringLiteral("last_repo")).toString();
 
         if (!p.isEmpty()) {
-            mGit->open(p);
+            mGitData->manager()->open(p);
             initRecentRepos(p);
         }
     }
@@ -69,13 +70,11 @@ AppWindow::AppWindow()
 
 void AppWindow::init()
 {
-    mGitData = new RepositoryData{this};
-
-    connect(mGit, &Git::Manager::pathChanged, this, &AppWindow::gitPathChanged);
+    connect(mGitData->manager(), &Git::Manager::pathChanged, this, &AppWindow::gitPathChanged);
 
     initActions();
     mMainWidget = new MultiPageWidget(this);
-    mMainWidget->setDefaultGitManager(mGit);
+    mMainWidget->setDefaultGitManager(mGitData->manager());
     addPage<HistoryViewWidget>(QStringLiteral("view_overview"));
     addPage<BranchesStatusWidget>(QStringLiteral("view_branches"));
     addPage<CommitsWidget>(QStringLiteral("view_commits"));
@@ -107,10 +106,10 @@ AppWindow::~AppWindow()
 }
 
 AppWindow::AppWindow(const QString &path)
-    : mGit(Git::Manager::instance())
+    : mGitData{new RepositoryData{Git::Manager::instance()}}
 {
     init();
-    mGit->open(path);
+    mGitData->manager()->open(path);
 }
 
 AppWindow *AppWindow::instance()
@@ -121,14 +120,14 @@ AppWindow *AppWindow::instance()
 
 void AppWindow::gitPathChanged()
 {
-    updateActions(mGit->isValid());
-    setWindowFilePath(mGit->path());
+    updateActions(mGitData->manager()->isValid());
+    setWindowFilePath(mGitData->manager()->path());
 
-    if (mGit->isValid()) {
-        QString statusText = i18n("Current branch: %1", mGit->currentBranch());
-        if (mGit->isMerging())
+    if (mGitData->manager()->isValid()) {
+        QString statusText = i18n("Current branch: %1", mGitData->manager()->branches()->currentName());
+        if (mGitData->manager()->isMerging())
             statusText.append(i18n(" (merging)"));
-        else if (mGit->isRebasing())
+        else if (mGitData->manager()->isRebasing())
             statusText.append(i18n(" (rebasing)"));
 
         mStatusCurrentBranchLabel->setText(statusText);
@@ -141,7 +140,7 @@ void AppWindow::settingsUpdated()
 {
     for (const auto &w : std::as_const(mBaseWidgets))
         w->settingsUpdated();
-    mGit->logsModel()->setCalendarType(KommitSettings::calendarType());
+    mGitData->commitsModel()->setCalendarType(KommitSettings::calendarType());
 }
 
 void AppWindow::updateActions(bool enabled)
@@ -222,7 +221,7 @@ void AppWindow::initActions()
 
     KStandardAction::quit(this, &QMainWindow::close, actionCollection);
 
-    auto settingsManager = new SettingsManager(mGit, this);
+    auto settingsManager = new SettingsManager(mGitData->manager(), this);
     connect(settingsManager, &SettingsManager::settingsUpdated, this, &AppWindow::settingsUpdated);
     KStandardAction::preferences(settingsManager, &SettingsManager::show, actionCollection);
 }
@@ -249,7 +248,7 @@ void AppWindow::initRecentRepos(const QString &newItem)
     for (const auto &item : std::as_const(recentList)) {
         auto action = mRecentAction->menu()->addAction(QStringLiteral("%1    %2").arg(index++).arg(item));
         connect(action, &QAction::triggered, this, [this, item]() {
-            if (mGit->open(item)) {
+            if (mGitData->manager()->open(item)) {
                 initRecentRepos(item);
             }
         });
@@ -266,13 +265,13 @@ void AppWindow::initRecentRepos(const QString &newItem)
 
 void AppWindow::repoStatus()
 {
-    ChangedFilesDialog d(mGit, this);
+    ChangedFilesDialog d(mGitData->manager(), this);
     d.exec();
 }
 
 void AppWindow::initRepo()
 {
-    InitDialog d(mGit, this);
+    InitDialog d(mGitData->manager(), this);
     if (d.exec() == QDialog::Accepted) {
         QDir dir;
         const QString path = d.path();
@@ -280,8 +279,8 @@ void AppWindow::initRepo()
             KMessageBox::error(this, i18n("Unable to create path: %1", path), i18n("Init repo"));
             return;
         }
-        if (mGit->init(path)) {
-            mGit->open(path);
+        if (mGitData->manager()->init(path)) {
+            mGitData->manager()->open(path);
         } else {
             qCWarning(KOMMIT_LOG) << " Impossible to initialize git in " << path;
         }
@@ -293,37 +292,38 @@ void AppWindow::openRepo()
     const auto dir = QFileDialog::getExistingDirectory(this, i18n("Open repository"));
 
     if (!dir.isEmpty()) {
-        mGit->open(dir);
+        mGitData->manager()->open(dir);
         initRecentRepos(dir);
     }
 }
 
 void AppWindow::commitPushAction()
 {
-    CommitPushDialog d(mGit, this);
+    CommitPushDialog d(mGitData->manager(), this);
+    // TODO: remove load
     if (d.exec() == QDialog::Accepted)
-        mGit->logsModel()->load();
+        mGitData->commitsModel()->load();
 }
 
 void AppWindow::pull()
 {
-    PullDialog d(mGit, this);
+    PullDialog d(mGitData->manager(), this);
     if (d.exec() == QDialog::Accepted)
-        mGit->logsModel()->load();
+        mGitData->commitsModel()->load();
 }
 
 void AppWindow::fetch()
 {
-    FetchDialog d(mGit, this);
+    FetchDialog d(mGitData->manager(), this);
     if (d.exec() == QDialog::Accepted)
-        mGit->logsModel()->load();
+        mGitData->commitsModel()->load();
 }
 
 void AppWindow::showBranchesStatus()
 {
-    MergeDialog d(mGit, this);
+    MergeDialog d(mGitData->manager(), this);
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog r(mGit, this);
+        RunnerDialog r(mGitData->manager(), this);
 
         auto cmd = d.command();
         r.run(cmd);
@@ -336,7 +336,7 @@ void AppWindow::clone()
 {
     CloneDialog d(this);
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog r(mGit, this);
+        RunnerDialog r(mGitData->manager(), this);
 
         auto cmd = d.command();
         r.run(cmd);
@@ -347,34 +347,34 @@ void AppWindow::clone()
 
 void AppWindow::diffBranches()
 {
-    SelectBranchesToDiffDialog d(mGit, this);
+    SelectBranchesToDiffDialog d(mGitData->manager(), this);
     if (d.exec() == QDialog::Accepted) {
-        auto diffWin = new DiffWindow(mGit, d.oldBranch(), d.newBranch());
+        auto diffWin = new DiffWindow(mGitData->manager(), d.oldBranch(), d.newBranch());
         diffWin->showModal();
     }
 }
 
 void AppWindow::search()
 {
-    SearchDialog d(mGit, this);
+    SearchDialog d(mGitData->manager(), this);
     d.exec();
 }
 
 void AppWindow::repoSettings()
 {
-    RepoSettingsDialog d(mGit, this);
+    RepoSettingsDialog d(mGitData->manager(), this);
     d.exec();
 }
 
 void AppWindow::repoSwitch()
 {
-    if (mGit->isMerging()) {
+    if (mGitData->manager()->isMerging()) {
         KMessageBox::error(this, i18n("Cannot switch branch while merging"), i18n("Switch branch"));
         return;
     }
-    SwitchBranchDialog d(mGit, this);
+    SwitchBranchDialog d(mGitData->manager(), this);
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog runner(mGit, this);
+        RunnerDialog runner(mGitData->manager(), this);
         runner.run(d.command());
         runner.exec();
     }
@@ -382,13 +382,13 @@ void AppWindow::repoSwitch()
 
 void AppWindow::repoDiffTree()
 {
-    auto w = new DiffWindow(mGit);
+    auto w = new DiffWindow(mGitData->manager());
     w->showModal();
 }
 
 void AppWindow::merge()
 {
-    MergeDialog d(mGit, this);
+    MergeDialog d(mGitData->manager(), this);
     d.exec();
 }
 
@@ -396,7 +396,7 @@ void AppWindow::cleanup()
 {
     CleanupDialog d(this);
     if (d.exec() == QDialog::Accepted) {
-        RunnerDialog runner(mGit);
+        RunnerDialog runner(mGitData->manager());
         runner.run(d.command());
         runner.exec();
     }
@@ -407,7 +407,7 @@ void AppWindow::addPage(const QString &actionName)
 {
     const QList<Qt::Key> keys = {Qt::Key_0, Qt::Key_1, Qt::Key_2, Qt::Key_3, Qt::Key_4, Qt::Key_5, Qt::Key_6, Qt::Key_7, Qt::Key_8, Qt::Key_9};
     auto action = actionCollection()->addAction(actionName);
-    auto w = new T(mGit, this);
+    auto w = new T(mGitData, this);
     action->setText(w->windowTitle());
     if (mMainWidget->count() < 10)
         actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL + keys[mMainWidget->count()]));

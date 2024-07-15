@@ -5,8 +5,10 @@ add_library(libkommitwidgets SHARED)
 generate_export_header(libkommitwidgets BASE_NAME libkommitwidgets)
 
 target_sources(libkommitwidgets PRIVATE
-    kommitwidgetsglobaloptions.h 
+    kommitwidgetsglobaloptions.h
     kommitwidgetsglobaloptions.cpp
+    gitgraphlane.h
+    gitgraphlane.cpp
 
     widgets/reportwidget.h
     widgets/graphpainter.cpp
@@ -38,6 +40,8 @@ target_sources(libkommitwidgets PRIVATE
     widgets/commitdetails.h
     widgets/urlrequester.cpp
     widgets/urlrequester.h
+    widgets/fetchresultwidget.h
+    widgets/fetchresultwidget.cpp
 
     core/kmessageboxhelper.h
     core/kmessageboxhelper.cpp
@@ -91,6 +95,22 @@ target_sources(libkommitwidgets PRIVATE
     models/filesmodel.cpp
     models/changedfilesmodel.cpp
     models/filesmodel.h
+
+    models/abstractgititemsmodel.h
+    models/abstractgititemsmodel.cpp
+    models/submodulesmodel.cpp
+    models/submodulesmodel.h
+    models/branchesmodel.cpp
+    models/branchesmodel.h
+    models/commitsmodel.cpp
+    models/commitsmodel.h
+    models/remotesmodel.cpp
+    models/remotesmodel.h
+    models/stashesmodel.cpp
+    models/stashesmodel.h
+    models/tagsmodel.cpp
+    models/tagsmodel.h
+
 
     dialogs/appdialog.h
     dialogs/runnerdialog.cpp
@@ -190,6 +210,8 @@ ki18n_wrap_ui(
     widgets/reportwidget.ui
     widgets/difftreeview.ui
     windows/kommitmergeview.ui
+    widgets/fetchresultwidget.ui
+
     dialogs/mergecloseeventdialog.ui
     dialogs/searchdialog.ui
     dialogs/credentialdialog.ui

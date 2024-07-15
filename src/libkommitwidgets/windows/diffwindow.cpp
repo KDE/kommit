@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "diffwindow.h"
+#include "caches/branchescache.h"
 
 #include <KActionCollection>
 #include <KLocalizedString>
@@ -34,7 +35,7 @@ DiffWindow::DiffWindow(Git::Manager *git)
 {
     init(true);
 
-    mOldBranch = git->currentBranch();
+    mOldBranch = git->branches()->currentName();
     const auto diffs = git->diffBranch(mOldBranch);
 
     for (const auto &f : diffs) {
@@ -42,8 +43,8 @@ DiffWindow::DiffWindow(Git::Manager *git)
         mFilesModel->append(f.name());
     }
 
-    mLeftStorage.setGitBranch(git, git->currentBranch());
     mRightStorage.setPath(git->path());
+    mLeftStorage.setGitBranch(git, git->branches()->currentName());
     mDiffModel->sortItems();
 }
 

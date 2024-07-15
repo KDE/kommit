@@ -6,6 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commitpushdialog.h"
 #include "actions/changedfileactions.h"
+#include "caches/branchescache.h"
+#include "caches/remotescache.h"
+#include "caches/submodulescache.h"
 #include "commands/commandcommit.h"
 #include "commands/commandpush.h"
 #include "dialogs/changedsubmodulesdialog.h"
@@ -57,7 +60,7 @@ CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
     mModel->reload();
     readConfig();
 
-    auto submodules = mGit->submodules();
+    auto submodules = mGit->submodules()->allSubmodules();
     auto modifiedSubmoduleFound = std::any_of(submodules.constBegin(), submodules.constEnd(), [](const QSharedPointer<Git::Submodule> &submodule) {
         return submodule->status() & Git::Submodule::Status::WdWdModified;
     });
@@ -104,11 +107,11 @@ void CommitPushDialog::reload()
 
     comboBoxBranch->clear();
     comboBoxRemote->clear();
-    auto branches = mGit->branchesNames(Git::Manager::BranchType::LocalBranch);
-    auto remotes = mGit->remotes();
+    auto branches = mGit->branches()->names(Git::BranchType::LocalBranch);
+    auto remotes = mGit->remotes()->allNames();
     comboBoxBranch->addItems(branches);
     comboBoxRemote->addItems(remotes);
-    labelCurrentBranchName->setText(mGit->currentBranch());
+    labelCurrentBranchName->setText(mGit->branches()->currentName());
 
     QSet<QString> _words;
     for (const auto &b : std::as_const(branches))

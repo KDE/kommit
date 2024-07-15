@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "fileblamedialog.h"
 
 #include "gitmanager.h"
-#include "models/logsmodel.h"
+#include "models/commitsmodel.h"
 
 #include <KLocalizedString>
 #include <QThread>
@@ -23,17 +23,17 @@ FileBlameDialog::FileBlameDialog(Git::Manager *git, QSharedPointer<Git::File> fi
 
     connect(plainTextEdit, &BlameCodeView::blockSelected, this, &FileBlameDialog::slotPlainTextEditBlockSelected);
 
-    if (git->logsModel()->isLoaded())
-        loadData();
-    else
-        connect(mGit->logsModel(), &Git::LogsModel::loaded, this, &FileBlameDialog::loadData);
+    // if (git->commitsCache()->isLoaded())
+    loadData();
+    // else
+    //     connect(mGit->logsModel(), &Git::LogsModel::loaded, this, &FileBlameDialog::loadData);
 }
 
 void FileBlameDialog::loadData()
 {
     plainTextEdit->setHighlighting(mFile->fileName());
 
-    const auto b = mGit->blame(*mFile.data());
+    const auto b = mGit->blame(mFile);
     plainTextEdit->setBlameData(b);
 
     setWindowTitle(i18nc("@title:window", "Blame file: %1", mFile->fileName()));

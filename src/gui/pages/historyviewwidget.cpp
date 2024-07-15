@@ -6,17 +6,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "historyviewwidget.h"
 #include "actions/commitactions.h"
-#include "models/logsmodel.h"
+#include "models/commitsmodel.h"
 
+#include <core/repositorydata.h>
 #include <entities/commit.h>
 #include <gitmanager.h>
 #include <widgets/graphpainter.h>
 #include <windows/diffwindow.h>
 
-HistoryViewWidget::HistoryViewWidget(Git::Manager *git, AppWindow *parent)
+HistoryViewWidget::HistoryViewWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)
-    , mActions(new CommitActions(git, this))
-    , mHistoryModel(git->logsModel())
+    , mActions(new CommitActions(git->manager(), this))
+    , mHistoryModel(git->commitsModel())
     , mGraphPainter(new GraphPainter(mHistoryModel, this))
 {
     setupUi(this);
@@ -72,11 +73,16 @@ void HistoryViewWidget::slotTextBrowserFileClicked(const QString &file)
 {
     auto log = widgetCommit->commit();
 
-    if (!log || !log->parents().size())
+    if (!log)
         return;
+    // TODO: let user choose the parent if they're more than one
 
-    QSharedPointer<Git::File> oldFile{new Git::File{mGit, log->parents().first(), file}};
-    QSharedPointer<Git::File> newFile{new Git::File{mGit, log->commitHash(), file}};
+    QSharedPointer<Git::File> oldFile;
+
+    if (log->parents().size()) {
+        oldFile.reset(new Git::File{mGit->manager(), log->parents().first(), file});
+    };
+    QSharedPointer<Git::File> newFile{new Git::File{mGit->manager(), log->commitHash(), file}};
 
     auto diffWin = new DiffWindow(oldFile, newFile);
     diffWin->showModal();

@@ -5,12 +5,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "searchdialog.h"
+#include "caches/branchescache.h"
+#include "caches/commitscache.h"
 #include "fileviewerdialog.h"
+
+#include <entities/tree.h>
 
 #include <KLocalizedString>
 #include <QStandardItemModel>
 #include <QtConcurrent>
 #include <entities/commit.h>
+#include <gitloglist.h>
 #include <gitmanager.h>
 
 SearchDialog::SearchDialog(const QString &path, Git::Manager *git, QWidget *parent)
@@ -85,13 +90,14 @@ void SearchDialog::slotTreeViewDoubleClicked(const QModelIndex &index)
 void SearchDialog::beginSearch()
 {
     if (radioButtonSearchBranches->isChecked()) {
-        const auto branchesList = mGit->branchesNames(Git::Manager::BranchType::LocalBranch);
+        const auto branchesList = mGit->branches()->names(Git::BranchType::LocalBranch);
         mProgress.total = branchesList.size();
         for (const auto &branch : branchesList) {
             searchOnPlace(branch, QString());
             mProgress.value++;
         }
     } else {
+        auto commits = mGit->commits()->allCommits();
         Git::LogList list;
         list.load(mGit);
 
@@ -119,6 +125,13 @@ void SearchDialog::searchOnPlace(const QString &branch, const QString &commit)
             mModel->appendRow({new QStandardItem(file), new QStandardItem(branch), new QStandardItem(commit)});
         }
     }
+}
+
+void SearchDialog::searchOnCommit(QSharedPointer<Git::Commit> commit)
+{
+    mProgress.currentPlace = commit->message();
+    // auto tree = commit->tree();
+    // tree.create()
 }
 
 void SearchDialog::timerEvent(QTimerEvent *event)

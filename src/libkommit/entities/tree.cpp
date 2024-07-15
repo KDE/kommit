@@ -19,21 +19,41 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-Tree::Tree(git_tree *tree)
-    : ptr{tree}
+class TreePrivate
 {
-    initTree();
+public:
+    TreePrivate(Tree *parent, git_tree *tree);
+    Tree *q_ptr;
+    Q_DECLARE_PUBLIC(Tree);
+
+    QList<Tree::Entry *> entries;
+    QMultiMap<QString, Tree::Entry> treeData;
+
+    git_tree *gitTreePtr{nullptr};
+
+    void initTree();
+    void browseNestedEntities(Tree::EntryType type, const QString &path, QStringList &list) const;
+};
+
+Tree::Tree(git_tree *tree)
+    : d_ptr{new TreePrivate{this, tree}}
+{
+    Q_D(Tree);
+    d->initTree();
 }
 
 Tree::~Tree()
 {
-    if (ptr)
-        git_tree_free(ptr);
+    Q_D(const Tree);
+    if (d->gitTreePtr)
+        git_tree_free(d->gitTreePtr);
+    delete d;
 }
 
 QList<Tree::Entry> Tree::entries(const QString &path) const
 {
-    return mTreeData.values(path);
+    Q_D(const Tree);
+    return d->treeData.values(path);
 }
 
 QStringList Tree::entries(const QString &path, EntryType filter) const
@@ -48,36 +68,41 @@ QStringList Tree::entries(const QString &path, EntryType filter) const
 
 QStringList Tree::entries(EntryType filter) const
 {
+    Q_D(const Tree);
+
     QStringList list;
 
-    browseNestedEntities(filter, QString(), list);
+    d->browseNestedEntities(filter, QString(), list);
 
     return list;
 }
 
 QSharedPointer<File> Tree::file(const QString &path)
 {
+    Q_D(Tree);
     git_tree_entry *entry;
     BEGIN
 
     if (path.startsWith(QLatin1Char('/')))
-        STEP git_tree_entry_bypath(&entry, ptr, toConstChars(path.mid(1)));
+        STEP git_tree_entry_bypath(&entry, d->gitTreePtr, toConstChars(path.mid(1)));
     else
-        STEP git_tree_entry_bypath(&entry, ptr, toConstChars(path));
+        STEP git_tree_entry_bypath(&entry, d->gitTreePtr, toConstChars(path));
 
     if (IS_ERROR)
         return {};
 
-    return QSharedPointer<File>{new File{git_tree_owner(ptr), entry}};
+    return QSharedPointer<File>{new File{git_tree_owner(d->gitTreePtr), entry}};
 }
 
 git_tree *Tree::gitTree() const
 {
-    return ptr;
+    Q_D(const Tree);
+    return d->gitTreePtr;
 }
 
 bool Tree::extract(const QString &destinationFolder, const QString &prefix)
 {
+    Q_D(Tree);
     struct wrapper {
         QString destinationFolder;
         QString prefix;
@@ -130,18 +155,19 @@ bool Tree::extract(const QString &destinationFolder, const QString &prefix)
     else
         w.prefix = prefix;
 
-    return !git_tree_walk(ptr, GIT_TREEWALK_PRE, cb, &w);
+    return !git_tree_walk(d->gitTreePtr, GIT_TREEWALK_PRE, cb, &w);
 }
 
 QSharedPointer<Oid> Tree::oid() const
 {
-    return QSharedPointer<Oid>{new Oid{git_tree_id(ptr)}};
+    Q_D(const Tree);
+    return QSharedPointer<Oid>{new Oid{git_tree_id(d->gitTreePtr)}};
 }
 
-void Tree::initTree()
+void TreePrivate::initTree()
 {
     auto cb = [](const char *root, const git_tree_entry *entry, void *payload) -> int {
-        auto w = reinterpret_cast<Tree *>(payload);
+        auto w = reinterpret_cast<TreePrivate *>(payload);
         QString path{root};
         QString name{git_tree_entry_name(entry)};
 
@@ -151,10 +177,11 @@ void Tree::initTree()
         auto type = git_tree_entry_type(entry);
         switch (type) {
         case GIT_OBJECT_BLOB:
-            w->mTreeData.insert(path, Entry{name, EntryType::File});
+            w->treeData.insert(path, Tree::Entry{name, Tree::EntryType::File});
+            w->entries.append(new Tree::Entry{name, Tree::EntryType::File, path});
             break;
         case GIT_OBJECT_TREE:
-            w->mTreeData.insert(path, Entry{name, EntryType::Dir});
+            w->treeData.insert(path, Tree::Entry{name, Tree::EntryType::Dir});
             break;
         case GIT_OBJECT_COMMIT:
         case GIT_OBJECT_ANY:
@@ -167,27 +194,34 @@ void Tree::initTree()
         return 0;
     };
 
-    git_tree_walk(ptr, GIT_TREEWALK_PRE, cb, this);
+    git_tree_walk(gitTreePtr, GIT_TREEWALK_PRE, cb, this);
 }
 
-void Tree::browseNestedEntities(EntryType type, const QString &path, QStringList &list) const
+void TreePrivate::browseNestedEntities(Tree::EntryType type, const QString &path, QStringList &list) const
 {
+    Q_Q(const Tree);
     QString prefix;
     if (!path.isEmpty())
         prefix = path + QLatin1Char('/');
 
-    auto dirs = entries(path, EntryType::Dir);
-    auto files = entries(path, EntryType::File);
-    if (type == EntryType::Dir || type == EntryType::All) {
+    auto dirs = q->entries(path, Tree::EntryType::Dir);
+    auto files = q->entries(path, Tree::EntryType::File);
+    if (type == Tree::EntryType::Dir || type == Tree::EntryType::All) {
         for (auto const &dir : dirs)
             list.append(prefix + dir);
     }
-    if (type == EntryType::File || type == EntryType::All) {
+    if (type == Tree::EntryType::File || type == Tree::EntryType::All) {
         for (const auto &f : files)
             list.append(prefix + f);
     }
     for (auto const &dir : dirs)
         browseNestedEntities(type, prefix + dir, list);
+}
+
+TreePrivate::TreePrivate(Tree *parent, git_tree *tree)
+    : q_ptr{parent}
+    , gitTreePtr{tree}
+{
 }
 }
 

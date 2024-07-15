@@ -18,7 +18,9 @@ namespace Git
 
 class Tree;
 class Commit;
+class Reference;
 
+class BranchPrivate;
 class LIBKOMMIT_EXPORT Branch : public ITree
 {
 public:
@@ -33,17 +35,15 @@ public:
     Q_REQUIRED_RESULT bool isHead() const;
 
     Q_REQUIRED_RESULT QSharedPointer<Tree> tree() const override;
-    Q_REQUIRED_RESULT QSharedPointer<Commit> commit() const;
+    Q_REQUIRED_RESULT QSharedPointer<Commit> commit();
+    Q_REQUIRED_RESULT QSharedPointer<Reference> reference() const;
 
     Q_REQUIRED_RESULT QString treeTitle() const override;
+    git_reference *refPtr() const;
 
 private:
-    git_reference *const mBranch;
-    QString mName;
-    QString mRefName;
-    QString mUpStreamName;
-    QString mRemoteName;
-    bool mIsHead{false};
+    BranchPrivate *d_ptr;
+    Q_DECLARE_PRIVATE(Branch)
 };
 
 }

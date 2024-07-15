@@ -12,15 +12,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class Manager;
-class BranchesModel;
 }
+class BranchesModel;
 class BranchActions;
 class BranchesStatusWidget : public WidgetBase, private Ui::BranchesStatusWidget
 {
     Q_OBJECT
 
 public:
-    explicit BranchesStatusWidget(Git::Manager *git, AppWindow *parent = nullptr);
+    explicit BranchesStatusWidget(RepositoryData *git, AppWindow *parent = nullptr);
 
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
@@ -28,8 +28,9 @@ public:
 private:
     void init();
     void slotTreeViewCustomContextMenuRequested(const QPoint &pos);
+    void slotTreeViewActivated(const QModelIndex &index);
     void slotPushButtonRemoveSelectedClicked();
     void slotComboBoxReferenceBranchCurrentIndexChanged(int selectedBranch);
     BranchActions *const mActions;
-    Git::BranchesModel *const mModel;
+    BranchesModel *const mModel;
 };

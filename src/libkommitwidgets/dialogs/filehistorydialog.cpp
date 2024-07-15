@@ -5,8 +5,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "filehistorydialog.h"
-#include "models/logsmodel.h"
+#include "models/commitsmodel.h"
 
+#include <caches/commitscache.h>
 #include <entities/commit.h>
 #include <gitmanager.h>
 
@@ -20,10 +21,10 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
 
     const auto hashes = git->fileLog(fileName);
 
-    const auto logs = git->logsModel();
+    const auto logs = git->commits();
 
     for (const auto &hash : hashes) {
-        auto log = logs->findLogByHash(hash);
+        auto log = logs->find(hash);
         if (!log)
             continue;
 
