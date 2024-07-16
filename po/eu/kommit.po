@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-10 01:46+0000\n"
+"POT-Creation-Date: 2024-07-16 01:42+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -62,8 +62,8 @@ msgstr "Ekarri"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #: dolphinplugins/actions.h:21 src/gui/pages/tagswidget.ui:69
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:100
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:267
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:103
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:270
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:299
 #, kde-format
 msgid "Push"
@@ -105,7 +105,7 @@ msgstr "Diff"
 msgid "Ignore file"
 msgstr "Ezikusi fitxategia"
 
-#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:435
+#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:436
 #, kde-format
 msgid "History"
 msgstr ""
@@ -178,8 +178,8 @@ msgstr "KDEren Git GUI bezeroa"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:62 src/libkommit/models/logsmodel.cpp:262
-#: src/libkommitwidgets/reports/authorsreport.cpp:81
+#: src/apps/main.cpp:62 src/libkommitwidgets/models/commitsmodel.cpp:298
+#: src/libkommitwidgets/reports/authorsreport.cpp:82
 #, kde-format
 msgid "Author"
 msgstr "Egilea"
@@ -203,196 +203,196 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Akatsak konpontzea"
 
-#: src/gui/appwindow.cpp:95 src/gui/appwindow.cpp:136
+#: src/gui/appwindow.cpp:94 src/gui/appwindow.cpp:135
 #, kde-format
 msgid "No repo selected"
 msgstr "Ez da gordetegirik hautatu"
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:127
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Uneko adarra: %1"
 
-#: src/gui/appwindow.cpp:130
+#: src/gui/appwindow.cpp:129
 #, kde-format
 msgid " (merging)"
 msgstr " (bateratzen)"
 
-#: src/gui/appwindow.cpp:132
+#: src/gui/appwindow.cpp:131
 #, fuzzy, kde-format
 #| msgid " (merging)"
 msgid " (rebasing)"
 msgstr " (bateratzen)"
 
-#: src/gui/appwindow.cpp:167
-#: src/libkommitwidgets/actions/submoduleactions.cpp:40
+#: src/gui/appwindow.cpp:166
+#: src/libkommitwidgets/actions/submoduleactions.cpp:28
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Init…"
 msgstr "Hasieratu"
 
-#: src/gui/appwindow.cpp:170
+#: src/gui/appwindow.cpp:169
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action"
 msgid "Open…"
 msgstr "Ireki"
 
-#: src/gui/appwindow.cpp:175
+#: src/gui/appwindow.cpp:174
 #, fuzzy, kde-format
 #| msgid "Clone..."
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Itxi..."
 
-#: src/gui/appwindow.cpp:178
+#: src/gui/appwindow.cpp:177
 #, fuzzy, kde-format
 #| msgid "Changed files"
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Aldatutako fitxategiak"
 
-#: src/gui/appwindow.cpp:184
+#: src/gui/appwindow.cpp:183
 #, fuzzy, kde-format
 #| msgid "Recent repos"
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Azkenaldiko gordetegiak"
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:189
 #, fuzzy, kde-format
 #| msgid "Cleanup..."
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Txukuntzea..."
 
-#: src/gui/appwindow.cpp:193
+#: src/gui/appwindow.cpp:192
 #, fuzzy, kde-format
 #| msgid "Pull..."
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Tira egin..."
 
-#: src/gui/appwindow.cpp:197 src/libkommitwidgets/actions/branchactions.cpp:33
+#: src/gui/appwindow.cpp:196 src/libkommitwidgets/actions/branchactions.cpp:33
 #, fuzzy, kde-format
 #| msgid "Fetch"
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Ekarri"
 
-#: src/gui/appwindow.cpp:201 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:200 src/libkommitwidgets/actions/tagsactions.cpp:29
 #, fuzzy, kde-format
 #| msgid "Push"
 msgctxt "@action"
 msgid "Push…"
 msgstr "Bultzatu"
 
-#: src/gui/appwindow.cpp:205 src/libkommitwidgets/actions/branchactions.cpp:36
+#: src/gui/appwindow.cpp:204 src/libkommitwidgets/actions/branchactions.cpp:36
 #, fuzzy, kde-format
 #| msgid "Merge"
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Bateratu"
 
-#: src/gui/appwindow.cpp:209
+#: src/gui/appwindow.cpp:208
 #, fuzzy, kde-format
 #| msgid "Diff branches..."
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Diff adarrak..."
 
-#: src/gui/appwindow.cpp:212 src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/gui/appwindow.cpp:211 src/libkommitwidgets/actions/fileactions.cpp:53
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@action"
 msgid "Search…"
 msgstr "Bilatu"
 
-#: src/gui/appwindow.cpp:215
+#: src/gui/appwindow.cpp:214
 #, fuzzy, kde-format
 #| msgid "Repo settings"
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "Gordetegiaren ezarpenak"
 
-#: src/gui/appwindow.cpp:218
+#: src/gui/appwindow.cpp:217
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Atera"
 
-#: src/gui/appwindow.cpp:221
+#: src/gui/appwindow.cpp:220
 #, fuzzy, kde-format
 #| msgid "Diff tree"
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr "Diff zuhaitza"
 
-#: src/gui/appwindow.cpp:258
+#: src/gui/appwindow.cpp:257
 #, fuzzy, kde-format
 #| msgid "Cleanup..."
 msgid "Clear"
 msgstr "Txukuntzea..."
 
-#: src/gui/appwindow.cpp:280 src/gui/commandargsparser.cpp:253
+#: src/gui/appwindow.cpp:279 src/gui/commandargsparser.cpp:255
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ez da bide-izena sortzeko gai: %1"
 
-#: src/gui/appwindow.cpp:280 src/gui/commandargsparser.cpp:253
+#: src/gui/appwindow.cpp:279 src/gui/commandargsparser.cpp:255
 #, kde-format
 msgid "Init repo"
 msgstr "Hasieratu gordetegia"
 
-#: src/gui/appwindow.cpp:293
+#: src/gui/appwindow.cpp:292
 #, kde-format
 msgid "Open repository"
 msgstr "Ireki gordetegia"
 
-#: src/gui/appwindow.cpp:372 src/gui/commandargsparser.cpp:509
+#: src/gui/appwindow.cpp:372 src/gui/commandargsparser.cpp:510
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Ezin du adarra aldatu bateratu bitartean"
 
-#: src/gui/appwindow.cpp:372 src/gui/commandargsparser.cpp:509
+#: src/gui/appwindow.cpp:372 src/gui/commandargsparser.cpp:510
 #, kde-format
 msgid "Switch branch"
 msgstr "Adarrez aldatu"
 
-#: src/gui/commandargsparser.cpp:74
+#: src/gui/commandargsparser.cpp:76
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Bide-izena ez da git gordetegia: %1"
 
-#: src/gui/commandargsparser.cpp:258
+#: src/gui/commandargsparser.cpp:260
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Gordetegia ondo hasieratu da"
 
-#: src/gui/commandargsparser.cpp:435
+#: src/gui/commandargsparser.cpp:436
 #, fuzzy, kde-format
 #| msgid "Unable to open the file"
 msgid "Cannot find the file"
 msgstr "Ez da fitxategia irekitzeko gai"
 
-#: src/gui/commandargsparser.cpp:565
+#: src/gui/commandargsparser.cpp:566
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Fitxategia(k) git-era ondo gehitu dira"
 
-#: src/gui/commandargsparser.cpp:575
+#: src/gui/commandargsparser.cpp:576
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Fitxateia(k) diskoan utzi nahi zen(it)u(z)ke?"
 
-#: src/gui/commandargsparser.cpp:575
+#: src/gui/commandargsparser.cpp:576
 #, fuzzy, kde-format
 #| msgid "Remove from index"
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Kendu indizetik"
 
-#: src/gui/commandargsparser.cpp:577
+#: src/gui/commandargsparser.cpp:578
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Fitxategia(k) git-etik ondo kendu d(ir)a"
@@ -477,14 +477,14 @@ msgstr "Ez da existitzen"
 msgid "Overview"
 msgstr "Ikuspegi orokorra"
 
-#: src/gui/pages/branchesstatuswidget.cpp:70
-#: src/libkommitwidgets/actions/branchactions.cpp:118
+#: src/gui/pages/branchesstatuswidget.cpp:74
+#: src/libkommitwidgets/actions/branchactions.cpp:115
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Ziur zaude hautatutako adarra kendu nahi duzula?"
 
-#: src/gui/pages/branchesstatuswidget.cpp:74
-#: src/libkommitwidgets/actions/branchactions.cpp:120
+#: src/gui/pages/branchesstatuswidget.cpp:78
+#: src/libkommitwidgets/actions/branchactions.cpp:117
 #, fuzzy, kde-format
 #| msgid "Are you sure to remove the selected branch?"
 msgid "Unable to remove the selected branch"
@@ -522,8 +522,8 @@ msgstr "Arakatu"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
 #: src/gui/pages/commitswidget.ui:14
-#: src/libkommitwidgets/reports/authorsreport.cpp:71
-#: src/libkommitwidgets/reports/authorsreport.cpp:86
+#: src/libkommitwidgets/reports/authorsreport.cpp:72
+#: src/libkommitwidgets/reports/authorsreport.cpp:87
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:59
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:74
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:89
@@ -541,7 +541,7 @@ msgid "Filter..."
 msgstr "Iragazi..."
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
-#: src/gui/pages/remoteswidget.cpp:64 src/gui/pages/submoduleswidget.ui:59
+#: src/gui/pages/remoteswidget.cpp:66 src/gui/pages/submoduleswidget.ui:59
 #, kde-format
 msgid "Update"
 msgstr "Eguneratu"
@@ -593,11 +593,12 @@ msgstr "Adarrak:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
-#: src/gui/pages/remoteswidget.ui:167 src/libkommit/models/branchesmodel.cpp:65
-#: src/libkommit/models/tagsmodel.cpp:61
+#: src/gui/pages/remoteswidget.ui:167
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
-#: src/libkommitwidgets/models/treemodel.cpp:146
-#: src/libkommitwidgets/reports/authorsreport.cpp:71
+#: src/libkommitwidgets/models/branchesmodel.cpp:90
+#: src/libkommitwidgets/models/tagsmodel.cpp:59
+#: src/libkommitwidgets/models/treemodel.cpp:180
+#: src/libkommitwidgets/reports/authorsreport.cpp:72
 #, kde-format
 msgid "Name"
 msgstr "Izena"
@@ -610,15 +611,16 @@ msgid "Ref name"
 msgstr "Berrizendatu"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/gui/pages/remoteswidget.ui:177 src/libkommit/models/branchesmodel.cpp:75
+#: src/gui/pages/remoteswidget.ui:177
+#: src/libkommitwidgets/models/branchesmodel.cpp:100
 #, kde-format
 msgid "Upstream"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommit/models/submodulesmodel.cpp:64
-#: src/libkommitwidgets/models/treemodel.cpp:148
+#: src/libkommitwidgets/models/submodulesmodel.cpp:88
+#: src/libkommitwidgets/models/treemodel.cpp:182
 #, kde-format
 msgid "Status"
 msgstr "Status"
@@ -737,7 +739,7 @@ msgstr "Gehitu azpimodulu berria"
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:108
 #: src/libkommitwidgets/dialogs/pulldialog.ui:153
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:54
-#: src/libkommitwidgets/reports/authorsreport.cpp:71
+#: src/libkommitwidgets/reports/authorsreport.cpp:72
 #, kde-format
 msgid "Tags"
 msgstr "Etiketak"
@@ -867,125 +869,25 @@ msgid ""
 "Please commit your changes or stash them before you switch branches."
 msgstr ""
 
-#: src/libkommit/entities/remote.cpp:217
+#: src/libkommit/entities/remote.cpp:140
 #, kde-format
 msgid "Unknown"
 msgstr "Ezezaguna"
 
-#: src/libkommit/entities/remote.cpp:219
+#: src/libkommit/entities/remote.cpp:142
 #, kde-format
 msgid "Up to date"
 msgstr "Egunean"
 
-#: src/libkommit/entities/remote.cpp:221
+#: src/libkommit/entities/remote.cpp:144
 #, kde-format
 msgid "Fast forwardable"
 msgstr ""
 
-#: src/libkommit/entities/remote.cpp:223
+#: src/libkommit/entities/remote.cpp:146
 #, kde-format
 msgid "Local out of date"
 msgstr ""
-
-#: src/libkommit/models/branchesmodel.cpp:67
-#, kde-format
-msgid "Commit(s) behind"
-msgstr ""
-
-#: src/libkommit/models/branchesmodel.cpp:69
-#, kde-format
-msgid "Commit(s) ahead"
-msgstr ""
-
-#: src/libkommit/models/branchesmodel.cpp:71
-#, kde-format
-msgid "Is ahead"
-msgstr ""
-
-#: src/libkommit/models/branchesmodel.cpp:73
-#, kde-format
-msgid "Ref"
-msgstr "Erref"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/libkommit/models/branchesmodel.cpp:77
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:31
-#: src/libkommitwidgets/dialogs/pulldialog.ui:20
-#: src/libkommitwidgets/dialogs/pulldialog.ui:26
-#, kde-format
-msgid "Remote"
-msgstr "Urrutikoa"
-
-#: src/libkommit/models/logsmodel.cpp:258
-#: src/libkommit/models/logsmodel.cpp:269
-#, kde-format
-msgid "Message"
-msgstr "Mezua"
-
-#: src/libkommit/models/logsmodel.cpp:260
-#, kde-format
-msgid "Date"
-msgstr "Data"
-
-#: src/libkommit/models/logsmodel.cpp:267
-#, kde-format
-msgid "Graph"
-msgstr "Grafikoa"
-
-#: src/libkommit/models/stashesmodel.cpp:66
-#: src/libkommit/models/tagsmodel.cpp:63
-#, kde-format
-msgid "Subject"
-msgstr "Gaia"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/libkommit/models/stashesmodel.cpp:68
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:68
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:35
-#, kde-format
-msgid "Commit"
-msgstr "Baliozkotu"
-
-#: src/libkommit/models/stashesmodel.cpp:70
-#, kde-format
-msgid "Author name"
-msgstr "Egilearen izena"
-
-#: src/libkommit/models/stashesmodel.cpp:72
-#, kde-format
-msgid "Author email"
-msgstr "Egilearen e-posta"
-
-#: src/libkommit/models/stashesmodel.cpp:74
-#, kde-format
-msgid "Time"
-msgstr "Ordua"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
-#: src/libkommit/models/submodulesmodel.cpp:60
-#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#, kde-format
-msgid "Path"
-msgstr "Bide-izena"
-
-#: src/libkommit/models/submodulesmodel.cpp:62
-#, fuzzy, kde-format
-msgid "Head"
-msgstr "Burua"
-
-#: src/libkommit/models/tagsmodel.cpp:65
-#, fuzzy, kde-format
-msgid "Tagger"
-msgstr "&Etiketatzailea"
-
-#: src/libkommit/models/tagsmodel.cpp:67
-#, fuzzy, kde-format
-#| msgid "Create new"
-msgid "Create time"
-msgstr "Sortu berria"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:30
 #, fuzzy, kde-format
@@ -1016,49 +918,41 @@ msgid "Diff"
 msgstr "Diff"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:38
-#: src/libkommitwidgets/actions/remotesactions.cpp:25
-#: src/libkommitwidgets/actions/stashactions.cpp:26
-#: src/libkommitwidgets/actions/tagsactions.cpp:25
+#: src/libkommitwidgets/actions/remotesactions.cpp:26
+#: src/libkommitwidgets/actions/stashactions.cpp:28
+#: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action"
 msgid "Remove…"
 msgstr "Kendu"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Note"
-msgctxt "@action"
-msgid "Note…"
-msgstr "Oharra"
-
-#: src/libkommitwidgets/actions/branchactions.cpp:69
+#: src/libkommitwidgets/actions/branchactions.cpp:67
 #, fuzzy, kde-format
 #| msgid "Create new branch"
 msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Sortu adar berria"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:69
+#: src/libkommitwidgets/actions/branchactions.cpp:67
 #, kde-format
 msgid "Branch name"
 msgstr "Adarraren izena"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:118
+#: src/libkommitwidgets/actions/branchactions.cpp:115
 #, fuzzy, kde-format
 #| msgid "Remove Branch"
-msgctxt "@title:window"
 msgid "Remove Branch"
 msgstr "Kendu adarra"
 
-#: src/libkommitwidgets/actions/changedfileactions.cpp:18
+#: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, fuzzy, kde-format
 #| msgid "Diff"
 msgctxt "@action"
 msgid "Diff…"
 msgstr "Diff"
 
-#: src/libkommitwidgets/actions/changedfileactions.cpp:19
+#: src/libkommitwidgets/actions/changedfileactions.cpp:20
 #, fuzzy, kde-format
 #| msgid "Revert..."
 msgctxt "@action"
@@ -1080,8 +974,8 @@ msgstr "Atera"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:47
-#: src/libkommitwidgets/actions/stashactions.cpp:23
-#: src/libkommitwidgets/actions/tagsactions.cpp:27
+#: src/libkommitwidgets/actions/stashactions.cpp:25
+#: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Diff with working dir"
@@ -1145,101 +1039,99 @@ msgstr "Ardura..."
 msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:24
+#: src/libkommitwidgets/actions/remotesactions.cpp:25
 #, kde-format
 msgctxt "@action"
 msgid "New…"
 msgstr ""
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:26
+#: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, fuzzy, kde-format
 #| msgid "Rename"
 msgctxt "@action"
 msgid "Rename…"
 msgstr "Berrizendatu"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:27
+#: src/libkommitwidgets/actions/remotesactions.cpp:28
 #, fuzzy, kde-format
 #| msgid "Change url"
 msgctxt "@action"
 msgid "Change url…"
 msgstr "Aldatu URLa..."
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:60
+#: src/libkommitwidgets/actions/remotesactions.cpp:57
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
 msgstr "Ziur zaude hautatutako urrunekoa kendu nahi duzula?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:60
+#: src/libkommitwidgets/actions/remotesactions.cpp:57
 #, fuzzy, kde-format
 #| msgid "Remove remote?"
-msgctxt "@title:window"
 msgid "Remove remote?"
 msgstr "Urrutikoa kendu?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:62
+#: src/libkommitwidgets/actions/remotesactions.cpp:59
 #, fuzzy, kde-format
 #| msgid "Are you sure to remove the selected remote?"
 msgid "Unable to remove the selected remote"
 msgstr "Ziur zaude hautatutako urrunekoa kendu nahi duzula?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:75
+#: src/libkommitwidgets/actions/remotesactions.cpp:71
 #, fuzzy, kde-format
 #| msgid "Change url"
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "Aldatu URLa..."
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:75
+#: src/libkommitwidgets/actions/remotesactions.cpp:71
 #, kde-format
 msgid "URL"
 msgstr "URLa"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:78
+#: src/libkommitwidgets/actions/remotesactions.cpp:74
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "Urrunekoaren URLa ondo aldatu da"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:84
+#: src/libkommitwidgets/actions/remotesactions.cpp:80
 #, fuzzy, kde-format
 #| msgid "Rename"
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "Berrizendatu"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:84
+#: src/libkommitwidgets/actions/remotesactions.cpp:80
 #, kde-format
 msgid "New name"
 msgstr "Izen berria"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:22
+#: src/libkommitwidgets/actions/stashactions.cpp:24
 #, fuzzy, kde-format
 #| msgid "New stash..."
 msgctxt "@action"
 msgid "New stash…"
 msgstr "Gordeleku berria..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:24
+#: src/libkommitwidgets/actions/stashactions.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Pop…"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:27
 #, fuzzy, kde-format
 #| msgid "Apply..."
 msgctxt "@action"
 msgid "Apply…"
 msgstr "Ezarri..."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:35
+#: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr ""
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
 #, fuzzy, kde-format
-msgctxt "@title:window"
 msgid "Apply stash %1"
 msgstr "Aplikatu gordelekua"
 
@@ -1249,70 +1141,68 @@ msgstr "Aplikatu gordelekua"
 msgid "Unable to apply the selected stash"
 msgstr "Ez da fitxategia irekitzeko gai"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:45
+#: src/libkommitwidgets/actions/stashactions.cpp:44
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:46
+#: src/libkommitwidgets/actions/stashactions.cpp:44
 #, fuzzy, kde-format
-msgctxt "@title:window"
 msgid "Drop stash %1"
 msgstr "Jaregin gordelekua"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:48
-#: src/libkommitwidgets/actions/stashactions.cpp:59
+#: src/libkommitwidgets/actions/stashactions.cpp:46
+#: src/libkommitwidgets/actions/stashactions.cpp:56
 #, fuzzy, kde-format
 #| msgid "Are you sure to remove the selected tag?"
 msgid "Unable to remove the selected stash"
 msgstr "Ziur zaude hautatutako etiketa kendu nahi duzula?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:57
+#: src/libkommitwidgets/actions/stashactions.cpp:54
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr ""
 
-#: src/libkommitwidgets/actions/stashactions.cpp:57
+#: src/libkommitwidgets/actions/stashactions.cpp:54
 #, fuzzy, kde-format
-msgctxt "@title:window"
 msgid "Pop stash %1"
 msgstr "«Pop» gordelekua"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:75
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
+#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:61
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Ez duzu aldaketarik!"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:75
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
+#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:61
 #, fuzzy, kde-format
 #| msgid "Stash"
 msgctxt "@title:window"
 msgid "Stash"
 msgstr "Gordelekua"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:80
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
+#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
 #, fuzzy, kde-format
 #| msgid "Create new stash"
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Sortu gordeleku berria"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:80
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
+#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
 #, kde-format
 msgid "Name of stash"
 msgstr "Gordelekuaren izena"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:39
+#: src/libkommitwidgets/actions/submoduleactions.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Add…"
 msgstr ""
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:41
+#: src/libkommitwidgets/actions/submoduleactions.cpp:29
 #, fuzzy, kde-format
 #| msgid "Update"
 msgctxt "@action"
@@ -1320,46 +1210,26 @@ msgid "Update…"
 msgstr "Eguneratu"
 
 #. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
-#: src/libkommitwidgets/actions/submoduleactions.cpp:43
+#: src/libkommitwidgets/actions/submoduleactions.cpp:31
 #, kde-format
 msgctxt "@action"
 msgid "Sync…"
 msgstr ""
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:75
-#, kde-format
-msgid "Are you sure to remove the selected submodule?"
-msgstr "Ziur zaude hautatutako azpimodulua kendu nahi duzula?"
-
-#: src/libkommitwidgets/actions/submoduleactions.cpp:75
-#, kde-format
-msgid "Remove Submodule"
-msgstr "Kendu azpimodulua"
-
-#: src/libkommitwidgets/actions/submoduleactions.cpp:82
-#, kde-format
-msgid "Unable to remove the module directory"
-msgstr "Ez da moduluaren direktorioa kentzeko gai"
-
-#: src/libkommitwidgets/actions/submoduleactions.cpp:89
-#, kde-format
-msgid "The submodule %1 removed"
-msgstr "%1 azpimodulua kendu da"
-
-#: src/libkommitwidgets/actions/tagsactions.cpp:24
+#: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, fuzzy, kde-format
 #| msgid "New tag"
 msgctxt "@action"
 msgid "New tag…"
 msgstr "Etiketa berria"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:26
+#: src/libkommitwidgets/actions/tagsactions.cpp:27
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Checkout…"
 msgstr "Atera"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:34
+#: src/libkommitwidgets/actions/tagsactions.cpp:35
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
 #, kde-format
 msgctxt "@title:window"
@@ -1374,16 +1244,15 @@ msgstr "Ziur zaude hautatutako etiketa kendu nahi duzula?"
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, fuzzy, kde-format
 #| msgid "Remove tag"
-msgctxt "@title:window"
 msgid "Remove tag"
 msgstr "Kendu etiketa"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:51
+#: src/libkommitwidgets/actions/tagsactions.cpp:50
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
 msgstr ""
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:51
+#: src/libkommitwidgets/actions/tagsactions.cpp:50
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
@@ -1405,7 +1274,7 @@ msgstr "Aldatutako fitxategiak:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
-#: src/libkommitwidgets/windows/diffwindow.cpp:207
+#: src/libkommitwidgets/windows/diffwindow.cpp:208
 #, kde-format
 msgid "Reload"
 msgstr "Birzamatu"
@@ -1424,14 +1293,14 @@ msgstr "Gordelekuak"
 msgid "Commit/push"
 msgstr "Baliozkotu/Bultzatu"
 
-#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:27
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:28
 #, fuzzy, kde-format
 #| msgid "Commit/Push"
 msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
 msgstr "Baliozkotu/Bultzatu"
 
-#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:51
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:52
 #, fuzzy, kde-format
 #| msgid "Commit/Push"
 msgctxt "@action"
@@ -1529,7 +1398,7 @@ msgstr "Sakonera"
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:34
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:75
 #: src/libkommitwidgets/dialogs/pulldialog.ui:36
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:34
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:39
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:66
 #, kde-format
 msgid "Branch"
@@ -1579,8 +1448,8 @@ msgstr "-"
 msgid "TextLabel"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:102
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:267
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:105
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:270
 #, kde-format
 msgid "Commit and push"
 msgstr "Baliozkotu eta bultzatu"
@@ -1717,21 +1586,21 @@ msgstr "Indexatuta"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:270
+#: src/libkommitwidgets/windows/diffwindow.cpp:271
 #, kde-format
 msgid "Added"
 msgstr "Gehituta"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:272
+#: src/libkommitwidgets/windows/diffwindow.cpp:273
 #, kde-format
 msgid "Removed"
 msgstr "Kenduta"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:274
+#: src/libkommitwidgets/windows/diffwindow.cpp:275
 #, kde-format
 msgid "Modified"
 msgstr "Aldatua"
@@ -1741,6 +1610,16 @@ msgstr "Aldatua"
 #, kde-format
 msgid "None"
 msgstr "Batere ez"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:68
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:40
+#: src/libkommitwidgets/models/stashesmodel.cpp:67
+#, kde-format
+msgid "Commit"
+msgstr "Baliozkotu"
 
 #: src/libkommitwidgets/dialogs/credentialdialog.cpp:32
 #, kde-format
@@ -1829,6 +1708,16 @@ msgstr "Direktorio zaharra:"
 msgid "Fetch from origin"
 msgstr "Ekarri jatorritik"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:31
+#: src/libkommitwidgets/dialogs/pulldialog.ui:20
+#: src/libkommitwidgets/dialogs/pulldialog.ui:26
+#: src/libkommitwidgets/models/branchesmodel.cpp:102
+#, kde-format
+msgid "Remote"
+msgstr "Urrutikoa"
+
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllBranches)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:43
 #, kde-format
@@ -1879,7 +1768,7 @@ msgctxt "@title:window"
 msgid "Blame file: %1"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/filehistorydialog.cpp:40
+#: src/libkommitwidgets/dialogs/filehistorydialog.cpp:41
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
@@ -1955,19 +1844,19 @@ msgstr ""
 msgid "Branch:"
 msgstr "Adarra:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:46
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Aurreikuspegia ixtea"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, fuzzy, kde-format
 #| msgid "Please wait while the preview is being closed..."
 msgid "Please wait while the preview is being closed…"
 msgstr "Mesedez, itxoin aurreikuspegia itxi bitartean..."
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:78
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2017,6 +1906,13 @@ msgstr "Fitxategi guztiak luzapenaren arabera"
 #, kde-format
 msgid "All files by this name"
 msgstr "Izen hau duten fitxategi denak"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
+#: src/libkommitwidgets/models/submodulesmodel.cpp:84
+#, kde-format
+msgid "Path"
+msgstr "Bide-izena"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExactPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:76
@@ -2418,7 +2314,7 @@ msgid ""
 "size:9pt;\"><br /></p></body></html>"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:33
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:38
 #, kde-format
 msgid "File name"
 msgstr "Fitxategi-izena"
@@ -2465,12 +2361,12 @@ msgstr "Bereizi maiuskulak"
 msgid "Search"
 msgstr "Bilatu"
 
-#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
+#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:43
 #, kde-format
 msgid "The selected branches must be different!"
 msgstr "Hautatutako adarrak ezberdinak izan behar dira!"
 
-#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
+#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:43
 #, fuzzy, kde-format
 #| msgid "Select branches"
 msgctxt "@title:window"
@@ -2505,7 +2401,7 @@ msgstr "HEAD"
 msgid "The path is not inside of git directory"
 msgstr "Bide-izena ez da git gordetegia: %1"
 
-#: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:73
+#: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:75
 #, kde-format
 msgid "The branch already exists"
 msgstr ""
@@ -2522,28 +2418,101 @@ msgstr "Etiketa"
 msgid "Tag name:"
 msgstr "Etiketaren izena:"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:136
+#: src/libkommitwidgets/models/branchesmodel.cpp:92
+#, kde-format
+msgid "Commit(s) behind"
+msgstr ""
+
+#: src/libkommitwidgets/models/branchesmodel.cpp:94
+#, kde-format
+msgid "Commit(s) ahead"
+msgstr ""
+
+#: src/libkommitwidgets/models/branchesmodel.cpp:96
+#, kde-format
+msgid "Is ahead"
+msgstr ""
+
+#: src/libkommitwidgets/models/branchesmodel.cpp:98
+#, kde-format
+msgid "Ref"
+msgstr "Erref"
+
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:170
 #, fuzzy, kde-format
 #| msgid "Uncommited"
 msgid " (new commit)"
 msgstr "Baliozkotu gabea"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:138
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:172
 #, kde-format
 msgid " (content modified)"
 msgstr ""
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:61
+#: src/libkommitwidgets/models/commitsmodel.cpp:294
+#: src/libkommitwidgets/models/commitsmodel.cpp:305
+#, kde-format
+msgid "Message"
+msgstr "Mezua"
+
+#: src/libkommitwidgets/models/commitsmodel.cpp:296
+#, kde-format
+msgid "Date"
+msgstr "Data"
+
+#: src/libkommitwidgets/models/commitsmodel.cpp:303
+#, kde-format
+msgid "Graph"
+msgstr "Grafikoa"
+
+#: src/libkommitwidgets/models/stashesmodel.cpp:65
+#: src/libkommitwidgets/models/tagsmodel.cpp:61
+#, kde-format
+msgid "Subject"
+msgstr "Gaia"
+
+#: src/libkommitwidgets/models/stashesmodel.cpp:69
+#, kde-format
+msgid "Author name"
+msgstr "Egilearen izena"
+
+#: src/libkommitwidgets/models/stashesmodel.cpp:71
+#, kde-format
+msgid "Author email"
+msgstr "Egilearen e-posta"
+
+#: src/libkommitwidgets/models/stashesmodel.cpp:73
+#, kde-format
+msgid "Time"
+msgstr "Ordua"
+
+#: src/libkommitwidgets/models/submodulesmodel.cpp:86
+#, fuzzy, kde-format
+msgid "Head"
+msgstr "Burua"
+
+#: src/libkommitwidgets/models/tagsmodel.cpp:63
+#, fuzzy, kde-format
+msgid "Tagger"
+msgstr "&Etiketatzailea"
+
+#: src/libkommitwidgets/models/tagsmodel.cpp:65
+#, fuzzy, kde-format
+#| msgid "Create new"
+msgid "Create time"
+msgstr "Sortu berria"
+
+#: src/libkommitwidgets/reports/authorsreport.cpp:62
 #, kde-format
 msgid "Commits count by author"
 msgstr ""
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:71
+#: src/libkommitwidgets/reports/authorsreport.cpp:72
 #, kde-format
 msgid "Email"
 msgstr "e-Posta"
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:71
+#: src/libkommitwidgets/reports/authorsreport.cpp:72
 #, fuzzy, kde-format
 #| msgid "Authors"
 msgid "Autheds"
@@ -2635,31 +2604,47 @@ msgstr ""
 msgid "Uncommited"
 msgstr "Baliozkotu gabea"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:88
+#: src/libkommitwidgets/widgets/commitdetails.cpp:94
+#: src/libkommitwidgets/widgets/graphpainter.cpp:129
 #, fuzzy, kde-format
 #| msgid "Branch:"
 msgid "Branch: "
 msgstr "Adarra:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:90
+#: src/libkommitwidgets/widgets/commitdetails.cpp:96
+#: src/libkommitwidgets/widgets/graphpainter.cpp:131
 #, fuzzy, kde-format
 #| msgid "Note"
 msgid "Note: "
 msgstr "Oharra"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:92
+#: src/libkommitwidgets/widgets/commitdetails.cpp:98
+#: src/libkommitwidgets/widgets/graphpainter.cpp:133
 #, fuzzy, kde-format
 #| msgid "Remote:"
 msgid "Remote: "
 msgstr "Urrutikoa:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:94
+#: src/libkommitwidgets/widgets/commitdetails.cpp:100
+#: src/libkommitwidgets/widgets/graphpainter.cpp:135
 #, kde-format
 msgid "Tag: "
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, labelRefType)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:109
+#: src/libkommitwidgets/widgets/commitdetails.ui:196
+#, kde-format
+msgid "Ref:"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:109
+#, kde-format
+msgid "Refs:"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.cpp:119
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
 #, fuzzy, kde-format
 #| msgid "Parent"
@@ -2669,7 +2654,7 @@ msgstr[0] "Gurasoa"
 msgstr[1] "Gurasoa"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#: src/libkommitwidgets/widgets/commitdetails.cpp:124
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
 #, fuzzy, kde-format
 #| msgid "Child"
@@ -2679,7 +2664,9 @@ msgstr[0] "Umea"
 msgstr[1] "Umea"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
+#. i18n: ectx: property (windowTitle), widget (QWidget, FetchResultWidget)
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
+#: src/libkommitwidgets/widgets/fetchresultwidget.ui:14
 #, kde-format
 msgid "Form"
 msgstr "Inprimakia"
@@ -2711,12 +2698,6 @@ msgstr "Baliozkotzailea"
 msgid "<html><head/><body><p>-</p></body></html>"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, labelRefType)
-#: src/libkommitwidgets/widgets/commitdetails.ui:196
-#, kde-format
-msgid "Ref:"
-msgstr ""
-
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/difftreeview.ui:17
 #, kde-format
@@ -2729,6 +2710,25 @@ msgstr "Iragazi beharreko mota"
 msgid "Hide unchangeds"
 msgstr "Ezkutatu aldaketa ez dutenak"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
+#, fuzzy, kde-format
+#| msgid "Reference branch:"
+msgid "Reference"
+msgstr "Erreferentzia adarra:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
+#, kde-format
+msgid "A"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
+#, kde-format
+msgid "B"
+msgstr ""
+
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
 #, fuzzy, kde-format
@@ -2736,7 +2736,7 @@ msgstr "Ezkutatu aldaketa ez dutenak"
 msgid "Report"
 msgstr "Gordetegia"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:158
+#: src/libkommitwidgets/windows/diffwindow.cpp:159
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "GitKlient Diff[*]"
@@ -2744,35 +2744,35 @@ msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "GitKlient Diff[*]"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:161
+#: src/libkommitwidgets/windows/diffwindow.cpp:162
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Zuhaitza"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:188
+#: src/libkommitwidgets/windows/diffwindow.cpp:189
 #, fuzzy, kde-format
 #| msgid "View hidden chars..."
 msgid "View hidden chars…"
 msgstr "Ikusi ezkutuko karaktereak..."
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:193
+#: src/libkommitwidgets/windows/diffwindow.cpp:194
 #: src/libkommitwidgets/windows/mergewindow.cpp:335
 #, kde-format
 msgid "Same size blocks"
 msgstr "Neurri bereko blokeak"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:198
+#: src/libkommitwidgets/windows/diffwindow.cpp:199
 #, kde-format
 msgid "Show files names"
 msgstr "Erakutsi fitxategian izenak"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:204
+#: src/libkommitwidgets/windows/diffwindow.cpp:205
 #, kde-format
 msgid "Show Tree"
 msgstr "Erakutsi zuhaitza"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:268
+#: src/libkommitwidgets/windows/diffwindow.cpp:269
 #, kde-format
 msgid "Unchanged"
 msgstr "Aldatu gabe"
@@ -2837,6 +2837,24 @@ msgstr "Hurrengo diff"
 #| msgid "Unable to open the file"
 msgid "Unable to open the file %1"
 msgstr "Ez da fitxategia irekitzeko gai"
+
+#, fuzzy
+#~| msgid "Note"
+#~ msgctxt "@action"
+#~ msgid "Note…"
+#~ msgstr "Oharra"
+
+#~ msgid "Are you sure to remove the selected submodule?"
+#~ msgstr "Ziur zaude hautatutako azpimodulua kendu nahi duzula?"
+
+#~ msgid "Remove Submodule"
+#~ msgstr "Kendu azpimodulua"
+
+#~ msgid "Unable to remove the module directory"
+#~ msgstr "Ez da moduluaren direktorioa kentzeko gai"
+
+#~ msgid "The submodule %1 removed"
+#~ msgstr "%1 azpimodulua kendu da"
 
 #, fuzzy
 #~ msgctxt "@action"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-10 01:46+0000\n"
+"POT-Creation-Date: 2024-07-16 01:42+0000\n"
 "PO-Revision-Date: 2024-07-08 17:26+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -57,8 +57,8 @@ msgstr "Fånga"
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
 #: dolphinplugins/actions.h:21 src/gui/pages/tagswidget.ui:69
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:100
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:267
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:103
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:270
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:299
 #, kde-format
 msgid "Push"
@@ -100,7 +100,7 @@ msgstr "Jämför"
 msgid "Ignore file"
 msgstr "Ignorera fil"
 
-#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:435
+#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:436
 #, kde-format
 msgid "History"
 msgstr "Historik"
@@ -167,8 +167,8 @@ msgstr "Git grafisk användargränssnittsklient för KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:62 src/libkommit/models/logsmodel.cpp:262
-#: src/libkommitwidgets/reports/authorsreport.cpp:81
+#: src/apps/main.cpp:62 src/libkommitwidgets/models/commitsmodel.cpp:298
+#: src/libkommitwidgets/reports/authorsreport.cpp:82
 #, kde-format
 msgid "Author"
 msgstr "Upphovsman"
@@ -190,179 +190,179 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Felrättning"
 
-#: src/gui/appwindow.cpp:95 src/gui/appwindow.cpp:136
+#: src/gui/appwindow.cpp:94 src/gui/appwindow.cpp:135
 #, kde-format
 msgid "No repo selected"
 msgstr "Inget arkiv valt"
 
-#: src/gui/appwindow.cpp:128
+#: src/gui/appwindow.cpp:127
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Nuvarande gren: %1"
 
-#: src/gui/appwindow.cpp:130
+#: src/gui/appwindow.cpp:129
 #, kde-format
 msgid " (merging)"
 msgstr " (sammanfogar)"
 
-#: src/gui/appwindow.cpp:132
+#: src/gui/appwindow.cpp:131
 #, kde-format
 msgid " (rebasing)"
 msgstr " (baserar om)"
 
-#: src/gui/appwindow.cpp:167
-#: src/libkommitwidgets/actions/submoduleactions.cpp:40
+#: src/gui/appwindow.cpp:166
+#: src/libkommitwidgets/actions/submoduleactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Init…"
 msgstr "Initiera…"
 
-#: src/gui/appwindow.cpp:170
+#: src/gui/appwindow.cpp:169
 #, kde-format
 msgctxt "@action"
 msgid "Open…"
 msgstr "Öppna…"
 
-#: src/gui/appwindow.cpp:175
+#: src/gui/appwindow.cpp:174
 #, kde-format
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Duplicera…"
 
-#: src/gui/appwindow.cpp:178
+#: src/gui/appwindow.cpp:177
 #, kde-format
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Ändrade filer…"
 
-#: src/gui/appwindow.cpp:184
+#: src/gui/appwindow.cpp:183
 #, kde-format
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Senaste arkiv"
 
-#: src/gui/appwindow.cpp:190
+#: src/gui/appwindow.cpp:189
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Uppstädning…"
 
-#: src/gui/appwindow.cpp:193
+#: src/gui/appwindow.cpp:192
 #, kde-format
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Hämta…"
 
-#: src/gui/appwindow.cpp:197 src/libkommitwidgets/actions/branchactions.cpp:33
+#: src/gui/appwindow.cpp:196 src/libkommitwidgets/actions/branchactions.cpp:33
 #, kde-format
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Fånga…"
 
-#: src/gui/appwindow.cpp:201 src/libkommitwidgets/actions/tagsactions.cpp:28
+#: src/gui/appwindow.cpp:200 src/libkommitwidgets/actions/tagsactions.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Push…"
 msgstr "Skicka…"
 
-#: src/gui/appwindow.cpp:205 src/libkommitwidgets/actions/branchactions.cpp:36
+#: src/gui/appwindow.cpp:204 src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Sammanfoga…"
 
-#: src/gui/appwindow.cpp:209
+#: src/gui/appwindow.cpp:208
 #, kde-format
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Jämför grenar…"
 
-#: src/gui/appwindow.cpp:212 src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/gui/appwindow.cpp:211 src/libkommitwidgets/actions/fileactions.cpp:53
 #, kde-format
 msgctxt "@action"
 msgid "Search…"
 msgstr "Sök…"
 
-#: src/gui/appwindow.cpp:215
+#: src/gui/appwindow.cpp:214
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "Arkivinställningar…"
 
-#: src/gui/appwindow.cpp:218
+#: src/gui/appwindow.cpp:217
 #, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Byt/Checka ut…"
 
-#: src/gui/appwindow.cpp:221
+#: src/gui/appwindow.cpp:220
 #, kde-format
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr "Jämför träd…"
 
-#: src/gui/appwindow.cpp:258
+#: src/gui/appwindow.cpp:257
 #, kde-format
 msgid "Clear"
 msgstr "Rensa"
 
-#: src/gui/appwindow.cpp:280 src/gui/commandargsparser.cpp:253
+#: src/gui/appwindow.cpp:279 src/gui/commandargsparser.cpp:255
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Kan inte skapa sökväg: %1"
 
-#: src/gui/appwindow.cpp:280 src/gui/commandargsparser.cpp:253
+#: src/gui/appwindow.cpp:279 src/gui/commandargsparser.cpp:255
 #, kde-format
 msgid "Init repo"
 msgstr "Initiera arkiv"
 
-#: src/gui/appwindow.cpp:293
+#: src/gui/appwindow.cpp:292
 #, kde-format
 msgid "Open repository"
 msgstr "Öppna arkiv"
 
-#: src/gui/appwindow.cpp:372 src/gui/commandargsparser.cpp:509
+#: src/gui/appwindow.cpp:372 src/gui/commandargsparser.cpp:510
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Kan inte byta gren under sammanfogning"
 
-#: src/gui/appwindow.cpp:372 src/gui/commandargsparser.cpp:509
+#: src/gui/appwindow.cpp:372 src/gui/commandargsparser.cpp:510
 #, kde-format
 msgid "Switch branch"
 msgstr "Byt gren"
 
-#: src/gui/commandargsparser.cpp:74
+#: src/gui/commandargsparser.cpp:76
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Sökvägen är inte ett git-arkiv: %1"
 
-#: src/gui/commandargsparser.cpp:258
+#: src/gui/commandargsparser.cpp:260
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Arkivet initierat med lyckat resultat"
 
-#: src/gui/commandargsparser.cpp:435
+#: src/gui/commandargsparser.cpp:436
 #, kde-format
 msgid "Cannot find the file"
 msgstr "Kan inte hitta filen"
 
-#: src/gui/commandargsparser.cpp:565
+#: src/gui/commandargsparser.cpp:566
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Fil(er) tillagd(a) med lyckat resultat "
 
-#: src/gui/commandargsparser.cpp:575
+#: src/gui/commandargsparser.cpp:576
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Skulle du vilja lämna filen eller filerna på disk?"
 
-#: src/gui/commandargsparser.cpp:575
+#: src/gui/commandargsparser.cpp:576
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Ta bort från index"
 
-#: src/gui/commandargsparser.cpp:577
+#: src/gui/commandargsparser.cpp:578
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Fil eller filer borttagna från git med lyckat resultat"
@@ -446,14 +446,14 @@ msgstr "Avsluta inte"
 msgid "Overview"
 msgstr "Översikt"
 
-#: src/gui/pages/branchesstatuswidget.cpp:70
-#: src/libkommitwidgets/actions/branchactions.cpp:118
+#: src/gui/pages/branchesstatuswidget.cpp:74
+#: src/libkommitwidgets/actions/branchactions.cpp:115
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Är du säker på att du vill ta bort den markerade grenen?"
 
-#: src/gui/pages/branchesstatuswidget.cpp:74
-#: src/libkommitwidgets/actions/branchactions.cpp:120
+#: src/gui/pages/branchesstatuswidget.cpp:78
+#: src/libkommitwidgets/actions/branchactions.cpp:117
 #, kde-format
 msgid "Unable to remove the selected branch"
 msgstr "Kan inte ta bort den markerade grenen"
@@ -490,8 +490,8 @@ msgstr "Bläddra"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
 #: src/gui/pages/commitswidget.ui:14
-#: src/libkommitwidgets/reports/authorsreport.cpp:71
-#: src/libkommitwidgets/reports/authorsreport.cpp:86
+#: src/libkommitwidgets/reports/authorsreport.cpp:72
+#: src/libkommitwidgets/reports/authorsreport.cpp:87
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:59
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:74
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:89
@@ -509,7 +509,7 @@ msgid "Filter..."
 msgstr "Filter..."
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
-#: src/gui/pages/remoteswidget.cpp:64 src/gui/pages/submoduleswidget.ui:59
+#: src/gui/pages/remoteswidget.cpp:66 src/gui/pages/submoduleswidget.ui:59
 #, kde-format
 msgid "Update"
 msgstr "Uppdatera"
@@ -561,11 +561,12 @@ msgstr "Grenar:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
-#: src/gui/pages/remoteswidget.ui:167 src/libkommit/models/branchesmodel.cpp:65
-#: src/libkommit/models/tagsmodel.cpp:61
+#: src/gui/pages/remoteswidget.ui:167
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
-#: src/libkommitwidgets/models/treemodel.cpp:146
-#: src/libkommitwidgets/reports/authorsreport.cpp:71
+#: src/libkommitwidgets/models/branchesmodel.cpp:90
+#: src/libkommitwidgets/models/tagsmodel.cpp:59
+#: src/libkommitwidgets/models/treemodel.cpp:180
+#: src/libkommitwidgets/reports/authorsreport.cpp:72
 #, kde-format
 msgid "Name"
 msgstr "Namn"
@@ -577,15 +578,16 @@ msgid "Ref name"
 msgstr "Ref-namn"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/gui/pages/remoteswidget.ui:177 src/libkommit/models/branchesmodel.cpp:75
+#: src/gui/pages/remoteswidget.ui:177
+#: src/libkommitwidgets/models/branchesmodel.cpp:100
 #, kde-format
 msgid "Upstream"
 msgstr "Uppströms"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommit/models/submodulesmodel.cpp:64
-#: src/libkommitwidgets/models/treemodel.cpp:148
+#: src/libkommitwidgets/models/submodulesmodel.cpp:88
+#: src/libkommitwidgets/models/treemodel.cpp:182
 #, kde-format
 msgid "Status"
 msgstr "Status"
@@ -714,7 +716,7 @@ msgstr "Lägg till ny delmodul"
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:108
 #: src/libkommitwidgets/dialogs/pulldialog.ui:153
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:54
-#: src/libkommitwidgets/reports/authorsreport.cpp:71
+#: src/libkommitwidgets/reports/authorsreport.cpp:72
 #, kde-format
 msgid "Tags"
 msgstr "Taggar"
@@ -846,124 +848,25 @@ msgstr ""
 "Dina lokala ändringar av följande filer skulle skrivas över av arkivering. "
 "Arkivera dina ändringar eller göm undan dem innan du byter grenar."
 
-#: src/libkommit/entities/remote.cpp:217
+#: src/libkommit/entities/remote.cpp:140
 #, kde-format
 msgid "Unknown"
 msgstr "Okänd"
 
-#: src/libkommit/entities/remote.cpp:219
+#: src/libkommit/entities/remote.cpp:142
 #, kde-format
 msgid "Up to date"
 msgstr "Aktuell"
 
-#: src/libkommit/entities/remote.cpp:221
+#: src/libkommit/entities/remote.cpp:144
 #, kde-format
 msgid "Fast forwardable"
 msgstr "Kan snabbspolas framåt"
 
-#: src/libkommit/entities/remote.cpp:223
+#: src/libkommit/entities/remote.cpp:146
 #, kde-format
 msgid "Local out of date"
 msgstr "Lokal inaktuell"
-
-#: src/libkommit/models/branchesmodel.cpp:67
-#, kde-format
-msgid "Commit(s) behind"
-msgstr "Arkivering(ar) bakom"
-
-#: src/libkommit/models/branchesmodel.cpp:69
-#, kde-format
-msgid "Commit(s) ahead"
-msgstr "Arkivering(ar) framför"
-
-#: src/libkommit/models/branchesmodel.cpp:71
-#, kde-format
-msgid "Is ahead"
-msgstr "Är framför"
-
-#: src/libkommit/models/branchesmodel.cpp:73
-#, kde-format
-msgid "Ref"
-msgstr "Ref"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/libkommit/models/branchesmodel.cpp:77
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:31
-#: src/libkommitwidgets/dialogs/pulldialog.ui:20
-#: src/libkommitwidgets/dialogs/pulldialog.ui:26
-#, kde-format
-msgid "Remote"
-msgstr "Fjärrarkiv"
-
-#: src/libkommit/models/logsmodel.cpp:258
-#: src/libkommit/models/logsmodel.cpp:269
-#, kde-format
-msgid "Message"
-msgstr "Meddelande"
-
-#: src/libkommit/models/logsmodel.cpp:260
-#, kde-format
-msgid "Date"
-msgstr "Datum"
-
-#: src/libkommit/models/logsmodel.cpp:267
-#, kde-format
-msgid "Graph"
-msgstr "Diagram"
-
-#: src/libkommit/models/stashesmodel.cpp:66
-#: src/libkommit/models/tagsmodel.cpp:63
-#, kde-format
-msgid "Subject"
-msgstr "Ämne"
-
-#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
-#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/libkommit/models/stashesmodel.cpp:68
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:68
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:35
-#, kde-format
-msgid "Commit"
-msgstr "Arkivera"
-
-#: src/libkommit/models/stashesmodel.cpp:70
-#, kde-format
-msgid "Author name"
-msgstr "Författarens namn"
-
-#: src/libkommit/models/stashesmodel.cpp:72
-#, kde-format
-msgid "Author email"
-msgstr "Upphovsmannens e-post"
-
-#: src/libkommit/models/stashesmodel.cpp:74
-#, kde-format
-msgid "Time"
-msgstr "Tid"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
-#: src/libkommit/models/submodulesmodel.cpp:60
-#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#, kde-format
-msgid "Path"
-msgstr "Sökväg"
-
-#: src/libkommit/models/submodulesmodel.cpp:62
-#, kde-format
-msgid "Head"
-msgstr "Huvudversion"
-
-#: src/libkommit/models/tagsmodel.cpp:65
-#, kde-format
-msgid "Tagger"
-msgstr "Taggning"
-
-#: src/libkommit/models/tagsmodel.cpp:67
-#, kde-format
-msgid "Create time"
-msgstr "Skapad tid"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:30
 #, kde-format
@@ -990,44 +893,39 @@ msgid "Diff"
 msgstr "Jämför"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:38
-#: src/libkommitwidgets/actions/remotesactions.cpp:25
-#: src/libkommitwidgets/actions/stashactions.cpp:26
-#: src/libkommitwidgets/actions/tagsactions.cpp:25
+#: src/libkommitwidgets/actions/remotesactions.cpp:26
+#: src/libkommitwidgets/actions/stashactions.cpp:28
+#: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Remove…"
 msgstr "Ta bort…"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:39
-#, kde-format
-msgctxt "@action"
-msgid "Note…"
-msgstr "Anmärkning…"
-
-#: src/libkommitwidgets/actions/branchactions.cpp:69
+#: src/libkommitwidgets/actions/branchactions.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Skapa ny gren"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:69
+#: src/libkommitwidgets/actions/branchactions.cpp:67
 #, kde-format
 msgid "Branch name"
 msgstr "Grennamn"
 
-#: src/libkommitwidgets/actions/branchactions.cpp:118
-#, kde-format
-msgctxt "@title:window"
+#: src/libkommitwidgets/actions/branchactions.cpp:115
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove Branch"
 msgid "Remove Branch"
 msgstr "Tar bort gren"
 
-#: src/libkommitwidgets/actions/changedfileactions.cpp:18
+#: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, kde-format
 msgctxt "@action"
 msgid "Diff…"
 msgstr "Jämför…"
 
-#: src/libkommitwidgets/actions/changedfileactions.cpp:19
+#: src/libkommitwidgets/actions/changedfileactions.cpp:20
 #, kde-format
 msgctxt "@action"
 msgid "Revert…"
@@ -1047,8 +945,8 @@ msgstr "Checka ut"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:47
-#: src/libkommitwidgets/actions/stashactions.cpp:23
-#: src/libkommitwidgets/actions/tagsactions.cpp:27
+#: src/libkommitwidgets/actions/stashactions.cpp:25
+#: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Diff with working dir"
@@ -1107,93 +1005,95 @@ msgstr "Klandra"
 msgid "%1 file (*.%1);;All files(*)"
 msgstr "%1-fil (*.%1);;Alla filer(*)"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:24
+#: src/libkommitwidgets/actions/remotesactions.cpp:25
 #, kde-format
 msgctxt "@action"
 msgid "New…"
 msgstr "Ny…"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:26
+#: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Rename…"
 msgstr "Byt namn…"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:27
+#: src/libkommitwidgets/actions/remotesactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Change url…"
 msgstr "Ändra webbadress…"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:60
+#: src/libkommitwidgets/actions/remotesactions.cpp:57
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
 msgstr "Är du säker på att du vill ta bort det markerade fjärrarkivet?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:60
-#, kde-format
-msgctxt "@title:window"
+#: src/libkommitwidgets/actions/remotesactions.cpp:57
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove remote?"
 msgid "Remove remote?"
 msgstr "Ta bort fjärrarkiv?"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:62
+#: src/libkommitwidgets/actions/remotesactions.cpp:59
 #, kde-format
 msgid "Unable to remove the selected remote"
 msgstr "Kan inte ta bort det markerade fjärrarkivet"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:75
+#: src/libkommitwidgets/actions/remotesactions.cpp:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "Ändra webbadress"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:75
+#: src/libkommitwidgets/actions/remotesactions.cpp:71
 #, kde-format
 msgid "URL"
 msgstr "Webbadress"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:78
+#: src/libkommitwidgets/actions/remotesactions.cpp:74
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "Webbadress för fjärrarkiv ändrad med lyckat resultat"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:84
+#: src/libkommitwidgets/actions/remotesactions.cpp:80
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "Byt namn"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:84
+#: src/libkommitwidgets/actions/remotesactions.cpp:80
 #, kde-format
 msgid "New name"
 msgstr "Nytt namn"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:22
+#: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
 msgctxt "@action"
 msgid "New stash…"
 msgstr "Nytt gömsle…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:24
+#: src/libkommitwidgets/actions/stashactions.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Pop…"
 msgstr "Plocka bort…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:25
+#: src/libkommitwidgets/actions/stashactions.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Apply…"
 msgstr "Verkställ…"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:35
+#: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
 msgstr "Är du säker på att du vill använda det valda gömslet?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, kde-format
-msgctxt "@title:window"
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Apply stash %1"
 msgid "Apply stash %1"
 msgstr "Verkställ gömsle %1"
 
@@ -1202,112 +1102,94 @@ msgstr "Verkställ gömsle %1"
 msgid "Unable to apply the selected stash"
 msgstr "Kan inte använda det valda gömslet"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:45
+#: src/libkommitwidgets/actions/stashactions.cpp:44
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
 msgstr "Är du säker på att du vill rensa det valda gömslet?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:46
-#, kde-format
-msgctxt "@title:window"
+#: src/libkommitwidgets/actions/stashactions.cpp:44
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Drop stash %1"
 msgid "Drop stash %1"
 msgstr "Rensa gömsle %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:48
-#: src/libkommitwidgets/actions/stashactions.cpp:59
+#: src/libkommitwidgets/actions/stashactions.cpp:46
+#: src/libkommitwidgets/actions/stashactions.cpp:56
 #, kde-format
 msgid "Unable to remove the selected stash"
 msgstr "Kan inte ta bort det valda gömslet"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:57
+#: src/libkommitwidgets/actions/stashactions.cpp:54
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
 msgstr "Är du säker på att du vill plocka bort från det valda gömslet?"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:57
-#, kde-format
-msgctxt "@title:window"
+#: src/libkommitwidgets/actions/stashactions.cpp:54
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Pop stash %1"
 msgid "Pop stash %1"
 msgstr "Plocka bort från gömsle %1"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:75
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
+#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:61
 #, kde-format
 msgid "You don't have any changes!"
 msgstr "Du har inga ändringar."
 
-#: src/libkommitwidgets/actions/stashactions.cpp:75
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
+#: src/libkommitwidgets/actions/stashactions.cpp:71
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Stash"
 msgstr "Göm undan"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:80
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
+#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Skapa nytt gömsle"
 
-#: src/libkommitwidgets/actions/stashactions.cpp:80
-#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
+#: src/libkommitwidgets/actions/stashactions.cpp:76
+#: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
 #, kde-format
 msgid "Name of stash"
 msgstr "Gömslets namn"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:39
+#: src/libkommitwidgets/actions/submoduleactions.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Add…"
 msgstr "Lägg till…"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:41
+#: src/libkommitwidgets/actions/submoduleactions.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Update…"
 msgstr "Uppdatera…"
 
 #. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
-#: src/libkommitwidgets/actions/submoduleactions.cpp:43
+#: src/libkommitwidgets/actions/submoduleactions.cpp:31
 #, kde-format
 msgctxt "@action"
 msgid "Sync…"
 msgstr "Synkronisera…"
 
-#: src/libkommitwidgets/actions/submoduleactions.cpp:75
-#, kde-format
-msgid "Are you sure to remove the selected submodule?"
-msgstr "Är du säker på att du vill ta bort den markerade delmodulen?"
-
-#: src/libkommitwidgets/actions/submoduleactions.cpp:75
-#, kde-format
-msgid "Remove Submodule"
-msgstr "Ta bort delmodul"
-
-#: src/libkommitwidgets/actions/submoduleactions.cpp:82
-#, kde-format
-msgid "Unable to remove the module directory"
-msgstr "Kan inte ta bort modulens katalog"
-
-#: src/libkommitwidgets/actions/submoduleactions.cpp:89
-#, kde-format
-msgid "The submodule %1 removed"
-msgstr "Delmodul %1 borttagen"
-
-#: src/libkommitwidgets/actions/tagsactions.cpp:24
+#: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, kde-format
 msgctxt "@action"
 msgid "New tag…"
 msgstr "Ny etikett…"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:26
+#: src/libkommitwidgets/actions/tagsactions.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Checkout…"
 msgstr "Checka ut…"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:34
+#: src/libkommitwidgets/actions/tagsactions.cpp:35
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
 #, kde-format
 msgctxt "@title:window"
@@ -1320,17 +1202,18 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Är du säker på att du vill ta bort den valda taggen?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, kde-format
-msgctxt "@title:window"
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove tag"
 msgid "Remove tag"
 msgstr "Ta bort tagg"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:51
+#: src/libkommitwidgets/actions/tagsactions.cpp:50
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "Är du säker på att du vill checka ut den valda taggen?"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:51
+#: src/libkommitwidgets/actions/tagsactions.cpp:50
 #, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
@@ -1352,7 +1235,7 @@ msgstr "Ändrade filer:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
-#: src/libkommitwidgets/windows/diffwindow.cpp:207
+#: src/libkommitwidgets/windows/diffwindow.cpp:208
 #, kde-format
 msgid "Reload"
 msgstr "Uppdatera"
@@ -1369,13 +1252,13 @@ msgstr "Göm ändringar"
 msgid "Commit/push"
 msgstr "Arkivera/skicka"
 
-#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:27
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
 msgstr "Arkivera/Skicka delmodul: %1"
 
-#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:51
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:52
 #, kde-format
 msgctxt "@action"
 msgid "Commit/Push"
@@ -1471,7 +1354,7 @@ msgstr "Djup"
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:34
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:75
 #: src/libkommitwidgets/dialogs/pulldialog.ui:36
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:34
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:39
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:66
 #, kde-format
 msgid "Branch"
@@ -1521,8 +1404,8 @@ msgstr "-"
 msgid "TextLabel"
 msgstr "Textetikett"
 
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:102
-#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:267
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:105
+#: src/libkommitwidgets/dialogs/commitpushdialog.cpp:270
 #, kde-format
 msgid "Commit and push"
 msgstr "Arkivera och skicka"
@@ -1683,21 +1566,21 @@ msgstr "Indexerade"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:270
+#: src/libkommitwidgets/windows/diffwindow.cpp:271
 #, kde-format
 msgid "Added"
 msgstr "Tillagda"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:272
+#: src/libkommitwidgets/windows/diffwindow.cpp:273
 #, kde-format
 msgid "Removed"
 msgstr "Borttagna"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:274
+#: src/libkommitwidgets/windows/diffwindow.cpp:275
 #, kde-format
 msgid "Modified"
 msgstr "Ändrade"
@@ -1707,6 +1590,16 @@ msgstr "Ändrade"
 #, kde-format
 msgid "None"
 msgstr "Inga"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:68
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:40
+#: src/libkommitwidgets/models/stashesmodel.cpp:67
+#, kde-format
+msgid "Commit"
+msgstr "Arkivera"
 
 #: src/libkommitwidgets/dialogs/credentialdialog.cpp:32
 #, kde-format
@@ -1794,6 +1687,16 @@ msgstr "Gammal katalog:"
 msgid "Fetch from origin"
 msgstr "Fånga från ursprunglig"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:31
+#: src/libkommitwidgets/dialogs/pulldialog.ui:20
+#: src/libkommitwidgets/dialogs/pulldialog.ui:26
+#: src/libkommitwidgets/models/branchesmodel.cpp:102
+#, kde-format
+msgid "Remote"
+msgstr "Fjärrarkiv"
+
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllBranches)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:43
 #, kde-format
@@ -1844,7 +1747,7 @@ msgctxt "@title:window"
 msgid "Blame file: %1"
 msgstr "Klandra fil: %1"
 
-#: src/libkommitwidgets/dialogs/filehistorydialog.cpp:40
+#: src/libkommitwidgets/dialogs/filehistorydialog.cpp:41
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
@@ -1917,18 +1820,18 @@ msgstr "Packa upp"
 msgid "Branch:"
 msgstr "Gren:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:46
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
 msgstr "Stänger förhandsgranskning"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgid "Please wait while the preview is being closed…"
 msgstr "Vänta medan förhandsgranskningen stängs…"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:78
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -1978,6 +1881,13 @@ msgstr "Alla filer med den här ändelsen"
 #, kde-format
 msgid "All files by this name"
 msgstr "Alla filer med det här namnet"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
+#: src/libkommitwidgets/models/submodulesmodel.cpp:84
+#, kde-format
+msgid "Path"
+msgstr "Sökväg"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExactPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:76
@@ -2451,7 +2361,7 @@ msgstr ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
 "size:9pt;\"><br /></p></body></html>"
 
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:33
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:38
 #, kde-format
 msgid "File name"
 msgstr "Filnamn"
@@ -2498,12 +2408,12 @@ msgstr "Skiftlägeskänslig"
 msgid "Search"
 msgstr "Sök"
 
-#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
+#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:43
 #, kde-format
 msgid "The selected branches must be different!"
 msgstr "De valda grenarna måste vara olika."
 
-#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
+#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
@@ -2536,7 +2446,7 @@ msgstr "HEAD"
 msgid "The path is not inside of git directory"
 msgstr "Sökvägen är inte inne i git-katalogen"
 
-#: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:73
+#: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:75
 #, kde-format
 msgid "The branch already exists"
 msgstr "Grenen finns redan"
@@ -2553,27 +2463,99 @@ msgstr "Tagg"
 msgid "Tag name:"
 msgstr "Etikettnamn:"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:136
+#: src/libkommitwidgets/models/branchesmodel.cpp:92
+#, kde-format
+msgid "Commit(s) behind"
+msgstr "Arkivering(ar) bakom"
+
+#: src/libkommitwidgets/models/branchesmodel.cpp:94
+#, kde-format
+msgid "Commit(s) ahead"
+msgstr "Arkivering(ar) framför"
+
+#: src/libkommitwidgets/models/branchesmodel.cpp:96
+#, kde-format
+msgid "Is ahead"
+msgstr "Är framför"
+
+#: src/libkommitwidgets/models/branchesmodel.cpp:98
+#, kde-format
+msgid "Ref"
+msgstr "Ref"
+
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:170
 #, kde-format
 msgid " (new commit)"
 msgstr " (ny arkivering)"
 
-#: src/libkommitwidgets/models/changedfilesmodel.cpp:138
+#: src/libkommitwidgets/models/changedfilesmodel.cpp:172
 #, kde-format
 msgid " (content modified)"
 msgstr " (innehåll ändrat)"
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:61
+#: src/libkommitwidgets/models/commitsmodel.cpp:294
+#: src/libkommitwidgets/models/commitsmodel.cpp:305
+#, kde-format
+msgid "Message"
+msgstr "Meddelande"
+
+#: src/libkommitwidgets/models/commitsmodel.cpp:296
+#, kde-format
+msgid "Date"
+msgstr "Datum"
+
+#: src/libkommitwidgets/models/commitsmodel.cpp:303
+#, kde-format
+msgid "Graph"
+msgstr "Diagram"
+
+#: src/libkommitwidgets/models/stashesmodel.cpp:65
+#: src/libkommitwidgets/models/tagsmodel.cpp:61
+#, kde-format
+msgid "Subject"
+msgstr "Ämne"
+
+#: src/libkommitwidgets/models/stashesmodel.cpp:69
+#, kde-format
+msgid "Author name"
+msgstr "Författarens namn"
+
+#: src/libkommitwidgets/models/stashesmodel.cpp:71
+#, kde-format
+msgid "Author email"
+msgstr "Upphovsmannens e-post"
+
+#: src/libkommitwidgets/models/stashesmodel.cpp:73
+#, kde-format
+msgid "Time"
+msgstr "Tid"
+
+#: src/libkommitwidgets/models/submodulesmodel.cpp:86
+#, kde-format
+msgid "Head"
+msgstr "Huvudversion"
+
+#: src/libkommitwidgets/models/tagsmodel.cpp:63
+#, kde-format
+msgid "Tagger"
+msgstr "Taggning"
+
+#: src/libkommitwidgets/models/tagsmodel.cpp:65
+#, kde-format
+msgid "Create time"
+msgstr "Skapad tid"
+
+#: src/libkommitwidgets/reports/authorsreport.cpp:62
 #, kde-format
 msgid "Commits count by author"
 msgstr "Antal arkiveringar per upphovsman"
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:71
+#: src/libkommitwidgets/reports/authorsreport.cpp:72
 #, kde-format
 msgid "Email"
 msgstr "E-post"
 
-#: src/libkommitwidgets/reports/authorsreport.cpp:71
+#: src/libkommitwidgets/reports/authorsreport.cpp:72
 #, kde-format
 msgid "Autheds"
 msgstr "Autheds"
@@ -2663,28 +2645,44 @@ msgstr "Månad-år"
 msgid "Uncommited"
 msgstr "Inte arkiverade"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:88
+#: src/libkommitwidgets/widgets/commitdetails.cpp:94
+#: src/libkommitwidgets/widgets/graphpainter.cpp:129
 #, kde-format
 msgid "Branch: "
 msgstr "Gren: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:90
+#: src/libkommitwidgets/widgets/commitdetails.cpp:96
+#: src/libkommitwidgets/widgets/graphpainter.cpp:131
 #, kde-format
 msgid "Note: "
 msgstr "Anmärkning: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:92
+#: src/libkommitwidgets/widgets/commitdetails.cpp:98
+#: src/libkommitwidgets/widgets/graphpainter.cpp:133
 #, kde-format
 msgid "Remote: "
 msgstr "Fjärrarkiv: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:94
+#: src/libkommitwidgets/widgets/commitdetails.cpp:100
+#: src/libkommitwidgets/widgets/graphpainter.cpp:135
 #, kde-format
 msgid "Tag: "
 msgstr "Etikett: "
 
+#. i18n: ectx: property (text), widget (QLabel, labelRefType)
+#: src/libkommitwidgets/widgets/commitdetails.cpp:109
+#: src/libkommitwidgets/widgets/commitdetails.ui:196
+#, kde-format
+msgid "Ref:"
+msgstr "Ref:"
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:109
+#, kde-format
+msgid "Refs:"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.cpp:119
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
 #, kde-format
 msgid "Parent:"
@@ -2693,7 +2691,7 @@ msgstr[0] "Överliggande:"
 msgstr[1] "Överliggande:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#: src/libkommitwidgets/widgets/commitdetails.cpp:124
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
 #, kde-format
 msgid "Child:"
@@ -2702,7 +2700,9 @@ msgstr[0] "Underliggande:"
 msgstr[1] "Underliggande:"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
+#. i18n: ectx: property (windowTitle), widget (QWidget, FetchResultWidget)
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
+#: src/libkommitwidgets/widgets/fetchresultwidget.ui:14
 #, kde-format
 msgid "Form"
 msgstr "Formulär"
@@ -2731,12 +2731,6 @@ msgstr "Arkiverare:"
 msgid "<html><head/><body><p>-</p></body></html>"
 msgstr "<html><head/><body><p>-</p></body></html>"
 
-#. i18n: ectx: property (text), widget (QLabel, labelRefType)
-#: src/libkommitwidgets/widgets/commitdetails.ui:196
-#, kde-format
-msgid "Ref:"
-msgstr "Ref:"
-
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/difftreeview.ui:17
 #, kde-format
@@ -2749,46 +2743,65 @@ msgstr "Skriv för att filtrera"
 msgid "Hide unchangeds"
 msgstr "Dölj oförändrade"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
+#, fuzzy, kde-format
+#| msgid "Reference branch:"
+msgid "Reference"
+msgstr "Referensgren:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
+#, kde-format
+msgid "A"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
+#, kde-format
+msgid "B"
+msgstr ""
+
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
 #, kde-format
 msgid "Report"
 msgstr "Rapport"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:158
+#: src/libkommitwidgets/windows/diffwindow.cpp:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "Kommit jämför[*]"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:161
+#: src/libkommitwidgets/windows/diffwindow.cpp:162
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Träd"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:188
+#: src/libkommitwidgets/windows/diffwindow.cpp:189
 #, kde-format
 msgid "View hidden chars…"
 msgstr "Visa dolda tecken…"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:193
+#: src/libkommitwidgets/windows/diffwindow.cpp:194
 #: src/libkommitwidgets/windows/mergewindow.cpp:335
 #, kde-format
 msgid "Same size blocks"
 msgstr "Samma blockstorlek"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:198
+#: src/libkommitwidgets/windows/diffwindow.cpp:199
 #, kde-format
 msgid "Show files names"
 msgstr "Visa filnamn"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:204
+#: src/libkommitwidgets/windows/diffwindow.cpp:205
 #, kde-format
 msgid "Show Tree"
 msgstr "Visa träd"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:268
+#: src/libkommitwidgets/windows/diffwindow.cpp:269
 #, kde-format
 msgid "Unchanged"
 msgstr "Oförändrad"
@@ -2852,6 +2865,22 @@ msgstr "Nästa skillnad"
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr "Kan inte öppna filen %1"
+
+#~ msgctxt "@action"
+#~ msgid "Note…"
+#~ msgstr "Anmärkning…"
+
+#~ msgid "Are you sure to remove the selected submodule?"
+#~ msgstr "Är du säker på att du vill ta bort den markerade delmodulen?"
+
+#~ msgid "Remove Submodule"
+#~ msgstr "Ta bort delmodul"
+
+#~ msgid "Unable to remove the module directory"
+#~ msgstr "Kan inte ta bort modulens katalog"
+
+#~ msgid "The submodule %1 removed"
+#~ msgstr "Delmodul %1 borttagen"
 
 #~ msgctxt "@action"
 #~ msgid "Init..."
