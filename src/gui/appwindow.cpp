@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 // application headers
 #include "appwindow.h"
 #include "caches/branchescache.h"
+#include "changelogsdialog.h"
 #include "commands/commandmerge.h"
 #include "core/repositorydata.h"
 #include "dialogs/changedfilesdialog.h"
@@ -34,6 +35,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "pages/submoduleswidget.h"
 #include "pages/tagswidget.h"
 #include "settings/settingsmanager.h"
+
 #include <KommitSettings.h>
 
 #include <commands/commandclean.h>
@@ -56,15 +58,26 @@ AppWindow::AppWindow()
     , mGitData{new RepositoryData{Git::Manager::instance()}}
 {
     init();
+    QSettings s;
 
     if (KommitSettings::openLastRepo()) {
-        QSettings s;
         const QString p = s.value(QStringLiteral("last_repo")).toString();
 
         if (!p.isEmpty()) {
             mGitData->manager()->open(p);
             initRecentRepos(p);
         }
+    }
+
+    auto lastDisplayedversion = s.value("last_displayed_version");
+
+    if (lastDisplayedversion != qApp->applicationVersion()) {
+        show();
+        auto d = new ChangeLogsDialog{this};
+        d->setParent(this);
+        d->show();
+        s.setValue("last_displayed_version", qApp->applicationVersion());
+        s.sync();
     }
 }
 
@@ -219,11 +232,20 @@ void AppWindow::initActions()
     mRepoDiffTreeAction = actionCollection->addAction(QStringLiteral("repo_diff_tree"), this, &AppWindow::repoDiffTree);
     mRepoDiffTreeAction->setText(i18nc("@action", "Diff tree…"));
 
+    mChangeLogsAction = actionCollection->addAction(QStringLiteral("help_changelogs"), this, &AppWindow::changeLogs);
+    mChangeLogsAction->setText(i18nc("@action", "Change logs…"));
+
     KStandardAction::quit(this, &QMainWindow::close, actionCollection);
 
     auto settingsManager = new SettingsManager(mGitData->manager(), this);
     connect(settingsManager, &SettingsManager::settingsUpdated, this, &AppWindow::settingsUpdated);
     KStandardAction::preferences(settingsManager, &SettingsManager::show, actionCollection);
+}
+
+void AppWindow::changeLogs()
+{
+    ChangeLogsDialog d{this};
+    d.exec();
 }
 void AppWindow::initRecentRepos(const QString &newItem)
 {

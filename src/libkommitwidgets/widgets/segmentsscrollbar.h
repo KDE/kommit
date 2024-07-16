@@ -25,6 +25,7 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
 
@@ -40,6 +41,7 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     void hover(int y, double pos);
+    void mouseMove(int y, double pos);
     void mouseEntered();
     void mouseLeaved();
 

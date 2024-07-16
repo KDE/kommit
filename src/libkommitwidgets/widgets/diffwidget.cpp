@@ -55,6 +55,7 @@ void DiffWidget::init()
     mDefaultOption = leftCodeEditor->document()->defaultTextOption();
 
     connect(widgetSegmentsScrollBar, &SegmentsScrollBar::hover, this, &DiffWidget::slotSegmentsScrollbarHover);
+    connect(widgetSegmentsScrollBar, &SegmentsScrollBar::mouseMove, this, &DiffWidget::slotSegmentsScrollbarMouseMove);
     connect(widgetSegmentsScrollBar, &SegmentsScrollBar::mouseEntered, mPreviewWidget, &QWidget::show);
     connect(widgetSegmentsScrollBar, &SegmentsScrollBar::mouseLeaved, mPreviewWidget, &QWidget::hide);
     showFilesInfo(true);
@@ -217,6 +218,18 @@ void DiffWidget::slotSegmentsScrollbarHover(int y, double pos)
 {
     mPreviewWidget->show();
     mPreviewWidget->move(mPreviewMargin, qMin(y, widgetSegmentsScrollBar->height() - mPreviewWidgetHeight));
+
+    mPreviewEditorLeft->verticalScrollBar()->setValue(pos * static_cast<double>(mPreviewEditorLeft->verticalScrollBar()->maximum()));
+    mPreviewEditorRight->verticalScrollBar()->setValue(pos * mPreviewEditorRight->verticalScrollBar()->maximum());
+}
+
+void DiffWidget::slotSegmentsScrollbarMouseMove(int y, double pos)
+{
+    mPreviewWidget->show();
+    mPreviewWidget->move(mPreviewMargin, qMin(y, widgetSegmentsScrollBar->height() - mPreviewWidgetHeight));
+
+    leftCodeEditor->verticalScrollBar()->setValue(pos * leftCodeEditor->verticalScrollBar()->maximum());
+    rightCodeEditor->verticalScrollBar()->setValue(pos * rightCodeEditor->verticalScrollBar()->maximum());
 
     mPreviewEditorLeft->verticalScrollBar()->setValue(pos * static_cast<double>(mPreviewEditorLeft->verticalScrollBar()->maximum()));
     mPreviewEditorRight->verticalScrollBar()->setValue(pos * mPreviewEditorRight->verticalScrollBar()->maximum());

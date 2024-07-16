@@ -54,6 +54,7 @@ private:
     void merge();
     void cleanup();
     void initActions();
+    void changeLogs();
     void initRecentRepos(const QString &newItem = QString());
 
     template<class T>
@@ -82,4 +83,5 @@ private:
     QAction *mRepoSettingsAction = nullptr;
     QAction *mRepoSwitchAction = nullptr;
     QAction *mRepoDiffTreeAction = nullptr;
+    QAction *mChangeLogsAction = nullptr;
 };

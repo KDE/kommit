@@ -41,7 +41,7 @@ target_sources(libkommitgui PRIVATE
     appwindow.cpp
     buttonsgroup.cpp
     multipagewidget.cpp
-
+    changelogsdialog.h changelogsdialog.cpp
 
     commandargsparser.cpp
     appconfig.cpp
@@ -81,6 +81,7 @@ add_compile_definitions(GIT_GUI)
 
 ki18n_wrap_ui(
     libkommitgui
+    changelogsdialog.ui
 
     settings/settingspagebase.ui
     settings/settingspagediff.ui

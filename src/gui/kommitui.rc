@@ -40,6 +40,10 @@
     <Action name="repo_diff_tree"/>
     <Action name="repo_settings"/>
   </Menu>
+  <Menu name="help">
+  <Action name="help_changelogs"/>
+
+</Menu>
 </MenuBar>
 
 <ToolBar name="mainToolBar" noMerge="1">

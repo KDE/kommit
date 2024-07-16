@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "segmentsscrollbar.h"
 
-#include "gitglobal.h"
 #include "segmentconnector.h"
 #include "widgets/codeeditor.h"
 
@@ -28,7 +27,7 @@ public:
     SegmentConnector *mSegmentConnector{nullptr};
     QImage mSegmentsImage;
 
-    LIBKOMMITWIDGETS_NO_EXPORT void generateSegmentsImage();
+    void generateSegmentsImage();
 
     inline void paintSection(QPainter &painter, Side side, int from, int len, const QBrush &brush, bool drawRect = false);
 };
@@ -94,10 +93,20 @@ void SegmentsScrollBar::paintEvent(QPaintEvent *event)
     painter.drawRect(QRect{0, 0, width() - 1, height() - 1});
 }
 
+void SegmentsScrollBar::mousePressEvent(QMouseEvent *event)
+{
+    QWidget::mousePressEvent(event);
+    event->accept();
+}
+
 void SegmentsScrollBar::mouseMoveEvent(QMouseEvent *event)
 {
     QWidget::mouseMoveEvent(event);
-    Q_EMIT hover(event->y(), static_cast<double>(event->y()) / static_cast<double>(height()));
+
+    if (event->buttons() & Qt::LeftButton)
+        Q_EMIT mouseMove(event->y(), static_cast<double>(event->y()) / static_cast<double>(height()));
+    else
+        Q_EMIT hover(event->y(), static_cast<double>(event->y()) / static_cast<double>(height()));
 }
 
 void SegmentsScrollBar::resizeEvent(QResizeEvent *event)

@@ -38,6 +38,6 @@ public:
 
 private:
     void slotPageSelected(QAction *action);
-    QActionGroup *const m_actionGroup;
+    QActionGroup *const mActionGroup;
     Git::Manager *mDefaultGitManager = nullptr;
 };

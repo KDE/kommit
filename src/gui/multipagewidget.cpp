@@ -23,18 +23,18 @@ void MultiPageWidget::setDefaultGitManager(Git::Manager *newDefaultGitManager)
 
 int MultiPageWidget::count() const
 {
-    return m_actionGroup->actions().size();
+    return mActionGroup->actions().size();
 }
 
 MultiPageWidget::MultiPageWidget(QWidget *parent)
     : QWidget(parent)
-    , m_actionGroup(new QActionGroup(this))
+    , mActionGroup(new QActionGroup(this))
 {
-    Q_SET_OBJECT_NAME(m_actionGroup);
+    Q_SET_OBJECT_NAME(mActionGroup);
 
     setupUi(this);
 
-    connect(m_actionGroup, &QActionGroup::triggered, this, &MultiPageWidget::slotPageSelected);
+    connect(mActionGroup, &QActionGroup::triggered, this, &MultiPageWidget::slotPageSelected);
     const auto styleSheet = QStringLiteral(R"CSS(
         #scrollAreaWidgetContents {
             background-color: #%1;
@@ -76,17 +76,17 @@ void MultiPageWidget::addPage(const QString &title, const QIcon &icon, WidgetBas
     action->setText(title);
     action->setIcon(icon);
     action->setCheckable(true);
-    action->setData(m_actionGroup->actions().size());
-    if (m_actionGroup->actions().size() < 10)
-        action->setShortcut(QKeySequence(Qt::CTRL + keys[m_actionGroup->actions().size()]));
+    action->setData(mActionGroup->actions().size());
+    if (mActionGroup->actions().size() < 10)
+        action->setShortcut(QKeySequence(Qt::CTRL + keys[mActionGroup->actions().size()]));
     btn->setDefaultAction(action);
-    m_actionGroup->addAction(action);
+    mActionGroup->addAction(action);
 
     stackedWidget->addWidget(widget);
 
     widget->layout()->setContentsMargins({});
 
-    verticalLayoutButtons->insertWidget(m_actionGroup->actions().size() - 1, btn);
+    verticalLayoutButtons->insertWidget(mActionGroup->actions().size() - 1, btn);
 }
 
 void MultiPageWidget::addPage(WidgetBase *widget, QAction *action)
@@ -100,25 +100,25 @@ void MultiPageWidget::addPage(WidgetBase *widget, QAction *action)
     action->setText(widget->windowTitle());
     action->setIcon(widget->windowIcon());
     action->setCheckable(true);
-    action->setData(m_actionGroup->actions().size());
+    action->setData(mActionGroup->actions().size());
     btn->setDefaultAction(action);
-    m_actionGroup->addAction(action);
+    mActionGroup->addAction(action);
 
     stackedWidget->addWidget(widget);
 
     widget->layout()->setContentsMargins({});
 
-    verticalLayoutButtons->insertWidget(m_actionGroup->actions().size() - 1, btn);
+    verticalLayoutButtons->insertWidget(mActionGroup->actions().size() - 1, btn);
 }
 
 void MultiPageWidget::setCurrentIndex(int index)
 {
-    m_actionGroup->actions().at(index)->trigger();
+    mActionGroup->actions().at(index)->trigger();
 }
 
 QList<QAction *> MultiPageWidget::actions() const
 {
-    return m_actionGroup->actions();
+    return mActionGroup->actions();
 }
 
 void MultiPageWidget::slotPageSelected(QAction *action)

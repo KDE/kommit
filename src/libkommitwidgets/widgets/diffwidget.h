@@ -55,6 +55,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     LIBKOMMITWIDGETS_NO_EXPORT void slotSegmentsScrollbarHover(int y, double pos);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotSegmentsScrollbarMouseMove(int y, double pos);
     LIBKOMMITWIDGETS_NO_EXPORT void slotSplitterSplitterMoved(int, int);
     LIBKOMMITWIDGETS_NO_EXPORT void oldCodeEditor_scroll(int value);
     LIBKOMMITWIDGETS_NO_EXPORT void newCodeEditor_scroll(int value);
