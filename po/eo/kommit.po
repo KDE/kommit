@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-16 01:42+0000\n"
-"PO-Revision-Date: 2024-07-06 16:50+0200\n"
+"PO-Revision-Date: 2024-07-16 21:47+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -358,8 +358,7 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Ĉu vi ŝatus lasi dosiero(j)n sur disko?"
 
 #: src/gui/commandargsparser.cpp:576
-#, fuzzy, kde-format
-#| msgid "Remove from index"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Forigi el indekso"
@@ -916,8 +915,7 @@ msgid "Branch name"
 msgstr "Nomo de branĉo"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgid "Remove Branch"
 msgstr "Forigi Branĉon"
 
@@ -1031,8 +1029,7 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Ĉu vi certas forigi la elektitan remote?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove remote?"
 msgstr "Ĉu forigi foran?"
 
@@ -1092,8 +1089,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Ĉu vi certe aplikas la elektitan kaŝejon?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Apply stash %1"
 msgstr "Apliki stash %1"
 
@@ -1108,8 +1104,7 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Ĉu vi certe forigos la elektitan kaŝejon?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Drop stash %1"
+#, kde-format
 msgid "Drop stash %1"
 msgstr "Forigu kaŝejon %1"
 
@@ -1125,8 +1120,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Ĉu vi certe ŝprucas la elektitan kaŝejon?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:54
-#, fuzzy, kde-format
-#| msgid "Pop stash %1"
+#, kde-format
 msgid "Pop stash %1"
 msgstr "Pop stash %1"
 
@@ -1200,8 +1194,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Ĉu vi certas forigi la elektitan etikedon?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "Forigi etikedon"
 
@@ -1211,8 +1204,7 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr "Ĉu vi certas elpreni al la elektita etikedo?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:50
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
 msgstr "Elpreni (checkout)"
@@ -2303,7 +2295,7 @@ msgstr "Procezo finiĝis kun eraro"
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
 #, kde-format
 msgid "%1: (Elapsed time: %2)"
-msgstr ""
+msgstr "%1: (Pasinta tempo: %2)"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14
@@ -2408,8 +2400,7 @@ msgid "The selected branches must be different!"
 msgstr "La elektitaj branĉoj devas esti malsamaj!"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:43
-#, fuzzy, kde-format
-#| msgid "Select Branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
 msgstr "Elekti Branĉojn"
@@ -2674,7 +2665,7 @@ msgstr "Ref:"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:109
 #, kde-format
 msgid "Refs:"
-msgstr ""
+msgstr "Ref-oj:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
@@ -2740,22 +2731,21 @@ msgstr "Kaŝi neŝanĝitajn"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Reference branch:"
+#, kde-format
 msgid "Reference"
-msgstr "Referenca branĉo:"
+msgstr "Referenco"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
 #, kde-format
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
 #, kde-format
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
@@ -2860,19 +2850,3 @@ msgstr "Sekva diferenco"
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr "Ne eblas malfermi la dosieron %1"
-
-#~ msgctxt "@action"
-#~ msgid "Note…"
-#~ msgstr "Prinoti…"
-
-#~ msgid "Are you sure to remove the selected submodule?"
-#~ msgstr "Ĉu vi certas forigi la elektitan submodulon?"
-
-#~ msgid "Remove Submodule"
-#~ msgstr "Forigi Submodulon"
-
-#~ msgid "Unable to remove the module directory"
-#~ msgstr "Ne eblas forigi la modulan dosierujon"
-
-#~ msgid "The submodule %1 removed"
-#~ msgstr "La submodulo %1 forigita"

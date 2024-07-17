@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-16 01:42+0000\n"
-"PO-Revision-Date: 2024-07-08 14:45+0300\n"
+"PO-Revision-Date: 2024-07-16 13:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -914,9 +914,7 @@ msgid "Branch name"
 msgstr "Dal adı"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove Branch"
+#, kde-format
 msgid "Remove Branch"
 msgstr "Dalı Kaldır"
 
@@ -1030,9 +1028,7 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Seçili uzak konumu kaldırmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove remote?"
 msgstr "Uzak Konumu Kaldır?"
 
@@ -1092,9 +1088,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Seçili zulayı uygulamak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Apply stash %1"
 msgstr "%1 Zulasını Uygula"
 
@@ -1109,9 +1103,7 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Seçili zulayı bırakmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Drop stash %1"
+#, kde-format
 msgid "Drop stash %1"
 msgstr "%1 Zulasını Bırak"
 
@@ -1127,9 +1119,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Seçili zulayı patlatmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pop stash %1"
+#, kde-format
 msgid "Pop stash %1"
 msgstr "%1 Zulasını Patlat"
 
@@ -1203,9 +1193,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Seçili etiketi kaldırmak istediğinizden emin misiniz?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "Etiketi Kaldır"
 
@@ -2678,7 +2666,7 @@ msgstr "Başvuru:"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:109
 #, kde-format
 msgid "Refs:"
-msgstr ""
+msgstr "Başvurular:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
@@ -2744,22 +2732,21 @@ msgstr "Değiştirilmeyenleri gizle"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Reference branch:"
+#, kde-format
 msgid "Reference"
-msgstr "Başvuru dalı:"
+msgstr "Başvuru"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
 #, kde-format
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
 #, kde-format
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14

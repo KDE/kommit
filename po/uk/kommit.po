@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-16 01:42+0000\n"
-"PO-Revision-Date: 2024-07-08 08:40+0300\n"
+"PO-Revision-Date: 2024-07-16 08:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -916,9 +916,7 @@ msgid "Branch name"
 msgstr "Назва гілки"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove Branch"
+#, kde-format
 msgid "Remove Branch"
 msgstr "Вилучити гілку"
 
@@ -1032,9 +1030,7 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Ви справді хочете вилучити вибране віддалене сховище?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove remote?"
 msgstr "Вилучити віддалене?"
 
@@ -1094,9 +1090,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Ви справді хочете застосувати вибране накопичення?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Apply stash %1"
 msgstr "Застосувати накопичення %1"
 
@@ -1111,9 +1105,7 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Ви справді хочете відкинути вибране накопичення?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Drop stash %1"
+#, kde-format
 msgid "Drop stash %1"
 msgstr "Відкинути накопичення %1"
 
@@ -1129,9 +1121,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Ви справді хочете підняти вибране накопичення?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pop stash %1"
+#, kde-format
 msgid "Pop stash %1"
 msgstr "Підняти накопичення %1"
 
@@ -1205,9 +1195,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Ви справді хочете вилучити позначену мітку?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "Вилучити мітку"
 
@@ -2677,12 +2665,12 @@ msgstr "Мітка: "
 #: src/libkommitwidgets/widgets/commitdetails.ui:196
 #, kde-format
 msgid "Ref:"
-msgstr "Джерело:"
+msgstr "Посилання:"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:109
 #, kde-format
 msgid "Refs:"
-msgstr ""
+msgstr "Посилання:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
@@ -2752,22 +2740,21 @@ msgstr "Приховати незмінене"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Reference branch:"
+#, kde-format
 msgid "Reference"
-msgstr "Еталонна гілка:"
+msgstr "Посилання"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
 #, kde-format
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
 #, kde-format
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14

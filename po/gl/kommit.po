@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-16 01:42+0000\n"
-"PO-Revision-Date: 2024-07-08 18:16+0200\n"
+"PO-Revision-Date: 2024-07-16 18:55+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -913,9 +913,7 @@ msgid "Branch name"
 msgstr "Nome da rama"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove Branch"
+#, kde-format
 msgid "Remove Branch"
 msgstr "Eliminar a rama"
 
@@ -1029,9 +1027,7 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Seguro que quere eliminar a remota seleccionada?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove remote?"
 msgstr "Eliminar a remota?"
 
@@ -1091,9 +1087,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Seguro que quere aplicar a reserva seleccionada?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Apply stash %1"
 msgstr "Aplicar a reserva %1"
 
@@ -1108,11 +1102,9 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Seguro que quere desbotar a reserva seleccionada?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Drop stash %1"
+#, kde-format
 msgid "Drop stash %1"
-msgstr "Desbotar a reserva %1"
+msgstr "Desbotar aa reserva %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:46
 #: src/libkommitwidgets/actions/stashactions.cpp:56
@@ -1126,9 +1118,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Seguro que quere sacar a reserva seleccionada?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pop stash %1"
+#, kde-format
 msgid "Pop stash %1"
 msgstr "Sacar a reserva %1"
 
@@ -1202,9 +1192,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Seguro que quere eliminar a etiqueta seleccionada?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "Eliminar a etiqueta"
 
@@ -2679,7 +2667,7 @@ msgstr "Referencia:"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:109
 #, kde-format
 msgid "Refs:"
-msgstr ""
+msgstr "Referencias:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
@@ -2745,22 +2733,21 @@ msgstr "Agochar os non cambiados."
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Reference branch:"
+#, kde-format
 msgid "Reference"
-msgstr "Rama de referencia:"
+msgstr "Referencia"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
 #, kde-format
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
 #, kde-format
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14

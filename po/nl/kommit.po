@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-16 01:42+0000\n"
-"PO-Revision-Date: 2024-07-08 16:24+0200\n"
+"PO-Revision-Date: 2024-07-16 12:58+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -916,9 +916,7 @@ msgid "Branch name"
 msgstr "Naam van branch"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove Branch"
+#, kde-format
 msgid "Remove Branch"
 msgstr "Branch verwijderen"
 
@@ -1032,9 +1030,7 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Wilt u de geselecteerde remote verwijderen?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove remote?"
 msgstr "Remote verwijderen?"
 
@@ -1094,9 +1090,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Wilt u de geselecteerde stapel toepassen?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Apply stash %1"
 msgstr "Stapel toepassen %1"
 
@@ -1111,9 +1105,7 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Wilt u de geselecteerde stapel laten vallen?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Drop stash %1"
+#, kde-format
 msgid "Drop stash %1"
 msgstr "Stapel %1 laten vallen"
 
@@ -1129,9 +1121,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Wilt u de geselecteerde stapel omhoog halen?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pop stash %1"
+#, kde-format
 msgid "Pop stash %1"
 msgstr "Stapel %1 omhoog halen"
 
@@ -1205,9 +1195,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Wilt u de geselecteerde tag verwijderen?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "Tag verwijderen"
 
@@ -2684,7 +2672,7 @@ msgstr "Ref:"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:109
 #, kde-format
 msgid "Refs:"
-msgstr ""
+msgstr "Referenties:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
@@ -2750,22 +2738,21 @@ msgstr "Ongewijzigden verbergen"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Reference branch:"
+#, kde-format
 msgid "Reference"
-msgstr "Referentie-branch:"
+msgstr "Referentie"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
 #, kde-format
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
 #, kde-format
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14

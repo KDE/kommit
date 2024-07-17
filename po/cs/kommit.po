@@ -899,11 +899,9 @@ msgid "Branch name"
 msgstr ""
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove Branch"
+#, kde-format
 msgid "Remove Branch"
-msgstr "Odstranit větev"
+msgstr ""
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, kde-format
@@ -1015,10 +1013,9 @@ msgid "Are you sure to remove the selected remote?"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove selected"
+#, kde-format
 msgid "Remove remote?"
-msgstr "Odstranit vybrané"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:59
 #, kde-format
@@ -1181,9 +1178,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr ""
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "Odstranit značku"
 
@@ -2631,19 +2626,19 @@ msgstr ""
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
 #, kde-format
 msgid "Reference"
-msgstr ""
+msgstr "Odkaz"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
 #, kde-format
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
 #, kde-format
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
@@ -2748,7 +2743,3 @@ msgstr ""
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr "Nelze otevřít soubor %1"
-
-#~ msgctxt "@action"
-#~ msgid "Note…"
-#~ msgstr "Poznámka…"
