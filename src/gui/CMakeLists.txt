@@ -42,6 +42,7 @@ target_sources(libkommitgui PRIVATE
     buttonsgroup.cpp
     multipagewidget.cpp
     changelogsdialog.h changelogsdialog.cpp
+    changelogsdata.h changelogsdata.cpp
 
     commandargsparser.cpp
     appconfig.cpp

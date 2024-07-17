@@ -16,16 +16,4 @@ class ChangeLogsDialog : public QDialog, private Ui::ChangeLogsDialog
 
 public:
     explicit ChangeLogsDialog(QWidget *parent = nullptr);
-
-private:
-    struct Row {
-        QVersionNumber version;
-        QStringList changes;
-    };
-
-    void slotTextBrowserAnchorClicked(const QUrl &arg1);
-    QList<Row> data;
-
-    void fillData();
-    void showMarkdown();
 };
