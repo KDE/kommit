@@ -302,11 +302,10 @@ msgid "Diff tree…"
 msgstr ""
 
 #: src/gui/appwindow.cpp:236
-#, fuzzy, kde-format
-#| msgid "Changed files"
+#, kde-format
 msgctxt "@action"
 msgid "Change logs…"
-msgstr "更改的文件"
+msgstr ""
 
 #: src/gui/appwindow.cpp:279
 #, kde-format
@@ -365,10 +364,9 @@ msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Changed files"
+#, kde-format
 msgid "Change logs"
-msgstr "更改的文件"
+msgstr ""
 
 #: src/gui/commandargsparser.cpp:76
 #, kde-format
@@ -950,10 +948,9 @@ msgid "Branch name"
 msgstr "分支名称"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove Branch"
-msgstr "移除"
+msgstr ""
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, kde-format
@@ -1065,10 +1062,9 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "您确定要删除所选远端吗？"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove selected"
+#, kde-format
 msgid "Remove remote?"
-msgstr "删除选中"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:59
 #, kde-format
@@ -1231,10 +1227,9 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "您确定要删除选中的标签吗？"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove tag"
-msgstr "移除"
+msgstr ""
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:50
 #, kde-format
@@ -2706,10 +2701,9 @@ msgstr "隐藏未更改的"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Reference branch:"
+#, kde-format
 msgid "Reference"
-msgstr "参考分支："
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
@@ -2826,12 +2820,3 @@ msgstr "下一个差异"
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr ""
-
-#~ msgid "Are you sure to remove the selected submodule?"
-#~ msgstr "您确定要删除选定的子模块吗？"
-
-#~ msgid "Unable to remove the module directory"
-#~ msgstr "无法删除模块目录"
-
-#~ msgid "The submodule %1 removed"
-#~ msgstr "子模块 %1 已删除"

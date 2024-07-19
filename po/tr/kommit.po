@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-18 01:43+0000\n"
-"PO-Revision-Date: 2024-07-16 13:46+0300\n"
+"PO-Revision-Date: 2024-07-19 00:44+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -302,12 +302,10 @@ msgid "Diff tree…"
 msgstr "Diff Ağacı…"
 
 #: src/gui/appwindow.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Change url…"
+#, kde-format
 msgctxt "@action"
 msgid "Change logs…"
-msgstr "URL Değiştir…"
+msgstr "Değişiklik Günlüğü…"
 
 #: src/gui/appwindow.cpp:279
 #, kde-format
@@ -342,35 +340,33 @@ msgstr "Dal Değiştir"
 #: src/gui/changelogsdata.cpp:46
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "Sürüm"
 
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Improve graph painting"
-msgstr ""
+msgstr "Grafik çizimini iyileştir"
 
 #: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
-msgstr ""
+msgstr "kommit kitaplığını iyileştir (bazı bağımlılıkları bırak)"
 
 #: src/gui/changelogsdata.cpp:66
 #, kde-format
 msgid "Add changes logs dialog"
-msgstr ""
+msgstr "Değişiklik günlüğü iletişim kutusunu ekle"
 
 #: src/gui/changelogsdata.cpp:67
 #, kde-format
 msgid "Fix many small bugs"
-msgstr ""
+msgstr "Pek çok ufak hatalar düzeltildi"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change url"
+#, kde-format
 msgid "Change logs"
-msgstr "URL Değiştir"
+msgstr "Değişiklik Günlüğü"
 
 #: src/gui/commandargsparser.cpp:76
 #, kde-format

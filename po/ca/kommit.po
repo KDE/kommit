@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-18 01:43+0000\n"
-"PO-Revision-Date: 2024-07-16 08:06+0200\n"
+"PO-Revision-Date: 2024-07-18 09:57+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -306,12 +306,10 @@ msgid "Diff tree…"
 msgstr "Arbre de diferències…"
 
 #: src/gui/appwindow.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Change url…"
+#, kde-format
 msgctxt "@action"
 msgid "Change logs…"
-msgstr "Canvia l'URL…"
+msgstr "Registre de canvis…"
 
 #: src/gui/appwindow.cpp:279
 #, kde-format
@@ -346,35 +344,36 @@ msgstr "Canvia de branca"
 #: src/gui/changelogsdata.cpp:46
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "Versió"
 
+# skip-rule: kct-graph
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Improve graph painting"
-msgstr ""
+msgstr "Millora el pintat dels grafs"
 
 #: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
 msgstr ""
+"Millora a la biblioteca del «kommit» (elimina dependències extres com els "
+"«kf»)"
 
 #: src/gui/changelogsdata.cpp:66
 #, kde-format
 msgid "Add changes logs dialog"
-msgstr ""
+msgstr "Afegeix el diàleg de registres de canvis"
 
 #: src/gui/changelogsdata.cpp:67
 #, kde-format
 msgid "Fix many small bugs"
-msgstr ""
+msgstr "Corregeix molts errors petits"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change url"
+#, kde-format
 msgid "Change logs"
-msgstr "Canvia l'URL"
+msgstr "Registres de canvis"
 
 #: src/gui/commandargsparser.cpp:76
 #, kde-format
@@ -2900,135 +2899,3 @@ msgstr "Diferència següent"
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr "No s'ha pogut obrir el fitxer %1"
-
-#~ msgctxt "@action"
-#~ msgid "Note…"
-#~ msgstr "Nota…"
-
-#~ msgid "Are you sure to remove the selected submodule?"
-#~ msgstr "Esteu segur d'eliminar el submòdul seleccionat?"
-
-#~ msgid "Remove Submodule"
-#~ msgstr "Elimina un submòdul"
-
-#~ msgid "Unable to remove the module directory"
-#~ msgstr "No s'ha pogut eliminar el directori del mòdul"
-
-#~ msgid "The submodule %1 removed"
-#~ msgstr "S'ha eliminat el submòdul %1"
-
-#~ msgctxt "@action"
-#~ msgid "Init..."
-#~ msgstr "Inicialitza..."
-
-#~ msgctxt "@action"
-#~ msgid "Open..."
-#~ msgstr "Obre..."
-
-#~ msgctxt "@action"
-#~ msgid "Clone..."
-#~ msgstr "Clona..."
-
-#~ msgctxt "@action"
-#~ msgid "Changed files..."
-#~ msgstr "Fitxers canviats..."
-
-#~ msgctxt "@action"
-#~ msgid "Cleanup..."
-#~ msgstr "Neteja..."
-
-#~ msgctxt "@action"
-#~ msgid "Pull..."
-#~ msgstr "Baixa..."
-
-#~ msgctxt "@action"
-#~ msgid "Fetch..."
-#~ msgstr "Obtén..."
-
-#~ msgctxt "@action"
-#~ msgid "Push..."
-#~ msgstr "Puja..."
-
-#~ msgctxt "@action"
-#~ msgid "Merge..."
-#~ msgstr "Fusiona..."
-
-#~ msgctxt "@action"
-#~ msgid "Diff branches..."
-#~ msgstr "Diff de les branques..."
-
-#~ msgctxt "@action"
-#~ msgid "Search..."
-#~ msgstr "Cerca..."
-
-#~ msgctxt "@action"
-#~ msgid "Repo settings..."
-#~ msgstr "Configuració del repositori..."
-
-#~ msgctxt "@action"
-#~ msgid "Switch/Checkout..."
-#~ msgstr "Canvia/Extreu..."
-
-#~ msgctxt "@action"
-#~ msgid "Browse..."
-#~ msgstr "Navega..."
-
-#~ msgctxt "@action"
-#~ msgid "Remove..."
-#~ msgstr "Elimina..."
-
-#~ msgctxt "@action"
-#~ msgid "Note..."
-#~ msgstr "Nota..."
-
-#~ msgctxt "@action"
-#~ msgid "Diff..."
-#~ msgstr "Diferència..."
-
-#~ msgctxt "@action"
-#~ msgid "New..."
-#~ msgstr "Nou..."
-
-#~ msgctxt "@action"
-#~ msgid "Rename..."
-#~ msgstr "Reanomena..."
-
-#~ msgctxt "@action"
-#~ msgid "Change url..."
-#~ msgstr "Canvia l'URL..."
-
-#~ msgctxt "@action"
-#~ msgid "Pop..."
-#~ msgstr "«Pop»..."
-
-#~ msgctxt "@action"
-#~ msgid "Add..."
-#~ msgstr "Afegeix..."
-
-#~ msgctxt "@action"
-#~ msgid "Update..."
-#~ msgstr "Actualitza..."
-
-#~ msgctxt "@action"
-#~ msgid "Sync..."
-#~ msgstr "Sincronitza..."
-
-#~ msgctxt "@action"
-#~ msgid "New tag..."
-#~ msgstr "Etiqueta nova..."
-
-#~ msgctxt "@action"
-#~ msgid "Checkout..."
-#~ msgstr "Extreu..."
-
-#~ msgid "Stop"
-#~ msgstr "Atura"
-
-#~ msgid "Diff with master..."
-#~ msgstr "Diff amb «master»..."
-
-#~ msgid "Authors"
-#~ msgstr "Autors"
-
-#~ msgid "Diff with HEAD..."
-#~ msgstr "Diff amb HEAD..."

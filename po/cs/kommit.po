@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-18 01:43+0000\n"
-"PO-Revision-Date: 2024-07-09 16:31+0200\n"
+"PO-Revision-Date: 2024-07-18 10:41+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -302,12 +302,10 @@ msgid "Diff tree…"
 msgstr ""
 
 #: src/gui/appwindow.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Change url…"
+#, kde-format
 msgctxt "@action"
 msgid "Change logs…"
-msgstr "Změnit URL…"
+msgstr "Záznamy změn..."
 
 #: src/gui/appwindow.cpp:279
 #, kde-format
@@ -342,7 +340,7 @@ msgstr ""
 #: src/gui/changelogsdata.cpp:46
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "Verze"
 
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
@@ -366,11 +364,9 @@ msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change url"
+#, kde-format
 msgid "Change logs"
-msgstr "Změnit URL"
+msgstr "Záznamy změn"
 
 #: src/gui/commandargsparser.cpp:76
 #, kde-format

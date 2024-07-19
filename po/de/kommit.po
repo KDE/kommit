@@ -962,8 +962,7 @@ msgid "Branch name"
 msgstr "Zweig-Name"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgid "Remove Branch"
 msgstr "Zweig entfernen"
 
