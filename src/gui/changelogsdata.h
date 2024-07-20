@@ -18,7 +18,7 @@ public:
     ChangeLogsData();
     ~ChangeLogsData();
 
-    QString generateMarkdown(const QVersionNumber &until = {}) const;
+    [[nodiscard]] QString generateMarkdown(const QVersionNumber &until = {}) const;
 
 private:
     ChangeLogsDataPrivate *d_ptr;
