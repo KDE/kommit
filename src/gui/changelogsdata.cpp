@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 class ChangeLogsDataPrivate
 {
-    ChangeLogsData *q_ptr;
+    ChangeLogsData *const q_ptr;
     Q_DECLARE_PUBLIC(ChangeLogsData)
 public:
     ChangeLogsDataPrivate(ChangeLogsData *parent);
