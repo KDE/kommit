@@ -956,8 +956,7 @@ msgid "Branch name"
 msgstr "Nazwa gałęzi"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgid "Remove Branch"
 msgstr "Usuń gałąź"
 
@@ -1071,8 +1070,7 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Czy na pewno usunąć zaznaczoną gałąź zdalną?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove remote?"
 msgstr "Usunąć zdalne repozytorium?"
 
@@ -1134,8 +1132,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Czy na pewno zastosować zaznaczone składowisko?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Apply stash %1"
 msgstr "Zastosuj składowisko %1"
 
@@ -1150,8 +1147,7 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Czy na pewno porzucić zaznaczone składowisko?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Drop stash %1"
+#, kde-format
 msgid "Drop stash %1"
 msgstr "Porzuć składowisko %1"
 
@@ -1167,8 +1163,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Czy na pewno pobrać z zaznaczonego składowiska?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:54
-#, fuzzy, kde-format
-#| msgid "Pop stash %1"
+#, kde-format
 msgid "Pop stash %1"
 msgstr "Pobierz ze składowiska %1"
 
@@ -1244,8 +1239,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Na pewno usunąć zaznaczony znacznik?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "Usuń znacznik"
 
