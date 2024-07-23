@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-18 01:43+0000\n"
-"PO-Revision-Date: 2024-06-24 22:41+0200\n"
+"PO-Revision-Date: 2024-07-18 14:43+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -302,12 +302,10 @@ msgid "Diff tree…"
 msgstr "Albero delle differenze…"
 
 #: src/gui/appwindow.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Change url…"
+#, kde-format
 msgctxt "@action"
 msgid "Change logs…"
-msgstr "Cambia URL…"
+msgstr "Novità…"
 
 #: src/gui/appwindow.cpp:279
 #, kde-format
@@ -342,34 +340,33 @@ msgstr "Cambia ramo"
 #: src/gui/changelogsdata.cpp:46
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "Versione"
 
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Improve graph painting"
-msgstr ""
+msgstr "Migliorata la creazione dei grafici"
 
 #: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
-msgstr ""
+msgstr "Miglioramento della kommit lib (rimuovi dipendenze extra come kf)"
 
 #: src/gui/changelogsdata.cpp:66
 #, kde-format
 msgid "Add changes logs dialog"
-msgstr ""
+msgstr "Aggiunta la finestra dei registri delle modifiche"
 
 #: src/gui/changelogsdata.cpp:67
 #, kde-format
 msgid "Fix many small bugs"
-msgstr ""
+msgstr "Risolti molti piccoli bug"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgid "Change logs"
-msgstr "Cambia URL"
+msgstr "Novità"
 
 #: src/gui/commandargsparser.cpp:76
 #, kde-format
@@ -397,8 +394,7 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Vuoi lasciare i file su disco?"
 
 #: src/gui/commandargsparser.cpp:576
-#, fuzzy, kde-format
-#| msgid "Remove from index"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Rimuovi dall'indice"
@@ -944,8 +940,7 @@ msgid "Remove…"
 msgstr "Rimuovi…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:67
-#, fuzzy, kde-format
-#| msgid "Create new branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Crea nuovo ramo"
@@ -956,8 +951,7 @@ msgid "Branch name"
 msgstr "Nome del ramo"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgid "Remove Branch"
 msgstr "Rimuovi ramo"
 
@@ -1071,8 +1065,7 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Sei sicuro di rimuovere il remoto selezionato?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove remote?"
 msgstr "Rimuovi remoto?"
 
@@ -1082,8 +1075,7 @@ msgid "Unable to remove the selected remote"
 msgstr "Impossibile rimuovere il remoto selezionato"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:71
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "Cambia URL"
@@ -1099,8 +1091,7 @@ msgid "Url for remote changed successfully"
 msgstr "L'URL per il remoto è stato modificato correttamente"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:80
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "Rinomina"
@@ -1134,8 +1125,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Sei sicuro di voler applicare lo stash selezionato?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Apply stash %1"
 msgstr "Applica stash %1"
 
@@ -1150,8 +1140,7 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Sei sicuro di voler scartare lo stash selezionato?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Drop stash %1"
+#, kde-format
 msgid "Drop stash %1"
 msgstr "Scarta stash %1"
 
@@ -1167,8 +1156,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Sei sicuro di voler eseguire il pop dallo stash selezionato?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:54
-#, fuzzy, kde-format
-#| msgid "Pop stash %1"
+#, kde-format
 msgid "Pop stash %1"
 msgstr "Pop stash %1"
 
@@ -1180,16 +1168,14 @@ msgstr "Non hai modifiche!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:61
-#, fuzzy, kde-format
-#| msgid "Stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stash"
 msgstr "Stash"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
-#, fuzzy, kde-format
-#| msgid "Create new stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Crea nuovo stash"
@@ -1244,8 +1230,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Sei sicuro di rimuovere il tag selezionato?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "Rimuovi tag"
 
@@ -1255,8 +1240,7 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr "Sei sicuro di effettuare il checkout per il tag selezionato?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:50
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
 msgstr "Checkout"
@@ -1295,15 +1279,13 @@ msgid "Commit/push"
 msgstr "Commit/push"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:28
-#, fuzzy, kde-format
-#| msgid "Commit/Push submodule: %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
 msgstr "Push/Commit sul sotto-modulo :%1"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgctxt "@action"
 msgid "Commit/Push"
 msgstr "Commit/Push"
@@ -1806,17 +1788,15 @@ msgstr "Tipo di vista"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:33
-#, fuzzy, kde-format
-#| msgid "Regular view"
+#, kde-format
 msgid "&Regular view"
-msgstr "Vista normale"
+msgstr "Vista no&rmale"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:40
-#, fuzzy, kde-format
-#| msgid "Differential view"
+#, kde-format
 msgid "Differential &view"
-msgstr "Vista differenziale"
+msgstr "&Vista differenziale"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -2358,7 +2338,7 @@ msgstr "Processo terminato con errori"
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
 #, kde-format
 msgid "%1: (Elapsed time: %2)"
-msgstr ""
+msgstr "%1: (Tempo trascorso: %2)"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14
@@ -2463,11 +2443,10 @@ msgid "The selected branches must be different!"
 msgstr "I rami selezionati devono essere diversi!"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:43
-#, fuzzy, kde-format
-#| msgid "Select Branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
-msgstr "Seleziona i rami"
+msgstr "Seleziona rami"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:14
@@ -2729,7 +2708,7 @@ msgstr "Ref:"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:109
 #, kde-format
 msgid "Refs:"
-msgstr ""
+msgstr "Refs:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
@@ -2795,22 +2774,21 @@ msgstr "Nascondi gli invariati"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Reference branch:"
+#, kde-format
 msgid "Reference"
-msgstr "Ramo di riferimento:"
+msgstr "Riferimento"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
 #, kde-format
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
 #, kde-format
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
@@ -2912,10 +2890,9 @@ msgid "Next diff"
 msgstr "Differenza successiva"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "Unable to open the file"
+#, kde-format
 msgid "Unable to open the file %1"
-msgstr "Impossibile aprire il file"
+msgstr "Impossibile aprire il file %1"
 
 #~ msgctxt "@action"
 #~ msgid "Note…"

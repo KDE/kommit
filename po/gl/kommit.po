@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-18 01:43+0000\n"
-"PO-Revision-Date: 2024-07-16 18:55+0200\n"
+"PO-Revision-Date: 2024-07-22 19:22+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -302,12 +302,10 @@ msgid "Diff tree…"
 msgstr "Comparar a árbore…"
 
 #: src/gui/appwindow.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Change url…"
+#, kde-format
 msgctxt "@action"
 msgid "Change logs…"
-msgstr "Cambiar o URL…"
+msgstr "Rexistros de cambios…"
 
 #: src/gui/appwindow.cpp:279
 #, kde-format
@@ -342,35 +340,34 @@ msgstr "Cambiar de rama"
 #: src/gui/changelogsdata.cpp:46
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "Versión"
 
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Improve graph painting"
-msgstr ""
+msgstr "Mellorar o debuxo de gráficos."
 
 #: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
 msgstr ""
+"Mellorar a biblioteca kommit (retirar dependencias adicionais como kf)."
 
 #: src/gui/changelogsdata.cpp:66
 #, kde-format
 msgid "Add changes logs dialog"
-msgstr ""
+msgstr "Engadir un diálogo de lista de cambios."
 
 #: src/gui/changelogsdata.cpp:67
 #, kde-format
 msgid "Fix many small bugs"
-msgstr ""
+msgstr "Corrixir moitos pequenos fallos."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change url"
+#, kde-format
 msgid "Change logs"
-msgstr "Cambiar o URL…"
+msgstr "Rexistros de cambios"
 
 #: src/gui/commandargsparser.cpp:76
 #, kde-format
