@@ -2792,18 +2792,3 @@ msgstr "Diferència següent"
 #, kde-format
 msgid "Unable to open the file"
 msgstr "No s'ha pogut obrir el fitxer"
-
-#~ msgid "Stop"
-#~ msgstr "Atura"
-
-#~ msgid "Diff with master..."
-#~ msgstr "Diff amb «master»..."
-
-#~ msgid "New tag"
-#~ msgstr "Etiqueta nova"
-
-#~ msgid "Authors"
-#~ msgstr "Autors"
-
-#~ msgid "Diff with HEAD..."
-#~ msgstr "Diff amb HEAD..."
