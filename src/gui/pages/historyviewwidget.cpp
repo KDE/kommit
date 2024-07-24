@@ -33,10 +33,10 @@ HistoryViewWidget::HistoryViewWidget(RepositoryData *git, AppWindow *parent)
     connect(treeViewHistory, &TreeView::customContextMenuRequested, this, &HistoryViewWidget::slotTreeViewHistoryCustomContextMenuRequested);
 }
 
-void HistoryViewWidget::setBranch(const QString &branchName)
+void HistoryViewWidget::setBranch(QSharedPointer<Git::Branch> branch)
 {
     treeViewHistory->setItemDelegateForColumn(0, nullptr);
-    mHistoryModel->setBranch(branchName);
+    mHistoryModel->setBranch(branch);
     if (mHistoryModel->rowCount(QModelIndex()))
         treeViewHistory->setCurrentIndex(mHistoryModel->index(0));
 }

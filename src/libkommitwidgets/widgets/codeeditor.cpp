@@ -436,6 +436,14 @@ void CodeEditor::append(const QStringList &code, CodeEditor::BlockType type, Dif
         append(QString(), Empty, segment);
 }
 
+void CodeEditor::append(const QList<QStringView> &code, BlockType type, Diff::Segment *segment, int size)
+{
+    for (auto &e : code)
+        append(e.toUtf8(), type, segment); // TODO: check this convert
+    for (int var = 0; var < size - code.size(); ++var)
+        append(QString(), Empty, segment);
+}
+
 int CodeEditor::append(const QString &code, CodeEditor::BlockType type, BlockData *data)
 {
     auto t = textCursor();

@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-
+class Branch;
 class Commit;
 class Manager;
 }
@@ -41,8 +41,8 @@ public:
     QModelIndex findIndexByHash(const QString &hash) const;
     QSharedPointer<Git::Commit> findLogByHash(const QString &hash, LogMatchType matchType = LogMatchType::ExactMatch) const;
 
-    Q_REQUIRED_RESULT const QString &branch() const;
-    void setBranch(const QString &newBranch);
+    Q_REQUIRED_RESULT QSharedPointer<Git::Branch> branch() const;
+    void setBranch(QSharedPointer<Git::Branch> newBranch);
 
     Q_REQUIRED_RESULT bool fullDetails() const;
     void setFullDetails(bool newFullDetails);

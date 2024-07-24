@@ -37,6 +37,7 @@ bool isEmpty(const QStringList &list)
             return false;
     return true;
 }
+
 void compare(QTextEdit *e1, QTextEdit *e2)
 {
     auto m = qMin(e1->document()->blockCount(), e2->document()->blockCount());
@@ -555,8 +556,9 @@ void MergeWindow::slotPlainTextEditResultBlockSelected()
     if (!segment)
         return;
     if (segment->type == Diff::SegmentType::DifferentOnBoth) {
-        m_ui.codeEditorMyBlock->setPlainText(segment->local.join(QLatin1Char('\n')));
-        m_ui.codeEditorTheirBlock->setPlainText(segment->remote.join(QLatin1Char('\n')));
+        // TODO: ***
+        //  m_ui.codeEditorMyBlock->setPlainText(segment->local.join(QLatin1Char('\n')));
+        //  m_ui.codeEditorTheirBlock->setPlainText(segment->remote.join(QLatin1Char('\n')));
     } else {
         m_ui.codeEditorMyBlock->clear();
         m_ui.codeEditorTheirBlock->clear();

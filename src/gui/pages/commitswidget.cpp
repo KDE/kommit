@@ -16,6 +16,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <entities/commit.h>
 #include <gitmanager.h>
 #include <models/commitsmodel.h>
+
+#define TREEMODEL_NODE_DATA_TYPE QSharedPointer<Git::Branch>
+
 #include <models/treemodel.h>
 #include <windows/diffwindow.h>
 
@@ -160,7 +163,7 @@ void CommitsWidget::slotTreeViewHistoryCustomContextMenuRequested(const QPoint &
 void CommitsWidget::setBranch(const QString &branchName)
 {
     treeViewHistory->setItemDelegateForColumn(0, nullptr);
-    mHistoryModel->setBranch(branchName);
+    mHistoryModel->setBranch(mBranchesMap.value(branchName));
     if (mHistoryModel->rowCount(QModelIndex()))
         treeViewHistory->setCurrentIndex(mHistoryModel->index(0));
 }

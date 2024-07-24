@@ -21,6 +21,9 @@ public:
         QString title;
         QList<Node *> childs;
         Node *parent;
+
+        void *d;
+
         struct Feature *feature;
         int row{};
         QStringList data;

@@ -9,6 +9,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "ui_historyviewwidget.h"
 #include "widgetbase.h"
 
+namespace Git
+{
+class Branch;
+}
+
 class CommitsModel;
 class GraphPainter;
 class CommitActions;
@@ -18,7 +23,7 @@ class HistoryViewWidget : public WidgetBase, private Ui::HistoryViewWidget
 
 public:
     explicit HistoryViewWidget(RepositoryData *git, AppWindow *parent = nullptr);
-    void setBranch(const QString &branchName);
+    void setBranch(QSharedPointer<Git::Branch> branch);
 
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;

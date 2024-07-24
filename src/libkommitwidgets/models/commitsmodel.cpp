@@ -213,7 +213,7 @@ public:
     void initGraph();
 
     bool fullDetails{false};
-    QString branch;
+    QSharedPointer<Git::Branch> branch;
     QList<CommitsLaneData *> data;
     QList<QSharedPointer<Git::Commit>> list;
     QStringList branches;
@@ -242,13 +242,13 @@ CommitsModel::~CommitsModel()
     delete d;
 }
 
-const QString &CommitsModel::branch() const
+QSharedPointer<Git::Branch> CommitsModel::branch() const
 {
     Q_D(const CommitsModel);
     return d->branch;
 }
 
-void CommitsModel::setBranch(const QString &newBranch)
+void CommitsModel::setBranch(QSharedPointer<Git::Branch> newBranch)
 {
     Q_D(CommitsModel);
 
@@ -417,7 +417,10 @@ void CommitsModel::reload()
     d->data.clear();
 
     if (mGit->isValid()) {
-        d->list = mGit->commits()->allCommits();
+        if (d->branch.isNull())
+            d->list = mGit->commits()->allCommits();
+        else
+            d->list = mGit->commits()->commitsInBranch(d->branch);
         d->dataByCommitHashLong.clear();
 
         d->data.reserve(d->list.size());
@@ -429,111 +432,6 @@ void CommitsModel::reload()
         d->list.clear();
         d->dataByCommitHashLong.clear();
     }
-    d->initChilds();
-    d->initGraph();
-    return;
-    constexpr int GIT_SUCCESS{0};
-
-    d->list.clear();
-    d->dataByCommitHashLong.clear();
-    d->dataByCommitHashShort.clear();
-    d->seenHashes.clear();
-
-    git_revwalk *walker;
-    git_oid oid;
-
-    git_revwalk_new(&walker, mGit->repoPtr());
-    git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL | GIT_SORT_TIME);
-
-    if (d->branch.isEmpty()) {
-        // git_revwalk_push_head(walker);
-
-        git_branch_iterator *it;
-        git_branch_iterator_new(&it, mGit->repoPtr(), GIT_BRANCH_ALL);
-
-        git_reference *ref;
-        git_branch_t b;
-
-        QStringList list;
-        if (!it) {
-            return;
-        }
-        while (!git_branch_next(&ref, &b, it)) {
-            //        if (!git_reference_is_branch(ref))
-            //            continue;
-            auto refname = git_reference_name(ref);
-
-            git_revwalk_push_ref(walker, refname);
-        }
-        git_branch_iterator_free(it);
-
-    } else {
-        git_reference *ref;
-        auto n = git_branch_lookup(&ref, mGit->repoPtr(), d->branch.toLocal8Bit().data(), GIT_BRANCH_ALL);
-
-        if (n)
-            return;
-
-        auto refName = git_reference_name(ref);
-        git_revwalk_push_ref(walker, refName);
-
-        git_reference_free(ref);
-    }
-
-    while (git_revwalk_next(&oid, walker) == GIT_SUCCESS) {
-        git_commit *commit;
-
-        if (git_commit_lookup(&commit, mGit->repoPtr(), &oid)) {
-            fprintf(stderr, "Failed to lookup the next object\n");
-            return;
-        }
-
-        auto dd = QSharedPointer<Git::Commit>{new Git::Commit{commit}};
-
-        d->list.append(dd);
-        d->dataByCommitHashLong.insert(dd->commitHash(), dd);
-        d->dataByCommitHashShort.insert(dd->commitShortHash(), dd);
-    }
-
-    git_revwalk_free(walker);
-
-    struct wrapper {
-        QList<QSharedPointer<Git::Commit>> mData;
-        QMap<QString, QSharedPointer<Git::Commit>> mDataByCommitHashLong;
-        QMap<QString, QSharedPointer<Git::Commit>> mDataByCommitHashShort;
-        git_repository *repo;
-    };
-    auto cb = [](git_reference *reference, void *payload) -> int {
-        if (git_reference_is_note(reference))
-            return 0;
-
-        auto w = reinterpret_cast<wrapper *>(payload);
-
-        auto target = git_reference_target(reference);
-        if (!target) {
-            qDebug() << "No target" << git_reference_is_branch(reference) << git_reference_is_note(reference) << git_reference_is_remote(reference)
-                     << git_reference_is_tag(reference);
-
-            git_reference_free(reference);
-            return 0;
-        }
-
-        QString hash = git_oid_tostr_s(target);
-        auto c = w->mDataByCommitHashLong.value(hash);
-        if (c) {
-            // c->mReference.reset(new Git::Reference{reference});
-            // TODO: check this
-        }
-
-        return 0;
-    };
-    wrapper w;
-    w.mData = d->list;
-    w.mDataByCommitHashLong = d->dataByCommitHashLong;
-    w.mDataByCommitHashShort = d->dataByCommitHashShort;
-    w.repo = mGit->repoPtr();
-    git_reference_foreach(mGit->repoPtr(), cb, &w);
-
     d->initChilds();
     d->initGraph();
 }
