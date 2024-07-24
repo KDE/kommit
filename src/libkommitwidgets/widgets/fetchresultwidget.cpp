@@ -1,9 +1,9 @@
 #include "fetchresultwidget.h"
 #include "dialogs/credentialdialog.h"
-#include "entities/oid.h"
-#include "entities/reference.h"
-#include "observers/fetchobserver.h"
 
+#include <credential.h>
+#include <entities/oid.h>
+#include <entities/reference.h>
 #include <observers/fetchobserver.h>
 
 FetchResultWidget::FetchResultWidget(QWidget *parent)

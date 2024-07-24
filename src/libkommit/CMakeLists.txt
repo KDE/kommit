@@ -13,6 +13,7 @@ set(SOURCES
     types.cpp
     abstractreference.cpp
     buffer.cpp
+    credential.cpp
 
     caches/abstractcache.cpp
     caches/branchescache.cpp
@@ -74,6 +75,7 @@ set(HEADERS
     types.h
     abstractreference.h
     buffer.h
+    credential.h
 
     caches/abstractcache.h
     caches/branchescache.h

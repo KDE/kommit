@@ -21,6 +21,7 @@ namespace Git
 class Manager;
 class Oid;
 class Reference;
+class Credential;
 
 /*namespace FetchObserverCallbacks
 {
@@ -31,37 +32,6 @@ int git_helper_credentials_cb(git_credential **out, const char *url, const char 
 int git_helper_packbuilder_progress(int stage, uint32_t current, uint32_t total, void *payload);
 int git_helper_transport_cb(git_transport **out, git_remote *owner, void *param);
 }*/
-
-class LIBKOMMIT_EXPORT Credential
-{
-    Q_GADGET
-public:
-    enum class AllowedType {
-        UserpassPlaintext,
-        SshKey,
-        SshCustom,
-        Defaut,
-        SshInteractive,
-        Username,
-        SshMemory,
-    };
-    Q_DECLARE_FLAGS(AllowedTypes, AllowedType)
-    Q_FLAG(AllowedTypes)
-
-    Q_REQUIRED_RESULT QString username() const;
-    void setUsername(const QString &username);
-
-    Q_REQUIRED_RESULT QString password() const;
-    void setPassword(const QString &password);
-
-    Q_REQUIRED_RESULT AllowedTypes allowedTypes() const;
-    void setAllowedTypes(const AllowedTypes &allowedTypes);
-
-private:
-    QString mUsername;
-    QString mPassword;
-    AllowedTypes mAllowedTypes;
-};
 
 struct FetchObserverBridge;
 struct FetchTransferStat {

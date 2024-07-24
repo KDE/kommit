@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "fetchobserver.h"
 #include "caches/referencecache.h"
+#include "credential.h"
 #include "entities/oid.h"
 #include "gitmanager.h"
 
@@ -146,36 +147,6 @@ QString FetchObserver::username() const
 QString FetchObserver::password() const
 {
     return mPassword;
-}
-
-QString Credential::username() const
-{
-    return mUsername;
-}
-
-void Credential::setUsername(const QString &username)
-{
-    mUsername = username;
-}
-
-QString Credential::password() const
-{
-    return mPassword;
-}
-
-void Credential::setPassword(const QString &password)
-{
-    mPassword = password;
-}
-
-Credential::AllowedTypes Credential::allowedTypes() const
-{
-    return mAllowedTypes;
-}
-
-void Credential::setAllowedTypes(const AllowedTypes &allowedTypes)
-{
-    mAllowedTypes = allowedTypes;
 }
 }
 

@@ -12,6 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QPointer>
 #include <QSettings>
 #include <QStandardPaths>
+#include <credential.h>
 #include <dialogs/credentialdialog.h>
 #include <gitmanager.h>
 #include <observers/cloneobserver.h>
