@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-18 01:43+0000\n"
-"PO-Revision-Date: 2024-03-06 20:20+0900\n"
+"PO-Revision-Date: 2024-07-23 22:31+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -150,13 +150,12 @@ msgstr "Kommit"
 #: dolphinplugins/dolphinplugin.cpp:101
 #, kde-format
 msgid "Push/Commit to %1"
-msgstr ""
+msgstr "推送/提交到 %1"
 
 #: dolphinplugins/dolphinplugin.cpp:103
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgid "Push/Commit to submodule %1"
-msgstr "提交/推送"
+msgstr "推送/提交到子模組 %1"
 
 #: src/apps/main.cpp:58
 #, kde-format
@@ -164,10 +163,9 @@ msgid "Git client gui for KDE"
 msgstr "KDE 的 Git 用戶端介面"
 
 #: src/apps/main.cpp:60
-#, fuzzy, kde-format
-#| msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+#, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr "版權所有 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+msgstr "版權所有 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:62 src/libkommitwidgets/models/commitsmodel.cpp:298
 #: src/libkommitwidgets/reports/authorsreport.cpp:82
@@ -176,15 +174,13 @@ msgid "Author"
 msgstr "作者"
 
 #: src/apps/main.cpp:62
-#, fuzzy, kde-format
-#| msgid "Hamed Masafi"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
@@ -216,122 +212,105 @@ msgstr "（重定基底中）"
 
 #: src/gui/appwindow.cpp:179
 #: src/libkommitwidgets/actions/submoduleactions.cpp:28
-#, fuzzy, kde-format
-#| msgid "Init"
+#, kde-format
 msgctxt "@action"
 msgid "Init…"
-msgstr "初始化"
+msgstr "初始化…"
 
 #: src/gui/appwindow.cpp:182
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action"
 msgid "Open…"
-msgstr "開啟"
+msgstr "開啟…"
 
 #: src/gui/appwindow.cpp:187
-#, fuzzy, kde-format
-#| msgid "Clone"
+#, kde-format
 msgctxt "@action"
 msgid "Clone…"
-msgstr "建立複本"
+msgstr "複製…"
 
 #: src/gui/appwindow.cpp:190
-#, fuzzy, kde-format
-#| msgid "Changed files"
+#, kde-format
 msgctxt "@action"
 msgid "Changed files…"
-msgstr "已變更的檔案"
+msgstr "已變更的檔案…"
 
 #: src/gui/appwindow.cpp:196
-#, fuzzy, kde-format
-#| msgid "Recent repos"
+#, kde-format
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "最近版本庫"
 
 #: src/gui/appwindow.cpp:202
-#, fuzzy, kde-format
-#| msgid "Cleanup"
+#, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
-msgstr "清理"
+msgstr "清理…"
 
 #: src/gui/appwindow.cpp:205
-#, fuzzy, kde-format
-#| msgid "Pull"
+#, kde-format
 msgctxt "@action"
 msgid "Pull…"
-msgstr "拉取"
+msgstr "拉取…"
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/branchactions.cpp:33
-#, fuzzy, kde-format
-#| msgid "Fetch"
+#, kde-format
 msgctxt "@action"
 msgid "Fetch…"
-msgstr "抓取"
+msgstr "抓取…"
 
 #: src/gui/appwindow.cpp:213 src/libkommitwidgets/actions/tagsactions.cpp:29
-#, fuzzy, kde-format
-#| msgid "Push"
+#, kde-format
 msgctxt "@action"
 msgid "Push…"
-msgstr "推送"
+msgstr "推送…"
 
 #: src/gui/appwindow.cpp:217 src/libkommitwidgets/actions/branchactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Merge"
+#, kde-format
 msgctxt "@action"
 msgid "Merge…"
-msgstr "合併"
+msgstr "合併…"
 
 #: src/gui/appwindow.cpp:221
-#, fuzzy, kde-format
-#| msgid "Diff branches"
+#, kde-format
 msgctxt "@action"
 msgid "Diff branches…"
-msgstr "比對分支差異"
+msgstr "比對分支差異…"
 
 #: src/gui/appwindow.cpp:224 src/libkommitwidgets/actions/fileactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action"
 msgid "Search…"
-msgstr "搜尋"
+msgstr "搜尋…"
 
 #: src/gui/appwindow.cpp:227
-#, fuzzy, kde-format
-#| msgid "Repo settings"
+#, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
-msgstr "版本庫設定"
+msgstr "版本庫設定…"
 
 #: src/gui/appwindow.cpp:230
-#, fuzzy, kde-format
-#| msgid "Switch/Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
-msgstr "切換/簽出"
+msgstr "切換/簽出…"
 
 #: src/gui/appwindow.cpp:233
-#, fuzzy, kde-format
-#| msgid "Diff tree"
+#, kde-format
 msgctxt "@action"
 msgid "Diff tree…"
-msgstr "比對樹狀圖差異"
+msgstr "比對樹狀圖差異…"
 
 #: src/gui/appwindow.cpp:236
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@action"
 msgid "Change logs…"
-msgstr "變更網址"
+msgstr "變更網址…"
 
 #: src/gui/appwindow.cpp:279
-#, fuzzy, kde-format
-#| msgid "Cleanup"
+#, kde-format
 msgid "Clear"
-msgstr "清理"
+msgstr "清除"
 
 #: src/gui/appwindow.cpp:301 src/gui/commandargsparser.cpp:255
 #, kde-format
@@ -361,34 +340,33 @@ msgstr "切換分支"
 #: src/gui/changelogsdata.cpp:46
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "版本"
 
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Improve graph painting"
-msgstr ""
+msgstr "改善圖表繪製"
 
 #: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
-msgstr ""
+msgstr "改善 kommit 函式庫（移除不需要的額外依賴，像是 kf）"
 
 #: src/gui/changelogsdata.cpp:66
 #, kde-format
 msgid "Add changes logs dialog"
-msgstr ""
+msgstr "新增變更紀錄對話框"
 
 #: src/gui/changelogsdata.cpp:67
 #, kde-format
 msgid "Fix many small bugs"
-msgstr ""
+msgstr "修正許多小錯誤"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgid "Change logs"
-msgstr "變更網址"
+msgstr "變更紀錄"
 
 #: src/gui/commandargsparser.cpp:76
 #, kde-format
@@ -401,10 +379,9 @@ msgid "The repo inited successfully"
 msgstr "版本庫已成功初始化"
 
 #: src/gui/commandargsparser.cpp:436
-#, fuzzy, kde-format
-#| msgid "Unable to open the file"
+#, kde-format
 msgid "Cannot find the file"
-msgstr "無法開啟檔案"
+msgstr "找不到檔案"
 
 #: src/gui/commandargsparser.cpp:566
 #, kde-format
@@ -417,8 +394,7 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "您要把檔案留在磁碟上嗎？"
 
 #: src/gui/commandargsparser.cpp:576
-#, fuzzy, kde-format
-#| msgid "Remove from index"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "從索引移除"
@@ -634,10 +610,9 @@ msgstr "名稱"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:172
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Ref name"
-msgstr "重新命名"
+msgstr "Ref 名稱"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:177
@@ -656,47 +631,45 @@ msgstr "狀態"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
 #: src/gui/pages/reportswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Reports"
-msgstr "版本庫"
+msgstr "報告"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:33
 #, kde-format
 msgid "Table view"
-msgstr ""
+msgstr "表格檢視"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:36
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "表格"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:50
-#, fuzzy, kde-format
-#| msgid "Regular view"
+#, kde-format
 msgid "Chart view"
-msgstr "一般檢視"
+msgstr "圖表檢視"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:53
 #, kde-format
 msgid "Chart"
-msgstr ""
+msgstr "圖表"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:80
 #, kde-format
 msgid "Refresh data"
-msgstr ""
+msgstr "重新整理資料"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:83
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "重新整理"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
 #: src/gui/pages/stasheswidget.ui:14
@@ -920,29 +893,25 @@ msgid "Local out of date"
 msgstr "本機並非最新"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:30
-#, fuzzy, kde-format
-#| msgid "Create..."
+#, kde-format
 msgctxt "@action"
 msgid "Create…"
 msgstr "建立…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:34
-#, fuzzy, kde-format
-#| msgid "Browse"
+#, kde-format
 msgctxt "@action"
 msgid "Browse…"
-msgstr "瀏覽"
+msgstr "瀏覽…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
-#, fuzzy, kde-format
-#| msgid "Switch"
+#, kde-format
 msgctxt "@action"
 msgid "Switch"
 msgstr "切換"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Diff"
+#, kde-format
 msgctxt "@action"
 msgid "Diff"
 msgstr "比對差異"
@@ -951,15 +920,13 @@ msgstr "比對差異"
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #: src/libkommitwidgets/actions/stashactions.cpp:28
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action"
 msgid "Remove…"
-msgstr "移除"
+msgstr "移除…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:67
-#, fuzzy, kde-format
-#| msgid "Create new branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "建立新分支"
@@ -970,35 +937,30 @@ msgid "Branch name"
 msgstr "分支名稱"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgid "Remove Branch"
 msgstr "移除分支"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
-#, fuzzy, kde-format
-#| msgid "Diff"
+#, kde-format
 msgctxt "@action"
 msgid "Diff…"
-msgstr "比對差異"
+msgstr "比對差異…"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:20
-#, fuzzy, kde-format
-#| msgid "Revert..."
+#, kde-format
 msgctxt "@action"
 msgid "Revert…"
 msgstr "還原…"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Browse"
+#, kde-format
 msgctxt "@action"
 msgid "Browse"
 msgstr "瀏覽"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Checkout"
 msgstr "簽出"
@@ -1007,64 +969,55 @@ msgstr "簽出"
 #: src/libkommitwidgets/actions/fileactions.cpp:47
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
-#, fuzzy, kde-format
-#| msgid "Diff with working dir"
+#, kde-format
 msgctxt "@action"
 msgid "Diff with working dir"
 msgstr "與工作目錄比對差異"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Note"
+#, kde-format
 msgctxt "@action"
 msgid "Note"
 msgstr "備註"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Preview"
+#, kde-format
 msgctxt "@action"
 msgid "Preview"
 msgstr "預覽"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action"
 msgid "Open"
 msgstr "開啟"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:45
-#, fuzzy, kde-format
-#| msgid "Open with..."
+#, kde-format
 msgctxt "@action"
 msgid "Open with…"
 msgstr "開啟方式…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
-#, fuzzy, kde-format
-#| msgid "Merge with working dir"
+#, kde-format
 msgctxt "@action"
 msgid "Merge with working dir"
 msgstr "與工作目錄合併"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:50
-#, fuzzy, kde-format
-#| msgid "Save as..."
+#, kde-format
 msgctxt "@action"
 msgid "Save as…"
 msgstr "另存為…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Log"
+#, kde-format
 msgctxt "@action"
 msgid "Log"
 msgstr "日誌"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:52
-#, fuzzy, kde-format
-#| msgid "Blame"
+#, kde-format
 msgctxt "@action"
 msgid "Blame"
 msgstr "Blame"
@@ -1078,21 +1031,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "New…"
-msgstr ""
+msgstr "新增…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action"
 msgid "Rename…"
-msgstr "重新命名"
+msgstr "重新命名…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:28
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@action"
 msgid "Change url…"
-msgstr "變更網址"
+msgstr "變更網址…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
 #, kde-format
@@ -1100,8 +1051,7 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "您確定要刪除已選遠端嗎？"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove remote?"
 msgstr "移除遠端？"
 
@@ -1111,8 +1061,7 @@ msgid "Unable to remove the selected remote"
 msgstr "無法移除所選遠端"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:71
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "變更網址"
@@ -1128,8 +1077,7 @@ msgid "Url for remote changed successfully"
 msgstr "成功變更遠端網址"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:80
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "重新命名"
@@ -1140,8 +1088,7 @@ msgid "New name"
 msgstr "新名稱"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New stash..."
+#, kde-format
 msgctxt "@action"
 msgid "New stash…"
 msgstr "新貯存…"
@@ -1150,11 +1097,10 @@ msgstr "新貯存…"
 #, kde-format
 msgctxt "@action"
 msgid "Pop…"
-msgstr ""
+msgstr "彈出…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:27
-#, fuzzy, kde-format
-#| msgid "Apply..."
+#, kde-format
 msgctxt "@action"
 msgid "Apply…"
 msgstr "套用…"
@@ -1165,8 +1111,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "您確定要套用已選貯存嗎？"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Apply stash %1"
 msgstr "套用貯存 %1"
 
@@ -1181,8 +1126,7 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "您確定要捨棄已選貯存嗎？"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Drop stash %1"
+#, kde-format
 msgid "Drop stash %1"
 msgstr "捨棄貯存 %1"
 
@@ -1198,8 +1142,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "您確定要彈出（套用並移除）已選貯存嗎？"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:54
-#, fuzzy, kde-format
-#| msgid "Pop stash %1"
+#, kde-format
 msgid "Pop stash %1"
 msgstr "彈出貯存 %1"
 
@@ -1211,16 +1154,14 @@ msgstr "您沒有任何變更！"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:61
-#, fuzzy, kde-format
-#| msgid "Stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stash"
 msgstr "貯存"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
-#, fuzzy, kde-format
-#| msgid "Create new stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "建立新貯存"
@@ -1235,35 +1176,32 @@ msgstr "貯存名稱"
 #, kde-format
 msgctxt "@action"
 msgid "Add…"
-msgstr ""
+msgstr "新增…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:29
-#, fuzzy, kde-format
-#| msgid "Update"
+#, kde-format
 msgctxt "@action"
 msgid "Update…"
-msgstr "更新"
+msgstr "更新…"
 
 #. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:31
 #, kde-format
 msgctxt "@action"
 msgid "Sync…"
-msgstr ""
+msgstr "同步…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
-#, fuzzy, kde-format
-#| msgid "New tag"
+#, kde-format
 msgctxt "@action"
 msgid "New tag…"
-msgstr "新標籤"
+msgstr "新標籤…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:27
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Checkout…"
-msgstr "簽出"
+msgstr "簽出…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:35
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1278,8 +1216,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "您確定要刪除已選標籤嗎？"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "移除標籤"
 
@@ -1289,8 +1226,7 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr "您確定要簽出已選標籤嗎？"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:50
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
 msgstr "簽出"
@@ -1318,38 +1254,33 @@ msgstr "重新載入"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonStashChanges)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
-#, fuzzy, kde-format
-#| msgid "Stashes"
+#, kde-format
 msgid "Stash changes"
-msgstr "貯存"
+msgstr "貯存變更"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgid "Commit/push"
 msgstr "提交/推送"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:28
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
-msgstr "提交/推送"
+msgstr "提交/推送子模組：%1"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgctxt "@action"
 msgid "Commit/Push"
 msgstr "提交/推送"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Changed files"
+#, kde-format
 msgid "Changed submodules"
-msgstr "已變更的檔案"
+msgstr "已變更的子模組"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
@@ -1663,10 +1594,9 @@ msgid "Commit"
 msgstr "提交"
 
 #: src/libkommitwidgets/dialogs/credentialdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Credentials:"
+#, kde-format
 msgid "Credential for %1"
-msgstr "認證資訊："
+msgstr "%1 的認證資訊"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
@@ -1823,17 +1753,15 @@ msgstr "檢視模式"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:33
-#, fuzzy, kde-format
-#| msgid "Regular view"
+#, kde-format
 msgid "&Regular view"
-msgstr "一般檢視"
+msgstr "一般檢視(&R)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:40
-#, fuzzy, kde-format
-#| msgid "Differential view"
+#, kde-format
 msgid "Differential &view"
-msgstr "差異檢視"
+msgstr "差異檢視(&V)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -1861,23 +1789,22 @@ msgstr "瀏覽檔案：%1"
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:119
 #, kde-format
 msgid "Extract to"
-msgstr ""
+msgstr "解開到"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:125
-#, fuzzy, kde-format
-#| msgid "File(s) added to git successfully"
+#, kde-format
 msgid "All file(s) extracted successfully"
-msgstr "檔案成功加入到 git"
+msgstr "所有檔案皆已成功取出"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:127
 #, kde-format
 msgid "An error occurred while extracting file(s)"
-msgstr ""
+msgstr "解開檔案時發生錯誤"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:153
 #, kde-format
 msgid "Extract"
-msgstr ""
+msgstr "解開"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/filestreedialog.ui:31
@@ -1892,10 +1819,9 @@ msgid "Closing preview"
 msgstr "關閉預覽"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Please wait while the preview is being closed..."
+#, kde-format
 msgid "Please wait while the preview is being closed…"
-msgstr "請稍候，預覽正在關閉中..."
+msgstr "請稍候，預覽正在關閉中…"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
@@ -2325,7 +2251,7 @@ msgstr "行程已完成但有錯誤"
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
 #, kde-format
 msgid "%1: (Elapsed time: %2)"
-msgstr ""
+msgstr "%1：（經過時間：%2）"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14
@@ -2438,11 +2364,10 @@ msgid "The selected branches must be different!"
 msgstr "選取的分支必須是不同的！"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:43
-#, fuzzy, kde-format
-#| msgid "Select Branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
-msgstr "選取分支"
+msgstr "選擇分支"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:14
@@ -2509,15 +2434,14 @@ msgid "Ref"
 msgstr "Ref"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:170
-#, fuzzy, kde-format
-#| msgid "No commit"
+#, kde-format
 msgid " (new commit)"
-msgstr "無提交"
+msgstr " (新提交)"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:172
 #, kde-format
 msgid " (content modified)"
-msgstr ""
+msgstr " (內容已修改)"
 
 #: src/libkommitwidgets/models/commitsmodel.cpp:294
 #: src/libkommitwidgets/models/commitsmodel.cpp:305
@@ -2574,7 +2498,7 @@ msgstr "建立時間"
 #: src/libkommitwidgets/reports/authorsreport.cpp:62
 #, kde-format
 msgid "Commits count by author"
-msgstr ""
+msgstr "各作者的提交數量"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:72
 #, kde-format
@@ -2582,65 +2506,64 @@ msgid "Email"
 msgstr "電子郵件"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:72
-#, fuzzy, kde-format
-#| msgid "Authors"
+#, kde-format
 msgid "Autheds"
 msgstr "作者群"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:49
 #, kde-format
 msgid "Commits by hour of day"
-msgstr ""
+msgstr "依當天幾點的提交"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:59
 #, kde-format
 msgid "Hour"
-msgstr ""
+msgstr "小時"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:69
 #, kde-format
 msgid "Hour of day"
-msgstr ""
+msgstr "當天幾點"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:22
 #, kde-format
 msgid "Monday"
-msgstr ""
+msgstr "星期一"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:24
 #, kde-format
 msgid "Tuesday"
-msgstr ""
+msgstr "星期二"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:26
 #, kde-format
 msgid "Wednesday"
-msgstr ""
+msgstr "星期三"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:28
 #, kde-format
 msgid "Thursday"
-msgstr ""
+msgstr "星期四"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:30
 #, kde-format
 msgid "Friday"
-msgstr ""
+msgstr "星期五"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:32
 #, kde-format
 msgid "Saturday"
-msgstr ""
+msgstr "星期六"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:34
 #, kde-format
 msgid "Sunday"
-msgstr ""
+msgstr "星期日"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:79
 #, kde-format
 msgid "Commits by day of week"
-msgstr ""
+msgstr "依星期幾的提交"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:89
 #, kde-format
@@ -2653,10 +2576,9 @@ msgid "Day of week"
 msgstr ""
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:64
-#, fuzzy, kde-format
-#| msgid "Commit(s) behind"
+#, kde-format
 msgid "Commits by month"
-msgstr "落後幾個提交"
+msgstr "依月份的提交"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:74
 #, kde-format
@@ -2702,18 +2624,17 @@ msgstr "標籤："
 #: src/libkommitwidgets/widgets/commitdetails.ui:196
 #, kde-format
 msgid "Ref:"
-msgstr ""
+msgstr "Ref："
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:109
 #, kde-format
 msgid "Refs:"
-msgstr ""
+msgstr "Ref："
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, fuzzy, kde-format
-#| msgid "Parent:"
+#, kde-format
 msgid "Parent:"
 msgid_plural "Parents:"
 msgstr[0] "親："
@@ -2721,8 +2642,7 @@ msgstr[0] "親："
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:124
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, fuzzy, kde-format
-#| msgid "Child:"
+#, kde-format
 msgid "Child:"
 msgid_plural "Children:"
 msgstr[0] "子："
@@ -2773,29 +2693,27 @@ msgstr "隱藏未變更"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Reference branch:"
+#, kde-format
 msgid "Reference"
-msgstr "參照分支："
+msgstr "參照"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
 #, kde-format
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
 #, kde-format
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Report"
-msgstr "版本庫"
+msgstr "報告"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:159
 #, kde-format
@@ -2810,8 +2728,7 @@ msgid "Tree"
 msgstr "樹狀圖"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:189
-#, fuzzy, kde-format
-#| msgid "View hidden chars..."
+#, kde-format
 msgid "View hidden chars…"
 msgstr "檢視隱藏字元…"
 
@@ -2819,7 +2736,7 @@ msgstr "檢視隱藏字元…"
 #: src/libkommitwidgets/windows/mergewindow.cpp:335
 #, kde-format
 msgid "Same size blocks"
-msgstr ""
+msgstr "同樣大小的區塊"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:199
 #, kde-format
@@ -2874,7 +2791,7 @@ msgstr "保留他的檔案"
 #: src/libkommitwidgets/windows/mergewindow.cpp:316
 #, kde-format
 msgid "Blocks"
-msgstr ""
+msgstr "區塊"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:320
 #, kde-format
@@ -2892,10 +2809,9 @@ msgid "Next diff"
 msgstr "下一個差異"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "Unable to open the file"
+#, kde-format
 msgid "Unable to open the file %1"
-msgstr "無法開啟檔案"
+msgstr "無法開啟檔案 %1"
 
 #, fuzzy
 #~| msgid "Note"
