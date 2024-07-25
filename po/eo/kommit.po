@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-18 01:43+0000\n"
+"POT-Creation-Date: 2024-07-25 01:47+0000\n"
 "PO-Revision-Date: 2024-07-16 21:47+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -2812,7 +2812,7 @@ msgid "View hidden chars…"
 msgstr "Rigardi kaŝitajn signojn…"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:194
-#: src/libkommitwidgets/windows/mergewindow.cpp:335
+#: src/libkommitwidgets/windows/mergewindow.cpp:336
 #, kde-format
 msgid "Same size blocks"
 msgstr "Samgrandaj blokoj"
@@ -2832,62 +2832,62 @@ msgstr "Montri Arbon"
 msgid "Unchanged"
 msgstr "Neŝanĝita"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:277
+#: src/libkommitwidgets/windows/mergewindow.cpp:278
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Konfliktoj: %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:285
+#: src/libkommitwidgets/windows/mergewindow.cpp:286
 #, kde-format
 msgid "Keep mine"
 msgstr "Konservi la mian"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:290
+#: src/libkommitwidgets/windows/mergewindow.cpp:291
 #, kde-format
 msgid "Keep their"
 msgstr "Konservi ilian"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:296
+#: src/libkommitwidgets/windows/mergewindow.cpp:297
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Konservi la mian antaŭ ilia"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:301
+#: src/libkommitwidgets/windows/mergewindow.cpp:302
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Konservi ilian antaŭ la mian"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:306
+#: src/libkommitwidgets/windows/mergewindow.cpp:307
 #, kde-format
 msgid "Keep my file"
 msgstr "Konservi mian dosieron"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:311
+#: src/libkommitwidgets/windows/mergewindow.cpp:312
 #, kde-format
 msgid "Keep their file"
 msgstr "Konservi ilian dosieron"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:316
+#: src/libkommitwidgets/windows/mergewindow.cpp:317
 #, kde-format
 msgid "Blocks"
 msgstr "Blokoj"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:320
+#: src/libkommitwidgets/windows/mergewindow.cpp:321
 #, kde-format
 msgid "Files"
 msgstr "Dosieroj"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:324
+#: src/libkommitwidgets/windows/mergewindow.cpp:325
 #, kde-format
 msgid "Previous diff"
 msgstr "Antaŭa diferenco"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:330
+#: src/libkommitwidgets/windows/mergewindow.cpp:331
 #, kde-format
 msgid "Next diff"
 msgstr "Sekva diferenco"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:429
+#: src/libkommitwidgets/windows/mergewindow.cpp:430
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr "Ne eblas malfermi la dosieron %1"

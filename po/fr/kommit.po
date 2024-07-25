@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-18 01:43+0000\n"
-"PO-Revision-Date: 2024-07-04 18:08+0200\n"
+"POT-Creation-Date: 2024-07-25 01:47+0000\n"
+"PO-Revision-Date: 2024-07-19 07:49+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -307,12 +307,10 @@ msgid "Diff tree…"
 msgstr "Arborescence des différences..."
 
 #: src/gui/appwindow.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Change url…"
+#, kde-format
 msgctxt "@action"
 msgid "Change logs…"
-msgstr "Modifier une URL..."
+msgstr "Journaux des modifications..."
 
 #: src/gui/appwindow.cpp:279
 #, kde-format
@@ -347,35 +345,35 @@ msgstr "Changer de branche"
 #: src/gui/changelogsdata.cpp:46
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Improve graph painting"
-msgstr ""
+msgstr "Améliorer le dessin du graphique"
 
 #: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
 msgstr ""
+"Amélioration de la bibliothèque « kommit » (Suppression des dépendances "
+"additionnels comme « kf »)"
 
 #: src/gui/changelogsdata.cpp:66
 #, kde-format
 msgid "Add changes logs dialog"
-msgstr ""
+msgstr "Boîte de dialogue « Ajouter des journaux de modifications »"
 
 #: src/gui/changelogsdata.cpp:67
 #, kde-format
 msgid "Fix many small bugs"
-msgstr ""
+msgstr "Correction de nombreux bogues mineurs"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change url"
+#, kde-format
 msgid "Change logs"
-msgstr "Changer l'URL"
+msgstr "Journaux des modifications"
 
 #: src/gui/commandargsparser.cpp:76
 #, kde-format
@@ -403,8 +401,7 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Voulez-vous laisser le(s) fichier(s) sur le disque ?"
 
 #: src/gui/commandargsparser.cpp:576
-#, fuzzy, kde-format
-#| msgid "Remove from index"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Supprimer de la table d'index"
@@ -953,8 +950,7 @@ msgid "Remove…"
 msgstr "Supprimer..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:67
-#, fuzzy, kde-format
-#| msgid "Create new branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Créer une nouvelle branche"
@@ -965,8 +961,7 @@ msgid "Branch name"
 msgstr "Nom de la branche"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgid "Remove Branch"
 msgstr "Supprimer une branche"
 
@@ -1080,8 +1075,7 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "Êtes-vous certain de supprimer la référence distante sélectionnée ?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove remote?"
 msgstr "Supprimer la référence distante ?"
 
@@ -1143,8 +1137,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Êtes-vous certain d'appliquer la remise sélectionnée ?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Apply stash %1"
 msgstr "Appliquer le remisage %1"
 
@@ -1159,8 +1152,7 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Êtes-vous certain d'appliquer le remisage sélectionné ?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Drop stash %1"
+#, kde-format
 msgid "Drop stash %1"
 msgstr "Appliquer le remisage %1"
 
@@ -1176,8 +1168,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Êtes-vous certain d'appliquer le remisage sélectionné ?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:54
-#, fuzzy, kde-format
-#| msgid "Pop stash %1"
+#, kde-format
 msgid "Pop stash %1"
 msgstr "Appliquer le remisage %1"
 
@@ -1254,8 +1245,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "Êtes-vous certain de supprimer l'étiquette sélectionnée ?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "Supprimer une étiquette"
 
@@ -2366,7 +2356,7 @@ msgstr "Processus terminé avec une erreur"
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
 #, kde-format
 msgid "%1: (Elapsed time: %2)"
-msgstr ""
+msgstr "%1 : (Temps écoulé : %2)"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14
@@ -2471,8 +2461,7 @@ msgid "The selected branches must be different!"
 msgstr "Les branches sélectionnées doivent être différentes !"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:43
-#, fuzzy, kde-format
-#| msgid "Select Branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
 msgstr "Sélectionnez des branches"
@@ -2737,7 +2726,7 @@ msgstr "Référence :"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:109
 #, kde-format
 msgid "Refs:"
-msgstr ""
+msgstr "Ref :"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
@@ -2803,22 +2792,21 @@ msgstr "Masquer les non-modifiés"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Reference branch:"
+#, kde-format
 msgid "Reference"
-msgstr "Branche de référence :"
+msgstr "Référence"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
 #, kde-format
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
 #, kde-format
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
@@ -2844,7 +2832,7 @@ msgid "View hidden chars…"
 msgstr "Afficher les caractères masqués"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:194
-#: src/libkommitwidgets/windows/mergewindow.cpp:335
+#: src/libkommitwidgets/windows/mergewindow.cpp:336
 #, kde-format
 msgid "Same size blocks"
 msgstr "Blocs de même taille"
@@ -2864,66 +2852,65 @@ msgstr "Afficher l'arborescence"
 msgid "Unchanged"
 msgstr "Non-modifiés"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:277
+#: src/libkommitwidgets/windows/mergewindow.cpp:278
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "Conflits : %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:285
+#: src/libkommitwidgets/windows/mergewindow.cpp:286
 #, kde-format
 msgid "Keep mine"
 msgstr "Conserver ma version"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:290
+#: src/libkommitwidgets/windows/mergewindow.cpp:291
 #, kde-format
 msgid "Keep their"
 msgstr "Conserver leur version"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:296
+#: src/libkommitwidgets/windows/mergewindow.cpp:297
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Conserver ma version avant la leur"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:301
+#: src/libkommitwidgets/windows/mergewindow.cpp:302
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Conserver leur version avant la mienne"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:306
+#: src/libkommitwidgets/windows/mergewindow.cpp:307
 #, kde-format
 msgid "Keep my file"
 msgstr "Conserver mon fichier"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:311
+#: src/libkommitwidgets/windows/mergewindow.cpp:312
 #, kde-format
 msgid "Keep their file"
 msgstr "Conserver leur fichier"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:316
+#: src/libkommitwidgets/windows/mergewindow.cpp:317
 #, kde-format
 msgid "Blocks"
 msgstr "Blocs"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:320
+#: src/libkommitwidgets/windows/mergewindow.cpp:321
 #, kde-format
 msgid "Files"
 msgstr "Fichiers"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:324
+#: src/libkommitwidgets/windows/mergewindow.cpp:325
 #, kde-format
 msgid "Previous diff"
 msgstr "Différence précédente"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:330
+#: src/libkommitwidgets/windows/mergewindow.cpp:331
 #, kde-format
 msgid "Next diff"
 msgstr "Différence suivante"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "Unable to open the file"
+#: src/libkommitwidgets/windows/mergewindow.cpp:430
+#, kde-format
 msgid "Unable to open the file %1"
-msgstr "Impossible d'ouvrir le fichier"
+msgstr "Impossible d'ouvrir le fichier %1"
 
 #~ msgctxt "@action"
 #~ msgid "Note…"

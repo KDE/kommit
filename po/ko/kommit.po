@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-18 01:43+0000\n"
+"POT-Creation-Date: 2024-07-25 01:47+0000\n"
 "PO-Revision-Date: 2024-02-09 23:51+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2884,7 +2884,7 @@ msgid "View hidden chars…"
 msgstr "숨겨진 글자 보기..."
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:194
-#: src/libkommitwidgets/windows/mergewindow.cpp:335
+#: src/libkommitwidgets/windows/mergewindow.cpp:336
 #, kde-format
 msgid "Same size blocks"
 msgstr "같은 크기 블록"
@@ -2904,62 +2904,62 @@ msgstr "트리 표시"
 msgid "Unchanged"
 msgstr "변경하지 않음"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:277
+#: src/libkommitwidgets/windows/mergewindow.cpp:278
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "충돌: %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:285
+#: src/libkommitwidgets/windows/mergewindow.cpp:286
 #, kde-format
 msgid "Keep mine"
 msgstr "내 항목 유지"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:290
+#: src/libkommitwidgets/windows/mergewindow.cpp:291
 #, kde-format
 msgid "Keep their"
 msgstr "상대편 항목 유지"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:296
+#: src/libkommitwidgets/windows/mergewindow.cpp:297
 #, kde-format
 msgid "Keep mine before their"
 msgstr "내 항목 이후에 상대방 항목 유지"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:301
+#: src/libkommitwidgets/windows/mergewindow.cpp:302
 #, kde-format
 msgid "Keep their before mine"
 msgstr "상대편 항목 이후에 내 항목 유지"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:306
+#: src/libkommitwidgets/windows/mergewindow.cpp:307
 #, kde-format
 msgid "Keep my file"
 msgstr "내 파일 유지"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:311
+#: src/libkommitwidgets/windows/mergewindow.cpp:312
 #, kde-format
 msgid "Keep their file"
 msgstr "상대편 파일 유지"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:316
+#: src/libkommitwidgets/windows/mergewindow.cpp:317
 #, kde-format
 msgid "Blocks"
 msgstr "블록"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:320
+#: src/libkommitwidgets/windows/mergewindow.cpp:321
 #, kde-format
 msgid "Files"
 msgstr "파일"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:324
+#: src/libkommitwidgets/windows/mergewindow.cpp:325
 #, kde-format
 msgid "Previous diff"
 msgstr "이전 차이점"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:330
+#: src/libkommitwidgets/windows/mergewindow.cpp:331
 #, kde-format
 msgid "Next diff"
 msgstr "다음 차이점"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:429
+#: src/libkommitwidgets/windows/mergewindow.cpp:430
 #, fuzzy, kde-format
 #| msgid "Unable to open the file"
 msgid "Unable to open the file %1"

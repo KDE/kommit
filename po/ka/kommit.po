@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-18 01:43+0000\n"
+"POT-Creation-Date: 2024-07-25 01:47+0000\n"
 "PO-Revision-Date: 2024-07-07 07:29+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2712,7 +2712,7 @@ msgid "View hidden chars…"
 msgstr ""
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:194
-#: src/libkommitwidgets/windows/mergewindow.cpp:335
+#: src/libkommitwidgets/windows/mergewindow.cpp:336
 #, kde-format
 msgid "Same size blocks"
 msgstr ""
@@ -2732,62 +2732,62 @@ msgstr "ხის ჩვენება"
 msgid "Unchanged"
 msgstr "შეუცვლელი"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:277
+#: src/libkommitwidgets/windows/mergewindow.cpp:278
 #, kde-format
 msgid "Conflicts: %1"
 msgstr "კონფლიქტები: %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:285
+#: src/libkommitwidgets/windows/mergewindow.cpp:286
 #, kde-format
 msgid "Keep mine"
 msgstr "ჩემის შენარჩუნება"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:290
+#: src/libkommitwidgets/windows/mergewindow.cpp:291
 #, kde-format
 msgid "Keep their"
 msgstr "მათის შენარჩუნება"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:296
+#: src/libkommitwidgets/windows/mergewindow.cpp:297
 #, kde-format
 msgid "Keep mine before their"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:301
+#: src/libkommitwidgets/windows/mergewindow.cpp:302
 #, kde-format
 msgid "Keep their before mine"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:306
+#: src/libkommitwidgets/windows/mergewindow.cpp:307
 #, kde-format
 msgid "Keep my file"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:311
+#: src/libkommitwidgets/windows/mergewindow.cpp:312
 #, kde-format
 msgid "Keep their file"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:316
+#: src/libkommitwidgets/windows/mergewindow.cpp:317
 #, kde-format
 msgid "Blocks"
 msgstr "ბლოკები"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:320
+#: src/libkommitwidgets/windows/mergewindow.cpp:321
 #, kde-format
 msgid "Files"
 msgstr "ფაილები"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:324
+#: src/libkommitwidgets/windows/mergewindow.cpp:325
 #, kde-format
 msgid "Previous diff"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:330
+#: src/libkommitwidgets/windows/mergewindow.cpp:331
 #, kde-format
 msgid "Next diff"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:429
+#: src/libkommitwidgets/windows/mergewindow.cpp:430
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr "ფაილის გახსნა შეუძლებელია: %1"
