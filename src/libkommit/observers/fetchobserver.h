@@ -43,6 +43,12 @@ struct FetchTransferStat {
     unsigned int indexedDeltas;
     size_t receivedBytes;
 };
+struct PackProgress {
+    int stage;
+    uint32_t current;
+    uint32_t total;
+};
+
 class LIBKOMMIT_EXPORT FetchObserver : public QObject
 {
     Q_OBJECT
@@ -57,10 +63,10 @@ public:
     Q_REQUIRED_RESULT QString password() const;
 
 Q_SIGNALS:
-
     void message(const QString &message);
     void credentialRequeted(const QString &url, Credential *cred);
-    void transferProgress(FetchTransferStat *stat);
+    void transferProgress(const FetchTransferStat *stat);
+    void packProgress(const PackProgress *p);
     void updateRef(QSharedPointer<Reference> reference, QSharedPointer<Oid> a, QSharedPointer<Oid> b);
     void finished();
 

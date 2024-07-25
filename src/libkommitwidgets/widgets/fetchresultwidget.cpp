@@ -29,6 +29,7 @@ void FetchResultWidget::setObserver(Git::FetchObserver *newObserver)
     connect(newObserver, &Git::FetchObserver::transferProgress, this, &FetchResultWidget::slotTransferProgress);
     connect(newObserver, &Git::FetchObserver::updateRef, this, &FetchResultWidget::slotUpdateRef);
     connect(newObserver, &Git::FetchObserver::finished, this, &FetchResultWidget::slotFinished);
+    connect(newObserver, &Git::FetchObserver::packProgress, this, &FetchResultWidget::slotPackProgress);
 }
 
 void FetchResultWidget::slotMessage(const QString &message)
@@ -48,10 +49,16 @@ void FetchResultWidget::slotCredentialRequeted(const QString &url, Git::Credenti
     }
 }
 
-void FetchResultWidget::slotTransferProgress(Git::FetchTransferStat *stat)
+void FetchResultWidget::slotTransferProgress(const Git::FetchTransferStat *stat)
 {
     progressBar->setMaximum(stat->totalObjects);
     progressBar->setValue(stat->receivedObjects);
+}
+
+void FetchResultWidget::slotPackProgress(const Git::PackProgress *progress)
+{
+    progressBar->setValue(progress->current);
+    progressBar->setMaximum(progress->total);
 }
 
 void FetchResultWidget::slotUpdateRef(QSharedPointer<Git::Reference> reference, QSharedPointer<Git::Oid> a, QSharedPointer<Git::Oid> b)

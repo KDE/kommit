@@ -53,14 +53,18 @@ int git_helper_transfer_progress_cb(const git_indexer_progress *stats, void *pay
     if (!bridge)
         return 0;
 
-    FetchTransferStat stat{stats->total_objects,
-                           stats->indexed_objects,
-                           stats->received_objects,
-                           stats->local_objects,
-                           stats->total_deltas,
-                           stats->indexed_deltas,
-                           stats->received_bytes};
-    Q_EMIT bridge->observer->transferProgress(&stat);
+    static_assert(sizeof(git_indexer_progress) == sizeof(FetchTransferStat));
+
+    auto stat = reinterpret_cast<const FetchTransferStat *>(stats);
+
+    // FetchTransferStat stat{stats->total_objects,
+    //                        stats->indexed_objects,
+    //                        stats->received_objects,
+    //                        stats->local_objects,
+    //                        stats->total_deltas,
+    //                        stats->indexed_deltas,
+    //                        stats->received_bytes};
+    Q_EMIT bridge->observer->transferProgress(stat);
     return 0;
 }
 
@@ -102,11 +106,18 @@ int git_helper_credentials_cb(git_credential **out, const char *url, const char 
 
 int git_helper_packbuilder_progress(int stage, uint32_t current, uint32_t total, void *payload)
 {
+    auto bridge = reinterpret_cast<Git::FetchObserverBridge *>(payload);
+
+    PackProgress p{stage, current, total};
+    Q_EMIT bridge->observer->packProgress(&p);
     return 0;
 }
 
 int git_helper_transport_cb(git_transport **out, git_remote *owner, void *param)
 {
+    Q_UNUSED(out)
+    Q_UNUSED(owner)
+    Q_UNUSED(param)
     return 0;
 }
 

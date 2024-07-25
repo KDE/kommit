@@ -9,6 +9,7 @@ class FetchTransferStat;
 class Reference;
 class Oid;
 class Credential;
+class PackProgress;
 }
 class FetchResultWidget : public QWidget, private Ui::FetchResultWidget
 {
@@ -23,7 +24,8 @@ public:
 private:
     void slotMessage(const QString &message);
     void slotCredentialRequeted(const QString &url, Git::Credential *cred);
-    void slotTransferProgress(Git::FetchTransferStat *stat);
+    void slotTransferProgress(const Git::FetchTransferStat *stat);
+    void slotPackProgress(const Git::PackProgress *progress);
     void slotUpdateRef(QSharedPointer<Git::Reference> reference, QSharedPointer<Git::Oid> a, QSharedPointer<Git::Oid> b);
     void slotFinished();
 

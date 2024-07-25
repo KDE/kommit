@@ -34,7 +34,6 @@ void FetchDialog::setBranch(const QString &branch)
 
 void FetchDialog::slotAccept()
 {
-    //    mGit->fetch(comboBoxRemote->currentText(), mObserver);
     Git::CommandFetch *cmd = new Git::CommandFetch;
 
     cmd->setRemote(comboBoxRemote->currentText());

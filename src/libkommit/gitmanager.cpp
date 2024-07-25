@@ -232,9 +232,15 @@ bool Manager::fetch(const QString &remoteName, FetchObserver *observer)
 
 bool Manager::isIgnored(const QString &path)
 {
-    auto tmp = readAllNonEmptyOutput({QStringLiteral("check-ignore"), path});
-    qCDebug(KOMMITLIB_LOG) << Q_FUNC_INFO << tmp;
-    return !tmp.empty();
+    Q_D(Manager);
+
+    BEGIN;
+    int isIgnored;
+    STEP git_ignore_path_is_ignored(&isIgnored, d->repo, path.toUtf8().data());
+
+    if (IS_ERROR)
+        return false;
+    return !isIgnored;
 }
 
 QPair<int, int> Manager::uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const

@@ -6,13 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "libkommitwidgets_export.h"
-
 #include <QStringList>
 #include <QVersionNumber>
 
 class ChangeLogsDataPrivate;
-class LIBKOMMITWIDGETS_EXPORT ChangeLogsData
+class ChangeLogsData
 {
 public:
     ChangeLogsData();
