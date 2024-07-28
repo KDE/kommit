@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-25 01:47+0000\n"
-"PO-Revision-Date: 2024-07-16 21:47+0200\n"
+"PO-Revision-Date: 2024-07-27 16:22+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -303,12 +303,10 @@ msgid "Diff tree…"
 msgstr "Dif-i arbon…"
 
 #: src/gui/appwindow.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Change url…"
+#, kde-format
 msgctxt "@action"
 msgid "Change logs…"
-msgstr "Ŝanĝi URL…"
+msgstr "Ŝanĝi protokolojn…"
 
 #: src/gui/appwindow.cpp:279
 #, kde-format
@@ -343,35 +341,33 @@ msgstr "Ŝanĝi branĉon"
 #: src/gui/changelogsdata.cpp:46
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "Versio"
 
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Improve graph painting"
-msgstr ""
+msgstr "Plibonigi pentradon de grafeoj"
 
 #: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
-msgstr ""
+msgstr "Plibonigi kommit-bibliotekon (forigi ekstrajn dependecojn kiel kf)"
 
 #: src/gui/changelogsdata.cpp:66
 #, kde-format
 msgid "Add changes logs dialog"
-msgstr ""
+msgstr "Aldoni dialogon pri ŝanĝprotokoloj"
 
 #: src/gui/changelogsdata.cpp:67
 #, kde-format
 msgid "Fix many small bugs"
-msgstr ""
+msgstr "Ripari multajn cimetojn"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change url"
+#, kde-format
 msgid "Change logs"
-msgstr "Ŝanĝi URL"
+msgstr "Ŝanĝi protokolojn"
 
 #: src/gui/commandargsparser.cpp:76
 #, kde-format

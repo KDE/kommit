@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-25 01:47+0000\n"
-"PO-Revision-Date: 2024-06-29 09:42+0200\n"
+"PO-Revision-Date: 2024-07-27 10:12+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -303,12 +303,10 @@ msgid "Diff tree…"
 msgstr "Różnica pomiędzy drzewami…"
 
 #: src/gui/appwindow.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Change url…"
+#, kde-format
 msgctxt "@action"
 msgid "Change logs…"
-msgstr "Zmień adres URL…"
+msgstr "Dzienniki zmian…"
 
 #: src/gui/appwindow.cpp:279
 #, kde-format
@@ -343,34 +341,34 @@ msgstr "Przełącz gałąź"
 #: src/gui/changelogsdata.cpp:46
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "Wersja"
 
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Improve graph painting"
-msgstr ""
+msgstr "Ulepszenie malowania grafów"
 
 #: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
 msgstr ""
+"Ulepszono bibliotekę kommit (usunięto dodatkowe zależności, takie jak kf)"
 
 #: src/gui/changelogsdata.cpp:66
 #, kde-format
 msgid "Add changes logs dialog"
-msgstr ""
+msgstr "Dodano okno dziennika zmian"
 
 #: src/gui/changelogsdata.cpp:67
 #, kde-format
 msgid "Fix many small bugs"
-msgstr ""
+msgstr "Naprawiono wiele małych błędów"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgid "Change logs"
-msgstr "Zmień adres URL"
+msgstr "Dzienniki zmian"
 
 #: src/gui/commandargsparser.cpp:76
 #, kde-format
@@ -398,8 +396,7 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "Czy pozostawić plik(i) na dysku?"
 
 #: src/gui/commandargsparser.cpp:576
-#, fuzzy, kde-format
-#| msgid "Remove from index"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Usuń z indeksu"
@@ -944,8 +941,7 @@ msgid "Remove…"
 msgstr "Usuń…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:67
-#, fuzzy, kde-format
-#| msgid "Create new branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "Utwórz nową gałąź"
@@ -1080,8 +1076,7 @@ msgid "Unable to remove the selected remote"
 msgstr "Nie można usunąć zaznaczonego źródła zdalnego"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:71
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "Zmień adres URL"
@@ -1097,8 +1092,7 @@ msgid "Url for remote changed successfully"
 msgstr "Pomyślnie zmieniono adres URL dla repozytorium zdalnego"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:80
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "Przemianuj"
@@ -1175,16 +1169,14 @@ msgstr "Nie masz żadnych zmian!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:61
-#, fuzzy, kde-format
-#| msgid "Stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stash"
 msgstr "Schowek"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
-#, fuzzy, kde-format
-#| msgid "Create new stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Utwórz nowe składowisko"
@@ -1249,11 +1241,10 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr "Czy na pewno pobrać wersję wyjściową zaznaczonego znacznika?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:50
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
-msgstr "Pobierz wersję wyjściową"
+msgstr "Przełącz"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
@@ -2343,7 +2334,7 @@ msgstr "Proces ukończył z błędem"
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
 #, kde-format
 msgid "%1: (Elapsed time: %2)"
-msgstr ""
+msgstr "%1: (Czas trwania: %2)"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14
@@ -2448,8 +2439,7 @@ msgid "The selected branches must be different!"
 msgstr "Zaznaczone gałęzie muszą się różnić!"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:43
-#, fuzzy, kde-format
-#| msgid "Select Branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
 msgstr "Zaznacz gałęzie"
@@ -2714,7 +2704,7 @@ msgstr "Ref:"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:109
 #, kde-format
 msgid "Refs:"
-msgstr ""
+msgstr "Odniesienia:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
@@ -2782,22 +2772,21 @@ msgstr "Ukryj niezmienione"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Reference branch:"
+#, kde-format
 msgid "Reference"
-msgstr "Gałąź odniesienia:"
+msgstr "Odwołanie"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
 #, kde-format
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
 #, kde-format
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
@@ -2899,10 +2888,9 @@ msgid "Next diff"
 msgstr "Następna różnica"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:430
-#, fuzzy, kde-format
-#| msgid "Unable to open the file"
+#, kde-format
 msgid "Unable to open the file %1"
-msgstr "Nie można otworzyć pliku"
+msgstr "Nie można otworzyć pliku %1"
 
 #~ msgctxt "@action"
 #~ msgid "Note…"
