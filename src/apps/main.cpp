@@ -44,7 +44,6 @@ int main(int argc, char **argv)
     QApplication application(argc, argv);
 
     KLocalizedString::setApplicationDomain("kommit");
-    KCrash::initialize();
 #if HAVE_STYLE_MANAGER
     KStyleManager::initStyle();
 #else // !HAVE_STYLE_MANAGER
@@ -64,6 +63,7 @@ int main(int argc, char **argv)
     aboutData.setDesktopFileName(QStringLiteral("org.kde.kommit"));
 
     KAboutData::setApplicationData(aboutData);
+    KCrash::initialize();
     application.setWindowIcon(QIcon::fromTheme(QStringLiteral("kommit")));
 
     QCommandLineParser parser;
