@@ -42,7 +42,7 @@ include(ECMDeprecationSettings)
 
 if(QT_MAJOR_VERSION STREQUAL "6")
     set(QT_MIN_VERSION "6.4.0")
-    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MIN_VERSION "6.3.0")
     set(KF_MAJOR_VERSION "6")
 else()
     set(KF_MAJOR_VERSION "5")
@@ -102,7 +102,7 @@ add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
 
 configure_file(config-kommit.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kommit.h)
 
-ecm_set_disabled_deprecation_versions(QT 5.15.2 KF 6.3)
+ecm_set_disabled_deprecation_versions(QT 5.15.2 KF 6.5)
 
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
 
