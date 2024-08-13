@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-25 01:47+0000\n"
+"POT-Creation-Date: 2024-08-13 01:47+0000\n"
 "PO-Revision-Date: 2023-12-08 19:34+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -142,7 +142,7 @@ msgid "Diff branches"
 msgstr "Vetvy"
 
 #: dolphinplugins/dolphinplugin.cpp:31 dolphinplugins/dolphinplugin.cpp:35
-#: src/apps/main.cpp:56
+#: src/apps/main.cpp:55
 #, fuzzy, kde-format
 #| msgid "Commit"
 msgid "Kommit"
@@ -158,37 +158,37 @@ msgstr ""
 msgid "Push/Commit to submodule %1"
 msgstr ""
 
-#: src/apps/main.cpp:58
+#: src/apps/main.cpp:57
 #, kde-format
 msgid "Git client gui for KDE"
 msgstr "Git client gui pre KDE"
 
-#: src/apps/main.cpp:60
+#: src/apps/main.cpp:59
 #, fuzzy, kde-format
 #| msgid "Copyright 2021, Hamed Masafi <hamed.masafi@gmail.com>"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:62 src/libkommitwidgets/models/commitsmodel.cpp:298
+#: src/apps/main.cpp:61 src/libkommitwidgets/models/commitsmodel.cpp:298
 #: src/libkommitwidgets/reports/authorsreport.cpp:82
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: src/apps/main.cpp:62
+#: src/apps/main.cpp:61
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr ""
 
-#: src/apps/main.cpp:63
+#: src/apps/main.cpp:62
 #, fuzzy, kde-format
 #| msgid "Laurent Montel"
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/apps/main.cpp:63
+#: src/apps/main.cpp:62
 #, kde-format
 msgid "Bug fixing"
 msgstr "Oprava chýb"
