@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 01:47+0000\n"
-"PO-Revision-Date: 2024-02-09 23:51+0100\n"
+"PO-Revision-Date: 2024-08-19 23:42+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -150,13 +150,12 @@ msgstr "Kommit"
 #: dolphinplugins/dolphinplugin.cpp:101
 #, kde-format
 msgid "Push/Commit to %1"
-msgstr ""
+msgstr "%1에 푸시/커밋"
 
 #: dolphinplugins/dolphinplugin.cpp:103
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgid "Push/Commit to submodule %1"
-msgstr "커밋/푸시"
+msgstr "하위 모듈 %1에 푸시/커밋"
 
 #: src/apps/main.cpp:57
 #, kde-format
@@ -164,10 +163,9 @@ msgid "Git client gui for KDE"
 msgstr "KDE의 Git 클라이언트 GUI"
 
 #: src/apps/main.cpp:59
-#, fuzzy, kde-format
-#| msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+#, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:61 src/libkommitwidgets/models/commitsmodel.cpp:298
 #: src/libkommitwidgets/reports/authorsreport.cpp:82
@@ -176,15 +174,13 @@ msgid "Author"
 msgstr "작성자"
 
 #: src/apps/main.cpp:61
-#, fuzzy, kde-format
-#| msgid "Hamed Masafi"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:62
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
@@ -244,8 +240,7 @@ msgid "Changed files…"
 msgstr "변경된 파일"
 
 #: src/gui/appwindow.cpp:196
-#, fuzzy, kde-format
-#| msgid "Recent repos"
+#, kde-format
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "최근 저장소"
@@ -361,7 +356,7 @@ msgstr "브랜치 전환"
 #: src/gui/changelogsdata.cpp:46
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "버전"
 
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
@@ -417,8 +412,7 @@ msgid "Would you like to leave file(s) on disk?"
 msgstr "디스크에 파일을 유지하시겠습니까?"
 
 #: src/gui/commandargsparser.cpp:576
-#, fuzzy, kde-format
-#| msgid "Remove from index"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "색인에서 삭제"
@@ -655,10 +649,9 @@ msgstr "상태"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
 #: src/gui/pages/reportswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Reports"
-msgstr "저장소"
+msgstr "보고서"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:33
@@ -683,7 +676,7 @@ msgstr "일반 보기"
 #: src/gui/pages/reportswidget.ui:53
 #, kde-format
 msgid "Chart"
-msgstr ""
+msgstr "차트"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:80
@@ -695,7 +688,7 @@ msgstr ""
 #: src/gui/pages/reportswidget.ui:83
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "새로 고침"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
 #: src/gui/pages/stasheswidget.ui:14
@@ -938,15 +931,13 @@ msgid "Create…"
 msgstr "만들기..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:34
-#, fuzzy, kde-format
-#| msgid "Browse"
+#, kde-format
 msgctxt "@action"
 msgid "Browse…"
-msgstr "찾아보기"
+msgstr "찾아보기..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
-#, fuzzy, kde-format
-#| msgid "Switch"
+#, kde-format
 msgctxt "@action"
 msgid "Switch"
 msgstr "전환"
@@ -969,8 +960,7 @@ msgid "Remove…"
 msgstr "삭제"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:67
-#, fuzzy, kde-format
-#| msgid "Create new branch"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new branch"
 msgstr "새 브랜치 만들기"
@@ -981,8 +971,7 @@ msgid "Branch name"
 msgstr "브랜치 이름"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
-#, fuzzy, kde-format
-#| msgid "Remove Branch"
+#, kde-format
 msgid "Remove Branch"
 msgstr "브랜치 삭제"
 
@@ -1008,8 +997,7 @@ msgid "Browse"
 msgstr "찾아보기"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Checkout"
 msgstr "체크아웃"
@@ -1018,8 +1006,7 @@ msgstr "체크아웃"
 #: src/libkommitwidgets/actions/fileactions.cpp:47
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
-#, fuzzy, kde-format
-#| msgid "Diff with working dir"
+#, kde-format
 msgctxt "@action"
 msgid "Diff with working dir"
 msgstr "작업 디렉터리와 Diff"
@@ -1032,8 +1019,7 @@ msgid "Note"
 msgstr "메모"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Preview"
+#, kde-format
 msgctxt "@action"
 msgid "Preview"
 msgstr "미리 보기"
@@ -1046,15 +1032,13 @@ msgid "Open"
 msgstr "열기"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:45
-#, fuzzy, kde-format
-#| msgid "Open with..."
+#, kde-format
 msgctxt "@action"
 msgid "Open with…"
-msgstr "다음으로 열기..."
+msgstr "다음으로 열기…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
-#, fuzzy, kde-format
-#| msgid "Merge with working dir"
+#, kde-format
 msgctxt "@action"
 msgid "Merge with working dir"
 msgstr "작업 디렉터리와 합치기"
@@ -1074,8 +1058,7 @@ msgid "Log"
 msgstr "로그"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:52
-#, fuzzy, kde-format
-#| msgid "Blame"
+#, kde-format
 msgctxt "@action"
 msgid "Blame"
 msgstr "블레임"
@@ -1111,8 +1094,7 @@ msgid "Are you sure to remove the selected remote?"
 msgstr "선택한 리모트를 삭제하시겠습니까?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:57
-#, fuzzy, kde-format
-#| msgid "Remove remote?"
+#, kde-format
 msgid "Remove remote?"
 msgstr "리모트 삭제?"
 
@@ -1122,8 +1104,7 @@ msgid "Unable to remove the selected remote"
 msgstr "선택한 리모트를 삭제할 수 없음"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:71
-#, fuzzy, kde-format
-#| msgid "Change url"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "URL 변경"
@@ -1176,8 +1157,7 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "선택한 스태시를 적용하시겠습니까?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Apply stash %1"
+#, kde-format
 msgid "Apply stash %1"
 msgstr "스태시 %1 적용"
 
@@ -1192,8 +1172,7 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "선택한 스태시를 드롭하시겠습니까?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Drop stash %1"
+#, kde-format
 msgid "Drop stash %1"
 msgstr "스태시 %1 드롭"
 
@@ -1209,8 +1188,7 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "선택한 스태시를 팝하시겠습니까?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:54
-#, fuzzy, kde-format
-#| msgid "Pop stash %1"
+#, kde-format
 msgid "Pop stash %1"
 msgstr "스태시 %1 팝"
 
@@ -1230,8 +1208,7 @@ msgstr "스태시"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
-#, fuzzy, kde-format
-#| msgid "Create new stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "새 스태시 만들기"
@@ -1289,8 +1266,7 @@ msgid "Are you sure to remove the selected tag?"
 msgstr "선택한 태그를 삭제하시겠습니까?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Remove tag"
+#, kde-format
 msgid "Remove tag"
 msgstr "태그 삭제"
 
@@ -1300,8 +1276,7 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr "선택한 태그를 체크아웃하시겠습니까?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:50
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
 msgstr "체크아웃"
@@ -1349,8 +1324,7 @@ msgid "Commit/Push submodule: %1"
 msgstr "커밋/푸시"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgctxt "@action"
 msgid "Commit/Push"
 msgstr "커밋/푸시"
@@ -1888,7 +1862,7 @@ msgstr "파일 탐색: %1"
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:119
 #, kde-format
 msgid "Extract to"
-msgstr ""
+msgstr "압축 풀 위치"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:125
 #, fuzzy, kde-format
@@ -1904,7 +1878,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:153
 #, kde-format
 msgid "Extract"
-msgstr ""
+msgstr "압축 풀기"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/filestreedialog.ui:31
@@ -2507,8 +2481,7 @@ msgid "The selected branches must be different!"
 msgstr "선택한 브랜치는 서로 달라야 합니다!"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:43
-#, fuzzy, kde-format
-#| msgid "Select Branches"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
 msgstr "브랜치 선택"
@@ -2673,37 +2646,37 @@ msgstr ""
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:22
 #, kde-format
 msgid "Monday"
-msgstr ""
+msgstr "월요일"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:24
 #, kde-format
 msgid "Tuesday"
-msgstr ""
+msgstr "화요일"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:26
 #, kde-format
 msgid "Wednesday"
-msgstr ""
+msgstr "수요일"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:28
 #, kde-format
 msgid "Thursday"
-msgstr ""
+msgstr "목요일"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:30
 #, kde-format
 msgid "Friday"
-msgstr ""
+msgstr "금요일"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:32
 #, kde-format
 msgid "Saturday"
-msgstr ""
+msgstr "토요일"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:34
 #, kde-format
 msgid "Sunday"
-msgstr ""
+msgstr "일요일"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:79
 #, kde-format
@@ -2841,10 +2814,9 @@ msgstr "변경되지 않은 항목 숨기기"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Reference branch:"
+#, kde-format
 msgid "Reference"
-msgstr "참조 브랜치:"
+msgstr "참조"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
@@ -2856,7 +2828,7 @@ msgstr ""
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
 #, kde-format
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
