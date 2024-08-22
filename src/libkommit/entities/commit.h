@@ -33,25 +33,25 @@ public:
     explicit Commit(git_commit *commit);
     ~Commit();
 
-    Q_REQUIRED_RESULT QSharedPointer<Signature> author();
-    Q_REQUIRED_RESULT QSharedPointer<Signature> committer();
-    Q_REQUIRED_RESULT QString message() const;
-    Q_REQUIRED_RESULT QString body() const;
-    Q_REQUIRED_RESULT const QString &commitHash() const;
-    Q_REQUIRED_RESULT const QStringList &parents() const;
-    Q_REQUIRED_RESULT QSharedPointer<Branch> branch() const;
-    Q_REQUIRED_RESULT const QStringList &children() const;
-    Q_REQUIRED_RESULT const QString &commitShortHash() const;
-    Q_REQUIRED_RESULT QDateTime commitTime() const;
+    [[nodiscard]] QSharedPointer<Signature> author();
+    [[nodiscard]] QSharedPointer<Signature> committer();
+    [[nodiscard]] QString message() const;
+    [[nodiscard]] QString body() const;
+    [[nodiscard]] const QString &commitHash() const;
+    [[nodiscard]] const QStringList &parents() const;
+    [[nodiscard]] QSharedPointer<Branch> branch() const;
+    [[nodiscard]] const QStringList &children() const;
+    [[nodiscard]] const QString &commitShortHash() const;
+    [[nodiscard]] QDateTime commitTime() const;
 
-    Q_REQUIRED_RESULT QList<QSharedPointer<Reference>> references() const;
+    [[nodiscard]] QList<QSharedPointer<Reference>> references() const;
 
-    Q_REQUIRED_RESULT QSharedPointer<Tree> tree() const override;
-    Q_REQUIRED_RESULT QString treeTitle() const override;
+    [[nodiscard]] QSharedPointer<Tree> tree() const override;
+    [[nodiscard]] QString treeTitle() const override;
 
-    Q_REQUIRED_RESULT git_commit *gitCommit() const;
+    [[nodiscard]] git_commit *gitCommit() const;
 
-    Q_REQUIRED_RESULT QSharedPointer<Note> note();
+    [[nodiscard]] QSharedPointer<Note> note();
     bool createNote(const QString &message);
     QSharedPointer<Oid> oid() const override;
 

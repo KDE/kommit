@@ -24,9 +24,9 @@ class LIBKOMMIT_EXPORT Note : public IOid
 public:
     explicit Note(git_note *note);
 
-    Q_REQUIRED_RESULT QSharedPointer<Signature> author() const;
-    Q_REQUIRED_RESULT QSharedPointer<Signature> committer() const;
-    Q_REQUIRED_RESULT QString message() const;
+    [[nodiscard]] QSharedPointer<Signature> author() const;
+    [[nodiscard]] QSharedPointer<Signature> committer() const;
+    [[nodiscard]] QString message() const;
     QSharedPointer<Oid> oid() const override;
 
 private:

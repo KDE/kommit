@@ -24,15 +24,15 @@ public:
     ~RepositoryData() override;
     void loadAll();
 
-    Q_REQUIRED_RESULT Git::Manager *manager() const;
+    [[nodiscard]] Git::Manager *manager() const;
 
-    Q_REQUIRED_RESULT SubmodulesModel *submodulesModel() const;
+    [[nodiscard]] SubmodulesModel *submodulesModel() const;
 
-    Q_REQUIRED_RESULT RemotesModel *remotesModel() const;
-    Q_REQUIRED_RESULT BranchesModel *branchesModel() const;
-    Q_REQUIRED_RESULT CommitsModel *commitsModel() const;
-    Q_REQUIRED_RESULT StashesModel *stashesModel() const;
-    Q_REQUIRED_RESULT TagsModel *tagsModel() const;
+    [[nodiscard]] RemotesModel *remotesModel() const;
+    [[nodiscard]] BranchesModel *branchesModel() const;
+    [[nodiscard]] CommitsModel *commitsModel() const;
+    [[nodiscard]] StashesModel *stashesModel() const;
+    [[nodiscard]] TagsModel *tagsModel() const;
 
 private:
     Git::Manager *const mManager;

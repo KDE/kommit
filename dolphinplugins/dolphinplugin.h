@@ -34,12 +34,12 @@ public:
     explicit DolphinPlugin(QObject *parent, const QList<QVariant> &args);
     ~DolphinPlugin();
 
-    Q_REQUIRED_RESULT QString fileName() const override;
+    [[nodiscard]] QString fileName() const override;
     bool beginRetrieval(const QString &directory) override;
     void endRetrieval() override;
     ItemVersion itemVersion(const KFileItem &item) const override;
-    Q_REQUIRED_RESULT QList<QAction *> versionControlActions(const KFileItemList &items) const override;
-    Q_REQUIRED_RESULT QList<QAction *> outOfVersionControlActions(const KFileItemList &items) const override;
+    [[nodiscard]] QList<QAction *> versionControlActions(const KFileItemList &items) const override;
+    [[nodiscard]] QList<QAction *> outOfVersionControlActions(const KFileItemList &items) const override;
 
 private Q_SLOTS:
 #define f(name, text, args, icon) void name##Clicked();

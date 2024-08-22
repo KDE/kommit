@@ -21,10 +21,10 @@ class LIBKOMMITWIDGETS_EXPORT RemotesActions : public AbstractActions
 public:
     explicit RemotesActions(Git::Manager *git, QWidget *parent = nullptr);
 
-    Q_REQUIRED_RESULT const QString &remoteName() const;
+    [[nodiscard]] const QString &remoteName() const;
     void setRemoteName(const QString &newRemoteName);
 
-    Q_REQUIRED_RESULT QSharedPointer<Git::Remote> remote() const;
+    [[nodiscard]] QSharedPointer<Git::Remote> remote() const;
     void setRemote(QSharedPointer<Git::Remote> newRemote);
 
 private:

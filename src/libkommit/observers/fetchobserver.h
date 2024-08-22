@@ -59,8 +59,8 @@ public:
     void applyOfFetchOptions(git_fetch_options *opts);
 
     void setCredential(const QString &username, const QString &password);
-    Q_REQUIRED_RESULT QString username() const;
-    Q_REQUIRED_RESULT QString password() const;
+    [[nodiscard]] QString username() const;
+    [[nodiscard]] QString password() const;
 
 Q_SIGNALS:
     void message(const QString &message);

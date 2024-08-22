@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/types.h>
 namespace Impl
 {
-Q_REQUIRED_RESULT QString removeSlashAtEnd(const QString &s);
+[[nodiscard]] QString removeSlashAtEnd(const QString &s);
 }
 
 class QFileInfo;
@@ -22,14 +22,14 @@ class StatusCache
 public:
     StatusCache();
 
-    Q_REQUIRED_RESULT KVersionControlPlugin::ItemVersion status(const QString &name);
+    [[nodiscard]] KVersionControlPlugin::ItemVersion status(const QString &name);
     bool setPath(const QString &path);
-    Q_REQUIRED_RESULT QString currentBranch() const;
-    Q_REQUIRED_RESULT QStringList submodules() const;
+    [[nodiscard]] QString currentBranch() const;
+    [[nodiscard]] QStringList submodules() const;
 
-    Q_REQUIRED_RESULT QString repoRootPath() const;
+    [[nodiscard]] QString repoRootPath() const;
 
-    Q_REQUIRED_RESULT QString submoduleName() const;
+    [[nodiscard]] QString submoduleName() const;
 
 private:
     QString mRepoRootPath;

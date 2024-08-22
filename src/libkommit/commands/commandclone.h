@@ -18,22 +18,22 @@ class LIBKOMMIT_EXPORT CloneCommand : public AbstractCommand
 public:
     explicit CloneCommand(QObject *parent = nullptr);
 
-    Q_REQUIRED_RESULT const QString &repoUrl() const;
+    [[nodiscard]] const QString &repoUrl() const;
     void setRepoUrl(const QString &newRepoUrl);
-    Q_REQUIRED_RESULT const QString &localPath() const;
+    [[nodiscard]] const QString &localPath() const;
     void setLocalPath(const QString &newLocalPath);
-    Q_REQUIRED_RESULT const QString &branch() const;
+    [[nodiscard]] const QString &branch() const;
     void setBranch(const QString &newBranch);
-    Q_REQUIRED_RESULT int depth() const;
+    [[nodiscard]] int depth() const;
     void setDepth(int newDepth);
-    Q_REQUIRED_RESULT const QString &origin() const;
+    [[nodiscard]] const QString &origin() const;
     void setOrigin(const QString &newOrigin);
-    Q_REQUIRED_RESULT bool recursive() const;
+    [[nodiscard]] bool recursive() const;
     void setRecursive(bool newRecursive);
 
-    Q_REQUIRED_RESULT QStringList generateArgs() const override;
+    [[nodiscard]] QStringList generateArgs() const override;
     void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput) override;
-    Q_REQUIRED_RESULT bool supportProgress() const override;
+    [[nodiscard]] bool supportProgress() const override;
 
 private:
     QString mRepoUrl;

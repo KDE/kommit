@@ -45,7 +45,7 @@ public:
     };
     explicit ReportWidget(AbstractReport *report, QWidget *parent = nullptr);
 
-    Q_REQUIRED_RESULT int showMode() const;
+    [[nodiscard]] int showMode() const;
     void setShowMode(int showMode);
 
     void reload();

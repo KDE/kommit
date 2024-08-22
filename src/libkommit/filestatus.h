@@ -34,10 +34,10 @@ public:
     explicit FileStatus(QString name, Status status);
 
     const QString &name() const;
-    Q_REQUIRED_RESULT Status status() const;
+    [[nodiscard]] Status status() const;
 
     void parseStatusLine(const QString &line);
-    Q_REQUIRED_RESULT const QString &fullPath() const;
+    [[nodiscard]] const QString &fullPath() const;
 
     void setFullPath(const QString &newFullPath);
 

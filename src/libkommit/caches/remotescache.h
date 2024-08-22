@@ -26,13 +26,13 @@ public:
     QList<QSharedPointer<Remote>> allRemotes();
     QStringList allNames();
     QSharedPointer<Remote> findByName(const QString &name);
-    Q_REQUIRED_RESULT bool create(const QString &name, const QString &url);
-    Q_REQUIRED_RESULT bool setUrl(DataMember remote, const QString &url);
+    [[nodiscard]] bool create(const QString &name, const QString &url);
+    [[nodiscard]] bool setUrl(DataMember remote, const QString &url);
 
-    Q_REQUIRED_RESULT bool remove(QSharedPointer<Remote> remote);
-    Q_REQUIRED_RESULT bool remove(const QString &name) const;
+    [[nodiscard]] bool remove(QSharedPointer<Remote> remote);
+    [[nodiscard]] bool remove(const QString &name) const;
 
-    Q_REQUIRED_RESULT bool rename(QSharedPointer<Remote> remote, const QString &newName);
+    [[nodiscard]] bool rename(QSharedPointer<Remote> remote, const QString &newName);
 
 protected:
     void clearChildData() override;

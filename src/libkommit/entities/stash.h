@@ -27,10 +27,10 @@ public:
     Stash(Manager *manager, size_t index, const char *message, const git_oid *stash_id);
     ~Stash();
 
-    Q_REQUIRED_RESULT const QString &message() const;
-    Q_REQUIRED_RESULT QSharedPointer<Commit> commit();
-    Q_REQUIRED_RESULT size_t index() const;
-    Q_REQUIRED_RESULT QSharedPointer<Oid> oid() const override;
+    [[nodiscard]] const QString &message() const;
+    [[nodiscard]] QSharedPointer<Commit> commit();
+    [[nodiscard]] size_t index() const;
+    [[nodiscard]] QSharedPointer<Oid> oid() const override;
 
 private:
     StashPrivate *d_ptr;

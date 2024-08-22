@@ -35,13 +35,13 @@ public:
     explicit Tree(git_tree *tree);
     ~Tree();
 
-    Q_REQUIRED_RESULT QList<Entry> entries(const QString &path) const;
-    Q_REQUIRED_RESULT QStringList entries(const QString &path, EntryType filter) const;
-    Q_REQUIRED_RESULT QStringList entries(EntryType filter) const;
+    [[nodiscard]] QList<Entry> entries(const QString &path) const;
+    [[nodiscard]] QStringList entries(const QString &path, EntryType filter) const;
+    [[nodiscard]] QStringList entries(EntryType filter) const;
     QSharedPointer<File> file(const QString &path);
 
-    Q_REQUIRED_RESULT git_tree *gitTree() const;
-    Q_REQUIRED_RESULT bool extract(const QString &destinationFolder, const QString &prefix = {});
+    [[nodiscard]] git_tree *gitTree() const;
+    [[nodiscard]] bool extract(const QString &destinationFolder, const QString &prefix = {});
     QSharedPointer<Oid> oid() const override;
 
 private:

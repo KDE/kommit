@@ -18,18 +18,18 @@ class LIBKOMMIT_EXPORT AddSubmoduleCommand : public AbstractCommand
 public:
     explicit AddSubmoduleCommand(Manager *git);
 
-    Q_REQUIRED_RESULT QStringList generateArgs() const override;
+    [[nodiscard]] QStringList generateArgs() const override;
 
-    Q_REQUIRED_RESULT bool force() const;
+    [[nodiscard]] bool force() const;
     void setForce(bool newForce);
 
-    Q_REQUIRED_RESULT QString branch() const;
+    [[nodiscard]] QString branch() const;
     void setbranch(const QString &newbranch);
 
-    Q_REQUIRED_RESULT const QString &url() const;
+    [[nodiscard]] const QString &url() const;
     void setUrl(const QString &newUrl);
 
-    Q_REQUIRED_RESULT const QString &localPath() const;
+    [[nodiscard]] const QString &localPath() const;
     void setLocalPath(const QString &newLocalPath);
 
 private:

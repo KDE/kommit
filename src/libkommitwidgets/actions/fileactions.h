@@ -22,13 +22,13 @@ public:
     explicit FileActions(Git::Manager *git, QWidget *parent = nullptr);
     void popup(const QPoint &pos);
 
-    Q_REQUIRED_RESULT const QString &place() const;
+    [[nodiscard]] const QString &place() const;
     void setPlace(const QString &newPlace);
 
-    Q_REQUIRED_RESULT const QString &filePath() const;
+    [[nodiscard]] const QString &filePath() const;
     void setFilePath(const QString &newFilePath);
 
-    Q_REQUIRED_RESULT QSharedPointer<Git::File> file() const;
+    [[nodiscard]] QSharedPointer<Git::File> file() const;
     void setFile(QSharedPointer<Git::File> file);
 
 private:

@@ -18,7 +18,7 @@ class FetchResultWidget : public QWidget, private Ui::FetchResultWidget
 public:
     explicit FetchResultWidget(QWidget *parent = nullptr);
 
-    Q_REQUIRED_RESULT Git::FetchObserver *observer() const;
+    [[nodiscard]] Git::FetchObserver *observer() const;
     void setObserver(Git::FetchObserver *newObserver);
 
 private:

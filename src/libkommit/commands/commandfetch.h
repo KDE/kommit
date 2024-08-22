@@ -16,29 +16,29 @@ class LIBKOMMIT_EXPORT CommandFetch : public AbstractCommand
 public:
     CommandFetch();
 
-    Q_REQUIRED_RESULT QStringList generateArgs() const override;
+    [[nodiscard]] QStringList generateArgs() const override;
 
-    Q_REQUIRED_RESULT bool noFf() const;
+    [[nodiscard]] bool noFf() const;
     void setNoFf(bool newNoFf);
 
-    Q_REQUIRED_RESULT bool ffOnly() const;
+    [[nodiscard]] bool ffOnly() const;
     void setFfOnly(bool newFfOnly);
 
-    Q_REQUIRED_RESULT bool noCommit() const;
+    [[nodiscard]] bool noCommit() const;
     void setNoCommit(bool newNoCommit);
 
-    Q_REQUIRED_RESULT bool prune() const;
+    [[nodiscard]] bool prune() const;
     void setPrune(bool newPrune);
 
-    Q_REQUIRED_RESULT bool tags() const;
+    [[nodiscard]] bool tags() const;
     void setTags(bool newTags);
 
     void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput) override;
 
-    Q_REQUIRED_RESULT const QString &remote() const;
+    [[nodiscard]] const QString &remote() const;
     void setRemote(const QString &newRemote);
 
-    Q_REQUIRED_RESULT const QString &branch() const;
+    [[nodiscard]] const QString &branch() const;
     void setBranch(const QString &newBranch);
 
 private:

@@ -19,14 +19,14 @@ namespace Diff
 QStringList take(QStringList &list, int count);
 int remove(QStringList &list, int count);
 
-Q_REQUIRED_RESULT QList<DiffSegment *> LIBKOMMITDIFF_EXPORT diff(const QString &oldText, const QString &newText);
-Q_REQUIRED_RESULT QList<DiffSegment *> LIBKOMMITDIFF_EXPORT diff(const QStringList &oldText, const QStringList &newText);
+[[nodiscard]] QList<DiffSegment *> LIBKOMMITDIFF_EXPORT diff(const QString &oldText, const QString &newText);
+[[nodiscard]] QList<DiffSegment *> LIBKOMMITDIFF_EXPORT diff(const QStringList &oldText, const QStringList &newText);
 
-Q_REQUIRED_RESULT Diff2Result LIBKOMMITDIFF_EXPORT diff2(const QString &oldText, const QString &newText);
+[[nodiscard]] Diff2Result LIBKOMMITDIFF_EXPORT diff2(const QString &oldText, const QString &newText);
 
-Q_REQUIRED_RESULT Diff3Result LIBKOMMITDIFF_EXPORT diff3(const QString &base, const QString &local, const QString &remote);
-Q_REQUIRED_RESULT QList<MergeSegment *> LIBKOMMITDIFF_EXPORT diff3(const QStringList &base, const QStringList &local, const QStringList &remote);
+[[nodiscard]] Diff3Result LIBKOMMITDIFF_EXPORT diff3(const QString &base, const QString &local, const QString &remote);
+[[nodiscard]] QList<MergeSegment *> LIBKOMMITDIFF_EXPORT diff3(const QStringList &base, const QStringList &local, const QStringList &remote);
 
-Q_REQUIRED_RESULT QMap<QString, DiffType> LIBKOMMITDIFF_EXPORT diffDirs(const QString &dir1, const QString &dir2);
+[[nodiscard]] QMap<QString, DiffType> LIBKOMMITDIFF_EXPORT diffDirs(const QString &dir1, const QString &dir2);
 
 } // namespace Diff

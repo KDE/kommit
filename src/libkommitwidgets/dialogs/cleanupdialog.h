@@ -21,5 +21,5 @@ class LIBKOMMITWIDGETS_EXPORT CleanupDialog : public AppDialog, private Ui::Clea
 public:
     explicit CleanupDialog(QWidget *parent = nullptr);
 
-    Q_REQUIRED_RESULT Git::CommandClean *command() const;
+    [[nodiscard]] Git::CommandClean *command() const;
 };

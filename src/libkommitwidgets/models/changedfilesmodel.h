@@ -20,14 +20,14 @@ public:
     explicit ChangedFilesModel(Git::Manager *git, bool checkable = false, QObject *parent = nullptr);
     void reload();
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent) const override;
-    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent) const override;
+    [[nodiscard]] int columnCount(const QModelIndex &parent) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
-    Q_REQUIRED_RESULT Qt::ItemFlags flags(const QModelIndex &index) const override;
-    Q_REQUIRED_RESULT QString filePath(int index) const;
-    Q_REQUIRED_RESULT int size() const;
-    Q_REQUIRED_RESULT QStringList checkedFiles() const;
+    [[nodiscard]] Qt::ItemFlags flags(const QModelIndex &index) const override;
+    [[nodiscard]] QString filePath(int index) const;
+    [[nodiscard]] int size() const;
+    [[nodiscard]] QStringList checkedFiles() const;
     void checkByStatus(Git::ChangeStatus status);
     void checkByStatus(const QList<Git::ChangeStatus> &statuses);
     void toggleCheckAll(bool checked);
@@ -41,7 +41,7 @@ public:
     };
     const QList<Row> &data() const;
     const Row *data(int index) const;
-    Q_REQUIRED_RESULT int checkedCount() const;
+    [[nodiscard]] int checkedCount() const;
 
 Q_SIGNALS:
     void checkedCountChanged();

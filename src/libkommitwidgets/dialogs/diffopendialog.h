@@ -22,11 +22,11 @@ public:
     explicit DiffOpenDialog(QWidget *parent = nullptr);
     ~DiffOpenDialog() override;
 
-    Q_REQUIRED_RESULT QString oldFile() const;
-    Q_REQUIRED_RESULT QString newFile() const;
-    Q_REQUIRED_RESULT QString oldDir() const;
-    Q_REQUIRED_RESULT QString newDir() const;
-    Q_REQUIRED_RESULT Mode mode() const;
+    [[nodiscard]] QString oldFile() const;
+    [[nodiscard]] QString newFile() const;
+    [[nodiscard]] QString oldDir() const;
+    [[nodiscard]] QString newDir() const;
+    [[nodiscard]] Mode mode() const;
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void readSettings();

@@ -27,18 +27,18 @@ public:
     explicit Branch(git_reference *branch);
     ~Branch();
 
-    Q_REQUIRED_RESULT QString name() const;
-    Q_REQUIRED_RESULT QString refName() const;
-    Q_REQUIRED_RESULT QString upStreamName() const;
-    Q_REQUIRED_RESULT QString remoteName() const;
+    [[nodiscard]] QString name() const;
+    [[nodiscard]] QString refName() const;
+    [[nodiscard]] QString upStreamName() const;
+    [[nodiscard]] QString remoteName() const;
 
-    Q_REQUIRED_RESULT bool isHead() const;
+    [[nodiscard]] bool isHead() const;
 
-    Q_REQUIRED_RESULT QSharedPointer<Tree> tree() const override;
-    Q_REQUIRED_RESULT QSharedPointer<Commit> commit();
-    Q_REQUIRED_RESULT QSharedPointer<Reference> reference() const;
+    [[nodiscard]] QSharedPointer<Tree> tree() const override;
+    [[nodiscard]] QSharedPointer<Commit> commit();
+    [[nodiscard]] QSharedPointer<Reference> reference() const;
 
-    Q_REQUIRED_RESULT QString treeTitle() const override;
+    [[nodiscard]] QString treeTitle() const override;
     git_reference *refPtr() const;
 
 private:

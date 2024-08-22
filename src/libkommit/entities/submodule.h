@@ -53,25 +53,25 @@ public:
     Submodule(git_submodule *submodule, git_repository *repo = nullptr);
     ~Submodule();
 
-    Q_REQUIRED_RESULT const QString &path() const;
-    Q_REQUIRED_RESULT const QString &refName() const;
-    Q_REQUIRED_RESULT QString url() const;
-    Q_REQUIRED_RESULT QString name() const;
-    Q_REQUIRED_RESULT QString branch();
-    Q_REQUIRED_RESULT StatusFlags status() const;
-    Q_REQUIRED_RESULT QStringList statusTexts() const;
+    [[nodiscard]] const QString &path() const;
+    [[nodiscard]] const QString &refName() const;
+    [[nodiscard]] QString url() const;
+    [[nodiscard]] QString name() const;
+    [[nodiscard]] QString branch();
+    [[nodiscard]] StatusFlags status() const;
+    [[nodiscard]] QStringList statusTexts() const;
 
-    Q_REQUIRED_RESULT bool hasModifiedFiles() const;
+    [[nodiscard]] bool hasModifiedFiles() const;
 
-    Q_REQUIRED_RESULT QSharedPointer<Oid> headId();
-    Q_REQUIRED_RESULT QSharedPointer<Oid> indexId();
-    Q_REQUIRED_RESULT QSharedPointer<Oid> workingDirectoryId();
+    [[nodiscard]] QSharedPointer<Oid> headId();
+    [[nodiscard]] QSharedPointer<Oid> indexId();
+    [[nodiscard]] QSharedPointer<Oid> workingDirectoryId();
 
     void setUrl(const QString &newUrl);
     bool sync() const;
     bool reload(bool force = false) const;
 
-    Q_REQUIRED_RESULT Manager *open() const;
+    [[nodiscard]] Manager *open() const;
     bool update(const FetchOptions &opts, FetchObserver *observer = nullptr);
 
 private:

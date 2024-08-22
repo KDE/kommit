@@ -32,11 +32,11 @@ public:
     explicit BranchesCache(Manager *manager);
     virtual ~BranchesCache();
 
-    Q_REQUIRED_RESULT DataList allBranches(BranchType type = BranchType::AllBranches);
-    Q_REQUIRED_RESULT DataMember findByName(const QString &key);
-    Q_REQUIRED_RESULT QStringList names(BranchType type = BranchType::AllBranches);
-    Q_REQUIRED_RESULT DataMember current();
-    Q_REQUIRED_RESULT QString currentName();
+    [[nodiscard]] DataList allBranches(BranchType type = BranchType::AllBranches);
+    [[nodiscard]] DataMember findByName(const QString &key);
+    [[nodiscard]] QStringList names(BranchType type = BranchType::AllBranches);
+    [[nodiscard]] DataMember current();
+    [[nodiscard]] QString currentName();
 
     bool create(const QString &name);
     bool remove(DataMember branch);

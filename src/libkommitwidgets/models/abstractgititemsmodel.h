@@ -28,11 +28,11 @@ public:
 
     enum Status { NotLoaded, Loading, Loaded };
     Q_ENUM(Status)
-    Q_REQUIRED_RESULT bool isLoaded() const;
-    Q_REQUIRED_RESULT Status status() const;
+    [[nodiscard]] bool isLoaded() const;
+    [[nodiscard]] Status status() const;
     virtual void clear();
 
-    Q_REQUIRED_RESULT Git::Manager *manager() const;
+    [[nodiscard]] Git::Manager *manager() const;
 
 public Q_SLOTS:
     void load();

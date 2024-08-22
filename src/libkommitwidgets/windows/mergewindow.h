@@ -32,16 +32,16 @@ public:
 
     void load();
 
-    Q_REQUIRED_RESULT const QString &filePathLocal() const;
+    [[nodiscard]] const QString &filePathLocal() const;
     void setFilePathLocal(const QString &newFilePathLocal);
 
-    Q_REQUIRED_RESULT const QString &filePathRemote() const;
+    [[nodiscard]] const QString &filePathRemote() const;
     void setFilePathRemote(const QString &newFilePathRemote);
 
-    Q_REQUIRED_RESULT const QString &filePathBase() const;
+    [[nodiscard]] const QString &filePathBase() const;
     void setFilePathBase(const QString &newFilePathBase);
 
-    Q_REQUIRED_RESULT const QString &filePathResult() const;
+    [[nodiscard]] const QString &filePathResult() const;
     void setFilePathResult(const QString &newFilePathResult);
 
 private Q_SLOTS:
@@ -72,7 +72,7 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void initActions();
     LIBKOMMITWIDGETS_NO_EXPORT void init();
     LIBKOMMITWIDGETS_NO_EXPORT void doMergeAction(Diff::MergeType type);
-    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT bool isFullyResolved() const;
+    [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT bool isFullyResolved() const;
 
     QList<Diff::MergeSegment *> mDiffs;
     QMenu *mCodeEditorContextMenu = nullptr;

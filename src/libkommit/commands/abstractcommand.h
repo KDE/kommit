@@ -63,10 +63,10 @@ public:
     virtual QWidget *createWidget();
     int progress() const;
 
-    Q_REQUIRED_RESULT Status status() const;
+    [[nodiscard]] Status status() const;
     void setStatus(Status newStatus);
 
-    Q_REQUIRED_RESULT const QString &errorMessage() const;
+    [[nodiscard]] const QString &errorMessage() const;
     void setErrorMessage(const QString &newErrorMessage);
 
 Q_SIGNALS:

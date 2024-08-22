@@ -26,10 +26,10 @@ class LIBKOMMIT_EXPORT CommitsCache : public QObject, public OidCache<Commit, gi
 public:
     explicit CommitsCache(Manager *parent);
 
-    Q_REQUIRED_RESULT QSharedPointer<Commit> find(const QString &hash);
+    [[nodiscard]] QSharedPointer<Commit> find(const QString &hash);
 
-    Q_REQUIRED_RESULT QList<QSharedPointer<Commit>> allCommits();
-    Q_REQUIRED_RESULT QList<QSharedPointer<Commit>> commitsInBranch(QSharedPointer<Branch> branch);
+    [[nodiscard]] QList<QSharedPointer<Commit>> allCommits();
+    [[nodiscard]] QList<QSharedPointer<Commit>> commitsInBranch(QSharedPointer<Branch> branch);
 
 protected:
     void clearChildData() override;

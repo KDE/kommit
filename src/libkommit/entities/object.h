@@ -38,10 +38,10 @@ public:
     [[nodiscard]] Type type() const;
 
     QSharedPointer<Oid> id() const;
-    Q_REQUIRED_RESULT QSharedPointer<Note> toNote() const;
-    Q_REQUIRED_RESULT QSharedPointer<Tag> toTag() const;
-    Q_REQUIRED_RESULT QSharedPointer<Tree> toTree() const;
-    Q_REQUIRED_RESULT QSharedPointer<Commit> toCommit() const;
+    [[nodiscard]] QSharedPointer<Note> toNote() const;
+    [[nodiscard]] QSharedPointer<Tag> toTag() const;
+    [[nodiscard]] QSharedPointer<Tree> toTree() const;
+    [[nodiscard]] QSharedPointer<Commit> toCommit() const;
 
 private:
     git_object *mGitObjectPtr;

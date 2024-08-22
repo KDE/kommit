@@ -23,9 +23,9 @@ class LIBKOMMIT_EXPORT TagsCache : public OidCache<Tag, git_tag>
 public:
     explicit TagsCache(Manager *parent);
 
-    Q_REQUIRED_RESULT QSharedPointer<Tag> find(const QString &key);
-    Q_REQUIRED_RESULT QList<QSharedPointer<Tag>> allTags();
-    Q_REQUIRED_RESULT QStringList allNames();
+    [[nodiscard]] QSharedPointer<Tag> find(const QString &key);
+    [[nodiscard]] QList<QSharedPointer<Tag>> allTags();
+    [[nodiscard]] QStringList allNames();
 
     void forEach(std::function<void(QSharedPointer<Tag>)> cb);
     bool create(const QString &name, const QString &message);

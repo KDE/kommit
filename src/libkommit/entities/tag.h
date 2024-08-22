@@ -28,22 +28,22 @@ public:
     Tag(git_commit *commit, const QString &name);
     explicit Tag(Commit *parentCommit);
 
-    Q_REQUIRED_RESULT const QString &name() const;
+    [[nodiscard]] const QString &name() const;
     void setName(const QString &newName);
 
-    Q_REQUIRED_RESULT const QString &message() const;
+    [[nodiscard]] const QString &message() const;
     void setMessage(const QString &newMessage);
 
-    Q_REQUIRED_RESULT QDateTime createTime() const;
+    [[nodiscard]] QDateTime createTime() const;
 
-    Q_REQUIRED_RESULT QSharedPointer<Signature> tagger() const;
+    [[nodiscard]] QSharedPointer<Signature> tagger() const;
 
     QSharedPointer<Commit> commit() const;
 
-    Q_REQUIRED_RESULT TagType tagType() const;
+    [[nodiscard]] TagType tagType() const;
     QSharedPointer<Oid> oid() const override;
 
-    Q_REQUIRED_RESULT git_tag *tagPtr() const;
+    [[nodiscard]] git_tag *tagPtr() const;
 
 private:
     git_tag *mTagPtr{nullptr};

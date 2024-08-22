@@ -23,12 +23,12 @@ public:
     void addFile(const QString &file, Diff::DiffType type);
     void addFile(const Git::TreeDiffEntry &diffEntry);
 
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     void emitAll();
 
 private:
-    Q_REQUIRED_RESULT Diff::DiffType toDiffType(Git::FileStatus::Status status) const;
-    Q_REQUIRED_RESULT Diff::DiffType toDiffType(Git::ChangeStatus status) const;
+    [[nodiscard]] Diff::DiffType toDiffType(Git::FileStatus::Status status) const;
+    [[nodiscard]] Diff::DiffType toDiffType(Git::ChangeStatus status) const;
     Node *createPath(const QStringList &path, Diff::DiffType status);
 };

@@ -20,10 +20,10 @@ class LIBKOMMIT_EXPORT Oid
 public:
     explicit Oid(const git_oid *oid);
 
-    Q_REQUIRED_RESULT QString toString() const;
-    Q_REQUIRED_RESULT bool isNull() const;
+    [[nodiscard]] QString toString() const;
+    [[nodiscard]] bool isNull() const;
 
-    Q_REQUIRED_RESULT const git_oid *oidPtr() const;
+    [[nodiscard]] const git_oid *oidPtr() const;
 
 private:
     const git_oid *mOidPtr;

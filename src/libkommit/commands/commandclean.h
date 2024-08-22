@@ -23,13 +23,13 @@ public:
     };
     CommandClean();
 
-    Q_REQUIRED_RESULT QStringList generateArgs() const override;
+    [[nodiscard]] QStringList generateArgs() const override;
 
-    Q_REQUIRED_RESULT bool dryRun() const;
+    [[nodiscard]] bool dryRun() const;
     void setDryRun(bool newDryRun);
-    Q_REQUIRED_RESULT CleanupType getType() const;
+    [[nodiscard]] CleanupType getType() const;
     void setType(CleanupType newType);
-    Q_REQUIRED_RESULT bool removeUntrackedDirectories() const;
+    [[nodiscard]] bool removeUntrackedDirectories() const;
     void setRemoveUntrackedDirectories(bool newRemoveUntrackedDirectories);
 
 private:

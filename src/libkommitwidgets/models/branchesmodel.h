@@ -37,8 +37,8 @@ public:
     QSharedPointer<Git::Branch> fromIndex(const QModelIndex &index) const;
     QSharedPointer<Git::Branch> findByName(const QString &branchName) const;
 
-    Q_REQUIRED_RESULT const QString &currentBranch() const;
-    Q_REQUIRED_RESULT const QString &referenceBranch() const;
+    [[nodiscard]] const QString &currentBranch() const;
+    [[nodiscard]] const QString &referenceBranch() const;
     void setReferenceBranch(const QString &newReferenceBranch);
 
     void clear() override;

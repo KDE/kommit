@@ -79,75 +79,75 @@ public:
     QSharedPointer<Reference> head() const;
 
     // properties
-    Q_REQUIRED_RESULT const QString &path() const;
-    Q_REQUIRED_RESULT bool isValid() const;
-    Q_REQUIRED_RESULT bool isMerging() const;
+    [[nodiscard]] const QString &path() const;
+    [[nodiscard]] bool isValid() const;
+    [[nodiscard]] bool isMerging() const;
 
     // branches
     bool switchBranch(const QString &branchName) const;
-    Q_REQUIRED_RESULT QPair<int, int> uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const;
+    [[nodiscard]] QPair<int, int> uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const;
 
     // remotes
     bool fetch(const QString &remoteName, FetchObserver *observer = nullptr);
 
     // config
-    Q_REQUIRED_RESULT QString config(const QString &name, ConfigType type = ConfigLocal) const;
-    Q_REQUIRED_RESULT bool configBool(const QString &name, ConfigType type = ConfigLocal) const;
+    [[nodiscard]] QString config(const QString &name, ConfigType type = ConfigLocal) const;
+    [[nodiscard]] bool configBool(const QString &name, ConfigType type = ConfigLocal) const;
     void setConfig(const QString &name, const QString &value, ConfigType type = ConfigLocal) const;
     void unsetConfig(const QString &name, ConfigType type = ConfigLocal) const;
     void forEachConfig(std::function<void(QString, QString)> cb);
 
     // files
     void addFile(const QString &file) const;
-    Q_REQUIRED_RESULT QStringList ls(const QString &place) const;
-    Q_REQUIRED_RESULT QString fileContent(const QString &place, const QString &fileName) const;
+    [[nodiscard]] QStringList ls(const QString &place) const;
+    [[nodiscard]] QString fileContent(const QString &place, const QString &fileName) const;
     void saveFile(const QString &place, const QString &fileName, const QString &localFile) const;
     bool revertFile(const QString &filePath) const;
     bool removeFile(const QString &file, bool cached) const;
-    Q_REQUIRED_RESULT QStringList fileLog(const QString &fileName) const;
+    [[nodiscard]] QStringList fileLog(const QString &fileName) const;
     BlameData blame(QSharedPointer<File> file);
-    Q_REQUIRED_RESULT QMap<QString, ChangeStatus> changedFiles() const;
-    Q_REQUIRED_RESULT QMap<QString, ChangeStatus> changedFiles(const QString &hash) const;
-    Q_REQUIRED_RESULT QStringList ignoredFiles() const;
+    [[nodiscard]] QMap<QString, ChangeStatus> changedFiles() const;
+    [[nodiscard]] QMap<QString, ChangeStatus> changedFiles(const QString &hash) const;
+    [[nodiscard]] QStringList ignoredFiles() const;
 
     Q_DECL_DEPRECATED
-    Q_REQUIRED_RESULT QList<FileStatus> repoFilesStatus() const;
+    [[nodiscard]] QList<FileStatus> repoFilesStatus() const;
 
     // ignores
     bool isIgnored(const QString &path);
 
     // diffs
-    Q_REQUIRED_RESULT QString diff(const QString &from, const QString &to) const;
-    Q_REQUIRED_RESULT QList<FileStatus> diffBranch(const QString &from) const;
-    Q_REQUIRED_RESULT QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
-    Q_REQUIRED_RESULT QList<FileStatus> diff(AbstractReference *from, AbstractReference *to) const;
-    Q_REQUIRED_RESULT TreeDiff diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTree = {});
+    [[nodiscard]] QString diff(const QString &from, const QString &to) const;
+    [[nodiscard]] QList<FileStatus> diffBranch(const QString &from) const;
+    [[nodiscard]] QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
+    [[nodiscard]] QList<FileStatus> diff(AbstractReference *from, AbstractReference *to) const;
+    [[nodiscard]] TreeDiff diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTree = {});
 
     void forEachCommits(std::function<void(QSharedPointer<Commit>)> callback, const QString &branchName) const;
 
-    Q_REQUIRED_RESULT QSharedPointer<Index> index() const;
-    Q_REQUIRED_RESULT QSharedPointer<Tree> headTree() const;
+    [[nodiscard]] QSharedPointer<Index> index() const;
+    [[nodiscard]] QSharedPointer<Tree> headTree() const;
 
-    Q_REQUIRED_RESULT bool isRebasing() const;
-    Q_REQUIRED_RESULT bool isDetached() const;
+    [[nodiscard]] bool isRebasing() const;
+    [[nodiscard]] bool isDetached() const;
 
-    Q_REQUIRED_RESULT int errorCode() const;
+    [[nodiscard]] int errorCode() const;
 
-    Q_REQUIRED_RESULT QString errorMessage() const;
+    [[nodiscard]] QString errorMessage() const;
 
-    Q_REQUIRED_RESULT int errorClass() const;
+    [[nodiscard]] int errorClass() const;
 
-    Q_REQUIRED_RESULT git_repository *repoPtr() const;
-    Q_REQUIRED_RESULT static Manager *owner(git_repository *repo);
+    [[nodiscard]] git_repository *repoPtr() const;
+    [[nodiscard]] static Manager *owner(git_repository *repo);
 
-    Q_REQUIRED_RESULT CommitsCache *commits() const;
-    Q_REQUIRED_RESULT SubmodulesCache *submodules() const;
-    Q_REQUIRED_RESULT RemotesCache *remotes() const;
-    Q_REQUIRED_RESULT BranchesCache *branches() const;
-    Q_REQUIRED_RESULT TagsCache *tags() const;
-    Q_REQUIRED_RESULT NotesCache *notes() const;
-    Q_REQUIRED_RESULT StashesCache *stashes() const;
-    Q_REQUIRED_RESULT ReferenceCache *references() const;
+    [[nodiscard]] CommitsCache *commits() const;
+    [[nodiscard]] SubmodulesCache *submodules() const;
+    [[nodiscard]] RemotesCache *remotes() const;
+    [[nodiscard]] BranchesCache *branches() const;
+    [[nodiscard]] TagsCache *tags() const;
+    [[nodiscard]] NotesCache *notes() const;
+    [[nodiscard]] StashesCache *stashes() const;
+    [[nodiscard]] ReferenceCache *references() const;
 
 Q_SIGNALS:
     void pathChanged();

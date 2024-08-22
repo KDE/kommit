@@ -24,9 +24,9 @@ public:
 
     DataMember add(const AddSubmoduleOptions &options);
 
-    Q_REQUIRED_RESULT QList<QSharedPointer<Submodule>> allSubmodules();
-    Q_REQUIRED_RESULT QSharedPointer<Submodule> findByName(const QString &name);
-    Q_REQUIRED_RESULT DataMember findByPtr(git_submodule *ptr, bool *isNew = nullptr);
+    [[nodiscard]] QList<QSharedPointer<Submodule>> allSubmodules();
+    [[nodiscard]] QSharedPointer<Submodule> findByName(const QString &name);
+    [[nodiscard]] DataMember findByPtr(git_submodule *ptr, bool *isNew = nullptr);
 
 protected:
     void clearChildData() override;

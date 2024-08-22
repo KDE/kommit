@@ -34,7 +34,7 @@ protected:
 
 private:
     void insertCompletion(const QString &completion);
-    Q_REQUIRED_RESULT QString textUnderCursor() const;
+    [[nodiscard]] QString textUnderCursor() const;
 
     QStringList mWords;
     QStringListModel *const mCompletionModel;

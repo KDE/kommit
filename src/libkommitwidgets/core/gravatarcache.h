@@ -21,9 +21,9 @@ public:
 
     static GravatarCache *instance();
 
-    Q_REQUIRED_RESULT QString avatarPath(const QString &email);
+    [[nodiscard]] QString avatarPath(const QString &email);
 
-    Q_REQUIRED_RESULT QString cacheLocalPath() const;
+    [[nodiscard]] QString cacheLocalPath() const;
 
 Q_SIGNALS:
     void avatarUpdated(const QString &fileName, const QString &email);

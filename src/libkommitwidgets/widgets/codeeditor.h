@@ -54,7 +54,7 @@ public:
     QPair<int, int> blockArea(int from, int to);
     QPair<int, int> visibleLines() const;
 
-    Q_REQUIRED_RESULT int currentLineNumber() const;
+    [[nodiscard]] int currentLineNumber() const;
     void gotoLineNumber(int lineNumber);
     void gotoSegment(Diff::Segment *segment);
 
@@ -63,18 +63,18 @@ public:
 
     void clearAll();
 
-    Q_REQUIRED_RESULT bool showTitleBar() const;
+    [[nodiscard]] bool showTitleBar() const;
     void setShowTitleBar(bool newShowTitleBar);
 
-    Q_REQUIRED_RESULT QString title() const;
+    [[nodiscard]] QString title() const;
     void setTitle(const QString &title);
 
-    Q_REQUIRED_RESULT int titlebarHeight() const;
+    [[nodiscard]] int titlebarHeight() const;
 
-    Q_REQUIRED_RESULT bool showFoldMarks() const;
+    [[nodiscard]] bool showFoldMarks() const;
     void setShowFoldMarks(bool newShowFoldMarks);
 
-    Q_REQUIRED_RESULT BlockData *currentBlockData() const;
+    [[nodiscard]] BlockData *currentBlockData() const;
 
 Q_SIGNALS:
     void blockSelected();
@@ -90,7 +90,7 @@ protected:
     CodeEditorSidebar *const mSideBar;
 
 private:
-    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT int lineNumberOfBlock(const QTextBlock &block) const;
+    [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT int lineNumberOfBlock(const QTextBlock &block) const;
 
     LIBKOMMITWIDGETS_NO_EXPORT void setTheme(const KSyntaxHighlighting::Theme &theme);
 
@@ -98,9 +98,9 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void updateSidebarArea(const QRect &rect, int dy);
     LIBKOMMITWIDGETS_NO_EXPORT void highlightCurrentLine();
 
-    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT QTextBlock blockAtPosition(int y) const;
-    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT bool isFoldable(const QTextBlock &block) const;
-    Q_REQUIRED_RESULT LIBKOMMITWIDGETS_NO_EXPORT bool isFolded(const QTextBlock &block) const;
+    [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT QTextBlock blockAtPosition(int y) const;
+    [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT bool isFoldable(const QTextBlock &block) const;
+    [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT bool isFolded(const QTextBlock &block) const;
     LIBKOMMITWIDGETS_NO_EXPORT void toggleFold(const QTextBlock &block);
 
     QMap<BlockType, QTextBlockFormat> mFormats;

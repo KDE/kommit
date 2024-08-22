@@ -32,9 +32,9 @@ public:
     void refresh();
 
     void setCurrentSegment(Diff::Segment *newCurrentSegment);
-    Q_REQUIRED_RESULT bool isMergeable() const;
+    [[nodiscard]] bool isMergeable() const;
 
-    Q_REQUIRED_RESULT int conflicts() const;
+    [[nodiscard]] int conflicts() const;
 
     void findPrevious(Diff::SegmentType type);
     void findNext(Diff::SegmentType type);

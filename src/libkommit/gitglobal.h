@@ -17,7 +17,7 @@ namespace Git
 LIBKOMMIT_EXPORT void run(const QString &workingDir, const QStringList &args);
 LIBKOMMIT_EXPORT void run(const QString &workingDir, const AbstractCommand &cmd);
 
-Q_REQUIRED_RESULT LIBKOMMIT_EXPORT QString runGit(const QString &workingDir, const QStringList &args);
-Q_REQUIRED_RESULT LIBKOMMIT_EXPORT QStringList readAllNonEmptyOutput(const QString &workingDir, const QStringList &cmd, bool trim = true);
+[[nodiscard]] LIBKOMMIT_EXPORT QString runGit(const QString &workingDir, const QStringList &args);
+[[nodiscard]] LIBKOMMIT_EXPORT QStringList readAllNonEmptyOutput(const QString &workingDir, const QStringList &cmd, bool trim = true);
 
 } // namespace Git

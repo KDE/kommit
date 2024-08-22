@@ -32,13 +32,13 @@ public:
 
     Credential();
 
-    Q_REQUIRED_RESULT QString username() const;
+    [[nodiscard]] QString username() const;
     void setUsername(const QString &username);
 
-    Q_REQUIRED_RESULT QString password() const;
+    [[nodiscard]] QString password() const;
     void setPassword(const QString &password);
 
-    Q_REQUIRED_RESULT AllowedTypes allowedTypes() const;
+    [[nodiscard]] AllowedTypes allowedTypes() const;
     void setAllowedTypes(const AllowedTypes &allowedTypes);
 
 private:

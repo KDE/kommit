@@ -24,10 +24,10 @@ class LIBKOMMIT_EXPORT StashesCache
 public:
     explicit StashesCache(Manager *manager);
 
-    Q_REQUIRED_RESULT QList<QSharedPointer<Stash>> allStashes();
+    [[nodiscard]] QList<QSharedPointer<Stash>> allStashes();
 
-    Q_REQUIRED_RESULT QSharedPointer<Stash> findByName(const QString &name);
-    Q_REQUIRED_RESULT int findIndex(const QString &message) const;
+    [[nodiscard]] QSharedPointer<Stash> findByName(const QString &name);
+    [[nodiscard]] int findIndex(const QString &message) const;
 
     bool create(const QString &name = QString());
 
