@@ -23,7 +23,7 @@ public:
     StatusCache();
 
     [[nodiscard]] KVersionControlPlugin::ItemVersion status(const QString &name);
-    bool setPath(const QString &path);
+    [[nodiscard]] bool setPath(const QString &path);
     [[nodiscard]] QString currentBranch() const;
     [[nodiscard]] QStringList submodules() const;
 
