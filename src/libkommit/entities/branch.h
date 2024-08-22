@@ -42,7 +42,7 @@ public:
     git_reference *refPtr() const;
 
 private:
-    BranchPrivate *d_ptr;
+    BranchPrivate *const d_ptr;
     Q_DECLARE_PRIVATE(Branch)
 };
 

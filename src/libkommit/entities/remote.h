@@ -71,7 +71,7 @@ public:
     [[nodiscard]] git_remote *remotePtr() const;
 
 private:
-    git_remote *mRemotePtr;
+    git_remote *const mRemotePtr;
     QList<RefSpec *> mRefSpecList;
     bool mConnected{false};
     QString mName;

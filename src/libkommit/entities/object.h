@@ -44,7 +44,7 @@ public:
     [[nodiscard]] QSharedPointer<Commit> toCommit() const;
 
 private:
-    git_object *mGitObjectPtr;
+    git_object *const mGitObjectPtr;
 };
 
 }

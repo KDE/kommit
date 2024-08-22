@@ -33,7 +33,7 @@ public:
     [[nodiscard]] QSharedPointer<Oid> oid() const override;
 
 private:
-    StashPrivate *d_ptr;
+    StashPrivate *const d_ptr;
     Q_DECLARE_PRIVATE(Stash)
 };
 

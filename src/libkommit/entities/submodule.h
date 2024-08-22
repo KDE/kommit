@@ -75,7 +75,7 @@ public:
     bool update(const FetchOptions &opts, FetchObserver *observer = nullptr);
 
 private:
-    SubmodulePrivate *d_ptr;
+    SubmodulePrivate *const d_ptr;
     Q_DECLARE_PRIVATE(Submodule)
 };
 

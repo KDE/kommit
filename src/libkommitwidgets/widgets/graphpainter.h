@@ -24,6 +24,6 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
-    GraphPainterPrivate *d_ptr;
+    GraphPainterPrivate *const d_ptr;
     Q_DECLARE_PRIVATE(GraphPainter)
 };

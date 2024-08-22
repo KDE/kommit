@@ -45,7 +45,7 @@ public:
     QSharedPointer<Oid> oid() const override;
 
 private:
-    TreePrivate *d_ptr;
+    TreePrivate *const d_ptr;
     Q_DECLARE_PRIVATE(Tree);
 };
 }

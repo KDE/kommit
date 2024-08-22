@@ -56,7 +56,7 @@ public:
     QSharedPointer<Oid> oid() const override;
 
 private:
-    CommitPrivate *d_ptr;
+    CommitPrivate *const d_ptr;
     Q_DECLARE_PRIVATE(Commit);
 
     QString mCommitHash;
