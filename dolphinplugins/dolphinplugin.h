@@ -32,7 +32,7 @@ class DolphinPlugin : public KVersionControlPlugin
 
 public:
     explicit DolphinPlugin(QObject *parent, const QList<QVariant> &args);
-    ~DolphinPlugin();
+    ~DolphinPlugin() override;
 
     [[nodiscard]] QString fileName() const override;
     bool beginRetrieval(const QString &directory) override;

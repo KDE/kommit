@@ -31,7 +31,7 @@ public:
     enum CommitType { NormalCommit, InitialCommit, ForkCommit, MergeCommit };
 
     explicit Commit(git_commit *commit);
-    ~Commit();
+    ~Commit() override;
 
     [[nodiscard]] QSharedPointer<Signature> author();
     [[nodiscard]] QSharedPointer<Signature> committer();

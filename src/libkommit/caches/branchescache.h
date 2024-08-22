@@ -30,7 +30,7 @@ public:
     using DataList = QList<DataMember>;
 
     explicit BranchesCache(Manager *manager);
-    virtual ~BranchesCache();
+    ~BranchesCache() override;
 
     [[nodiscard]] DataList allBranches(BranchType type = BranchType::AllBranches);
     [[nodiscard]] DataMember findByName(const QString &key);

@@ -25,8 +25,8 @@ class ReferenceCachePrivate;
 class LIBKOMMIT_EXPORT ReferenceCache : public Cache<Reference, git_reference>
 {
 public:
-    ReferenceCache(Manager *parent);
-    virtual ~ReferenceCache();
+    explicit ReferenceCache(Manager *parent);
+    ~ReferenceCache() override;
 
     DataMember findByName(const QString &name);
     DataMember findForNote(QSharedPointer<Note> note);

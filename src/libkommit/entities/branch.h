@@ -25,7 +25,7 @@ class LIBKOMMIT_EXPORT Branch : public ITree
 {
 public:
     explicit Branch(git_reference *branch);
-    ~Branch();
+    ~Branch() override;
 
     [[nodiscard]] QString name() const;
     [[nodiscard]] QString refName() const;
