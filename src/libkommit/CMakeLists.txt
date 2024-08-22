@@ -59,7 +59,6 @@ set(SOURCES
 
     observers/fetchobserver.cpp
     observers/cloneobserver.cpp
-    observers/checkoutobserver.cpp
     observers/pushobserver.cpp
 
     options/addsubmoduleoptions.cpp
@@ -118,7 +117,6 @@ set(HEADERS
 
     observers/fetchobserver.h
     observers/cloneobserver.h
-    observers/checkoutobserver.h
     observers/pushobserver.h
 
     options/addsubmoduleoptions.h
