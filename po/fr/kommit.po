@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 01:47+0000\n"
-"PO-Revision-Date: 2024-07-19 07:49+0200\n"
+"PO-Revision-Date: 2024-07-25 14:47+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -250,11 +250,10 @@ msgid "Cleanup…"
 msgstr "Nettoyer..."
 
 #: src/gui/appwindow.cpp:205
-#, fuzzy, kde-format
-#| msgid "Pull"
+#, kde-format
 msgctxt "@action"
 msgid "Pull…"
-msgstr "Tirer"
+msgstr "Enlever..."
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/branchactions.cpp:33
 #, kde-format
@@ -263,11 +262,10 @@ msgid "Fetch…"
 msgstr "Rechercher..."
 
 #: src/gui/appwindow.cpp:213 src/libkommitwidgets/actions/tagsactions.cpp:29
-#, fuzzy, kde-format
-#| msgid "Push"
+#, kde-format
 msgctxt "@action"
 msgid "Push…"
-msgstr "Pousser"
+msgstr "Pousser..."
 
 #: src/gui/appwindow.cpp:217 src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
@@ -294,11 +292,10 @@ msgid "Repo settings…"
 msgstr "Configuration du dépôt..."
 
 #: src/gui/appwindow.cpp:230
-#, fuzzy, kde-format
-#| msgid "Switch/Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
-msgstr "Basculer / Extraire"
+msgstr "Basculer / Extraire..."
 
 #: src/gui/appwindow.cpp:233
 #, kde-format
@@ -1112,9 +1109,7 @@ msgid "New name"
 msgstr "Nouveau nom"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "New stash..."
+#, kde-format
 msgctxt "@action"
 msgid "New stash…"
 msgstr "Nouvelle remise…"
@@ -1123,7 +1118,7 @@ msgstr "Nouvelle remise…"
 #, kde-format
 msgctxt "@action"
 msgid "Pop…"
-msgstr ""
+msgstr "Revenir..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:27
 #, kde-format
@@ -1180,16 +1175,14 @@ msgstr "Vous n'avez aucune modification !"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:61
-#, fuzzy, kde-format
-#| msgid "Stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stash"
 msgstr "Remiser"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
-#, fuzzy, kde-format
-#| msgid "Create new stash"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
 msgstr "Créer une nouvelle remise"
@@ -1226,11 +1219,10 @@ msgid "New tag…"
 msgstr "Nouvelle étiquette..."
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:27
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Checkout…"
-msgstr "Extraire"
+msgstr "Extraire..."
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:35
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1255,8 +1247,7 @@ msgid "Are you sure to checkout to the selected tag?"
 msgstr "Voulez-vous vraiment extraire l'étiquette sélectionnée ?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:50
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Checkout"
 msgstr "Extraire"
@@ -1295,18 +1286,16 @@ msgid "Commit/push"
 msgstr "Valider / Pousser"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:28
-#, fuzzy, kde-format
-#| msgid "Commit/Push submodule: %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
-msgstr "Intégrer / valider un sous-module : %1"
+msgstr "Valider / pousser un sous-module : %1"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgctxt "@action"
 msgid "Commit/Push"
-msgstr "Valider/Pousser"
+msgstr "Valider / Pousser"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
