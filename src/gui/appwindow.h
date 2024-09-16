@@ -15,7 +15,6 @@ class QLabel;
 class RepositoryData;
 namespace Git
 {
-class Manager;
 }
 /**
  * This class serves as the main window for kommit.  It handles the

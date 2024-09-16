@@ -19,7 +19,6 @@ namespace Git
 
 class BranchesCachePrivate;
 class Manager;
-class Reference;
 
 class LIBKOMMIT_EXPORT BranchesCache : public QObject, public Cache<Branch, git_reference>
 {

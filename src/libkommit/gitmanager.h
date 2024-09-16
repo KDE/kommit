@@ -25,7 +25,6 @@ class CloneObserver;
 class PushObserver;
 class Reference;
 class AbstractReference;
-class AddSubmoduleOptions;
 class Index;
 class Tree;
 class Note;

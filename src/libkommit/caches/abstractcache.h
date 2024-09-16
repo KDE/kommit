@@ -19,11 +19,6 @@ namespace Git
 {
 
 class Manager;
-class Branch;
-class Note;
-class Remote;
-class Commit;
-class Tag;
 
 namespace Impl
 {

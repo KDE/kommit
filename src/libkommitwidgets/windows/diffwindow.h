@@ -16,17 +16,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class Manager;
-class Tag;
 class Tree;
-class Branch;
 class Blob;
 class ITree;
 }
 
-class DiffTreeModel;
-class DiffWidget;
-class DiffTreeView;
-class FilesModel;
 class DiffWindowPrivate;
 
 class LIBKOMMITWIDGETS_EXPORT DiffWindow : public AppMainWindow
