@@ -7,7 +7,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 // application header
 #include "commandargsparser.h"
 #include "config-kommit.h"
-#include "dialogs/changedfilesdialog.h"
 
 // KF headers
 #include <KAboutData>
