@@ -53,8 +53,8 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
     radioButtonRegularView->setChecked(true);
 }
 
-FileHistoryDialog::FileHistoryDialog(Git::Manager *git, QSharedPointer<Git::File> file, QWidget *parent)
-    : FileHistoryDialog(git, file->fileName(), parent)
+FileHistoryDialog::FileHistoryDialog(Git::Manager *git, QSharedPointer<Git::Blob> file, QWidget *parent)
+    : FileHistoryDialog(git, file->name(), parent)
 {
 }
 
@@ -85,8 +85,9 @@ void FileHistoryDialog::compareFiles()
     if (!mLeftFile || !mRightFile)
         return;
 
-    widgetDiffView->setOldFile(QSharedPointer<Git::File>{new Git::File{mGit, mLeftFile->data(0, dataRole).toString(), mFileName}});
-    widgetDiffView->setNewFile(QSharedPointer<Git::File>{new Git::File{mGit, mRightFile->data(0, dataRole).toString(), mFileName}});
+    // TODO: set the place
+    //  widgetDiffView->setOldFile(QSharedPointer<Git::Blob>{new Git::Blob{mGit, mLeftFile->data(0, dataRole).toString(), mFileName}});
+    //  widgetDiffView->setNewFile(QSharedPointer<Git::Blob>{new Git::Blob{mGit, mRightFile->data(0, dataRole).toString(), mFileName}});
     widgetDiffView->compare();
 }
 

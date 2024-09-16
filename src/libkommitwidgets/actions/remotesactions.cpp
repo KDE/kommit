@@ -47,8 +47,10 @@ void RemotesActions::create()
 {
     RemoteInfoDialog d{mParent};
     if (d.exec() == QDialog::Accepted) {
-        // TODO: show a message in case of error
-        (void)mGit->remotes()->create(d.remoteName(), d.remoteUrl());
+        auto ok = mGit->remotes()->create(d.remoteName(), d.remoteUrl());
+
+        if (!ok)
+            KMessageBoxHelper::error(mParent, i18n("Unable to create remote"));
     }
 }
 

@@ -5,12 +5,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tree.h"
+#include "blob.h"
 #include "gitglobal_p.h"
 #include "oid.h"
 #include "qdebug.h"
 #include "types.h"
 
 #include <git2/commit.h>
+#include <git2/revparse.h>
 #include <git2/tree.h>
 
 #include <QDir>
@@ -24,7 +26,7 @@ class TreePrivate
 public:
     TreePrivate(Tree *parent, git_tree *tree);
     Tree *q_ptr;
-    Q_DECLARE_PUBLIC(Tree);
+    Q_DECLARE_PUBLIC(Tree)
 
     QList<Tree::Entry *> entries;
     QMultiMap<QString, Tree::Entry> treeData;
@@ -42,9 +44,28 @@ Tree::Tree(git_tree *tree)
     d->initTree();
 }
 
+Tree::Tree(git_repository *repo, const QString &place)
+    : d_ptr{new TreePrivate{this, nullptr}}
+{
+    git_tree *tree;
+    git_object *placeObject{nullptr};
+    git_commit *commit{nullptr};
+
+    BEGIN
+    STEP git_revparse_single(&placeObject, repo, place.toLatin1().constData());
+    STEP git_commit_lookup(&commit, repo, git_object_id(placeObject));
+    STEP git_commit_tree(&tree, commit);
+
+    if (IS_OK) {
+        Q_D(Tree);
+        d->gitTreePtr = tree;
+        d->initTree();
+    }
+}
+
 Tree::~Tree()
 {
-    Q_D(const Tree);
+    Q_D(Tree);
     if (d->gitTreePtr)
         git_tree_free(d->gitTreePtr);
     delete d;
@@ -60,7 +81,7 @@ QStringList Tree::entries(const QString &path, EntryType filter) const
 {
     auto entries = this->entries(path);
     QStringList ret;
-    for (const auto &en : entries)
+    for (const auto &en : std::as_const(entries))
         if (filter == EntryType::All || en.type == filter)
             ret << en.name;
     return ret;
@@ -77,7 +98,7 @@ QStringList Tree::entries(EntryType filter) const
     return list;
 }
 
-QSharedPointer<File> Tree::file(const QString &path)
+QSharedPointer<Blob> Tree::file(const QString &path)
 {
     Q_D(Tree);
     git_tree_entry *entry;
@@ -91,7 +112,7 @@ QSharedPointer<File> Tree::file(const QString &path)
     if (IS_ERROR)
         return {};
 
-    return QSharedPointer<File>{new File{git_tree_owner(d->gitTreePtr), entry}};
+    return QSharedPointer<Blob>{new Blob{git_tree_owner(d->gitTreePtr), entry}};
 }
 
 git_tree *Tree::gitTree() const
@@ -133,7 +154,7 @@ bool Tree::extract(const QString &destinationFolder, const QString &prefix)
             QFileInfo fi{newFilePath};
             QDir d;
             d.mkpath(fi.absolutePath());
-            QSharedPointer<File> file;
+            QSharedPointer<Blob> file;
 
             file = w->tree->file(path + name);
 

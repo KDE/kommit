@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-struct BlameDataRow {
+struct LIBKOMMIT_EXPORT BlameDataRow {
     BlameDataRow()
     {
     }
@@ -55,10 +55,6 @@ struct BlameDataRow {
 bool operator==(const BlameDataRow &l, const BlameDataRow &r);
 bool operator!=(const BlameDataRow &l, const BlameDataRow &r);
 
-class LIBKOMMIT_EXPORT BlameData : public QList<BlameDataRow>
-{
-public:
-    BlameData();
-};
+using BlameData = QList<BlameDataRow>;
 
 } // namespace Git

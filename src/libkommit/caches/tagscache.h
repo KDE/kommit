@@ -28,7 +28,7 @@ public:
     [[nodiscard]] QStringList allNames();
 
     void forEach(std::function<void(QSharedPointer<Tag>)> cb);
-    bool create(const QString &name, const QString &message);
+    bool create(const QString &name, const QString &message, QSharedPointer<Object> target = {}, QSharedPointer<Signature> signature = {});
     bool remove(QSharedPointer<Tag> tag);
 
 protected:
@@ -38,4 +38,4 @@ private:
     QHash<git_commit *, QSharedPointer<Tag>> mTagsByCommit;
 };
 
-};
+}

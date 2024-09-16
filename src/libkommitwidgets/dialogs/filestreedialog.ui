@@ -53,9 +53,6 @@
       <property name="contextMenuPolicy">
        <enum>Qt::CustomContextMenu</enum>
       </property>
-      <property name="rootIsDecorated">
-       <bool>false</bool>
-      </property>
       <attribute name="headerVisible">
        <bool>false</bool>
       </attribute>

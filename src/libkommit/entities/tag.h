@@ -42,6 +42,7 @@ public:
 
     [[nodiscard]] TagType tagType() const;
     QSharedPointer<Oid> oid() const override;
+    QSharedPointer<Object> target() const;
 
     [[nodiscard]] git_tag *tagPtr() const;
 

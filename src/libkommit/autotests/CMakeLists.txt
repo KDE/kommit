@@ -1,14 +1,15 @@
 # SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 macro(add_libkommit_test _source)
-    set(_test ${_source} testcommon.cpp testcommon.h)
+    set(_test ${_source})
     get_filename_component(_name ${_source} NAME_WE)
     add_executable(${_name} ${_test} ${ARGN} ${_name}.h)
     add_test(NAME ${_name} COMMAND ${_name})
     ecm_mark_as_test(${_name})
-    target_link_libraries(${_name} Qt::Test libkommit)
+    target_link_libraries(${_name} Qt::Test libkommit libkommitTestsCommon)
 endmacro()
 
+add_subdirectory(libkommittestscommon)
 add_libkommit_test(tagtest.cpp)
 add_libkommit_test(clonetest.cpp)
 add_libkommit_test(indextest.cpp)
@@ -25,3 +26,4 @@ add_libkommit_test(filetest.cpp)
 add_libkommit_test(branchesdifftest.cpp)
 add_libkommit_test(notetest.cpp)
 add_libkommit_test(cachetest.cpp)
+add_libkommit_test(switchtest.cpp)

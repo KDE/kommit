@@ -35,7 +35,8 @@ protected:
     void clearChildData() override;
 
 Q_SIGNALS:
-    void added(DataMember commit);
-    void removed(DataMember commit);
+    void added(DataType commit);
+    void removed(DataType commit);
+    void reloadRequired();
 };
 }

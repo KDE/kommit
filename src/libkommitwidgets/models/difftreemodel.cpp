@@ -6,10 +6,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "difftreemodel.h"
 
+#include <QSet>
+
+struct DiffNodeData : public NodeData {
+    explicit DiffNodeData(Diff::DiffType diffType);
+
+    Diff::DiffType diffType;
+};
+
 DiffTreeModel::DiffTreeModel(QObject *parent)
     : TreeModel(parent)
 {
-    setLastPartAsData(true);
+    // setLastPartAsData(true);
 }
 
 void DiffTreeModel::addFile(const Git::FileStatus &file)
@@ -19,15 +27,18 @@ void DiffTreeModel::addFile(const Git::FileStatus &file)
 
 void DiffTreeModel::addFile(const QString &file, Diff::DiffType type)
 {
-    const auto parts = file.split(separator());
-    TreeModel::Node *node;
+    auto data = new DiffNodeData{type};
 
-    if (showRoot())
-        node = createPath(QStringList() << separator() << parts, type);
-    else
-        node = createPath(parts, type);
-    node->key = file;
-    node->metaData = type;
+    addItem(file, data);
+    // const auto parts = file.split(separator());
+    // TreeNode *node;
+
+    // if (showRoot())
+    //     node = createPath(QStringList() << separator() << parts, type);
+    // else
+    //     node = createPath(parts, type);
+    // node->key = file;
+    // node->metaData = type;
 }
 
 void DiffTreeModel::addFile(const Git::TreeDiffEntry &file)
@@ -35,18 +46,19 @@ void DiffTreeModel::addFile(const Git::TreeDiffEntry &file)
     addFile(file.newFile(), toDiffType(file.status()));
 }
 
-TreeModel::Node *DiffTreeModel::createPath(const QStringList &path, Diff::DiffType status)
+TreeNode *DiffTreeModel::createPath(const QStringList &path, Diff::DiffType status)
 {
-    Node *parent = rootNode();
+    auto parent = rootNode();
     for (auto &p : path) {
         auto child = parent->find(p);
         if (!child) {
-            child = parent->createChild();
+            child = parent->appendChild();
             child->title = p;
-            child->metaData = Diff::DiffType::Unchanged;
+            child->nodeData = new DiffNodeData{Diff::DiffType::Unchanged};
         } else {
-            if (status != Diff::DiffType::Unchanged && child->metaData != status)
-                child->metaData = Diff::DiffType::Modified;
+            auto diffData = static_cast<DiffNodeData *>(child->nodeData);
+            if (status != Diff::DiffType::Unchanged && diffData->diffType != status)
+                static_cast<DiffNodeData *>(child->nodeData)->diffType = Diff::DiffType::Modified;
         }
         parent = child;
     }
@@ -117,22 +129,56 @@ Diff::DiffType DiffTreeModel::toDiffType(Git::ChangeStatus status) const
     return Diff::DiffType::Unchanged;
 }
 
+Diff::DiffType DiffTreeModel::calculateNodeType(TreeNode *node) const
+{
+    QList<Diff::DiffType> set;
+
+    std::function<bool(TreeNode *)> fn = [&set, &fn](TreeNode *node) -> bool {
+        for (auto const &child : std::as_const(node->children)) {
+            auto nodeDiffData = static_cast<DiffNodeData *>(child->nodeData);
+            if (!nodeDiffData) {
+                if (fn(child))
+                    return true;
+                continue;
+            }
+
+            if (!set.contains(nodeDiffData->diffType))
+                set.append(nodeDiffData->diffType);
+        }
+
+        return false;
+    };
+
+    fn(node);
+
+    switch (set.size()) {
+    case 0:
+        return Diff::DiffType::Unchanged;
+
+    case 1:
+        return set.first();
+
+    default:
+        return Diff::DiffType::Modified;
+    }
+}
+
 QVariant DiffTreeModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
         return {};
 
     if (role == Qt::DisplayRole) {
-        Node *item = static_cast<Node *>(index.internalPointer());
+        auto item = static_cast<TreeNode *>(index.internalPointer());
 
         switch (index.column()) {
         case 0:
             return item->title;
         case 1:
-            return (int)item->metaData;
+            return static_cast<int>(static_cast<DiffNodeData *>(item->nodeData)->diffType);
         }
     } else if (role == Qt::DecorationRole) {
-        Node *item = static_cast<Node *>(index.internalPointer());
+        auto item = static_cast<TreeNode *>(index.internalPointer());
 
         //        return statusColor(item->metaData);
 
@@ -147,7 +193,11 @@ QVariant DiffTreeModel::data(const QModelIndex &index, int role) const
         //            return QColor(Qt::black);
         //        }
 
-        return QIcon::fromTheme(icon(item->metaData));
+        auto diffData = static_cast<DiffNodeData *>(item->nodeData);
+        if (diffData)
+            return QIcon::fromTheme(icon(diffData->diffType));
+        else
+            return QIcon::fromTheme(icon(calculateNodeType(item)));
     } else if (role == Qt::ForegroundRole) {
         //        Node *item = static_cast<Node *>(index.internalPointer());
         //        return textColor(item->metaData);
@@ -160,6 +210,11 @@ void DiffTreeModel::emitAll()
 {
     beginResetModel();
     endResetModel();
+}
+
+DiffNodeData::DiffNodeData(Diff::DiffType diffType)
+    : diffType(diffType)
+{
 }
 
 #include "moc_difftreemodel.cpp"

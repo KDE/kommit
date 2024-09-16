@@ -47,7 +47,7 @@ ReferenceCache::~ReferenceCache()
     delete d;
 }
 
-ReferenceCache::DataMember ReferenceCache::findByName(const QString &name)
+ReferenceCache::DataType ReferenceCache::findByName(const QString &name)
 {
     git_reference *ref;
 
@@ -55,16 +55,16 @@ ReferenceCache::DataMember ReferenceCache::findByName(const QString &name)
     STEP git_reference_lookup(&ref, manager->repoPtr(), name.toUtf8().data());
 
     if (IS_ERROR)
-        return DataMember{};
+        return DataType{};
 
     return findByPtr(ref);
 }
 
-ReferenceCache::DataMember ReferenceCache::findForNote(QSharedPointer<Note> note)
+ReferenceCache::DataType ReferenceCache::findForNote(QSharedPointer<Note> note)
 {
     if (!mList.size())
         fill();
-    auto i = std::find_if(mList.begin(), mList.end(), [&note](DataMember c) {
+    auto i = std::find_if(mList.begin(), mList.end(), [&note](DataType c) {
         return c->isNote() && c->toNote() == note;
     });
 
@@ -73,11 +73,11 @@ ReferenceCache::DataMember ReferenceCache::findForNote(QSharedPointer<Note> note
     return {};
 }
 
-ReferenceCache::DataMember ReferenceCache::findForBranch(QSharedPointer<Branch> branch)
+ReferenceCache::DataType ReferenceCache::findForBranch(QSharedPointer<Branch> branch)
 {
     if (!mList.size())
         fill();
-    auto i = std::find_if(mList.begin(), mList.end(), [&branch](DataMember c) {
+    auto i = std::find_if(mList.begin(), mList.end(), [&branch](DataType c) {
         return c->isBranch() && c->toBranch() == branch;
     });
 
@@ -86,11 +86,11 @@ ReferenceCache::DataMember ReferenceCache::findForBranch(QSharedPointer<Branch> 
     return {};
 }
 
-ReferenceCache::DataMember ReferenceCache::findForTag(QSharedPointer<Tag> tag)
+ReferenceCache::DataType ReferenceCache::findForTag(QSharedPointer<Tag> tag)
 {
     if (!mList.size())
         fill();
-    auto i = std::find_if(mList.begin(), mList.end(), [&tag](DataMember c) {
+    auto i = std::find_if(mList.begin(), mList.end(), [&tag](DataType c) {
         return c->isTag() && c->toTag() == tag;
     });
 
@@ -99,11 +99,11 @@ ReferenceCache::DataMember ReferenceCache::findForTag(QSharedPointer<Tag> tag)
     return {};
 }
 
-ReferenceCache::DataMember ReferenceCache::findForRemote(QSharedPointer<Remote> remote)
+ReferenceCache::DataType ReferenceCache::findForRemote(QSharedPointer<Remote> remote)
 {
     if (!mList.size())
         fill();
-    auto i = std::find_if(mList.begin(), mList.end(), [&remote](DataMember c) {
+    auto i = std::find_if(mList.begin(), mList.end(), [&remote](DataType c) {
         return c->isRemote() && c->toRemote() == remote;
     });
 
@@ -112,7 +112,7 @@ ReferenceCache::DataMember ReferenceCache::findForRemote(QSharedPointer<Remote> 
     return {};
 }
 
-ReferenceCache::DataList ReferenceCache::findForCommit(QSharedPointer<Commit> commit)
+ReferenceCache::ListType ReferenceCache::findForCommit(QSharedPointer<Commit> commit)
 {
     Q_D(ReferenceCache);
     if (!mList.size())
@@ -121,7 +121,7 @@ ReferenceCache::DataList ReferenceCache::findForCommit(QSharedPointer<Commit> co
     return d->dataByCommit.values(commit);
 }
 
-void ReferenceCache::forEach(std::function<void(DataMember)> callback) const
+void ReferenceCache::forEach(std::function<void(DataType)> callback) const
 {
     struct wrapper {
         std::function<void(QSharedPointer<Reference>)> cb;

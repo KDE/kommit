@@ -81,4 +81,40 @@ public:
 };
 
 QDebug operator<<(QDebug d, const SolutionIterator::Result &r);
+
+class LIBKOMMITDIFF_EXPORT SolutionIterator3_2
+{
+    Solution _withLocal;
+    Solution _withRemote;
+    int _baseSize;
+    int _localSize;
+    int _remoteSize;
+
+    Solution::ConstIterator _iteratorWithLocal;
+    Solution::ConstIterator _iteratorWithRemote;
+
+public:
+    struct Result {
+        Range base;
+        Range local;
+        Range remote;
+        bool success;
+        SegmentType type;
+
+        Result();
+        Result(Range base, Range local, Range remote, SegmentType type);
+    };
+
+    SolutionIterator3_2(const Solution &withLocal, Solution withRemote, int baseSize, int localSize, int remoteSize)
+        : _withLocal{withLocal}
+        , _withRemote{withRemote}
+        , _baseSize{baseSize}
+        , _localSize{localSize}
+        , _remoteSize{remoteSize}
+    {
+    }
+
+    // void begin();
+    // Result pick();
+};
 }

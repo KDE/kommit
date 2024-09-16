@@ -22,12 +22,12 @@ NotesCache::NotesCache(Manager *parent)
 {
 }
 
-NotesCache::DataList NotesCache::allNotes()
+NotesCache::ListType NotesCache::allNotes()
 {
     struct wrapper {
         git_repository *repo;
         NotesCache *notesCache;
-        DataList notes;
+        ListType notes;
     };
     auto cb = [](const git_oid *blob_id, const git_oid *annotated_object_id, void *payload) -> int {
         Q_UNUSED(blob_id);
@@ -45,7 +45,7 @@ NotesCache::DataList NotesCache::allNotes()
     return w.notes;
 }
 
-NotesCache::DataMember NotesCache::findByOid(const git_oid *oid)
+NotesCache::DataType NotesCache::findByOid(const git_oid *oid)
 {
     git_note *note;
     if (git_note_read(&note, manager->repoPtr(), NULL, oid))

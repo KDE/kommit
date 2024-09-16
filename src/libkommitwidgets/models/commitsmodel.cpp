@@ -9,7 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/commit.h"
 #include "gitgraphlane.h"
 #include "gitmanager.h"
-#include "qdebug.h"
 
 #include <KLocalizedString>
 #include <QDebug>
@@ -208,7 +207,12 @@ struct LanesFactory {
 
 class CommitsModelPrivate
 {
+    CommitsModel *q_ptr;
+    Q_DECLARE_PUBLIC(CommitsModel);
+
 public:
+    CommitsModelPrivate(CommitsModel *parent);
+
     void initChilds();
     void initGraph();
 
@@ -221,11 +225,6 @@ public:
     QMap<QString, QSharedPointer<Git::Commit>> dataByCommitHashShort;
     QCalendar calendar;
     QSet<QString> seenHashes;
-
-    CommitsModelPrivate(CommitsModel *parent);
-
-    CommitsModel *q_ptr;
-    Q_DECLARE_PUBLIC(CommitsModel);
 };
 
 CommitsModel::CommitsModel(Git::Manager *git, QObject *parent)

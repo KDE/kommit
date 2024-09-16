@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractgititemsmodel.h"
 #include "libkommitwidgets_export.h"
+#include "types.h"
 
 namespace Git
 {
@@ -43,6 +44,9 @@ public:
 
     void clear() override;
     void reload() override;
+
+    Q_REQUIRED_RESULT Git::BranchType branchesType() const;
+    void setBranchesType(const Git::BranchType &newBranchType);
 
 private:
     BranchesModelPrivate *d_ptr;

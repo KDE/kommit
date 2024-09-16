@@ -6,12 +6,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include <cstddef>
+
 namespace Diff
 {
 
 enum class LineEnding { None, Cr, Lf, CrLf };
 
 enum class DiffType { Unchanged, Added, Removed, Modified };
+
+// std::size_t qHash(const DiffType &type);
 
 enum MergeType { None, KeepLocal, KeepRemote, KeepLocalThenRemote, KeepRemoteThenLocal, MergeCustom };
 

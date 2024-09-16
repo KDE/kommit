@@ -19,6 +19,12 @@ Oid::Oid(const git_oid *oid)
 {
 }
 
+Oid::Oid(const git_oid oid)
+{
+    auto o = const_cast<git_oid *>(mOidPtr);
+    git_oid_cpy(o, &oid);
+}
+
 QString Oid::toString() const
 {
     char str[GIT_OID_SHA1_HEXSIZE + 1];

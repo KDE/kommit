@@ -34,17 +34,18 @@ template<class ObjectType, class PtrType>
 class Cache
 {
 public:
-    using DataMember = QSharedPointer<ObjectType>;
-    using DataList = QList<QSharedPointer<ObjectType>>;
+    using DataType = QSharedPointer<ObjectType>;
+    using ListType = QList<QSharedPointer<ObjectType>>;
+
     explicit Cache(Manager *git);
     virtual ~Cache();
 
-    DataMember findByPtr(PtrType *ptr, bool *isNew = nullptr);
+    DataType findByPtr(PtrType *ptr, bool *isNew = nullptr);
 
     bool insert(PtrType *ptr, QSharedPointer<ObjectType> obj);
 
     int size() const;
-    const DataMember &at(int index) const;
+    const DataType &at(int index) const;
     void clear();
 
 protected:
@@ -52,8 +53,8 @@ protected:
     bool removeFromList(PtrType *ptr);
 
     Manager *manager;
-    DataList mList;
-    QHash<PtrType *, DataMember> mHash;
+    ListType mList;
+    QHash<PtrType *, DataType> mHash;
 };
 
 template<class ObjectType, class PtrType>
@@ -117,7 +118,7 @@ Q_OUTOFLINE_TEMPLATE QSharedPointer<ObjectType> Cache<ObjectType, PtrType>::find
         return mHash.value(ptr);
     }
 
-    auto entity = DataMember{new ObjectType{ptr}};
+    auto entity = DataType{new ObjectType{ptr}};
     mList << entity;
     mHash.insert(ptr, entity);
 

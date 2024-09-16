@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/commitsmodel.h"
 
 #include <core/repositorydata.h>
+#include <entities/blob.h>
 #include <entities/commit.h>
 #include <gitmanager.h>
 #include <widgets/graphpainter.h>
@@ -77,12 +78,12 @@ void HistoryViewWidget::slotTextBrowserFileClicked(const QString &file)
         return;
     // TODO: let user choose the parent if they're more than one
 
-    QSharedPointer<Git::File> oldFile;
+    QSharedPointer<Git::Blob> oldFile;
 
     if (log->parents().size()) {
-        oldFile.reset(new Git::File{mGit->manager(), log->parents().first(), file});
+        oldFile = Git::Blob::lookup(mGit->manager()->repoPtr(), log->parents().first(), file);
     };
-    QSharedPointer<Git::File> newFile{new Git::File{mGit->manager(), log->commitHash(), file}};
+    auto newFile = Git::Blob::lookup(mGit->manager()->repoPtr(), log->commitHash(), file);
 
     auto diffWin = new DiffWindow(oldFile, newFile);
     diffWin->showModal();

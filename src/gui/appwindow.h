@@ -37,6 +37,7 @@ public:
 
 private:
     void gitPathChanged();
+    void gitCurrentBranchChanged();
     void settingsUpdated();
     void repoStatus();
     void initRepo();

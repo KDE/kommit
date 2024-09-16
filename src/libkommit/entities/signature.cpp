@@ -49,4 +49,9 @@ QDateTime Signature::time() const
 {
     return mTime;
 }
+
+git_signature *Signature::signaturePtr() const
+{
+    return mSignature;
+}
 }

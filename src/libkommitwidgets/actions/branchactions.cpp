@@ -86,27 +86,27 @@ void BranchActions::checkout()
 
 void BranchActions::diff()
 {
-    QString branchToDiff = mOtherBranch->name();
+    // QString branchToDiff = mOtherBranch->name();
 
-    if (branchToDiff.isEmpty()) {
-        auto currentBranch = mGit->branches()->currentName();
+    // if (branchToDiff.isEmpty()) {
+    //     auto currentBranch = mGit->branches()->currentName();
 
-        if (currentBranch != branchToDiff) {
-            branchToDiff = currentBranch;
-        } else {
-            auto branches = mGit->branches()->names(Git::BranchType::LocalBranch);
-            if (branches.contains(QStringLiteral("master")))
-                branchToDiff = QStringLiteral("master");
-            else if (branches.contains(QStringLiteral("main")))
-                branchToDiff = QStringLiteral("main");
-        }
-        if (branchToDiff.isEmpty()) {
-            qCWarning(KOMMIT_WIDGETS_LOG()) << "Main branch is not set to diff";
-            return;
-        }
-    }
+    //     if (currentBranch != branchToDiff) {
+    //         branchToDiff = currentBranch;
+    //     } else {
+    //         auto branches = mGit->branches()->names(Git::BranchType::LocalBranch);
+    //         if (branches.contains(QStringLiteral("master")))
+    //             branchToDiff = QStringLiteral("master");
+    //         else if (branches.contains(QStringLiteral("main")))
+    //             branchToDiff = QStringLiteral("main");
+    //     }
+    //     if (branchToDiff.isEmpty()) {
+    //         qCWarning(KOMMIT_WIDGETS_LOG()) << "Main branch is not set to diff";
+    //         return;
+    //     }
+    // }
 
-    auto d = new DiffWindow(mGit, branchToDiff, mBranch->name());
+    auto d = new DiffWindow(mGit, mBranch, mOtherBranch);
     d->showModal();
 }
 

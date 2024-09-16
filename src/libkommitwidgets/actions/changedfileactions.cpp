@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/branchescache.h"
 #include "gitmanager.h"
 #include "windows/diffwindow.h"
+#include <entities/blob.h>
 
 #include <QAction>
 
@@ -49,16 +50,19 @@ void ChangedFileActions::setFilePaths(const QString &originalFilePath, const QSt
 
 void ChangedFileActions::diff()
 {
-    QSharedPointer<Git::File> original;
+    QSharedPointer<Git::Blob> original;
 
     if (mOriginalFilePath == QString())
-        original.reset(new Git::File{mGit, mGit->branches()->currentName(), mFilePath});
+        original.reset(new Git::Blob{mGit->repoPtr(), mFilePath});
     else
-        original.reset(new Git::File{mGit, mGit->branches()->currentName(), mOriginalFilePath});
+        original.reset(new Git::Blob{mGit->repoPtr(), mOriginalFilePath});
 
-    QSharedPointer<Git::File> changed{new Git::File{mGit->path() + QLatin1Char('/') + mFilePath}};
+    QSharedPointer<Git::Blob> changed{new Git::Blob{mGit->repoPtr(), mFilePath}};
 
-    auto diffWin = new DiffWindow(original, changed);
+    auto diffWin = new DiffWindow;
+    diffWin->setLeft(original);
+    diffWin->setRight(mGit->path() + mFilePath);
+    diffWin->compare();
     diffWin->showModal();
 }
 

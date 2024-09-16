@@ -19,6 +19,7 @@ class LIBKOMMIT_EXPORT Oid
 {
 public:
     explicit Oid(const git_oid *oid);
+    explicit Oid(const git_oid oid);
 
     [[nodiscard]] QString toString() const;
     [[nodiscard]] bool isNull() const;
@@ -29,7 +30,7 @@ private:
     const git_oid *mOidPtr;
 };
 
-};
+}
 
 bool operator==(const Git::Oid &oid, const QString &hash);
 bool operator!=(const Git::Oid &oid, const QString &hash);

@@ -24,191 +24,229 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <widgets/difftreeview.h>
 #include <widgets/diffwidget.h>
 
-DiffWindow::DiffWindow()
-    : AppMainWindow()
+namespace Impl
 {
-    init(true);
-}
 
-DiffWindow::DiffWindow(Git::Manager *git)
-    : AppMainWindow()
+class Storage
 {
-    init(true);
+public:
+    enum class Mode { File, Blob, Tree, Dir };
 
-    mOldBranch = git->branches()->currentName();
-    const auto diffs = git->diffBranch(mOldBranch);
+    Mode _mode;
+    QString _path;
+    QString _title;
+    QString _filePath;
 
-    for (const auto &f : diffs) {
-        mDiffModel->addFile(f);
-        mFilesModel->append(f.name());
+    QSharedPointer<Git::Tree> _tree;
+    QSharedPointer<Git::Blob> _blob;
+
+    void setFile(const QString &path)
+    {
+        _mode = Mode::File;
+        _filePath = path;
+    }
+    void setFile(QSharedPointer<Git::Blob> file)
+    {
+        _mode = Mode::Blob;
+        _blob = file;
     }
 
-    mRightStorage.setPath(git->path());
-    mLeftStorage.setGitBranch(git, git->branches()->currentName());
-    mDiffModel->sortItems();
-}
-
-DiffWindow::DiffWindow(QSharedPointer<Git::File> oldFile, QSharedPointer<Git::File> newFile)
-    : AppMainWindow()
-    , mOldFile(oldFile)
-    , mNewFile(newFile)
-{
-    init(false);
-
-    mDiffWidget->setOldFile(oldFile);
-    mDiffWidget->setNewFile(newFile);
-    mDiffWidget->compare();
-}
-
-DiffWindow::DiffWindow(Git::Manager *git, const QString &oldBranch, const QString &newBranch)
-    : AppMainWindow()
-    , mOldBranch(oldBranch)
-    , mNewBranch(newBranch)
-{
-    init(true);
-
-    mLeftStorage.setGitBranch(git, oldBranch);
-    mRightStorage.setGitBranch(git, newBranch);
-
-    const auto diffs = git->diffBranches(oldBranch, newBranch);
-
-    for (auto &f : diffs) {
-        mDiffModel->addFile(f);
-        //        qCDebug(KOMMIT_LOG) << f.name() << f.status();
-        mFilesModel->append(f.name());
+    void setTree(QSharedPointer<Git::ITree> tree)
+    {
+        _title = tree->treeTitle();
+        _tree = tree->tree();
+        _mode = Mode::Tree;
     }
-    // mLeftStorage.set = mRightStorage = Git;
-    mDiffModel->sortItems();
-}
-
-DiffWindow::DiffWindow(Git::Manager *git, QSharedPointer<Git::Tag> tag)
-    : AppMainWindow()
-    , mOldBranch(tag->name())
-    , mNewBranch(QStringLiteral("Working dir"))
-{
-    init(true);
-
-    auto tree = tag->commit()->tree();
-    const auto diffs = git->diff(tree);
-
-    for (const auto &f : diffs) {
-        mDiffModel->addFile(f);
-        //        qCDebug(KOMMIT_LOG) << f.name() << f.status();
-        mFilesModel->append(f.newFile());
-    }
-    mLeftStorage.setTree(tree);
-    mRightStorage.setPath(git->path());
-    mDiffModel->sortItems();
-}
-
-DiffWindow::DiffWindow(Git::Branch *oldBranch, Git::Branch *newBranch)
-{
-    mLeftStorage.setTree(oldBranch->tree());
-    mRightStorage.setTree(newBranch->tree());
-}
-
-DiffWindow::DiffWindow(QSharedPointer<Git::Branch> oldBranch, QSharedPointer<Git::Branch> newBranch)
-    : AppMainWindow()
-{
-    init(true);
-    mLeftStorage.setTree(oldBranch->tree());
-    mRightStorage.setTree(newBranch->tree());
-}
-
-DiffWindow::DiffWindow(Git::Manager *git, QSharedPointer<Git::Tree> leftTree)
-{
-    init(true);
-    mLeftStorage.setTree(leftTree);
-    mRightStorage.setPath(git->path());
-
-    const auto diffs = git->diff(leftTree);
-
-    for (auto &f : diffs) {
-        mDiffModel->addFile(f);
-        //        qCDebug(KOMMIT_LOG) << f.name() << f.status();
-        mFilesModel->append(f.newFile());
+    void setDir(const QString &path)
+    {
+        _mode = Mode::Dir;
+        _path = path;
     }
 
-    mDiffModel->sortItems();
+    QString title(const QString &file) const
+    {
+        switch (_mode) {
+        case Mode::File:
+            return _filePath;
+
+        case Mode::Blob:
+            return _blob->name();
+
+        case Mode::Tree:
+            return _title + QStringLiteral(":") + file;
+
+        case Mode::Dir:
+            return _path + QStringLiteral(":") + file;
+        }
+        return {};
+    }
+
+    QByteArray content(const QString &file) const
+    {
+        switch (_mode) {
+        case Mode::Blob:
+            return _blob->content();
+
+        case Mode::File: {
+            QFile f{_filePath};
+            if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
+                return {};
+            auto buffer = f.readAll();
+            f.close();
+            return buffer;
+        }
+        case Mode::Dir: {
+            QFile f{_path + file};
+            if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
+                return {};
+            auto buffer = f.readAll();
+            f.close();
+            return buffer;
+        }
+        case Mode::Tree: {
+            auto f = _tree->file(file);
+            if (f.isNull())
+                return {};
+            return f->content();
+        }
+        }
+
+        return {};
+    }
+};
+
 }
 
-DiffWindow::DiffWindow(const QString &oldDir, const QString &newDir)
+class DiffWindowPrivate
 {
-    init(true);
+    DiffWindow *q_ptr;
+    Q_DECLARE_PUBLIC(DiffWindow)
 
-    mLeftDir = oldDir;
-    mRightDir = newDir;
-    compareDirs();
+public:
+    enum class Mode { None, Dirs, Files };
+    DiffWindowPrivate(DiffWindow *parent);
 
-    mLeftStorage.setPath(oldDir);
-    mRightStorage.setPath(newDir);
+    FilesModel *filesModel{nullptr};
+    DiffTreeModel *diffModel{nullptr};
+    EditActionsMapper *mapper{nullptr};
+    DiffWidget *diffWidget{nullptr};
+    DiffTreeView *treeView{nullptr};
+    QDockWidget *dock{nullptr};
+
+    Git::Manager *manager{nullptr};
+    Impl::Storage left;
+    Impl::Storage right;
+
+    Mode mode{Mode::None};
+
+    void setFiles(const QString &file);
+
+    void compareFile(const QString &file);
+
+    void compareDirs();
+    void initActions();
+
+    void init(bool showSideBar);
+};
+
+DiffWindowPrivate::DiffWindowPrivate(DiffWindow *parent)
+    : q_ptr{parent}
+    , mapper{new EditActionsMapper(parent)}
+    , diffWidget{new DiffWidget(parent)}
+    , filesModel{new FilesModel(parent)}
+    , diffModel{new DiffTreeModel(parent)}
+    , treeView{new DiffTreeView(parent)}
+    , dock{new QDockWidget(parent)}
+{
 }
 
-void DiffWindow::init(bool showSideBar)
+void DiffWindowPrivate::setFiles(const QString &file)
 {
-    auto mapper = new EditActionsMapper(this);
-    mDiffWidget = new DiffWidget(this);
-    mDiffWidget->showSameSize(true);
-
-    mapper->init(actionCollection());
-
-    setCentralWidget(mDiffWidget);
-
-    mapper->addTextEdit(mDiffWidget->oldCodeEditor());
-    mapper->addTextEdit(mDiffWidget->newCodeEditor());
-    setWindowTitle(i18nc("@title:window", "Kommit Diff[*]"));
-
-    mDock = new QDockWidget(this);
-    mDock->setWindowTitle(i18nc("@title:window", "Tree"));
-    mDock->setObjectName(QStringLiteral("treeViewDock"));
-
-    mTreeView = new DiffTreeView(this);
-    connect(mTreeView, &DiffTreeView::fileSelected, this, &DiffWindow::slotTreeViewFileSelected);
-    mDock->setWidget(mTreeView);
-    mDock->setAllowedAreas(Qt::AllDockWidgetAreas);
-    addDockWidget(Qt::LeftDockWidgetArea, mDock);
-
-    mFilesModel = new FilesModel(this);
-    mDiffModel = new DiffTreeModel(this);
-    mDiffModel->setShowRoot(true);
-    //_treeView->setDiffModel(_diffModel, _filesModel);
-
-    initActions();
-    setupGUI(StandardWindowOption::Default, QStringLiteral("kommitdiffui.rc"));
-
-    mDock->setVisible(showSideBar);
-
-    mTreeView->setModels(mDiffModel, mFilesModel);
+    left.setFile(file);
+    right.setFile(file);
 }
 
-void DiffWindow::initActions()
+void DiffWindowPrivate::compareFile(const QString &file)
 {
-    auto actionCollection = this->actionCollection();
+    diffWidget->setOldFile(left.title(file), left.content(file));
+    diffWidget->setNewFile(right.title(file), right.content(file));
+    diffWidget->compare();
+}
+
+void DiffWindowPrivate::compareDirs()
+{
+    if (left._mode == Impl::Storage::Mode::Tree && right._mode == Impl::Storage::Mode::Tree) {
+        auto diff = manager->diff(left._tree, right._tree);
+
+        for (auto &d : diff) {
+            Diff::DiffType type{Diff::DiffType::Unchanged};
+
+            switch (d.status()) {
+            case Git::ChangeStatus::Unknown:
+            case Git::ChangeStatus::Unmodified:
+            case Git::ChangeStatus::Ignored:
+            case Git::ChangeStatus::Untracked:
+            case Git::ChangeStatus::Unreadable:
+                type = Diff::DiffType::Unchanged;
+                break;
+            case Git::ChangeStatus::Modified:
+            case Git::ChangeStatus::Renamed:
+            case Git::ChangeStatus::Copied:
+            case Git::ChangeStatus::TypeChange:
+            case Git::ChangeStatus::UpdatedButInmerged:
+            case Git::ChangeStatus::Conflicted:
+                type = Diff::DiffType::Modified;
+                break;
+            case Git::ChangeStatus::Added:
+                type = Diff::DiffType::Added;
+                break;
+            case Git::ChangeStatus::Removed:
+                type = Diff::DiffType::Removed;
+                break;
+            }
+
+            diffModel->addFile(d.newFile(), type);
+        }
+    } else {
+        auto map = Diff::diffDirs(left._path, right._path);
+        diffModel->clear();
+        for (auto i = map.begin(); i != map.end(); ++i) {
+            diffModel->addFile(i.key(), i.value());
+        }
+    }
+    diffModel->sortItems();
+    dock->show();
+}
+
+void DiffWindowPrivate::initActions()
+{
+    Q_Q(DiffWindow);
+    auto actionCollection = q->actionCollection();
 
     auto viewHiddenCharsAction = actionCollection->addAction(QStringLiteral("view_hidden_chars"));
     viewHiddenCharsAction->setText(i18n("View hidden chars…"));
     viewHiddenCharsAction->setCheckable(true);
-    connect(viewHiddenCharsAction, &QAction::triggered, mDiffWidget, &DiffWidget::showHiddenChars);
+    QObject::connect(viewHiddenCharsAction, &QAction::triggered, diffWidget, &DiffWidget::showHiddenChars);
 
-    auto viewSameSizeBlocksAction = actionCollection->addAction(QStringLiteral("view_same_size_blocks"), mDiffWidget, &DiffWidget::showSameSize);
+    auto viewSameSizeBlocksAction = actionCollection->addAction(QStringLiteral("view_same_size_blocks"), diffWidget, &DiffWidget::showSameSize);
     viewSameSizeBlocksAction->setText(i18n("Same size blocks"));
     viewSameSizeBlocksAction->setCheckable(true);
     viewSameSizeBlocksAction->setChecked(true);
 
-    auto viewFilesInfo = actionCollection->addAction(QStringLiteral("view_files_info"), mDiffWidget, &DiffWidget::showFilesInfo);
+    auto viewFilesInfo = actionCollection->addAction(QStringLiteral("view_files_info"), diffWidget, &DiffWidget::showFilesInfo);
     viewFilesInfo->setText(i18n("Show files names"));
     viewFilesInfo->setCheckable(true);
     viewFilesInfo->setChecked(true);
 
-    auto showTreeDockAction = mDock->toggleViewAction();
+    auto showTreeDockAction = dock->toggleViewAction();
     actionCollection->addAction(QStringLiteral("show_tree_dock"), showTreeDockAction);
     showTreeDockAction->setText(i18n("Show Tree"));
 
-    auto reloadAction = actionCollection->addAction(QStringLiteral("file_reload"), mDiffWidget, &DiffWidget::compare);
+    auto reloadAction = actionCollection->addAction(QStringLiteral("file_reload"), diffWidget, &DiffWidget::compare);
     reloadAction->setText(i18n("Reload"));
 
-    KStandardAction::quit(this, &QWidget::close, actionCollection);
-    KStandardAction::open(this, &DiffWindow::fileOpen, actionCollection);
+    KStandardAction::quit(q, &QWidget::close, actionCollection);
+    KStandardAction::open(q, &DiffWindow::fileOpen, actionCollection);
 
 #ifdef UNDEF
     auto settingsManager = new SettingsManager(mGit, this);
@@ -216,50 +254,155 @@ void DiffWindow::initActions()
 #endif
 }
 
+void DiffWindowPrivate::init(bool showSideBar)
+{
+    Q_Q(DiffWindow);
+
+    diffWidget->showSameSize(q);
+
+    mapper->init(q->actionCollection());
+
+    q->setCentralWidget(diffWidget);
+
+    mapper->addTextEdit(diffWidget->oldCodeEditor());
+    mapper->addTextEdit(diffWidget->newCodeEditor());
+    q->setWindowTitle(i18nc("@title:window", "Kommit Diff[*]"));
+
+    dock->setWindowTitle(i18nc("@title:window", "Tree"));
+    dock->setObjectName(QStringLiteral("treeViewDock"));
+
+    QObject::connect(treeView, &DiffTreeView::fileSelected, q, &DiffWindow::slotTreeViewFileSelected);
+    dock->setWidget(treeView);
+    dock->setAllowedAreas(Qt::AllDockWidgetAreas);
+    q->addDockWidget(Qt::LeftDockWidgetArea, dock);
+
+    initActions();
+    q->setupGUI(KXmlGuiWindow::StandardWindowOption::Default, QStringLiteral("kommitdiffui.rc"));
+
+    dock->setVisible(showSideBar);
+    treeView->setModels(diffModel, filesModel);
+}
+
+DiffWindow::DiffWindow()
+    : AppMainWindow()
+    , d_ptr{new DiffWindowPrivate{this}}
+{
+    Q_D(DiffWindow);
+    d->init(false);
+}
+
+DiffWindow::DiffWindow(QSharedPointer<Git::Blob> oldFile, QSharedPointer<Git::Blob> newFile)
+    : AppMainWindow()
+    , d_ptr{new DiffWindowPrivate{this}}
+{
+    Q_D(DiffWindow);
+
+    d->init(false);
+    d->left.setFile(oldFile);
+    d->right.setFile(newFile);
+    d->compareFile("");
+}
+
+DiffWindow::DiffWindow(Git::Manager *git, QSharedPointer<Git::ITree> leftTree)
+    : AppMainWindow()
+    , d_ptr{new DiffWindowPrivate{this}}
+{
+    Q_D(DiffWindow);
+
+    d->init(true);
+    d->left.setTree(leftTree);
+    d->right.setDir(git->path());
+    d->compareDirs();
+}
+
+DiffWindow::DiffWindow(Git::Manager *git, QSharedPointer<Git::ITree> leftTree, QSharedPointer<Git::ITree> rightTree)
+    : AppMainWindow()
+    , d_ptr{new DiffWindowPrivate{this}}
+{
+    Q_D(DiffWindow);
+
+    d->init(true);
+    d->manager = git;
+    d->left.setTree(leftTree);
+    d->right.setTree(rightTree);
+    d->compareDirs();
+}
+
+DiffWindow::DiffWindow(Mode mode, const QString &left, const QString &right)
+    : AppMainWindow()
+    , d_ptr{new DiffWindowPrivate{this}}
+{
+    Q_D(DiffWindow);
+
+    switch (mode) {
+    case DiffWindow::Files:
+        d->init(true);
+        d->left.setFile(left);
+        d->right.setFile(right);
+        d->compareFile("");
+        break;
+    case DiffWindow::Dirs:
+        d->init(true);
+        d->left.setDir(left);
+        d->right.setDir(right);
+        d->compareDirs();
+        break;
+    }
+}
+
+void DiffWindow::setLeft(const QString &filePath)
+{
+    Q_D(DiffWindow);
+    d->left.setFile(filePath);
+}
+
+void DiffWindow::setLeft(QSharedPointer<Git::Blob> blob)
+{
+    Q_D(DiffWindow);
+    d->left.setFile(blob);
+}
+
+void DiffWindow::setRight(const QString &filePath)
+{
+    Q_D(DiffWindow);
+    d->right.setFile(filePath);
+}
+
+void DiffWindow::setRight(QSharedPointer<Git::Blob> blob)
+{
+    Q_D(DiffWindow);
+    d->right.setFile(blob);
+}
+
+void DiffWindow::compare()
+{
+    Q_D(DiffWindow);
+    d->compareFile("");
+}
+
 void DiffWindow::fileOpen()
 {
-    DiffOpenDialog d(this);
-    if (d.exec() != QDialog::Accepted)
+    Q_D(DiffWindow);
+    DiffOpenDialog openDialog(this);
+    if (openDialog.exec() != QDialog::Accepted)
         return;
 
-    if (d.mode() == DiffOpenDialog::Dirs) {
-        mLeftStorage.setPath(d.oldDir());
-        mRightStorage.setPath(d.newDir());
-        compareDirs();
+    if (openDialog.mode() == DiffOpenDialog::Dirs) {
+        d->left.setDir(openDialog.oldDir());
+        d->right.setDir(openDialog.newDir());
+        d->compareDirs();
     } else {
-        mDiffWidget->setOldFile(QSharedPointer<Git::File>{new Git::File{d.oldFile()}});
-        mDiffWidget->setNewFile(QSharedPointer<Git::File>{new Git::File{d.newFile()}});
-        mDiffWidget->compare();
+        d->left.setFile(openDialog.oldFile());
+        d->right.setFile(openDialog.newFile());
+        d->compareFile("");
     }
+    d->dock->setVisible(openDialog.mode() == DiffOpenDialog::Dirs);
 }
 
 void DiffWindow::slotTreeViewFileSelected(const QString &file)
 {
-    // switch (mLeftStorage) {
-    // case FileSystem:
-    //     mDiffWidget->setOldFile(Git::File{mLeftDir + QLatin1Char('/') + file});
-    //     break;
-    // case Git:
-    //     mDiffWidget->setOldFile({mGit, mOldBranch, file});
-    //     break;
-    // case NoStorage:
-    //     return;
-    // }
-    // switch (mRightStorage) {
-    // case FileSystem:
-    //     mDiffWidget->setNewFile(Git::File{mRightDir + QLatin1Char('/') + file});
-    //     break;
-    // case Git:
-    //     mDiffWidget->setNewFile({mGit, mNewBranch, file});
-    //     break;
-    // case NoStorage:
-    //     return;
-    // }
-
-    mDiffWidget->setOldFile(mLeftStorage.file(file));
-    mDiffWidget->setNewFile(mRightStorage.file(file));
-
-    mDiffWidget->compare();
+    Q_D(DiffWindow);
+    d->compareFile(file);
 }
 
 QString diffTypeText(const Diff::DiffType type)
@@ -277,51 +420,4 @@ QString diffTypeText(const Diff::DiffType type)
     return {};
 }
 
-void DiffWindow::compareDirs()
-{
-    auto map = Diff::diffDirs(mLeftDir, mRightDir);
-    for (auto i = map.begin(); i != map.end(); ++i) {
-        mDiffModel->addFile(i.key(), i.value());
-    }
-    mDiffModel->sortItems();
-
-    mDock->show();
-}
-
-QSharedPointer<Git::File> DiffWindow::Storage::file(const QString &path) const
-{
-    switch (mMode) {
-    case Mode::NoStorage:
-        break;
-    case Mode::FileSystem:
-        return QSharedPointer<Git::File>{new Git::File{mPath + path}};
-    case Mode::Git:
-        return QSharedPointer<Git::File>{new Git::File{mManager, mBranchName, path}};
-    case Mode::Tree:
-        return mTree->file(path);
-    }
-
-    return {};
-}
-
-void DiffWindow::Storage::setGitBranch(Git::Manager *manager, const QString &branchName)
-{
-    mMode = Mode::Git;
-    mManager = manager;
-    mBranchName = branchName;
-}
-
-void DiffWindow::Storage::setPath(const QString &path)
-{
-    mPath = path;
-    if (!mPath.endsWith(QLatin1Char('/')))
-        mPath += QLatin1Char('/');
-    mMode = Mode::FileSystem;
-}
-
-void DiffWindow::Storage::setTree(QSharedPointer<Git::Tree> tree)
-{
-    mTree = tree;
-    mMode = Mode::Tree;
-}
 #include "moc_diffwindow.cpp"

@@ -15,9 +15,7 @@ class Branch;
 };
 
 class CommitsModel;
-class BranchActions;
 class CommitActions;
-class TreeModel;
 class CommitsFilterModel;
 class CommitsWidget : public WidgetBase, private Ui::CommitsWidget
 {
@@ -33,20 +31,15 @@ public:
     void settingsUpdated() override;
 
 private:
-    void slotTreeViewRepoItemActivated(const QModelIndex &index);
-    void slotTreeViewRepoCustomContextMenuRequested(const QPoint &pos);
-    void slotTreeViewHistoryItemActivated(const QModelIndex &index);
+    void slotTreeViewCommitsItemActivated(const QModelIndex &index);
+    void slotTreeViewCommitsCustomContextMenuRequested(const QPoint &pos);
     void slotTextBrowserHashClicked(const QString &hash);
     void slotTextBrowserFileClicked(const QString &file);
-    void slotTreeViewHistoryCustomContextMenuRequested(const QPoint &pos);
-
     void slotLineEditFilterTextChanged(const QString &arg1);
-    void setBranch(const QString &branchName);
+
+    void setBranch(QSharedPointer<Git::Branch> branch);
     void init();
 
-    QMap<QString, QSharedPointer<Git::Branch>> mBranchesMap;
-    TreeModel *const mRepoModel;
-    BranchActions *mActions{nullptr};
     CommitActions *mCommitActions{nullptr};
     CommitsModel *mHistoryModel{nullptr};
     CommitsFilterModel *mFilterModel{nullptr};

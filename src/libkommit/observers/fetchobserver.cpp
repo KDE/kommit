@@ -121,10 +121,18 @@ int git_helper_transport_cb(git_transport **out, git_remote *owner, void *param)
     return 0;
 }
 
+int git_helper_transport_certificate_check(git_cert *cert, int valid, const char *host, void *payload)
+{
+    Q_UNUSED(cert)
+    Q_UNUSED(host)
+    Q_UNUSED(payload)
+    return 0;
+}
 }
 
 FetchObserver::FetchObserver(Manager *parent)
     : QObject{parent}
+    , mManager{parent}
 {
 }
 
@@ -136,10 +144,12 @@ void FetchObserver::applyOfFetchOptions(git_fetch_options *opts)
     opts->callbacks.credentials = &FetchObserverCallbacks::git_helper_credentials_cb;
     opts->callbacks.pack_progress = &FetchObserverCallbacks::git_helper_packbuilder_progress;
     opts->callbacks.transport = &FetchObserverCallbacks::git_helper_transport_cb;
+    opts->callbacks.certificate_check = &FetchObserverCallbacks::git_helper_transport_certificate_check;
 
     if (!mBridge)
         mBridge = new FetchObserverBridge;
 
+    mBridge->manager = mManager;
     mBridge->observer = this;
     opts->callbacks.payload = mBridge;
 }

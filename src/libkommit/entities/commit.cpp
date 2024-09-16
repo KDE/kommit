@@ -31,6 +31,7 @@ public:
     CommitPrivate(Commit *parent, git_commit *commit);
 
     git_commit *const gitCommitPtr;
+    QString hash;
     QSharedPointer<Signature> author;
     QSharedPointer<Signature> committer;
     QList<QSharedPointer<Reference>> references;
@@ -44,15 +45,6 @@ public:
 Commit::Commit(git_commit *commit)
     : d_ptr{new CommitPrivate{this, commit}}
 {
-    Q_D(Commit);
-    auto id = git_commit_id(commit);
-    mCommitHash = git_oid_tostr_s(id);
-
-    auto parentCount = git_commit_parentcount(commit);
-    for (unsigned int i = 0; i < parentCount; ++i) {
-        auto pid = git_commit_parent_id(commit, i);
-        d->parentHashes << convertToString(pid, 20);
-    }
 }
 
 Commit::~Commit()
@@ -72,11 +64,6 @@ const QStringList &Commit::children() const
 {
     Q_D(const Commit);
     return d->children;
-}
-
-const QString &Commit::commitShortHash() const
-{
-    return mCommitShortHash;
 }
 
 QList<QSharedPointer<Reference>> Commit::references() const
@@ -161,7 +148,9 @@ QString Commit::body() const
 
 const QString &Commit::commitHash() const
 {
-    return mCommitHash;
+    Q_D(const Commit);
+
+    return d->hash;
 }
 
 const QStringList &Commit::parents() const
@@ -217,5 +206,13 @@ CommitPrivate::CommitPrivate(Commit *parent, git_commit *commit)
     : q_ptr{parent}
     , gitCommitPtr{commit}
 {
+    auto id = git_commit_id(commit);
+    hash = git_oid_tostr_s(id);
+
+    auto parentCount = git_commit_parentcount(commit);
+    for (unsigned int i = 0; i < parentCount; ++i) {
+        auto pid = git_commit_parent_id(commit, i);
+        parentHashes << convertToString(pid, 20);
+    }
 }
 }

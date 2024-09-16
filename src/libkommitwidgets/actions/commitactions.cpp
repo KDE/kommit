@@ -54,7 +54,7 @@ void CommitActions::checkout()
 
 void CommitActions::diff()
 {
-    auto d = new DiffWindow(mGit, mCommit->tree());
+    auto d = new DiffWindow(mGit, mCommit);
     d->showModal();
 }
 void CommitActions::note()

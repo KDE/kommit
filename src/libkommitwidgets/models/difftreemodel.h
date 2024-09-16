@@ -12,6 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "treemodel.h"
 #include <entities/treediff.h>
 
+class TreeNode;
 class DiffTreeModel : public TreeModel
 {
     Q_OBJECT
@@ -30,5 +31,6 @@ public:
 private:
     [[nodiscard]] Diff::DiffType toDiffType(Git::FileStatus::Status status) const;
     [[nodiscard]] Diff::DiffType toDiffType(Git::ChangeStatus status) const;
-    Node *createPath(const QStringList &path, Diff::DiffType status);
+    TreeNode *createPath(const QStringList &path, Diff::DiffType status);
+    Diff::DiffType calculateNodeType(TreeNode *node) const;
 };

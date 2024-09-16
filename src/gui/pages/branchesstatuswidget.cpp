@@ -47,6 +47,7 @@ void BranchesStatusWidget::init()
     connect(treeView, &QTreeView::customContextMenuRequested, this, &BranchesStatusWidget::slotTreeViewCustomContextMenuRequested);
     connect(treeView, &QTreeView::activated, this, &BranchesStatusWidget::slotTreeViewActivated);
     connect(treeView, &QTreeView::clicked, this, &BranchesStatusWidget::slotTreeViewActivated);
+    connect(comboBoxBranchesType, &QComboBox::currentIndexChanged, this, &BranchesStatusWidget::slotReloadData);
 }
 
 void BranchesStatusWidget::saveState(QSettings &settings) const
@@ -64,6 +65,25 @@ void BranchesStatusWidget::slotComboBoxReferenceBranchCurrentIndexChanged(int)
     const auto selectedBranch = comboBoxReferenceBranch->currentText();
     mModel->setReferenceBranch(selectedBranch);
     mActions->setOtherBranch(mModel->findByName(selectedBranch));
+}
+
+void BranchesStatusWidget::slotReloadData()
+{
+    Git::BranchType t{Git::BranchType::AllBranches};
+
+    switch (comboBoxBranchesType->currentIndex()) {
+    case 0:
+        t = Git::BranchType::AllBranches;
+        break;
+    case 1:
+        t = Git::BranchType::LocalBranch;
+        break;
+    case 2:
+        t = Git::BranchType::RemoteBranch;
+        break;
+    }
+
+    mModel->setBranchesType(t);
 }
 
 void BranchesStatusWidget::slotPushButtonRemoveSelectedClicked()

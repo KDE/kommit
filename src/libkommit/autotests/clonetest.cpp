@@ -18,6 +18,7 @@ QTEST_GUILESS_MAIN(CloneTest)
 
 CloneTest::CloneTest(QObject *parent)
     : QObject{parent}
+    , mManager{new Git::Manager{this}}
 {
 }
 
@@ -28,17 +29,17 @@ CloneTest::~CloneTest()
 
 void CloneTest::initTestCase()
 {
-    auto path = TestCommon::getTempPath();
-    qDebug() << path;
-    mManager = new Git::Manager;
     QVERIFY(!mManager->isValid());
 }
 
 void CloneTest::clone()
 {
-    auto path = TestCommon::getTempPath();
+    auto path = TestCommon::getTempPath(false);
+    qDebug() << path;
     auto ok = mManager->clone("https://invent.kde.org/sdk/kommit.git", path);
+    qDebug() << mManager->path();
     QVERIFY(ok);
+
     TestCommon::initSignature(mManager);
 
     path.append("/");
@@ -89,7 +90,7 @@ void CloneTest::initialCommitTree()
 
 void CloneTest::cleanupTestCase()
 {
-    //    TestCommon::cleanPath(mManager);
+    TestCommon::cleanPath(mManager);
 }
 
 #include "moc_clonetest.cpp"

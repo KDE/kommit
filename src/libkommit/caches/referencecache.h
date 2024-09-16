@@ -28,14 +28,14 @@ public:
     explicit ReferenceCache(Manager *parent);
     ~ReferenceCache() override;
 
-    DataMember findByName(const QString &name);
-    DataMember findForNote(QSharedPointer<Note> note);
-    DataMember findForBranch(QSharedPointer<Branch> branch);
-    DataMember findForTag(QSharedPointer<Tag> tag);
-    DataMember findForRemote(QSharedPointer<Remote> remote);
-    DataList findForCommit(QSharedPointer<Commit> commit);
+    DataType findByName(const QString &name);
+    DataType findForNote(QSharedPointer<Note> note);
+    DataType findForBranch(QSharedPointer<Branch> branch);
+    DataType findForTag(QSharedPointer<Tag> tag);
+    DataType findForRemote(QSharedPointer<Remote> remote);
+    ListType findForCommit(QSharedPointer<Commit> commit);
 
-    void forEach(std::function<void(DataMember)> callback) const;
+    void forEach(std::function<void(DataType)> callback) const;
 
 protected:
     void clearChildData() override;

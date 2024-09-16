@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QTextOption>
 #include <QWidget>
+#include <entities/blob.h>
 #include <entities/file.h>
 
 #include "libkommitwidgets_export.h"
@@ -23,18 +24,24 @@ class LIBKOMMITWIDGETS_EXPORT DiffWidget : public QWidget, private Ui::DiffWIdge
 
 public:
     explicit DiffWidget(QWidget *parent = nullptr);
-    DiffWidget(QSharedPointer<Git::File> oldFile, QSharedPointer<Git::File> newFile, QWidget *parent = nullptr);
+    DiffWidget(QSharedPointer<Git::Blob> oldFile, QSharedPointer<Git::Blob> newFile, QWidget *parent = nullptr);
     ~DiffWidget();
 
-    QSharedPointer<Git::File> oldFile() const;
+    void setOldFile(QSharedPointer<Git::Blob> newOldFile);
+    void setNewFile(QSharedPointer<Git::Blob> newNewFile);
+
     void setOldFile(QSharedPointer<Git::File> newOldFile);
-    QSharedPointer<Git::File> newFile() const;
     void setNewFile(QSharedPointer<Git::File> newNewFile);
+
+    void setOldFile(const QString &filePath);
+    void setNewFile(const QString &filePath);
+
+    void setOldFile(const QString &title, const QString &content);
+    void setNewFile(const QString &title, const QString &content);
 
     void compare();
 
     CodeEditor *oldCodeEditor() const;
-
     CodeEditor *newCodeEditor() const;
 
     [[nodiscard]] bool sameSize() const;
@@ -78,8 +85,11 @@ private:
     CodeEditor *mPreviewEditorLeft = nullptr;
     CodeEditor *mPreviewEditorRight = nullptr;
     bool mSameSize{false};
-    QSharedPointer<Git::File> mOldFile;
-    QSharedPointer<Git::File> mNewFile;
 
+    QString mOldContent;
+    QString mNewContent;
+    QString mOldFileName;
+    QString mNewFileName;
     QTextOption mDefaultOption;
+    QList<Diff::DiffSegment *> mSegments;
 };

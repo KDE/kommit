@@ -5,8 +5,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "authorsreport.h"
-#include "caches/tagscache.h"
 
+#include <caches/commitscache.h>
+#include <caches/tagscache.h>
 #include <entities/commit.h>
 #include <entities/signature.h>
 #include <entities/tag.h>

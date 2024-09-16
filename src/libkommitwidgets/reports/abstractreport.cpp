@@ -107,7 +107,7 @@ void AbstractReport::extendRange(int value)
 
 void AbstractReport::addData(std::initializer_list<QVariant> data)
 {
-    if (data.size() != columnCount())
+    if ((data.size() != columnCount()))
         return;
 
     mData << data;

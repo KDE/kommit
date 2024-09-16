@@ -24,21 +24,21 @@ find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
+include(FeatureSummary)
+include(GenerateExportHeader)
 include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings NO_POLICY_SCOPE)
-include(FeatureSummary)
-
+include(KDEGitCommitHooks)
+include(KDEClangFormat)
 include(ECMInstallIcons)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
 include(ECMAddTests)
-include(GenerateExportHeader)
-include(KDEGitCommitHooks)
-include(KDEClangFormat)
 include(ECMDeprecationSettings)
-
+include(ECMGenerateHeaders)
+include(ECMGenerateExportHeader)
 
 if(QT_MAJOR_VERSION STREQUAL "6")
     set(QT_MIN_VERSION "6.4.0")

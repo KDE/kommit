@@ -61,7 +61,7 @@ void StashActions::pop()
 
 void StashActions::diff()
 {
-    auto d = new DiffWindow(mGit, mStash->commit()->tree());
+    auto d = new DiffWindow(mGit, mStash->commit());
     d->showModal();
 }
 

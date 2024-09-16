@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "fileviewerdialog.h"
-#include "entities/file.h"
+#include "entities/blob.h"
 #include "gitmanager.h"
 
 #include <KActionCollection>
@@ -22,7 +22,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QStandardPaths>
 #include <QStyle>
 
-FileViewerDialog::FileViewerDialog(QSharedPointer<Git::File> file, QWidget *parent)
+FileViewerDialog::FileViewerDialog(QSharedPointer<Git::Blob> file, QWidget *parent)
     : KParts::MainWindow(parent)
 {
     setupUi(this);
@@ -66,13 +66,14 @@ FileViewerDialog::~FileViewerDialog()
     delete mPart;
 }
 
-void FileViewerDialog::showFile(const Git::File &file)
+void FileViewerDialog::showFile(const Git::Blob &file)
 {
     QMimeDatabase mimeDatabase;
     const auto fn = file.fileName().mid(file.fileName().lastIndexOf(QLatin1Char('/')) + 1);
     const auto mime = mimeDatabase.mimeTypeForFile(fn, QMimeDatabase::MatchExtension);
 
-    lineEditBranchName->setText(file.place());
+    // TODO: remove place
+    //  lineEditBranchName->setText(file.place());
     lineEditFileName->setText(file.fileName());
     plainTextEdit->setReadOnly(true);
 
@@ -89,14 +90,14 @@ void FileViewerDialog::showFile(const Git::File &file)
         showInEditor(file);
 }
 
-void FileViewerDialog::showInEditor(const Git::File &file)
+void FileViewerDialog::showInEditor(const Git::Blob &file)
 {
     stackedWidget->setCurrentIndex(0);
     plainTextEdit->setPlainText(file.content());
     plainTextEdit->setHighlighting(file.fileName());
 }
 
-void FileViewerDialog::showAsImage(const Git::File &file)
+void FileViewerDialog::showAsImage(const Git::Blob &file)
 {
     stackedWidget->setCurrentIndex(1);
     mFilePath = file.saveAsTemp();
@@ -104,7 +105,7 @@ void FileViewerDialog::showAsImage(const Git::File &file)
     labelImage->setPixmap(QPixmap::fromImage(img));
 }
 
-bool FileViewerDialog::showWithParts(const QMimeType &mimeType, const Git::File &file)
+bool FileViewerDialog::showWithParts(const QMimeType &mimeType, const Git::Blob &file)
 {
     auto parts = KParts::PartLoader::partsForMimeType(mimeType.name());
 

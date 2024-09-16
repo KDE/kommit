@@ -40,10 +40,11 @@ class SubmodulesCache;
 class StashesCache;
 class ReferenceCache;
 class AbstractCommand;
-class BlameData;
 class FileStatus;
 class File;
 class TreeDiff;
+class Blob;
+struct BlameDataRow;
 
 class LIBKOMMIT_EXPORT Manager : public QObject
 {
@@ -59,8 +60,9 @@ public:
         ConfigGlobal,
         ConfigLocal,
     };
+    enum class ResetType { Soft = GIT_RESET_SOFT, Mied = GIT_RESET_MIXED, Hard = GIT_RESET_HARD };
 
-    Manager();
+    explicit Manager(QObject *parent = nullptr);
     explicit Manager(git_repository *repo);
     explicit Manager(const QString &path);
     static Manager *instance();
@@ -73,10 +75,11 @@ public:
     // common actions
     bool init(const QString &path);
     bool clone(const QString &url, const QString &localPath, CloneObserver *observer = nullptr);
-    void commit(const QString &message);
+    bool commit(const QString &message);
     void push(PushObserver *observer = nullptr) const;
     bool open(const QString &newPath);
     QSharedPointer<Reference> head() const;
+    bool checkout();
 
     // properties
     [[nodiscard]] const QString &path() const;
@@ -84,8 +87,11 @@ public:
     [[nodiscard]] bool isMerging() const;
 
     // branches
+    bool switchBranch(QSharedPointer<Branch> branch) const;
     bool switchBranch(const QString &branchName) const;
     [[nodiscard]] QPair<int, int> uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const;
+    bool setHead(QSharedPointer<Reference> ref) const;
+    bool reset(QSharedPointer<Commit> commit, ResetType type) const;
 
     // remotes
     bool fetch(const QString &remoteName, FetchObserver *observer = nullptr);
@@ -98,20 +104,19 @@ public:
     void forEachConfig(std::function<void(QString, QString)> cb);
 
     // files
-    void addFile(const QString &file) const;
+    void addFile(const QString &file);
     [[nodiscard]] QStringList ls(const QString &place) const;
     [[nodiscard]] QString fileContent(const QString &place, const QString &fileName) const;
     void saveFile(const QString &place, const QString &fileName, const QString &localFile) const;
     bool revertFile(const QString &filePath) const;
     bool removeFile(const QString &file, bool cached) const;
     [[nodiscard]] QStringList fileLog(const QString &fileName) const;
-    BlameData blame(QSharedPointer<File> file);
+    QList<BlameDataRow> blame(QSharedPointer<Git::Blob> file);
     [[nodiscard]] QMap<QString, ChangeStatus> changedFiles() const;
     [[nodiscard]] QMap<QString, ChangeStatus> changedFiles(const QString &hash) const;
     [[nodiscard]] QStringList ignoredFiles() const;
 
-    Q_DECL_DEPRECATED
-    [[nodiscard]] QList<FileStatus> repoFilesStatus() const;
+    [[nodiscard]] Q_DECL_DEPRECATED QList<FileStatus> repoFilesStatus() const;
 
     // ignores
     bool isIgnored(const QString &path);
@@ -125,7 +130,7 @@ public:
 
     void forEachCommits(std::function<void(QSharedPointer<Commit>)> callback, const QString &branchName) const;
 
-    [[nodiscard]] QSharedPointer<Index> index() const;
+    [[nodiscard]] QSharedPointer<Index> index();
     [[nodiscard]] QSharedPointer<Tree> headTree() const;
 
     [[nodiscard]] bool isRebasing() const;
@@ -152,6 +157,7 @@ public:
 Q_SIGNALS:
     void pathChanged();
     void reloadRequired();
+    void currentBranchChanged() const;
 
 private:
     ManagerPrivate *d_ptr;

@@ -26,6 +26,10 @@ struct LIBKOMMITDIFF_EXPORT Segment {
 struct LIBKOMMITDIFF_EXPORT DiffSegment : Segment {
     ~DiffSegment() override = default;
 
+    int oldLineStart;
+    int oldLineEnd;
+    int newLineStart;
+    int newLineEnd;
     [[nodiscard]] QStringList get(int index) override;
 };
 

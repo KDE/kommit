@@ -84,6 +84,7 @@ AppWindow::AppWindow()
 void AppWindow::init()
 {
     connect(mGitData->manager(), &Git::Manager::pathChanged, this, &AppWindow::gitPathChanged);
+    connect(mGitData->manager(), &Git::Manager::currentBranchChanged, this, &AppWindow::gitCurrentBranchChanged);
 
     initActions();
     mMainWidget = new MultiPageWidget(this);
@@ -135,7 +136,10 @@ void AppWindow::gitPathChanged()
 {
     updateActions(mGitData->manager()->isValid());
     setWindowFilePath(mGitData->manager()->path());
+}
 
+void AppWindow::gitCurrentBranchChanged()
+{
     if (mGitData->manager()->isValid()) {
         QString statusText = i18n("Current branch: %1", mGitData->manager()->branches()->currentName());
         if (mGitData->manager()->isMerging())
@@ -371,7 +375,10 @@ void AppWindow::diffBranches()
 {
     SelectBranchesToDiffDialog d(mGitData->manager(), this);
     if (d.exec() == QDialog::Accepted) {
-        auto diffWin = new DiffWindow(mGitData->manager(), d.oldBranch(), d.newBranch());
+        auto leftBranch = mGitData->manager()->branches()->findByName(d.oldBranch());
+        auto rightBranch = mGitData->manager()->branches()->findByName(d.newBranch());
+
+        auto diffWin = new DiffWindow(mGitData->manager(), leftBranch, rightBranch);
         diffWin->showModal();
     }
 }
@@ -404,7 +411,8 @@ void AppWindow::repoSwitch()
 
 void AppWindow::repoDiffTree()
 {
-    auto w = new DiffWindow(mGitData->manager());
+    auto currentBranch = mGitData->manager()->branches()->current();
+    auto w = new DiffWindow(mGitData->manager(), currentBranch);
     w->showModal();
 }
 

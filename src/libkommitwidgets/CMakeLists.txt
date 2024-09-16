@@ -42,6 +42,7 @@ target_sources(libkommitwidgets PRIVATE
     widgets/urlrequester.h
     widgets/fetchresultwidget.h
     widgets/fetchresultwidget.cpp
+    widgets/branchesselectionwidget.h widgets/branchesselectionwidget.cpp
 
     core/kmessageboxhelper.h
     core/kmessageboxhelper.cpp
@@ -95,7 +96,7 @@ target_sources(libkommitwidgets PRIVATE
     models/filesmodel.cpp
     models/changedfilesmodel.cpp
     models/filesmodel.h
-
+    models/branchesfiltermodel.h models/branchesfiltermodel.cpp
     models/abstractgititemsmodel.h
     models/abstractgititemsmodel.cpp
     models/submodulesmodel.cpp
@@ -211,6 +212,7 @@ ki18n_wrap_ui(
     widgets/difftreeview.ui
     windows/kommitmergeview.ui
     widgets/fetchresultwidget.ui
+    widgets/branchesselectionwidget.ui
 
     dialogs/mergecloseeventdialog.ui
     dialogs/searchdialog.ui

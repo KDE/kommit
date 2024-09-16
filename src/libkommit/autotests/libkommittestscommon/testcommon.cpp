@@ -6,8 +6,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "testcommon.h"
 
+#include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QResource>
 #include <QStandardPaths>
 #include <QUuid>
 #include <gitmanager.h>
@@ -30,11 +32,13 @@ QString touch(const QString &fileName)
     return content;
 }
 
-QString getTempPath()
+QString getTempPath(bool create)
 {
     const auto path = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + QLatin1Char('/') + QUuid::createUuid().toString(QUuid::Id128);
-    QDir d;
-    d.mkpath(path);
+    if (create) {
+        QDir d;
+        d.mkpath(path);
+    }
     return path;
 }
 
@@ -78,4 +82,61 @@ void initSignature(Git::Manager *manager)
     manager->setConfig("user.name", "kommit test user", Git::Manager::ConfigLocal);
     manager->setConfig("user.email", "kommit@kde.org", Git::Manager::ConfigLocal);
 }
+
+bool writeFile(Git::Manager *manager, const QString &fileName, const QString &content)
+{
+    QFile f(manager->path() + QLatin1Char('/') + fileName);
+    if (!f.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
+        return false;
+    f.write(content.toUtf8());
+    f.flush();
+    f.close();
+    return true;
+}
+
+bool copyFolder(const QString &srcPath, const QString &destPath)
+{
+    QDir sourceDir(srcPath);
+    if (!sourceDir.exists()) {
+        qDebug() << "Source directory does not exist:" << srcPath;
+        return false;
+    }
+
+    QDir targetDir(destPath);
+    if (!targetDir.exists()) {
+        if (!targetDir.mkpath(destPath)) {
+            qDebug() << "Failed to create destination directory:" << destPath;
+            return false;
+        }
+    }
+
+    // Get the list of files and directories in the source folder
+    auto fileList = sourceDir.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot | QDir::Hidden);
+
+    for (auto &fileInfo : fileList) {
+        QString srcFilePath = fileInfo.filePath();
+        QString destFilePath = destPath + QDir::separator() + fileInfo.fileName();
+
+        if (fileInfo.isDir()) {
+            // Recursively copy subdirectory
+            if (!copyFolder(srcFilePath, destFilePath)) {
+                return false;
+            }
+        } else {
+            // Copy the file
+            if (!QFile::copy(srcFilePath, destFilePath)) {
+                qDebug() << "Failed to copy file:" << srcFilePath << "to" << destFilePath;
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+bool extractSampleRepo(const QString &path)
+{
+    return copyFolder(SAMPLES_PATH, path);
+}
+
 }

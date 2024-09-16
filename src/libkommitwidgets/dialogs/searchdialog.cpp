@@ -80,11 +80,11 @@ void SearchDialog::slotTreeViewDoubleClicked(const QModelIndex &index)
     else
         place = branch.isEmpty() ? commit : branch;
 
-    auto f = QSharedPointer<Git::File>{new Git::File{mGit, place, file}};
-    auto d = new FileViewerDialog(f);
-    d->setWindowModality(Qt::ApplicationModal);
-    d->setAttribute(Qt::WA_DeleteOnClose, true);
-    d->show();
+    // auto f = QSharedPointer<Git::File>{new Git::File{mGit, place, file}};
+    // auto d = new FileViewerDialog(f);
+    // d->setWindowModality(Qt::ApplicationModal);
+    // d->setAttribute(Qt::WA_DeleteOnClose, true);
+    // d->show();
 }
 
 void SearchDialog::beginSearch()

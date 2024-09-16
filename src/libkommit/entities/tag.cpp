@@ -8,7 +8,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "oid.h"
 
+#include "gitglobal_p.h"
+
 #include <git2/commit.h>
+#include <git2/refs.h>
 #include <git2/tag.h>
 
 namespace Git
@@ -94,6 +97,14 @@ Tag::TagType Tag::tagType() const
 QSharedPointer<Oid> Tag::oid() const
 {
     return QSharedPointer<Oid>(new Oid{git_tag_id(mTagPtr)});
+}
+
+QSharedPointer<Object> Tag::target() const
+{
+    git_object *target;
+    if (git_tag_target(&target, mTagPtr))
+        return nullptr;
+    return QSharedPointer<Object>{new Object{target}};
 }
 
 git_tag *Tag::tagPtr() const

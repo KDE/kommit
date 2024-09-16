@@ -18,8 +18,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class LIBKOMMIT_EXPORT RemotesCache : public Cache<Remote, git_remote>
+class LIBKOMMIT_EXPORT RemotesCache : public QObject, public Cache<Remote, git_remote>
 {
+    Q_OBJECT
+
 public:
     explicit RemotesCache(Manager *manager);
 
@@ -27,14 +29,19 @@ public:
     QStringList allNames();
     QSharedPointer<Remote> findByName(const QString &name);
     [[nodiscard]] bool create(const QString &name, const QString &url);
-    [[nodiscard]] bool setUrl(DataMember remote, const QString &url);
+    [[nodiscard]] bool setUrl(DataType remote, const QString &url);
 
     [[nodiscard]] bool remove(QSharedPointer<Remote> remote);
-    [[nodiscard]] bool remove(const QString &name) const;
+    [[nodiscard]] bool remove(const QString &name);
 
     [[nodiscard]] bool rename(QSharedPointer<Remote> remote, const QString &newName);
 
 protected:
     void clearChildData() override;
+
+Q_SIGNALS:
+    void added(DataType commit);
+    void removed(DataType commit);
 };
-};
+
+}

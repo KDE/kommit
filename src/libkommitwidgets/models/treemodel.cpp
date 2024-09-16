@@ -5,11 +5,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "treemodel.h"
+#include <QAbstractItemModel>
+#include <QIcon>
+#include <QVariant>
 
 #include "libkommitwidgets_appdebug.h"
-#include <QModelIndex>
-
-#include <KLocalizedString>
 
 class TreeModelPrivate
 {
@@ -17,65 +17,15 @@ class TreeModelPrivate
     Q_DECLARE_PUBLIC(TreeModel)
 
 public:
-    TreeModelPrivate(TreeModel *parent);
+    explicit TreeModelPrivate(TreeModel *parent);
 
-    TreeModel::Node *createPath(const QStringList &path);
-    TreeModel::Node *find(QStringList &path, TreeModel::Node *node = nullptr);
-    void getFullPath(QString &path, TreeModel::Node *node) const;
-    void sortNode(TreeModel::Node *node);
-
-    TreeModel::Node *const rootNode;
     QString separator{QStringLiteral("/")};
-    bool lastPartAsData{false};
     QIcon defaultIcon;
-    bool showRoot{false};
+    bool showRoot{true};
+
+    TreeNode *rootNode{new TreeNode};
+    void sortNode(TreeNode *node);
 };
-
-const QString &TreeModel::separator() const
-{
-    Q_D(const TreeModel);
-    return d->separator;
-}
-
-void TreeModel::setSeparator(const QString &newSeparator)
-{
-    Q_D(TreeModel);
-    d->separator = newSeparator;
-}
-
-bool TreeModel::lastPartAsData() const
-{
-    Q_D(const TreeModel);
-    return d->lastPartAsData;
-}
-
-void TreeModel::setLastPartAsData(bool newLastPartAsData)
-{
-    Q_D(TreeModel);
-    d->lastPartAsData = newLastPartAsData;
-}
-
-const QIcon &TreeModel::defaultIcon() const
-{
-    Q_D(const TreeModel);
-    return d->defaultIcon;
-}
-
-void TreeModel::setDefaultIcon(const QIcon &newDefaultIcon)
-{
-    Q_D(TreeModel);
-    d->defaultIcon = newDefaultIcon;
-}
-
-void TreeModel::clear()
-{
-    Q_D(TreeModel);
-    beginRemoveRows(QModelIndex(), 0, d->rootNode->childs.count() - 1);
-    qDeleteAll(d->rootNode->childs);
-    d->rootNode->childs.clear();
-    endRemoveRows();
-}
-
 TreeModel::TreeModel(QObject *parent)
     : QAbstractItemModel(parent)
     , d_ptr{new TreeModelPrivate{this}}
@@ -89,27 +39,53 @@ TreeModel::~TreeModel()
     delete d;
 }
 
-QModelIndex TreeModel::index(const Node *node, int col) const
+QModelIndex TreeModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (node->parent)
-        return index(node->row, col, index(node->parent, col));
+    Q_D(const TreeModel);
+    if (!hasIndex(row, column, parent))
+        return QModelIndex();
 
-    return index(node->row, col, QModelIndex());
+    TreeNode *parentNode;
+
+    if (!parent.isValid())
+        parentNode = d->rootNode;
+    else
+        parentNode = static_cast<TreeNode *>(parent.internalPointer());
+
+    TreeNode *childNode = parentNode->children.value(row);
+    if (childNode)
+        return createIndex(row, column, childNode);
+    return QModelIndex();
+}
+
+QModelIndex TreeModel::parent(const QModelIndex &index) const
+{
+    if (!index.isValid())
+        return QModelIndex();
+    Q_D(const TreeModel);
+
+    TreeNode *childNode = static_cast<TreeNode *>(index.internalPointer());
+    TreeNode *parentNode = childNode->parentNode();
+
+    if (parentNode == d->rootNode)
+        return QModelIndex();
+
+    return createIndex(parentNode->row(), 0, parentNode);
 }
 
 int TreeModel::rowCount(const QModelIndex &parent) const
 {
     Q_D(const TreeModel);
-    Node *parentItem;
+    TreeNode *parentNode;
     if (parent.column() > 0)
         return 0;
 
     if (!parent.isValid())
-        parentItem = d->rootNode;
+        parentNode = d->rootNode;
     else
-        parentItem = static_cast<Node *>(parent.internalPointer());
+        parentNode = static_cast<TreeNode *>(parent.internalPointer());
 
-    return parentItem->childs.count();
+    return parentNode->children.size();
 }
 
 int TreeModel::columnCount(const QModelIndex &parent) const
@@ -125,105 +101,158 @@ QVariant TreeModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return {};
 
-    if (role == Qt::DisplayRole && index.column() == 0) {
-        Node *item = static_cast<Node *>(index.internalPointer());
-
-        return item->title;
-    } else if (role == Qt::DecorationRole) {
+    if (role == Qt::DecorationRole)
         return d->defaultIcon;
-    }
 
-    return {};
+    if (role != Qt::DisplayRole)
+        return {};
+
+    TreeNode *node = static_cast<TreeNode *>(index.internalPointer());
+
+    return node->title;
 }
 
-QModelIndex TreeModel::index(int row, int column, const QModelIndex &parent) const
+Qt::ItemFlags TreeModel::flags(const QModelIndex &index) const
 {
-    Q_D(const TreeModel);
-    if (!hasIndex(row, column, parent))
-        return {};
+    if (!index.isValid())
+        return Qt::NoItemFlags;
 
-    Node *parentItem;
-
-    if (!parent.isValid())
-        parentItem = d->rootNode;
-    else
-        parentItem = static_cast<Node *>(parent.internalPointer());
-
-    Node *childItem = parentItem->childs.at(row);
-    if (childItem)
-        return createIndex(row, column, childItem);
-    return {};
-}
-
-QModelIndex TreeModel::parent(const QModelIndex &child) const
-{
-    Q_D(const TreeModel);
-    if (!child.isValid())
-        return {};
-
-    Node *childItem = static_cast<Node *>(child.internalPointer());
-    Node *parentItem = childItem->parent;
-
-    if (parentItem == d->rootNode)
-        return {};
-
-    return createIndex(parentItem->row, 0, parentItem);
+    return QAbstractItemModel::flags(index);
 }
 
 QVariant TreeModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if (role != Qt::DisplayRole)
-        return {};
+    Q_UNUSED(section)
 
-    if (orientation == Qt::Horizontal) {
-        if (section == 0)
-            return i18n("Name");
-        else
-            return i18n("Status");
-    } else {
-        return section + 1;
+    if (orientation == Qt::Horizontal && role == Qt::DisplayRole)
+        return tr("Tree");
+
+    return {};
+}
+
+TreeNode *TreeModel::createPath(const QStringList &path)
+{
+    Q_D(TreeModel);
+    auto parent = d->rootNode;
+    QString childPath;
+    for (const auto &p : path) {
+        auto child = parent->find(p);
+        if (!child) {
+            child = parent->appendChild();
+            child->title = p;
+            child->path = childPath;
+        }
+        if (!childPath.isEmpty())
+            childPath.append(d->separator);
+        childPath.append(p);
+        parent = child;
+    }
+    return parent;
+}
+
+void TreeModel::addItem(const QString &p, NodeData *data)
+{
+    Q_D(TreeModel);
+
+    auto path = QString{p}.remove(QLatin1Char('\r')).remove(QLatin1Char('\n')).trimmed(); // TODO: Why do we need this?
+
+    TreeNode *node;
+
+    auto nodePath = path;
+
+    auto parts = nodePath.split(d->separator);
+
+    if (d->showRoot && !path.isEmpty())
+        parts.prepend("");
+
+    node = createPath(parts);
+
+    if (node && data) {
+        node->nodeData = data;
     }
 }
 
-QStringList TreeModel::rootData() const
+void TreeModel::addItems(QMap<QString, NodeData *> items)
 {
-    Q_D(const TreeModel);
-    return d->rootNode->data;
+    beginResetModel();
+    for (auto i = items.begin(); i != items.end(); ++i) {
+        addItem(i.key(), i.value());
+    }
+    endResetModel();
 }
 
-QStringList TreeModel::data(const QModelIndex &index) const
+void TreeModel::addItems(const QStringList &items)
 {
-    return static_cast<Node *>(index.internalPointer())->data;
+    beginResetModel();
+    for (auto const &item : items)
+        addItem(item);
+
+    endResetModel();
+}
+
+void TreeModel::setShowRoot(bool show)
+{
+    Q_D(TreeModel);
+    d->showRoot = show;
+}
+
+void TreeModel::setRootTitle(const QString &title)
+{
+    Q_D(TreeModel);
+    d->rootNode->title = title;
 }
 
 QString TreeModel::fullPath(const QModelIndex &index) const
 {
     Q_D(const TreeModel);
-
-    QString path;
-
-    if (index.isValid())
-        d->getFullPath(path, static_cast<Node *>(index.internalPointer()));
-    else
-        d->getFullPath(path, d->rootNode);
-
-    return path;
+    auto node = static_cast<TreeNode *>(index.internalPointer());
+    return node->path + d->separator + node->title;
 }
 
-QString TreeModel::key(const QModelIndex &index) const
+TreeNode *TreeModel::rootNode() const
 {
-    auto node = static_cast<Node *>(index.internalPointer());
-    if (node)
-        return node->key;
-    return {};
+    Q_D(const TreeModel);
+    return d->rootNode;
 }
 
-QString TreeModel::section(const QModelIndex &index) const
+TreeNode *TreeModel::node(const QModelIndex &index) const
 {
-    auto node = static_cast<Node *>(index.internalPointer());
-    if (node)
-        return node->prefix;
-    return {};
+    if (!index.isValid())
+        return nullptr;
+    return static_cast<TreeNode *>(index.internalPointer());
+}
+
+const QIcon &TreeModel::defaultIcon() const
+{
+    Q_D(const TreeModel);
+    return d->defaultIcon;
+}
+
+void TreeModel::setDefaultIcon(const QIcon &newDefaultIcon)
+{
+    Q_D(TreeModel);
+    d->defaultIcon = newDefaultIcon;
+}
+
+const QString &TreeModel::separator() const
+{
+    Q_D(const TreeModel);
+    return d->separator;
+}
+
+void TreeModel::setSeparator(const QString &newSeparator)
+{
+    Q_D(TreeModel);
+    d->separator = newSeparator;
+}
+
+void TreeModel::clear()
+{
+    Q_D(TreeModel);
+    beginRemoveRows(QModelIndex(), 0, d->rootNode->children.size() - 1);
+    delete d->rootNode;
+    d->rootNode = new TreeNode{};
+    endRemoveRows();
 }
 
 void TreeModel::sortItems()
@@ -234,135 +263,26 @@ void TreeModel::sortItems()
     endResetModel();
 }
 
-void TreeModel::addData(const QStringList &data, const QString &prefix, bool split)
+void TreeModel::emitReset()
 {
-    Q_D(TreeModel);
-    for (const auto &p : data) {
-        auto path = p;
-        path = path.remove(QLatin1Char('\r')).remove(QLatin1Char('\n')).trimmed();
-        if (path.isEmpty())
-            continue;
-
-        TreeModel::Node *node;
-
-        if (split) {
-            auto nodePath = path;
-            if (!prefix.isEmpty())
-                nodePath.prepend(prefix + d->separator);
-
-            auto parts = nodePath.split(d->separator);
-            if (d->lastPartAsData) {
-                auto data = parts.takeLast();
-                if (d->showRoot)
-                    node = d->createPath(QStringList() << d->separator << parts);
-                else
-                    node = d->createPath(parts);
-
-                if (d->showRoot && node != d->rootNode)
-                    node->data.append(data);
-                auto nodePathParts = nodePath.split(d->separator);
-                nodePathParts.takeLast();
-                node->key = nodePathParts.join(d->separator);
-            } else {
-                node = d->createPath(parts);
-                node->key = path;
-            }
-        } else {
-            if (!prefix.isEmpty())
-                node = d->createPath({prefix, path});
-            else
-                node = d->createPath({path});
-            node->key = path;
-        }
-        if (node) {
-            node->prefix = prefix;
-        }
-    }
-    beginInsertRows(QModelIndex(), 0, d->rootNode->childs.count() - 1);
-    endInsertRows();
+    beginResetModel();
+    endResetModel();
+}
+TreeModelPrivate::TreeModelPrivate(TreeModel *parent)
+    : q_ptr{parent}
+{
 }
 
-TreeModel::Node *TreeModelPrivate::find(QStringList &path, TreeModel::Node *node)
-{
-    if (path.empty())
-        return nullptr;
-
-    auto ch = node->find(path.first());
-    if (!ch)
-        return nullptr;
-
-    auto p = path;
-    p.removeFirst();
-    return find(p, ch);
-}
-
-TreeModel::Node *TreeModelPrivate::createPath(const QStringList &path)
-{
-    TreeModel::Node *parent = rootNode;
-    for (const auto &p : path) {
-        auto child = parent->find(p);
-        if (!child) {
-            child = parent->createChild();
-            child->title = p;
-        }
-        parent = child;
-    }
-    return parent;
-}
-
-void TreeModelPrivate::getFullPath(QString &path, TreeModel::Node *node) const
-{
-    if (showRoot && node == rootNode)
-        return;
-    if (node) {
-        if (path.isEmpty())
-            path = node->title;
-        else
-            path.prepend(node->title + separator);
-
-        if ((showRoot && node->parent->parent != rootNode) || (!showRoot && node->parent != rootNode)) {
-            // path.prepend(mSeparator);
-            getFullPath(path, node->parent);
-        }
-    }
-}
-
-void TreeModelPrivate::sortNode(TreeModel::Node *node)
+void TreeModelPrivate::sortNode(TreeNode *node)
 {
     qCDebug(KOMMIT_WIDGETS_LOG) << "Sorting" << node->title;
-    std::sort(node->childs.begin(), node->childs.end(), [](TreeModel::Node *l, TreeModel::Node *r) {
-        if (l->childs.empty() && !r->childs.empty())
+    std::sort(node->children.begin(), node->children.end(), [](TreeNode *l, TreeNode *r) {
+        if (l->children.empty() && !r->children.empty())
             return false;
-        if (!l->childs.empty() && r->childs.empty())
+        if (!l->children.empty() && r->children.empty())
             return true;
         return l->title < r->title;
     });
-    for (auto &n : node->childs)
+    for (auto &n : node->children)
         sortNode(n);
 }
-
-bool TreeModel::showRoot() const
-{
-    Q_D(const TreeModel);
-    return d->showRoot;
-}
-
-void TreeModel::setShowRoot(bool newDefaultRoot)
-{
-    Q_D(TreeModel);
-    d->showRoot = newDefaultRoot;
-}
-
-TreeModel::Node *TreeModel::rootNode() const
-{
-    Q_D(const TreeModel);
-    return d->rootNode;
-}
-
-TreeModelPrivate::TreeModelPrivate(TreeModel *parent)
-    : q_ptr{parent}
-    , rootNode{new TreeModel::Node}
-{
-}
-
-#include "moc_treemodel.cpp"

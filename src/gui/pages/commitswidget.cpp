@@ -8,16 +8,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actions/branchactions.h"
 #include "actions/commitactions.h"
-#include "caches/branchescache.h"
 #include "models/commitsfiltermodel.h"
 
 #include <core/repositorydata.h>
+#include <entities/blob.h>
 #include <entities/branch.h>
 #include <entities/commit.h>
 #include <gitmanager.h>
 #include <models/commitsmodel.h>
-
-#define TREEMODEL_NODE_DATA_TYPE QSharedPointer<Git::Branch>
 
 #include <models/treemodel.h>
 #include <windows/diffwindow.h>
@@ -26,7 +24,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 CommitsWidget::CommitsWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)
-    , mRepoModel(new TreeModel(this))
 {
     setupUi(this);
     init();
@@ -34,26 +31,16 @@ CommitsWidget::CommitsWidget(RepositoryData *git, AppWindow *parent)
 
 void CommitsWidget::reload()
 {
-    mRepoModel->clear();
-    QStringList branchNames;
-    const auto branches = git()->manager()->branches()->allBranches(Git::BranchType::AllBranches);
-    for (const auto &branch : branches) {
-        branchNames << branch->name();
-        mBranchesMap.insert(branch->name(), branch);
-    }
-    mRepoModel->addData(branchNames);
+    // if (branchNames.contains(QStringLiteral("master")))
+    //     mMainBranch = QStringLiteral("master");
+    // else if (branchNames.contains(QStringLiteral("main")))
+    //     mMainBranch = QStringLiteral("main");
 
-    if (branchNames.contains(QStringLiteral("master")))
-        mMainBranch = QStringLiteral("master");
-    else if (branchNames.contains(QStringLiteral("main")))
-        mMainBranch = QStringLiteral("main");
-
-    setBranch(QString());
+    setBranch({});
 }
 
 void CommitsWidget::clear()
 {
-    mRepoModel->clear();
     mHistoryModel->clear();
 }
 
@@ -61,16 +48,14 @@ void CommitsWidget::saveState(QSettings &settings) const
 {
     save(settings, splitter);
     save(settings, splitter_2);
-    save(settings, treeViewRepo);
-    save(settings, treeViewHistory);
+    save(settings, treeViewCommits);
 }
 
 void CommitsWidget::restoreState(QSettings &settings)
 {
     restore(settings, splitter);
     restore(settings, splitter_2);
-    restore(settings, treeViewRepo);
-    restore(settings, treeViewHistory);
+    restore(settings, treeViewCommits);
 }
 
 void CommitsWidget::settingsUpdated()
@@ -78,46 +63,28 @@ void CommitsWidget::settingsUpdated()
     mHistoryModel->setCalendarType(KommitSettings::calendarType());
 }
 
-void CommitsWidget::slotTreeViewRepoItemActivated(const QModelIndex &index)
-{
-    auto key = mRepoModel->key(index);
-    if (!key.isEmpty())
-        setBranch(key);
-}
-
-void CommitsWidget::slotTreeViewRepoCustomContextMenuRequested(const QPoint &pos)
-{
-    Q_UNUSED(pos)
-    auto branchName = mRepoModel->fullPath(treeViewRepo->currentIndex());
-    mActions->setBranch(mBranchesMap.value(branchName));
-    mActions->popup();
-}
-
 void CommitsWidget::init()
 {
+    branchesView->setGit(mGit->manager());
     mHistoryModel = new CommitsModel(mGit->manager(), this);
     mHistoryModel->setCalendarType(KommitSettings::calendarType());
     mHistoryModel->setFullDetails(true);
     mFilterModel = new CommitsFilterModel(mHistoryModel, this);
 
-    treeViewHistory->setModel(mFilterModel);
+    treeViewCommits->setModel(mFilterModel);
 
-    treeViewRepo->setModel(mRepoModel);
-
-    mActions = new BranchActions(mGit->manager(), this);
     mCommitActions = new CommitActions(mGit->manager(), this);
 
-    connect(treeViewRepo, &TreeView::itemActivated, this, &CommitsWidget::slotTreeViewRepoItemActivated);
-    connect(treeViewRepo, &QTreeView::customContextMenuRequested, this, &CommitsWidget::slotTreeViewRepoCustomContextMenuRequested);
-    connect(treeViewHistory, &TreeView::itemActivated, this, &CommitsWidget::slotTreeViewHistoryItemActivated);
-    connect(treeViewHistory, &TreeView::itemActivated, this, &CommitsWidget::slotTreeViewHistoryItemActivated);
+    connect(treeViewCommits, &TreeView::itemActivated, this, &CommitsWidget::slotTreeViewCommitsItemActivated);
+    connect(treeViewCommits, &TreeView::itemActivated, this, &CommitsWidget::slotTreeViewCommitsItemActivated);
     connect(widgetCommitDetails, &CommitDetails::hashClicked, this, &CommitsWidget::slotTextBrowserHashClicked);
     connect(widgetCommitDetails, &CommitDetails::fileClicked, this, &CommitsWidget::slotTextBrowserFileClicked);
-    connect(treeViewHistory, &QTreeView::customContextMenuRequested, this, &CommitsWidget::slotTreeViewHistoryCustomContextMenuRequested);
+    connect(treeViewCommits, &QTreeView::customContextMenuRequested, this, &CommitsWidget::slotTreeViewCommitsCustomContextMenuRequested);
     connect(lineEditFilter, &QLineEdit::textChanged, this, &CommitsWidget::slotLineEditFilterTextChanged);
+    connect(branchesView, &BranchesSelectionWidget::branchActivated, this, &CommitsWidget::setBranch);
 }
 
-void CommitsWidget::slotTreeViewHistoryItemActivated(const QModelIndex &index)
+void CommitsWidget::slotTreeViewCommitsItemActivated(const QModelIndex &index)
 {
     auto commit = mHistoryModel->fromIndex(mFilterModel->mapToSource(index));
     if (!commit)
@@ -130,8 +97,8 @@ void CommitsWidget::slotTextBrowserHashClicked(const QString &hash)
 {
     const auto index = mHistoryModel->findIndexByHash(hash);
     if (index.isValid()) {
-        treeViewHistory->setCurrentIndex(index);
-        slotTreeViewHistoryItemActivated(index);
+        treeViewCommits->setCurrentIndex(index);
+        slotTreeViewCommitsItemActivated(index);
     }
 }
 
@@ -142,17 +109,17 @@ void CommitsWidget::slotTextBrowserFileClicked(const QString &file)
     if (!commit || commit->parents().isEmpty())
         return;
 
-    QSharedPointer<Git::File> oldFile{new Git::File{mGit->manager(), commit->parents().constFirst(), file}};
-    QSharedPointer<Git::File> newFile{new Git::File{mGit->manager(), commit->commitHash(), file}};
+    auto oldFile = Git::Blob::lookup(mGit->manager()->repoPtr(), commit->parents().constFirst(), file);
+    auto newFile = Git::Blob::lookup(mGit->manager()->repoPtr(), commit->commitHash(), file);
 
     auto diffWin = new DiffWindow(oldFile, newFile);
     diffWin->showModal();
 }
 
-void CommitsWidget::slotTreeViewHistoryCustomContextMenuRequested(const QPoint &pos)
+void CommitsWidget::slotTreeViewCommitsCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
-    auto log = mHistoryModel->fromIndex(treeViewHistory->currentIndex());
+    auto log = mHistoryModel->fromIndex(treeViewCommits->currentIndex());
     if (!log)
         return;
     mCommitActions->setCommit(log);
@@ -160,12 +127,12 @@ void CommitsWidget::slotTreeViewHistoryCustomContextMenuRequested(const QPoint &
     mCommitActions->popup();
 }
 
-void CommitsWidget::setBranch(const QString &branchName)
+void CommitsWidget::setBranch(QSharedPointer<Git::Branch> branch)
 {
-    treeViewHistory->setItemDelegateForColumn(0, nullptr);
-    mHistoryModel->setBranch(mBranchesMap.value(branchName));
+    treeViewCommits->setItemDelegateForColumn(0, nullptr);
+    mHistoryModel->setBranch(branch);
     if (mHistoryModel->rowCount(QModelIndex()))
-        treeViewHistory->setCurrentIndex(mHistoryModel->index(0));
+        treeViewCommits->setCurrentIndex(mHistoryModel->index(0));
 }
 
 void CommitsWidget::slotLineEditFilterTextChanged(const QString &text)

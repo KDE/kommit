@@ -8,29 +8,36 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "codeeditor.h"
 #include <diff.h>
 
+#include <QFile>
+#include <QFileInfo>
 #include <QScrollBar>
 #include <QTextBlock>
 
 DiffWidget::DiffWidget(QWidget *parent)
     : QWidget{parent}
-    , mOldFile()
-    , mNewFile()
 {
     setupUi(this);
     init();
 }
 
-DiffWidget::DiffWidget(QSharedPointer<Git::File> oldFile, QSharedPointer<Git::File> newFile, QWidget *parent)
+DiffWidget::DiffWidget(QSharedPointer<Git::Blob> oldFile, QSharedPointer<Git::Blob> newFile, QWidget *parent)
     : QWidget{parent}
-    , mOldFile(oldFile)
-    , mNewFile(newFile)
 {
     setupUi(this);
     init();
+
+    setOldFile(oldFile);
+    setNewFile(newFile);
 }
 
 DiffWidget::~DiffWidget()
 {
+    leftCodeEditor->clearAll();
+    rightCodeEditor->clearAll();
+
+    mPreviewEditorLeft->clearAll();
+    mPreviewEditorRight->clearAll();
+
     mDestroying = true;
 }
 
@@ -86,28 +93,15 @@ void DiffWidget::createPreviewWidget()
     mPreviewWidget->setLayout(layout);
     mPreviewWidget->hide();
 }
-QSharedPointer<Git::File> DiffWidget::oldFile() const
-{
-    return mOldFile;
-}
 
 void DiffWidget::setOldFileText(const QString &newOldFile)
 {
     leftCodeEditor->setTitle(newOldFile);
 }
 
-void DiffWidget::setOldFile(QSharedPointer<Git::File> newOldFile)
+void DiffWidget::setOldFile(QSharedPointer<Git::Blob> newOldFile)
 {
-    mOldFile = newOldFile;
-    if (newOldFile.isNull())
-        setOldFileText(QString());
-    else
-        setOldFileText(newOldFile->displayName());
-}
-
-QSharedPointer<Git::File> DiffWidget::newFile() const
-{
-    return mNewFile;
+    setOldFile(newOldFile->name(), newOldFile->content());
 }
 
 void DiffWidget::setNewFileText(const QString &newNewFile)
@@ -115,19 +109,74 @@ void DiffWidget::setNewFileText(const QString &newNewFile)
     rightCodeEditor->setTitle(newNewFile);
 }
 
+void DiffWidget::setNewFile(QSharedPointer<Git::Blob> newNewFile)
+{
+    setNewFile(newNewFile->name(), newNewFile->content());
+}
+
+void DiffWidget::setOldFile(QSharedPointer<Git::File> newOldFile)
+{
+    setOldFile(newOldFile->fileName(), newOldFile->content());
+}
+
 void DiffWidget::setNewFile(QSharedPointer<Git::File> newNewFile)
 {
-    mNewFile = newNewFile;
+    setNewFile(newNewFile->fileName(), newNewFile->content());
+}
 
-    if (newNewFile.isNull())
-        setNewFileText({});
-    else
-        setNewFileText(newNewFile->displayName());
+void DiffWidget::setOldFile(const QString &filePath)
+{
+    QFileInfo fi{filePath};
+
+    if (!fi.exists())
+        return;
+
+    mOldFileName = fi.fileName();
+    QFile f{filePath};
+    if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    mOldContent = f.readAll();
+    f.close();
+}
+
+void DiffWidget::setNewFile(const QString &filePath)
+{
+    QFileInfo fi{filePath};
+
+    if (!fi.exists())
+        return;
+
+    mNewFileName = fi.fileName();
+    QFile f{filePath};
+    if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    mNewContent = f.readAll();
+    f.close();
+}
+
+void DiffWidget::setOldFile(const QString &title, const QString &content)
+{
+    leftCodeEditor->setHighlighting(title);
+    mPreviewEditorLeft->setHighlighting(title);
+
+    mOldContent = content;
+    mOldFileName = title;
+}
+
+void DiffWidget::setNewFile(const QString &title, const QString &content)
+{
+    rightCodeEditor->setHighlighting(title);
+    mPreviewEditorRight->setHighlighting(title);
+
+    mNewContent = content;
+    mNewFileName = title;
 }
 
 void DiffWidget::compare()
 {
-    const auto segments = Diff::diff(mOldFile.isNull() ? QLatin1String() : mOldFile->content(), mNewFile.isNull() ? QLatin1String() : mNewFile->content());
+    const auto segments = Diff::diff(mOldContent, mNewContent);
 
     leftCodeEditor->clearAll();
     rightCodeEditor->clearAll();
@@ -135,17 +184,14 @@ void DiffWidget::compare()
     mPreviewEditorLeft->clearAll();
     mPreviewEditorRight->clearAll();
 
-    if (Q_UNLIKELY(!mOldFile.isNull())) {
-        leftCodeEditor->setHighlighting(mOldFile->fileName());
-        mPreviewEditorLeft->setHighlighting(mOldFile->fileName());
-    }
-    if (Q_UNLIKELY(!mNewFile.isNull())) {
-        rightCodeEditor->setHighlighting(mNewFile->fileName());
-        mPreviewEditorRight->setHighlighting(mNewFile->fileName());
-    }
-
     segmentConnector->setSegments(segments);
     segmentConnector->update();
+
+    // leftCodeEditor->setPlainText(mOldContent);
+    // rightCodeEditor->setPlainText(mNewContent);
+
+    // mPreviewEditorLeft->setPlainText(mOldContent);
+    // mPreviewEditorRight->setPlainText(mNewContent);
 
     for (const auto &s : segments) {
         CodeEditor::BlockType oldBlockType, newBlockType;
@@ -183,6 +229,9 @@ void DiffWidget::compare()
     }
 
     scrollToTop();
+
+    qDeleteAll(mSegments);
+    mSegments = segments;
 }
 
 void DiffWidget::showHiddenChars(bool show)
@@ -348,3 +397,5 @@ void DiffWidget::scrollToTop()
 }
 
 #include "moc_diffwidget.cpp"
+
+#include <entities/file.h>

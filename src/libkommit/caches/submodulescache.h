@@ -22,17 +22,17 @@ class LIBKOMMIT_EXPORT SubmodulesCache : public QObject, public Cache<Submodule,
 public:
     explicit SubmodulesCache(Manager *manager);
 
-    DataMember add(const AddSubmoduleOptions &options);
+    DataType add(const AddSubmoduleOptions &options);
 
     [[nodiscard]] QList<QSharedPointer<Submodule>> allSubmodules();
     [[nodiscard]] QSharedPointer<Submodule> findByName(const QString &name);
-    [[nodiscard]] DataMember findByPtr(git_submodule *ptr, bool *isNew = nullptr);
+    [[nodiscard]] DataType findByPtr(git_submodule *ptr, bool *isNew = nullptr);
 
 protected:
     void clearChildData() override;
 
 Q_SIGNALS:
-    void added(DataMember submodule);
+    void added(DataType submodule);
 };
 
 }

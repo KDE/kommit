@@ -26,6 +26,7 @@ public:
     [[nodiscard]] QString name() const;
     [[nodiscard]] QString email() const;
     [[nodiscard]] QDateTime time() const;
+    [[nodiscard]] git_signature *signaturePtr() const;
 
 private:
     git_signature *mSignature{nullptr};

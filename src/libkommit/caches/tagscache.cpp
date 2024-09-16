@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tagscache.h"
+#include "entities/oid.h"
 #include "entities/tag.h"
 #include "gitglobal_p.h"
 #include "gitmanager.h"
@@ -66,11 +67,6 @@ void TagsCache::forEach(std::function<void(QSharedPointer<Tag>)> cb)
             w->cb(tag);
             return 0;
         } else {
-            // TODO: find commit
-            // auto cmt = w->manager->commitsCache()->find(oid_c);
-            // if (!cmt)
-            //     return 0;
-
             git_commit *commit;
             RESTART;
             STEP git_commit_lookup(&commit, w->repo, oid_c);
@@ -99,27 +95,41 @@ void TagsCache::forEach(std::function<void(QSharedPointer<Tag>)> cb)
     git_tag_foreach(manager->repoPtr(), callback_c, &w);
 }
 
-bool TagsCache::create(const QString &name, const QString &message)
+bool TagsCache::create(const QString &name, const QString &message, QSharedPointer<Object> target, QSharedPointer<Signature> signature)
 {
-    git_object *target = NULL;
+    git_object *targetObject = NULL;
     git_oid oid;
     git_signature *sign;
-    git_reference *head;
 
     auto repo = manager->repoPtr();
     BEGIN
-    STEP git_signature_default(&sign, repo);
-    // STEP git_revparse_single(&target, repo, "HEAD^{commit}");
-    STEP git_repository_head(&head, repo);
+
+    if (target.isNull()) {
+        auto head = manager->head();
+        if (head.isNull())
+            return false;
+
+        auto targetId = head->target()->oidPtr();
+        STEP git_object_lookup(&targetObject, repo, targetId, GIT_OBJECT_COMMIT);
+    } else {
+        targetObject = target->objectPtr();
+    }
+
+    if (signature.isNull())
+        STEP git_signature_default(&sign, repo);
+    else
+        sign = signature->signaturePtr();
+    // STEP git_revparse_single(&targetObject, repo, "HEAD");
+    // STEP git_repository_head(&head, repo);
 
     if (IS_ERROR) {
         END;
         return false;
     }
 
-    auto targetId = git_reference_target(head);
-    STEP git_object_lookup(&target, repo, targetId, GIT_OBJECT_COMMIT);
-    STEP git_tag_create(&oid, repo, name.toLatin1().data(), target, sign, message.toUtf8().data(), 0);
+    // auto targetId = git_reference_target(head);
+    // STEP git_object_lookup(&target, repo, targetId, GIT_OBJECT_COMMIT);
+    STEP git_tag_create(&oid, repo, name.toUtf8().data(), targetObject, sign, message.toUtf8().data(), 0);
 
     PRINT_ERROR;
 

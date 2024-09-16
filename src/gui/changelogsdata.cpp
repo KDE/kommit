@@ -68,9 +68,16 @@ void ChangeLogsDataPrivate::fill()
         }
     };
 
+    data << Row{
+        QVersionNumber{1, 6, 2},
+        QStringList{
+            i18n("Fix bug in branch selection in commits widget")
+        }
+    };
+
     // clang-format on
 
     std::sort(data.begin(), data.end(), [](const Row &r1, const Row &r2) {
-        return r1.version < r2.version;
+        return r1.version > r2.version;
     });
 }

@@ -14,6 +14,7 @@ QTEST_GUILESS_MAIN(IndexTest)
 
 IndexTest::IndexTest(QObject *parent)
     : QObject{parent}
+    , mManager{new Git::Manager{this}}
 {
 }
 
@@ -26,7 +27,6 @@ void IndexTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
     qDebug() << path;
-    mManager = new Git::Manager;
     auto init = mManager->init(path);
     QCOMPARE(mManager->path(), path);
     QVERIFY(init);

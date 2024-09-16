@@ -25,13 +25,13 @@ public:
     Q_DECLARE_PUBLIC(BranchesCache)
 
     Manager *manager;
-    QList<BranchesCache::DataMember> list;
-    QMap<QString, BranchesCache::DataMember> dataByName;
-    QHash<git_reference *, BranchesCache::DataMember> dataByRef;
+    BranchesCache::ListType list;
+    QMap<QString, BranchesCache::DataType> dataByName;
+    QHash<git_reference *, BranchesCache::DataType> dataByRef;
 
     BranchesCachePrivate(BranchesCache *parent, Manager *manager);
-    void add(BranchesCache::DataMember newItem);
-    bool remove(BranchesCache::DataMember branch);
+    void add(BranchesCache::DataType newItem);
+    bool remove(BranchesCache::DataType branch);
 };
 
 BranchesCache::BranchesCache(Manager *manager)
@@ -47,7 +47,7 @@ BranchesCache::~BranchesCache()
     delete d;
 }
 
-BranchesCache::DataMember BranchesCache::findByName(const QString &key)
+BranchesCache::DataType BranchesCache::findByName(const QString &key)
 {
     Q_D(BranchesCache);
 
@@ -58,7 +58,7 @@ BranchesCache::DataMember BranchesCache::findByName(const QString &key)
     BEGIN
     STEP git_branch_lookup(&ref, d->manager->repoPtr(), key.toLocal8Bit().constData(), GIT_BRANCH_ALL);
     if (IS_OK) {
-        auto b = DataMember{new Branch{ref}};
+        auto b = DataType{new Branch{ref}};
         d->add(b);
         return b;
     }
@@ -75,7 +75,7 @@ bool BranchesCache::create(const QString &name)
     STEP git_repository_head(&head, manager->repoPtr());
 
     if (!head) {
-        END;
+        PRINT_ERROR;
         return false;
     }
 
@@ -92,7 +92,7 @@ bool BranchesCache::create(const QString &name)
     return IS_OK;
 }
 
-bool BranchesCache::remove(DataMember branch)
+bool BranchesCache::remove(DataType branch)
 {
     Q_D(BranchesCache);
 
@@ -106,12 +106,12 @@ bool BranchesCache::remove(DataMember branch)
     return false;
 }
 
-QList<BranchesCache::DataMember> BranchesCache::allBranches(BranchType type)
+BranchesCache::ListType BranchesCache::allBranches(BranchType type)
 {
     Q_D(BranchesCache);
 
     if (!manager->isValid())
-        return QList<BranchesCache::DataMember>{};
+        return QList<BranchesCache::DataType>{};
 
     git_branch_t t{GIT_BRANCH_ALL};
     git_branch_iterator *it;
@@ -128,7 +128,7 @@ QList<BranchesCache::DataMember> BranchesCache::allBranches(BranchType type)
     }
     git_branch_iterator_new(&it, d->manager->repoPtr(), t);
 
-    QList<BranchesCache::DataMember> list;
+    QList<BranchesCache::DataType> list;
     if (!it) {
         return list;
     }
@@ -152,7 +152,7 @@ QStringList BranchesCache::names(BranchType type)
     return list;
 }
 
-BranchesCache::DataMember BranchesCache::current()
+BranchesCache::DataType BranchesCache::current()
 {
     Q_D(BranchesCache);
 
@@ -201,7 +201,7 @@ BranchesCachePrivate::BranchesCachePrivate(BranchesCache *parent, Manager *manag
 {
 }
 
-void BranchesCachePrivate::add(BranchesCache::DataMember newItem)
+void BranchesCachePrivate::add(BranchesCache::DataType newItem)
 {
     if (dataByName.contains(newItem->name()))
         return;
@@ -211,7 +211,7 @@ void BranchesCachePrivate::add(BranchesCache::DataMember newItem)
     dataByRef.insert(newItem->refPtr(), newItem);
 }
 
-bool BranchesCachePrivate::remove(BranchesCache::DataMember branch)
+bool BranchesCachePrivate::remove(BranchesCache::DataType branch)
 {
     if (!list.contains(branch))
         return false;

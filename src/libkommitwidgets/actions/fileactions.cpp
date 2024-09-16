@@ -142,7 +142,7 @@ void FileActions::openWith()
 
 void FileActions::diffWithHead()
 {
-    QSharedPointer<Git::File> newFile{new Git::File{mGit->path() + QLatin1Char('/') + mFile->fileName()}};
+    auto newFile = QSharedPointer<Git::Blob>::create(mGit->repoPtr(), mFile->fileName());
 
     auto d = new DiffWindow(mFile, newFile);
     d->showModal();
@@ -164,12 +164,12 @@ void FileActions::mergeWithHead()
     QFile::remove(tempFile);
 }
 
-QSharedPointer<Git::File> FileActions::file() const
+QSharedPointer<Git::Blob> FileActions::file() const
 {
     return mFile;
 }
 
-void FileActions::setFile(QSharedPointer<Git::File> file)
+void FileActions::setFile(QSharedPointer<Git::Blob> file)
 {
     mFile = file;
 

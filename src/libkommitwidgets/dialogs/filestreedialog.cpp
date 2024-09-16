@@ -18,6 +18,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QMenu>
 #include <interfaces.h>
 
+struct DirData : public NodeData {
+    QStringList files;
+};
+
 FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QString &place, QWidget *parent)
     : AppDialog(git, parent)
     , mTreeModel(new TreeModel(this))
@@ -30,49 +34,16 @@ FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QString &place, QWidge
     // mActions->setPlace(place);
 
     mTreeModel->setSeparator(QStringLiteral("/"));
-
-    const auto files = git->ls(place);
-
     mTreeModel->setShowRoot(true);
-    mTreeModel->setLastPartAsData(true);
-    QFileIconProvider p;
-    mTreeModel->setDefaultIcon(p.icon(QFileIconProvider::Folder));
-    mTreeModel->addData(files);
-    treeView->setModel(mTreeModel);
+    mTreeModel->setRootTitle("/");
+
+    auto tree = QSharedPointer<Git::Tree>{new Git::Tree{git->repoPtr(), place}};
+    initModel(tree);
 
     setWindowTitle(i18nc("@title:window", "Browse files: %1", place));
 
     lineEditBranchName->setText(place);
-
-    listWidget->clear();
-
-    const auto rootData = mTreeModel->rootData();
-    for (const auto &f : rootData) {
-        const QFileInfo fi(f);
-        const auto icon = p.icon(fi);
-        auto item = new QListWidgetItem(listWidget);
-        item->setText(f);
-        item->setIcon(icon);
-        listWidget->addItem(item);
-    }
-
-    connect(treeView, &QTreeView::clicked, this, &FilesTreeDialog::slotTreeViewClicked);
-    connect(listWidget, &QListWidget::customContextMenuRequested, this, &FilesTreeDialog::slotListWidgetCustomContextMenuRequested);
 }
-
-// FilesTreeDialog::FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::Tree> tree, QWidget *parent)
-//     : AppDialog(nullptr, parent)
-//     , mTreeModel(new TreeModel(this))
-//     , mPlace{}
-//     , mActions(new FileActions(git, this))
-//     , mTree{tree}
-// {
-//     setupUi(this);
-
-//     auto files = tree->entries(Git::Tree::EntryType::File);
-
-//     initModel(files);
-// }
 
 FilesTreeDialog::FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::ITree> tree, QWidget *parent)
     : AppDialog(nullptr, parent)
@@ -84,11 +55,15 @@ FilesTreeDialog::FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::ITree> t
 {
     setupUi(this);
 
+    mTreeModel->setSeparator(QStringLiteral("/"));
+    mTreeModel->setShowRoot(true);
+    mTreeModel->setRootTitle("/");
+
     auto files = tree->tree()->entries(Git::Tree::EntryType::File);
     lineEditBranchName->setText(tree->treeTitle());
     setWindowTitle(i18nc("@title:window", "Browse files: %1", tree->treeTitle()));
 
-    initModel(files);
+    initModel(tree->tree());
 }
 
 void FilesTreeDialog::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
@@ -103,8 +78,8 @@ void FilesTreeDialog::slotTreeViewClicked(const QModelIndex &index)
     QFileIconProvider p;
     listWidget->clear();
 
-    const auto d = mTreeModel->data(index);
-    for (const auto &f : d) {
+    const auto d = mTreeModel->node(index);
+    for (auto &f : static_cast<DirData *>(d->nodeData)->files) {
         const QFileInfo fi(f);
         const auto icon = p.icon(fi);
         auto item = new QListWidgetItem(listWidget);
@@ -127,24 +102,61 @@ void FilesTreeDialog::slotExtract()
         KMessageBoxHelper::error(this, i18n("An error occurred while extracting file(s)"));
 }
 
-void FilesTreeDialog::initModel(const QStringList &files)
+// void FilesTreeDialog::initModel(const QStringList &files)
+// {
+//     mTreeModel->setShowRoot(true);
+//     mTreeModel->setLastPartAsData(true);
+//     QFileIconProvider p;
+//     mTreeModel->setDefaultIcon(p.icon(QFileIconProvider::Folder));
+
+//     mTreeModel->addData(files);
+//     treeView->setModel(mTreeModel);
+
+//     const auto rootData = mTreeModel->rootData();
+//     for (const auto &f : rootData) {
+//         const QFileInfo fi(f);
+//         const auto icon = p.icon(fi);
+//         auto item = new QListWidgetItem(listWidget);
+//         item->setText(f);
+//         item->setIcon(icon);
+//         listWidget->addItem(item);
+//     }
+
+//     connect(treeView, &QTreeView::clicked, this, &FilesTreeDialog::slotTreeViewClicked);
+//     connect(listWidget, &QListWidget::customContextMenuRequested, this, &FilesTreeDialog::slotListWidgetCustomContextMenuRequested);
+//     connect(treeView, &QTreeView::customContextMenuRequested, this, &FilesTreeDialog::slotTreeViewCustomContextMenuRequested);
+
+//     auto extractAction = mTreeViewMenu->addAction(i18n("Extract"));
+//     connect(extractAction, &QAction::triggered, this, &FilesTreeDialog::slotExtract);
+// }
+
+void FilesTreeDialog::initModel(QSharedPointer<Git::Tree> tree)
 {
-    mTreeModel->setShowRoot(true);
-    mTreeModel->setLastPartAsData(true);
+    auto dirs = tree->entries(Git::Tree::EntryType::Dir);
+
+    // mTreeModel->setShowRoot(true);
+    // mTreeModel->setLastPartAsData(false);
     QFileIconProvider p;
     mTreeModel->setDefaultIcon(p.icon(QFileIconProvider::Folder));
-    mTreeModel->addData(files);
+    dirs.prepend("");
+
+    for (auto const &dir : std::as_const(dirs)) {
+        auto data = new DirData;
+        data->files = tree->entries(dir, Git::Tree::EntryType::File);
+        mTreeModel->addItem(dir, data);
+    }
+
     treeView->setModel(mTreeModel);
 
-    const auto rootData = mTreeModel->rootData();
-    for (const auto &f : rootData) {
-        const QFileInfo fi(f);
-        const auto icon = p.icon(fi);
-        auto item = new QListWidgetItem(listWidget);
-        item->setText(f);
-        item->setIcon(icon);
-        listWidget->addItem(item);
-    }
+    // const auto rootData = static_cast<DirData *>(mTreeModel->rootNode()->nodeData)->files;
+    // for (const auto &f : rootData) {
+    //     const QFileInfo fi(f);
+    //     const auto icon = p.icon(fi);
+    //     auto item = new QListWidgetItem(listWidget);
+    //     item->setText(f);
+    //     item->setIcon(icon);
+    //     listWidget->addItem(item);
+    // }
 
     connect(treeView, &QTreeView::clicked, this, &FilesTreeDialog::slotTreeViewClicked);
     connect(listWidget, &QListWidget::customContextMenuRequested, this, &FilesTreeDialog::slotListWidgetCustomContextMenuRequested);
@@ -156,7 +168,9 @@ void FilesTreeDialog::initModel(const QStringList &files)
 
 void FilesTreeDialog::slotListWidgetCustomContextMenuRequested(const QPoint &pos)
 {
-    auto path = mTreeModel->fullPath(treeView->currentIndex());
+    auto node = mTreeModel->node(treeView->currentIndex());
+
+    auto path = node->path + "/" + node->title;
 
     if (path == QLatin1Char('/'))
         path = listWidget->currentItem()->text();

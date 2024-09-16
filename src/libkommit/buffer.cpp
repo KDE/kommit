@@ -25,4 +25,5 @@ QString Buf::toString() const
 {
     return QString{buf.ptr};
 }
-};
+
+}

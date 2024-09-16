@@ -102,6 +102,17 @@ bool Branch::isHead() const
     return git_branch_is_head(d->branch) == 1;
 }
 
+QSharedPointer<Object> Branch::object() const
+{
+    Q_D(const Branch);
+
+    git_object *object;
+
+    if (git_reference_peel(&object, d->branch, GIT_OBJECT_COMMIT))
+        return QSharedPointer<Object>{};
+    return QSharedPointer<Object>{new Object{object}};
+}
+
 QSharedPointer<Tree> Branch::tree() const
 {
     Q_D(const Branch);

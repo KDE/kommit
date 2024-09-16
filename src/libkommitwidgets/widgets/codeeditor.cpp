@@ -366,7 +366,9 @@ void CodeEditor::paintEvent(QPaintEvent *e)
 {
     QPlainTextEdit::paintEvent(e);
 
-    //    QPainter p(viewport());
+    // QPainter p(viewport());
+    // p.setOpacity(.3);
+    // p.fillRect(40, 40, 300, 400, Qt::blue);
     //    for (auto i = _lines.begin(); i != _lines.end(); ++i) {
     ////        auto b = document()->findBlockByLineNumber(i.key());
     //        auto rc = blockBoundingGeometry(i.key());

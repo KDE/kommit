@@ -26,32 +26,30 @@ class LIBKOMMIT_EXPORT BranchesCache : public QObject, public Cache<Branch, git_
     Q_OBJECT
 
 public:
-    using DataMember = QSharedPointer<Branch>;
-    using DataList = QList<DataMember>;
-
     explicit BranchesCache(Manager *manager);
     ~BranchesCache() override;
 
-    [[nodiscard]] DataList allBranches(BranchType type = BranchType::AllBranches);
-    [[nodiscard]] DataMember findByName(const QString &key);
+    [[nodiscard]] ListType allBranches(BranchType type = BranchType::AllBranches);
+    [[nodiscard]] DataType findByName(const QString &key);
     [[nodiscard]] QStringList names(BranchType type = BranchType::AllBranches);
-    [[nodiscard]] DataMember current();
+    [[nodiscard]] DataType current();
     [[nodiscard]] QString currentName();
 
     bool create(const QString &name);
-    bool remove(DataMember branch);
+    bool remove(DataType branch);
 
 protected:
     void clearChildData() override;
 
 Q_SIGNALS:
-    void currentChanged(DataMember oldBranch, DataMember newBranch);
-    void added(DataMember branch);
-    void removed(DataMember branch);
+    void currentChanged(DataType oldBranch, DataType newBranch);
+    void added(DataType branch);
+    void removed(DataType branch);
     void reseted();
 
 private:
     BranchesCachePrivate *d_ptr;
     Q_DECLARE_PRIVATE(BranchesCache)
 };
-};
+
+}

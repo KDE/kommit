@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Diff
 {
+
 struct LIBKOMMITDIFF_EXPORT Diff2Result {
     LineEnding oldTextLineEnding;
     LineEnding newTextLineEnding;
@@ -26,4 +27,5 @@ struct LIBKOMMITDIFF_EXPORT Diff3Result {
     LineEnding remoteTextLineEnding;
     QList<MergeSegment *> segments;
 };
-};
+
+}

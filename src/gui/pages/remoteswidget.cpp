@@ -47,16 +47,7 @@ void RemotesWidget::slotListViewItemActivated(const QModelIndex &index)
     labelPushUrl->setText(remote->pushUrl());
     labelDefaultBranch->setText(remote->defaultBranch());
     treeWidget->clear();
-    //    for (auto &ref : remote->refSpecList()) {
-    //        auto item = new QTreeWidgetItem(treeWidget);
 
-    //        item->setText(0, ref->name());
-    //        item->setText(1, ref->source());
-    //        item->setText(2, ref->destionation());
-    //        item->setText(3, ref->direction() == Git::RefSpec::Direction::DirectionFetch ? "Fetch" : "Push");
-
-    //        treeWidget->addTopLevelItem(item);
-    //    }
     for (const auto &rb : remote->branches()) {
         auto item = new QTreeWidgetItem(treeWidget);
 

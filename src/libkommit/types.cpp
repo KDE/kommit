@@ -60,6 +60,15 @@ void addToArray(git_strarray *arr, const QString &value)
     arr->count = 1;
 }
 
+void addToArray(git_strarray *arr, const QStringList &list)
+{
+    arr->strings = new char *[list.size()];
+    for (int i = 0; i < list.size(); ++i) {
+        arr->strings[i] = list.at(i).toLocal8Bit().data();
+    }
+    arr->count = 1;
+}
+
 const char *toChar(const QString &s)
 {
     return s.toLocal8Bit().constData();

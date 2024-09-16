@@ -19,6 +19,7 @@ namespace Git
 class Tree;
 class Commit;
 class Reference;
+class Object;
 
 class BranchPrivate;
 class LIBKOMMIT_EXPORT Branch : public ITree
@@ -39,6 +40,8 @@ public:
     [[nodiscard]] QSharedPointer<Reference> reference() const;
 
     [[nodiscard]] QString treeTitle() const override;
+    [[nodiscard]] QSharedPointer<Object> object() const;
+
     git_reference *refPtr() const;
 
 private:

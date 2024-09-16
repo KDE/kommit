@@ -113,6 +113,7 @@ QList<QSharedPointer<Commit>> CommitsCache::commitsInBranch(QSharedPointer<Branc
 void CommitsCache::clearChildData()
 {
 }
-};
+
+}
 
 #include "moc_commitscache.cpp"

@@ -19,15 +19,15 @@ QTEST_GUILESS_MAIN(CacheTest)
 
 CacheTest::CacheTest(QObject *parent)
     : QObject{parent}
+    , mManager{new Git::Manager{this}}
 {
 }
 
 void CacheTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
-    mManager = new Git::Manager;
 
-    auto ok = mManager->clone("https://invent.kde.org/sdk/kommit.git", path);
+    auto ok = mManager->clone("https://github.com/KDE/kommit.git", path);
     QVERIFY(ok);
     TestCommon::initSignature(mManager);
 }

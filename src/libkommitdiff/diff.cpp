@@ -19,6 +19,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Diff
 {
 
+// std::size_t qHash(const DiffType &type)
+// {
+//     return static_cast<int>(type);
+// }
+
 QStringList take(QStringList &list, int count)
 {
     QStringList ret = list.mid(0, qMin(count, list.size()));
@@ -116,6 +121,11 @@ QList<DiffSegment *> diff(const QStringList &oldText, const QStringList &newText
         auto segment = new DiffSegment;
         segment->oldText = oldText.mid(p.oldStart, p.oldSize);
         segment->newText = newText.mid(p.newStart, p.newSize);
+
+        segment->oldLineStart = p.oldStart;
+        segment->oldLineEnd = p.oldStart + p.oldSize;
+        segment->newLineStart = p.newStart;
+        segment->newLineEnd = p.newStart + p.newSize;
         segment->type = p.type;
         ret << segment;
     }
@@ -246,5 +256,14 @@ Diff3Result diff3(const QString &base, const QString &local, const QString &remo
     result.remoteTextLineEnding = remoteList.lineEnding;
     result.segments = diff3(baseList.lines, localList.lines, remoteList.lines);
     return result;
+}
+
+QList<MergeSegment *> diff3_2(const QStringList &base, const QStringList &local, const QStringList &remote)
+{
+    auto withLocal = diff(base, local);
+    auto withRemote = diff(base, remote);
+
+    // SolutionIterator3_2 it{withLocal, withRemote, base.size(), local.size(), remote.size()};
+    return {};
 }
 }

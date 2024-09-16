@@ -9,8 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-BlameData::BlameData() = default;
-
 bool operator==(const BlameDataRow &l, const BlameDataRow &r)
 {
     return l.finalCommit == r.finalCommit;

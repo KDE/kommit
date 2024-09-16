@@ -5,11 +5,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "switchbranchdialog.h"
-#include "caches/branchescache.h"
-#include "caches/tagscache.h"
-#include "commands/commandswitchbranch.h"
+#include <caches/branchescache.h>
+#include <caches/referencecache.h>
+#include <caches/tagscache.h>
+#include <commands/commandswitchbranch.h>
+#include <gitmanager.h>
+
 #include "core/kmessageboxhelper.h"
-#include "gitmanager.h"
 #include "libkommitwidgets_appdebug.h"
 
 #include <KLocalizedString>
@@ -30,7 +32,6 @@ SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
         comboBoxBranchSelect->addItem(b, BRANCH_TYPE_REMOTE);
 
     comboBoxTags->addItems(git->tags()->allNames());
-    // TODO: comboBoxTags->setModel(git->tagsModel());
 
     radioButtonTag->setEnabled(comboBoxTags->count());
 
@@ -70,12 +71,39 @@ Git::CommandSwitchBranch *SwitchBranchDialog::command() const
 
 void SwitchBranchDialog::slotButtonBoxAccepted()
 {
-    if (radioButtonExistingBranch->isChecked())
+    if (radioButtonNewBranch->isChecked())
         if (mExistingLocalBranches.contains(lineEditNewBranchName->text()) || mExistingRemoteBranches.contains(lineEditNewBranchName->text())) {
             KMessageBoxHelper::error(this, i18n("The branch already exists"));
             return;
         }
-    accept();
+
+    bool switched{};
+
+    if (radioButtonExistingBranch->isChecked()) {
+        auto branch = mGit->branches()->findByName(comboBoxBranchSelect->currentText());
+        switched = mGit->switchBranch(branch);
+    } else if (radioButtonTag->isChecked()) {
+        auto tag = mGit->tags()->find(comboBoxTags->currentText());
+        auto commit = tag->commit();
+
+        if (!commit) {
+            KMessageBoxHelper::error(this, i18n("Unable to find the tag's target commit: %1", comboBoxTags->currentText()));
+            return;
+        }
+        switched = mGit->reset(commit, Git::Manager::ResetType::Hard);
+    } else {
+        if (!mGit->branches()->create(lineEditNewBranchName->text())) {
+            KMessageBoxHelper::error(this, i18n("Unable to create the branch: %1", lineEditNewBranchName->text()));
+            return;
+        }
+        auto newBranch = mGit->branches()->findByName(lineEditNewBranchName->text());
+        switched = mGit->switchBranch(newBranch);
+    }
+
+    if (!switched)
+        KMessageBoxHelper::error(this, i18n("Error switching to new target"));
+
+    close();
 }
 
 #include "moc_switchbranchdialog.cpp"

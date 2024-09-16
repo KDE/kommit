@@ -7,7 +7,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "filetest.h"
 #include "caches/branchescache.h"
 #include "caches/commitscache.h"
+#include "entities/blob.h"
 #include "entities/branch.h"
+#include "entities/file.h"
+#include "entities/index.h"
 #include "entities/tree.h"
 #include "gitmanager.h"
 #include "testcommon.h"
@@ -49,21 +52,30 @@ void FileTest::cleanupTestCase()
 void FileTest::makeFirstCommit()
 {
     mFileContentAtFirstCommit = TestCommon::touch(mManager->path() + "/README.md");
-    mManager->addFile("README.md");
+    auto index = mManager->index();
+    QVERIFY(!index.isNull());
+    QVERIFY(index->addByPath("README.md"));
+    QVERIFY(index->writeTree());
     mManager->commit("first commit");
 }
 
 void FileTest::makeSecondCommit()
 {
     mFileContentAtSecondCommit = TestCommon::touch(mManager->path() + "/README.md");
-    mManager->addFile("README.md");
+    auto index = mManager->index();
+    QVERIFY(!index.isNull());
+    QVERIFY(index->addByPath("README.md"));
+    QVERIFY(index->writeTree());
     mManager->commit("second commit");
 }
 
 void FileTest::makeThirdCommit()
 {
     mFileContentAtThirdCommit = TestCommon::touch(mManager->path() + "/README.md");
-    mManager->addFile("README.md");
+    auto index = mManager->index();
+    QVERIFY(!index.isNull());
+    QVERIFY(index->addByPath("README.md"));
+    QVERIFY(index->writeTree());
     mManager->commit("third commit");
 }
 

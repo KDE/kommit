@@ -15,6 +15,7 @@ namespace Git
 class Manager;
 class Tree;
 class ITree;
+class Tree;
 };
 
 class FileActions;
@@ -25,7 +26,6 @@ class LIBKOMMITWIDGETS_EXPORT FilesTreeDialog : public AppDialog, private Ui::Fi
 
 public:
     FilesTreeDialog(Git::Manager *git, const QString &place, QWidget *parent = nullptr);
-    // FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::Tree> tree, QWidget *parent = nullptr);
     FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::ITree> tree, QWidget *parent = nullptr);
 
 private:
@@ -33,7 +33,8 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
     LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewClicked(const QModelIndex &index);
     LIBKOMMITWIDGETS_NO_EXPORT void slotExtract();
-    LIBKOMMITWIDGETS_NO_EXPORT void initModel(const QStringList &files);
+    // LIBKOMMITWIDGETS_NO_EXPORT void initModel(const QStringList &files);
+    LIBKOMMITWIDGETS_NO_EXPORT void initModel(QSharedPointer<Git::Tree> tree);
 
     TreeModel *const mTreeModel;
     const QString mPlace;

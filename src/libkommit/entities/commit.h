@@ -57,10 +57,7 @@ public:
 
 private:
     CommitPrivate *const d_ptr;
-    Q_DECLARE_PRIVATE(Commit);
-
-    QString mCommitHash;
-    QString mCommitShortHash;
+    Q_DECLARE_PRIVATE(Commit)
 
     void clearChildren();
     void setReferences(QList<QSharedPointer<Reference>> refs);

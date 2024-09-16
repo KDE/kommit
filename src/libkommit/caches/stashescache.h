@@ -19,27 +19,38 @@ namespace Git
 
 class StashesCachePrivate;
 
-class LIBKOMMIT_EXPORT StashesCache
+class LIBKOMMIT_EXPORT StashesCache : public QObject
 {
+    Q_OBJECT
+
 public:
+    using DataType = QSharedPointer<Stash>;
+    using ListType = QList<QSharedPointer<Stash>>;
+
     explicit StashesCache(Manager *manager);
+    ~StashesCache();
 
     [[nodiscard]] QList<QSharedPointer<Stash>> allStashes();
 
     [[nodiscard]] QSharedPointer<Stash> findByName(const QString &name);
     [[nodiscard]] int findIndex(const QString &message) const;
 
-    bool create(const QString &name = QString());
+    Q_REQUIRED_RESULT bool create(const QString &name = QString());
 
-    bool apply(QSharedPointer<Stash> stash);
-    bool pop(QSharedPointer<Stash> stash);
-    bool remove(QSharedPointer<Stash> stash);
+    Q_REQUIRED_RESULT bool apply(DataType stash);
+    Q_REQUIRED_RESULT bool pop(DataType stash);
+    Q_REQUIRED_RESULT bool remove(DataType stash);
 
-    bool apply(const QString &name);
-    bool pop(const QString &name);
-    bool remove(const QString &name);
+    Q_REQUIRED_RESULT bool apply(const QString &name);
+    Q_REQUIRED_RESULT bool pop(const QString &name);
+    Q_REQUIRED_RESULT bool remove(const QString &name);
 
     void clear();
+
+Q_SIGNALS:
+    void added(DataType stash);
+    void removed(DataType stash);
+    void reloadRequired();
 
 private:
     StashesCachePrivate *d_ptr;

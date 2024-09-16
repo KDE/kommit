@@ -25,6 +25,7 @@ public:
     QList<QSharedPointer<Git::Branch>> data;
     QString currentBranch;
     QString referenceBranch;
+    Git::BranchType branchType{Git::BranchType::AllBranches};
 };
 
 BranchesModel::BranchesModel(Git::Manager *git)
@@ -132,12 +133,25 @@ void BranchesModel::reload()
     Q_D(BranchesModel);
 
     if (mGit->isValid()) {
-        d->data = mGit->branches()->allBranches(Git::BranchType::AllBranches);
+        d->data = mGit->branches()->allBranches(d->branchType);
         d->calculateCommitStats();
     } else {
         d->data.clear();
         d->compareWithRef.clear();
     }
+}
+
+Git::BranchType BranchesModel::branchesType() const
+{
+    Q_D(const BranchesModel);
+    return d->branchType;
+}
+
+void BranchesModel::setBranchesType(const Git::BranchType &newBranchType)
+{
+    Q_D(BranchesModel);
+    d->branchType = newBranchType;
+    load();
 }
 
 const QString &BranchesModel::referenceBranch() const

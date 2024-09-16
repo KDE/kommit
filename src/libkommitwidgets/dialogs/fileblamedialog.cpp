@@ -6,13 +6,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "fileblamedialog.h"
 
-#include "gitmanager.h"
+#include <entities/blob.h>
+#include <gitmanager.h>
+
 #include "models/commitsmodel.h"
 
 #include <KLocalizedString>
 #include <QThread>
 
-FileBlameDialog::FileBlameDialog(Git::Manager *git, QSharedPointer<Git::File> file, QWidget *parent)
+FileBlameDialog::FileBlameDialog(Git::Manager *git, QSharedPointer<Git::Blob> file, QWidget *parent)
     : AppDialog(git, parent)
     , mFile(file)
 {

@@ -54,7 +54,11 @@ void TagsActions::checkout()
 
 void TagsActions::diff()
 {
-    auto d = new DiffWindow(mGit, mTag);
+    auto commit = mTag->commit();
+
+    if (commit.isNull())
+        return;
+    auto d = new DiffWindow(mGit, commit);
     d->showModal();
 }
 

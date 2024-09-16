@@ -25,8 +25,8 @@ class LIBKOMMIT_EXPORT NotesCache : public Cache<Note, git_note>
 public:
     explicit NotesCache(Manager *parent);
 
-    [[nodiscard]] DataList allNotes();
-    [[nodiscard]] DataMember findByOid(const git_oid *oid);
+    [[nodiscard]] ListType allNotes();
+    [[nodiscard]] DataType findByOid(const git_oid *oid);
 
 protected:
     void clearChildData() override;

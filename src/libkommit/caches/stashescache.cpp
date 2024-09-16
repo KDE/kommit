@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "stashescache.h"
+#include "caches/commitscache.h"
 #include "entities/stash.h"
 #include "gitglobal_p.h"
 #include "gitmanager.h"
@@ -26,19 +27,26 @@ class StashesCachePrivate
 public:
     StashesCachePrivate(StashesCache *parent, Manager *manager);
     Manager *manager;
-    QList<QSharedPointer<Stash>> list;
+    StashesCache::ListType list;
 };
 
 StashesCache::StashesCache(Manager *manager)
-    : d_ptr{new StashesCachePrivate{this, manager}}
+    : QObject{manager}
+    , d_ptr{new StashesCachePrivate{this, manager}}
 {
 }
 
-QSharedPointer<Stash> StashesCache::findByName(const QString &name)
+StashesCache::~StashesCache()
+{
+    Q_D(StashesCache);
+    delete d;
+}
+
+StashesCache::DataType StashesCache::findByName(const QString &name)
 {
     auto list = allStashes();
 
-    auto i = std::find_if(list.begin(), list.end(), [&name](QSharedPointer<Stash> stash) {
+    auto i = std::find_if(list.begin(), list.end(), [&name](StashesCache::DataType stash) {
         return stash->message() == name;
     });
 
@@ -56,10 +64,11 @@ bool StashesCache::create(const QString &name)
     BEGIN
     STEP git_signature_default(&sign, d->manager->repoPtr());
     STEP git_stash_save(&oid, d->manager->repoPtr(), sign, name.toUtf8().data(), GIT_STASH_DEFAULT);
+
     return IS_OK;
 }
 
-bool StashesCache::apply(QSharedPointer<Stash> stash)
+bool StashesCache::apply(StashesCache::DataType stash)
 {
     if (stash.isNull())
         return false;
@@ -74,12 +83,10 @@ bool StashesCache::apply(QSharedPointer<Stash> stash)
 
     PRINT_ERROR;
 
-    // TODO: update commits model
-
     return IS_OK;
 }
 
-bool StashesCache::pop(QSharedPointer<Stash> stash)
+bool StashesCache::pop(StashesCache::DataType stash)
 {
     if (stash.isNull())
         return false;
@@ -92,10 +99,13 @@ bool StashesCache::pop(QSharedPointer<Stash> stash)
     STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
     STEP git_stash_pop(d->manager->repoPtr(), stash->index(), &options);
 
+    if (IS_OK)
+        Q_EMIT reloadRequired();
+
     return IS_OK;
 }
 
-bool StashesCache::remove(QSharedPointer<Stash> stash)
+bool StashesCache::remove(StashesCache::DataType stash)
 {
     if (stash.isNull())
         return false;
@@ -104,6 +114,9 @@ bool StashesCache::remove(QSharedPointer<Stash> stash)
 
     BEGIN
     STEP git_stash_drop(d->manager->repoPtr(), stash->index());
+
+    if (IS_OK)
+        Q_EMIT reloadRequired();
 
     return IS_OK;
 }
@@ -140,6 +153,9 @@ bool StashesCache::remove(const QString &name)
     BEGIN
     STEP git_stash_drop(d->manager->repoPtr(), stashIndex);
 
+    if (IS_OK)
+        Q_EMIT reloadRequired();
+
     return IS_OK;
 }
 
@@ -157,9 +173,12 @@ bool StashesCache::pop(const QString &name)
     STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
     STEP git_stash_pop(d->manager->repoPtr(), stashIndex, &options);
 
+    if (IS_OK)
+        Q_EMIT reloadRequired();
+
     return IS_OK;
 }
-QList<QSharedPointer<Stash>> StashesCache::allStashes()
+StashesCache::ListType StashesCache::allStashes()
 {
     Q_D(StashesCache);
 

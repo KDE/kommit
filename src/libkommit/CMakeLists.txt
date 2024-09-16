@@ -2,7 +2,18 @@
 # SPDX-License-Identifier: BSD-3-Clause
 add_library(libkommit SHARED)
 
-set(SOURCES
+set(KOMMIT_INSTALL_INCLUDEDIR "${KDE_INSTALL_INCLUDEDIR}/Kommit")
+set(KOMMIT_CMAKECONFIG_NAME "Kommit")
+
+ecm_setup_version(1.0.0
+    VARIABLE_PREFIX      LIBKOMMIT
+    VERSION_HEADER       "libkommit_version.h"
+    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/${KOMMIT_CMAKECONFIG_NAME}ConfigVersion.cmake"
+    COMPATIBILITY        SameMajorVersion
+    SOVERSION            1
+)
+
+target_sources(libkommit PRIVATE
     libkommit_global.h
 
     gitglobal.cpp
@@ -14,6 +25,8 @@ set(SOURCES
     abstractreference.cpp
     buffer.cpp
     credential.cpp
+    entities/blob.h entities/blob.cpp
+    config.h config.cpp
 
     caches/abstractcache.cpp
     caches/branchescache.cpp
@@ -56,6 +69,7 @@ set(SOURCES
     entities/oid.cpp
     entities/object.h
     entities/object.cpp
+    entities/strarray.h entities/strarray.cpp
 
     observers/fetchobserver.cpp
     observers/cloneobserver.cpp
@@ -65,70 +79,6 @@ set(SOURCES
     options/fetchoptions.cpp
     options/checkoutoptions.cpp
 )
-set(HEADERS
-    gitglobal.h
-    gitloglist.h
-    filestatus.h
-    gitmanager.h
-    blamedata.h
-    types.h
-    abstractreference.h
-    buffer.h
-    credential.h
-
-    caches/abstractcache.h
-    caches/branchescache.h
-    caches/commitscache.h
-    caches/remotescache.h
-    caches/tagscache.h
-    caches/notescache.h
-    caches/stashescache.h
-    caches/submodulescache.h
-    caches/referencecache.h
-
-    commands/abstractcommand.h
-    commands/commandchangedfiles.h
-    commands/commandclone.h
-    commands/commandcommit.h
-    commands/commandfetch.h
-    commands/commandpull.h
-    commands/commandpush.h
-    commands/commandswitchbranch.h
-    commands/commandmerge.h
-    commands/addsubmodulecommand.h
-    commands/commandaddremote.h
-    commands/parameterescommand.h
-    commands/commandclean.h
-    commands/addsubmodulecommand.h
-
-    entities/branch.h
-    entities/commit.h
-    entities/file.h
-    entities/note.h
-    entities/reference.h
-    entities/remote.h
-    entities/signature.h
-    entities/stash.h
-    entities/tree.h
-    entities/tag.h
-    entities/submodule.h
-    entities/treediff.h
-    entities/index.h
-
-    observers/fetchobserver.h
-    observers/cloneobserver.h
-    observers/pushobserver.h
-
-    options/addsubmoduleoptions.h
-    options/fetchoptions.h
-    options/checkoutoptions.h
-)
-target_sources(libkommit PRIVATE ${SOURCES} ${HEADERS})
-# target_sources(libkommit
-#     PUBLIC FILE_SET HEADERS
-#     BASE_DIRS ${MY_LIB_SOURCE_DIR}
-#     FILES ${HEADERS}
-#)
 
 generate_export_header(libkommit BASE_NAME libkommit)
 
@@ -138,11 +88,29 @@ ecm_qt_declare_logging_category(libkommit
     CATEGORY_NAME "org.kde.kommit.libkommit" DESCRIPTION "libkommit" EXPORT KOMMIT
 )
 
+ecm_generate_export_header(libkommit
+    VERSION ${LIBKOMMIT_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    DEPRECATION_VERSIONS
+    EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
+    USE_VERSION_HEADER
+)
+
+set_target_properties(libkommit PROPERTIES
+    VERSION     ${KOMMIT_VERSION}
+    SOVERSION   ${KOMMIT_SOVERSION}
+    EXPORT_NAME "Kommit"
+)
+
 set_target_properties(libkommit
     PROPERTIES OUTPUT_NAME kommit VERSION ${LIBKOMMIT_LIB_VERSION} SOVERSION ${LIBKOMMIT_LIB_SOVERSION}
 )
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/kommit)
+target_include_directories(libkommit
+    INTERFACE
+        "$<INSTALL_INTERFACE:${KOMMIT_INSTALL_INCLUDEDIR}>"
+)
 
 target_link_libraries(libkommit
     PkgConfig::LIBGIT2
@@ -153,6 +121,68 @@ target_link_libraries(libkommit
 if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
+
+ecm_generate_headers(libkommit_CamelCase_HEADERS
+    HEADER_NAMES
+        GitManager
+        BlameData
+        Buffer
+        Credential
+        FileStatus
+        Types
+    PREFIX Kommit
+    REQUIRED_HEADERS kommit_HEADERS
+)
+ecm_generate_headers(libkommit_CamelCase_HEADERS
+    HEADER_NAMES
+        Blob
+        Branch
+        Commit
+        File
+        Index
+        Note
+        Oid
+        Reference
+        Remote
+        Signature
+        Stash
+        StrArray
+        SubModule
+        Tag
+        tree
+        treeDiff
+    PREFIX Kommit
+    REQUIRED_HEADERS kommit_HEADERS
+    RELATIVE
+        entities
+)
+
+
+install(
+    FILES
+        ${CMAKE_CURRENT_BINARY_DIR}/libkommit_export.h
+        ${kommit_HEADERS}
+    DESTINATION
+        ${KOMMIT_INSTALL_INCLUDEDIR}/Kommit
+    COMPONENT
+        Devel
+)
+install(
+    FILES
+        ${kommit_CamelCase_HEADERS}
+    DESTINATION
+        ${KOMMIT_INSTALL_INCLUDEDIR}/Kommit
+    COMPONENT
+        Devel
+)
+install(
+    FILES
+        ${CMAKE_CURRENT_BINARY_DIR}/libkommit_version.h
+    DESTINATION
+        ${KOMMIT_INSTALL_INCLUDEDIR}
+    COMPONENT
+        Devel
+)
 
 install(TARGETS libkommit ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 # install(FILES ${HEADERS} DESTINATION include/kommit) future releases

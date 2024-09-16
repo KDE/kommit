@@ -11,14 +11,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QObject>
 #include <QString>
 
-struct Command {
-    enum Type { Fixed, Named };
-
-    Type type;
-    QString s;
-    bool isOptional;
-};
-
 enum ParseReturnType { ExecApp, ReturnCode };
 
 struct ArgParserReturn {
@@ -43,8 +35,6 @@ namespace Git
 class Manager;
 }
 
-using CommandList = QList<Command>;
-
 #define HelpText(name, text) Q_CLASSINFO("help." #name, text)
 class LIBKOMMITGUI_EXPORT CommandArgsParser : public QObject
 {
@@ -52,11 +42,6 @@ class LIBKOMMITGUI_EXPORT CommandArgsParser : public QObject
 public:
     CommandArgsParser();
     ~CommandArgsParser() override;
-    void add(const QString &name, const CommandList &list);
-    void add(const QString &name, const QString &list);
-    bool check(const CommandList &commands);
-    QString checkAll();
-    QString param(const QString &name) const;
     ArgParserReturn run(const QStringList &args);
 
 public Q_SLOTS:
@@ -96,8 +81,6 @@ public Q_SLOTS:
 
 private:
     [[nodiscard]] bool checkGitPath(const QString &path);
-    QMap<QString, CommandList> mCommands;
-    QMap<QString, QString> mParams;
     Git::Manager *const mGit;
     QMap<QString, QString> mHelpTexts;
 };

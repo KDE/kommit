@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "stashtest.h"
 #include "caches/stashescache.h"
+#include "entities/index.h"
 #include "entities/stash.h"
 #include "gitmanager.h"
 #include "testcommon.h"
@@ -41,7 +42,9 @@ void StashTest::makeACommit()
 {
     TestCommon::touch(mManager->path() + "/README.md");
 
-    mManager->addFile("README.md");
+    auto index = mManager->index();
+    index->addByPath("README.md");
+    index->writeTree();
     mManager->commit("commit1");
 }
 
@@ -86,7 +89,9 @@ void StashTest::commitAndApplyStash()
 {
     TestCommon::touch(mManager->path() + "/README.md");
 
-    mManager->addFile("README.md");
+    auto index = mManager->index();
+    index->addByPath("README.md");
+    index->writeTree();
     mManager->commit("commit2");
 
     auto ok = mManager->stashes()->apply(QStringLiteral("On master: stash1"));

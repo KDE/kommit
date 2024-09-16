@@ -74,6 +74,7 @@ private:
     QString mUsername;
     QString mPassword;
 
+    Manager *mManager;
     FetchObserverBridge *mBridge{nullptr};
 };
 

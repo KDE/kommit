@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "file.h"
 #include "interfaces.h"
 #include "libkommit_export.h"
 
@@ -19,6 +18,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
+
+class Blob;
 
 class TreePrivate;
 class LIBKOMMIT_EXPORT Tree : public IOid
@@ -33,12 +34,13 @@ public:
     };
 
     explicit Tree(git_tree *tree);
+    Tree(git_repository *repo, const QString &place);
     ~Tree();
 
     [[nodiscard]] QList<Entry> entries(const QString &path) const;
     [[nodiscard]] QStringList entries(const QString &path, EntryType filter) const;
     [[nodiscard]] QStringList entries(EntryType filter) const;
-    QSharedPointer<File> file(const QString &path);
+    QSharedPointer<Blob> file(const QString &path);
 
     [[nodiscard]] git_tree *gitTree() const;
     [[nodiscard]] bool extract(const QString &destinationFolder, const QString &prefix = {});
@@ -46,7 +48,7 @@ public:
 
 private:
     TreePrivate *const d_ptr;
-    Q_DECLARE_PRIVATE(Tree);
+    Q_DECLARE_PRIVATE(Tree)
 };
 }
 

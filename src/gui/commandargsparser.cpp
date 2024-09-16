@@ -29,6 +29,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/selectbranchestodiffdialog.h"
 #include "dialogs/switchbranchdialog.h"
 #include "dialogs/taginfodialog.h"
+#include "entities/index.h"
+#include "kommit_appdebug.h"
 #include "settings/settingsmanager.h"
 
 #include <dialogs/filestreedialog.h>
@@ -38,7 +40,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <windows/diffwindow.h>
 #include <windows/mergewindow.h>
 
-#include "kommit_appdebug.h"
 #include <QApplication>
 #include <QDir>
 #include <QFileInfo>
@@ -50,7 +51,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Errors
 {
 constexpr int InvalidPath = 1;
-};
+}
 
 CommandArgsParser::CommandArgsParser()
     : QObject()
@@ -79,67 +80,6 @@ bool CommandArgsParser::checkGitPath(const QString &path)
     return true;
 }
 
-void CommandArgsParser::add(const QString &name, const CommandList &list)
-{
-    mCommands.insert(name, list);
-}
-
-void CommandArgsParser::add(const QString &name, const QString &list)
-{
-    CommandList cmdList;
-    const auto parts = list.split(QLatin1Char(' '));
-    for (const auto &pp : parts) {
-        auto p = pp;
-        bool isOptional{false};
-        if (p.startsWith(QLatin1String("[")) && p.endsWith(QLatin1String("]"))) {
-            isOptional = true;
-            p = p.mid(1, p.length() - 2);
-        }
-
-        if (p.startsWith(QLatin1Char('<')) && p.endsWith(QLatin1Char('>')))
-            cmdList.append({Command::Named, p.mid(1, p.length() - 2), isOptional});
-        else
-            cmdList.append({Command::Fixed, p, isOptional});
-    }
-    add(name, cmdList);
-}
-
-bool CommandArgsParser::check(const CommandList &commands)
-{
-    mParams.clear();
-    if (qApp->arguments().size() != commands.size() + 1)
-        return false;
-    const auto appArgs = qApp->arguments();
-
-    int idx{1};
-    for (const auto &cmd : commands) {
-        switch (cmd.type) {
-        case Command::Fixed:
-            if (appArgs[idx] != cmd.s)
-                return false;
-            break;
-        case Command::Named:
-            mParams.insert(cmd.s, appArgs[idx]);
-            break;
-        }
-        idx++;
-    }
-    return true;
-}
-
-QString CommandArgsParser::checkAll()
-{
-    for (auto i = mCommands.begin(); i != mCommands.end(); ++i)
-        if (check(i.value()))
-            return i.key();
-    return {};
-}
-
-QString CommandArgsParser::param(const QString &name) const
-{
-    return mParams.value(name);
-}
-
 ArgParserReturn CommandArgsParser::run(const QStringList &args)
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -156,10 +96,12 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
         const auto method = metaObject()->method(i);
 
         if (method.name().compare(name, Qt::CaseInsensitive) == 0) {
-            if (method.parameterCount() != args.size() - 1) {
+            if (method.parameterCount() == args.size() - 2) {
                 auto params = args.mid(2);
                 ArgParserReturn r;
                 qCDebug(KOMMIT_LOG) << "Running:" << method.name();
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
                 auto b = metaObject()->invokeMethod(this,
                                                     method.name().constData(),
                                                     Q_RETURN_ARG(ArgParserReturn, r),
@@ -173,6 +115,31 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
                                                     GET_OP(7),
                                                     GET_OP(8),
                                                     GET_OP(9));
+#else
+                bool b{};
+                switch (method.parameterCount()) {
+                case 0:
+                    b = metaObject()->invokeMethod(this, method.name().constData(), Q_RETURN_ARG(ArgParserReturn, r));
+                    break;
+
+                case 1:
+                    b = metaObject()->invokeMethod(this, method.name().constData(), Q_RETURN_ARG(ArgParserReturn, r), GET_OP(0));
+                    break;
+
+                case 2:
+                    b = metaObject()->invokeMethod(this, method.name().constData(), Q_RETURN_ARG(ArgParserReturn, r), GET_OP(0), GET_OP(1));
+                    break;
+
+                case 3:
+                    b = metaObject()->invokeMethod(this, method.name().constData(), Q_RETURN_ARG(ArgParserReturn, r), GET_OP(0), GET_OP(1), GET_OP(2));
+                    break;
+
+                case 4:
+                    b = metaObject()
+                            ->invokeMethod(this, method.name().constData(), Q_RETURN_ARG(ArgParserReturn, r), GET_OP(0), GET_OP(1), GET_OP(2), GET_OP(3));
+                    break;
+                }
+#endif
 
                 if (!b) {
                     qCDebug(KOMMIT_LOG) << args.size() << method.parameterCount();
@@ -183,10 +150,11 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
         }
     }
 #undef GET_OP
-    qWarning().noquote() << "Method not found" << args.at(1);
 
     if (args.size() == 2)
         return main(args.at(1));
+
+    qWarning().noquote() << "Method not found" << args.at(1);
     return main();
 }
 
@@ -358,14 +326,15 @@ ArgParserReturn CommandArgsParser::diff(const QString &file)
         mGit->open(fi.absolutePath());
         const QDir dir{mGit->path()};
 
-        QSharedPointer<Git::File> headFile{new Git::File{mGit, mGit->branches()->currentName(), dir.relativeFilePath(file)}};
-        QSharedPointer<Git::File> changedFile{new Git::File{file}};
+        auto headFile = Git::Blob::lookup(mGit->repoPtr(), mGit->branches()->currentName(), dir.relativeFilePath(file));
+        auto changedFile = Git::Blob::fromDisk(mGit->repoPtr(), file);
+
         auto d = new DiffWindow{headFile, changedFile};
         d->exec();
         return ExecApp;
     } else if (fi.isDir()) {
         mGit->open(fi.absoluteFilePath());
-        auto d = new DiffWindow{mGit};
+        auto d = new DiffWindow{mGit, mGit->branches()->current()};
         d->exec();
         return ExecApp;
     }
@@ -379,15 +348,12 @@ ArgParserReturn CommandArgsParser::diff(const QString &file1, const QString &fil
     QFileInfo fi2(file2);
 
     if (fi1.isFile() && fi2.isFile()) {
-        QSharedPointer<Git::File> fileLeft{new Git::File{fi1.absoluteFilePath()}};
-        QSharedPointer<Git::File> fileRight{new Git::File{fi2.absoluteFilePath()}};
-
-        auto d = new DiffWindow(fileLeft, fileRight);
+        auto d = new DiffWindow(DiffWindow::Files, file1, file2);
         d->exec();
         return ExecApp;
     }
     if (fi1.isDir() && fi2.isDir()) {
-        auto d = new DiffWindow(fi1.absoluteFilePath(), fi2.absoluteFilePath());
+        auto d = new DiffWindow(DiffWindow::Dirs, fi1.absoluteFilePath(), fi2.absoluteFilePath());
         d->exec();
         return ExecApp;
     }
@@ -404,10 +370,10 @@ ArgParserReturn CommandArgsParser::diff(const QString &path, const QString &file
         return 1;
     const auto parts1 = file1.split(QLatin1Char(':'));
     const auto parts2 = file2.split(QLatin1Char(':'));
-    QSharedPointer<Git::File> fileLeft{new Git::File{mGit, parts1.first(), parts1.at(1)}};
-    QSharedPointer<Git::File> fileRight{new Git::File{mGit, parts2.first(), parts2.at(1)}};
 
-    auto d = new DiffWindow(fileLeft, fileRight);
+    auto blob1 = Git::Blob::lookup(mGit->repoPtr(), parts1.first(), parts1.at(1));
+    auto blob2 = Git::Blob::lookup(mGit->repoPtr(), parts2.first(), parts2.at(1));
+    auto d = new DiffWindow(blob1, blob2);
     d->exec();
     return ExecApp;
 }
@@ -422,7 +388,7 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
 
     mGit->open(fi.absolutePath());
     auto fileName = file.mid(mGit->path().size());
-    auto f = QSharedPointer<Git::File>{new Git::File{mGit, mGit->branches()->currentName(), fileName}};
+    auto f = Git::Blob::lookup(mGit->repoPtr(), mGit->branches()->currentName(), fileName);
     FileBlameDialog d(mGit, f);
     d.exec();
     return 0;
@@ -527,7 +493,10 @@ ArgParserReturn CommandArgsParser::diff_branches(const QString &path)
 
     SelectBranchesToDiffDialog d(mGit);
     if (d.exec() == QDialog::Accepted) {
-        auto diffWin = new DiffWindow(mGit, d.oldBranch(), d.newBranch());
+        auto leftBranch = mGit->branches()->findByName(d.oldBranch());
+        auto rightBranch = mGit->branches()->findByName(d.newBranch());
+
+        auto diffWin = new DiffWindow(mGit, leftBranch, rightBranch);
         diffWin->exec();
         return 0;
     }
@@ -562,8 +531,12 @@ ArgParserReturn CommandArgsParser::add(const QString &path)
         return 1;
     }
 
-    mGit->addFile(path);
-    KMessageBox::information(nullptr, i18n("File(s) added to git successfully"));
+    auto index = mGit->index();
+    index->addByPath(path);
+
+    if (index->writeTree())
+        KMessageBox::information(nullptr, i18n("File(s) added to git successfully"));
+
     return 0;
 }
 

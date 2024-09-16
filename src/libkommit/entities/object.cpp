@@ -71,4 +71,9 @@ QSharedPointer<Commit> Object::toCommit() const
     git_commit_lookup(&commit, repo, oid);
     return QSharedPointer<Commit>{new Commit{commit}};
 }
+
+git_object *const Object::objectPtr() const
+{
+    return mGitObjectPtr;
+}
 }
