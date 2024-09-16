@@ -118,3 +118,5 @@ BranchTreeNode::BranchTreeNode(QSharedPointer<Git::Branch> branch)
     : branch{branch}
 {
 }
+
+#include "moc_branchesselectionwidget.cpp"

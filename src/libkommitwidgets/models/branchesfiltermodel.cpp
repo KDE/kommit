@@ -97,3 +97,5 @@ bool BranchesFilterModelPrivate::acceptRow(const QModelIndex &index) const
 
     return false;
 }
+
+#include "moc_branchesfiltermodel.cpp"

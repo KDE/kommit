@@ -236,3 +236,5 @@ StashesCachePrivate::StashesCachePrivate(StashesCache *parent, Manager *manager)
 {
 }
 }
+
+#include "moc_stashescache.cpp"

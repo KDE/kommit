@@ -286,3 +286,5 @@ void TreeModelPrivate::sortNode(TreeNode *node)
     for (auto &n : node->children)
         sortNode(n);
 }
+
+#include "moc_treemodel.cpp"

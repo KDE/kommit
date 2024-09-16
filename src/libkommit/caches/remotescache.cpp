@@ -138,3 +138,5 @@ void RemotesCache::clearChildData()
 }
 
 }
+
+#include "moc_remotescache.cpp"

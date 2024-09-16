@@ -69,3 +69,5 @@ CredentialPrivate::CredentialPrivate(Credential *parent)
 }
 
 }
+
+#include "moc_credential.cpp"
