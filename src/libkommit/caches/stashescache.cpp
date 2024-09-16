@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "stashescache.h"
 #include "caches/commitscache.h"
-#include "entities/stash.h"
 #include "gitglobal_p.h"
 #include "gitmanager.h"
 #include "types.h"

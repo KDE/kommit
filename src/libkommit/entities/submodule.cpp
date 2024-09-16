@@ -13,7 +13,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "types.h"
 
 #include <git2/remote.h>
-#include <git2/submodule.h>
 
 #include <gitmanager.h>
 

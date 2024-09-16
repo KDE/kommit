@@ -5,8 +5,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "treemodel.h"
-#include <QAbstractItemModel>
-#include <QIcon>
 #include <QVariant>
 
 #include "libkommitwidgets_appdebug.h"

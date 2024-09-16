@@ -10,7 +10,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 
 #include <git2/notes.h>
-#include <git2/types.h>
 
 #include <entities/note.h>
 

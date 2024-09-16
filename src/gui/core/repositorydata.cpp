@@ -13,8 +13,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/submodulesmodel.h"
 #include "models/tagsmodel.h"
 
-#include <gitmanager.h>
-
 RepositoryData::RepositoryData(Git::Manager *git)
     : QObject{git}
     , mManager{git}

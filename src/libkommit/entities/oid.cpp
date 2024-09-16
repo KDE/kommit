@@ -6,8 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "oid.h"
 
-#include <git2/oid.h>
-
 #define GIT_OID_SHA1_SIZE 20
 #define GIT_OID_SHA1_HEXSIZE (GIT_OID_SHA1_SIZE * 2)
 

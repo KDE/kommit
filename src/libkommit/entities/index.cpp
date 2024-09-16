@@ -9,7 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitglobal_p.h"
 #include "types.h"
 
-#include <git2/index.h>
 #include <git2/tree.h>
 
 namespace Git

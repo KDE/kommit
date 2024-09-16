@@ -5,7 +5,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "branchescache.h"
-#include "entities/branch.h"
 #include "entities/reference.h"
 #include "gitglobal_p.h"
 #include "gitmanager.h"

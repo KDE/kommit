@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "tagscache.h"
 #include "entities/oid.h"
-#include "entities/tag.h"
 #include "gitglobal_p.h"
 #include "gitmanager.h"
 

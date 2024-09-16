@@ -6,9 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "config.h"
 
-#include <git2/config.h>
-#include <git2/version.h>
-
 namespace Git
 {
 

@@ -29,13 +29,11 @@
 #include "observers/cloneobserver.h"
 #include "observers/fetchobserver.h"
 #include "observers/pushobserver.h"
-#include "types.h"
 
 #include "libkommit_debug.h"
 #include <QFile>
 #include <QProcess>
 
-#include <git2.h>
 #include <git2/branch.h>
 #include <git2/diff.h>
 #include <git2/errors.h>

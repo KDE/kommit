@@ -5,7 +5,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "remotescache.h"
-#include "entities/remote.h"
 #include "gitglobal_p.h"
 #include "gitmanager.h"
 

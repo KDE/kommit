@@ -9,7 +9,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/commitscache.h"
 #include "entities/commit.h"
 #include "entities/oid.h"
-#include "entities/reference.h"
 #include "entities/remote.h"
 #include "entities/tag.h"
 #include "gitglobal_p.h"

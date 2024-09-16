@@ -397,5 +397,3 @@ void DiffWidget::scrollToTop()
 }
 
 #include "moc_diffwidget.cpp"
-
-#include <entities/file.h>

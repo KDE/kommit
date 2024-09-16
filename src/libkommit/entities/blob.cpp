@@ -13,7 +13,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <entities/tree.h>
 
 #include <git2/blob.h>
-#include <git2/index.h>
 #include <git2/revparse.h>
 #include <git2/tree.h>
 
