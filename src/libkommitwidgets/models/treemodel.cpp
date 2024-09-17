@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "treemodel.h"
+#include <KLocalizedString>
 #include <QVariant>
 
 #include "libkommitwidgets_appdebug.h"
@@ -123,7 +124,7 @@ QVariant TreeModel::headerData(int section, Qt::Orientation orientation, int rol
     Q_UNUSED(section)
 
     if (orientation == Qt::Horizontal && role == Qt::DisplayRole)
-        return tr("Tree");
+        return i18n("Tree");
 
     return {};
 }
