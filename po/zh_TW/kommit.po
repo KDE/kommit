@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-17 01:53+0000\n"
+"POT-Creation-Date: 2024-09-18 01:55+0000\n"
 "PO-Revision-Date: 2024-07-23 22:31+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2540,6 +2540,13 @@ msgstr "標籤者"
 #, kde-format
 msgid "Create time"
 msgstr "建立時間"
+
+#: src/libkommitwidgets/models/treemodel.cpp:127
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Tree"
+msgid "Tree"
+msgstr "樹狀圖"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format

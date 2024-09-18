@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-17 01:53+0000\n"
+"POT-Creation-Date: 2024-09-18 01:55+0000\n"
 "PO-Revision-Date: 2022-09-07 22:16-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2496,6 +2496,11 @@ msgstr ""
 #: src/libkommitwidgets/models/tagsmodel.cpp:65
 #, kde-format
 msgid "Create time"
+msgstr ""
+
+#: src/libkommitwidgets/models/treemodel.cpp:127
+#, kde-format
+msgid "Tree"
 msgstr ""
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:63

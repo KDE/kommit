@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-17 01:53+0000\n"
-"PO-Revision-Date: 2024-07-18 09:57+0200\n"
+"POT-Creation-Date: 2024-09-18 01:55+0000\n"
+"PO-Revision-Date: 2024-09-17 11:50+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 # NdT: Com que és una capa gràfica del Git, he intentat seguir la terminologia pròpia de la traducció del Git (https://github.com/Softcatala/git-po/blob/master/po/ca.po)
 #, kde-format
@@ -372,7 +372,7 @@ msgstr "Corregix molts errors petits"
 #: src/gui/changelogsdata.cpp:74
 #, kde-format
 msgid "Fix bug in branch selection in commits widget"
-msgstr ""
+msgstr "Corregix un error a la selecció de branca en el giny de comissions"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -515,10 +515,9 @@ msgstr "Branques"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/pages/branchesstatuswidget.ui:25
-#, fuzzy, kde-format
-#| msgid "Branches:"
+#, kde-format
 msgid "Branches type:"
-msgstr "Branques:"
+msgstr "Tipus de branques:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
@@ -532,10 +531,9 @@ msgstr "Tots"
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #: src/gui/pages/branchesstatuswidget.ui:38
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Local file:"
+#, kde-format
 msgid "Local"
-msgstr "Fitxer local:"
+msgstr "Local"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
@@ -1107,10 +1105,9 @@ msgid "Change url…"
 msgstr "Canvia l'URL…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Unable to create path: %1"
+#, kde-format
 msgid "Unable to create remote"
-msgstr "No s'ha pogut crear el camí: %1"
+msgstr "No s'ha pogut crear la remota"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:59
 #, kde-format
@@ -2517,18 +2514,17 @@ msgstr "La branca ja existix"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:90
 #, kde-format
 msgid "Unable to find the tag's target commit: %1"
-msgstr ""
+msgstr "No s'ha pogut trobar la comissió de destinació de l'etiqueta: %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
-#, fuzzy, kde-format
-#| msgid "Unable to create path: %1"
+#, kde-format
 msgid "Unable to create the branch: %1"
-msgstr "No s'ha pogut crear el camí: %1"
+msgstr "No s'ha pogut crear la branca: %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:104
 #, kde-format
 msgid "Error switching to new target"
-msgstr ""
+msgstr "S'ha produït un error en canviar a la destinació nova"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:52
@@ -2624,6 +2620,13 @@ msgstr "Etiquetador"
 #, kde-format
 msgid "Create time"
 msgstr "Hora de creació"
+
+#: src/libkommitwidgets/models/treemodel.cpp:127
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Tree"
+msgid "Tree"
+msgstr "Arbre"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format
@@ -2737,10 +2740,9 @@ msgstr "Formulari"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:20
-#, fuzzy, kde-format
-#| msgid "All branches"
+#, kde-format
 msgid "Filter branches"
-msgstr "Totes les branques"
+msgstr "Filtre les branques"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:94
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129

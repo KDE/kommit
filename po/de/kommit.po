@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-17 01:53+0000\n"
+"POT-Creation-Date: 2024-09-18 01:55+0000\n"
 "PO-Revision-Date: 2023-05-10 20:28+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2557,6 +2557,11 @@ msgstr ""
 #| msgid "Create new stash"
 msgid "Create time"
 msgstr "Neuen Stash erstellem"
+
+#: src/libkommitwidgets/models/treemodel.cpp:127
+#, kde-format
+msgid "Tree"
+msgstr ""
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-17 01:53+0000\n"
+"POT-Creation-Date: 2024-09-18 01:55+0000\n"
 "PO-Revision-Date: 2023-06-07 16:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2604,6 +2604,13 @@ msgstr ""
 #| msgid "Create tag"
 msgid "Create time"
 msgstr "Luo luokitus"
+
+#: src/libkommitwidgets/models/treemodel.cpp:127
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Tree"
+msgid "Tree"
+msgstr "Puu"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format

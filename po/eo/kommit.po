@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-17 01:53+0000\n"
+"POT-Creation-Date: 2024-09-18 01:55+0000\n"
 "PO-Revision-Date: 2024-07-27 16:22+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -2613,6 +2613,13 @@ msgstr "Etikedanto"
 #, kde-format
 msgid "Create time"
 msgstr "Krei tempon"
+
+#: src/libkommitwidgets/models/treemodel.cpp:127
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Tree"
+msgid "Tree"
+msgstr "Arbo"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format
