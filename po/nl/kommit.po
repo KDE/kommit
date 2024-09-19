@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-18 01:55+0000\n"
-"PO-Revision-Date: 2024-09-17 11:55+0200\n"
+"PO-Revision-Date: 2024-09-18 10:33+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2620,9 +2620,7 @@ msgid "Create time"
 msgstr "Aanmaaktijd"
 
 #: src/libkommitwidgets/models/treemodel.cpp:127
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Tree"
+#, kde-format
 msgid "Tree"
 msgstr "Boomstructuur"
 

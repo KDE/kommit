@@ -508,10 +508,9 @@ msgstr "Větve"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/pages/branchesstatuswidget.ui:25
-#, fuzzy, kde-format
-#| msgid "Branches:"
+#, kde-format
 msgid "Branches type:"
-msgstr "Větve:"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
@@ -525,10 +524,9 @@ msgstr "Vše"
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #: src/gui/pages/branchesstatuswidget.ui:38
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Local file:"
+#, kde-format
 msgid "Local"
-msgstr "Místní soubor:"
+msgstr "Místní"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
@@ -1085,10 +1083,9 @@ msgid "Change url…"
 msgstr "Změnit URL…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Unable to open the file %1"
+#, kde-format
 msgid "Unable to create remote"
-msgstr "Nelze otevřít soubor %1"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:59
 #, kde-format
@@ -2401,10 +2398,9 @@ msgid "Unable to find the tag's target commit: %1"
 msgstr ""
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
-#, fuzzy, kde-format
-#| msgid "Unable to open the file %1"
+#, kde-format
 msgid "Unable to create the branch: %1"
-msgstr "Nelze otevřít soubor %1"
+msgstr ""
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:104
 #, kde-format
@@ -2506,9 +2502,7 @@ msgid "Create time"
 msgstr ""
 
 #: src/libkommitwidgets/models/treemodel.cpp:127
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Tree"
+#, kde-format
 msgid "Tree"
 msgstr "Strom"
 
@@ -2624,10 +2618,9 @@ msgstr "Formulář"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:20
-#, fuzzy, kde-format
-#| msgid "Diff branches"
+#, kde-format
 msgid "Filter branches"
-msgstr "Rozdíly mezi větvemi"
+msgstr ""
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:94
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-18 01:55+0000\n"
-"PO-Revision-Date: 2024-07-19 01:14+0200\n"
+"PO-Revision-Date: 2024-09-18 11:27+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -370,12 +370,13 @@ msgstr "Corrección de muchos errores menores"
 #, kde-format
 msgid "Fix bug in branch selection in commits widget"
 msgstr ""
+"Corrección de un fallo en la selección de rama en el widget de confirmaciones"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
 #, kde-format
 msgid "Change logs"
-msgstr "Cambiar registros"
+msgstr "Registros de cambios"
 
 #: src/gui/commandargsparser.cpp:77
 #, kde-format
@@ -513,10 +514,9 @@ msgstr "Ramas"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/pages/branchesstatuswidget.ui:25
-#, fuzzy, kde-format
-#| msgid "Branches:"
+#, kde-format
 msgid "Branches type:"
-msgstr "Ramas:"
+msgstr "Tipo de ramas:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
@@ -530,10 +530,9 @@ msgstr "Todos"
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #: src/gui/pages/branchesstatuswidget.ui:38
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Local path"
+#, kde-format
 msgid "Local"
-msgstr "Ruta local"
+msgstr "Local"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
@@ -1105,10 +1104,9 @@ msgid "Change url…"
 msgstr "Cambiar URL..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Unable to create path: %1"
+#, kde-format
 msgid "Unable to create remote"
-msgstr "No se ha podido crear la ruta: %1"
+msgstr "No se ha podido crear la ruta remota"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:59
 #, kde-format
@@ -2519,17 +2517,17 @@ msgstr "La rama ya existe"
 #, kde-format
 msgid "Unable to find the tag's target commit: %1"
 msgstr ""
+"No se ha podido encontrar la confirmación del objetivo de la etiqueta: %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
-#, fuzzy, kde-format
-#| msgid "Unable to create path: %1"
+#, kde-format
 msgid "Unable to create the branch: %1"
-msgstr "No se ha podido crear la ruta: %1"
+msgstr "No se ha podido crear la rama: %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:104
 #, kde-format
 msgid "Error switching to new target"
-msgstr ""
+msgstr "Error al cambiar al nuevo objetivo"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:52
@@ -2626,9 +2624,7 @@ msgid "Create time"
 msgstr "Hora de creación"
 
 #: src/libkommitwidgets/models/treemodel.cpp:127
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Tree"
+#, kde-format
 msgid "Tree"
 msgstr "Árbol"
 
@@ -2744,10 +2740,9 @@ msgstr "Formulario"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:20
-#, fuzzy, kde-format
-#| msgid "All branches"
+#, kde-format
 msgid "Filter branches"
-msgstr "Todas las ramas"
+msgstr "Filtrar ramas"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:94
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
