@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-18 01:55+0000\n"
-"PO-Revision-Date: 2024-07-25 14:47+0200\n"
+"PO-Revision-Date: 2024-09-18 07:44+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -370,6 +370,8 @@ msgstr "Correction de nombreux bogues mineurs"
 #, kde-format
 msgid "Fix bug in branch selection in commits widget"
 msgstr ""
+"Corriger d'un bogue dans la sélection de branche dans le composant graphique "
+"de validation (commit)"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -514,10 +516,9 @@ msgstr "Branches"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/pages/branchesstatuswidget.ui:25
-#, fuzzy, kde-format
-#| msgid "Branches:"
+#, kde-format
 msgid "Branches type:"
-msgstr "Branches :"
+msgstr "Type de branches :"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
@@ -531,10 +532,9 @@ msgstr "Tous"
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #: src/gui/pages/branchesstatuswidget.ui:38
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Local path"
+#, kde-format
 msgid "Local"
-msgstr "Chemin local"
+msgstr "Local"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
@@ -1107,10 +1107,9 @@ msgid "Change url…"
 msgstr "Modifier une URL..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Unable to create path: %1"
+#, kde-format
 msgid "Unable to create remote"
-msgstr "Impossible de créer l'emplacement : %1"
+msgstr "Impossible de créer un élément distant"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:59
 #, kde-format
@@ -2520,18 +2519,17 @@ msgstr "La branche existe déjà."
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:90
 #, kde-format
 msgid "Unable to find the tag's target commit: %1"
-msgstr ""
+msgstr "Impossible de trouver l'étiquette de validation de la cible : %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
-#, fuzzy, kde-format
-#| msgid "Unable to create path: %1"
+#, kde-format
 msgid "Unable to create the branch: %1"
-msgstr "Impossible de créer l'emplacement : %1"
+msgstr "Impossible de créer la branche : %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:104
 #, kde-format
 msgid "Error switching to new target"
-msgstr ""
+msgstr "Erreur lors du basculement vers une nouvelle cible"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:52
@@ -2746,10 +2744,9 @@ msgstr "De"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:20
-#, fuzzy, kde-format
-#| msgid "All branches"
+#, kde-format
 msgid "Filter branches"
-msgstr "Toutes les branches"
+msgstr "Filtrer les branches"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:94
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
