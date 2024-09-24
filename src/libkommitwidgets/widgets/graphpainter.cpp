@@ -94,7 +94,7 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
         d->paintLane(painter, l, x);
     }
 
-    QRect rc(lanes.size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(log->message()), HEIGHT);
+    QRect rc(lanes.size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(log->summary()), HEIGHT);
 
     painter->setPen(option.palette.color(QPalette::Text));
     auto refs = log->references();
@@ -103,7 +103,7 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
         d->drawReference(painter, ref, refBoxX);
     }
     rc.moveLeft(refBoxX + 6);
-    painter->drawText(rc, Qt::AlignVCenter, log->message());
+    painter->drawText(rc, Qt::AlignVCenter, log->summary());
 
     painter->restore();
 }

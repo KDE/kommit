@@ -329,7 +329,7 @@ QVariant CommitsModel::data(const QModelIndex &index, int role) const
     if (d->fullDetails) {
         switch (index.column()) {
         case 0:
-            return log->message();
+            return log->summary();
         case 1: {
             if (d->calendar.isValid())
                 return log->committer()->time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), d->calendar);
@@ -344,7 +344,7 @@ QVariant CommitsModel::data(const QModelIndex &index, int role) const
         case 0:
             return QString();
         case 1:
-            return log->message();
+            return log->summary();
         }
     }
 

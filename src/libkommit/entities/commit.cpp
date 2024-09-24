@@ -146,6 +146,12 @@ QString Commit::body() const
     return QString{git_commit_body(d->gitCommitPtr)}.remove(QLatin1Char('\n'));
 }
 
+QString Commit::summary() const
+{
+    Q_D(const Commit);
+    return QString{git_commit_summary(d->gitCommitPtr)}.remove(QLatin1Char('\n'));
+}
+
 const QString &Commit::commitHash() const
 {
     Q_D(const Commit);

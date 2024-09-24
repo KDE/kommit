@@ -72,7 +72,8 @@ void CommitDetails::setCommit(Git::Commit *commit)
         return;
 
     labelCommitHash->setText(commit->commitHash());
-    labelCommitSubject->setText(commit->message());
+    labelCommitSubject->setText(commit->summary());
+    labelCommitBody->setText(commit->body());
 
     showSignature(commit->author(), labelAuthorAvatar, labelAuthor, labelAuthTime, mEnableEmailsLinks);
     showSignature(commit->committer(), labelCommiterAvatar, labelCommitter, labelCommitTime, mEnableEmailsLinks);

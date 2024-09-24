@@ -37,6 +37,7 @@ public:
     [[nodiscard]] QSharedPointer<Signature> committer();
     [[nodiscard]] QString message() const;
     [[nodiscard]] QString body() const;
+    [[nodiscard]] QString summary() const;
     [[nodiscard]] const QString &commitHash() const;
     [[nodiscard]] const QStringList &parents() const;
     [[nodiscard]] QSharedPointer<Branch> branch() const;
