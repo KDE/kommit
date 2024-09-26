@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 01:55+0000\n"
+"POT-Creation-Date: 2024-09-26 01:49+0000\n"
 "PO-Revision-Date: 2024-09-18 16:53+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1296,7 +1296,7 @@ msgstr "Ändrade filer"
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:20
-#: src/libkommitwidgets/widgets/commitdetails.ui:174
+#: src/libkommitwidgets/widgets/commitdetails.ui:192
 #, kde-format
 msgid "Changed files:"
 msgstr "Ändrade filer:"
@@ -1455,13 +1455,13 @@ msgstr "Duplicera till:"
 #: src/libkommitwidgets/dialogs/mergedialog.ui:53
 #: src/libkommitwidgets/widgets/commitdetails.ui:69
 #: src/libkommitwidgets/widgets/commitdetails.ui:82
-#: src/libkommitwidgets/widgets/commitdetails.ui:118
-#: src/libkommitwidgets/widgets/commitdetails.ui:137
-#: src/libkommitwidgets/widgets/commitdetails.ui:159
-#: src/libkommitwidgets/widgets/commitdetails.ui:230
-#: src/libkommitwidgets/widgets/commitdetails.ui:240
-#: src/libkommitwidgets/widgets/commitdetails.ui:282
-#: src/libkommitwidgets/widgets/commitdetails.ui:292
+#: src/libkommitwidgets/widgets/commitdetails.ui:136
+#: src/libkommitwidgets/widgets/commitdetails.ui:155
+#: src/libkommitwidgets/widgets/commitdetails.ui:177
+#: src/libkommitwidgets/widgets/commitdetails.ui:248
+#: src/libkommitwidgets/widgets/commitdetails.ui:258
+#: src/libkommitwidgets/widgets/commitdetails.ui:300
+#: src/libkommitwidgets/widgets/commitdetails.ui:310
 #, kde-format
 msgid "-"
 msgstr "-"
@@ -2733,45 +2733,45 @@ msgstr "Formulär"
 msgid "Filter branches"
 msgstr "Filtrera grenar"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:94
+#: src/libkommitwidgets/widgets/commitdetails.cpp:95
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
 #, kde-format
 msgid "Branch: "
 msgstr "Gren: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:96
+#: src/libkommitwidgets/widgets/commitdetails.cpp:97
 #: src/libkommitwidgets/widgets/graphpainter.cpp:131
 #, kde-format
 msgid "Note: "
 msgstr "Anmärkning: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:98
+#: src/libkommitwidgets/widgets/commitdetails.cpp:99
 #: src/libkommitwidgets/widgets/graphpainter.cpp:133
 #, kde-format
 msgid "Remote: "
 msgstr "Fjärrarkiv: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:100
+#: src/libkommitwidgets/widgets/commitdetails.cpp:101
 #: src/libkommitwidgets/widgets/graphpainter.cpp:135
 #, kde-format
 msgid "Tag: "
 msgstr "Etikett: "
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:109
-#: src/libkommitwidgets/widgets/commitdetails.ui:196
+#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.ui:214
 #, kde-format
 msgid "Ref:"
 msgstr "Ref:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:109
+#: src/libkommitwidgets/widgets/commitdetails.cpp:110
 #, kde-format
 msgid "Refs:"
 msgstr "Ref:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:119
-#: src/libkommitwidgets/widgets/commitdetails.ui:130
+#: src/libkommitwidgets/widgets/commitdetails.cpp:120
+#: src/libkommitwidgets/widgets/commitdetails.ui:148
 #, kde-format
 msgid "Parent:"
 msgid_plural "Parents:"
@@ -2779,8 +2779,8 @@ msgstr[0] "Överliggande:"
 msgstr[1] "Överliggande:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:124
-#: src/libkommitwidgets/widgets/commitdetails.ui:152
+#: src/libkommitwidgets/widgets/commitdetails.cpp:125
+#: src/libkommitwidgets/widgets/commitdetails.ui:170
 #, kde-format
 msgid "Child:"
 msgid_plural "Children:"
@@ -2794,19 +2794,19 @@ msgid "Commit is not selected"
 msgstr "Arkivering är inte markerad"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:99
+#: src/libkommitwidgets/widgets/commitdetails.ui:117
 #, kde-format
 msgid "Author:"
 msgstr "Upphovsman:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCommitterText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:111
+#: src/libkommitwidgets/widgets/commitdetails.ui:129
 #, kde-format
 msgid "Committer:"
 msgstr "Arkiverare:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
-#: src/libkommitwidgets/widgets/commitdetails.ui:181
+#: src/libkommitwidgets/widgets/commitdetails.ui:199
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
 msgstr "<html><head/><body><p>-</p></body></html>"
