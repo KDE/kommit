@@ -10,6 +10,47 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitmanager.h"
 #include <KLocalizedString>
 
+namespace
+{
+
+QStringList statusTexts(QSharedPointer<Git::Submodule> module)
+{
+    auto status = module->status();
+    QStringList list;
+
+    if (status & Git::Submodule::Status::InHead)
+        list << QStringLiteral("superproject head contains submodule");
+    if (status & Git::Submodule::Status::InIndex)
+        list << QStringLiteral("superproject index contains submodule");
+    if (status & Git::Submodule::Status::InConfig)
+        list << QStringLiteral("superproject gitmodules has submodule");
+    if (status & Git::Submodule::Status::InWd)
+        list << QStringLiteral("superproject workdir has submodule");
+    if (status & Git::Submodule::Status::IndexAdded)
+        list << QStringLiteral("in index, not in head");
+    if (status & Git::Submodule::Status::IndexDeleted)
+        list << QStringLiteral("in head, not in index");
+    if (status & Git::Submodule::Status::IndexModified)
+        list << QStringLiteral("index and head don't match");
+    if (status & Git::Submodule::Status::WdUninitialized)
+        list << QStringLiteral("workdir contains empty directory");
+    if (status & Git::Submodule::Status::WdAdded)
+        list << QStringLiteral("in workdir, not index");
+    if (status & Git::Submodule::Status::WdDeleted)
+        list << QStringLiteral("in index, not workdir");
+    if (status & Git::Submodule::Status::WdModified)
+        list << QStringLiteral("index and workdir head don't match");
+    if (status & Git::Submodule::Status::WdIndexModified)
+        list << QStringLiteral("submodule workdir index is dirty");
+    if (status & Git::Submodule::Status::WdWdModified)
+        list << QStringLiteral("submodule workdir has modified files");
+    if (status & Git::Submodule::Status::WdUntracked)
+        list << QStringLiteral("wd contains untracked files");
+    return list;
+}
+
+}
+
 class SubmodulesModelPrivate
 {
 public:
@@ -58,7 +99,7 @@ QVariant SubmodulesModel::data(const QModelIndex &index, int role) const
     auto submodule = d->list.at(index.row());
 
     if (role == Qt::ToolTipRole) {
-        return submodule->statusTexts().join(QLatin1Char('\n'));
+        return statusTexts(submodule).join(QLatin1Char('\n'));
     }
     if (role == Qt::DisplayRole) {
         switch (index.column()) {
@@ -67,7 +108,7 @@ QVariant SubmodulesModel::data(const QModelIndex &index, int role) const
         case 1:
             return submodule->branch();
         case 2:
-            return submodule->statusTexts().join(QStringLiteral(", "));
+            return statusTexts(submodule).join(QStringLiteral(", "));
             // submodule->hasModifiedFiles() ? i18n("Modified") : QLatin1String();
         }
     }

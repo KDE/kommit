@@ -59,7 +59,6 @@ public:
     [[nodiscard]] QString name() const;
     [[nodiscard]] QString branch();
     [[nodiscard]] StatusFlags status() const;
-    [[nodiscard]] QStringList statusTexts() const;
 
     [[nodiscard]] bool hasModifiedFiles() const;
 

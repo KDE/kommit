@@ -31,7 +31,7 @@ class SubmodulePrivate
     Submodule *q_ptr;
     Q_DECLARE_PUBLIC(Submodule)
 public:
-    SubmodulePrivate(Submodule *parent, git_repository *repo = nullptr);
+    explicit SubmodulePrivate(Submodule *parent, git_repository *repo = nullptr);
 
     git_repository *repo{nullptr};
     QString name;
@@ -116,43 +116,6 @@ Submodule::StatusFlags Submodule::status() const
     }
 
     return static_cast<StatusFlags>(status);
-}
-
-QStringList Submodule::statusTexts() const
-{
-    auto status = this->status();
-    QStringList list;
-
-    // TODO i18n ?
-    if (status & Status::InHead)
-        list << QStringLiteral("superproject head contains submodule");
-    if (status & Status::InIndex)
-        list << QStringLiteral("superproject index contains submodule");
-    if (status & Status::InConfig)
-        list << QStringLiteral("superproject gitmodules has submodule");
-    if (status & Status::InWd)
-        list << QStringLiteral("superproject workdir has submodule");
-    if (status & Status::IndexAdded)
-        list << QStringLiteral("in index, not in head");
-    if (status & Status::IndexDeleted)
-        list << QStringLiteral("in head, not in index");
-    if (status & Status::IndexModified)
-        list << QStringLiteral("index and head don't match");
-    if (status & Status::WdUninitialized)
-        list << QStringLiteral("workdir contains empty directory");
-    if (status & Status::WdAdded)
-        list << QStringLiteral("in workdir, not index");
-    if (status & Status::WdDeleted)
-        list << QStringLiteral("in index, not workdir");
-    if (status & Status::WdModified)
-        list << QStringLiteral("index and workdir head don't match");
-    if (status & Status::WdIndexModified)
-        list << QStringLiteral("submodule workdir index is dirty");
-    if (status & Status::WdWdModified)
-        list << QStringLiteral("submodule workdir has modified files");
-    if (status & Status::WdUntracked)
-        list << QStringLiteral("wd contains untracked files");
-    return list;
 }
 
 bool Submodule::hasModifiedFiles() const
