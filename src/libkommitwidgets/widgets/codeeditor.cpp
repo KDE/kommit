@@ -22,11 +22,112 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QtMath>
 
+class CodeEditorPrivate
+{
+    CodeEditor *q_ptr;
+    Q_DECLARE_PUBLIC(CodeEditor)
+
+public:
+    CodeEditorPrivate(CodeEditor *parent);
+
+    int lastPlaceholderIndex{};
+    QList<CodeEditor::BlockData *> dataList;
+    bool fill{false};
+    bool isEmpty{true};
+
+    KSyntaxHighlighting::SyntaxHighlighter *const mHighlighter;
+    CodeEditorSidebar *const mSideBar;
+    QLabel *mTitleBar;
+
+    QMap<CodeEditor::BlockType, QTextBlockFormat> mFormats;
+    KSyntaxHighlighting::Repository mRepository;
+    QMap<int, Diff::Segment *> mSegments;
+    QMap<QTextBlock, CodeEditor::BlockData *> mBlocksData;
+    QList<CodeEditor::BlockData *> mBlocks;
+
+    QPair<int, int> mCurrentSegment{-1, -1};
+    QList<QTextBlock> readOnlyBlocks;
+
+    bool mShowTitlebar = true;
+    int mTitlebarDefaultHeight;
+
+    int mLastLineNumber{0};
+    bool mShowFoldMarks{false};
+    bool mLastOddEven{false};
+
+    int highlightStart{-1};
+    int highlightEnd{-1};
+    struct PlaceholderInfo {
+        QTextBlock block;
+        qsizetype linesCount;
+    };
+    QMap<int, PlaceholderInfo> placeholderBlocks;
+    QList<QPair<int, int>> emptyBlocks;
+
+    CodeEditor::BlockData *findBlockData(const QTextBlock &block)
+    {
+        if (!dataList.size())
+            return nullptr;
+        auto ln = block.firstLineNumber();
+
+        for (auto &data : dataList) {
+            auto &max = fill ? data->maxLineCount : data->lineCount;
+
+            if (data->lineNumber <= ln && ln <= data->lineNumber + max)
+                return data;
+
+            ln += max;
+        }
+        return nullptr;
+
+        auto it = fill ? std::find_if(dataList.begin(),
+                                      dataList.end(),
+                                      [&ln](auto data) {
+                                          return data->lineNumber >= ln && data->maxLineCount + data->lineNumber <= ln;
+                                      })
+                       : std::find_if(dataList.begin(), dataList.end(), [&ln](CodeEditor::BlockData *data) {
+                             return data->lineNumber >= ln && data->lineCount + data->lineNumber <= ln;
+                         });
+        if (it != dataList.end())
+            return *it;
+        return nullptr;
+    }
+
+    int mapBlockNumber(int blockNumber)
+    {
+        if (!fill)
+            return blockNumber + 1;
+
+        auto ln = blockNumber + 1;
+
+        auto n{0};
+        for (auto &data : std::as_const(dataList)) {
+            if (ln <= n + data->maxLineCount) {
+                if (ln > n + data->lineCount)
+                    return -1;
+
+                return std::min(data->lineNumber + data->lineCount, ln);
+            }
+            n += data->maxLineCount;
+        }
+        return 0;
+    }
+};
+CodeEditorPrivate::CodeEditorPrivate(CodeEditor *parent)
+    : q_ptr{parent}
+    , mHighlighter{new KSyntaxHighlighting::SyntaxHighlighter{parent->document()}}
+    , mSideBar{new CodeEditorSidebar{parent}}
+    , mTitleBar{new QLabel{parent}}
+{
+}
+
 class BlockUserData : public QTextBlockUserData
 {
 public:
     CodeEditor::BlockData *data;
     QString extraText;
+    bool isPlaceholder{false};
+    int index;
 };
 
 class LIBKOMMITWIDGETS_EXPORT SegmentData : public QTextBlockUserData
@@ -62,15 +163,16 @@ void SegmentData::setSegment(Diff::Segment *newSegment)
 
 CodeEditor::CodeEditor(QWidget *parent)
     : QPlainTextEdit(parent)
-    , mHighlighter(new KSyntaxHighlighting::SyntaxHighlighter(document()))
-    , mSideBar(new CodeEditorSidebar(this))
-    , mTitleBar(new QLabel(this))
+    , d_ptr{new CodeEditorPrivate{this}}
+
 {
+    Q_D(CodeEditor);
+
     setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
     setWordWrapMode(QTextOption::NoWrap);
 
-    setTheme((palette().color(QPalette::Base).lightness() < 128) ? mRepository.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                                                                 : mRepository.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
+    setTheme((palette().color(QPalette::Base).lightness() < 128) ? d->mRepository.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                                                                 : d->mRepository.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
 
     connect(this, &QPlainTextEdit::blockCountChanged, this, &CodeEditor::updateViewPortGeometry);
     connect(this, &QPlainTextEdit::updateRequest, this, &CodeEditor::updateSidebarArea);
@@ -89,25 +191,27 @@ CodeEditor::CodeEditor(QWidget *parent)
     evenFormat.setBackground(QColor(150, 200, 150, 100));
     //    normalFormat.setBackground(Qt::lightGray);
 
-    mFormats.insert(Added, addedFormat);
-    mFormats.insert(Removed, removedFormat);
-    mFormats.insert(Unchanged, normalFormat);
-    mFormats.insert(Edited, changedFormat);
-    mFormats.insert(HighLight, highlightFormat);
-    mFormats.insert(Empty, emptyFormat);
-    mFormats.insert(Odd, oddFormat);
-    mFormats.insert(Even, evenFormat);
+    d->mFormats.insert(Added, addedFormat);
+    d->mFormats.insert(Removed, removedFormat);
+    d->mFormats.insert(Unchanged, normalFormat);
+    d->mFormats.insert(Edited, changedFormat);
+    d->mFormats.insert(HighLight, highlightFormat);
+    d->mFormats.insert(Empty, emptyFormat);
+    d->mFormats.insert(Odd, oddFormat);
+    d->mFormats.insert(Even, evenFormat);
 
     setLineWrapMode(QPlainTextEdit::NoWrap);
 
-    mTitleBar->setAlignment(Qt::AlignCenter);
-    mTitlebarDefaultHeight = mTitleBar->fontMetrics().height() + 4;
+    d->mTitleBar->setAlignment(Qt::AlignCenter);
+    d->mTitlebarDefaultHeight = d->mTitleBar->fontMetrics().height() + 4;
     updateViewPortGeometry();
 }
 
 CodeEditor::~CodeEditor()
 {
     clearAll();
+    Q_D(CodeEditor);
+    delete d;
 }
 
 void CodeEditor::resizeEvent(QResizeEvent *event)
@@ -123,6 +227,8 @@ void CodeEditor::mousePressEvent(QMouseEvent *event)
 
 void CodeEditor::setTheme(const KSyntaxHighlighting::Theme &theme)
 {
+    Q_D(CodeEditor);
+
     auto pal = qApp->palette();
     if (theme.isValid()) {
         pal.setColor(QPalette::Base, theme.editorColor(KSyntaxHighlighting::Theme::BackgroundColor));
@@ -130,35 +236,39 @@ void CodeEditor::setTheme(const KSyntaxHighlighting::Theme &theme)
     }
     setPalette(pal);
 
-    mHighlighter->setTheme(theme);
-    mHighlighter->rehighlight();
+    d->mHighlighter->setTheme(theme);
+    d->mHighlighter->rehighlight();
     highlightCurrentLine();
 
-    mTitleBar->setPalette(pal);
-    mTitleBar->setStyleSheet(QStringLiteral("border: 1px solid %1; border-width: 0 0 1 0;")
-                                 .arg(QColor(theme.editorColor(KSyntaxHighlighting::Theme::IconBorder)).darker(200).name()));
+    d->mTitleBar->setPalette(pal);
+    d->mTitleBar->setStyleSheet(QStringLiteral("border: 1px solid %1; border-width: 0 0 1 0;")
+                                    .arg(QColor(theme.editorColor(KSyntaxHighlighting::Theme::IconBorder)).darker(200).name()));
 }
 
 int CodeEditor::sidebarWidth() const
 {
-    const auto longestText = std::max_element(mBlocksData.begin(), mBlocksData.end(), [](BlockData *d1, BlockData *d2) {
+    Q_D(const CodeEditor);
+    const auto longestText = std::max_element(d->dataList.begin(), d->dataList.end(), [](BlockData *d1, BlockData *d2) {
         return d1->extraText.size() < d2->extraText.size();
     });
     int count = int(std::log10(blockCount() + 1));
-    if (longestText != mBlocksData.end())
-        count += longestText.value()->extraText.size() + 3;
+    if (longestText != d->dataList.end())
+        count += (*longestText)->extraText.size() + 3;
     return 4 + fontMetrics().horizontalAdvance(QLatin1Char('9')) * count + fontMetrics().lineSpacing();
 }
 
 int CodeEditor::titlebarHeight() const
 {
-    return mShowTitlebar ? mTitlebarDefaultHeight : 0;
+    Q_D(const CodeEditor);
+    return d->mShowTitlebar ? d->mTitlebarDefaultHeight : 0;
 }
 
 void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
 {
-    QPainter painter(mSideBar);
-    painter.fillRect(event->rect(), mHighlighter->theme().editorColor(KSyntaxHighlighting::Theme::IconBorder));
+    Q_D(CodeEditor);
+
+    QPainter painter(d->mSideBar);
+    painter.fillRect(event->rect(), d->mHighlighter->theme().editorColor(KSyntaxHighlighting::Theme::IconBorder));
 
     auto block = firstVisibleBlock();
     auto blockNumber = block.blockNumber();
@@ -167,33 +277,98 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
     const int currentBlockNumber = textCursor().blockNumber();
 
     const auto foldingMarkerSize = fontMetrics().lineSpacing();
-    int lineNumber{0};
+    auto lines = visibleLines();
 
-    while (block.isValid() && top <= event->rect().bottom()) {
-        if (block.isVisible() && bottom >= event->rect().top()) {
-            QBrush bg;
-            if (blockNumber >= mCurrentSegment.first && blockNumber <= mCurrentSegment.second)
-                bg = Qt::yellow;
-            else
-                bg = document()->findBlockByNumber(blockNumber).blockFormat().background();
-            painter.fillRect(QRect{0, top, mSideBar->width() - 1, fontMetrics().height()}, bg);
+    // auto data = d->findBlockData(block);
 
-            painter.setPen(mHighlighter->theme().editorColor((blockNumber == currentBlockNumber) ? KSyntaxHighlighting::Theme::CurrentLineNumber
-                                                                                                 : KSyntaxHighlighting::Theme::LineNumbers));
-            auto data = mBlocksData.value(block, nullptr);
-            lineNumber = data ? data->lineNumber : -1;
+    // if (!data)
+    //     return;
 
-            if (data && !data->extraText.isEmpty()) {
-                painter.drawText(0, top, mSideBar->width() - 2 - foldingMarkerSize, fontMetrics().height(), Qt::AlignLeft, data->extraText);
+    int lineNumber = block.firstLineNumber();
+
+    // auto it = std::find_if(d->lineNumbersMap.begin(), d->lineNumbersMap.end(), [&lineNumber](const QPair<int, int> &p) {
+    //     return p.first > lineNumber;
+    // });
+
+    QList<CodeEditor::BlockData *>::iterator it;
+
+    if (blockNumber)
+        it = std::find_if(d->dataList.begin(), d->dataList.end(), [&blockNumber](BlockData *data) {
+            return data->lineNumber >= blockNumber;
+        });
+    else
+        it = d->dataList.begin();
+
+    bool extraDataPrinted{false};
+    while (block.isValid() && lineNumber <= lines.first + lines.second) {
+        // if (block.isVisible() && bottom >= event->rect().top()) {
+        QBrush bg;
+        auto n = d->mapBlockNumber(block.blockNumber());
+
+        // if (d->fill && lineNumber > data->lineNumber + data->lineCount) {
+
+        // }
+        // if (lineNumber > data->lineCount + (d->fill ? data->maxLineCount : data->lineCount))
+        //     data = d->findBlockData(block);
+
+        // if (!data)
+        //     return;
+        // if (!Q_UNLIKELY(lineNumber)) {
+        //     auto data = d->findBlockData(block);
+        //     if (data)
+        //         lineNumber = data->lineNumber;
+        // }
+
+        // background
+        if (block.blockNumber() >= d->highlightStart && block.blockNumber() <= d->highlightEnd)
+            bg = Qt::yellow;
+        else
+            bg = document()->findBlockByNumber(blockNumber).blockFormat().background();
+        painter.fillRect(QRect{0, top, d->mSideBar->width(), 1 + fontMetrics().height()}, bg);
+
+        if (n == -1) { // lineNumber < data->lineNumber + data->maxLineCount) {
+            QBrush bg2;
+            bg2.setStyle(Qt::Dense7Pattern);
+            bg2.setColor(Qt::darkGray);
+            painter.fillRect(QRect{0, top, d->mSideBar->width(), 1 + fontMetrics().height()}, bg2);
+        }
+
+        // linenumber
+        painter.setPen(d->mHighlighter->theme().editorColor((blockNumber == currentBlockNumber) ? KSyntaxHighlighting::Theme::CurrentLineNumber
+                                                                                                : KSyntaxHighlighting::Theme::LineNumbers));
+        auto data = d->mBlocksData.value(block, nullptr);
+        // lineNumber = data2 ? data2->lineNumber : -1;
+        // extra data
+        if (data && !data->extraText.isEmpty()) {
+            painter.drawText(0, top, d->mSideBar->width() - 2 - foldingMarkerSize, fontMetrics().height(), Qt::AlignLeft, data->extraText);
+        }
+        if (it != d->dataList.end()) {
+            if (lineNumber >= (*it)->lineNumber + (d->fill ? (*it)->maxLineCount : (*it)->lineCount)) {
+                ++it;
+                extraDataPrinted = false;
             }
-            if (lineNumber != -1) {
-                const auto number = QString::number(lineNumber);
-                painter.drawText(0, top, mSideBar->width() - 2 - (mShowFoldMarks ? foldingMarkerSize : 9), fontMetrics().height(), Qt::AlignRight, number);
+            if (!extraDataPrinted) {
+                painter.drawText(0, top, d->mSideBar->width() - 2 - foldingMarkerSize, fontMetrics().height(), Qt::AlignLeft, (*it)->extraText);
+                extraDataPrinted = true;
+            }
+        }
+        if (true) { // lineNumber<=data->lineNumber + data->lineCount) {
+
+            if (n != -1) {
+                const auto number = QString::number(n);
+
+                painter
+                    .drawText(0, top, d->mSideBar->width() - 2 - (d->mShowFoldMarks ? foldingMarkerSize : 9), fontMetrics().height(), Qt::AlignRight, number);
             }
         }
 
+        painter.setPen(d->mHighlighter->theme().editorColor(KSyntaxHighlighting::Theme::LineNumbers));
+        painter.drawLine(d->mSideBar->width() - 1, 0, d->mSideBar->width() - 1, d->mSideBar->height() - 1);
+        lineNumber++;
+        // }
+
         // folding marker
-        if (mShowFoldMarks && block.isVisible() && isFoldable(block)) {
+        if (d->mShowFoldMarks && block.isVisible() && isFoldable(block)) {
             QPolygonF polygon;
             if (isFolded(block)) {
                 polygon << QPointF(foldingMarkerSize * 0.4, foldingMarkerSize * 0.25);
@@ -207,8 +382,8 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
             painter.save();
             painter.setRenderHint(QPainter::Antialiasing);
             painter.setPen(Qt::NoPen);
-            painter.setBrush(QColor(mHighlighter->theme().editorColor(KSyntaxHighlighting::Theme::CodeFolding)));
-            painter.translate(mSideBar->width() - foldingMarkerSize, top);
+            painter.setBrush(QColor(d->mHighlighter->theme().editorColor(KSyntaxHighlighting::Theme::CodeFolding)));
+            painter.translate(d->mSideBar->width() - foldingMarkerSize, top);
             painter.drawPolygon(polygon);
             painter.restore();
         }
@@ -224,34 +399,62 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
 
 CodeEditor::BlockData *CodeEditor::currentBlockData() const
 {
-    return mBlocksData.value(textCursor().block(), nullptr);
+    // Q_D(const CodeEditor);
+    Q_D(const CodeEditor);
+    auto ln = textCursor().block().firstLineNumber() + 1;
+    if (!d->fill) {
+        auto it = std::find_if(d->dataList.begin(), d->dataList.end(), [&ln](BlockData *data) {
+            return data->lineNumber >= ln && data->lineCount + data->lineNumber <= ln;
+        });
+        if (it != d->dataList.end())
+            return *it;
+        return nullptr;
+    }
+    auto n{0};
+    for (auto &data : std::as_const(d->dataList)) {
+        if (ln <= n + data->maxLineCount) {
+            return data;
+        }
+        n += data->maxLineCount;
+    }
+    return nullptr;
+}
+
+void CodeEditor::setBlocksData(QList<BlockData *> list)
+{
+    Q_D(CodeEditor);
+    d->mBlocks = list;
 }
 
 void CodeEditor::updateViewPortGeometry()
 {
+    Q_D(CodeEditor);
+
     auto th = this->titlebarHeight();
     setViewportMargins(this->sidebarWidth(), th, 0, 0);
     const auto r = contentsRect();
-    mSideBar->setGeometry(QRect(r.left(), r.top() + th, sidebarWidth(), r.height()));
+    d->mSideBar->setGeometry(QRect(r.left(), r.top() + th, sidebarWidth(), r.height()));
 
     if (th)
-        mTitleBar->setGeometry(QRect(r.left(), r.top(), r.width(), th));
-    mTitleBar->setVisible(th);
+        d->mTitleBar->setGeometry(QRect(r.left(), r.top(), r.width(), th));
+    d->mTitleBar->setVisible(th);
 }
 
 void CodeEditor::updateSidebarArea(const QRect &rect, int dy)
 {
+    Q_D(CodeEditor);
     if (dy)
-        mSideBar->scroll(0, dy);
+        d->mSideBar->scroll(0, dy);
     else
-        mSideBar->update(0, rect.y(), mSideBar->width(), rect.height());
+        d->mSideBar->update(0, rect.y(), d->mSideBar->width(), rect.height());
 }
 
 void CodeEditor::highlightCurrentLine()
 {
+    Q_D(CodeEditor);
     QTextEdit::ExtraSelection selection;
-    auto color = QColor(mHighlighter->theme().editorColor(KSyntaxHighlighting::Theme::CurrentLine));
-    color.setAlpha(220);
+    auto color = QColor(d->mHighlighter->theme().editorColor(KSyntaxHighlighting::Theme::CurrentLine));
+    color.setAlpha(160);
     selection.format.setBackground(color);
     selection.format.setProperty(QTextFormat::FullWidthSelection, true);
     selection.cursor = textCursor();
@@ -282,7 +485,8 @@ QTextBlock CodeEditor::blockAtPosition(int y) const
 
 bool CodeEditor::isFoldable(const QTextBlock &block) const
 {
-    return mHighlighter->startsFoldingRegion(block);
+    Q_D(const CodeEditor);
+    return d->mHighlighter->startsFoldingRegion(block);
 }
 
 bool CodeEditor::isFolded(const QTextBlock &block) const
@@ -297,11 +501,13 @@ bool CodeEditor::isFolded(const QTextBlock &block) const
 
 void CodeEditor::toggleFold(const QTextBlock &startBlock)
 {
-    if (!mShowFoldMarks)
+    Q_D(CodeEditor);
+
+    if (!d->mShowFoldMarks)
         return;
 
     // we also want to fold the last line of the region, therefore the ".next()"
-    const auto endBlock = mHighlighter->findFoldingRegionEnd(startBlock).next();
+    const auto endBlock = d->mHighlighter->findFoldingRegionEnd(startBlock).next();
 
     if (isFolded(startBlock)) {
         // unfold
@@ -329,92 +535,130 @@ void CodeEditor::toggleFold(const QTextBlock &startBlock)
     Q_EMIT document()->documentLayout()->documentSizeChanged(document()->documentLayout()->documentSize());
 }
 
+void CodeEditor::keyPressEvent(QKeyEvent *event)
+{
+    Q_D(CodeEditor);
+    if (d->readOnlyBlocks.contains(textCursor().block())) {
+        event->ignore();
+        return;
+    }
+    QPlainTextEdit::keyPressEvent(event);
+}
+
 bool CodeEditor::showFoldMarks() const
 {
-    return mShowFoldMarks;
+    Q_D(const CodeEditor);
+    return d->mShowFoldMarks;
 }
 
 void CodeEditor::setShowFoldMarks(bool newShowFoldMarks)
 {
-    mShowFoldMarks = newShowFoldMarks;
+    Q_D(CodeEditor);
+    d->mShowFoldMarks = newShowFoldMarks;
 }
 
 bool CodeEditor::showTitleBar() const
 {
-    return mShowTitlebar;
+    Q_D(const CodeEditor);
+    return d->mShowTitlebar;
 }
 
 void CodeEditor::setShowTitleBar(bool newShowTitleBar)
 {
-    mShowTitlebar = newShowTitleBar;
-    mTitleBar->setVisible(newShowTitleBar);
+    Q_D(CodeEditor);
+    d->mShowTitlebar = newShowTitleBar;
+    d->mTitleBar->setVisible(newShowTitleBar);
     updateViewPortGeometry();
 }
 
 QString CodeEditor::title() const
 {
-    return mTitleBar->text();
+    Q_D(const CodeEditor);
+    return d->mTitleBar->text();
 }
 
 void CodeEditor::setTitle(const QString &title)
 {
-    mTitleBar->setText(title);
+    Q_D(CodeEditor);
+    d->mTitleBar->setText(title);
     updateViewPortGeometry();
 }
 
-void CodeEditor::paintEvent(QPaintEvent *e)
-{
-    QPlainTextEdit::paintEvent(e);
+// void CodeEditor::paintEvent(QPaintEvent *e)
+// {
+//     Q_D(CodeEditor);
 
-    // QPainter p(viewport());
-    // p.setOpacity(.3);
-    // p.fillRect(40, 40, 300, 400, Qt::blue);
-    //    for (auto i = _lines.begin(); i != _lines.end(); ++i) {
-    ////        auto b = document()->findBlockByLineNumber(i.key());
-    //        auto rc = blockBoundingGeometry(i.key());
-    //        rc.moveTop(rc.top() - 2);
-    //        rc.setBottom(rc.top() + 2);
-    //        p.fillRect(rc, _formats.value(i.value()).background());
-    //    }
-    viewport()->update();
-}
+//     QPlainTextEdit::paintEvent(e);
+
+//     QPainter p(viewport());
+//     // p.setOpacity(.3);
+//     // p.fillRect(40, 40, 300, 400, Qt::blue);
+//     //    for (auto i = _lines.begin(); i != _lines.end(); ++i) {
+//     ////        auto b = document()->findBlockByLineNumber(i.key());
+//     //        auto rc = blockBoundingGeometry(i.key());
+//     //        rc.moveTop(rc.top() - 2);
+//     //        rc.setBottom(rc.top() + 2);
+//     //        p.fillRect(rc, _formats.value(i.value()).background());
+//     //    }
+//     auto firstLine = firstVisibleBlock().blockNumber();
+//     auto it = std::find_if(d->mBlocks.begin(), d->mBlocks.end(), [&firstLine](BlockData *data) {
+//         return data->lineNumber >= firstLine;
+//     });
+//     auto h = fontMetrics().height();
+
+//     p.setOpacity(0.6);
+//     if (it != d->mBlocks.end()) {
+//         auto data = *it;
+
+//         auto rc = QRect{0, h * (data->lineNumber - firstLine), width(), h * (data->lineNumber + data->lineCount - firstLine)};
+//         p.fillRect(rc, Qt::blue);
+//     }
+//     viewport()->update();
+// }
 
 int CodeEditor::lineNumberOfBlock(const QTextBlock &block) const
 {
-    auto b = mBlocksData.value(block, nullptr);
+    Q_D(const CodeEditor);
+    auto b = d->mBlocksData.value(block, nullptr);
     return b ? b->lineNumber : -1;
 }
 
 void CodeEditor::setHighlighting(const QString &fileName)
 {
-    const auto def = mRepository.definitionForFileName(fileName);
-    mHighlighter->setDefinition(def);
-    mTitleBar->setText(fileName);
+    Q_D(CodeEditor);
+    const auto def = d->mRepository.definitionForFileName(fileName);
+    d->mHighlighter->setDefinition(def);
+    d->mTitleBar->setText(fileName);
 }
 
 void CodeEditor::append(const QString &code, CodeEditor::BlockType type, Diff::Segment *segment)
 {
+    Q_D(CodeEditor);
+
     auto t = textCursor();
 
-    if (mSegments.size()) {
+    if (!d->isEmpty) {
         t.insertBlock();
     }
+    d->isEmpty = false;
 
     if (!code.isEmpty())
         t.insertText(code);
 
-    mSegments.insert(t.block().blockNumber(), segment);
-    t.setBlockFormat(mFormats.value(type));
+    d->mSegments.insert(t.block().blockNumber(), segment);
+    t.setBlockFormat(d->mFormats.value(type));
 
     if (type != Empty)
-        mBlocksData.insert(t.block(), new BlockData{++mLastLineNumber, segment, type});
+        d->mBlocksData.insert(t.block(), new BlockData{++d->mLastLineNumber, segment, type});
 }
 
 int CodeEditor::append(const QString &code, const QColor &backgroundColor)
 {
+    Q_D(CodeEditor);
+
     auto t = textCursor();
 
-    if (mSegments.size())
+    if (d->mSegments.size())
         t.insertBlock();
 
     QTextCursor c(t.block());
@@ -422,10 +666,10 @@ int CodeEditor::append(const QString &code, const QColor &backgroundColor)
     QTextBlockFormat fmt;
     fmt.setBackground(backgroundColor);
     t.setBlockFormat(fmt);
-    mSegments.insert(t.block().blockNumber(), nullptr);
+    d->mSegments.insert(t.block().blockNumber(), nullptr);
 
-    mBlocksData.insert(t.block(), new BlockData{++mLastLineNumber, nullptr, mLastLineNumber ? BlockType::Odd : BlockType::Even});
-    mLastOddEven = !mLastOddEven;
+    d->mBlocksData.insert(t.block(), new BlockData{++d->mLastLineNumber, nullptr, d->mLastLineNumber ? BlockType::Odd : BlockType::Even});
+    d->mLastOddEven = !d->mLastOddEven;
 
     return t.block().blockNumber();
 }
@@ -434,6 +678,7 @@ void CodeEditor::append(const QStringList &code, CodeEditor::BlockType type, Dif
 {
     for (auto &e : code)
         append(e, type, segment);
+
     for (int var = 0; var < size - code.size(); ++var)
         append(QString(), Empty, segment);
 }
@@ -442,27 +687,29 @@ void CodeEditor::append(const QList<QStringView> &code, BlockType type, Diff::Se
 {
     for (auto &e : code)
         append(e.toUtf8(), type, segment); // TODO: check this convert
-    for (int var = 0; var < size - code.size(); ++var)
-        append(QString(), Empty, segment);
+    // for (int var = 0; var < size - code.size(); ++var)
+    append(QString{size - code.size(), QChar(0x00A0)}, Empty, segment);
 }
 
 int CodeEditor::append(const QString &code, CodeEditor::BlockType type, BlockData *data)
 {
+    Q_D(CodeEditor);
+
     auto t = textCursor();
 
     // if (mSegments.size())
     // t.insertBlock();
 
     auto lines = code.split('\n');
-    auto d = new BlockUserData;
-    d->data = data;
-    d->extraText = data->extraText;
+    auto blockData = new BlockUserData;
+    blockData->data = data;
+    blockData->extraText = data->extraText;
     for (auto const &line : std::as_const(lines)) {
         // t.insertBlock();
         // t.block().setUserData(d);
 
-        mBlocksData.insert(t.block(), data);
-        auto f = mFormats.value(type);
+        d->mBlocksData.insert(t.block(), data);
+        auto f = d->mFormats.value(type);
         t.setBlockFormat(f);
         t.insertText(line + " \n");
     }
@@ -485,6 +732,161 @@ int CodeEditor::append(const QString &code, CodeEditor::BlockType type, BlockDat
     mBlocks << data;
 */
     return t.block().blockNumber();
+}
+
+void CodeEditor::appendLines(const QStringList &content, BlockData *data, bool fill)
+{
+    Q_D(CodeEditor);
+    auto cursor = textCursor();
+
+    if (!Q_UNLIKELY(d->isEmpty))
+        cursor.insertBlock();
+
+    d->isEmpty = false;
+    cursor.setBlockFormat(d->mFormats.value(data->type));
+
+    QString s;
+    if (content.size())
+        s = content.join(QLatin1Char('\n'));
+    if (fill && data->maxLineCount > data->lineCount)
+        s += QString{data->maxLineCount - data->lineCount - (data->lineCount ? 0 : 1), QLatin1Char('\n')};
+
+    if (data)
+        data->firstBlock = cursor.block();
+    cursor.insertText(s);
+
+    if (data)
+        data->firstBlock = cursor.block();
+}
+
+void CodeEditor::setContent(const QStringList &content, QList<BlockData *> dataList, bool fill)
+{
+    Q_D(CodeEditor);
+
+    d->dataList = dataList;
+    d->fill = fill;
+
+    bool first{true};
+
+    clear();
+    auto t = textCursor();
+
+    for (auto &data : dataList) {
+        QString s;
+        if (data->lineCount)
+            s = content.mid(data->lineNumber, data->lineCount).join('\n');
+        if (fill && data->maxLineCount > data->lineCount)
+            s += QString{data->maxLineCount - data->lineCount - (data->lineCount ? 0 : 1), QLatin1Char('\n')};
+
+        if (data->lineCount || (fill && data->maxLineCount)) {
+            if (Q_UNLIKELY(first)) {
+                first = false;
+            } else {
+                t.insertBlock();
+            }
+            QTextCursor c(t.block());
+            t.setBlockFormat(d->mFormats.value(data->type));
+            c.insertText(s);
+        }
+    }
+}
+
+void CodeEditor::appendCode(const QStringList &code, BlockType type, int fillSize)
+{
+    Q_D(CodeEditor);
+    auto cursor = textCursor();
+    // if (!d->isEmpty)
+    // cursor.insertBlock();
+    d->isEmpty = false;
+
+    cursor.setBlockFormat(d->mFormats.value(type));
+    cursor.insertText(code.join('\n') + '\n');
+
+    if (fillSize > code.size()) {
+        cursor.setBlockFormat(d->mFormats.value(BlockType::Unchanged));
+        cursor.insertText(QString{fillSize - code.size(), QLatin1Char('\n')});
+    }
+}
+
+int CodeEditor::addFrame(const QStringList &lines, BlockType type)
+{
+    Q_D(CodeEditor);
+
+    auto cursor = textCursor();
+
+    // if (!d->isEmpty)
+    //     cursor.insertBlock();
+    // d->isEmpty = false;
+
+    auto index = ++d->lastPlaceholderIndex;
+    QTextBlock block = cursor.block();
+
+    cursor.setBlockFormat(d->mFormats.value(type));
+
+    cursor.insertText(lines.join('\n') + '\n');
+
+    d->placeholderBlocks.insert(index, CodeEditorPrivate::PlaceholderInfo{block, lines.size()});
+
+    do {
+        d->readOnlyBlocks << block;
+        block = block.next();
+    } while (block.isValid() && block != cursor.block());
+    return index;
+}
+
+void CodeEditor::setFrameText(int index, const QStringList &lines)
+{
+    Q_D(CodeEditor);
+    QTextCursor cursor(document());
+
+    // Check if the placeholder block exists
+    if (!d->placeholderBlocks.contains(index))
+        return;
+
+    // Get placeholder info
+    auto info = d->placeholderBlocks.value(index);
+    auto startBlock = info.block;
+    auto linesCount = info.linesCount;
+    auto p = info.block.position();
+    // Move cursor to the start block position
+    cursor.setPosition(startBlock.position());
+
+    cursor.movePosition(QTextCursor::StartOfBlock);
+    // Remove `linesCount` blocks starting from the `startBlock`
+    for (int i = 0; i < linesCount; ++i) {
+        cursor.movePosition(QTextCursor::Down, QTextCursor::KeepAnchor);
+    }
+    cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
+
+    cursor.removeSelectedText();
+    // cursor.deletePreviousChar(); // This will remove the block itself
+
+    // cursor.movePosition(QTextCursor::NextBlock);
+
+    // for (auto &code : lines) {
+    //     cursor.insertBlock();
+    //     cursor.setBlockFormat(d->mFormats.value(Removed));
+    //     cursor.insertText(code);
+    // }
+
+    // cursor.setBlockFormat(d->mFormats.value(BlockType::Unchanged));
+    // cursor.insertBlock();
+
+    cursor.setBlockFormat(d->mFormats.value(Removed));
+    cursor.insertText(lines.join('\n'));
+
+    cursor.insertBlock();
+    cursor.setBlockFormat(d->mFormats.value(Unchanged));
+
+    d->placeholderBlocks.insert(index, CodeEditorPrivate::PlaceholderInfo{document()->findBlock(p), lines.size()});
+}
+
+void CodeEditor::highLight(int from, int to)
+{
+    Q_D(CodeEditor);
+    d->highlightStart = from;
+    d->highlightEnd = to;
+    d->mSideBar->update();
 }
 
 QPair<int, int> CodeEditor::blockArea(int from, int to)
@@ -517,11 +919,6 @@ QPair<int, int> CodeEditor::visibleLines() const
     return ret;
 }
 
-int CodeEditor::currentLineNumber() const
-{
-    return textCursor().block().firstLineNumber();
-}
-
 void CodeEditor::gotoLineNumber(int lineNumber)
 {
     const QTextBlock block = document()->findBlockByLineNumber(lineNumber);
@@ -534,7 +931,8 @@ void CodeEditor::gotoLineNumber(int lineNumber)
 
 void CodeEditor::gotoSegment(Diff::Segment *segment)
 {
-    for (auto i = mSegments.begin(); i != mSegments.end(); i++) {
+    Q_D(CodeEditor);
+    for (auto i = d->mSegments.begin(); i != d->mSegments.end(); i++) {
         if (i.value() == segment) {
             QTextBlock block = document()->findBlockByLineNumber(i.key());
 
@@ -555,47 +953,79 @@ void CodeEditor::mouseReleaseEvent(QMouseEvent *event)
 
 Diff::Segment *CodeEditor::currentSegment() const
 {
-    return mSegments.value(textCursor().block().blockNumber(), nullptr);
+    Q_D(const CodeEditor);
+    return d->mSegments.value(textCursor().block().blockNumber(), nullptr);
 }
 
 void CodeEditor::highlightSegment(Diff::Segment *segment)
 {
-    mCurrentSegment = qMakePair(-1, -1);
-    for (auto i = mSegments.begin(); i != mSegments.end(); i++) {
+    Q_D(CodeEditor);
+
+    d->mCurrentSegment = qMakePair(-1, -1);
+    for (auto i = d->mSegments.begin(); i != d->mSegments.end(); i++) {
         if (i.value() == segment) {
-            if (mCurrentSegment.first == -1)
-                mCurrentSegment.first = i.key();
+            if (d->mCurrentSegment.first == -1)
+                d->mCurrentSegment.first = i.key();
             //            auto block = document()->findBlockByNumber(i.key());
 
             //            QTextCursor cursor(block);
             ////            cursor.setBlockFormat(_formats.value(HighLight));
             //            setTextCursor(cursor);
             //            return;
-        } else if (mCurrentSegment.first != -1) {
-            mCurrentSegment.second = i.key() - 1;
+        } else if (d->mCurrentSegment.first != -1) {
+            d->mCurrentSegment.second = i.key() - 1;
             break;
         }
     }
     //    _currentSegment = segment;
-    mSideBar->update();
-    qCDebug(KOMMIT_WIDGETS_LOG) << mCurrentSegment;
+    d->mSideBar->update();
+    qCDebug(KOMMIT_WIDGETS_LOG) << d->mCurrentSegment;
     return;
     qCDebug(KOMMIT_WIDGETS_LOG) << "Segment not found";
 }
 
+int CodeEditor::currentLineNumber() const
+{
+    Q_D(const CodeEditor);
+    auto ln = textCursor().block().firstLineNumber() + 1;
+    if (!d->fill)
+        return ln;
+
+    auto n{0};
+    for (auto &data : std::as_const(d->dataList)) {
+        if (ln <= n + data->maxLineCount) {
+            return std::min(data->lineNumber + data->lineCount, ln);
+        }
+        n += data->maxLineCount;
+    }
+    return 0;
+}
+
 void CodeEditor::clearAll()
 {
-    mSegments.clear();
+    Q_D(CodeEditor);
+
+    d->mSegments.clear();
     clear();
-    mLastLineNumber = 0;
-    auto tmp = mBlocksData.values();
+    d->mLastLineNumber = 0;
+    auto tmp = d->mBlocksData.values();
     qDeleteAll(tmp);
-    mBlocksData.clear();
+    d->mBlocksData.clear();
+    d->isEmpty = true;
+    d->emptyBlocks.clear();
 }
 
 CodeEditor::BlockData::BlockData(int lineNumber, Diff::Segment *segment, CodeEditor::BlockType type)
     : lineNumber{lineNumber}
     , segment{segment}
+    , type{type}
+{
+}
+
+CodeEditor::BlockData::BlockData(int lineNumber, int lineCount, int maxLineCount, BlockType type)
+    : lineNumber{lineNumber}
+    , lineCount{lineCount}
+    , maxLineCount{maxLineCount}
     , type{type}
 {
 }

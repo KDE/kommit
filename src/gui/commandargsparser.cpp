@@ -388,8 +388,8 @@ ArgParserReturn CommandArgsParser::blame(const QString &file)
 
     mGit->open(fi.absolutePath());
     auto fileName = file.mid(mGit->path().size());
-    auto f = Git::Blob::lookup(mGit->repoPtr(), mGit->branches()->currentName(), fileName);
-    FileBlameDialog d(mGit, f);
+
+    FileBlameDialog d(mGit, fileName);
     d.exec();
     return 0;
 }
@@ -419,11 +419,11 @@ ArgParserReturn CommandArgsParser::merge()
 ArgParserReturn CommandArgsParser::merge(const QString &base, const QString &local, const QString &remote, const QString &result)
 {
     auto d = new MergeWindow(mGit);
-    d->setFilePathLocal(local);
-    d->setFilePathBase(base);
-    d->setFilePathRemote(remote);
-    d->setFilePathResult(result);
-    d->load();
+    d->setLocalFile(local);
+    d->setBaseFile(base);
+    d->setRemoteFile(remote);
+    d->setResultFile(result);
+    d->compare();
     int n = d->exec();
 
     if (n == QDialog::Accepted)

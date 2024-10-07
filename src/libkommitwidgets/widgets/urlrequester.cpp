@@ -20,7 +20,7 @@ UrlRequester::UrlRequester(QWidget *parent)
 
     mToolButton->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
     connect(mLineEdit, &QLineEdit::textChanged, this, &UrlRequester::textChanged);
-    connect(mToolButton, &QToolButton::clicked, this, &UrlRequester::mSlotButtonClicked);
+    connect(mToolButton, &QToolButton::clicked, this, &UrlRequester::slotButtonClicked);
 }
 
 QUrl UrlRequester::url() const
@@ -33,7 +33,7 @@ void UrlRequester::setUrl(const QUrl &url)
     setText(url.toLocalFile());
 }
 
-void UrlRequester::mSlotButtonClicked()
+void UrlRequester::slotButtonClicked()
 {
     QFileDialog d{this};
 

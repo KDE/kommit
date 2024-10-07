@@ -15,6 +15,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "libkommitwidgets_export.h"
 
+class DiffWidgetPrivate;
 class CodeEditor;
 class LIBKOMMITWIDGETS_EXPORT DiffWidget : public QWidget, private Ui::DiffWIdget
 {
@@ -24,7 +25,7 @@ class LIBKOMMITWIDGETS_EXPORT DiffWidget : public QWidget, private Ui::DiffWIdge
 
 public:
     explicit DiffWidget(QWidget *parent = nullptr);
-    DiffWidget(QSharedPointer<Git::Blob> oldFile, QSharedPointer<Git::Blob> newFile, QWidget *parent = nullptr);
+    // DiffWidget(QSharedPointer<Git::Blob> oldFile, QSharedPointer<Git::Blob> newFile, QWidget *parent = nullptr);
     ~DiffWidget();
 
     void setOldFile(QSharedPointer<Git::Blob> newOldFile);
@@ -74,22 +75,6 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
-    LIBKOMMITWIDGETS_NO_EXPORT void recalculateInfoPaneSize();
-    LIBKOMMITWIDGETS_NO_EXPORT void init();
-    LIBKOMMITWIDGETS_NO_EXPORT void createPreviewWidget();
-
-    bool mDestroying{false};
-    constexpr static int mPreviewWidgetHeight{160};
-    QWidget *mPreviewWidget = nullptr;
-    int mPreviewMargin{0};
-    CodeEditor *mPreviewEditorLeft = nullptr;
-    CodeEditor *mPreviewEditorRight = nullptr;
-    bool mSameSize{false};
-
-    QString mOldContent;
-    QString mNewContent;
-    QString mOldFileName;
-    QString mNewFileName;
-    QTextOption mDefaultOption;
-    QList<Diff::DiffSegment *> mSegments;
+    DiffWidgetPrivate *d_ptr;
+    Q_DECLARE_PRIVATE(DiffWidget)
 };

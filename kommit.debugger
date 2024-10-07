@@ -1,0 +1,8 @@
+def qdump__Diff__MergeSegmentRange(d, value):
+    # Read the start and size values
+    start = value["start"]
+    size = value["size"]
+
+    # Output them in a friendly format
+    d.putValue(f"start: {start}, size: {size}")
+    d.putNumChild(0)  # No child elements for this type

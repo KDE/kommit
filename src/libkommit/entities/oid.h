@@ -18,16 +18,19 @@ namespace Git
 class LIBKOMMIT_EXPORT Oid
 {
 public:
+    Oid();
     explicit Oid(const git_oid *oid);
     explicit Oid(const git_oid oid);
 
     [[nodiscard]] QString toString() const;
     [[nodiscard]] bool isNull() const;
 
+    void copyTo(git_oid *oid);
+
     [[nodiscard]] const git_oid *oidPtr() const;
 
 private:
-    const git_oid *mOidPtr;
+    const git_oid *mOidPtr{nullptr};
 };
 
 }

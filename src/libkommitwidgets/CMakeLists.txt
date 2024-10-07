@@ -43,6 +43,7 @@ target_sources(libkommitwidgets PRIVATE
     widgets/fetchresultwidget.h
     widgets/fetchresultwidget.cpp
     widgets/branchesselectionwidget.h widgets/branchesselectionwidget.cpp
+    widgets/mergewidget.h widgets/mergewidget.cpp
 
     core/kmessageboxhelper.h
     core/kmessageboxhelper.cpp
@@ -213,6 +214,7 @@ ki18n_wrap_ui(
     windows/kommitmergeview.ui
     widgets/fetchresultwidget.ui
     widgets/branchesselectionwidget.ui
+    widgets/mergewidget.ui
 
     dialogs/mergecloseeventdialog.ui
     dialogs/searchdialog.ui

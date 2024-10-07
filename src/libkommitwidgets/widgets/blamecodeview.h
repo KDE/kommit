@@ -17,9 +17,9 @@ class LIBKOMMITWIDGETS_EXPORT BlameCodeView : public CodeEditor
 
 public:
     explicit BlameCodeView(QWidget *parent = nullptr);
-    const Git::BlameData &blameData() const;
-    void setBlameData(const Git::BlameData &newBlameData);
+
+    void setBlameData(QSharedPointer<Git::BlameData> newBlameData);
 
 private:
-    Git::BlameData mBlameData;
+    QSharedPointer<Git::BlameData> mBlameData;
 };

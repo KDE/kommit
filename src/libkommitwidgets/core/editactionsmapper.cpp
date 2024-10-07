@@ -11,9 +11,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QPlainTextEdit>
 
 #include <KStandardAction>
+#include <QMenu>
 
-EditActionsMapper::EditActionsMapper(QObject *parent)
+EditActionsMapper::EditActionsMapper(QWidget *parent)
     : QObject(parent)
+    , mMenu{new QMenu{parent}}
 {
 }
 
@@ -23,11 +25,17 @@ void EditActionsMapper::addTextEdit(QPlainTextEdit *control)
 
     control->installEventFilter(this);
 
-    control->setContextMenuPolicy(Qt::DefaultContextMenu);
+    control->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(control, &QPlainTextEdit::copyAvailable, this, &EditActionsMapper::controlCopyAvailable);
     connect(control, &QPlainTextEdit::selectionChanged, this, &EditActionsMapper::controlSelectionChanged);
     connect(control, &QPlainTextEdit::undoAvailable, this, &EditActionsMapper::controlUndoAvailable);
     connect(control, &QPlainTextEdit::redoAvailable, this, &EditActionsMapper::controlRedoAvailable);
+    connect(control, &QPlainTextEdit::customContextMenuRequested, this, &EditActionsMapper::controlCustomContextMenuRequested);
+}
+
+void EditActionsMapper::addCustomAction(QAction *action)
+{
+    mCustomActions<<action;
 }
 
 void EditActionsMapper::init(KActionCollection *actionCollection)
@@ -38,6 +46,7 @@ void EditActionsMapper::init(KActionCollection *actionCollection)
     mSelectAll = KStandardAction::selectAll(this, &EditActionsMapper::actionSelectAllTriggered, actionCollection);
     mActionUndo = KStandardAction::undo(this, &EditActionsMapper::actionUndoTriggered, actionCollection);
     mActionRedo = KStandardAction::redo(this, &EditActionsMapper::actionRedoTriggered, actionCollection);
+
 }
 
 void EditActionsMapper::controlUndoAvailable(bool b)
@@ -68,6 +77,10 @@ void EditActionsMapper::controlCopyAvailable(bool b)
 }
 
 void EditActionsMapper::controlSelectionChanged()
+{
+}
+
+void EditActionsMapper::controlCustomContextMenuRequested()
 {
 }
 

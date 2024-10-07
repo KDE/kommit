@@ -13,6 +13,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Diff
 {
+
+struct LIBKOMMITDIFF_EXPORT SegmentRange {
+    int start;
+    int size;
+};
+
 struct LIBKOMMITDIFF_EXPORT Segment {
     virtual ~Segment() = default;
 
@@ -21,6 +27,13 @@ struct LIBKOMMITDIFF_EXPORT Segment {
     SegmentType type;
 
     virtual QStringList get(int index);
+
+    virtual int count() const{
+        return 2;
+    }
+    virtual int maxLines() const {
+        return 0;
+    }
 };
 
 struct LIBKOMMITDIFF_EXPORT DiffSegment : Segment {
@@ -30,6 +43,10 @@ struct LIBKOMMITDIFF_EXPORT DiffSegment : Segment {
     int oldLineEnd;
     int newLineStart;
     int newLineEnd;
+
+    SegmentRange left;
+    SegmentRange right;
+
     [[nodiscard]] QStringList get(int index) override;
 };
 
@@ -45,5 +62,4 @@ struct LIBKOMMITDIFF_EXPORT MergeSegment : Segment {
     MergeSegment();
     MergeSegment(const QStringList &base, const QStringList &local, const QStringList &remote);
 };
-
 }

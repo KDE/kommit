@@ -17,20 +17,16 @@ BlameCodeView::BlameCodeView(QWidget *parent)
     setReadOnly(true);
 }
 
-const Git::BlameData &BlameCodeView::blameData() const
-{
-    return mBlameData;
-}
-
-void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
+void BlameCodeView::setBlameData(QSharedPointer<Git::BlameData> newBlameData)
 {
     BlockType type{Odd};
     const QVector<QColor> colors{QColor(200, 150, 150, 100), QColor(150, 200, 150, 100)};
     int currentColor{0};
     mBlameData = newBlameData;
     QString lastCommit;
-    for (const auto &blame : newBlameData) {
-        const QString commitHash = blame.finalCommit ? blame.finalCommit->commitHash() : QString();
+    auto hunks = newBlameData->hunks();
+    for (const auto &blame : hunks) {
+        const QString commitHash = blame->finalCommit ? blame->finalCommit->commitHash() : QString();
 
         if (lastCommit != commitHash) {
             currentColor = (currentColor + 1) % colors.size();
@@ -38,10 +34,10 @@ void BlameCodeView::setBlameData(const Git::BlameData &newBlameData)
         }
 
         auto data = new BlockData{-1, nullptr, type};
-        data->extraText = blame.finalCommit ? blame.finalCommit->committer()->name() : i18n("Uncommited");
-        data->data = blame.finalCommit.data();
+        data->extraText = blame->finalCommit ? blame->finalCommit->committer()->name() : i18n("Uncommited");
+        data->data = blame->finalCommit.data();
 
-        append(blame.code, type, data);
+        appendCode(mBlameData->codeLines(blame), type);
         lastCommit = commitHash;
     }
 }

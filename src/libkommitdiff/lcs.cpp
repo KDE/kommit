@@ -90,12 +90,19 @@ Solution longestCommonSubsequence(const QStringList &source, const QStringList &
     int j = target.count();
     Solution r;
 
+    int si{-1};
+    int sj{-1};
+
     while (i > 0 && j > 0) {
         if (isEqual(source.at(i - 1), target.at(j - 1))) {
             r.prepend(qMakePair(i - 1, j - 1));
             i--;
             j--;
+            si = i;
+            sj = j;
         } else {
+            if (si != -1 && sj != -1) { }
+
             int n = maxIn(l(i - 1, j), l(i, j - 1), l(i - 1, j - 1));
             switch (n) {
             case 1:
@@ -190,5 +197,76 @@ Solution3 longestCommonSubsequence(const QStringList &source, const QStringList 
     }
     return r;
 }
+/*
+template<typename T>
+[[nodiscard]] QList<LcsResult> longestCommonSubsequence(const QList<T> &left, const QList<T> &right, LcsOptions<T> opts)
+{
+    Array2<int> l(left.size() + 1, right.size() + 1);
 
+    for (int i = 0; i <= left.count(); i++) {
+        for (int j = 0; j <= right.count(); j++) {
+            if (i == 0 || j == 0) {
+                l(i, j) = 0;
+            } else if (opts.equals(left.at(i - 1), right.at(j - 1))) {
+                l(i, j) = l(i - 1, j - 1) + 1;
+            } else {
+                l(i, j) = qMax(l(i - 1, j), l(i, j - 1));
+            }
+        }
+    }
+
+    int i = left.count();
+    int j = right.count();
+    QList<LcsResult> result;
+
+    while (i > 0 && j > 0) {
+        if (opts.equals(left.at(i - 1), right.at(j - 1))) {
+            int leftEnd = i - 1;
+            int rightEnd = j - 1;
+            int leftStart = leftEnd;
+            int rightStart = rightEnd;
+
+            // Move diagonally while elements match
+            while (i > 0 && j > 0 && opts.equals(left.at(i - 1), right.at(j - 1))) {
+                --i;
+                --j;
+                leftStart = i;
+                rightStart = j;
+            }
+
+            // Add the matched subsequence to result
+            result.prepend({leftStart, leftEnd, rightStart, rightEnd});
+
+            // i--;
+            // j--;
+            // if (!started) {
+            //     si = i;
+            //     sj = j;
+            //     started = true;
+            // }
+        } else {
+            // if (started) {
+            //     r << LcsResult{si, i, sj, j};
+            //     started = false;
+            // }
+
+            int n = maxIn(l(i - 1, j), l(i, j - 1), l(i - 1, j - 1));
+            switch (n) {
+            case 1:
+                i--;
+                break;
+            case 2:
+                j--;
+                break;
+            default:
+                i--;
+                j--;
+                break;
+            }
+        }
+    }
+
+    return result;
+}
+*/
 }

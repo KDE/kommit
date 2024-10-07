@@ -50,6 +50,7 @@ Text readLines(const QString &text)
 
     int i{0};
     Text t;
+    t.content = text;
     t.lineEnding = le;
     while (i != -1) {
         auto n = text.indexOf(separator, i);

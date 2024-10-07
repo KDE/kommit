@@ -24,8 +24,8 @@ http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd">
             <Action name="keep_my_file"/>
             <Action name="keep_their_file"/>
             <Separator/>
-            <Action name="goto_next_diff"/>
             <Action name="goto_prev_diff"/>
+            <Action name="goto_next_diff"/>
         </Menu>
     </MenuBar>
 
@@ -34,6 +34,7 @@ http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd">
 
         <Action name="file_open"/>
         <Action name="file_save"/>
+        <Action name="file_save_as"/>
         <Separator/>
         <Action name="keep_mine"/>
         <Action name="keep_their"/>
@@ -44,8 +45,8 @@ http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd">
         <Action name="keep_my_file"/>
         <Action name="keep_their_file"/>
         <Separator/>
-        <Action name="goto_next_diff"/>
         <Action name="goto_prev_diff"/>
+        <Action name="goto_next_diff"/>
     </ToolBar>
 
     <ActionProperties>

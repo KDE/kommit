@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/mergeopenfilesdialog.h"
 #include "libkommitwidgets_appdebug.h"
 #include "widgets/codeeditor.h"
+#include "widgets/mergewidget.h"
 #include "widgets/segmentsmapper.h"
 
 #include <KActionCollection>
@@ -26,374 +27,265 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QStatusBar>
 #include <QTextBlock>
 #include <QTextEdit>
+#include <entities/blob.h>
 
-bool isEmpty(const QStringList &list)
+namespace MergeImpl
 {
-    if (list.isEmpty())
-        return true;
 
-    for (const auto &s : list)
-        if (!s.trimmed().isEmpty())
-            return false;
-    return true;
-}
-
-void compare(QTextEdit *e1, QTextEdit *e2)
+class Storage
 {
-    auto m = qMin(e1->document()->blockCount(), e2->document()->blockCount());
-    for (int i = 0; i < m; ++i) {
-        auto block1 = e1->document()->findBlock(i);
-        auto block2 = e2->document()->findBlock(i);
-        if (block1.text() != block2.text()) {
-            //            block1.blockFormat()
-        }
+public:
+    enum class Mode { Null, File, Blob };
+
+    Mode _mode{Mode::Null};
+    QString _filePath;
+    QString _title;
+
+    QSharedPointer<Git::Blob> _blob;
+
+    void setFile(const QString &path)
+    {
+        _mode = Mode::File;
+        _filePath = path;
+        _blob.reset();
     }
-}
-QString readFile(const QString &filePath)
-{
-    QFile f{filePath};
-    if (!f.open(QIODevice::ReadOnly))
+    void setFile(QSharedPointer<Git::Blob> file)
+    {
+        _mode = Mode::Blob;
+        _blob = file;
+    }
+
+    QString title() const
+    {
+        switch (_mode) {
+        case Mode::Null:
+            return "{NULL}";
+
+        case Mode::File:
+            return _filePath;
+
+        case Mode::Blob:
+            return _blob->name();
+        }
         return {};
-
-    const auto buf = QString(f.readAll());
-    f.close();
-    return buf;
-}
-
-MergeWindow::MergeWindow(Git::Manager *git, Mode mode, QWidget *parent)
-    : AppMainWindow(parent)
-{
-    Q_UNUSED(mode)
-    auto w = new QWidget(this);
-    m_ui.setupUi(w);
-    setCentralWidget(w);
-
-    initActions();
-    init();
-
-    QSettings s;
-    s.beginGroup(QStringLiteral("MergeWindow"));
-    if (s.value(QStringLiteral("actionType"), QStringLiteral("file")).toString() == QStringLiteral("file"))
-        actionViewFilesClicked();
-    else
-        actionViewBlocksClicked();
-}
-
-MergeWindow::~MergeWindow()
-{
-    QSettings s;
-    s.beginGroup(QStringLiteral("MergeWindow"));
-    s.setValue(QStringLiteral("actionType"), mActionFilesView->isChecked() ? QStringLiteral("file") : QStringLiteral("block"));
-    s.sync();
-}
-
-void MergeWindow::init()
-{
-    auto mapper = new EditActionsMapper;
-    mapper->init(actionCollection());
-
-    mapper->addTextEdit(m_ui.plainTextEditMine);
-    mapper->addTextEdit(m_ui.plainTextEditTheir);
-    mapper->addTextEdit(m_ui.plainTextEditResult);
-
-    mMapper = new SegmentsMapper;
-
-    mMapper->addEditor(m_ui.plainTextEditBase);
-    mMapper->addEditor(m_ui.plainTextEditMine);
-    mMapper->addEditor(m_ui.plainTextEditTheir);
-    mMapper->addEditor(m_ui.plainTextEditResult);
-
-    m_ui.plainTextEditMine->setContextMenuPolicy(Qt::CustomContextMenu);
-    m_ui.plainTextEditTheir->setContextMenuPolicy(Qt::CustomContextMenu);
-
-    connect(m_ui.plainTextEditMine, &CodeEditor::customContextMenuRequested, this, &MergeWindow::codeEditorsCustomContextMenuRequested);
-    connect(m_ui.plainTextEditTheir, &CodeEditor::customContextMenuRequested, this, &MergeWindow::codeEditorsCustomContextMenuRequested);
-    connect(m_ui.plainTextEditResult, &CodeEditor::blockSelected, this, &MergeWindow::slotPlainTextEditResultBlockSelected);
-    connect(m_ui.plainTextEditResult, &CodeEditor::textChanged, this, &MergeWindow::slotPlainTextEditResultTextChanged);
-
-    mConflictsLabel = new QLabel(this);
-    statusBar()->addPermanentWidget(mConflictsLabel);
-
-    actionViewBlocksClicked();
-
-    setupGUI(Default, QStringLiteral("kommitmergeui.rc"));
-}
-
-void MergeWindow::fillSegments()
-{
-    m_ui.plainTextEditMine->clearAll();
-    m_ui.plainTextEditBase->clearAll();
-    m_ui.plainTextEditTheir->clearAll();
-    for (const auto &d : std::as_const(mDiffs)) {
-        auto blockSize = actionViewSameSizeBlocks->isChecked() ? qMax(d->base.size(), qMax(d->remote.size(), d->local.size())) : -1;
-
-        switch (d->type) {
-        case Diff::SegmentType::SameOnBoth: {
-            m_ui.plainTextEditMine->append(d->base, CodeEditor::Unchanged, d, blockSize);
-            m_ui.plainTextEditTheir->append(d->base, CodeEditor::Unchanged, d, blockSize);
-            m_ui.plainTextEditBase->append(d->base, CodeEditor::Unchanged, d, blockSize);
-            d->mergeType = Diff::KeepLocal;
-            break;
-        }
-
-        case Diff::SegmentType::OnlyOnRight:
-            m_ui.plainTextEditMine->append(d->local, CodeEditor::Removed, d, blockSize);
-            m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Added, d, blockSize);
-            m_ui.plainTextEditBase->append(d->base, CodeEditor::Edited, d, blockSize);
-            d->mergeType = Diff::KeepRemote;
-            break;
-        case Diff::SegmentType::OnlyOnLeft:
-            m_ui.plainTextEditMine->append(d->local, CodeEditor::Added, d, blockSize);
-            m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Removed, d, blockSize);
-            m_ui.plainTextEditBase->append(d->base, CodeEditor::Edited, d, blockSize);
-            d->mergeType = Diff::KeepLocal;
-            break;
-
-        case Diff::SegmentType::DifferentOnBoth:
-            if (isEmpty(d->local)) {
-                m_ui.plainTextEditMine->append(d->local, CodeEditor::Edited, d, blockSize);
-                m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Added, d, blockSize);
-                //                d->mergeType = Diff::KeepRemote;
-            } else if (isEmpty(d->remote)) {
-                m_ui.plainTextEditMine->append(d->local, CodeEditor::Added, d, blockSize);
-                m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Edited, d, blockSize);
-                //                d->mergeType = Diff::KeepLocal;
-            } else {
-                m_ui.plainTextEditMine->append(d->local, CodeEditor::Edited, d, blockSize);
-                m_ui.plainTextEditTheir->append(d->remote, CodeEditor::Edited, d, blockSize);
-            }
-            m_ui.plainTextEditBase->append(d->base, CodeEditor::Edited, d, blockSize);
-            d->mergeType = Diff::None;
-            break;
-        }
     }
-}
 
-void MergeWindow::load()
-{
-    m_ui.plainTextEditMine->clear();
-    m_ui.plainTextEditTheir->clear();
-    m_ui.plainTextEditResult->clear();
-    m_ui.plainTextEditBase->clear();
+    QByteArray content() const
+    {
+        switch (_mode) {
+        case Mode::Null:
+            return "{NULL}";
 
-    auto baseList = readFile(mFilePathBase);
-    auto localList = readFile(mFilePathLocal);
-    auto remoteList = readFile(mFilePathRemote);
+        case Mode::Blob:
+            return _blob->content();
 
-    m_ui.plainTextEditBase->setHighlighting(mFilePathBase);
-    m_ui.plainTextEditMine->setHighlighting(mFilePathLocal);
-    m_ui.plainTextEditTheir->setHighlighting(mFilePathRemote);
-    m_ui.plainTextEditResult->setHighlighting(mFilePathResult);
-    m_ui.codeEditorMyBlock->setHighlighting(mFilePathLocal);
-    m_ui.codeEditorTheirBlock->setHighlighting(mFilePathRemote);
-
-    auto result = Diff::diff3(baseList, localList, remoteList);
-    mDiffs = result.segments;
-    mMapper->setSegments(mDiffs);
-
-    fillSegments();
-    updateResult();
-
-    QFileInfo fi;
-    if (mFilePathResult.isEmpty())
-        fi.setFile(mFilePathBase);
-    else
-        fi.setFile(mFilePathResult);
-
-    setWindowTitle(fi.fileName() + QStringLiteral("[*]"));
-    setWindowModified(true);
-
-    actionKeepMine->setEnabled(true);
-    actionKeepTheir->setEnabled(true);
-    actionKeepMineBeforeTheir->setEnabled(true);
-    actionKeepTheirBeforeMine->setEnabled(true);
-    actionKeepMyFile->setEnabled(true);
-    actionKeepTheirFile->setEnabled(true);
-    actionGotoPrevDiff->setEnabled(true);
-    actionGotoNextDiff->setEnabled(true);
-}
-
-void MergeWindow::updateResult()
-{
-    m_ui.plainTextEditResult->clearAll();
-    for (const auto &d : std::as_const(mDiffs)) {
-        auto blockSize = actionViewSameSizeBlocks->isChecked() ? qMax(d->base.size(), qMax(d->remote.size(), d->local.size())) : -1;
-
-        if (d->type == Diff::SegmentType::SameOnBoth) {
-            m_ui.plainTextEditResult->append(d->base, CodeEditor::Unchanged, d, blockSize);
-            continue;
+        case Mode::File: {
+            QFile f{_filePath};
+            if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
+                return {};
+            auto buffer = f.readAll();
+            f.close();
+            return buffer;
         }
-        switch (d->mergeType) {
-        case Diff::None: {
-            switch (d->type) {
-            case Diff::SegmentType::SameOnBoth:
-                m_ui.plainTextEditResult->append(d->base, CodeEditor::Unchanged, d, blockSize);
-                break;
-
-            case Diff::SegmentType::OnlyOnRight:
-                m_ui.plainTextEditResult->append(d->remote, CodeEditor::Added, d, blockSize);
-                break;
-
-            case Diff::SegmentType::OnlyOnLeft:
-                m_ui.plainTextEditResult->append(d->local, CodeEditor::Added, d, blockSize);
-                break;
-
-            case Diff::SegmentType::DifferentOnBoth:
-                if (d->local == d->remote)
-                    m_ui.plainTextEditResult->append(d->remote, CodeEditor::Added, d, blockSize); // Not changed
-                else if (isEmpty(d->local))
-                    m_ui.plainTextEditResult->append(d->remote, CodeEditor::Added, d, blockSize);
-                else if (isEmpty(d->remote))
-                    m_ui.plainTextEditResult->append(d->local, CodeEditor::Added, d, blockSize);
-                else
-                    m_ui.plainTextEditResult->append(QStringLiteral(" "), CodeEditor::Removed, d);
-                break;
-            }
-            break;
         }
 
-        case Diff::KeepLocal:
-            m_ui.plainTextEditResult->append(d->local, CodeEditor::Edited, d, blockSize);
-            break;
-
-        case Diff::KeepRemote:
-            m_ui.plainTextEditResult->append(d->remote, CodeEditor::Edited, d, blockSize);
-            break;
-
-        case Diff::KeepLocalThenRemote:
-            m_ui.plainTextEditResult->append(d->local, CodeEditor::Edited, d, blockSize);
-            m_ui.plainTextEditResult->append(d->remote, CodeEditor::Edited, d, blockSize);
-            break;
-
-        case Diff::KeepRemoteThenLocal:
-            m_ui.plainTextEditResult->append(d->remote, CodeEditor::Edited, d, blockSize);
-            m_ui.plainTextEditResult->append(d->local, CodeEditor::Edited, d, blockSize);
-            break;
-
-        default:
-            m_ui.plainTextEditResult->append(QStringLiteral("***"), CodeEditor::Edited, d);
-            break;
-        }
+        return {};
     }
-    mConflictsLabel->setText(i18n("Conflicts: %1", mMapper->conflicts()));
+};
+
 }
 
-void MergeWindow::initActions()
+class MergeWindowPrivate
 {
-    KActionCollection *actionCollection = this->actionCollection();
+    MergeWindow *q_ptr;
+    Q_DECLARE_PUBLIC(MergeWindow)
 
-    actionKeepMine = actionCollection->addAction(QStringLiteral("keep_mine"), this, &MergeWindow::actionKeepMineClicked);
+public:
+    explicit MergeWindowPrivate(MergeWindow *parent);
+
+    QString resultFilePath;
+
+    MergeWidget *mergeWidget{};
+    MergeImpl::Storage base;
+    MergeImpl::Storage local;
+    MergeImpl::Storage remote;
+
+    QLabel *conflictsLabel = nullptr;
+    QAction *actionViewSameSizeBlocks = nullptr;
+
+    // QAction *actionKeepMine = nullptr;
+    // QAction *actionKeepTheir = nullptr;
+    // QAction *actionKeepMineBeforeTheir = nullptr;
+    // QAction *actionKeepTheirBeforeMine = nullptr;
+    // QAction *actionKeepMyFile = nullptr;
+    // QAction *actionKeepTheirFile = nullptr;
+    // QAction *actionGotoPrevDiff = nullptr;
+    // QAction *actionGotoNextDiff = nullptr;
+
+    void initActions();
+    bool saveResult(const QString &filePath);
+};
+MergeWindowPrivate::MergeWindowPrivate(MergeWindow *parent)
+    : q_ptr{parent}
+{
+}
+
+void MergeWindowPrivate::initActions()
+{
+    Q_Q(MergeWindow);
+
+    KActionCollection *actionCollection = q->actionCollection();
+
+    auto actionKeepMine = actionCollection->addAction(QStringLiteral("keep_mine"), mergeWidget->keepMineAction());
     actionKeepMine->setText(i18n("Keep mine"));
     actionKeepMine->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-mine")));
     actionCollection->setDefaultShortcut(actionKeepMine, QKeySequence(Qt::CTRL | Qt::Key_L));
 
-    actionKeepTheir = actionCollection->addAction(QStringLiteral("keep_their"), this, &MergeWindow::actionKeepTheirClicked);
+    auto actionKeepTheir = actionCollection->addAction(QStringLiteral("keep_their"), mergeWidget->keepTheirAction());
     actionKeepTheir->setText(i18n("Keep their"));
     actionKeepTheir->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their")));
     actionCollection->setDefaultShortcut(actionKeepTheir, QKeySequence(Qt::CTRL | Qt::Key_R));
 
-    actionKeepMineBeforeTheir = actionCollection->addAction(QStringLiteral("keep_mine_before_their"), this, &MergeWindow::actionKeepMineBeforeTheirClicked);
-
+    auto actionKeepMineBeforeTheir = actionCollection->addAction(QStringLiteral("keep_mine_before_their"), mergeWidget->keepMineBeforeTheirAction());
     actionKeepMineBeforeTheir->setText(i18n("Keep mine before their"));
     actionKeepMineBeforeTheir->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-mine-before-their")));
     actionCollection->setDefaultShortcut(actionKeepMineBeforeTheir, QKeySequence(Qt::CTRL | Qt::Key_L | Qt::SHIFT));
 
-    actionKeepTheirBeforeMine = actionCollection->addAction(QStringLiteral("keep_their_before_mine"), this, &MergeWindow::actionKeepTheirBeforeMineClicked);
+    auto actionKeepTheirBeforeMine = actionCollection->addAction(QStringLiteral("keep_their_before_mine"), mergeWidget->keepTheirBeforeMineAction());
     actionKeepTheirBeforeMine->setText(i18n("Keep their before mine"));
     actionKeepTheirBeforeMine->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their-before-mine")));
     actionCollection->setDefaultShortcut(actionKeepTheirBeforeMine, QKeySequence(Qt::CTRL | Qt::Key_R | Qt::SHIFT));
 
-    actionKeepMyFile = actionCollection->addAction(QStringLiteral("keep_my_file"), this, &MergeWindow::actionKeepMyFileClicked);
+    auto actionKeepMyFile = actionCollection->addAction(QStringLiteral("keep_my_file"), mergeWidget->keepMyFileAction());
     actionKeepMyFile->setText(i18n("Keep my file"));
     actionKeepMyFile->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-mine-file")));
     actionCollection->setDefaultShortcut(actionKeepMyFile, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_L));
 
-    actionKeepTheirFile = actionCollection->addAction(QStringLiteral("keep_their_file"), this, &MergeWindow::actionKeepTheirFileClicked);
+    auto actionKeepTheirFile = actionCollection->addAction(QStringLiteral("keep_their_file"), mergeWidget->keepTheirFileAction());
     actionKeepTheirFile->setText(i18n("Keep their file"));
     actionKeepTheirFile->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their-file")));
     actionCollection->setDefaultShortcut(actionKeepTheirFile, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_R));
 
-    mActionBlocksView = actionCollection->addAction(QStringLiteral("view_blocks"), this, &MergeWindow::actionViewBlocksClicked);
-    mActionBlocksView->setText(i18n("Blocks"));
-    mActionBlocksView->setCheckable(true);
-
-    mActionFilesView = actionCollection->addAction(QStringLiteral("view_files"), this, &MergeWindow::actionViewFilesClicked);
-    mActionFilesView->setText(i18n("Files"));
-    mActionFilesView->setCheckable(true);
-
-    actionGotoPrevDiff = actionCollection->addAction(QStringLiteral("goto_prev_diff"), this, &MergeWindow::actionGotoPrevDiffClicked);
+    auto actionGotoPrevDiff = actionCollection->addAction(QStringLiteral("goto_prev_diff"), mergeWidget->gotoPrevDiffAction());
     actionGotoPrevDiff->setText(i18n("Previous diff"));
     actionGotoPrevDiff->setIcon(QIcon::fromTheme(QStringLiteral("diff-goto-prev-diff")));
-    actionGotoPrevDiff->setEnabled(false);
     actionCollection->setDefaultShortcut(actionGotoPrevDiff, QKeySequence(Qt::Key_PageUp));
 
-    actionGotoNextDiff = actionCollection->addAction(QStringLiteral("goto_next_diff"), this, &MergeWindow::actionGotoNextDiffClicked);
+    auto actionGotoNextDiff = actionCollection->addAction(QStringLiteral("goto_next_diff"), mergeWidget->gotoNextDiffAction());
     actionGotoNextDiff->setText(i18n("Next diff"));
     actionGotoNextDiff->setIcon(QIcon::fromTheme(QStringLiteral("diff-goto-next-diff")));
     actionCollection->setDefaultShortcut(actionGotoNextDiff, QKeySequence(Qt::Key_PageDown));
 
-    actionViewSameSizeBlocks = actionCollection->addAction(QStringLiteral("view_same_size_blocks"), this, &MergeWindow::fillSegments);
+    auto actionViewSameSizeBlocks = actionCollection->addAction(QStringLiteral("view_same_size_blocks"), q, &MergeWindow::slotSameSizeActivated);
     actionViewSameSizeBlocks->setText(i18n("Same size blocks"));
     actionViewSameSizeBlocks->setCheckable(true);
     actionViewSameSizeBlocks->setChecked(true);
 
-    KStandardAction::open(this, &MergeWindow::fileOpen, actionCollection);
-    KStandardAction::save(this, &MergeWindow::fileSave, actionCollection);
-    KStandardAction::quit(this, &MergeWindow::close, actionCollection);
+    KStandardAction::open(q, &MergeWindow::fileOpen, actionCollection);
+    KStandardAction::save(q, &MergeWindow::fileSave, actionCollection);
+    KStandardAction::saveAs(q, &MergeWindow::fileSaveAs, actionCollection);
+    KStandardAction::quit(q, &MergeWindow::close, actionCollection);
 
 #ifdef UNDEF
     auto settingsManager = new SettingsManager(mGit, this);
     KStandardAction::preferences(settingsManager, &SettingsManager::show, actionCollection);
 #endif
 
-    mCodeEditorContextMenu = new QMenu(this);
-    mCodeEditorContextMenu->addActions({actionKeepMine, actionKeepTheir});
-    mCodeEditorContextMenu->addSeparator();
-    mCodeEditorContextMenu->addActions({actionKeepMineBeforeTheir, actionKeepTheirBeforeMine});
-    mCodeEditorContextMenu->addSeparator();
-    mCodeEditorContextMenu->addActions({actionKeepMyFile, actionKeepTheirFile});
-
-    actionKeepMine->setEnabled(false);
-    actionKeepTheir->setEnabled(false);
-    actionKeepMineBeforeTheir->setEnabled(false);
-    actionKeepTheirBeforeMine->setEnabled(false);
-    actionKeepMyFile->setEnabled(false);
-    actionKeepTheirFile->setEnabled(false);
-    actionGotoPrevDiff->setEnabled(false);
-    actionGotoNextDiff->setEnabled(false);
+    // mCodeEditorContextMenu = new QMenu(this);
+    // mCodeEditorContextMenu->addActions({d->actionKeepMine, d->actionKeepTheir});
+    // mCodeEditorContextMenu->addSeparator();
+    // mCodeEditorContextMenu->addActions({d->actionKeepMineBeforeTheir, d->actionKeepTheirBeforeMine});
+    // mCodeEditorContextMenu->addSeparator();
+    // mCodeEditorContextMenu->addActions({d->actionKeepMyFile, d->actionKeepTheirFile});
 }
 
-void MergeWindow::doMergeAction(Diff::MergeType type)
+bool MergeWindowPrivate::saveResult(const QString &filePath)
 {
-    auto s = mMapper->currentSegment();
+    Q_Q(MergeWindow);
+    QFile f(filePath);
+    if (!f.open(QIODevice::Text | QIODevice::WriteOnly)) {
+        return false;
+    }
+    f.write(mergeWidget->result().toUtf8());
+    f.close();
 
-    if (!s)
-        return;
-
-    if (s->type == Diff::SegmentType::SameOnBoth)
-        return;
-
-    auto ss = static_cast<Diff::MergeSegment *>(s);
-    ss->mergeType = type;
-    updateResult();
-    //    m_ui.plainTextEditResult->highlightSegment(s);
-
-    mMapper->setCurrentSegment(s);
-
-    setWindowModified(true);
-}
-
-bool MergeWindow::isFullyResolved() const
-{
-    for (const auto &d : std::as_const(mDiffs))
-        if (d->mergeType == Diff::None && d->type == Diff::SegmentType::DifferentOnBoth)
-            return false;
+    mergeWidget->setIsModified(false);
     return true;
+}
+
+MergeWindow::MergeWindow(Git::Manager *git, Mode mode, QWidget *parent)
+    : AppMainWindow(parent)
+    , d_ptr{new MergeWindowPrivate{this}}
+{
+    Q_UNUSED(mode)
+    Q_UNUSED(git)
+    Q_D(MergeWindow);
+
+    // auto w = new QWidget(this);
+    // m_ui.setupUi(w);
+    // setCentralWidget(w);
+
+    d->mergeWidget = new MergeWidget{this};
+    setCentralWidget(d->mergeWidget);
+    d->initActions();
+
+    d->conflictsLabel = new QLabel(this);
+    statusBar()->addPermanentWidget(d->conflictsLabel);
+
+    setupGUI(Default, QStringLiteral("kommitmergeui.rc"));
+
+    // QSettings s;
+    // s.beginGroup(QStringLiteral("MergeWindow"));
+    // if (s.value(QStringLiteral("actionType"), QStringLiteral("file")).toString() == QStringLiteral("file"))
+    //     actionViewFilesClicked();
+    // else
+    //     actionViewBlocksClicked();
+
+    connect(d->mergeWidget, &MergeWidget::conflictsChanged, this, &MergeWindow::slotMergeWidgetConflictsChanged);
+    connect(d->mergeWidget, &MergeWidget::isModifiedChanged, this, &MergeWindow::setWindowModified);
+}
+
+MergeWindow::~MergeWindow()
+{
+    Q_D(MergeWindow);
+
+    // QSettings s;
+    // s.beginGroup(QStringLiteral("MergeWindow"));
+    // s.setValue(QStringLiteral("actionType"), d->mActionFilesView->isChecked() ? QStringLiteral("file") : QStringLiteral("block"));
+    // s.sync();
+
+    delete d;
+}
+
+void MergeWindow::compare()
+{
+    Q_D(MergeWindow);
+    d->mergeWidget->setBaseFile(d->base.title(), d->base.content());
+    d->mergeWidget->setLocalFile(d->local.title(), d->local.content());
+    d->mergeWidget->setRemoteFile(d->remote.title(), d->remote.content());
+
+    if (d->resultFilePath.isEmpty()) {
+        QFileInfo fiBase{d->base.title()};
+        QFileInfo fiLocal{d->local.title()};
+        QFileInfo fiRemote{d->remote.title()};
+
+        QSet<QString> set;
+        set << fiBase.completeSuffix();
+        set << fiLocal.completeSuffix();
+        set << fiRemote.completeSuffix();
+
+        if (set.size() == 1)
+            d->mergeWidget->setResultFile(QStringLiteral("sample-file.") + *set.begin());
+    } else {
+        d->mergeWidget->setResultFile(d->resultFilePath);
+    }
+    d->mergeWidget->compare();
 }
 
 void MergeWindow::closeEvent(QCloseEvent *event)
 {
-    if (isWindowModified()) {
+    Q_D(MergeWindow);
+    if (d->mergeWidget->isModified()) {
         MergeCloseEventDialog d(this);
         auto r = d.exec();
 
@@ -413,156 +305,99 @@ void MergeWindow::closeEvent(QCloseEvent *event)
     accept();
 }
 
-const QString &MergeWindow::filePathResult() const
+void MergeWindow::setResultFile(const QString &newFilePathResult)
 {
-    return mFilePathResult;
-}
-
-void MergeWindow::setFilePathResult(const QString &newFilePathResult)
-{
-    mFilePathResult = newFilePathResult;
+    Q_D(MergeWindow);
+    d->resultFilePath = newFilePathResult;
+    setWindowFilePath(newFilePathResult);
 }
 
 void MergeWindow::fileSave()
 {
-    QFile f(mFilePathResult);
-    if (!f.open(QIODevice::Text | QIODevice::WriteOnly)) {
-        KMessageBoxHelper::information(this, i18n("Unable to open the file %1", mFilePathResult));
+    Q_D(MergeWindow);
+    if (d->resultFilePath.isEmpty()) {
+        fileSaveAs();
         return;
     }
-    f.write(m_ui.plainTextEditResult->toPlainText().toUtf8());
-    f.close();
-    setWindowModified(false);
+    if (!d->saveResult(d->resultFilePath))
+        KMessageBoxHelper::information(this, i18n("Unable to open the file %1", d->resultFilePath));
+}
+
+void MergeWindow::fileSaveAs()
+{
+    Q_D(MergeWindow);
+
+    d->resultFilePath = QFileDialog::getSaveFileName(this, i18n("Save result"));
+
+    if (d->resultFilePath.isEmpty())
+        return;
+
+    setWindowFilePath(d->resultFilePath);
+    if (!d->saveResult(d->resultFilePath))
+        KMessageBoxHelper::information(this, i18n("Unable to open the file %1", d->resultFilePath));
 }
 
 void MergeWindow::fileOpen()
 {
     MergeOpenFilesDialog d;
     if (d.exec() == QDialog::Accepted) {
-        setFilePathBase(d.filePathBase());
-        setFilePathLocal(d.filePathLocal());
-        setFilePathRemote(d.filePathRemote());
-        load();
+        setBaseFile(d.filePathBase());
+        setLocalFile(d.filePathLocal());
+        setRemoteFile(d.filePathRemote());
+        compare();
     }
 }
 
-void MergeWindow::actionKeepMineClicked()
+void MergeWindow::slotSameSizeActivated()
 {
-    doMergeAction(Diff::MergeType::KeepLocal);
+    Q_D(MergeWindow);
+    d->mergeWidget->setSameSize(d->actionViewSameSizeBlocks->isChecked());
 }
 
-void MergeWindow::actionKeepTheirClicked()
+void MergeWindow::setBaseFile(const QString &filePath)
 {
-    doMergeAction(Diff::MergeType::KeepRemote);
+    Q_D(MergeWindow);
+    d->base.setFile(filePath);
 }
 
-void MergeWindow::actionKeepMineBeforeTheirClicked()
+void MergeWindow::setBaseFile(QSharedPointer<Git::Blob> blob)
 {
-    doMergeAction(Diff::MergeType::KeepLocalThenRemote);
+    Q_D(MergeWindow);
+    d->base.setFile(blob);
 }
 
-void MergeWindow::actionKeepTheirBeforeMineClicked()
+void MergeWindow::setRemoteFile(const QString &filePath)
 {
-    doMergeAction(Diff::MergeType::KeepRemoteThenLocal);
+    Q_D(MergeWindow);
+    d->remote.setFile(filePath);
 }
 
-void MergeWindow::actionKeepMyFileClicked()
+void MergeWindow::setRemoteFile(QSharedPointer<Git::Blob> blob)
 {
-    m_ui.plainTextEditResult->setPlainText(m_ui.plainTextEditMine->toPlainText());
+    Q_D(MergeWindow);
+    d->remote.setFile(blob);
 }
 
-void MergeWindow::actionKeepTheirFileClicked()
+void MergeWindow::setLocalFile(const QString &filePath)
 {
-    m_ui.plainTextEditResult->setPlainText(m_ui.plainTextEditTheir->toPlainText());
+    Q_D(MergeWindow);
+    d->local.setFile(filePath);
 }
 
-void MergeWindow::actionGotoPrevDiffClicked()
+void MergeWindow::setLocalFile(QSharedPointer<Git::Blob> blob)
 {
-    mMapper->findPrevious(Diff::SegmentType::DifferentOnBoth);
-    slotPlainTextEditResultBlockSelected();
+    Q_D(MergeWindow);
+    d->local.setFile(blob);
 }
 
-void MergeWindow::actionGotoNextDiffClicked()
+void MergeWindow::slotMergeWidgetConflictsChanged(int conflicts)
 {
-    mMapper->findNext(Diff::SegmentType::DifferentOnBoth);
-    slotPlainTextEditResultBlockSelected();
-}
+    Q_D(MergeWindow);
 
-void MergeWindow::actionViewFilesClicked()
-{
-    mActionBlocksView->setChecked(false);
-    mActionFilesView->setChecked(true);
-    m_ui.widgetBlockView->hide();
-    m_ui.widgetCodeView->show();
-}
-
-void MergeWindow::actionViewBlocksClicked()
-{
-    mActionBlocksView->setChecked(true);
-    mActionFilesView->setChecked(false);
-    m_ui.widgetBlockView->show();
-    m_ui.widgetCodeView->hide();
-}
-
-void MergeWindow::codeEditorsCustomContextMenuRequested(QPoint pos)
-{
-    Q_UNUSED(pos)
-    mCodeEditorContextMenu->popup(QCursor::pos());
-}
-
-const QString &MergeWindow::filePathBase() const
-{
-    return mFilePathBase;
-}
-
-void MergeWindow::setFilePathBase(const QString &newFilePathBase)
-{
-    mFilePathBase = newFilePathBase;
-}
-
-const QString &MergeWindow::filePathRemote() const
-{
-    return mFilePathRemote;
-}
-
-void MergeWindow::setFilePathRemote(const QString &newFilePathRemote)
-{
-    mFilePathRemote = newFilePathRemote;
-}
-
-const QString &MergeWindow::filePathLocal() const
-{
-    return mFilePathLocal;
-}
-
-void MergeWindow::setFilePathLocal(const QString &newFilePathLocal)
-{
-    mFilePathLocal = newFilePathLocal;
-}
-
-void MergeWindow::slotPlainTextEditResultTextChanged()
-{
-    qCDebug(KOMMIT_WIDGETS_LOG) << "**********************";
-    //    auto segment = static_cast<Diff::MergeSegment *>(_mapper->currentSegment());
-    //    if (segment) {
-    //        segment->mergeType = Diff::MergeCustom;
-    //    }
-}
-
-void MergeWindow::slotPlainTextEditResultBlockSelected()
-{
-    auto segment = static_cast<Diff::MergeSegment *>(m_ui.plainTextEditResult->currentSegment());
-
-    if (!segment)
-        return;
-    if (segment->type == Diff::SegmentType::DifferentOnBoth) {
-        // TODO: ***
-        //  m_ui.codeEditorMyBlock->setPlainText(segment->local.join(QLatin1Char('\n')));
-        //  m_ui.codeEditorTheirBlock->setPlainText(segment->remote.join(QLatin1Char('\n')));
-    } else {
-        m_ui.codeEditorMyBlock->clear();
-        m_ui.codeEditorTheirBlock->clear();
-    }
+    if (conflicts)
+        d->conflictsLabel->setText(i18n("Conflicts: <span style='font-weight:bold; color:red;'>%1</span>", conflicts));
+    else
+        d->conflictsLabel->setText(i18n("<span style='color:green;'>All conflicts resolved</span>"));
 }
 
 #include "moc_mergewindow.cpp"

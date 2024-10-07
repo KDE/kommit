@@ -36,7 +36,6 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void openFile();
     LIBKOMMITWIDGETS_NO_EXPORT void saveAsFile();
     LIBKOMMITWIDGETS_NO_EXPORT void logFile();
-    LIBKOMMITWIDGETS_NO_EXPORT void blameFile();
     LIBKOMMITWIDGETS_NO_EXPORT void search();
     LIBKOMMITWIDGETS_NO_EXPORT void openWith();
     LIBKOMMITWIDGETS_NO_EXPORT void diffWithHead();
@@ -47,7 +46,6 @@ private:
     DEFINE_ACTION(actionView)
     DEFINE_ACTION(actionOpen)
     DEFINE_ACTION(actionHistory)
-    DEFINE_ACTION(actionBlame)
     DEFINE_ACTION(actionSearch)
     DEFINE_ACTION(actionOpenWith)
     DEFINE_ACTION(actionDiffWithHead)

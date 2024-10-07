@@ -14,6 +14,7 @@ namespace Git
 {
 class Manager;
 class Blob;
+class BlameData;
 }
 
 class LIBKOMMITWIDGETS_EXPORT FileBlameDialog : public AppDialog, private Ui::FileBlameDialog
@@ -21,7 +22,7 @@ class LIBKOMMITWIDGETS_EXPORT FileBlameDialog : public AppDialog, private Ui::Fi
     Q_OBJECT
 
 public:
-    explicit FileBlameDialog(Git::Manager *git, QSharedPointer<Git::Blob> file, QWidget *parent = nullptr);
+    explicit FileBlameDialog(Git::Manager *git, const QString &file, QWidget *parent = nullptr);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void loadData();
@@ -29,5 +30,6 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotPlainTextEditBlockSelected();
 
     QString mFileName;
-    QSharedPointer<Git::Blob> const mFile;
+    QString mFile;
+    QSharedPointer<Git::BlameData> mBlameData;
 };

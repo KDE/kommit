@@ -12,6 +12,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+Oid::Oid()
+{
+}
+
 Oid::Oid(const git_oid *oid)
     : mOidPtr{oid}
 {
@@ -19,12 +23,18 @@ Oid::Oid(const git_oid *oid)
 
 Oid::Oid(const git_oid oid)
 {
+    // mOidPtr member of class is git_oid *{nullptr}
+    //  fill mOidPtr by oid
+    mOidPtr = new git_oid;
     auto o = const_cast<git_oid *>(mOidPtr);
     git_oid_cpy(o, &oid);
 }
 
 QString Oid::toString() const
 {
+    if (!mOidPtr)
+        return {};
+
     char str[GIT_OID_SHA1_HEXSIZE + 1];
     if (git_oid_fmt(str, mOidPtr))
         return {};
@@ -35,7 +45,14 @@ QString Oid::toString() const
 
 bool Oid::isNull() const
 {
+    if (!mOidPtr)
+        return true;
     return git_oid_is_zero(mOidPtr);
+}
+
+void Oid::copyTo(git_oid *oid)
+{
+    git_oid_cpy(oid, mOidPtr);
 }
 
 const git_oid *Oid::oidPtr() const

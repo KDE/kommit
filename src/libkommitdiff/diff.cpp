@@ -146,16 +146,15 @@ QList<DiffSegment *> diff(const QString &oldText, const QString &newText)
 
 Diff2Result diff2(const QString &oldText, const QString &newText)
 {
-    Text oldList, newList;
-    if (!oldText.isEmpty())
-        oldList = readLines(oldText);
-    if (!newText.isEmpty())
-        newList = readLines(newText);
-
     Diff2Result result;
-    result.oldTextLineEnding = oldList.lineEnding;
-    result.newTextLineEnding = newList.lineEnding;
-    result.segments = diff(oldList.lines, newList.lines);
+    if (!oldText.isEmpty())
+        result.left = readLines(oldText);
+    if (!newText.isEmpty())
+        result.right = readLines(newText);
+
+    result.oldTextLineEnding = result.left.lineEnding;
+    result.newTextLineEnding = result.right.lineEnding;
+    result.segments = diff(result.left.lines, result.right.lines);
     return result;
 }
 
@@ -258,12 +257,242 @@ Diff3Result diff3(const QString &base, const QString &local, const QString &remo
     return result;
 }
 
-QList<MergeSegment *> diff3_2(const QStringList &base, const QStringList &local, const QStringList &remote)
+namespace Impl
 {
-    auto withLocal = diff(base, local);
-    auto withRemote = diff(base, remote);
+QList<LcsResult>::iterator selectUntil(const QList<LcsResult> &container, const QList<LcsResult>::iterator &it, int max)
+{
+    auto i = it;
+    while (i != container.end() && i->leftEnd < max)
+        ++i;
+    return i;
+}
 
-    // SolutionIterator3_2 it{withLocal, withRemote, base.size(), local.size(), remote.size()};
+enum class PointType { Both, Local, Remote };
+
+PointType select(const QList<LcsResult>::iterator &itLocal, const QList<LcsResult>::iterator &itRemote)
+{
+    PointType startPoint;
+    PointType endPoint;
+    if (itLocal->leftStart < itRemote->leftStart) {
+        startPoint = PointType::Local;
+
+        if (itLocal->leftEnd < itRemote->leftStart)
+            endPoint = PointType::Local;
+        else if (itLocal->leftEnd > itRemote->leftStart)
+            endPoint = PointType::Remote;
+        else
+            endPoint = PointType::Both;
+    } else if (itLocal->leftStart > itRemote->leftStart) {
+        startPoint = PointType::Remote;
+
+        if (itRemote->leftEnd < itLocal->leftStart)
+            endPoint = PointType::Remote;
+        else if (itRemote->leftEnd > itLocal->leftStart)
+            endPoint = PointType::Local;
+        else
+            endPoint = PointType::Both;
+
+    } else {
+        startPoint = PointType::Both;
+
+        if (itLocal->leftEnd < itRemote->leftEnd)
+            endPoint = PointType::Local;
+        else if (itLocal->leftEnd > itRemote->leftEnd)
+            endPoint = PointType::Remote;
+        else
+            endPoint = PointType::Both;
+    }
+
+    return startPoint;
+}
+
+QPair<PointType, PointType> select(int index, const QList<LcsResult>::iterator &itLocal, const QList<LcsResult>::iterator &itRemote)
+{
+    if (itLocal->leftStart == itRemote->leftStart)
+        return {};
+
+    if (itLocal->leftStart < itRemote->leftStart) {
+        // if (itRemote->leftStart > itLocal->leftEnd)
+        // ++itLocal;
+    }
+
     return {};
 }
+
+QList<QPair<int, int>> bits(const QList<bool> &list1, const QList<bool> &list2)
+{
+    if (list1.size() != list2.size())
+        return {};
+
+    QList<QPair<int, int>> ret;
+    ret.reserve(list1.size());
+    for (int i = 0; i < list1.size(); ++i) {
+        if (!list1[i] || !list2[i])
+            continue;
+        QPair<int, int> p;
+        p.first = i;
+        while (list1[i] && list2[i]) {
+            i++;
+        }
+        p.second = i;
+        ret << p;
+    }
+    return ret;
+}
+}
+
+MergeResult<Text> diff3String(const QString &base, const QString &local, const QString &remote, const DiffOptions<QString> &opts)
+{
+    MergeResult<Text> result;
+
+    result.base = readLines(base);
+    result.local = readLines(local);
+    result.remote = readLines(remote);
+
+    auto r = diff3_2(result.base.lines, result.local.lines, result.remote.lines, opts);
+    result.segments = r.segments;
+    return result;
+}
+
+MergeResult<Text> diff3File(const QString &base, const QString &local, const QString &remote, const DiffOptions<QFile> &opts)
+{
+    QFile baseFile{base};
+    QFile localFile{local};
+    QFile remoteFile{remote};
+
+    if (!baseFile.open(QIODevice::Text | QIODevice::ReadOnly))
+        return {};
+    if (!localFile.open(QIODevice::Text | QIODevice::ReadOnly))
+        return {};
+    if (!remoteFile.open(QIODevice::Text | QIODevice::ReadOnly))
+        return {};
+
+    auto baseContent = baseFile.readAll();
+    auto localContent = localFile.readAll();
+    auto remoteContent = remoteFile.readAll();
+
+    auto result = diff3String(baseContent, localContent, remoteContent);
+
+    return result;
+}
+
+/*
+MergeResult<QString> diff3_2(const QStringList &base, const QStringList &local, const QStringList &remote)
+{
+    std::function<bool(const QString &, const QString &)> equals = [](const QString &s1, const QString &s2) -> bool {
+        constexpr bool ignoreWhiteSpaces{true};
+        constexpr bool ignoreCase{true};
+
+        if (ignoreWhiteSpaces)
+            return QString::compare(s1.trimmed(), s2.trimmed(), ignoreCase ? Qt::CaseInsensitive : Qt::CaseSensitive) == 0;
+
+        return QString::compare(s1, s2, ignoreCase ? Qt::CaseInsensitive : Qt::CaseSensitive) == 0;
+    };
+
+    QList<LcsResult> withLocal = longestCommonSubsequence(base, local, equals);
+    QList<LcsResult> withRemote = longestCommonSubsequence(base, remote, equals);
+
+    QList<LcsResult>::iterator itLocal = withLocal.begin();
+    QList<LcsResult>::iterator itRemote = withRemote.begin();
+
+    auto indexLocal{0};
+    auto indexRemote{0};
+
+    QList<MergeSegment2> result;
+    int index{};
+
+    while(itLocal != withLocal.end() && itRemote != withRemote.end()) {
+        MergeSegment2 seg;
+
+        if (itLocal->leftStart == itRemote->leftStart) {
+        } else if (itLocal->leftStart < itRemote->leftStart) {
+            if (itRemote->leftStart > itLocal->leftEnd) {
+                ++itLocal;
+                continue;
+            }
+        } else if (itRemote->leftStart < itLocal->leftStart) {
+            if (itLocal->leftStart > itRemote->leftEnd) {
+                ++itRemote;
+                continue;
+            }
+        }
+        auto start = std::max(itLocal->leftStart, itRemote->leftStart);
+        auto end = std::min(itLocal->leftEnd, itRemote->leftEnd);
+
+        int diffStart = std::abs(itLocal->leftStart - itRemote->leftStart);
+        int diffEnd = std::abs(itLocal->leftEnd - itRemote->leftEnd);
+
+        if (start > index) {
+            MergeSegment2 segChanged;
+            segChanged.baseStart = index;
+            segChanged.baseSize = start - index;
+
+            segChanged.localStart = indexLocal;
+            segChanged.localSize = itLocal->rightEnd - (itLocal->leftEnd - start) - indexLocal;
+
+            segChanged.remoteStart = indexRemote;
+            segChanged.remoteSize = itRemote->rightEnd - (itRemote->leftEnd - start) - indexRemote;
+
+            if (segChanged.remoteSize && segChanged.localSize)
+                segChanged.type = MergeSegment2::Type::ChangedOnBoth;
+            else if (segChanged.localSize)
+                segChanged.type = MergeSegment2::Type::OnlyOnLocal;
+            else if (segChanged.remoteSize)
+                segChanged.type = MergeSegment2::Type::OnlyOnRemote;
+            else
+                segChanged.type = MergeSegment2::Type::Unchanged;
+
+            if (Q_UNLIKELY(segChanged.type != MergeSegment2::Type::Unchanged))
+                result << segChanged;
+
+            qDebug() << "Segment added" << segChanged;
+
+            indexLocal += segChanged.localSize;
+            indexRemote += segChanged.remoteSize;
+        }
+
+        seg.baseStart = start;
+        seg.baseSize = seg.localSize = seg.remoteSize = end - start + 1;
+        seg.localStart =indexLocal;// index * 2 - itLocal->rightStart;
+        seg.remoteStart =indexRemote;// index * 2 - itRemote->rightStart;
+        seg.type = MergeSegment2::Type::Unchanged;
+
+        result << seg;
+        qDebug() << "Segment added" << seg;
+
+        indexLocal = 1 + itLocal->rightEnd - (end == itLocal->rightEnd ? 0 : diffEnd); // seg.localSize + 1;
+        indexRemote = 1 + itRemote->rightEnd - (end == itRemote->rightEnd ? 0 : diffEnd); // seg.remoteSize + 1;
+        index = end + 1;
+
+        if (itLocal->leftEnd <= end)
+            ++itLocal;
+
+        if (itRemote->leftEnd <= end)
+            ++itRemote;
+    }
+
+    if (itLocal != withLocal.end() || itRemote != withRemote.end()) {
+        MergeSegment2 segChanged;
+        segChanged.baseStart = index;
+        segChanged.baseSize = base.size() - index;
+
+        segChanged.localStart = indexLocal + 1;
+        segChanged.localSize = local.size() - indexLocal;
+
+        segChanged.remoteStart = indexRemote + 1;
+        segChanged.remoteSize = remote.size() - indexRemote;
+
+        segChanged.type = MergeSegment2::Type::ChangedOnBoth;
+
+        result << segChanged;
+    }
+
+    MergeResult<QString> ret;
+    ret.base = base;
+    ret.local = local;
+    ret.remote = remote;
+    ret.segments = result;
+    return ret;
+}
+*/
 }

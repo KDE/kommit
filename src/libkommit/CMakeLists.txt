@@ -78,6 +78,7 @@ target_sources(libkommit PRIVATE
     options/addsubmoduleoptions.cpp
     options/fetchoptions.cpp
     options/checkoutoptions.cpp
+    options/blameoptions.h options/blameoptions.cpp
 )
 
 generate_export_header(libkommit BASE_NAME libkommit)

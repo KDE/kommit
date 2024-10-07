@@ -8,53 +8,61 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitloglist.h"
 #include "libkommit_export.h"
 
+#include "entities/oid.h"
+
 #include <QSharedPointer>
 #include <QString>
+#include <git2/blame.h>
 
 namespace Git
 {
 
 struct LIBKOMMIT_EXPORT BlameDataRow {
-    BlameDataRow()
-    {
-    }
-    BlameDataRow(QString commitHash,
-                 QString code,
-                 QString originPath,
-                 QSharedPointer<Commit> finalCommit,
-                 QSharedPointer<Commit> originCommit,
-                 QSharedPointer<Signature> finalSignature,
-                 QSharedPointer<Signature> originSignature,
-                 size_t finalStartLineNumber,
-                 size_t originStartLineNumber)
-        : commitHash(std::move(commitHash))
-        , code(std::move(code))
-        , originPath(std::move(originPath))
-        , finalCommit(std::move(finalCommit))
-        , originCommit(std::move(originCommit))
-        , finalSignature(std::move(finalSignature))
-        , originSignature(std::move(originSignature))
-        , finalStartLineNumber(finalStartLineNumber)
-        , originStartLineNumber(originStartLineNumber)
-    {
-    }
+    BlameDataRow(Manager *git, const git_blame_hunk *hunk);
 
-    QString commitHash;
-    QString code;
+    const git_blame_hunk *const hunkPtr;
 
-    QString originPath;
-    QSharedPointer<Commit> finalCommit;
-    QSharedPointer<Commit> originCommit;
+    const Oid commitId;
 
-    QSharedPointer<Signature> finalSignature;
-    QSharedPointer<Signature> originSignature;
+    const size_t startLine;
+    const size_t linesCount;
 
-    size_t finalStartLineNumber;
-    size_t originStartLineNumber;
+    const QString originPath;
+
+    const QSharedPointer<Commit> finalCommit;
+    const QSharedPointer<Commit> originCommit;
+
+    const QSharedPointer<Signature> finalSignature;
+    const QSharedPointer<Signature> originSignature;
+
+    const size_t finalStartLineNumber;
+    const size_t originStartLineNumber;
 };
 bool operator==(const BlameDataRow &l, const BlameDataRow &r);
 bool operator!=(const BlameDataRow &l, const BlameDataRow &r);
 
-using BlameData = QList<BlameDataRow>;
+class BlameDataPrivate;
+class LIBKOMMIT_EXPORT BlameData
+{
+public:
+    BlameData(Manager *gitManager, const QStringList &content, git_blame *blame);
+    ~BlameData();
+
+    [[nodiscard]] const QStringList &content() const;
+    [[nodiscard]] const QList<BlameDataRow *> hunks() const;
+    [[nodiscard]] QString codeString(BlameDataRow *data) const;
+    [[nodiscard]] QStringList codeLines(BlameDataRow *data) const;
+
+    [[nodiscard]] const BlameDataRow *at(int index) const;
+    [[nodiscard]] const BlameDataRow *hunkByLineNumber(int lineNumber) const;
+
+    [[nodiscard]] QList<BlameDataRow *>::const_iterator begin() const;
+    [[nodiscard]] QList<BlameDataRow *>::const_iterator end() const;
+    [[nodiscard]] qsizetype size() const;
+
+private:
+    BlameDataPrivate *d_ptr;
+    Q_DECLARE_PRIVATE(BlameData)
+};
 
 } // namespace Git

@@ -13,85 +13,76 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QScrollBar>
 #include <QTextBlock>
 
+class DiffWidgetPrivate
+{
+    DiffWidget *q_ptr;
+    Q_DECLARE_PUBLIC(DiffWidget)
+
+public:
+    DiffWidgetPrivate(DiffWidget *parent);
+
+    bool mDestroying{false};
+    constexpr static int mPreviewWidgetHeight{160};
+    QWidget *mPreviewWidget = nullptr;
+    int mPreviewMargin{0};
+    CodeEditor *mPreviewEditorLeft = nullptr;
+    CodeEditor *mPreviewEditorRight = nullptr;
+    bool mSameSize{false};
+
+    Diff::Diff2Result lastDiff;
+    QString leftContentWithSpaces;
+    QString rightContentWithSpaces;
+
+    QList<CodeEditor::BlockData *> leftBlockDataList;
+    QList<CodeEditor::BlockData *> rightBlockDataList;
+
+    QString mOldContent;
+    QString mNewContent;
+    QString mOldFileName;
+    QString mNewFileName;
+    QTextOption mDefaultOption;
+    QList<Diff::DiffSegment *> mSegments;
+
+    void init();
+    void recalculateInfoPaneSize();
+    void createPreviewWidget();
+    void setEditorsContents(QList<Diff::DiffSegment *> segments);
+};
+
+DiffWidgetPrivate::DiffWidgetPrivate(DiffWidget *parent)
+    : q_ptr{parent}
+{
+}
 DiffWidget::DiffWidget(QWidget *parent)
     : QWidget{parent}
+    , d_ptr{new DiffWidgetPrivate{this}}
 {
+    Q_D(DiffWidget);
     setupUi(this);
-    init();
+    d->init();
 }
 
-DiffWidget::DiffWidget(QSharedPointer<Git::Blob> oldFile, QSharedPointer<Git::Blob> newFile, QWidget *parent)
-    : QWidget{parent}
-{
-    setupUi(this);
-    init();
+// DiffWidget::DiffWidget(QSharedPointer<Git::Blob> oldFile, QSharedPointer<Git::Blob> newFile, QWidget *parent)
+//     : QWidget{parent}
+// {
+//     setupUi(this);
+//     init();
 
-    setOldFile(oldFile);
-    setNewFile(newFile);
-}
+//     setOldFile(oldFile);
+//     setNewFile(newFile);
+// }
 
 DiffWidget::~DiffWidget()
 {
+    Q_D(DiffWidget);
+
     leftCodeEditor->clearAll();
     rightCodeEditor->clearAll();
 
-    mPreviewEditorLeft->clearAll();
-    mPreviewEditorRight->clearAll();
+    d->mPreviewEditorLeft->clearAll();
+    d->mPreviewEditorRight->clearAll();
 
-    mDestroying = true;
-}
-
-void DiffWidget::init()
-{
-    createPreviewWidget();
-    segmentConnector->setMinimumWidth(80);
-    segmentConnector->setMaximumWidth(80);
-    segmentConnector->setLeft(leftCodeEditor);
-    segmentConnector->setRight(rightCodeEditor);
-
-    widgetSegmentsScrollBar->setSegmentConnector(segmentConnector);
-
-    connect(leftCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::oldCodeEditor_blockSelected);
-    connect(rightCodeEditor, &CodeEditor::blockSelected, this, &DiffWidget::newCodeEditor_blockSelected);
-    connect(leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::oldCodeEditor_scroll);
-    connect(rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, this, &DiffWidget::newCodeEditor_scroll);
-    connect(splitter, &QSplitter::splitterMoved, this, &DiffWidget::slotSplitterSplitterMoved);
-
-    recalculateInfoPaneSize();
-
-    mDefaultOption = leftCodeEditor->document()->defaultTextOption();
-
-    connect(widgetSegmentsScrollBar, &SegmentsScrollBar::hover, this, &DiffWidget::slotSegmentsScrollbarHover);
-    connect(widgetSegmentsScrollBar, &SegmentsScrollBar::mouseMove, this, &DiffWidget::slotSegmentsScrollbarMouseMove);
-    connect(widgetSegmentsScrollBar, &SegmentsScrollBar::mouseEntered, mPreviewWidget, &QWidget::show);
-    connect(widgetSegmentsScrollBar, &SegmentsScrollBar::mouseLeaved, mPreviewWidget, &QWidget::hide);
-    showFilesInfo(true);
-}
-
-void DiffWidget::createPreviewWidget()
-{
-    mPreviewWidget = new QWidget(this);
-    auto layout = new QHBoxLayout(mPreviewWidget);
-    mPreviewEditorLeft = new CodeEditor(mPreviewWidget);
-    mPreviewEditorLeft->setShowFoldMarks(false);
-    mPreviewEditorLeft->setShowTitleBar(false);
-    mPreviewEditorLeft->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    mPreviewEditorLeft->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    layout->addWidget(mPreviewEditorLeft);
-
-    mPreviewEditorRight = new CodeEditor(mPreviewWidget);
-    mPreviewEditorRight->setShowFoldMarks(false);
-    mPreviewEditorRight->setShowTitleBar(false);
-    mPreviewEditorRight->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    mPreviewEditorRight->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    layout->addWidget(mPreviewEditorRight);
-
-    layout->setContentsMargins({});
-    layout->setSpacing(segmentConnector->width() + 2 * (splitter->handleWidth()));
-
-    mPreviewWidget->setStyleSheet(QStringLiteral("QPlainTextEdit{border: 3px solid gray;}"));
-    mPreviewWidget->setLayout(layout);
-    mPreviewWidget->hide();
+    d->mDestroying = true;
 }
 
 void DiffWidget::setOldFileText(const QString &newOldFile)
@@ -126,124 +117,149 @@ void DiffWidget::setNewFile(QSharedPointer<Git::File> newNewFile)
 
 void DiffWidget::setOldFile(const QString &filePath)
 {
+    Q_D(DiffWidget);
+
     QFileInfo fi{filePath};
 
     if (!fi.exists())
         return;
 
-    mOldFileName = fi.fileName();
+    d->mOldFileName = fi.fileName();
     QFile f{filePath};
     if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
 
-    mOldContent = f.readAll();
+    d->mOldContent = f.readAll();
     f.close();
 }
 
 void DiffWidget::setNewFile(const QString &filePath)
 {
+    Q_D(DiffWidget);
+
     QFileInfo fi{filePath};
 
     if (!fi.exists())
         return;
 
-    mNewFileName = fi.fileName();
+    d->mNewFileName = fi.fileName();
     QFile f{filePath};
     if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
 
-    mNewContent = f.readAll();
+    d->mNewContent = f.readAll();
     f.close();
 }
 
 void DiffWidget::setOldFile(const QString &title, const QString &content)
 {
-    leftCodeEditor->setHighlighting(title);
-    mPreviewEditorLeft->setHighlighting(title);
+    Q_D(DiffWidget);
 
-    mOldContent = content;
-    mOldFileName = title;
+    leftCodeEditor->setHighlighting(title);
+    d->mPreviewEditorLeft->setHighlighting(title);
+
+    d->mOldContent = content;
+    d->mOldFileName = title;
 }
 
 void DiffWidget::setNewFile(const QString &title, const QString &content)
 {
-    rightCodeEditor->setHighlighting(title);
-    mPreviewEditorRight->setHighlighting(title);
+    Q_D(DiffWidget);
 
-    mNewContent = content;
-    mNewFileName = title;
+    rightCodeEditor->setHighlighting(title);
+    d->mPreviewEditorRight->setHighlighting(title);
+
+    d->mNewContent = content;
+    d->mNewFileName = title;
 }
 
 void DiffWidget::compare()
 {
-    const auto segments = Diff::diff(mOldContent, mNewContent);
+    Q_D(DiffWidget);
 
-    leftCodeEditor->clearAll();
-    rightCodeEditor->clearAll();
+    d->lastDiff = Diff::diff2(d->mOldContent, d->mNewContent);
+    const auto segments = d->lastDiff.segments;
 
-    mPreviewEditorLeft->clearAll();
-    mPreviewEditorRight->clearAll();
+    QString tmpLeftContentWithSpaces;
+    QString tmpRightContentWithSpaces;
 
-    segmentConnector->setSegments(segments);
-    segmentConnector->update();
+    QList<CodeEditor::BlockData *> tmpLeftBlockDataList;
+    QList<CodeEditor::BlockData *> tmpRightBlockDataList;
 
-    // leftCodeEditor->setPlainText(mOldContent);
-    // rightCodeEditor->setPlainText(mNewContent);
+    tmpLeftBlockDataList.reserve(segments.size());
+    tmpRightBlockDataList.reserve(segments.size());
 
-    // mPreviewEditorLeft->setPlainText(mOldContent);
-    // mPreviewEditorRight->setPlainText(mNewContent);
-
-    for (const auto &s : segments) {
-        CodeEditor::BlockType oldBlockType, newBlockType;
-        switch (s->type) {
+    for (auto &segment : segments) {
+        CodeEditor::BlockType leftBlockType;
+        CodeEditor::BlockType rightBlockType;
+        switch (segment->type) {
         case Diff::SegmentType::SameOnBoth:
-            oldBlockType = newBlockType = CodeEditor::Unchanged;
+            tmpLeftContentWithSpaces += segment->oldText.join('\n');
+            tmpRightContentWithSpaces += segment->newText.join('\n');
+            leftBlockType = rightBlockType = CodeEditor::BlockType::Unchanged;
             break;
         case Diff::SegmentType::OnlyOnLeft:
-            oldBlockType = CodeEditor::Removed;
-            newBlockType = CodeEditor::Added;
+            tmpLeftContentWithSpaces += segment->oldText.join('\n');
+            tmpRightContentWithSpaces += QString{segment->oldText.size(), QLatin1Char('\n')};
+
+            leftBlockType = CodeEditor::BlockType::Removed;
+            rightBlockType = CodeEditor::BlockType::Edited;
             break;
         case Diff::SegmentType::OnlyOnRight:
-            oldBlockType = CodeEditor::Removed;
-            newBlockType = CodeEditor::Added;
+            tmpLeftContentWithSpaces += QString{segment->newText.size(), QLatin1Char('\n')};
+            tmpRightContentWithSpaces += segment->newText.join('\n');
+
+            leftBlockType = CodeEditor::BlockType::Edited;
+            rightBlockType = CodeEditor::BlockType::Added;
             break;
         case Diff::SegmentType::DifferentOnBoth:
-            oldBlockType = newBlockType = CodeEditor::Edited;
+            tmpLeftContentWithSpaces += segment->oldText.join('\n');
+            tmpRightContentWithSpaces += segment->newText.join('\n');
+
+            if (segment->oldText.size() < segment->newText.size()) {
+                tmpRightContentWithSpaces += QString{segment->newText.size() - segment->oldText.size(), QLatin1Char('\n')};
+            } else if (segment->oldText.size() > segment->newText.size()) {
+                tmpLeftContentWithSpaces += QString{segment->oldText.size() - segment->newText.size(), QLatin1Char('\n')};
+            }
+            leftBlockType = rightBlockType = CodeEditor::BlockType::Edited;
+
             break;
         }
 
-        if (mSameSize) {
-            const int size = qMax(s->oldText.size(), s->newText.size());
-            leftCodeEditor->append(s->oldText, oldBlockType, s, size);
-            rightCodeEditor->append(s->newText, newBlockType, s, size);
+        auto m = qMax(segment->oldLineEnd - segment->oldLineStart, segment->newLineEnd - segment->newLineStart);
+        tmpLeftBlockDataList.append(new CodeEditor::BlockData{segment->oldLineStart, segment->oldLineEnd - segment->oldLineStart, m, leftBlockType});
+        tmpRightBlockDataList.append(new CodeEditor::BlockData{segment->newLineStart, segment->newLineEnd - segment->newLineStart, m, rightBlockType});
 
-            mPreviewEditorLeft->append(s->oldText, oldBlockType, s, size);
-            mPreviewEditorRight->append(s->newText, newBlockType, s, size);
-        } else {
-            leftCodeEditor->append(s->oldText, oldBlockType, s);
-            rightCodeEditor->append(s->newText, newBlockType, s);
-
-            mPreviewEditorLeft->append(s->oldText, oldBlockType, s);
-            mPreviewEditorRight->append(s->newText, newBlockType, s);
-        }
+        if (!tmpLeftContentWithSpaces.endsWith('\n'))
+            tmpLeftContentWithSpaces == '\n';
+        if (!tmpRightContentWithSpaces.endsWith('\n'))
+            tmpRightContentWithSpaces == '\n';
     }
 
-    scrollToTop();
+    d->leftBlockDataList = tmpLeftBlockDataList;
+    d->rightBlockDataList = tmpRightBlockDataList;
 
-    qDeleteAll(mSegments);
-    mSegments = segments;
+    d->leftContentWithSpaces = tmpLeftContentWithSpaces;
+    d->rightContentWithSpaces = tmpRightContentWithSpaces;
+
+    d->setEditorsContents(segments);
+
+    qDeleteAll(d->mSegments);
+    d->mSegments = segments;
 }
 
 void DiffWidget::showHiddenChars(bool show)
 {
+    Q_D(DiffWidget);
+
     if (show) {
-        auto n = mDefaultOption;
+        auto n = d->mDefaultOption;
         n.setFlags(QTextOption::ShowTabsAndSpaces | QTextOption::ShowDocumentTerminator);
         leftCodeEditor->document()->setDefaultTextOption(n);
         rightCodeEditor->document()->setDefaultTextOption(n);
     } else {
-        leftCodeEditor->document()->setDefaultTextOption(mDefaultOption);
-        rightCodeEditor->document()->setDefaultTextOption(mDefaultOption);
+        leftCodeEditor->document()->setDefaultTextOption(d->mDefaultOption);
+        rightCodeEditor->document()->setDefaultTextOption(d->mDefaultOption);
     }
     leftCodeEditor->setWordWrapMode(QTextOption::NoWrap);
     rightCodeEditor->setWordWrapMode(QTextOption::NoWrap);
@@ -258,35 +274,43 @@ void DiffWidget::showFilesInfo(bool show)
 
 void DiffWidget::showSameSize(bool show)
 {
-    mSameSize = show;
+    Q_D(DiffWidget);
+
+    d->mSameSize = show;
     segmentConnector->setSameSize(show);
-    compare();
+    // compare();
+    d->setEditorsContents(d->mSegments);
 }
 
 void DiffWidget::slotSegmentsScrollbarHover(int y, double pos)
 {
-    mPreviewWidget->show();
-    mPreviewWidget->move(mPreviewMargin, qMin(y, widgetSegmentsScrollBar->height() - mPreviewWidgetHeight));
+    Q_D(DiffWidget);
 
-    mPreviewEditorLeft->verticalScrollBar()->setValue(pos * static_cast<double>(mPreviewEditorLeft->verticalScrollBar()->maximum()));
-    mPreviewEditorRight->verticalScrollBar()->setValue(pos * mPreviewEditorRight->verticalScrollBar()->maximum());
+    d->mPreviewWidget->show();
+    d->mPreviewWidget->move(d->mPreviewMargin, qMin(y, widgetSegmentsScrollBar->height() - d->mPreviewWidgetHeight));
+
+    d->mPreviewEditorLeft->verticalScrollBar()->setValue(pos * static_cast<double>(d->mPreviewEditorLeft->verticalScrollBar()->maximum()));
+    d->mPreviewEditorRight->verticalScrollBar()->setValue(pos * d->mPreviewEditorRight->verticalScrollBar()->maximum());
 }
 
 void DiffWidget::slotSegmentsScrollbarMouseMove(int y, double pos)
 {
-    mPreviewWidget->show();
-    mPreviewWidget->move(mPreviewMargin, qMin(y, widgetSegmentsScrollBar->height() - mPreviewWidgetHeight));
+    Q_D(DiffWidget);
+
+    d->mPreviewWidget->show();
+    d->mPreviewWidget->move(d->mPreviewMargin, qMin(y, widgetSegmentsScrollBar->height() - d->mPreviewWidgetHeight));
 
     leftCodeEditor->verticalScrollBar()->setValue(pos * leftCodeEditor->verticalScrollBar()->maximum());
     rightCodeEditor->verticalScrollBar()->setValue(pos * rightCodeEditor->verticalScrollBar()->maximum());
 
-    mPreviewEditorLeft->verticalScrollBar()->setValue(pos * static_cast<double>(mPreviewEditorLeft->verticalScrollBar()->maximum()));
-    mPreviewEditorRight->verticalScrollBar()->setValue(pos * mPreviewEditorRight->verticalScrollBar()->maximum());
+    d->mPreviewEditorLeft->verticalScrollBar()->setValue(pos * static_cast<double>(d->mPreviewEditorLeft->verticalScrollBar()->maximum()));
+    d->mPreviewEditorRight->verticalScrollBar()->setValue(pos * d->mPreviewEditorRight->verticalScrollBar()->maximum());
 }
 
 void DiffWidget::slotSplitterSplitterMoved(int, int)
 {
-    recalculateInfoPaneSize();
+    Q_D(DiffWidget);
+    d->recalculateInfoPaneSize();
 }
 
 CodeEditor *DiffWidget::oldCodeEditor() const
@@ -301,7 +325,8 @@ CodeEditor *DiffWidget::newCodeEditor() const
 
 void DiffWidget::oldCodeEditor_scroll(int value)
 {
-    if (Q_UNLIKELY(mDestroying))
+    Q_D(DiffWidget);
+    if (Q_UNLIKELY(d->mDestroying))
         return;
     static bool b{false};
     if (b)
@@ -316,7 +341,8 @@ void DiffWidget::oldCodeEditor_scroll(int value)
 
 void DiffWidget::newCodeEditor_scroll(int value)
 {
-    if (Q_UNLIKELY(mDestroying))
+    Q_D(DiffWidget);
+    if (Q_UNLIKELY(d->mDestroying))
         return;
     static bool b{false};
     if (b)
@@ -348,7 +374,7 @@ void DiffWidget::newCodeEditor_blockSelected()
     //    }
 }
 
-void DiffWidget::recalculateInfoPaneSize()
+void DiffWidgetPrivate::recalculateInfoPaneSize()
 {
     //    leftInfoContainer->setMinimumWidth(leftCodeEditor->width());
     //    rightInfoContainer->setMinimumWidth(rightCodeEditor->width());
@@ -362,28 +388,33 @@ void DiffWidget::recalculateInfoPaneSize()
 
 void DiffWidget::resizeEvent(QResizeEvent *event)
 {
+    Q_D(DiffWidget);
     QWidget::resizeEvent(event);
-    recalculateInfoPaneSize();
-    mPreviewWidget->resize(splitter->width(), mPreviewWidgetHeight);
-    mPreviewMargin = splitter->mapToParent(QPoint{0, 0}).x();
+    d->recalculateInfoPaneSize();
+    d->mPreviewWidget->resize(splitter->width(), d->mPreviewWidgetHeight);
+    d->mPreviewMargin = splitter->mapToParent(QPoint{0, 0}).x();
 }
 
 void DiffWidget::showEvent(QShowEvent *event)
 {
     Q_UNUSED(event)
-    recalculateInfoPaneSize();
+    Q_D(DiffWidget);
+    d->recalculateInfoPaneSize();
 }
 
 bool DiffWidget::sameSize() const
 {
-    return mSameSize;
+    Q_D(const DiffWidget);
+    return d->mSameSize;
 }
 
 void DiffWidget::setSameSize(bool newSameSize)
 {
-    if (mSameSize == newSameSize)
+    Q_D(DiffWidget);
+    if (d->mSameSize == newSameSize)
         return;
-    mSameSize = newSameSize;
+    d->mSameSize = newSameSize;
+    d->setEditorsContents(d->mSegments);
     Q_EMIT sameSizeChanged();
 }
 
@@ -394,6 +425,85 @@ void DiffWidget::scrollToTop()
     //    leftCodeEditor->verticalScrollBar()->setValue(0);
     //    rightCodeEditor->verticalScrollBar()->setValue(0);
     segmentConnector->update();
+}
+
+void DiffWidgetPrivate::init()
+{
+    Q_Q(DiffWidget);
+
+    createPreviewWidget();
+    q->segmentConnector->setMinimumWidth(80);
+    q->segmentConnector->setMaximumWidth(80);
+    q->segmentConnector->setLeft(q->leftCodeEditor);
+    q->segmentConnector->setRight(q->rightCodeEditor);
+
+    q->widgetSegmentsScrollBar->setSegmentConnector(q->segmentConnector);
+
+    QObject::connect(q->leftCodeEditor, &CodeEditor::blockSelected, q, &DiffWidget::oldCodeEditor_blockSelected);
+    QObject::connect(q->rightCodeEditor, &CodeEditor::blockSelected, q, &DiffWidget::newCodeEditor_blockSelected);
+    QObject::connect(q->leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, q, &DiffWidget::oldCodeEditor_scroll);
+    QObject::connect(q->rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, q, &DiffWidget::newCodeEditor_scroll);
+    QObject::connect(q->splitter, &QSplitter::splitterMoved, q, &DiffWidget::slotSplitterSplitterMoved);
+
+    recalculateInfoPaneSize();
+
+    mDefaultOption = q->leftCodeEditor->document()->defaultTextOption();
+
+    QObject::connect(q->widgetSegmentsScrollBar, &SegmentsScrollBar::hover, q, &DiffWidget::slotSegmentsScrollbarHover);
+    QObject::connect(q->widgetSegmentsScrollBar, &SegmentsScrollBar::mouseMove, q, &DiffWidget::slotSegmentsScrollbarMouseMove);
+    QObject::connect(q->widgetSegmentsScrollBar, &SegmentsScrollBar::mouseEntered, mPreviewWidget, &QWidget::show);
+    QObject::connect(q->widgetSegmentsScrollBar, &SegmentsScrollBar::mouseLeaved, mPreviewWidget, &QWidget::hide);
+    q->showFilesInfo(true);
+}
+
+void DiffWidgetPrivate::createPreviewWidget()
+{
+    Q_Q(DiffWidget);
+
+    mPreviewWidget = new QWidget(q);
+    auto layout = new QHBoxLayout(mPreviewWidget);
+    mPreviewEditorLeft = new CodeEditor(mPreviewWidget);
+    mPreviewEditorLeft->setShowFoldMarks(false);
+    mPreviewEditorLeft->setShowTitleBar(false);
+    mPreviewEditorLeft->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    mPreviewEditorLeft->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    layout->addWidget(mPreviewEditorLeft);
+
+    mPreviewEditorRight = new CodeEditor(mPreviewWidget);
+    mPreviewEditorRight->setShowFoldMarks(false);
+    mPreviewEditorRight->setShowTitleBar(false);
+    mPreviewEditorRight->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    mPreviewEditorRight->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    layout->addWidget(mPreviewEditorRight);
+
+    layout->setContentsMargins({});
+    layout->setSpacing(q->segmentConnector->width() + 2 * (q->splitter->handleWidth()));
+
+    mPreviewWidget->setStyleSheet(QStringLiteral("QPlainTextEdit{border: 3px solid gray;}"));
+    mPreviewWidget->setLayout(layout);
+    mPreviewWidget->hide();
+}
+
+void DiffWidgetPrivate::setEditorsContents(QList<Diff::DiffSegment *> segments)
+{
+    Q_Q(DiffWidget);
+
+    q->leftCodeEditor->clearAll();
+    q->rightCodeEditor->clearAll();
+
+    mPreviewEditorLeft->clearAll();
+    mPreviewEditorRight->clearAll();
+
+    q->segmentConnector->setSegments(segments);
+    q->segmentConnector->update();
+
+    q->leftCodeEditor->setContent(lastDiff.left.lines, leftBlockDataList, mSameSize);
+    q->rightCodeEditor->setContent(lastDiff.right.lines, rightBlockDataList, mSameSize);
+
+    mPreviewEditorLeft->setContent(lastDiff.left.lines, leftBlockDataList, mSameSize);
+    mPreviewEditorRight->setContent(lastDiff.right.lines, rightBlockDataList, mSameSize);
+
+    q->scrollToTop();
 }
 
 #include "moc_diffwidget.cpp"

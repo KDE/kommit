@@ -44,7 +44,10 @@ class File;
 class TreeDiff;
 class Blob;
 struct BlameDataRow;
+class BlameOptions;
+class BlameData;
 
+// TODO: rename class and file's name to repository
 class LIBKOMMIT_EXPORT Manager : public QObject
 {
     Q_OBJECT
@@ -110,7 +113,7 @@ public:
     bool revertFile(const QString &filePath) const;
     bool removeFile(const QString &file, bool cached) const;
     [[nodiscard]] QStringList fileLog(const QString &fileName) const;
-    QList<BlameDataRow> blame(QSharedPointer<Git::Blob> file);
+    QSharedPointer<BlameData> blame(const QString &filePath, BlameOptions *options = nullptr);
     [[nodiscard]] QMap<QString, ChangeStatus> changedFiles() const;
     [[nodiscard]] QMap<QString, ChangeStatus> changedFiles(const QString &hash) const;
     [[nodiscard]] QStringList ignoredFiles() const;

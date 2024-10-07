@@ -14,10 +14,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class Manager;
-};
+class Blob;
+}
 
 class SegmentsMapper;
 class QLabel;
+class MergeWidget;
+class MergeWindowPrivate;
 class LIBKOMMITWIDGETS_EXPORT MergeWindow : public AppMainWindow
 {
     Q_OBJECT
@@ -30,71 +33,33 @@ public:
     explicit MergeWindow(Git::Manager *git, Mode mode = NoParams, QWidget *parent = nullptr);
     ~MergeWindow() override;
 
-    void load();
+    void compare();
 
-    [[nodiscard]] const QString &filePathLocal() const;
-    void setFilePathLocal(const QString &newFilePathLocal);
+    void setLocalFile(const QString &filePath);
+    void setLocalFile(QSharedPointer<Git::Blob> blob);
 
-    [[nodiscard]] const QString &filePathRemote() const;
-    void setFilePathRemote(const QString &newFilePathRemote);
+    void setRemoteFile(const QString &filePath);
+    void setRemoteFile(QSharedPointer<Git::Blob> blob);
 
-    [[nodiscard]] const QString &filePathBase() const;
-    void setFilePathBase(const QString &newFilePathBase);
+    void setBaseFile(const QString &filePath);
+    void setBaseFile(QSharedPointer<Git::Blob> blob);
 
-    [[nodiscard]] const QString &filePathResult() const;
-    void setFilePathResult(const QString &newFilePathResult);
+    void setResultFile(const QString &newFilePathResult);
 
 private Q_SLOTS:
     void fileSave();
+    void fileSaveAs();
     void fileOpen();
-    void fillSegments();
 
-    void actionKeepMineClicked();
-    void actionKeepTheirClicked();
-    void actionKeepMineBeforeTheirClicked();
-    void actionKeepTheirBeforeMineClicked();
-    void actionKeepMyFileClicked();
-    void actionKeepTheirFileClicked();
-    void actionGotoPrevDiffClicked();
-    void actionGotoNextDiffClicked();
+    void slotSameSizeActivated();
 
-    void actionViewFilesClicked();
-    void actionViewBlocksClicked();
-
-    void codeEditorsCustomContextMenuRequested(QPoint pos);
-
-    void slotPlainTextEditResultTextChanged();
-    void slotPlainTextEditResultBlockSelected();
+    void slotMergeWidgetConflictsChanged(int conflicts);
 
 private:
-    Ui::MainMergeWidget m_ui;
-    LIBKOMMITWIDGETS_NO_EXPORT void updateResult();
-    LIBKOMMITWIDGETS_NO_EXPORT void initActions();
-    LIBKOMMITWIDGETS_NO_EXPORT void init();
-    LIBKOMMITWIDGETS_NO_EXPORT void doMergeAction(Diff::MergeType type);
-    [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT bool isFullyResolved() const;
-
-    QList<Diff::MergeSegment *> mDiffs;
-    QMenu *mCodeEditorContextMenu = nullptr;
-    SegmentsMapper *mMapper = nullptr;
-
-    QString mFilePathLocal;
-    QString mFilePathRemote;
-    QString mFilePathBase;
-    QString mFilePathResult;
-    QLabel *mConflictsLabel = nullptr;
-    QAction *mActionBlocksView = nullptr;
-    QAction *mActionFilesView = nullptr;
-    QAction *actionKeepMine = nullptr;
-    QAction *actionKeepTheir = nullptr;
-    QAction *actionKeepMineBeforeTheir = nullptr;
-    QAction *actionKeepTheirBeforeMine = nullptr;
-    QAction *actionKeepMyFile = nullptr;
-    QAction *actionKeepTheirFile = nullptr;
-    QAction *actionGotoPrevDiff = nullptr;
-    QAction *actionGotoNextDiff = nullptr;
-    QAction *actionViewSameSizeBlocks = nullptr;
-
 protected:
     void closeEvent(QCloseEvent *event) override;
+
+private:
+    MergeWindowPrivate *d_ptr;
+    Q_DECLARE_PRIVATE(MergeWindow)
 };

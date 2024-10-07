@@ -29,6 +29,7 @@
 #include "observers/cloneobserver.h"
 #include "observers/fetchobserver.h"
 #include "observers/pushobserver.h"
+#include "options/blameoptions.h"
 
 #include "libkommit_debug.h"
 #include <QFile>
@@ -954,46 +955,32 @@ void Manager::saveFile(const QString &place, const QString &fileName, const QStr
     f.close();
 }
 
-QList<BlameDataRow> Manager::blame(QSharedPointer<Blob> file)
+QSharedPointer<BlameData> Manager::blame(const QString &filePath, BlameOptions *options)
 {
     Q_D(Manager);
 
     git_blame *blame;
-    git_blame_options options;
+    git_blame_options opts;
 
-    BEGIN
-    STEP git_blame_options_init(&options, GIT_BLAME_OPTIONS_VERSION);
-    STEP git_blame_file(&blame, d->repo, file->fileName().toUtf8().data(), &options);
-    END;
+    QFile file{d->path + QStringLiteral("/") + filePath};
+    if (!file.open(QIODevice::Text | QIODevice::ReadOnly))
+        return {};
 
-    PRINT_ERROR;
-    RETURN_IF_ERR({});
+    auto content = QString{file.readAll()};
+    file.close();
 
-    BlameData b;
+    SequenceRunner r;
+    r.run(git_blame_options_init, &opts, GIT_BLAME_OPTIONS_VERSION);
+    if (options)
+        options->apply(&opts);
 
-    auto lines = file->content().split('\n');
+    r.run(git_blame_file, &blame, d->repo, filePath.toUtf8().data(), &opts);
 
-    auto count = git_blame_get_hunk_count(blame);
-    for (size_t i = 0; i < count; ++i) {
-        auto hunk = git_blame_get_hunk_byindex(blame, i);
+    if (r.isError())
+        return {};
 
-        BlameDataRow row{convertToString(&hunk->final_commit_id, 20),
-                         lines.mid(hunk->final_start_line_number, hunk->lines_in_hunk).join('\n'),
-                         QString{hunk->orig_path},
-
-                         d->commitsCache->findByOid(&hunk->final_commit_id),
-                         d->commitsCache->findByOid(&hunk->orig_commit_id),
-
-                         QSharedPointer<Signature>{new Signature{hunk->orig_signature}},
-                         QSharedPointer<Signature>{new Signature{hunk->final_signature}},
-
-                         hunk->final_start_line_number,
-                         hunk->orig_start_line_number};
-        b.append(row);
-    }
-    git_blame_free(blame);
-
-    return b;
+    auto b = new BlameData{this, content.split('\n'), blame};
+    return QSharedPointer<BlameData>{b};
 }
 
 bool Manager::revertFile(const QString &filePath) const

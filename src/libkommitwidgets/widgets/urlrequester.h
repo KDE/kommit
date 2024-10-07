@@ -36,7 +36,7 @@ Q_SIGNALS:
     void textChanged(const QString &);
 
 private Q_SLOTS:
-    void mSlotButtonClicked();
+    void slotButtonClicked();
 
 public:
     enum class Mode {

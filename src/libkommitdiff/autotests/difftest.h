@@ -10,11 +10,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 class DiffTest : public QObject
 {
     Q_OBJECT
-private Q_SLOTS:
     void solutionTest();
     void basicList();
     void removedTest();
     void randomMissedNumber();
     void allPlacesRemove();
     void removeFromLast();
+    void lcs();
+    void merge();
+    void simpleMerge();
+
+private Q_SLOTS:
+    void removeFromLocal();
 };

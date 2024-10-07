@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>555</width>
-    <height>463</height>
+    <width>1261</width>
+    <height>755</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <item>
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <widget class="BlameCodeView" name="plainTextEdit"/>
      <widget class="QScrollArea" name="scrollArea">
@@ -30,7 +30,7 @@
          <x>0</x>
          <y>0</y>
          <width>68</width>
-         <height>443</height>
+         <height>735</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">

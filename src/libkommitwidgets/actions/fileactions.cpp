@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "fileactions.h"
 
-#include "dialogs/fileblamedialog.h"
 #include "dialogs/filehistorydialog.h"
 #include "dialogs/fileviewerdialog.h"
 #include "dialogs/searchdialog.h"
@@ -49,7 +48,6 @@ FileActions::FileActions(Git::Manager *git, QWidget *parent)
 
     _actionSaveAs = addAction(i18nc("@action", "Save as…"), this, &FileActions::saveAsFile, false, true);
     _actionHistory = addAction(i18nc("@action", "Log"), this, &FileActions::logFile, false, true);
-    _actionBlame = addAction(i18nc("@action", "Blame"), this, &FileActions::blameFile, false, true);
     _actionSearch = addAction(i18nc("@action", "Search…"), this, &FileActions::search, false, true);
 }
 
@@ -80,12 +78,6 @@ void FileActions::saveAsFile()
 void FileActions::logFile()
 {
     FileHistoryDialog d(mGit, mFile, mParent);
-    d.exec();
-}
-
-void FileActions::blameFile()
-{
-    FileBlameDialog d(mGit, mFile, mParent);
     d.exec();
 }
 
@@ -154,11 +146,11 @@ void FileActions::mergeWithHead()
 
     auto tempFile = mFile->saveAsTemp();
 
-    d->setFilePathBase(tempFile);
-    d->setFilePathLocal(mGit->path() + QLatin1Char('/') + mFile->fileName());
-    d->setFilePathRemote(tempFile);
-    d->setFilePathResult(mGit->path() + QLatin1Char('/') + mFile->fileName());
-    d->load();
+    d->setBaseFile(tempFile);
+    d->setLocalFile(mGit->path() + QLatin1Char('/') + mFile->fileName());
+    d->setRemoteFile(tempFile);
+    d->setResultFile(mGit->path() + QLatin1Char('/') + mFile->fileName());
+    d->compare();
 
     d->exec();
     QFile::remove(tempFile);
@@ -180,7 +172,6 @@ void FileActions::setFile(QSharedPointer<Git::Blob> file)
     setActionEnabled(_actionMergeWithHead, !mFile.isNull());
     setActionEnabled(_actionSaveAs, !mFile.isNull());
     setActionEnabled(_actionHistory, !mFile.isNull());
-    setActionEnabled(_actionBlame, !mFile.isNull());
     setActionEnabled(_actionSearch, !mFile.isNull());
 }
 

@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include "libkommitdiff_export.h"
 #include "types.h"
 
 #include <QList>
@@ -13,8 +14,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Diff
 {
-struct Text {
+struct LIBKOMMITDIFF_EXPORT Text {
     Text();
+    QString content;
     QList<QString> lines; // TODO: convert to QList<QStringRef> if it's possible
     LineEnding lineEnding;
 };
