@@ -85,9 +85,12 @@ void FileHistoryDialog::compareFiles()
     if (!mLeftFile || !mRightFile)
         return;
 
-    // TODO: set the place
-    //  widgetDiffView->setOldFile(QSharedPointer<Git::Blob>{new Git::Blob{mGit, mLeftFile->data(0, dataRole).toString(), mFileName}});
-    //  widgetDiffView->setNewFile(QSharedPointer<Git::Blob>{new Git::Blob{mGit, mRightFile->data(0, dataRole).toString(), mFileName}});
+    const auto leftFileContent = mGit->fileContent(mLeftFile->data(0, dataRole).toString(), mFileName);
+    const auto rightFileContent = mGit->fileContent(mRightFile->data(0, dataRole).toString(), mFileName);
+
+    widgetDiffView->setOldFile(mFileName, leftFileContent);
+    widgetDiffView->setNewFile(mFileName, rightFileContent);
+
     widgetDiffView->compare();
 }
 
