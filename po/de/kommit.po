@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-26 01:49+0000\n"
+"POT-Creation-Date: 2024-10-08 01:49+0000\n"
 "PO-Revision-Date: 2023-05-10 20:28+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -290,7 +290,7 @@ msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Diff ..."
 
-#: src/gui/appwindow.cpp:228 src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/gui/appwindow.cpp:228 src/libkommitwidgets/actions/fileactions.cpp:51
 #, fuzzy, kde-format
 #| msgid "Search..."
 msgctxt "@action"
@@ -683,7 +683,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommitwidgets/models/submodulesmodel.cpp:88
+#: src/libkommitwidgets/models/submodulesmodel.cpp:129
 #, kde-format
 msgid "Status"
 msgstr ""
@@ -1034,7 +1034,7 @@ msgid "Checkout"
 msgstr "Auslesen ..."
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
-#: src/libkommitwidgets/actions/fileactions.cpp:47
+#: src/libkommitwidgets/actions/fileactions.cpp:46
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
@@ -1049,55 +1049,48 @@ msgctxt "@action"
 msgid "Note"
 msgstr "Notiz ..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:43
+#: src/libkommitwidgets/actions/fileactions.cpp:42
 #, fuzzy, kde-format
 #| msgid "Preview"
 msgctxt "@action"
 msgid "Preview"
 msgstr "Vorschau"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:44
+#: src/libkommitwidgets/actions/fileactions.cpp:43
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action"
 msgid "Open"
 msgstr "Öffnen"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:45
+#: src/libkommitwidgets/actions/fileactions.cpp:44
 #, fuzzy, kde-format
 #| msgid "Open with..."
 msgctxt "@action"
 msgid "Open with…"
 msgstr "Öffnen mit ..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:48
+#: src/libkommitwidgets/actions/fileactions.cpp:47
 #, kde-format
 msgctxt "@action"
 msgid "Merge with working dir"
 msgstr ""
 
-#: src/libkommitwidgets/actions/fileactions.cpp:50
+#: src/libkommitwidgets/actions/fileactions.cpp:49
 #, fuzzy, kde-format
 #| msgid "Save as..."
 msgctxt "@action"
 msgid "Save as…"
 msgstr "Speichern unter ..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:51
+#: src/libkommitwidgets/actions/fileactions.cpp:50
 #, fuzzy, kde-format
 #| msgid "Log..."
 msgctxt "@action"
 msgid "Log"
 msgstr "Protokoll ..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:52
-#, fuzzy, kde-format
-#| msgid "Blame..."
-msgctxt "@action"
-msgid "Blame"
-msgstr "Blame ..."
-
-#: src/libkommitwidgets/actions/fileactions.cpp:72
+#: src/libkommitwidgets/actions/fileactions.cpp:70
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
@@ -1809,7 +1802,13 @@ msgstr ""
 msgid "Prune"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/fileblamedialog.cpp:41
+#: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
+#, fuzzy, kde-format
+#| msgid "Kommit"
+msgid "Uncommitted"
+msgstr "Kommit"
+
+#: src/libkommitwidgets/dialogs/fileblamedialog.cpp:57
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
@@ -1952,7 +1951,7 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#: src/libkommitwidgets/models/submodulesmodel.cpp:84
+#: src/libkommitwidgets/models/submodulesmodel.cpp:125
 #, kde-format
 msgid "Path"
 msgstr ""
@@ -2542,7 +2541,7 @@ msgstr ""
 msgid "Time"
 msgstr ""
 
-#: src/libkommitwidgets/models/submodulesmodel.cpp:86
+#: src/libkommitwidgets/models/submodulesmodel.cpp:127
 #, kde-format
 msgid "Head"
 msgstr ""
@@ -2659,17 +2658,19 @@ msgstr ""
 msgid "Month-year"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/blamecodeview.cpp:41
+#: src/libkommitwidgets/widgets/blamecodeview.cpp:37
 #, kde-format
 msgid "Uncommited"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
+#. i18n: ectx: property (windowTitle), widget (QWidget, MergeWidget)
 #. i18n: ectx: property (windowTitle), widget (QWidget, FetchResultWidget)
 #. i18n: ectx: property (windowTitle), widget (QWidget, BranchesSelectionWidget)
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:14
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:14
+#: src/libkommitwidgets/widgets/mergewidget.ui:14
 #, kde-format
 msgid "Form"
 msgstr ""
@@ -2805,7 +2806,7 @@ msgid "View hidden chars…"
 msgstr ""
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:232
-#: src/libkommitwidgets/windows/mergewindow.cpp:336
+#: src/libkommitwidgets/windows/mergewindow.cpp:180
 #, kde-format
 msgid "Same size blocks"
 msgstr ""
@@ -2837,66 +2838,73 @@ msgstr ""
 msgid "Unchanged"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:278
-#, kde-format
-msgid "Conflicts: %1"
-msgstr ""
-
-#: src/libkommitwidgets/windows/mergewindow.cpp:286
+#: src/libkommitwidgets/windows/mergewindow.cpp:140
 #, kde-format
 msgid "Keep mine"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:291
+#: src/libkommitwidgets/windows/mergewindow.cpp:145
 #, kde-format
 msgid "Keep their"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:297
+#: src/libkommitwidgets/windows/mergewindow.cpp:150
 #, kde-format
 msgid "Keep mine before their"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:302
+#: src/libkommitwidgets/windows/mergewindow.cpp:155
 #, kde-format
 msgid "Keep their before mine"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:307
+#: src/libkommitwidgets/windows/mergewindow.cpp:160
 #, kde-format
 msgid "Keep my file"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:312
+#: src/libkommitwidgets/windows/mergewindow.cpp:165
 #, kde-format
 msgid "Keep their file"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:317
-#, kde-format
-msgid "Blocks"
-msgstr ""
-
-#: src/libkommitwidgets/windows/mergewindow.cpp:321
-#, kde-format
-msgid "Files"
-msgstr ""
-
-#: src/libkommitwidgets/windows/mergewindow.cpp:325
+#: src/libkommitwidgets/windows/mergewindow.cpp:170
 #, kde-format
 msgid "Previous diff"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:331
+#: src/libkommitwidgets/windows/mergewindow.cpp:175
 #, kde-format
 msgid "Next diff"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:430
+#: src/libkommitwidgets/windows/mergewindow.cpp:323
+#: src/libkommitwidgets/windows/mergewindow.cpp:337
 #, fuzzy, kde-format
 #| msgid "Unable to remove the selected branch"
 msgid "Unable to open the file %1"
 msgstr "Der ausgewählte Zweig kann nicht gelöscht werden"
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:330
+#, kde-format
+msgid "Save result"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:398
+#, kde-format
+msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:400
+#, kde-format
+msgid "<span style='color:green;'>All conflicts resolved</span>"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Blame..."
+#~ msgctxt "@action"
+#~ msgid "Blame"
+#~ msgstr "Blame ..."
 
 #, fuzzy
 #~| msgid "Note..."

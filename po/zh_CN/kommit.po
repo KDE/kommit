@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-26 01:49+0000\n"
+"POT-Creation-Date: 2024-10-08 01:49+0000\n"
 "PO-Revision-Date: 2024-04-22 16:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -277,7 +277,7 @@ msgctxt "@action"
 msgid "Diff branches…"
 msgstr ""
 
-#: src/gui/appwindow.cpp:228 src/libkommitwidgets/actions/fileactions.cpp:53
+#: src/gui/appwindow.cpp:228 src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
 msgctxt "@action"
 msgid "Search…"
@@ -664,7 +664,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommitwidgets/models/submodulesmodel.cpp:88
+#: src/libkommitwidgets/models/submodulesmodel.cpp:129
 #, kde-format
 msgid "Status"
 msgstr "状态"
@@ -1017,7 +1017,7 @@ msgid "Checkout"
 msgstr ""
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
-#: src/libkommitwidgets/actions/fileactions.cpp:47
+#: src/libkommitwidgets/actions/fileactions.cpp:46
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
@@ -1031,49 +1031,43 @@ msgctxt "@action"
 msgid "Note"
 msgstr ""
 
-#: src/libkommitwidgets/actions/fileactions.cpp:43
+#: src/libkommitwidgets/actions/fileactions.cpp:42
 #, kde-format
 msgctxt "@action"
 msgid "Preview"
 msgstr ""
 
-#: src/libkommitwidgets/actions/fileactions.cpp:44
+#: src/libkommitwidgets/actions/fileactions.cpp:43
 #, kde-format
 msgctxt "@action"
 msgid "Open"
 msgstr ""
 
-#: src/libkommitwidgets/actions/fileactions.cpp:45
+#: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
 msgctxt "@action"
 msgid "Open with…"
 msgstr ""
 
-#: src/libkommitwidgets/actions/fileactions.cpp:48
+#: src/libkommitwidgets/actions/fileactions.cpp:47
 #, kde-format
 msgctxt "@action"
 msgid "Merge with working dir"
 msgstr ""
 
-#: src/libkommitwidgets/actions/fileactions.cpp:50
+#: src/libkommitwidgets/actions/fileactions.cpp:49
 #, kde-format
 msgctxt "@action"
 msgid "Save as…"
 msgstr ""
 
-#: src/libkommitwidgets/actions/fileactions.cpp:51
+#: src/libkommitwidgets/actions/fileactions.cpp:50
 #, kde-format
 msgctxt "@action"
 msgid "Log"
 msgstr ""
 
-#: src/libkommitwidgets/actions/fileactions.cpp:52
-#, kde-format
-msgctxt "@action"
-msgid "Blame"
-msgstr ""
-
-#: src/libkommitwidgets/actions/fileactions.cpp:72
+#: src/libkommitwidgets/actions/fileactions.cpp:70
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
@@ -1789,7 +1783,13 @@ msgstr "仅快进"
 msgid "Prune"
 msgstr "修剪"
 
-#: src/libkommitwidgets/dialogs/fileblamedialog.cpp:41
+#: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
+#, fuzzy, kde-format
+#| msgid "Uncommited"
+msgid "Uncommitted"
+msgstr "未提交"
+
+#: src/libkommitwidgets/dialogs/fileblamedialog.cpp:57
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
@@ -1932,7 +1932,7 @@ msgstr "所有带有此名称的文件"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#: src/libkommitwidgets/models/submodulesmodel.cpp:84
+#: src/libkommitwidgets/models/submodulesmodel.cpp:125
 #, kde-format
 msgid "Path"
 msgstr "路径"
@@ -2534,7 +2534,7 @@ msgstr "作者邮箱"
 msgid "Time"
 msgstr "时间"
 
-#: src/libkommitwidgets/models/submodulesmodel.cpp:86
+#: src/libkommitwidgets/models/submodulesmodel.cpp:127
 #, kde-format
 msgid "Head"
 msgstr "头"
@@ -2651,17 +2651,19 @@ msgstr ""
 msgid "Month-year"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/blamecodeview.cpp:41
+#: src/libkommitwidgets/widgets/blamecodeview.cpp:37
 #, kde-format
 msgid "Uncommited"
 msgstr "未提交"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
+#. i18n: ectx: property (windowTitle), widget (QWidget, MergeWidget)
 #. i18n: ectx: property (windowTitle), widget (QWidget, FetchResultWidget)
 #. i18n: ectx: property (windowTitle), widget (QWidget, BranchesSelectionWidget)
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:14
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:14
+#: src/libkommitwidgets/widgets/mergewidget.ui:14
 #, kde-format
 msgid "Form"
 msgstr "表单"
@@ -2791,7 +2793,7 @@ msgid "View hidden chars…"
 msgstr ""
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:232
-#: src/libkommitwidgets/windows/mergewindow.cpp:336
+#: src/libkommitwidgets/windows/mergewindow.cpp:180
 #, kde-format
 msgid "Same size blocks"
 msgstr ""
@@ -2823,62 +2825,72 @@ msgstr "树"
 msgid "Unchanged"
 msgstr "未更改"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:278
-#, kde-format
-msgid "Conflicts: %1"
-msgstr "冲突：%1"
-
-#: src/libkommitwidgets/windows/mergewindow.cpp:286
+#: src/libkommitwidgets/windows/mergewindow.cpp:140
 #, kde-format
 msgid "Keep mine"
 msgstr "保留我的"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:291
+#: src/libkommitwidgets/windows/mergewindow.cpp:145
 #, kde-format
 msgid "Keep their"
 msgstr "保留他们的"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:297
+#: src/libkommitwidgets/windows/mergewindow.cpp:150
 #, kde-format
 msgid "Keep mine before their"
 msgstr "在他们的之前优先保留我的"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:302
+#: src/libkommitwidgets/windows/mergewindow.cpp:155
 #, kde-format
 msgid "Keep their before mine"
 msgstr "在我的之前优先保留他们的"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:307
+#: src/libkommitwidgets/windows/mergewindow.cpp:160
 #, kde-format
 msgid "Keep my file"
 msgstr "保留我的文件"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:312
+#: src/libkommitwidgets/windows/mergewindow.cpp:165
 #, kde-format
 msgid "Keep their file"
 msgstr "保留他们的文件"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:317
-#, kde-format
-msgid "Blocks"
-msgstr "块"
-
-#: src/libkommitwidgets/windows/mergewindow.cpp:321
-#, kde-format
-msgid "Files"
-msgstr "文件"
-
-#: src/libkommitwidgets/windows/mergewindow.cpp:325
+#: src/libkommitwidgets/windows/mergewindow.cpp:170
 #, kde-format
 msgid "Previous diff"
 msgstr "上一个差异"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:331
+#: src/libkommitwidgets/windows/mergewindow.cpp:175
 #, kde-format
 msgid "Next diff"
 msgstr "下一个差异"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:430
+#: src/libkommitwidgets/windows/mergewindow.cpp:323
+#: src/libkommitwidgets/windows/mergewindow.cpp:337
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:330
+#, kde-format
+msgid "Save result"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:398
+#, kde-format
+msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr ""
+
+#: src/libkommitwidgets/windows/mergewindow.cpp:400
+#, kde-format
+msgid "<span style='color:green;'>All conflicts resolved</span>"
+msgstr ""
+
+#~ msgid "Conflicts: %1"
+#~ msgstr "冲突：%1"
+
+#~ msgid "Blocks"
+#~ msgstr "块"
+
+#~ msgid "Files"
+#~ msgstr "文件"
