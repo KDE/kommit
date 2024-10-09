@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-08 01:49+0000\n"
-"PO-Revision-Date: 2024-09-18 08:51+0300\n"
+"PO-Revision-Date: 2024-10-08 21:14+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1792,10 +1792,9 @@ msgid "Prune"
 msgstr "Спростити"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Uncommited"
+#, kde-format
 msgid "Uncommitted"
-msgstr "Не внесено"
+msgstr "Незафіксовані зміни"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:57
 #, kde-format
@@ -2943,17 +2942,17 @@ msgstr "Не вдалося відкрити файл %1"
 #: src/libkommitwidgets/windows/mergewindow.cpp:330
 #, kde-format
 msgid "Save result"
-msgstr ""
+msgstr "Зберегти результат"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:398
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
-msgstr ""
+msgstr "Конфлікти: <span style='font-weight:bold; color:red;'>%1</span>"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:400
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
-msgstr ""
+msgstr "<span style='color:green;'>Усі конфлікти вирішено</span>"
 
 #~ msgctxt "@action"
 #~ msgid "Blame"
