@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "changedfilesmodel.h"
 
 #include "caches/submodulescache.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <libkommitwidgets_appdebug.h>
 
@@ -77,7 +77,7 @@ Qt::ItemFlags ChangedFilesModel::flags(const QModelIndex &index) const
     return defaultFlags;
 }
 
-ChangedFilesModel::ChangedFilesModel(Git::Manager *git, bool checkable, QObject *parent)
+ChangedFilesModel::ChangedFilesModel(Git::Repository *git, bool checkable, QObject *parent)
     : QAbstractListModel(parent)
     , mGit(git)
     , mCheckable(checkable)

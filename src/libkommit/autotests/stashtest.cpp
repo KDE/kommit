@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/stashescache.h"
 #include "entities/index.h"
 #include "entities/stash.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "testcommon.h"
 #include <QTest>
 
@@ -23,7 +23,7 @@ void StashTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
     qDebug() << path;
-    mManager = new Git::Manager;
+    mManager = new Git::Repository;
 
     auto init = mManager->init(path);
     QCOMPARE(mManager->path(), path);

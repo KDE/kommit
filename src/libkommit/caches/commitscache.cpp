@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/referencecache.h"
 #include "entities/branch.h"
 #include "gitglobal_p.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "types.h"
 
 #include <git2/commit.h>
@@ -17,7 +17,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-CommitsCache::CommitsCache(Manager *parent)
+CommitsCache::CommitsCache(Repository *parent)
     : Git::OidCache<Commit, git_commit>{parent, git_commit_lookup}
 {
 }

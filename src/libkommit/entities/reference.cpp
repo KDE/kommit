@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/note.h"
 #include "entities/remote.h"
 #include "entities/tag.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "oid.h"
 #include "qdebug.h"
 
@@ -97,7 +97,7 @@ QSharedPointer<Note> Reference::toNote() const
         return {};
 
     auto oid = git_reference_target(ptr);
-    auto manager = Manager::owner(git_reference_owner(ptr));
+    auto manager = Repository::owner(git_reference_owner(ptr));
 
     return manager->notes()->findByOid(oid);
 }
@@ -107,7 +107,7 @@ QSharedPointer<Branch> Reference::toBranch() const
     if (!isBranch())
         return {};
 
-    auto manager = Manager::owner(git_reference_owner(ptr));
+    auto manager = Repository::owner(git_reference_owner(ptr));
 
     // memory leak warning: both branch and this will free the ptr!
     return manager->branches()->findByPtr(ptr);
@@ -119,7 +119,7 @@ QSharedPointer<Tag> Reference::toTag() const
         return {};
 
     auto oid = git_reference_target(ptr);
-    auto manager = Manager::owner(git_reference_owner(ptr));
+    auto manager = Repository::owner(git_reference_owner(ptr));
 
     return manager->tags()->findByOid(oid);
 }
@@ -129,7 +129,7 @@ QSharedPointer<Remote> Reference::toRemote() const
     if (!isBranch())
         return {};
 
-    auto manager = Manager::owner(git_reference_owner(ptr));
+    auto manager = Repository::owner(git_reference_owner(ptr));
 
     return manager->remotes()->findByName(name());
 }

@@ -13,7 +13,7 @@ class ChangeLogsDataPrivate
     ChangeLogsData *const q_ptr;
     Q_DECLARE_PUBLIC(ChangeLogsData)
 public:
-    ChangeLogsDataPrivate(ChangeLogsData *parent);
+    explicit ChangeLogsDataPrivate(ChangeLogsData *parent);
 
     struct Row {
         QVersionNumber version;
@@ -33,8 +33,6 @@ ChangeLogsData::ChangeLogsData()
 
 ChangeLogsData::~ChangeLogsData()
 {
-    Q_D(ChangeLogsData);
-    delete d;
 }
 
 QString ChangeLogsData::generateMarkdown(const QVersionNumber &until) const
@@ -72,6 +70,15 @@ void ChangeLogsDataPrivate::fill()
         QVersionNumber{1, 6, 2},
         QStringList{
             i18n("Fix bug in branch selection in commits widget")
+        }
+    };
+
+    data << Row{
+        QVersionNumber{1, 7, 0},
+        QStringList{
+            i18n("Improve merge algorithm and text rendering"),
+            i18n("Improve diff windoe text rendering"),
+            i18n("Fix dolphin menu")
         }
     };
 

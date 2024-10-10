@@ -5,9 +5,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "abstractreport.h"
-#include "gitmanager.h"
+#include "repository.h"
 
-AbstractReport::AbstractReport(Git::Manager *git, QObject *parent)
+AbstractReport::AbstractReport(Git::Repository *git, QObject *parent)
     : QObject{parent}
     , mGit{git}
 {

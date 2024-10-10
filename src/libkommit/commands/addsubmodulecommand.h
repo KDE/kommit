@@ -16,7 +16,7 @@ class LIBKOMMIT_EXPORT AddSubmoduleCommand : public AbstractCommand
     Q_OBJECT
 
 public:
-    explicit AddSubmoduleCommand(Manager *git);
+    explicit AddSubmoduleCommand(Repository *git);
 
     [[nodiscard]] QStringList generateArgs() const override;
 

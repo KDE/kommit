@@ -8,14 +8,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 }
 class AppConfig
 {
 public:
-    explicit AppConfig(Git::Manager *git);
+    explicit AppConfig(Git::Repository *git);
     void apply();
 
 private:
-    Git::Manager *const mGit;
+    Git::Repository *const mGit;
 };

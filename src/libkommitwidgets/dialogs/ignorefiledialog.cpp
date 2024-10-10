@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "ignorefiledialog.h"
 
-#include "gitmanager.h"
+#include "repository.h"
 
 #include "core/kmessageboxhelper.h"
 #include "libkommitwidgets_appdebug.h"
@@ -15,7 +15,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 
-IgnoreFileDialog::IgnoreFileDialog(Git::Manager *git, const QString &filePath, QWidget *parent)
+IgnoreFileDialog::IgnoreFileDialog(Git::Repository *git, const QString &filePath, QWidget *parent)
     : AppDialog(git, parent)
 {
     setupUi(this);

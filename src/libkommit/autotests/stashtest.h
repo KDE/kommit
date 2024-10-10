@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 };
 
 class StashTest : public QObject
@@ -32,6 +32,6 @@ private Q_SLOTS:
     void commitAndApplyStash();
 
 private:
-    Git::Manager *mManager;
+    Git::Repository *mManager;
     QString mFileContentInStash;
 };

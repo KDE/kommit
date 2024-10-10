@@ -14,14 +14,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class Manager;
+class Repository;
 class LIBKOMMIT_EXPORT File
 {
 public:
     enum StorageType { InValid, Git, Local, Entry };
     File();
     explicit File(QString filePath);
-    File(Manager *git, QString place, QString filePath);
+    File(Repository *git, QString place, QString filePath);
     File(const File &other);
     File(git_repository *repo, git_tree_entry *entry);
     //    File(File &&other);
@@ -37,7 +37,7 @@ public:
     void setPlace(const QString &newPlace);
     [[nodiscard]] QString fileName() const;
     void setFileName(const QString &newFileName);
-    Manager *git() const;
+    Repository *git() const;
 
     [[nodiscard]] QString displayName() const;
     [[nodiscard]] StorageType storage() const;
@@ -48,7 +48,7 @@ private:
 
     QString mPlace;
     QString mFilePath;
-    Manager *mGit = nullptr;
+    Repository *mGit = nullptr;
 
     StorageType mStorage;
 

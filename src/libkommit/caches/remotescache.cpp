@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "remotescache.h"
 #include "gitglobal_p.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <git2/remote.h>
 #include <git2/strarray.h>
@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-RemotesCache::RemotesCache(Manager *manager)
+RemotesCache::RemotesCache(Repository *manager)
     : QObject{manager}
     , Cache<Remote, git_remote>{manager}
 {

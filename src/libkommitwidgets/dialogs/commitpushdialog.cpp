@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/changedsubmodulesdialog.h"
 #include "entities/index.h"
 #include "entities/submodule.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "models/changedfilesmodel.h"
 #include "runnerdialog.h"
 
@@ -28,7 +28,7 @@ namespace
 static const char myCommitPushDialogGroupName[] = "CommitPushDialog";
 }
 
-CommitPushDialog::CommitPushDialog(Git::Manager *git, QWidget *parent)
+CommitPushDialog::CommitPushDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
     , mModel(new ChangedFilesModel(git, true, this))
 {

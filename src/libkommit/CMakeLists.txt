@@ -19,7 +19,7 @@ target_sources(libkommit PRIVATE
     gitglobal.cpp
     gitloglist.cpp
     filestatus.cpp
-    gitmanager.cpp
+    repository.cpp
     blamedata.cpp
     types.cpp
     abstractreference.cpp
@@ -125,7 +125,6 @@ endif()
 
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
-        GitManager
         BlameData
         Buffer
         Credential

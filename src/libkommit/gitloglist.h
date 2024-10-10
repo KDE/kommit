@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class Manager;
+class Repository;
 class Commit;
 // TODO: remove this class
 class LIBKOMMIT_EXPORT LogList : public QList<Commit *>
@@ -22,7 +22,7 @@ public:
     LogList();
     explicit LogList(QString branch);
 
-    void load(Git::Manager *git);
+    void load(Git::Repository *git);
     void initGraph();
 
     [[nodiscard]] const QString &branch() const;

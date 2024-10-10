@@ -21,6 +21,7 @@ public:
     Oid();
     explicit Oid(const git_oid *oid);
     explicit Oid(const git_oid oid);
+    ~Oid();
 
     [[nodiscard]] QString toString() const;
     [[nodiscard]] bool isNull() const;
@@ -30,7 +31,7 @@ public:
     [[nodiscard]] const git_oid *oidPtr() const;
 
 private:
-    const git_oid *mOidPtr{nullptr};
+    git_oid mOid;
 };
 
 }

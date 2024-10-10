@@ -8,10 +8,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "caches/branchescache.h"
 #include "commands/commandmerge.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "models/branchesmodel.h"
 
-void MergeDialog::init(Git::Manager *git)
+void MergeDialog::init(Git::Repository *git)
 {
     comboBoxBranchName->addItems(git->branches()->names());
     labelToBranchName->setText(git->branches()->currentName());
@@ -27,7 +27,7 @@ void MergeDialog::init(Git::Manager *git)
     connect(comboBoxStrategy, &QComboBox::currentIndexChanged, this, &MergeDialog::slotComboBoxStrategyCurrentIndexChanged);
 }
 
-MergeDialog::MergeDialog(Git::Manager *git, QWidget *parent)
+MergeDialog::MergeDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
 {
     setupUi(this);
@@ -35,7 +35,7 @@ MergeDialog::MergeDialog(Git::Manager *git, QWidget *parent)
     init(git);
 }
 
-MergeDialog::MergeDialog(Git::Manager *git, const QString &sourceBranch, QWidget *parent)
+MergeDialog::MergeDialog(Git::Repository *git, const QString &sourceBranch, QWidget *parent)
     : AppDialog(git, parent)
     , mSourceBranch(sourceBranch)
 {

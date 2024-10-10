@@ -20,7 +20,7 @@ class LIBKOMMIT_EXPORT SubmodulesCache : public QObject, public Cache<Submodule,
     Q_OBJECT
 
 public:
-    explicit SubmodulesCache(Manager *manager);
+    explicit SubmodulesCache(Repository *manager);
 
     DataType add(const AddSubmoduleOptions &options);
 

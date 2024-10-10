@@ -16,7 +16,7 @@ class LIBKOMMITWIDGETS_EXPORT ChangedSubmodulesDialog : public AppDialog, privat
     Q_OBJECT
 
 public:
-    explicit ChangedSubmodulesDialog(Git::Manager *git, QWidget *parent = nullptr);
+    explicit ChangedSubmodulesDialog(Git::Repository *git, QWidget *parent = nullptr);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotComitPushButtonClicked(const QString &moduleName);

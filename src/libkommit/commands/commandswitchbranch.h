@@ -16,7 +16,7 @@ class LIBKOMMIT_EXPORT CommandSwitchBranch : public AbstractCommand
     Q_OBJECT
 
 public:
-    explicit CommandSwitchBranch(Manager *git);
+    explicit CommandSwitchBranch(Repository *git);
     void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput) override;
 
     enum Mode {

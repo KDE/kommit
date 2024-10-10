@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <entities/commit.h>
 #include <entities/signature.h>
-#include <gitmanager.h>
+#include <repository.h>
 
 namespace
 {
@@ -37,7 +37,7 @@ QString dayToString(Qt::DayOfWeek dayOfWeek)
 }
 }
 
-CommitsByDayWeek::CommitsByDayWeek(Git::Manager *git, QObject *parent)
+CommitsByDayWeek::CommitsByDayWeek(Git::Repository *git, QObject *parent)
     : AbstractReport{git, parent}
 {
 }

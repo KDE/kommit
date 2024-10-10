@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "entities/file.h"
-#include "../gitmanager.h"
+#include "../repository.h"
 #include "gitglobal_p.h"
 
 #include <QFile>
@@ -49,7 +49,7 @@ File::~File()
         git_tree_entry_free(mEntry);
 }
 
-File::File(Manager *git, QString place, QString filePath)
+File::File(Repository *git, QString place, QString filePath)
     : mPlace(std::move(place))
     , mFilePath(std::move(filePath))
     , mGit(git)
@@ -103,7 +103,7 @@ void File::setFileName(const QString &newFileName)
     mFilePath = newFileName;
 }
 
-Manager *File::git() const
+Repository *File::git() const
 {
     return mGit;
 }

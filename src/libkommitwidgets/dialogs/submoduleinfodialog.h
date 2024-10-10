@@ -13,14 +13,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class AddSubmoduleCommand;
-class Manager;
+class Repository;
 }
 class LIBKOMMITWIDGETS_EXPORT SubmoduleInfoDialog : public AppDialog, private Ui::SubmoduleInfoDialog
 {
     Q_OBJECT
 
 public:
-    explicit SubmoduleInfoDialog(Git::Manager *git, QWidget *parent = nullptr);
+    explicit SubmoduleInfoDialog(Git::Repository *git, QWidget *parent = nullptr);
 
     [[nodiscard]] bool force() const;
     void setForce(bool newForce);

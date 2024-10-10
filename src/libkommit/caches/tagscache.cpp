@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "tagscache.h"
 #include "entities/oid.h"
 #include "gitglobal_p.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <QDebug>
 
@@ -17,7 +17,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-TagsCache::TagsCache(Manager *parent)
+TagsCache::TagsCache(Repository *parent)
     : OidCache<Tag, git_tag>{parent, git_tag_lookup}
 {
 }
@@ -43,7 +43,7 @@ void TagsCache::forEach(std::function<void(QSharedPointer<Tag>)> cb)
         git_repository *repo;
         std::function<void(QSharedPointer<Tag>)> cb;
         TagsCache *cache;
-        Manager *manager;
+        Repository *manager;
     };
 
     wrapper w;

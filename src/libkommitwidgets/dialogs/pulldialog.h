@@ -12,14 +12,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 }
 class LIBKOMMITWIDGETS_EXPORT PullDialog : public AppDialog, private Ui::PullDialog
 {
     Q_OBJECT
 
 public:
-    explicit PullDialog(Git::Manager *git, QWidget *parent = nullptr);
+    explicit PullDialog(Git::Repository *git, QWidget *parent = nullptr);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotAccepted();

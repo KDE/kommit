@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-CommandMerge::CommandMerge(Manager *git)
+CommandMerge::CommandMerge(Repository *git)
     : AbstractCommand{git}
 {
 }

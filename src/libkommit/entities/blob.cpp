@@ -6,11 +6,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "blob.h"
 
+#include "entities/commit.h"
+#include "entities/tree.h"
 #include "gitglobal_p.h"
+#include "repository.h"
 #include "object.h"
 #include "oid.h"
-#include <entities/commit.h>
-#include <entities/tree.h>
 
 #include <git2/blob.h>
 #include <git2/revparse.h>
@@ -57,7 +58,7 @@ Blob::Blob(git_repository *repo, git_tree_entry *entry)
     git_blob_lookup(&d->blob, repo, oid);
 }
 
-Blob::Blob(git_repository *repo, git_index_entry *entry)
+Blob::Blob(git_repository *repo, const git_index_entry *entry)
     : d_ptr{new BlobPrivate{this}}
 {
     Q_D(Blob);
@@ -76,10 +77,10 @@ Blob::Blob(git_repository *repo, const QString &relativePath)
     git_blob_lookup(&d->blob, repo, &oid);
 }
 
-Blob::Blob(QSharedPointer<Oid> oid)
+Blob::Blob(Repository *git, QSharedPointer<Oid> oid)
 {
     Q_D(Blob);
-    git_blob_lookup(&d->blob, nullptr /* get repo */, oid->oidPtr());
+    git_blob_lookup(&d->blob, git->repoPtr(), oid->oidPtr());
 }
 
 Blob::~Blob()
@@ -107,7 +108,7 @@ bool Blob::save(const QString &path) const
 
 QString Blob::saveAsTemp() const
 {
-    QFileInfo fi{fileName()};
+    QFileInfo fi{filePath()};
     QString fileName;
     const auto tempLocation = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
     if (tempLocation.isEmpty())
@@ -171,6 +172,12 @@ QSharedPointer<Oid> Blob::oid() const
 }
 
 QString Blob::fileName() const
+{
+    Q_D(const Blob);
+    return d->name.mid(d->name.lastIndexOf(QStringLiteral("/")) + 1);
+}
+
+QString Blob::filePath() const
 {
     Q_D(const Blob);
     return d->name;

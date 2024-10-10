@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "notescache.h"
 #include "entities/commit.h"
 #include "entities/oid.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <git2/notes.h>
 
@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-NotesCache::NotesCache(Manager *parent)
+NotesCache::NotesCache(Repository *parent)
     : Cache<Note, git_note>{parent}
 {
 }

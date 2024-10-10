@@ -30,7 +30,7 @@ void CommitActions::setCommit(QSharedPointer<Git::Commit> commit)
     setActionEnabled(_actionNote, !commit.isNull());
 }
 
-CommitActions::CommitActions(Git::Manager *git, QWidget *parent)
+CommitActions::CommitActions(Git::Repository *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
     _actionBrowse = addAction(i18nc("@action", "Browse"), this, &CommitActions::browse, false, true);

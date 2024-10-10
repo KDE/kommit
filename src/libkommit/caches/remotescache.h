@@ -23,7 +23,7 @@ class LIBKOMMIT_EXPORT RemotesCache : public QObject, public Cache<Remote, git_r
     Q_OBJECT
 
 public:
-    explicit RemotesCache(Manager *manager);
+    explicit RemotesCache(Repository *manager);
 
     QList<QSharedPointer<Remote>> allRemotes();
     QStringList allNames();

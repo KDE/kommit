@@ -14,7 +14,7 @@ class Remote;
 class Tag;
 class Branch;
 class Commit;
-class Manager;
+class Repository;
 };
 
 class CacheTest : public QObject
@@ -33,7 +33,7 @@ private Q_SLOTS:
     void checkBranch();
 
 private:
-    Git::Manager *mManager;
+    Git::Repository *mManager;
     QList<QSharedPointer<Git::Commit>> mCommits;
     QList<QSharedPointer<Git::Branch>> mBranches;
     QList<QSharedPointer<Git::Tag>> mTags;

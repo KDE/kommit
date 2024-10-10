@@ -9,7 +9,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QAbstractItemModel>
 
 #include "libkommitwidgets_export.h"
+
 #include <QIcon>
+#include <QScopedPointer>
 
 class TreeModelPrivate;
 
@@ -127,7 +129,7 @@ public:
     void emitReset();
 
 private:
-    TreeModelPrivate *d_ptr;
+    QScopedPointer<TreeModelPrivate> d_ptr;
     Q_DECLARE_PRIVATE(TreeModel)
     TreeNode *createPath(const QStringList &path);
 };

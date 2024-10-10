@@ -15,7 +15,7 @@ class CredentialPrivate
     Q_DECLARE_PUBLIC(Credential)
 
 public:
-    CredentialPrivate(Credential *parent);
+    explicit CredentialPrivate(Credential *parent);
 
     QString username;
     QString password;
@@ -24,6 +24,10 @@ public:
 
 Credential::Credential()
     : d_ptr{new CredentialPrivate{this}}
+{
+}
+
+Credential::~Credential()
 {
 }
 

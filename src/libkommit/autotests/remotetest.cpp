@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "testcommon.h"
 
 #include <QTest>
-#include <gitmanager.h>
+#include <repository.h>
 #include <observers/fetchobserver.h>
 
 QTEST_GUILESS_MAIN(RemoteTest)
@@ -28,7 +28,7 @@ void RemoteTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
     qDebug() << path;
-    mManager = new Git::Manager;
+    mManager = new Git::Repository;
     QVERIFY(!mManager->isValid());
 
     auto ok = mManager->init(path);

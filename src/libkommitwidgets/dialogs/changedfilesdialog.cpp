@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/stashescache.h"
 #include "commitpushdialog.h"
 #include "core/kmessageboxhelper.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "models/changedfilesmodel.h"
 
 #include <KLocalizedString>
@@ -23,7 +23,7 @@ namespace
 {
 static const char myChangedFilesDialogGroupName[] = "ChangedFilesDialog";
 }
-ChangedFilesDialog::ChangedFilesDialog(Git::Manager *git, QWidget *parent)
+ChangedFilesDialog::ChangedFilesDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
     , mActions(new ChangedFileActions(git, this))
     , mModel(new ChangedFilesModel(git, false, this))

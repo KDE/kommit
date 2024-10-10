@@ -59,7 +59,7 @@ AbstractCommand::AbstractCommand(QStringList args)
 {
 }
 
-AbstractCommand::AbstractCommand(Manager *git)
+AbstractCommand::AbstractCommand(Repository *git)
     : QObject()
     , mGit(git)
 {

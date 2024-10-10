@@ -1,7 +1,7 @@
 // Copyright (C) 2020 Hamed Masafi <hamed.masafi@gmail.com>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "gitmanager.h"
+#include "repository.h"
 
 #include "abstractreference.h"
 #include "blamedata.h"
@@ -49,13 +49,14 @@
 namespace Git
 {
 
-class ManagerPrivate
+class RepositoryPrivate
 {
-    Manager *q_ptr;
-    Q_DECLARE_PUBLIC(Manager);
+    Repository *q_ptr;
+    Q_DECLARE_PUBLIC(Repository)
 
 public:
-    ManagerPrivate(Manager *parent);
+    RepositoryPrivate(Repository *parent);
+    ~RepositoryPrivate();
 
     git_repository *repo{nullptr};
 
@@ -83,19 +84,19 @@ public:
     void freeRepo();
 
     void checkError();
-    static QHash<git_repository *, Manager *> managerMap;
+    static QHash<git_repository *, Repository *> managerMap;
 };
-QHash<git_repository *, Manager *> ManagerPrivate::managerMap;
+QHash<git_repository *, Repository *> RepositoryPrivate::managerMap;
 
-const QString &Manager::path() const
+const QString &Repository::path() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->path;
 }
 
-bool Manager::open(const QString &newPath)
+bool Repository::open(const QString &newPath)
 {
-    Q_D(Manager);
+    Q_D(Repository);
 
     if (d->path == newPath)
         return false;
@@ -130,9 +131,9 @@ bool Manager::open(const QString &newPath)
     return IS_OK;
 }
 
-QSharedPointer<Reference> Manager::head() const
+QSharedPointer<Reference> Repository::head() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     git_reference *head{nullptr};
 
@@ -145,9 +146,9 @@ QSharedPointer<Reference> Manager::head() const
     return {};
 }
 
-bool Manager::checkout()
+bool Repository::checkout()
 {
-    Q_D(Manager);
+    Q_D(Repository);
 
     QSharedPointer<Tag> tag;
     auto target = tag->target();
@@ -161,7 +162,7 @@ bool Manager::checkout()
     return true;
 }
 
-QMap<QString, ChangeStatus> Manager::changedFiles(const QString &hash) const
+QMap<QString, ChangeStatus> Repository::changedFiles(const QString &hash) const
 {
     QMap<QString, ChangeStatus> statuses;
     auto buffer = QString(runGit({QStringLiteral("show"), QStringLiteral("--name-status"), hash})).split(QLatin1Char('\n'));
@@ -187,14 +188,14 @@ QMap<QString, ChangeStatus> Manager::changedFiles(const QString &hash) const
     return statuses;
 }
 
-QStringList Manager::ignoredFiles() const
+QStringList Repository::ignoredFiles() const
 {
     return readAllNonEmptyOutput({QStringLiteral("check-ignore"), QStringLiteral("*")});
 }
 
-QList<FileStatus> Manager::repoFilesStatus() const
+QList<FileStatus> Repository::repoFilesStatus() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     const auto buffer = runGit({QStringLiteral("status"),
                                 QStringLiteral("--untracked-files=all"),
@@ -216,15 +217,15 @@ QList<FileStatus> Manager::repoFilesStatus() const
     return files;
 }
 
-bool Manager::isValid() const
+bool Repository::isValid() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->isValid;
 }
 
-bool Manager::fetch(const QString &remoteName, FetchObserver *observer)
+bool Repository::fetch(const QString &remoteName, FetchObserver *observer)
 {
-    Q_D(Manager);
+    Q_D(Repository);
 
     git_remote *remote;
 
@@ -251,9 +252,9 @@ bool Manager::fetch(const QString &remoteName, FetchObserver *observer)
     return IS_OK;
 }
 
-bool Manager::isIgnored(const QString &path)
+bool Repository::isIgnored(const QString &path)
 {
-    Q_D(Manager);
+    Q_D(Repository);
 
     BEGIN;
     int isIgnored;
@@ -264,9 +265,9 @@ bool Manager::isIgnored(const QString &path)
     return !isIgnored;
 }
 
-QPair<int, int> Manager::uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const
+QPair<int, int> Repository::uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     if (branch1 == branch2)
         return qMakePair(0, 0);
@@ -293,17 +294,17 @@ QPair<int, int> Manager::uniqueCommitsOnBranches(const QString &branch1, const Q
     return qMakePair(ahead, behind);
 }
 
-QStringList Manager::fileLog(const QString &fileName) const
+QStringList Repository::fileLog(const QString &fileName) const
 {
     return readAllNonEmptyOutput({QStringLiteral("log"), QStringLiteral("--format=format:%H"), QStringLiteral("--"), fileName});
 }
 
-QString Manager::diff(const QString &from, const QString &to) const
+QString Repository::diff(const QString &from, const QString &to) const
 {
     return runGit({QStringLiteral("diff"), from, to});
 }
 
-QList<FileStatus> Manager::diffBranch(const QString &from) const
+QList<FileStatus> Repository::diffBranch(const QString &from) const
 {
     const QStringList buffer = QString(runGit({QStringLiteral("diff"), from, QStringLiteral("--name-status")})).split(QLatin1Char('\n'));
     QList<FileStatus> files;
@@ -322,9 +323,9 @@ QList<FileStatus> Manager::diffBranch(const QString &from) const
     return files;
 }
 
-QList<FileStatus> Manager::diffBranches(const QString &from, const QString &to) const
+QList<FileStatus> Repository::diffBranches(const QString &from, const QString &to) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     BEGIN
 
@@ -410,9 +411,9 @@ QList<FileStatus> Manager::diffBranches(const QString &from, const QString &to) 
     return files2;
 }
 
-QList<FileStatus> Manager::diff(AbstractReference *from, AbstractReference *to) const
+QList<FileStatus> Repository::diff(AbstractReference *from, AbstractReference *to) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     BEGIN
 
@@ -478,9 +479,9 @@ QList<FileStatus> Manager::diff(AbstractReference *from, AbstractReference *to) 
     return files2;
 }
 
-void Manager::forEachCommits(std::function<void(QSharedPointer<Commit>)> callback, const QString &branchName) const
+void Repository::forEachCommits(std::function<void(QSharedPointer<Commit>)> callback, const QString &branchName) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     if (!d->repo)
         return;
@@ -518,9 +519,9 @@ void Manager::forEachCommits(std::function<void(QSharedPointer<Commit>)> callbac
     git_revwalk_free(walker);
 }
 
-QSharedPointer<Index> Manager::index()
+QSharedPointer<Index> Repository::index()
 {
-    Q_D(Manager);
+    Q_D(Repository);
 
     BEGIN
     if (d->index.isNull()) {
@@ -534,9 +535,9 @@ QSharedPointer<Index> Manager::index()
     return d->index;
 }
 
-QSharedPointer<Tree> Manager::headTree() const
+QSharedPointer<Tree> Repository::headTree() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     git_reference *ref;
     git_tree *tree;
@@ -558,9 +559,9 @@ QSharedPointer<Tree> Manager::headTree() const
     return QSharedPointer<Tree>{new Tree{tree}};
 }
 
-TreeDiff Manager::diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTree)
+TreeDiff Repository::diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTree)
 {
-    Q_D(Manager);
+    Q_D(Repository);
 
     git_diff *diff;
     git_diff_options opts = GIT_DIFF_OPTIONS_INIT;
@@ -591,9 +592,9 @@ TreeDiff Manager::diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTre
     return treeDiff;
 }
 
-QString Manager::config(const QString &name, ConfigType type) const
+QString Repository::config(const QString &name, ConfigType type) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     if (!d->repo) {
         return {};
@@ -620,9 +621,9 @@ QString Manager::config(const QString &name, ConfigType type) const
     return s;
 }
 
-bool Manager::configBool(const QString &name, ConfigType type) const
+bool Repository::configBool(const QString &name, ConfigType type) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     BEGIN
     int buf{};
@@ -644,9 +645,9 @@ bool Manager::configBool(const QString &name, ConfigType type) const
     return buf;
 }
 
-void Manager::setConfig(const QString &name, const QString &value, ConfigType type) const
+void Repository::setConfig(const QString &name, const QString &value, ConfigType type) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     BEGIN
 
@@ -663,9 +664,9 @@ void Manager::setConfig(const QString &name, const QString &value, ConfigType ty
     END;
 }
 
-void Manager::unsetConfig(const QString &name, ConfigType type) const
+void Repository::unsetConfig(const QString &name, ConfigType type) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     BEGIN
 
@@ -692,7 +693,7 @@ void Manager::unsetConfig(const QString &name, ConfigType type) const
     runGit(cmd);
 }
 
-void Manager::forEachConfig(std::function<void(QString, QString)> calback)
+void Repository::forEachConfig(std::function<void(QString, QString)> calback)
 {
     struct wrapper {
         std::function<void(QString, QString)> calback;
@@ -714,7 +715,7 @@ void Manager::forEachConfig(std::function<void(QString, QString)> calback)
     git_config_free(cfg);
 }
 
-QStringList Manager::readAllNonEmptyOutput(const QStringList &cmd) const
+QStringList Repository::readAllNonEmptyOutput(const QStringList &cmd) const
 {
     QStringList list;
     const auto out = runGit(cmd).split(QLatin1Char('\n'));
@@ -729,53 +730,49 @@ QStringList Manager::readAllNonEmptyOutput(const QStringList &cmd) const
     return list;
 }
 
-Manager::Manager(QObject *parent)
+Repository::Repository(QObject *parent)
     : QObject{parent}
-    , d_ptr{new ManagerPrivate{this}}
+    , d_ptr{new RepositoryPrivate{this}}
 {
     git_libgit2_init();
 }
 
-Manager::Manager(git_repository *repo)
-    : Manager{}
+Repository::Repository(git_repository *repo)
+    : Repository{}
 {
-    Q_D(Manager);
+    Q_D(Repository);
 
     d->changeRepo(repo);
 }
 
-Manager::Manager(const QString &path)
-    : Manager{}
+Repository::Repository(const QString &path)
+    : Repository{}
 {
     (void)open(path);
 }
 
-Manager *Manager::instance()
+Repository::~Repository()
 {
-    static Manager instance;
+}
+
+Repository *Repository::instance()
+{
+    static Repository instance;
     return &instance;
 }
 
-Manager::~Manager()
+bool Repository::setHead(QSharedPointer<Reference> ref) const
 {
-    Q_D(Manager);
-    if (d->repo)
-        git_repository_free(d->repo);
-    delete d;
-}
-
-bool Manager::setHead(QSharedPointer<Reference> ref) const
-{
-    Q_D(const Manager);
+    Q_D(const Repository);
     BEGIN;
     STEP git_repository_set_head(d->repo, ref->name().toUtf8().data());
     END;
     return IS_OK;
 }
 
-bool Manager::reset(QSharedPointer<Commit> commit, ResetType type) const
+bool Repository::reset(QSharedPointer<Commit> commit, ResetType type) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     git_object *object;
     SequenceRunner r;
     r.run(git_object_lookup, &object, d->repo, commit->oid()->oidPtr(), GIT_OBJECT_COMMIT);
@@ -793,14 +790,14 @@ bool Manager::reset(QSharedPointer<Commit> commit, ResetType type) const
     return r.isSuccess();
 }
 
-QString Manager::run(const AbstractCommand &cmd) const
+QString Repository::run(const AbstractCommand &cmd) const
 {
     return runGit(cmd.generateArgs());
 }
 
-bool Manager::init(const QString &path)
+bool Repository::init(const QString &path)
 {
-    Q_D(Manager);
+    Q_D(Repository);
     git_repository *repo;
 
     BEGIN
@@ -818,9 +815,9 @@ bool Manager::init(const QString &path)
     return true;
 }
 
-bool Manager::clone(const QString &url, const QString &localPath, CloneObserver *observer)
+bool Repository::clone(const QString &url, const QString &localPath, CloneObserver *observer)
 {
-    Q_D(Manager);
+    Q_D(Repository);
 
     git_repository *repo{nullptr};
     git_clone_options opts = GIT_CLONE_OPTIONS_INIT;
@@ -852,9 +849,9 @@ bool Manager::clone(const QString &url, const QString &localPath, CloneObserver 
     return IS_OK;
 }
 
-QString Manager::runGit(const QStringList &args) const
+QString Repository::runGit(const QStringList &args) const
 {
-    Q_D(const Manager); //    qCDebug(KOMMITLIB_LOG).noquote() << "Running: git " << args.join(" ");
+    Q_D(const Repository); //    qCDebug(KOMMITLIB_LOG).noquote() << "Running: git " << args.join(" ");
 
     QProcess p;
     p.setProgram(QStringLiteral("git"));
@@ -873,9 +870,9 @@ QString Manager::runGit(const QStringList &args) const
     return QString::fromUtf8(out); // + err;
 }
 
-QStringList Manager::ls(const QString &place) const
+QStringList Repository::ls(const QString &place) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     struct wrapper {
         QStringList files;
@@ -909,9 +906,9 @@ QStringList Manager::ls(const QString &place) const
     return buffer;
 }
 
-QString Manager::fileContent(const QString &place, const QString &fileName) const
+QString Repository::fileContent(const QString &place, const QString &fileName) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     git_object *placeObject{nullptr};
     git_commit *commit{nullptr};
@@ -945,7 +942,7 @@ QString Manager::fileContent(const QString &place, const QString &fileName) cons
     return ch;
 }
 
-void Manager::saveFile(const QString &place, const QString &fileName, const QString &localFile) const
+void Repository::saveFile(const QString &place, const QString &fileName, const QString &localFile) const
 {
     auto buffer = runGit({QStringLiteral("show"), place + QLatin1Char(':') + fileName});
     QFile f{localFile};
@@ -955,9 +952,9 @@ void Manager::saveFile(const QString &place, const QString &fileName, const QStr
     f.close();
 }
 
-QSharedPointer<BlameData> Manager::blame(const QString &filePath, BlameOptions *options)
+QSharedPointer<BlameData> Repository::blame(const QString &filePath, BlameOptions *options)
 {
-    Q_D(Manager);
+    Q_D(Repository);
 
     git_blame *blame;
     git_blame_options opts;
@@ -983,9 +980,9 @@ QSharedPointer<BlameData> Manager::blame(const QString &filePath, BlameOptions *
     return QSharedPointer<BlameData>{b};
 }
 
-bool Manager::revertFile(const QString &filePath) const
+bool Repository::revertFile(const QString &filePath) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     git_checkout_options opts = GIT_CHECKOUT_OPTIONS_INIT;
 
@@ -1004,9 +1001,9 @@ bool Manager::revertFile(const QString &filePath) const
     return IS_OK;
 }
 
-QMap<QString, ChangeStatus> Manager::changedFiles() const
+QMap<QString, ChangeStatus> Repository::changedFiles() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     struct wrapper {
         QMap<QString, ChangeStatus> files;
@@ -1051,9 +1048,9 @@ QMap<QString, ChangeStatus> Manager::changedFiles() const
     return w.files;
 }
 
-bool Manager::commit(const QString &message)
+bool Repository::commit(const QString &message)
 {
-    Q_D(Manager);
+    Q_D(Repository);
     SequenceRunner r;
     git_oid commit_oid;
     git_tree *tree = nullptr;
@@ -1157,7 +1154,7 @@ bool Manager::commit(const QString &message)
     return r.isSuccess();
 }
 
-void Manager::push(PushObserver *observer) const
+void Repository::push(PushObserver *observer) const
 {
     git_push_options opts = GIT_PUSH_OPTIONS_INIT;
     if (observer) {
@@ -1172,7 +1169,7 @@ void Manager::push(PushObserver *observer) const
     runGit({QStringLiteral("push"), QStringLiteral("origin"), QStringLiteral("master")});
 }
 
-void Manager::addFile(const QString &file)
+void Repository::addFile(const QString &file)
 {
     // Q_D(const Manager);
 
@@ -1199,9 +1196,9 @@ void Manager::addFile(const QString &file)
     idx->writeTree();
 }
 
-bool Manager::removeFile(const QString &file, bool cached) const
+bool Repository::removeFile(const QString &file, bool cached) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     git_index *index = nullptr;
     git_oid oid;
@@ -1226,9 +1223,9 @@ bool Manager::removeFile(const QString &file, bool cached) const
     return IS_OK;
 }
 
-bool Manager::isMerging() const
+bool Repository::isMerging() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     if (Q_UNLIKELY(!d->repo))
         return false;
@@ -1238,9 +1235,9 @@ bool Manager::isMerging() const
     return state == GIT_REPOSITORY_STATE_MERGE;
 }
 
-bool Manager::switchBranch(QSharedPointer<Branch> branch) const
+bool Repository::switchBranch(QSharedPointer<Branch> branch) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     git_checkout_options opts = GIT_CHECKOUT_OPTIONS_INIT;
     opts.checkout_strategy = GIT_CHECKOUT_SAFE;
@@ -1259,9 +1256,9 @@ bool Manager::switchBranch(QSharedPointer<Branch> branch) const
     return IS_OK;
 }
 
-bool Manager::switchBranch(const QString &branchName) const
+bool Repository::switchBranch(const QString &branchName) const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     git_reference *branch{nullptr};
     git_object *treeish = NULL;
@@ -1286,9 +1283,9 @@ bool Manager::switchBranch(const QString &branchName) const
     return IS_OK;
 }
 
-bool Manager::isRebasing() const
+bool Repository::isRebasing() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     if (Q_UNLIKELY(!d->repo))
         return false;
@@ -1298,94 +1295,94 @@ bool Manager::isRebasing() const
     return state == GIT_REPOSITORY_STATE_REBASE || state == GIT_REPOSITORY_STATE_REBASE_INTERACTIVE || state == GIT_REPOSITORY_STATE_REBASE_MERGE;
 }
 
-bool Manager::isDetached() const
+bool Repository::isDetached() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
 
     if (Q_UNLIKELY(!d->repo))
         return false;
     return git_repository_head_detached(d->repo) == 1;
 }
 
-int Manager::errorClass() const
+int Repository::errorClass() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->errorClass;
 }
 
-git_repository *Manager::repoPtr() const
+git_repository *Repository::repoPtr() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->repo;
 }
 
-Manager *Manager::owner(git_repository *repo)
+Repository *Repository::owner(git_repository *repo)
 {
-    auto ret = ManagerPrivate::managerMap.value(repo, nullptr);
+    auto ret = RepositoryPrivate::managerMap.value(repo, nullptr);
     Q_ASSERT(ret);
     return ret;
 }
 
-CommitsCache *Manager::commits() const
+CommitsCache *Repository::commits() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->commitsCache;
 }
 
-SubmodulesCache *Manager::submodules() const
+SubmodulesCache *Repository::submodules() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->submodulesCache;
 }
 
-RemotesCache *Manager::remotes() const
+RemotesCache *Repository::remotes() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->remotesCache;
 }
 
-BranchesCache *Manager::branches() const
+BranchesCache *Repository::branches() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->branchesCache;
 }
 
-TagsCache *Manager::tags() const
+TagsCache *Repository::tags() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->tagsCache;
 }
 
-NotesCache *Manager::notes() const
+NotesCache *Repository::notes() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->notesCache;
 }
 
-StashesCache *Manager::stashes() const
+StashesCache *Repository::stashes() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->stashesCache;
 }
 
-ReferenceCache *Manager::references() const
+ReferenceCache *Repository::references() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->referenceCache;
 }
 
-QString Manager::errorMessage() const
+QString Repository::errorMessage() const
 {
     return QString{git_error_last()->message};
 }
 
-int Manager::errorCode() const
+int Repository::errorCode() const
 {
-    Q_D(const Manager);
+    Q_D(const Repository);
     return d->errorCode;
 }
 
-ManagerPrivate::ManagerPrivate(Manager *parent)
+RepositoryPrivate::RepositoryPrivate(Repository *parent)
     : q_ptr{parent}
     , commitsCache{new CommitsCache{parent}}
     , branchesCache{new BranchesCache{parent}}
@@ -1398,9 +1395,15 @@ ManagerPrivate::ManagerPrivate(Manager *parent)
 {
 }
 
-void ManagerPrivate::changeRepo(git_repository *repo)
+RepositoryPrivate::~RepositoryPrivate()
 {
-    Q_Q(Manager);
+    if (repo)
+        git_repository_free(repo);
+}
+
+void RepositoryPrivate::changeRepo(git_repository *repo)
+{
+    Q_Q(Repository);
 
     if (repo == this->repo)
         return;
@@ -1418,7 +1421,7 @@ void ManagerPrivate::changeRepo(git_repository *repo)
     resetCaches();
 }
 
-void ManagerPrivate::resetCaches()
+void RepositoryPrivate::resetCaches()
 {
     commitsCache->clear();
     branchesCache->clear();
@@ -1430,7 +1433,7 @@ void ManagerPrivate::resetCaches()
     referenceCache->clear();
 }
 
-void ManagerPrivate::freeRepo()
+void RepositoryPrivate::freeRepo()
 {
     if (repo) {
         managerMap.remove(repo);
@@ -1439,7 +1442,7 @@ void ManagerPrivate::freeRepo()
     }
 }
 
-void ManagerPrivate::checkError()
+void RepositoryPrivate::checkError()
 {
     auto __git_err = git_error_last();
     errorClass = __git_err->klass;
@@ -1448,4 +1451,4 @@ void ManagerPrivate::checkError()
 
 } // namespace Git
 
-#include "moc_gitmanager.cpp"
+#include "moc_repository.cpp"

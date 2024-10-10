@@ -8,14 +8,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commands/abstractcommand.h"
 #include "core/kmessageboxhelper.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <KLocalizedString>
 #include <QInputDialog>
 #include <QPushButton>
 #include <QTime>
 
-RunnerDialog::RunnerDialog(Git::Manager *git, QWidget *parent)
+RunnerDialog::RunnerDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(parent)
     , mGitProcess(new QProcess{this})
 {

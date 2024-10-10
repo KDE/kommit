@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "settingsmanager.h"
 
 #include "KommitSettings.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "kommitwidgetsglobaloptions.h"
 
 #include <QCalendar>
@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QWidget>
 
-SettingsManager::SettingsManager(Git::Manager *git, QWidget *parentWidget)
+SettingsManager::SettingsManager(Git::Repository *git, QWidget *parentWidget)
     : QObject(parentWidget)
     , mGit(git)
     , mParentWidget(parentWidget)
@@ -28,21 +28,21 @@ void SettingsManager::settingsChanged()
     KommitSettings::setCalendarType(pageBase.kcfg_calendarTypeIndex->currentText());
     KommitSettings::self()->save();
 
-    mGit->setConfig(QStringLiteral("http.proxy"), pageGit.lineEditGitProxy->text(), Git::Manager::ConfigGlobal);
+    mGit->setConfig(QStringLiteral("http.proxy"), pageGit.lineEditGitProxy->text(), Git::Repository::ConfigGlobal);
 
     if (KommitSettings::registerDiffTool()) {
-        mGit->setConfig(QStringLiteral("difftool.kommitdiff.cmd"), QStringLiteral("kommitdiff \"$LOCAL\" \"$REMOTE\""), Git::Manager::ConfigGlobal);
+        mGit->setConfig(QStringLiteral("difftool.kommitdiff.cmd"), QStringLiteral("kommitdiff \"$LOCAL\" \"$REMOTE\""), Git::Repository::ConfigGlobal);
     } else {
-        mGit->unsetConfig(QStringLiteral("difftool.kommitdiff.cmd"), Git::Manager::ConfigGlobal);
+        mGit->unsetConfig(QStringLiteral("difftool.kommitdiff.cmd"), Git::Repository::ConfigGlobal);
     }
     if (KommitSettings::registerMergeTool()) {
         mGit->setConfig(QStringLiteral("mergetool.kommitmerge.cmd"),
                         QStringLiteral("kommitmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\""),
-                        Git::Manager::ConfigGlobal);
-        mGit->setConfig(QStringLiteral("mergetool.kommitmerge.trustExitCode"), QStringLiteral("true"), Git::Manager::ConfigGlobal);
+                        Git::Repository::ConfigGlobal);
+        mGit->setConfig(QStringLiteral("mergetool.kommitmerge.trustExitCode"), QStringLiteral("true"), Git::Repository::ConfigGlobal);
     } else {
-        mGit->unsetConfig(QStringLiteral("mergetool.kommitmerge.cmd"), Git::Manager::ConfigGlobal);
-        mGit->unsetConfig(QStringLiteral("mergetool.kommitmerge.trustExitCode"), Git::Manager::ConfigGlobal);
+        mGit->unsetConfig(QStringLiteral("mergetool.kommitmerge.cmd"), Git::Repository::ConfigGlobal);
+        mGit->unsetConfig(QStringLiteral("mergetool.kommitmerge.trustExitCode"), Git::Repository::ConfigGlobal);
     }
 
     applyToLib();
@@ -75,7 +75,7 @@ QWidget *SettingsManager::createGitPage()
 {
     auto w = new QWidget;
     pageGit.setupUi(w);
-    pageGit.lineEditGitProxy->setText(mGit->config(QStringLiteral("http.proxy"), Git::Manager::ConfigGlobal));
+    pageGit.lineEditGitProxy->setText(mGit->config(QStringLiteral("http.proxy"), Git::Repository::ConfigGlobal));
     return w;
 }
 

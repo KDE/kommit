@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/runnerdialog.h"
 #include "dialogs/taginfodialog.h"
 #include "entities/tag.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "models/tagsmodel.h"
 
 #include <QAction>
@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "windows/diffwindow.h"
 #include <KLocalizedString>
 
-TagsActions::TagsActions(Git::Manager *git, QWidget *parent)
+TagsActions::TagsActions(Git::Repository *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
     _actionCreate = addActionHidden(i18nc("@action", "New tag…"), this, &TagsActions::create);

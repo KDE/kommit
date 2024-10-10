@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/kommit/icons">
+        <file>status-unknown.svg</file>
+        <file>status-update.svg</file>
+        <file>status-renamed.svg</file>
+        <file>status-removed.svg</file>
+        <file>status-modified.svg</file>
+        <file>status-ignored.svg</file>
+        <file>status-added.svg</file>
+    </qresource>
+</RCC>

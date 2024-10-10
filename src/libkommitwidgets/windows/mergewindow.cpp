@@ -213,7 +213,7 @@ bool MergeWindowPrivate::saveResult(const QString &filePath)
     return true;
 }
 
-MergeWindow::MergeWindow(Git::Manager *git, Mode mode, QWidget *parent)
+MergeWindow::MergeWindow(Git::Repository *git, Mode mode, QWidget *parent)
     : AppMainWindow(parent)
     , d_ptr{new MergeWindowPrivate{this}}
 {
@@ -253,8 +253,6 @@ MergeWindow::~MergeWindow()
     // s.beginGroup(QStringLiteral("MergeWindow"));
     // s.setValue(QStringLiteral("actionType"), d->mActionFilesView->isChecked() ? QStringLiteral("file") : QStringLiteral("block"));
     // s.sync();
-
-    delete d;
 }
 
 void MergeWindow::compare()

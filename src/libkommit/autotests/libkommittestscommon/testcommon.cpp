@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QResource>
 #include <QStandardPaths>
 #include <QUuid>
-#include <gitmanager.h>
+#include <repository.h>
 
 namespace TestCommon
 {
@@ -42,7 +42,7 @@ QString getTempPath(bool create)
     return path;
 }
 
-bool cleanPath(Git::Manager *manager)
+bool cleanPath(Git::Repository *manager)
 {
     if (!manager->isValid())
         return false;
@@ -60,13 +60,13 @@ QString readFile(const QString &fileName)
     return buffer;
 }
 
-bool makePath(Git::Manager *manager, const QString &path)
+bool makePath(Git::Repository *manager, const QString &path)
 {
     QDir d{};
     return d.mkpath(manager->path() + QLatin1Char('/') + path);
 }
 
-QString touch(Git::Manager *manager, const QString &fileName)
+QString touch(Git::Repository *manager, const QString &fileName)
 {
     QString content;
     if (fileName.startsWith(QLatin1Char('/')))
@@ -77,13 +77,13 @@ QString touch(Git::Manager *manager, const QString &fileName)
     return content;
 }
 
-void initSignature(Git::Manager *manager)
+void initSignature(Git::Repository *manager)
 {
-    manager->setConfig("user.name", "kommit test user", Git::Manager::ConfigLocal);
-    manager->setConfig("user.email", "kommit@kde.org", Git::Manager::ConfigLocal);
+    manager->setConfig("user.name", "kommit test user", Git::Repository::ConfigLocal);
+    manager->setConfig("user.email", "kommit@kde.org", Git::Repository::ConfigLocal);
 }
 
-bool writeFile(Git::Manager *manager, const QString &fileName, const QString &content)
+bool writeFile(Git::Repository *manager, const QString &fileName, const QString &content)
 {
     QFile f(manager->path() + QLatin1Char('/') + fileName);
     if (!f.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))

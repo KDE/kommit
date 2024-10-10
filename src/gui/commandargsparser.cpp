@@ -32,11 +32,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/index.h"
 #include "kommit_appdebug.h"
 #include "settings/settingsmanager.h"
+#include "dialogs/resolvedialog.h"
 
 #include <dialogs/filestreedialog.h>
 #include <entities/file.h>
 #include <entities/tree.h>
-#include <gitmanager.h>
+#include <repository.h>
 #include <windows/diffwindow.h>
 #include <windows/mergewindow.h>
 
@@ -55,7 +56,7 @@ constexpr int InvalidPath = 1;
 
 CommandArgsParser::CommandArgsParser()
     : QObject()
-    , mGit(new Git::Manager)
+    , mGit(new Git::Repository)
 {
     SettingsManager::applyToLib();
 }
@@ -521,6 +522,17 @@ ArgParserReturn CommandArgsParser::browse(const QString &path, const QString &pl
     }
 
     FilesTreeDialog d{mGit, place};
+    d.exec();
+    return 0;
+}
+
+ArgParserReturn CommandArgsParser::conflicts(const QString &path)
+{
+    if (!checkGitPath(path)) {
+        return 1;
+    }
+
+    ResolveDialog d{mGit};
     d.exec();
     return 0;
 }

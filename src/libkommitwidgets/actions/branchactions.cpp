@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <commands/commandmerge.h>
 #include <entities/branch.h>
-#include <gitmanager.h>
+#include <repository.h>
 
 #include "core/kmessageboxhelper.h"
 #include "dialogs/fetchdialog.h"
@@ -24,7 +24,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/branchesmodel.h"
 #include "windows/diffwindow.h"
 
-BranchActions::BranchActions(Git::Manager *git, QWidget *parent)
+BranchActions::BranchActions(Git::Repository *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
     _actionCreate = addActionHidden(i18nc("@action", "Create…"), this, &BranchActions::create);

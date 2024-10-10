@@ -11,12 +11,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QCalendar>
 #include <QSet>
+#include <QScopedPointer>
 
 namespace Git
 {
 class Branch;
 class Commit;
-class Manager;
+class Repository;
 }
 
 class CommitsModelPrivate;
@@ -26,8 +27,7 @@ class LIBKOMMITWIDGETS_EXPORT CommitsModel : public AbstractGitItemsModel
 
 public:
     enum class LogMatchType { ExactMatch, BeginMatch };
-    explicit CommitsModel(Git::Manager *git, QObject *parent = nullptr);
-    ~CommitsModel() override;
+    explicit CommitsModel(Git::Repository *git, QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent) const override;
@@ -56,6 +56,6 @@ protected:
     void reload() override;
 
 private:
-    CommitsModelPrivate *d_ptr;
+    QScopedPointer<CommitsModelPrivate> d_ptr;
     Q_DECLARE_PRIVATE(CommitsModel)
 };

@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/file.h"
 #include "entities/index.h"
 #include "entities/tree.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "testcommon.h"
 #include <QTest>
 
@@ -34,7 +34,7 @@ void FileTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
     qDebug() << path;
-    mManager = new Git::Manager;
+    mManager = new Git::Repository;
 
     auto init = mManager->init(path);
     QCOMPARE(mManager->path(), path);

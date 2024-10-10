@@ -10,14 +10,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/types.h>
 
 #include <QString>
+#include <QSharedPointer>
+#include <QScopedPointer>
 
 #include "entities/tree.h"
 #include "libkommit_export.h"
 #include "oid.h"
+#include "types.h"
 
 namespace Git
 {
 
+class Blob;
+class IndexEntryPrivate;
 class LIBKOMMIT_EXPORT IndexEntry : IOid
 {
 public:
@@ -32,13 +37,44 @@ public:
     bool isConflict() const;
 
 private:
-    const git_index_entry *mEntryPtr;
+    QScopedPointer<IndexEntryPrivate> d_ptr;
+    Q_DECLARE_PRIVATE(IndexEntry)
+};
+
+class LIBKOMMIT_EXPORT IndexConflictEntry : public IndexEntry
+{
+public:
+    IndexConflictEntry(git_repository *repo, const git_index_entry *entryPtr);
+
+    [[nodiscard]] QSharedPointer<Blob> blob() const;
+
+private:
+    QSharedPointer<Blob> mBlob;
 };
 
 struct LIBKOMMIT_EXPORT ConflictIndex {
-    IndexEntry *ancestorIndex;
-    IndexEntry *ourIndex;
-    IndexEntry *theirIndex;
+    QScopedPointer<IndexConflictEntry> ancestorIndex{nullptr};
+    QScopedPointer<IndexConflictEntry> ourIndex{nullptr};
+    QScopedPointer<IndexConflictEntry> theirIndex{nullptr};
+};
+
+class ConflictIndexListPrivate;
+class LIBKOMMIT_EXPORT ConflictIndexList {
+public:
+    using ListType = QList<ConflictIndex*>;
+
+    ConflictIndexList();
+    ConflictIndexList(ListType list);
+
+    [[nodiscard]] qsizetype size() const;
+    [[nodiscard]] ListType conflicts() const;
+    [[nodiscard]] ConflictIndex *at(qsizetype index) const;
+    [[nodiscard]] ListType::const_iterator begin() const;
+    [[nodiscard]] ListType::const_iterator end() const;
+
+private:
+    QScopedPointer<ConflictIndexListPrivate> d_ptr;
+    Q_DECLARE_PRIVATE(ConflictIndexList)
 };
 
 class LIBKOMMIT_EXPORT Index
@@ -94,9 +130,11 @@ public:
     QSharedPointer<Tree> tree() const;
 
     QList<IndexEntry *> entries() const;
-    QList<ConflictIndex *> conflicts() const;
+    bool hasConflicts() const;
+    QSharedPointer<ConflictIndexList> conflicts() const;
     git_oid &lastOid();
 
+    void resolveConflict(ConflictIndex *conflict, ConflictSide side);
 private:
     git_index *const ptr;
     git_oid mLastOid;

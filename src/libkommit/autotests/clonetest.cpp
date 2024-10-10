@@ -12,13 +12,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <entities/tree.h>
 
 #include <QTest>
-#include <gitmanager.h>
+#include <repository.h>
 
 QTEST_GUILESS_MAIN(CloneTest)
 
 CloneTest::CloneTest(QObject *parent)
     : QObject{parent}
-    , mManager{new Git::Manager{this}}
+    , mManager{new Git::Repository{this}}
 {
 }
 

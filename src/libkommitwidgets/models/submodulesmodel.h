@@ -9,9 +9,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractgititemsmodel.h"
 #include "libkommitwidgets_export.h"
 
+#include <QScopedPointer>
+
 namespace Git
 {
-class Manager;
+class Repository;
 class Submodule;
 }
 
@@ -21,8 +23,7 @@ class LIBKOMMITWIDGETS_EXPORT SubmodulesModel : public AbstractGitItemsModel
     Q_OBJECT
 
 public:
-    explicit SubmodulesModel(Git::Manager *git);
-    virtual ~SubmodulesModel();
+    explicit SubmodulesModel(Git::Repository *git);
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent) const override;
@@ -35,6 +36,6 @@ public:
     void reload() override;
 
 private:
-    SubmodulesModelPrivate *d_ptr;
-    Q_DECLARE_PRIVATE(SubmodulesModel);
+    QScopedPointer<SubmodulesModelPrivate> d_ptr;
+    Q_DECLARE_PRIVATE(SubmodulesModel)
 };

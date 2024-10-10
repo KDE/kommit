@@ -24,7 +24,7 @@ class LIBKOMMIT_EXPORT CommitsCache : public QObject, public OidCache<Commit, gi
     Q_OBJECT
 
 public:
-    explicit CommitsCache(Manager *parent);
+    explicit CommitsCache(Repository *parent);
 
     [[nodiscard]] QSharedPointer<Commit> find(const QString &hash);
 

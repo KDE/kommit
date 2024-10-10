@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/referencecache.h"
 #include "credential.h"
 #include "entities/oid.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <git2/oid.h>
 
@@ -17,7 +17,7 @@ namespace Git
 
 struct FetchObserverBridge {
     FetchObserver *observer;
-    Manager *manager;
+    Repository *manager;
 };
 namespace FetchObserverCallbacks
 {
@@ -130,7 +130,7 @@ int git_helper_transport_certificate_check(git_cert *cert, int valid, const char
 }
 }
 
-FetchObserver::FetchObserver(Manager *parent)
+FetchObserver::FetchObserver(Repository *parent)
     : QObject{parent}
     , mManager{parent}
 {

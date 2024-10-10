@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "fileviewerdialog.h"
 #include "entities/blob.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <KActionCollection>
 #include <KLocalizedString>
@@ -69,16 +69,16 @@ FileViewerDialog::~FileViewerDialog()
 void FileViewerDialog::showFile(const Git::Blob &file)
 {
     QMimeDatabase mimeDatabase;
-    const auto fn = file.fileName().mid(file.fileName().lastIndexOf(QLatin1Char('/')) + 1);
+    const auto fn = file.filePath().mid(file.filePath().lastIndexOf(QLatin1Char('/')) + 1);
     const auto mime = mimeDatabase.mimeTypeForFile(fn, QMimeDatabase::MatchExtension);
 
     // TODO: remove place
     //  lineEditBranchName->setText(file.place());
-    lineEditFileName->setText(file.fileName());
+    lineEditFileName->setText(file.filePath());
     plainTextEdit->setReadOnly(true);
 
-    setWindowTitle(i18nc("@title:window", "View file: %1", file.fileName()));
-    setWindowFilePath(file.fileName());
+    setWindowTitle(i18nc("@title:window", "View file: %1", file.filePath()));
+    setWindowFilePath(file.filePath());
     labelFileIcon->setPixmap(QIcon::fromTheme(mime.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize)));
 
     if (showWithParts(mime, file))
@@ -94,7 +94,7 @@ void FileViewerDialog::showInEditor(const Git::Blob &file)
 {
     stackedWidget->setCurrentIndex(0);
     plainTextEdit->setPlainText(file.content());
-    plainTextEdit->setHighlighting(file.fileName());
+    plainTextEdit->setHighlighting(file.filePath());
 }
 
 void FileViewerDialog::showAsImage(const Git::Blob &file)

@@ -17,7 +17,7 @@ class ChangedFilesModel : public QAbstractListModel
     Q_OBJECT
 
 public:
-    explicit ChangedFilesModel(Git::Manager *git, bool checkable = false, QObject *parent = nullptr);
+    explicit ChangedFilesModel(Git::Repository *git, bool checkable = false, QObject *parent = nullptr);
     void reload();
 
     [[nodiscard]] int rowCount(const QModelIndex &parent) const override;
@@ -49,7 +49,7 @@ Q_SIGNALS:
 private:
     void createIcon(Git::ChangeStatus status);
 
-    Git::Manager *mGit{nullptr};
+    Git::Repository *mGit{nullptr};
     QList<Row> mData;
     QMap<Git::ChangeStatus, QIcon> mIcons;
     bool mCheckable = false;

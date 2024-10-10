@@ -11,13 +11,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/submodule.h>
 
 #include "gitglobal_p.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "options/addsubmoduleoptions.h"
 #include "types.h"
 
 namespace Git
 {
-SubmodulesCache::SubmodulesCache(Manager *manager)
+SubmodulesCache::SubmodulesCache(Repository *manager)
     : QObject{manager}
     , Cache<Submodule, git_submodule>{manager}
 {

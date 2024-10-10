@@ -21,7 +21,7 @@ namespace Git
 class LIBKOMMIT_EXPORT TagsCache : public OidCache<Tag, git_tag>
 {
 public:
-    explicit TagsCache(Manager *parent);
+    explicit TagsCache(Repository *parent);
 
     [[nodiscard]] QSharedPointer<Tag> find(const QString &key);
     [[nodiscard]] QList<QSharedPointer<Tag>> allTags();

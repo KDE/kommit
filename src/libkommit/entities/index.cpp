@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "entities/index.h"
+#include "blob.h"
 #include "entities/strarray.h"
 #include "gitglobal_p.h"
 #include "types.h"
@@ -13,6 +14,33 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
+
+class IndexEntryPrivate
+{
+    IndexEntry *q_ptr;
+    Q_DECLARE_PUBLIC(IndexEntry)
+
+public:
+    IndexEntryPrivate(IndexEntry *parent, const git_index_entry *entry);
+
+    QString path;
+    quint16 fileSize;
+    QSharedPointer<Oid> oid;
+    IndexEntry::StageState stageState;
+    bool isConflict;
+};
+
+IndexEntryPrivate::IndexEntryPrivate(IndexEntry *parent, const git_index_entry *entry)
+    : q_ptr{parent}
+{
+    if (entry) {
+        oid.reset(new Oid{entry->id});
+        path = QString{entry->path};
+        fileSize = entry->file_size;
+        stageState = static_cast<IndexEntry::StageState>(git_index_entry_stage(entry));
+        isConflict = 1 == git_index_entry_is_conflict(entry);
+    }
+}
 
 Index::Index(git_index *index)
     : ptr{index}
@@ -124,7 +152,12 @@ QList<IndexEntry *> Index::entries() const
     return list;
 }
 
-QList<ConflictIndex *> Index::conflicts() const
+bool Index::hasConflicts() const
+{
+    return 1 == git_index_has_conflicts(ptr);
+}
+
+QSharedPointer<ConflictIndexList> Index::conflicts() const
 {
     QList<ConflictIndex *> list;
 
@@ -133,14 +166,16 @@ QList<ConflictIndex *> Index::conflicts() const
     const git_index_entry *ancestorEntry;
     const git_index_entry *ourEntry;
     const git_index_entry *theirEntry;
+    auto repo = git_index_owner(ptr);
+
     while (!git_index_conflict_next(&ancestorEntry, &ourEntry, &theirEntry, it)) {
         auto i = new ConflictIndex;
-        i->ancestorIndex = new IndexEntry{ancestorEntry};
-        i->ourIndex = new IndexEntry{ourEntry};
-        i->theirIndex = new IndexEntry{theirEntry};
+        i->ancestorIndex.reset(new IndexConflictEntry{repo, ancestorEntry});
+        i->ourIndex.reset(new IndexConflictEntry{repo, ourEntry});
+        i->theirIndex.reset(new IndexConflictEntry{repo, theirEntry});
         list << i;
     }
-    return list;
+    return QSharedPointer<ConflictIndexList>::create(list);
 }
 
 git_oid &Index::lastOid()
@@ -149,33 +184,38 @@ git_oid &Index::lastOid()
 }
 
 IndexEntry::IndexEntry(const git_index_entry *entryPtr)
-    : mEntryPtr{entryPtr}
+    : d_ptr{new IndexEntryPrivate{this, entryPtr}}
 {
 }
 
 QString IndexEntry::path() const
 {
-    return QString{mEntryPtr->path};
+    Q_D(const IndexEntry);
+    return d->path;
 }
 
 quint16 IndexEntry::fileSize() const
 {
-    return mEntryPtr->file_size;
+    Q_D(const IndexEntry);
+    return d->fileSize;
 }
 
 QSharedPointer<Oid> IndexEntry::oid() const
 {
-    return QSharedPointer<Oid>{new Oid{&mEntryPtr->id}};
+    Q_D(const IndexEntry);
+    return d->oid;
 }
 
 IndexEntry::StageState IndexEntry::stageState() const
 {
-    return static_cast<StageState>(git_index_entry_stage(mEntryPtr));
+    Q_D(const IndexEntry);
+    return d->stageState;
 }
 
 bool IndexEntry::isConflict() const
 {
-    return 1 == git_index_entry_is_conflict(mEntryPtr);
+    Q_D(const IndexEntry);
+    return d->isConflict;
 }
 
 Index::iterator::iterator(git_index *ptr)
@@ -209,4 +249,78 @@ Index::iterator Index::iterator::operator++(int)
     ++i;
     return *this;
 }
+
+IndexConflictEntry::IndexConflictEntry(git_repository *repo, const git_index_entry *entryPtr)
+    : IndexEntry{entryPtr}
+{
+    if (entryPtr)
+        mBlob.reset(new Blob{repo, entryPtr});
+}
+
+QSharedPointer<Blob> IndexConflictEntry::blob() const
+{
+    return mBlob;
+}
+
+class ConflictIndexListPrivate{
+    ConflictIndexList *q_ptr;
+    Q_DECLARE_PUBLIC(ConflictIndexList)
+
+public:
+    explicit ConflictIndexListPrivate(ConflictIndexList *parent,QList<ConflictIndex*> conflicts);
+    ~ConflictIndexListPrivate();
+
+    QList<ConflictIndex*> conflicts;
+};
+ConflictIndexListPrivate::ConflictIndexListPrivate(ConflictIndexList *parent, QList<ConflictIndex *> conflicts)
+    : q_ptr{parent}
+    , conflicts{conflicts}
+{
+
+}
+
+ConflictIndexListPrivate::~ConflictIndexListPrivate()
+{
+    qDeleteAll(conflicts);
+}
+
+ConflictIndexList::ConflictIndexList()
+    : d_ptr{new ConflictIndexListPrivate{this, {}}}
+{
+}
+
+ConflictIndexList::ConflictIndexList(ListType list)
+    : d_ptr{new ConflictIndexListPrivate{this, list}}
+{
+}
+
+qsizetype ConflictIndexList::size() const
+{
+    Q_D(const ConflictIndexList);
+    return d->conflicts.size();
+}
+
+ConflictIndexList::ListType ConflictIndexList::conflicts() const
+{
+    Q_D(const ConflictIndexList);
+    return d->conflicts;
+}
+
+ConflictIndex *ConflictIndexList::at(qsizetype index) const
+{
+    Q_D(const ConflictIndexList);
+    return d->conflicts.at(index);
+}
+
+ConflictIndexList::ListType::const_iterator ConflictIndexList::begin() const
+{
+    Q_D(const ConflictIndexList);
+    return d->conflicts.begin();
+}
+
+ConflictIndexList::ListType::const_iterator ConflictIndexList::end() const
+{    Q_D(const ConflictIndexList);
+    return d->conflicts.end();
+}
+
 }

@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/remote.h"
 #include "caches/branchescache.h"
 #include "entities/branch.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "types.h"
 
 #include <git2/buffer.h>
@@ -113,7 +113,7 @@ QString Remote::defaultBranch() const
 const QList<QSharedPointer<Branch>> &Remote::branches()
 {
     if (!mBranches.size()) {
-        auto owner = Manager::owner(git_remote_owner(mRemotePtr));
+        auto owner = Repository::owner(git_remote_owner(mRemotePtr));
 
         auto branches = owner->branches()->allBranches();
         for (auto const &branch : branches)

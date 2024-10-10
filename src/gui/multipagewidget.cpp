@@ -11,12 +11,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QActionGroup>
 #include <QToolButton>
 
-Git::Manager *MultiPageWidget::defaultGitManager() const
+Git::Repository *MultiPageWidget::defaultGitManager() const
 {
     return mDefaultGitManager;
 }
 
-void MultiPageWidget::setDefaultGitManager(Git::Manager *newDefaultGitManager)
+void MultiPageWidget::setDefaultGitManager(Git::Repository *newDefaultGitManager)
 {
     mDefaultGitManager = newDefaultGitManager;
 }

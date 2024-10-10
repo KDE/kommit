@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 class FetchObserver;
 }
 
@@ -21,7 +21,7 @@ class LIBKOMMITWIDGETS_EXPORT FetchDialog : public AppDialog, private Ui::FetchD
     Q_OBJECT
 
 public:
-    explicit FetchDialog(Git::Manager *git, QWidget *parent = nullptr);
+    explicit FetchDialog(Git::Repository *git, QWidget *parent = nullptr);
 
     void setBranch(const QString &branch);
 

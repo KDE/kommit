@@ -8,17 +8,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QStringList>
 #include <QVersionNumber>
+#include <QScopedPointer>
 
 class ChangeLogsDataPrivate;
 class ChangeLogsData
 {
 public:
     ChangeLogsData();
-    ~ChangeLogsData();
+    virtual ~ChangeLogsData();
 
     [[nodiscard]] QString generateMarkdown(const QVersionNumber &until = {}) const;
 
 private:
-    ChangeLogsDataPrivate *d_ptr;
+    QScopedPointer<ChangeLogsDataPrivate> d_ptr;
     Q_DECLARE_PRIVATE(ChangeLogsData)
 };

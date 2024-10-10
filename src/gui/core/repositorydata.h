@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <gitmanager.h>
+#include <repository.h>
 
 class RemotesModel;
 class BranchesModel;
@@ -20,11 +20,11 @@ class RepositoryData : public QObject
     Q_OBJECT
 
 public:
-    explicit RepositoryData(Git::Manager *git);
+    explicit RepositoryData(Git::Repository *git);
     ~RepositoryData() override;
     void loadAll();
 
-    [[nodiscard]] Git::Manager *manager() const;
+    [[nodiscard]] Git::Repository *manager() const;
 
     [[nodiscard]] SubmodulesModel *submodulesModel() const;
 
@@ -35,7 +35,7 @@ public:
     [[nodiscard]] TagsModel *tagsModel() const;
 
 private:
-    Git::Manager *const mManager;
+    Git::Repository *const mManager;
     RemotesModel *const mRemotesModel;
     SubmodulesModel *const mSubmodulesModel;
     BranchesModel *const mBranchesModel;

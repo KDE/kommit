@@ -18,7 +18,7 @@ class LIBKOMMITWIDGETS_EXPORT BranchActions : public AbstractActions
     Q_OBJECT
 
 public:
-    explicit BranchActions(Git::Manager *git, QWidget *parent = nullptr);
+    explicit BranchActions(Git::Repository *git, QWidget *parent = nullptr);
 
     void setBranch(QSharedPointer<Git::Branch> newBranch);
     void setOtherBranch(QSharedPointer<Git::Branch> newOtherBranch);

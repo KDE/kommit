@@ -7,18 +7,19 @@
 
 #include "types.h"
 
+#include <git2.h>
+
 #include <QObject>
+#include <QScopedPointer>
 #include <QSharedPointer>
 #include <QString>
-
-#include <git2.h>
 
 namespace Git
 {
 
 class Branch;
 class Tag;
-class Manager;
+class Repository;
 class Submodule;
 class FetchObserver;
 class CloneObserver;
@@ -28,7 +29,7 @@ class AbstractReference;
 class Index;
 class Tree;
 class Note;
-class ManagerPrivate;
+class RepositoryPrivate;
 class Commit;
 class CommitsCache;
 class BranchesCache;
@@ -48,7 +49,7 @@ class BlameOptions;
 class BlameData;
 
 // TODO: rename class and file's name to repository
-class LIBKOMMIT_EXPORT Manager : public QObject
+class LIBKOMMIT_EXPORT Repository : public QObject
 {
     Q_OBJECT
 
@@ -64,11 +65,11 @@ public:
     };
     enum class ResetType { Soft = GIT_RESET_SOFT, Mied = GIT_RESET_MIXED, Hard = GIT_RESET_HARD };
 
-    explicit Manager(QObject *parent = nullptr);
-    explicit Manager(git_repository *repo);
-    explicit Manager(const QString &path);
-    static Manager *instance();
-    virtual ~Manager();
+    explicit Repository(QObject *parent = nullptr);
+    explicit Repository(git_repository *repo);
+    explicit Repository(const QString &path);
+    ~Repository();
+    static Repository *instance();
 
     // run
     QString run(const AbstractCommand &cmd) const;
@@ -145,7 +146,7 @@ public:
     [[nodiscard]] int errorClass() const;
 
     [[nodiscard]] git_repository *repoPtr() const;
-    [[nodiscard]] static Manager *owner(git_repository *repo);
+    [[nodiscard]] static Repository *owner(git_repository *repo);
 
     [[nodiscard]] CommitsCache *commits() const;
     [[nodiscard]] SubmodulesCache *submodules() const;
@@ -162,8 +163,8 @@ Q_SIGNALS:
     void currentBranchChanged() const;
 
 private:
-    ManagerPrivate *d_ptr;
-    Q_DECLARE_PRIVATE(Manager)
+    QScopedPointer<RepositoryPrivate> d_ptr;
+    Q_DECLARE_PRIVATE(Repository)
 
     LIBKOMMIT_NO_EXPORT QStringList readAllNonEmptyOutput(const QStringList &cmd) const;
 };

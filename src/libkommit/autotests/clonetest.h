@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 };
 
 class CloneTest : public QObject
@@ -27,5 +27,5 @@ private Q_SLOTS:
     void cleanupTestCase();
 
 private:
-    Git::Manager *mManager;
+    Git::Repository *mManager;
 };

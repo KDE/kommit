@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitloglist.h"
 #include "caches/branchescache.h"
 #include "entities/commit.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <QDateTime>
 #include <utility>
@@ -85,7 +85,7 @@ LogList::LogList(QString branch)
 {
 }
 
-void LogList::load(Git::Manager *git)
+void LogList::load(Git::Repository *git)
 {
     /*
 % -- raw %                    N -- notes                    d -- ref name in brackets     n -- newline
@@ -119,7 +119,7 @@ H -- commit hash              c -- committer details        m -- mark           
         args.insert(2, mBranch);
 
     // TODO: remove this singelton call
-    const auto ret = QString(Manager::instance()->runGit(args));
+    const auto ret = QString(Repository::instance()->runGit(args));
     if (ret.startsWith(QStringLiteral("fatal:")))
         return;
 

@@ -10,11 +10,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include "types.h"
 
+#include <QScopedPointer>
+
 namespace Git
 {
 
 class Branch;
-class Manager;
+class Repository;
 }
 class BranchesModelPrivate;
 class LIBKOMMITWIDGETS_EXPORT BranchesModel : public AbstractGitItemsModel
@@ -27,7 +29,7 @@ public:
         int commitsAhead;
         int commitsBehind;
     };
-    explicit BranchesModel(Git::Manager *git);
+    explicit BranchesModel(Git::Repository *git);
     ~BranchesModel();
 
     int rowCount(const QModelIndex &parent) const override;
@@ -49,6 +51,6 @@ public:
     void setBranchesType(const Git::BranchType &newBranchType);
 
 private:
-    BranchesModelPrivate *d_ptr;
+    QScopedPointer<BranchesModelPrivate> d_ptr;
     Q_DECLARE_PRIVATE(BranchesModel)
 };

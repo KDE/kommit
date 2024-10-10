@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 }
 
 class LIBKOMMITWIDGETS_EXPORT SelectBranchesToDiffDialog : public AppDialog, private Ui::SelectBranchesToDiffDialog
@@ -20,7 +20,7 @@ class LIBKOMMITWIDGETS_EXPORT SelectBranchesToDiffDialog : public AppDialog, pri
     Q_OBJECT
 
 public:
-    explicit SelectBranchesToDiffDialog(Git::Manager *git, QWidget *parent = nullptr);
+    explicit SelectBranchesToDiffDialog(Git::Repository *git, QWidget *parent = nullptr);
 
     [[nodiscard]] QString oldBranch() const;
     [[nodiscard]] QString newBranch() const;

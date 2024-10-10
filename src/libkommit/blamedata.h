@@ -10,15 +10,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "entities/oid.h"
 
+#include <git2/blame.h>
+
+#include <QScopedPointer>
 #include <QSharedPointer>
 #include <QString>
-#include <git2/blame.h>
 
 namespace Git
 {
 
 struct LIBKOMMIT_EXPORT BlameDataRow {
-    BlameDataRow(Manager *git, const git_blame_hunk *hunk);
+    BlameDataRow(Repository *git, const git_blame_hunk *hunk);
 
     const git_blame_hunk *const hunkPtr;
 
@@ -45,7 +47,7 @@ class BlameDataPrivate;
 class LIBKOMMIT_EXPORT BlameData
 {
 public:
-    BlameData(Manager *gitManager, const QStringList &content, git_blame *blame);
+    BlameData(Repository *gitManager, const QStringList &content, git_blame *blame);
     ~BlameData();
 
     [[nodiscard]] const QStringList &content() const;
@@ -61,7 +63,7 @@ public:
     [[nodiscard]] qsizetype size() const;
 
 private:
-    BlameDataPrivate *d_ptr;
+    QScopedPointer<BlameDataPrivate> d_ptr;
     Q_DECLARE_PRIVATE(BlameData)
 };
 

@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <entities/blob.h>
 #include <entities/branch.h>
 #include <entities/commit.h>
-#include <gitmanager.h>
+#include <repository.h>
 #include <models/commitsmodel.h>
 
 #include <models/treemodel.h>

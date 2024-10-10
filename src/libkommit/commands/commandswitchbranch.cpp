@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-CommandSwitchBranch::CommandSwitchBranch(Manager *git)
+CommandSwitchBranch::CommandSwitchBranch(Repository *git)
     : AbstractCommand(git)
 {
 }

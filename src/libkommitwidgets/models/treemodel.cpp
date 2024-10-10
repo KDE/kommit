@@ -34,8 +34,7 @@ TreeModel::TreeModel(QObject *parent)
 TreeModel::~TreeModel()
 {
     Q_D(TreeModel);
-    delete d->rootNode;
-    delete d;
+    delete d->rootNode; //TODO: move this to private class
 }
 
 QModelIndex TreeModel::index(int row, int column, const QModelIndex &parent) const

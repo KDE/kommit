@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "widgetbase.h"
 
-#include "gitmanager.h"
+#include "repository.h"
 
 #include "appwindow.h"
 #include <QDialog>
@@ -23,7 +23,7 @@ WidgetBase::WidgetBase(RepositoryData *git, AppWindow *parent)
     , mGit(git)
     , mParent{parent}
 {
-    connect(mGit->manager(), &Git::Manager::pathChanged, this, &WidgetBase::gitPathChanged);
+    connect(mGit->manager(), &Git::Repository::pathChanged, this, &WidgetBase::gitPathChanged);
 }
 
 RepositoryData *WidgetBase::git() const

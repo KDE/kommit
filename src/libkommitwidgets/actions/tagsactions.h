@@ -19,7 +19,7 @@ class LIBKOMMITWIDGETS_EXPORT TagsActions : public AbstractActions
     Q_OBJECT
 
 public:
-    explicit TagsActions(Git::Manager *git, QWidget *parent = nullptr);
+    explicit TagsActions(Git::Repository *git, QWidget *parent = nullptr);
 
     [[nodiscard]] const QString &tagName() const;
     void setTagName(const QString &newTagName);

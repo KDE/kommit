@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "indextest.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "testcommon.h"
 #include <QTest>
 #include <entities/index.h>
@@ -14,7 +14,7 @@ QTEST_GUILESS_MAIN(IndexTest)
 
 IndexTest::IndexTest(QObject *parent)
     : QObject{parent}
-    , mManager{new Git::Manager{this}}
+    , mManager{new Git::Repository{this}}
 {
 }
 

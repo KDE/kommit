@@ -32,7 +32,7 @@ struct ArgParserReturn {
 
 namespace Git
 {
-class Manager;
+class Repository;
 }
 
 #define HelpText(name, text) Q_CLASSINFO("help." #name, text)
@@ -72,6 +72,7 @@ public Q_SLOTS:
     ArgParserReturn diff_branches(const QString &path);
     ArgParserReturn browse(const QString &place);
     ArgParserReturn browse(const QString &path, const QString &place);
+    ArgParserReturn conflicts(const QString &path);
 
     ArgParserReturn add(const QString &path);
     ArgParserReturn remove(const QString &path);
@@ -81,6 +82,6 @@ public Q_SLOTS:
 
 private:
     [[nodiscard]] bool checkGitPath(const QString &path);
-    Git::Manager *const mGit;
+    Git::Repository *const mGit;
     QMap<QString, QString> mHelpTexts;
 };

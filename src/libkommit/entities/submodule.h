@@ -22,7 +22,7 @@ class FetchOptions;
 class FetchObserver;
 
 class Oid;
-class Manager;
+class Repository;
 class SubmodulePrivate;
 class LIBKOMMIT_EXPORT Submodule
 {
@@ -70,7 +70,7 @@ public:
     bool sync() const;
     bool reload(bool force = false) const;
 
-    [[nodiscard]] Manager *open() const;
+    [[nodiscard]] Repository *open() const;
     bool update(const FetchOptions &opts, FetchObserver *observer = nullptr);
 
 private:

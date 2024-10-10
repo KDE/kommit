@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <options/addsubmoduleoptions.h>
 
 #include <QTest>
-#include <gitmanager.h>
+#include <repository.h>
 
 QTEST_GUILESS_MAIN(SubmoduleTest)
 
@@ -27,7 +27,7 @@ void SubmoduleTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
     qDebug() << path;
-    mManager = new Git::Manager;
+    mManager = new Git::Repository;
 
     QVERIFY(!mManager->isValid());
 

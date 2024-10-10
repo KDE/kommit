@@ -11,11 +11,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <entities/commit.h>
 #include <entities/signature.h>
 #include <entities/tag.h>
-#include <gitmanager.h>
+#include <repository.h>
 
 #include <KLocalizedString>
 
-AuthorsReport::AuthorsReport(Git::Manager *git, QObject *parent)
+AuthorsReport::AuthorsReport(Git::Repository *git, QObject *parent)
     : AbstractReport{git, parent}
 {
     setValueColumn(2);

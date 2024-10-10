@@ -30,7 +30,7 @@ public:
     };
     Q_ENUM(FileMode)
 
-    explicit RepoSettingsDialog(Git::Manager *git, QWidget *parent = nullptr);
+    explicit RepoSettingsDialog(Git::Repository *git, QWidget *parent = nullptr);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotAccepted();

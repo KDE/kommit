@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "branchesmodel.h"
 #include "caches/branchescache.h"
 #include "entities/branch.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <KLocalizedString>
 
@@ -28,7 +28,7 @@ public:
     Git::BranchType branchType{Git::BranchType::AllBranches};
 };
 
-BranchesModel::BranchesModel(Git::Manager *git)
+BranchesModel::BranchesModel(Git::Repository *git)
     : AbstractGitItemsModel{git}
     , d_ptr{new BranchesModelPrivate{this}}
 {

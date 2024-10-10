@@ -19,7 +19,7 @@ class LIBKOMMITWIDGETS_EXPORT FileActions : public AbstractActions
     Q_OBJECT
 
 public:
-    explicit FileActions(Git::Manager *git, QWidget *parent = nullptr);
+    explicit FileActions(Git::Repository *git, QWidget *parent = nullptr);
     void popup(const QPoint &pos);
 
     [[nodiscard]] const QString &place() const;

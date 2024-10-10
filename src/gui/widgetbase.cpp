@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "widgetbase.h"
 
-#include "git/gitmanager.h"
+#include <repository.h>
 
 #include <QDialog>
 #include <QPushButton>
@@ -15,25 +15,25 @@ SPDX-License-Identifier: GPL-3.0-or-later
 WidgetBase::WidgetBase(QWidget *parent)
     : QWidget(parent)
 {
-    _git = Git::Manager::instance();
-    connect(_git, &Git::Manager::pathChanged, this, &WidgetBase::git_pathChanged);
+    _git = Git::Repository::instance();
+    connect(_git, &Git::Repository::pathChanged, this, &WidgetBase::git_pathChanged);
 }
 
-WidgetBase::WidgetBase(Git::Manager *git, QWidget *parent)
+WidgetBase::WidgetBase(Git::Repository *git, QWidget *parent)
     : QWidget(parent)
     , _git(git)
 {
     if (!_git)
-        _git = Git::Manager::instance();
-    connect(_git, &Git::Manager::pathChanged, this, &WidgetBase::git_pathChanged);
+        _git = Git::Repository::instance();
+    connect(_git, &Git::Repository::pathChanged, this, &WidgetBase::git_pathChanged);
 }
 
-Git::Manager *WidgetBase::git() const
+Git::Repository *WidgetBase::git() const
 {
     return _git;
 }
 
-void WidgetBase::setGit(Git::Manager *newGit)
+void WidgetBase::setGit(Git::Repository *newGit)
 {
     _git = newGit;
 }

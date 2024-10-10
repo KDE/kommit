@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 };
 
 class BranchesTest : public QObject
@@ -32,7 +32,7 @@ private Q_SLOTS:
     void removeNewBranch();
 
 private:
-    Git::Manager *mManager;
+    Git::Repository *mManager;
 
     QString newBranchName{"new_branch_name"};
 };

@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <caches/branchescache.h>
 #include <entities/branch.h>
-#include <gitmanager.h>
+#include <repository.h>
 #include <types.h>
 
 class BranchesSelectionWidgetPrivate
@@ -24,7 +24,7 @@ public:
     TreeModel *treeModel{nullptr};
     BranchesFilterModel *filterModel;
     QMap<QString, QSharedPointer<Git::Branch>> branchesMap;
-    Git::Manager *manager;
+    Git::Repository *manager;
 
     void reload();
 };
@@ -50,18 +50,18 @@ BranchesSelectionWidget::BranchesSelectionWidget(QWidget *parent)
     connect(comboBoxBranchesType, &QComboBox::currentIndexChanged, this, &BranchesSelectionWidget::reload);
 }
 
-Git::Manager *BranchesSelectionWidget::git() const
+Git::Repository *BranchesSelectionWidget::git() const
 {
     Q_D(const BranchesSelectionWidget);
     return d->manager;
 }
 
-void BranchesSelectionWidget::setGit(Git::Manager *git)
+void BranchesSelectionWidget::setGit(Git::Repository *git)
 {
     Q_D(BranchesSelectionWidget);
     d->manager = git;
     d->reload();
-    connect(git, &Git::Manager::pathChanged, this, &BranchesSelectionWidget::reload);
+    connect(git, &Git::Repository::pathChanged, this, &BranchesSelectionWidget::reload);
 }
 
 void BranchesSelectionWidget::reload()

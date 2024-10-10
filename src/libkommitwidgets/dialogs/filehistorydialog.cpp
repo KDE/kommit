@@ -9,11 +9,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <caches/commitscache.h>
 #include <entities/commit.h>
-#include <gitmanager.h>
+#include <repository.h>
 
 #include <KLocalizedString>
 
-FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName, QWidget *parent)
+FileHistoryDialog::FileHistoryDialog(Git::Repository *git, const QString &fileName, QWidget *parent)
     : AppDialog(git, parent)
     , mFileName(fileName)
 {
@@ -53,7 +53,7 @@ FileHistoryDialog::FileHistoryDialog(Git::Manager *git, const QString &fileName,
     radioButtonRegularView->setChecked(true);
 }
 
-FileHistoryDialog::FileHistoryDialog(Git::Manager *git, QSharedPointer<Git::Blob> file, QWidget *parent)
+FileHistoryDialog::FileHistoryDialog(Git::Repository *git, QSharedPointer<Git::Blob> file, QWidget *parent)
     : FileHistoryDialog(git, file->name(), parent)
 {
 }

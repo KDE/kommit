@@ -5,12 +5,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "commandchangedfiles.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 namespace Git
 {
 
-CommandChangedFiles::CommandChangedFiles(Manager *git)
+CommandChangedFiles::CommandChangedFiles(Repository *git)
     : AbstractCommand(git)
 {
 }

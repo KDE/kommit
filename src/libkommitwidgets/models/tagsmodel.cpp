@@ -7,11 +7,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "tagsmodel.h"
 #include "caches/tagscache.h"
 #include "entities/tag.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <KLocalizedString>
 
-TagsModel::TagsModel(Git::Manager *git, QObject *parent)
+TagsModel::TagsModel(Git::Repository *git, QObject *parent)
     : AbstractGitItemsModel(git, parent)
 {
 }

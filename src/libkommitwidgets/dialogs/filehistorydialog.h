@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 class File;
 }
 
@@ -21,8 +21,8 @@ class LIBKOMMITWIDGETS_EXPORT FileHistoryDialog : public AppDialog, private Ui::
     Q_OBJECT
 
 public:
-    explicit FileHistoryDialog(Git::Manager *git, const QString &fileName, QWidget *parent = nullptr);
-    explicit FileHistoryDialog(Git::Manager *git, QSharedPointer<Git::Blob> file, QWidget *parent = nullptr);
+    explicit FileHistoryDialog(Git::Repository *git, const QString &fileName, QWidget *parent = nullptr);
+    explicit FileHistoryDialog(Git::Repository *git, QSharedPointer<Git::Blob> file, QWidget *parent = nullptr);
 
 private:
     static constexpr int dataRole{Qt::UserRole + 1};

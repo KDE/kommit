@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <caches/referencecache.h>
 #include <caches/tagscache.h>
 #include <commands/commandswitchbranch.h>
-#include <gitmanager.h>
+#include <repository.h>
 
 #include "core/kmessageboxhelper.h"
 #include "libkommitwidgets_appdebug.h"
@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #define BRANCH_TYPE_LOCAL 1
 #define BRANCH_TYPE_REMOTE 2
 
-SwitchBranchDialog::SwitchBranchDialog(Git::Manager *git, QWidget *parent)
+SwitchBranchDialog::SwitchBranchDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
 {
     setupUi(this);
@@ -90,7 +90,7 @@ void SwitchBranchDialog::slotButtonBoxAccepted()
             KMessageBoxHelper::error(this, i18n("Unable to find the tag's target commit: %1", comboBoxTags->currentText()));
             return;
         }
-        switched = mGit->reset(commit, Git::Manager::ResetType::Hard);
+        switched = mGit->reset(commit, Git::Repository::ResetType::Hard);
     } else {
         if (!mGit->branches()->create(lineEditNewBranchName->text())) {
             KMessageBoxHelper::error(this, i18n("Unable to create the branch: %1", lineEditNewBranchName->text()));

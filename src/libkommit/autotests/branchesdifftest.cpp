@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QTest>
 #include <entities/branch.h>
-#include <gitmanager.h>
+#include <repository.h>
 
 QTEST_GUILESS_MAIN(BranchesDiffTest)
 
@@ -29,7 +29,7 @@ void BranchesDiffTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
     qDebug() << path;
-    mManager = new Git::Manager;
+    mManager = new Git::Repository;
     QVERIFY(!mManager->isValid());
 
     auto ok = mManager->init(path);
@@ -61,20 +61,20 @@ void BranchesDiffTest::makeACommit()
 
 void BranchesDiffTest::createBranch()
 {
-    auto ok = mManager->branches()->create(newBranchName);
+    auto ok = mManager->branches()->create(mNewBranchName);
     QVERIFY(ok);
 
-    QVERIFY(mManager->branches()->names(Git::BranchType::LocalBranch).contains(newBranchName));
+    QVERIFY(mManager->branches()->names(Git::BranchType::LocalBranch).contains(mNewBranchName));
 
-    auto newBranch = mManager->branches()->findByName(newBranchName);
+    auto newBranch = mManager->branches()->findByName(mNewBranchName);
     QVERIFY(!newBranch.isNull());
 }
 
 void BranchesDiffTest::switchToNewBranch()
 {
-    auto ok = mManager->switchBranch(newBranchName);
+    auto ok = mManager->switchBranch(mNewBranchName);
     QVERIFY(ok);
-    QCOMPARE(mManager->branches()->currentName(), newBranchName);
+    QCOMPARE(mManager->branches()->currentName(), mNewBranchName);
 
     TestCommon::touch(mManager, "/changed_in_both");
     TestCommon::touch(mManager, "/changed_in_dev");

@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commit.h"
 #include "branch.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "note.h"
 #include "oid.h"
 

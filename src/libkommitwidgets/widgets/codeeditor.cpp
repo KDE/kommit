@@ -342,12 +342,12 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
         if (data && !data->extraText.isEmpty()) {
             painter.drawText(0, top, d->mSideBar->width() - 2 - foldingMarkerSize, fontMetrics().height(), Qt::AlignLeft, data->extraText);
         }
-        if (it != d->dataList.end()) {
+        if (d->dataList.size() &&  it != d->dataList.end()) {
             if (lineNumber >= (*it)->lineNumber + (d->fill ? (*it)->maxLineCount : (*it)->lineCount)) {
                 ++it;
                 extraDataPrinted = false;
             }
-            if (!extraDataPrinted) {
+            if (!extraDataPrinted &&  it != d->dataList.end()) {
                 painter.drawText(0, top, d->mSideBar->width() - 2 - foldingMarkerSize, fontMetrics().height(), Qt::AlignLeft, (*it)->extraText);
                 extraDataPrinted = true;
             }
@@ -853,7 +853,7 @@ void CodeEditor::setFrameText(int index, const QStringList &lines)
 
     cursor.movePosition(QTextCursor::StartOfBlock);
     // Remove `linesCount` blocks starting from the `startBlock`
-    for (int i = 0; i < linesCount; ++i) {
+    for (int i = 0; i < linesCount - 1; ++i) {
         cursor.movePosition(QTextCursor::Down, QTextCursor::KeepAnchor);
     }
     cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
@@ -875,8 +875,8 @@ void CodeEditor::setFrameText(int index, const QStringList &lines)
     cursor.setBlockFormat(d->mFormats.value(Removed));
     cursor.insertText(lines.join('\n'));
 
-    cursor.insertBlock();
-    cursor.setBlockFormat(d->mFormats.value(Unchanged));
+    // cursor.insertBlock();
+    // cursor.setBlockFormat(d->mFormats.value(Unchanged));
 
     d->placeholderBlocks.insert(index, CodeEditorPrivate::PlaceholderInfo{document()->findBlock(p), lines.size()});
 }

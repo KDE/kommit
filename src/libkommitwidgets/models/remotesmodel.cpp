@@ -8,9 +8,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/branchescache.h"
 #include "caches/remotescache.h"
 #include "entities/remote.h"
-#include "gitmanager.h"
+#include "repository.h"
 
-RemotesModel::RemotesModel(Git::Manager *git)
+RemotesModel::RemotesModel(Git::Repository *git)
     : AbstractGitItemsModel(git)
 {
     connect(git->remotes(), &Git::RemotesCache::added, this, &RemotesModel::reload);

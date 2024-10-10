@@ -6,18 +6,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "appdialog.h"
 
-#include "gitmanager.h"
+#include "repository.h"
 #include <QDesktopServices>
 #include <QEvent>
 #include <QWhatsThisClickedEvent>
 
 AppDialog::AppDialog(QWidget *parent)
     : QDialog(parent)
-    , mGit(Git::Manager::instance())
+    , mGit(Git::Repository::instance())
 {
 }
 
-AppDialog::AppDialog(Git::Manager *git, QWidget *parent)
+AppDialog::AppDialog(Git::Repository *git, QWidget *parent)
     : QDialog(parent)
     , mGit(git)
 {

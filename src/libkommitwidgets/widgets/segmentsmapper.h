@@ -12,6 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "libkommitwidgets_export.h"
 
+#include <QScopedPointer>
+
 class SegmentsMapperPrivate;
 class CodeEditor;
 class LIBKOMMITWIDGETS_EXPORT SegmentsMapper : public QObject
@@ -20,7 +22,6 @@ class LIBKOMMITWIDGETS_EXPORT SegmentsMapper : public QObject
 
 public:
     explicit SegmentsMapper(QObject *parent = nullptr);
-    ~SegmentsMapper();
 
     void addEditor(CodeEditor *editor);
     const QList<Diff::Segment *> &segments() const;
@@ -40,7 +41,7 @@ public:
     void findNext(Diff::SegmentType type);
 
 private:
-    SegmentsMapperPrivate *d_ptr;
+    QScopedPointer<SegmentsMapperPrivate> d_ptr;
     Q_DECLARE_PRIVATE(SegmentsMapper)
 
     LIBKOMMITWIDGETS_NO_EXPORT void codeEditor_blockSelected();

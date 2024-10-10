@@ -1,8 +1,8 @@
 /*
-SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
+ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 
-SPDX-License-Identifier: GPL-3.0-or-later
-*/
+ SPDX-License-Identifier: GPL-3.0-or-later
+ */
 
 #pragma once
 
@@ -11,6 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QPlainTextEdit>
 #include <QTextBlock>
 #include <QTextBlockFormat>
+#include <QScopedPointer>
+
 #include <diff.h>
 
 #include "libkommitwidgets_export.h"
@@ -52,10 +54,14 @@ public:
 
     void setHighlighting(const QString &fileName);
 
+    Q_DECL_DEPRECATED
     void append(const QString &code, CodeEditor::BlockType type = Unchanged, Diff::Segment *segment = nullptr);
+    Q_DECL_DEPRECATED
     int append(const QString &code, const QColor &backgroundColor);
     void append(const QStringList &code, CodeEditor::BlockType type = Unchanged, Diff::Segment *segment = nullptr, int size = -1);
+    Q_DECL_DEPRECATED
     void append(const QList<QStringView> &code, CodeEditor::BlockType type = Unchanged, Diff::Segment *segment = nullptr, int size = -1);
+    Q_DECL_DEPRECATED
     int append(const QString &code, CodeEditor::BlockType type, BlockData *data);
 
     void appendLines(const QStringList &content, BlockData *data, bool fill);
@@ -120,6 +126,6 @@ private:
 
     friend class CodeEditorSidebar;
 
-    CodeEditorPrivate *d_ptr;
+    QScopedPointer<CodeEditorPrivate> d_ptr;
     Q_DECLARE_PRIVATE(CodeEditor)
 };

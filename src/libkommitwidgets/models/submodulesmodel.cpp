@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "submodulesmodel.h"
 #include "caches/submodulescache.h"
 #include "entities/submodule.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include <KLocalizedString>
 
 namespace
@@ -54,26 +54,20 @@ QStringList statusTexts(QSharedPointer<Git::Submodule> module)
 class SubmodulesModelPrivate
 {
 public:
-    explicit SubmodulesModelPrivate(SubmodulesModel *parent, Git::Manager *manager);
+    explicit SubmodulesModelPrivate(SubmodulesModel *parent, Git::Repository *manager);
     QList<QSharedPointer<Git::Submodule>> list;
-    Git::Manager *manager;
+    Git::Repository *manager;
     Git::SubmodulesCache *cache;
 
     SubmodulesModel *q_ptr;
     Q_DECLARE_PUBLIC(SubmodulesModel)
 };
 
-SubmodulesModel::SubmodulesModel(Git::Manager *manager)
+SubmodulesModel::SubmodulesModel(Git::Repository *manager)
     : AbstractGitItemsModel{manager}
     , d_ptr{new SubmodulesModelPrivate{this, manager}}
 {
     connect(manager->submodules(), &Git::SubmodulesCache::added, this, &SubmodulesModel::append);
-}
-
-SubmodulesModel::~SubmodulesModel()
-{
-    Q_D(SubmodulesModel);
-    delete d;
 }
 
 int SubmodulesModel::rowCount(const QModelIndex &parent) const
@@ -159,7 +153,7 @@ void SubmodulesModel::reload()
         d->list.clear();
 }
 
-SubmodulesModelPrivate::SubmodulesModelPrivate(SubmodulesModel *parent, Git::Manager *manager)
+SubmodulesModelPrivate::SubmodulesModelPrivate(SubmodulesModel *parent, Git::Repository *manager)
     : manager{manager}
     , cache{manager->submodules()}
     , q_ptr{parent}

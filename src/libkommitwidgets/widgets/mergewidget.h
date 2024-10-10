@@ -9,6 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include "ui_mergewidget.h"
 
+#include <QScopedPointer>
+
 class MergeWidgetPrivate;
 class QAction;
 class LIBKOMMITWIDGETS_EXPORT MergeWidget : public QWidget, private Ui::MergeWidget
@@ -20,7 +22,7 @@ class LIBKOMMITWIDGETS_EXPORT MergeWidget : public QWidget, private Ui::MergeWid
 
 public:
     explicit MergeWidget(QWidget *parent = nullptr);
-    ~MergeWidget();
+    virtual ~MergeWidget();
 
     [[nodiscard]] bool ShowPreview() const;
     void setShowPreview(bool newShowPreview);
@@ -67,6 +69,7 @@ private:
     void slotCodeEditorScroll();
     void slotCodeBlockSelected();
 
-    MergeWidgetPrivate *d_ptr;
+    QScopedPointer<MergeWidgetPrivate> d_ptr;
+    Q_DISABLE_COPY(MergeWidget)
     Q_DECLARE_PRIVATE(MergeWidget)
 };

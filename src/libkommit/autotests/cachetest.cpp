@@ -13,13 +13,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QTest>
 #include <entities/tag.h>
-#include <gitmanager.h>
+#include <repository.h>
 
 QTEST_GUILESS_MAIN(CacheTest)
 
 CacheTest::CacheTest(QObject *parent)
     : QObject{parent}
-    , mManager{new Git::Manager{this}}
+    , mManager{new Git::Repository{this}}
 {
 }
 

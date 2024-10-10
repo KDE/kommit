@@ -30,7 +30,7 @@ enum class FastForwardType {
 
 LIBKOMMIT_EXPORT OptionalBool checkStateToOptionalBool(Qt::CheckState checkState);
 
-class Manager;
+class Repository;
 class LIBKOMMIT_EXPORT AbstractCommand : public QObject
 {
     Q_OBJECT
@@ -41,7 +41,7 @@ public:
 
     explicit AbstractCommand(QObject *parent = nullptr);
     explicit AbstractCommand(QStringList args);
-    explicit AbstractCommand(Manager *git);
+    explicit AbstractCommand(Repository *git);
 
     virtual ~AbstractCommand();
 
@@ -74,7 +74,7 @@ Q_SIGNALS:
 
 protected:
     QStringList mArgs;
-    Manager *mGit{nullptr};
+    Repository *mGit{nullptr};
     void setProgress(int newProgress);
     void appendBool(OptionalBool b, QStringList &cmd, const QString &name) const;
     void appendBool(bool b, QStringList &cmd, const QString &name) const;

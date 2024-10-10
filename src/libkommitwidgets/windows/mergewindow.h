@@ -11,9 +11,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "libkommitwidgets_export.h"
 
+#include <QScopedPointer>
+
 namespace Git
 {
-class Manager;
+class Repository;
 class Blob;
 }
 
@@ -30,8 +32,8 @@ public:
         MergeByParams,
     };
 
-    explicit MergeWindow(Git::Manager *git, Mode mode = NoParams, QWidget *parent = nullptr);
-    ~MergeWindow() override;
+    explicit MergeWindow(Git::Repository *git, Mode mode = NoParams, QWidget *parent = nullptr);
+    ~MergeWindow();
 
     void compare();
 
@@ -60,6 +62,6 @@ protected:
     void closeEvent(QCloseEvent *event) override;
 
 private:
-    MergeWindowPrivate *d_ptr;
+    QScopedPointer<MergeWindowPrivate> d_ptr;
     Q_DECLARE_PRIVATE(MergeWindow)
 };

@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 };
 
 class TagTest : public QObject
@@ -30,5 +30,5 @@ private Q_SLOTS:
     void removeTag();
 
 private:
-    Git::Manager *mManager;
+    Git::Repository *mManager;
 };

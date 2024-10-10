@@ -9,19 +9,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QtWidgets/QWidget>
 namespace Git
 {
-class Manager;
+class Repository;
 }
 class WidgetBase : public QWidget
 {
     Q_OBJECT
 
-    Git::Manager *_git{nullptr};
+    Git::Repository *_git{nullptr};
 
 public:
     explicit WidgetBase(QWidget *parent = nullptr);
-    explicit WidgetBase(Git::Manager *git, QWidget *parent = nullptr);
-    Git::Manager *git() const;
-    void setGit(Git::Manager *newGit);
+    explicit WidgetBase(Git::Repository *git, QWidget *parent = nullptr);
+    Git::Repository *git() const;
+    void setGit(Git::Repository *newGit);
 
     int exec(QWidget *parent = nullptr);
 

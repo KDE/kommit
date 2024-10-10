@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <git2/remote.h>
 
-#include <gitmanager.h>
+#include <repository.h>
 
 namespace Git
 {
@@ -171,7 +171,7 @@ bool Submodule::reload(bool force) const
     return !git_submodule_reload(submodule.get(), force);
 }
 
-Manager *Submodule::open() const
+Repository *Submodule::open() const
 {
     Q_D(const Submodule);
     auto submodule = d->find();
@@ -179,7 +179,7 @@ Manager *Submodule::open() const
     if (git_submodule_open(&repo, submodule.get()))
         return nullptr;
 
-    return new Git::Manager{repo};
+    return new Git::Repository{repo};
 }
 
 bool Submodule::update(const FetchOptions &opts, FetchObserver *observer)

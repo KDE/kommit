@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class Manager;
+class Repository;
 class Stash;
 }
 
@@ -28,7 +28,7 @@ public:
         Time,
         LastColumn = Time,
     };
-    explicit StashesModel(Git::Manager *git, QObject *parent = nullptr);
+    explicit StashesModel(Git::Repository *git, QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent) const override;

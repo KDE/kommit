@@ -14,7 +14,7 @@ class LIBKOMMITWIDGETS_EXPORT CommitsByDayWeek : public AbstractReport
     Q_OBJECT
 
 public:
-    explicit CommitsByDayWeek(Git::Manager *git, QObject *parent = nullptr);
+    explicit CommitsByDayWeek(Git::Repository *git, QObject *parent = nullptr);
 
     void reload() override;
     [[nodiscard]] QString name() const override;

@@ -16,10 +16,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "core/kmessageboxhelper.h"
 #include "dialogs/remoteinfodialog.h"
 #include "dialogs/runnerdialog.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "models/remotesmodel.h"
 
-RemotesActions::RemotesActions(Git::Manager *git, QWidget *parent)
+RemotesActions::RemotesActions(Git::Repository *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
     _actionCreate = addActionHidden(i18nc("@action", "New…"), this, &RemotesActions::create);

@@ -40,7 +40,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <commands/commandclean.h>
 #include <commands/commandswitchbranch.h>
-#include <gitmanager.h>
+#include <repository.h>
 #include <windows/diffwindow.h>
 
 // KF headers
@@ -55,7 +55,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 AppWindow::AppWindow()
     : AppMainWindow()
-    , mGitData{new RepositoryData{Git::Manager::instance()}}
+    , mGitData{new RepositoryData{Git::Repository::instance()}}
 {
     init();
     QSettings s;
@@ -83,8 +83,8 @@ AppWindow::AppWindow()
 
 void AppWindow::init()
 {
-    connect(mGitData->manager(), &Git::Manager::pathChanged, this, &AppWindow::gitPathChanged);
-    connect(mGitData->manager(), &Git::Manager::currentBranchChanged, this, &AppWindow::gitCurrentBranchChanged);
+    connect(mGitData->manager(), &Git::Repository::pathChanged, this, &AppWindow::gitPathChanged);
+    connect(mGitData->manager(), &Git::Repository::currentBranchChanged, this, &AppWindow::gitCurrentBranchChanged);
 
     initActions();
     mMainWidget = new MultiPageWidget(this);
@@ -120,7 +120,7 @@ AppWindow::~AppWindow()
 }
 
 AppWindow::AppWindow(const QString &path)
-    : mGitData{new RepositoryData{Git::Manager::instance()}}
+    : mGitData{new RepositoryData{Git::Repository::instance()}}
 {
     init();
     mGitData->manager()->open(path);

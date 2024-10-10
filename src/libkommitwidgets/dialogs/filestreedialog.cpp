@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "filestreedialog.h"
 #include "actions/fileactions.h"
 #include "core/kmessageboxhelper.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "models/treemodel.h"
 
 #include <entities/tree.h>
@@ -22,7 +22,7 @@ struct DirData : public NodeData {
     QStringList files;
 };
 
-FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QString &place, QWidget *parent)
+FilesTreeDialog::FilesTreeDialog(Git::Repository *git, const QString &place, QWidget *parent)
     : AppDialog(git, parent)
     , mTreeModel(new TreeModel(this))
     , mPlace(place)
@@ -45,7 +45,7 @@ FilesTreeDialog::FilesTreeDialog(Git::Manager *git, const QString &place, QWidge
     lineEditBranchName->setText(place);
 }
 
-FilesTreeDialog::FilesTreeDialog(Git::Manager *git, QSharedPointer<Git::ITree> tree, QWidget *parent)
+FilesTreeDialog::FilesTreeDialog(Git::Repository *git, QSharedPointer<Git::ITree> tree, QWidget *parent)
     : AppDialog(nullptr, parent)
     , mTreeModel(new TreeModel(this))
     , mPlace{}

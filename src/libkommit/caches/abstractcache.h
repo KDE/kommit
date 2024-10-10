@@ -18,11 +18,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class Manager;
+class Repository;
 
 namespace Impl
 {
-git_repository *getRepo(Manager *manager);
+git_repository *getRepo(Repository *manager);
 }
 
 template<class ObjectType, class PtrType>
@@ -32,7 +32,7 @@ public:
     using DataType = QSharedPointer<ObjectType>;
     using ListType = QList<QSharedPointer<ObjectType>>;
 
-    explicit Cache(Manager *git);
+    explicit Cache(Repository *git);
     virtual ~Cache();
 
     DataType findByPtr(PtrType *ptr, bool *isNew = nullptr);
@@ -47,7 +47,7 @@ protected:
     virtual void clearChildData() = 0;
     bool removeFromList(PtrType *ptr);
 
-    Manager *manager;
+    Repository *manager;
     ListType mList;
     QHash<PtrType *, DataType> mHash;
 };
@@ -58,8 +58,8 @@ class OidCache : public Cache<ObjectType, PtrType>
 public:
     using GitLookupFunc = int (*)(PtrType **, git_repository *, const git_oid *);
 
-    explicit OidCache(Manager *git);
-    OidCache(Manager *git, GitLookupFunc func);
+    explicit OidCache(Repository *git);
+    OidCache(Repository *git, GitLookupFunc func);
 
     QSharedPointer<ObjectType> findByOid(const git_oid *oid, bool *isNew = nullptr);
 
@@ -68,13 +68,13 @@ protected:
 };
 
 template<class ObjectType, class PtrType>
-Q_OUTOFLINE_TEMPLATE OidCache<ObjectType, PtrType>::OidCache(Manager *git)
+Q_OUTOFLINE_TEMPLATE OidCache<ObjectType, PtrType>::OidCache(Repository *git)
     : Git::Cache<ObjectType, PtrType>{git}
 {
 }
 
 template<class ObjectType, class PtrType>
-Q_OUTOFLINE_TEMPLATE OidCache<ObjectType, PtrType>::OidCache(Manager *git, GitLookupFunc func)
+Q_OUTOFLINE_TEMPLATE OidCache<ObjectType, PtrType>::OidCache(Repository *git, GitLookupFunc func)
     : Git::Cache<ObjectType, PtrType>{git}
     , gitLookupFunc{func}
 {
@@ -94,7 +94,7 @@ Q_OUTOFLINE_TEMPLATE QSharedPointer<ObjectType> OidCache<ObjectType, PtrType>::f
 }
 
 template<class ObjectType, class PtrType>
-Q_OUTOFLINE_TEMPLATE Cache<ObjectType, PtrType>::Cache(Manager *git)
+Q_OUTOFLINE_TEMPLATE Cache<ObjectType, PtrType>::Cache(Repository *git)
     : manager{git}
 {
 }

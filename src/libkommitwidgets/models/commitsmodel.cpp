@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "commitsmodel.h"
 #include "caches/commitscache.h"
 #include "entities/commit.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <KLocalizedString>
 #include <QDebug>
@@ -226,18 +226,12 @@ public:
     QSet<QString> seenHashes;
 };
 
-CommitsModel::CommitsModel(Git::Manager *git, QObject *parent)
+CommitsModel::CommitsModel(Git::Repository *git, QObject *parent)
     : AbstractGitItemsModel(git, parent)
     , d_ptr{new CommitsModelPrivate{this}}
 {
     connect(git->commits(), &Git::CommitsCache::added, this, &CommitsModel::reload);
-    connect(git, &Git::Manager::pathChanged, this, &CommitsModel::reload);
-}
-
-CommitsModel::~CommitsModel()
-{
-    Q_D(CommitsModel);
-    delete d;
+    connect(git, &Git::Repository::pathChanged, this, &CommitsModel::reload);
 }
 
 QSharedPointer<Git::Branch> CommitsModel::branch() const

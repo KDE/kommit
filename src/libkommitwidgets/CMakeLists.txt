@@ -171,6 +171,7 @@ target_sources(libkommitwidgets PRIVATE
     dialogs/searchdialog.h
     dialogs/filehistorydialog.cpp
 
+    icons/icons.qrc
 )
 
 target_link_libraries(libkommitwidgets

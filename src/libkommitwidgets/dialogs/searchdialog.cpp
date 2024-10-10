@@ -16,9 +16,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QtConcurrent>
 #include <entities/commit.h>
 #include <gitloglist.h>
-#include <gitmanager.h>
+#include <repository.h>
 
-SearchDialog::SearchDialog(const QString &path, Git::Manager *git, QWidget *parent)
+SearchDialog::SearchDialog(const QString &path, Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
     , mModel(new QStandardItemModel(this))
 {
@@ -40,7 +40,7 @@ void SearchDialog::initModel()
     mModel->setHeaderData(2, Qt::Horizontal, i18n("Commit"));
 }
 
-SearchDialog::SearchDialog(Git::Manager *git, QWidget *parent)
+SearchDialog::SearchDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
     , mModel(new QStandardItemModel(this))
 {

@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "reportswidget.h"
 
 #include <core/repositorydata.h>
-#include <gitmanager.h>
+#include <repository.h>
 #include <reports/authorsreport.h>
 #include <reports/commitsbydayhour.h>
 #include <reports/commitsbydayweek.h>
@@ -24,7 +24,7 @@ ReportsWidget::ReportsWidget(RepositoryData *git, AppWindow *parent)
     addReport(new CommitsByDayHour{git->manager(), this});
     addReport(new CommitsByMonth{git->manager(), this});
 
-    connect(git->manager(), &Git::Manager::reloadRequired, this, &ReportsWidget::reloadReports);
+    connect(git->manager(), &Git::Repository::reloadRequired, this, &ReportsWidget::reloadReports);
     connect(toolButtonRefresh, &QToolButton::clicked, this, &ReportsWidget::reloadReports);
     connect(listWidget, &QListWidget::currentRowChanged, stackedWidget, &QStackedWidget::setCurrentIndex);
 

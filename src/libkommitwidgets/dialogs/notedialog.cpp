@@ -8,11 +8,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <entities/commit.h>
 #include <entities/note.h>
-#include <gitmanager.h>
+#include <repository.h>
 
 #include <QPushButton>
 
-NoteDialog::NoteDialog(Git::Manager *git, QSharedPointer<Git::Commit> commit, QWidget *parent)
+NoteDialog::NoteDialog(Git::Repository *git, QSharedPointer<Git::Commit> commit, QWidget *parent)
     : AppDialog(git, parent)
     , mCommit{commit}
 {

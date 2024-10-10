@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QVariant>
 namespace Git
 {
-class Manager;
+class Repository;
 };
 
 class LIBKOMMITWIDGETS_EXPORT AbstractReport : public QObject
@@ -19,7 +19,7 @@ class LIBKOMMITWIDGETS_EXPORT AbstractReport : public QObject
     Q_OBJECT
 
 public:
-    explicit AbstractReport(Git::Manager *git, QObject *parent = nullptr);
+    explicit AbstractReport(Git::Repository *git, QObject *parent = nullptr);
     ~AbstractReport() override;
 
     virtual void reload() = 0;
@@ -53,7 +53,7 @@ private:
     int mValueColumn{1};
 
 protected:
-    Git::Manager *const mGit;
+    Git::Repository *const mGit;
 
     void clear();
     void setColumnCount(int columnCount);

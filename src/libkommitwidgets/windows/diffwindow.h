@@ -12,10 +12,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <entities/file.h>
 
 #include <QSharedPointer>
+#include <QScopedPointer>
 
 namespace Git
 {
-class Manager;
+class Repository;
 class Tree;
 class Blob;
 class ITree;
@@ -31,8 +32,8 @@ public:
     enum Mode { Files, Dirs };
     explicit DiffWindow();
     DiffWindow(QSharedPointer<Git::Blob> oldFile, QSharedPointer<Git::Blob> newFile);
-    DiffWindow(Git::Manager *git, QSharedPointer<Git::ITree> leftTree);
-    DiffWindow(Git::Manager *git, QSharedPointer<Git::ITree> leftTree, QSharedPointer<Git::ITree> rightTree);
+    DiffWindow(Git::Repository *git, QSharedPointer<Git::ITree> leftTree);
+    DiffWindow(Git::Repository *git, QSharedPointer<Git::ITree> leftTree, QSharedPointer<Git::ITree> rightTree);
     DiffWindow(Mode mode, const QString &left, const QString &right);
 
     void setLeft(const QString &filePath);
@@ -47,6 +48,6 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void fileOpen();
     LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewFileSelected(const QString &file);
 
-    DiffWindowPrivate *d_ptr;
+    QScopedPointer<DiffWindowPrivate> d_ptr;
     Q_DECLARE_PRIVATE(DiffWindow)
 };

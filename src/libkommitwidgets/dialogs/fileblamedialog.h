@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 class Blob;
 class BlameData;
 }
@@ -22,7 +22,7 @@ class LIBKOMMITWIDGETS_EXPORT FileBlameDialog : public AppDialog, private Ui::Fi
     Q_OBJECT
 
 public:
-    explicit FileBlameDialog(Git::Manager *git, const QString &file, QWidget *parent = nullptr);
+    explicit FileBlameDialog(Git::Repository *git, const QString &file, QWidget *parent = nullptr);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void loadData();

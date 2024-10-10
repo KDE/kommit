@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QTest>
 #include <entities/tag.h>
-#include <gitmanager.h>
+#include <repository.h>
 
 QTEST_GUILESS_MAIN(TagTest)
 
@@ -24,7 +24,7 @@ void TagTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
     qDebug() << path;
-    mManager = new Git::Manager;
+    mManager = new Git::Repository;
     auto init = mManager->init(path);
     QCOMPARE(mManager->path(), path);
     QVERIFY(init);

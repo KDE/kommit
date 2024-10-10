@@ -13,20 +13,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QSharedPointer>
 #include <QString>
+#include <QScopedPointer>
 
 namespace Git
 {
 
 class Oid;
+class Repository;
 class BlobPrivate;
 class LIBKOMMIT_EXPORT Blob
 {
 public:
     explicit Blob(git_blob *blob);
     Blob(git_repository *repo, git_tree_entry *entry);
-    Blob(git_repository *repo, git_index_entry *entry);
+    Blob(git_repository *repo, const git_index_entry *entry);
     Blob(git_repository *repo, const QString &relativePath);
-    explicit Blob(QSharedPointer<Oid> oid);
+    explicit Blob(Repository *git, QSharedPointer<Oid> oid);
     virtual ~Blob();
 
     [[nodiscard]] const QString &name() const;
@@ -40,13 +42,14 @@ public:
     [[nodiscard]] quint64 size() const;
 
     QSharedPointer<Oid> oid() const;
-    Q_REQUIRED_RESULT QString fileName() const;
+    [[nodiscard]] QString fileName() const;
+    [[nodiscard]] QString filePath() const;
 
     [[nodiscard]] static QSharedPointer<Blob> lookup(git_repository *repo, const QString &place, const QString &filePath);
     [[nodiscard]] static QSharedPointer<Blob> fromDisk(git_repository *repo, const QString &filePath);
 
 private:
-    BlobPrivate *d_ptr;
+    QScopedPointer<BlobPrivate> d_ptr;
     Q_DECLARE_PRIVATE(Blob)
 };
 

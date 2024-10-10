@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 }
 
 class LIBKOMMITWIDGETS_EXPORT AppDialog : public QDialog
@@ -22,12 +22,12 @@ class LIBKOMMITWIDGETS_EXPORT AppDialog : public QDialog
     Q_OBJECT
 public:
     explicit AppDialog(QWidget *parent = nullptr);
-    explicit AppDialog(Git::Manager *git, QWidget *parent = nullptr);
+    explicit AppDialog(Git::Repository *git, QWidget *parent = nullptr);
 
     bool event(QEvent *event) override;
 
 protected:
-    Git::Manager *const mGit;
+    Git::Repository *const mGit;
 
     template<typename _Enum>
     void initComboBox(QComboBox *comboBox)

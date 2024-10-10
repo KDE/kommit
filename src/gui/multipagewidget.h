@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 }
 class QActionGroup;
 class WidgetBase;
@@ -31,13 +31,13 @@ public:
     }
     void setCurrentIndex(int index);
     QList<QAction *> actions() const;
-    Git::Manager *defaultGitManager() const;
-    void setDefaultGitManager(Git::Manager *newDefaultGitManager);
+    Git::Repository *defaultGitManager() const;
+    void setDefaultGitManager(Git::Repository *newDefaultGitManager);
 
     [[nodiscard]] int count() const;
 
 private:
     void slotPageSelected(QAction *action);
     QActionGroup *const mActionGroup;
-    Git::Manager *mDefaultGitManager = nullptr;
+    Git::Repository *mDefaultGitManager = nullptr;
 };

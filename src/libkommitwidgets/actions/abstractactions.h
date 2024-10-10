@@ -43,7 +43,7 @@ public:                                                                         
 
 namespace Git
 {
-class Manager;
+class Repository;
 }
 
 class QWidget;
@@ -53,7 +53,7 @@ class LIBKOMMITWIDGETS_EXPORT AbstractActions : public QObject
     Q_OBJECT
 
 protected:
-    Git::Manager *const mGit;
+    Git::Repository *const mGit;
     QList<QAction *> mActions;
     QWidget *mParent = nullptr;
     QMenu *const mMenu;
@@ -83,7 +83,7 @@ protected:
     }
 
 public:
-    explicit AbstractActions(Git::Manager *git, QWidget *parent);
+    explicit AbstractActions(Git::Repository *git, QWidget *parent);
     void popup();
     void popup(const QPoint &pos);
 

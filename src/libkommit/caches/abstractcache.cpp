@@ -6,16 +6,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractcache.h"
 
-#include <gitmanager.h>
+#include <repository.h>
 
 namespace Git
 {
 namespace Impl
 {
 
-git_repository *getRepo(Manager *manager)
+git_repository *getRepo(Repository *manager)
 {
     return manager->repoPtr();
 }
-};
-};
+
+}
+}

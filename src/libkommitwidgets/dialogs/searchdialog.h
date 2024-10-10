@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 class Commit;
 }
 
@@ -22,8 +22,8 @@ class LIBKOMMITWIDGETS_EXPORT SearchDialog : public AppDialog, private Ui::Searc
     Q_OBJECT
 
 public:
-    explicit SearchDialog(const QString &path, Git::Manager *git, QWidget *parent = nullptr);
-    explicit SearchDialog(Git::Manager *git, QWidget *parent = nullptr);
+    explicit SearchDialog(const QString &path, Git::Repository *git, QWidget *parent = nullptr);
+    explicit SearchDialog(Git::Repository *git, QWidget *parent = nullptr);
 
     void initModel();
 

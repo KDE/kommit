@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/commitscache.h"
 #include "entities/commit.h"
 #include "entities/oid.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <git2/stash.h>
 
@@ -23,7 +23,7 @@ class StashPrivate
 
 public:
     StashPrivate(Stash *parent);
-    Manager *manager;
+    Repository *manager;
     size_t index;
     QString message;
     git_oid stash_id;
@@ -31,7 +31,7 @@ public:
     QSharedPointer<Commit> commit;
 };
 
-Stash::Stash(Manager *manager, size_t index, const char *message, const git_oid *stash_id)
+Stash::Stash(Repository *manager, size_t index, const char *message, const git_oid *stash_id)
     : d_ptr{new StashPrivate{this}}
 {
     Q_D(Stash);

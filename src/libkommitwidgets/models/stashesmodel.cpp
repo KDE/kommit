@@ -10,12 +10,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/commit.h"
 #include "entities/signature.h"
 #include "entities/stash.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include <KLocalizedString>
 
 #include <git2/stash.h>
 
-StashesModel::StashesModel(Git::Manager *git, QObject *parent)
+StashesModel::StashesModel(Git::Repository *git, QObject *parent)
     : AbstractGitItemsModel(git, parent)
 {
 }

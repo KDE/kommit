@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "branchescache.h"
 #include "entities/reference.h"
 #include "gitglobal_p.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <git2/branch.h>
 
@@ -23,27 +23,21 @@ public:
     BranchesCache *q_ptr;
     Q_DECLARE_PUBLIC(BranchesCache)
 
-    Manager *manager;
+    Repository *manager;
     BranchesCache::ListType list;
     QMap<QString, BranchesCache::DataType> dataByName;
     QHash<git_reference *, BranchesCache::DataType> dataByRef;
 
-    BranchesCachePrivate(BranchesCache *parent, Manager *manager);
+    BranchesCachePrivate(BranchesCache *parent, Repository *manager);
     void add(BranchesCache::DataType newItem);
     bool remove(BranchesCache::DataType branch);
 };
 
-BranchesCache::BranchesCache(Manager *manager)
+BranchesCache::BranchesCache(Repository *manager)
     : QObject{manager}
     , Cache<Branch, git_reference>{manager}
     , d_ptr{new BranchesCachePrivate{this, manager}}
 {
-}
-
-BranchesCache::~BranchesCache()
-{
-    Q_D(BranchesCache);
-    delete d;
 }
 
 BranchesCache::DataType BranchesCache::findByName(const QString &key)
@@ -194,7 +188,7 @@ void BranchesCache::clearChildData()
     Q_EMIT reseted();
 }
 
-BranchesCachePrivate::BranchesCachePrivate(BranchesCache *parent, Manager *manager)
+BranchesCachePrivate::BranchesCachePrivate(BranchesCache *parent, Repository *manager)
     : q_ptr{parent}
     , manager{manager}
 {

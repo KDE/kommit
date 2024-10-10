@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 }
 
 class SwitchTest : public QObject
@@ -28,5 +28,5 @@ private Q_SLOTS:
     void switchToMasterBranch();
 
 private:
-    Git::Manager *mManager;
+    Git::Repository *mManager;
 };

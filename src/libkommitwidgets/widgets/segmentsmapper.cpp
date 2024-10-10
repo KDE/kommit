@@ -29,12 +29,6 @@ SegmentsMapper::SegmentsMapper(QObject *parent)
 {
 }
 
-SegmentsMapper::~SegmentsMapper()
-{
-    Q_D(SegmentsMapper);
-    delete d;
-}
-
 void SegmentsMapper::addEditor(CodeEditor *editor)
 {
     Q_D(SegmentsMapper);

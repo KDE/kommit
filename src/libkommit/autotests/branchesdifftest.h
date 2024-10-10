@@ -10,8 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
-};
+class Repository;
+}
 
 class BranchesDiffTest : public QObject
 {
@@ -31,7 +31,7 @@ private Q_SLOTS:
     void diff();
 
 private:
-    Git::Manager *mManager;
+    Git::Repository *mManager;
 
-    QString newBranchName{"dev"};
+    QString mNewBranchName{"dev"};
 };

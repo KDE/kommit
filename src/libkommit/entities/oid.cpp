@@ -17,26 +17,32 @@ Oid::Oid()
 }
 
 Oid::Oid(const git_oid *oid)
-    : mOidPtr{oid}
 {
+    git_oid_cpy(&mOid, oid);
 }
 
 Oid::Oid(const git_oid oid)
 {
-    // mOidPtr member of class is git_oid *{nullptr}
-    //  fill mOidPtr by oid
-    mOidPtr = new git_oid;
-    auto o = const_cast<git_oid *>(mOidPtr);
-    git_oid_cpy(o, &oid);
+    // mOid member of class is git_oid *{nullptr}
+    //  fill mOid by oid
+    // mOid = new git_oid;
+    // auto o = const_cast<git_oid *>(mOid);
+    // git_oid_cpy(o, &oid);
+    git_oid_cpy(&mOid, &oid);
+}
+
+Oid::~Oid()
+{
+
 }
 
 QString Oid::toString() const
 {
-    if (!mOidPtr)
-        return {};
+    // if (!mOid)
+        // return {};
 
     char str[GIT_OID_SHA1_HEXSIZE + 1];
-    if (git_oid_fmt(str, mOidPtr))
+    if (git_oid_fmt(str, &mOid))
         return {};
     str[GIT_OID_SHA1_HEXSIZE] = '\0';
 
@@ -45,19 +51,19 @@ QString Oid::toString() const
 
 bool Oid::isNull() const
 {
-    if (!mOidPtr)
-        return true;
-    return git_oid_is_zero(mOidPtr);
+    // if (!mOid)
+        // return true;
+    return git_oid_is_zero(&mOid);
 }
 
 void Oid::copyTo(git_oid *oid)
 {
-    git_oid_cpy(oid, mOidPtr);
+    git_oid_cpy(oid, &mOid);
 }
 
 const git_oid *Oid::oidPtr() const
 {
-    return mOidPtr;
+    return &mOid;
 }
 }
 

@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include <QSortFilterProxyModel>
+#include <QScopedPointer>
 
 class TreeModel;
 class BranchesFilterModelPrivate;
@@ -26,6 +27,6 @@ protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
-    BranchesFilterModelPrivate *d_ptr;
+    QScopedPointer<BranchesFilterModelPrivate> d_ptr;
     Q_DECLARE_PRIVATE(BranchesFilterModel)
 };

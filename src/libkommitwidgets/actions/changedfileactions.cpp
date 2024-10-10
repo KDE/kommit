@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "changedfileactions.h"
 #include "caches/branchescache.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "windows/diffwindow.h"
 #include <entities/blob.h>
 
@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 
-ChangedFileActions::ChangedFileActions(Git::Manager *git, QWidget *parent)
+ChangedFileActions::ChangedFileActions(Git::Repository *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
     _actionDiff = addAction(i18nc("@action", "Diff…"), this, &ChangedFileActions::diff, false, true);

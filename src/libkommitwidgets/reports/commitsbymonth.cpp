@@ -10,9 +10,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <entities/commit.h>
 #include <entities/signature.h>
-#include <gitmanager.h>
+#include <repository.h>
 
-CommitsByMonth::CommitsByMonth(Git::Manager *git, QObject *parent)
+CommitsByMonth::CommitsByMonth(Git::Repository *git, QObject *parent)
     : AbstractReport{git, parent}
 {
     setColumnCount(2);

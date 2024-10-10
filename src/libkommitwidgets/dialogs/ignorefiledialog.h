@@ -16,7 +16,7 @@ class LIBKOMMITWIDGETS_EXPORT IgnoreFileDialog : public AppDialog, private Ui::I
     Q_OBJECT
 
 public:
-    explicit IgnoreFileDialog(Git::Manager *git, const QString &filePath, QWidget *parent = nullptr);
+    explicit IgnoreFileDialog(Git::Repository *git, const QString &filePath, QWidget *parent = nullptr);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void generateIgnorePattern();

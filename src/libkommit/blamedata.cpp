@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "blamedata.h"
 #include "caches/commitscache.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <git2/blame.h>
 
@@ -20,15 +20,22 @@ class BlameDataPrivate
 
 public:
     explicit BlameDataPrivate(BlameData *parent);
+    ~BlameDataPrivate();
 
     QList<BlameDataRow *> hunks;
     QStringList content;
     git_blame *blame{nullptr};
-    Manager *git{nullptr};
+    Repository *git{nullptr};
 };
 BlameDataPrivate::BlameDataPrivate(BlameData *parent)
     : q_ptr{parent}
 {
+}
+
+BlameDataPrivate::~BlameDataPrivate()
+{
+    qDeleteAll(hunks);
+    git_blame_free(blame);
 }
 
 bool operator==(const BlameDataRow &l, const BlameDataRow &r)
@@ -40,7 +47,7 @@ bool operator!=(const BlameDataRow &l, const BlameDataRow &r)
     return !operator==(l, r);
 }
 
-BlameData::BlameData(Manager *gitManager, const QStringList &content, git_blame *blame)
+BlameData::BlameData(Repository *gitManager, const QStringList &content, git_blame *blame)
     : d_ptr{new BlameDataPrivate{this}}
 {
     Q_D(BlameData);
@@ -57,12 +64,8 @@ BlameData::BlameData(Manager *gitManager, const QStringList &content, git_blame 
     }
 }
 
-Git::BlameData::~BlameData()
+BlameData::~BlameData()
 {
-    Q_D(BlameData);
-    qDeleteAll(d->hunks);
-    git_blame_free(d->blame);
-    delete d;
 }
 
 const QStringList &BlameData::content() const
@@ -128,7 +131,7 @@ qsizetype BlameData::size() const
     return d->hunks.size();
 }
 
-BlameDataRow::BlameDataRow(Manager *git, const git_blame_hunk *hunk)
+BlameDataRow::BlameDataRow(Repository *git, const git_blame_hunk *hunk)
     : hunkPtr{hunk}
     , commitId{&hunk->final_commit_id}
     , startLine{hunk->final_start_line_number}

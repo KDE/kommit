@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "stashescache.h"
 #include "caches/commitscache.h"
 #include "gitglobal_p.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "types.h"
 
 #include <git2/errors.h>
@@ -24,21 +24,15 @@ class StashesCachePrivate
     Q_DECLARE_PUBLIC(StashesCache)
 
 public:
-    StashesCachePrivate(StashesCache *parent, Manager *manager);
-    Manager *manager;
+    StashesCachePrivate(StashesCache *parent, Repository *manager);
+    Repository *manager;
     StashesCache::ListType list;
 };
 
-StashesCache::StashesCache(Manager *manager)
+StashesCache::StashesCache(Repository *manager)
     : QObject{manager}
     , d_ptr{new StashesCachePrivate{this, manager}}
 {
-}
-
-StashesCache::~StashesCache()
-{
-    Q_D(StashesCache);
-    delete d;
 }
 
 StashesCache::DataType StashesCache::findByName(const QString &name)
@@ -184,7 +178,7 @@ StashesCache::ListType StashesCache::allStashes()
     struct wrapper {
         git_repository *repo;
         PointerList<Stash> list;
-        Manager *manager;
+        Repository *manager;
     };
 
     auto callback = [](size_t index, const char *message, const git_oid *stash_id, void *payload) {
@@ -229,7 +223,7 @@ void StashesCache::clear()
 {
 }
 
-StashesCachePrivate::StashesCachePrivate(StashesCache *parent, Manager *manager)
+StashesCachePrivate::StashesCachePrivate(StashesCache *parent, Repository *manager)
     : q_ptr{parent}
     , manager{manager}
 {

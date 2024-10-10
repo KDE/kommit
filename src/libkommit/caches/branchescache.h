@@ -11,22 +11,23 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommit_export.h"
 #include "types.h"
 
-#include <QObject>
 #include <git2/types.h>
+
+#include <QObject>
+#include <QScopedPointer>
 
 namespace Git
 {
 
 class BranchesCachePrivate;
-class Manager;
+class Repository;
 
 class LIBKOMMIT_EXPORT BranchesCache : public QObject, public Cache<Branch, git_reference>
 {
     Q_OBJECT
 
 public:
-    explicit BranchesCache(Manager *manager);
-    ~BranchesCache() override;
+    explicit BranchesCache(Repository *manager);
 
     [[nodiscard]] ListType allBranches(BranchType type = BranchType::AllBranches);
     [[nodiscard]] DataType findByName(const QString &key);
@@ -47,7 +48,7 @@ Q_SIGNALS:
     void reseted();
 
 private:
-    BranchesCachePrivate *d_ptr;
+    QScopedPointer<BranchesCachePrivate> d_ptr;
     Q_DECLARE_PRIVATE(BranchesCache)
 };
 

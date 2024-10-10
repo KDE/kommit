@@ -17,7 +17,7 @@ namespace Git
 class CommandChangedFiles : public AbstractCommand
 {
 public:
-    explicit CommandChangedFiles(Manager *git);
+    explicit CommandChangedFiles(Repository *git);
 
     [[nodiscard]] const QList<FileStatus> &files() const;
     [[nodiscard]] bool ignored() const;

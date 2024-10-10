@@ -17,7 +17,7 @@ class LIBKOMMITWIDGETS_EXPORT ChangedFilesDialog : public AppDialog, private Ui:
     Q_OBJECT
 
 public:
-    explicit ChangedFilesDialog(Git::Manager *git, QWidget *parent = nullptr);
+    explicit ChangedFilesDialog(Git::Repository *git, QWidget *parent = nullptr);
     ~ChangedFilesDialog() override;
 
 private:

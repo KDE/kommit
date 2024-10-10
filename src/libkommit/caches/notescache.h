@@ -23,7 +23,7 @@ class Oid;
 class LIBKOMMIT_EXPORT NotesCache : public Cache<Note, git_note>
 {
 public:
-    explicit NotesCache(Manager *parent);
+    explicit NotesCache(Repository *parent);
 
     [[nodiscard]] ListType allNotes();
     [[nodiscard]] DataType findByOid(const git_oid *oid);

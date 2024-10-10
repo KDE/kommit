@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/submodulesmodel.h"
 #include "models/tagsmodel.h"
 
-RepositoryData::RepositoryData(Git::Manager *git)
+RepositoryData::RepositoryData(Git::Repository *git)
     : QObject{git}
     , mManager{git}
     , mRemotesModel{new RemotesModel{mManager}}
@@ -39,7 +39,7 @@ void RepositoryData::loadAll()
     mTagsModel->load();
 }
 
-Git::Manager *RepositoryData::manager() const
+Git::Repository *RepositoryData::manager() const
 {
     return mManager;
 }

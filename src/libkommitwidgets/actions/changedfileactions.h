@@ -14,7 +14,7 @@ class LIBKOMMITWIDGETS_EXPORT ChangedFileActions : public AbstractActions
     Q_OBJECT
 
 public:
-    explicit ChangedFileActions(Git::Manager *git, QWidget *parent = nullptr);
+    explicit ChangedFileActions(Git::Repository *git, QWidget *parent = nullptr);
 
     [[nodiscard]] const QString &filePath() const;
     void setFilePath(const QString &newFilePath);

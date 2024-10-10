@@ -10,11 +10,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "libkommitwidgets_export.h"
 
+#include <QScopedPointer>
+
 namespace Git
 {
-class Manager;
+class Repository;
 class Branch;
-};
+}
 
 class BranchesSelectionWidgetPrivate;
 class LIBKOMMITWIDGETS_EXPORT BranchesSelectionWidget : public QWidget, private Ui::BranchesSelectionWidget
@@ -24,8 +26,8 @@ class LIBKOMMITWIDGETS_EXPORT BranchesSelectionWidget : public QWidget, private 
 public:
     explicit BranchesSelectionWidget(QWidget *parent = nullptr);
 
-    Q_REQUIRED_RESULT Git::Manager *git() const;
-    void setGit(Git::Manager *git);
+    Q_REQUIRED_RESULT Git::Repository *git() const;
+    void setGit(Git::Repository *git);
 
     void reload();
 
@@ -35,6 +37,6 @@ Q_SIGNALS:
 private:
     void slotTreeViewRepoItemActivated(const QModelIndex &index);
 
-    BranchesSelectionWidgetPrivate *d_ptr;
+    QScopedPointer<BranchesSelectionWidgetPrivate> d_ptr;
     Q_DECLARE_PRIVATE(BranchesSelectionWidget)
 };

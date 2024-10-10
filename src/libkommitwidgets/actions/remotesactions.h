@@ -19,7 +19,7 @@ class LIBKOMMITWIDGETS_EXPORT RemotesActions : public AbstractActions
     Q_OBJECT
 
 public:
-    explicit RemotesActions(Git::Manager *git, QWidget *parent = nullptr);
+    explicit RemotesActions(Git::Repository *git, QWidget *parent = nullptr);
 
     [[nodiscard]] const QString &remoteName() const;
     void setRemoteName(const QString &newRemoteName);

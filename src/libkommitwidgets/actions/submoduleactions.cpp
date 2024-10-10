@@ -14,14 +14,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "widgets/fetchresultwidget.h"
 
 #include <caches/submodulescache.h>
-#include <gitmanager.h>
+#include <repository.h>
 #include <options/addsubmoduleoptions.h>
 
 #include <KLocalizedString>
 #include <QAction>
 #include <QDir>
 
-SubmoduleActions::SubmoduleActions(Git::Manager *git, QWidget *parent)
+SubmoduleActions::SubmoduleActions(Git::Repository *git, QWidget *parent)
     : AbstractActions(git, parent)
 {
     _actionCreate = addActionHidden(i18nc("@action", "Add…"), this, &SubmoduleActions::create);

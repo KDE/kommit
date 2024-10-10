@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "reposettingsdialog.h"
 
-#include "gitmanager.h"
+#include "repository.h"
 
-RepoSettingsDialog::RepoSettingsDialog(Git::Manager *git, QWidget *parent)
+RepoSettingsDialog::RepoSettingsDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
 {
     setupUi(this);

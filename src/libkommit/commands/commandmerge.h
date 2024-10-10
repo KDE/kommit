@@ -30,7 +30,7 @@ public:
     enum DiffAlgorithm { Patience, Minimal, Histogram, Myers };
     Q_ENUM(DiffAlgorithm)
 
-    explicit CommandMerge(Manager *git);
+    explicit CommandMerge(Repository *git);
     [[nodiscard]] QStringList generateArgs() const override;
 
     [[nodiscard]] OptionalBool commit() const;

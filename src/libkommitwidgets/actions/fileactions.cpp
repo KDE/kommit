@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "windows/mergewindow.h"
 
 #include <entities/file.h>
-#include <gitmanager.h>
+#include <repository.h>
 
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/OpenUrlJob>
@@ -35,7 +35,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QMimeDatabase>
 #include <QStandardPaths>
 
-FileActions::FileActions(Git::Manager *git, QWidget *parent)
+FileActions::FileActions(Git::Repository *git, QWidget *parent)
     : AbstractActions(git, parent)
     , mOpenWithMenu(new QMenu(parent))
 {
@@ -66,9 +66,9 @@ void FileActions::viewFile()
 
 void FileActions::saveAsFile()
 {
-    QFileInfo fi{mFile->fileName()};
+    QFileInfo fi{mFile->filePath()};
     const auto filter = i18n("%1 file (*.%1);;All files(*)", fi.suffix());
-    const auto fileName = QFileDialog::getSaveFileName(mParent, {}, mFile->fileName(), filter);
+    const auto fileName = QFileDialog::getSaveFileName(mParent, {}, mFile->filePath(), filter);
 
     if (!fileName.isEmpty()) {
         mFile->save(fileName);
@@ -134,7 +134,7 @@ void FileActions::openWith()
 
 void FileActions::diffWithHead()
 {
-    auto newFile = QSharedPointer<Git::Blob>::create(mGit->repoPtr(), mFile->fileName());
+    auto newFile = QSharedPointer<Git::Blob>::create(mGit->repoPtr(), mFile->filePath());
 
     auto d = new DiffWindow(mFile, newFile);
     d->showModal();
@@ -147,9 +147,9 @@ void FileActions::mergeWithHead()
     auto tempFile = mFile->saveAsTemp();
 
     d->setBaseFile(tempFile);
-    d->setLocalFile(mGit->path() + QLatin1Char('/') + mFile->fileName());
+    d->setLocalFile(mGit->path() + QLatin1Char('/') + mFile->filePath());
     d->setRemoteFile(tempFile);
-    d->setResultFile(mGit->path() + QLatin1Char('/') + mFile->fileName());
+    d->setResultFile(mGit->path() + QLatin1Char('/') + mFile->filePath());
     d->compare();
 
     d->exec();

@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "kommitwidgetsglobaloptions.h"
 
 #include <entities/commit.h>
-#include <gitmanager.h>
+#include <repository.h>
 #include <models/commitsmodel.h>
 
 #include <KLocalizedString>
@@ -172,7 +172,7 @@ void CommitDetails::slotEmailLinkClicked(const QString &link)
 
 QString CommitDetails::createChangedFiles()
 {
-    const auto files = Git::Manager::instance()->changedFiles(mCommit->commitHash());
+    const auto files = Git::Repository::instance()->changedFiles(mCommit->commitHash());
     QStringList filesHtml;
 
     for (auto i = files.constBegin(); i != files.constEnd(); ++i) {

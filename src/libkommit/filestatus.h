@@ -52,7 +52,7 @@ private:
     QString mName;
     Status mStatus;
 
-    friend class Manager;
+    friend class Repository;
 };
 LIBKOMMIT_EXPORT bool operator==(const FileStatus &f1, const FileStatus &f2);
 }

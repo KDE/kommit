@@ -8,14 +8,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <blamedata.h>
 #include <entities/blob.h>
-#include <gitmanager.h>
+#include <repository.h>
 
 #include "models/commitsmodel.h"
 
 #include <KLocalizedString>
 #include <QThread>
 
-FileBlameDialog::FileBlameDialog(Git::Manager *git, const QString &file, QWidget *parent)
+FileBlameDialog::FileBlameDialog(Git::Repository *git, const QString &file, QWidget *parent)
     : AppDialog(git, parent)
     , mFile(file)
 {

@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class Manager;
+class Repository;
 class Oid;
 class Reference;
 class Credential;
@@ -54,7 +54,7 @@ class LIBKOMMIT_EXPORT FetchObserver : public QObject
     Q_OBJECT
 
 public:
-    explicit FetchObserver(Manager *parent);
+    explicit FetchObserver(Repository *parent);
 
     void applyOfFetchOptions(git_fetch_options *opts);
 
@@ -74,7 +74,7 @@ private:
     QString mUsername;
     QString mPassword;
 
-    Manager *mManager;
+    Repository *mManager;
     FetchObserverBridge *mBridge{nullptr};
 };
 

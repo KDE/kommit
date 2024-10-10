@@ -5,18 +5,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "abstractgititemsmodel.h"
-#include "gitmanager.h"
+#include "repository.h"
 
-AbstractGitItemsModel::AbstractGitItemsModel(Git::Manager *git)
+AbstractGitItemsModel::AbstractGitItemsModel(Git::Repository *git)
     : AbstractGitItemsModel{git, git}
 {
 }
 
-AbstractGitItemsModel::AbstractGitItemsModel(Git::Manager *git, QObject *parent)
+AbstractGitItemsModel::AbstractGitItemsModel(Git::Repository *git, QObject *parent)
     : QAbstractListModel(parent)
     , mGit(git)
 {
-    connect(git, &Git::Manager::pathChanged, this, &AbstractGitItemsModel::load);
+    connect(git, &Git::Repository::pathChanged, this, &AbstractGitItemsModel::load);
 }
 
 bool AbstractGitItemsModel::isLoaded() const
@@ -33,7 +33,7 @@ void AbstractGitItemsModel::clear()
 {
 }
 
-Git::Manager *AbstractGitItemsModel::manager() const
+Git::Repository *AbstractGitItemsModel::manager() const
 {
     return mGit;
 }

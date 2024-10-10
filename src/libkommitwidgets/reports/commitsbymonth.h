@@ -13,7 +13,7 @@ class LIBKOMMITWIDGETS_EXPORT CommitsByMonth : public AbstractReport
 {
     Q_OBJECT
 public:
-    explicit CommitsByMonth(Git::Manager *git, QObject *parent = nullptr);
+    explicit CommitsByMonth(Git::Repository *git, QObject *parent = nullptr);
 
     void reload() override;
     [[nodiscard]] QString name() const override;

@@ -19,7 +19,7 @@ class LIBKOMMITWIDGETS_EXPORT SwitchBranchDialog : public AppDialog, private Ui:
     Q_OBJECT
 
 public:
-    explicit SwitchBranchDialog(Git::Manager *git, QWidget *parent = nullptr);
+    explicit SwitchBranchDialog(Git::Repository *git, QWidget *parent = nullptr);
 
     [[nodiscard]] Git::CommandSwitchBranch *command() const;
 

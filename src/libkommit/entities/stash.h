@@ -17,13 +17,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class Manager;
+class Repository;
 class Commit;
 class StashPrivate;
 class LIBKOMMIT_EXPORT Stash : IOid
 {
 public:
-    Stash(Manager *manager, size_t index, const char *message, const git_oid *stash_id);
+    Stash(Repository *manager, size_t index, const char *message, const git_oid *stash_id);
     ~Stash();
 
     [[nodiscard]] const QString &message() const;

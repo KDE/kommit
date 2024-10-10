@@ -6,14 +6,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QMap>
-#include <QObject>
-#include <QSharedPointer>
-#include <git2/types.h>
-
 #include "abstractcache.h"
 #include "entities/reference.h"
 #include "libkommit_export.h"
+
+#include <git2/types.h>
+
+#include <QMap>
+#include <QObject>
+#include <QScopedPointer>
+#include <QSharedPointer>
 
 namespace Git
 {
@@ -25,8 +27,7 @@ class ReferenceCachePrivate;
 class LIBKOMMIT_EXPORT ReferenceCache : public Cache<Reference, git_reference>
 {
 public:
-    explicit ReferenceCache(Manager *parent);
-    ~ReferenceCache() override;
+    explicit ReferenceCache(Repository *parent);
 
     DataType findByName(const QString &name);
     DataType findForNote(QSharedPointer<Note> note);
@@ -43,7 +44,7 @@ protected:
 private:
     void fill();
 
-    ReferenceCachePrivate *d_ptr;
+    QScopedPointer<ReferenceCachePrivate> d_ptr;
     Q_DECLARE_PRIVATE(ReferenceCache)
 };
 

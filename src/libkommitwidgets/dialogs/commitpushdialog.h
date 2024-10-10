@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-class Manager;
+class Repository;
 }
 class ChangedFileActions;
 class ChangedFilesModel;
@@ -21,7 +21,7 @@ class LIBKOMMITWIDGETS_EXPORT CommitPushDialog : public AppDialog, private Ui::C
     Q_OBJECT
 
 public:
-    explicit CommitPushDialog(Git::Manager *git, QWidget *parent = nullptr);
+    explicit CommitPushDialog(Git::Repository *git, QWidget *parent = nullptr);
     ~CommitPushDialog() override;
 
 private:

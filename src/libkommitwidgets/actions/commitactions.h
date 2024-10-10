@@ -21,7 +21,7 @@ class LIBKOMMITWIDGETS_EXPORT CommitActions : public AbstractActions
     Q_OBJECT
 
 public:
-    explicit CommitActions(Git::Manager *git, QWidget *parent = nullptr);
+    explicit CommitActions(Git::Repository *git, QWidget *parent = nullptr);
 
     [[nodiscard]] QSharedPointer<Git::Commit> commit() const;
     void setCommit(QSharedPointer<Git::Commit> commit);

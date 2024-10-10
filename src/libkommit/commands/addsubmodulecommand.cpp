@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-AddSubmoduleCommand::AddSubmoduleCommand(Manager *git)
+AddSubmoduleCommand::AddSubmoduleCommand(Repository *git)
     : AbstractCommand{git}
 {
 }

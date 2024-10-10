@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <core/repositorydata.h>
 #include <entities/submodule.h>
-#include <gitmanager.h>
+#include <repository.h>
 #include <models/submodulesmodel.h>
 
 SubmodulesWidget::SubmodulesWidget(RepositoryData *git, AppWindow *parent)

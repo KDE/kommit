@@ -185,8 +185,6 @@ MergeWidget::MergeWidget(QWidget *parent)
 
 MergeWidget::~MergeWidget()
 {
-    Q_D(MergeWidget);
-    delete d;
 }
 
 bool MergeWidget::ShowPreview() const

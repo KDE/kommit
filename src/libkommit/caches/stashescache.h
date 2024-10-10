@@ -6,13 +6,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QObject>
-#include <QSharedPointer>
-#include <git2/types.h>
-
 #include "abstractcache.h"
 #include "entities/stash.h"
 #include "libkommit_export.h"
+
+#include <git2/types.h>
+
+#include <QObject>
+#include <QScopedPointer>
+#include <QSharedPointer>
 
 namespace Git
 {
@@ -27,8 +29,7 @@ public:
     using DataType = QSharedPointer<Stash>;
     using ListType = QList<QSharedPointer<Stash>>;
 
-    explicit StashesCache(Manager *manager);
-    ~StashesCache();
+    explicit StashesCache(Repository *manager);
 
     [[nodiscard]] QList<QSharedPointer<Stash>> allStashes();
 
@@ -53,7 +54,8 @@ Q_SIGNALS:
     void reloadRequired();
 
 private:
-    StashesCachePrivate *d_ptr;
+    QScopedPointer<StashesCachePrivate> d_ptr;
     Q_DECLARE_PRIVATE(StashesCache)
 };
-};
+
+}

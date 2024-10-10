@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/commit.h"
 #include "entities/tree.h"
 #include "gitglobal_p.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "types.h"
 
 #include <git2/branch.h>
@@ -146,7 +146,7 @@ QSharedPointer<Commit> Branch::commit()
         END;
 
         if (IS_OK)
-            d->commit = Manager::owner(repo)->commits()->findByPtr(commit);
+            d->commit = Repository::owner(repo)->commits()->findByPtr(commit);
     }
 
     return d->commit;
@@ -155,7 +155,7 @@ QSharedPointer<Commit> Branch::commit()
 QSharedPointer<Reference> Branch::reference() const
 {
     Q_D(const Branch);
-    auto manager = Manager::owner(git_reference_owner(d->branch));
+    auto manager = Repository::owner(git_reference_owner(d->branch));
     return manager->references()->findByPtr(d->branch);
 }
 

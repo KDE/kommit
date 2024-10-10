@@ -22,7 +22,7 @@ class LIBKOMMITWIDGETS_EXPORT AuthorsReport : public AbstractReport
     Q_OBJECT
 
 public:
-    AuthorsReport(Git::Manager *git, QObject *parent = nullptr);
+    AuthorsReport(Git::Repository *git, QObject *parent = nullptr);
     ~AuthorsReport() override;
 
     void reload() override;

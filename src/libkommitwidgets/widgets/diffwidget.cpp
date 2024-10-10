@@ -190,8 +190,8 @@ void DiffWidget::compare()
     tmpRightBlockDataList.reserve(segments.size());
 
     for (auto &segment : segments) {
-        CodeEditor::BlockType leftBlockType;
-        CodeEditor::BlockType rightBlockType;
+        CodeEditor::BlockType leftBlockType{CodeEditor::BlockType::Unchanged};
+        CodeEditor::BlockType rightBlockType{CodeEditor::BlockType::Unchanged};
         switch (segment->type) {
         case Diff::SegmentType::SameOnBoth:
             tmpLeftContentWithSpaces += segment->oldText.join('\n');

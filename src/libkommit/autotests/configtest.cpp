@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "testcommon.h"
 
 #include <QTest>
-#include <gitmanager.h>
+#include <repository.h>
 
 QTEST_GUILESS_MAIN(ConfigTest)
 
@@ -26,7 +26,7 @@ void ConfigTest::initTestCase()
 {
     auto path = TestCommon::getTempPath();
     qDebug() << path;
-    mManager = new Git::Manager;
+    mManager = new Git::Repository;
     QVERIFY(!mManager->isValid());
 
     auto ok = mManager->init(path);
@@ -57,14 +57,14 @@ void ConfigTest::setUserInfo()
 void ConfigTest::setGlobalConfig()
 {
     auto val = QUuid::createUuid().toString(QUuid::Id128);
-    mManager->setConfig("kommit.test", val, Git::Manager::ConfigGlobal);
-    QCOMPARE(mManager->config("kommit.test", Git::Manager::ConfigGlobal), val);
+    mManager->setConfig("kommit.test", val, Git::Repository::ConfigGlobal);
+    QCOMPARE(mManager->config("kommit.test", Git::Repository::ConfigGlobal), val);
 }
 
 void ConfigTest::allConfigs()
 {
-    auto userName = mManager->config("user.name", Git::Manager::ConfigGlobal);
-    auto userEmail = mManager->config("user.email", Git::Manager::ConfigGlobal);
+    auto userName = mManager->config("user.name", Git::Repository::ConfigGlobal);
+    auto userEmail = mManager->config("user.email", Git::Repository::ConfigGlobal);
 
     auto userNameFound{false};
     auto userEmailFound{false};

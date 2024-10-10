@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <entities/branch.h>
 #include <entities/tag.h>
 #include <entities/tree.h>
-#include <gitmanager.h>
+#include <repository.h>
 #include <models/difftreemodel.h>
 #include <models/filesmodel.h>
 #include <widgets/difftreeview.h>
@@ -133,7 +133,7 @@ public:
     DiffTreeView *treeView{nullptr};
     QDockWidget *dock{nullptr};
 
-    Git::Manager *manager{nullptr};
+    Git::Repository *manager{nullptr};
     Impl::Storage left;
     Impl::Storage right;
 
@@ -303,7 +303,7 @@ DiffWindow::DiffWindow(QSharedPointer<Git::Blob> oldFile, QSharedPointer<Git::Bl
     d->compareFile("");
 }
 
-DiffWindow::DiffWindow(Git::Manager *git, QSharedPointer<Git::ITree> leftTree)
+DiffWindow::DiffWindow(Git::Repository *git, QSharedPointer<Git::ITree> leftTree)
     : AppMainWindow()
     , d_ptr{new DiffWindowPrivate{this}}
 {
@@ -315,7 +315,7 @@ DiffWindow::DiffWindow(Git::Manager *git, QSharedPointer<Git::ITree> leftTree)
     d->compareDirs();
 }
 
-DiffWindow::DiffWindow(Git::Manager *git, QSharedPointer<Git::ITree> leftTree, QSharedPointer<Git::ITree> rightTree)
+DiffWindow::DiffWindow(Git::Repository *git, QSharedPointer<Git::ITree> leftTree, QSharedPointer<Git::ITree> rightTree)
     : AppMainWindow()
     , d_ptr{new DiffWindowPrivate{this}}
 {

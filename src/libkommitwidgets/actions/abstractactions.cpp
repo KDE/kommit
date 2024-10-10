@@ -6,19 +6,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractactions.h"
 
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <KLocalizedString>
 #include <QMenu>
 #include <QWidget>
 
-AbstractActions::AbstractActions(Git::Manager *git, QWidget *parent)
+AbstractActions::AbstractActions(Git::Repository *git, QWidget *parent)
     : QObject{parent}
     , mGit{git}
     , mParent{parent}
     , mMenu(new QMenu(parent))
 {
-    connect(git, &Git::Manager::pathChanged, this, &AbstractActions::gitReloaded);
+    connect(git, &Git::Repository::pathChanged, this, &AbstractActions::gitReloaded);
 }
 
 void AbstractActions::setActionEnabled(QAction *action, bool enabled)

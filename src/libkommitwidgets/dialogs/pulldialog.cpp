@@ -10,11 +10,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "runnerdialog.h"
 
 #include "commands/commandpull.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include <QDialogButtonBox>
 #include <QPushButton>
 
-PullDialog::PullDialog(Git::Manager *git, QWidget *parent)
+PullDialog::PullDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
 {
     setupUi(this);

@@ -9,12 +9,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/branchescache.h"
 #include "caches/remotescache.h"
 #include "commands/commandfetch.h"
-#include "gitmanager.h"
+#include "repository.h"
 #include "observers/fetchobserver.h"
 #include "runnerdialog.h"
 
 #include <QDialogButtonBox>
-FetchDialog::FetchDialog(Git::Manager *git, QWidget *parent)
+FetchDialog::FetchDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
     , mObserver{new Git::FetchObserver{git}}
 {

@@ -38,6 +38,9 @@ target_sources(libkommitgui PRIVATE
     pages/widgetbase.h
     pages/widgetbase.cpp
 
+    dialogs/resolvedialog.h dialogs/resolvedialog.cpp
+    dialogs/chooseconflictedfiledialog.h dialogs/chooseconflictedfiledialog.cpp
+
     appwindow.cpp
     buttonsgroup.cpp
     multipagewidget.cpp
@@ -90,6 +93,9 @@ ki18n_wrap_ui(
     multipagewidget.ui
     kommitmergeview.ui
     commandpullwidget.ui
+
+    dialogs/resolvedialog.ui
+    dialogs/chooseconflictedfiledialog.ui
 
     pages/reportswidget.ui
     pages/branchesstatuswidget.ui

@@ -8,12 +8,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "ui_diffwidget.h"
 
-#include <QTextOption>
-#include <QWidget>
 #include <entities/blob.h>
 #include <entities/file.h>
 
 #include "libkommitwidgets_export.h"
+
+#include <QTextOption>
+#include <QWidget>
+#include <QScopedPointer>
 
 class DiffWidgetPrivate;
 class CodeEditor;
@@ -75,6 +77,6 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
-    DiffWidgetPrivate *d_ptr;
+    QScopedPointer<DiffWidgetPrivate> d_ptr;
     Q_DECLARE_PRIVATE(DiffWidget)
 };

@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/remote.h"
 #include "entities/tag.h"
 #include "gitglobal_p.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <git2/refs.h>
 
@@ -34,16 +34,10 @@ public:
     void fill();
 };
 
-ReferenceCache::ReferenceCache(Manager *parent)
+ReferenceCache::ReferenceCache(Repository *parent)
     : Git::Cache<Reference, git_reference>{parent}
     , d_ptr{new ReferenceCachePrivate{this}}
 {
-}
-
-ReferenceCache::~ReferenceCache()
-{
-    Q_D(ReferenceCache);
-    delete d;
 }
 
 ReferenceCache::DataType ReferenceCache::findByName(const QString &name)

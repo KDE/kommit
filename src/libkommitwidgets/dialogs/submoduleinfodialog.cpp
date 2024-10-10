@@ -8,11 +8,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commands/addsubmodulecommand.h"
 #include "core/kmessageboxhelper.h"
-#include "gitmanager.h"
+#include "repository.h"
 
 #include <KLocalizedString>
 
-SubmoduleInfoDialog::SubmoduleInfoDialog(Git::Manager *git, QWidget *parent)
+SubmoduleInfoDialog::SubmoduleInfoDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
 {
     setupUi(this);

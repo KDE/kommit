@@ -15,7 +15,7 @@ class LIBKOMMITWIDGETS_EXPORT InitDialog : public AppDialog, private Ui::InitDia
     Q_OBJECT
 
 public:
-    explicit InitDialog(Git::Manager *git, QWidget *parent = nullptr);
+    explicit InitDialog(Git::Repository *git, QWidget *parent = nullptr);
     [[nodiscard]] QString path() const;
     void setPath(const QString &path);
 };

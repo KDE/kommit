@@ -10,6 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "libkommitwidgets_export.h"
 
+#include <QScopedPointer>
+
 class SegmentConnector;
 class SegmentsScrollBarPrivate;
 
@@ -18,7 +20,6 @@ class LIBKOMMITWIDGETS_EXPORT SegmentsScrollBar : public QWidget
     Q_OBJECT
 public:
     explicit SegmentsScrollBar(QWidget *parent = nullptr);
-    virtual ~SegmentsScrollBar();
 
     SegmentConnector *segmentConnector() const;
     void setSegmentConnector(SegmentConnector *newSegmentConnector);
@@ -46,6 +47,6 @@ Q_SIGNALS:
     void mouseLeaved();
 
 private:
-    SegmentsScrollBarPrivate *d_ptr;
+    QScopedPointer<SegmentsScrollBarPrivate> d_ptr;
     Q_DECLARE_PRIVATE(SegmentsScrollBar)
 };

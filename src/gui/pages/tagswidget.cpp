@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <core/repositorydata.h>
 #include <entities/tag.h>
-#include <gitmanager.h>
+#include <repository.h>
 
 #include <QSortFilterProxyModel>
 
