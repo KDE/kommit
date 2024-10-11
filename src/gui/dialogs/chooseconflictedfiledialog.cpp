@@ -6,14 +6,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "chooseconflictedfiledialog.h"
 #include "dialogs/fileviewerdialog.h"
-
-#include <entities/blob.h>
 #include <windows/diffwindow.h>
+
+#include <Kommit/Blob>
 
 #include <KLocalizedString>
 
-#include <QPushButton>
 #include <QDialogButtonBox>
+#include <QPushButton>
 
 namespace
 {

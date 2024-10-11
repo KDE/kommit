@@ -8,8 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/submodulescache.h"
 #include "dialogs/commitpushdialog.h"
 #include "entities/submodule.h"
-#include "repository.h"
 #include "models/changedfilesmodel.h"
+#include "repository.h"
 
 ChangedSubmodulesDialog::ChangedSubmodulesDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)

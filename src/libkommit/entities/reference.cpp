@@ -13,9 +13,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/note.h"
 #include "entities/remote.h"
 #include "entities/tag.h"
-#include "repository.h"
 #include "oid.h"
 #include "qdebug.h"
+#include "repository.h"
 
 #include <git2/notes.h>
 #include <git2/oid.h>

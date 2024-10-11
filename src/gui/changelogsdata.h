@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include <QScopedPointer>
 #include <QStringList>
 #include <QVersionNumber>
-#include <QScopedPointer>
 
 class ChangeLogsDataPrivate;
 class ChangeLogsData

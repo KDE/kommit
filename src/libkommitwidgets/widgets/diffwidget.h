@@ -13,9 +13,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "libkommitwidgets_export.h"
 
+#include <QScopedPointer>
 #include <QTextOption>
 #include <QWidget>
-#include <QScopedPointer>
 
 class DiffWidgetPrivate;
 class CodeEditor;

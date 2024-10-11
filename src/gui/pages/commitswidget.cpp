@@ -9,16 +9,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "actions/branchactions.h"
 #include "actions/commitactions.h"
 #include "models/commitsfiltermodel.h"
-
 #include <core/repositorydata.h>
-#include <entities/blob.h>
-#include <entities/branch.h>
-#include <entities/commit.h>
-#include <repository.h>
 #include <models/commitsmodel.h>
-
 #include <models/treemodel.h>
 #include <windows/diffwindow.h>
+
+#include <Kommit/Blob>
+#include <Kommit/Branch>
+#include <Kommit/Commit>
+#include <Kommit/Repository>
 
 #include <KommitSettings.h>
 

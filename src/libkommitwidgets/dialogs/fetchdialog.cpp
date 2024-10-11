@@ -9,8 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/branchescache.h"
 #include "caches/remotescache.h"
 #include "commands/commandfetch.h"
-#include "repository.h"
 #include "observers/fetchobserver.h"
+#include "repository.h"
 #include "runnerdialog.h"
 
 #include <QDialogButtonBox>

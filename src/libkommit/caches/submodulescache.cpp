@@ -11,8 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/submodule.h>
 
 #include "gitglobal_p.h"
-#include "repository.h"
 #include "options/addsubmoduleoptions.h"
+#include "repository.h"
 #include "types.h"
 
 namespace Git

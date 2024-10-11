@@ -8,9 +8,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "actions/submoduleactions.h"
 
 #include <core/repositorydata.h>
-#include <entities/submodule.h>
-#include <repository.h>
 #include <models/submodulesmodel.h>
+
+#include <Kommit/SubModule>
+#include <Kommit/Repository>
 
 SubmodulesWidget::SubmodulesWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)

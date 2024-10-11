@@ -11,8 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/runnerdialog.h"
 #include "dialogs/taginfodialog.h"
 #include "entities/tag.h"
-#include "repository.h"
 #include "models/tagsmodel.h"
+#include "repository.h"
 
 #include <QAction>
 

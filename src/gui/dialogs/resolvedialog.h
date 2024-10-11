@@ -2,9 +2,10 @@
 
 #include "ui_resolvedialog.h"
 
-#include <entities/index.h>
+#include <Kommit/Index>
 
-namespace Git {
+namespace Git
+{
 class Repository;
 class ConflictIndexList;
 }

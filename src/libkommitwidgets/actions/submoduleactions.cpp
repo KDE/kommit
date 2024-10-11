@@ -14,8 +14,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "widgets/fetchresultwidget.h"
 
 #include <caches/submodulescache.h>
-#include <repository.h>
 #include <options/addsubmoduleoptions.h>
+#include <repository.h>
 
 #include <KLocalizedString>
 #include <QAction>

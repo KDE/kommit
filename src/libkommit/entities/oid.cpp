@@ -33,13 +33,12 @@ Oid::Oid(const git_oid oid)
 
 Oid::~Oid()
 {
-
 }
 
 QString Oid::toString() const
 {
     // if (!mOid)
-        // return {};
+    // return {};
 
     char str[GIT_OID_SHA1_HEXSIZE + 1];
     if (git_oid_fmt(str, &mOid))
@@ -52,7 +51,7 @@ QString Oid::toString() const
 bool Oid::isNull() const
 {
     // if (!mOid)
-        // return true;
+    // return true;
     return git_oid_is_zero(&mOid);
 }
 

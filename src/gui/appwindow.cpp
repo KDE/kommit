@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 // application headers
 #include "appwindow.h"
-#include "caches/branchescache.h"
 #include "changelogsdialog.h"
 #include "commands/commandmerge.h"
 #include "core/repositorydata.h"
@@ -36,11 +35,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "pages/tagswidget.h"
 #include "settings/settingsmanager.h"
 
-#include <KommitSettings.h>
+#include <Kommit/BranchesCache>
+#include <Kommit/CommandClean>
+#include <Kommit/CommandSwitchBranch>
+#include <Kommit/Repository>
 
-#include <commands/commandclean.h>
-#include <commands/commandswitchbranch.h>
-#include <repository.h>
+#include <KommitSettings.h>
 #include <windows/diffwindow.h>
 
 // KF headers

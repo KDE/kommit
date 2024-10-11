@@ -18,9 +18,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <entities/branch.h>
 #include <entities/tag.h>
 #include <entities/tree.h>
-#include <repository.h>
 #include <models/difftreemodel.h>
 #include <models/filesmodel.h>
+#include <repository.h>
 #include <widgets/difftreeview.h>
 #include <widgets/diffwidget.h>
 

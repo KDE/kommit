@@ -9,9 +9,9 @@
 #include <KSyntaxHighlighting/Repository>
 #include <QMap>
 #include <QPlainTextEdit>
+#include <QScopedPointer>
 #include <QTextBlock>
 #include <QTextBlockFormat>
-#include <QScopedPointer>
 
 #include <diff.h>
 

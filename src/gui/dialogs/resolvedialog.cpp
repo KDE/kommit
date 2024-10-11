@@ -2,9 +2,10 @@
 
 #include "chooseconflictedfiledialog.h"
 
-#include <entities/blob.h>
-#include <entities/index.h>
-#include <repository.h>
+#include <Kommit/Blob>
+#include <Kommit/Index>
+#include <Kommit/Repository>
+
 #include <windows/mergewindow.h>
 
 ResolveDialog::ResolveDialog(Git::Repository *git, QWidget *parent)

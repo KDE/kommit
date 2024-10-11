@@ -9,8 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "kommitwidgetsglobaloptions.h"
 
 #include <entities/commit.h>
-#include <repository.h>
 #include <models/commitsmodel.h>
+#include <repository.h>
 
 #include <KLocalizedString>
 #include <QDesktopServices>

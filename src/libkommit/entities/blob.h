@@ -11,9 +11,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/index.h>
 #include <git2/types.h>
 
+#include <QScopedPointer>
 #include <QSharedPointer>
 #include <QString>
-#include <QScopedPointer>
 
 namespace Git
 {

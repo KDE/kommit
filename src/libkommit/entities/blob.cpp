@@ -9,9 +9,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/commit.h"
 #include "entities/tree.h"
 #include "gitglobal_p.h"
-#include "repository.h"
 #include "object.h"
 #include "oid.h"
+#include "repository.h"
 
 #include <git2/blob.h>
 #include <git2/revparse.h>

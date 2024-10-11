@@ -6,7 +6,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <repository.h>
+#include <QObject>
+
+namespace Git
+{
+class Repository;
+}
 
 class RemotesModel;
 class BranchesModel;

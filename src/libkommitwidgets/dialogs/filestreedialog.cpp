@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "filestreedialog.h"
 #include "actions/fileactions.h"
 #include "core/kmessageboxhelper.h"
-#include "repository.h"
 #include "models/treemodel.h"
+#include "repository.h"
 
 #include <entities/tree.h>
 

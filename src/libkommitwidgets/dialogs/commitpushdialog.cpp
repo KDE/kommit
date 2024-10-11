@@ -14,8 +14,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/changedsubmodulesdialog.h"
 #include "entities/index.h"
 #include "entities/submodule.h"
-#include "repository.h"
 #include "models/changedfilesmodel.h"
+#include "repository.h"
 #include "runnerdialog.h"
 
 #include <QWindow>

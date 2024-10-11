@@ -6,9 +6,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "stasheswidget.h"
 #include "actions/stashactions.h"
-#include "repository.h"
 #include "models/stashesmodel.h"
 #include <core/repositorydata.h>
+
+#include <Kommit/Repository>
 
 StashesWidget::StashesWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)

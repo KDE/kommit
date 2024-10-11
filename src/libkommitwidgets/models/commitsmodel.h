@@ -10,8 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 
 #include <QCalendar>
-#include <QSet>
 #include <QScopedPointer>
+#include <QSet>
 
 namespace Git
 {

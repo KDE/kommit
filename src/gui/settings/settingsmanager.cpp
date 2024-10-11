@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "settingsmanager.h"
 
 #include "KommitSettings.h"
-#include "repository.h"
 #include "kommitwidgetsglobaloptions.h"
+#include "repository.h"
 
 #include <QCalendar>
 

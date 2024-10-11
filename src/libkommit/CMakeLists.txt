@@ -113,6 +113,12 @@ target_include_directories(libkommit
         "$<INSTALL_INTERFACE:${KOMMIT_INSTALL_INCLUDEDIR}>"
 )
 
+target_include_directories(libkommit PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/entities>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/options>
+)
+
 target_link_libraries(libkommit
     PkgConfig::LIBGIT2
     Qt::Core
@@ -123,9 +129,21 @@ if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
 
+# root folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
+        Repository
+
+        # BlameDataRow
         BlameData
+
+        # ConfigEntry
+        Config
+
+        # ITree
+        # IOid
+        AbstractReference
+
         Buffer
         Credential
         FileStatus
@@ -133,6 +151,8 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
 )
+
+# entities sub folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
         Blob
@@ -149,14 +169,70 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
         StrArray
         SubModule
         Tag
-        tree
-        treeDiff
+        Tree
+        TreeDiff
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
     RELATIVE
         entities
 )
 
+# commands sub folder
+ecm_generate_headers(libkommit_CamelCase_HEADERS
+    HEADER_NAMES
+
+        CommandSwitchBranch
+        CommandMerge
+        CommandChangedFiles
+        AddSubmoduleCommand
+        AbstractCommand
+        ParameteresCommand
+        CommandPush
+        CommandPull
+        CommandFetch
+        CommandCommit
+        CommandClone
+        CommandClean
+        CommandAddRemote
+PREFIX Kommit
+    REQUIRED_HEADERS kommit_HEADERS
+    RELATIVE
+        commands
+)
+
+# caches sub folder
+ecm_generate_headers(libkommit_CamelCase_HEADERS
+    HEADER_NAMES
+
+    TagsCache
+    SubmodulesCache
+    StashesCache
+    RemotesCache
+    ReferenceCache
+    NotesCache
+    CommitsCache
+    BranchesCache
+    AbstractCache
+
+PREFIX Kommit
+    REQUIRED_HEADERS kommit_HEADERS
+    RELATIVE
+        caches
+)
+
+# observers sub folder
+ecm_generate_headers(libkommit_CamelCase_HEADERS
+    HEADER_NAMES
+
+    FetchObserver
+    PushObserver
+    CloneObserver
+
+PREFIX Kommit
+    REQUIRED_HEADERS kommit_HEADERS
+    RELATIVE
+        observers
+)
 
 install(
     FILES
@@ -169,7 +245,7 @@ install(
 )
 install(
     FILES
-        ${kommit_CamelCase_HEADERS}
+        ${libkommit_CamelCase_HEADERS}
     DESTINATION
         ${KOMMIT_INSTALL_INCLUDEDIR}/Kommit
     COMPONENT

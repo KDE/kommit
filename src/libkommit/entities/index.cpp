@@ -262,21 +262,21 @@ QSharedPointer<Blob> IndexConflictEntry::blob() const
     return mBlob;
 }
 
-class ConflictIndexListPrivate{
+class ConflictIndexListPrivate
+{
     ConflictIndexList *q_ptr;
     Q_DECLARE_PUBLIC(ConflictIndexList)
 
 public:
-    explicit ConflictIndexListPrivate(ConflictIndexList *parent,QList<ConflictIndex*> conflicts);
+    explicit ConflictIndexListPrivate(ConflictIndexList *parent, QList<ConflictIndex *> conflicts);
     ~ConflictIndexListPrivate();
 
-    QList<ConflictIndex*> conflicts;
+    QList<ConflictIndex *> conflicts;
 };
 ConflictIndexListPrivate::ConflictIndexListPrivate(ConflictIndexList *parent, QList<ConflictIndex *> conflicts)
     : q_ptr{parent}
     , conflicts{conflicts}
 {
-
 }
 
 ConflictIndexListPrivate::~ConflictIndexListPrivate()
@@ -319,8 +319,8 @@ ConflictIndexList::ListType::const_iterator ConflictIndexList::begin() const
 }
 
 ConflictIndexList::ListType::const_iterator ConflictIndexList::end() const
-{    Q_D(const ConflictIndexList);
+{
+    Q_D(const ConflictIndexList);
     return d->conflicts.end();
 }
-
 }

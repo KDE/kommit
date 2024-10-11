@@ -13,6 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/submodulesmodel.h"
 #include "models/tagsmodel.h"
 
+#include <Kommit/Repository>
+
 RepositoryData::RepositoryData(Git::Repository *git)
     : QObject{git}
     , mManager{git}
@@ -75,3 +77,4 @@ TagsModel *RepositoryData::tagsModel() const
 }
 
 #include "moc_repositorydata.cpp"
+

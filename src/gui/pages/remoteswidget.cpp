@@ -8,10 +8,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "actions/remotesactions.h"
 #include "entities/remote.h"
 #include "models/remotesmodel.h"
-
 #include <core/repositorydata.h>
-#include <entities/branch.h>
-#include <repository.h>
+
+#include <Kommit/Branch>
+#include <Kommit/Repository>
 
 RemotesWidget::RemotesWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)

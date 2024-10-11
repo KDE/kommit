@@ -8,11 +8,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "commandargsparser.h"
 
 #include "appwindow.h"
-#include "caches/branchescache.h"
-#include "caches/tagscache.h"
-#include "commands/commandclean.h"
-#include "commands/commandmerge.h"
-#include "commands/commandswitchbranch.h"
 #include "core/kmessageboxhelper.h"
 #include "dialogs/changedfilesdialog.h"
 #include "dialogs/cleanupdialog.h"
@@ -25,21 +20,27 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/initdialog.h"
 #include "dialogs/mergedialog.h"
 #include "dialogs/pulldialog.h"
+#include "dialogs/resolvedialog.h"
 #include "dialogs/runnerdialog.h"
 #include "dialogs/selectbranchestodiffdialog.h"
 #include "dialogs/switchbranchdialog.h"
 #include "dialogs/taginfodialog.h"
-#include "entities/index.h"
 #include "kommit_appdebug.h"
 #include "settings/settingsmanager.h"
-#include "dialogs/resolvedialog.h"
 
 #include <dialogs/filestreedialog.h>
-#include <entities/file.h>
-#include <entities/tree.h>
-#include <repository.h>
 #include <windows/diffwindow.h>
 #include <windows/mergewindow.h>
+
+#include <Kommit/BranchesCache>
+#include <Kommit/CommandClean>
+#include <Kommit/CommandMerge>
+#include <Kommit/CommandSwitchBranch>
+#include <Kommit/File>
+#include <Kommit/Index>
+#include <Kommit/Repository>
+#include <Kommit/TagsCache>
+#include <Kommit/Tree>
 
 #include <QApplication>
 #include <QDir>

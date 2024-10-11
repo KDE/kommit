@@ -9,9 +9,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/index.h>
 #include <git2/types.h>
 
-#include <QString>
-#include <QSharedPointer>
 #include <QScopedPointer>
+#include <QSharedPointer>
+#include <QString>
 
 #include "entities/tree.h"
 #include "libkommit_export.h"
@@ -59,9 +59,10 @@ struct LIBKOMMIT_EXPORT ConflictIndex {
 };
 
 class ConflictIndexListPrivate;
-class LIBKOMMIT_EXPORT ConflictIndexList {
+class LIBKOMMIT_EXPORT ConflictIndexList
+{
 public:
-    using ListType = QList<ConflictIndex*>;
+    using ListType = QList<ConflictIndex *>;
 
     ConflictIndexList();
     ConflictIndexList(ListType list);
@@ -135,6 +136,7 @@ public:
     git_oid &lastOid();
 
     void resolveConflict(ConflictIndex *conflict, ConflictSide side);
+
 private:
     git_index *const ptr;
     git_oid mLastOid;

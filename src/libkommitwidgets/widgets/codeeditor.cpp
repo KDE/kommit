@@ -210,8 +210,6 @@ CodeEditor::CodeEditor(QWidget *parent)
 CodeEditor::~CodeEditor()
 {
     clearAll();
-    Q_D(CodeEditor);
-    delete d;
 }
 
 void CodeEditor::resizeEvent(QResizeEvent *event)
@@ -342,12 +340,12 @@ void CodeEditor::sidebarPaintEvent(QPaintEvent *event)
         if (data && !data->extraText.isEmpty()) {
             painter.drawText(0, top, d->mSideBar->width() - 2 - foldingMarkerSize, fontMetrics().height(), Qt::AlignLeft, data->extraText);
         }
-        if (d->dataList.size() &&  it != d->dataList.end()) {
+        if (d->dataList.size() && it != d->dataList.end()) {
             if (lineNumber >= (*it)->lineNumber + (d->fill ? (*it)->maxLineCount : (*it)->lineCount)) {
                 ++it;
                 extraDataPrinted = false;
             }
-            if (!extraDataPrinted &&  it != d->dataList.end()) {
+            if (!extraDataPrinted && it != d->dataList.end()) {
                 painter.drawText(0, top, d->mSideBar->width() - 2 - foldingMarkerSize, fontMetrics().height(), Qt::AlignLeft, (*it)->extraText);
                 extraDataPrinted = true;
             }

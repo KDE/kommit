@@ -8,8 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "caches/branchescache.h"
 #include "commands/commandmerge.h"
-#include "repository.h"
 #include "models/branchesmodel.h"
+#include "repository.h"
 
 void MergeDialog::init(Git::Repository *git)
 {

@@ -12,3 +12,25 @@ set(
 
     PARENT_SCOPE
 )
+
+ecm_generate_headers(libkommit_CamelCase_HEADERS
+    HEADER_NAMES
+
+        CommandSwitchBranch
+        CommandMerge
+        CommandChangedFiles
+        AddSubmoduleUommand
+        AbstractUommand
+        ParameteresCommand
+        CommandPush
+        CommandPull
+        CommandFetch
+        CommandCommit
+        CommandClone
+        CommandClean
+        CommandAddRemote
+PREFIX Kommit
+    REQUIRED_HEADERS kommit_HEADERS
+    RELATIVE
+        commands
+)

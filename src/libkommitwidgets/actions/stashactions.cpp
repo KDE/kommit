@@ -13,8 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/stashescache.h"
 #include "core/kmessageboxhelper.h"
 #include "entities/stash.h"
-#include "repository.h"
 #include "models/stashesmodel.h"
+#include "repository.h"
 #include "windows/diffwindow.h"
 #include <entities/commit.h>
 

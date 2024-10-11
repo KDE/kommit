@@ -10,7 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QSharedPointer>
 
-namespace Git {
+namespace Git
+{
 class Blob;
 }
 
@@ -19,12 +20,7 @@ class ChooseConflictedFileDialog : public QDialog, private Ui::ChooseConflictedF
     Q_OBJECT
 
 public:
-    enum class Side {
-        None,
-        Base,
-        Local,
-        Remote
-    };
+    enum class Side { None, Base, Local, Remote };
 
     ChooseConflictedFileDialog(QSharedPointer<Git::Blob> baseFile,
                                QSharedPointer<Git::Blob> localFile,
@@ -34,7 +30,7 @@ public:
     [[nodiscard]] Side selectedSide() const;
 
 private:
-    void slotLabelLinkActivated(const QString& link);
+    void slotLabelLinkActivated(const QString &link);
     void slotLabelDiffBaseWithLocalLinkActivated(const QString &link);
     void slotLabelDiffBaseWithRemoteLinkActivated(const QString &link);
     void slotLabelDiffLocalWithRemoteLinkActivated(const QString &link);
