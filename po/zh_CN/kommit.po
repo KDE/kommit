@@ -508,10 +508,9 @@ msgstr "分支"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/pages/branchesstatuswidget.ui:25
-#, fuzzy, kde-format
-#| msgid "Branches:"
+#, kde-format
 msgid "Branches type:"
-msgstr "分支："
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
@@ -525,10 +524,9 @@ msgstr "全部"
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #: src/gui/pages/branchesstatuswidget.ui:38
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Local file:"
+#, kde-format
 msgid "Local"
-msgstr "本地文件："
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
@@ -1091,10 +1089,9 @@ msgid "Change url…"
 msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Unable to create path: %1"
+#, kde-format
 msgid "Unable to create remote"
-msgstr "无法创建路径：%1"
+msgstr ""
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:59
 #, kde-format
@@ -1784,10 +1781,9 @@ msgid "Prune"
 msgstr "修剪"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Uncommited"
+#, kde-format
 msgid "Uncommitted"
-msgstr "未提交"
+msgstr ""
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:57
 #, kde-format
@@ -2445,10 +2441,9 @@ msgid "Unable to find the tag's target commit: %1"
 msgstr ""
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
-#, fuzzy, kde-format
-#| msgid "Unable to create path: %1"
+#, kde-format
 msgid "Unable to create the branch: %1"
-msgstr "无法创建路径：%1"
+msgstr ""
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:104
 #, kde-format
@@ -2550,11 +2545,9 @@ msgid "Create time"
 msgstr ""
 
 #: src/libkommitwidgets/models/treemodel.cpp:127
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Tree"
+#, kde-format
 msgid "Tree"
-msgstr "树"
+msgstr ""
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format
@@ -2670,10 +2663,9 @@ msgstr "表单"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:20
-#, fuzzy, kde-format
-#| msgid "All branches"
+#, kde-format
 msgid "Filter branches"
-msgstr "所有分支"
+msgstr ""
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:95
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
@@ -2885,12 +2877,3 @@ msgstr ""
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr ""
-
-#~ msgid "Conflicts: %1"
-#~ msgstr "冲突：%1"
-
-#~ msgid "Blocks"
-#~ msgstr "块"
-
-#~ msgid "Files"
-#~ msgstr "文件"

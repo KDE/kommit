@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-08 01:49+0000\n"
-"PO-Revision-Date: 2024-09-19 14:04+0200\n"
+"PO-Revision-Date: 2024-10-09 11:18+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1801,10 +1801,9 @@ msgid "Prune"
 msgstr "Élaguer"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Uncommited"
+#, kde-format
 msgid "Uncommitted"
-msgstr "Non-validé"
+msgstr "Non validé"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:57
 #, kde-format
@@ -2949,17 +2948,17 @@ msgstr "Impossible d'ouvrir le fichier %1"
 #: src/libkommitwidgets/windows/mergewindow.cpp:330
 #, kde-format
 msgid "Save result"
-msgstr ""
+msgstr "Enregistrer le résultat"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:398
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
-msgstr ""
+msgstr "Conflits : <span style='font-weight:bold; color:red;'>%1</span>"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:400
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
-msgstr ""
+msgstr "<span style='color:green;'>Tous les conflits ont été résolus</span>"
 
 #~ msgctxt "@action"
 #~ msgid "Blame"
