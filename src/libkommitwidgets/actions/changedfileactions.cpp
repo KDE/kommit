@@ -8,7 +8,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/branchescache.h"
 #include "repository.h"
 #include "windows/diffwindow.h"
-#include <entities/blob.h>
+
+#include <Kommit/Blob>
+#include <Kommit/Index>
 
 #include <QAction>
 
@@ -52,12 +54,11 @@ void ChangedFileActions::diff()
 {
     QSharedPointer<Git::Blob> original;
 
+    auto index = mGit->index();
     if (mOriginalFilePath == QString())
-        original.reset(new Git::Blob{mGit->repoPtr(), mFilePath});
+        original = index->blobByPath(mFilePath);
     else
-        original.reset(new Git::Blob{mGit->repoPtr(), mOriginalFilePath});
-
-    QSharedPointer<Git::Blob> changed{new Git::Blob{mGit->repoPtr(), mFilePath}};
+        original = index->blobByPath(mOriginalFilePath);
 
     auto diffWin = new DiffWindow;
     diffWin->setLeft(original);

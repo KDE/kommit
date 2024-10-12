@@ -18,7 +18,8 @@ Oid::Oid()
 
 Oid::Oid(const git_oid *oid)
 {
-    git_oid_cpy(&mOid, oid);
+    if (oid)
+        git_oid_cpy(&mOid, oid);
 }
 
 Oid::Oid(const git_oid oid)

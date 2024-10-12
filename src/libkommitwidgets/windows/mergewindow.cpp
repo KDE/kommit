@@ -149,12 +149,12 @@ void MergeWindowPrivate::initActions()
     auto actionKeepMineBeforeTheir = actionCollection->addAction(QStringLiteral("keep_mine_before_their"), mergeWidget->keepMineBeforeTheirAction());
     actionKeepMineBeforeTheir->setText(i18n("Keep mine before their"));
     actionKeepMineBeforeTheir->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-mine-before-their")));
-    actionCollection->setDefaultShortcut(actionKeepMineBeforeTheir, QKeySequence(Qt::CTRL | Qt::Key_L | Qt::SHIFT));
+    actionCollection->setDefaultShortcut(actionKeepMineBeforeTheir, QKeySequence(QKeyCombination{Qt::CTRL | Qt::SHIFT, Qt::Key_L}));
 
     auto actionKeepTheirBeforeMine = actionCollection->addAction(QStringLiteral("keep_their_before_mine"), mergeWidget->keepTheirBeforeMineAction());
     actionKeepTheirBeforeMine->setText(i18n("Keep their before mine"));
     actionKeepTheirBeforeMine->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their-before-mine")));
-    actionCollection->setDefaultShortcut(actionKeepTheirBeforeMine, QKeySequence(Qt::CTRL | Qt::Key_R | Qt::SHIFT));
+    actionCollection->setDefaultShortcut(actionKeepTheirBeforeMine, QKeySequence(QKeyCombination{Qt::CTRL | Qt::SHIFT, Qt::Key_R}));
 
     auto actionKeepMyFile = actionCollection->addAction(QStringLiteral("keep_my_file"), mergeWidget->keepMyFileAction());
     actionKeepMyFile->setText(i18n("Keep my file"));

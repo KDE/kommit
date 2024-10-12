@@ -123,6 +123,7 @@ int git_helper_transport_cb(git_transport **out, git_remote *owner, void *param)
 
 int git_helper_transport_certificate_check(git_cert *cert, int valid, const char *host, void *payload)
 {
+    Q_UNUSED(valid)
     Q_UNUSED(cert)
     Q_UNUSED(host)
     Q_UNUSED(payload)

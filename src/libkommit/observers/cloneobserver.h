@@ -29,10 +29,16 @@ void git_helper_checkout_perfdata_cb(const git_checkout_perfdata *perfdata, void
 
 class LIBKOMMIT_EXPORT CloneObserver : public FetchObserver
 {
+    Q_OBJECT
+
 public:
     explicit CloneObserver(QObject *parent = nullptr);
 
     void init(git_checkout_options *opts);
+
+Q_SIGNALS:
+    void checkoutProgress(const QString &path, int completedSteps, int totalSteps);
+    void checkoutPerfData(size_t mkdirCalls, size_t statCalls, size_t chmodCalls);
 };
 
 }

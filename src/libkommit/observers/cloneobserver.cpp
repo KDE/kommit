@@ -32,30 +32,26 @@ int git_helper_checkout_notify_cb(git_checkout_notify_t why,
 
 void git_helper_checkout_progress_cb(const char *path, size_t completed_steps, size_t total_steps, void *payload)
 {
-    Q_UNUSED(path)
-    Q_UNUSED(total_steps)
-    Q_UNUSED(completed_steps)
     auto observer = reinterpret_cast<Git::CloneObserver *>(payload);
 
     if (!observer)
         return;
 
-    // observer->setTotalObjects(stats->total_objects);
-    // observer->setIndexedObjects(stats->indexed_objects);
-    // observer->setReceivedObjects(stats->received_objects);
-    // observer->setLocalObjects(stats->local_objects);
-    // observer->setTotalDeltas(stats->total_deltas);
-    // observer->setIndexedDeltas(stats->indexed_deltas);
+    Q_EMIT observer->checkoutProgress(QString{path}, static_cast<int>(completed_steps), static_cast<int>(total_steps));
     return;
 }
 
 void git_helper_checkout_perfdata_cb(const git_checkout_perfdata *perfdata, void *payload)
 {
-    Q_UNUSED(perfdata)
-    // auto observer = reinterpret_cast<Git::CloneObserver *>(payload);
+    auto observer = reinterpret_cast<Git::CloneObserver *>(payload);
+
+    if (!observer)
+        return;
+
+    Q_EMIT observer->checkoutPerfData(perfdata->mkdir_calls, perfdata->stat_calls, perfdata->chmod_calls);
 }
 
-}
+} // namespace CloneCallbacks
 
 CloneObserver::CloneObserver(QObject *parent)
     : FetchObserver{nullptr}

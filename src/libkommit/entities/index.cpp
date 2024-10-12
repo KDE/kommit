@@ -12,6 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <git2/tree.h>
 
+#include <Kommit/Repository>
+
 namespace Git
 {
 
@@ -28,6 +30,7 @@ public:
     QSharedPointer<Oid> oid;
     IndexEntry::StageState stageState;
     bool isConflict;
+    FileMode fileMode;
 };
 
 IndexEntryPrivate::IndexEntryPrivate(IndexEntry *parent, const git_index_entry *entry)
@@ -37,6 +40,7 @@ IndexEntryPrivate::IndexEntryPrivate(IndexEntry *parent, const git_index_entry *
         oid.reset(new Oid{entry->id});
         path = QString{entry->path};
         fileSize = entry->file_size;
+        fileMode = entry->mode;
         stageState = static_cast<IndexEntry::StageState>(git_index_entry_stage(entry));
         isConflict = 1 == git_index_entry_is_conflict(entry);
     }
@@ -152,6 +156,24 @@ QList<IndexEntry *> Index::entries() const
     return list;
 }
 
+IndexEntry *Index::entryByPath(const QString &path) const
+{
+    auto entry = git_index_get_bypath(ptr, path.toUtf8().data(), 0);
+    if (entry)
+        new IndexEntry{entry};
+
+    return nullptr;
+}
+
+QSharedPointer<Blob> Index::blobByPath(const QString &path) const
+{
+    auto entry = git_index_get_bypath(ptr, path.toUtf8().data(), 0);
+    if (!entry)
+        return {};
+
+    return QSharedPointer<Blob>::create(git_index_owner(ptr), entry);
+}
+
 bool Index::hasConflicts() const
 {
     return 1 == git_index_has_conflicts(ptr);
@@ -216,6 +238,12 @@ bool IndexEntry::isConflict() const
 {
     Q_D(const IndexEntry);
     return d->isConflict;
+}
+
+FileMode IndexEntry::mode() const
+{
+    Q_D(const IndexEntry);
+    return d->fileMode;
 }
 
 Index::iterator::iterator(git_index *ptr)

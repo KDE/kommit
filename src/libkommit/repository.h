@@ -120,6 +120,7 @@ public:
     [[nodiscard]] QMap<QString, ChangeStatus> changedFiles(const QString &hash) const;
     [[nodiscard]] QStringList ignoredFiles() const;
 
+    Q_DECL_DEPRECATED
     [[nodiscard]] Q_DECL_DEPRECATED QList<FileStatus> repoFilesStatus() const;
 
     // ignores

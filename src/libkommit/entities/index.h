@@ -18,6 +18,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommit_global.h"
 #include "oid.h"
 #include "types.h"
+#include <Kommit/FileMode>
 
 namespace Git
 {
@@ -36,6 +37,7 @@ public:
     QSharedPointer<Oid> oid() const override;
     StageState stageState() const;
     bool isConflict() const;
+    FileMode mode() const;
 
 private:
     QScopedPointer<IndexEntryPrivate> d_ptr;
@@ -132,6 +134,9 @@ public:
     QSharedPointer<Tree> tree() const;
 
     QList<IndexEntry *> entries() const;
+    IndexEntry *entryByPath(const QString &path) const;
+    QSharedPointer<Blob> blobByPath(const QString &path) const;
+
     bool hasConflicts() const;
     QSharedPointer<ConflictIndexList> conflicts() const;
     git_oid &lastOid();

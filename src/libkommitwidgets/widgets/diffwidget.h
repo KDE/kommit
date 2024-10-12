@@ -69,8 +69,6 @@ private Q_SLOTS:
     LIBKOMMITWIDGETS_NO_EXPORT void slotSplitterSplitterMoved(int, int);
     LIBKOMMITWIDGETS_NO_EXPORT void oldCodeEditor_scroll(int value);
     LIBKOMMITWIDGETS_NO_EXPORT void newCodeEditor_scroll(int value);
-    LIBKOMMITWIDGETS_NO_EXPORT void oldCodeEditor_blockSelected();
-    LIBKOMMITWIDGETS_NO_EXPORT void newCodeEditor_blockSelected();
 
 protected:
     void resizeEvent(QResizeEvent *event) override;

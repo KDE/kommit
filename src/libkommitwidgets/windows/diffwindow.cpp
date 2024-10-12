@@ -126,10 +126,10 @@ public:
     enum class Mode { None, Dirs, Files };
     DiffWindowPrivate(DiffWindow *parent);
 
-    FilesModel *filesModel{nullptr};
-    DiffTreeModel *diffModel{nullptr};
     EditActionsMapper *mapper{nullptr};
     DiffWidget *diffWidget{nullptr};
+    FilesModel *filesModel{nullptr};
+    DiffTreeModel *diffModel{nullptr};
     DiffTreeView *treeView{nullptr};
     QDockWidget *dock{nullptr};
 

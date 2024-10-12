@@ -27,6 +27,8 @@ target_sources(libkommit PRIVATE
     credential.cpp
     entities/blob.h entities/blob.cpp
     config.h config.cpp
+    filedelta.h filedelta.cpp
+    filemode.h filemode.cpp
 
     caches/abstractcache.cpp
     caches/branchescache.cpp
@@ -148,6 +150,9 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
         Credential
         FileStatus
         Types
+
+        FileDelta
+        FileMode
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
 )
@@ -180,12 +185,12 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
 # commands sub folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
+        AbstractCommand
+        ParameteresCommand
+        AddSubmoduleCommand
         CommandSwitchBranch
         CommandMerge
         CommandChangedFiles
-        AddSubmoduleCommand
-        AbstractCommand
-        ParameteresCommand
         CommandPush
         CommandPull
         CommandFetch
@@ -231,31 +236,28 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
 
 install(
     FILES
+        ${libkommit_CamelCase_HEADERS}
         ${CMAKE_CURRENT_BINARY_DIR}/libkommit_export.h
         ${CMAKE_CURRENT_SOURCE_DIR}/libkommit_global.h
         ${CMAKE_CURRENT_BINARY_DIR}/libkommit_version.h
+    DESTINATION
+        ${KOMMIT_INSTALL_INCLUDEDIR}/Kommit
+    COMPONENT
+        Devel
+)
+
+install(
+    FILES
         ${kommit_HEADERS}
-    DESTINATION
-        ${KOMMIT_INSTALL_INCLUDEDIR}/Kommit
-    COMPONENT
-        Devel
-)
-install(
-    FILES
-        ${libkommit_CamelCase_HEADERS}
-    DESTINATION
-        ${KOMMIT_INSTALL_INCLUDEDIR}/Kommit
-    COMPONENT
-        Devel
-)
-install(
-    FILES
+        ${CMAKE_CURRENT_BINARY_DIR}/libkommit_export.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/libkommit_global.h
         ${CMAKE_CURRENT_BINARY_DIR}/libkommit_version.h
     DESTINATION
-        ${KOMMIT_INSTALL_INCLUDEDIR}
+        ${KOMMIT_INSTALL_INCLUDEDIR}/kommit
     COMPONENT
         Devel
 )
+
 
 install(TARGETS libkommit ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 # install(FILES ${HEADERS} DESTINATION include/kommit) future releases

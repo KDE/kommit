@@ -355,25 +355,6 @@ void DiffWidget::newCodeEditor_scroll(int value)
     widgetSegmentsScrollBar->update();
 }
 
-void DiffWidget::oldCodeEditor_blockSelected()
-{
-    //    auto b = _oldCodeEditor->textCursor().block().blockNumber();
-    //    auto b = _oldCodeEditor->currentSegment();
-    //    if (b) {
-    //        _segmentConnector->setCurrentSegment(b);
-    //        _newCodeEditor->highlightSegment(b);
-    //    }
-}
-
-void DiffWidget::newCodeEditor_blockSelected()
-{
-    //    auto b = _newCodeEditor->currentSegment();
-    //    if (b) {
-    //        _segmentConnector->setCurrentSegment(b);
-    //        _oldCodeEditor->highlightSegment(b);
-    //    }
-}
-
 void DiffWidgetPrivate::recalculateInfoPaneSize()
 {
     //    leftInfoContainer->setMinimumWidth(leftCodeEditor->width());
@@ -439,8 +420,8 @@ void DiffWidgetPrivate::init()
 
     q->widgetSegmentsScrollBar->setSegmentConnector(q->segmentConnector);
 
-    QObject::connect(q->leftCodeEditor, &CodeEditor::blockSelected, q, &DiffWidget::oldCodeEditor_blockSelected);
-    QObject::connect(q->rightCodeEditor, &CodeEditor::blockSelected, q, &DiffWidget::newCodeEditor_blockSelected);
+    // QObject::connect(q->leftCodeEditor, &CodeEditor::blockSelected, q, &DiffWidget::oldCodeEditor_blockSelected);
+    // QObject::connect(q->rightCodeEditor, &CodeEditor::blockSelected, q, &DiffWidget::newCodeEditor_blockSelected);
     QObject::connect(q->leftCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, q, &DiffWidget::oldCodeEditor_scroll);
     QObject::connect(q->rightCodeEditor->verticalScrollBar(), &QScrollBar::valueChanged, q, &DiffWidget::newCodeEditor_scroll);
     QObject::connect(q->splitter, &QSplitter::splitterMoved, q, &DiffWidget::slotSplitterSplitterMoved);

@@ -193,6 +193,7 @@ QStringList Repository::ignoredFiles() const
     return readAllNonEmptyOutput({QStringLiteral("check-ignore"), QStringLiteral("*")});
 }
 
+// TODO: remove this
 QList<FileStatus> Repository::repoFilesStatus() const
 {
     Q_D(const Repository);
