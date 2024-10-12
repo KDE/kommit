@@ -6,12 +6,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "reportswidget.h"
 
+#include <Kommit/Repository>
 #include <core/repositorydata.h>
 #include <reports/authorsreport.h>
 #include <reports/commitsbydayhour.h>
 #include <reports/commitsbydayweek.h>
 #include <reports/commitsbymonth.h>
-#include <Kommit/Repository>
 #include <widgets/reportwidget.h>
 
 ReportsWidget::ReportsWidget(RepositoryData *git, AppWindow *parent)

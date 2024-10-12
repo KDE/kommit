@@ -41,15 +41,6 @@ QString LogList::branchName(const QString &refLog)
     return {};
 }
 
-void LogList::initChilds()
-{
-    for (auto i = rbegin(); i != rend(); i++) {
-        auto &log = *i;
-        // for (auto &p : log->parents())
-        // mDataByCommitHashLong.value(p)->mChildren.append(log->commitHash());
-    }
-}
-
 const QString &LogList::branch() const
 {
     return mBranch;
@@ -152,7 +143,6 @@ H -- commit hash              c -- committer details        m -- mark           
     //    std::sort(begin(), end(), [](GitLog *log1,GitLog *log2){
     //        return log1->commitDate() < log2->commitDate();
     //    });
-    initChilds();
     initGraph();
 }
 

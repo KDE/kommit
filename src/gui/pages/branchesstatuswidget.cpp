@@ -12,8 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <core/repositorydata.h>
 
-#include <Kommit/BranchesCache>
 #include <Kommit/Branch>
+#include <Kommit/BranchesCache>
 #include <Kommit/Repository>
 
 #include <KLocalizedString>

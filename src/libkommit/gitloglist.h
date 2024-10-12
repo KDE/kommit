@@ -32,7 +32,6 @@ public:
 
 private:
     [[nodiscard]] LIBKOMMIT_NO_EXPORT QString branchName(const QString &refLog);
-    LIBKOMMIT_NO_EXPORT void initChilds();
     QString mBranch;
     QStringList mBranches;
     QMap<QString, Commit *> mDataByCommitHashLong;

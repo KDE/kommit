@@ -15,6 +15,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "entities/tree.h"
 #include "libkommit_export.h"
+#include "libkommit_global.h"
 #include "oid.h"
 #include "types.h"
 

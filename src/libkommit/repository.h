@@ -5,6 +5,7 @@
 
 #include "libkommit_export.h"
 
+#include "libkommit_global.h"
 #include "types.h"
 
 #include <git2.h>

@@ -11,9 +11,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <widgets/graphpainter.h>
 #include <windows/diffwindow.h>
 
-#include <Kommit/Repository>
 #include <Kommit/Blob>
 #include <Kommit/Commit>
+#include <Kommit/Repository>
 
 HistoryViewWidget::HistoryViewWidget(RepositoryData *git, AppWindow *parent)
     : WidgetBase(git, parent)

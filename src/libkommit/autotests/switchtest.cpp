@@ -8,14 +8,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "testcommon.h"
 
-#include <QTest>
-#include <Kommit/BranchesCache>
-#include <Kommit/TagsCache>
 #include <Kommit/Blob>
+#include <Kommit/BranchesCache>
 #include <Kommit/File>
 #include <Kommit/Index>
-#include <Kommit/Tag>
 #include <Kommit/Repository>
+#include <Kommit/Tag>
+#include <Kommit/TagsCache>
+#include <QTest>
 
 QTEST_GUILESS_MAIN(SwitchTest)
 

@@ -108,7 +108,7 @@ protected:
     // void paintEvent(QPaintEvent *e) override;
     int sidebarWidth() const;
     void sidebarPaintEvent(QPaintEvent *event);
-    void keyPressEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event) override;
 
 private:
     [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT int lineNumberOfBlock(const QTextBlock &block) const;

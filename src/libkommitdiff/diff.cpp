@@ -270,7 +270,7 @@ MergeResult<Text> diff3String(const QString &base, const QString &local, const Q
     return result;
 }
 
-MergeResult<Text> diff3File(const QString &base, const QString &local, const QString &remote, const DiffOptions<QFile> &opts)
+MergeResult<Text> diff3File(const QString &base, const QString &local, const QString &remote, const DiffOptions<QString> &opts)
 {
     QFile baseFile{base};
     QFile localFile{local};
@@ -287,7 +287,7 @@ MergeResult<Text> diff3File(const QString &base, const QString &local, const QSt
     auto localContent = localFile.readAll();
     auto remoteContent = remoteFile.readAll();
 
-    auto result = diff3String(baseContent, localContent, remoteContent);
+    auto result = diff3String(baseContent, localContent, remoteContent, opts);
 
     return result;
 }

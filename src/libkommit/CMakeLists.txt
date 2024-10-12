@@ -180,7 +180,6 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
 # commands sub folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
-
         CommandSwitchBranch
         CommandMerge
         CommandChangedFiles
@@ -194,7 +193,7 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
         CommandClone
         CommandClean
         CommandAddRemote
-PREFIX Kommit
+    PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
     RELATIVE
         commands
@@ -203,18 +202,16 @@ PREFIX Kommit
 # caches sub folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
-
-    TagsCache
-    SubmodulesCache
-    StashesCache
-    RemotesCache
-    ReferenceCache
-    NotesCache
-    CommitsCache
-    BranchesCache
-    AbstractCache
-
-PREFIX Kommit
+        TagsCache
+        SubmodulesCache
+        StashesCache
+        RemotesCache
+        ReferenceCache
+        NotesCache
+        CommitsCache
+        BranchesCache
+        AbstractCache
+    PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
     RELATIVE
         caches
@@ -223,12 +220,10 @@ PREFIX Kommit
 # observers sub folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
-
-    FetchObserver
-    PushObserver
-    CloneObserver
-
-PREFIX Kommit
+        FetchObserver
+        PushObserver
+        CloneObserver
+    PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
     RELATIVE
         observers
@@ -237,6 +232,8 @@ PREFIX Kommit
 install(
     FILES
         ${CMAKE_CURRENT_BINARY_DIR}/libkommit_export.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/libkommit_global.h
+        ${CMAKE_CURRENT_BINARY_DIR}/libkommit_version.h
         ${kommit_HEADERS}
     DESTINATION
         ${KOMMIT_INSTALL_INCLUDEDIR}/Kommit

@@ -30,7 +30,7 @@ public:
     struct Entry {
         QString name;
         EntryType type;
-        QString path;
+        QString path{};
     };
 
     explicit Tree(git_tree *tree);

@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/types.h>
 
 #include "libkommit_export.h"
+#include "libkommit_global.h"
 
 namespace Git
 {
@@ -23,28 +24,28 @@ class Commit;
 class Tag;
 class Remote;
 
-enum class BranchType {
-    LocalBranch,
-    RemoteBranch,
-    AllBranches,
-};
-enum class ChangeStatus {
-    Unknown,
-    Unmodified,
-    Modified,
-    Added,
-    Removed,
-    Renamed,
-    Copied,
-    UpdatedButInmerged,
-    Ignored,
-    Untracked,
-    TypeChange,
-    Unreadable,
-    Conflicted,
-};
+// enum class BranchType {
+//     LocalBranch,
+//     RemoteBranch,
+//     AllBranches,
+// };
+// enum class ChangeStatus {
+//     Unknown,
+//     Unmodified,
+//     Modified,
+//     Added,
+//     Removed,
+//     Renamed,
+//     Copied,
+//     UpdatedButInmerged,
+//     Ignored,
+//     Untracked,
+//     TypeChange,
+//     Unreadable,
+//     Conflicted,
+// };
 
-enum class ConflictSide { Base, Ours, Thers };
+// enum class ConflictSide { Base, Ours, Thers };
 
 template<class T>
 using Pointer = QSharedPointer<T>;

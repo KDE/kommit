@@ -51,8 +51,8 @@ struct LIBKOMMITDIFF_EXPORT MergeSegment2 : Segment {
 
     QString typeString() const;
 
-    virtual int count() const;
-    virtual int maxLines() const;
+    virtual int count() const override;
+    virtual int maxLines() const override;
 };
 
 LIBKOMMITDIFF_EXPORT QDebug operator<<(QDebug debug, const MergeSegment2 &ms);

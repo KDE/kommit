@@ -42,10 +42,10 @@ public:
     [[nodiscard]] QSharedPointer<Tag> toTag() const;
     [[nodiscard]] QSharedPointer<Tree> toTree() const;
     [[nodiscard]] QSharedPointer<Commit> toCommit() const;
-    [[nodiscard]] git_object *const objectPtr() const;
+    [[nodiscard]] git_object *objectPtr() const;
 
 private:
-    git_object *const mGitObjectPtr;
+    git_object *mGitObjectPtr;
 };
 
 }

@@ -98,9 +98,9 @@ void SegmentsScrollBar::mouseMoveEvent(QMouseEvent *event)
     QWidget::mouseMoveEvent(event);
 
     if (event->buttons() & Qt::LeftButton)
-        Q_EMIT mouseMove(event->y(), static_cast<double>(event->y()) / static_cast<double>(height()));
+        Q_EMIT mouseMove(event->position().y(), static_cast<double>(event->position().y()) / static_cast<double>(height()));
     else
-        Q_EMIT hover(event->y(), static_cast<double>(event->y()) / static_cast<double>(height()));
+        Q_EMIT hover(event->position().y(), static_cast<double>(event->position().y()) / static_cast<double>(height()));
 }
 
 void SegmentsScrollBar::resizeEvent(QResizeEvent *event)

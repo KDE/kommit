@@ -77,4 +77,3 @@ TagsModel *RepositoryData::tagsModel() const
 }
 
 #include "moc_repositorydata.cpp"
-

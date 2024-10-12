@@ -10,8 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/tagsmodel.h"
 #include <core/repositorydata.h>
 
-#include <Kommit/Tag>
 #include <Kommit/Repository>
+#include <Kommit/Tag>
 
 #include <QSortFilterProxyModel>
 

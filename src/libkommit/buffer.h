@@ -15,7 +15,7 @@ namespace Git
 
 class Buf
 {
-    git_buf buf{0};
+    git_buf buf{0, 0, 0};
 
 public:
     ~Buf();

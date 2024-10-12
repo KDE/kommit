@@ -72,7 +72,7 @@ QSharedPointer<Commit> Object::toCommit() const
     return QSharedPointer<Commit>{new Commit{commit}};
 }
 
-git_object *const Object::objectPtr() const
+git_object *Object::objectPtr() const
 {
     return mGitObjectPtr;
 }

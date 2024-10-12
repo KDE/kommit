@@ -160,6 +160,6 @@ MergeResult<Text> LIBKOMMITDIFF_EXPORT diff3String(const QString &base,
                                                    const QString &remote,
                                                    const DiffOptions<QString> &opts = DiffOptions<QString>{});
 MergeResult<Text>
-    LIBKOMMITDIFF_EXPORT diff3File(const QString &base, const QString &local, const QString &remote, const DiffOptions<QFile> &opts = DiffOptions<QFile>{});
+    LIBKOMMITDIFF_EXPORT diff3File(const QString &base, const QString &local, const QString &remote, const DiffOptions<QString> &opts = DiffOptions<QString>{});
 
 } // namespace Diff

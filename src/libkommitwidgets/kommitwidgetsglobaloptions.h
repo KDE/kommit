@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QColor>
 #include <QMap>
 
+#include "libkommit_global.h"
 #include "libkommitwidgets_export.h"
 #include "types.h"
 
