@@ -83,8 +83,6 @@ void ResolveDialog::updateConflictsCount()
 {
     if (mConflicts->size() == 0)
         labelConflictsCount->setText(i18n("All conflicts resolved"));
-    else if (mConflicts->size() == 1)
-        labelConflictsCount->setText(i18n("1 conflict remains"));
     else
-        labelConflictsCount->setText(i18n("%1 conflicts remains", mConflicts->size()));
+        labelConflictsCount->setText(i18np("%1 conflict remained", "%1 conflicts remained", mConflicts->size()));
 }

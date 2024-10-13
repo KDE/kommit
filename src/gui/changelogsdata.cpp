@@ -77,7 +77,7 @@ void ChangeLogsDataPrivate::fill()
         QVersionNumber{1, 7, 0},
         QStringList{
             i18n("Improve merge algorithm and text rendering"),
-            i18n("Improve diff windoe text rendering"),
+            i18n("Improve diff window text rendering"),
             i18n("Fix dolphin menu")
         }
     };
