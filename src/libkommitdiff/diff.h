@@ -40,6 +40,67 @@ int remove(QStringList &list, int count);
 [[nodiscard]] QMap<QString, DiffType> LIBKOMMITDIFF_EXPORT diffDirs(const QString &dir1, const QString &dir2);
 
 template<typename T>
+QList<DiffSegment *> diff_2(const QList<T> &oldText, const QList<T> &newText, const DiffOptions<T> &opts = {})
+{
+    if (oldText == newText) {
+        auto segment = new DiffSegment;
+        segment->type = SegmentType::SameOnBoth;
+        segment->oldText = oldText;
+        segment->newText = newText;
+
+        segment->oldLineEnd = oldText.size() - 1;
+        segment->newLineEnd = newText.size() - 1;
+        return {segment};
+    } else if (oldText.isEmpty()) {
+        auto segment = new DiffSegment;
+        segment->type = SegmentType::OnlyOnLeft;
+        segment->oldText = oldText;
+        segment->newText = newText;
+        segment->oldLineEnd = oldText.size() - 1;
+        return {segment};
+    } else if (newText.isEmpty()) {
+        auto segment = new DiffSegment;
+        segment->type = SegmentType::OnlyOnRight;
+        segment->oldText = oldText;
+        segment->newText = newText;
+        segment->newLineEnd = newText.size() - 1;
+        return {segment};
+    }
+
+    std::function<bool(const T &, const T &)> equals = [&opts](const T &s1, const T &s2) -> bool {
+        return opts.equals(s1, s2);
+    };
+
+    auto lcs = longestCommonSubsequence(oldText, newText, equals);
+
+    SolutionIterator si(lcs, oldText.size(), newText.size());
+    QList<DiffSegment *> ret;
+
+    si.begin();
+    forever {
+        auto p = si.pick();
+        if (!p.success)
+            break;
+
+        if (!p.oldSize && !p.newSize)
+            continue;
+
+        auto segment = new DiffSegment;
+        segment->oldText = oldText.mid(p.oldStart, p.oldSize);
+        segment->newText = newText.mid(p.newStart, p.newSize);
+
+        segment->oldLineStart = p.oldStart;
+        segment->oldLineEnd = p.oldStart + p.oldSize;
+        segment->newLineStart = p.newStart;
+        segment->newLineEnd = p.newStart + p.newSize;
+        segment->type = p.type;
+        ret << segment;
+    }
+
+    return ret;
+}
+
+template<typename T>
 MergeResult<T> diff3_2(const QList<T> &base, const QList<T> &local, const QList<T> &remote, const DiffOptions<T> &opts = {})
 {
     std::function<bool(const T &, const T &)> equals = [&opts](const T &s1, const T &s2) -> bool {

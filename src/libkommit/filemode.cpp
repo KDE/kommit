@@ -126,19 +126,19 @@ QString FileMode::toString() const
         return QStringLiteral("Invalid");
     }
 
-    // clang-format off
-    QString modeString
-        = (ownerRead() ? QStringLiteral("r") : QStringLiteral("-"))
-        % (ownerWrite() ? QStringLiteral("w") : QStringLiteral("-"))
-        % (ownerExecute() ? QStringLiteral("x") : QStringLiteral("-"))
-        % (groupRead() ? QStringLiteral("r") : QStringLiteral("-"))
-        % (groupWrite() ? QStringLiteral("w") : QStringLiteral("-"))
-        % (groupExecute() ? QStringLiteral("x") : QStringLiteral("-"))
-        % (othersRead() ? QStringLiteral("r") : QStringLiteral("-"))
-        % (othersWrite() ? QStringLiteral("w") : QStringLiteral("-"))
-        % (othersExecute() ? QStringLiteral("x") : QStringLiteral("-"));
+    QString modeString;
+    modeString.reserve(9);
 
-    // clang-format on
+    modeString += (ownerRead() ? QStringLiteral("r") : QStringLiteral("-"));
+    modeString += (ownerWrite() ? QStringLiteral("w") : QStringLiteral("-"));
+    modeString += (ownerExecute() ? QStringLiteral("x") : QStringLiteral("-"));
+    modeString += (groupRead() ? QStringLiteral("r") : QStringLiteral("-"));
+    modeString += (groupWrite() ? QStringLiteral("w") : QStringLiteral("-"));
+    modeString += (groupExecute() ? QStringLiteral("x") : QStringLiteral("-"));
+    modeString += (othersRead() ? QStringLiteral("r") : QStringLiteral("-"));
+    modeString += (othersWrite() ? QStringLiteral("w") : QStringLiteral("-"));
+    modeString += (othersExecute() ? QStringLiteral("x") : QStringLiteral("-"));
+
     return modeString;
 }
 

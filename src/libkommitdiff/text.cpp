@@ -62,4 +62,8 @@ Text readLines(const QString &text)
 
     return t;
 }
+
+TextView::TextView(const QString &content)
+{
+}
 }

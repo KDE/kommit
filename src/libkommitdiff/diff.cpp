@@ -297,6 +297,10 @@ MergeResult<Text> diff3File(const QString &base, const QString &local, const QSt
     return result;
 }
 
+QList<DiffSegment *> diffString(const QStringList &oldText, const QStringList &newText, const DiffOptions<T> &opts)
+{
+}
+
 /*
 MergeResult<QString> diff3_2(const QStringList &base, const QStringList &local, const QStringList &remote)
 {
