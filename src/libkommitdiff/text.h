@@ -21,5 +21,12 @@ struct LIBKOMMITDIFF_EXPORT Text {
     LineEnding lineEnding;
 };
 
+struct LIBKOMMITDIFF_EXPORT TextView {
+    TextView(const QString &content);
+    QString content;
+    QList<QStringView> lines; // TODO: convert to QList<QStringRef> if it's possible
+    LineEnding lineEnding;
+};
+
 [[nodiscard]] Text readLines(const QString &text);
 }
