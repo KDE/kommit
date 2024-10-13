@@ -17,22 +17,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class IndexEntryPrivate
-{
-    IndexEntry *q_ptr;
-    Q_DECLARE_PUBLIC(IndexEntry)
-
-public:
-    IndexEntryPrivate(IndexEntry *parent, const git_index_entry *entry);
-
-    QString path;
-    quint16 fileSize;
-    QSharedPointer<Oid> oid;
-    IndexEntry::StageState stageState;
-    bool isConflict;
-    FileMode fileMode;
-};
-
 IndexEntryPrivate::IndexEntryPrivate(IndexEntry *parent, const git_index_entry *entry)
     : q_ptr{parent}
 {
@@ -290,17 +274,6 @@ QSharedPointer<Blob> IndexConflictEntry::blob() const
     return mBlob;
 }
 
-class ConflictIndexListPrivate
-{
-    ConflictIndexList *q_ptr;
-    Q_DECLARE_PUBLIC(ConflictIndexList)
-
-public:
-    explicit ConflictIndexListPrivate(ConflictIndexList *parent, QList<ConflictIndex *> conflicts);
-    ~ConflictIndexListPrivate();
-
-    QList<ConflictIndex *> conflicts;
-};
 ConflictIndexListPrivate::ConflictIndexListPrivate(ConflictIndexList *parent, QList<ConflictIndex *> conflicts)
     : q_ptr{parent}
     , conflicts{conflicts}

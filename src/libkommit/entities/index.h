@@ -44,6 +44,22 @@ private:
     Q_DECLARE_PRIVATE(IndexEntry)
 };
 
+class IndexEntryPrivate
+{
+    IndexEntry *q_ptr;
+    Q_DECLARE_PUBLIC(IndexEntry)
+
+public:
+    IndexEntryPrivate(IndexEntry *parent, const git_index_entry *entry);
+
+    QString path;
+    quint16 fileSize;
+    QSharedPointer<Oid> oid;
+    IndexEntry::StageState stageState;
+    bool isConflict;
+    FileMode fileMode;
+};
+
 class LIBKOMMIT_EXPORT IndexConflictEntry : public IndexEntry
 {
 public:
@@ -79,6 +95,18 @@ public:
 private:
     QScopedPointer<ConflictIndexListPrivate> d_ptr;
     Q_DECLARE_PRIVATE(ConflictIndexList)
+};
+
+class ConflictIndexListPrivate
+{
+    ConflictIndexList *q_ptr;
+    Q_DECLARE_PUBLIC(ConflictIndexList)
+
+public:
+    explicit ConflictIndexListPrivate(ConflictIndexList *parent, QList<ConflictIndex *> conflicts);
+    ~ConflictIndexListPrivate();
+
+    QList<ConflictIndex *> conflicts;
 };
 
 class LIBKOMMIT_EXPORT Index
