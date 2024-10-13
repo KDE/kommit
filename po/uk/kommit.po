@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-08 01:49+0000\n"
+"POT-Creation-Date: 2024-10-13 01:48+0000\n"
 "PO-Revision-Date: 2024-10-08 21:14+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -101,7 +101,7 @@ msgstr "Різниця"
 msgid "Ignore file"
 msgstr "Ігнорувати файл"
 
-#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:402
+#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:404
 #, kde-format
 msgid "History"
 msgstr "Журнал"
@@ -168,7 +168,7 @@ msgstr "Клієнтська графічна оболонка git для KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "© Hamed Masafi <hamed.masafi@gmail.com>, 2021–2024"
 
-#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:296
+#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:290
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -313,12 +313,12 @@ msgstr "Змінити журнали…"
 msgid "Clear"
 msgstr "Очистити"
 
-#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:223
+#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:225
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Не вдалося створити шлях: %1"
 
-#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:223
+#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:225
 #, kde-format
 msgid "Init repo"
 msgstr "Ініціалізувати сховище"
@@ -328,45 +328,60 @@ msgstr "Ініціалізувати сховище"
 msgid "Open repository"
 msgstr "Відкрити сховище"
 
-#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:476
+#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Неможливо перемикатися на гілку у процесі об'єднання"
 
-#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:476
+#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Switch branch"
 msgstr "Перемкнути гілку"
 
-#: src/gui/changelogsdata.cpp:46
+#: src/gui/changelogsdata.cpp:44
 #, kde-format
 msgid "Version"
 msgstr "Версія"
 
-#: src/gui/changelogsdata.cpp:64
+#: src/gui/changelogsdata.cpp:62
 #, kde-format
 msgid "Improve graph painting"
 msgstr "Удосконалено малювання графіків"
 
-#: src/gui/changelogsdata.cpp:65
+#: src/gui/changelogsdata.cpp:63
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
 msgstr "Удосконалено бібліотеку kommit (вилучено зайві залежності, зокрема kf)"
 
-#: src/gui/changelogsdata.cpp:66
+#: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Add changes logs dialog"
 msgstr "Додано вікно журналу змін"
 
-#: src/gui/changelogsdata.cpp:67
+#: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Fix many small bugs"
 msgstr "Виправлено багато незначних вад"
 
-#: src/gui/changelogsdata.cpp:74
+#: src/gui/changelogsdata.cpp:72
 #, kde-format
 msgid "Fix bug in branch selection in commits widget"
 msgstr "Виправлено ваду у виборі гілки у віджеті внесків"
+
+#: src/gui/changelogsdata.cpp:79
+#, kde-format
+msgid "Improve merge algorithm and text rendering"
+msgstr ""
+
+#: src/gui/changelogsdata.cpp:80
+#, kde-format
+msgid "Improve diff windoe text rendering"
+msgstr ""
+
+#: src/gui/changelogsdata.cpp:81
+#, kde-format
+msgid "Fix dolphin menu"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -374,38 +389,38 @@ msgstr "Виправлено ваду у виборі гілки у віджет
 msgid "Change logs"
 msgstr "Зміна журналів"
 
-#: src/gui/commandargsparser.cpp:77
+#: src/gui/commandargsparser.cpp:79
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "Шлях не є шляхом до сховища git: %1"
 
-#: src/gui/commandargsparser.cpp:228
+#: src/gui/commandargsparser.cpp:230
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Сховище успішно ініціалізовано"
 
-#: src/gui/commandargsparser.cpp:402
+#: src/gui/commandargsparser.cpp:404
 #, kde-format
 msgid "Cannot find the file"
 msgstr "Не вдалося знайти файл"
 
-#: src/gui/commandargsparser.cpp:538
+#: src/gui/commandargsparser.cpp:551
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Файли успішно додано до git"
 
-#: src/gui/commandargsparser.cpp:549
+#: src/gui/commandargsparser.cpp:562
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Хочете лишити файли на диску?"
 
-#: src/gui/commandargsparser.cpp:549
+#: src/gui/commandargsparser.cpp:562
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Вилучити з покажчика"
 
-#: src/gui/commandargsparser.cpp:551
+#: src/gui/commandargsparser.cpp:564
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Файли успішно вилучено з git"
@@ -429,6 +444,156 @@ msgstr "Стан:"
 #, kde-format
 msgid "---"
 msgstr "---"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
+#: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
+#: src/libkommitwidgets/windows/diffwindow.cpp:416
+#, kde-format
+msgid "Removed"
+msgstr "Вилучено"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, ChooseConflictedFileDialog)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:14
+#, kde-format
+msgid "Choose file version"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonBaseFile)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:25
+#, fuzzy, kde-format
+#| msgid "Base file:"
+msgid "Base file"
+msgstr "Базовий файл:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelBaseFile)
+#. i18n: ectx: property (text), widget (QLabel, labelLocalFile)
+#. i18n: ectx: property (text), widget (QLabel, labelRemoteFile)
+#. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
+#. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
+#. i18n: ectx: property (text), widget (QLabel, labelRefName)
+#. i18n: ectx: property (text), widget (QLabel, labelParent)
+#. i18n: ectx: property (text), widget (QLabel, labelChildren)
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#. i18n: ectx: property (text), widget (QLabel, labelAuthTime)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitter)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitTime)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:32
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:46
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:60
+#: src/libkommitwidgets/dialogs/clonedialog.ui:169
+#: src/libkommitwidgets/dialogs/mergedialog.ui:53
+#: src/libkommitwidgets/widgets/commitdetails.ui:69
+#: src/libkommitwidgets/widgets/commitdetails.ui:82
+#: src/libkommitwidgets/widgets/commitdetails.ui:136
+#: src/libkommitwidgets/widgets/commitdetails.ui:155
+#: src/libkommitwidgets/widgets/commitdetails.ui:177
+#: src/libkommitwidgets/widgets/commitdetails.ui:248
+#: src/libkommitwidgets/widgets/commitdetails.ui:258
+#: src/libkommitwidgets/widgets/commitdetails.ui:300
+#: src/libkommitwidgets/widgets/commitdetails.ui:310
+#, kde-format
+msgid "-"
+msgstr "-"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonLocalFile)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:39
+#, fuzzy, kde-format
+#| msgid "Local file:"
+msgid "Local file"
+msgstr "Локальний файл:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoteFile)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:53
+#, fuzzy, kde-format
+#| msgid "Remote file:"
+msgid "Remote file"
+msgstr "Віддалений файл:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithLocal)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:85
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
+#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
+#| "</span></a></p></body></html>"
+msgid ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff base with local </span></a></p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Чи змінювати cr/lf</p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Докладніше…</span></a></p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithRemote)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:92
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
+#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
+#| "</span></a></p></body></html>"
+msgid ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff base with remote </span></a></p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Чи змінювати cr/lf</p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Докладніше…</span></a></p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDiffLocalWithRemote)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:99
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
+#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
+#| "</span></a></p></body></html>"
+msgid ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff local with remote</span></a></p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Чи змінювати cr/lf</p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Докладніше…</span></a></p></"
+"body></html>"
+
+#: src/gui/dialogs/resolvedialog.cpp:85
+#, kde-format
+msgid "All conflicts resolved"
+msgstr ""
+
+#: src/gui/dialogs/resolvedialog.cpp:87
+#, kde-format
+msgid "1 conflict remains"
+msgstr ""
+
+#: src/gui/dialogs/resolvedialog.cpp:89
+#, kde-format
+msgid "%1 conflicts remains"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
+#: src/gui/dialogs/resolvedialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Conflicts: %1"
+msgid "Conflicts"
+msgstr "Конфлікти: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, labelConflictsCount)
+#: src/gui/dialogs/resolvedialog.ui:26
+#, fuzzy, kde-format
+#| msgid "Conflicts: %1"
+msgid "Conflicts count"
+msgstr "Конфлікти: %1"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -489,13 +654,13 @@ msgstr "Не існує"
 msgid "Overview"
 msgstr "Огляд"
 
-#: src/gui/pages/branchesstatuswidget.cpp:94
+#: src/gui/pages/branchesstatuswidget.cpp:95
 #: src/libkommitwidgets/actions/branchactions.cpp:115
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Ви справді хочете вилучити позначену гілку?"
 
-#: src/gui/pages/branchesstatuswidget.cpp:98
+#: src/gui/pages/branchesstatuswidget.cpp:99
 #: src/libkommitwidgets/actions/branchactions.cpp:117
 #, kde-format
 msgid "Unable to remove the selected branch"
@@ -663,7 +828,7 @@ msgstr "Основна гілка"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommitwidgets/models/submodulesmodel.cpp:129
+#: src/libkommitwidgets/models/submodulesmodel.cpp:123
 #, kde-format
 msgid "Status"
 msgstr "Стан"
@@ -995,13 +1160,13 @@ msgstr "Назва гілки"
 msgid "Remove Branch"
 msgstr "Вилучити гілку"
 
-#: src/libkommitwidgets/actions/changedfileactions.cpp:20
+#: src/libkommitwidgets/actions/changedfileactions.cpp:22
 #, kde-format
 msgctxt "@action"
 msgid "Diff…"
 msgstr "Різниця…"
 
-#: src/libkommitwidgets/actions/changedfileactions.cpp:21
+#: src/libkommitwidgets/actions/changedfileactions.cpp:23
 #, kde-format
 msgctxt "@action"
 msgid "Revert…"
@@ -1438,32 +1603,6 @@ msgstr "Назва походження"
 msgid "Cloning into:"
 msgstr "Клонування до:"
 
-#. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
-#. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
-#. i18n: ectx: property (text), widget (QLabel, labelRefName)
-#. i18n: ectx: property (text), widget (QLabel, labelParent)
-#. i18n: ectx: property (text), widget (QLabel, labelChildren)
-#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#. i18n: ectx: property (text), widget (QLabel, labelAuthTime)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitter)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitTime)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:169
-#: src/libkommitwidgets/dialogs/mergedialog.ui:53
-#: src/libkommitwidgets/widgets/commitdetails.ui:69
-#: src/libkommitwidgets/widgets/commitdetails.ui:82
-#: src/libkommitwidgets/widgets/commitdetails.ui:136
-#: src/libkommitwidgets/widgets/commitdetails.ui:155
-#: src/libkommitwidgets/widgets/commitdetails.ui:177
-#: src/libkommitwidgets/widgets/commitdetails.ui:248
-#: src/libkommitwidgets/widgets/commitdetails.ui:258
-#: src/libkommitwidgets/widgets/commitdetails.ui:300
-#: src/libkommitwidgets/widgets/commitdetails.ui:310
-#, kde-format
-msgid "-"
-msgstr "-"
-
 #. i18n: ectx: property (text), widget (QLabel, labelMessage)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:176
 #, kde-format
@@ -1630,13 +1769,6 @@ msgstr "Індексований"
 #, kde-format
 msgid "Added"
 msgstr "Додано"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:416
-#, kde-format
-msgid "Removed"
-msgstr "Вилучено"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
@@ -1939,7 +2071,7 @@ msgstr "Усі файли з цією назвою"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#: src/libkommitwidgets/models/submodulesmodel.cpp:125
+#: src/libkommitwidgets/models/submodulesmodel.cpp:119
 #, kde-format
 msgid "Path"
 msgstr "Шлях"
@@ -2562,18 +2694,18 @@ msgstr " (новий внесок)"
 msgid " (content modified)"
 msgstr " (внесено зміни)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:292
-#: src/libkommitwidgets/models/commitsmodel.cpp:303
+#: src/libkommitwidgets/models/commitsmodel.cpp:286
+#: src/libkommitwidgets/models/commitsmodel.cpp:297
 #, kde-format
 msgid "Message"
 msgstr "Повідомлення"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:294
+#: src/libkommitwidgets/models/commitsmodel.cpp:288
 #, kde-format
 msgid "Date"
 msgstr "Дата"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:301
+#: src/libkommitwidgets/models/commitsmodel.cpp:295
 #, kde-format
 msgid "Graph"
 msgstr "Граф"
@@ -2599,7 +2731,7 @@ msgstr "Електронна пошта автора"
 msgid "Time"
 msgstr "Час"
 
-#: src/libkommitwidgets/models/submodulesmodel.cpp:127
+#: src/libkommitwidgets/models/submodulesmodel.cpp:121
 #, kde-format
 msgid "Head"
 msgstr "Голова"
@@ -2614,7 +2746,7 @@ msgstr "Мітки"
 msgid "Create time"
 msgstr "Час створення"
 
-#: src/libkommitwidgets/models/treemodel.cpp:127
+#: src/libkommitwidgets/models/treemodel.cpp:126
 #, kde-format
 msgid "Tree"
 msgstr "Ієрархія"
@@ -2933,23 +3065,23 @@ msgstr "Попередня відмінність"
 msgid "Next diff"
 msgstr "Наступна відмінність"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:323
-#: src/libkommitwidgets/windows/mergewindow.cpp:337
+#: src/libkommitwidgets/windows/mergewindow.cpp:321
+#: src/libkommitwidgets/windows/mergewindow.cpp:335
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr "Не вдалося відкрити файл %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:330
+#: src/libkommitwidgets/windows/mergewindow.cpp:328
 #, kde-format
 msgid "Save result"
 msgstr "Зберегти результат"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:398
+#: src/libkommitwidgets/windows/mergewindow.cpp:396
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
 msgstr "Конфлікти: <span style='font-weight:bold; color:red;'>%1</span>"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:400
+#: src/libkommitwidgets/windows/mergewindow.cpp:398
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>Усі конфлікти вирішено</span>"
@@ -2957,9 +3089,6 @@ msgstr "<span style='color:green;'>Усі конфлікти вирішено</s
 #~ msgctxt "@action"
 #~ msgid "Blame"
 #~ msgstr "Визначити автора"
-
-#~ msgid "Conflicts: %1"
-#~ msgstr "Конфлікти: %1"
 
 #~ msgid "Blocks"
 #~ msgstr "Блоки"

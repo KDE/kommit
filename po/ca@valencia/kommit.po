@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-08 01:49+0000\n"
+"POT-Creation-Date: 2024-10-13 01:48+0000\n"
 "PO-Revision-Date: 2024-09-18 10:25+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -103,7 +103,7 @@ msgstr "Diferència"
 msgid "Ignore file"
 msgstr "Ignora el fitxer"
 
-#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:402
+#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:404
 #, kde-format
 msgid "History"
 msgstr "Historial"
@@ -170,7 +170,7 @@ msgstr "Client gràfic de Git per a KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:296
+#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:290
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -316,12 +316,12 @@ msgstr "Registre de canvis…"
 msgid "Clear"
 msgstr "Neteja"
 
-#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:223
+#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:225
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "No s'ha pogut crear el camí: %1"
 
-#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:223
+#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:225
 #, kde-format
 msgid "Init repo"
 msgstr "Restablix el repositori"
@@ -331,48 +331,63 @@ msgstr "Restablix el repositori"
 msgid "Open repository"
 msgstr "Obri el repositori"
 
-#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:476
+#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "No es pot canviar de branca mentre s'està fusionant"
 
-#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:476
+#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Switch branch"
 msgstr "Canvia de branca"
 
-#: src/gui/changelogsdata.cpp:46
+#: src/gui/changelogsdata.cpp:44
 #, kde-format
 msgid "Version"
 msgstr "Versió"
 
 # skip-rule: kct-graph
-#: src/gui/changelogsdata.cpp:64
+#: src/gui/changelogsdata.cpp:62
 #, kde-format
 msgid "Improve graph painting"
 msgstr "Millora el pintat dels grafs"
 
-#: src/gui/changelogsdata.cpp:65
+#: src/gui/changelogsdata.cpp:63
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
 msgstr ""
 "Millora a la biblioteca del «kommit» (elimina dependències extres com els "
 "«kf»)"
 
-#: src/gui/changelogsdata.cpp:66
+#: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Add changes logs dialog"
 msgstr "Afig el diàleg de registres de canvis"
 
-#: src/gui/changelogsdata.cpp:67
+#: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Fix many small bugs"
 msgstr "Corregix molts errors petits"
 
-#: src/gui/changelogsdata.cpp:74
+#: src/gui/changelogsdata.cpp:72
 #, kde-format
 msgid "Fix bug in branch selection in commits widget"
 msgstr "Corregix un error a la selecció de branca en el giny de comissions"
+
+#: src/gui/changelogsdata.cpp:79
+#, kde-format
+msgid "Improve merge algorithm and text rendering"
+msgstr ""
+
+#: src/gui/changelogsdata.cpp:80
+#, kde-format
+msgid "Improve diff windoe text rendering"
+msgstr ""
+
+#: src/gui/changelogsdata.cpp:81
+#, kde-format
+msgid "Fix dolphin menu"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -380,38 +395,38 @@ msgstr "Corregix un error a la selecció de branca en el giny de comissions"
 msgid "Change logs"
 msgstr "Registres de canvis"
 
-#: src/gui/commandargsparser.cpp:77
+#: src/gui/commandargsparser.cpp:79
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "El camí no és un repositori de Git: %1"
 
-#: src/gui/commandargsparser.cpp:228
+#: src/gui/commandargsparser.cpp:230
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "El repositori s'ha inicialitzat correctament"
 
-#: src/gui/commandargsparser.cpp:402
+#: src/gui/commandargsparser.cpp:404
 #, kde-format
 msgid "Cannot find the file"
 msgstr "No s'ha pogut trobar el fitxer"
 
-#: src/gui/commandargsparser.cpp:538
+#: src/gui/commandargsparser.cpp:551
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Els fitxers s'han afegit correctament"
 
-#: src/gui/commandargsparser.cpp:549
+#: src/gui/commandargsparser.cpp:562
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Voleu deixar els fitxers en el disc?"
 
-#: src/gui/commandargsparser.cpp:549
+#: src/gui/commandargsparser.cpp:562
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Eliminació d'índex"
 
-#: src/gui/commandargsparser.cpp:551
+#: src/gui/commandargsparser.cpp:564
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Els fitxers s'han eliminat correctament de Git"
@@ -435,6 +450,156 @@ msgstr "Estat:"
 #, kde-format
 msgid "---"
 msgstr "---"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
+#: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
+#: src/libkommitwidgets/windows/diffwindow.cpp:416
+#, kde-format
+msgid "Removed"
+msgstr "Eliminat"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, ChooseConflictedFileDialog)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:14
+#, kde-format
+msgid "Choose file version"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonBaseFile)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:25
+#, fuzzy, kde-format
+#| msgid "Base file:"
+msgid "Base file"
+msgstr "Fitxer base:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelBaseFile)
+#. i18n: ectx: property (text), widget (QLabel, labelLocalFile)
+#. i18n: ectx: property (text), widget (QLabel, labelRemoteFile)
+#. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
+#. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
+#. i18n: ectx: property (text), widget (QLabel, labelRefName)
+#. i18n: ectx: property (text), widget (QLabel, labelParent)
+#. i18n: ectx: property (text), widget (QLabel, labelChildren)
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#. i18n: ectx: property (text), widget (QLabel, labelAuthTime)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitter)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitTime)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:32
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:46
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:60
+#: src/libkommitwidgets/dialogs/clonedialog.ui:169
+#: src/libkommitwidgets/dialogs/mergedialog.ui:53
+#: src/libkommitwidgets/widgets/commitdetails.ui:69
+#: src/libkommitwidgets/widgets/commitdetails.ui:82
+#: src/libkommitwidgets/widgets/commitdetails.ui:136
+#: src/libkommitwidgets/widgets/commitdetails.ui:155
+#: src/libkommitwidgets/widgets/commitdetails.ui:177
+#: src/libkommitwidgets/widgets/commitdetails.ui:248
+#: src/libkommitwidgets/widgets/commitdetails.ui:258
+#: src/libkommitwidgets/widgets/commitdetails.ui:300
+#: src/libkommitwidgets/widgets/commitdetails.ui:310
+#, kde-format
+msgid "-"
+msgstr "-"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonLocalFile)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:39
+#, fuzzy, kde-format
+#| msgid "Local file:"
+msgid "Local file"
+msgstr "Fitxer local:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoteFile)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:53
+#, fuzzy, kde-format
+#| msgid "Remote file:"
+msgid "Remote file"
+msgstr "Fitxer remot:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithLocal)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:85
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
+#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
+#| "</span></a></p></body></html>"
+msgid ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff base with local </span></a></p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Change CR/LF o no</p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Més informació…</span></a></p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithRemote)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:92
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
+#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
+#| "</span></a></p></body></html>"
+msgid ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff base with remote </span></a></p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Change CR/LF o no</p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Més informació…</span></a></p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDiffLocalWithRemote)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:99
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
+#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
+#| "</span></a></p></body></html>"
+msgid ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff local with remote</span></a></p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Change CR/LF o no</p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Més informació…</span></a></p></"
+"body></html>"
+
+#: src/gui/dialogs/resolvedialog.cpp:85
+#, kde-format
+msgid "All conflicts resolved"
+msgstr ""
+
+#: src/gui/dialogs/resolvedialog.cpp:87
+#, kde-format
+msgid "1 conflict remains"
+msgstr ""
+
+#: src/gui/dialogs/resolvedialog.cpp:89
+#, kde-format
+msgid "%1 conflicts remains"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
+#: src/gui/dialogs/resolvedialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Conflicts: %1"
+msgid "Conflicts"
+msgstr "Conflictes: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, labelConflictsCount)
+#: src/gui/dialogs/resolvedialog.ui:26
+#, fuzzy, kde-format
+#| msgid "Conflicts: %1"
+msgid "Conflicts count"
+msgstr "Conflictes: %1"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -495,13 +660,13 @@ msgstr "No isques"
 msgid "Overview"
 msgstr "Vista general"
 
-#: src/gui/pages/branchesstatuswidget.cpp:94
+#: src/gui/pages/branchesstatuswidget.cpp:95
 #: src/libkommitwidgets/actions/branchactions.cpp:115
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Esteu segur d'eliminar la branca seleccionada?"
 
-#: src/gui/pages/branchesstatuswidget.cpp:98
+#: src/gui/pages/branchesstatuswidget.cpp:99
 #: src/libkommitwidgets/actions/branchactions.cpp:117
 #, kde-format
 msgid "Unable to remove the selected branch"
@@ -669,7 +834,7 @@ msgstr "Font"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommitwidgets/models/submodulesmodel.cpp:129
+#: src/libkommitwidgets/models/submodulesmodel.cpp:123
 #, kde-format
 msgid "Status"
 msgstr "Estat"
@@ -1000,13 +1165,13 @@ msgstr "Nom de la branca"
 msgid "Remove Branch"
 msgstr "Elimina la branca"
 
-#: src/libkommitwidgets/actions/changedfileactions.cpp:20
+#: src/libkommitwidgets/actions/changedfileactions.cpp:22
 #, kde-format
 msgctxt "@action"
 msgid "Diff…"
 msgstr "Diferència…"
 
-#: src/libkommitwidgets/actions/changedfileactions.cpp:21
+#: src/libkommitwidgets/actions/changedfileactions.cpp:23
 #, kde-format
 msgctxt "@action"
 msgid "Revert…"
@@ -1442,32 +1607,6 @@ msgstr "Nom d'origen"
 msgid "Cloning into:"
 msgstr "Es clona a:"
 
-#. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
-#. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
-#. i18n: ectx: property (text), widget (QLabel, labelRefName)
-#. i18n: ectx: property (text), widget (QLabel, labelParent)
-#. i18n: ectx: property (text), widget (QLabel, labelChildren)
-#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#. i18n: ectx: property (text), widget (QLabel, labelAuthTime)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitter)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitTime)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:169
-#: src/libkommitwidgets/dialogs/mergedialog.ui:53
-#: src/libkommitwidgets/widgets/commitdetails.ui:69
-#: src/libkommitwidgets/widgets/commitdetails.ui:82
-#: src/libkommitwidgets/widgets/commitdetails.ui:136
-#: src/libkommitwidgets/widgets/commitdetails.ui:155
-#: src/libkommitwidgets/widgets/commitdetails.ui:177
-#: src/libkommitwidgets/widgets/commitdetails.ui:248
-#: src/libkommitwidgets/widgets/commitdetails.ui:258
-#: src/libkommitwidgets/widgets/commitdetails.ui:300
-#: src/libkommitwidgets/widgets/commitdetails.ui:310
-#, kde-format
-msgid "-"
-msgstr "-"
-
 #. i18n: ectx: property (text), widget (QLabel, labelMessage)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:176
 #, kde-format
@@ -1634,13 +1773,6 @@ msgstr "Indexats"
 #, kde-format
 msgid "Added"
 msgstr "Afegit"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:416
-#, kde-format
-msgid "Removed"
-msgstr "Eliminat"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
@@ -1944,7 +2076,7 @@ msgstr "Tots els fitxers amb este nom"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#: src/libkommitwidgets/models/submodulesmodel.cpp:125
+#: src/libkommitwidgets/models/submodulesmodel.cpp:119
 #, kde-format
 msgid "Path"
 msgstr "Camí"
@@ -2568,19 +2700,19 @@ msgstr " (comissió nova)"
 msgid " (content modified)"
 msgstr " (contingut modificat)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:292
-#: src/libkommitwidgets/models/commitsmodel.cpp:303
+#: src/libkommitwidgets/models/commitsmodel.cpp:286
+#: src/libkommitwidgets/models/commitsmodel.cpp:297
 #, kde-format
 msgid "Message"
 msgstr "Missatge"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:294
+#: src/libkommitwidgets/models/commitsmodel.cpp:288
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
 # skip-rule: kct-graph
-#: src/libkommitwidgets/models/commitsmodel.cpp:301
+#: src/libkommitwidgets/models/commitsmodel.cpp:295
 #, kde-format
 msgid "Graph"
 msgstr "Graf"
@@ -2606,7 +2738,7 @@ msgstr "Correu de l'autor"
 msgid "Time"
 msgstr "Hora"
 
-#: src/libkommitwidgets/models/submodulesmodel.cpp:127
+#: src/libkommitwidgets/models/submodulesmodel.cpp:121
 #, kde-format
 msgid "Head"
 msgstr "Head"
@@ -2621,7 +2753,7 @@ msgstr "Etiquetador"
 msgid "Create time"
 msgstr "Hora de creació"
 
-#: src/libkommitwidgets/models/treemodel.cpp:127
+#: src/libkommitwidgets/models/treemodel.cpp:126
 #, kde-format
 msgid "Tree"
 msgstr "Arbre"
@@ -2936,23 +3068,23 @@ msgstr "Diferència anterior"
 msgid "Next diff"
 msgstr "Diferència següent"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:323
-#: src/libkommitwidgets/windows/mergewindow.cpp:337
+#: src/libkommitwidgets/windows/mergewindow.cpp:321
+#: src/libkommitwidgets/windows/mergewindow.cpp:335
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr "No s'ha pogut obrir el fitxer %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:330
+#: src/libkommitwidgets/windows/mergewindow.cpp:328
 #, kde-format
 msgid "Save result"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:398
+#: src/libkommitwidgets/windows/mergewindow.cpp:396
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:400
+#: src/libkommitwidgets/windows/mergewindow.cpp:398
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr ""
@@ -2960,9 +3092,6 @@ msgstr ""
 #~ msgctxt "@action"
 #~ msgid "Blame"
 #~ msgstr "Responsabilitat («Blame»)"
-
-#~ msgid "Conflicts: %1"
-#~ msgstr "Conflictes: %1"
 
 #~ msgid "Blocks"
 #~ msgstr "Blocs"

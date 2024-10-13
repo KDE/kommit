@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-08 01:49+0000\n"
+"POT-Creation-Date: 2024-10-13 01:48+0000\n"
 "PO-Revision-Date: 2024-07-27 16:22+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -101,7 +101,7 @@ msgstr "Dif"
 msgid "Ignore file"
 msgstr "Ignori dosieron"
 
-#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:402
+#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:404
 #, kde-format
 msgid "History"
 msgstr "Historio"
@@ -168,7 +168,7 @@ msgstr "Git-kliento por KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Kopirajto 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:296
+#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:290
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -313,12 +313,12 @@ msgstr "Ŝanĝi protokolojn…"
 msgid "Clear"
 msgstr "Purigi"
 
-#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:223
+#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:225
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ne eblas krei vojon: %1"
 
-#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:223
+#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:225
 #, kde-format
 msgid "Init repo"
 msgstr "Iniciati deponejon"
@@ -328,44 +328,59 @@ msgstr "Iniciati deponejon"
 msgid "Open repository"
 msgstr "Malfermi deponejon"
 
-#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:476
+#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Ne povas ŝanĝi branĉon dum kunfandado"
 
-#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:476
+#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Switch branch"
 msgstr "Ŝanĝi branĉon"
 
-#: src/gui/changelogsdata.cpp:46
+#: src/gui/changelogsdata.cpp:44
 #, kde-format
 msgid "Version"
 msgstr "Versio"
 
-#: src/gui/changelogsdata.cpp:64
+#: src/gui/changelogsdata.cpp:62
 #, kde-format
 msgid "Improve graph painting"
 msgstr "Plibonigi pentradon de grafeoj"
 
-#: src/gui/changelogsdata.cpp:65
+#: src/gui/changelogsdata.cpp:63
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
 msgstr "Plibonigi kommit-bibliotekon (forigi ekstrajn dependecojn kiel kf)"
 
-#: src/gui/changelogsdata.cpp:66
+#: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Add changes logs dialog"
 msgstr "Aldoni dialogon pri ŝanĝprotokoloj"
 
-#: src/gui/changelogsdata.cpp:67
+#: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Fix many small bugs"
 msgstr "Ripari multajn cimetojn"
 
-#: src/gui/changelogsdata.cpp:74
+#: src/gui/changelogsdata.cpp:72
 #, kde-format
 msgid "Fix bug in branch selection in commits widget"
+msgstr ""
+
+#: src/gui/changelogsdata.cpp:79
+#, kde-format
+msgid "Improve merge algorithm and text rendering"
+msgstr ""
+
+#: src/gui/changelogsdata.cpp:80
+#, kde-format
+msgid "Improve diff windoe text rendering"
+msgstr ""
+
+#: src/gui/changelogsdata.cpp:81
+#, kde-format
+msgid "Fix dolphin menu"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
@@ -374,38 +389,38 @@ msgstr ""
 msgid "Change logs"
 msgstr "Ŝanĝi protokolojn"
 
-#: src/gui/commandargsparser.cpp:77
+#: src/gui/commandargsparser.cpp:79
 #, kde-format
 msgid "The path is not git repo: %1"
 msgstr "La vojo ne estas git-repo: %1"
 
-#: src/gui/commandargsparser.cpp:228
+#: src/gui/commandargsparser.cpp:230
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "La deponejo sukcese initiciatiĝis"
 
-#: src/gui/commandargsparser.cpp:402
+#: src/gui/commandargsparser.cpp:404
 #, kde-format
 msgid "Cannot find the file"
 msgstr "Ne eblas trovi la dosieron"
 
-#: src/gui/commandargsparser.cpp:538
+#: src/gui/commandargsparser.cpp:551
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Dosiero(j) aldonita(j) al git sukcese"
 
-#: src/gui/commandargsparser.cpp:549
+#: src/gui/commandargsparser.cpp:562
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Ĉu vi ŝatus lasi dosiero(j)n sur disko?"
 
-#: src/gui/commandargsparser.cpp:549
+#: src/gui/commandargsparser.cpp:562
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Forigi el indekso"
 
-#: src/gui/commandargsparser.cpp:551
+#: src/gui/commandargsparser.cpp:564
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Dosiero(j) forigita(j) de git sukcese"
@@ -429,6 +444,156 @@ msgstr "Statuso:"
 #, kde-format
 msgid "---"
 msgstr "---"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
+#: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
+#: src/libkommitwidgets/windows/diffwindow.cpp:416
+#, kde-format
+msgid "Removed"
+msgstr "Forigita"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, ChooseConflictedFileDialog)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:14
+#, kde-format
+msgid "Choose file version"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonBaseFile)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:25
+#, fuzzy, kde-format
+#| msgid "Base file:"
+msgid "Base file"
+msgstr "Baza dosiero:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelBaseFile)
+#. i18n: ectx: property (text), widget (QLabel, labelLocalFile)
+#. i18n: ectx: property (text), widget (QLabel, labelRemoteFile)
+#. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
+#. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
+#. i18n: ectx: property (text), widget (QLabel, labelRefName)
+#. i18n: ectx: property (text), widget (QLabel, labelParent)
+#. i18n: ectx: property (text), widget (QLabel, labelChildren)
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#. i18n: ectx: property (text), widget (QLabel, labelAuthTime)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitter)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitTime)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:32
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:46
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:60
+#: src/libkommitwidgets/dialogs/clonedialog.ui:169
+#: src/libkommitwidgets/dialogs/mergedialog.ui:53
+#: src/libkommitwidgets/widgets/commitdetails.ui:69
+#: src/libkommitwidgets/widgets/commitdetails.ui:82
+#: src/libkommitwidgets/widgets/commitdetails.ui:136
+#: src/libkommitwidgets/widgets/commitdetails.ui:155
+#: src/libkommitwidgets/widgets/commitdetails.ui:177
+#: src/libkommitwidgets/widgets/commitdetails.ui:248
+#: src/libkommitwidgets/widgets/commitdetails.ui:258
+#: src/libkommitwidgets/widgets/commitdetails.ui:300
+#: src/libkommitwidgets/widgets/commitdetails.ui:310
+#, kde-format
+msgid "-"
+msgstr "-"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonLocalFile)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:39
+#, fuzzy, kde-format
+#| msgid "Local file:"
+msgid "Local file"
+msgstr "Loka dosiero:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoteFile)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:53
+#, fuzzy, kde-format
+#| msgid "Remote file:"
+msgid "Remote file"
+msgstr "Fora dosiero:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithLocal)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:85
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
+#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
+#| "</span></a></p></body></html>"
+msgid ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff base with local </span></a></p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Ŝanĝi cr/lf aŭ ne</p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Pliaj informoj...</span></a></"
+"p></body ></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithRemote)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:92
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
+#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
+#| "</span></a></p></body></html>"
+msgid ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff base with remote </span></a></p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Ŝanĝi cr/lf aŭ ne</p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Pliaj informoj...</span></a></"
+"p></body ></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDiffLocalWithRemote)
+#: src/gui/dialogs/chooseconflictedfiledialog.ui:99
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
+#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
+#| "</span></a></p></body></html>"
+msgid ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff local with remote</span></a></p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Ŝanĝi cr/lf aŭ ne</p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Pliaj informoj...</span></a></"
+"p></body ></html>"
+
+#: src/gui/dialogs/resolvedialog.cpp:85
+#, kde-format
+msgid "All conflicts resolved"
+msgstr ""
+
+#: src/gui/dialogs/resolvedialog.cpp:87
+#, kde-format
+msgid "1 conflict remains"
+msgstr ""
+
+#: src/gui/dialogs/resolvedialog.cpp:89
+#, kde-format
+msgid "%1 conflicts remains"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
+#: src/gui/dialogs/resolvedialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Conflicts: %1"
+msgid "Conflicts"
+msgstr "Konfliktoj: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, labelConflictsCount)
+#: src/gui/dialogs/resolvedialog.ui:26
+#, fuzzy, kde-format
+#| msgid "Conflicts: %1"
+msgid "Conflicts count"
+msgstr "Konfliktoj: %1"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -490,13 +655,13 @@ msgstr "Ne eliri"
 msgid "Overview"
 msgstr "Superrigardo"
 
-#: src/gui/pages/branchesstatuswidget.cpp:94
+#: src/gui/pages/branchesstatuswidget.cpp:95
 #: src/libkommitwidgets/actions/branchactions.cpp:115
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
 msgstr "Ĉu vi certas forigi la elektitan branĉon?"
 
-#: src/gui/pages/branchesstatuswidget.cpp:98
+#: src/gui/pages/branchesstatuswidget.cpp:99
 #: src/libkommitwidgets/actions/branchactions.cpp:117
 #, kde-format
 msgid "Unable to remove the selected branch"
@@ -666,7 +831,7 @@ msgstr "Kontraŭflue (upstream)"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommitwidgets/models/submodulesmodel.cpp:129
+#: src/libkommitwidgets/models/submodulesmodel.cpp:123
 #, kde-format
 msgid "Status"
 msgstr "Statuso"
@@ -996,13 +1161,13 @@ msgstr "Nomo de branĉo"
 msgid "Remove Branch"
 msgstr "Forigi Branĉon"
 
-#: src/libkommitwidgets/actions/changedfileactions.cpp:20
+#: src/libkommitwidgets/actions/changedfileactions.cpp:22
 #, kde-format
 msgctxt "@action"
 msgid "Diff…"
 msgstr "Dif-i…"
 
-#: src/libkommitwidgets/actions/changedfileactions.cpp:21
+#: src/libkommitwidgets/actions/changedfileactions.cpp:23
 #, kde-format
 msgctxt "@action"
 msgid "Revert…"
@@ -1439,32 +1604,6 @@ msgstr "Origina nomo"
 msgid "Cloning into:"
 msgstr "Klonante en:"
 
-#. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
-#. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
-#. i18n: ectx: property (text), widget (QLabel, labelRefName)
-#. i18n: ectx: property (text), widget (QLabel, labelParent)
-#. i18n: ectx: property (text), widget (QLabel, labelChildren)
-#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#. i18n: ectx: property (text), widget (QLabel, labelAuthTime)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitter)
-#. i18n: ectx: property (text), widget (QLabel, labelCommitTime)
-#: src/libkommitwidgets/dialogs/clonedialog.ui:169
-#: src/libkommitwidgets/dialogs/mergedialog.ui:53
-#: src/libkommitwidgets/widgets/commitdetails.ui:69
-#: src/libkommitwidgets/widgets/commitdetails.ui:82
-#: src/libkommitwidgets/widgets/commitdetails.ui:136
-#: src/libkommitwidgets/widgets/commitdetails.ui:155
-#: src/libkommitwidgets/widgets/commitdetails.ui:177
-#: src/libkommitwidgets/widgets/commitdetails.ui:248
-#: src/libkommitwidgets/widgets/commitdetails.ui:258
-#: src/libkommitwidgets/widgets/commitdetails.ui:300
-#: src/libkommitwidgets/widgets/commitdetails.ui:310
-#, kde-format
-msgid "-"
-msgstr "-"
-
 #. i18n: ectx: property (text), widget (QLabel, labelMessage)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:176
 #, kde-format
@@ -1629,13 +1768,6 @@ msgstr "Indeksita"
 #, kde-format
 msgid "Added"
 msgstr "Aldonita"
-
-#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
-#: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:416
-#, kde-format
-msgid "Removed"
-msgstr "Forigita"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
@@ -1939,7 +2071,7 @@ msgstr "Ĉiuj dosieroj sub ĉi tiu nomo"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#: src/libkommitwidgets/models/submodulesmodel.cpp:125
+#: src/libkommitwidgets/models/submodulesmodel.cpp:119
 #, kde-format
 msgid "Path"
 msgstr "Vojo"
@@ -2562,18 +2694,18 @@ msgstr "(nova enmeto)"
 msgid " (content modified)"
 msgstr " (enhavo modofita)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:292
-#: src/libkommitwidgets/models/commitsmodel.cpp:303
+#: src/libkommitwidgets/models/commitsmodel.cpp:286
+#: src/libkommitwidgets/models/commitsmodel.cpp:297
 #, kde-format
 msgid "Message"
 msgstr "Mesaĝo"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:294
+#: src/libkommitwidgets/models/commitsmodel.cpp:288
 #, kde-format
 msgid "Date"
 msgstr "Dato"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:301
+#: src/libkommitwidgets/models/commitsmodel.cpp:295
 #, kde-format
 msgid "Graph"
 msgstr "Grafiko"
@@ -2599,7 +2731,7 @@ msgstr "Retpoŝto de aŭtoro"
 msgid "Time"
 msgstr "Horo"
 
-#: src/libkommitwidgets/models/submodulesmodel.cpp:127
+#: src/libkommitwidgets/models/submodulesmodel.cpp:121
 #, kde-format
 msgid "Head"
 msgstr "Kapo"
@@ -2614,7 +2746,7 @@ msgstr "Etikedanto"
 msgid "Create time"
 msgstr "Krei tempon"
 
-#: src/libkommitwidgets/models/treemodel.cpp:127
+#: src/libkommitwidgets/models/treemodel.cpp:126
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Tree"
@@ -2932,23 +3064,23 @@ msgstr "Antaŭa diferenco"
 msgid "Next diff"
 msgstr "Sekva diferenco"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:323
-#: src/libkommitwidgets/windows/mergewindow.cpp:337
+#: src/libkommitwidgets/windows/mergewindow.cpp:321
+#: src/libkommitwidgets/windows/mergewindow.cpp:335
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr "Ne eblas malfermi la dosieron %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:330
+#: src/libkommitwidgets/windows/mergewindow.cpp:328
 #, kde-format
 msgid "Save result"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:398
+#: src/libkommitwidgets/windows/mergewindow.cpp:396
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
 msgstr ""
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:400
+#: src/libkommitwidgets/windows/mergewindow.cpp:398
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr ""
@@ -2956,9 +3088,6 @@ msgstr ""
 #~ msgctxt "@action"
 #~ msgid "Blame"
 #~ msgstr "Kulpigi (blame)"
-
-#~ msgid "Conflicts: %1"
-#~ msgstr "Konfliktoj: %1"
 
 #~ msgid "Blocks"
 #~ msgstr "Blokoj"
