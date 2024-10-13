@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-24 03:05+0000\n"
-"PO-Revision-Date: 2024-06-29 09:42+0200\n"
+"PO-Revision-Date: 2024-10-12 10:43+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -1341,7 +1341,7 @@ msgstr "Wrzuć zmiany na składowisko"
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
 #, kde-format
 msgid "Commit/push"
-msgstr "Wypchnij"
+msgstr "Wrzuć/wypchnij"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
 #, kde-format
@@ -1498,7 +1498,7 @@ msgstr "Wdroż i wypchnij"
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
 #, kde-format
 msgid "Commit/Push"
-msgstr "Wdroż/Wypchnij"
+msgstr "Wrzuć/Wypchnij"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:22
