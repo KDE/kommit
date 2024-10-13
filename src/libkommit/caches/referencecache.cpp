@@ -21,19 +21,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class ReferenceCachePrivate
-{
-    ReferenceCache *q_ptr;
-    Q_DECLARE_PUBLIC(ReferenceCache)
-
-public:
-    ReferenceCachePrivate(ReferenceCache *parent);
-
-    QList<QSharedPointer<Reference>> list;
-    QMultiMap<QSharedPointer<Commit>, QSharedPointer<Reference>> dataByCommit;
-    void fill();
-};
-
 ReferenceCache::ReferenceCache(Repository *parent)
     : Git::Cache<Reference, git_reference>{parent}
     , d_ptr{new ReferenceCachePrivate{this}}

@@ -22,7 +22,6 @@ namespace Git
 
 class Commit;
 class Remote;
-
 class ReferenceCachePrivate;
 class LIBKOMMIT_EXPORT ReferenceCache : public Cache<Reference, git_reference>
 {
@@ -47,5 +46,16 @@ private:
     QScopedPointer<ReferenceCachePrivate> d_ptr;
     Q_DECLARE_PRIVATE(ReferenceCache)
 };
+class ReferenceCachePrivate
+{
+    ReferenceCache *q_ptr;
+    Q_DECLARE_PUBLIC(ReferenceCache)
 
+public:
+    ReferenceCachePrivate(ReferenceCache *parent);
+
+    QList<QSharedPointer<Reference>> list;
+    QMultiMap<QSharedPointer<Commit>, QSharedPointer<Reference>> dataByCommit;
+    void fill();
+};
 }
