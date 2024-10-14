@@ -39,6 +39,11 @@ SegmentsScrollBar::SegmentsScrollBar(QWidget *parent)
     setMouseTracking(true);
 }
 
+SegmentsScrollBar::~SegmentsScrollBar()
+{
+
+}
+
 SegmentConnector *SegmentsScrollBar::segmentConnector() const
 {
     Q_D(const SegmentsScrollBar);

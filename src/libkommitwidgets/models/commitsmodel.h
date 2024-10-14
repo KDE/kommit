@@ -28,6 +28,7 @@ class LIBKOMMITWIDGETS_EXPORT CommitsModel : public AbstractGitItemsModel
 public:
     enum class LogMatchType { ExactMatch, BeginMatch };
     explicit CommitsModel(Git::Repository *git, QObject *parent = nullptr);
+    ~CommitsModel();
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent) const override;

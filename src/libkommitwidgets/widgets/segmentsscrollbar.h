@@ -20,6 +20,7 @@ class LIBKOMMITWIDGETS_EXPORT SegmentsScrollBar : public QWidget
     Q_OBJECT
 public:
     explicit SegmentsScrollBar(QWidget *parent = nullptr);
+    ~SegmentsScrollBar();
 
     SegmentConnector *segmentConnector() const;
     void setSegmentConnector(SegmentConnector *newSegmentConnector);

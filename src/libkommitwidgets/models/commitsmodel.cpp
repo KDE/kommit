@@ -234,6 +234,11 @@ CommitsModel::CommitsModel(Git::Repository *git, QObject *parent)
     connect(git, &Git::Repository::pathChanged, this, &CommitsModel::reload);
 }
 
+CommitsModel::~CommitsModel()
+{
+
+}
+
 QSharedPointer<Git::Branch> CommitsModel::branch() const
 {
     Q_D(const CommitsModel);
