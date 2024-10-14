@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-13 01:48+0000\n"
+"POT-Creation-Date: 2024-10-14 01:46+0000\n"
 "PO-Revision-Date: 2023-05-10 20:28+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -391,7 +391,7 @@ msgstr ""
 
 #: src/gui/changelogsdata.cpp:80
 #, kde-format
-msgid "Improve diff windoe text rendering"
+msgid "Improve diff window text rendering"
 msgstr ""
 
 #: src/gui/changelogsdata.cpp:81
@@ -562,13 +562,10 @@ msgstr ""
 
 #: src/gui/dialogs/resolvedialog.cpp:87
 #, kde-format
-msgid "1 conflict remains"
-msgstr ""
-
-#: src/gui/dialogs/resolvedialog.cpp:89
-#, kde-format
-msgid "%1 conflicts remains"
-msgstr ""
+msgid "%1 conflict remained"
+msgid_plural "%1 conflicts remained"
+msgstr[0] ""
+msgstr[1] ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
 #: src/gui/dialogs/resolvedialog.ui:14

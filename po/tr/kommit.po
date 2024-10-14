@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-13 01:48+0000\n"
-"PO-Revision-Date: 2024-10-08 20:59+0300\n"
+"POT-Creation-Date: 2024-10-14 01:46+0000\n"
+"PO-Revision-Date: 2024-10-13 12:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -370,17 +370,18 @@ msgstr "İşlemeler araç takımında dal seçimi ile ilgili olan hatayı düzel
 #: src/gui/changelogsdata.cpp:79
 #, kde-format
 msgid "Improve merge algorithm and text rendering"
-msgstr ""
+msgstr "Birleştirme algoritmasını ve metin sunumunu iyileştir"
 
 #: src/gui/changelogsdata.cpp:80
-#, kde-format
-msgid "Improve diff windoe text rendering"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Improve diff windoe text rendering"
+msgid "Improve diff window text rendering"
+msgstr "Diff penceresindeki metin sunumunu iyileştir"
 
 #: src/gui/changelogsdata.cpp:81
 #, kde-format
 msgid "Fix dolphin menu"
-msgstr ""
+msgstr "Dolphin menüsünü onar"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -456,14 +457,13 @@ msgstr "Kaldırıldı"
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:14
 #, kde-format
 msgid "Choose file version"
-msgstr ""
+msgstr "Dosya Sürümü Seç"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBaseFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:25
-#, fuzzy, kde-format
-#| msgid "Base file:"
+#, kde-format
 msgid "Base file"
-msgstr "Taban dosya:"
+msgstr "Taban dosya"
 
 #. i18n: ectx: property (text), widget (QLabel, labelBaseFile)
 #. i18n: ectx: property (text), widget (QLabel, labelLocalFile)
@@ -499,100 +499,76 @@ msgstr "-"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLocalFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Local file:"
+#, kde-format
 msgid "Local file"
-msgstr "Yerel dosya:"
+msgstr "Yerel dosya"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoteFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:53
-#, fuzzy, kde-format
-#| msgid "Remote file:"
+#, kde-format
 msgid "Remote file"
-msgstr "Uzak dosya:"
+msgstr "Uzak dosya"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithLocal)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:85
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">Diff base with local </span></a></p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>CR/LF değiştir/değiştirme</p><p><a href=\"https://git-"
-"scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-"style=\" text-decoration: underline; color:#007af4;\">Daha Fazla Bilgi…</"
-"span></a></p></body></html>"
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Tabanın yerelle farkını al</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithRemote)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:92
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">Diff base with remote </span></a></p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>CR/LF değiştir/değiştirme</p><p><a href=\"https://git-"
-"scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-"style=\" text-decoration: underline; color:#007af4;\">Daha Fazla Bilgi…</"
-"span></a></p></body></html>"
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Tabanın uzakla farkını al</span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffLocalWithRemote)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:99
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">Diff local with remote</span></a></p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>CR/LF değiştir/değiştirme</p><p><a href=\"https://git-"
-"scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-"style=\" text-decoration: underline; color:#007af4;\">Daha Fazla Bilgi…</"
-"span></a></p></body></html>"
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Yerelin uzakla farkını al</span></a></p></body></"
+"html>"
 
 #: src/gui/dialogs/resolvedialog.cpp:85
 #, kde-format
 msgid "All conflicts resolved"
-msgstr ""
+msgstr "Tüm çakışmalar çözüldü"
 
 #: src/gui/dialogs/resolvedialog.cpp:87
-#, kde-format
-msgid "1 conflict remains"
-msgstr ""
-
-#: src/gui/dialogs/resolvedialog.cpp:89
-#, kde-format
-msgid "%1 conflicts remains"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "%1 conflicts remains"
+msgid "%1 conflict remained"
+msgid_plural "%1 conflicts remained"
+msgstr[0] "%1 kalan çakışma"
+msgstr[1] "%1 kalan çakışma"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
 #: src/gui/dialogs/resolvedialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Conflicts: %1"
+#, kde-format
 msgid "Conflicts"
-msgstr "Çakışmalar: %1"
+msgstr "Çakışmalar"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConflictsCount)
 #: src/gui/dialogs/resolvedialog.ui:26
-#, fuzzy, kde-format
-#| msgid "Conflicts: %1"
+#, kde-format
 msgid "Conflicts count"
-msgstr "Çakışmalar: %1"
+msgstr "Çakışmalar sayısı"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -3077,6 +3053,9 @@ msgstr "Çakışmalar: <span style='font-weight:bold; color:red;'>%1</span>"
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>Tüm çakışmalar çözüldü</span>"
+
+#~ msgid "1 conflict remains"
+#~ msgstr "1 kalan çakışma"
 
 #~ msgctxt "@action"
 #~ msgid "Blame"

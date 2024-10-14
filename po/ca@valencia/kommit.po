@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-13 01:48+0000\n"
-"PO-Revision-Date: 2024-09-18 10:25+0200\n"
+"POT-Creation-Date: 2024-10-14 01:46+0000\n"
+"PO-Revision-Date: 2024-10-08 10:07+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 # NdT: Com que és una capa gràfica del Git, he intentat seguir la terminologia pròpia de la traducció del Git (https://github.com/Softcatala/git-po/blob/master/po/ca.po)
 #, kde-format
@@ -381,7 +381,7 @@ msgstr ""
 
 #: src/gui/changelogsdata.cpp:80
 #, kde-format
-msgid "Improve diff windoe text rendering"
+msgid "Improve diff window text rendering"
 msgstr ""
 
 #: src/gui/changelogsdata.cpp:81
@@ -579,13 +579,10 @@ msgstr ""
 
 #: src/gui/dialogs/resolvedialog.cpp:87
 #, kde-format
-msgid "1 conflict remains"
-msgstr ""
-
-#: src/gui/dialogs/resolvedialog.cpp:89
-#, kde-format
-msgid "%1 conflicts remains"
-msgstr ""
+msgid "%1 conflict remained"
+msgid_plural "%1 conflicts remained"
+msgstr[0] ""
+msgstr[1] ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
 #: src/gui/dialogs/resolvedialog.ui:14
@@ -1928,8 +1925,7 @@ msgid "Prune"
 msgstr "Poda"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Uncommited"
+#, kde-format
 msgid "Uncommitted"
 msgstr "Sense cometre"
 
@@ -3077,24 +3073,14 @@ msgstr "No s'ha pogut obrir el fitxer %1"
 #: src/libkommitwidgets/windows/mergewindow.cpp:328
 #, kde-format
 msgid "Save result"
-msgstr ""
+msgstr "Guarda el resultat"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:396
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
-msgstr ""
+msgstr "Conflictes: <span style='font-weight:bold; color:red;'>%1</span>"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:398
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
-msgstr ""
-
-#~ msgctxt "@action"
-#~ msgid "Blame"
-#~ msgstr "Responsabilitat («Blame»)"
-
-#~ msgid "Blocks"
-#~ msgstr "Blocs"
-
-#~ msgid "Files"
-#~ msgstr "Fitxers"
+msgstr "<span style='color:green;'>S'han resolt tots els conflictes</span>"
