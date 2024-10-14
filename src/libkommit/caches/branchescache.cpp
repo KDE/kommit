@@ -40,6 +40,11 @@ BranchesCache::BranchesCache(Repository *manager)
 {
 }
 
+BranchesCache::~BranchesCache()
+{
+
+}
+
 BranchesCache::DataType BranchesCache::findByName(const QString &key)
 {
     Q_D(BranchesCache);

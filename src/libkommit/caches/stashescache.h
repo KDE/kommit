@@ -30,6 +30,7 @@ public:
     using ListType = QList<QSharedPointer<Stash>>;
 
     explicit StashesCache(Repository *manager);
+    ~StashesCache();
 
     [[nodiscard]] QList<QSharedPointer<Stash>> allStashes();
 

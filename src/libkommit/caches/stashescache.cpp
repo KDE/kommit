@@ -35,6 +35,11 @@ StashesCache::StashesCache(Repository *manager)
 {
 }
 
+StashesCache::~StashesCache()
+{
+
+}
+
 StashesCache::DataType StashesCache::findByName(const QString &name)
 {
     auto list = allStashes();
