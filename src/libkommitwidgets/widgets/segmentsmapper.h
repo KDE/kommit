@@ -22,6 +22,7 @@ class LIBKOMMITWIDGETS_EXPORT SegmentsMapper : public QObject
 
 public:
     explicit SegmentsMapper(QObject *parent = nullptr);
+    ~SegmentsMapper();
 
     void addEditor(CodeEditor *editor);
     const QList<Diff::Segment *> &segments() const;

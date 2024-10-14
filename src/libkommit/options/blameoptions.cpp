@@ -35,6 +35,11 @@ BlameOptions::BlameOptions()
     : d_ptr{new BlameOptionsPrivate{this}}
 {
 }
+
+BlameOptions::~BlameOptions()
+{
+}
+
 QSharedPointer<Commit> BlameOptions::firstCommit() const
 {
     Q_D(const BlameOptions);

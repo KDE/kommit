@@ -41,7 +41,6 @@ SegmentsScrollBar::SegmentsScrollBar(QWidget *parent)
 
 SegmentsScrollBar::~SegmentsScrollBar()
 {
-
 }
 
 SegmentConnector *SegmentsScrollBar::segmentConnector() const

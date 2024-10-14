@@ -35,6 +35,7 @@ public:
     DiffWindow(Git::Repository *git, QSharedPointer<Git::ITree> leftTree);
     DiffWindow(Git::Repository *git, QSharedPointer<Git::ITree> leftTree, QSharedPointer<Git::ITree> rightTree);
     DiffWindow(Mode mode, const QString &left, const QString &right);
+    ~DiffWindow();
 
     void setLeft(const QString &filePath);
     void setLeft(QSharedPointer<Git::Blob> blob);

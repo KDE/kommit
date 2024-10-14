@@ -39,7 +39,7 @@ public:
     QString path;
     QString refName;
     QString branch;
-    QScopedPointer<git_submodule, GitSubmodulePointerDeleter> find() const;
+    QScopedPointer<git_submodule, GitSubmodulePointerDeleter> find() const; // TODO: do we need this?
 };
 
 Submodule::Submodule(git_submodule *submodule, git_repository *repo)

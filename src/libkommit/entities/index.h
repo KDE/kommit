@@ -31,6 +31,7 @@ public:
     enum class StageState { Normal, Base, Ours, Thers };
 
     IndexEntry(const git_index_entry *entryPtr);
+    ~IndexEntry();
 
     QString path() const;
     quint16 fileSize() const;
@@ -85,6 +86,7 @@ public:
 
     ConflictIndexList();
     ConflictIndexList(ListType list);
+    ~ConflictIndexList();
 
     [[nodiscard]] qsizetype size() const;
     [[nodiscard]] ListType conflicts() const;

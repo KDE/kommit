@@ -49,4 +49,7 @@ FileDelta::FileDelta(git_diff_delta *delta)
 {
 }
 
+FileDelta::~FileDelta()
+{
+}
 }

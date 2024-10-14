@@ -16,6 +16,7 @@ class BranchesFilterModel : public QSortFilterProxyModel
     Q_OBJECT
 public:
     BranchesFilterModel(QObject *parent);
+    ~BranchesFilterModel();
 
     Q_REQUIRED_RESULT TreeModel *treeModel() const;
     void setTreeModel(TreeModel *newTreeModel);

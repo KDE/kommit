@@ -207,7 +207,7 @@ struct LanesFactory {
 class CommitsModelPrivate
 {
     CommitsModel *q_ptr;
-    Q_DECLARE_PUBLIC(CommitsModel);
+    Q_DECLARE_PUBLIC(CommitsModel)
 
 public:
     CommitsModelPrivate(CommitsModel *parent);
@@ -236,7 +236,6 @@ CommitsModel::CommitsModel(Git::Repository *git, QObject *parent)
 
 CommitsModel::~CommitsModel()
 {
-
 }
 
 QSharedPointer<Git::Branch> CommitsModel::branch() const

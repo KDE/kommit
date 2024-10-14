@@ -32,6 +32,10 @@ BranchesFilterModel::BranchesFilterModel(QObject *parent)
 {
 }
 
+BranchesFilterModel::~BranchesFilterModel()
+{
+}
+
 TreeModel *BranchesFilterModel::treeModel() const
 {
     Q_D(const BranchesFilterModel);

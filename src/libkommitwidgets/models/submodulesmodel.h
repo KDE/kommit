@@ -24,6 +24,7 @@ class LIBKOMMITWIDGETS_EXPORT SubmodulesModel : public AbstractGitItemsModel
 
 public:
     explicit SubmodulesModel(Git::Repository *git);
+    ~SubmodulesModel();
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent) const override;

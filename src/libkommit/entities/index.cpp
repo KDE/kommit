@@ -194,6 +194,10 @@ IndexEntry::IndexEntry(const git_index_entry *entryPtr)
 {
 }
 
+IndexEntry::~IndexEntry()
+{
+}
+
 QString IndexEntry::path() const
 {
     Q_D(const IndexEntry);
@@ -292,6 +296,10 @@ ConflictIndexList::ConflictIndexList()
 
 ConflictIndexList::ConflictIndexList(ListType list)
     : d_ptr{new ConflictIndexListPrivate{this, list}}
+{
+}
+
+ConflictIndexList::~ConflictIndexList()
 {
 }
 

@@ -23,6 +23,7 @@ class BlameOptions
     // Q_GADGET
 public:
     BlameOptions();
+    ~BlameOptions();
 
     enum class BlameFlag {
         Normal = GIT_BLAME_NORMAL,

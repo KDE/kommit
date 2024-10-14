@@ -50,6 +50,10 @@ BranchesSelectionWidget::BranchesSelectionWidget(QWidget *parent)
     connect(comboBoxBranchesType, &QComboBox::currentIndexChanged, this, &BranchesSelectionWidget::reload);
 }
 
+BranchesSelectionWidget::~BranchesSelectionWidget()
+{
+}
+
 Git::Repository *BranchesSelectionWidget::git() const
 {
     Q_D(const BranchesSelectionWidget);

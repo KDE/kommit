@@ -25,6 +25,7 @@ class LIBKOMMITWIDGETS_EXPORT BranchesSelectionWidget : public QWidget, private 
 
 public:
     explicit BranchesSelectionWidget(QWidget *parent = nullptr);
+    ~BranchesSelectionWidget();
 
     Q_REQUIRED_RESULT Git::Repository *git() const;
     void setGit(Git::Repository *git);

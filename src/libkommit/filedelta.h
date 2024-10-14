@@ -41,6 +41,7 @@ class FileDelta
 {
 public:
     FileDelta(git_diff_delta *delta);
+    ~FileDelta();
 
 private:
     QScopedPointer<FileDeltaPrivate> d_ptr;

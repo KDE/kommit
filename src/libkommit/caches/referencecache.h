@@ -27,6 +27,7 @@ class LIBKOMMIT_EXPORT ReferenceCache : public Cache<Reference, git_reference>
 {
 public:
     explicit ReferenceCache(Repository *parent);
+    ~ReferenceCache();
 
     DataType findByName(const QString &name);
     DataType findForNote(QSharedPointer<Note> note);

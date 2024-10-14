@@ -27,6 +27,10 @@ ReferenceCache::ReferenceCache(Repository *parent)
 {
 }
 
+ReferenceCache::~ReferenceCache()
+{
+}
+
 ReferenceCache::DataType ReferenceCache::findByName(const QString &name)
 {
     git_reference *ref;

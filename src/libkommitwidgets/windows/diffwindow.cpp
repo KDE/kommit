@@ -350,6 +350,10 @@ DiffWindow::DiffWindow(Mode mode, const QString &left, const QString &right)
     }
 }
 
+DiffWindow::~DiffWindow()
+{
+}
+
 void DiffWindow::setLeft(const QString &filePath)
 {
     Q_D(DiffWindow);
