@@ -14,6 +14,12 @@ namespace Git
 {
 class Repository;
 class FetchObserver;
+struct PackProgress;
+struct FetchTransferStat;
+class Reference;
+class Credential;
+class Certificate;
+class Oid;
 }
 
 class LIBKOMMITWIDGETS_EXPORT FetchDialog : public AppDialog, private Ui::FetchDialog
@@ -29,4 +35,13 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotAccept();
 
     Git::FetchObserver *const mObserver;
+
+    void startFetch();
+
+    void slotFetchMessage(const QString &message);
+    void slotFetchCredentialRequeted(const QString &url, Git::Credential *cred);
+    void slotFetchTransferProgress(const Git::FetchTransferStat *stat);
+    void slotFetchPackProgress(const Git::PackProgress *p);
+    void slotFetchUpdateRef(QSharedPointer<Git::Reference> reference, QSharedPointer<Git::Oid> a, QSharedPointer<Git::Oid> b);
+    void slotFetchCertificateCheck(Git::Certificate *cert, bool *accept);
 };

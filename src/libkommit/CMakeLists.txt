@@ -33,6 +33,8 @@ target_sources(libkommit PRIVATE
     ioid.h
     blame.h blame.cpp
     blamehunk.h blamehunk.cpp
+    fetch.h fetch.cpp
+    certificate.h certificate.cpp
 
     caches/abstractcache.cpp
     caches/branchescache.cpp
@@ -131,6 +133,15 @@ target_link_libraries(libkommit
     KF${KF_MAJOR_VERSION}::I18n
 )
 
+if (OpenSSL_FOUND)
+    message(STATUS "OpenSSL found: ${OpenSSL_VERSION}")
+    add_definitions(-DLIBKOMMIT_USE_OPENSSL)
+    target_link_libraries(libkommit OpenSSL::SSL OpenSSL::Crypto)
+else()
+    message(STATUS "OpenSSL not found, building without OpenSSL support")
+endif()
+
+
 if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
@@ -142,6 +153,8 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
 
         Blame
         BlameHunk
+        Fetch
+        # BlameDataRow
 
         # ConfigEntry
         Config
@@ -152,6 +165,7 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
 
         Buffer
         Credential
+        Certificate
         FileStatus
         Types
 
