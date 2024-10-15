@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 01:46+0000\n"
-"PO-Revision-Date: 2024-10-13 21:55+0200\n"
+"POT-Creation-Date: 2024-10-15 01:48+0000\n"
+"PO-Revision-Date: 2024-10-14 17:12+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -167,7 +167,7 @@ msgstr "Git grafisk användargränssnittsklient för KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:290
+#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:294
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -373,8 +373,7 @@ msgid "Improve merge algorithm and text rendering"
 msgstr "Förbättra sammanfogningsalgoritm och textåtergivning"
 
 #: src/gui/changelogsdata.cpp:80
-#, fuzzy, kde-format
-#| msgid "Improve diff windoe text rendering"
+#, kde-format
 msgid "Improve diff window text rendering"
 msgstr "Förbättra textåtergivning i jämförelsefönster"
 
@@ -448,7 +447,7 @@ msgstr "---"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:416
+#: src/libkommitwidgets/windows/diffwindow.cpp:420
 #, kde-format
 msgid "Removed"
 msgstr "Borttagna"
@@ -551,11 +550,10 @@ msgid "All conflicts resolved"
 msgstr "Alla konflikter lösta"
 
 #: src/gui/dialogs/resolvedialog.cpp:87
-#, fuzzy, kde-format
-#| msgid "%1 conflicts remains"
+#, kde-format
 msgid "%1 conflict remained"
 msgid_plural "%1 conflicts remained"
-msgstr[0] "%1 konflikter återstår"
+msgstr[0] "%1 konflikt återstår"
 msgstr[1] "%1 konflikter återstår"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
@@ -803,7 +801,7 @@ msgstr "Uppströms"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommitwidgets/models/submodulesmodel.cpp:123
+#: src/libkommitwidgets/models/submodulesmodel.cpp:127
 #, kde-format
 msgid "Status"
 msgstr "Status"
@@ -1737,14 +1735,14 @@ msgstr "Indexerade"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:414
+#: src/libkommitwidgets/windows/diffwindow.cpp:418
 #, kde-format
 msgid "Added"
 msgstr "Tillagda"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:418
+#: src/libkommitwidgets/windows/diffwindow.cpp:422
 #, kde-format
 msgid "Modified"
 msgstr "Ändrade"
@@ -2043,7 +2041,7 @@ msgstr "Alla filer med det här namnet"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#: src/libkommitwidgets/models/submodulesmodel.cpp:119
+#: src/libkommitwidgets/models/submodulesmodel.cpp:123
 #, kde-format
 msgid "Path"
 msgstr "Sökväg"
@@ -2667,18 +2665,18 @@ msgstr " (ny arkivering)"
 msgid " (content modified)"
 msgstr " (innehåll ändrat)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:286
-#: src/libkommitwidgets/models/commitsmodel.cpp:297
+#: src/libkommitwidgets/models/commitsmodel.cpp:290
+#: src/libkommitwidgets/models/commitsmodel.cpp:301
 #, kde-format
 msgid "Message"
 msgstr "Meddelande"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:288
+#: src/libkommitwidgets/models/commitsmodel.cpp:292
 #, kde-format
 msgid "Date"
 msgstr "Datum"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:295
+#: src/libkommitwidgets/models/commitsmodel.cpp:299
 #, kde-format
 msgid "Graph"
 msgstr "Diagram"
@@ -2704,7 +2702,7 @@ msgstr "Upphovsmannens e-post"
 msgid "Time"
 msgstr "Tid"
 
-#: src/libkommitwidgets/models/submodulesmodel.cpp:121
+#: src/libkommitwidgets/models/submodulesmodel.cpp:125
 #, kde-format
 msgid "Head"
 msgstr "Huvudversion"
@@ -2989,7 +2987,7 @@ msgctxt "@title:window"
 msgid "Tree"
 msgstr "Träd"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:412
+#: src/libkommitwidgets/windows/diffwindow.cpp:416
 #, kde-format
 msgid "Unchanged"
 msgstr "Oförändrad"

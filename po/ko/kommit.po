@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 01:46+0000\n"
+"POT-Creation-Date: 2024-10-15 01:48+0000\n"
 "PO-Revision-Date: 2024-08-19 23:42+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -167,7 +167,7 @@ msgstr "KDE의 Git 클라이언트 GUI"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:290
+#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:294
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -465,7 +465,7 @@ msgstr "---"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:416
+#: src/libkommitwidgets/windows/diffwindow.cpp:420
 #, kde-format
 msgid "Removed"
 msgstr "삭제됨"
@@ -843,7 +843,7 @@ msgstr "업스트림"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommitwidgets/models/submodulesmodel.cpp:123
+#: src/libkommitwidgets/models/submodulesmodel.cpp:127
 #, kde-format
 msgid "Status"
 msgstr "상태"
@@ -1797,14 +1797,14 @@ msgstr "색인에 포함됨"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:414
+#: src/libkommitwidgets/windows/diffwindow.cpp:418
 #, kde-format
 msgid "Added"
 msgstr "추가됨"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:418
+#: src/libkommitwidgets/windows/diffwindow.cpp:422
 #, kde-format
 msgid "Modified"
 msgstr "수정됨"
@@ -2109,7 +2109,7 @@ msgstr "이 이름을 갖는 모든 파일"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#: src/libkommitwidgets/models/submodulesmodel.cpp:119
+#: src/libkommitwidgets/models/submodulesmodel.cpp:123
 #, kde-format
 msgid "Path"
 msgstr "경로"
@@ -2735,18 +2735,18 @@ msgstr "커밋 없음"
 msgid " (content modified)"
 msgstr ""
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:286
-#: src/libkommitwidgets/models/commitsmodel.cpp:297
+#: src/libkommitwidgets/models/commitsmodel.cpp:290
+#: src/libkommitwidgets/models/commitsmodel.cpp:301
 #, kde-format
 msgid "Message"
 msgstr "메시지"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:288
+#: src/libkommitwidgets/models/commitsmodel.cpp:292
 #, kde-format
 msgid "Date"
 msgstr "날짜"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:295
+#: src/libkommitwidgets/models/commitsmodel.cpp:299
 #, kde-format
 msgid "Graph"
 msgstr "그래프"
@@ -2772,7 +2772,7 @@ msgstr "작성자 이메일 주소"
 msgid "Time"
 msgstr "시간"
 
-#: src/libkommitwidgets/models/submodulesmodel.cpp:121
+#: src/libkommitwidgets/models/submodulesmodel.cpp:125
 #, kde-format
 msgid "Head"
 msgstr "헤드"
@@ -3063,7 +3063,7 @@ msgctxt "@title:window"
 msgid "Tree"
 msgstr "트리"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:412
+#: src/libkommitwidgets/windows/diffwindow.cpp:416
 #, kde-format
 msgid "Unchanged"
 msgstr "변경하지 않음"

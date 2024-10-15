@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 01:46+0000\n"
-"PO-Revision-Date: 2024-10-13 12:34+0300\n"
+"POT-Creation-Date: 2024-10-15 01:48+0000\n"
+"PO-Revision-Date: 2024-10-14 20:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -167,7 +167,7 @@ msgstr "KDE için Git Grafik Kullanıcı Arayüzü"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Telif hakkı 2021–2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:290
+#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:294
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -373,8 +373,7 @@ msgid "Improve merge algorithm and text rendering"
 msgstr "Birleştirme algoritmasını ve metin sunumunu iyileştir"
 
 #: src/gui/changelogsdata.cpp:80
-#, fuzzy, kde-format
-#| msgid "Improve diff windoe text rendering"
+#, kde-format
 msgid "Improve diff window text rendering"
 msgstr "Diff penceresindeki metin sunumunu iyileştir"
 
@@ -448,7 +447,7 @@ msgstr "---"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:416
+#: src/libkommitwidgets/windows/diffwindow.cpp:420
 #, kde-format
 msgid "Removed"
 msgstr "Kaldırıldı"
@@ -551,8 +550,7 @@ msgid "All conflicts resolved"
 msgstr "Tüm çakışmalar çözüldü"
 
 #: src/gui/dialogs/resolvedialog.cpp:87
-#, fuzzy, kde-format
-#| msgid "%1 conflicts remains"
+#, kde-format
 msgid "%1 conflict remained"
 msgid_plural "%1 conflicts remained"
 msgstr[0] "%1 kalan çakışma"
@@ -804,7 +802,7 @@ msgstr "Üst Kaynak"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommitwidgets/models/submodulesmodel.cpp:123
+#: src/libkommitwidgets/models/submodulesmodel.cpp:127
 #, kde-format
 msgid "Status"
 msgstr "Durum"
@@ -1737,14 +1735,14 @@ msgstr "İndekslenmiş"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:414
+#: src/libkommitwidgets/windows/diffwindow.cpp:418
 #, kde-format
 msgid "Added"
 msgstr "Eklendi"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:418
+#: src/libkommitwidgets/windows/diffwindow.cpp:422
 #, kde-format
 msgid "Modified"
 msgstr "Değiştirildi"
@@ -2043,7 +2041,7 @@ msgstr "Bu ada iye tüm dosyalar"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#: src/libkommitwidgets/models/submodulesmodel.cpp:119
+#: src/libkommitwidgets/models/submodulesmodel.cpp:123
 #, kde-format
 msgid "Path"
 msgstr "Yol"
@@ -2666,18 +2664,18 @@ msgstr " (yeni işleme)"
 msgid " (content modified)"
 msgstr " (içerik değiştirildi)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:286
-#: src/libkommitwidgets/models/commitsmodel.cpp:297
+#: src/libkommitwidgets/models/commitsmodel.cpp:290
+#: src/libkommitwidgets/models/commitsmodel.cpp:301
 #, kde-format
 msgid "Message"
 msgstr "İleti"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:288
+#: src/libkommitwidgets/models/commitsmodel.cpp:292
 #, kde-format
 msgid "Date"
 msgstr "Tarih"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:295
+#: src/libkommitwidgets/models/commitsmodel.cpp:299
 #, kde-format
 msgid "Graph"
 msgstr "Grafik"
@@ -2703,7 +2701,7 @@ msgstr "Yazar E-postası"
 msgid "Time"
 msgstr "Zaman"
 
-#: src/libkommitwidgets/models/submodulesmodel.cpp:121
+#: src/libkommitwidgets/models/submodulesmodel.cpp:125
 #, kde-format
 msgid "Head"
 msgstr "Dal Ucu"
@@ -2988,7 +2986,7 @@ msgctxt "@title:window"
 msgid "Tree"
 msgstr "Ağaç"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:412
+#: src/libkommitwidgets/windows/diffwindow.cpp:416
 #, kde-format
 msgid "Unchanged"
 msgstr "Değiştirilmedi"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 01:46+0000\n"
+"POT-Creation-Date: 2024-10-15 01:48+0000\n"
 "PO-Revision-Date: 2024-09-20 10:08+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -167,7 +167,7 @@ msgstr "Interface cliente de Git de KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "© 2021-2024 Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:290
+#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:294
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -448,7 +448,7 @@ msgstr "—"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:416
+#: src/libkommitwidgets/windows/diffwindow.cpp:420
 #, kde-format
 msgid "Removed"
 msgstr "Retirado"
@@ -828,7 +828,7 @@ msgstr "Orixe"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommitwidgets/models/submodulesmodel.cpp:123
+#: src/libkommitwidgets/models/submodulesmodel.cpp:127
 #, kde-format
 msgid "Status"
 msgstr "Estado"
@@ -1761,14 +1761,14 @@ msgstr "Indexado"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:414
+#: src/libkommitwidgets/windows/diffwindow.cpp:418
 #, kde-format
 msgid "Added"
 msgstr "Engadido"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:418
+#: src/libkommitwidgets/windows/diffwindow.cpp:422
 #, kde-format
 msgid "Modified"
 msgstr "Modificado"
@@ -2068,7 +2068,7 @@ msgstr "Todos os ficheiros con este nome"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#: src/libkommitwidgets/models/submodulesmodel.cpp:119
+#: src/libkommitwidgets/models/submodulesmodel.cpp:123
 #, kde-format
 msgid "Path"
 msgstr "Ruta"
@@ -2693,18 +2693,18 @@ msgstr " (nova remisión)"
 msgid " (content modified)"
 msgstr " (modificouse o contido)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:286
-#: src/libkommitwidgets/models/commitsmodel.cpp:297
+#: src/libkommitwidgets/models/commitsmodel.cpp:290
+#: src/libkommitwidgets/models/commitsmodel.cpp:301
 #, kde-format
 msgid "Message"
 msgstr "Mensaxe"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:288
+#: src/libkommitwidgets/models/commitsmodel.cpp:292
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:295
+#: src/libkommitwidgets/models/commitsmodel.cpp:299
 #, kde-format
 msgid "Graph"
 msgstr "Gráfico"
@@ -2730,7 +2730,7 @@ msgstr "Enderezo de correo electrónico de autoría"
 msgid "Time"
 msgstr "Hora"
 
-#: src/libkommitwidgets/models/submodulesmodel.cpp:121
+#: src/libkommitwidgets/models/submodulesmodel.cpp:125
 #, kde-format
 msgid "Head"
 msgstr "Cabeceira"
@@ -3015,7 +3015,7 @@ msgctxt "@title:window"
 msgid "Tree"
 msgstr "Árbore"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:412
+#: src/libkommitwidgets/windows/diffwindow.cpp:416
 #, kde-format
 msgid "Unchanged"
 msgstr "Sen cambios"

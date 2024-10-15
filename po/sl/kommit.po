@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 01:46+0000\n"
-"PO-Revision-Date: 2024-10-13 07:00+0200\n"
+"POT-Creation-Date: 2024-10-15 01:48+0000\n"
+"PO-Revision-Date: 2024-10-14 07:25+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -171,7 +171,7 @@ msgstr "Grafični uporabniški vmesnik odjemalca Git za KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:290
+#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:294
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -377,10 +377,9 @@ msgid "Improve merge algorithm and text rendering"
 msgstr "Izboljšaj algoritem zlivanja in upodabljanja besedila"
 
 #: src/gui/changelogsdata.cpp:80
-#, fuzzy, kde-format
-#| msgid "Improve diff windoe text rendering"
+#, kde-format
 msgid "Improve diff window text rendering"
-msgstr "Izboljšaj upodabljanje besedila diff windoe"
+msgstr "Izboljšaj upodabljanje besedila okna diff"
 
 #: src/gui/changelogsdata.cpp:81
 #, kde-format
@@ -452,7 +451,7 @@ msgstr "---"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:416
+#: src/libkommitwidgets/windows/diffwindow.cpp:420
 #, kde-format
 msgid "Removed"
 msgstr "Odstranjeno"
@@ -555,13 +554,12 @@ msgid "All conflicts resolved"
 msgstr "Vsi spori razrešeni"
 
 #: src/gui/dialogs/resolvedialog.cpp:87
-#, fuzzy, kde-format
-#| msgid "%1 conflicts remains"
+#, kde-format
 msgid "%1 conflict remained"
 msgid_plural "%1 conflicts remained"
 msgstr[0] "%1 sporov ostaja"
-msgstr[1] "%1 sporov ostaja"
-msgstr[2] "%1 sporov ostaja"
+msgstr[1] "%1 spor ostaja"
+msgstr[2] "%1 spora ostajata"
 msgstr[3] "%1 sporov ostaja"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
@@ -809,7 +807,7 @@ msgstr "Tok tja"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommitwidgets/models/submodulesmodel.cpp:123
+#: src/libkommitwidgets/models/submodulesmodel.cpp:127
 #, kde-format
 msgid "Status"
 msgstr "Stanje"
@@ -1741,14 +1739,14 @@ msgstr "Indeksirano"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:414
+#: src/libkommitwidgets/windows/diffwindow.cpp:418
 #, kde-format
 msgid "Added"
 msgstr "Dodano"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:418
+#: src/libkommitwidgets/windows/diffwindow.cpp:422
 #, kde-format
 msgid "Modified"
 msgstr "Spremenjena"
@@ -2047,7 +2045,7 @@ msgstr "Vse datoteke s tem imenom"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#: src/libkommitwidgets/models/submodulesmodel.cpp:119
+#: src/libkommitwidgets/models/submodulesmodel.cpp:123
 #, kde-format
 msgid "Path"
 msgstr "Pot"
@@ -2670,18 +2668,18 @@ msgstr " (nova potrditev)"
 msgid " (content modified)"
 msgstr " (vsebina spremenjena)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:286
-#: src/libkommitwidgets/models/commitsmodel.cpp:297
+#: src/libkommitwidgets/models/commitsmodel.cpp:290
+#: src/libkommitwidgets/models/commitsmodel.cpp:301
 #, kde-format
 msgid "Message"
 msgstr "Sporočilo"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:288
+#: src/libkommitwidgets/models/commitsmodel.cpp:292
 #, kde-format
 msgid "Date"
 msgstr "Date"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:295
+#: src/libkommitwidgets/models/commitsmodel.cpp:299
 #, kde-format
 msgid "Graph"
 msgstr "Grafikon"
@@ -2707,7 +2705,7 @@ msgstr "E-poštni naslov avtorja"
 msgid "Time"
 msgstr "Čas"
 
-#: src/libkommitwidgets/models/submodulesmodel.cpp:121
+#: src/libkommitwidgets/models/submodulesmodel.cpp:125
 #, kde-format
 msgid "Head"
 msgstr "Glava (head)"
@@ -2996,7 +2994,7 @@ msgctxt "@title:window"
 msgid "Tree"
 msgstr "Drevo"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:412
+#: src/libkommitwidgets/windows/diffwindow.cpp:416
 #, kde-format
 msgid "Unchanged"
 msgstr "Nespremenjeno"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 01:46+0000\n"
-"PO-Revision-Date: 2024-10-13 15:31+0300\n"
+"POT-Creation-Date: 2024-10-15 01:48+0000\n"
+"PO-Revision-Date: 2024-10-14 15:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -168,7 +168,7 @@ msgstr "Клієнтська графічна оболонка git для KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "© Hamed Masafi <hamed.masafi@gmail.com>, 2021–2024"
 
-#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:290
+#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:294
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -374,8 +374,7 @@ msgid "Improve merge algorithm and text rendering"
 msgstr "Удосконалено алгоритм об'єднання та обробку тексту"
 
 #: src/gui/changelogsdata.cpp:80
-#, fuzzy, kde-format
-#| msgid "Improve diff windoe text rendering"
+#, kde-format
 msgid "Improve diff window text rendering"
 msgstr "Удосконалено обробку тексту у вікні різниці"
 
@@ -449,7 +448,7 @@ msgstr "---"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:416
+#: src/libkommitwidgets/windows/diffwindow.cpp:420
 #, kde-format
 msgid "Removed"
 msgstr "Вилучено"
@@ -552,14 +551,13 @@ msgid "All conflicts resolved"
 msgstr "Усі конфлікти вирішено"
 
 #: src/gui/dialogs/resolvedialog.cpp:87
-#, fuzzy, kde-format
-#| msgid "%1 conflicts remains"
+#, kde-format
 msgid "%1 conflict remained"
 msgid_plural "%1 conflicts remained"
-msgstr[0] "Лишилося %1 конфліктів"
-msgstr[1] "Лишилося %1 конфліктів"
+msgstr[0] "Лишився %1 конфлікт"
+msgstr[1] "Лишилося %1 конфлікти"
 msgstr[2] "Лишилося %1 конфліктів"
-msgstr[3] "Лишилося %1 конфліктів"
+msgstr[3] "Лишився %1 конфлікт"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
 #: src/gui/dialogs/resolvedialog.ui:14
@@ -806,7 +804,7 @@ msgstr "Основна гілка"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
-#: src/libkommitwidgets/models/submodulesmodel.cpp:123
+#: src/libkommitwidgets/models/submodulesmodel.cpp:127
 #, kde-format
 msgid "Status"
 msgstr "Стан"
@@ -1743,14 +1741,14 @@ msgstr "Індексований"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:414
+#: src/libkommitwidgets/windows/diffwindow.cpp:418
 #, kde-format
 msgid "Added"
 msgstr "Додано"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:418
+#: src/libkommitwidgets/windows/diffwindow.cpp:422
 #, kde-format
 msgid "Modified"
 msgstr "Змінено"
@@ -2049,7 +2047,7 @@ msgstr "Усі файли з цією назвою"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
-#: src/libkommitwidgets/models/submodulesmodel.cpp:119
+#: src/libkommitwidgets/models/submodulesmodel.cpp:123
 #, kde-format
 msgid "Path"
 msgstr "Шлях"
@@ -2672,18 +2670,18 @@ msgstr " (новий внесок)"
 msgid " (content modified)"
 msgstr " (внесено зміни)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:286
-#: src/libkommitwidgets/models/commitsmodel.cpp:297
+#: src/libkommitwidgets/models/commitsmodel.cpp:290
+#: src/libkommitwidgets/models/commitsmodel.cpp:301
 #, kde-format
 msgid "Message"
 msgstr "Повідомлення"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:288
+#: src/libkommitwidgets/models/commitsmodel.cpp:292
 #, kde-format
 msgid "Date"
 msgstr "Дата"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:295
+#: src/libkommitwidgets/models/commitsmodel.cpp:299
 #, kde-format
 msgid "Graph"
 msgstr "Граф"
@@ -2709,7 +2707,7 @@ msgstr "Електронна пошта автора"
 msgid "Time"
 msgstr "Час"
 
-#: src/libkommitwidgets/models/submodulesmodel.cpp:121
+#: src/libkommitwidgets/models/submodulesmodel.cpp:125
 #, kde-format
 msgid "Head"
 msgstr "Голова"
@@ -2998,7 +2996,7 @@ msgctxt "@title:window"
 msgid "Tree"
 msgstr "Ієрархія"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:412
+#: src/libkommitwidgets/windows/diffwindow.cpp:416
 #, kde-format
 msgid "Unchanged"
 msgstr "Без змін"
