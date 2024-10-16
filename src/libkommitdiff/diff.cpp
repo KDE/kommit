@@ -98,14 +98,14 @@ QList<DiffSegment *> diff(const QStringList &oldText, const QStringList &newText
         segment->type = SegmentType::OnlyOnLeft;
         segment->oldText = oldText;
         segment->newText = newText;
-        segment->oldLineEnd = oldText.size() - 1;
+        segment->newLineEnd = newText.size() - 1;
         return {segment};
     } else if (newText.isEmpty()) {
         auto segment = new DiffSegment;
         segment->type = SegmentType::OnlyOnRight;
         segment->oldText = oldText;
         segment->newText = newText;
-        segment->newLineEnd = newText.size() - 1;
+        segment->oldLineEnd = oldText.size() - 1;
         return {segment};
     }
 
