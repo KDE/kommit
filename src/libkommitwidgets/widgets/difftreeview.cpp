@@ -55,8 +55,10 @@ void DiffTreeView::lineEditFilterTextChanged(const QString &text)
 
 void DiffTreeView::slotTreeViewClicked(const QModelIndex &index)
 {
-    const auto fileName = mDiffModel->fullPath(index);
-    Q_EMIT fileSelected(fileName);
+    if (!mDiffModel->rowCount(index)) {
+        const auto fileName = mDiffModel->fullPath(index);
+        Q_EMIT fileSelected(fileName);
+    }
 }
 
 void DiffTreeView::slotListViewClicked(const QModelIndex &index)
