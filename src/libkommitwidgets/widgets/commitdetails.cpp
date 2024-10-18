@@ -176,10 +176,10 @@ QString CommitDetails::createChangedFiles()
     QStringList filesHtml;
 
     for (auto i = files.constBegin(); i != files.constEnd(); ++i) {
-        QString color;
+        QColor color = KommitWidgetsGlobalOptions::instance()->statucColor(i.value());
         // switch (i.value()) {
         // case Git::ChangeStatus::Modified:
-        //     color = mChangedFilesColor.name();
+        //     color = libkommitwi
         //     break;
         // case Git::ChangeStatus::Added:
         //     color = mAddedFilesColor.name();
@@ -192,9 +192,9 @@ QString CommitDetails::createChangedFiles()
         //     break;
         // }
         if (mEnableFilesLinks)
-            filesHtml.append(QStringLiteral("<font color=%1><a href=\"%2\">%2</a></a>").arg(color, i.key()));
+            filesHtml.append(QStringLiteral("<span style=\"border: 1px solid gray; border-radius: 5px; background-color: %1; display: inline-block; width:10p; height:10px\">&nbsp;&nbsp;&nbsp;</span> <font color=%1><a href=\"%2\">%2</a></font>").arg(color.name(), i.key()));
         else
-            filesHtml.append(QStringLiteral("<font color=%1>%2</a>").arg(color, i.key()));
+            filesHtml.append(QStringLiteral("<font color=%1>%2</a>").arg(color.name(), i.key()));
     }
 
     return filesHtml.join(QStringLiteral("<br />"));

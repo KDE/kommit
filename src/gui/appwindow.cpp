@@ -34,6 +34,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "pages/submoduleswidget.h"
 #include "pages/tagswidget.h"
 #include "settings/settingsmanager.h"
+#include "core/appremoteconnectionlistener.h"
 
 #include <Kommit/BranchesCache>
 #include <Kommit/CommandClean>
@@ -83,6 +84,7 @@ AppWindow::AppWindow()
 
 void AppWindow::init()
 {
+    mGitData->manager()->setRemoteConnectionListener(AppRemoteConnectionListener::instance());
     connect(mGitData->manager(), &Git::Repository::pathChanged, this, &AppWindow::gitPathChanged);
     connect(mGitData->manager(), &Git::Repository::currentBranchChanged, this, &AppWindow::gitCurrentBranchChanged);
 

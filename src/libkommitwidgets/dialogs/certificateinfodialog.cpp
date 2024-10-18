@@ -22,9 +22,15 @@ CertificateInfoDialog::CertificateInfoDialog(Git::Certificate *cert, QWidget *pa
 
         labelHost->setText(cert->host());
         labelIsValid->setText(cert->isValid() ? i18n("Yes") : i18n("No"));
+
         labelSubject->setText(data.subject);
         labelIssuer->setText(data.issuer);
         labelSerialNumber->setText(data.serialNumber);
+        labelValidFrom->setText(data.validFrom);
+        labelValidUntil->setText(data.validUntil);
+        labelPublicKeyType->setText(data.publicKeyType);
+        labelPublicKeyBits->setText(data.publicKeyBits);
+        labelSignatureAlgorithm->setText(data.signatureAlgorithm);
         break;
     }
     case Git::Certificate::Type::HostkeyLibssh2:

@@ -76,6 +76,7 @@ public:
     SubmodulesCache *submodulesCache;
     StashesCache *stashesCache;
     ReferenceCache *referenceCache;
+    RemoteConnectionListener *remoteConnectionListener;
 
     void changeRepo(git_repository *repo);
     void resetCaches();
@@ -1368,6 +1369,18 @@ ReferenceCache *Repository::references() const
 {
     Q_D(const Repository);
     return d->referenceCache;
+}
+
+RemoteConnectionListener *Repository::remoteConnectionListener() const
+{
+    Q_D(const Repository);
+    return d->remoteConnectionListener;
+}
+
+void Repository::setRemoteConnectionListener(RemoteConnectionListener *remoteConnectionListener)
+{
+    Q_D(Repository);
+    d->remoteConnectionListener = remoteConnectionListener;
 }
 
 QString Repository::errorMessage() const

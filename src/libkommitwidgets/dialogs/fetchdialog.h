@@ -20,6 +20,7 @@ class Reference;
 class Credential;
 class Certificate;
 class Oid;
+class Fetch;
 }
 
 class LIBKOMMITWIDGETS_EXPORT FetchDialog : public AppDialog, private Ui::FetchDialog
@@ -39,9 +40,10 @@ private:
     void startFetch();
 
     void slotFetchMessage(const QString &message);
-    void slotFetchCredentialRequeted(const QString &url, Git::Credential *cred);
     void slotFetchTransferProgress(const Git::FetchTransferStat *stat);
     void slotFetchPackProgress(const Git::PackProgress *p);
     void slotFetchUpdateRef(QSharedPointer<Git::Reference> reference, QSharedPointer<Git::Oid> a, QSharedPointer<Git::Oid> b);
-    void slotFetchCertificateCheck(Git::Certificate *cert, bool *accept);
+    void slotFetchFinished(bool success);
+
+    Git::Fetch *mFetch;
 };

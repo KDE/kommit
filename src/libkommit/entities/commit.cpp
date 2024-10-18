@@ -250,4 +250,5 @@ CommitPrivate::~CommitPrivate()
 {
     git_commit_free(commit);
 }
+
 }

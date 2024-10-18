@@ -147,6 +147,11 @@ quint16 FileMode::value() const
     return static_cast<quint16>(mPermissions);
 }
 
+bool FileMode::isValid() const
+{
+    return mPermissions != Permission::Invalid;
+}
+
 void FileMode::setPermission(Permission perm, bool enable)
 {
     if (enable) {

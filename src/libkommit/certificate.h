@@ -30,6 +30,11 @@ public:
         QString subject;
         QString issuer;
         QString serialNumber;
+        QString validFrom;
+        QString validUntil;
+        QString publicKeyType;
+        QString publicKeyBits;
+        QString signatureAlgorithm;
     };
     struct HostKeyData {
         QByteArray hash;

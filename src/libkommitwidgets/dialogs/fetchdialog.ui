@@ -20,7 +20,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -57,10 +57,10 @@
           <item>
            <spacer name="horizontalSpacer">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
+             <enum>QSizePolicy::Policy::Fixed</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -125,7 +125,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="spinBoxDepth"/>
+             <widget class="QSpinBox" name="spinBoxDepth">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -145,7 +149,7 @@
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -158,10 +162,10 @@
        <item>
         <widget class="QDialogButtonBox" name="buttonBox">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="standardButtons">
-          <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+          <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
          </property>
         </widget>
        </item>
@@ -170,16 +174,16 @@
      <widget class="QWidget" name="page_2">
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <widget class="QLabel" name="labelStatus">
-         <property name="text">
-          <string>Starting...</string>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="value">
+          <number>0</number>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QProgressBar" name="progressBar">
-         <property name="value">
-          <number>0</number>
+        <widget class="QLabel" name="labelStatus">
+         <property name="text">
+          <string>Starting...</string>
          </property>
         </widget>
        </item>
@@ -189,7 +193,7 @@
        <item>
         <widget class="QDialogButtonBox" name="buttonBox_2">
          <property name="standardButtons">
-          <set>QDialogButtonBox::Close</set>
+          <set>QDialogButtonBox::StandardButton::Close</set>
          </property>
         </widget>
        </item>
@@ -240,6 +244,38 @@
     <hint type="destinationlabel">
      <x>421</x>
      <y>421</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxAllBranches</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>widget</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>62</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>61</x>
+     <y>103</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxDepth</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>spinBoxDepth</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>83</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>288</x>
+     <y>177</y>
     </hint>
    </hints>
   </connection>

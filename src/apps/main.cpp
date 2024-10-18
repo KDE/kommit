@@ -33,6 +33,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 int main(int argc, char **argv)
 {
+    qputenv("GIT_TRACE", "1");
+
 #if HAVE_KICONTHEME && (KICONTHEMES_VERSION >= QT_VERSION_CHECK(6, 3, 0))
     KIconTheme::initTheme();
 #endif

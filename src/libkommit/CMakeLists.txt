@@ -35,6 +35,10 @@ target_sources(libkommit PRIVATE
     blamehunk.h blamehunk.cpp
     fetch.h fetch.cpp
     certificate.h certificate.cpp
+    error.h error.cpp
+    remotecallbacks.h remotecallbacks.cpp
+    remoteconnectionlistener.h remoteconnectionlistener.cpp
+    clone.h clone.cpp
 
     caches/abstractcache.cpp
     caches/branchescache.cpp
@@ -149,6 +153,7 @@ endif()
 # root folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
+        Clone
         Repository
 
         Blame
@@ -168,12 +173,14 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
         Certificate
         FileStatus
         Types
-
+        Error
         FileDelta
         FileMode
         RefSpec
         ITree
         IOid
+        RemoteCallbacks
+        RemoteConnectionListener
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
 )

@@ -50,8 +50,9 @@ class Blob;
 struct BlameDataRow;
 class BlameOptions;
 class Blame;
+class BlameData;
+class RemoteConnectionListener;
 
-// TODO: rename class and file's name to repository
 class LIBKOMMIT_EXPORT Repository : public QObject
 {
     Q_OBJECT
@@ -162,6 +163,9 @@ public:
     [[nodiscard]] StashesCache *stashes() const;
     [[nodiscard]] ReferenceCache *references() const;
 
+    [[nodiscard]] RemoteConnectionListener *remoteConnectionListener() const;
+    void setRemoteConnectionListener(RemoteConnectionListener *remoteConnectionListener);
+
 Q_SIGNALS:
     void pathChanged();
     void reloadRequired();
@@ -170,7 +174,6 @@ Q_SIGNALS:
 private:
     QScopedPointer<RepositoryPrivate> d_ptr;
     Q_DECLARE_PRIVATE(Repository)
-
     LIBKOMMIT_NO_EXPORT QStringList readAllNonEmptyOutput(const QStringList &cmd) const;
 };
 

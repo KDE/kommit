@@ -11,115 +11,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "credential.h"
 #include "entities/branch.h"
 #include "entities/remote.h"
+#include "gitglobal_p.h"
 #include "libkommit_global.h"
 #include "oid.h"
+#include "remotecallbacks.h"
 #include "repository.h"
 #include "strarray.h"
 
+#include <QFuture>
+#include <QtConcurrent/QtConcurrent>
+
 namespace Git
 {
-
-namespace FetchCallbacks
-{
-
-struct FetchBridge {
-    Fetch *observer;
-    Repository *manager;
-};
-
-int git_helper_update_tips_cb(const char *refname, const git_oid *a, const git_oid *b, void *data)
-{
-    auto bridge = reinterpret_cast<FetchBridge *>(data);
-
-    auto ref = bridge->manager->references()->findByName(QString{refname});
-    auto oidA = QSharedPointer<Oid>{new Oid{a}};
-    auto oidB = QSharedPointer<Oid>{new Oid{b}};
-
-    Q_EMIT bridge->observer->updateRef(ref, oidA, oidB);
-    return 0;
-}
-
-int git_helper_sideband_progress_cb(const char *str, int len, void *payload)
-{
-    auto bridge = reinterpret_cast<FetchBridge *>(payload);
-
-    if (!bridge)
-        return 0;
-
-    Q_EMIT bridge->observer->message(QString::fromUtf8(str, len));
-
-    return 0;
-}
-
-int git_helper_transfer_progress_cb(const git_indexer_progress *stats, void *payload)
-{
-    auto bridge = reinterpret_cast<FetchBridge *>(payload);
-
-    if (!bridge)
-        return 0;
-
-    static_assert(sizeof(git_indexer_progress) == sizeof(FetchTransferStat));
-
-    auto stat = reinterpret_cast<const FetchTransferStat *>(stats);
-
-    Q_EMIT bridge->observer->transferProgress(stat);
-    return 0;
-}
-
-int git_helper_credentials_cb(git_credential **out, const char *url, const char *username_from_url, unsigned int allowed_types, void *payload)
-{
-    auto bridge = reinterpret_cast<FetchBridge *>(payload);
-
-    if (!bridge)
-        return 0;
-
-    Credential cred;
-
-    cred.setUsername(username_from_url);
-    cred.setAllowedTypes(static_cast<Credential::AllowedTypes>(allowed_types));
-
-    Q_EMIT bridge->observer->credentialRequeted(QString{url}, &cred);
-
-    git_credential_userpass_plaintext_new(out, cred.username().toLocal8Bit().data(), cred.password().toLocal8Bit().data());
-
-    return 0;
-}
-
-int git_helper_packbuilder_progress(int stage, uint32_t current, uint32_t total, void *payload)
-{
-    auto bridge = reinterpret_cast<FetchBridge *>(payload);
-
-    PackProgress p{stage, current, total};
-    Q_EMIT bridge->observer->packProgress(&p);
-    return 0;
-}
-
-int git_helper_transport_cb(git_transport **out, git_remote *owner, void *param)
-{
-    Q_UNUSED(out)
-    Q_UNUSED(owner)
-    Q_UNUSED(param)
-
-    return 0;
-}
-
-int git_helper_transport_certificate_check(git_cert *cert, int valid, const char *host, void *payload)
-{
-    auto bridge = reinterpret_cast<FetchBridge *>(payload);
-
-    if (Q_UNLIKELY(!bridge))
-        return 0;
-
-    Certificate c{cert, static_cast<bool>(valid), QString{host}};
-
-    bool b{false};
-
-    Q_EMIT bridge->observer->certificateCheck(&c, &b);
-
-    return b ? 0 : -1;
-}
-
-}
 
 class FetchPrivate
 {
@@ -130,14 +33,17 @@ public:
     FetchPrivate(Fetch *parent, Repository *repo);
 
     Repository *repo;
-    int depth;
-    Fetch::Prune prune;
-    Fetch::DownloadTags downloadTags;
-    Fetch::Redirect redirect;
+    int depth{-1};
+    Fetch::Prune prune{Fetch::Prune::PruneUnspecified};
+    Fetch::DownloadTags downloadTags{Fetch::DownloadTags::Unspecified};
+    Fetch::Redirect redirect{Fetch::Redirect::All};
     QSharedPointer<Remote> remote;
     QSharedPointer<Branch> branch;
-    QScopedPointer<FetchCallbacks::FetchBridge> bridge;
     QStringList customHeaders;
+    Fetch::AcceptCertificate acceptCertificate{Fetch::AcceptCertificate::OnlyValid};
+    RemoteCallbacks callbacks;
+
+    int run();
 };
 
 FetchPrivate::FetchPrivate(Fetch *parent, Repository *repo)
@@ -145,6 +51,41 @@ FetchPrivate::FetchPrivate(Fetch *parent, Repository *repo)
     , repo{repo}
 {
 }
+
+int FetchPrivate::run()
+{
+    Q_Q(Fetch);
+
+    if (remote.isNull())
+        return -1;
+
+    if (!remote->isConnected() && !remote->connect(Git::Remote::Direction::Fetch, &callbacks))
+        return -1;
+
+    git_fetch_options opts = GIT_FETCH_OPTIONS_INIT;
+    git_fetch_options_init(&opts, GIT_FETCH_OPTIONS_VERSION);
+
+    callbacks.apply(&opts.callbacks, repo);
+
+    // set variables
+    if (depth > -1)
+        opts.depth = depth;
+
+    opts.download_tags = static_cast<git_remote_autotag_option_t>(downloadTags);
+    opts.follow_redirects = static_cast<git_remote_redirect_t>(redirect);
+    opts.prune = static_cast<git_fetch_prune_t>(prune);
+
+    int ret;
+    if (!branch.isNull()) {
+        StrArray refSpecs{1};
+        refSpecs.add(branch->refName());
+        ret = SequenceRunner::runSingle(git_remote_fetch, remote->remotePtr(), refSpecs, &opts, "fetch");
+    } else {
+        ret = SequenceRunner::runSingle(git_remote_fetch, remote->remotePtr(), (const git_strarray *)NULL, &opts, "fetch");
+    }
+    return ret;
+}
+
 Fetch::Fetch(Repository *repo, QObject *parent)
     : QObject{parent}
     , d_ptr{new FetchPrivate{this, repo}}
@@ -215,41 +156,21 @@ void Fetch::setRedirect(Redirect redirect)
     d->redirect = redirect;
 }
 
-void Fetch::run()
+bool Fetch::run()
 {
     Q_D(Fetch);
-    git_fetch_options opts = GIT_FETCH_OPTIONS_INIT;
+    auto retCode = d->run();
+    Q_EMIT finished(0 == retCode);
+    return 0 == retCode;
+}
 
-    // set callbacks
-    opts.callbacks.update_tips = &FetchCallbacks::git_helper_update_tips_cb;
-    opts.callbacks.sideband_progress = &FetchCallbacks::git_helper_sideband_progress_cb;
-    opts.callbacks.transfer_progress = &FetchCallbacks::git_helper_transfer_progress_cb;
-    opts.callbacks.credentials = &FetchCallbacks::git_helper_credentials_cb;
-    opts.callbacks.pack_progress = &FetchCallbacks::git_helper_packbuilder_progress;
-
-    opts.callbacks.transport = &FetchCallbacks::git_helper_transport_cb;
-    opts.callbacks.certificate_check = &FetchCallbacks::git_helper_transport_certificate_check;
-
-    // set variables
-    if (d->depth)
-        opts.depth = d->depth;
-
-    opts.download_tags = static_cast<git_remote_autotag_option_t>(d->downloadTags);
-    opts.follow_redirects = static_cast<git_remote_redirect_t>(d->redirect);
-    opts.prune = static_cast<git_fetch_prune_t>(d->prune);
-
-    if (d->bridge.isNull())
-        d->bridge.reset(new FetchCallbacks::FetchBridge{this, d->repo});
-
-    opts.callbacks.payload = d->bridge.data();
-
-    if (!d->branch.isNull()) {
-        StrArray refSpecs{1};
-        refSpecs.add(d->branch->refName());
-        git_remote_fetch(d->remote->remotePtr(), refSpecs, &opts, "fetch");
-    } else {
-        git_remote_fetch(d->remote->remotePtr(), NULL, &opts, "fetch");
-    }
+void Fetch::runAsync()
+{
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    QtConcurrent::run(this, &Fetch::run);
+#else
+    QtConcurrent::run(&Fetch::run, this);
+#endif
 }
 
 QStringList Fetch::customHeaders() const
@@ -274,6 +195,24 @@ void Fetch::setBranch(QSharedPointer<Branch> branch)
 {
     Q_D(Fetch);
     d->branch = branch;
+}
+
+Fetch::AcceptCertificate Fetch::acceptCertificate() const
+{
+    Q_D(const Fetch);
+    return d->acceptCertificate;
+}
+
+void Fetch::setAcceptCertificate(AcceptCertificate acceptCertificate)
+{
+    Q_D(Fetch);
+    d->acceptCertificate = acceptCertificate;
+}
+
+const RemoteCallbacks *Fetch::remoteCallbacks() const
+{
+    Q_D(const Fetch);
+    return &d->callbacks;
 }
 
 }

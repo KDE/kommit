@@ -74,6 +74,8 @@ public:
 
     [[nodiscard]] quint16 value() const;
 
+    bool isValid() const;
+
 private:
     Permissions mPermissions;
 

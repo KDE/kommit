@@ -55,7 +55,7 @@ public:
     [[nodiscard]] Commit toCommit() const;
 
 private:
-    QSharedPointer<ObjectPrivate> d;
+    QSharedPointer<git_object> d;
 };
 
 }

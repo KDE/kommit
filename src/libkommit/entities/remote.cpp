@@ -10,6 +10,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/branch.h"
 #include "repository.h"
 #include "types.h"
+#include "gitglobal_p.h"
+#include "buffer.h"
+#include "remotecallbacks.h"
 
 #include <git2/buffer.h>
 
@@ -43,6 +46,16 @@ RemotePrivate::~RemotePrivate()
 Remote::Remote()
     : d{new RemotePrivate{nullptr}}
 {
+}
+
+QString RefSpec::destionation() const
+{
+    return mDestionation;
+}
+
+QString RefSpec::source() const
+{
+    return mSource;
 }
 
 Remote::Remote(git_remote *remote)
@@ -105,11 +118,12 @@ QString Remote::fetchUrl() const
 
 QString Remote::defaultBranch() const
 {
-    auto buf = git_buf{0};
-    git_remote_default_branch(&buf, d->remote);
-    auto buffer = convertToQString(&buf);
-    git_buf_dispose(&buf);
-    return buffer;
+    Buf b;
+
+    if (SequenceRunner::runSingle(git_remote_default_branch, &b, mRemotePtr))
+        return {};
+
+    return b.toString();
 }
 
 bool Remote::isNull() const
@@ -130,9 +144,24 @@ const QList<Branch> &Remote::branches()
     return d->branches;
 }
 
-bool Remote::connected() const
+bool Remote::isConnected() const
 {
     return git_remote_connected(d->remote);
+    return 1 == SequenceRunner::runSingle(git_remote_connected, mRemotePtr);
+}
+
+bool Remote::connect(Direction direction, RemoteCallbacks *callBacks) const
+{
+    git_remote_callbacks cb = GIT_REMOTE_CALLBACKS_INIT;
+    if (callBacks) {
+        callBacks->apply(&cb, Repository::owner(git_remote_owner(mRemotePtr)));
+    }
+    return 0 == SequenceRunner::runSingle(git_remote_connect,
+                                     mRemotePtr,
+                                     static_cast<git_direction>(direction),
+                                     &cb,
+                                     (const git_proxy_options *)NULL,
+                                     (const git_strarray *)NULL);
 }
 
 git_remote *Remote::remotePtr() const

@@ -21,31 +21,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class ObjectPrivate
-{
-public:
-    explicit ObjectPrivate(git_object *object = nullptr);
-    ~ObjectPrivate();
-    git_object *object{nullptr};
-};
-
-ObjectPrivate::ObjectPrivate(git_object *object)
-    : object{object}
-{
-}
-
-ObjectPrivate::~ObjectPrivate()
-{
-    git_object_free(object);
-}
-
 Object::Object()
-    : d{new ObjectPrivate{nullptr}}
+    : d{}
 {
 }
 
 Object::Object(git_object *obj)
-    : d{new ObjectPrivate{obj}}
+    : d{obj, git_object_free}
 {
 }
 
@@ -64,7 +46,7 @@ Object &Object::operator=(const Object &other)
 
 bool Object::operator==(const Object &other) const
 {
-    return d->object == other.d->object;
+    return d.data() == other.d.data();
 }
 
 bool Object::operator!=(const Object &other) const
@@ -74,33 +56,33 @@ bool Object::operator!=(const Object &other) const
 
 bool Object::isNull() const
 {
-    return !d->object;
+    return d.isNull();
 }
 
 git_object *Object::data() const
 {
-    return d->object;
+    return d.data();
 }
 
 const git_object *Object::constData() const
 {
-    return d->object;
+    return d.data();
 }
 
 Object::Type Object::type() const
 {
-    return static_cast<Type>(git_object_type(d->object));
+    return static_cast<Type>(git_object_type(d.data()));
 }
 
 Oid Object::id() const
 {
-    return Oid{git_object_id(d->object)};
+    return Oid{git_object_id(d.data())};
 }
 
 Note Object::toNote() const
 {
-    auto oid = git_object_id(d->object);
-    auto repo = git_object_owner(d->object);
+    auto oid = git_object_id(d.data());
+    auto repo = git_object_owner(d.data());
     git_note *note;
     git_note_read(&note, repo, NULL, oid);
     return Note{note};
@@ -108,8 +90,8 @@ Note Object::toNote() const
 
 Tag Object::toTag() const
 {
-    auto oid = git_object_id(d->object);
-    auto repo = git_object_owner(d->object);
+    auto oid = git_object_id(d.data());
+    auto repo = git_object_owner(d.data());
     git_tag *tag;
     git_tag_lookup(&tag, repo, oid);
     return Tag{tag};
@@ -117,8 +99,8 @@ Tag Object::toTag() const
 
 Tree Object::toTree() const
 {
-    auto oid = git_object_id(d->object);
-    auto repo = git_object_owner(d->object);
+    auto oid = git_object_id(d.data());
+    auto repo = git_object_owner(d.data());
     git_tree *tree;
     git_tree_lookup(&tree, repo, oid);
     return Tree{tree};
@@ -126,10 +108,11 @@ Tree Object::toTree() const
 
 Commit Object::toCommit() const
 {
-    auto oid = git_object_id(d->object);
-    auto repo = git_object_owner(d->object);
+    auto oid = git_object_id(d.data());
+    auto repo = git_object_owner(d.data());
     git_commit *commit;
     git_commit_lookup(&commit, repo, oid);
     return Commit{commit};
 }
-}
+
+} // namespace Git

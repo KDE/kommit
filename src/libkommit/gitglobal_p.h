@@ -87,6 +87,20 @@ public:
         return _n;
     }
 
+    template<typename Func, typename... Args>
+    static bool runSingle(Func *func, Args &&...args)
+    {
+        int n = func(std::forward<Args>(args)...);
+        if (n) {
+            auto __git_err = git_error_last();
+            auto __git_err_class = __git_err->klass;
+            auto __git_err_msg = QString{__git_err->message};
+            qDebug().noquote().nospace() << "libgit2 error: " << n << ", class: " << __git_err_class << ", Message: " << __git_err_msg;
+        }
+
+        return n;
+    }
+
     inline bool isSuccess()
     {
         printError();

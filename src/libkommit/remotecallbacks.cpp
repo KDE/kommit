@@ -4,63 +4,24 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "fetchoptions.h"
+#include "remotecallbacks.h"
+
 #include "caches/referencecache.h"
 #include "certificate.h"
 #include "credential.h"
-#include "reference.h"
-#include "remoteconnectionlistener.h"
+#include "oid.h"
 #include "repository.h"
-
-#include <QMetaMethod>
-
-#include <Kommit/Oid>
+#include "remoteconnectionlistener.h"
 
 namespace Git
 {
 
-namespace FetchOptionsCallbacks
+namespace Callbacks
 {
 
-class FetchBridge
-{
-public:
+struct FetchBridge {
+    RemoteCallbacks *fetch;
     Repository *manager;
-    QObject *parent;
-
-    bool messageIndexFound{false};
-    bool transferProgressIndexFound{false};
-    bool packProgressIndexFound{false};
-    bool updateRefIndexFound{false};
-
-    QMetaMethod messageIndexSignal;
-    QMetaMethod transferProgressIndexSignal;
-    QMetaMethod packProgressIndexSignal;
-    QMetaMethod updateRefIndexSignal;
-
-    void findSignals()
-    {
-        auto metaObject = parent->metaObject();
-
-        auto messageIndex = metaObject->indexOfSignal("message");
-        auto transferProgressIndex = metaObject->indexOfSignal("transferProgress");
-        auto packProgressIndex = metaObject->indexOfSignal("packProgress");
-        auto updateRefIndex = metaObject->indexOfSignal("updateRef");
-
-        messageIndexFound = messageIndex != -1;
-        transferProgressIndexFound = transferProgressIndex != -1;
-        packProgressIndexFound = packProgressIndex != -1;
-        updateRefIndexFound = updateRefIndex != -1;
-
-        if (messageIndex != -1)
-            messageIndexSignal = metaObject->method(messageIndex);
-        if (transferProgressIndex != -1)
-            transferProgressIndexSignal = metaObject->method(transferProgressIndex);
-        if (packProgressIndex != -1)
-            packProgressIndexSignal = metaObject->method(packProgressIndex);
-        if (updateRefIndex != -1)
-            updateRefIndexSignal = metaObject->method(updateRefIndex);
-    }
 };
 
 int git_helper_update_tips_cb(const char *refname, const git_oid *a, const git_oid *b, void *data)
@@ -68,11 +29,10 @@ int git_helper_update_tips_cb(const char *refname, const git_oid *a, const git_o
     auto bridge = reinterpret_cast<FetchBridge *>(data);
 
     auto ref = bridge->manager->references()->findByName(QString{refname});
-    Oid oidA{a};
-    Oid oidB{b};
+    auto oidA = QSharedPointer<Oid>{new Oid{a}};
+    auto oidB = QSharedPointer<Oid>{new Oid{b}};
 
-    if (Q_LIKELY(bridge->updateRefIndexFound))
-        bridge->updateRefIndexSignal.invoke(bridge->parent, ref.data(), oidA, oidB);
+    Q_EMIT bridge->fetch->updateRef(ref, oidA, oidB);
     return 0;
 }
 
@@ -83,8 +43,7 @@ int git_helper_sideband_progress_cb(const char *str, int len, void *payload)
     if (!bridge)
         return 0;
 
-    if (Q_LIKELY(bridge->messageIndexFound))
-        bridge->messageIndexSignal.invoke(bridge->parent, QString::fromUtf8(str, len));
+    Q_EMIT bridge->fetch->message(QString::fromUtf8(str, len));
 
     return 0;
 }
@@ -100,8 +59,7 @@ int git_helper_transfer_progress_cb(const git_indexer_progress *stats, void *pay
 
     auto stat = reinterpret_cast<const FetchTransferStat *>(stats);
 
-    if (Q_LIKELY(bridge->transferProgressIndexFound))
-        bridge->transferProgressIndexSignal.invoke(bridge->parent, stat);
+    Q_EMIT bridge->fetch->transferProgress(stat);
     return 0;
 }
 
@@ -138,8 +96,7 @@ int git_helper_packbuilder_progress(int stage, uint32_t current, uint32_t total,
     auto bridge = reinterpret_cast<FetchBridge *>(payload);
 
     PackProgress p{stage, current, total};
-    if (Q_LIKELY(bridge->packProgressIndexFound))
-        bridge->packProgressIndexSignal.invoke(bridge->parent, &p);
+    Q_EMIT bridge->fetch->packProgress(&p);
     return 0;
 }
 
@@ -179,24 +136,16 @@ int git_helper_remote_ready_cb(git_remote *remote, int direction, void *payload)
 
 } // name RemoteCallbacks
 
-FetchOptions::FetchOptions(QObject *parent)
+RemoteCallbacks::RemoteCallbacks(QObject *parent)
+    : QObject{parent}
 {
 }
 
-void FetchOptions::applyToFetchOptions(git_fetch_options *opts) const
+void RemoteCallbacks::apply(git_remote_callbacks *callbacks, Repository *repo)
 {
-    opts->download_tags = static_cast<git_remote_autotag_option_t>(downloadTags);
-    opts->prune = static_cast<git_fetch_prune_t>(prune);
-}
-
-void FetchOptions::apply(git_remote_callbacks *callbacks, Repository *repo)
-{
-    auto bridge = new FetchOptionsCallbacks::FetchBridge;
+    auto bridge = new Callbacks::FetchBridge;
     bridge->manager = repo;
     bridge->fetch = this;
-    // bridge->parent = ... //TODO
-    bridge->findSignals();
-
     callbacks->update_tips = &Callbacks::git_helper_update_tips_cb;
     callbacks->sideband_progress = &Callbacks::git_helper_sideband_progress_cb;
     callbacks->transfer_progress = &Callbacks::git_helper_transfer_progress_cb;
@@ -208,4 +157,4 @@ void FetchOptions::apply(git_remote_callbacks *callbacks, Repository *repo)
     callbacks->payload = bridge;
 }
 
-}
+} // namespace Git

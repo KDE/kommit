@@ -124,7 +124,7 @@ class DiffWindowPrivate
 
 public:
     enum class Mode { None, Dirs, Files };
-    DiffWindowPrivate(DiffWindow *parent);
+    explicit DiffWindowPrivate(DiffWindow *parent);
 
     EditActionsMapper *mapper{nullptr};
     DiffWidget *diffWidget{nullptr};
@@ -152,6 +152,8 @@ public:
 DiffWindowPrivate::DiffWindowPrivate(DiffWindow *parent)
     : q_ptr{parent}
     , mapper{new EditActionsMapper(parent)}
+    , left{}
+    , right{}
     , diffWidget{new DiffWidget(parent)}
     , filesModel{new FilesModel(parent)}
     , diffModel{new DiffTreeModel(parent)}

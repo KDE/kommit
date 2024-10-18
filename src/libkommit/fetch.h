@@ -27,6 +27,7 @@ class Reference;
 class Oid;
 struct PackProgress;
 struct FetchTransferStat;
+class RemoteCallbacks;
 
 class LIBKOMMIT_EXPORT Fetch : public QObject
 {
@@ -46,7 +47,10 @@ public:
     enum class Redirect { None = GIT_REMOTE_REDIRECT_NONE, Initial = GIT_REMOTE_REDIRECT_INITIAL, All = GIT_REMOTE_REDIRECT_ALL };
     Q_ENUM(Redirect)
 
-    Fetch(Repository *repo, QObject *parent = nullptr);
+    enum class AcceptCertificate { None, OnlyValid, All };
+    Q_ENUM(AcceptCertificate)
+
+    explicit Fetch(Repository *repo, QObject *parent = nullptr);
     ~Fetch();
 
     [[nodiscard]] QSharedPointer<Remote> remote() const;
@@ -64,7 +68,6 @@ public:
     [[nodiscard]] Redirect redirect() const;
     void setRedirect(Redirect redirect);
 
-    void run();
 
     [[nodiscard]] QStringList customHeaders() const;
     void setCustomHeaders(const QStringList &customHeaders);
@@ -72,14 +75,16 @@ public:
     [[nodiscard]] QSharedPointer<Branch> branch() const;
     void setBranch(QSharedPointer<Branch> branch);
 
+    [[nodiscard]] AcceptCertificate acceptCertificate() const;
+    void setAcceptCertificate(AcceptCertificate acceptCertificate);
+
+    [[nodiscard]] const RemoteCallbacks *remoteCallbacks() const;
+
+    bool run();
+    void runAsync();
+
 Q_SIGNALS:
-    void message(const QString &message);
-    void credentialRequeted(const QString &url, Credential *cred);
-    void transferProgress(const FetchTransferStat *stat);
-    void packProgress(const PackProgress *p);
-    void updateRef(QSharedPointer<Reference> reference, QSharedPointer<Oid> a, QSharedPointer<Oid> b);
-    void certificateCheck(Certificate *cert, bool *accept);
-    void finished();
+    void finished(bool success);
 
 private:
     QScopedPointer<FetchPrivate> d_ptr;

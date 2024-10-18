@@ -51,6 +51,7 @@ target_sources(libkommitwidgets PRIVATE
     core/editactionsmapper.cpp
     core/gravatarcache.cpp
     core/gravatarcache.h
+    core/appremoteconnectionlistener.h core/appremoteconnectionlistener.cpp
 
     reports/authorsreport.cpp
     reports/authorsreport.h

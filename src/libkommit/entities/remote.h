@@ -20,6 +20,8 @@ namespace Git
 {
 
 class Branch;
+class RemoteCallbacks;
+
 class LIBKOMMIT_EXPORT RemoteBranch
 {
 public:
@@ -46,6 +48,14 @@ public:
     Remote &operator=(const Remote &other);
     bool operator==(const Remote &other) const;
     bool operator!=(const Remote &other) const;
+    enum class Direction {
+        Fetch = GIT_DIRECTION_FETCH,
+        Push = GIT_DIRECTION_PUSH
+    };
+    // Q_ENUM(Direction)
+
+    Remote(git_remote *remote);
+    virtual ~Remote();
 
     [[nodiscard]] QString name() const;
     [[nodiscard]] QList<RefSpec> refSpecList() const;
@@ -56,7 +66,8 @@ public:
 
     [[nodiscard]] const QList<Branch> &branches();
 
-    [[nodiscard]] bool connected() const;
+    [[nodiscard]] bool isConnected() const;
+    [[nodiscard]] bool connect(Direction direction, RemoteCallbacks *callBacks) const;
 
     [[nodiscard]] git_remote *remotePtr() const;
 
