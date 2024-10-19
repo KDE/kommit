@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-15 01:48+0000\n"
-"PO-Revision-Date: 2024-08-03 13:23+0100\n"
+"PO-Revision-Date: 2024-10-18 18:47+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -365,22 +365,22 @@ msgstr "Fix many small bugs"
 #: src/gui/changelogsdata.cpp:72
 #, kde-format
 msgid "Fix bug in branch selection in commits widget"
-msgstr ""
+msgstr "Fix bug in branch selection in commits widget"
 
 #: src/gui/changelogsdata.cpp:79
 #, kde-format
 msgid "Improve merge algorithm and text rendering"
-msgstr ""
+msgstr "Improve merge algorithm and text rendering"
 
 #: src/gui/changelogsdata.cpp:80
 #, kde-format
 msgid "Improve diff window text rendering"
-msgstr ""
+msgstr "Improve diff window text rendering"
 
 #: src/gui/changelogsdata.cpp:81
 #, kde-format
 msgid "Fix dolphin menu"
-msgstr ""
+msgstr "Fix dolphin menu"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -456,14 +456,13 @@ msgstr "Removed"
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:14
 #, kde-format
 msgid "Choose file version"
-msgstr ""
+msgstr "Choose file version"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBaseFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:25
-#, fuzzy, kde-format
-#| msgid "Base file:"
+#, kde-format
 msgid "Base file"
-msgstr "Base file:"
+msgstr "Base file"
 
 #. i18n: ectx: property (text), widget (QLabel, labelBaseFile)
 #. i18n: ectx: property (text), widget (QLabel, labelLocalFile)
@@ -499,97 +498,75 @@ msgstr "-"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLocalFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Local file:"
+#, kde-format
 msgid "Local file"
-msgstr "Local file:"
+msgstr "Local file"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoteFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:53
-#, fuzzy, kde-format
-#| msgid "Remote file:"
+#, kde-format
 msgid "Remote file"
-msgstr "Remote file:"
+msgstr "Remote file"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithLocal)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:85
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">Diff base with local </span></a></p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-"com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
-"\" text-decoration: underline; color:#007af4;\">More information...</span></"
-"a></p></body></html>"
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff base with local </span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithRemote)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:92
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">Diff base with remote </span></a></p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-"com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
-"\" text-decoration: underline; color:#007af4;\">More information...</span></"
-"a></p></body></html>"
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff base with remote </span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffLocalWithRemote)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:99
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">Diff local with remote</span></a></p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-"com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
-"\" text-decoration: underline; color:#007af4;\">More information...</span></"
-"a></p></body></html>"
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff local with remote</span></a></p></body></"
+"html>"
 
 #: src/gui/dialogs/resolvedialog.cpp:85
 #, kde-format
 msgid "All conflicts resolved"
-msgstr ""
+msgstr "All conflicts resolved"
 
 #: src/gui/dialogs/resolvedialog.cpp:87
 #, kde-format
 msgid "%1 conflict remained"
 msgid_plural "%1 conflicts remained"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 conflict remained"
+msgstr[1] "%1 conflicts remained"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
 #: src/gui/dialogs/resolvedialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Conflicts: %1"
+#, kde-format
 msgid "Conflicts"
-msgstr "Conflicts: %1"
+msgstr "Conflicts"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConflictsCount)
 #: src/gui/dialogs/resolvedialog.ui:26
-#, fuzzy, kde-format
-#| msgid "Conflicts: %1"
+#, kde-format
 msgid "Conflicts count"
-msgstr "Conflicts: %1"
+msgstr "Conflicts count"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -670,10 +647,9 @@ msgstr "Branches"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/pages/branchesstatuswidget.ui:25
-#, fuzzy, kde-format
-#| msgid "Branches:"
+#, kde-format
 msgid "Branches type:"
-msgstr "Branches:"
+msgstr "Branches type:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
@@ -687,10 +663,9 @@ msgstr "All"
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #: src/gui/pages/branchesstatuswidget.ui:38
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Local path"
+#, kde-format
 msgid "Local"
-msgstr "Local path"
+msgstr "Local"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
@@ -1255,10 +1230,9 @@ msgid "Change url…"
 msgstr "Change URL"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Unable to create path: %1"
+#, kde-format
 msgid "Unable to create remote"
-msgstr "Unable to create path: %1"
+msgstr "Unable to create remote"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:59
 #, kde-format
@@ -1918,10 +1892,9 @@ msgid "Prune"
 msgstr "Prune"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Uncommited"
+#, kde-format
 msgid "Uncommitted"
-msgstr "Uncommited"
+msgstr "Uncommitted"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:57
 #, kde-format
@@ -2633,18 +2606,17 @@ msgstr "The branch already exists"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:90
 #, kde-format
 msgid "Unable to find the tag's target commit: %1"
-msgstr ""
+msgstr "Unable to find the tag's target commit: %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
-#, fuzzy, kde-format
-#| msgid "Unable to create path: %1"
+#, kde-format
 msgid "Unable to create the branch: %1"
-msgstr "Unable to create path: %1"
+msgstr "Unable to create the branch: %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:104
 #, kde-format
 msgid "Error switching to new target"
-msgstr ""
+msgstr "Error switching to new target"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:52
@@ -2741,9 +2713,7 @@ msgid "Create time"
 msgstr "Create time"
 
 #: src/libkommitwidgets/models/treemodel.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Tree"
+#, kde-format
 msgid "Tree"
 msgstr "Tree"
 
@@ -2861,10 +2831,9 @@ msgstr "Form"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:20
-#, fuzzy, kde-format
-#| msgid "All branches"
+#, kde-format
 msgid "Filter branches"
-msgstr "All branches"
+msgstr "Filter branches"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:95
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
@@ -3067,17 +3036,17 @@ msgstr "Unable to open the file %1"
 #: src/libkommitwidgets/windows/mergewindow.cpp:328
 #, kde-format
 msgid "Save result"
-msgstr ""
+msgstr "Save result"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:396
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
-msgstr ""
+msgstr "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:398
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
-msgstr ""
+msgstr "<span style='color:green;'>All conflicts resolved</span>"
 
 #~ msgctxt "@action"
 #~ msgid "Blame"

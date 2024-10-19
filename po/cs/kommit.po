@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-15 01:48+0000\n"
-"PO-Revision-Date: 2024-09-19 07:42+0200\n"
+"PO-Revision-Date: 2024-10-08 15:18+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -460,10 +460,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBaseFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:25
-#, fuzzy, kde-format
-#| msgid "New file:"
+#, kde-format
 msgid "Base file"
-msgstr "Nový soubor:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelBaseFile)
 #. i18n: ectx: property (text), widget (QLabel, labelLocalFile)
@@ -499,17 +498,15 @@ msgstr "-"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLocalFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Local file:"
+#, kde-format
 msgid "Local file"
-msgstr "Místní soubor:"
+msgstr "Místní soubor"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoteFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:53
-#, fuzzy, kde-format
-#| msgid "Remote: "
+#, kde-format
 msgid "Remote file"
-msgstr "Vzdálené: "
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithLocal)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:85
@@ -553,17 +550,15 @@ msgstr[2] ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
 #: src/gui/dialogs/resolvedialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Conflicts: %1"
+#, kde-format
 msgid "Conflicts"
-msgstr "Konflikty: %1"
+msgstr "Konflikty"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConflictsCount)
 #: src/gui/dialogs/resolvedialog.ui:26
-#, fuzzy, kde-format
-#| msgid "Conflicts: %1"
+#, kde-format
 msgid "Conflicts count"
-msgstr "Konflikty: %1"
+msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -2929,7 +2924,7 @@ msgstr "Nelze otevřít soubor %1"
 #: src/libkommitwidgets/windows/mergewindow.cpp:328
 #, kde-format
 msgid "Save result"
-msgstr ""
+msgstr "Uložit výsledek"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:396
 #, kde-format
@@ -2939,10 +2934,4 @@ msgstr ""
 #: src/libkommitwidgets/windows/mergewindow.cpp:398
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
-msgstr ""
-
-#~ msgid "Blocks"
-#~ msgstr "Bloky"
-
-#~ msgid "Files"
-#~ msgstr "Bloky"
+msgstr "<span style='color:green;'>Všechny konflikty byly vyřešeny</span> "

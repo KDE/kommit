@@ -460,10 +460,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBaseFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:25
-#, fuzzy, kde-format
-#| msgid "Base file:"
+#, kde-format
 msgid "Base file"
-msgstr "基本文件："
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelBaseFile)
 #. i18n: ectx: property (text), widget (QLabel, labelLocalFile)
@@ -499,17 +498,15 @@ msgstr "-"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLocalFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Local file:"
+#, kde-format
 msgid "Local file"
-msgstr "本地文件："
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoteFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:53
-#, fuzzy, kde-format
-#| msgid "Remote file:"
+#, kde-format
 msgid "Remote file"
-msgstr "远程文件："
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithLocal)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:85
