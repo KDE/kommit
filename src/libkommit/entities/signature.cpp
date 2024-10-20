@@ -16,6 +16,7 @@ namespace Git
 class SignaturePrivate
 {
 public:
+    SignaturePrivate();
     explicit SignaturePrivate(git_signature *signature);
     explicit SignaturePrivate(const git_signature *signature);
     ~SignaturePrivate();
@@ -24,6 +25,12 @@ public:
 private:
     bool own;
 };
+
+SignaturePrivate::SignaturePrivate()
+    : signature{nullptr}
+    , own{false}
+{
+}
 
 SignaturePrivate::SignaturePrivate(git_signature *signature)
     : signature{signature}
@@ -44,7 +51,7 @@ SignaturePrivate::~SignaturePrivate()
 }
 
 Signature::Signature()
-    : d{new SignaturePrivate{nullptr}}
+    : d{new SignaturePrivate{}}
 {
 }
 

@@ -20,7 +20,8 @@ namespace Git
 class TagPrivate
 {
 public:
-    explicit TagPrivate(git_tag *tag = nullptr);
+    TagPrivate();
+    explicit TagPrivate(git_tag *tag);
     TagPrivate(git_commit *commit, const QString &name);
     explicit TagPrivate(Commit *parentCommit);
     ~TagPrivate();
@@ -34,6 +35,10 @@ public:
     QString mName;
     QString mMessage;
 };
+
+TagPrivate::TagPrivate() // TODO: manage null in this case
+{
+}
 
 TagPrivate::TagPrivate(git_tag *tag)
     : tag{tag}
@@ -68,7 +73,7 @@ TagPrivate::~TagPrivate()
 }
 
 Tag::Tag()
-    : d{new TagPrivate{nulptr}}
+    : d{new TagPrivate}
 {
 }
 

@@ -40,7 +40,7 @@ ObjectPrivate::~ObjectPrivate()
 }
 
 Object::Object()
-    : d{new ObjectPrivate{nulptr}}
+    : d{new ObjectPrivate{nullptr}}
 {
 }
 
