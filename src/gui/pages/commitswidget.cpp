@@ -86,10 +86,10 @@ void CommitsWidget::init()
 void CommitsWidget::slotTreeViewCommitsItemActivated(const QModelIndex &index)
 {
     auto commit = mHistoryModel->fromIndex(mFilterModel->mapToSource(index));
-    if (!commit)
+    if (commit.isNull())
         return;
 
-    widgetCommitDetails->setCommit(commit.data()); // TODO: passing raw pointer
+    widgetCommitDetails->setCommit(commit); // TODO: passing raw pointer
 }
 
 void CommitsWidget::slotTextBrowserHashClicked(const QString &hash)
@@ -105,11 +105,11 @@ void CommitsWidget::slotTextBrowserFileClicked(const QString &file)
 {
     auto commit = widgetCommitDetails->commit();
 
-    if (!commit || commit->parents().isEmpty())
+    if (commit.isNull() || commit.parents().isEmpty())
         return;
 
-    auto oldFile = Git::Blob::lookup(mGit->manager()->repoPtr(), commit->parents().constFirst(), file);
-    auto newFile = Git::Blob::lookup(mGit->manager()->repoPtr(), commit->commitHash(), file);
+    auto oldFile = Git::Blob::lookup(mGit->manager()->repoPtr(), commit.parents().constFirst(), file);
+    auto newFile = Git::Blob::lookup(mGit->manager()->repoPtr(), commit.commitHash(), file);
 
     auto diffWin = new DiffWindow(oldFile, newFile);
     diffWin->showModal();
@@ -119,14 +119,14 @@ void CommitsWidget::slotTreeViewCommitsCustomContextMenuRequested(const QPoint &
 {
     Q_UNUSED(pos)
     auto log = mHistoryModel->fromIndex(treeViewCommits->currentIndex());
-    if (!log)
+    if (log.isNull())
         return;
     mCommitActions->setCommit(log);
 
     mCommitActions->popup();
 }
 
-void CommitsWidget::setBranch(QSharedPointer<Git::Branch> branch)
+void CommitsWidget::setBranch(const Git::Branch &branch)
 {
     treeViewCommits->setItemDelegateForColumn(0, nullptr);
     mHistoryModel->setBranch(branch);

@@ -57,7 +57,7 @@ void CommitsByDayWeek::reload()
         map.insert(Qt::Saturday, 0);
         map.insert(Qt::Sunday, 0);
         auto commitCb = [&map](QSharedPointer<Git::Commit> commit) {
-            auto time = commit->committer()->time();
+            auto time = commit->committer().time();
 
             auto count = map.value(static_cast<Qt::DayOfWeek>(time.date().dayOfWeek()), 0);
             map[static_cast<Qt::DayOfWeek>(time.date().dayOfWeek())] = count + 1;

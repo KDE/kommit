@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/commitscache.h"
 #include "caches/tagscache.h"
 #include "testcommon.h"
-#include <entities/commit.h>
+#include <Kommit/Commit>
 #include <entities/tree.h>
 
 #include <QTest>
@@ -52,12 +52,12 @@ void CloneTest::clone()
 void CloneTest::initialCommitTree()
 {
     auto commit = mManager->commits()->find("05659b9f92b7932bb2c04ced181dbdde294cb0bb");
-    qDebug() << commit->message();
-    QVERIFY(commit);
+    qDebug() << commit.message();
+    QVERIFY(!commit.isNull());
 
-    auto tree = commit->tree();
+    auto tree = commit.tree();
 
-    auto topLevelItems = tree->entries("");
+    auto topLevelItems = tree.entries("");
 
     QCOMPARE(topLevelItems.type("snapcraft.yaml"), Git::Tree::EntryType::File);
     QCOMPARE(topLevelItems.type("Messages.sh"), Git::Tree::EntryType::File);
@@ -74,7 +74,7 @@ void CloneTest::initialCommitTree()
     QCOMPARE(topLevelItems.type("doc"), Git::Tree::EntryType::Dir);
     QCOMPARE(topLevelItems.type("autotests"), Git::Tree::EntryType::Dir);
 
-    auto src = tree->entries("src", Git::Tree::EntryType::Dir);
+    auto src = tree.entries("src", Git::Tree::EntryType::Dir);
     qDebug() << src;
 
     QVERIFY(src.contains("widgets"));

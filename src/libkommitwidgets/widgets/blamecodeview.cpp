@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "blamecodeview.h"
 
-#include <entities/commit.h>
+#include <Kommit/Commit>
 
 #include <KLocalizedString>
 #include <KSyntaxHighlighting/SyntaxHighlighter>
@@ -17,16 +17,16 @@ BlameCodeView::BlameCodeView(QWidget *parent)
     setReadOnly(true);
 }
 
-void BlameCodeView::setBlameData(QSharedPointer<Git::BlameData> newBlameData)
+void BlameCodeView::setBlameData(const Git::Blame &newBlameData)
 {
     BlockType type{Odd};
     const QVector<QColor> colors{QColor(200, 150, 150, 100), QColor(150, 200, 150, 100)};
     int currentColor{0};
     mBlameData = newBlameData;
     QString lastCommit;
-    auto hunks = newBlameData->hunks();
-    for (const auto &blame : hunks) {
-        const QString commitHash = blame->finalCommit ? blame->finalCommit->commitHash() : QString();
+    auto hunks = newBlameData.hunks();
+    for (auto &blame : hunks) {
+        const QString commitHash = blame.finalCommit().isNull() ? QLatin1String() : blame.finalCommit().commitHash();
 
         if (lastCommit != commitHash) {
             currentColor = (currentColor + 1) % colors.size();
@@ -34,10 +34,10 @@ void BlameCodeView::setBlameData(QSharedPointer<Git::BlameData> newBlameData)
         }
 
         auto data = new BlockData{-1, nullptr, type};
-        data->extraText = blame->finalCommit ? blame->finalCommit->committer()->name() : i18n("Uncommited");
-        data->data = blame->finalCommit.data();
+        data->extraText = blame.finalCommit().isNull() ? i18n("Uncommited") : blame.finalCommit().committer().name();
+        data->data = blame.finalCommit().data();
 
-        appendCode(mBlameData->codeLines(blame), type);
+        appendCode(mBlameData.codeLines(blame), type);
         lastCommit = commitHash;
     }
 }

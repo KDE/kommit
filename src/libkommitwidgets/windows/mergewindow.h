@@ -38,13 +38,13 @@ public:
     void compare();
 
     void setLocalFile(const QString &filePath);
-    void setLocalFile(QSharedPointer<Git::Blob> blob);
+    void setLocalFile(const Git::Blob &blob);
 
     void setRemoteFile(const QString &filePath);
-    void setRemoteFile(QSharedPointer<Git::Blob> blob);
+    void setRemoteFile(const Git::Blob &blob);
 
     void setBaseFile(const QString &filePath);
-    void setBaseFile(QSharedPointer<Git::Blob> blob);
+    void setBaseFile(const Git::Blob &blob);
 
     void setResultFile(const QString &newFilePathResult);
 

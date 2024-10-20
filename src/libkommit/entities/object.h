@@ -10,6 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QSharedPointer>
 
+#include "libkommit_export.h"
+
 namespace Git
 {
 
@@ -19,7 +21,8 @@ class Oid;
 class Tree;
 class Commit;
 
-class Object
+class ObjectPrivate;
+class LIBKOMMIT_EXPORT Object
 {
 public:
     enum class Type {
@@ -33,19 +36,26 @@ public:
         RefDelta = GIT_OBJECT_REF_DELTA,
     };
 
-    explicit Object(git_object *obj);
+    explicit Object(git_object *obj = nullptr);
+    Object(const Object &other);
+    Object &operator=(const Object &other);
+    bool operator==(const Object &other) const;
+    bool operator!=(const Object &other) const;
+    [[nodiscard]] bool isNull() const;
+
+    [[nodiscard]] git_object *data() const;
+    [[nodiscard]] const git_object *constData() const;
 
     [[nodiscard]] Type type() const;
 
-    QSharedPointer<Oid> id() const;
-    [[nodiscard]] QSharedPointer<Note> toNote() const;
-    [[nodiscard]] QSharedPointer<Tag> toTag() const;
-    [[nodiscard]] QSharedPointer<Tree> toTree() const;
-    [[nodiscard]] QSharedPointer<Commit> toCommit() const;
-    [[nodiscard]] git_object *objectPtr() const;
+    Oid id() const;
+    [[nodiscard]] Note toNote() const;
+    [[nodiscard]] Tag toTag() const;
+    [[nodiscard]] Tree toTree() const;
+    [[nodiscard]] Commit toCommit() const;
 
 private:
-    git_object *mGitObjectPtr;
+    QSharedPointer<ObjectPrivate> d;
 };
 
 }

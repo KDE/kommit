@@ -31,7 +31,8 @@ class BlobPrivate
     Q_DECLARE_PUBLIC(Blob)
 
 public:
-    BlobPrivate(Blob *parent);
+    explicit BlobPrivate(Blob *parent);
+    ~BlobPrivate();
 
     git_blob *blob{nullptr};
     QString name;
@@ -41,17 +42,20 @@ BlobPrivate::BlobPrivate(Blob *parent)
 {
 }
 
-Blob::Blob(git_blob *blob)
-    : d_ptr{new BlobPrivate{this}}
+BlobPrivate::~BlobPrivate()
 {
-    Q_D(Blob);
+    git_blob_free(blob);
+}
+
+Blob::Blob(git_blob *blob)
+    : d{new BlobPrivate{this}}
+{
     d->blob = blob;
 }
 
 Blob::Blob(git_repository *repo, git_tree_entry *entry)
-    : d_ptr{new BlobPrivate{this}}
+    : d{new BlobPrivate{this}}
 {
-    Q_D(Blob);
     d->name = QString{git_tree_entry_name(entry)};
 
     auto oid = git_tree_entry_id(entry);
@@ -59,39 +63,42 @@ Blob::Blob(git_repository *repo, git_tree_entry *entry)
 }
 
 Blob::Blob(git_repository *repo, const git_index_entry *entry)
-    : d_ptr{new BlobPrivate{this}}
+    : d{new BlobPrivate{this}}
 {
-    Q_D(Blob);
     d->name = QString{entry->path};
 
     git_blob_lookup(&d->blob, repo, &entry->id);
 }
 
 Blob::Blob(git_repository *repo, const QString &relativePath)
-    : d_ptr{new BlobPrivate{this}}
+    : d{new BlobPrivate{this}}
 {
-    Q_D(Blob);
     d->name = relativePath;
     git_oid oid;
     git_blob_create_from_workdir(&oid, repo, relativePath.toUtf8().data());
     git_blob_lookup(&d->blob, repo, &oid);
 }
 
-Blob::Blob(Repository *git, QSharedPointer<Oid> oid)
+Blob::Blob(Repository *git, const Oid &oid)
 {
-    Q_D(Blob);
-    git_blob_lookup(&d->blob, git->repoPtr(), oid->oidPtr());
+    git_blob_lookup(&d->blob, git->repoPtr(), oid.constData());
 }
 
-Blob::~Blob()
+Blob::Blob(const Blob &other)
+    : d{other.d}
 {
-    Q_D(Blob);
-    git_blob_free(d->blob);
+}
+
+Blob &Blob::operator=(const Blob &other)
+{
+    if (this != &other)
+        d = other.d;
+
+    return *this;
 }
 
 const QString &Blob::name() const
 {
-    Q_D(const Blob);
     return d->name;
 }
 
@@ -124,8 +131,6 @@ QString Blob::saveAsTemp() const
 
 QString Blob::stringContent() const
 {
-    Q_D(const Blob);
-
     auto blob = d->blob;
     if (!blob)
         return {};
@@ -136,8 +141,6 @@ QString Blob::stringContent() const
 
 QByteArray Blob::content() const
 {
-    Q_D(const Blob);
-
     auto blob = d->blob;
     if (!blob)
         return {};
@@ -149,41 +152,40 @@ QByteArray Blob::content() const
 
 bool Blob::isValid() const
 {
-    Q_D(const Blob);
     return d->blob;
 }
 
 bool Blob::isBinary() const
 {
-    Q_D(const Blob);
     return git_blob_is_binary(d->blob);
 }
 
 quint64 Blob::size() const
 {
-    Q_D(const Blob);
     return git_blob_rawsize(d->blob);
 }
 
-QSharedPointer<Oid> Blob::oid() const
+Oid Blob::oid() const
 {
-    Q_D(const Blob);
-    return QSharedPointer<Oid>{new Oid{git_blob_id(d->blob)}};
+    return Oid{git_blob_id(d->blob)};
 }
 
 QString Blob::fileName() const
 {
-    Q_D(const Blob);
     return d->name.mid(d->name.lastIndexOf(QStringLiteral("/")) + 1);
 }
 
 QString Blob::filePath() const
 {
-    Q_D(const Blob);
     return d->name;
 }
 
-QSharedPointer<Blob> Blob::lookup(git_repository *repo, const QString &place, const QString &filePath)
+bool Blob::isNull() const
+{
+    return !d->blob;
+}
+
+Blob Blob::lookup(git_repository *repo, const QString &place, const QString &filePath)
 {
     git_object *obj = nullptr;
 
@@ -191,31 +193,31 @@ QSharedPointer<Blob> Blob::lookup(git_repository *repo, const QString &place, co
     r.run(git_revparse_single, &obj, repo, place.toUtf8().constData());
 
     if (r.isError())
-        return {};
+        return Blob{};
 
-    QSharedPointer<Object> object{new Object{obj}};
-    QSharedPointer<Tree> tree;
+    Object object{obj};
+    Tree tree;
 
-    switch (object->type()) {
+    switch (object.type()) {
     case Object::Type::Commit:
-        tree = object->toCommit()->tree();
+        tree = object.toCommit().tree();
         break;
 
     case Object::Type::Tree:
-        tree = object->toTree();
+        tree = object.toTree();
         break;
 
     default:
-        return {};
+        return Blob{};
     }
 
     if (tree.isNull())
-        return {};
+        return Blob{};
 
-    return tree->file(filePath);
+    return tree.file(filePath);
 }
 
-QSharedPointer<Blob> Blob::fromDisk(git_repository *repo, const QString &filePath)
+Blob Blob::fromDisk(git_repository *repo, const QString &filePath)
 {
     git_oid oid;
     git_blob *blob;
@@ -223,7 +225,7 @@ QSharedPointer<Blob> Blob::fromDisk(git_repository *repo, const QString &filePat
     r.run(git_blob_create_from_disk, &oid, repo, filePath.toUtf8().data());
     r.run(git_blob_lookup, &blob, repo, &oid);
     if (r.isError())
-        return {};
-    return QSharedPointer<Blob>::create(blob);
+        return Blob{};
+    return Blob{blob};
 }
 }

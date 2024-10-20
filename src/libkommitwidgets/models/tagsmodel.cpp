@@ -37,13 +37,13 @@ QVariant TagsModel::data(const QModelIndex &index, int role) const
 
     switch (static_cast<TagsModelRoles>(index.column())) {
     case TagsModelRoles::Name:
-        return tag->name();
+        return tag.name();
     case TagsModelRoles::Subject:
-        return tag->message();
+        return tag.message();
     case TagsModelRoles::Tagger:
-        return QStringLiteral("%1 <%2>").arg(tag->tagger()->name(), tag->tagger()->email());
+        return QStringLiteral("%1 <%2>").arg(tag.tagger().name(), tag.tagger().email());
     case TagsModelRoles::Time:
-        return tag->tagger()->time();
+        return tag.tagger().time();
     }
     return {};
 }
@@ -68,10 +68,10 @@ QVariant TagsModel::headerData(int section, Qt::Orientation orientation, int rol
     return {};
 }
 
-QSharedPointer<Git::Tag> TagsModel::fromIndex(const QModelIndex &index) const
+Git::Tag TagsModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
-        return nullptr;
+        return Git::Tag{};
 
     return mData.at(index.row());
 }

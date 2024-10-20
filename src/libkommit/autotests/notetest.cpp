@@ -48,23 +48,23 @@ void NoteTest::readEmptyNote()
     QCOMPARE(commits.size(), 1);
 
     auto commit = commits.first();
-    auto note = commit->note();
-    QCOMPARE(note, QSharedPointer<Git::Note>{});
+    auto note = commit.note();
+    QCOMPARE(note, Git::Note{});
 }
 
 void NoteTest::addNote()
 {
     auto commit = mManager->commits()->allCommits().first();
 
-    auto ok = commit->createNote(mNoteText);
+    auto ok = commit.createNote(mNoteText);
     QVERIFY(ok);
 }
 
 void NoteTest::readNote()
 {
     auto commit = mManager->commits()->allCommits().first();
-    auto note = commit->note();
-    QCOMPARE(note->message(), mNoteText);
+    auto note = commit.note();
+    QCOMPARE(note.message(), mNoteText);
 }
 
 #include "moc_notetest.cpp"

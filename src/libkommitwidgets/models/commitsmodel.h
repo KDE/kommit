@@ -35,15 +35,15 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
-    QSharedPointer<Git::Commit> at(int index) const;
-    QSharedPointer<Git::Commit> fromIndex(const QModelIndex &index) const;
+    Git::Commit at(int index) const;
+    Git::Commit fromIndex(const QModelIndex &index) const;
     QVector<GraphLane> lanesFromIndex(const QModelIndex &index) const;
 
     QModelIndex findIndexByHash(const QString &hash) const;
-    QSharedPointer<Git::Commit> findLogByHash(const QString &hash, LogMatchType matchType = LogMatchType::ExactMatch) const;
+    Git::Commit findLogByHash(const QString &hash, LogMatchType matchType = LogMatchType::ExactMatch) const;
 
-    [[nodiscard]] QSharedPointer<Git::Branch> branch() const;
-    void setBranch(QSharedPointer<Git::Branch> newBranch);
+    [[nodiscard]] const Git::Branch &branch() const;
+    void setBranch(const Git::Branch &newBranch);
 
     [[nodiscard]] bool fullDetails() const;
     void setFullDetails(bool newFullDetails);

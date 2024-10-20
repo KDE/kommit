@@ -34,7 +34,7 @@ HistoryViewWidget::HistoryViewWidget(RepositoryData *git, AppWindow *parent)
     connect(treeViewHistory, &TreeView::customContextMenuRequested, this, &HistoryViewWidget::slotTreeViewHistoryCustomContextMenuRequested);
 }
 
-void HistoryViewWidget::setBranch(QSharedPointer<Git::Branch> branch)
+void HistoryViewWidget::setBranch(const Git::Branch &branch)
 {
     treeViewHistory->setItemDelegateForColumn(0, nullptr);
     mHistoryModel->setBranch(branch);
@@ -55,10 +55,10 @@ void HistoryViewWidget::restoreState(QSettings &settings)
 void HistoryViewWidget::slotTreeViewHistoryItemActivated(const QModelIndex &index)
 {
     auto log = mHistoryModel->fromIndex(index);
-    if (!log)
+    if (log.isNull())
         return;
 
-    widgetCommit->setCommit(log.data()); // TODO: passing raw pointer
+    widgetCommit->setCommit(log); // TODO: passing raw pointer
 }
 
 void HistoryViewWidget::slotTextBrowserHashClicked(const QString &hash)
@@ -74,16 +74,16 @@ void HistoryViewWidget::slotTextBrowserFileClicked(const QString &file)
 {
     auto log = widgetCommit->commit();
 
-    if (!log)
+    if (log.isNull())
         return;
     // TODO: let user choose the parent if they're more than one
 
-    QSharedPointer<Git::Blob> oldFile;
+    Git::Blob oldFile;
 
-    if (log->parents().size()) {
-        oldFile = Git::Blob::lookup(mGit->manager()->repoPtr(), log->parents().first(), file);
+    if (log.parents().size()) {
+        oldFile = Git::Blob::lookup(mGit->manager()->repoPtr(), log.parents().first(), file);
     };
-    auto newFile = Git::Blob::lookup(mGit->manager()->repoPtr(), log->commitHash(), file);
+    auto newFile = Git::Blob::lookup(mGit->manager()->repoPtr(), log.commitHash(), file);
 
     auto diffWin = new DiffWindow(oldFile, newFile);
     diffWin->showModal();
@@ -93,7 +93,7 @@ void HistoryViewWidget::slotTreeViewHistoryCustomContextMenuRequested(const QPoi
 {
     Q_UNUSED(pos)
     auto commit = mHistoryModel->fromIndex(treeViewHistory->currentIndex());
-    if (!commit)
+    if (commit.isNull())
         return;
     mActions->setCommit(commit);
 

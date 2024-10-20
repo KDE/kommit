@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #pragma once
-#include "interfaces.h"
+
 #include "libkommit_export.h"
 
 #include <QDateTime>
@@ -13,6 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QString>
 
 #include <git2/types.h>
+
+#include <Kommit/IOid>
 
 namespace Git
 {
@@ -23,17 +25,24 @@ class StashPrivate;
 class LIBKOMMIT_EXPORT Stash : IOid
 {
 public:
+    Stash();
     Stash(Repository *manager, size_t index, const char *message, const git_oid *stash_id);
-    ~Stash();
+    Stash(const Stash &other);
+    Stash &operator=(const Stash &other);
+    bool operator==(const Stash &other) const;
+    bool operator!=(const Stash &other) const;
 
     [[nodiscard]] const QString &message() const;
-    [[nodiscard]] QSharedPointer<Commit> commit();
+    [[nodiscard]] Commit &commit();
     [[nodiscard]] size_t index() const;
-    [[nodiscard]] QSharedPointer<Oid> oid() const override;
+    [[nodiscard]] Oid oid() const override;
+
+    [[nodiscard]] bool isNull() const;
 
 private:
-    StashPrivate *const d_ptr;
-    Q_DECLARE_PRIVATE(Stash)
+    QSharedPointer<StashPrivate> d;
 };
 
 } // namespace Git
+
+Q_DECLARE_METATYPE(Git::Stash)

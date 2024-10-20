@@ -10,11 +10,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include "ui_fileblamedialog.h"
 
+#include <Kommit/Blame>
+
 namespace Git
 {
 class Repository;
 class Blob;
-class BlameData;
 }
 
 class LIBKOMMITWIDGETS_EXPORT FileBlameDialog : public AppDialog, private Ui::FileBlameDialog
@@ -31,5 +32,5 @@ private:
 
     QString mFileName;
     QString mFile;
-    QSharedPointer<Git::BlameData> mBlameData;
+    Git::Blame mBlameData;
 };

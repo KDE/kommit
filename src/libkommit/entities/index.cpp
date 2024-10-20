@@ -17,11 +17,24 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-IndexEntryPrivate::IndexEntryPrivate(IndexEntry *parent, const git_index_entry *entry)
-    : q_ptr{parent}
+class IndexEntryPrivate
+{
+public:
+    explicit IndexEntryPrivate(const git_index_entry *entry);
+    const git_index_entry *entry;
+    QString path;
+    quint16 fileSize;
+    Git::Oid oid;
+    IndexEntry::StageState stageState;
+    bool isConflict;
+    Git::FileMode fileMode;
+};
+
+IndexEntryPrivate::IndexEntryPrivate(const git_index_entry *entry)
+    : entry{entry}
 {
     if (entry) {
-        oid.reset(new Oid{entry->id});
+        oid = Oid{entry->id};
         path = QString{entry->path};
         fileSize = entry->file_size;
         fileMode = entry->mode;
@@ -30,24 +43,112 @@ IndexEntryPrivate::IndexEntryPrivate(IndexEntry *parent, const git_index_entry *
     }
 }
 
+IndexEntry::IndexEntry(const git_index_entry *entryPtr)
+    : d{new IndexEntryPrivate{entryPtr}}
+{
+}
+
+QString IndexEntry::path() const
+{
+    return d->path;
+}
+quint16 IndexEntry::fileSize() const
+{
+    return d->fileSize;
+}
+Git::Oid IndexEntry::oid() const
+{
+    return d->oid;
+}
+IndexEntry::StageState IndexEntry::stageState() const
+{
+    return d->stageState;
+}
+bool IndexEntry::isConflict() const
+{
+    return d->isConflict;
+}
+Git::FileMode IndexEntry::mode() const
+{
+    return d->fileMode;
+}
+
+class IndexPrivate
+{
+public:
+    explicit IndexPrivate(git_index *index = nullptr);
+    ~IndexPrivate();
+    git_index *index{nullptr};
+    git_oid mLastOid;
+    bool writeNeeded{false};
+};
+
+IndexPrivate::IndexPrivate(git_index *index)
+    : index{index}
+{
+}
+
+IndexPrivate::~IndexPrivate()
+{
+    git_index_free(index);
+}
+
 Index::Index(git_index *index)
-    : ptr{index}
+    : d{new IndexPrivate{index}}
 {
 }
 
 Index::~Index()
 {
-    git_index_free(ptr);
+    git_index_free(d->index);
+}
+
+Index::Index(const Index &other)
+    : d{other.d}
+{
+}
+
+Index &Index::operator=(const Index &other)
+{
+    if (this != &other)
+        d = other.d;
+
+    return *this;
+}
+
+bool Index::operator==(const Index &other) const
+{
+    return d->index == other.d->index;
+}
+
+bool Index::operator!=(const Index &other) const
+{
+    return !(*this == other);
+}
+
+bool Index::isNull() const
+{
+    return !d->index;
+}
+
+git_index *Index::data() const
+{
+    return d->index;
+}
+
+const git_index *Index::constData() const
+{
+    return d->index;
 }
 
 bool Index::addAll()
 {
     git_strarray a;
     addToArray(&a, QStringLiteral("/"));
-    if (git_index_add_all(ptr, &a, GIT_INDEX_ADD_FORCE, NULL, nullptr)) {
+    if (git_index_add_all(d->index, &a, GIT_INDEX_ADD_FORCE, NULL, nullptr)) {
         return false;
     } else {
-        writeNeeded = true;
+        d->writeNeeded = true;
         return true;
     }
 }
@@ -56,13 +157,13 @@ bool Index::addByPath(const QString &path)
 {
     BEGIN;
     if (path.startsWith(QLatin1Char('/')))
-        STEP git_index_add_bypath(ptr, toConstChars(path.mid(1)));
+        STEP git_index_add_bypath(d->index, toConstChars(path.mid(1)));
     else
-        STEP git_index_add_bypath(ptr, path.toUtf8().data());
+        STEP git_index_add_bypath(d->index, path.toUtf8().data());
     PRINT_ERROR;
 
     if (IS_OK)
-        writeNeeded = true;
+        d->writeNeeded = true;
 
     return IS_OK;
 }
@@ -70,9 +171,9 @@ bool Index::addByPath(const QString &path)
 bool Index::removeByPath(const QString &path)
 {
     BEGIN;
-    STEP git_index_remove_bypath(ptr, toConstChars(path));
+    STEP git_index_remove_bypath(d->index, toConstChars(path));
     if (IS_OK)
-        writeNeeded = true;
+        d->writeNeeded = true;
 
     return IS_OK;
 }
@@ -81,86 +182,81 @@ bool Index::removeAll()
 {
     git_strarray arr;
     addToArray(&arr, QStringLiteral("/"));
-    if (git_index_remove_all(ptr, &arr, NULL, NULL)) {
+    if (git_index_remove_all(d->index, &arr, NULL, NULL)) {
         return false;
     } else {
-        writeNeeded = true;
+        d->writeNeeded = true;
         return true;
     }
-}
-
-Index::iterator Index::begin()
-{
-    return iterator{ptr};
-}
-
-Index::iterator Index::end()
-{
-    return iterator{ptr};
 }
 
 bool Index::write()
 {
-    return !git_index_write(ptr);
+    return !git_index_write(d->index);
 }
 
 bool Index::writeTree()
 {
-    if (!writeNeeded)
+    if (!d->writeNeeded)
         return true;
-    git_index_write(ptr);
-    return !git_index_write_tree(&mLastOid, ptr);
+    git_index_write(d->index);
+    return !git_index_write_tree(&d->mLastOid, d->index);
 }
 
-QSharedPointer<Tree> Index::tree() const
+QString Index::treeTitle() const
+{
+    return QString{};
+}
+
+Tree Index::tree() const
 {
     git_tree *tree;
     git_oid oid;
 
-    auto repo = git_index_owner(ptr);
+    auto repo = git_index_owner(d->index);
     if (git_tree_lookup(&tree, repo, &oid))
-        return nullptr;
+        return Tree{};
 
-    return QSharedPointer<Tree>{new Tree{tree}};
+    return Tree{tree};
 }
 
-QList<IndexEntry *> Index::entries() const
+QList<IndexEntry> Index::entries() const
 {
-    QList<IndexEntry *> list;
+    QList<IndexEntry> list;
 
-    auto entryCount = git_index_entrycount(ptr);
+    auto entryCount = git_index_entrycount(d->index);
     for (size_t i = 0; i < entryCount; i++) {
-        auto entry = git_index_get_byindex(ptr, i);
+        auto entry = git_index_get_byindex(d->index, i);
 
         if (entry == NULL)
             continue;
 
-        list << new IndexEntry{entry};
+        list << IndexEntry{entry};
     }
     return list;
 }
 
-IndexEntry *Index::entryByPath(const QString &path) const
+IndexEntry Index::entryByPath(const QString &path) const
 {
-    auto entry = git_index_get_bypath(ptr, path.toUtf8().data(), 0);
+    auto entry = git_index_get_bypath(d->index, path.toUtf8().data(), 0);
     if (entry)
-        new IndexEntry{entry};
+        return IndexEntry{entry};
 
-    return nullptr;
+    return IndexEntry{};
 }
 
-QSharedPointer<Blob> Index::blobByPath(const QString &path) const
+Blob Index::blobByPath(const QString &path) const
 {
-    auto entry = git_index_get_bypath(ptr, path.toUtf8().data(), 0);
+    auto entry = git_index_get_bypath(d->index, path.toUtf8().data(), 0);
     if (!entry)
-        return {};
+        return Blob{};
 
-    return QSharedPointer<Blob>::create(git_index_owner(ptr), entry);
+    return Blob{git_index_owner(d->index), entry};
 }
 
 bool Index::hasConflicts() const
 {
-    return 1 == git_index_has_conflicts(ptr);
+    return 1 == git_index_has_conflicts(d->index);
 }
 
 QSharedPointer<ConflictIndexList> Index::conflicts() const
@@ -168,11 +264,11 @@ QSharedPointer<ConflictIndexList> Index::conflicts() const
     QList<ConflictIndex *> list;
 
     git_index_conflict_iterator *it;
-    git_index_conflict_iterator_new(&it, ptr);
+    git_index_conflict_iterator_new(&it, d->index);
     const git_index_entry *ancestorEntry;
     const git_index_entry *ourEntry;
     const git_index_entry *theirEntry;
-    auto repo = git_index_owner(ptr);
+    auto repo = git_index_owner(d->index);
 
     while (!git_index_conflict_next(&ancestorEntry, &ourEntry, &theirEntry, it)) {
         auto i = new ConflictIndex;
@@ -186,94 +282,17 @@ QSharedPointer<ConflictIndexList> Index::conflicts() const
 
 git_oid &Index::lastOid()
 {
-    return mLastOid;
-}
-
-IndexEntry::IndexEntry(const git_index_entry *entryPtr)
-    : d_ptr{new IndexEntryPrivate{this, entryPtr}}
-{
-}
-
-IndexEntry::~IndexEntry()
-{
-}
-
-QString IndexEntry::path() const
-{
-    Q_D(const IndexEntry);
-    return d->path;
-}
-
-quint16 IndexEntry::fileSize() const
-{
-    Q_D(const IndexEntry);
-    return d->fileSize;
-}
-
-QSharedPointer<Oid> IndexEntry::oid() const
-{
-    Q_D(const IndexEntry);
-    return d->oid;
-}
-
-IndexEntry::StageState IndexEntry::stageState() const
-{
-    Q_D(const IndexEntry);
-    return d->stageState;
-}
-
-bool IndexEntry::isConflict() const
-{
-    Q_D(const IndexEntry);
-    return d->isConflict;
-}
-
-FileMode IndexEntry::mode() const
-{
-    Q_D(const IndexEntry);
-    return d->fileMode;
-}
-
-Index::iterator::iterator(git_index *ptr)
-    : ptr(ptr)
-{
-}
-
-IndexEntry *Index::iterator::operator*() const
-{
-    return new IndexEntry{git_index_get_byindex(ptr, i)};
-}
-
-bool Index::iterator::operator==(const iterator &o) const noexcept
-{
-    return i == o.i && ptr == o.ptr;
-}
-
-bool Index::iterator::operator!=(const iterator &o) const noexcept
-{
-    return !(*this == o);
-}
-
-Index::iterator &Index::iterator::operator++()
-{
-    ++i;
-    return *this;
-}
-
-Index::iterator Index::iterator::operator++(int)
-{
-    ++i;
-    return *this;
+    return d->mLastOid;
 }
 
 IndexConflictEntry::IndexConflictEntry(git_repository *repo, const git_index_entry *entryPtr)
     : IndexEntry{entryPtr}
 {
     if (entryPtr)
-        mBlob.reset(new Blob{repo, entryPtr});
+        mBlob = Blob{repo, entryPtr};
 }
 
-QSharedPointer<Blob> IndexConflictEntry::blob() const
+const Blob &IndexConflictEntry::blob() const
 {
     return mBlob;
 }

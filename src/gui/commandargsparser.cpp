@@ -324,7 +324,6 @@ ArgParserReturn CommandArgsParser::diff(const QString &file)
     QFileInfo fi{file};
 
     if (fi.isFile()) {
-        qDebug() << Q_FUNC_INFO << file;
         mGit->open(fi.absolutePath());
         const QDir dir{mGit->path()};
 
@@ -336,7 +335,8 @@ ArgParserReturn CommandArgsParser::diff(const QString &file)
         return ExecApp;
     } else if (fi.isDir()) {
         mGit->open(fi.absoluteFilePath());
-        auto d = new DiffWindow{mGit, mGit->branches()->current()};
+        auto current = mGit->branches()->current();
+        auto d = new DiffWindow{mGit, &current};
         d->exec();
         return ExecApp;
     }
@@ -498,7 +498,7 @@ ArgParserReturn CommandArgsParser::diff_branches(const QString &path)
         auto leftBranch = mGit->branches()->findByName(d.oldBranch());
         auto rightBranch = mGit->branches()->findByName(d.newBranch());
 
-        auto diffWin = new DiffWindow(mGit, leftBranch, rightBranch);
+        auto diffWin = new DiffWindow(mGit, &leftBranch, &rightBranch);
         diffWin->exec();
         return 0;
     }
@@ -545,9 +545,9 @@ ArgParserReturn CommandArgsParser::add(const QString &path)
     }
 
     auto index = mGit->index();
-    index->addByPath(path);
+    index.addByPath(path);
 
-    if (index->writeTree())
+    if (index.writeTree())
         KMessageBox::information(nullptr, i18n("File(s) added to git successfully"));
 
     return 0;

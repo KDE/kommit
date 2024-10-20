@@ -20,7 +20,6 @@ target_sources(libkommit PRIVATE
     gitloglist.cpp
     filestatus.cpp
     repository.cpp
-    blamedata.cpp
     types.cpp
     abstractreference.cpp
     buffer.cpp
@@ -29,6 +28,11 @@ target_sources(libkommit PRIVATE
     config.h config.cpp
     filedelta.h filedelta.cpp
     filemode.h filemode.cpp
+    refspec.h refspec.cpp
+    itree.h
+    ioid.h
+    blame.h blame.cpp
+    blamehunk.h blamehunk.cpp
 
     caches/abstractcache.cpp
     caches/branchescache.cpp
@@ -136,8 +140,8 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
         Repository
 
-        # BlameDataRow
-        BlameData
+        Blame
+        BlameHunk
 
         # ConfigEntry
         Config
@@ -153,6 +157,9 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
 
         FileDelta
         FileMode
+        RefSpec
+        ITree
+        IOid
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
 )

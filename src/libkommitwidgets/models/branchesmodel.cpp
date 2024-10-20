@@ -21,8 +21,8 @@ public:
 
     void calculateCommitStats();
 
-    QMap<QSharedPointer<Git::Branch>, QPair<int, int>> compareWithRef;
-    QList<QSharedPointer<Git::Branch>> data;
+    QMap<Git::Branch, QPair<int, int>> compareWithRef;
+    QList<Git::Branch> data;
     QString currentBranch;
     QString referenceBranch;
     Git::BranchType branchType{Git::BranchType::AllBranches};
@@ -37,8 +37,6 @@ BranchesModel::BranchesModel(Git::Repository *git)
 
 BranchesModel::~BranchesModel()
 {
-    Q_D(BranchesModel);
-    delete d;
 }
 
 int BranchesModel::rowCount(const QModelIndex &parent) const
@@ -63,19 +61,19 @@ QVariant BranchesModel::data(const QModelIndex &index, int role) const
 
     switch (index.column()) {
     case 0:
-        return d->data.at(index.row())->name();
+        return d->data.at(index.row()).name();
     case 1:
         return d->compareWithRef.value(d->data.at(index.row())).first;
     case 2:
         return d->compareWithRef.value(d->data.at(index.row())).second;
     case 3:
-        return d->data.at(index.row())->isHead();
+        return d->data.at(index.row()).isHead();
     case 4:
-        return d->data.at(index.row())->refName();
+        return d->data.at(index.row()).refName();
     case 5:
-        return d->data.at(index.row())->upStreamName();
+        return d->data.at(index.row()).upStreamName();
     case 6:
-        return d->data.at(index.row())->remoteName();
+        return d->data.at(index.row()).remoteName();
     }
 
     return {};
@@ -105,25 +103,25 @@ QVariant BranchesModel::headerData(int section, Qt::Orientation orientation, int
     return {};
 }
 
-QSharedPointer<Git::Branch> BranchesModel::fromIndex(const QModelIndex &index) const
+Git::Branch BranchesModel::fromIndex(const QModelIndex &index) const
 {
     Q_D(const BranchesModel);
 
     if (!index.isValid() || index.row() < 0 || index.row() >= d->data.size())
-        return nullptr;
+        return Git::Branch{};
 
     return d->data.at(index.row());
 }
 
-QSharedPointer<Git::Branch> BranchesModel::findByName(const QString &branchName) const
+Git::Branch BranchesModel::findByName(const QString &branchName) const
 {
     Q_D(const BranchesModel);
 
-    auto i = std::find_if(d->data.begin(), d->data.end(), [&branchName](QSharedPointer<Git::Branch> branch) {
-        return branch->name() == branchName;
+    auto i = std::find_if(d->data.begin(), d->data.end(), [&branchName](const Git::Branch &branch) {
+        return branch.name() == branchName;
     });
     if (i == d->data.end())
-        return nullptr;
+        return Git::Branch{};
 
     return *i;
 }
@@ -169,7 +167,7 @@ void BranchesModelPrivate::calculateCommitStats()
 {
     Q_Q(BranchesModel);
     for (auto &b : data) {
-        const auto commitsInfo = q->manager()->uniqueCommitsOnBranches(referenceBranch, b->name());
+        const auto commitsInfo = q->manager()->uniqueCommitsOnBranches(referenceBranch, b.name());
         compareWithRef[b] = commitsInfo;
     }
     Q_EMIT q->dataChanged(q->index(0, 1), q->index(data.size() - 1, 2));

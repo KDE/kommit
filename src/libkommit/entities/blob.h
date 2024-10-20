@@ -11,29 +11,31 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/index.h>
 #include <git2/types.h>
 
-#include <QScopedPointer>
 #include <QSharedPointer>
 #include <QString>
+
+#include <Kommit/Oid>
 
 namespace Git
 {
 
-class Oid;
 class Repository;
 class BlobPrivate;
 class LIBKOMMIT_EXPORT Blob
 {
 public:
-    explicit Blob(git_blob *blob);
+    explicit Blob(git_blob *blob = nullptr);
     Blob(git_repository *repo, git_tree_entry *entry);
     Blob(git_repository *repo, const git_index_entry *entry);
     Blob(git_repository *repo, const QString &relativePath);
-    explicit Blob(Repository *git, QSharedPointer<Oid> oid);
-    virtual ~Blob();
+    explicit Blob(Repository *git, const Oid &oid);
+    Blob(const Blob &other);
+
+    Blob &operator=(const Blob &other);
 
     [[nodiscard]] const QString &name() const;
     bool save(const QString &path) const;
-    Q_REQUIRED_RESULT QString saveAsTemp() const;
+    [[nodiscard]] QString saveAsTemp() const;
     QString stringContent() const;
     QByteArray content() const;
 
@@ -41,16 +43,17 @@ public:
     [[nodiscard]] bool isBinary() const;
     [[nodiscard]] quint64 size() const;
 
-    QSharedPointer<Oid> oid() const;
+    Oid oid() const;
     [[nodiscard]] QString fileName() const;
     [[nodiscard]] QString filePath() const;
 
-    [[nodiscard]] static QSharedPointer<Blob> lookup(git_repository *repo, const QString &place, const QString &filePath);
-    [[nodiscard]] static QSharedPointer<Blob> fromDisk(git_repository *repo, const QString &filePath);
+    [[nodiscard]] bool isNull() const;
+
+    [[nodiscard]] static Blob lookup(git_repository *repo, const QString &place, const QString &filePath);
+    [[nodiscard]] static Blob fromDisk(git_repository *repo, const QString &filePath);
 
 private:
-    QScopedPointer<BlobPrivate> d_ptr;
-    Q_DECLARE_PRIVATE(Blob)
+    QSharedPointer<BlobPrivate> d;
 };
 
 }

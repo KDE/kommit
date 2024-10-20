@@ -84,9 +84,9 @@ void SwitchBranchDialog::slotButtonBoxAccepted()
         switched = mGit->switchBranch(branch);
     } else if (radioButtonTag->isChecked()) {
         auto tag = mGit->tags()->find(comboBoxTags->currentText());
-        auto commit = tag->commit();
+        auto commit = tag.commit();
 
-        if (!commit) {
+        if (commit.isNull()) {
             KMessageBoxHelper::error(this, i18n("Unable to find the tag's target commit: %1", comboBoxTags->currentText()));
             return;
         }

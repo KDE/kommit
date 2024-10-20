@@ -50,7 +50,7 @@ void TagsWidget::slotTreeViewTagsCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
     auto tag = mModel->fromIndex(treeViewTags->currentIndex());
-    if (tag) {
+    if (!tag.isNull()) {
         mActions->setTag(tag);
         mActions->popup();
     }
@@ -59,7 +59,7 @@ void TagsWidget::slotTreeViewTagsCustomContextMenuRequested(const QPoint &pos)
 void TagsWidget::slotTreeViewTagsItemActivated(const QModelIndex &index)
 {
     auto tag = mModel->fromIndex(index);
-    if (tag)
+    if (!tag.isNull())
         mActions->setTag(tag);
 }
 

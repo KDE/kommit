@@ -54,8 +54,8 @@ void FileTest::makeFirstCommit()
     mFileContentAtFirstCommit = TestCommon::touch(mManager->path() + "/README.md");
     auto index = mManager->index();
     QVERIFY(!index.isNull());
-    QVERIFY(index->addByPath("README.md"));
-    QVERIFY(index->writeTree());
+    QVERIFY(index.addByPath("README.md"));
+    QVERIFY(index.writeTree());
     mManager->commit("first commit");
 }
 
@@ -64,8 +64,8 @@ void FileTest::makeSecondCommit()
     mFileContentAtSecondCommit = TestCommon::touch(mManager->path() + "/README.md");
     auto index = mManager->index();
     QVERIFY(!index.isNull());
-    QVERIFY(index->addByPath("README.md"));
-    QVERIFY(index->writeTree());
+    QVERIFY(index.addByPath("README.md"));
+    QVERIFY(index.writeTree());
     mManager->commit("second commit");
 }
 
@@ -74,8 +74,8 @@ void FileTest::makeThirdCommit()
     mFileContentAtThirdCommit = TestCommon::touch(mManager->path() + "/README.md");
     auto index = mManager->index();
     QVERIFY(!index.isNull());
-    QVERIFY(index->addByPath("README.md"));
-    QVERIFY(index->writeTree());
+    QVERIFY(index.addByPath("README.md"));
+    QVERIFY(index.writeTree());
     mManager->commit("third commit");
 }
 
@@ -83,21 +83,21 @@ void FileTest::checkContents()
 {
     auto commits = mManager->commits()->allCommits();
     QCOMPARE(commits.size(), 3);
-    QCOMPARE(commits.at(2)->message(), "first commit");
-    QCOMPARE(commits.at(1)->message(), "second commit");
-    QCOMPARE(commits.at(0)->message(), "third commit");
+    QCOMPARE(commits.at(2).message(), "first commit");
+    QCOMPARE(commits.at(1).message(), "second commit");
+    QCOMPARE(commits.at(0).message(), "third commit");
 
-    Git::File firstFile{mManager, commits.at(2)->commitHash(), "README.md"};
-    Git::File secondFile{mManager, commits.at(1)->commitHash(), "README.md"};
-    Git::File thirdFile{mManager, commits.at(0)->commitHash(), "README.md"};
+    Git::File firstFile{mManager, commits.at(2).commitHash(), "README.md"};
+    Git::File secondFile{mManager, commits.at(1).commitHash(), "README.md"};
+    Git::File thirdFile{mManager, commits.at(0).commitHash(), "README.md"};
 
     QCOMPARE(firstFile.content(), mFileContentAtFirstCommit);
     QCOMPARE(secondFile.content(), mFileContentAtSecondCommit);
     QCOMPARE(thirdFile.content(), mFileContentAtThirdCommit);
 
-    QCOMPARE(commits.at(2)->tree()->file("README.md")->content(), mFileContentAtFirstCommit);
-    QCOMPARE(commits.at(1)->tree()->file("README.md")->content(), mFileContentAtSecondCommit);
-    QCOMPARE(commits.at(0)->tree()->file("README.md")->content(), mFileContentAtThirdCommit);
+    QCOMPARE(commits.at(2).tree().file("README.md").content(), mFileContentAtFirstCommit);
+    QCOMPARE(commits.at(1).tree().file("README.md").content(), mFileContentAtSecondCommit);
+    QCOMPARE(commits.at(0).tree().file("README.md").content(), mFileContentAtThirdCommit);
 }
 
 void FileTest::checkContentInBranch()
@@ -106,15 +106,15 @@ void FileTest::checkContentInBranch()
     QCOMPARE(branches.size(), 1);
 
     auto mainBranch = branches.at(0);
-    QVERIFY(mainBranch != nullptr);
+    QVERIFY(!mainBranch.isNull());
 
-    auto tree = mainBranch->tree();
-    QVERIFY(tree != nullptr);
+    auto tree = mainBranch.tree();
+    QVERIFY(!tree.isNull());
 
-    auto file = tree->file("README.md");
-    QVERIFY(file != nullptr);
+    auto file = tree.file("README.md");
+    QVERIFY(!file.isNull());
 
-    auto content = file->content();
+    auto content = file.content();
     QCOMPARE(content, mFileContentAtThirdCommit);
 }
 

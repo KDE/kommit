@@ -378,7 +378,7 @@ void AppWindow::diffBranches()
         auto leftBranch = mGitData->manager()->branches()->findByName(d.oldBranch());
         auto rightBranch = mGitData->manager()->branches()->findByName(d.newBranch());
 
-        auto diffWin = new DiffWindow(mGitData->manager(), leftBranch, rightBranch);
+        auto diffWin = new DiffWindow(mGitData->manager(), &leftBranch, &rightBranch);
         diffWin->showModal();
     }
 }
@@ -412,7 +412,7 @@ void AppWindow::repoSwitch()
 void AppWindow::repoDiffTree()
 {
     auto currentBranch = mGitData->manager()->branches()->current();
-    auto w = new DiffWindow(mGitData->manager(), currentBranch);
+    auto w = new DiffWindow(mGitData->manager(), &currentBranch);
     w->showModal();
 }
 

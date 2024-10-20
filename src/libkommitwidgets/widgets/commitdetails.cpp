@@ -20,12 +20,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace
 {
 
-void showSignature(QSharedPointer<Git::Signature> sign, AvatarView *avatarView, QLabel *nameLabel, QLabel *timeLabel, bool createLink)
+void showSignature(const Git::Signature &sign, AvatarView *avatarView, QLabel *nameLabel, QLabel *timeLabel, bool createLink)
 {
-    if (!sign)
+    if (sign.isNull())
         return;
 
-    avatarView->setUserEmail(sign->email());
+    avatarView->setUserEmail(sign.email());
 
     QString label;
     if (createLink)
@@ -33,13 +33,13 @@ void showSignature(QSharedPointer<Git::Signature> sign, AvatarView *avatarView, 
     else
         label = QStringLiteral("%1 <%2>");
 
-    nameLabel->setText(label.arg(sign->name(), sign->email()));
+    nameLabel->setText(label.arg(sign.name(), sign.email()));
 
     auto cal = KommitWidgetsGlobalOptions::instance()->calendar();
     if (cal.isValid())
-        timeLabel->setText(QLocale().toString(sign->time(), QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal));
+        timeLabel->setText(QLocale().toString(sign.time(), QStringLiteral("yyyy-MM-dd HH:mm:ss"), cal));
     else
-        timeLabel->setText(QLocale().toString(sign->time()));
+        timeLabel->setText(QLocale().toString(sign.time()));
 }
 }
 
@@ -58,32 +58,32 @@ CommitDetails::CommitDetails(QWidget *parent)
     stackedWidget->setCurrentIndex(0);
 }
 
-Git::Commit *CommitDetails::commit() const
+const Git::Commit &CommitDetails::commit() const
 {
     return mCommit;
 }
 
-void CommitDetails::setCommit(Git::Commit *commit)
+void CommitDetails::setCommit(const Git::Commit &commit)
 {
     mCommit = commit;
 
-    stackedWidget->setCurrentIndex(commit ? 1 : 0);
-    if (!commit)
+    stackedWidget->setCurrentIndex(commit.isNull() ? 0 : 1);
+    if (commit.isNull())
         return;
 
-    labelCommitHash->setText(commit->commitHash());
-    labelCommitSubject->setText(commit->summary());
-    labelCommitBody->setText(commit->body());
+    labelCommitHash->setText(commit.commitHash());
+    labelCommitSubject->setText(commit.summary());
+    labelCommitBody->setText(commit.body());
 
-    showSignature(commit->author(), labelAuthorAvatar, labelAuthor, labelAuthTime, mEnableEmailsLinks);
-    showSignature(commit->committer(), labelCommiterAvatar, labelCommitter, labelCommitTime, mEnableEmailsLinks);
+    showSignature(commit.author(), labelAuthorAvatar, labelAuthor, labelAuthTime, mEnableEmailsLinks);
+    showSignature(commit.committer(), labelCommiterAvatar, labelCommitter, labelCommitTime, mEnableEmailsLinks);
 
-    widgetCommitterInfo->setVisible(commit && commit->author()->email() != commit->committer()->email());
+    widgetCommitterInfo->setVisible(!commit.isNull() && commit.author().email() != commit.committer().email());
     labelCommitterText->setVisible(widgetCommitterInfo->isVisible());
 
     labelChangedFiles->setText(createChangedFiles());
 
-    auto refs = commit->references();
+    auto refs = commit.references();
     if (refs.isEmpty()) {
         labelRefType->setVisible(false);
         labelRefName->setVisible(false);
@@ -91,15 +91,15 @@ void CommitDetails::setCommit(Git::Commit *commit)
         QString refsText;
         for (auto const &ref : refs) {
             QString refText;
-            if (ref->isBranch())
+            if (ref.isBranch())
                 refText = i18n("Branch: ");
-            else if (ref->isNote())
+            else if (ref.isNote())
                 refText = i18n("Note: ");
-            else if (ref->isRemote())
+            else if (ref.isRemote())
                 refText = i18n("Remote: ");
-            else if (ref->isTag())
+            else if (ref.isTag())
                 refText = i18n("Tag: ");
-            refText.append(ref->shorthand());
+            refText.append(ref.shorthand());
 
             if (!refsText.isEmpty()) {
                 refsText.append(QStringLiteral(", "));
@@ -112,17 +112,17 @@ void CommitDetails::setCommit(Git::Commit *commit)
         labelRefName->setVisible(true);
     }
 
-    auto parents = generateCommitsLink(commit->parents());
-    auto children = generateCommitsLink(commit->children());
+    auto parents = generateCommitsLink(commit.parents());
+    auto children = generateCommitsLink(commit.children());
 
     labelParentsText->setVisible(!parents.isEmpty());
     labelParent->setVisible(!parents.isEmpty());
-    labelParentsText->setText(i18np("Parent:", "Parents:", commit->parents().size()));
+    labelParentsText->setText(i18np("Parent:", "Parents:", commit.parents().size()));
     labelParent->setText(parents);
 
     labelChildrenText->setVisible(!children.isEmpty());
     labelChildren->setVisible(!children.isEmpty());
-    labelChildrenText->setText(i18np("Child:", "Children:", commit->children().size()));
+    labelChildrenText->setText(i18np("Child:", "Children:", commit.children().size()));
     labelChildren->setText(children);
 }
 
@@ -172,7 +172,7 @@ void CommitDetails::slotEmailLinkClicked(const QString &link)
 
 QString CommitDetails::createChangedFiles()
 {
-    const auto files = Git::Repository::instance()->changedFiles(mCommit->commitHash());
+    const auto files = Git::Repository::instance()->changedFiles(mCommit.commitHash());
     QStringList filesHtml;
 
     for (auto i = files.constBegin(); i != files.constEnd(); ++i) {
@@ -205,8 +205,8 @@ QString CommitDetails::generateCommitLink(const QString &hash)
     QString subject = hash;
     if (mLogsModel) {
         auto commit = mLogsModel->findLogByHash(hash);
-        if (commit)
-            subject = commit->message();
+        if (!commit.isNull())
+            subject = commit.message();
     }
     if (mEnableCommitsLinks)
         return QStringLiteral(R"(<a href="%1">%2</a> )").arg(hash, subject);

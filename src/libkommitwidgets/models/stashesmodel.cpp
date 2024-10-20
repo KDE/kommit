@@ -41,15 +41,15 @@ QVariant StashesModel::data(const QModelIndex &index, int role) const
 
     switch (index.column()) {
     case Subject:
-        return stash->message();
+        return stash.message();
     case CommitHash:
-        return stash->commit()->commitHash();
+        return stash.commit().commitHash();
     case AuthorName:
-        return stash->commit()->author()->name();
+        return stash.commit().author().name();
     case AuthorEmail:
-        return stash->commit()->author()->email();
+        return stash.commit().author().email();
     case Time:
-        return stash->commit()->author()->time();
+        return stash.commit().author().time();
     }
     return {};
 }
@@ -76,10 +76,10 @@ QVariant StashesModel::headerData(int section, Qt::Orientation orientation, int 
     return {};
 }
 
-QSharedPointer<Git::Stash> StashesModel::fromIndex(const QModelIndex &index) const
+Git::Stash StashesModel::fromIndex(const QModelIndex &index) const
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
-        return {};
+        return Git::Stash{};
 
     return mData.at(index.row());
 }

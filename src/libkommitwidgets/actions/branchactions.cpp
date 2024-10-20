@@ -38,7 +38,7 @@ BranchActions::BranchActions(Git::Repository *git, QWidget *parent)
     _actionRemove = addActionDisabled(i18nc("@action", "Remove…"), this, &BranchActions::remove);
 }
 
-void BranchActions::setBranch(QSharedPointer<Git::Branch> newBranch)
+void BranchActions::setBranch(const Git::Branch &newBranch)
 {
     mBranch = newBranch;
 
@@ -50,7 +50,7 @@ void BranchActions::setBranch(QSharedPointer<Git::Branch> newBranch)
     setActionEnabled(_actionRemove, !newBranch.isNull());
 }
 
-void BranchActions::setOtherBranch(QSharedPointer<Git::Branch> newOtherBranch)
+void BranchActions::setOtherBranch(const Git::Branch &newOtherBranch)
 {
     mOtherBranch = newOtherBranch;
 }
@@ -58,7 +58,7 @@ void BranchActions::setOtherBranch(QSharedPointer<Git::Branch> newOtherBranch)
 void BranchActions::fetch()
 {
     FetchDialog d(mGit, mParent);
-    d.setBranch(mBranch->name());
+    d.setBranch(mBranch.name());
     d.exec();
 }
 
@@ -73,14 +73,14 @@ void BranchActions::create()
 
 void BranchActions::browse()
 {
-    FilesTreeDialog d(mGit, mBranch, mParent);
+    FilesTreeDialog d(mGit, &mBranch, mParent);
     d.exec();
 }
 
 void BranchActions::checkout()
 {
     RunnerDialog d(mGit, mParent);
-    d.run({QStringLiteral("checkout"), mBranch->name()});
+    d.run({QStringLiteral("checkout"), mBranch.name()});
     d.exec();
 }
 
@@ -106,7 +106,7 @@ void BranchActions::diff()
     //     }
     // }
 
-    auto d = new DiffWindow(mGit, mBranch, mOtherBranch);
+    auto d = new DiffWindow(mGit, &mBranch, &mOtherBranch);
     d->showModal();
 }
 
@@ -120,7 +120,7 @@ void BranchActions::remove()
 
 void BranchActions::merge()
 {
-    MergeDialog d{mGit, mBranch->name(), mParent};
+    MergeDialog d{mGit, mBranch.name(), mParent};
     if (d.exec() == QDialog::Accepted) {
         auto cmd = d.command();
         RunnerDialog runner(mGit, mParent);

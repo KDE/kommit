@@ -6,8 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "caches/abstractcache.h"
-#include "entities/submodule.h"
+#include <Kommit/AbstractCache>
+#include <Kommit/SubModule>
+
 #include "libkommit_export.h"
 
 namespace Git
@@ -24,8 +25,8 @@ public:
 
     DataType add(const AddSubmoduleOptions &options);
 
-    [[nodiscard]] QList<QSharedPointer<Submodule>> allSubmodules();
-    [[nodiscard]] QSharedPointer<Submodule> findByName(const QString &name);
+    [[nodiscard]] QList<Submodule> allSubmodules();
+    [[nodiscard]] Submodule findByName(const QString &name);
     [[nodiscard]] DataType findByPtr(git_submodule *ptr, bool *isNew = nullptr);
 
 protected:

@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "referencecache.h"
 
+#include "branch.h"
 #include "caches/commitscache.h"
 #include "entities/commit.h"
 #include "entities/oid.h"
@@ -44,12 +45,12 @@ ReferenceCache::DataType ReferenceCache::findByName(const QString &name)
     return findByPtr(ref);
 }
 
-ReferenceCache::DataType ReferenceCache::findForNote(QSharedPointer<Note> note)
+ReferenceCache::DataType ReferenceCache::findForNote(const Note &note)
 {
     if (!mList.size())
         fill();
     auto i = std::find_if(mList.begin(), mList.end(), [&note](DataType c) {
-        return c->isNote() && c->toNote() == note;
+        return c.isNote() && c.toNote() == note;
     });
 
     if (i != mList.end())
@@ -57,12 +58,12 @@ ReferenceCache::DataType ReferenceCache::findForNote(QSharedPointer<Note> note)
     return {};
 }
 
-ReferenceCache::DataType ReferenceCache::findForBranch(QSharedPointer<Branch> branch)
+ReferenceCache::DataType ReferenceCache::findForBranch(const Branch &branch)
 {
     if (!mList.size())
         fill();
     auto i = std::find_if(mList.begin(), mList.end(), [&branch](DataType c) {
-        return c->isBranch() && c->toBranch() == branch;
+        return c.isBranch() && c.toBranch() == branch;
     });
 
     if (i != mList.end())
@@ -70,12 +71,12 @@ ReferenceCache::DataType ReferenceCache::findForBranch(QSharedPointer<Branch> br
     return {};
 }
 
-ReferenceCache::DataType ReferenceCache::findForTag(QSharedPointer<Tag> tag)
+ReferenceCache::DataType ReferenceCache::findForTag(const Tag &tag)
 {
     if (!mList.size())
         fill();
     auto i = std::find_if(mList.begin(), mList.end(), [&tag](DataType c) {
-        return c->isTag() && c->toTag() == tag;
+        return c.isTag() && c.toTag() == tag;
     });
 
     if (i != mList.end())
@@ -83,12 +84,12 @@ ReferenceCache::DataType ReferenceCache::findForTag(QSharedPointer<Tag> tag)
     return {};
 }
 
-ReferenceCache::DataType ReferenceCache::findForRemote(QSharedPointer<Remote> remote)
+ReferenceCache::DataType ReferenceCache::findForRemote(const Remote &remote)
 {
     if (!mList.size())
         fill();
     auto i = std::find_if(mList.begin(), mList.end(), [&remote](DataType c) {
-        return c->isRemote() && c->toRemote() == remote;
+        return c.isRemote() && c.toRemote() == remote;
     });
 
     if (i != mList.end())
@@ -96,7 +97,7 @@ ReferenceCache::DataType ReferenceCache::findForRemote(QSharedPointer<Remote> re
     return {};
 }
 
-ReferenceCache::ListType ReferenceCache::findForCommit(QSharedPointer<Commit> commit)
+ReferenceCache::ListType ReferenceCache::findForCommit(const Commit &commit)
 {
     Q_D(ReferenceCache);
     if (!mList.size())
@@ -108,13 +109,11 @@ ReferenceCache::ListType ReferenceCache::findForCommit(QSharedPointer<Commit> co
 void ReferenceCache::forEach(std::function<void(DataType)> callback) const
 {
     struct wrapper {
-        std::function<void(QSharedPointer<Reference>)> cb;
+        std::function<void(const Reference &)> cb;
     };
     auto cb = [](git_reference *reference, void *payload) -> int {
         auto w = reinterpret_cast<wrapper *>(payload);
-
-        auto refPtr = QSharedPointer<Reference>(new Reference{reference});
-        w->cb(refPtr);
+        w->cb(Reference{reference});
         return 0;
     };
 
@@ -156,7 +155,7 @@ void ReferenceCachePrivate::fill()
     while (!git_reference_next(&reference, iterator)) {
         auto ref = q->findByPtr(reference);
         list << ref;
-        auto hash = ref->target()->toString();
+        auto hash = ref.target().toString();
         auto commit = q->manager->commits()->find(hash);
         if (Q_LIKELY(!commit.isNull())) // TODO: check if is this possible?
             dataByCommit.insert(commit, ref);

@@ -22,11 +22,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QStandardPaths>
 #include <QStyle>
 
-FileViewerDialog::FileViewerDialog(QSharedPointer<Git::Blob> file, QWidget *parent)
+FileViewerDialog::FileViewerDialog(const Git::Blob &file, QWidget *parent)
     : KParts::MainWindow(parent)
 {
     setupUi(this);
-    showFile(*file.data());
+    showFile(file);
     QSettings s;
     restoreGeometry(s.value(QStringLiteral("FileViewerDialog_Geometry")).toByteArray());
     KStandardAction::close(this, &QMainWindow::close, actionCollection());

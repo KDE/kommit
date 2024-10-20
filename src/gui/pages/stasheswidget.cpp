@@ -38,7 +38,7 @@ void StashesWidget::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
 
     auto stash = mModel->fromIndex(treeView->currentIndex());
 
-    if (!stash)
+    if (stash.isNull())
         return;
 
     mActions->setStash(stash);
@@ -49,7 +49,7 @@ void StashesWidget::slotTreeViewItemActivated(const QModelIndex &index)
 {
     auto stash = mModel->fromIndex(index);
 
-    if (!stash)
+    if (stash.isNull())
         return;
 
     mActions->setStash(stash);

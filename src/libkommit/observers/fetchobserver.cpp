@@ -27,8 +27,8 @@ int git_helper_update_tips_cb(const char *refname, const git_oid *a, const git_o
     auto bridge = reinterpret_cast<Git::FetchObserverBridge *>(data);
 
     auto ref = bridge->manager->references()->findByName(QString{refname});
-    auto oidA = QSharedPointer<Oid>{new Oid{a}};
-    auto oidB = QSharedPointer<Oid>{new Oid{b}};
+    Oid oidA{a};
+    Oid oidB{b};
 
     Q_EMIT bridge->observer->updateRef(ref, oidA, oidB);
     return 0;

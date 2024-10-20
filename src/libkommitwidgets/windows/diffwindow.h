@@ -31,17 +31,17 @@ class LIBKOMMITWIDGETS_EXPORT DiffWindow : public AppMainWindow
 public:
     enum Mode { Files, Dirs };
     explicit DiffWindow();
-    DiffWindow(QSharedPointer<Git::Blob> oldFile, QSharedPointer<Git::Blob> newFile);
-    DiffWindow(Git::Repository *git, QSharedPointer<Git::ITree> leftTree);
-    DiffWindow(Git::Repository *git, QSharedPointer<Git::ITree> leftTree, QSharedPointer<Git::ITree> rightTree);
+    DiffWindow(const Git::Blob &oldFile, const Git::Blob &newFile);
+    DiffWindow(Git::Repository *git, Git::ITree *leftTree);
+    DiffWindow(Git::Repository *git, Git::ITree *leftTree, Git::ITree *rightTree);
     DiffWindow(Mode mode, const QString &left, const QString &right);
     ~DiffWindow();
 
     void setLeft(const QString &filePath);
-    void setLeft(QSharedPointer<Git::Blob> blob);
+    void setLeft(Git::Blob blob);
 
     void setRight(const QString &filePath);
-    void setRight(QSharedPointer<Git::Blob> blob);
+    void setRight(Git::Blob blob);
 
     void compare();
 

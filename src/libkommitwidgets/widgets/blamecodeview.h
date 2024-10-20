@@ -6,10 +6,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "blamedata.h"
 #include "codeeditor.h"
 
 #include "libkommitwidgets_export.h"
+
+#include <Kommit/Blame>
 
 class LIBKOMMITWIDGETS_EXPORT BlameCodeView : public CodeEditor
 {
@@ -18,8 +19,8 @@ class LIBKOMMITWIDGETS_EXPORT BlameCodeView : public CodeEditor
 public:
     explicit BlameCodeView(QWidget *parent = nullptr);
 
-    void setBlameData(QSharedPointer<Git::BlameData> newBlameData);
+    void setBlameData(const Git::Blame &newBlameData);
 
 private:
-    QSharedPointer<Git::BlameData> mBlameData;
+    Git::Blame mBlameData;
 };

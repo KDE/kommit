@@ -67,7 +67,7 @@ Q_SIGNALS:
     void credentialRequeted(const QString &url, Credential *cred);
     void transferProgress(const FetchTransferStat *stat);
     void packProgress(const PackProgress *p);
-    void updateRef(QSharedPointer<Reference> reference, QSharedPointer<Oid> a, QSharedPointer<Oid> b);
+    void updateRef(const Reference &reference, const Oid &a, const Oid &b);
     void finished();
 
 private:

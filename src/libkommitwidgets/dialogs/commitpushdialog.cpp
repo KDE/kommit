@@ -61,8 +61,8 @@ CommitPushDialog::CommitPushDialog(Git::Repository *git, QWidget *parent)
     readConfig();
 
     auto submodules = mGit->submodules()->allSubmodules();
-    auto modifiedSubmoduleFound = std::any_of(submodules.constBegin(), submodules.constEnd(), [](const QSharedPointer<Git::Submodule> &submodule) {
-        return submodule->status() & Git::Submodule::Status::WdWdModified;
+    auto modifiedSubmoduleFound = std::any_of(submodules.constBegin(), submodules.constEnd(), [](const Git::Submodule &submodule) {
+        return submodule.status() & Git::Submodule::Status::WdWdModified;
     });
 
     if (modifiedSubmoduleFound) {
@@ -207,11 +207,11 @@ void CommitPushDialog::addFiles()
     auto index = mGit->index();
     for (const auto &file : mModel->data()) {
         if (file.status == Git::ChangeStatus::Removed)
-            Q_UNUSED(index->removeByPath(file.filePath))
+            Q_UNUSED(index.removeByPath(file.filePath))
         else
-            Q_UNUSED(index->addByPath(file.filePath))
+            Q_UNUSED(index.addByPath(file.filePath))
     }
-    index->write();
+    index.write();
 }
 
 void CommitPushDialog::slotToolButtonAddAllClicked()

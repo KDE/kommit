@@ -93,11 +93,11 @@ void ChangedFilesModel::reload()
     auto submodules = mGit->submodules()->allSubmodules();
     for (auto const &submodule : std::as_const(submodules)) {
         using Status = Git::Submodule::Status;
-        auto status = submodule->status();
+        auto status = submodule.status();
 
         if (status & Status::WdWdModified || status & Status::WdIndexModified || status & Status::WdModified) {
             Row d;
-            d.filePath = submodule->name();
+            d.filePath = submodule.name();
             d.status = Git::ChangeStatus::Modified;
             d.checked = true;
             d.submodule = submodule;
@@ -151,7 +151,7 @@ QVariant ChangedFilesModel::data(const QModelIndex &index, int role) const
     }
 
     case Qt::ForegroundRole:
-        return row.submodule ? QVariant::fromValue(QColor{Qt::gray}) : QVariant{};
+        return row.submodule.isNull() ? QVariant{} : QVariant::fromValue(QColor{Qt::gray});
 
     case Qt::CheckStateRole: {
         if (mCheckable)
@@ -164,10 +164,10 @@ QVariant ChangedFilesModel::data(const QModelIndex &index, int role) const
         if (index.column() == 1) {
             return row.filePath;
         }
-        if (row.submodule) {
-            if (row.submodule->status() & Git::Submodule::Status::WdModified)
+        if (!row.submodule.isNull()) {
+            if (row.submodule.status() & Git::Submodule::Status::WdModified)
                 return row.filePath + i18n(" (new commit)");
-            if (row.submodule->status() & Git::Submodule::Status::WdWdModified)
+            if (row.submodule.status() & Git::Submodule::Status::WdWdModified)
                 return row.filePath + i18n(" (content modified)");
         }
         return row.filePath;

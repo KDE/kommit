@@ -6,8 +6,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "abstractcache.h"
-#include "entities/reference.h"
+#include <Kommit/AbstractCache>
+#include <Kommit/Note>
+#include <Kommit/Reference>
+
 #include "libkommit_export.h"
 
 #include <git2/types.h>
@@ -30,11 +32,11 @@ public:
     ~ReferenceCache();
 
     DataType findByName(const QString &name);
-    DataType findForNote(QSharedPointer<Note> note);
-    DataType findForBranch(QSharedPointer<Branch> branch);
-    DataType findForTag(QSharedPointer<Tag> tag);
-    DataType findForRemote(QSharedPointer<Remote> remote);
-    ListType findForCommit(QSharedPointer<Commit> commit);
+    DataType findForNote(const Note &note);
+    DataType findForBranch(const Branch &branch);
+    DataType findForTag(const Tag &tag);
+    DataType findForRemote(const Remote &remote);
+    ListType findForCommit(const Commit &commit);
 
     void forEach(std::function<void(DataType)> callback) const;
 
@@ -55,8 +57,8 @@ class ReferenceCachePrivate
 public:
     ReferenceCachePrivate(ReferenceCache *parent);
 
-    QList<QSharedPointer<Reference>> list;
-    QMultiMap<QSharedPointer<Commit>, QSharedPointer<Reference>> dataByCommit;
+    QList<Reference> list;
+    QMultiMap<Commit, Reference> dataByCommit;
     void fill();
 };
 }

@@ -9,10 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractactions.h"
 #include "libkommitwidgets_export.h"
 
-namespace Git
-{
-class Remote;
-}
+#include <Kommit/Remote>
 
 class LIBKOMMITWIDGETS_EXPORT RemotesActions : public AbstractActions
 {
@@ -24,8 +21,8 @@ public:
     [[nodiscard]] const QString &remoteName() const;
     void setRemoteName(const QString &newRemoteName);
 
-    [[nodiscard]] QSharedPointer<Git::Remote> remote() const;
-    void setRemote(QSharedPointer<Git::Remote> newRemote);
+    [[nodiscard]] const Git::Remote &remote() const;
+    void setRemote(const Git::Remote &newRemote);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void create();
@@ -40,5 +37,5 @@ private:
     DEFINE_ACTION(actionChangeUrl)
 
     QString mRemoteName;
-    QSharedPointer<Git::Remote> mRemote;
+    Git::Remote mRemote;
 };

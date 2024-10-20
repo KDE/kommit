@@ -13,45 +13,97 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-Signature::Signature(git_signature *signature)
-    : mSignature{signature}
+class SignaturePrivate
 {
-    mName = signature->name;
-    mEmail = signature->email;
-    QTimeZone timeZone{signature->when.offset};
-    mTime = QDateTime::fromSecsSinceEpoch(signature->when.time, timeZone);
+public:
+    explicit SignaturePrivate(git_signature *signature);
+    explicit SignaturePrivate(const git_signature *signature);
+    ~SignaturePrivate();
+    const git_signature *signature;
+
+private:
+    bool own;
+};
+
+SignaturePrivate::SignaturePrivate(git_signature *signature)
+    : signature{signature}
+    , own{true}
+{
+}
+
+SignaturePrivate::SignaturePrivate(const git_signature *signature)
+    : signature{signature}
+    , own{false}
+{
+}
+
+SignaturePrivate::~SignaturePrivate()
+{
+    if (own)
+        git_signature_free(const_cast<git_signature *>(signature));
+}
+
+Signature::Signature(git_signature *signature)
+    : d{new SignaturePrivate{signature}}
+{
 }
 
 Signature::Signature(const git_signature *signature)
+    : d{new SignaturePrivate{signature}}
 {
-    mName = signature->name;
-    mEmail = signature->email;
-    QTimeZone timeZone{signature->when.offset};
-    mTime = QDateTime::fromSecsSinceEpoch(signature->when.time, timeZone);
 }
 
-Signature::~Signature()
+Signature::Signature(const Signature &other)
+    : d{other.d}
 {
-    git_signature_free(mSignature);
+}
+
+Signature &Signature::operator=(const Signature &other)
+{
+    if (this != &other)
+        d = other.d;
+
+    return *this;
+}
+
+bool Signature::operator==(const Signature &other) const
+{
+    return d->signature == other.d->signature;
+}
+
+bool Signature::operator!=(const Signature &other) const
+{
+    return !(*this == other);
+}
+
+bool Signature::isNull() const
+{
+    return !d->signature;
+}
+
+git_signature *Signature::data() const
+{
+    return const_cast<git_signature *>(d->signature);
+}
+
+const git_signature *Signature::constData() const
+{
+    return d->signature;
 }
 
 QString Signature::name() const
 {
-    return mName;
+    return QString{d->signature->name};
 }
 
 QString Signature::email() const
 {
-    return mEmail;
+    return QString{d->signature->email};
 }
 
 QDateTime Signature::time() const
 {
-    return mTime;
-}
-
-git_signature *Signature::signaturePtr() const
-{
-    return mSignature;
+    QTimeZone timeZone{d->signature->when.offset};
+    return QDateTime::fromSecsSinceEpoch(d->signature->when.time, timeZone);
 }
 }

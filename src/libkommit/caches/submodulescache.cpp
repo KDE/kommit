@@ -50,10 +50,10 @@ SubmodulesCache::DataType SubmodulesCache::add(const AddSubmoduleOptions &option
     return DataType{};
 }
 
-QList<QSharedPointer<Submodule>> SubmodulesCache::allSubmodules()
+QList<Submodule> SubmodulesCache::allSubmodules()
 {
     struct Data {
-        PointerList<Submodule> list;
+        QList<Submodule> list;
         git_repository *repo;
         SubmodulesCache *cache;
     };
@@ -80,7 +80,7 @@ QList<QSharedPointer<Submodule>> SubmodulesCache::allSubmodules()
     return data.list;
 }
 
-QSharedPointer<Submodule> SubmodulesCache::findByName(const QString &name)
+Submodule SubmodulesCache::findByName(const QString &name)
 {
     git_submodule *submodule{nullptr};
     BEGIN
@@ -101,7 +101,7 @@ SubmodulesCache::DataType SubmodulesCache::findByPtr(git_submodule *ptr, bool *i
         return mHash.value(ptr);
     }
 
-    QSharedPointer<Submodule> entity{new Submodule{ptr, manager->repoPtr()}};
+    Submodule entity{ptr, manager->repoPtr()};
     mList << entity;
     mHash.insert(ptr, entity);
 

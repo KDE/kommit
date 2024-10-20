@@ -23,15 +23,15 @@ public:
 
     TreeModel *treeModel{nullptr};
     BranchesFilterModel *filterModel;
-    QMap<QString, QSharedPointer<Git::Branch>> branchesMap;
+    QMap<QString, Git::Branch> branchesMap;
     Git::Repository *manager;
 
     void reload();
 };
 
 struct BranchTreeNode : public NodeData {
-    QSharedPointer<Git::Branch> branch;
-    BranchTreeNode(QSharedPointer<Git::Branch> branch);
+    Git::Branch branch;
+    BranchTreeNode(const Git::Branch &branch);
 };
 
 BranchesSelectionWidget::BranchesSelectionWidget(QWidget *parent)
@@ -112,13 +112,13 @@ void BranchesSelectionWidgetPrivate::reload()
 
     const auto branches = manager->branches()->allBranches(t);
     for (const auto &branch : branches) {
-        branchesMap.insert(branch->name(), branch);
-        treeModel->addItem(branch->name(), new BranchTreeNode{branch});
+        branchesMap.insert(branch.name(), branch);
+        treeModel->addItem(branch.name(), new BranchTreeNode{branch});
     }
     treeModel->emitReset();
 }
 
-BranchTreeNode::BranchTreeNode(QSharedPointer<Git::Branch> branch)
+BranchTreeNode::BranchTreeNode(const Git::Branch &branch)
     : branch{branch}
 {
 }

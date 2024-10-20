@@ -32,8 +32,10 @@ class SubmodulePrivate
     Q_DECLARE_PUBLIC(Submodule)
 public:
     explicit SubmodulePrivate(Submodule *parent, git_repository *repo = nullptr);
+    ~SubmodulePrivate();
 
     git_repository *repo{nullptr};
+    git_submodule *submodule{nullptr};
     QString name;
     QString url;
     QString path;
@@ -43,10 +45,8 @@ public:
 };
 
 Submodule::Submodule(git_submodule *submodule, git_repository *repo)
-    : d_ptr{new SubmodulePrivate{this, repo}}
+    : d{new SubmodulePrivate{this, repo}}
 {
-    Q_D(Submodule);
-
     d->name = QString{git_submodule_name(submodule)};
     d->path = QString{git_submodule_path(submodule)};
     d->url = QString{git_submodule_url(submodule)};
@@ -59,34 +59,61 @@ Submodule::Submodule(git_submodule *submodule, git_repository *repo)
     d->branch = git_submodule_branch(submodule);
 }
 
-Submodule::~Submodule()
+Submodule::Submodule(const Submodule &other)
+    : d{other.d}
 {
-    Q_D(Submodule);
-    // git_submodule_free(submodule);
-    delete d;
+}
+
+Submodule &Submodule::operator=(const Submodule &other)
+{
+    if (this != &other)
+        d = other.d;
+
+    return *this;
+}
+
+bool Submodule::operator==(const Submodule &other) const
+{
+    return d->submodule == other.d->submodule;
+}
+
+bool Submodule::operator!=(const Submodule &other) const
+{
+    return !(*this == other);
+}
+
+bool Submodule::isNull() const
+{
+    return !d->submodule;
+}
+
+git_submodule *Submodule::data() const
+{
+    return d->submodule;
+}
+
+const git_submodule *Submodule::constData() const
+{
+    return d->submodule;
 }
 
 const QString &Submodule::path() const
 {
-    Q_D(const Submodule);
     return d->path;
 }
 
 const QString &Submodule::refName() const
 {
-    Q_D(const Submodule);
     return d->refName;
 }
 
 QString Submodule::url() const
 {
-    Q_D(const Submodule);
     return d->url;
 }
 
 void Submodule::setUrl(const QString &newUrl)
 {
-    Q_D(Submodule);
     d->url = newUrl;
     BEGIN;
     STEP git_submodule_set_url(d->repo, toConstChars(d->name), toConstChars(newUrl));
@@ -94,19 +121,16 @@ void Submodule::setUrl(const QString &newUrl)
 
 QString Submodule::name() const
 {
-    Q_D(const Submodule);
     return d->name;
 }
 
 QString Submodule::branch()
 {
-    Q_D(Submodule);
     return d->branch;
 }
 
 Submodule::StatusFlags Submodule::status() const
 {
-    Q_D(const Submodule);
     unsigned int status;
 
     if (git_submodule_status(&status, d->repo, d->name.toLocal8Bit().constData(), GIT_SUBMODULE_IGNORE_UNSPECIFIED)) {
@@ -120,7 +144,6 @@ Submodule::StatusFlags Submodule::status() const
 
 bool Submodule::hasModifiedFiles() const
 {
-    Q_D(const Submodule);
     unsigned int status;
 
     BEGIN
@@ -130,30 +153,26 @@ bool Submodule::hasModifiedFiles() const
     RETURN_COND(GIT_SUBMODULE_STATUS_IS_WD_DIRTY(status), false);
 }
 
-QSharedPointer<Oid> Submodule::headId()
+Oid Submodule::headId()
 {
-    Q_D(Submodule);
     auto submodule = d->find();
-    return QSharedPointer<Oid>{new Oid{git_submodule_head_id(submodule.get())}};
+    return Oid{git_submodule_head_id(submodule.get())};
 }
 
-QSharedPointer<Oid> Submodule::indexId()
+Oid Submodule::indexId()
 {
-    Q_D(Submodule);
     auto submodule = d->find();
-    return QSharedPointer<Oid>{new Oid{git_submodule_index_id(submodule.get())}};
+    return Oid{git_submodule_index_id(submodule.get())};
 }
 
-QSharedPointer<Oid> Submodule::workingDirectoryId()
+Oid Submodule::workingDirectoryId()
 {
-    Q_D(Submodule);
     auto submodule = d->find();
-    return QSharedPointer<Oid>{new Oid{git_submodule_wd_id(submodule.get())}};
+    return Oid{git_submodule_wd_id(submodule.get())};
 }
 
 bool Submodule::sync() const
 {
-    Q_D(const Submodule);
     auto submodule = d->find();
 
     if (Q_UNLIKELY(!submodule))
@@ -164,7 +183,6 @@ bool Submodule::sync() const
 
 bool Submodule::reload(bool force) const
 {
-    Q_D(const Submodule);
     auto submodule = d->find();
     if (Q_UNLIKELY(!submodule))
         return false;
@@ -173,7 +191,6 @@ bool Submodule::reload(bool force) const
 
 Repository *Submodule::open() const
 {
-    Q_D(const Submodule);
     auto submodule = d->find();
     git_repository *repo;
     if (git_submodule_open(&repo, submodule.get()))
@@ -184,8 +201,6 @@ Repository *Submodule::open() const
 
 bool Submodule::update(const FetchOptions &opts, FetchObserver *observer)
 {
-    Q_D(Submodule);
-
     git_submodule_update_options update_options = GIT_SUBMODULE_UPDATE_OPTIONS_INIT;
 
     opts.applyToFetchOptions(&update_options.fetch_opts);
@@ -205,6 +220,11 @@ SubmodulePrivate::SubmodulePrivate(Submodule *parent, git_repository *repo)
     : q_ptr{parent}
     , repo{repo}
 {
+}
+
+SubmodulePrivate::~SubmodulePrivate()
+{
+    git_submodule_free(submodule);
 }
 
 QScopedPointer<git_submodule, GitSubmodulePointerDeleter> SubmodulePrivate::find() const

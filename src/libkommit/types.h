@@ -24,42 +24,14 @@ class Commit;
 class Tag;
 class Remote;
 
-// enum class BranchType {
-//     LocalBranch,
-//     RemoteBranch,
-//     AllBranches,
-// };
-// enum class ChangeStatus {
-//     Unknown,
-//     Unmodified,
-//     Modified,
-//     Added,
-//     Removed,
-//     Renamed,
-//     Copied,
-//     UpdatedButInmerged,
-//     Ignored,
-//     Untracked,
-//     TypeChange,
-//     Unreadable,
-//     Conflicted,
-// };
+// #define DECLARE_TYPE(x)                                                                                                                                        \
+//     using x##Pointer = Pointer<Git::x>;                                                                                                                        \
+//     using x##List = PointerList<Git::x>;
 
-// enum class ConflictSide { Base, Ours, Thers };
-
-template<class T>
-using Pointer = QSharedPointer<T>;
-template<class T>
-using PointerList = QList<QSharedPointer<T>>;
-
-#define DECLARE_TYPE(x)                                                                                                                                        \
-    using x##Pointer = Pointer<Git::x>;                                                                                                                        \
-    using x##List = PointerList<Git::x>;
-
-DECLARE_TYPE(Commit)
-DECLARE_TYPE(Tag)
-DECLARE_TYPE(Branch)
-DECLARE_TYPE(Remote)
+// DECLARE_TYPE(Commit)
+// DECLARE_TYPE(Tag)
+// DECLARE_TYPE(Branch)
+// DECLARE_TYPE(Remote)
 
 LIBKOMMIT_EXPORT inline const char *toChar(const QString &s);
 

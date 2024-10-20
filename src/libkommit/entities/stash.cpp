@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/commitscache.h"
 #include "entities/commit.h"
 #include "entities/oid.h"
+#include "oid.h"
 #include "repository.h"
 
 #include <git2/stash.h>
@@ -18,70 +19,94 @@ namespace Git
 
 class StashPrivate
 {
-    Stash *q_ptr;
-    Q_DECLARE_PUBLIC(Stash)
-
 public:
-    StashPrivate(Stash *parent);
+    StashPrivate();
+    StashPrivate(Repository *manager, size_t index, const char *message, const git_oid *stash_id);
     Repository *manager;
     size_t index;
     QString message;
-    git_oid stash_id;
+    Oid stashId;
+    bool isNull;
 
-    QSharedPointer<Commit> commit;
+    Commit commit;
 };
 
-Stash::Stash(Repository *manager, size_t index, const char *message, const git_oid *stash_id)
-    : d_ptr{new StashPrivate{this}}
+Stash::Stash()
+    : d{new StashPrivate}
 {
-    Q_D(Stash);
-
-    git_oid oid_cpy;
-    git_oid_cpy(&oid_cpy, stash_id);
-
-    d->index = index;
-    d->stash_id = oid_cpy;
-    d->message = QString{message};
-    d->manager = manager;
 }
 
-Stash::~Stash()
+Stash::Stash(Repository *manager, size_t index, const char *message, const git_oid *stash_id)
+    : d{new StashPrivate{manager, index, message, stash_id}}
 {
-    Q_D(Stash);
+}
 
-    delete d;
+Stash::Stash(const Stash &other)
+    : d{other.d}
+{
+}
+
+Stash &Stash::operator=(const Stash &other)
+{
+    if (this != &other)
+        d = other.d;
+
+    return *this;
+}
+
+bool Stash::operator==(const Stash &other) const
+{
+    return d->stashId == other.d->stashId;
+}
+
+bool Stash::operator!=(const Stash &other) const
+{
+    return !(*this == other);
 }
 
 const QString &Stash::message() const
 {
-    Q_D(const Stash);
     return d->message;
 }
 
-QSharedPointer<Commit> Stash::commit()
+Commit &Stash::commit()
 {
-    Q_D(Stash);
-
     if (d->commit.isNull()) {
-        d->commit = d->manager->commits()->findByOid(&d->stash_id);
+        d->commit = d->manager->commits()->findByOid(d->stashId.data());
     }
     return d->commit;
 }
 
 size_t Stash::index() const
 {
-    Q_D(const Stash);
     return d->index;
 }
 
-QSharedPointer<Oid> Stash::oid() const
+Oid Stash::oid() const
 {
-    Q_D(const Stash);
-    return QSharedPointer<Oid>{new Oid{&d->stash_id}};
+    return d->stashId;
 }
 
-StashPrivate::StashPrivate(Stash *parent)
-    : q_ptr{parent}
+bool Stash::isNull() const
+{
+    return d->isNull;
+}
+
+StashPrivate::StashPrivate()
+    : manager{}
+    , index{}
+    , message{}
+    , stashId{}
+    , isNull{true}
+{
+}
+
+StashPrivate::StashPrivate(Repository *manager, size_t index, const char *message, const git_oid *stash_id)
+    : manager{manager}
+    , index{index}
+    , message{message}
+    , stashId{stash_id}
+    , isNull{false}
 {
 }
 

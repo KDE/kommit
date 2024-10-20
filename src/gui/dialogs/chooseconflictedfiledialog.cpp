@@ -17,7 +17,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace
 {
-void setLabelText(QLabel *label, QSharedPointer<Git::Blob> file)
+void setLabelText(QLabel *label, const Git::Blob &file)
 {
     if (file.isNull()) {
         label->setText(i18n("Removed"));
@@ -25,16 +25,13 @@ void setLabelText(QLabel *label, QSharedPointer<Git::Blob> file)
         p.setColor(QPalette::WindowText, Qt::red);
         label->setPalette(p);
     } else {
-        label->setText(QStringLiteral("<a href='#'>%1</a>").arg(file->fileName()));
+        label->setText(QStringLiteral("<a href='#'>%1</a>").arg(file.fileName()));
     }
 }
 
 }
 
-ChooseConflictedFileDialog::ChooseConflictedFileDialog(QSharedPointer<Git::Blob> baseFile,
-                                                       QSharedPointer<Git::Blob> localFile,
-                                                       QSharedPointer<Git::Blob> remoteFile,
-                                                       QWidget *parent)
+ChooseConflictedFileDialog::ChooseConflictedFileDialog(const Git::Blob &baseFile, const Git::Blob &localFile, const Git::Blob &remoteFile, QWidget *parent)
     : QDialog(parent)
     , mBaseFile(std::move(baseFile))
     , mLocalFile(std::move(localFile))
@@ -71,7 +68,7 @@ void ChooseConflictedFileDialog::slotLabelLinkActivated(const QString &link)
 
     auto lbl = qobject_cast<QLabel *>(sender());
 
-    QSharedPointer<Git::Blob> file;
+    Git::Blob file;
 
     if (lbl == labelBaseFile)
         file = mBaseFile;

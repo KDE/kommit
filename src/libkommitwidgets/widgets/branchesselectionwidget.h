@@ -33,7 +33,7 @@ public:
     void reload();
 
 Q_SIGNALS:
-    void branchActivated(QSharedPointer<Git::Branch> branch);
+    void branchActivated(const Git::Branch &branch);
 
 private:
     void slotTreeViewRepoItemActivated(const QModelIndex &index);

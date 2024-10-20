@@ -61,12 +61,12 @@ void FetchResultWidget::slotPackProgress(const Git::PackProgress *progress)
     progressBar->setMaximum(progress->total);
 }
 
-void FetchResultWidget::slotUpdateRef(QSharedPointer<Git::Reference> reference, QSharedPointer<Git::Oid> a, QSharedPointer<Git::Oid> b)
+void FetchResultWidget::slotUpdateRef(const Git::Reference &reference, const Git::Oid &a, const Git::Oid &b)
 {
     auto item = new QTreeWidgetItem;
-    item->setText(0, reference->name());
-    item->setText(1, a->toString());
-    item->setText(2, b->toString());
+    item->setText(0, reference.name());
+    item->setText(1, a.toString());
+    item->setText(2, b.toString());
 
     treeWidget->addTopLevelItem(item);
 }

@@ -33,7 +33,7 @@ public:
 
     int colX(int col) const;
     void paintLane(QPainter *painter, const GraphLane &lane, int index) const;
-    void drawReference(QPainter *painter, QSharedPointer<Git::Reference> reference, int &x) const;
+    void drawReference(QPainter *painter, const Git::Reference &reference, int &x) const;
     QPoint center(int x) const;
     QPoint centerEdge(int x, Qt::Edge edge) const;
     QPoint point(int col, Qt::Alignment align = Qt::AlignCenter) const;
@@ -94,16 +94,16 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
         d->paintLane(painter, l, x);
     }
 
-    QRect rc(lanes.size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(log->summary()), HEIGHT);
+    QRect rc(lanes.size() * WIDTH, 0, painter->fontMetrics().horizontalAdvance(log.summary()), HEIGHT);
 
     painter->setPen(option.palette.color(QPalette::Text));
-    auto refs = log->references();
+    auto refs = log.references();
     int refBoxX = lanes.size() * WIDTH;
     for (auto const &ref : refs) {
         d->drawReference(painter, ref, refBoxX);
     }
     rc.moveLeft(refBoxX + 6);
-    painter->drawText(rc, Qt::AlignVCenter, log->summary());
+    painter->drawText(rc, Qt::AlignVCenter, log.summary());
 
     painter->restore();
 }
@@ -122,19 +122,19 @@ GraphPainterPrivate::GraphPainterPrivate(GraphPainter *parent, CommitsModel *mod
     colors = {Qt::red, Qt::blue, Qt::darkGreen, Qt::magenta, Qt::darkMagenta, Qt::darkBlue, Qt::darkBlue, Qt::darkRed, Qt::darkYellow, Qt::darkGreen};
 }
 
-void GraphPainterPrivate::drawReference(QPainter *painter, QSharedPointer<Git::Reference> reference, int &x) const
+void GraphPainterPrivate::drawReference(QPainter *painter, const Git::Reference &reference, int &x) const
 {
     QString refStr;
-    if (reference->isBranch())
+    if (reference.isBranch())
         refStr = i18n("Branch: ");
-    else if (reference->isNote())
+    else if (reference.isNote())
         refStr = i18n("Note: ");
-    else if (reference->isRemote())
+    else if (reference.isRemote())
         refStr = i18n("Remote: ");
-    else if (reference->isTag())
+    else if (reference.isTag())
         refStr = i18n("Tag: ");
 
-    const auto ref = refStr + reference->shorthand();
+    const auto ref = refStr + reference.shorthand();
     QRect rcBox(x, 0, painter->fontMetrics().horizontalAdvance(ref) + 8, painter->fontMetrics().height() + 4);
     rcBox.moveTop((HEIGHT - rcBox.height()) / 2);
 

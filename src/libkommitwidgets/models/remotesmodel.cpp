@@ -42,12 +42,12 @@ QVariant RemotesModel::data(const QModelIndex &index, int role) const
 
     switch (index.column()) {
     case 0:
-        return remote->name();
+        return remote.name();
     }
     return {};
 }
 
-QSharedPointer<Git::Remote> RemotesModel::fromIndex(const QModelIndex &index)
+Git::Remote RemotesModel::fromIndex(const QModelIndex &index)
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
         return nullptr;
@@ -55,12 +55,12 @@ QSharedPointer<Git::Remote> RemotesModel::fromIndex(const QModelIndex &index)
     return mData.at(index.row());
 }
 
-QSharedPointer<Git::Remote> RemotesModel::findByName(const QString &name)
+Git::Remote RemotesModel::findByName(const QString &name)
 {
     for (const auto &d : std::as_const(mData))
-        if (d->name() == name)
+        if (d.name() == name)
             return d;
-    return nullptr;
+    return Git::Remote{};
 }
 
 void RemotesModel::rename(const QString &oldName, const QString &newName)

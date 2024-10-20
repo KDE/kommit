@@ -17,98 +17,160 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-Tag::Tag() = default;
+class TagPrivate
+{
+public:
+    explicit TagPrivate(git_tag *tag = nullptr);
+    TagPrivate(git_commit *commit, const QString &name);
+    explicit TagPrivate(Commit *parentCommit);
+    ~TagPrivate();
+    git_tag *tag{nullptr};
+
+    Commit mLightTagCommit;
+
+    Tag::Type mTagType;
+    Signature mTagger;
+
+    QString mName;
+    QString mMessage;
+};
+
+TagPrivate::TagPrivate(git_tag *tag)
+    : tag{tag}
+    , mTagType{Tag::Type::RegularTag}
+{
+    if (tag) {
+        mName = git_tag_name(tag);
+        mMessage = QString{git_tag_message(tag)}.remove(QLatin1Char('\n'));
+
+        auto tagger = git_tag_tagger(tag);
+        mTagger = Signature{tagger};
+    }
+}
+
+TagPrivate::TagPrivate(git_commit *commit, const QString &name)
+    : mTagType{Tag::Type::LightTag}
+    , mLightTagCommit{commit}
+    , mName{name}
+{
+}
+
+TagPrivate::TagPrivate(Commit *parentCommit)
+    : mTagType{Tag::Type::LightTag}
+    , mLightTagCommit{*parentCommit}
+
+{
+}
+
+TagPrivate::~TagPrivate()
+{
+    git_tag_free(tag);
+}
 
 Tag::Tag(git_tag *tag)
-    : mTagPtr{tag}
-    , mTagType{TagType::RegularTag}
+    : d{new TagPrivate{tag}}
 {
-    mName = git_tag_name(tag);
-    mMessage = QString{git_tag_message(tag)}.remove(QLatin1Char('\n'));
-    auto tagger = git_tag_tagger(tag);
-
-    mTagger.reset(new Signature{tagger});
 }
 
 Tag::Tag(git_commit *commit, const QString &name)
-    : mTagType{TagType::LightTag}
-    , mName{name}
+    : d{new TagPrivate{commit, name}}
 {
-    mLightTagCommit.reset(new Commit{commit});
 }
 
 Tag::Tag(Commit *parentCommit)
-    : mLightTagCommit{parentCommit}
-    , mTagType{TagType::LightTag}
+    : d{new TagPrivate{parentCommit}}
 {
+}
+
+Tag::Tag(const Tag &other)
+    : d{other.d}
+{
+}
+
+Tag &Tag::operator=(const Tag &other)
+{
+    if (this != &other)
+        d = other.d;
+
+    return *this;
+}
+
+bool Tag::operator==(const Tag &other) const
+{
+    return d->tag == other.d->tag;
+}
+
+bool Tag::operator!=(const Tag &other) const
+{
+    return !(*this == other);
+}
+
+git_tag *Tag::data() const
+{
+    return d->tag;
+}
+
+const git_tag *Tag::constData() const
+{
+    return d->tag;
+}
+
+bool Tag::isNull() const
+{
+    return !d->tag;
 }
 
 const QString &Tag::name() const
 {
-    return mName;
-}
-
-void Tag::setName(const QString &newName)
-{
-    mName = newName;
+    return d->mName;
 }
 
 const QString &Tag::message() const
 {
-    return mMessage;
+    return d->mMessage;
 }
 
-void Tag::setMessage(const QString &newMessage)
+const Signature &Tag::tagger() const
 {
-    mMessage = newMessage;
+    if (d->mTagType == Type::LightTag)
+        return d->mLightTagCommit.author();
+
+    return d->mTagger;
 }
 
-QSharedPointer<Signature> Tag::tagger() const
+Commit Tag::commit() const
 {
-    if (mTagType == TagType::LightTag)
-        return mLightTagCommit->author();
+    if (d->mTagType == Type::LightTag)
+        return d->mLightTagCommit;
 
-    return mTagger;
-}
-
-QSharedPointer<Commit> Tag::commit() const
-{
-    if (mTagType == TagType::LightTag)
-        return mLightTagCommit;
-
-    auto type = git_tag_target_type(mTagPtr);
+    auto type = git_tag_target_type(d->tag);
 
     if (type != GIT_OBJECT_COMMIT)
-        return {};
+        return Commit{};
 
     git_commit *commit;
-    auto id = git_tag_target_id(mTagPtr);
-    if (git_commit_lookup(&commit, git_tag_owner(mTagPtr), id))
-        return {};
+    auto id = git_tag_target_id(d->tag);
+    if (git_commit_lookup(&commit, git_tag_owner(d->tag), id))
+        return Commit{};
 
-    return QSharedPointer<Commit>(new Commit{commit});
+    return Commit{commit};
 }
 
-Tag::TagType Tag::tagType() const
+Tag::Type Tag::type() const
 {
-    return mTagType;
+    return d->mTagType;
 }
 
-QSharedPointer<Oid> Tag::oid() const
+Oid Tag::oid() const
 {
-    return QSharedPointer<Oid>(new Oid{git_tag_id(mTagPtr)});
+    return Oid{git_tag_id(d->tag)};
 }
 
-QSharedPointer<Object> Tag::target() const
+Object Tag::target() const
 {
     git_object *target;
-    if (git_tag_target(&target, mTagPtr))
-        return nullptr;
-    return QSharedPointer<Object>{new Object{target}};
-}
-
-git_tag *Tag::tagPtr() const
-{
-    return mTagPtr;
+    if (git_tag_target(&target, d->tag))
+        return Object{};
+    return Object{target};
 }
 }

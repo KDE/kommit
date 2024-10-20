@@ -27,8 +27,8 @@ public:
     int columnCount(const QModelIndex &parent) const override;
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
-    QSharedPointer<Git::Remote> fromIndex(const QModelIndex &index);
-    QSharedPointer<Git::Remote> findByName(const QString &name);
+    Git::Remote fromIndex(const QModelIndex &index);
+    Git::Remote findByName(const QString &name);
 
     void rename(const QString &oldName, const QString &newName);
     void setUrl(const QString &remoteName, const QString &newUrl);
@@ -39,5 +39,5 @@ protected:
     void reload() override;
 
 private:
-    QList<QSharedPointer<Git::Remote>> mData;
+    QList<Git::Remote> mData;
 };

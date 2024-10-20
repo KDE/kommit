@@ -6,12 +6,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include <QSharedPointer>
 #include <QString>
 
-#include "interfaces.h"
 #include "libkommit_export.h"
 
 #include "git2/types.h"
+
+#include <Kommit/ITree>
 
 namespace Git
 {
@@ -25,9 +27,17 @@ class BranchPrivate;
 class LIBKOMMIT_EXPORT Branch : public ITree
 {
 public:
-    explicit Branch(git_reference *branch);
-    ~Branch() override;
+    explicit Branch(git_reference *branch = nullptr);
+    Branch(const Branch &other);
+    Branch &operator=(const Branch &other);
+    bool operator==(const Branch &other) const;
+    bool operator!=(const Branch &other) const;
+    bool operator<(const Branch &other) const;
+    [[nodiscard]] bool isNull() const;
 
+    [[nodiscard]] git_reference *data() const;
+
+    [[nodiscard]] const git_reference *constData() const;
     [[nodiscard]] QString name() const;
     [[nodiscard]] QString refName() const;
     [[nodiscard]] QString upStreamName() const;
@@ -35,18 +45,17 @@ public:
 
     [[nodiscard]] bool isHead() const;
 
-    [[nodiscard]] QSharedPointer<Tree> tree() const override;
-    [[nodiscard]] QSharedPointer<Commit> commit();
-    [[nodiscard]] QSharedPointer<Reference> reference() const;
+    [[nodiscard]] Tree tree() const override;
+    [[nodiscard]] Commit commit();
+    [[nodiscard]] Reference reference() const;
 
     [[nodiscard]] QString treeTitle() const override;
-    [[nodiscard]] QSharedPointer<Object> object() const;
+    [[nodiscard]] Object object() const;
 
     git_reference *refPtr() const;
 
 private:
-    BranchPrivate *const d_ptr;
-    Q_DECLARE_PRIVATE(Branch)
+    QSharedPointer<BranchPrivate> d;
 };
 
 }

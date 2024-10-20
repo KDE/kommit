@@ -11,27 +11,32 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/types.h>
 
 #include <QDateTime>
+#include <QSharedPointer>
 #include <QString>
 
 namespace Git
 {
 
+class SignaturePrivate;
 class LIBKOMMIT_EXPORT Signature
 {
 public:
-    explicit Signature(git_signature *signature);
+    explicit Signature(git_signature *signature = nullptr);
     explicit Signature(const git_signature *signature);
-    ~Signature();
+    Signature(const Signature &other);
+    Signature &operator=(const Signature &other);
+    bool operator==(const Signature &other) const;
+    bool operator!=(const Signature &other) const;
+    [[nodiscard]] bool isNull() const;
+
+    [[nodiscard]] git_signature *data() const;
+    [[nodiscard]] const git_signature *constData() const;
 
     [[nodiscard]] QString name() const;
     [[nodiscard]] QString email() const;
     [[nodiscard]] QDateTime time() const;
-    [[nodiscard]] git_signature *signaturePtr() const;
 
 private:
-    git_signature *mSignature{nullptr};
-    QString mName;
-    QString mEmail;
-    QDateTime mTime;
+    QSharedPointer<SignaturePrivate> d;
 };
 }

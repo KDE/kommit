@@ -10,13 +10,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/treemodel.h"
 #include "repository.h"
 
+#include <Kommit/ITree>
 #include <entities/tree.h>
 
 #include <KLocalizedString>
 #include <QFileDialog>
 #include <QFileIconProvider>
 #include <QMenu>
-#include <interfaces.h>
 
 struct DirData : public NodeData {
     QStringList files;
@@ -37,7 +37,7 @@ FilesTreeDialog::FilesTreeDialog(Git::Repository *git, const QString &place, QWi
     mTreeModel->setShowRoot(true);
     mTreeModel->setRootTitle("/");
 
-    auto tree = QSharedPointer<Git::Tree>{new Git::Tree{git->repoPtr(), place}};
+    Git::Tree tree{git->repoPtr(), place};
     initModel(tree);
 
     setWindowTitle(i18nc("@title:window", "Browse files: %1", place));
@@ -45,7 +45,7 @@ FilesTreeDialog::FilesTreeDialog(Git::Repository *git, const QString &place, QWi
     lineEditBranchName->setText(place);
 }
 
-FilesTreeDialog::FilesTreeDialog(Git::Repository *git, QSharedPointer<Git::ITree> tree, QWidget *parent)
+FilesTreeDialog::FilesTreeDialog(Git::Repository *git, Git::ITree *tree, QWidget *parent)
     : AppDialog(nullptr, parent)
     , mTreeModel(new TreeModel(this))
     , mPlace{}
@@ -59,7 +59,7 @@ FilesTreeDialog::FilesTreeDialog(Git::Repository *git, QSharedPointer<Git::ITree
     mTreeModel->setShowRoot(true);
     mTreeModel->setRootTitle("/");
 
-    auto files = tree->tree()->entries(Git::Tree::EntryType::File);
+    auto files = tree->tree().entries(Git::Tree::EntryType::File);
     lineEditBranchName->setText(tree->treeTitle());
     setWindowTitle(i18nc("@title:window", "Browse files: %1", tree->treeTitle()));
 
@@ -94,7 +94,7 @@ void FilesTreeDialog::slotExtract()
     auto path = QFileDialog::getExistingDirectory(this, i18n("Extract to"));
     if (path.isEmpty())
         return;
-    auto ok = mTree->extract(path, mExtractPrefix);
+    auto ok = mTree.extract(path, mExtractPrefix);
 
     if (ok)
         KMessageBoxHelper::information(this, i18n("All file(s) extracted successfully"));
@@ -130,9 +130,9 @@ void FilesTreeDialog::slotExtract()
 //     connect(extractAction, &QAction::triggered, this, &FilesTreeDialog::slotExtract);
 // }
 
-void FilesTreeDialog::initModel(QSharedPointer<Git::Tree> tree)
+void FilesTreeDialog::initModel(const Git::Tree &tree)
 {
-    auto dirs = tree->entries(Git::Tree::EntryType::Dir);
+    auto dirs = tree.entries(Git::Tree::EntryType::Dir);
 
     // mTreeModel->setShowRoot(true);
     // mTreeModel->setLastPartAsData(false);
@@ -142,7 +142,7 @@ void FilesTreeDialog::initModel(QSharedPointer<Git::Tree> tree)
 
     for (auto const &dir : std::as_const(dirs)) {
         auto data = new DirData;
-        data->files = tree->entries(dir, Git::Tree::EntryType::File);
+        data->files = tree.entries(dir, Git::Tree::EntryType::File);
         mTreeModel->addItem(dir, data);
     }
 
@@ -177,10 +177,12 @@ void FilesTreeDialog::slotListWidgetCustomContextMenuRequested(const QPoint &pos
     else
         path += QLatin1Char('/') + listWidget->currentItem()->text();
 
-    auto file = mTree->file(path);
+    auto file = mTree.file(path);
 
     mActions->setFile(file);
     mActions->popup(listWidget->mapToGlobal(pos));
 }
 
 #include "moc_filestreedialog.cpp"
+
+#include <Kommit/ITree>

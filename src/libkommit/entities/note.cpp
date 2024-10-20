@@ -14,32 +14,74 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class NotePrivate
+{
+public:
+    explicit NotePrivate(git_note *note);
+    ~NotePrivate();
+    git_note *note;
+};
+NotePrivate::NotePrivate(git_note *note)
+    : note{note}
+{
+}
+
+NotePrivate::~NotePrivate()
+{
+    git_note_free(note);
+}
+
 Note::Note(git_note *note)
-    : mNote{note}
+    : d{new NotePrivate{note}}
 
 {
-    mAuthor.reset(new Signature{git_note_author(note)});
-    mCommitter.reset(new Signature{git_note_committer(note)});
-    mMesage = git_note_message(note);
 }
 
-QSharedPointer<Signature> Note::author() const
+Note::Note(const Note &other)
+    : d{other.d}
 {
-    return mAuthor;
 }
 
-QSharedPointer<Signature> Note::committer() const
+Note &Note::operator=(const Note &other)
 {
-    return mCommitter;
+    if (this != &other)
+        d = other.d;
+
+    return *this;
+}
+
+Signature Note::author() const
+{
+    return Signature{git_note_author(d->note)};
+}
+
+Signature Note::committer() const
+{
+    return Signature{git_note_committer(d->note)};
 }
 
 QString Note::message() const
 {
-    return mMesage;
+    return QString{git_note_message(d->note)};
 }
 
-QSharedPointer<Oid> Note::oid() const
+Oid Note::oid() const
 {
-    return QSharedPointer<Oid>{new Oid{git_note_id(mNote)}};
+    return Oid{git_note_id(d->note)};
+}
+
+bool Note::isNull() const
+{
+    return !d->note;
+}
+
+bool Note::operator==(const Note &other) const
+{
+    return d->note == other.d->note;
+}
+
+bool Note::operator!=(const Note &other) const
+{
+    return !(*this == other);
 }
 }

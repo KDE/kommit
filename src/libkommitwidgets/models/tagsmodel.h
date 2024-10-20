@@ -33,7 +33,7 @@ public:
     int columnCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    QSharedPointer<Git::Tag> fromIndex(const QModelIndex &index) const;
+    Git::Tag fromIndex(const QModelIndex &index) const;
 
     void clear() override;
 
@@ -41,5 +41,5 @@ protected:
     void reload() override;
 
 private:
-    QList<QSharedPointer<Git::Tag>> mData;
+    QList<Git::Tag> mData;
 };

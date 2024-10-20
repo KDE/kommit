@@ -111,16 +111,10 @@ void BlameOptions::apply(git_blame_options *opts)
         opts->max_line = d->firstLineNumber;
 
     if (!d->firstCommit.isNull()) {
-        git_oid firstCommit;
-
-        d->firstCommit->oid()->copyTo(&firstCommit);
-        opts->oldest_commit = firstCommit;
+        opts->oldest_commit = *d->firstCommit->oid().data();
     }
     if (!d->lastCommit.isNull()) {
-        git_oid lastCommit;
-
-        d->lastCommit->oid()->copyTo(&lastCommit);
-        opts->oldest_commit = lastCommit;
+        opts->oldest_commit = *d->lastCommit->oid().data();
     }
     opts->flags = d->flags;
 }

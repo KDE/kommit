@@ -78,7 +78,7 @@ void IndexTest::removeFile()
     QVERIFY(ok);
 
     auto index = mManager->index();
-    auto tree = index->tree();
+    auto tree = index.tree();
     TestCommon::touch(mManager->path() + "/README.md");
     auto changedFiles = mManager->changedFiles();
     // QVERIFY(!changedFiles.contains("README.md"));
@@ -92,12 +92,12 @@ void IndexTest::revertFileOfFour()
     auto fileOriginalContent4 = TestCommon::touch(mManager->path() + "/4.txt");
     {
         auto index = mManager->index();
-        index->addByPath("1.txt");
-        index->addByPath("2.txt");
-        index->addByPath("3.txt");
-        index->addByPath("4.txt");
+        index.addByPath("1.txt");
+        index.addByPath("2.txt");
+        index.addByPath("3.txt");
+        index.addByPath("4.txt");
 
-        index->write();
+        index.write();
     }
     mManager->commit("change 4 files");
 

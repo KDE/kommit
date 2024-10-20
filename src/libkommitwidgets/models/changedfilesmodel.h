@@ -36,7 +36,7 @@ public:
         QString filePath;
         QString oldFilePath;
         Git::ChangeStatus status;
-        QSharedPointer<Git::Submodule> submodule;
+        Git::Submodule submodule;
         bool checked;
     };
     const QList<Row> &data() const;

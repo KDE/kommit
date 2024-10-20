@@ -48,17 +48,17 @@ void TagsActions::remove()
 void TagsActions::checkout()
 {
     if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to checkout to the selected tag?"), i18nc("@title:window", "Checkout"))) {
-        mGit->runGit({QStringLiteral("tag"), QStringLiteral("checkout"), QStringLiteral("tags/") + mTag->name()});
+        mGit->runGit({QStringLiteral("tag"), QStringLiteral("checkout"), QStringLiteral("tags/") + mTag.name()});
     }
 }
 
 void TagsActions::diff()
 {
-    auto commit = mTag->commit();
+    auto commit = mTag.commit();
 
     if (commit.isNull())
         return;
-    auto d = new DiffWindow(mGit, commit);
+    auto d = new DiffWindow(mGit, &commit);
     d->showModal();
 }
 
@@ -69,12 +69,12 @@ void TagsActions::push()
     d.exec();
 }
 
-QSharedPointer<Git::Tag> TagsActions::tag() const
+const Git::Tag &TagsActions::tag() const
 {
     return mTag;
 }
 
-void TagsActions::setTag(QSharedPointer<Git::Tag> tag)
+void TagsActions::setTag(const Git::Tag &tag)
 {
     mTag = tag;
 

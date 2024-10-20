@@ -38,23 +38,23 @@ void RemotesWidget::restoreState(QSettings &settings)
 void RemotesWidget::slotListViewItemActivated(const QModelIndex &index)
 {
     auto remote = mModel->fromIndex(index);
-    if (!remote)
+    if (remote.isNull())
         return;
 
     mActions->setRemote(remote);
-    labelRemoteName->setText(remote->name());
-    labelFetchUrl->setText(remote->fetchUrl());
-    labelPushUrl->setText(remote->pushUrl());
-    labelDefaultBranch->setText(remote->defaultBranch());
+    labelRemoteName->setText(remote.name());
+    labelFetchUrl->setText(remote.fetchUrl());
+    labelPushUrl->setText(remote.pushUrl());
+    labelDefaultBranch->setText(remote.defaultBranch());
     treeWidget->clear();
 
-    for (const auto &rb : remote->branches()) {
+    for (const auto &rb : remote.branches()) {
         auto item = new QTreeWidgetItem(treeWidget);
 
-        item->setText(0, rb->name());
-        item->setText(1, rb->refName());
-        item->setText(2, rb->upStreamName());
-        item->setText(3, rb->isHead() ? i18n("Update") : QString());
+        item->setText(0, rb.name());
+        item->setText(1, rb.refName());
+        item->setText(2, rb.upStreamName());
+        item->setText(3, rb.isHead() ? i18n("Update") : QString());
 
         treeWidget->addTopLevelItem(item);
     }
@@ -64,10 +64,10 @@ void RemotesWidget::slotListViewCustomContextMenuRequested(const QPoint &pos)
 {
     Q_UNUSED(pos)
     auto remote = mModel->fromIndex(listView->currentIndex());
-    if (!remote)
+    if (remote.isNull())
         return;
 
-    mActions->setRemoteName(remote->name());
+    mActions->setRemoteName(remote.name());
     mActions->popup();
 }
 

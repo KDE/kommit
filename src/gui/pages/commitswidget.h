@@ -37,7 +37,7 @@ private:
     void slotTextBrowserFileClicked(const QString &file);
     void slotLineEditFilterTextChanged(const QString &arg1);
 
-    void setBranch(QSharedPointer<Git::Branch> branch);
+    void setBranch(const Git::Branch &branch);
     void init();
 
     CommitActions *mCommitActions{nullptr};

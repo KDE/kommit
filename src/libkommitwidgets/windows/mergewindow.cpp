@@ -41,15 +41,15 @@ public:
     QString _filePath;
     QString _title;
 
-    QSharedPointer<Git::Blob> _blob;
+    Git::Blob _blob;
 
     void setFile(const QString &path)
     {
         _mode = Mode::File;
         _filePath = path;
-        _blob.reset();
+        _blob = Git::Blob{};
     }
-    void setFile(QSharedPointer<Git::Blob> file)
+    void setFile(const Git::Blob &file)
     {
         _mode = Mode::Blob;
         _blob = file;
@@ -65,7 +65,7 @@ public:
             return _filePath;
 
         case Mode::Blob:
-            return _blob->name();
+            return _blob.name();
         }
         return {};
     }
@@ -77,7 +77,7 @@ public:
             return "{NULL}";
 
         case Mode::Blob:
-            return _blob->content();
+            return _blob.content();
 
         case Mode::File: {
             QFile f{_filePath};
@@ -358,7 +358,7 @@ void MergeWindow::setBaseFile(const QString &filePath)
     d->base.setFile(filePath);
 }
 
-void MergeWindow::setBaseFile(QSharedPointer<Git::Blob> blob)
+void MergeWindow::setBaseFile(const Git::Blob &blob)
 {
     Q_D(MergeWindow);
     d->base.setFile(blob);
@@ -370,7 +370,7 @@ void MergeWindow::setRemoteFile(const QString &filePath)
     d->remote.setFile(filePath);
 }
 
-void MergeWindow::setRemoteFile(QSharedPointer<Git::Blob> blob)
+void MergeWindow::setRemoteFile(const Git::Blob &blob)
 {
     Q_D(MergeWindow);
     d->remote.setFile(blob);
@@ -382,7 +382,7 @@ void MergeWindow::setLocalFile(const QString &filePath)
     d->local.setFile(filePath);
 }
 
-void MergeWindow::setLocalFile(QSharedPointer<Git::Blob> blob)
+void MergeWindow::setLocalFile(const Git::Blob &blob)
 {
     Q_D(MergeWindow);
     d->local.setFile(blob);

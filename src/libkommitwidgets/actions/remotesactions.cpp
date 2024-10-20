@@ -68,9 +68,10 @@ void RemotesActions::changeUrl()
 {
     auto remote = mGit->remotes()->findByName(mRemoteName);
 
-    if (!remote)
+    if (remote.isNull())
         return;
-    const auto newUrl = QInputDialog::getText(mParent, i18nc("@title:window", "Change url"), i18n("URL"), QLineEdit::Normal, remote->pushUrl());
+
+    const auto newUrl = QInputDialog::getText(mParent, i18nc("@title:window", "Change url"), i18n("URL"), QLineEdit::Normal, remote.pushUrl());
     if (!newUrl.isEmpty()) {
         mGit->remotes()->setUrl(mRemote, newUrl);
         KMessageBoxHelper::information(mParent, i18n("Url for remote changed successfully"));
@@ -93,12 +94,12 @@ void RemotesActions::update()
     qCWarning(KOMMIT_WIDGETS_LOG()) << "RemotesActions::update not implemented";
 }
 
-QSharedPointer<Git::Remote> RemotesActions::remote() const
+const Git::Remote &RemotesActions::remote() const
 {
     return mRemote;
 }
 
-void RemotesActions::setRemote(QSharedPointer<Git::Remote> newRemote)
+void RemotesActions::setRemote(const Git::Remote &newRemote)
 {
     mRemote = newRemote;
 }

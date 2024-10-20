@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "interfaces.h"
 #include "libkommit_export.h"
 
 #include <git2/types.h>
@@ -14,12 +13,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDebug>
 #include <QList>
 #include <QMultiMap>
+#include <QSharedPointer>
 #include <QString>
+
+#include <Kommit/Blob>
+#include <Kommit/IOid>
 
 namespace Git
 {
-
-class Blob;
 
 class TreePrivate;
 class LIBKOMMIT_EXPORT Tree : public IOid
@@ -33,22 +34,30 @@ public:
         QString path{};
     };
 
-    explicit Tree(git_tree *tree);
+    explicit Tree(git_tree *tree = nullptr);
     Tree(git_repository *repo, const QString &place);
-    ~Tree();
+    Tree(const Tree &other);
+
+    Tree &operator=(const Tree &other);
+    bool operator==(const Tree &other) const;
+    bool operator!=(const Tree &other) const;
+    [[nodiscard]] bool isNull() const;
+
+    [[nodiscard]] git_tree *data() const;
+
+    [[nodiscard]] const git_tree *constData() const;
 
     [[nodiscard]] QList<Entry> entries(const QString &path) const;
     [[nodiscard]] QStringList entries(const QString &path, EntryType filter) const;
     [[nodiscard]] QStringList entries(EntryType filter) const;
-    QSharedPointer<Blob> file(const QString &path);
+    Blob file(const QString &path) const;
 
     [[nodiscard]] git_tree *gitTree() const;
     [[nodiscard]] bool extract(const QString &destinationFolder, const QString &prefix = {});
-    QSharedPointer<Oid> oid() const override;
+    Oid oid() const override;
 
 private:
-    TreePrivate *const d_ptr;
-    Q_DECLARE_PRIVATE(Tree)
+    QSharedPointer<TreePrivate> d;
 };
 }
 

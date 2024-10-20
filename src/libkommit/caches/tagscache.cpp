@@ -22,7 +22,7 @@ TagsCache::TagsCache(Repository *parent)
 {
 }
 
-QSharedPointer<Tag> TagsCache::find(const QString &key)
+Tag TagsCache::find(const QString &key)
 {
     git_tag *tag;
     git_object *tagObject;
@@ -34,14 +34,14 @@ QSharedPointer<Tag> TagsCache::find(const QString &key)
     if (IS_OK)
         return Cache::findByPtr(tag);
 
-    return QSharedPointer<Tag>{};
+    return Tag{};
 }
 
-void TagsCache::forEach(std::function<void(QSharedPointer<Tag>)> cb)
+void TagsCache::forEach(std::function<void(const Tag &)> cb)
 {
     struct wrapper {
         git_repository *repo;
-        std::function<void(QSharedPointer<Tag>)> cb;
+        std::function<void(const Tag &)> cb;
         TagsCache *cache;
         Repository *manager;
     };
@@ -60,7 +60,6 @@ void TagsCache::forEach(std::function<void(QSharedPointer<Tag>)> cb)
         BEGIN
         STEP git_tag_lookup(&t, w->repo, oid_c);
 
-        QSharedPointer<Tag> tag;
         if (IS_OK) {
             auto tag = w->cache->findByPtr(t);
             w->cb(tag);
@@ -83,8 +82,7 @@ void TagsCache::forEach(std::function<void(QSharedPointer<Tag>)> cb)
             RETURN_IF_ERR(0);
 
             auto lightTagName = QString{git_reference_shorthand(ref)};
-            tag.reset(new Tag{commit, lightTagName});
-            w->cb(tag);
+            w->cb(Tag{commit, lightTagName});
             return 0;
         }
 
@@ -94,7 +92,7 @@ void TagsCache::forEach(std::function<void(QSharedPointer<Tag>)> cb)
     git_tag_foreach(manager->repoPtr(), callback_c, &w);
 }
 
-bool TagsCache::create(const QString &name, const QString &message, QSharedPointer<Object> target, QSharedPointer<Signature> signature)
+bool TagsCache::create(const QString &name, const QString &message, const Object &target, const Signature &signature)
 {
     git_object *targetObject = NULL;
     git_oid oid;
@@ -108,16 +106,16 @@ bool TagsCache::create(const QString &name, const QString &message, QSharedPoint
         if (head.isNull())
             return false;
 
-        auto targetId = head->target()->oidPtr();
+        auto targetId = head.target().data();
         STEP git_object_lookup(&targetObject, repo, targetId, GIT_OBJECT_COMMIT);
     } else {
-        targetObject = target->objectPtr();
+        targetObject = target.data();
     }
 
     if (signature.isNull())
         STEP git_signature_default(&sign, repo);
     else
-        sign = signature->signaturePtr();
+        sign = signature.data();
     // STEP git_revparse_single(&targetObject, repo, "HEAD");
     // STEP git_repository_head(&head, repo);
 
@@ -141,16 +139,16 @@ bool TagsCache::create(const QString &name, const QString &message, QSharedPoint
     return IS_OK;
 }
 
-bool TagsCache::remove(QSharedPointer<Tag> tag)
+bool TagsCache::remove(const Tag &tag)
 {
     BEGIN
-    STEP git_tag_delete(manager->repoPtr(), tag->name().toLocal8Bit().constData());
+    STEP git_tag_delete(manager->repoPtr(), tag.name().toLocal8Bit().constData());
     PRINT_ERROR;
 
     if (IS_ERROR)
         return false;
 
-    removeFromList(tag->tagPtr());
+    removeFromList(tag.data());
 
     return IS_OK;
 }
@@ -160,10 +158,10 @@ void TagsCache::clearChildData()
     mTagsByCommit.clear();
 }
 
-QList<QSharedPointer<Tag>> TagsCache::allTags()
+QList<Tag> TagsCache::allTags()
 {
-    QList<QSharedPointer<Tag>> list;
-    forEach([&list](QSharedPointer<Tag> tag) {
+    QList<Tag> list;
+    forEach([&list](const Tag &tag) {
         list << tag;
     });
     return list;
@@ -173,9 +171,10 @@ QStringList TagsCache::allNames()
 {
     QStringList list;
 
-    forEach([&list](QSharedPointer<Tag> tag) {
-        list << tag->name();
+    forEach([&list](const Tag &tag) {
+        list << tag.name();
     });
     return list;
 }
-};
+
+}

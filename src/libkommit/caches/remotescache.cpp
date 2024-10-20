@@ -83,18 +83,18 @@ bool RemotesCache::create(const QString &name, const QString &url)
     return IS_OK;
 }
 
-bool RemotesCache::setUrl(DataType remote, const QString &url)
+bool RemotesCache::setUrl(const Remote &remote, const QString &url)
 {
     BEGIN;
-    STEP git_remote_set_url(manager->repoPtr(), remote->name().toUtf8().data(), url.toUtf8().data());
+    STEP git_remote_set_url(manager->repoPtr(), remote.name().toUtf8().data(), url.toUtf8().data());
 
     return IS_OK;
 }
 
-bool RemotesCache::remove(RemotesCache::DataType remote)
+bool RemotesCache::remove(const Remote &remote)
 {
     BEGIN
-    STEP git_remote_delete(manager->repoPtr(), remote->name().toUtf8().data());
+    STEP git_remote_delete(manager->repoPtr(), remote.name().toUtf8().data());
     END;
 
     if (IS_OK)
@@ -120,12 +120,12 @@ bool RemotesCache::remove(const QString &name)
     return IS_OK;
 }
 
-bool RemotesCache::rename(DataType remote, const QString &newName)
+bool RemotesCache::rename(const Remote &remote, const QString &newName)
 {
     git_strarray problems = {0};
 
     BEGIN
-    STEP git_remote_rename(&problems, manager->repoPtr(), remote->name().toUtf8().data(), newName.toUtf8().data());
+    STEP git_remote_rename(&problems, manager->repoPtr(), remote.name().toUtf8().data(), newName.toUtf8().data());
     git_strarray_free(&problems);
     END;
 

@@ -33,7 +33,7 @@ StashActions::StashActions(Git::Repository *git, QWidget *parent)
 
 void StashActions::apply()
 {
-    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStash->message()))) {
+    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to apply the selected stash?"), i18n("Apply stash %1", mStash.message()))) {
         if (!mGit->stashes()->apply(mStash))
             KMessageBoxHelper::information(mParent, i18n("Unable to apply the selected stash"));
     }
@@ -41,7 +41,7 @@ void StashActions::apply()
 
 void StashActions::drop()
 {
-    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to drop the selected stash?"), i18n("Drop stash %1", mStash->message()))) {
+    if (KMessageBoxHelper::removeQuestion(mParent, i18n("Are you sure to drop the selected stash?"), i18n("Drop stash %1", mStash.message()))) {
         if (!mGit->stashes()->remove(mStash)) {
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected stash"));
             return;
@@ -51,7 +51,7 @@ void StashActions::drop()
 
 void StashActions::pop()
 {
-    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to pop the selected stash?"), i18n("Pop stash %1", mStash->message()))) {
+    if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to pop the selected stash?"), i18n("Pop stash %1", mStash.message()))) {
         if (!mGit->stashes()->pop(mStash)) {
             KMessageBoxHelper::information(mParent, i18n("Unable to remove the selected stash"));
             return;
@@ -61,7 +61,7 @@ void StashActions::pop()
 
 void StashActions::diff()
 {
-    auto d = new DiffWindow(mGit, mStash->commit());
+    auto d = new DiffWindow(mGit, &mStash.commit());
     d->showModal();
 }
 
@@ -80,12 +80,12 @@ void StashActions::create()
     }
 }
 
-QSharedPointer<Git::Stash> StashActions::stash() const
+const Git::Stash &StashActions::stash() const
 {
     return mStash;
 }
 
-void StashActions::setStash(QSharedPointer<Git::Stash> stash)
+void StashActions::setStash(const Git::Stash &stash)
 {
     mStash = stash;
 

@@ -26,9 +26,10 @@ public:
     explicit NotesCache(Repository *parent);
 
     [[nodiscard]] ListType allNotes();
-    [[nodiscard]] DataType findByOid(const git_oid *oid);
+    [[nodiscard]] Note findByOid(const git_oid *oid);
 
 protected:
     void clearChildData() override;
 };
-};
+
+}

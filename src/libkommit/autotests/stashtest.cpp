@@ -43,8 +43,8 @@ void StashTest::makeACommit()
     TestCommon::touch(mManager->path() + "/README.md");
 
     auto index = mManager->index();
-    index->addByPath("README.md");
-    index->writeTree();
+    index.addByPath("README.md");
+    index.writeTree();
     mManager->commit("commit1");
 }
 
@@ -66,7 +66,7 @@ void StashTest::makeStash()
 
     auto stashes = mManager->stashes()->allStashes();
     QCOMPARE(stashes.count(), 1);
-    QCOMPARE(stashes.at(0)->message(), QStringLiteral("On master: stash1"));
+    QCOMPARE(stashes.at(0).message(), QStringLiteral("On master: stash1"));
 }
 
 void StashTest::tryToApplyInChangedWorkDir()
@@ -90,8 +90,8 @@ void StashTest::commitAndApplyStash()
     TestCommon::touch(mManager->path() + "/README.md");
 
     auto index = mManager->index();
-    index->addByPath("README.md");
-    index->writeTree();
+    index.addByPath("README.md");
+    index.writeTree();
     mManager->commit("commit2");
 
     auto ok = mManager->stashes()->apply(QStringLiteral("On master: stash1"));

@@ -23,7 +23,7 @@ class HistoryViewWidget : public WidgetBase, private Ui::HistoryViewWidget
 
 public:
     explicit HistoryViewWidget(RepositoryData *git, AppWindow *parent = nullptr);
-    void setBranch(QSharedPointer<Git::Branch> branch);
+    void setBranch(const Git::Branch &branch);
 
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;

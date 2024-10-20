@@ -23,19 +23,19 @@ class LIBKOMMIT_EXPORT TagsCache : public OidCache<Tag, git_tag>
 public:
     explicit TagsCache(Repository *parent);
 
-    [[nodiscard]] QSharedPointer<Tag> find(const QString &key);
-    [[nodiscard]] QList<QSharedPointer<Tag>> allTags();
+    [[nodiscard]] Tag find(const QString &key);
+    [[nodiscard]] QList<Tag> allTags();
     [[nodiscard]] QStringList allNames();
 
-    void forEach(std::function<void(QSharedPointer<Tag>)> cb);
-    bool create(const QString &name, const QString &message, QSharedPointer<Object> target = {}, QSharedPointer<Signature> signature = {});
-    bool remove(QSharedPointer<Tag> tag);
+    void forEach(std::function<void(const Tag &)> cb);
+    bool create(const QString &name, const QString &message, const Object &target = Object{}, const Signature &signature = Signature{});
+    bool remove(const Tag &tag);
 
 protected:
     void clearChildData() override;
 
 private:
-    QHash<git_commit *, QSharedPointer<Tag>> mTagsByCommit;
+    QHash<git_commit *, Tag> mTagsByCommit;
 };
 
 }

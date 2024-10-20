@@ -9,10 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractactions.h"
 #include "libkommitwidgets_export.h"
 
-namespace Git
-{
-class Branch;
-}
+#include <Kommit/Branch>
+
 class LIBKOMMITWIDGETS_EXPORT BranchActions : public AbstractActions
 {
     Q_OBJECT
@@ -20,8 +18,8 @@ class LIBKOMMITWIDGETS_EXPORT BranchActions : public AbstractActions
 public:
     explicit BranchActions(Git::Repository *git, QWidget *parent = nullptr);
 
-    void setBranch(QSharedPointer<Git::Branch> newBranch);
-    void setOtherBranch(QSharedPointer<Git::Branch> newOtherBranch);
+    void setBranch(const Git::Branch &newBranch);
+    void setOtherBranch(const Git::Branch &newOtherBranch);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void fetch();
@@ -32,8 +30,8 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void remove();
     LIBKOMMITWIDGETS_NO_EXPORT void merge();
 
-    QSharedPointer<Git::Branch> mBranch;
-    QSharedPointer<Git::Branch> mOtherBranch;
+    Git::Branch mBranch;
+    Git::Branch mOtherBranch;
 
     DEFINE_ACTION(actionFetch)
     DEFINE_ACTION(actionBrowse)

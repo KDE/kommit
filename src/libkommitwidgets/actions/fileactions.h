@@ -9,10 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractactions.h"
 #include "libkommitwidgets_export.h"
 
-namespace Git
-{
-class Blob;
-}
+#include <Kommit/Blob>
 
 class LIBKOMMITWIDGETS_EXPORT FileActions : public AbstractActions
 {
@@ -28,8 +25,8 @@ public:
     [[nodiscard]] const QString &filePath() const;
     void setFilePath(const QString &newFilePath);
 
-    [[nodiscard]] QSharedPointer<Git::Blob> file() const;
-    void setFile(QSharedPointer<Git::Blob> file);
+    [[nodiscard]] const Git::Blob &file() const;
+    void setFile(const Git::Blob &file);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void viewFile();
@@ -52,5 +49,5 @@ private:
     DEFINE_ACTION(actionMergeWithHead)
 
     QMenu *const mOpenWithMenu;
-    QSharedPointer<Git::Blob> mFile;
+    Git::Blob mFile;
 };
