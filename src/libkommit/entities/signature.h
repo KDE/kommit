@@ -21,7 +21,8 @@ class SignaturePrivate;
 class LIBKOMMIT_EXPORT Signature
 {
 public:
-    explicit Signature(git_signature *signature = nullptr);
+    constexpr Signature() noexcept;
+    explicit Signature(git_signature *signature);
     explicit Signature(const git_signature *signature);
     Signature(const Signature &other);
     Signature &operator=(const Signature &other);

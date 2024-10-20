@@ -37,6 +37,11 @@ public:
     void browseNestedEntities(Tree::EntryType type, const QString &path, QStringList &list) const;
 };
 
+Tree::Tree() noexcept
+    : d{new TreePrivate{this, nullptr}}
+{
+}
+
 Tree::Tree(git_tree *tree)
     : d{new TreePrivate{this, tree}}
 {

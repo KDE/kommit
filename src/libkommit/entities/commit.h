@@ -33,7 +33,8 @@ class LIBKOMMIT_EXPORT Commit : public ITree, public IOid
 public:
     enum CommitType { NormalCommit, InitialCommit, ForkCommit, MergeCommit };
 
-    explicit Commit(git_commit *commit = nullptr);
+    constexpr Commit() noexcept;
+    explicit Commit(git_commit *commit);
     Commit(const Commit &other);
     Commit &operator=(const Commit &other);
     bool operator==(const Commit &other) const;

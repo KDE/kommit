@@ -20,7 +20,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <Kommit/Blob>
 #include <Kommit/FileMode>
 #include <Kommit/ITree>
-#include <Kommit/IndexEntry>
 #include <Kommit/Oid>
 #include <Kommit/Tree>
 
@@ -35,7 +34,8 @@ class LIBKOMMIT_EXPORT IndexEntry : IOid
 public:
     enum class StageState { Normal, Base, Ours, Thers };
 
-    IndexEntry(const git_index_entry *entryPtr = nullptr);
+    constexpr IndexEntry() noexcept;
+    IndexEntry(const git_index_entry *entryPtr);
 
     QString path() const;
     quint16 fileSize() const;
@@ -102,7 +102,8 @@ class IndexPrivate;
 class LIBKOMMIT_EXPORT Index : public ITree
 {
 public:
-    explicit Index(git_index *index = nullptr);
+    constexpr Index() noexcept;
+    explicit Index(git_index *index);
     ~Index();
     Index(const Index &other);
     Index &operator=(const Index &other);

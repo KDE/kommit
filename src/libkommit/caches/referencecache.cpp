@@ -55,7 +55,7 @@ ReferenceCache::DataType ReferenceCache::findForNote(const Note &note)
 
     if (i != mList.end())
         return *i;
-    return {};
+    return Reference{};
 }
 
 ReferenceCache::DataType ReferenceCache::findForBranch(const Branch &branch)
@@ -68,7 +68,7 @@ ReferenceCache::DataType ReferenceCache::findForBranch(const Branch &branch)
 
     if (i != mList.end())
         return *i;
-    return {};
+    return Reference{};
 }
 
 ReferenceCache::DataType ReferenceCache::findForTag(const Tag &tag)
@@ -81,7 +81,7 @@ ReferenceCache::DataType ReferenceCache::findForTag(const Tag &tag)
 
     if (i != mList.end())
         return *i;
-    return {};
+    return Reference{};
 }
 
 ReferenceCache::DataType ReferenceCache::findForRemote(const Remote &remote)
@@ -94,7 +94,7 @@ ReferenceCache::DataType ReferenceCache::findForRemote(const Remote &remote)
 
     if (i != mList.end())
         return *i;
-    return {};
+    return Reference{};
 }
 
 ReferenceCache::ListType ReferenceCache::findForCommit(const Commit &commit)

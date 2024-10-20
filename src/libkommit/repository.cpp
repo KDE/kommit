@@ -425,7 +425,7 @@ QList<FileStatus> Repository::diff(AbstractReference *from, AbstractReference *t
 
     if (IS_ERROR) {
         PRINT_ERROR;
-        return {};
+        return QList<FileStatus>{};
     }
 
     git_diff_stats *stats;

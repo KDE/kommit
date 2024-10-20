@@ -67,6 +67,11 @@ TagPrivate::~TagPrivate()
     git_tag_free(tag);
 }
 
+Tag::Tag() noexcept
+    : d{new TagPrivate{nulptr}}
+{
+}
+
 Tag::Tag(git_tag *tag)
     : d{new TagPrivate{tag}}
 {

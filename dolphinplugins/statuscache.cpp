@@ -103,7 +103,7 @@ auto callback(const char *pa, unsigned int status_flags, void *payload) -> int
         }
     }
     return 0;
-};
+}
 
 QString findParentContansGit(const QString &dir)
 {

@@ -31,7 +31,7 @@ public:
     Commit commit;
 };
 
-Stash::Stash()
+Stash::Stash() noexcept
     : d{new StashPrivate}
 {
 }

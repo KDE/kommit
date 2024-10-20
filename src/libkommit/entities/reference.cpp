@@ -156,7 +156,7 @@ Note Reference::toNote() const
 Branch Reference::toBranch() const
 {
     if (!isBranch())
-        return {};
+        return Branch{};
 
     auto manager = Repository::owner(git_reference_owner(d->reference));
 
@@ -167,7 +167,7 @@ Branch Reference::toBranch() const
 Tag Reference::toTag() const
 {
     if (!isTag())
-        return {};
+        return Tag{};
 
     auto oid = git_reference_target(d->reference);
     auto manager = Repository::owner(git_reference_owner(d->reference));
@@ -178,7 +178,7 @@ Tag Reference::toTag() const
 Remote Reference::toRemote() const
 {
     if (!isBranch())
-        return {};
+        return Remote{};
 
     auto manager = Repository::owner(git_reference_owner(d->reference));
 

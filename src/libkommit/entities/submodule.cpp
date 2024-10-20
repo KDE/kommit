@@ -44,9 +44,15 @@ public:
     QScopedPointer<git_submodule, GitSubmodulePointerDeleter> find() const; // TODO: do we need this?
 };
 
+Submodule::Submodule() noexcept
+    : d{new SubmodulePrivate{this, nullptr}}
+{
+}
+
 Submodule::Submodule(git_submodule *submodule, git_repository *repo)
     : d{new SubmodulePrivate{this, repo}}
 {
+    d->submodule = submodule;
     d->name = QString{git_submodule_name(submodule)};
     d->path = QString{git_submodule_path(submodule)};
     d->url = QString{git_submodule_url(submodule)};

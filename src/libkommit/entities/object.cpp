@@ -39,6 +39,11 @@ ObjectPrivate::~ObjectPrivate()
     git_object_free(object);
 }
 
+Object::Object() noexcept
+    : d{new ObjectPrivate{nulptr}}
+{
+}
+
 Object::Object(git_object *obj)
     : d{new ObjectPrivate{obj}}
 {

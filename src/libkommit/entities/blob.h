@@ -24,7 +24,8 @@ class BlobPrivate;
 class LIBKOMMIT_EXPORT Blob
 {
 public:
-    explicit Blob(git_blob *blob = nullptr);
+    constexpr Blob() noexcept;
+    explicit Blob(git_blob *blob);
     Blob(git_repository *repo, git_tree_entry *entry);
     Blob(git_repository *repo, const git_index_entry *entry);
     Blob(git_repository *repo, const QString &relativePath);

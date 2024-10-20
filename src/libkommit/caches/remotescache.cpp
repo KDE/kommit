@@ -27,7 +27,7 @@ RemotesCache::RemotesCache(Repository *manager)
 RemotesCache::ListType RemotesCache::allRemotes()
 {
     if (!manager->isValid())
-        return {};
+        return ListType{};
     ListType list;
     git_strarray names{};
     git_remote_list(&names, manager->repoPtr());

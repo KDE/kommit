@@ -59,7 +59,7 @@ BranchesCache::DataType BranchesCache::findByName(const QString &key)
         d->add(b);
         return b;
     }
-    return {};
+    return Branch{};
 }
 
 bool BranchesCache::create(const QString &name)

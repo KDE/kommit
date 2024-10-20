@@ -45,6 +45,11 @@ public:
     // Commit commit;
 };
 
+Branch::Branch() noexcept
+    : d{new BranchPrivate{this, nullptr}}
+{
+}
+
 Branch::Branch(git_reference *branch)
     : d{new BranchPrivate{this, branch}}
 {

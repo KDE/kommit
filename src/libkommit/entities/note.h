@@ -25,7 +25,8 @@ class NotePrivate;
 class LIBKOMMIT_EXPORT Note : public IOid
 {
 public:
-    explicit Note(git_note *note = nullptr);
+    constexpr Note() noexcept;
+    explicit Note(git_note *note);
     Note(const Note &other);
 
     Note &operator=(const Note &other);

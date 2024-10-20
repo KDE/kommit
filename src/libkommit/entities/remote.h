@@ -39,7 +39,8 @@ class RemotePrivate;
 class LIBKOMMIT_EXPORT Remote
 {
 public:
-    Remote(git_remote *remote = nullptr);
+    constexpr Remote() noexcept;
+    Remote(git_remote *remote);
 
     Remote(const Remote &other);
     Remote &operator=(const Remote &other);

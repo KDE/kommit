@@ -43,6 +43,11 @@ public:
     QStringList children;
 };
 
+Commit::Commit() noexcept
+    : d{new CommitPrivate{this, nullptr}}
+{
+}
+
 Commit::Commit(git_commit *commit)
     : d{new CommitPrivate{this, commit}}
 {

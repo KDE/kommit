@@ -47,6 +47,11 @@ BlobPrivate::~BlobPrivate()
     git_blob_free(blob);
 }
 
+Blob::Blob() noexcept
+    : d{new BlobPrivate{this}}
+{
+}
+
 Blob::Blob(git_blob *blob)
     : d{new BlobPrivate{this}}
 {
@@ -143,7 +148,7 @@ QByteArray Blob::content() const
 {
     auto blob = d->blob;
     if (!blob)
-        return {};
+        return QByteArray{};
 
     QByteArray buffer{(char *)git_blob_rawcontent(blob)};
     git_blob_free(blob);

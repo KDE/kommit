@@ -40,6 +40,11 @@ RemotePrivate::~RemotePrivate()
     git_remote_free(remote);
 }
 
+Remote::Remote() noexcept
+    : d{new RemotePrivate{nullptr}}
+{
+}
+
 Remote::Remote(git_remote *remote)
     : d{new RemotePrivate{remote}}
 {

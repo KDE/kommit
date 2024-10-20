@@ -43,6 +43,11 @@ IndexEntryPrivate::IndexEntryPrivate(const git_index_entry *entry)
     }
 }
 
+IndexEntry::IndexEntry() noexcept
+    : d{new IndexEntryPrivate{nullptr}}
+{
+}
+
 IndexEntry::IndexEntry(const git_index_entry *entryPtr)
     : d{new IndexEntryPrivate{entryPtr}}
 {
@@ -91,6 +96,11 @@ IndexPrivate::IndexPrivate(git_index *index)
 IndexPrivate::~IndexPrivate()
 {
     git_index_free(index);
+}
+
+Index::Index() noexcept
+    : d{new IndexPrivate{nullptr}}
+{
 }
 
 Index::Index(git_index *index)
