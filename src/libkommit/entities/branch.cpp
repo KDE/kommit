@@ -45,7 +45,7 @@ public:
     // Commit commit;
 };
 
-Branch::Branch() noexcept
+Branch::Branch()
     : d{new BranchPrivate{this, nullptr}}
 {
 }

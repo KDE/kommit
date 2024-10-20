@@ -47,7 +47,7 @@ BlobPrivate::~BlobPrivate()
     git_blob_free(blob);
 }
 
-Blob::Blob() noexcept
+Blob::Blob()
     : d{new BlobPrivate{this}}
 {
 }

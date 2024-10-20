@@ -43,7 +43,7 @@ SignaturePrivate::~SignaturePrivate()
         git_signature_free(const_cast<git_signature *>(signature));
 }
 
-Signature::Signature() noexcept
+Signature::Signature()
     : d{new SignaturePrivate{nullptr}}
 {
 }

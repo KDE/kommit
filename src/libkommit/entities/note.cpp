@@ -31,7 +31,7 @@ NotePrivate::~NotePrivate()
     git_note_free(note);
 }
 
-Note::Note() noexcept
+Note::Note()
     : d{new NotePrivate{nullptr}}
 {
 }

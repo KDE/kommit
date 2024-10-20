@@ -44,7 +44,7 @@ public:
     QScopedPointer<git_submodule, GitSubmodulePointerDeleter> find() const; // TODO: do we need this?
 };
 
-Submodule::Submodule() noexcept
+Submodule::Submodule()
     : d{new SubmodulePrivate{this, nullptr}}
 {
 }

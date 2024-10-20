@@ -39,7 +39,7 @@ ObjectPrivate::~ObjectPrivate()
     git_object_free(object);
 }
 
-Object::Object() noexcept
+Object::Object()
     : d{new ObjectPrivate{nulptr}}
 {
 }

@@ -34,7 +34,7 @@ class LIBKOMMIT_EXPORT IndexEntry : IOid
 public:
     enum class StageState { Normal, Base, Ours, Thers };
 
-    constexpr IndexEntry() noexcept;
+    IndexEntry();
     IndexEntry(const git_index_entry *entryPtr);
 
     QString path() const;
@@ -102,7 +102,7 @@ class IndexPrivate;
 class LIBKOMMIT_EXPORT Index : public ITree
 {
 public:
-    constexpr Index() noexcept;
+    Index();
     explicit Index(git_index *index);
     ~Index();
     Index(const Index &other);

@@ -39,7 +39,7 @@ class RemotePrivate;
 class LIBKOMMIT_EXPORT Remote
 {
 public:
-    constexpr Remote() noexcept;
+    Remote();
     Remote(git_remote *remote);
 
     Remote(const Remote &other);

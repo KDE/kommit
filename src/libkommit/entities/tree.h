@@ -34,7 +34,8 @@ public:
         QString path{};
     };
 
-    explicit Tree(git_tree *tree = nullptr);
+    Tree();
+    explicit Tree(git_tree *tree);
     Tree(git_repository *repo, const QString &place);
     Tree(const Tree &other);
 

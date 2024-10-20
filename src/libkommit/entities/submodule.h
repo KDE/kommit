@@ -52,7 +52,7 @@ public:
     Q_DECLARE_FLAGS(StatusFlags, Status)
     Q_FLAG(StatusFlags)
 
-    constexpr Submodule() noexcept;
+    Submodule();
     Submodule(git_submodule *submodule, git_repository *repo = nullptr);
     Submodule(const Submodule &other);
     Submodule &operator=(const Submodule &other);

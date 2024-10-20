@@ -35,7 +35,7 @@ public:
         OfsDelta = GIT_OBJECT_OFS_DELTA,
         RefDelta = GIT_OBJECT_REF_DELTA,
     };
-    constexpr Object() noexcept;
+    Object();
     explicit Object(git_object *obj);
     Object(const Object &other);
     Object &operator=(const Object &other);

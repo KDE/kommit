@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-Oid::Oid() noexcept
+Oid::Oid()
     : d(GIT_OID_SHA1_SIZE, 0)
 {
 }

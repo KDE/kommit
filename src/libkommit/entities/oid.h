@@ -18,7 +18,7 @@ namespace Git
 class LIBKOMMIT_EXPORT Oid
 {
 public:
-    constexpr Oid() noexcept;
+    Oid();
     explicit Oid(const git_oid *oid);
     explicit Oid(const git_oid oid);
     Oid(const Oid &other);

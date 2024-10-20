@@ -27,7 +27,7 @@ class BranchPrivate;
 class LIBKOMMIT_EXPORT Branch : public ITree
 {
 public:
-    constexpr Branch() noexcept;
+    Branch();
     explicit Branch(git_reference *branch);
     Branch(const Branch &other);
     Branch &operator=(const Branch &other);

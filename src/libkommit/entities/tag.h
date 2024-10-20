@@ -24,7 +24,7 @@ class LIBKOMMIT_EXPORT Tag : public IOid
 public:
     enum class Type { RegularTag, LightTag };
 
-    constexpr Tag() noexcept;
+    Tag();
     explicit Tag(git_tag *tag);
     Tag(git_commit *commit, const QString &name);
     explicit Tag(Commit *parentCommit);

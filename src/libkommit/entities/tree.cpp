@@ -37,7 +37,7 @@ public:
     void browseNestedEntities(Tree::EntryType type, const QString &path, QStringList &list) const;
 };
 
-Tree::Tree() noexcept
+Tree::Tree()
     : d{new TreePrivate{this, nullptr}}
 {
 }

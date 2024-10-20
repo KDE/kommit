@@ -25,7 +25,7 @@ class StashPrivate;
 class LIBKOMMIT_EXPORT Stash : IOid
 {
 public:
-    constexpr Stash() noexcept;
+    Stash();
     Stash(Repository *manager, size_t index, const char *message, const git_oid *stash_id);
     Stash(const Stash &other);
     Stash &operator=(const Stash &other);
