@@ -193,18 +193,18 @@ void FetchOptions::apply(git_remote_callbacks *callbacks, Repository *repo)
 {
     auto bridge = new FetchOptionsCallbacks::FetchBridge;
     bridge->manager = repo;
-    bridge->fetch = this;
-    // bridge->parent = ... //TODO
+    // bridge->parent = this;
+    //  bridge->parent = ... //TODO
     bridge->findSignals();
 
-    callbacks->update_tips = &Callbacks::git_helper_update_tips_cb;
-    callbacks->sideband_progress = &Callbacks::git_helper_sideband_progress_cb;
-    callbacks->transfer_progress = &Callbacks::git_helper_transfer_progress_cb;
-    callbacks->credentials = &Callbacks::git_helper_credentials_cb;
-    callbacks->pack_progress = &Callbacks::git_helper_packbuilder_progress;
-    callbacks->transport = &Callbacks::git_helper_transport_cb;
-    callbacks->certificate_check = &Callbacks::git_helper_transport_certificate_check;
-    callbacks->remote_ready = &Callbacks::git_helper_remote_ready_cb;
+    callbacks->update_tips = &FetchOptionsCallbacks::git_helper_update_tips_cb;
+    callbacks->sideband_progress = &FetchOptionsCallbacks::git_helper_sideband_progress_cb;
+    callbacks->transfer_progress = &FetchOptionsCallbacks::git_helper_transfer_progress_cb;
+    callbacks->credentials = &FetchOptionsCallbacks::git_helper_credentials_cb;
+    callbacks->pack_progress = &FetchOptionsCallbacks::git_helper_packbuilder_progress;
+    callbacks->transport = &FetchOptionsCallbacks::git_helper_transport_cb;
+    callbacks->certificate_check = &FetchOptionsCallbacks::git_helper_transport_certificate_check;
+    callbacks->remote_ready = &FetchOptionsCallbacks::git_helper_remote_ready_cb;
     callbacks->payload = bridge;
 }
 

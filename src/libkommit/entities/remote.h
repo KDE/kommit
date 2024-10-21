@@ -54,9 +54,6 @@ public:
     };
     // Q_ENUM(Direction)
 
-    Remote(git_remote *remote);
-    virtual ~Remote();
-
     [[nodiscard]] QString name() const;
     [[nodiscard]] QList<RefSpec> refSpecList() const;
     [[nodiscard]] QString pushUrl() const;

@@ -37,7 +37,7 @@ Q_SIGNALS:
     void message(const QString &message);
     void transferProgress(const FetchTransferStat *stat);
     void packProgress(const PackProgress *p);
-    void updateRef(QSharedPointer<Reference> reference, QSharedPointer<Oid> a, QSharedPointer<Oid> b);
+    void updateRef(const Reference &reference, const Oid &a, const Oid &b);
 };
 
 } // namespace Git

@@ -10,8 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "certificate.h"
 #include "credential.h"
 #include "oid.h"
-#include "repository.h"
 #include "remoteconnectionlistener.h"
+#include "repository.h"
 
 namespace Git
 {
@@ -29,8 +29,8 @@ int git_helper_update_tips_cb(const char *refname, const git_oid *a, const git_o
     auto bridge = reinterpret_cast<FetchBridge *>(data);
 
     auto ref = bridge->manager->references()->findByName(QString{refname});
-    auto oidA = QSharedPointer<Oid>{new Oid{a}};
-    auto oidB = QSharedPointer<Oid>{new Oid{b}};
+    Oid oidA{a};
+    Oid oidB{b};
 
     Q_EMIT bridge->fetch->updateRef(ref, oidA, oidB);
     return 0;
