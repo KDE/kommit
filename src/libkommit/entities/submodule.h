@@ -63,8 +63,7 @@ public:
     [[nodiscard]] git_submodule *data() const;
 
     [[nodiscard]] const git_submodule *constData() const;
-    [[nodiscard]] const QString &path() const;
-    [[nodiscard]] const QString &refName() const;
+    [[nodiscard]] QString path() const;
     [[nodiscard]] QString url() const;
     [[nodiscard]] QString name() const;
     [[nodiscard]] QString branch();
@@ -72,9 +71,9 @@ public:
 
     [[nodiscard]] bool hasModifiedFiles() const;
 
-    [[nodiscard]] Oid headId();
-    [[nodiscard]] Oid indexId();
-    [[nodiscard]] Oid workingDirectoryId();
+    [[nodiscard]] Oid headId() const;
+    [[nodiscard]] Oid indexId() const;
+    [[nodiscard]] Oid workingDirectoryId() const;
 
     void setUrl(const QString &newUrl);
     bool sync() const;

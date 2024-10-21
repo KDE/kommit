@@ -40,6 +40,16 @@ class FileDeltaPrivate;
 class FileDelta
 {
 public:
+    enum class Flag {
+        Binary = GIT_DIFF_FLAG_BINARY,
+        NotBinary = GIT_DIFF_FLAG_NOT_BINARY,
+        ValidId = GIT_DIFF_FLAG_VALID_ID,
+        Exists = GIT_DIFF_FLAG_EXISTS,
+        ValidSize = GIT_DIFF_FLAG_VALID_SIZE,
+    };
+
+    Q_DECLARE_FLAGS(Flags, Flag)
+
     FileDelta(git_diff_delta *delta);
     ~FileDelta();
 

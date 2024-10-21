@@ -18,7 +18,7 @@ public:
     FileDeltaPrivate(FileDelta *parent, git_diff_delta *delta);
 
     git_delta_t status;
-    uint32_t flags;
+    FileDelta::Flags flags;
     uint16_t similarity;
     uint16_t nfiles;
     DiffFile old_file;
@@ -27,7 +27,7 @@ public:
 FileDeltaPrivate::FileDeltaPrivate(FileDelta *parent, git_diff_delta *delta)
     : q_ptr{parent}
     , status{delta->status}
-    , flags{delta->flags}
+    , flags{static_cast<FileDelta::Flags>(delta->flags)}
     , similarity{delta->similarity}
     , nfiles{delta->nfiles}
     , old_file{DiffFile{&delta->old_file}}
