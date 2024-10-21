@@ -8,11 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractgititemsmodel.h"
 #include "libkommitwidgets_export.h"
 
-namespace Git
-{
-
-class Tag;
-}
+#include <Kommit/Tag>
 
 class LIBKOMMITWIDGETS_EXPORT TagsModel : public AbstractGitItemsModel
 {
