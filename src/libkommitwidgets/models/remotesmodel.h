@@ -4,18 +4,11 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-//
-// Created by hamed on 25.03.22.
-//
-
 #pragma once
 #include "abstractgititemsmodel.h"
 #include "libkommitwidgets_export.h"
 
-namespace Git
-{
-class Remote;
-}
+#include <Kommit/Remote>
 
 class LIBKOMMITWIDGETS_EXPORT RemotesModel : public AbstractGitItemsModel
 {

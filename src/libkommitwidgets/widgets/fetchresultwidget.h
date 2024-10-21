@@ -2,15 +2,17 @@
 
 #include "ui_fetchresultwidget.h"
 
+#include <Kommit/Credential>
+#include <Kommit/Oid>
+#include <Kommit/Reference>
+
 namespace Git
 {
 class FetchObserver;
 class FetchTransferStat;
-class Reference;
-class Oid;
-class Credential;
 class PackProgress;
 }
+
 class FetchResultWidget : public QWidget, private Ui::FetchResultWidget
 {
     Q_OBJECT

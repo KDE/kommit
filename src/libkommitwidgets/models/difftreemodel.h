@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "filestatus.h"
+#include <Kommit/FileStatus>
 #include <diff.h>
 #define TREEMODEL_NODE_DATA_TYPE Diff::DiffType
 #include "treemodel.h"

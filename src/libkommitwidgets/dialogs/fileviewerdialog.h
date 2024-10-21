@@ -14,11 +14,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KParts/MainWindow>
 #include <KParts/ReadOnlyPart>
 
+#include <Kommit/Blob>
+
 class QMimeType;
-namespace Git
-{
-class Blob;
-}
 class LIBKOMMITWIDGETS_EXPORT FileViewerDialog : public KParts::MainWindow, private Ui::FileViewerDialog
 {
     Q_OBJECT

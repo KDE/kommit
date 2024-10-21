@@ -12,12 +12,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QScopedPointer>
 
+#include <Kommit/Branch>
+
 namespace Git
 {
-
-class Branch;
 class Repository;
 }
+
 class BranchesModelPrivate;
 class LIBKOMMITWIDGETS_EXPORT BranchesModel : public AbstractGitItemsModel
 {

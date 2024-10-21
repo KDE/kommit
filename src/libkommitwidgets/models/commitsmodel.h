@@ -13,10 +13,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QScopedPointer>
 #include <QSet>
 
+#include <Kommit/Branch>
+#include <Kommit/Commit>
+
 namespace Git
 {
-class Branch;
-class Commit;
 class Repository;
 }
 

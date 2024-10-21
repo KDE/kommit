@@ -8,11 +8,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractgititemsmodel.h"
 #include "libkommitwidgets_export.h"
 
+#include <Kommit/Stash>
+
 namespace Git
 {
 
 class Repository;
-class Stash;
 }
 
 class LIBKOMMITWIDGETS_EXPORT StashesModel : public AbstractGitItemsModel

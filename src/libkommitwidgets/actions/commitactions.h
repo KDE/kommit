@@ -13,11 +13,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <Kommit/Commit>
 
-namespace Git
-{
-class Commit;
-}
-
 class LIBKOMMITWIDGETS_EXPORT CommitActions : public AbstractActions
 {
     Q_OBJECT

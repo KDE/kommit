@@ -13,10 +13,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QScopedPointer>
 
+#include <Kommit/Blob>
+
 namespace Git
 {
 class Repository;
-class Blob;
 }
 
 class SegmentsMapper;

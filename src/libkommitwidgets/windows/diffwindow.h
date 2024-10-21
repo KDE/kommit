@@ -14,12 +14,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QScopedPointer>
 #include <QSharedPointer>
 
+#include <Kommit/Blob>
+#include <Kommit/ITree>
+
 namespace Git
 {
 class Repository;
-class Tree;
-class Blob;
-class ITree;
 }
 
 class DiffWindowPrivate;
