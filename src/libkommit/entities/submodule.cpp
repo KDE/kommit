@@ -22,28 +22,72 @@ namespace Git
 class SubmodulePrivate
 {
 public:
-    explicit SubmodulePrivate(git_submodule *module, git_repository *repo = nullptr);
+    explicit SubmodulePrivate();
+    explicit SubmodulePrivate(git_submodule *submodule, git_repository *repo = nullptr);
+    explicit SubmodulePrivate(const char *name, git_repository *repo = nullptr);
     ~SubmodulePrivate();
 
     git_submodule *submodule{nullptr};
     git_repository *repo{nullptr};
+
+    bool own{false};
+    QString name;
+    QString path;
+    QString url;
+    Oid headId;
+    QString branch;
+    Submodule::Status status;
+
+    void fillData();
 };
 
-SubmodulePrivate::SubmodulePrivate(git_submodule *module, git_repository *repo)
-    : submodule{module}
-    , repo{repo}
+SubmodulePrivate::SubmodulePrivate()
+    : own{false}
 {
-    if (!repo && module)
-        this->repo = git_submodule_owner(submodule);
+}
+
+SubmodulePrivate::SubmodulePrivate(git_submodule *submodule, git_repository *repo)
+    : submodule{submodule}
+    , repo{repo}
+    , own{false}
+{
+    fillData();
+}
+
+SubmodulePrivate::SubmodulePrivate(const char *name, git_repository *repo)
+    : repo{repo}
+    , own{true}
+{
+    git_submodule_lookup(&submodule, repo, name);
+    fillData();
 }
 
 SubmodulePrivate::~SubmodulePrivate()
 {
-    git_submodule_free(submodule);
+    if (own)
+        git_submodule_free(submodule);
+}
+
+void SubmodulePrivate::fillData()
+{
+    if (submodule) {
+        name = QString{git_submodule_name(submodule)};
+        path = QString{git_submodule_path(submodule)};
+        url = QString{git_submodule_url(submodule)};
+        branch = QString{git_submodule_branch(submodule)};
+        headId = Oid{git_submodule_head_id(submodule)};
+
+        if (!repo && submodule)
+            this->repo = git_submodule_owner(submodule);
+
+        unsigned int st;
+        git_submodule_status(&st, repo, git_submodule_name(submodule), GIT_SUBMODULE_IGNORE_UNSPECIFIED);
+        status = static_cast<Submodule::Status>(st);
+    }
 }
 
 Submodule::Submodule()
-    : d{new SubmodulePrivate{nullptr, nullptr}}
+    : d{new SubmodulePrivate}
 {
 }
 
@@ -92,23 +136,17 @@ const git_submodule *Submodule::constData() const
 
 QString Submodule::path() const
 {
-    if (!d->submodule)
-        return {};
-    return QString{git_submodule_path(d->submodule)};
+    return d->path;
 }
 
 Oid Submodule::headId() const
 {
-    if (!d->submodule)
-        return {};
-    return Oid{git_submodule_head_id(d->submodule)};
+    return d->headId;
 }
 
 QString Submodule::url() const
 {
-    if (!d->submodule)
-        return {};
-    return QString{git_submodule_url(d->submodule)};
+    return d->url;
 }
 
 void Submodule::setUrl(const QString &newUrl)
@@ -121,33 +159,17 @@ void Submodule::setUrl(const QString &newUrl)
 
 QString Submodule::name() const
 {
-    if (!d->submodule)
-        return {};
-
-    return QString{git_submodule_name(d->submodule)};
+    return d->name;
 }
 
 QString Submodule::branch()
 {
-    if (!d->submodule)
-        return {};
-    return QString{git_submodule_branch(d->submodule)};
+    return d->branch;
 }
 
 Submodule::StatusFlags Submodule::status() const
 {
-    if (!d->submodule)
-        return Status::Unknown;
-
-    unsigned int status;
-
-    if (git_submodule_status(&status, d->repo, git_submodule_name(d->submodule), GIT_SUBMODULE_IGNORE_UNSPECIFIED)) {
-        auto err = git_error_last();
-        qDebug() << err->klass << QString{err->message};
-        return Status::Unknown;
-    }
-
-    return static_cast<StatusFlags>(status);
+    return d->status;
 }
 
 bool Submodule::hasModifiedFiles() const

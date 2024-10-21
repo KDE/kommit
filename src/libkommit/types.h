@@ -24,20 +24,9 @@ class Commit;
 class Tag;
 class Remote;
 
-// #define DECLARE_TYPE(x)                                                                                                                                        \
-//     using x##Pointer = Pointer<Git::x>;                                                                                                                        \
-//     using x##List = PointerList<Git::x>;
-
-// DECLARE_TYPE(Commit)
-// DECLARE_TYPE(Tag)
-// DECLARE_TYPE(Branch)
-// DECLARE_TYPE(Remote)
-
-LIBKOMMIT_EXPORT inline const char *toChar(const QString &s);
-
 QString convertToQString(git_buf *buf);
 QStringList convert(git_strarray *arr);
-QString convertToString(const git_oid *id, const int len);
+QString convertToString(const git_oid *id, int len);
 void addToArray(git_strarray *arr, const QString &value);
 
 #define toConstChars(s) s.toLocal8Bit().constData()

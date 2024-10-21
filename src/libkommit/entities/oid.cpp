@@ -27,11 +27,6 @@ Oid::Oid(const git_oid oid)
     git_oid_cpy(data(), &oid);
 }
 
-Oid::Oid(const Oid &other)
-    : d{other.d}
-{
-}
-
 Oid &Oid::operator=(const Oid &other)
 {
     if (this != &other)

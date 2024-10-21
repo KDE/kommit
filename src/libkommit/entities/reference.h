@@ -28,7 +28,7 @@ class LIBKOMMIT_EXPORT Reference
 {
 public:
     Reference();
-    Reference(git_reference *ref);
+    explicit Reference(git_reference *ref);
 
     Reference(const Reference &other);
     Reference &operator=(const Reference &other);
@@ -51,7 +51,7 @@ public:
     [[nodiscard]] Type type() const;
     [[nodiscard]] Oid target() const;
 
-    Object peel(Object::Type type) const;
+    [[nodiscard]] Object peel(Object::Type type) const;
 
     [[nodiscard]] Note toNote() const;
     [[nodiscard]] Branch toBranch() const;

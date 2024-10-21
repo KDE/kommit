@@ -35,7 +35,7 @@ public:
     explicit Cache(Repository *git);
     virtual ~Cache();
 
-    DataType findByPtr(PtrType *ptr, bool *isNew = nullptr);
+    virtual DataType findByPtr(PtrType *ptr, bool *isNew = nullptr);
 
     bool insert(PtrType *ptr, const ObjectType &obj);
 

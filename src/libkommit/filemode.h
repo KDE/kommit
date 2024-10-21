@@ -16,7 +16,6 @@ namespace Git
 class LIBKOMMIT_EXPORT FileMode
 {
 public:
-    // Permissions as bit flags
     enum Permission : quint16 {
         Invalid = 0, // Invalid or unset mode
         OwnerRead = 1 << 8, // 0400
@@ -59,34 +58,29 @@ public:
     void setOthersExecute(bool enable);
 
     // Getters for permissions
-    bool ownerRead() const;
-    bool ownerWrite() const;
-    bool ownerExecute() const;
+    [[nodiscard]] bool ownerRead() const;
+    [[nodiscard]] bool ownerWrite() const;
+    [[nodiscard]] bool ownerExecute() const;
 
-    bool groupRead() const;
-    bool groupWrite() const;
-    bool groupExecute() const;
+    [[nodiscard]] bool groupRead() const;
+    [[nodiscard]] bool groupWrite() const;
+    [[nodiscard]] bool groupExecute() const;
 
-    bool othersRead() const;
-    bool othersWrite() const;
-    bool othersExecute() const;
+    [[nodiscard]] bool othersRead() const;
+    [[nodiscard]] bool othersWrite() const;
+    [[nodiscard]] bool othersExecute() const;
 
-    // Convert to a string representation like "rwxr-xr--"
-    QString toString() const;
+    [[nodiscard]] QString toString() const;
 
-    // Get the numeric representation of permissions
-    quint16 value() const;
+    [[nodiscard]] quint16 value() const;
 
 private:
     Permissions mPermissions;
 
-    // Helper functions
-    void setPermission(Permission perm, bool enable);
-
-    bool hasPermission(Permission perm) const;
+    LIBKOMMIT_NO_EXPORT void setPermission(Permission perm, bool enable);
+    [[nodiscard]] LIBKOMMIT_NO_EXPORT bool hasPermission(Permission perm) const;
 };
 
-// Allow usage of QFlags for Permissions
 Q_DECLARE_OPERATORS_FOR_FLAGS(FileMode::Permissions)
 
 }

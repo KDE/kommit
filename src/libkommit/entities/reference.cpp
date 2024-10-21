@@ -14,14 +14,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/remote.h"
 #include "entities/tag.h"
 #include "oid.h"
-#include "qdebug.h"
 #include "repository.h"
 
-#include <git2/notes.h>
 #include <git2/oid.h>
 #include <git2/refs.h>
-#include <git2/remote.h>
-#include <git2/tag.h>
 
 namespace Git
 {

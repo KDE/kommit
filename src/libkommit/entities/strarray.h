@@ -23,9 +23,9 @@ public:
     void add(const QString &str);
 
     void fromQStringList(const QStringList &list);
-    QStringList toQStringList() const;
+    [[nodiscard]] QStringList toQStringList() const;
 
-    operator git_strarray *();
+    explicit operator git_strarray *();
     const git_strarray *operator*() const;
 
     void clear();

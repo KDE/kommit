@@ -11,67 +11,69 @@ namespace Git
 
 class CredentialPrivate
 {
-    Credential *q_ptr;
-    Q_DECLARE_PUBLIC(Credential)
-
 public:
-    explicit CredentialPrivate(Credential *parent);
-
     QString username;
     QString password;
     Credential::AllowedTypes allowedTypes;
 };
 
 Credential::Credential()
-    : d_ptr{new CredentialPrivate{this}}
+    : d{new CredentialPrivate}
 {
 }
 
-Credential::~Credential()
+Credential::Credential(const Credential &other)
+    : d{other.d}
 {
+}
+
+Credential &Credential::operator=(const Credential &other)
+{
+    if (this != &other)
+        d = other.d;
+
+    return *this;
+}
+
+bool Credential::operator==(const Credential &other) const
+{
+    return d->username == other.d->username && d->password == other.d->password && d->allowedTypes == other.d->allowedTypes;
+}
+
+bool Credential::operator!=(const Credential &other) const
+{
+    return !(*this == other);
 }
 
 QString Credential::username() const
 {
-    Q_D(const Credential);
     return d->username;
 }
 
 void Credential::setUsername(const QString &username)
 {
-    Q_D(Credential);
     d->username = username;
 }
 
 QString Credential::password() const
 {
-    Q_D(const Credential);
     return d->password;
 }
 
 void Credential::setPassword(const QString &password)
 {
-    Q_D(Credential);
     d->password = password;
 }
 
 Credential::AllowedTypes Credential::allowedTypes() const
 {
-    Q_D(const Credential);
     return d->allowedTypes;
 }
 
 void Credential::setAllowedTypes(const AllowedTypes &allowedTypes)
 {
-    Q_D(Credential);
     d->allowedTypes = allowedTypes;
 }
-
-CredentialPrivate::CredentialPrivate(Credential *parent)
-    : q_ptr{parent}
-{
-}
-
 }
 
 #include "moc_credential.cpp"

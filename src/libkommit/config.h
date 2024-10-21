@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QSharedPointer>
 #include <QString>
+
 #include <git2/config.h>
 #include <git2/version.h>
 
@@ -17,8 +18,15 @@ namespace Git
 class ConfigEntry
 {
 public:
-    ConfigEntry(git_config_entry *entry);
-    ~ConfigEntry();
+    ConfigEntry();
+    explicit ConfigEntry(git_config_entry *entry);
+    ConfigEntry(const ConfigEntry &other);
+
+    ConfigEntry &operator=(const ConfigEntry &other);
+
+    bool operator==(const ConfigEntry &other);
+    bool operator!=(const ConfigEntry &other);
+
     enum class Level {
         Programdata = GIT_CONFIG_LEVEL_PROGRAMDATA,
         System = GIT_CONFIG_LEVEL_SYSTEM,
@@ -32,30 +40,30 @@ public:
 #endif
     };
 
-    QString name() const;
-    QString value() const;
-    QString backendType() const;
-    QString originPath() const;
-    int includeDepth() const;
-    Level level() const;
+    [[nodiscard]] QString name() const;
+    [[nodiscard]] QString value() const;
+    [[nodiscard]] QString backendType() const;
+    [[nodiscard]] QString originPath() const;
+    [[nodiscard]] int includeDepth() const;
+    [[nodiscard]] Level level() const;
 
 private:
-    git_config_entry *mEntryPtr;
+    QSharedPointer<git_config_entry> d;
 };
 
 class Config
 {
 public:
-    Config(git_config *config);
+    explicit Config(git_config *config);
 
-    QSharedPointer<ConfigEntry> value(const QString &name) const;
-    qint32 valueInt32(const QString &name) const;
-    int64_t valueInt64(const QString &name) const;
-    QString valueString(const QString &name) const;
-    bool valueBool(const QString &name) const;
+    [[nodiscard]] ConfigEntry value(const QString &name) const;
+    [[nodiscard]] qint32 valueInt32(const QString &name) const;
+    [[nodiscard]] int64_t valueInt64(const QString &name) const;
+    [[nodiscard]] QString valueString(const QString &name) const;
+    [[nodiscard]] bool valueBool(const QString &name) const;
 
 private:
-    git_config *mConfigPtr;
+    QSharedPointer<git_config> d;
 };
 
 }

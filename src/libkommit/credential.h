@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommit_export.h"
 
 #include <QObject>
-#include <QScopedPointer>
+#include <QSharedPointer>
 
 namespace Git
 {
@@ -32,7 +32,10 @@ public:
     Q_FLAG(AllowedTypes)
 
     Credential();
-    ~Credential();
+    Credential(const Credential &other);
+    Credential &operator=(const Credential &other);
+    bool operator==(const Credential &other) const;
+    bool operator!=(const Credential &other) const;
 
     [[nodiscard]] QString username() const;
     void setUsername(const QString &username);
@@ -44,8 +47,7 @@ public:
     void setAllowedTypes(const AllowedTypes &allowedTypes);
 
 private:
-    QScopedPointer<CredentialPrivate> d_ptr;
-    Q_DECLARE_PRIVATE(Credential)
+    QSharedPointer<CredentialPrivate> d;
 };
 
 }

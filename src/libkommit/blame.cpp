@@ -53,11 +53,6 @@ Blame::Blame(Repository *gitManager, const QStringList &content, git_blame *blam
     }
 }
 
-Blame::Blame(const Blame &other)
-    : d{other.d}
-{
-}
-
 Blame &Blame::operator=(const Blame &other)
 {
     if (this != &other)
@@ -96,7 +91,7 @@ const QStringList &Blame::content() const
     return d->content;
 }
 
-const QList<BlameHunk> Blame::hunks() const
+QList<BlameHunk> Blame::hunks() const
 {
     return d->hunks;
 }

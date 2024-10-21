@@ -50,7 +50,7 @@ QVariant RemotesModel::data(const QModelIndex &index, int role) const
 Git::Remote RemotesModel::fromIndex(const QModelIndex &index)
 {
     if (!index.isValid() || index.row() < 0 || index.row() >= mData.size())
-        return nullptr;
+        return {};
 
     return mData.at(index.row());
 }

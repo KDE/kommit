@@ -25,7 +25,7 @@ class LIBKOMMIT_EXPORT Blame
 public:
     Blame();
     Blame(Repository *gitManager, const QStringList &content, git_blame *blame);
-    Blame(const Blame &other);
+    Blame(const Blame &other) = default;
     Blame &operator=(const Blame &other);
     bool operator==(const Blame &other) const;
     bool operator!=(const Blame &other) const;
@@ -35,7 +35,7 @@ public:
     [[nodiscard]] const git_blame *constData() const;
 
     [[nodiscard]] const QStringList &content() const;
-    [[nodiscard]] const QList<BlameHunk> hunks() const;
+    [[nodiscard]] QList<BlameHunk> hunks() const;
     [[nodiscard]] QString codeString(const BlameHunk &data) const;
     [[nodiscard]] QStringList codeLines(const BlameHunk &data) const;
 

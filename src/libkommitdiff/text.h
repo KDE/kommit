@@ -17,14 +17,14 @@ namespace Diff
 struct LIBKOMMITDIFF_EXPORT Text {
     Text();
     QString content;
-    QList<QString> lines; // TODO: convert to QList<QStringRef> if it's possible
+    QList<QString> lines;
     LineEnding lineEnding;
 };
 
 struct LIBKOMMITDIFF_EXPORT TextView {
-    TextView(const QString &content);
+    explicit TextView(const QString &content);
     QString content;
-    QList<QStringView> lines; // TODO: convert to QList<QStringRef> if it's possible
+    QList<QStringView> lines;
     LineEnding lineEnding;
 };
 

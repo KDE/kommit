@@ -21,7 +21,7 @@ QStringList CommandAddRemote::generateArgs() const
     if (mFetch)
         args << QStringLiteral("--fetch");
     if (mMirror)
-        args << QStringLiteral("--mirrot");
+        args << QStringLiteral("--mirror");
     appendBool(mTags, args, QStringLiteral("tags"));
 
     if (!mMaster.isEmpty())

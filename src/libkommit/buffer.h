@@ -20,6 +20,6 @@ class Buf
 public:
     ~Buf();
     git_buf *operator&();
-    QString toString() const;
+    [[nodiscard]] QString toString() const;
 };
 }

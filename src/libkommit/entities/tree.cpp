@@ -56,12 +56,12 @@ Tree::Tree(git_repository *repo, const QString &place)
     git_object *placeObject{nullptr};
     git_commit *commit{nullptr};
 
-    BEGIN
-    STEP git_revparse_single(&placeObject, repo, place.toLatin1().constData());
-    STEP git_commit_lookup(&commit, repo, git_object_id(placeObject));
-    STEP git_commit_tree(&tree, commit);
+    SequenceRunner r;
+    r.run(git_revparse_single, &placeObject, repo, place.toLatin1().constData());
+    r.run(git_commit_lookup, &commit, repo, git_object_id(placeObject));
+    r.run(git_commit_tree, &tree, commit);
 
-    if (IS_OK) {
+    if (r.isSuccess()) {
         d->tree = tree;
         d->initTree();
     }

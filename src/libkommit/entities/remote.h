@@ -40,7 +40,7 @@ class LIBKOMMIT_EXPORT Remote
 {
 public:
     Remote();
-    Remote(git_remote *remote);
+    explicit Remote(git_remote *remote);
 
     Remote(const Remote &other);
     Remote &operator=(const Remote &other);

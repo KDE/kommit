@@ -45,6 +45,7 @@ public:
 
     [[nodiscard]] git_commit *data() const;
     [[nodiscard]] const git_commit *constData() const;
+
     [[nodiscard]] const Signature &author() const;
     [[nodiscard]] const Signature &committer() const;
     [[nodiscard]] QString message() const;
