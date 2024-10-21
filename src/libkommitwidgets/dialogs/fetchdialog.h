@@ -10,16 +10,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include "ui_fetchdialog.h"
 
+#include <Kommit/Oid>
+#include <Kommit/Reference>
+
 namespace Git
 {
 class Repository;
 class FetchObserver;
 struct PackProgress;
 struct FetchTransferStat;
-class Reference;
 class Credential;
 class Certificate;
-class Oid;
 class Fetch;
 }
 
@@ -42,7 +43,7 @@ private:
     void slotFetchMessage(const QString &message);
     void slotFetchTransferProgress(const Git::FetchTransferStat *stat);
     void slotFetchPackProgress(const Git::PackProgress *p);
-    void slotFetchUpdateRef(QSharedPointer<Git::Reference> reference, QSharedPointer<Git::Oid> a, QSharedPointer<Git::Oid> b);
+    void slotFetchUpdateRef(const Git::Reference &reference, const Git::Oid &a, const Git::Oid &b);
     void slotFetchFinished(bool success);
 
     Git::Fetch *mFetch;

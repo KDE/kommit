@@ -156,9 +156,9 @@ void FetchDialog::slotFetchPackProgress(const Git::PackProgress *p)
     progressBar->setValue(p->current);
 }
 
-void FetchDialog::slotFetchUpdateRef(QSharedPointer<Git::Reference> reference, QSharedPointer<Git::Oid> a, QSharedPointer<Git::Oid> b)
+void FetchDialog::slotFetchUpdateRef(const Git::Reference &reference, const Git::Oid &a, const Git::Oid &b)
 {
-    textBrowser->append(i18n("Reference updated: %1  %2...%3", reference->name(), a->toString(), b->toString()));
+    textBrowser->append(i18n("Reference updated: %1  %2...%3", reference.name(), a.toString(), b.toString()));
 }
 
 void FetchDialog::slotFetchFinished(bool success)

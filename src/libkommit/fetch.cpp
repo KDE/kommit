@@ -37,8 +37,8 @@ public:
     Fetch::Prune prune{Fetch::Prune::PruneUnspecified};
     Fetch::DownloadTags downloadTags{Fetch::DownloadTags::Unspecified};
     Fetch::Redirect redirect{Fetch::Redirect::All};
-    QSharedPointer<Remote> remote;
-    QSharedPointer<Branch> branch;
+    Remote remote;
+    Branch branch;
     QStringList customHeaders;
     Fetch::AcceptCertificate acceptCertificate{Fetch::AcceptCertificate::OnlyValid};
     RemoteCallbacks callbacks;
@@ -59,7 +59,7 @@ int FetchPrivate::run()
     if (remote.isNull())
         return -1;
 
-    if (!remote->isConnected() && !remote->connect(Git::Remote::Direction::Fetch, &callbacks))
+    if (!remote.isConnected() && !remote.connect(Git::Remote::Direction::Fetch, &callbacks))
         return -1;
 
     git_fetch_options opts = GIT_FETCH_OPTIONS_INIT;
@@ -78,10 +78,10 @@ int FetchPrivate::run()
     int ret;
     if (!branch.isNull()) {
         StrArray refSpecs{1};
-        refSpecs.add(branch->refName());
-        ret = SequenceRunner::runSingle(git_remote_fetch, remote->remotePtr(), *refSpecs, &opts, "fetch");
+        refSpecs.add(branch.refName());
+        ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), *refSpecs, &opts, "fetch");
     } else {
-        ret = SequenceRunner::runSingle(git_remote_fetch, remote->remotePtr(), (const git_strarray *)NULL, &opts, "fetch");
+        ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), (const git_strarray *)NULL, &opts, "fetch");
     }
     return ret;
 }
@@ -96,13 +96,13 @@ Fetch::~Fetch()
 {
 }
 
-QSharedPointer<Remote> Fetch::remote() const
+const Remote &Fetch::remote() const
 {
     Q_D(const Fetch);
     return d->remote;
 }
 
-void Fetch::setRemote(QSharedPointer<Remote> remote)
+void Fetch::setRemote(const Remote &remote)
 {
     Q_D(Fetch);
     d->remote = remote;
@@ -185,13 +185,13 @@ void Fetch::setCustomHeaders(const QStringList &customHeaders)
     d->customHeaders = customHeaders;
 }
 
-QSharedPointer<Branch> Fetch::branch() const
+const Branch &Fetch::branch() const
 {
     Q_D(const Fetch);
     return d->branch;
 }
 
-void Fetch::setBranch(QSharedPointer<Branch> branch)
+void Fetch::setBranch(const Branch &branch)
 {
     Q_D(Fetch);
     d->branch = branch;

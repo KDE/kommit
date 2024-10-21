@@ -53,8 +53,8 @@ public:
     explicit Fetch(Repository *repo, QObject *parent = nullptr);
     ~Fetch();
 
-    [[nodiscard]] QSharedPointer<Remote> remote() const;
-    void setRemote(QSharedPointer<Remote> remote);
+    [[nodiscard]] const Remote &remote() const;
+    void setRemote(const Remote &remote);
 
     [[nodiscard]] Prune prune() const;
     void setPrune(Prune prune);
@@ -68,12 +68,11 @@ public:
     [[nodiscard]] Redirect redirect() const;
     void setRedirect(Redirect redirect);
 
-
     [[nodiscard]] QStringList customHeaders() const;
     void setCustomHeaders(const QStringList &customHeaders);
 
-    [[nodiscard]] QSharedPointer<Branch> branch() const;
-    void setBranch(QSharedPointer<Branch> branch);
+    [[nodiscard]] const Branch &branch() const;
+    void setBranch(const Branch &branch);
 
     [[nodiscard]] AcceptCertificate acceptCertificate() const;
     void setAcceptCertificate(AcceptCertificate acceptCertificate);
