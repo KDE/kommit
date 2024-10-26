@@ -28,7 +28,12 @@ class CommitPrivate;
 class LIBKOMMIT_EXPORT Commit : public ITree, public IOid
 {
 public:
-    enum CommitType { NormalCommit, InitialCommit, ForkCommit, MergeCommit };
+    enum CommitType {
+        NormalCommit,
+        InitialCommit,
+        ForkCommit,
+        MergeCommit
+    };
 
     explicit Commit(git_commit *commit);
     ~Commit() override;

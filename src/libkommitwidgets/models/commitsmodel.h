@@ -26,7 +26,10 @@ class LIBKOMMITWIDGETS_EXPORT CommitsModel : public AbstractGitItemsModel
     Q_OBJECT
 
 public:
-    enum class LogMatchType { ExactMatch, BeginMatch };
+    enum class LogMatchType {
+        ExactMatch,
+        BeginMatch
+    };
     explicit CommitsModel(Git::Repository *git, QObject *parent = nullptr);
     ~CommitsModel();
 

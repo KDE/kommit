@@ -19,7 +19,10 @@ class Oid;
 class LIBKOMMIT_EXPORT ITree
 {
 public:
-    enum class TreeType { Commit, Branch };
+    enum class TreeType {
+        Commit,
+        Branch
+    };
 
     virtual ~ITree();
     virtual QSharedPointer<Tree> tree() const = 0;

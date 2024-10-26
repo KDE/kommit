@@ -52,5 +52,5 @@ private:
     QAction *mSelectAll{nullptr};
     QAction *mActionUndo{nullptr};
     QAction *mActionRedo{nullptr};
-    QList<QAction*> mCustomActions;
+    QList<QAction *> mCustomActions;
 };

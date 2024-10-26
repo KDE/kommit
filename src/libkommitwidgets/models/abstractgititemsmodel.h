@@ -26,7 +26,11 @@ public:
     explicit AbstractGitItemsModel(Git::Repository *git);
     explicit AbstractGitItemsModel(Git::Repository *git, QObject *parent);
 
-    enum Status { NotLoaded, Loading, Loaded };
+    enum Status {
+        NotLoaded,
+        Loading,
+        Loaded
+    };
     Q_ENUM(Status)
     [[nodiscard]] bool isLoaded() const;
     [[nodiscard]] Status status() const;

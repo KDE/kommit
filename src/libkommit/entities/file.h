@@ -18,7 +18,12 @@ class Repository;
 class LIBKOMMIT_EXPORT File
 {
 public:
-    enum StorageType { InValid, Git, Local, Entry };
+    enum StorageType {
+        InValid,
+        Git,
+        Local,
+        Entry
+    };
     File();
     explicit File(QString filePath);
     File(Repository *git, QString place, QString filePath);

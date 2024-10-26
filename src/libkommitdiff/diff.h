@@ -117,10 +117,9 @@ MergeResult<T> diff3_2(const QList<T> &base, const QList<T> &local, const QList<
     auto indexRemote{0};
     int indexBase{};
 
-    QList<MergeSegment2*> result;
+    QList<MergeSegment2 *> result;
 
     while (itLocal != withLocal.end() && itRemote != withRemote.end()) {
-
         if (itLocal->leftStart == itRemote->leftStart) {
         } else if (itLocal->leftStart < itRemote->leftStart) {
             if (itRemote->leftStart > itLocal->leftEnd) {
@@ -136,7 +135,7 @@ MergeResult<T> diff3_2(const QList<T> &base, const QList<T> &local, const QList<
         auto commonStart = std::max(itLocal->leftStart, itRemote->leftStart);
         auto commonEnd = std::min(itLocal->leftEnd, itRemote->leftEnd);
 
-        auto seg = new MergeSegment2; //TODO: check memory leak
+        auto seg = new MergeSegment2; // TODO: check memory leak
         seg->baseStart = commonStart;
         seg->baseSize = seg->localSize = seg->remoteSize = commonEnd - commonStart + 1;
         seg->localStart = indexLocal;

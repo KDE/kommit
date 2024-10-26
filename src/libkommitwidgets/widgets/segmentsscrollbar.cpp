@@ -20,7 +20,10 @@ class SegmentsScrollBarPrivate
 
 public:
     SegmentsScrollBarPrivate(SegmentsScrollBar *parent);
-    enum Side { Left, Right };
+    enum Side {
+        Left,
+        Right
+    };
 
     int leftCount{0};
     int rightCount{0};

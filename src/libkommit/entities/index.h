@@ -28,7 +28,12 @@ class IndexEntryPrivate;
 class LIBKOMMIT_EXPORT IndexEntry : IOid
 {
 public:
-    enum class StageState { Normal, Base, Ours, Thers };
+    enum class StageState {
+        Normal,
+        Base,
+        Ours,
+        Thers
+    };
 
     IndexEntry(const git_index_entry *entryPtr);
     ~IndexEntry();

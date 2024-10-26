@@ -26,7 +26,12 @@ public:
     QString name;
     QString remotePushBranch;
     QString remotePullBranch;
-    enum class Status { Unknown, UpToDate, FastForwardable, LocalOutOfDate };
+    enum class Status {
+        Unknown,
+        UpToDate,
+        FastForwardable,
+        LocalOutOfDate
+    };
     Status status{Status::Unknown};
 
     [[nodiscard]] QString statusText() const;
@@ -35,7 +40,10 @@ public:
 class LIBKOMMIT_EXPORT RefSpec
 {
 public:
-    enum class Direction { DirectionFetch = 0, DirectionPush = 1 };
+    enum class Direction {
+        DirectionFetch = 0,
+        DirectionPush = 1
+    };
 
     RefSpec(const git_refspec *refspecs);
     ~RefSpec();

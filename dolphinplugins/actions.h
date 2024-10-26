@@ -6,10 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#define PACK(...)                                                                                                                                              \
-    {                                                                                                                                                          \
-        __VA_ARGS__                                                                                                                                            \
-    }
+#define PACK(...) {__VA_ARGS__}
 
 // clang-format off
 #define ACTIONS_FOR_EACH(f)                                                                                                                                    \

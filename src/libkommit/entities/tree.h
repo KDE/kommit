@@ -25,7 +25,12 @@ class TreePrivate;
 class LIBKOMMIT_EXPORT Tree : public IOid
 {
 public:
-    enum class EntryType { Unknown, File, Dir, All = Unknown };
+    enum class EntryType {
+        Unknown,
+        File,
+        Dir,
+        All = Unknown
+    };
 
     struct Entry {
         QString name;

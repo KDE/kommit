@@ -21,7 +21,10 @@ namespace Git
 class LIBKOMMIT_EXPORT Tag : public IOid
 {
 public:
-    enum class TagType { RegularTag, LightTag };
+    enum class TagType {
+        RegularTag,
+        LightTag
+    };
 
     Tag();
     explicit Tag(git_tag *tag);

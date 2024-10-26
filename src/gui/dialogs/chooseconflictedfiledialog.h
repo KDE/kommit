@@ -20,7 +20,12 @@ class ChooseConflictedFileDialog : public QDialog, private Ui::ChooseConflictedF
     Q_OBJECT
 
 public:
-    enum class Side { None, Base, Local, Remote };
+    enum class Side {
+        None,
+        Base,
+        Local,
+        Remote
+    };
 
     ChooseConflictedFileDialog(QSharedPointer<Git::Blob> baseFile,
                                QSharedPointer<Git::Blob> localFile,

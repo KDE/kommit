@@ -16,13 +16,30 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Diff
 {
 
-enum class LineEnding { None, Cr, Lf, CrLf };
+enum class LineEnding {
+    None,
+    Cr,
+    Lf,
+    CrLf
+};
 
-enum class DiffType { Unchanged, Added, Removed, Modified };
+enum class DiffType {
+    Unchanged,
+    Added,
+    Removed,
+    Modified
+};
 
 // std::size_t qHash(const DiffType &type);
 
-enum MergeType { None, KeepLocal, KeepRemote, KeepLocalThenRemote, KeepRemoteThenLocal, MergeCustom };
+enum MergeType {
+    None,
+    KeepLocal,
+    KeepRemote,
+    KeepLocalThenRemote,
+    KeepRemoteThenLocal,
+    MergeCustom
+};
 
 enum class SegmentType {
     SameOnBoth,
@@ -31,7 +48,12 @@ enum class SegmentType {
     DifferentOnBoth,
 };
 
-enum MergeDiffType { Unchanged, LocalAdd, RemoteAdd, BothChanged };
+enum MergeDiffType {
+    Unchanged,
+    LocalAdd,
+    RemoteAdd,
+    BothChanged
+};
 
 template<typename T>
 struct DiffOptions {

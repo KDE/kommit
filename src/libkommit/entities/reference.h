@@ -30,7 +30,12 @@ public:
     Reference(git_reference *ref);
     ~Reference();
 
-    enum class Type { Invalid = GIT_REFERENCE_INVALID, Direct = GIT_REFERENCE_DIRECT, Symbolic = GIT_REFERENCE_SYMBOLIC, All = GIT_REFERENCE_ALL };
+    enum class Type {
+        Invalid = GIT_REFERENCE_INVALID,
+        Direct = GIT_REFERENCE_DIRECT,
+        Symbolic = GIT_REFERENCE_SYMBOLIC,
+        All = GIT_REFERENCE_ALL
+    };
 
     [[nodiscard]] bool isNote() const;
     [[nodiscard]] bool isBranch() const;

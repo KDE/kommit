@@ -35,6 +35,9 @@ enum class ChangeStatus {
     Conflicted,
 };
 
-enum class ConflictSide { Base, Ours, Thers };
-
+enum class ConflictSide {
+    Base,
+    Ours,
+    Thers
+};
 }

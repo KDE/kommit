@@ -35,7 +35,7 @@ void EditActionsMapper::addTextEdit(QPlainTextEdit *control)
 
 void EditActionsMapper::addCustomAction(QAction *action)
 {
-    mCustomActions<<action;
+    mCustomActions << action;
 }
 
 void EditActionsMapper::init(KActionCollection *actionCollection)
@@ -46,7 +46,6 @@ void EditActionsMapper::init(KActionCollection *actionCollection)
     mSelectAll = KStandardAction::selectAll(this, &EditActionsMapper::actionSelectAllTriggered, actionCollection);
     mActionUndo = KStandardAction::undo(this, &EditActionsMapper::actionUndoTriggered, actionCollection);
     mActionRedo = KStandardAction::redo(this, &EditActionsMapper::actionRedoTriggered, actionCollection);
-
 }
 
 void EditActionsMapper::controlUndoAvailable(bool b)

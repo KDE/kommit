@@ -31,7 +31,16 @@ class LIBKOMMITWIDGETS_EXPORT CodeEditor : public QPlainTextEdit
 {
     Q_OBJECT
 public:
-    enum BlockType { Unchanged, Added, Removed, Edited, HighLight, Odd, Even, Empty };
+    enum BlockType {
+        Unchanged,
+        Added,
+        Removed,
+        Edited,
+        HighLight,
+        Odd,
+        Even,
+        Empty
+    };
     struct BlockData {
         int lineNumber;
         int lineCount;

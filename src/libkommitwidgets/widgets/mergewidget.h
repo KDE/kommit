@@ -38,14 +38,14 @@ public:
     [[nodiscard]] bool sameSize() const;
     void setSameSize(bool sameSize);
 
-    QAction* keepMineAction();
-    QAction* keepTheirAction();
-    QAction* keepMineBeforeTheirAction();
-    QAction* keepTheirBeforeMineAction();
-    QAction* keepMyFileAction();
-    QAction* keepTheirFileAction();
-    QAction* gotoPrevDiffAction();
-    QAction* gotoNextDiffAction();
+    QAction *keepMineAction();
+    QAction *keepTheirAction();
+    QAction *keepMineBeforeTheirAction();
+    QAction *keepTheirBeforeMineAction();
+    QAction *keepMyFileAction();
+    QAction *keepTheirFileAction();
+    QAction *gotoPrevDiffAction();
+    QAction *gotoNextDiffAction();
 
     [[nodiscard]] bool isModified() const;
     void setIsModified(bool isModified);

@@ -11,7 +11,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QObject>
 #include <QString>
 
-enum ParseReturnType { ExecApp, ReturnCode };
+enum ParseReturnType {
+    ExecApp,
+    ReturnCode
+};
 
 struct ArgParserReturn {
     ParseReturnType type;

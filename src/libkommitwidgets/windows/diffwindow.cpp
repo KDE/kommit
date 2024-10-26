@@ -30,7 +30,12 @@ namespace Impl
 class Storage
 {
 public:
-    enum class Mode { File, Blob, Tree, Dir };
+    enum class Mode {
+        File,
+        Blob,
+        Tree,
+        Dir
+    };
 
     Mode _mode;
     QString _path;
@@ -123,7 +128,11 @@ class DiffWindowPrivate
     Q_DECLARE_PUBLIC(DiffWindow)
 
 public:
-    enum class Mode { None, Dirs, Files };
+    enum class Mode {
+        None,
+        Dirs,
+        Files
+    };
     DiffWindowPrivate(DiffWindow *parent);
 
     EditActionsMapper *mapper{nullptr};

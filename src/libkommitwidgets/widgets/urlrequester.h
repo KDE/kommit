@@ -11,7 +11,10 @@ class UrlRequester : public KUrlRequester
 public:
     UrlRequester(QWidget *parent = nullptr);
 
-    enum class Mode { File = 1, Directory = 2 };
+    enum class Mode {
+        File = 1,
+        Directory = 2
+    };
     Q_DECLARE_FLAGS(Modes, Mode)
     Q_FLAG(Modes)
 

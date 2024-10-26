@@ -46,7 +46,12 @@ struct LIBKOMMITDIFF_EXPORT MergeSegment2 : Segment {
     int remoteStart;
     int remoteSize;
 
-    enum class Type { Unchanged, OnlyOnLocal, OnlyOnRemote, ChangedOnBoth };
+    enum class Type {
+        Unchanged,
+        OnlyOnLocal,
+        OnlyOnRemote,
+        ChangedOnBoth
+    };
     Type type;
 
     QString typeString() const;
@@ -57,7 +62,11 @@ struct LIBKOMMITDIFF_EXPORT MergeSegment2 : Segment {
 
 LIBKOMMITDIFF_EXPORT QDebug operator<<(QDebug debug, const MergeSegment2 &ms);
 
-enum class MergeSide { Base, Local, Remote };
+enum class MergeSide {
+    Base,
+    Local,
+    Remote
+};
 
 template<typename T>
 struct MergeResult {

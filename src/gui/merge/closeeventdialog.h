@@ -13,7 +13,11 @@ class CloseEventDialog : public QDialog, private Ui::CloseEventDialog
     Q_OBJECT
 
 public:
-    enum ReturnType { LeaveAsIs = QDialog::Rejected, MarkAsResolved = QDialog::Accepted, DontExit };
+    enum ReturnType {
+        LeaveAsIs = QDialog::Rejected,
+        MarkAsResolved = QDialog::Accepted,
+        DontExit
+    };
     explicit CloseEventDialog(QWidget *parent = nullptr);
 private slots:
     void slotCommandLinkButtonMarkResolvedClicked();

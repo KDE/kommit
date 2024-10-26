@@ -37,7 +37,14 @@ class LIBKOMMIT_EXPORT AbstractCommand : public QObject
     Q_PROPERTY(int progress READ progress WRITE setProgress NOTIFY progressChanged)
 
 public:
-    enum Status { None, InvalidArgs, Ready, Running, Finished, Error };
+    enum Status {
+        None,
+        InvalidArgs,
+        Ready,
+        Running,
+        Finished,
+        Error
+    };
 
     explicit AbstractCommand(QObject *parent = nullptr);
     explicit AbstractCommand(QStringList args);

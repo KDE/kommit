@@ -64,7 +64,11 @@ public:
         ConfigGlobal,
         ConfigLocal,
     };
-    enum class ResetType { Soft = GIT_RESET_SOFT, Mied = GIT_RESET_MIXED, Hard = GIT_RESET_HARD };
+    enum class ResetType {
+        Soft = GIT_RESET_SOFT,
+        Mied = GIT_RESET_MIXED,
+        Hard = GIT_RESET_HARD
+    };
 
     explicit Repository(QObject *parent = nullptr);
     explicit Repository(git_repository *repo);

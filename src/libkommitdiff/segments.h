@@ -28,10 +28,12 @@ struct LIBKOMMITDIFF_EXPORT Segment {
 
     virtual QStringList get(int index);
 
-    virtual int count() const{
+    virtual int count() const
+    {
         return 2;
     }
-    virtual int maxLines() const {
+    virtual int maxLines() const
+    {
         return 0;
     }
 };

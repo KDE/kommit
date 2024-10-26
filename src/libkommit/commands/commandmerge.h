@@ -27,7 +27,12 @@ public:
         Subtree,
     };
     Q_ENUM(Strategy)
-    enum DiffAlgorithm { Patience, Minimal, Histogram, Myers };
+    enum DiffAlgorithm {
+        Patience,
+        Minimal,
+        Histogram,
+        Myers
+    };
     Q_ENUM(DiffAlgorithm)
 
     explicit CommandMerge(Repository *git);

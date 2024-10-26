@@ -35,7 +35,11 @@ namespace MergeImpl
 class Storage
 {
 public:
-    enum class Mode { Null, File, Blob };
+    enum class Mode {
+        Null,
+        File,
+        Blob
+    };
 
     Mode _mode{Mode::Null};
     QString _filePath;
