@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-15 01:48+0000\n"
+"POT-Creation-Date: 2024-10-27 01:57+0000\n"
 "PO-Revision-Date: 2024-10-15 17:59+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -29,28 +29,28 @@ msgstr ""
 "thomas.vergnaud@mailo.eu, xavier.besnard@kde.org, valentin.poupon@gmail.com, "
 "xavier.besnard@kde.org"
 
-#: dolphinplugins/actions.h:16
+#: dolphinplugins/actions.h:13
 #, kde-format
 msgid "Clone"
 msgstr "Cloner"
 
-#: dolphinplugins/actions.h:17
+#: dolphinplugins/actions.h:14
 #, kde-format
 msgid "Init"
 msgstr "Initialiser"
 
-#: dolphinplugins/actions.h:18
+#: dolphinplugins/actions.h:15
 #, kde-format
 msgid "Open"
 msgstr "Ouvrir"
 
-#: dolphinplugins/actions.h:19
+#: dolphinplugins/actions.h:16
 #, kde-format
 msgid "Pull"
 msgstr "Tirer"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
-#: dolphinplugins/actions.h:20
+#: dolphinplugins/actions.h:17
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:64
 #, kde-format
 msgid "Fetch"
@@ -58,7 +58,7 @@ msgstr "Rechercher"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
-#: dolphinplugins/actions.h:21 src/gui/pages/tagswidget.ui:69
+#: dolphinplugins/actions.h:18 src/gui/pages/tagswidget.ui:69
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:103
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:270
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:299
@@ -67,26 +67,26 @@ msgid "Push"
 msgstr "Pousser"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
-#: dolphinplugins/actions.h:22 src/libkommitwidgets/dialogs/mergedialog.ui:14
+#: dolphinplugins/actions.h:19 src/libkommitwidgets/dialogs/mergedialog.ui:14
 #, kde-format
 msgid "Merge"
 msgstr "Fusionner"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
-#: dolphinplugins/actions.h:23
+#: dolphinplugins/actions.h:20
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:14
 #, kde-format
 msgid "Switch/Checkout"
 msgstr "Basculer / Extraire"
 
-#: dolphinplugins/actions.h:24
+#: dolphinplugins/actions.h:21
 #, kde-format
 msgid "Modifications"
 msgstr "Modifications"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: dolphinplugins/actions.h:25 src/gui/kommitmergeui.rc:17
+#: dolphinplugins/actions.h:22 src/gui/kommitmergeui.rc:17
 #: src/gui/pages/branchesstatuswidget.ui:147
 #: src/gui/settings/settingsmanager.cpp:96
 #, kde-format
@@ -95,26 +95,26 @@ msgstr "Différences"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
-#: dolphinplugins/actions.h:26
+#: dolphinplugins/actions.h:23
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:14
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:96
 #, kde-format
 msgid "Ignore file"
 msgstr "Ignorer le fichier"
 
-#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:404
+#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:404
 #, kde-format
 msgid "History"
 msgstr "Historique"
 
-#: dolphinplugins/actions.h:28
+#: dolphinplugins/actions.h:25
 #, kde-format
 msgid "Blame"
 msgstr "Blâmer"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: dolphinplugins/actions.h:29 src/gui/pages/remoteswidget.ui:56
+#: dolphinplugins/actions.h:26 src/gui/pages/remoteswidget.ui:56
 #: src/gui/pages/tagswidget.ui:48
 #, kde-format
 msgid "Add"
@@ -122,23 +122,23 @@ msgstr "Ajouter"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: dolphinplugins/actions.h:30 src/gui/pages/branchesstatuswidget.ui:127
+#: dolphinplugins/actions.h:27 src/gui/pages/branchesstatuswidget.ui:127
 #: src/gui/pages/remoteswidget.ui:66
 #, kde-format
 msgid "Remove"
 msgstr "Supprimer"
 
-#: dolphinplugins/actions.h:31
+#: dolphinplugins/actions.h:28
 #, kde-format
 msgid "Create tag"
 msgstr "Créer une étiquette"
 
-#: dolphinplugins/actions.h:32
+#: dolphinplugins/actions.h:29
 #, kde-format
 msgid "Cleanup"
 msgstr "Nettoyer"
 
-#: dolphinplugins/actions.h:33
+#: dolphinplugins/actions.h:30
 #, kde-format
 msgid "Diff branches"
 msgstr "Calculer la différence entre branches"
@@ -453,7 +453,7 @@ msgstr "---"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:420
+#: src/libkommitwidgets/windows/diffwindow.cpp:429
 #, kde-format
 msgid "Removed"
 msgstr "Supprimés"
@@ -1446,7 +1446,7 @@ msgstr "Fichiers modifiés :"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
-#: src/libkommitwidgets/windows/diffwindow.cpp:246
+#: src/libkommitwidgets/windows/diffwindow.cpp:255
 #, kde-format
 msgid "Reload"
 msgstr "Recharger"
@@ -1748,14 +1748,14 @@ msgstr "Indexés"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:418
+#: src/libkommitwidgets/windows/diffwindow.cpp:427
 #, kde-format
 msgid "Added"
 msgstr "Ajoutés"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:422
+#: src/libkommitwidgets/windows/diffwindow.cpp:431
 #, kde-format
 msgid "Modified"
 msgstr "Modifiés"
@@ -2967,101 +2967,101 @@ msgstr "B"
 msgid "Report"
 msgstr "Signaler"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:227
+#: src/libkommitwidgets/windows/diffwindow.cpp:236
 #, kde-format
 msgid "View hidden chars…"
 msgstr "Afficher les caractères masqués"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:232
-#: src/libkommitwidgets/windows/mergewindow.cpp:180
+#: src/libkommitwidgets/windows/diffwindow.cpp:241
+#: src/libkommitwidgets/windows/mergewindow.cpp:184
 #, kde-format
 msgid "Same size blocks"
 msgstr "Blocs de même taille"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:237
+#: src/libkommitwidgets/windows/diffwindow.cpp:246
 #, kde-format
 msgid "Show files names"
 msgstr "Afficher les noms de fichiers"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:243
+#: src/libkommitwidgets/windows/diffwindow.cpp:252
 #, kde-format
 msgid "Show Tree"
 msgstr "Afficher l'arborescence"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:269
+#: src/libkommitwidgets/windows/diffwindow.cpp:278
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "Kommit Diff[*]"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:271
+#: src/libkommitwidgets/windows/diffwindow.cpp:280
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Arborescence"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:416
+#: src/libkommitwidgets/windows/diffwindow.cpp:425
 #, kde-format
 msgid "Unchanged"
 msgstr "Non-modifiés"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:140
+#: src/libkommitwidgets/windows/mergewindow.cpp:144
 #, kde-format
 msgid "Keep mine"
 msgstr "Conserver ma version"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:145
+#: src/libkommitwidgets/windows/mergewindow.cpp:149
 #, kde-format
 msgid "Keep their"
 msgstr "Conserver leur version"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:150
+#: src/libkommitwidgets/windows/mergewindow.cpp:154
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Conserver ma version avant la leur"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:155
+#: src/libkommitwidgets/windows/mergewindow.cpp:159
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Conserver leur version avant la mienne"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:160
+#: src/libkommitwidgets/windows/mergewindow.cpp:164
 #, kde-format
 msgid "Keep my file"
 msgstr "Conserver mon fichier"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:165
+#: src/libkommitwidgets/windows/mergewindow.cpp:169
 #, kde-format
 msgid "Keep their file"
 msgstr "Conserver leur fichier"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:170
+#: src/libkommitwidgets/windows/mergewindow.cpp:174
 #, kde-format
 msgid "Previous diff"
 msgstr "Différence précédente"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:175
+#: src/libkommitwidgets/windows/mergewindow.cpp:179
 #, kde-format
 msgid "Next diff"
 msgstr "Différence suivante"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:321
-#: src/libkommitwidgets/windows/mergewindow.cpp:335
+#: src/libkommitwidgets/windows/mergewindow.cpp:325
+#: src/libkommitwidgets/windows/mergewindow.cpp:339
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr "Impossible d'ouvrir le fichier %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:328
+#: src/libkommitwidgets/windows/mergewindow.cpp:332
 #, kde-format
 msgid "Save result"
 msgstr "Enregistrer le résultat"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:396
+#: src/libkommitwidgets/windows/mergewindow.cpp:400
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
 msgstr "Conflits : <span style='font-weight:bold; color:red;'>%1</span>"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:398
+#: src/libkommitwidgets/windows/mergewindow.cpp:402
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>Tous les conflits ont été résolus</span>"

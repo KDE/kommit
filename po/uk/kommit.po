@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-15 01:48+0000\n"
+"POT-Creation-Date: 2024-10-27 01:57+0000\n"
 "PO-Revision-Date: 2024-10-14 15:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -28,28 +28,28 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: dolphinplugins/actions.h:16
+#: dolphinplugins/actions.h:13
 #, kde-format
 msgid "Clone"
 msgstr "Клонувати"
 
-#: dolphinplugins/actions.h:17
+#: dolphinplugins/actions.h:14
 #, kde-format
 msgid "Init"
 msgstr "Ініціалізація"
 
-#: dolphinplugins/actions.h:18
+#: dolphinplugins/actions.h:15
 #, kde-format
 msgid "Open"
 msgstr "Відкрити"
 
-#: dolphinplugins/actions.h:19
+#: dolphinplugins/actions.h:16
 #, kde-format
 msgid "Pull"
 msgstr "Отримати"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
-#: dolphinplugins/actions.h:20
+#: dolphinplugins/actions.h:17
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:64
 #, kde-format
 msgid "Fetch"
@@ -57,7 +57,7 @@ msgstr "Отримати"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
-#: dolphinplugins/actions.h:21 src/gui/pages/tagswidget.ui:69
+#: dolphinplugins/actions.h:18 src/gui/pages/tagswidget.ui:69
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:103
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:270
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:299
@@ -66,26 +66,26 @@ msgid "Push"
 msgstr "Надіслати"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
-#: dolphinplugins/actions.h:22 src/libkommitwidgets/dialogs/mergedialog.ui:14
+#: dolphinplugins/actions.h:19 src/libkommitwidgets/dialogs/mergedialog.ui:14
 #, kde-format
 msgid "Merge"
 msgstr "Об'єднання"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
-#: dolphinplugins/actions.h:23
+#: dolphinplugins/actions.h:20
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:14
 #, kde-format
 msgid "Switch/Checkout"
 msgstr "Перемкнутися/Отримати"
 
-#: dolphinplugins/actions.h:24
+#: dolphinplugins/actions.h:21
 #, kde-format
 msgid "Modifications"
 msgstr "Зміни"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
-#: dolphinplugins/actions.h:25 src/gui/kommitmergeui.rc:17
+#: dolphinplugins/actions.h:22 src/gui/kommitmergeui.rc:17
 #: src/gui/pages/branchesstatuswidget.ui:147
 #: src/gui/settings/settingsmanager.cpp:96
 #, kde-format
@@ -94,26 +94,26 @@ msgstr "Різниця"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
-#: dolphinplugins/actions.h:26
+#: dolphinplugins/actions.h:23
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:14
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:96
 #, kde-format
 msgid "Ignore file"
 msgstr "Ігнорувати файл"
 
-#: dolphinplugins/actions.h:27 src/gui/commandargsparser.cpp:404
+#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:404
 #, kde-format
 msgid "History"
 msgstr "Журнал"
 
-#: dolphinplugins/actions.h:28
+#: dolphinplugins/actions.h:25
 #, kde-format
 msgid "Blame"
 msgstr "Визначити автора"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
-#: dolphinplugins/actions.h:29 src/gui/pages/remoteswidget.ui:56
+#: dolphinplugins/actions.h:26 src/gui/pages/remoteswidget.ui:56
 #: src/gui/pages/tagswidget.ui:48
 #, kde-format
 msgid "Add"
@@ -121,23 +121,23 @@ msgstr "Додати"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
-#: dolphinplugins/actions.h:30 src/gui/pages/branchesstatuswidget.ui:127
+#: dolphinplugins/actions.h:27 src/gui/pages/branchesstatuswidget.ui:127
 #: src/gui/pages/remoteswidget.ui:66
 #, kde-format
 msgid "Remove"
 msgstr "Вилучити"
 
-#: dolphinplugins/actions.h:31
+#: dolphinplugins/actions.h:28
 #, kde-format
 msgid "Create tag"
 msgstr "Створити мітку"
 
-#: dolphinplugins/actions.h:32
+#: dolphinplugins/actions.h:29
 #, kde-format
 msgid "Cleanup"
 msgstr "Очищення"
 
-#: dolphinplugins/actions.h:33
+#: dolphinplugins/actions.h:30
 #, kde-format
 msgid "Diff branches"
 msgstr "Різниця гілок"
@@ -448,7 +448,7 @@ msgstr "---"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:420
+#: src/libkommitwidgets/windows/diffwindow.cpp:429
 #, kde-format
 msgid "Removed"
 msgstr "Вилучено"
@@ -1441,7 +1441,7 @@ msgstr "Змінені файли:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
-#: src/libkommitwidgets/windows/diffwindow.cpp:246
+#: src/libkommitwidgets/windows/diffwindow.cpp:255
 #, kde-format
 msgid "Reload"
 msgstr "Перезавантажити"
@@ -1741,14 +1741,14 @@ msgstr "Індексований"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:418
+#: src/libkommitwidgets/windows/diffwindow.cpp:427
 #, kde-format
 msgid "Added"
 msgstr "Додано"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:422
+#: src/libkommitwidgets/windows/diffwindow.cpp:431
 #, kde-format
 msgid "Modified"
 msgstr "Змінено"
@@ -2963,101 +2963,101 @@ msgstr "B"
 msgid "Report"
 msgstr "Звіт"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:227
+#: src/libkommitwidgets/windows/diffwindow.cpp:236
 #, kde-format
 msgid "View hidden chars…"
 msgstr "Переглянути приховані символи…"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:232
-#: src/libkommitwidgets/windows/mergewindow.cpp:180
+#: src/libkommitwidgets/windows/diffwindow.cpp:241
+#: src/libkommitwidgets/windows/mergewindow.cpp:184
 #, kde-format
 msgid "Same size blocks"
 msgstr "Однакові розміри блоків"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:237
+#: src/libkommitwidgets/windows/diffwindow.cpp:246
 #, kde-format
 msgid "Show files names"
 msgstr "Показувати назви файлів"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:243
+#: src/libkommitwidgets/windows/diffwindow.cpp:252
 #, kde-format
 msgid "Show Tree"
 msgstr "Показати ієрархію"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:269
+#: src/libkommitwidgets/windows/diffwindow.cpp:278
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "Різниця Kommit[*]"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:271
+#: src/libkommitwidgets/windows/diffwindow.cpp:280
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Ієрархія"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:416
+#: src/libkommitwidgets/windows/diffwindow.cpp:425
 #, kde-format
 msgid "Unchanged"
 msgstr "Без змін"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:140
+#: src/libkommitwidgets/windows/mergewindow.cpp:144
 #, kde-format
 msgid "Keep mine"
 msgstr "Зберегти ваш"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:145
+#: src/libkommitwidgets/windows/mergewindow.cpp:149
 #, kde-format
 msgid "Keep their"
 msgstr "Зберегти зовнішній"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:150
+#: src/libkommitwidgets/windows/mergewindow.cpp:154
 #, kde-format
 msgid "Keep mine before their"
 msgstr "Зберегти ваш до зовнішнього"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:155
+#: src/libkommitwidgets/windows/mergewindow.cpp:159
 #, kde-format
 msgid "Keep their before mine"
 msgstr "Зберегти зовнішній до вашого"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:160
+#: src/libkommitwidgets/windows/mergewindow.cpp:164
 #, kde-format
 msgid "Keep my file"
 msgstr "Зберегти ваш файл"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:165
+#: src/libkommitwidgets/windows/mergewindow.cpp:169
 #, kde-format
 msgid "Keep their file"
 msgstr "Зберегти зовнішній файл"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:170
+#: src/libkommitwidgets/windows/mergewindow.cpp:174
 #, kde-format
 msgid "Previous diff"
 msgstr "Попередня відмінність"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:175
+#: src/libkommitwidgets/windows/mergewindow.cpp:179
 #, kde-format
 msgid "Next diff"
 msgstr "Наступна відмінність"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:321
-#: src/libkommitwidgets/windows/mergewindow.cpp:335
+#: src/libkommitwidgets/windows/mergewindow.cpp:325
+#: src/libkommitwidgets/windows/mergewindow.cpp:339
 #, kde-format
 msgid "Unable to open the file %1"
 msgstr "Не вдалося відкрити файл %1"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:328
+#: src/libkommitwidgets/windows/mergewindow.cpp:332
 #, kde-format
 msgid "Save result"
 msgstr "Зберегти результат"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:396
+#: src/libkommitwidgets/windows/mergewindow.cpp:400
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
 msgstr "Конфлікти: <span style='font-weight:bold; color:red;'>%1</span>"
 
-#: src/libkommitwidgets/windows/mergewindow.cpp:398
+#: src/libkommitwidgets/windows/mergewindow.cpp:402
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>Усі конфлікти вирішено</span>"
