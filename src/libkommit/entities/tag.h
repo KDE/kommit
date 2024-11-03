@@ -25,7 +25,7 @@ class TagPrivate;
 class LIBKOMMIT_EXPORT Tag : public IOid
 {
 public:
-    enum class TagType {
+    enum class Type {
         RegularTag,
         LightTag
     };
