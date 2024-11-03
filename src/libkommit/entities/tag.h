@@ -25,10 +25,7 @@ class TagPrivate;
 class LIBKOMMIT_EXPORT Tag : public IOid
 {
 public:
-    enum class Type {
-        RegularTag,
-        LightTag
-    };
+    enum class Type { RegularTag, LightTag };
 
     Tag();
     explicit Tag(git_tag *tag);
