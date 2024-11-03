@@ -34,8 +34,8 @@ private Q_SLOTS:
 
 private:
     Git::Repository *mManager;
-    QList<QSharedPointer<Git::Commit>> mCommits;
-    QList<QSharedPointer<Git::Branch>> mBranches;
-    QList<QSharedPointer<Git::Tag>> mTags;
-    QList<QSharedPointer<Git::Remote>> mRemotes;
+    QList<Git::Commit> mCommits;
+    QList<Git::Branch> mBranches;
+    QList<Git::Tag> mTags;
+    QList<Git::Remote> mRemotes;
 };

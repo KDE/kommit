@@ -4,7 +4,6 @@
 #include "repository.h"
 
 #include "abstractreference.h"
-#include "blamedata.h"
 #include "caches/abstractcache.h"
 #include "caches/branchescache.h"
 #include "caches/commitscache.h"
@@ -67,7 +66,7 @@ public:
     int errorClass{};
     QString errorMessage;
 
-    QSharedPointer<Index> index;
+    Index index;
 
     CommitsCache *commitsCache;
     BranchesCache *branchesCache;
@@ -131,7 +130,7 @@ bool Repository::open(const QString &newPath)
     return IS_OK;
 }
 
-QSharedPointer<Reference> Repository::head() const
+Reference Repository::head() const
 {
     Q_D(const Repository);
 
@@ -142,22 +141,22 @@ QSharedPointer<Reference> Repository::head() const
     END;
 
     if (IS_OK)
-        return QSharedPointer<Reference>{new Reference{head}};
-    return {};
+        return Reference{head};
+    return Reference{};
 }
 
 bool Repository::checkout()
 {
     Q_D(Repository);
 
-    QSharedPointer<Tag> tag;
-    auto target = tag->target();
+    Tag tag;
+    auto target = tag.target();
 
     git_checkout_options checkoutOptions;
     git_checkout_options_init(&checkoutOptions, GIT_CHECKOUT_OPTIONS_VERSION);
     checkoutOptions.checkout_strategy = GIT_CHECKOUT_SAFE;
 
-    git_checkout_tree(d->repo, target->objectPtr(), &checkoutOptions);
+    git_checkout_tree(d->repo, target.data(), &checkoutOptions);
 
     return true;
 }
@@ -426,7 +425,7 @@ QList<FileStatus> Repository::diff(AbstractReference *from, AbstractReference *t
 
     if (IS_ERROR) {
         PRINT_ERROR;
-        return {};
+        return QList<FileStatus>{};
     }
 
     git_diff_stats *stats;
@@ -520,7 +519,7 @@ void Repository::forEachCommits(std::function<void(QSharedPointer<Commit>)> call
     git_revwalk_free(walker);
 }
 
-QSharedPointer<Index> Repository::index()
+const Index &Repository::index()
 {
     Q_D(Repository);
 
@@ -529,38 +528,32 @@ QSharedPointer<Index> Repository::index()
         git_index *index;
         STEP git_repository_index(&index, d->repo);
         if (IS_OK)
-            d->index.reset(new Index{index});
+            d->index = Index{index};
     }
     PRINT_ERROR;
 
     return d->index;
 }
 
-QSharedPointer<Tree> Repository::headTree() const
+Tree Repository::headTree() const
 {
     Q_D(const Repository);
 
     git_reference *ref;
-    git_tree *tree;
+    git_commit *headCommit = nullptr;
 
     SequenceRunner r;
 
     r.run(git_repository_head, &ref, d->repo);
+    r.run(git_reference_peel, (git_object **)&headCommit, ref, GIT_OBJ_COMMIT);
 
     if (r.isError())
-        return nullptr;
+        return Tree{};
 
-    auto oid = git_reference_target(ref);
-
-    r.run(git_tree_lookup, &tree, d->repo, oid);
-
-    if (r.isError())
-        return nullptr;
-
-    return QSharedPointer<Tree>{new Tree{tree}};
+    return Commit{headCommit}.tree();
 }
 
-TreeDiff Repository::diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTree)
+TreeDiff Repository::diff(const Tree &oldTree, const Tree &newTree)
 {
     Q_D(Repository);
 
@@ -571,10 +564,10 @@ TreeDiff Repository::diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> new
 
     BEGIN
 
-    if (newTree) {
-        STEP git_diff_tree_to_tree(&diff, d->repo, oldTree->gitTree(), newTree->gitTree(), &opts);
+    if (newTree.isNull()) {
+        STEP git_diff_tree_to_workdir(&diff, d->repo, oldTree.data(), &opts);
     } else {
-        STEP git_diff_tree_to_workdir(&diff, d->repo, oldTree->gitTree(), &opts);
+        STEP git_diff_tree_to_tree(&diff, d->repo, oldTree.data(), newTree.data(), &opts);
     }
     STEP git_diff_get_stats(&stats, diff);
 
@@ -762,21 +755,21 @@ Repository *Repository::instance()
     return &instance;
 }
 
-bool Repository::setHead(QSharedPointer<Reference> ref) const
+bool Repository::setHead(const Reference &ref) const
 {
     Q_D(const Repository);
     BEGIN;
-    STEP git_repository_set_head(d->repo, ref->name().toUtf8().data());
+    STEP git_repository_set_head(d->repo, ref.name().toUtf8().data());
     END;
     return IS_OK;
 }
 
-bool Repository::reset(QSharedPointer<Commit> commit, ResetType type) const
+bool Repository::reset(const Commit &commit, ResetType type) const
 {
     Q_D(const Repository);
     git_object *object;
     SequenceRunner r;
-    r.run(git_object_lookup, &object, d->repo, commit->oid()->oidPtr(), GIT_OBJECT_COMMIT);
+    r.run(git_object_lookup, &object, d->repo, commit.oid().data(), GIT_OBJECT_COMMIT);
 
     if (r.isError())
         return false;
@@ -953,7 +946,7 @@ void Repository::saveFile(const QString &place, const QString &fileName, const Q
     f.close();
 }
 
-QSharedPointer<BlameData> Repository::blame(const QString &filePath, BlameOptions *options)
+Blame Repository::blame(const QString &filePath, BlameOptions *options)
 {
     Q_D(Repository);
 
@@ -962,7 +955,7 @@ QSharedPointer<BlameData> Repository::blame(const QString &filePath, BlameOption
 
     QFile file{d->path + QStringLiteral("/") + filePath};
     if (!file.open(QIODevice::Text | QIODevice::ReadOnly))
-        return {};
+        return Blame{};
 
     auto content = QString{file.readAll()};
     file.close();
@@ -975,10 +968,9 @@ QSharedPointer<BlameData> Repository::blame(const QString &filePath, BlameOption
     r.run(git_blame_file, &blame, d->repo, filePath.toUtf8().data(), &opts);
 
     if (r.isError())
-        return {};
+        return Blame{};
 
-    auto b = new BlameData{this, content.split('\n'), blame};
-    return QSharedPointer<BlameData>{b};
+    return Blame{this, content.split('\n'), blame};
 }
 
 bool Repository::revertFile(const QString &filePath) const
@@ -1061,8 +1053,8 @@ bool Repository::commit(const QString &message)
     git_index *index = nullptr;
 
     auto indexPtr = this->index();
-    indexPtr->writeTree();
-    auto lastTreeId = indexPtr->lastOid();
+    indexPtr.writeTree();
+    auto lastTreeId = indexPtr.lastOid();
 
     // r.run(git_repository_index, &index, d->repo);
     // r.run(git_index_write_tree, &tree_oid, index);
@@ -1150,7 +1142,7 @@ bool Repository::commit(const QString &message)
         git_tree_free(tree);
         git_index_free(index);
             */
-    d->index.reset();
+    d->index = Index{};
     Q_EMIT reloadRequired();
     return r.isSuccess();
 }
@@ -1193,8 +1185,8 @@ void Repository::addFile(const QString &file)
     // git_tree_free(tree);
     // git_index_free(index);
     auto idx = index();
-    idx->addByPath(file);
-    idx->writeTree();
+    idx.addByPath(file);
+    idx.writeTree();
 }
 
 bool Repository::removeFile(const QString &file, bool cached) const
@@ -1236,25 +1228,28 @@ bool Repository::isMerging() const
     return state == GIT_REPOSITORY_STATE_MERGE;
 }
 
-bool Repository::switchBranch(QSharedPointer<Branch> branch) const
+bool Repository::switchBranch(const Branch &branch) const
 {
+    if (branch.isNull()) {
+        qDebug() << "Branch is null";
+        return false;
+    }
     Q_D(const Repository);
 
     git_checkout_options opts = GIT_CHECKOUT_OPTIONS_INIT;
     opts.checkout_strategy = GIT_CHECKOUT_SAFE;
 
-    BEGIN
-    auto obj = Peeler(branch)(&Branch::object)(&Object::objectPtr)();
+    auto ref = branch.data();
 
-    if (!obj)
-        return false;
+    git_object *target = nullptr;
 
-    STEP git_checkout_tree(d->repo, obj, &opts);
-    STEP git_repository_set_head(d->repo, branch->refName().toUtf8().constData());
+    SequenceRunner r;
 
-    PRINT_ERROR;
+    r.run(git_reference_peel, &target, ref, GIT_OBJ_COMMIT);
+    r.run(git_checkout_tree, d->repo, target, &opts);
+    r.run(git_repository_set_head, d->repo, branch.refName().toUtf8().constData());
 
-    return IS_OK;
+    return r.isSuccess();
 }
 
 bool Repository::switchBranch(const QString &branchName) const
@@ -1264,6 +1259,7 @@ bool Repository::switchBranch(const QString &branchName) const
     git_reference *branch{nullptr};
     git_object *treeish = NULL;
     git_checkout_options opts = GIT_CHECKOUT_OPTIONS_INIT;
+
     opts.checkout_strategy = GIT_CHECKOUT_SAFE;
 
     BEGIN
@@ -1452,4 +1448,5 @@ void RepositoryPrivate::checkError()
 
 } // namespace Git
 
+#include "blame.h"
 #include "moc_repository.cpp"

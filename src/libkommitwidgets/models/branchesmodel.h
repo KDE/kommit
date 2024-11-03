@@ -12,12 +12,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QScopedPointer>
 
+#include <Kommit/Branch>
+
 namespace Git
 {
-
-class Branch;
 class Repository;
 }
+
 class BranchesModelPrivate;
 class LIBKOMMITWIDGETS_EXPORT BranchesModel : public AbstractGitItemsModel
 {
@@ -37,8 +38,8 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
-    QSharedPointer<Git::Branch> fromIndex(const QModelIndex &index) const;
-    QSharedPointer<Git::Branch> findByName(const QString &branchName) const;
+    Git::Branch fromIndex(const QModelIndex &index) const;
+    Git::Branch findByName(const QString &branchName) const;
 
     [[nodiscard]] const QString &currentBranch() const;
     [[nodiscard]] const QString &referenceBranch() const;

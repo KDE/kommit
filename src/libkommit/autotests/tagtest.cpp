@@ -72,6 +72,11 @@ void TagTest::addTag()
 void TagTest::removeTag()
 {
     auto tag = mManager->tags()->find("tag1");
+    auto object = dynamic_cast<Git::Object *>(&tag);
+
+    QVERIFY(!object->isNull());
+    QCOMPARE(object->type(), Git::Object::Type::Tag);
+
     auto ok = mManager->tags()->remove(tag);
 
     QVERIFY(ok);

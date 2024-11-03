@@ -15,6 +15,8 @@
 #include <QSharedPointer>
 #include <QString>
 
+#include <Kommit/Blame>
+
 namespace Git
 {
 
@@ -47,9 +49,9 @@ class TreeDiff;
 class Blob;
 struct BlameDataRow;
 class BlameOptions;
+class Blame;
 class BlameData;
 
-// TODO: rename class and file's name to repository
 class LIBKOMMIT_EXPORT Repository : public QObject
 {
     Q_OBJECT
@@ -86,7 +88,7 @@ public:
     bool commit(const QString &message);
     void push(PushObserver *observer = nullptr) const;
     bool open(const QString &newPath);
-    QSharedPointer<Reference> head() const;
+    Reference head() const;
     bool checkout();
 
     // properties
@@ -95,11 +97,11 @@ public:
     [[nodiscard]] bool isMerging() const;
 
     // branches
-    bool switchBranch(QSharedPointer<Branch> branch) const;
+    bool switchBranch(const Branch &branch) const;
     bool switchBranch(const QString &branchName) const;
     [[nodiscard]] QPair<int, int> uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const;
-    bool setHead(QSharedPointer<Reference> ref) const;
-    bool reset(QSharedPointer<Commit> commit, ResetType type) const;
+    bool setHead(const Reference &ref) const;
+    bool reset(const Commit &commit, ResetType type) const;
 
     // remotes
     bool fetch(const QString &remoteName, FetchObserver *observer = nullptr);
@@ -119,7 +121,7 @@ public:
     bool revertFile(const QString &filePath) const;
     bool removeFile(const QString &file, bool cached) const;
     [[nodiscard]] QStringList fileLog(const QString &fileName) const;
-    QSharedPointer<BlameData> blame(const QString &filePath, BlameOptions *options = nullptr);
+    Blame blame(const QString &filePath, BlameOptions *options = nullptr);
     [[nodiscard]] QMap<QString, ChangeStatus> changedFiles() const;
     [[nodiscard]] QMap<QString, ChangeStatus> changedFiles(const QString &hash) const;
     [[nodiscard]] QStringList ignoredFiles() const;
@@ -135,12 +137,13 @@ public:
     [[nodiscard]] QList<FileStatus> diffBranch(const QString &from) const;
     [[nodiscard]] QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
     [[nodiscard]] QList<FileStatus> diff(AbstractReference *from, AbstractReference *to) const;
-    [[nodiscard]] TreeDiff diff(QSharedPointer<Tree> oldTree, QSharedPointer<Tree> newTree = {});
+    [[nodiscard]] TreeDiff diff(const Tree &oldTree, const Tree &newTree);
 
+    Q_DECL_DEPRECATED_X("Use commits()->forEach")
     void forEachCommits(std::function<void(QSharedPointer<Commit>)> callback, const QString &branchName) const;
 
-    [[nodiscard]] QSharedPointer<Index> index();
-    [[nodiscard]] QSharedPointer<Tree> headTree() const;
+    [[nodiscard]] const Index &index();
+    [[nodiscard]] Tree headTree() const;
 
     [[nodiscard]] bool isRebasing() const;
     [[nodiscard]] bool isDetached() const;
@@ -171,7 +174,6 @@ Q_SIGNALS:
 private:
     QScopedPointer<RepositoryPrivate> d_ptr;
     Q_DECLARE_PRIVATE(Repository)
-
     LIBKOMMIT_NO_EXPORT QStringList readAllNonEmptyOutput(const QStringList &cmd) const;
 };
 

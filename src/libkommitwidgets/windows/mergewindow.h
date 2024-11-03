@@ -13,10 +13,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QScopedPointer>
 
+#include <Kommit/Blob>
+
 namespace Git
 {
 class Repository;
-class Blob;
 }
 
 class SegmentsMapper;
@@ -38,13 +39,13 @@ public:
     void compare();
 
     void setLocalFile(const QString &filePath);
-    void setLocalFile(QSharedPointer<Git::Blob> blob);
+    void setLocalFile(const Git::Blob &blob);
 
     void setRemoteFile(const QString &filePath);
-    void setRemoteFile(QSharedPointer<Git::Blob> blob);
+    void setRemoteFile(const Git::Blob &blob);
 
     void setBaseFile(const QString &filePath);
-    void setBaseFile(QSharedPointer<Git::Blob> blob);
+    void setBaseFile(const Git::Blob &blob);
 
     void setResultFile(const QString &newFilePathResult);
 

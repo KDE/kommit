@@ -5,7 +5,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "branchescache.h"
-#include "entities/reference.h"
 #include "gitglobal_p.h"
 #include "repository.h"
 
@@ -55,11 +54,11 @@ BranchesCache::DataType BranchesCache::findByName(const QString &key)
     BEGIN
     STEP git_branch_lookup(&ref, d->manager->repoPtr(), key.toLocal8Bit().constData(), GIT_BRANCH_ALL);
     if (IS_OK) {
-        auto b = DataType{new Branch{ref}};
+        Branch b{ref};
         d->add(b);
         return b;
     }
-    return {};
+    return Branch{};
 }
 
 bool BranchesCache::create(const QString &name)
@@ -94,7 +93,7 @@ bool BranchesCache::remove(DataType branch)
     Q_D(BranchesCache);
 
     BEGIN
-    STEP git_branch_delete(branch->refPtr());
+    STEP git_branch_delete(branch.refPtr());
 
     if (IS_OK && d->remove(branch)) {
         Q_EMIT removed(branch);
@@ -145,7 +144,7 @@ QStringList BranchesCache::names(BranchType type)
     QStringList list;
     auto branches = allBranches(type);
     for (auto const &branch : branches)
-        list << branch->name();
+        list << branch.name();
     return list;
 }
 
@@ -158,7 +157,7 @@ BranchesCache::DataType BranchesCache::current()
     STEP git_repository_head(&ref, d->manager->repoPtr());
     if (IS_ERROR) {
         PRINT_ERROR;
-        return {};
+        return Branch{};
     }
 
     auto b = findByPtr(ref);
@@ -200,12 +199,12 @@ BranchesCachePrivate::BranchesCachePrivate(BranchesCache *parent, Repository *ma
 
 void BranchesCachePrivate::add(BranchesCache::DataType newItem)
 {
-    if (dataByName.contains(newItem->name()))
+    if (dataByName.contains(newItem.name()))
         return;
 
     list.append(newItem);
-    dataByName.insert(newItem->name(), newItem);
-    dataByRef.insert(newItem->refPtr(), newItem);
+    dataByName.insert(newItem.name(), newItem);
+    dataByRef.insert(newItem.refPtr(), newItem);
 }
 
 bool BranchesCachePrivate::remove(BranchesCache::DataType branch)
@@ -214,8 +213,8 @@ bool BranchesCachePrivate::remove(BranchesCache::DataType branch)
         return false;
 
     list.removeOne(branch);
-    dataByName.remove(branch->name());
-    dataByRef.remove(branch->refPtr());
+    dataByName.remove(branch.name());
+    dataByRef.remove(branch.refPtr());
     return true;
 }
 

@@ -2,15 +2,17 @@
 
 #include "ui_fetchresultwidget.h"
 
+#include <Kommit/Credential>
+#include <Kommit/Oid>
+#include <Kommit/Reference>
+
 namespace Git
 {
 class FetchObserver;
 class FetchTransferStat;
-class Reference;
-class Oid;
-class Credential;
 class PackProgress;
 }
+
 class FetchResultWidget : public QWidget, private Ui::FetchResultWidget
 {
     Q_OBJECT
@@ -26,7 +28,7 @@ private:
     void slotCredentialRequeted(const QString &url, Git::Credential *cred);
     void slotTransferProgress(const Git::FetchTransferStat *stat);
     void slotPackProgress(const Git::PackProgress *progress);
-    void slotUpdateRef(QSharedPointer<Git::Reference> reference, QSharedPointer<Git::Oid> a, QSharedPointer<Git::Oid> b);
+    void slotUpdateRef(const Git::Reference &reference, const Git::Oid &a, const Git::Oid &b);
     void slotFinished();
 
     Git::FetchObserver *mObserver{nullptr};

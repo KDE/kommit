@@ -28,7 +28,7 @@ void CommitsByDayHour::reload()
             map.insert(i, 0);
 
         auto commitCb = [&map](QSharedPointer<Git::Commit> commit) {
-            auto time = commit->committer()->time();
+            auto time = commit->committer().time();
 
             auto c = map[time.time().hour()] + 1;
             map[time.time().hour()] = c;

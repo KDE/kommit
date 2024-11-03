@@ -94,7 +94,7 @@ void BranchesStatusWidget::slotPushButtonRemoveSelectedClicked()
 
     if (KMessageBoxHelper::removeQuestion(this, i18n("Are you sure to remove the selected branch?"))) {
         auto branch = mGit->branchesModel()->fromIndex(treeView->currentIndex());
-        if (branch) {
+        if (!branch.isNull()) {
             if (!mGit->manager()->branches()->remove(branch)) {
                 KMessageBox::information(this, i18n("Unable to remove the selected branch"));
                 return;
@@ -108,7 +108,7 @@ void BranchesStatusWidget::slotTreeViewCustomContextMenuRequested(const QPoint &
 {
     Q_UNUSED(pos)
     auto b = mModel->fromIndex(treeView->currentIndex());
-    if (!b)
+    if (b.isNull())
         return;
     mActions->setBranch(b);
     mActions->popup();
@@ -117,7 +117,7 @@ void BranchesStatusWidget::slotTreeViewCustomContextMenuRequested(const QPoint &
 void BranchesStatusWidget::slotTreeViewActivated(const QModelIndex &index)
 {
     auto b = mModel->fromIndex(index);
-    if (!b)
+    if (b.isNull())
         return;
     mActions->setBranch(b);
 }

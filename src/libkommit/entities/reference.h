@@ -23,12 +23,22 @@ class Tag;
 class Remote;
 class Oid;
 
+class ReferencePrivate;
 class LIBKOMMIT_EXPORT Reference
 {
 public:
     Reference();
-    Reference(git_reference *ref);
-    ~Reference();
+    explicit Reference(git_reference *ref);
+
+    Reference(const Reference &other);
+    Reference &operator=(const Reference &other);
+    bool operator==(const Reference &other) const;
+    bool operator!=(const Reference &other) const;
+
+    [[nodiscard]] bool isNull() const;
+
+    [[nodiscard]] git_reference *data() const;
+    [[nodiscard]] const git_reference *constData() const;
 
     enum class Type {
         Invalid = GIT_REFERENCE_INVALID,
@@ -44,21 +54,20 @@ public:
     [[nodiscard]] QString name() const;
     [[nodiscard]] QString shorthand() const;
     [[nodiscard]] Type type() const;
-    [[nodiscard]] QSharedPointer<Oid> target() const;
+    [[nodiscard]] Oid target() const;
 
-    QSharedPointer<Object> peel(Object::Type type) const;
+    [[nodiscard]] Object peel(Object::Type type) const;
 
-    [[nodiscard]] QSharedPointer<Note> toNote() const;
-    [[nodiscard]] QSharedPointer<Branch> toBranch() const;
-    [[nodiscard]] QSharedPointer<Tag> toTag() const;
-    [[nodiscard]] QSharedPointer<Remote> toRemote() const;
+    [[nodiscard]] Note toNote() const;
+    [[nodiscard]] Branch toBranch() const;
+    [[nodiscard]] Tag toTag() const;
+    [[nodiscard]] Remote toRemote() const;
 
     [[nodiscard]] static bool isValidName(const QString &name);
 
     [[nodiscard]] git_reference *refPtr() const;
 
 private:
-    git_reference *ptr{nullptr};
+    QSharedPointer<ReferencePrivate> d;
 };
-
 }

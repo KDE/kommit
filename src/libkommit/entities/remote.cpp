@@ -5,8 +5,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "entities/remote.h"
+#include "branch.h"
+#include "buffer.h"
 #include "caches/branchescache.h"
 #include "entities/branch.h"
+#include "gitglobal_p.h"
+#include "remotecallbacks.h"
 #include "repository.h"
 #include "types.h"
 
@@ -18,119 +22,142 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-RefSpec::RefSpec(const git_refspec *refspecs)
+class RemotePrivate
 {
-    mName = git_refspec_string(refspecs);
-    mDestionation = git_refspec_dst(refspecs);
-    mSource = git_refspec_src(refspecs);
-    mDirection = static_cast<Direction>(git_refspec_direction(refspecs));
+public:
+    explicit RemotePrivate(git_remote *remote = nullptr);
+    ~RemotePrivate();
+    git_remote *remote{nullptr};
+
+    QList<RefSpec> refSpecList;
+    QList<Branch> branches;
+};
+
+RemotePrivate::RemotePrivate(git_remote *remote)
+    : remote{remote}
+{
 }
 
-RefSpec::~RefSpec()
+RemotePrivate::~RemotePrivate()
 {
+    git_remote_free(remote);
 }
 
-QString RefSpec::name() const
+Remote::Remote()
+    : d{new RemotePrivate{nullptr}}
 {
-    return mName;
 }
-
-RefSpec::Direction RefSpec::direction() const
-{
-    return mDirection;
-}
-
-QString RefSpec::destionation() const
-{
-    return mDestionation;
-}
-
-QString RefSpec::source() const
-{
-    return mSource;
-}
-
-// Remote::Remote()
-//     : mRemotePtr{nullptr}
-// {
-// }
 
 Remote::Remote(git_remote *remote)
-    : mRemotePtr{remote}
+    : d{new RemotePrivate{remote}}
 {
-    mName = git_remote_name(remote);
-    mConnected = git_remote_connected(remote);
-    auto buf = git_buf{0};
-    git_remote_default_branch(&buf, remote);
-    mDefaultBranch = convertToQString(&buf);
-    git_buf_dispose(&buf);
-
-    mPushUrl = git_remote_pushurl(remote);
-    mFetchUrl = git_remote_url(remote);
-
-    git_strarray a1, a2;
-    git_remote_get_fetch_refspecs(&a1, remote);
-    git_remote_get_push_refspecs(&a2, remote);
-    auto refCount = git_remote_refspec_count(remote);
-    for (size_t i = 0; i < refCount; ++i) {
-        auto ref = git_remote_get_refspec(remote, i);
-        auto refSpec = new RefSpec{ref};
-        mRefSpecList << refSpec;
+    if (remote) {
+        git_strarray a1, a2;
+        git_remote_get_fetch_refspecs(&a1, remote);
+        git_remote_get_push_refspecs(&a2, remote);
+        auto refCount = git_remote_refspec_count(remote);
+        for (size_t i = 0; i < refCount; ++i) {
+            auto ref = git_remote_get_refspec(remote, i);
+            d->refSpecList << RefSpec{ref};
+        }
     }
 }
 
-Remote::~Remote()
+Remote::Remote(const Remote &other)
+    : d{other.d}
 {
-    git_remote_free(mRemotePtr);
-    qDeleteAll(mRefSpecList);
+}
+
+Remote &Remote::operator=(const Remote &other)
+{
+    if (this != &other)
+        d = other.d;
+
+    return *this;
+}
+
+bool Remote::operator==(const Remote &other) const
+{
+    return d->remote == other.d->remote;
+}
+
+bool Remote::operator!=(const Remote &other) const
+{
+    return !(*this == other);
 }
 
 QString Remote::name() const
 {
-    return mName;
+    return QString{git_remote_name(d->remote)};
 }
 
-QList<RefSpec *> Remote::refSpecList() const
+QList<RefSpec> Remote::refSpecList() const
 {
-    return mRefSpecList;
+    return d->refSpecList;
 }
 
 QString Remote::pushUrl() const
 {
-    return mPushUrl;
+    return QString{git_remote_pushurl(d->remote)};
 }
 
 QString Remote::fetchUrl() const
 {
-    return mFetchUrl;
+    return QString{git_remote_url(d->remote)};
 }
 
 QString Remote::defaultBranch() const
 {
-    return mDefaultBranch;
+    Buf b;
+
+    if (SequenceRunner::runSingle(git_remote_default_branch, &b, d->remote))
+        return {};
+
+    return b.toString();
 }
 
-const QList<QSharedPointer<Branch>> &Remote::branches()
+bool Remote::isNull() const
 {
-    if (!mBranches.size()) {
-        auto owner = Repository::owner(git_remote_owner(mRemotePtr));
+    return !d->remote;
+}
+
+const QList<Branch> &Remote::branches()
+{
+    if (!d->branches.size()) {
+        auto owner = Repository::owner(git_remote_owner(d->remote));
 
         auto branches = owner->branches()->allBranches();
         for (auto const &branch : branches)
-            if (branch->remoteName() == name())
-                mBranches << branch;
+            if (branch.remoteName() == name())
+                d->branches << branch;
     }
-    return mBranches;
+    return d->branches;
 }
 
-bool Remote::connected() const
+bool Remote::isConnected() const
 {
-    return mConnected;
+    return git_remote_connected(d->remote);
+    return 1 == SequenceRunner::runSingle(git_remote_connected, d->remote);
+}
+
+bool Remote::connect(Direction direction, RemoteCallbacks *callBacks) const
+{
+    git_remote_callbacks cb = GIT_REMOTE_CALLBACKS_INIT;
+    if (callBacks) {
+        callBacks->apply(&cb, Repository::owner(git_remote_owner(d->remote)));
+    }
+    return 0
+        == SequenceRunner::runSingle(git_remote_connect,
+                                     d->remote,
+                                     static_cast<git_direction>(direction),
+                                     &cb,
+                                     (const git_proxy_options *)NULL,
+                                     (const git_strarray *)NULL);
 }
 
 git_remote *Remote::remotePtr() const
 {
-    return mRemotePtr;
+    return d->remote;
 }
 
 QString RemoteBranch::statusText() const

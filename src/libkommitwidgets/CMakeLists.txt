@@ -170,6 +170,7 @@ target_sources(libkommitwidgets PRIVATE
     dialogs/fileblamedialog.cpp
     dialogs/searchdialog.h
     dialogs/filehistorydialog.cpp
+    dialogs/certificateinfodialog.h dialogs/certificateinfodialog.cpp
 
     icons/icons.qrc
 )
@@ -244,6 +245,7 @@ ki18n_wrap_ui(
     dialogs/ignorefiledialog.ui
     dialogs/notedialog.ui
     dialogs/taginfodialog.ui
+    dialogs/certificateinfodialog.ui
 )
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)

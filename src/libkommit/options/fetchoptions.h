@@ -7,15 +7,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "libkommit_export.h"
+#include <QObject>
 #include <git2/remote.h>
 
 namespace Git
 {
 
+class Repository;
 class LIBKOMMIT_EXPORT FetchOptions
 {
 public:
-    FetchOptions();
+    FetchOptions(QObject *parent = nullptr);
 
     enum class DownloadTags {
         Unspecified = 0,
@@ -33,6 +35,6 @@ public:
     DownloadTags downloadTags{DownloadTags::Unspecified};
     Prune prune{Prune::Unspecified};
     void applyToFetchOptions(git_fetch_options *opts) const;
+    void apply(git_remote_callbacks *callbacks, Repository *repo);
 };
-
 }

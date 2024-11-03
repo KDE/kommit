@@ -22,7 +22,7 @@ CommitsCache::CommitsCache(Repository *parent)
 {
 }
 
-QSharedPointer<Commit> CommitsCache::find(const QString &hash)
+Commit CommitsCache::find(const QString &hash)
 {
     git_commit *commit;
     git_object *commitObject;
@@ -33,12 +33,12 @@ QSharedPointer<Commit> CommitsCache::find(const QString &hash)
     if (IS_OK)
         return Cache::findByPtr(commit);
 
-    return QSharedPointer<Commit>{};
+    return Commit{};
 }
 
-QList<QSharedPointer<Commit>> CommitsCache::allCommits()
+QList<Commit> CommitsCache::allCommits()
 {
-    PointerList<Commit> list;
+    QList<Commit> list;
 
     if (!manager->isValid())
         return list;
@@ -69,25 +69,25 @@ QList<QSharedPointer<Commit>> CommitsCache::allCommits()
 
     while (!git_revwalk_next(&oid, walker)) {
         auto en = findByOid(&oid);
-        en->clearChildren();
+        en.clearChildren();
         list << en;
     }
 
     for (auto &commit : list) {
-        for (auto const &parentHash : commit->parents()) {
+        for (auto const &parentHash : commit.parents()) {
             auto parent = find(parentHash);
-            parent->addChild(commit->commitHash());
+            parent.addChild(commit.commitHash());
         }
-        commit->setReferences(manager->references()->findForCommit(commit));
+        commit.setReferences(manager->references()->findForCommit(commit));
     }
 
     git_revwalk_free(walker);
     return list;
 }
 
-QList<QSharedPointer<Commit>> CommitsCache::commitsInBranch(QSharedPointer<Branch> branch)
+QList<Commit> CommitsCache::commitsInBranch(const Branch &branch)
 {
-    PointerList<Commit> list;
+    QList<Commit> list;
 
     git_revwalk *walker;
     git_oid oid;
@@ -96,7 +96,7 @@ QList<QSharedPointer<Commit>> CommitsCache::commitsInBranch(QSharedPointer<Branc
     STEP git_revwalk_new(&walker, manager->repoPtr());
     STEP git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL);
 
-    auto refName = git_reference_name(branch->refPtr());
+    auto refName = git_reference_name(branch.refPtr());
     STEP git_revwalk_push_ref(walker, refName);
 
     if (IS_ERROR)

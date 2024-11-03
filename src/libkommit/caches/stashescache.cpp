@@ -44,11 +44,11 @@ StashesCache::DataType StashesCache::findByName(const QString &name)
     auto list = allStashes();
 
     auto i = std::find_if(list.begin(), list.end(), [&name](StashesCache::DataType stash) {
-        return stash->message() == name;
+        return stash.message() == name;
     });
 
     if (i == list.end())
-        return {};
+        return Stash{};
     return *i;
 }
 
@@ -65,7 +65,7 @@ bool StashesCache::create(const QString &name)
     return IS_OK;
 }
 
-bool StashesCache::apply(StashesCache::DataType stash)
+bool StashesCache::apply(const Stash &stash)
 {
     if (stash.isNull())
         return false;
@@ -76,14 +76,14 @@ bool StashesCache::apply(StashesCache::DataType stash)
 
     BEGIN
     STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
-    STEP git_stash_apply(d->manager->repoPtr(), stash->index(), &options);
+    STEP git_stash_apply(d->manager->repoPtr(), stash.index(), &options);
 
     PRINT_ERROR;
 
     return IS_OK;
 }
 
-bool StashesCache::pop(StashesCache::DataType stash)
+bool StashesCache::pop(const Stash &stash)
 {
     if (stash.isNull())
         return false;
@@ -94,7 +94,7 @@ bool StashesCache::pop(StashesCache::DataType stash)
 
     BEGIN
     STEP git_stash_apply_options_init(&options, GIT_STASH_APPLY_OPTIONS_VERSION);
-    STEP git_stash_pop(d->manager->repoPtr(), stash->index(), &options);
+    STEP git_stash_pop(d->manager->repoPtr(), stash.index(), &options);
 
     if (IS_OK)
         Q_EMIT reloadRequired();
@@ -102,7 +102,7 @@ bool StashesCache::pop(StashesCache::DataType stash)
     return IS_OK;
 }
 
-bool StashesCache::remove(StashesCache::DataType stash)
+bool StashesCache::remove(const Stash &stash)
 {
     if (stash.isNull())
         return false;
@@ -110,7 +110,7 @@ bool StashesCache::remove(StashesCache::DataType stash)
     Q_D(StashesCache);
 
     BEGIN
-    STEP git_stash_drop(d->manager->repoPtr(), stash->index());
+    STEP git_stash_drop(d->manager->repoPtr(), stash.index());
 
     if (IS_OK)
         Q_EMIT reloadRequired();
@@ -181,16 +181,14 @@ StashesCache::ListType StashesCache::allStashes()
 
     struct wrapper {
         git_repository *repo;
-        PointerList<Stash> list;
+        QList<Stash> list;
         Repository *manager;
     };
 
     auto callback = [](size_t index, const char *message, const git_oid *stash_id, void *payload) {
         auto w = static_cast<wrapper *>(payload);
 
-        QSharedPointer<Stash> ptr{new Stash{w->manager, index, message, stash_id}};
-
-        w->list << ptr;
+        w->list << Stash{w->manager, index, message, stash_id};
 
         return 0;
     };

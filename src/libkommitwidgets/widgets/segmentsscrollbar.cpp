@@ -140,12 +140,12 @@ void SegmentsScrollBar::reload()
     d->leftCount = d->rightCount = 0;
     for (const auto &segment : qAsConst(d->mSegmentConnector->segments())) {
         if (d->mSegmentConnector->sameSize()) {
-            auto m = qMax(segment->oldText.size(), segment->newText.size());
+            auto m = qMax(segment->left.size, segment->right.size);
             d->leftCount += m;
             d->rightCount += m;
         } else {
-            d->leftCount += segment->oldText.size();
-            d->rightCount += segment->newText.size();
+            d->leftCount += segment->left.size;
+            d->rightCount += segment->right.size;
         }
     }
     update();
@@ -181,20 +181,20 @@ void SegmentsScrollBarPrivate::generateSegmentsImage()
             break;
         }
 
-        paintSection(painter, Side::Left, countLeft, segment->oldText.size(), brush);
-        paintSection(painter, Side::Right, countRight, segment->newText.size(), brush);
+        paintSection(painter, Side::Left, countLeft, segment->left.size, brush);
+        paintSection(painter, Side::Right, countRight, segment->right.size, brush);
 
         if (mSegmentConnector->sameSize()) {
-            auto m = qMax(segment->oldText.size(), segment->newText.size());
+            auto m = qMax(segment->left.size, segment->right.size);
 
-            paintSection(painter, Side::Left, countLeft + segment->oldText.size(), m - segment->oldText.size(), Qt::darkGray);
-            paintSection(painter, Side::Right, countRight + segment->newText.size(), m - segment->newText.size(), Qt::darkGray);
+            paintSection(painter, Side::Left, countLeft + segment->left.size, m - segment->left.size, Qt::darkGray);
+            paintSection(painter, Side::Right, countRight + segment->right.size, m - segment->right.size, Qt::darkGray);
 
             countLeft += m;
             countRight += m;
         } else {
-            countLeft += segment->oldText.size();
-            countRight += segment->newText.size();
+            countLeft += segment->left.size;
+            countRight += segment->right.size;
         }
     }
     /*

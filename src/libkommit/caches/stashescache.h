@@ -26,22 +26,22 @@ class LIBKOMMIT_EXPORT StashesCache : public QObject
     Q_OBJECT
 
 public:
-    using DataType = QSharedPointer<Stash>;
-    using ListType = QList<QSharedPointer<Stash>>;
+    using DataType = Stash;
+    using ListType = QList<Stash>;
 
     explicit StashesCache(Repository *manager);
     ~StashesCache();
 
-    [[nodiscard]] QList<QSharedPointer<Stash>> allStashes();
+    [[nodiscard]] QList<Stash> allStashes();
 
-    [[nodiscard]] QSharedPointer<Stash> findByName(const QString &name);
+    [[nodiscard]] Stash findByName(const QString &name);
     [[nodiscard]] int findIndex(const QString &message) const;
 
     Q_REQUIRED_RESULT bool create(const QString &name = QString());
 
-    Q_REQUIRED_RESULT bool apply(DataType stash);
-    Q_REQUIRED_RESULT bool pop(DataType stash);
-    Q_REQUIRED_RESULT bool remove(DataType stash);
+    Q_REQUIRED_RESULT bool apply(const Stash &stash);
+    Q_REQUIRED_RESULT bool pop(const Stash &stash);
+    Q_REQUIRED_RESULT bool remove(const Stash &stash);
 
     Q_REQUIRED_RESULT bool apply(const QString &name);
     Q_REQUIRED_RESULT bool pop(const QString &name);
@@ -50,8 +50,8 @@ public:
     void clear();
 
 Q_SIGNALS:
-    void added(DataType stash);
-    void removed(DataType stash);
+    void added(const Stash &stash);
+    void removed(const Stash &stash);
     void reloadRequired();
 
 private:

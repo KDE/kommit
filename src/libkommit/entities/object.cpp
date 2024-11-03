@@ -21,59 +21,98 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-Object::Object(git_object *obj)
-    : mGitObjectPtr{obj}
+Object::Object()
+    : d{}
 {
+}
+
+Object::Object(git_object *obj)
+    : d{obj, git_object_free}
+{
+}
+
+Object::Object(const Object &other)
+    : d{other.d}
+{
+}
+
+Object &Object::operator=(const Object &other)
+{
+    if (this != &other)
+        d = other.d;
+
+    return *this;
+}
+
+bool Object::operator==(const Object &other) const
+{
+    return d.data() == other.d.data();
+}
+
+bool Object::operator!=(const Object &other) const
+{
+    return !(*this == other);
+}
+
+bool Object::isNull() const
+{
+    return d.isNull();
+}
+
+git_object *Object::data() const
+{
+    return d.data();
+}
+
+const git_object *Object::constData() const
+{
+    return d.data();
 }
 
 Object::Type Object::type() const
 {
-    return static_cast<Type>(git_object_type(mGitObjectPtr));
+    return static_cast<Type>(git_object_type(d.data()));
 }
 
-QSharedPointer<Oid> Object::id() const
+Oid Object::id() const
 {
-    return QSharedPointer<Oid>{new Oid{git_object_id(mGitObjectPtr)}};
+    return Oid{git_object_id(d.data())};
 }
 
-QSharedPointer<Note> Object::toNote() const
+Note Object::toNote() const
 {
-    auto oid = git_object_id(mGitObjectPtr);
-    auto repo = git_object_owner(mGitObjectPtr);
+    auto oid = git_object_id(d.data());
+    auto repo = git_object_owner(d.data());
     git_note *note;
     git_note_read(&note, repo, NULL, oid);
-    return QSharedPointer<Note>{new Note{note}};
+    return Note{note};
 }
 
-QSharedPointer<Tag> Object::toTag() const
+Tag Object::toTag() const
 {
-    auto oid = git_object_id(mGitObjectPtr);
-    auto repo = git_object_owner(mGitObjectPtr);
+    auto oid = git_object_id(d.data());
+    auto repo = git_object_owner(d.data());
     git_tag *tag;
     git_tag_lookup(&tag, repo, oid);
-    return QSharedPointer<Tag>{new Tag{tag}};
+    return Tag{tag};
 }
 
-QSharedPointer<Tree> Object::toTree() const
+Tree Object::toTree() const
 {
-    auto oid = git_object_id(mGitObjectPtr);
-    auto repo = git_object_owner(mGitObjectPtr);
+    auto oid = git_object_id(d.data());
+    auto repo = git_object_owner(d.data());
     git_tree *tree;
     git_tree_lookup(&tree, repo, oid);
-    return QSharedPointer<Tree>{new Tree{tree}};
+    return Tree{tree};
 }
 
-QSharedPointer<Commit> Object::toCommit() const
+Commit Object::toCommit() const
 {
-    auto oid = git_object_id(mGitObjectPtr);
-    auto repo = git_object_owner(mGitObjectPtr);
+    auto oid = git_object_id(d.data());
+    auto repo = git_object_owner(d.data());
     git_commit *commit;
     git_commit_lookup(&commit, repo, oid);
-    return QSharedPointer<Commit>{new Commit{commit}};
+    return Commit{commit};
 }
 
-git_object *Object::objectPtr() const
-{
-    return mGitObjectPtr;
-}
-}
+} // namespace Git

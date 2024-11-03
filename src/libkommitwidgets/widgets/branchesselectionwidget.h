@@ -12,10 +12,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QScopedPointer>
 
+#include <Kommit/Branch>
+
 namespace Git
 {
 class Repository;
-class Branch;
 }
 
 class BranchesSelectionWidgetPrivate;
@@ -33,7 +34,7 @@ public:
     void reload();
 
 Q_SIGNALS:
-    void branchActivated(QSharedPointer<Git::Branch> branch);
+    void branchActivated(const Git::Branch &branch);
 
 private:
     void slotTreeViewRepoItemActivated(const QModelIndex &index);

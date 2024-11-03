@@ -25,16 +25,16 @@ class LIBKOMMIT_EXPORT RemotesCache : public QObject, public Cache<Remote, git_r
 public:
     explicit RemotesCache(Repository *manager);
 
-    QList<QSharedPointer<Remote>> allRemotes();
+    ListType allRemotes();
     QStringList allNames();
-    QSharedPointer<Remote> findByName(const QString &name);
+    DataType findByName(const QString &name);
     [[nodiscard]] bool create(const QString &name, const QString &url);
-    [[nodiscard]] bool setUrl(DataType remote, const QString &url);
+    [[nodiscard]] bool setUrl(const Remote &remote, const QString &url);
 
-    [[nodiscard]] bool remove(QSharedPointer<Remote> remote);
+    [[nodiscard]] bool remove(const Remote &remote);
     [[nodiscard]] bool remove(const QString &name);
 
-    [[nodiscard]] bool rename(QSharedPointer<Remote> remote, const QString &newName);
+    [[nodiscard]] bool rename(const Remote &remote, const QString &newName);
 
 protected:
     void clearChildData() override;

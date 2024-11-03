@@ -33,7 +33,7 @@ public:
     FileStatus();
     explicit FileStatus(QString name, Status status);
 
-    const QString &name() const;
+    [[nodiscard]] const QString &name() const;
     [[nodiscard]] Status status() const;
 
     void parseStatusLine(const QString &line);

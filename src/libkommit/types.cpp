@@ -68,9 +68,4 @@ void addToArray(git_strarray *arr, const QStringList &list)
     }
     arr->count = 1;
 }
-
-const char *toChar(const QString &s)
-{
-    return s.toLocal8Bit().constData();
-}
 }

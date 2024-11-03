@@ -52,12 +52,12 @@ public:
 
     virtual ~AbstractCommand();
 
-    virtual QStringList generateArgs() const = 0;
+    [[nodiscard]] virtual QStringList generateArgs() const = 0;
 
     virtual bool parseOutput(const QByteArray &output, const QByteArray &errorOutput);
     virtual void parseOutputSection(const QByteArray &output, const QByteArray &errorOutput);
 
-    bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
     virtual bool supportWidget() const
     {

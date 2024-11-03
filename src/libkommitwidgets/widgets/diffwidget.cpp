@@ -19,7 +19,7 @@ class DiffWidgetPrivate
     Q_DECLARE_PUBLIC(DiffWidget)
 
 public:
-    DiffWidgetPrivate(DiffWidget *parent);
+    explicit DiffWidgetPrivate(DiffWidget *parent);
 
     bool mDestroying{false};
     constexpr static int mPreviewWidgetHeight{160};
@@ -29,9 +29,9 @@ public:
     CodeEditor *mPreviewEditorRight = nullptr;
     bool mSameSize{false};
 
-    Diff::Diff2Result lastDiff;
-    QString leftContentWithSpaces;
-    QString rightContentWithSpaces;
+    Diff::Diff2TextResult lastDiff;
+    // QString leftContentWithSpaces;
+    // QString rightContentWithSpaces;
 
     QList<CodeEditor::BlockData *> leftBlockDataList;
     QList<CodeEditor::BlockData *> rightBlockDataList;
@@ -41,12 +41,12 @@ public:
     QString mOldFileName;
     QString mNewFileName;
     QTextOption mDefaultOption;
-    QList<Diff::DiffSegment *> mSegments;
+    QList<Diff::DiffHunk *> mSegments;
 
     void init();
     void recalculateInfoPaneSize();
     void createPreviewWidget();
-    void setEditorsContents(QList<Diff::DiffSegment *> segments);
+    void setEditorsContents(QList<Diff::DiffHunk *> segments);
 };
 
 DiffWidgetPrivate::DiffWidgetPrivate(DiffWidget *parent)
@@ -178,10 +178,10 @@ void DiffWidget::compare()
     Q_D(DiffWidget);
 
     d->lastDiff = Diff::diff2(d->mOldContent, d->mNewContent);
-    const auto segments = d->lastDiff.segments;
+    const auto segments = d->lastDiff.hunks();
 
-    QString tmpLeftContentWithSpaces;
-    QString tmpRightContentWithSpaces;
+    // QString tmpLeftContentWithSpaces;
+    // QString tmpRightContentWithSpaces;
 
     QList<CodeEditor::BlockData *> tmpLeftBlockDataList;
     QList<CodeEditor::BlockData *> tmpRightBlockDataList;
@@ -194,57 +194,59 @@ void DiffWidget::compare()
         CodeEditor::BlockType rightBlockType{CodeEditor::BlockType::Unchanged};
         switch (segment->type) {
         case Diff::SegmentType::SameOnBoth:
-            tmpLeftContentWithSpaces += segment->oldText.join('\n');
-            tmpRightContentWithSpaces += segment->newText.join('\n');
+            // tmpLeftContentWithSpaces += segment->oldText.join('\n');
+            // tmpRightContentWithSpaces += segment->newText.join('\n');
             leftBlockType = rightBlockType = CodeEditor::BlockType::Unchanged;
             break;
         case Diff::SegmentType::OnlyOnLeft:
-            tmpLeftContentWithSpaces += segment->oldText.join('\n');
-            tmpRightContentWithSpaces += QString{segment->oldText.size(), QLatin1Char('\n')};
+            // tmpLeftContentWithSpaces += segment->oldText.join('\n');
+            // tmpRightContentWithSpaces += QString{segment->oldText.size(), QLatin1Char('\n')};
 
             leftBlockType = CodeEditor::BlockType::Removed;
             rightBlockType = CodeEditor::BlockType::Edited;
             break;
         case Diff::SegmentType::OnlyOnRight:
-            tmpLeftContentWithSpaces += QString{segment->newText.size(), QLatin1Char('\n')};
-            tmpRightContentWithSpaces += segment->newText.join('\n');
+            // tmpLeftContentWithSpaces += QString{segment->newText.size(), QLatin1Char('\n')};
+            // tmpRightContentWithSpaces += segment->newText.join('\n');
 
             leftBlockType = CodeEditor::BlockType::Edited;
             rightBlockType = CodeEditor::BlockType::Added;
             break;
         case Diff::SegmentType::DifferentOnBoth:
-            tmpLeftContentWithSpaces += segment->oldText.join('\n');
-            tmpRightContentWithSpaces += segment->newText.join('\n');
+            // tmpLeftContentWithSpaces += segment->oldText.join('\n');
+            // tmpRightContentWithSpaces += segment->newText.join('\n');
 
-            if (segment->oldText.size() < segment->newText.size()) {
-                tmpRightContentWithSpaces += QString{segment->newText.size() - segment->oldText.size(), QLatin1Char('\n')};
-            } else if (segment->oldText.size() > segment->newText.size()) {
-                tmpLeftContentWithSpaces += QString{segment->oldText.size() - segment->newText.size(), QLatin1Char('\n')};
-            }
+            // if (segment->oldText.size() < segment->newText.size()) {
+            //     tmpRightContentWithSpaces += QString{segment->newText.size() - segment->oldText.size(), QLatin1Char('\n')};
+            // } else if (segment->oldText.size() > segment->newText.size()) {
+            //     tmpLeftContentWithSpaces += QString{segment->oldText.size() - segment->newText.size(), QLatin1Char('\n')};
+            // }
             leftBlockType = rightBlockType = CodeEditor::BlockType::Edited;
 
             break;
         }
 
-        auto m = qMax(segment->oldLineEnd - segment->oldLineStart, segment->newLineEnd - segment->newLineStart);
-        tmpLeftBlockDataList.append(new CodeEditor::BlockData{segment->oldLineStart, segment->oldLineEnd - segment->oldLineStart, m, leftBlockType});
-        tmpRightBlockDataList.append(new CodeEditor::BlockData{segment->newLineStart, segment->newLineEnd - segment->newLineStart, m, rightBlockType});
+        Q_ASSERT(segment->left.size >= 0);
+        Q_ASSERT(segment->right.size >= 0);
+        auto m = qMax(segment->left.size, segment->right.size);
+        tmpLeftBlockDataList.append(new CodeEditor::BlockData{segment->left.begin, segment->left.size, m, leftBlockType});
+        tmpRightBlockDataList.append(new CodeEditor::BlockData{segment->right.begin, segment->right.size, m, rightBlockType});
 
-        if (!tmpLeftContentWithSpaces.endsWith('\n'))
-            tmpLeftContentWithSpaces == '\n';
-        if (!tmpRightContentWithSpaces.endsWith('\n'))
-            tmpRightContentWithSpaces == '\n';
+        // if (!tmpLeftContentWithSpaces.endsWith('\n'))
+        //     tmpLeftContentWithSpaces == '\n';
+        // if (!tmpRightContentWithSpaces.endsWith('\n'))
+        //     tmpRightContentWithSpaces == '\n';
     }
 
     d->leftBlockDataList = tmpLeftBlockDataList;
     d->rightBlockDataList = tmpRightBlockDataList;
 
-    d->leftContentWithSpaces = tmpLeftContentWithSpaces;
-    d->rightContentWithSpaces = tmpRightContentWithSpaces;
+    // d->leftContentWithSpaces = tmpLeftContentWithSpaces;
+    // d->rightContentWithSpaces = tmpRightContentWithSpaces;
 
     d->setEditorsContents(segments);
 
-    qDeleteAll(d->mSegments);
+    // qDeleteAll(d->mSegments);
     d->mSegments = segments;
 }
 
@@ -269,7 +271,7 @@ void DiffWidget::showFilesInfo(bool show)
 {
     leftCodeEditor->setShowTitleBar(show);
     rightCodeEditor->setShowTitleBar(show);
-    segmentConnector->setTopMargin(show ? leftCodeEditor->titlebarHeight() + 2 : 0);
+    segmentConnector->setTopMargin(show ? leftCodeEditor->titlebarHeight() : 0);
 }
 
 void DiffWidget::showSameSize(bool show)
@@ -465,7 +467,7 @@ void DiffWidgetPrivate::createPreviewWidget()
     mPreviewWidget->hide();
 }
 
-void DiffWidgetPrivate::setEditorsContents(QList<Diff::DiffSegment *> segments)
+void DiffWidgetPrivate::setEditorsContents(QList<Diff::DiffHunk *> segments)
 {
     Q_Q(DiffWidget);
 
@@ -478,11 +480,11 @@ void DiffWidgetPrivate::setEditorsContents(QList<Diff::DiffSegment *> segments)
     q->segmentConnector->setSegments(segments);
     q->segmentConnector->update();
 
-    q->leftCodeEditor->setContent(lastDiff.left.lines, leftBlockDataList, mSameSize);
-    q->rightCodeEditor->setContent(lastDiff.right.lines, rightBlockDataList, mSameSize);
+    q->leftCodeEditor->setContent(lastDiff.left().lines, leftBlockDataList, mSameSize);
+    q->rightCodeEditor->setContent(lastDiff.right().lines, rightBlockDataList, mSameSize);
 
-    mPreviewEditorLeft->setContent(lastDiff.left.lines, leftBlockDataList, mSameSize);
-    mPreviewEditorRight->setContent(lastDiff.right.lines, rightBlockDataList, mSameSize);
+    mPreviewEditorLeft->setContent(lastDiff.left().lines, leftBlockDataList, mSameSize);
+    mPreviewEditorRight->setContent(lastDiff.right().lines, rightBlockDataList, mSameSize);
 
     q->scrollToTop();
 }

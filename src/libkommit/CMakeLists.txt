@@ -20,7 +20,6 @@ target_sources(libkommit PRIVATE
     gitloglist.cpp
     filestatus.cpp
     repository.cpp
-    blamedata.cpp
     types.cpp
     abstractreference.cpp
     buffer.cpp
@@ -29,6 +28,17 @@ target_sources(libkommit PRIVATE
     config.h config.cpp
     filedelta.h filedelta.cpp
     filemode.h filemode.cpp
+    refspec.h refspec.cpp
+    itree.h
+    ioid.h
+    blame.h blame.cpp
+    blamehunk.h blamehunk.cpp
+    fetch.h fetch.cpp
+    certificate.h certificate.cpp
+    error.h error.cpp
+    remotecallbacks.h remotecallbacks.cpp
+    proxy.cpp proxy.h
+    clone.h clone.cpp
 
     caches/abstractcache.cpp
     caches/branchescache.cpp
@@ -127,6 +137,15 @@ target_link_libraries(libkommit
     KF${KF_MAJOR_VERSION}::I18n
 )
 
+if (OpenSSL_FOUND)
+    message(STATUS "OpenSSL found: ${OpenSSL_VERSION}")
+    add_definitions(-DLIBKOMMIT_USE_OPENSSL)
+    target_link_libraries(libkommit OpenSSL::SSL OpenSSL::Crypto)
+else()
+    message(STATUS "OpenSSL not found, building without OpenSSL support")
+endif()
+
+
 if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
@@ -134,10 +153,13 @@ endif()
 # root folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
+        Clone
         Repository
 
+        Blame
+        BlameHunk
+        Fetch
         # BlameDataRow
-        BlameData
 
         # ConfigEntry
         Config
@@ -148,11 +170,17 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
 
         Buffer
         Credential
+        Certificate
         FileStatus
         Types
-
+        Error
         FileDelta
         FileMode
+        Proxy
+        RefSpec
+        ITree
+        IOid
+        RemoteCallbacks
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
 )
@@ -166,6 +194,7 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
         File
         Index
         Note
+        Object
         Oid
         Reference
         Remote

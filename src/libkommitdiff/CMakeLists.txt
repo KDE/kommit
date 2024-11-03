@@ -22,6 +22,10 @@ target_sources(
     solution.cpp
     lcs.h
     lcs.cpp
+
+    diff2.h diff2.cpp
+    diff3.h diff3.cpp
+    hunk.h hunk.cpp
 )
 
 generate_export_header(libkommitdiff BASE_NAME libkommitdiff)
@@ -30,6 +34,16 @@ ecm_qt_declare_logging_category(libkommitdiff
     HEADER libkommitdiff_debug.h
     IDENTIFIER KOMMITDIFFLIB_LOG
     CATEGORY_NAME "org.kde.kommit.libkommitdiff" DESCRIPTION "libkommitdiff" EXPORT KOMMIT
+)
+
+ecm_generate_headers(libkommitdiff_CamelCase_HEADERS
+    HEADER_NAMES
+        Diff
+        Diff2
+        Diff3
+        Hunk
+    PREFIX KommitDiff
+    REQUIRED_HEADERS kommitdiff_HEADERS
 )
 
 set_target_properties(libkommitdiff

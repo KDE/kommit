@@ -19,8 +19,10 @@ class Array2
 
 public:
     Array2(int c1, int c2);
+    Array2(const Array2& other);
     ~Array2();
 
+    Array2<T> &operator=(const Array2 &other);
     Q_ALWAYS_INLINE T &operator()(int i1, int i2);
 
     void exportToCsv(const QString &file);
@@ -35,9 +37,28 @@ Q_OUTOFLINE_TEMPLATE Array2<T>::Array2(int c1, int c2)
 }
 
 template<typename T>
+inline Array2<T>::Array2(const Array2 &other)
+    : _data{other._data}
+    , c1{other.c1}
+    , c2{other.c2}
+{
+}
+
+template<typename T>
 Q_OUTOFLINE_TEMPLATE Array2<T>::~Array2()
 {
     delete[] _data;
+}
+
+template<typename T>
+Q_OUTOFLINE_TEMPLATE Array2<T> &Array2<T>::operator=(const Array2 &other){
+    if (this != &other) {
+        _data = other._data;
+        c1 = other.c1;
+        c2 = other.c2;
+    }
+
+    return *this;
 }
 
 template<typename T>

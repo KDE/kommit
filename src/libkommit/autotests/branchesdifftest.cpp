@@ -108,9 +108,9 @@ void BranchesDiffTest::diff()
     auto branches = mManager->branches()->allBranches(Git::BranchType::LocalBranch);
     QCOMPARE(branches.size(), 2);
 
-    QCOMPARE(branches.at(0)->name(), "dev");
-    QCOMPARE(branches.at(1)->name(), "master");
-    auto diff = mManager->diff(branches.at(1)->tree(), branches.at(0)->tree());
+    QCOMPARE(branches.at(0).name(), "dev");
+    QCOMPARE(branches.at(1).name(), "master");
+    auto diff = mManager->diff(branches.at(1).tree(), branches.at(0).tree());
 
     QCOMPARE(diff.size(), 10);
 

@@ -36,14 +36,14 @@ SubmoduleActions::SubmoduleActions(Git::Repository *git, QWidget *parent)
 void SubmoduleActions::init()
 {
     RunnerDialog d(mGit, mParent);
-    d.run({QStringLiteral("submodule"), QStringLiteral("init"), mSubmodule->name()});
+    d.run({QStringLiteral("submodule"), QStringLiteral("init"), mSubmodule.name()});
     d.exec();
 }
 
 void SubmoduleActions::update()
 {
     RunnerDialog d(mGit, mParent);
-    d.run({QStringLiteral("submodule"), QStringLiteral("update"), mSubmodule->name()});
+    d.run({QStringLiteral("submodule"), QStringLiteral("update"), mSubmodule.name()});
     d.exec();
 
     // Git::FetchOptions options;
@@ -92,16 +92,16 @@ void SubmoduleActions::deinit()
 void SubmoduleActions::sync()
 {
     RunnerDialog d(mGit, mParent);
-    d.run({QStringLiteral("submodule"), QStringLiteral("sync"), mSubmodule->name()});
+    d.run({QStringLiteral("submodule"), QStringLiteral("sync"), mSubmodule.name()});
     d.exec();
 }
 
-QSharedPointer<Git::Submodule> SubmoduleActions::submodule() const
+const Git::Submodule &SubmoduleActions::submodule() const
 {
     return mSubmodule;
 }
 
-void SubmoduleActions::setSubmodule(QSharedPointer<Git::Submodule> newSubmodule)
+void SubmoduleActions::setSubmodule(const Git::Submodule &newSubmodule)
 {
     mSubmodule = newSubmodule;
 

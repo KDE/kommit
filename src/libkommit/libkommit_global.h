@@ -6,6 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include <stddef.h>
+#include <stdint.h>
+
 namespace Git
 {
 
@@ -40,4 +43,21 @@ enum class ConflictSide {
     Ours,
     Thers
 };
+
+struct FetchTransferStat {
+    unsigned int totalObjects;
+    unsigned int indexedObjects;
+    unsigned int receivedObjects;
+    unsigned int localObjects;
+    unsigned int totalDeltas;
+    unsigned int indexedDeltas;
+    size_t receivedBytes;
+};
+struct PackProgress {
+    int stage;
+    uint32_t current;
+    uint32_t total;
+};
+
 }
+

@@ -9,10 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractactions.h"
 #include "libkommitwidgets_export.h"
 
-namespace Git
-{
-class Tag;
-};
+#include <Kommit/Tag>
 
 class LIBKOMMITWIDGETS_EXPORT TagsActions : public AbstractActions
 {
@@ -24,8 +21,8 @@ public:
     [[nodiscard]] const QString &tagName() const;
     void setTagName(const QString &newTagName);
 
-    [[nodiscard]] QSharedPointer<Git::Tag> tag() const;
-    void setTag(QSharedPointer<Git::Tag> tag);
+    [[nodiscard]] const Git::Tag &tag() const;
+    void setTag(const Git::Tag &tag);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void create();
@@ -38,5 +35,5 @@ private:
     DEFINE_ACTION(actionCheckout)
     DEFINE_ACTION(actionDiff)
     DEFINE_ACTION(actionPush)
-    QSharedPointer<Git::Tag> mTag;
+    Git::Tag mTag;
 };

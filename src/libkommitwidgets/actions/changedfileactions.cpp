@@ -52,13 +52,13 @@ void ChangedFileActions::setFilePaths(const QString &originalFilePath, const QSt
 
 void ChangedFileActions::diff()
 {
-    QSharedPointer<Git::Blob> original;
+    Git::Blob original;
 
     auto index = mGit->index();
     if (mOriginalFilePath == QString())
-        original = index->blobByPath(mFilePath);
+        original = index.blobByPath(mFilePath);
     else
-        original = index->blobByPath(mOriginalFilePath);
+        original = index.blobByPath(mOriginalFilePath);
 
     auto diffWin = new DiffWindow;
     diffWin->setLeft(original);

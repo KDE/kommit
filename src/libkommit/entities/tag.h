@@ -6,18 +6,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include "entities/commit.h"
-#include "entities/signature.h"
-#include "libkommit_export.h"
 #include <QDateTime>
 #include <QSharedPointer>
 #include <QString>
 
 #include <git2/types.h>
 
+#include <Kommit/Commit>
+#include <Kommit/Object>
+#include <Kommit/Signature>
+
+#include "libkommit_export.h"
+
 namespace Git
 {
 
+class TagPrivate;
 class LIBKOMMIT_EXPORT Tag : public IOid
 {
 public:
@@ -31,33 +35,28 @@ public:
     Tag(git_commit *commit, const QString &name);
     explicit Tag(Commit *parentCommit);
 
+    Tag(const Tag &other);
+    Tag &operator=(const Tag &other);
+    bool operator==(const Tag &other) const;
+    bool operator!=(const Tag &other) const;
+
+    [[nodiscard]] git_tag *data() const;
+    [[nodiscard]] const git_tag *constData() const;
+    [[nodiscard]] bool isNull() const;
+
     [[nodiscard]] const QString &name() const;
-    void setName(const QString &newName);
-
     [[nodiscard]] const QString &message() const;
-    void setMessage(const QString &newMessage);
-
     [[nodiscard]] QDateTime createTime() const;
+    [[nodiscard]] const Signature &tagger() const;
 
-    [[nodiscard]] QSharedPointer<Signature> tagger() const;
+    Commit commit() const;
 
-    QSharedPointer<Commit> commit() const;
-
-    [[nodiscard]] TagType tagType() const;
-    QSharedPointer<Oid> oid() const override;
-    QSharedPointer<Object> target() const;
-
-    [[nodiscard]] git_tag *tagPtr() const;
+    [[nodiscard]] Type type() const;
+    Oid oid() const override;
+    Object target() const;
 
 private:
-    git_tag *mTagPtr{nullptr};
-    QSharedPointer<Commit> mLightTagCommit;
-
-    TagType mTagType;
-    QSharedPointer<Signature> mTagger;
-
-    QString mName;
-    QString mMessage;
+    QSharedPointer<TagPrivate> d;
 };
 
 } // namespace Git

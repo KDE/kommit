@@ -10,10 +10,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include "ui_fetchdialog.h"
 
+#include <Kommit/Certificate>
+#include <Kommit/Credential>
+#include <Kommit/Oid>
+#include <Kommit/Reference>
+
 namespace Git
 {
 class Repository;
 class FetchObserver;
+struct PackProgress;
+struct FetchTransferStat;
+class Fetch;
 }
 
 class LIBKOMMITWIDGETS_EXPORT FetchDialog : public AppDialog, private Ui::FetchDialog
@@ -29,4 +37,18 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotAccept();
 
     Git::FetchObserver *const mObserver;
+
+    void startFetch();
+
+    void slotFetchMessage(const QString &message);
+    void slotFetchTransferProgress(const Git::FetchTransferStat *stat);
+    void slotFetchPackProgress(const Git::PackProgress *p);
+    void slotFetchUpdateRef(const Git::Reference &reference, const Git::Oid &a, const Git::Oid &b);
+    void slotFetchFinished(bool success);
+    void slotCredentialRequested(const QString &url, Git::Credential *cred, bool *accept);
+    void slotCertificateCheck(const Git::Certificate &cert, bool *accept);
+
+    Git::Fetch *mFetch;
+    int mRetryCount{};
+    bool mIsChanged{};
 };

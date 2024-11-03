@@ -6,15 +6,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QSharedPointer>
-
 #include "libkommit_export.h"
+
+#include <Kommit/Tree>
 
 namespace Git
 {
-
-class Tree;
-class Oid;
 
 class LIBKOMMIT_EXPORT ITree
 {
@@ -25,7 +22,7 @@ public:
     };
 
     virtual ~ITree();
-    virtual QSharedPointer<Tree> tree() const = 0;
+    virtual Tree tree() const = 0;
     virtual QString treeTitle() const = 0;
 };
 
@@ -33,14 +30,4 @@ inline ITree::~ITree()
 {
 }
 
-class LIBKOMMIT_EXPORT IOid
-{
-public:
-    virtual ~IOid();
-    virtual QSharedPointer<Oid> oid() const = 0;
-};
-
-inline IOid::~IOid()
-{
-}
 }

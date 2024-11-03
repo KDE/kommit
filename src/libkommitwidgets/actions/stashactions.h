@@ -9,10 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractactions.h"
 #include "libkommitwidgets_export.h"
 
-namespace Git
-{
-class Stash;
-};
+#include <Kommit/Stash>
 
 class LIBKOMMITWIDGETS_EXPORT StashActions : public AbstractActions
 {
@@ -21,8 +18,8 @@ class LIBKOMMITWIDGETS_EXPORT StashActions : public AbstractActions
 public:
     explicit StashActions(Git::Repository *git, QWidget *parent = nullptr);
 
-    [[nodiscard]] QSharedPointer<Git::Stash> stash() const;
-    void setStash(QSharedPointer<Git::Stash> stash);
+    [[nodiscard]] const Git::Stash &stash() const;
+    void setStash(const Git::Stash &stash);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void apply();
@@ -30,7 +27,7 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void pop();
     LIBKOMMITWIDGETS_NO_EXPORT void diff();
     LIBKOMMITWIDGETS_NO_EXPORT void create();
-    QSharedPointer<Git::Stash> mStash;
+    Git::Stash mStash;
 
     DEFINE_ACTION(actionPop)
     DEFINE_ACTION(actionApply)

@@ -60,13 +60,13 @@ void SubmoduleTest::addSubmodule()
 
     auto ok = mManager->submodules()->add(opts);
 
-    QVERIFY(ok);
+    QVERIFY(!ok.isNull());
 
     auto submodules = mManager->submodules()->allSubmodules();
     QCOMPARE(submodules.size(), 1);
 
     auto newSubmodule = submodules.first();
-    auto status = newSubmodule->status();
+    auto status = newSubmodule.status();
     QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::InHead), false);
     QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::InIndex), true);
     QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::InConfig), true);
@@ -83,9 +83,9 @@ void SubmoduleTest::addSubmodule()
     QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdUntracked), false);
 
     TestCommon::touch(mManager->path() + "/3rdparty/libgit2/sample");
-    QCOMPARE(static_cast<bool>(newSubmodule->status() & Git::Submodule::Status::WdUntracked), true);
+    QCOMPARE(static_cast<bool>(newSubmodule.status() & Git::Submodule::Status::WdUntracked), true);
 
-    qDebug() << status << newSubmodule->status();
+    qDebug() << status << newSubmodule.status();
 
     // QCOMPARE(status, newSubmodule->status());
 }
@@ -99,7 +99,7 @@ void SubmoduleTest::addInSameLocation()
 
     auto ok = mManager->submodules()->add(opts);
 
-    QVERIFY(!ok);
+    QVERIFY(ok.isNull());
 
     // QCOMPARE(mManager->errorCode(), -4);
     // QCOMPARE(mManager->errorClass(), 17);
@@ -113,8 +113,8 @@ void SubmoduleTest::checkExists()
 
     auto submodule = submodules.first();
 
-    QCOMPARE(submodule->name(), "3rdparty/libgit2");
-    QCOMPARE(submodule->path(), "3rdparty/libgit2");
+    QCOMPARE(submodule.name(), "3rdparty/libgit2");
+    QCOMPARE(submodule.path(), "3rdparty/libgit2");
     // QCOMPARE(submodule->url(), "https://github.com/HamedMasafi/Logger.git");
 }
 
@@ -123,13 +123,13 @@ void SubmoduleTest::lookup()
     auto submodule = mManager->submodules()->findByName("3rdparty/libgit2");
 
     QVERIFY(submodule != nullptr);
-    QCOMPARE(submodule->name(), "3rdparty/libgit2");
-    QCOMPARE(submodule->path(), "3rdparty/libgit2");
-    QCOMPARE(submodule->url(), "https://github.com/HamedMasafi/Logger.git");
+    QCOMPARE(submodule.name(), "3rdparty/libgit2");
+    QCOMPARE(submodule.path(), "3rdparty/libgit2");
+    QCOMPARE(submodule.url(), "https://github.com/HamedMasafi/Logger.git");
     Git::Submodule::StatusFlags statusFlags = Git::Submodule::Status::WdIndexModified | Git::Submodule::Status::IndexAdded | Git::Submodule::Status::InIndex
         | Git::Submodule::Status::InConfig | Git::Submodule::Status::InWd | Git::Submodule::Status::WdUntracked;
-    QCOMPARE(submodule->status(), statusFlags);
-    QCOMPARE(submodule->branch(), "");
+    QCOMPARE(submodule.status(), statusFlags);
+    QCOMPARE(submodule.branch(), "");
 }
 
 void SubmoduleTest::remove()

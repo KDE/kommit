@@ -11,10 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QSharedPointer>
 
-namespace Git
-{
-class Commit;
-}
+#include <Kommit/Commit>
 
 class LIBKOMMITWIDGETS_EXPORT CommitActions : public AbstractActions
 {
@@ -23,8 +20,8 @@ class LIBKOMMITWIDGETS_EXPORT CommitActions : public AbstractActions
 public:
     explicit CommitActions(Git::Repository *git, QWidget *parent = nullptr);
 
-    [[nodiscard]] QSharedPointer<Git::Commit> commit() const;
-    void setCommit(QSharedPointer<Git::Commit> commit);
+    [[nodiscard]] const Git::Commit &commit() const;
+    void setCommit(const Git::Commit &commit);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void browse();
@@ -36,5 +33,5 @@ private:
     DEFINE_ACTION(actionCheckout)
     DEFINE_ACTION(actionDiff)
     DEFINE_ACTION(actionNote)
-    QSharedPointer<Git::Commit> mCommit{nullptr};
+    Git::Commit mCommit;
 };

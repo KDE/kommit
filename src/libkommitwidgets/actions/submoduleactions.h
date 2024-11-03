@@ -9,10 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "abstractactions.h"
 #include "libkommitwidgets_export.h"
 
-namespace Git
-{
-class Submodule;
-}
+#include <Kommit/SubModule>
 
 class LIBKOMMITWIDGETS_EXPORT SubmoduleActions : public AbstractActions
 {
@@ -21,8 +18,8 @@ class LIBKOMMITWIDGETS_EXPORT SubmoduleActions : public AbstractActions
 public:
     explicit SubmoduleActions(Git::Repository *git, QWidget *parent = nullptr);
 
-    [[nodiscard]] QSharedPointer<Git::Submodule> submodule() const;
-    void setSubmodule(QSharedPointer<Git::Submodule> newSubmodule);
+    [[nodiscard]] const Git::Submodule &submodule() const;
+    void setSubmodule(const Git::Submodule &newSubmodule);
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void init();
@@ -36,5 +33,5 @@ private:
     DEFINE_ACTION(actionDeinit)
     DEFINE_ACTION(actionSync)
 
-    QSharedPointer<Git::Submodule> mSubmodule;
+    Git::Submodule mSubmodule;
 };

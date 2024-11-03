@@ -29,15 +29,15 @@ template<class ObjectType, class PtrType>
 class Cache
 {
 public:
-    using DataType = QSharedPointer<ObjectType>;
-    using ListType = QList<QSharedPointer<ObjectType>>;
+    using DataType = ObjectType;
+    using ListType = QList<ObjectType>;
 
     explicit Cache(Repository *git);
     virtual ~Cache();
 
-    DataType findByPtr(PtrType *ptr, bool *isNew = nullptr);
+    virtual DataType findByPtr(PtrType *ptr, bool *isNew = nullptr);
 
-    bool insert(PtrType *ptr, QSharedPointer<ObjectType> obj);
+    bool insert(PtrType *ptr, const ObjectType &obj);
 
     int size() const;
     const DataType &at(int index) const;
@@ -61,7 +61,7 @@ public:
     explicit OidCache(Repository *git);
     OidCache(Repository *git, GitLookupFunc func);
 
-    QSharedPointer<ObjectType> findByOid(const git_oid *oid, bool *isNew = nullptr);
+    ObjectType findByOid(const git_oid *oid, bool *isNew = nullptr);
 
 protected:
     GitLookupFunc gitLookupFunc{nullptr};
@@ -81,7 +81,7 @@ Q_OUTOFLINE_TEMPLATE OidCache<ObjectType, PtrType>::OidCache(Repository *git, Gi
 }
 
 template<class ObjectType, class PtrType>
-Q_OUTOFLINE_TEMPLATE QSharedPointer<ObjectType> OidCache<ObjectType, PtrType>::findByOid(const git_oid *oid, bool *isNew)
+Q_OUTOFLINE_TEMPLATE ObjectType OidCache<ObjectType, PtrType>::findByOid(const git_oid *oid, bool *isNew)
 {
     PtrType *ptr;
     auto r = gitLookupFunc(&ptr, Impl::getRepo(Cache<ObjectType, PtrType>::manager), oid);
@@ -90,7 +90,7 @@ Q_OUTOFLINE_TEMPLATE QSharedPointer<ObjectType> OidCache<ObjectType, PtrType>::f
 
     if (isNew)
         *isNew = false;
-    return QSharedPointer<ObjectType>{};
+    return ObjectType{};
 }
 
 template<class ObjectType, class PtrType>
@@ -105,7 +105,7 @@ Q_OUTOFLINE_TEMPLATE Cache<ObjectType, PtrType>::~Cache()
 }
 
 template<class ObjectType, class PtrType>
-Q_OUTOFLINE_TEMPLATE QSharedPointer<ObjectType> Cache<ObjectType, PtrType>::findByPtr(PtrType *ptr, bool *isNew)
+Q_OUTOFLINE_TEMPLATE ObjectType Cache<ObjectType, PtrType>::findByPtr(PtrType *ptr, bool *isNew)
 {
     if (mHash.contains(ptr)) {
         if (isNew)
@@ -113,7 +113,7 @@ Q_OUTOFLINE_TEMPLATE QSharedPointer<ObjectType> Cache<ObjectType, PtrType>::find
         return mHash.value(ptr);
     }
 
-    auto entity = DataType{new ObjectType{ptr}};
+    ObjectType entity{ptr};
     mList << entity;
     mHash.insert(ptr, entity);
 
@@ -123,7 +123,7 @@ Q_OUTOFLINE_TEMPLATE QSharedPointer<ObjectType> Cache<ObjectType, PtrType>::find
 }
 
 template<class ObjectType, class PtrType>
-Q_OUTOFLINE_TEMPLATE bool Cache<ObjectType, PtrType>::insert(PtrType *ptr, QSharedPointer<ObjectType> obj)
+Q_OUTOFLINE_TEMPLATE bool Cache<ObjectType, PtrType>::insert(PtrType *ptr, const ObjectType &obj)
 {
     if (mHash.contains(ptr))
         return false;
@@ -141,7 +141,7 @@ Q_OUTOFLINE_TEMPLATE int Cache<ObjectType, PtrType>::size() const
 }
 
 template<class ObjectType, class PtrType>
-Q_OUTOFLINE_TEMPLATE const QSharedPointer<ObjectType> &Cache<ObjectType, PtrType>::at(int index) const
+Q_OUTOFLINE_TEMPLATE const ObjectType &Cache<ObjectType, PtrType>::at(int index) const
 {
     return std::move(mList.at(index));
 }

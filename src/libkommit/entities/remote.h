@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 #include "libkommit_export.h"
+
 #include <QList>
 #include <QString>
 
@@ -13,10 +14,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QSharedPointer>
 
+#include <Kommit/RefSpec>
+
 namespace Git
 {
 
 class Branch;
+class RemoteCallbacks;
+
 class LIBKOMMIT_EXPORT RemoteBranch
 {
 public:
@@ -37,56 +42,39 @@ public:
     [[nodiscard]] QString statusText() const;
 };
 
-class LIBKOMMIT_EXPORT RefSpec
-{
-public:
-    enum class Direction {
-        DirectionFetch = 0,
-        DirectionPush = 1
-    };
-
-    RefSpec(const git_refspec *refspecs);
-    ~RefSpec();
-
-    [[nodiscard]] QString name() const;
-    [[nodiscard]] Direction direction() const;
-    [[nodiscard]] QString destionation() const;
-    [[nodiscard]] QString source() const;
-
-private:
-    QString mName;
-    Direction mDirection;
-    QString mDestionation;
-    QString mSource;
-};
-
+class RemotePrivate;
 class LIBKOMMIT_EXPORT Remote
 {
 public:
-    Remote(git_remote *remote);
-    virtual ~Remote();
+    Remote();
+    explicit Remote(git_remote *remote);
+
+    Remote(const Remote &other);
+    Remote &operator=(const Remote &other);
+    bool operator==(const Remote &other) const;
+    bool operator!=(const Remote &other) const;
+    enum class Direction {
+        Fetch = GIT_DIRECTION_FETCH,
+        Push = GIT_DIRECTION_PUSH
+    };
+    // Q_ENUM(Direction)
 
     [[nodiscard]] QString name() const;
-    [[nodiscard]] QList<RefSpec *> refSpecList() const;
+    [[nodiscard]] QList<RefSpec> refSpecList() const;
     [[nodiscard]] QString pushUrl() const;
     [[nodiscard]] QString fetchUrl() const;
     [[nodiscard]] QString defaultBranch() const;
+    [[nodiscard]] bool isNull() const;
 
-    [[nodiscard]] const QList<QSharedPointer<Branch>> &branches();
+    [[nodiscard]] const QList<Branch> &branches();
 
-    [[nodiscard]] bool connected() const;
+    [[nodiscard]] bool isConnected() const;
+    [[nodiscard]] bool connect(Direction direction, RemoteCallbacks *callBacks) const;
 
     [[nodiscard]] git_remote *remotePtr() const;
 
 private:
-    git_remote *const mRemotePtr;
-    QList<RefSpec *> mRefSpecList;
-    bool mConnected{false};
-    QString mName;
-    QString mPushUrl;
-    QString mFetchUrl;
-    QString mDefaultBranch;
-    QList<QSharedPointer<Branch>> mBranches;
+    QSharedPointer<RemotePrivate> d;
 
     friend class RemotesModel;
 };

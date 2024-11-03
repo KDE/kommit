@@ -47,7 +47,7 @@ void SubmodulesWidget::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
         return;
 
     auto s = mModel->fromIndex(treeView->currentIndex());
-    if (!s)
+    if (s.isNull())
         return;
     mActions->setSubmodule(s);
     mActions->popup();
@@ -56,7 +56,7 @@ void SubmodulesWidget::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
 void SubmodulesWidget::slotTreeViewActivated(const QModelIndex &index)
 {
     auto s = mModel->fromIndex(index);
-    if (!s)
+    if (s.isNull())
         return;
     mActions->setSubmodule(s);
 }

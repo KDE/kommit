@@ -50,10 +50,10 @@ SubmodulesCache::DataType SubmodulesCache::add(const AddSubmoduleOptions &option
     return DataType{};
 }
 
-QList<QSharedPointer<Submodule>> SubmodulesCache::allSubmodules()
+QList<Submodule> SubmodulesCache::allSubmodules()
 {
     struct Data {
-        PointerList<Submodule> list;
+        QList<Submodule> list;
         git_repository *repo;
         SubmodulesCache *cache;
     };
@@ -63,11 +63,13 @@ QList<QSharedPointer<Submodule>> SubmodulesCache::allSubmodules()
 
         auto data = reinterpret_cast<Data *>(payload);
 
-        // Wait until libgit-1.2 and use lines below
-        //  git_submodule *submodule;
-        //  git_submodule_dup(&submodule, sm);
-
-        data->list.append(data->cache->findByPtr(sm));
+        git_submodule *submodule;
+#if QT_VERSION_CHECK(LIBGIT2_VER_MAJOR, LIBGIT2_VER_MINOR, LIBGIT2_VER_MINOR) >= QT_VERSION_CHECK(1, 2, 0)
+        git_submodule_dup(&submodule, sm);
+#else
+        git_submodule_lookup(&submodule, data->repo, name);
+#endif
+        data->list.append(data->cache->findByPtr(submodule));
 
         return 0;
     };
@@ -80,7 +82,7 @@ QList<QSharedPointer<Submodule>> SubmodulesCache::allSubmodules()
     return data.list;
 }
 
-QSharedPointer<Submodule> SubmodulesCache::findByName(const QString &name)
+Submodule SubmodulesCache::findByName(const QString &name)
 {
     git_submodule *submodule{nullptr};
     BEGIN
@@ -101,7 +103,7 @@ SubmodulesCache::DataType SubmodulesCache::findByPtr(git_submodule *ptr, bool *i
         return mHash.value(ptr);
     }
 
-    QSharedPointer<Submodule> entity{new Submodule{ptr, manager->repoPtr()}};
+    Submodule entity{ptr, manager->repoPtr()};
     mList << entity;
     mHash.insert(ptr, entity);
 

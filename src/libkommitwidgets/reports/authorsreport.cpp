@@ -41,8 +41,8 @@ void AuthorsReport::reload()
 
             max = qMax(max, a->commits.count);
         };
-        auto tagCb = [this](QSharedPointer<Git::Tag> tag) {
-            findOrCreate(tag->tagger(), AuthorCreateReason::Tag);
+        auto tagCb = [this](const Git::Tag &tag) {
+            findOrCreate(tag.tagger(), AuthorCreateReason::Tag);
         };
 
         mGit->forEachCommits(commitCb, {});
@@ -93,40 +93,40 @@ int AuthorsReport::labelsAngle() const
     return 90;
 }
 
-AuthorsReport::Author *AuthorsReport::findOrCreate(QSharedPointer<Git::Signature> signature, AuthorCreateReason reason)
+AuthorsReport::Author *AuthorsReport::findOrCreate(const Git::Signature &signature, AuthorCreateReason reason)
 {
     auto authorIterator = std::find_if(mData.begin(), mData.end(), [&signature](Author *a) {
-        return a->email == signature->email() && a->name == signature->name();
+        return a->email == signature.email() && a->name == signature.name();
     });
 
     if (authorIterator != mData.end()) {
         switch (reason) {
         case Commit:
-            (*authorIterator)->commits.increase(signature->time());
+            (*authorIterator)->commits.increase(signature.time());
             break;
         case AuthoredCommit:
-            (*authorIterator)->authoredCommits.increase(signature->time());
+            (*authorIterator)->authoredCommits.increase(signature.time());
             break;
         case Tag:
-            (*authorIterator)->tags.increase(signature->time());
+            (*authorIterator)->tags.increase(signature.time());
             break;
         }
         return *authorIterator;
     }
 
     auto author = new Author;
-    author->name = signature->name();
-    author->email = signature->email();
+    author->name = signature.name();
+    author->email = signature.email();
 
     switch (reason) {
     case Commit:
-        author->commits.begin(signature->time());
+        author->commits.begin(signature.time());
         break;
     case AuthoredCommit:
-        author->authoredCommits.begin(signature->time());
+        author->authoredCommits.begin(signature.time());
         break;
     case Tag:
-        author->tags.begin(signature->time());
+        author->tags.begin(signature.time());
         break;
     }
 

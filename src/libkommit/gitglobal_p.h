@@ -65,18 +65,18 @@ class SequenceRunner
     bool _printError{true};
 
 public:
-    SequenceRunner(bool printError = true)
+    inline constexpr explicit SequenceRunner(bool printError = true)
         : _printError{printError}
     {
     }
 
-    ~SequenceRunner()
+    inline ~SequenceRunner()
     {
         printError();
     }
 
     template<typename Func, typename... Args>
-    int run(Func *func, Args &&...args)
+    inline int run(Func *func, Args &&...args)
     {
         if (!_n) {
             _n = func(std::forward<Args>(args)...);
@@ -85,6 +85,20 @@ public:
             }
         }
         return _n;
+    }
+
+    template<typename Func, typename... Args>
+    static bool runSingle(Func *func, Args &&...args)
+    {
+        int n = func(std::forward<Args>(args)...);
+        if (n) {
+            auto __git_err = git_error_last();
+            auto __git_err_class = __git_err->klass;
+            auto __git_err_msg = QString{__git_err->message};
+            qDebug().noquote().nospace() << "libgit2 error: " << n << ", class: " << __git_err_class << ", Message: " << __git_err_msg;
+        }
+
+        return n;
     }
 
     inline bool isSuccess()
@@ -99,13 +113,13 @@ public:
         return _n;
     }
 
-    void printError()
+    inline void printError()
     {
         if (_n && _printError) {
-            auto __git_err = git_error_last();
-            auto __git_err_class = __git_err->klass;
-            auto __git_err_msg = QString{__git_err->message};
-            qDebug().noquote().nospace() << "libgit2 error: " << _n << ", class: " << __git_err_class << ", Message: " << __git_err_msg;
+            auto _git_err = git_error_last();
+            auto _git_err_class = _git_err->klass;
+            auto _git_err_msg = QString{_git_err->message};
+            qDebug().noquote().nospace() << "libgit2 error: " << _n << ", class: " << _git_err_class << ", Message: " << _git_err_msg;
             _printError = false;
         }
     }
@@ -160,7 +174,7 @@ public:
         return ptr ? ptr : sharedPtr.data();
     }
 
-    constexpr bool isNull() const
+    [[nodiscard]] constexpr bool isNull() const
     {
         return (!ptr && sharedPtr.isNull());
     }

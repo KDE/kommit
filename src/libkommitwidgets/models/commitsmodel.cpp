@@ -9,13 +9,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/commit.h"
 #include "repository.h"
 
+#include <Kommit/Branch>
+
 #include <KLocalizedString>
 #include <QDebug>
 
 #include <git2/commit.h>
 
 struct CommitsLaneData {
-    QSharedPointer<Git::Commit> commit;
+    Git::Commit commit;
     QVector<GraphLane> lanes;
 };
 
@@ -180,20 +182,20 @@ struct LanesFactory {
         else
             lanes.append(lane);
     }
-    QVector<GraphLane> apply(Git::Commit *log)
+    QVector<GraphLane> apply(const Git::Commit &log)
     {
         int myIndex = -1;
-        QVector<GraphLane> lanes = initLanes(log->commitHash(), myIndex);
+        QVector<GraphLane> lanes = initLanes(log.commitHash(), myIndex);
         // TODO: fix me
-        if (!log->parents().empty())
-            join(log->commitHash(), lanes, myIndex);
-        else if (!log->children().empty()) {
-            start(log->children().first(), lanes);
+        if (!log.parents().empty())
+            join(log.commitHash(), lanes, myIndex);
+        else if (!log.children().empty()) {
+            start(log.children().first(), lanes);
             myIndex = _hashes.size() - 1;
         }
 
-        if (!log->children().empty()) {
-            fork(log->children(), lanes, myIndex);
+        if (!log.children().empty()) {
+            fork(log.children(), lanes, myIndex);
         } else if (myIndex != -1) {
             lanes[myIndex].mType = GraphLane::End;
         }
@@ -210,18 +212,18 @@ class CommitsModelPrivate
     Q_DECLARE_PUBLIC(CommitsModel)
 
 public:
-    CommitsModelPrivate(CommitsModel *parent);
+    explicit CommitsModelPrivate(CommitsModel *parent);
 
     void initChilds();
     void initGraph();
 
     bool fullDetails{false};
-    QSharedPointer<Git::Branch> branch;
+    Git::Branch branch;
     QList<CommitsLaneData *> data;
-    QList<QSharedPointer<Git::Commit>> list;
+    QList<Git::Commit> list;
     QStringList branches;
-    QMap<QString, QSharedPointer<Git::Commit>> dataByCommitHashLong;
-    QMap<QString, QSharedPointer<Git::Commit>> dataByCommitHashShort;
+    QMap<QString, Git::Commit> dataByCommitHashLong;
+    QMap<QString, Git::Commit> dataByCommitHashShort;
     QCalendar calendar;
     QSet<QString> seenHashes;
 };
@@ -238,13 +240,13 @@ CommitsModel::~CommitsModel()
 {
 }
 
-QSharedPointer<Git::Branch> CommitsModel::branch() const
+const Git::Branch &CommitsModel::branch() const
 {
     Q_D(const CommitsModel);
     return d->branch;
 }
 
-void CommitsModel::setBranch(QSharedPointer<Git::Branch> newBranch)
+void CommitsModel::setBranch(const Git::Branch &newBranch)
 {
     Q_D(CommitsModel);
 
@@ -304,12 +306,12 @@ QVariant CommitsModel::headerData(int section, Qt::Orientation orientation, int 
     return {};
 }
 
-QSharedPointer<Git::Commit> CommitsModel::at(int index) const
+Git::Commit CommitsModel::at(int index) const
 {
     Q_D(const CommitsModel);
 
     if (index < 0 || index >= d->list.size())
-        return nullptr;
+        return Git::Commit{};
 
     return d->list.at(index);
 }
@@ -321,40 +323,40 @@ QVariant CommitsModel::data(const QModelIndex &index, int role) const
     if (role != Qt::DisplayRole)
         return {};
     auto log = fromIndex(index);
-    if (!log)
-        return {};
+    if (log.isNull())
+        return QVariant{};
 
     if (d->fullDetails) {
         switch (index.column()) {
         case 0:
-            return log->summary();
+            return log.summary();
         case 1: {
             if (d->calendar.isValid())
-                return log->committer()->time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), d->calendar);
+                return log.committer().time().toLocalTime().toString(QStringLiteral("yyyy-MM-dd HH:mm:ss"), d->calendar);
 
-            return log->committer()->time();
+            return log.committer().time();
         }
         case 2:
-            return log->author()->name();
+            return log.author().name();
         }
     } else {
         switch (index.column()) {
         case 0:
             return QString();
         case 1:
-            return log->summary();
+            return log.summary();
         }
     }
 
     return {};
 }
 
-QSharedPointer<Git::Commit> CommitsModel::fromIndex(const QModelIndex &index) const
+Git::Commit CommitsModel::fromIndex(const QModelIndex &index) const
 {
     Q_D(const CommitsModel);
 
     if (!index.isValid() || index.row() < 0 || index.row() >= d->list.size())
-        return nullptr;
+        return Git::Commit{};
 
     return d->list.at(index.row());
 }
@@ -375,33 +377,33 @@ QModelIndex CommitsModel::findIndexByHash(const QString &hash) const
 
     int idx{0};
     for (auto &log : d->list)
-        if (log->commitHash() == hash)
+        if (log.commitHash() == hash)
             return index(idx);
         else
             idx++;
     return {};
 }
 
-QSharedPointer<Git::Commit> CommitsModel::findLogByHash(const QString &hash, LogMatchType matchType) const
+Git::Commit CommitsModel::findLogByHash(const QString &hash, LogMatchType matchType) const
 {
     Q_D(const CommitsModel);
 
-    QList<QSharedPointer<Git::Commit>>::ConstIterator i;
+    QList<Git::Commit>::ConstIterator i;
 
     switch (matchType) {
     case LogMatchType::ExactMatch:
-        i = std::find_if(d->list.begin(), d->list.end(), [&hash](QSharedPointer<Git::Commit> log) {
-            return log->commitHash() == hash;
+        i = std::find_if(d->list.begin(), d->list.end(), [&hash](const Git::Commit &log) {
+            return log.commitHash() == hash;
         });
         break;
     case LogMatchType::BeginMatch:
-        i = std::find_if(d->list.begin(), d->list.end(), [&hash](QSharedPointer<Git::Commit> log) {
-            return log->commitHash().startsWith(hash);
+        i = std::find_if(d->list.begin(), d->list.end(), [&hash](const Git::Commit &log) {
+            return log.commitHash().startsWith(hash);
         });
         break;
     }
     if (i == d->list.end())
-        return nullptr;
+        return Git::Commit{};
     return *i;
 }
 
@@ -421,7 +423,7 @@ void CommitsModel::reload()
 
         d->data.reserve(d->list.size());
         for (auto const &commit : std::as_const(d->list)) {
-            d->dataByCommitHashLong.insert(commit->commitHash(), commit);
+            d->dataByCommitHashLong.insert(commit.commitHash(), commit);
             d->data << new CommitsLaneData{commit, {}};
         }
     } else {
@@ -457,7 +459,7 @@ void CommitsModelPrivate::initChilds()
     // auto &log = *i;
     // TODO: check this
     // for (auto &p : d.commit->parents())
-    // mDataByCommitHashLong.value(p)->mChildren.append(log->commitHash());
+    // mDataByCommitHashLong.value(p)->mChildren.append(log.commitHash());
     // }
 }
 
@@ -466,7 +468,7 @@ void CommitsModelPrivate::initGraph()
     Impl::LanesFactory factory;
     for (auto i = data.rbegin(); i != data.rend(); i++) {
         auto d = *i;
-        d->lanes = factory.apply(d->commit.data());
+        d->lanes = factory.apply(d->commit);
     }
 }
 

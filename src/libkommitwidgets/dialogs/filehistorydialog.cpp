@@ -25,16 +25,16 @@ FileHistoryDialog::FileHistoryDialog(Git::Repository *git, const QString &fileNa
 
     for (const auto &hash : hashes) {
         auto log = logs->find(hash);
-        if (!log)
+        if (log.isNull())
             continue;
 
-        auto item = new QListWidgetItem(log->message());
-        item->setData(dataRole, log->commitHash());
+        auto item = new QListWidgetItem(log.message());
+        item->setData(dataRole, log.commitHash());
         listWidget->addItem(item);
 
         auto treeItem = new QTreeWidgetItem{treeWidget};
-        treeItem->setText(0, log->message());
-        treeItem->setData(0, dataRole, log->commitHash());
+        treeItem->setText(0, log.message());
+        treeItem->setData(0, dataRole, log.commitHash());
         treeWidget->addTopLevelItem(treeItem);
     }
     plainTextEdit->setHighlighting(fileName);
@@ -53,8 +53,8 @@ FileHistoryDialog::FileHistoryDialog(Git::Repository *git, const QString &fileNa
     radioButtonRegularView->setChecked(true);
 }
 
-FileHistoryDialog::FileHistoryDialog(Git::Repository *git, QSharedPointer<Git::Blob> file, QWidget *parent)
-    : FileHistoryDialog(git, file->name(), parent)
+FileHistoryDialog::FileHistoryDialog(Git::Repository *git, const Git::Blob &file, QWidget *parent)
+    : FileHistoryDialog(git, file.name(), parent)
 {
 }
 

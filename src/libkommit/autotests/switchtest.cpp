@@ -55,9 +55,12 @@ void SwitchTest::switchToDevBranch()
     QVERIFY(mManager->switchBranch(devBranch));
 
     auto content = TestCommon::readFile(mManager->path() + "/content.txt");
-    auto contentFile = mManager->headTree()->file("content.txt");
+
+    auto headTree = mManager->headTree();
+    QVERIFY(!headTree.isNull());
+    auto contentFile = headTree.file("content.txt");
     QCOMPARE(content, "file2 edited\n");
-    QCOMPARE(contentFile->content(), content);
+    QCOMPARE(contentFile.content(), content);
 }
 
 void SwitchTest::switchToTagV1()
@@ -65,7 +68,7 @@ void SwitchTest::switchToTagV1()
     auto tag = mManager->tags()->find("v1.0");
     QVERIFY(!tag.isNull());
 
-    QVERIFY(mManager->reset(tag->commit(), Git::Repository::ResetType::Hard));
+    QVERIFY(mManager->reset(tag.commit(), Git::Repository::ResetType::Hard));
 
     auto content = TestCommon::readFile(mManager->path() + "/content.txt");
     QCOMPARE(content, "file1 created\n");

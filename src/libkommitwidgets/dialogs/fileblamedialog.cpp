@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "fileblamedialog.h"
 
-#include <blamedata.h>
-#include <entities/blob.h>
-#include <repository.h>
+#include <Kommit/Blame>
+#include <Kommit/Blob>
+#include <Kommit/Repository>
 
 #include "models/commitsmodel.h"
 
@@ -39,28 +39,28 @@ void FileBlameDialog::loadData()
 
     mBlameData = mGit->blame(mFile);
 
-    auto hunks = mBlameData->hunks();
+    auto hunks = mBlameData.hunks();
     auto type = CodeEditor::BlockType::Odd;
     QList<CodeEditor::BlockData *> blocks;
     for (auto &blame : hunks) {
-        auto data = new CodeEditor::BlockData{static_cast<int>(blame->startLine - 1), static_cast<int>(blame->linesCount), 0, type};
-        if (blame->finalCommit.isNull()) {
+        auto data = new CodeEditor::BlockData{static_cast<int>(blame.startLine() - 1), static_cast<int>(blame.linesCount()), 0, type};
+        if (blame.finalCommit().isNull()) {
             data->extraText = i18n("Uncommitted");
             data->type = CodeEditor::BlockType::Empty;
         } else {
-            data->extraText = blame->finalCommit->oid()->toString();
+            data->extraText = blame.finalCommit().oid().toString();
             type = type == CodeEditor::BlockType::Odd ? CodeEditor::BlockType::Even : CodeEditor::BlockType::Odd;
         }
         blocks << data;
     }
-    plainTextEdit->setContent(mBlameData->content(), blocks, false);
+    plainTextEdit->setContent(mBlameData.content(), blocks, false);
     setWindowTitle(i18nc("@title:window", "Blame file: %1", mFile));
 }
 
 void FileBlameDialog::slotPlainTextEditBlockSelected()
 {
-    auto hunk = mBlameData->hunkByLineNumber(plainTextEdit->currentLineNumber());
-    widgetCommitDetails->setCommit(hunk->finalCommit.data());
+    auto hunk = mBlameData.hunkByLineNumber(plainTextEdit->currentLineNumber());
+    widgetCommitDetails->setCommit(hunk.finalCommit());
 }
 
 #include "moc_fileblamedialog.cpp"

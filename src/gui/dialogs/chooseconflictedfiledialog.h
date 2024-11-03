@@ -10,10 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QSharedPointer>
 
-namespace Git
-{
-class Blob;
-}
+#include <Kommit/Blob>
 
 class ChooseConflictedFileDialog : public QDialog, private Ui::ChooseConflictedFileDialog
 {
@@ -27,10 +24,7 @@ public:
         Remote
     };
 
-    ChooseConflictedFileDialog(QSharedPointer<Git::Blob> baseFile,
-                               QSharedPointer<Git::Blob> localFile,
-                               QSharedPointer<Git::Blob> remoteFile,
-                               QWidget *parent = nullptr);
+    ChooseConflictedFileDialog(const Git::Blob &baseFile, const Git::Blob &localFile, const Git::Blob &remoteFile, QWidget *parent = nullptr);
 
     [[nodiscard]] Side selectedSide() const;
 
@@ -46,7 +40,7 @@ private:
 
     Side _selectedSide;
 
-    QSharedPointer<Git::Blob> mBaseFile;
-    QSharedPointer<Git::Blob> mLocalFile;
-    QSharedPointer<Git::Blob> mRemoteFile;
+    Git::Blob mBaseFile;
+    Git::Blob mLocalFile;
+    Git::Blob mRemoteFile;
 };

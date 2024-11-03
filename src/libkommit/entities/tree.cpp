@@ -24,57 +24,90 @@ namespace Git
 class TreePrivate
 {
 public:
-    TreePrivate(Tree *parent, git_tree *tree);
-    Tree *q_ptr;
-    Q_DECLARE_PUBLIC(Tree)
+    explicit TreePrivate(Tree *parent, git_tree *tree = nullptr);
+    ~TreePrivate();
 
+    Tree *q;
     QList<Tree::Entry *> entries;
     QMultiMap<QString, Tree::Entry> treeData;
 
-    git_tree *gitTreePtr{nullptr};
+    git_tree *tree{nullptr};
 
     void initTree();
     void browseNestedEntities(Tree::EntryType type, const QString &path, QStringList &list) const;
 };
 
-Tree::Tree(git_tree *tree)
-    : d_ptr{new TreePrivate{this, tree}}
+Tree::Tree()
+    : d{new TreePrivate{this, nullptr}}
 {
-    Q_D(Tree);
-    d->initTree();
+}
+
+Tree::Tree(git_tree *tree)
+    : d{new TreePrivate{this, tree}}
+{
+    if (tree)
+        d->initTree();
 }
 
 Tree::Tree(git_repository *repo, const QString &place)
-    : d_ptr{new TreePrivate{this, nullptr}}
+    : d{new TreePrivate{this}}
 {
     git_tree *tree;
     git_object *placeObject{nullptr};
     git_commit *commit{nullptr};
 
-    BEGIN
-    STEP git_revparse_single(&placeObject, repo, place.toLatin1().constData());
-    STEP git_commit_lookup(&commit, repo, git_object_id(placeObject));
-    STEP git_commit_tree(&tree, commit);
+    SequenceRunner r;
+    r.run(git_revparse_single, &placeObject, repo, place.toLatin1().constData());
+    r.run(git_commit_lookup, &commit, repo, git_object_id(placeObject));
+    r.run(git_commit_tree, &tree, commit);
 
-    if (IS_OK) {
-        Q_D(Tree);
-        d->gitTreePtr = tree;
+    if (r.isSuccess()) {
+        d->tree = tree;
         d->initTree();
     }
 }
 
-Tree::~Tree()
+Tree::Tree(const Tree &other)
+    : d{other.d}
 {
-    Q_D(Tree);
-    if (d->gitTreePtr)
-        git_tree_free(d->gitTreePtr);
-    delete d;
 }
 
-QList<Tree::Entry> Tree::entries(const QString &path) const
+Tree &Tree::operator=(const Tree &other)
 {
-    Q_D(const Tree);
-    return d->treeData.values(path);
+    if (this != &other)
+        d = other.d;
+
+    return *this;
+}
+
+bool Tree::operator==(const Tree &other) const
+{
+    return d->tree == other.d->tree;
+}
+
+bool Tree::operator!=(const Tree &other) const
+{
+    return !(*this == other);
+}
+
+bool Tree::isNull() const
+{
+    return !d->tree;
+}
+
+git_tree *Tree::data() const
+{
+    return d->tree;
+}
+
+const git_tree *Tree::constData() const
+{
+    return d->tree;
+}
+
+Tree::EntryLists Tree::entries(const QString &path) const
+{
+    return EntryLists{d->treeData.values(path)};
 }
 
 QStringList Tree::entries(const QString &path, EntryType filter) const
@@ -89,8 +122,6 @@ QStringList Tree::entries(const QString &path, EntryType filter) const
 
 QStringList Tree::entries(EntryType filter) const
 {
-    Q_D(const Tree);
-
     QStringList list;
 
     d->browseNestedEntities(filter, QString(), list);
@@ -98,32 +129,24 @@ QStringList Tree::entries(EntryType filter) const
     return list;
 }
 
-QSharedPointer<Blob> Tree::file(const QString &path)
+Blob Tree::file(const QString &path) const
 {
-    Q_D(Tree);
     git_tree_entry *entry;
     BEGIN
 
     if (path.startsWith(QLatin1Char('/')))
-        STEP git_tree_entry_bypath(&entry, d->gitTreePtr, toConstChars(path.mid(1)));
+        STEP git_tree_entry_bypath(&entry, d->tree, toConstChars(path.mid(1)));
     else
-        STEP git_tree_entry_bypath(&entry, d->gitTreePtr, toConstChars(path));
+        STEP git_tree_entry_bypath(&entry, d->tree, toConstChars(path));
 
     if (IS_ERROR)
-        return {};
+        return Blob{};
 
-    return QSharedPointer<Blob>{new Blob{git_tree_owner(d->gitTreePtr), entry}};
-}
-
-git_tree *Tree::gitTree() const
-{
-    Q_D(const Tree);
-    return d->gitTreePtr;
+    return Blob{git_tree_owner(d->tree), entry};
 }
 
 bool Tree::extract(const QString &destinationFolder, const QString &prefix)
 {
-    Q_D(Tree);
     struct wrapper {
         QString destinationFolder;
         QString prefix;
@@ -154,15 +177,14 @@ bool Tree::extract(const QString &destinationFolder, const QString &prefix)
             QFileInfo fi{newFilePath};
             QDir d;
             d.mkpath(fi.absolutePath());
-            QSharedPointer<Blob> file;
 
-            file = w->tree->file(path + name);
+            auto file = w->tree->file(path + name);
 
             if (file.isNull()) {
                 qDebug() << "File is null" << path << name;
                 return 1;
             }
-            return file->save(newFilePath) ? 0 : 1;
+            return file.save(newFilePath) ? 0 : 1;
         }
 
         return 0;
@@ -176,13 +198,12 @@ bool Tree::extract(const QString &destinationFolder, const QString &prefix)
     else
         w.prefix = prefix;
 
-    return !git_tree_walk(d->gitTreePtr, GIT_TREEWALK_PRE, cb, &w);
+    return !git_tree_walk(d->tree, GIT_TREEWALK_PRE, cb, &w);
 }
 
-QSharedPointer<Oid> Tree::oid() const
+Oid Tree::oid() const
 {
-    Q_D(const Tree);
-    return QSharedPointer<Oid>{new Oid{git_tree_id(d->gitTreePtr)}};
+    return Oid{git_tree_id(d->tree)};
 }
 
 void TreePrivate::initTree()
@@ -215,12 +236,11 @@ void TreePrivate::initTree()
         return 0;
     };
 
-    git_tree_walk(gitTreePtr, GIT_TREEWALK_PRE, cb, this);
+    git_tree_walk(tree, GIT_TREEWALK_PRE, cb, this);
 }
 
 void TreePrivate::browseNestedEntities(Tree::EntryType type, const QString &path, QStringList &list) const
 {
-    Q_Q(const Tree);
     QString prefix;
     if (!path.isEmpty())
         prefix = path + QLatin1Char('/');
@@ -240,25 +260,149 @@ void TreePrivate::browseNestedEntities(Tree::EntryType type, const QString &path
 }
 
 TreePrivate::TreePrivate(Tree *parent, git_tree *tree)
-    : q_ptr{parent}
-    , gitTreePtr{tree}
+    : tree{tree}
+    , q{parent}
 {
 }
-}
 
-Git::Tree::EntryType QListSpecialMethods<Git::Tree::Entry>::type(const QString &entryName) const
+TreePrivate::~TreePrivate()
 {
-    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
-
-    auto i = std::find_if(self->begin(), self->end(), [&entryName](Git::Tree::Entry en) {
+    git_tree_free(tree);
+}
+Tree::EntryType Tree::EntryLists::type(const QString &entryName) const
+{
+    auto i = std::find_if(mEntries.begin(), mEntries.end(), [&entryName](const Git::Tree::Entry &en) {
         return en.name == entryName;
     });
 
-    if (i == self->end())
+    if (i == mEntries.end())
         return Git::Tree::EntryType::Unknown;
 
     return (*i).type;
 }
+bool Tree::EntryLists::contains(const QString &entryName) const
+{
+    return std::any_of(mEntries.begin(), mEntries.end(), [&entryName](Git::Tree::Entry en) {
+        return en.name == entryName;
+    });
+}
+qsizetype Tree::EntryLists::indexOf(const QString &entryName, qsizetype from) const
+{
+    for (qsizetype i = 0; i < mEntries.size(); ++i) {
+        if (mEntries.at(i).name == entryName) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+qsizetype Tree::EntryLists::lastIndexOf(const QString &entryName, qsizetype from) const
+{
+    auto startIndex = from;
+    if (startIndex == -1) {
+        startIndex = mEntries.size();
+    }
+
+    for (qsizetype i = startIndex; i > 0; --i) {
+        if (mEntries.at(i).name == entryName) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+QList<Tree::Entry>::iterator Tree::EntryLists::begin()
+{
+    return mEntries.begin();
+}
+QList<Tree::Entry>::iterator Tree::EntryLists::end()
+{
+    return mEntries.end();
+}
+QList<Tree::Entry>::const_iterator Tree::EntryLists::begin() const noexcept
+{
+    return mEntries.begin();
+}
+QList<Tree::Entry>::const_iterator Tree::EntryLists::end() const noexcept
+{
+    return mEntries.end();
+}
+QList<Tree::Entry>::const_iterator Tree::EntryLists::cbegin() const noexcept
+{
+    return mEntries.cbegin();
+}
+QList<Tree::Entry>::const_iterator Tree::EntryLists::cend() const noexcept
+{
+    return mEntries.cend();
+}
+QList<Tree::Entry>::const_iterator Tree::EntryLists::constBegin() const noexcept
+{
+    return mEntries.constBegin();
+}
+QList<Tree::Entry>::const_iterator Tree::EntryLists::constEnd() const noexcept
+{
+    return mEntries.constEnd();
+}
+QList<Tree::Entry>::reverse_iterator Tree::EntryLists::rbegin()
+{
+    return mEntries.rbegin();
+}
+QList<Tree::Entry>::reverse_iterator Tree::EntryLists::rend()
+{
+    return mEntries.rend();
+}
+QList<Tree::Entry>::const_reverse_iterator Tree::EntryLists::rbegin() const noexcept
+{
+    return mEntries.rbegin();
+}
+QList<Tree::Entry>::const_reverse_iterator Tree::EntryLists::rend() const noexcept
+{
+    return mEntries.rend();
+}
+QList<Tree::Entry>::const_reverse_iterator Tree::EntryLists::crbegin() const noexcept
+{
+    return mEntries.crbegin();
+}
+QList<Tree::Entry>::const_reverse_iterator Tree::EntryLists::crend() const noexcept
+{
+    return mEntries.crend();
+}
+Tree::Entry Tree::EntryLists::at(qsizetype i)
+{
+    return mEntries.at(i);
+}
+qsizetype Tree::EntryLists::size() const noexcept
+{
+    return mEntries.size();
+}
+qsizetype Tree::EntryLists::count() const noexcept
+{
+    return mEntries.size();
+}
+qsizetype Tree::EntryLists::length() const noexcept
+{
+    return mEntries.size();
+}
+Tree::EntryLists::EntryLists(const QList<Entry> &mEntries)
+    : mEntries(mEntries)
+{
+}
+
+}
+//
+// Git::Tree::EntryType QListSpecialMethods<Git::Tree::Entry>::type(const QString &entryName) const
+//{
+//    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
+//
+//    auto i = std::find_if(self->begin(), self->end(), [&entryName](const Git::Tree::Entry &en) {
+//        return en.name == entryName;
+//    });
+//
+//    if (i == self->end())
+//        return Git::Tree::EntryType::Unknown;
+//
+//    return (*i).type;
+//}
 
 QDebug operator<<(QDebug d, const QList<Git::Tree::Entry> &list)
 {
@@ -289,43 +433,43 @@ QDebug operator<<(QDebug d, const QList<Git::Tree::Entry> &list)
 
     return dd;
 }
-
-bool QListSpecialMethods<Git::Tree::Entry>::contains(const QString &entryName) const
-{
-    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
-
-    return std::any_of(self->begin(), self->end(), [&entryName](Git::Tree::Entry en) {
-        return en.name == entryName;
-    });
-}
-
-qsizetype QListSpecialMethods<Git::Tree::Entry>::indexOf(const QString &entryName, qsizetype from) const
-{
-    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
-
-    for (qsizetype i = 0; i < self->size(); ++i) {
-        if (self->at(i).name == entryName) {
-            return i;
-        }
-    }
-
-    return -1;
-}
-
-qsizetype QListSpecialMethods<Git::Tree::Entry>::lastIndexOf(const QString &entryName, qsizetype from) const
-{
-    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
-
-    auto startIndex = from;
-    if (startIndex == -1) {
-        startIndex = self->size();
-    }
-
-    for (qsizetype i = startIndex; i > 0; --i) {
-        if (self->at(i).name == entryName) {
-            return i;
-        }
-    }
-
-    return -1;
-}
+//
+// bool QListSpecialMethods<Git::Tree::Entry>::contains(const QString &entryName) const
+//{
+//    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
+//
+//    return std::any_of(self->begin(), self->end(), [&entryName](Git::Tree::Entry en) {
+//        return en.name == entryName;
+//    });
+//}
+//
+// qsizetype QListSpecialMethods<Git::Tree::Entry>::indexOf(const QString &entryName, qsizetype from) const
+//{
+//    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
+//
+//    for (qsizetype i = 0; i < self->size(); ++i) {
+//        if (self->at(i).name == entryName) {
+//            return i;
+//        }
+//    }
+//
+//    return -1;
+//}
+//
+// qsizetype QListSpecialMethods<Git::Tree::Entry>::lastIndexOf(const QString &entryName, qsizetype from) const
+//{
+//    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
+//
+//    auto startIndex = from;
+//    if (startIndex == -1) {
+//        startIndex = self->size();
+//    }
+//
+//    for (qsizetype i = startIndex; i > 0; --i) {
+//        if (self->at(i).name == entryName) {
+//            return i;
+//        }
+//    }
+//
+//    return -1;
+//}

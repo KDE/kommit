@@ -23,7 +23,7 @@ ChangedSubmodulesDialog::ChangedSubmodulesDialog(Git::Repository *git, QWidget *
 
 void ChangedSubmodulesDialog::slotComitPushButtonClicked(const QString &submodule)
 {
-    auto g{mGit->submodules()->findByName(submodule)->open()};
+    auto g{mGit->submodules()->findByName(submodule).open()};
     CommitPushDialog d{g};
     d.setWindowTitle(i18nc("@title:window", "Commit/Push submodule: %1", submodule));
     d.exec();
@@ -34,7 +34,7 @@ void ChangedSubmodulesDialog::reload()
     auto modules = mGit->submodules()->allSubmodules();
 
     for (auto const &submodule : std::as_const(modules)) {
-        if ((submodule->status() & Git::Submodule::Status::WdWdModified) == 0)
+        if ((submodule.status() & Git::Submodule::Status::WdWdModified) == 0)
             continue;
 
         auto w = new QWidget{this};
@@ -42,7 +42,7 @@ void ChangedSubmodulesDialog::reload()
         auto hl = new QHBoxLayout{w};
 
         auto lbl = new QLabel{w};
-        const QString submoduleName{submodule->name()};
+        const QString submoduleName{submodule.name()};
         lbl->setText(submoduleName);
         hl->addWidget(lbl);
         auto horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);

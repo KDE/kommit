@@ -9,10 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include "ui_commitdetails.h"
 
-namespace Git
-{
-class Commit;
-}
+#include <Kommit/Commit>
+
 class CommitsModel;
 
 class LIBKOMMITWIDGETS_EXPORT CommitDetails : public QWidget, private Ui::CommitDetails
@@ -26,8 +24,8 @@ class LIBKOMMITWIDGETS_EXPORT CommitDetails : public QWidget, private Ui::Commit
 public:
     explicit CommitDetails(QWidget *parent = nullptr);
 
-    [[nodiscard]] Git::Commit *commit() const;
-    void setCommit(Git::Commit *commit);
+    [[nodiscard]] const Git::Commit &commit() const;
+    void setCommit(const Git::Commit &commit);
 
     [[nodiscard]] bool enableCommitsLinks() const;
     void setEnableCommitsLinks(bool enableCommitsLinks);
@@ -53,7 +51,7 @@ private:
 
     CommitsModel *mLogsModel{nullptr};
 
-    Git::Commit *mCommit{nullptr};
+    Git::Commit mCommit;
     bool mEnableCommitsLinks{true};
     bool mEnableEmailsLinks{true};
     bool mEnableFilesLinks{true};

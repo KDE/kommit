@@ -28,7 +28,7 @@ struct LcsOptions<QString> {
     bool ignoreCase{false};
     bool ignoreWhiteSpaces{false};
 
-    bool equals(const QString &s1, const QString s2)
+    bool equals(const QString &s1, const QString &s2)
     {
         if (ignoreWhiteSpaces)
             return QString::compare(s1.trimmed(), s2.trimmed(), ignoreCase ? Qt::CaseInsensitive : Qt::CaseSensitive) == 0;
@@ -119,7 +119,9 @@ template<typename T>
     return result;
 }
 
+Q_DECL_DEPRECATED
 [[nodiscard]] Solution longestCommonSubsequence(const QStringList &source, const QStringList &target);
 
+Q_DECL_DEPRECATED
 [[nodiscard]] Solution3 longestCommonSubsequence(const QStringList &source, const QStringList &target, const QStringList &target2);
 }

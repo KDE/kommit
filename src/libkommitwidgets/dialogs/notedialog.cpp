@@ -12,23 +12,23 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QPushButton>
 
-NoteDialog::NoteDialog(Git::Repository *git, QSharedPointer<Git::Commit> commit, QWidget *parent)
+NoteDialog::NoteDialog(Git::Repository *git, const Git::Commit &commit, QWidget *parent)
     : AppDialog(git, parent)
     , mCommit{commit}
 {
     setupUi(this);
 
-    auto note = commit->note();
+    auto note = commit.note();
 
     if (!note.isNull())
-        textEdit->setText(note->message());
+        textEdit->setText(note.message());
 
     connect(buttonBox->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &NoteDialog::slotAccepted);
 }
 
 void NoteDialog::slotAccepted()
 {
-    mCommit->createNote(textEdit->toPlainText());
+    mCommit.createNote(textEdit->toPlainText());
     accept();
 }
 

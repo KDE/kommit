@@ -9,13 +9,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 
 #include "abstractreport.h"
+#include <Kommit/Signature>
 #include <QDateTime>
 #include <QSharedPointer>
-
-namespace Git
-{
-class Signature;
-};
 
 class LIBKOMMITWIDGETS_EXPORT AuthorsReport : public AbstractReport
 {
@@ -61,7 +57,7 @@ private:
         AuthoredCommit,
         Tag,
     };
-    LIBKOMMITWIDGETS_NO_EXPORT Author *findOrCreate(QSharedPointer<Git::Signature> signature, AuthorCreateReason reason);
+    LIBKOMMITWIDGETS_NO_EXPORT Author *findOrCreate(const Git::Signature &signature, AuthorCreateReason reason);
 
     QList<Author *> mData;
 };

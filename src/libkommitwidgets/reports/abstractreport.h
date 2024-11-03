@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class Repository;
-};
+}
 
 class LIBKOMMITWIDGETS_EXPORT AbstractReport : public QObject
 {

@@ -13,9 +13,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace
 {
 
-QStringList statusTexts(QSharedPointer<Git::Submodule> module)
+QStringList statusTexts(const Git::Submodule &module)
 {
-    auto status = module->status();
+    auto status = module.status();
     QStringList list;
 
     if (status & Git::Submodule::Status::InHead)
@@ -55,7 +55,7 @@ class SubmodulesModelPrivate
 {
 public:
     explicit SubmodulesModelPrivate(SubmodulesModel *parent, Git::Repository *manager);
-    QList<QSharedPointer<Git::Submodule>> list;
+    QList<Git::Submodule> list;
     Git::Repository *manager;
     Git::SubmodulesCache *cache;
 
@@ -102,9 +102,9 @@ QVariant SubmodulesModel::data(const QModelIndex &index, int role) const
     if (role == Qt::DisplayRole) {
         switch (index.column()) {
         case 0:
-            return submodule->path();
+            return submodule.path();
         case 1:
-            return submodule->branch();
+            return submodule.branch();
         case 2:
             return statusTexts(submodule).join(QStringLiteral(", "));
             // submodule->hasModifiedFiles() ? i18n("Modified") : QLatin1String();
@@ -130,7 +130,7 @@ QVariant SubmodulesModel::headerData(int section, Qt::Orientation orientation, i
     return {};
 }
 
-bool SubmodulesModel::append(QSharedPointer<Git::Submodule> module)
+bool SubmodulesModel::append(const Git::Submodule &module)
 {
     Q_D(SubmodulesModel);
     beginInsertRows(QModelIndex(), d->list.size(), d->list.size());
@@ -139,7 +139,7 @@ bool SubmodulesModel::append(QSharedPointer<Git::Submodule> module)
     return true;
 }
 
-QSharedPointer<Git::Submodule> SubmodulesModel::fromIndex(const QModelIndex &index)
+const Git::Submodule &SubmodulesModel::fromIndex(const QModelIndex &index)
 {
     Q_D(SubmodulesModel);
     if (!index.isValid() || index.row() < 0 || index.row() >= d->list.size())

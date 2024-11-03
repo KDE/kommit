@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "libkommit_export.h"
+#include "libkommit_global.h"
 
 #include <QObject>
 
@@ -34,20 +35,6 @@ int git_helper_transport_cb(git_transport **out, git_remote *owner, void *param)
 }*/
 
 struct FetchObserverBridge;
-struct FetchTransferStat {
-    unsigned int totalObjects;
-    unsigned int indexedObjects;
-    unsigned int receivedObjects;
-    unsigned int localObjects;
-    unsigned int totalDeltas;
-    unsigned int indexedDeltas;
-    size_t receivedBytes;
-};
-struct PackProgress {
-    int stage;
-    uint32_t current;
-    uint32_t total;
-};
 
 class LIBKOMMIT_EXPORT FetchObserver : public QObject
 {
@@ -67,7 +54,7 @@ Q_SIGNALS:
     void credentialRequeted(const QString &url, Credential *cred);
     void transferProgress(const FetchTransferStat *stat);
     void packProgress(const PackProgress *p);
-    void updateRef(QSharedPointer<Reference> reference, QSharedPointer<Oid> a, QSharedPointer<Oid> b);
+    void updateRef(const Reference &reference, const Oid &a, const Oid &b);
     void finished();
 
 private:

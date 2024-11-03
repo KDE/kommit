@@ -13,17 +13,21 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QSharedPointer>
 #include <QString>
 
-#include "entities/tree.h"
 #include "libkommit_export.h"
 #include "libkommit_global.h"
-#include "oid.h"
 #include "types.h"
+
+#include <Kommit/Blob>
 #include <Kommit/FileMode>
+#include <Kommit/ITree>
+#include <Kommit/Oid>
+#include <Kommit/Tree>
 
 namespace Git
 {
 
 class Blob;
+
 class IndexEntryPrivate;
 class LIBKOMMIT_EXPORT IndexEntry : IOid
 {
@@ -35,35 +39,18 @@ public:
         Thers
     };
 
+    IndexEntry();
     IndexEntry(const git_index_entry *entryPtr);
-    ~IndexEntry();
 
     QString path() const;
     quint16 fileSize() const;
-    QSharedPointer<Oid> oid() const override;
+    Git::Oid oid() const override;
     StageState stageState() const;
     bool isConflict() const;
-    FileMode mode() const;
+    Git::FileMode mode() const;
 
 private:
-    QScopedPointer<IndexEntryPrivate> d_ptr;
-    Q_DECLARE_PRIVATE(IndexEntry)
-};
-
-class IndexEntryPrivate
-{
-    IndexEntry *q_ptr;
-    Q_DECLARE_PUBLIC(IndexEntry)
-
-public:
-    IndexEntryPrivate(IndexEntry *parent, const git_index_entry *entry);
-
-    QString path;
-    quint16 fileSize;
-    QSharedPointer<Oid> oid;
-    IndexEntry::StageState stageState;
-    bool isConflict;
-    FileMode fileMode;
+    QSharedPointer<IndexEntryPrivate> d;
 };
 
 class LIBKOMMIT_EXPORT IndexConflictEntry : public IndexEntry
@@ -71,10 +58,10 @@ class LIBKOMMIT_EXPORT IndexConflictEntry : public IndexEntry
 public:
     IndexConflictEntry(git_repository *repo, const git_index_entry *entryPtr);
 
-    [[nodiscard]] QSharedPointer<Blob> blob() const;
+    [[nodiscard]] const Blob &blob() const;
 
 private:
-    QSharedPointer<Blob> mBlob;
+    Blob mBlob;
 };
 
 struct LIBKOMMIT_EXPORT ConflictIndex {
@@ -116,61 +103,36 @@ public:
     QList<ConflictIndex *> conflicts;
 };
 
-class LIBKOMMIT_EXPORT Index
+class IndexPrivate;
+class LIBKOMMIT_EXPORT Index : public ITree
 {
 public:
-    class iterator
-    {
-    public:
-        iterator(git_index *ptr);
-
-        IndexEntry *operator*() const;
-
-        bool operator==(const iterator &o) const noexcept;
-        bool operator!=(const iterator &o) const noexcept;
-        inline bool operator<(const iterator &other) const noexcept
-        {
-            return i < other.i;
-        }
-        inline bool operator<=(const iterator &other) const noexcept
-        {
-            return i <= other.i;
-        }
-        inline bool operator>(const iterator &other) const noexcept
-        {
-            return i > other.i;
-        }
-        inline bool operator>=(const iterator &other) const noexcept
-        {
-            return i >= other.i;
-        }
-        iterator &operator++();
-        iterator operator++(int);
-
-    private:
-        git_index *const ptr;
-        IndexEntry *t;
-        int i;
-    };
-
+    Index();
     explicit Index(git_index *index);
     ~Index();
+    Index(const Index &other);
+    Index &operator=(const Index &other);
+    bool operator==(const Index &other) const;
+    bool operator!=(const Index &other) const;
+    [[nodiscard]] bool isNull() const;
+
+    [[nodiscard]] git_index *data() const;
+    [[nodiscard]] const git_index *constData() const;
 
     bool addAll();
     bool addByPath(const QString &path);
     bool removeByPath(const QString &path);
     bool removeAll();
 
-    iterator begin();
-    iterator end();
-
     bool write();
     bool writeTree();
-    QSharedPointer<Tree> tree() const;
 
-    QList<IndexEntry *> entries() const;
-    IndexEntry *entryByPath(const QString &path) const;
-    QSharedPointer<Blob> blobByPath(const QString &path) const;
+    QString treeTitle() const override;
+    Tree tree() const override;
+
+    QList<IndexEntry> entries() const;
+    IndexEntry entryByPath(const QString &path) const;
+    Blob blobByPath(const QString &path) const;
 
     bool hasConflicts() const;
     QSharedPointer<ConflictIndexList> conflicts() const;
@@ -179,9 +141,6 @@ public:
     void resolveConflict(ConflictIndex *conflict, ConflictSide side);
 
 private:
-    git_index *const ptr;
-    git_oid mLastOid;
-    bool writeNeeded{false};
+    QSharedPointer<IndexPrivate> d;
 };
-
 }

@@ -66,12 +66,12 @@ void FileActions::viewFile()
 
 void FileActions::saveAsFile()
 {
-    QFileInfo fi{mFile->filePath()};
+    QFileInfo fi{mFile.filePath()};
     const auto filter = i18n("%1 file (*.%1);;All files(*)", fi.suffix());
-    const auto fileName = QFileDialog::getSaveFileName(mParent, {}, mFile->filePath(), filter);
+    const auto fileName = QFileDialog::getSaveFileName(mParent, {}, mFile.filePath(), filter);
 
     if (!fileName.isEmpty()) {
-        mFile->save(fileName);
+        mFile.save(fileName);
     }
 }
 
@@ -90,7 +90,7 @@ void FileActions::search()
 
 void FileActions::openFile()
 {
-    auto tempFilePath = mFile->saveAsTemp(); // TODO: remove temp file after openning
+    auto tempFilePath = mFile.saveAsTemp(); // TODO: remove temp file after openning
     if (tempFilePath.isEmpty())
         return;
 
@@ -116,7 +116,7 @@ void FileActions::openFile()
 
 void FileActions::openWith()
 {
-    auto tempFilePath = mFile->saveAsTemp(); // TODO: remove temp file after openning
+    auto tempFilePath = mFile.saveAsTemp(); // TODO: remove temp file after openning
     if (tempFilePath.isEmpty())
         return;
 
@@ -134,7 +134,7 @@ void FileActions::openWith()
 
 void FileActions::diffWithHead()
 {
-    auto newFile = QSharedPointer<Git::Blob>::create(mGit->repoPtr(), mFile->filePath());
+    Git::Blob newFile{mGit->repoPtr(), mFile.filePath()};
 
     auto d = new DiffWindow(mFile, newFile);
     d->showModal();
@@ -144,24 +144,24 @@ void FileActions::mergeWithHead()
 {
     auto d = new MergeWindow(mGit, MergeWindow::NoParams);
 
-    auto tempFile = mFile->saveAsTemp();
+    auto tempFile = mFile.saveAsTemp();
 
     d->setBaseFile(tempFile);
-    d->setLocalFile(mGit->path() + QLatin1Char('/') + mFile->filePath());
+    d->setLocalFile(mGit->path() + QLatin1Char('/') + mFile.filePath());
     d->setRemoteFile(tempFile);
-    d->setResultFile(mGit->path() + QLatin1Char('/') + mFile->filePath());
+    d->setResultFile(mGit->path() + QLatin1Char('/') + mFile.filePath());
     d->compare();
 
     d->exec();
     QFile::remove(tempFile);
 }
 
-QSharedPointer<Git::Blob> FileActions::file() const
+const Git::Blob &FileActions::file() const
 {
     return mFile;
 }
 
-void FileActions::setFile(QSharedPointer<Git::Blob> file)
+void FileActions::setFile(const Git::Blob &file)
 {
     mFile = file;
 

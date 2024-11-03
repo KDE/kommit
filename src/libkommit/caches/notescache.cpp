@@ -44,13 +44,13 @@ NotesCache::ListType NotesCache::allNotes()
     return w.notes;
 }
 
-NotesCache::DataType NotesCache::findByOid(const git_oid *oid)
+Note NotesCache::findByOid(const git_oid *oid)
 {
     git_note *note;
     if (git_note_read(&note, manager->repoPtr(), NULL, oid))
-        return {};
+        return Note{};
 
-    return findByPtr(note);
+    return Note{}; // findByPtr(note); //TODO: fix this
 }
 
 void NotesCache::clearChildData()

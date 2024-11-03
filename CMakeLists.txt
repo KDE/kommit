@@ -21,6 +21,7 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(LIBGIT2 "libgit2>=1.0" REQUIRED IMPORTED_TARGET)
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(OpenSSL OPTIONAL_COMPONENTS Crypto SSL)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 

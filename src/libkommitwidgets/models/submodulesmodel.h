@@ -31,8 +31,8 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
-    bool append(QSharedPointer<Git::Submodule> module);
-    QSharedPointer<Git::Submodule> fromIndex(const QModelIndex &index);
+    bool append(const Git::Submodule &module);
+    const Git::Submodule &fromIndex(const QModelIndex &index);
 
     void reload() override;
 

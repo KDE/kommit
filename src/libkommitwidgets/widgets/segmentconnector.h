@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include <KommitDiff/Diff>
 #include <QMap>
 #include <QWidget>
-#include <diff.h>
 
 #include "libkommitwidgets_export.h"
 
@@ -27,8 +27,8 @@ public:
     CodeEditor *right() const;
     void setRight(CodeEditor *newRight);
 
-    const QList<Diff::DiffSegment *> &segments() const;
-    void setSegments(const QList<Diff::DiffSegment *> &newSegments);
+    const QList<Diff::DiffHunk *> &segments() const;
+    void setSegments(const QList<Diff::DiffHunk *> &newSegments);
 
     Diff::Segment *currentSegment() const;
     void setCurrentSegment(Diff::Segment *newCurrentSegment);
@@ -49,7 +49,7 @@ protected:
 private:
     CodeEditor *mLeft{nullptr};
     CodeEditor *mRight{nullptr};
-    QList<Diff::DiffSegment *> mSegments;
+    QList<Diff::DiffHunk *> mSegments;
     Diff::Segment *mCurrentSegment{nullptr};
     bool mSameSize{false};
     int mTopMargin = 0;
@@ -60,5 +60,5 @@ private:
         int rightEnd;
     };
 
-    QMap<Diff::Segment *, SegmentPos> mSegmentPos;
+    QMap<Diff::DiffHunk *, SegmentPos> mSegmentPos;
 };

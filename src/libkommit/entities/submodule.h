@@ -12,7 +12,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/types.h>
 
 #include <QObject>
+#include <QSharedPointer>
 #include <QString>
+
+#include <Kommit/Oid>
 
 namespace Git
 {
@@ -21,7 +24,6 @@ class FetchOptions;
 
 class FetchObserver;
 
-class Oid;
 class Repository;
 class SubmodulePrivate;
 class LIBKOMMIT_EXPORT Submodule
@@ -50,11 +52,18 @@ public:
     Q_DECLARE_FLAGS(StatusFlags, Status)
     Q_FLAG(StatusFlags)
 
+    Submodule();
     Submodule(git_submodule *submodule, git_repository *repo = nullptr);
-    ~Submodule();
+    Submodule(const Submodule &other);
+    Submodule &operator=(const Submodule &other);
+    bool operator==(const Submodule &other) const;
+    bool operator!=(const Submodule &other) const;
+    [[nodiscard]] bool isNull() const;
 
-    [[nodiscard]] const QString &path() const;
-    [[nodiscard]] const QString &refName() const;
+    [[nodiscard]] git_submodule *data() const;
+
+    [[nodiscard]] const git_submodule *constData() const;
+    [[nodiscard]] QString path() const;
     [[nodiscard]] QString url() const;
     [[nodiscard]] QString name() const;
     [[nodiscard]] QString branch();
@@ -62,9 +71,9 @@ public:
 
     [[nodiscard]] bool hasModifiedFiles() const;
 
-    [[nodiscard]] QSharedPointer<Oid> headId();
-    [[nodiscard]] QSharedPointer<Oid> indexId();
-    [[nodiscard]] QSharedPointer<Oid> workingDirectoryId();
+    [[nodiscard]] Oid headId() const;
+    [[nodiscard]] Oid indexId() const;
+    [[nodiscard]] Oid workingDirectoryId() const;
 
     void setUrl(const QString &newUrl);
     bool sync() const;
@@ -74,8 +83,7 @@ public:
     bool update(const FetchOptions &opts, FetchObserver *observer = nullptr);
 
 private:
-    SubmodulePrivate *const d_ptr;
-    Q_DECLARE_PRIVATE(Submodule)
+    QSharedPointer<SubmodulePrivate> d;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(Submodule::StatusFlags)

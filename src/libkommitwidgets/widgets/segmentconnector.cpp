@@ -11,6 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QPainterPath>
 #include <kommitwidgetsglobaloptions.h>
 
+#include <KommitDiff/Diff>
+
 SegmentConnector::SegmentConnector(QWidget *parent)
     : QWidget(parent)
 {
@@ -18,15 +20,15 @@ SegmentConnector::SegmentConnector(QWidget *parent)
 
 SegmentConnector::~SegmentConnector()
 {
-    qDeleteAll(mSegments);
+    // qDeleteAll(mSegments);
 }
 
-const QList<Diff::DiffSegment *> &SegmentConnector::segments() const
+const QList<Diff::DiffHunk *> &SegmentConnector::segments() const
 {
     return mSegments;
 }
 
-void SegmentConnector::setSegments(const QList<Diff::DiffSegment *> &newSegments)
+void SegmentConnector::setSegments(const QList<Diff::DiffHunk *> &newSegments)
 {
     mSegments = newSegments;
 
@@ -36,9 +38,9 @@ void SegmentConnector::setSegments(const QList<Diff::DiffSegment *> &newSegments
 
     for (auto &s : std::as_const(mSegments)) {
         if (mSameSize) {
-            auto sizeMax = qMax(s->oldText.size(), s->newText.size());
+            auto sizeMax = qMax(s->left.size, s->right.size);
 
-            SegmentPos pos{oldIndex, static_cast<int>(oldIndex + s->oldText.size() - 1), newIndex, static_cast<int>(newIndex + s->newText.size() - 1)};
+            SegmentPos pos{oldIndex, static_cast<int>(oldIndex + s->left.size - 1), newIndex, static_cast<int>(newIndex + s->right.size - 1)};
 
             //            if (s->oldText.isEmpty())
             //                pos.leftEnd = -1;
@@ -49,16 +51,16 @@ void SegmentConnector::setSegments(const QList<Diff::DiffSegment *> &newSegments
             oldIndex += sizeMax;
             newIndex += sizeMax;
         } else {
-            SegmentPos pos{oldIndex, static_cast<int>(oldIndex + s->oldText.size() - 1), newIndex, static_cast<int>(newIndex + s->newText.size() - 1)};
+            SegmentPos pos{oldIndex, static_cast<int>(oldIndex + s->left.size - 1), newIndex, static_cast<int>(newIndex + s->right.size - 1)};
 
-            if (s->oldText.isEmpty())
+            if (!s->left.size)
                 pos.leftEnd = -1;
-            if (s->newText.isEmpty())
+            if (!s->right.size)
                 pos.rightEnd = -1;
             mSegmentPos.insert(s, pos);
 
-            oldIndex += s->oldText.size();
-            newIndex += s->newText.size();
+            oldIndex += s->left.size;
+            newIndex += s->right.size;
         }
     }
     Q_EMIT segmentsChanged();

@@ -6,64 +6,65 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "oid.h"
 
-#define GIT_OID_SHA1_SIZE 20
-#define GIT_OID_SHA1_HEXSIZE (GIT_OID_SHA1_SIZE * 2)
-
 namespace Git
 {
 
 Oid::Oid()
+    : d(GIT_OID_SHA1_SIZE, 0)
 {
 }
 
 Oid::Oid(const git_oid *oid)
+    : Oid{}
 {
     if (oid)
-        git_oid_cpy(&mOid, oid);
+        git_oid_cpy(data(), oid);
 }
 
 Oid::Oid(const git_oid oid)
+    : Oid{}
 {
-    // mOid member of class is git_oid *{nullptr}
-    //  fill mOid by oid
-    // mOid = new git_oid;
-    // auto o = const_cast<git_oid *>(mOid);
-    // git_oid_cpy(o, &oid);
-    git_oid_cpy(&mOid, &oid);
+    git_oid_cpy(data(), &oid);
 }
 
-Oid::~Oid()
+Oid &Oid::operator=(const Oid &other)
 {
+    if (this != &other)
+        d = other.d;
+
+    return *this;
+}
+
+bool Oid::operator==(const Oid &other)
+{
+    return d == other.d;
+}
+
+bool Oid::operator!=(const Oid &other)
+{
+    return !(*this == other);
 }
 
 QString Oid::toString() const
 {
-    // if (!mOid)
-    // return {};
-
-    char str[GIT_OID_SHA1_HEXSIZE + 1];
-    if (git_oid_fmt(str, &mOid))
-        return {};
-    str[GIT_OID_SHA1_HEXSIZE] = '\0';
-
-    return QString{str};
+    QByteArray ba(GIT_OID_SHA1_HEXSIZE, Qt::Uninitialized);
+    git_oid_fmt(ba.data(), constData());
+    return QString{ba};
 }
 
 bool Oid::isNull() const
 {
-    // if (!mOid)
-    // return true;
-    return git_oid_is_zero(&mOid);
+    return d.isEmpty();
 }
 
-void Oid::copyTo(git_oid *oid)
+git_oid *Oid::data() const
 {
-    git_oid_cpy(oid, &mOid);
+    return reinterpret_cast<git_oid *>(const_cast<Oid *>(this)->d.data());
 }
 
-const git_oid *Oid::oidPtr() const
+const git_oid *Oid::constData() const
 {
-    return &mOid;
+    return reinterpret_cast<const git_oid *>(d.constData());
 }
 }
 

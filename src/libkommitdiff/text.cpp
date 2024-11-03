@@ -11,6 +11,39 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Diff
 {
 
+namespace Impl
+{
+LineEnding detectLineEnding(const QString &text, QString *separator)
+{
+    LineEnding le{LineEnding::None};
+    for (const auto &ch : text) {
+        if (le == LineEnding::Cr) {
+            if (ch == QLatin1Char('\n')) {
+                if (separator)
+                    *separator = QStringLiteral("\r\n");
+                le = LineEnding::CrLf;
+                break;
+            }
+        }
+        if (ch == QLatin1Char('\r')) {
+            if (separator)
+                *separator = QStringLiteral("\r");
+            le = LineEnding::Cr;
+            break;
+        }
+        if (ch == QLatin1Char('\n')) {
+            if (separator)
+                *separator = QStringLiteral("\n");
+            le = LineEnding::Lf;
+            break;
+        }
+    }
+
+    return le;
+}
+
+}
+
 Text::Text()
     : lineEnding(LineEnding::None)
 {
@@ -21,27 +54,8 @@ Text readLines(const QString &text)
     if (text.isEmpty())
         return {};
 
-    LineEnding le{LineEnding::None};
     QString separator;
-    for (const auto &ch : text) {
-        if (le == LineEnding::Cr) {
-            if (ch == QLatin1Char('\n')) {
-                le = LineEnding::CrLf;
-                separator = QStringLiteral("\r\n");
-            }
-            break;
-        }
-        if (ch == QLatin1Char('\r')) {
-            le = LineEnding::Cr;
-            separator = QStringLiteral("\r");
-            continue;
-        }
-        if (ch == QLatin1Char('\n')) {
-            separator = QStringLiteral("\n");
-            le = LineEnding::Lf;
-            break;
-        }
-    }
+    LineEnding le = Impl::detectLineEnding(text, &separator);
 
     if (le == LineEnding::None) {
         qWarning() << "Unable to detect line ending";
@@ -54,8 +68,10 @@ Text readLines(const QString &text)
     t.lineEnding = le;
     while (i != -1) {
         auto n = text.indexOf(separator, i);
-        if (n == -1)
+        if (n == -1) {
+            t.lines.append(text.mid(i));
             break;
+        }
         t.lines.append(text.mid(i, n - i));
         i = n + separator.size();
     }
@@ -63,7 +79,31 @@ Text readLines(const QString &text)
     return t;
 }
 
-TextView::TextView(const QString &content)
+TextView::TextView(const QString &text)
+    : lineEnding{LineEnding::None}
 {
+    if (text.isEmpty())
+        return;
+
+    QString separator;
+    LineEnding le = Impl::detectLineEnding(text, &separator);
+
+    if (le == LineEnding::None) {
+        qWarning() << "Unable to detect line ending";
+        return;
+    }
+
+    int i{0};
+    content = text;
+    lineEnding = le;
+    while (i != -1) {
+        auto n = text.indexOf(separator, i);
+        if (n == -1) {
+            lines << QStringView{text}.mid(i);
+            break;
+        }
+        lines << QStringView{text}.mid(i, n - i);
+        i = n + separator.size();
+    }
 }
 }

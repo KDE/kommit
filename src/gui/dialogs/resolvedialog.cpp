@@ -14,7 +14,7 @@ ResolveDialog::ResolveDialog(Git::Repository *git, QWidget *parent)
 {
     setupUi(this);
 
-    mConflicts = mGit->index()->conflicts();
+    mConflicts = mGit->index().conflicts();
 
     for (auto &conflict : *mConflicts) {
         listWidget->addItem(conflict->ancestorIndex->path());
@@ -29,11 +29,11 @@ void ResolveDialog::processRemovedConflict(Git::ConflictIndex *conflict)
     ChooseConflictedFileDialog d{conflict->ancestorIndex->blob(), conflict->ourIndex->blob(), conflict->theirIndex->blob(), this};
     QString fileName;
     if (!conflict->ancestorIndex->blob().isNull())
-        fileName = conflict->ancestorIndex->blob()->filePath();
+        fileName = conflict->ancestorIndex->blob().filePath();
     else if (!conflict->ourIndex->blob().isNull())
-        fileName = conflict->ourIndex->blob()->filePath();
+        fileName = conflict->ourIndex->blob().filePath();
     else if (!conflict->theirIndex->blob().isNull())
-        fileName = conflict->theirIndex->blob()->filePath();
+        fileName = conflict->theirIndex->blob().filePath();
     else
         return;
 

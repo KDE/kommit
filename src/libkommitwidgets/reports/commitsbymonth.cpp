@@ -32,7 +32,7 @@ void CommitsByMonth::reload()
         QList<DataRow> data;
 
         auto commitCb = [&data](QSharedPointer<Git::Commit> commit) {
-            auto time = commit->committer()->time();
+            auto time = commit->committer().time();
 
             auto sortKey = time.toString(QStringLiteral("yyyyMM")).toInt();
             auto i = std::find_if(data.begin(), data.end(), [&sortKey](const DataRow &row) {

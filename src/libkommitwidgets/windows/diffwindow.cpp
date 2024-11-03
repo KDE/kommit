@@ -42,21 +42,21 @@ public:
     QString _title;
     QString _filePath;
 
-    QSharedPointer<Git::Tree> _tree;
-    QSharedPointer<Git::Blob> _blob;
+    Git::Tree _tree;
+    Git::Blob _blob;
 
     void setFile(const QString &path)
     {
         _mode = Mode::File;
         _filePath = path;
     }
-    void setFile(QSharedPointer<Git::Blob> file)
+    void setFile(Git::Blob file)
     {
         _mode = Mode::Blob;
         _blob = file;
     }
 
-    void setTree(QSharedPointer<Git::ITree> tree)
+    void setTree(Git::ITree *tree)
     {
         _title = tree->treeTitle();
         _tree = tree->tree();
@@ -75,7 +75,7 @@ public:
             return _filePath;
 
         case Mode::Blob:
-            return _blob->name();
+            return _blob.name();
 
         case Mode::Tree:
             return _title + QStringLiteral(":") + file;
@@ -90,7 +90,7 @@ public:
     {
         switch (_mode) {
         case Mode::Blob:
-            return _blob->content();
+            return _blob.content();
 
         case Mode::File: {
             QFile f{_filePath};
@@ -109,10 +109,10 @@ public:
             return buffer;
         }
         case Mode::Tree: {
-            auto f = _tree->file(file);
+            auto f = _tree.file(file);
             if (f.isNull())
                 return {};
-            return f->content();
+            return f.content();
         }
         }
 
@@ -161,6 +161,8 @@ public:
 DiffWindowPrivate::DiffWindowPrivate(DiffWindow *parent)
     : q_ptr{parent}
     , mapper{new EditActionsMapper(parent)}
+    , left{}
+    , right{}
     , diffWidget{new DiffWidget(parent)}
     , filesModel{new FilesModel(parent)}
     , diffModel{new DiffTreeModel(parent)}
@@ -300,7 +302,7 @@ DiffWindow::DiffWindow()
     d->init(false);
 }
 
-DiffWindow::DiffWindow(QSharedPointer<Git::Blob> oldFile, QSharedPointer<Git::Blob> newFile)
+DiffWindow::DiffWindow(const Git::Blob &oldFile, const Git::Blob &newFile)
     : AppMainWindow()
     , d_ptr{new DiffWindowPrivate{this}}
 {
@@ -312,7 +314,7 @@ DiffWindow::DiffWindow(QSharedPointer<Git::Blob> oldFile, QSharedPointer<Git::Bl
     d->compareFile("");
 }
 
-DiffWindow::DiffWindow(Git::Repository *git, QSharedPointer<Git::ITree> leftTree)
+DiffWindow::DiffWindow(Git::Repository *git, Git::ITree *leftTree)
     : AppMainWindow()
     , d_ptr{new DiffWindowPrivate{this}}
 {
@@ -324,7 +326,7 @@ DiffWindow::DiffWindow(Git::Repository *git, QSharedPointer<Git::ITree> leftTree
     d->compareDirs();
 }
 
-DiffWindow::DiffWindow(Git::Repository *git, QSharedPointer<Git::ITree> leftTree, QSharedPointer<Git::ITree> rightTree)
+DiffWindow::DiffWindow(Git::Repository *git, Git::ITree *leftTree, Git::ITree *rightTree)
     : AppMainWindow()
     , d_ptr{new DiffWindowPrivate{this}}
 {
@@ -369,7 +371,7 @@ void DiffWindow::setLeft(const QString &filePath)
     d->left.setFile(filePath);
 }
 
-void DiffWindow::setLeft(QSharedPointer<Git::Blob> blob)
+void DiffWindow::setLeft(Git::Blob blob)
 {
     Q_D(DiffWindow);
     d->left.setFile(blob);
@@ -381,7 +383,7 @@ void DiffWindow::setRight(const QString &filePath)
     d->right.setFile(filePath);
 }
 
-void DiffWindow::setRight(QSharedPointer<Git::Blob> blob)
+void DiffWindow::setRight(Git::Blob blob)
 {
     Q_D(DiffWindow);
     d->right.setFile(blob);
