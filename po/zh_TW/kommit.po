@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 01:57+0000\n"
+"POT-Creation-Date: 2024-11-04 01:46+0000\n"
 "PO-Revision-Date: 2024-07-23 22:31+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -142,7 +142,7 @@ msgid "Diff branches"
 msgstr "比對分支差異"
 
 #: dolphinplugins/dolphinplugin.cpp:31 dolphinplugins/dolphinplugin.cpp:35
-#: src/apps/main.cpp:54
+#: src/apps/main.cpp:56
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
@@ -157,35 +157,35 @@ msgstr "推送/提交到 %1"
 msgid "Push/Commit to submodule %1"
 msgstr "推送/提交到子模組 %1"
 
-#: src/apps/main.cpp:56
+#: src/apps/main.cpp:58
 #, kde-format
 msgid "Git client gui for KDE"
 msgstr "KDE 的 Git 用戶端介面"
 
-#: src/apps/main.cpp:58
+#: src/apps/main.cpp:60
 #, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "版權所有 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:294
+#: src/apps/main.cpp:62 src/libkommitwidgets/models/commitsmodel.cpp:296
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
 msgstr "作者"
 
-#: src/apps/main.cpp:60
+#: src/apps/main.cpp:62
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
-#: src/apps/main.cpp:61
+#: src/apps/main.cpp:63
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/apps/main.cpp:61
+#: src/apps/main.cpp:63
 #, kde-format
 msgid "Bug fixing"
 msgstr "錯誤修正"
@@ -447,7 +447,7 @@ msgstr "---"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:429
+#: src/libkommitwidgets/windows/diffwindow.cpp:431
 #, kde-format
 msgid "Removed"
 msgstr "已移除"
@@ -468,6 +468,16 @@ msgstr "基底檔案："
 #. i18n: ectx: property (text), widget (QLabel, labelBaseFile)
 #. i18n: ectx: property (text), widget (QLabel, labelLocalFile)
 #. i18n: ectx: property (text), widget (QLabel, labelRemoteFile)
+#. i18n: ectx: property (text), widget (QLabel, labelHost)
+#. i18n: ectx: property (text), widget (QLabel, labelIsValid)
+#. i18n: ectx: property (text), widget (QLabel, labelSubject)
+#. i18n: ectx: property (text), widget (QLabel, labelIssuer)
+#. i18n: ectx: property (text), widget (QLabel, labelSerialNumber)
+#. i18n: ectx: property (text), widget (QLabel, labelValidFrom)
+#. i18n: ectx: property (text), widget (QLabel, labelValidUntil)
+#. i18n: ectx: property (text), widget (QLabel, labelPublicKeyType)
+#. i18n: ectx: property (text), widget (QLabel, labelPublicKeyBits)
+#. i18n: ectx: property (text), widget (QLabel, labelSignatureAlgorithm)
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
 #. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
@@ -482,6 +492,16 @@ msgstr "基底檔案："
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:32
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:46
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:60
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:50
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:70
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:90
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:110
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:130
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:150
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:170
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:190
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:210
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:230
 #: src/libkommitwidgets/dialogs/clonedialog.ui:169
 #: src/libkommitwidgets/dialogs/mergedialog.ui:53
 #: src/libkommitwidgets/widgets/commitdetails.ui:69
@@ -668,10 +688,10 @@ msgstr "本機檔案："
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/pages/branchesstatuswidget.ui:43
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:31
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:38
 #: src/libkommitwidgets/dialogs/pulldialog.ui:20
 #: src/libkommitwidgets/dialogs/pulldialog.ui:26
-#: src/libkommitwidgets/models/branchesmodel.cpp:103
+#: src/libkommitwidgets/models/branchesmodel.cpp:101
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:38
 #, kde-format
 msgid "Remote"
@@ -776,7 +796,7 @@ msgstr "分支："
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #: src/gui/pages/remoteswidget.ui:167
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
-#: src/libkommitwidgets/models/branchesmodel.cpp:91
+#: src/libkommitwidgets/models/branchesmodel.cpp:89
 #: src/libkommitwidgets/models/tagsmodel.cpp:59
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
@@ -791,7 +811,7 @@ msgstr "Ref 名稱"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:177
-#: src/libkommitwidgets/models/branchesmodel.cpp:101
+#: src/libkommitwidgets/models/branchesmodel.cpp:99
 #, kde-format
 msgid "Upstream"
 msgstr "上游"
@@ -912,7 +932,7 @@ msgstr "新增子模組"
 #. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
 #: src/gui/pages/tagswidget.ui:14
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:108
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:111
 #: src/libkommitwidgets/dialogs/pulldialog.ui:153
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:54
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
@@ -1046,22 +1066,22 @@ msgid ""
 msgstr ""
 "您對以下檔案的本地變更將被簽出動作覆寫。請先提交或貯存您的變更再切換分支。"
 
-#: src/libkommit/entities/remote.cpp:140
+#: src/libkommit/entities/remote.cpp:167
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
 
-#: src/libkommit/entities/remote.cpp:142
+#: src/libkommit/entities/remote.cpp:169
 #, kde-format
 msgid "Up to date"
 msgstr "最新"
 
-#: src/libkommit/entities/remote.cpp:144
+#: src/libkommit/entities/remote.cpp:171
 #, kde-format
 msgid "Fast forwardable"
 msgstr "可以快轉"
 
-#: src/libkommit/entities/remote.cpp:146
+#: src/libkommit/entities/remote.cpp:173
 #, kde-format
 msgid "Local out of date"
 msgstr "本機並非最新"
@@ -1234,29 +1254,29 @@ msgstr "移除遠端？"
 msgid "Unable to remove the selected remote"
 msgstr "無法移除所選遠端"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:73
+#: src/libkommitwidgets/actions/remotesactions.cpp:74
 #, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "變更網址"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:73
+#: src/libkommitwidgets/actions/remotesactions.cpp:74
 #, kde-format
 msgid "URL"
 msgstr "網址"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:76
+#: src/libkommitwidgets/actions/remotesactions.cpp:77
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "成功變更遠端網址"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:82
+#: src/libkommitwidgets/actions/remotesactions.cpp:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "重新命名"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:82
+#: src/libkommitwidgets/actions/remotesactions.cpp:83
 #, kde-format
 msgid "New name"
 msgstr "新名稱"
@@ -1405,6 +1425,101 @@ msgctxt "@title:window"
 msgid "Checkout"
 msgstr "簽出"
 
+#: src/libkommitwidgets/dialogs/certificateinfodialog.cpp:24
+#, kde-format
+msgid "Yes"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/certificateinfodialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "None"
+msgid "No"
+msgstr "無"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CertificateInfoDialog)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:14
+#, kde-format
+msgid "Confirm certificate"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_21)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:23
+#, kde-format
+msgid ""
+"Confirm this certificate by clicking OK, if this is not the correct "
+"certificate, click Cancel."
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:33
+#, kde-format
+msgid "Certificate details"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:43
+#, kde-format
+msgid "Host"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:63
+#, kde-format
+msgid "Is valid"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:83
+#: src/libkommitwidgets/models/stashesmodel.cpp:65
+#: src/libkommitwidgets/models/tagsmodel.cpp:61
+#, kde-format
+msgid "Subject"
+msgstr "主旨"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:103
+#, kde-format
+msgid "Issuer"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:123
+#, kde-format
+msgid "Serial number"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:143
+#, fuzzy, kde-format
+#| msgid "Pull from"
+msgid "Valid from"
+msgstr "從哪裡拉取"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:163
+#, kde-format
+msgid "Valid until"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:183
+#, kde-format
+msgid "Public key type"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:203
+#, kde-format
+msgid "Public key bits"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:223
+#, fuzzy, kde-format
+#| msgid "Diff algorithm:"
+msgid "Signature algorithm"
+msgstr "差異演算法："
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
 #, kde-format
@@ -1421,7 +1536,7 @@ msgstr "已變更的檔案："
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
-#: src/libkommitwidgets/windows/diffwindow.cpp:255
+#: src/libkommitwidgets/windows/diffwindow.cpp:257
 #, kde-format
 msgid "Reload"
 msgstr "重新載入"
@@ -1529,6 +1644,7 @@ msgstr "遞迴"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxDepth)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:88
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:123
 #, kde-format
 msgid "Depth"
 msgstr "深度"
@@ -1538,7 +1654,7 @@ msgstr "深度"
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxBranch)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:108
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:34
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:75
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:82
 #: src/libkommitwidgets/dialogs/pulldialog.ui:36
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:39
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:66
@@ -1700,14 +1816,14 @@ msgstr "已索引"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:427
+#: src/libkommitwidgets/windows/diffwindow.cpp:429
 #, kde-format
 msgid "Added"
 msgstr "已加入"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:431
+#: src/libkommitwidgets/windows/diffwindow.cpp:433
 #, kde-format
 msgid "Modified"
 msgstr "已修改"
@@ -1728,24 +1844,17 @@ msgstr "無"
 msgid "Commit"
 msgstr "提交"
 
-#: src/libkommitwidgets/dialogs/credentialdialog.cpp:32
+#: src/libkommitwidgets/dialogs/credentialdialog.cpp:33
 #, kde-format
 msgid "Credential for %1"
 msgstr "%1 的認證資訊"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, CredentialDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:14
-#: src/libkommitwidgets/dialogs/fileblamedialog.ui:14
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:14
-#: src/libkommitwidgets/dialogs/filestreedialog.ui:14
-#: src/libkommitwidgets/dialogs/taginfodialog.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "對話框"
+#, fuzzy, kde-format
+#| msgid "Credentials:"
+msgid "Credential input"
+msgstr "認證資訊："
 
 #. i18n: ectx: property (text), widget (QLabel, labelCredentialsUrl)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
@@ -1808,6 +1917,37 @@ msgstr "新目錄："
 msgid "Old directory:"
 msgstr "舊目錄："
 
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:149
+#, kde-format
+msgid "Receiving objects"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
+#, kde-format
+msgid "Stage %1"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
+#, kde-format
+msgid "Reference updated: %1  %2...%3"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:170
+#, kde-format
+msgid "Finished"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
+#, fuzzy, kde-format
+#| msgid "Process finished with error"
+msgid "Finished with error"
+msgstr "行程已完成但有錯誤"
+
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:173
+#, kde-format
+msgid "Error %1: %2"
+msgstr ""
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:14
 #, kde-format
@@ -1815,48 +1955,38 @@ msgid "Fetch from origin"
 msgstr "從來源抓取"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllBranches)
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:43
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:50
 #, kde-format
 msgid "All branches"
 msgstr "所有分支"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:88
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:95
 #: src/libkommitwidgets/dialogs/pulldialog.ui:49
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:68
 #, kde-format
 msgid "Options"
 msgstr "選項"
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoFastForward)
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:94
-#: src/libkommitwidgets/dialogs/mergedialog.ui:86
-#, kde-format
-msgid "No fast forward"
-msgstr "不快轉"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:101
-#: src/libkommitwidgets/dialogs/pulldialog.ui:146
-#, kde-format
-msgid "No commit"
-msgstr "無提交"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:115
-#: src/libkommitwidgets/dialogs/mergedialog.ui:81
-#, kde-format
-msgid "Fast forward only"
-msgstr "只快轉"
-
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:122
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:101
 #: src/libkommitwidgets/dialogs/pulldialog.ui:160
 #, kde-format
 msgid "Prune"
 msgstr "剪除"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxRedirect)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:139
+#, fuzzy, kde-format
+#| msgid "New directory:"
+msgid "Redirect"
+msgstr "新目錄："
+
+#. i18n: ectx: property (text), widget (QLabel, labelStatus)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:186
+#, kde-format
+msgid "Starting..."
+msgstr ""
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
 #, fuzzy, kde-format
@@ -1869,6 +1999,18 @@ msgstr "尚未提交"
 msgctxt "@title:window"
 msgid "Blame file: %1"
 msgstr "Blame 檔案：%1"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
+#: src/libkommitwidgets/dialogs/fileblamedialog.ui:14
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:14
+#: src/libkommitwidgets/dialogs/filestreedialog.ui:14
+#: src/libkommitwidgets/dialogs/taginfodialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "對話框"
 
 #: src/libkommitwidgets/dialogs/filehistorydialog.cpp:41
 #, kde-format
@@ -2111,6 +2253,18 @@ msgstr "預設"
 msgid "Allow fast forward"
 msgstr "允許快轉"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:81
+#, kde-format
+msgid "Fast forward only"
+msgstr "只快轉"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:86
+#, kde-format
+msgid "No fast forward"
+msgstr "不快轉"
+
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:94
 #, kde-format
@@ -2297,6 +2451,12 @@ msgstr "拉取變更"
 #, kde-format
 msgid "Rebase:"
 msgstr "重定基底："
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
+#: src/libkommitwidgets/dialogs/pulldialog.ui:146
+#, kde-format
+msgid "No commit"
+msgstr "無提交"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RemoteInfoDialog)
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:14
@@ -2560,22 +2720,22 @@ msgstr "標籤"
 msgid "Tag name:"
 msgstr "標籤名稱"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:93
+#: src/libkommitwidgets/models/branchesmodel.cpp:91
 #, kde-format
 msgid "Commit(s) behind"
 msgstr "落後幾個提交"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:95
+#: src/libkommitwidgets/models/branchesmodel.cpp:93
 #, kde-format
 msgid "Commit(s) ahead"
 msgstr "提前幾個提交"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:97
+#: src/libkommitwidgets/models/branchesmodel.cpp:95
 #, kde-format
 msgid "Is ahead"
 msgstr "提前"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:99
+#: src/libkommitwidgets/models/branchesmodel.cpp:97
 #, kde-format
 msgid "Ref"
 msgstr "Ref"
@@ -2590,27 +2750,21 @@ msgstr " (新提交)"
 msgid " (content modified)"
 msgstr " (內容已修改)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:290
-#: src/libkommitwidgets/models/commitsmodel.cpp:301
+#: src/libkommitwidgets/models/commitsmodel.cpp:292
+#: src/libkommitwidgets/models/commitsmodel.cpp:303
 #, kde-format
 msgid "Message"
 msgstr "訊息"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:292
+#: src/libkommitwidgets/models/commitsmodel.cpp:294
 #, kde-format
 msgid "Date"
 msgstr "日期"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:299
+#: src/libkommitwidgets/models/commitsmodel.cpp:301
 #, kde-format
 msgid "Graph"
 msgstr "圖表"
-
-#: src/libkommitwidgets/models/stashesmodel.cpp:65
-#: src/libkommitwidgets/models/tagsmodel.cpp:61
-#, kde-format
-msgid "Subject"
-msgstr "主旨"
 
 #: src/libkommitwidgets/models/stashesmodel.cpp:69
 #, kde-format
@@ -2880,40 +3034,40 @@ msgstr "B"
 msgid "Report"
 msgstr "報告"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:236
+#: src/libkommitwidgets/windows/diffwindow.cpp:238
 #, kde-format
 msgid "View hidden chars…"
 msgstr "檢視隱藏字元…"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:241
+#: src/libkommitwidgets/windows/diffwindow.cpp:243
 #: src/libkommitwidgets/windows/mergewindow.cpp:184
 #, kde-format
 msgid "Same size blocks"
 msgstr "同樣大小的區塊"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:246
+#: src/libkommitwidgets/windows/diffwindow.cpp:248
 #, kde-format
 msgid "Show files names"
 msgstr "顯示檔案名稱"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:252
+#: src/libkommitwidgets/windows/diffwindow.cpp:254
 #, kde-format
 msgid "Show Tree"
 msgstr "顯示樹狀圖"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:278
+#: src/libkommitwidgets/windows/diffwindow.cpp:280
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "Kommit 差異[*]"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:280
+#: src/libkommitwidgets/windows/diffwindow.cpp:282
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "樹狀圖"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:425
+#: src/libkommitwidgets/windows/diffwindow.cpp:427
 #, kde-format
 msgid "Unchanged"
 msgstr "未變更"
@@ -3204,9 +3358,6 @@ msgstr ""
 
 #~ msgid "Push to"
 #~ msgstr "推送到"
-
-#~ msgid "Pull from"
-#~ msgstr "從哪裡拉取"
 
 #~ msgid "Git Klient"
 #~ msgstr "Git Klient"

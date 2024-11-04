@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 01:57+0000\n"
+"POT-Creation-Date: 2024-11-04 01:46+0000\n"
 "PO-Revision-Date: 2024-10-14 09:33+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -145,7 +145,7 @@ msgid "Diff branches"
 msgstr "Diff de les branques"
 
 #: dolphinplugins/dolphinplugin.cpp:31 dolphinplugins/dolphinplugin.cpp:35
-#: src/apps/main.cpp:54
+#: src/apps/main.cpp:56
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
@@ -160,35 +160,35 @@ msgstr "Pujada/Comissió a %1"
 msgid "Push/Commit to submodule %1"
 msgstr "Pujada/Comissió al submòdul %1"
 
-#: src/apps/main.cpp:56
+#: src/apps/main.cpp:58
 #, kde-format
 msgid "Git client gui for KDE"
 msgstr "Client gràfic del Git per al KDE"
 
-#: src/apps/main.cpp:58
+#: src/apps/main.cpp:60
 #, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:60 src/libkommitwidgets/models/commitsmodel.cpp:294
+#: src/apps/main.cpp:62 src/libkommitwidgets/models/commitsmodel.cpp:296
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: src/apps/main.cpp:60
+#: src/apps/main.cpp:62
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
-#: src/apps/main.cpp:61
+#: src/apps/main.cpp:63
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/apps/main.cpp:61
+#: src/apps/main.cpp:63
 #, kde-format
 msgid "Bug fixing"
 msgstr "Correcció d'errors"
@@ -454,7 +454,7 @@ msgstr "---"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:429
+#: src/libkommitwidgets/windows/diffwindow.cpp:431
 #, kde-format
 msgid "Removed"
 msgstr "Eliminat"
@@ -474,6 +474,16 @@ msgstr "Fitxer base"
 #. i18n: ectx: property (text), widget (QLabel, labelBaseFile)
 #. i18n: ectx: property (text), widget (QLabel, labelLocalFile)
 #. i18n: ectx: property (text), widget (QLabel, labelRemoteFile)
+#. i18n: ectx: property (text), widget (QLabel, labelHost)
+#. i18n: ectx: property (text), widget (QLabel, labelIsValid)
+#. i18n: ectx: property (text), widget (QLabel, labelSubject)
+#. i18n: ectx: property (text), widget (QLabel, labelIssuer)
+#. i18n: ectx: property (text), widget (QLabel, labelSerialNumber)
+#. i18n: ectx: property (text), widget (QLabel, labelValidFrom)
+#. i18n: ectx: property (text), widget (QLabel, labelValidUntil)
+#. i18n: ectx: property (text), widget (QLabel, labelPublicKeyType)
+#. i18n: ectx: property (text), widget (QLabel, labelPublicKeyBits)
+#. i18n: ectx: property (text), widget (QLabel, labelSignatureAlgorithm)
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
 #. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
@@ -488,6 +498,16 @@ msgstr "Fitxer base"
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:32
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:46
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:60
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:50
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:70
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:90
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:110
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:130
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:150
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:170
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:190
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:210
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:230
 #: src/libkommitwidgets/dialogs/clonedialog.ui:169
 #: src/libkommitwidgets/dialogs/mergedialog.ui:53
 #: src/libkommitwidgets/widgets/commitdetails.ui:69
@@ -678,10 +698,10 @@ msgstr "Local"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/pages/branchesstatuswidget.ui:43
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:31
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:38
 #: src/libkommitwidgets/dialogs/pulldialog.ui:20
 #: src/libkommitwidgets/dialogs/pulldialog.ui:26
-#: src/libkommitwidgets/models/branchesmodel.cpp:103
+#: src/libkommitwidgets/models/branchesmodel.cpp:101
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:38
 #, kde-format
 msgid "Remote"
@@ -786,7 +806,7 @@ msgstr "Branques:"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #: src/gui/pages/remoteswidget.ui:167
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
-#: src/libkommitwidgets/models/branchesmodel.cpp:91
+#: src/libkommitwidgets/models/branchesmodel.cpp:89
 #: src/libkommitwidgets/models/tagsmodel.cpp:59
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
@@ -801,7 +821,7 @@ msgstr "Nom de la ref"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:177
-#: src/libkommitwidgets/models/branchesmodel.cpp:101
+#: src/libkommitwidgets/models/branchesmodel.cpp:99
 #, kde-format
 msgid "Upstream"
 msgstr "Font"
@@ -934,7 +954,7 @@ msgstr "Afegeix un submòdul nou"
 #. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
 #: src/gui/pages/tagswidget.ui:14
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:108
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:111
 #: src/libkommitwidgets/dialogs/pulldialog.ui:153
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:54
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
@@ -1070,22 +1090,22 @@ msgstr ""
 "l'extracció. Si us plau, cometeu els vostres canvis o feu-los «stash» abans "
 "de canviar de branca."
 
-#: src/libkommit/entities/remote.cpp:140
+#: src/libkommit/entities/remote.cpp:167
 #, kde-format
 msgid "Unknown"
 msgstr "Desconegut"
 
-#: src/libkommit/entities/remote.cpp:142
+#: src/libkommit/entities/remote.cpp:169
 #, kde-format
 msgid "Up to date"
 msgstr "Al dia"
 
-#: src/libkommit/entities/remote.cpp:144
+#: src/libkommit/entities/remote.cpp:171
 #, kde-format
 msgid "Fast forwardable"
 msgstr "Avanç ràpid possible"
 
-#: src/libkommit/entities/remote.cpp:146
+#: src/libkommit/entities/remote.cpp:173
 #, kde-format
 msgid "Local out of date"
 msgstr "Local desactualitzat"
@@ -1257,29 +1277,29 @@ msgstr "Elimino el remot?"
 msgid "Unable to remove the selected remote"
 msgstr "No s'ha pogut eliminar el remot seleccionat"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:73
+#: src/libkommitwidgets/actions/remotesactions.cpp:74
 #, kde-format
 msgctxt "@title:window"
 msgid "Change url"
 msgstr "Canvia l'URL"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:73
+#: src/libkommitwidgets/actions/remotesactions.cpp:74
 #, kde-format
 msgid "URL"
 msgstr "URL"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:76
+#: src/libkommitwidgets/actions/remotesactions.cpp:77
 #, kde-format
 msgid "Url for remote changed successfully"
 msgstr "L'URL del remot s'ha canviat correctament"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:82
+#: src/libkommitwidgets/actions/remotesactions.cpp:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename"
 msgstr "Reanomena"
 
-#: src/libkommitwidgets/actions/remotesactions.cpp:82
+#: src/libkommitwidgets/actions/remotesactions.cpp:83
 #, kde-format
 msgid "New name"
 msgstr "Nom nou"
@@ -1428,6 +1448,100 @@ msgctxt "@title:window"
 msgid "Checkout"
 msgstr "Extracció"
 
+#: src/libkommitwidgets/dialogs/certificateinfodialog.cpp:24
+#, kde-format
+msgid "Yes"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/certificateinfodialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "None"
+msgid "No"
+msgstr "Cap"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CertificateInfoDialog)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:14
+#, kde-format
+msgid "Confirm certificate"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_21)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:23
+#, kde-format
+msgid ""
+"Confirm this certificate by clicking OK, if this is not the correct "
+"certificate, click Cancel."
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:33
+#, kde-format
+msgid "Certificate details"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:43
+#, kde-format
+msgid "Host"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:63
+#, kde-format
+msgid "Is valid"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:83
+#: src/libkommitwidgets/models/stashesmodel.cpp:65
+#: src/libkommitwidgets/models/tagsmodel.cpp:61
+#, kde-format
+msgid "Subject"
+msgstr "Assumpte"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:103
+#, kde-format
+msgid "Issuer"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:123
+#, kde-format
+msgid "Serial number"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:143
+#, kde-format
+msgid "Valid from"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:163
+#, kde-format
+msgid "Valid until"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:183
+#, kde-format
+msgid "Public key type"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:203
+#, kde-format
+msgid "Public key bits"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: src/libkommitwidgets/dialogs/certificateinfodialog.ui:223
+#, fuzzy, kde-format
+#| msgid "Diff algorithm:"
+msgid "Signature algorithm"
+msgstr "Algorisme del «diff»:"
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
 #, kde-format
@@ -1444,7 +1558,7 @@ msgstr "Fitxers canviats:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
-#: src/libkommitwidgets/windows/diffwindow.cpp:255
+#: src/libkommitwidgets/windows/diffwindow.cpp:257
 #, kde-format
 msgid "Reload"
 msgstr "Torna a carregar"
@@ -1552,6 +1666,7 @@ msgstr "Recursiu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxDepth)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:88
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:123
 #, kde-format
 msgid "Depth"
 msgstr "Profunditat"
@@ -1561,7 +1676,7 @@ msgstr "Profunditat"
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxBranch)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:108
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:34
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:75
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:82
 #: src/libkommitwidgets/dialogs/pulldialog.ui:36
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:39
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:66
@@ -1744,14 +1859,14 @@ msgstr "Indexats"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:427
+#: src/libkommitwidgets/windows/diffwindow.cpp:429
 #, kde-format
 msgid "Added"
 msgstr "Afegit"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:431
+#: src/libkommitwidgets/windows/diffwindow.cpp:433
 #, kde-format
 msgid "Modified"
 msgstr "Modificat"
@@ -1772,24 +1887,17 @@ msgstr "Cap"
 msgid "Commit"
 msgstr "Comet"
 
-#: src/libkommitwidgets/dialogs/credentialdialog.cpp:32
+#: src/libkommitwidgets/dialogs/credentialdialog.cpp:33
 #, kde-format
 msgid "Credential for %1"
 msgstr "Credencial de %1"
 
-#. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, CredentialDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:14
-#: src/libkommitwidgets/dialogs/fileblamedialog.ui:14
-#: src/libkommitwidgets/dialogs/filehistorydialog.ui:14
-#: src/libkommitwidgets/dialogs/filestreedialog.ui:14
-#: src/libkommitwidgets/dialogs/taginfodialog.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Diàleg"
+#, fuzzy, kde-format
+#| msgid "Credentials:"
+msgid "Credential input"
+msgstr "Credencials:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCredentialsUrl)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
@@ -1852,6 +1960,37 @@ msgstr "Directori nou:"
 msgid "Old directory:"
 msgstr "Directori antic:"
 
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:149
+#, kde-format
+msgid "Receiving objects"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
+#, kde-format
+msgid "Stage %1"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
+#, kde-format
+msgid "Reference updated: %1  %2...%3"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:170
+#, kde-format
+msgid "Finished"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
+#, fuzzy, kde-format
+#| msgid "Process finished with error"
+msgid "Finished with error"
+msgstr "El procés ha finalitzat amb error"
+
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:173
+#, kde-format
+msgid "Error %1: %2"
+msgstr ""
+
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:14
 #, kde-format
@@ -1859,48 +1998,38 @@ msgid "Fetch from origin"
 msgstr "Obtén de l'origen"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllBranches)
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:43
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:50
 #, kde-format
 msgid "All branches"
 msgstr "Totes les branques"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:88
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:95
 #: src/libkommitwidgets/dialogs/pulldialog.ui:49
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:68
 #, kde-format
 msgid "Options"
 msgstr "Opcions"
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoFastForward)
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:94
-#: src/libkommitwidgets/dialogs/mergedialog.ui:86
-#, kde-format
-msgid "No fast forward"
-msgstr "Sense avanç ràpid"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:101
-#: src/libkommitwidgets/dialogs/pulldialog.ui:146
-#, kde-format
-msgid "No commit"
-msgstr "Sense comissió"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
-#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:115
-#: src/libkommitwidgets/dialogs/mergedialog.ui:81
-#, kde-format
-msgid "Fast forward only"
-msgstr "Només avanç ràpid"
-
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
-#: src/libkommitwidgets/dialogs/fetchdialog.ui:122
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:101
 #: src/libkommitwidgets/dialogs/pulldialog.ui:160
 #, kde-format
 msgid "Prune"
 msgstr "Poda"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxRedirect)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:139
+#, fuzzy, kde-format
+#| msgid "New directory:"
+msgid "Redirect"
+msgstr "Directori nou:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelStatus)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:186
+#, kde-format
+msgid "Starting..."
+msgstr ""
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
 #, kde-format
@@ -1912,6 +2041,18 @@ msgstr "Sense cometre"
 msgctxt "@title:window"
 msgid "Blame file: %1"
 msgstr "Fitxer de «blame»: %1"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
+#: src/libkommitwidgets/dialogs/fileblamedialog.ui:14
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:14
+#: src/libkommitwidgets/dialogs/filestreedialog.ui:14
+#: src/libkommitwidgets/dialogs/taginfodialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Diàleg"
 
 #: src/libkommitwidgets/dialogs/filehistorydialog.cpp:41
 #, kde-format
@@ -2166,6 +2307,18 @@ msgstr "Predeterminat"
 msgid "Allow fast forward"
 msgstr "Permet l'avanç ràpid"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:81
+#, kde-format
+msgid "Fast forward only"
+msgstr "Només avanç ràpid"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:86
+#, kde-format
+msgid "No fast forward"
+msgstr "Sense avanç ràpid"
+
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:94
 #, kde-format
@@ -2385,6 +2538,12 @@ msgstr "Baixa els canvis"
 #, kde-format
 msgid "Rebase:"
 msgstr "Rebase:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
+#: src/libkommitwidgets/dialogs/pulldialog.ui:146
+#, kde-format
+msgid "No commit"
+msgstr "Sense comissió"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RemoteInfoDialog)
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:14
@@ -2644,22 +2803,22 @@ msgstr "Etiqueta"
 msgid "Tag name:"
 msgstr "Nom de l'etiqueta:"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:93
+#: src/libkommitwidgets/models/branchesmodel.cpp:91
 #, kde-format
 msgid "Commit(s) behind"
 msgstr "Comisió/ons darrere"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:95
+#: src/libkommitwidgets/models/branchesmodel.cpp:93
 #, kde-format
 msgid "Commit(s) ahead"
 msgstr "Comisió/ons davant"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:97
+#: src/libkommitwidgets/models/branchesmodel.cpp:95
 #, kde-format
 msgid "Is ahead"
 msgstr "Està per davant"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:99
+#: src/libkommitwidgets/models/branchesmodel.cpp:97
 #, kde-format
 msgid "Ref"
 msgstr "Ref"
@@ -2674,28 +2833,22 @@ msgstr " (comissió nova)"
 msgid " (content modified)"
 msgstr " (contingut modificat)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:290
-#: src/libkommitwidgets/models/commitsmodel.cpp:301
+#: src/libkommitwidgets/models/commitsmodel.cpp:292
+#: src/libkommitwidgets/models/commitsmodel.cpp:303
 #, kde-format
 msgid "Message"
 msgstr "Missatge"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:292
+#: src/libkommitwidgets/models/commitsmodel.cpp:294
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
 # skip-rule: kct-graph
-#: src/libkommitwidgets/models/commitsmodel.cpp:299
+#: src/libkommitwidgets/models/commitsmodel.cpp:301
 #, kde-format
 msgid "Graph"
 msgstr "Graf"
-
-#: src/libkommitwidgets/models/stashesmodel.cpp:65
-#: src/libkommitwidgets/models/tagsmodel.cpp:61
-#, kde-format
-msgid "Subject"
-msgstr "Assumpte"
 
 #: src/libkommitwidgets/models/stashesmodel.cpp:69
 #, kde-format
@@ -2964,40 +3117,40 @@ msgstr "B"
 msgid "Report"
 msgstr "Informe"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:236
+#: src/libkommitwidgets/windows/diffwindow.cpp:238
 #, kde-format
 msgid "View hidden chars…"
 msgstr "Mostra els caràcters ocults…"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:241
+#: src/libkommitwidgets/windows/diffwindow.cpp:243
 #: src/libkommitwidgets/windows/mergewindow.cpp:184
 #, kde-format
 msgid "Same size blocks"
 msgstr "Blocs de la mateixa mida"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:246
+#: src/libkommitwidgets/windows/diffwindow.cpp:248
 #, kde-format
 msgid "Show files names"
 msgstr "Mostra els noms de fitxers"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:252
+#: src/libkommitwidgets/windows/diffwindow.cpp:254
 #, kde-format
 msgid "Show Tree"
 msgstr "Mostra un arbre"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:278
+#: src/libkommitwidgets/windows/diffwindow.cpp:280
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "Diff[*] del Kommit"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:280
+#: src/libkommitwidgets/windows/diffwindow.cpp:282
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Arbre"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:425
+#: src/libkommitwidgets/windows/diffwindow.cpp:427
 #, kde-format
 msgid "Unchanged"
 msgstr "Sense canvis"
