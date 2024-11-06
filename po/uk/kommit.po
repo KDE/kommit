@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-04 01:46+0000\n"
-"PO-Revision-Date: 2024-10-14 15:38+0300\n"
+"PO-Revision-Date: 2024-11-05 08:58+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1448,19 +1448,18 @@ msgstr "Отримати"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.cpp:24
 #, kde-format
 msgid "Yes"
-msgstr ""
+msgstr "Так"
 
 #: src/libkommitwidgets/dialogs/certificateinfodialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgid "No"
-msgstr "Немає"
+msgstr "Ні"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CertificateInfoDialog)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:14
 #, kde-format
 msgid "Confirm certificate"
-msgstr ""
+msgstr "Підтвердження сертифікації"
 
 #. i18n: ectx: property (text), widget (QLabel, label_21)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:23
@@ -1469,24 +1468,26 @@ msgid ""
 "Confirm this certificate by clicking OK, if this is not the correct "
 "certificate, click Cancel."
 msgstr ""
+"Підтвердьте цей сертифікат натисканням кнопки «Гаразд». Якщо сертифікат є "
+"неправильним, натисніть кнопку «Скасувати»."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:33
 #, kde-format
 msgid "Certificate details"
-msgstr ""
+msgstr "Подробиці щодо сертифіката"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:43
 #, kde-format
 msgid "Host"
-msgstr ""
+msgstr "Вузол"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:63
 #, kde-format
 msgid "Is valid"
-msgstr ""
+msgstr "є коректним"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:83
@@ -1500,45 +1501,43 @@ msgstr "Тема"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:103
 #, kde-format
 msgid "Issuer"
-msgstr ""
+msgstr "Видавець"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:123
 #, kde-format
 msgid "Serial number"
-msgstr ""
+msgstr "Серійний номер"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:143
-#, fuzzy, kde-format
-#| msgid "Pull from"
+#, kde-format
 msgid "Valid from"
-msgstr "Отримати з"
+msgstr "Чинний з"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:163
 #, kde-format
 msgid "Valid until"
-msgstr ""
+msgstr "Чинний до"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:183
 #, kde-format
 msgid "Public key type"
-msgstr ""
+msgstr "Тип відкритого ключа"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:203
 #, kde-format
 msgid "Public key bits"
-msgstr ""
+msgstr "Біти відкритого ключа"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:223
-#, fuzzy, kde-format
-#| msgid "Diff algorithm:"
+#, kde-format
 msgid "Signature algorithm"
-msgstr "Алгоритм різниці:"
+msgstr "Алгоритм підпису"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
@@ -1892,10 +1891,9 @@ msgstr "Реєстраційні дані %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CredentialDialog)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Credentials:"
+#, kde-format
 msgid "Credential input"
-msgstr "Реєстраційні дані:"
+msgstr "Введення реєстраційних даних"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCredentialsUrl)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
@@ -1961,33 +1959,32 @@ msgstr "Старий каталог:"
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:149
 #, kde-format
 msgid "Receiving objects"
-msgstr ""
+msgstr "Отримуємо об'єкти"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
 #, kde-format
 msgid "Stage %1"
-msgstr ""
+msgstr "Етап %1"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
-msgstr ""
+msgstr "Оновлено посилання: %1  %2...%3"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:170
 #, kde-format
 msgid "Finished"
-msgstr ""
+msgstr "Завершено"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
-#, fuzzy, kde-format
-#| msgid "Process finished with error"
+#, kde-format
 msgid "Finished with error"
-msgstr "Виконання завершилося з помилкою"
+msgstr "Завершено з помилкою"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:173
 #, kde-format
 msgid "Error %1: %2"
-msgstr ""
+msgstr "Помилка %1: %2"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:14
@@ -2018,16 +2015,15 @@ msgstr "Спростити"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRedirect)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:139
-#, fuzzy, kde-format
-#| msgid "New directory:"
+#, kde-format
 msgid "Redirect"
-msgstr "Новий каталог:"
+msgstr "Переспрямувати"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:186
 #, kde-format
 msgid "Starting..."
-msgstr ""
+msgstr "Запуск…"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
 #, kde-format
