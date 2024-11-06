@@ -288,7 +288,7 @@ bool Tree::EntryLists::contains(const QString &entryName) const
 }
 qsizetype Tree::EntryLists::indexOf(const QString &entryName, qsizetype from) const
 {
-    for (qsizetype i = 0; i < mEntries.size(); ++i) {
+    for (qsizetype i = from; i < mEntries.size(); ++i) {
         if (mEntries.at(i).name == entryName) {
             return i;
         }
