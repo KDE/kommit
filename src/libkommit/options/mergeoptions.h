@@ -59,8 +59,8 @@ public:
     [[nodiscard]] Flags flags() const;
     void setFlags(const Flags &flags);
 
-    [[nodiscard]] MergeFileFlag mergeFileFlags() const;
-    void setMergeFileFlags(const MergeFileFlag &flags);
+    [[nodiscard]] MergeFileFlags mergeFileFlags() const;
+    void setMergeFileFlags(const MergeFileFlags &flags);
 
     [[nodiscard]] FileFlavor fileFlavor() const;
     void setFileFlavor(FileFlavor fileFlavor);
