@@ -6,8 +6,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QString>
+#include "abstractaction.h"
+
 #include <QExplicitlySharedDataPointer>
+#include <QString>
 
 #include <Kommit/FileMode>
 
@@ -17,12 +19,10 @@ namespace Git
 class Fetch;
 class ClonePrivate;
 class Repository;
-class Clone
+class LIBKOMMIT_EXPORT Clone : public AbstractAction
 {
 public:
-    Clone(Repository *repo);
-
-    void run();
+    Clone(Repository *repo, QObject *parent = nullptr);
 
     [[nodiscard]] QString url() const;
     void setUrl(const QString &url);
@@ -43,6 +43,9 @@ public:
     void setCheckoutBranchName(const QString &checkoutBranchName);
 
     Fetch *fetch();
+
+protected:
+    int exec() override;
 
 private:
     QExplicitlySharedDataPointer<ClonePrivate> d;

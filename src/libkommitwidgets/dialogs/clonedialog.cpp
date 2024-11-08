@@ -12,16 +12,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QPointer>
 #include <QSettings>
 #include <QStandardPaths>
-#include <credential.h>
+
+#include <Kommit/CheckoutOptions>
+#include <Kommit/Clone>
+#include <Kommit/CloneObserver>
+#include <Kommit/CloneOptions>
+#include <Kommit/Credential>
+#include <Kommit/Fetch>
+#include <Kommit/FetchObserver>
+
 #include <dialogs/credentialdialog.h>
-#include <observers/cloneobserver.h>
-#include <observers/fetchobserver.h>
 #include <repository.h>
 
-CloneDialog::CloneDialog(QWidget *parent)
-    : AppDialog(parent)
+CloneDialog::CloneDialog(Git::Repository *git, QWidget *parent)
+    : AppDialog(git, parent)
     , mFixedPath(QStandardPaths::writableLocation(QStandardPaths::HomeLocation))
-    , mCloneObserver{new Git::CloneObserver(this)}
+    , mCloneOptions{new Git::CloneOptions{git}}
 {
     setupUi(this);
     loadSettings();
@@ -29,15 +35,22 @@ CloneDialog::CloneDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CloneDialog::slotAccepted);
     connect(lineEditUrl, &QLineEdit::textChanged, this, &CloneDialog::slotUrlChanged);
 
-    connect(mCloneObserver, &Git::CloneObserver::credentialRequeted, this, &CloneDialog::slotCredentialRequeted);
-    connect(mCloneObserver, &Git::CloneObserver::message, labelMessage, &QLabel::setText);
     connect(lineEditPath->lineEdit(), &KLineEdit::textChanged, this, &CloneDialog::slotUrlChanged);
 
     stackedWidget->setCurrentIndex(0);
     updateOkButton();
+
+    auto checkoutOptions = mCloneOptions->checkoutOptions();
+
+    connect(checkoutOptions, &Git::CheckoutOptions::checkoutNotify, this, &CloneDialog::slotCheckoutNotify);
+    connect(checkoutOptions, &Git::CheckoutOptions::checkoutProgress, this, &CloneDialog::slotCheckoutProgress);
+    connect(checkoutOptions, &Git::CheckoutOptions::checkoutPerfData, this, &CloneDialog::slotCheckoutPerfData);
 }
 
-CloneDialog::~CloneDialog() = default;
+CloneDialog::~CloneDialog()
+{
+    delete mCloneOptions;
+}
 
 void CloneDialog::updateOkButton()
 {
@@ -72,6 +85,26 @@ void CloneDialog::setLocalPath(const QString &path)
         mFixedPath = path;
     lineEditPath->setText(path);
     slotUrlChanged(lineEditUrl->text());
+}
+
+void CloneDialog::slotCheckoutNotify(Git::CheckoutOptions::NotifyFlag notify, QString path, Git::DiffFile baseline, Git::DiffFile target, Git::DiffFile workdir)
+{
+}
+
+void CloneDialog::slotCheckoutProgress(QString path, size_t completed_steps, size_t total_steps)
+{
+    labelMessage->setText(path);
+    progressBar->setMaximum(total_steps);
+    progressBar->setValue(completed_steps);
+}
+
+void CloneDialog::slotCheckoutPerfData(size_t mkdir_calls, size_t stat_calls, size_t chmod_calls)
+{
+}
+
+void CloneDialog::performClone()
+{
+    stackedWidget->setCurrentIndex(1);
 }
 
 void CloneDialog::slotCredentialRequeted(const QString &url, Git::Credential *cred)

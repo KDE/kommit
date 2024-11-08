@@ -23,7 +23,7 @@ class LIBKOMMIT_EXPORT SubmodulesCache : public QObject, public Cache<Submodule,
 public:
     explicit SubmodulesCache(Repository *manager);
 
-    DataType add(const AddSubmoduleOptions &options);
+    DataType add(AddSubmoduleOptions *options);
 
     [[nodiscard]] QList<Submodule> allSubmodules();
     [[nodiscard]] Submodule findByName(const QString &name);

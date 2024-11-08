@@ -63,9 +63,9 @@ void SubmoduleActions::create()
     SubmoduleInfoDialog d(mGit, mParent);
     if (d.exec() == QDialog::Accepted) {
         Git::AddSubmoduleOptions opts;
-        opts.url = d.url();
-        opts.path = d.path();
-        mGit->submodules()->add(opts);
+        opts.setUrl(d.url());
+        opts.setPath(d.path());
+        mGit->submodules()->add(&opts);
     }
 }
 

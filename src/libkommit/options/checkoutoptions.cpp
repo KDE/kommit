@@ -6,59 +6,48 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "checkoutoptions.h"
 
+#include <git2/errors.h>
+
 namespace Git
 {
 
-CheckoutOptions::CheckoutOptions() = default;
-
-void CheckoutOptions::applyToCheckoutOptions(git_checkout_options *opts) const
+namespace CheckoutCallbacks
 {
-    int strategy{0};
+int git_helper_checkout_notify_cb(git_checkout_notify_t why,
+                                  const char *path,
+                                  const git_diff_file *baseline,
+                                  const git_diff_file *target,
+                                  const git_diff_file *workdir,
+                                  void *payload)
+{
+    auto opts = reinterpret_cast<CheckoutOptions *>(payload);
 
-    if (mSafe)
-        strategy += GIT_CHECKOUT_SAFE;
-    if (mForce)
-        strategy += GIT_CHECKOUT_FORCE;
-    if (mRecreateMissing)
-        strategy += GIT_CHECKOUT_RECREATE_MISSING;
-    if (mAllowConflicts)
-        strategy += GIT_CHECKOUT_ALLOW_CONFLICTS;
-    if (mRemoveUntracked)
-        strategy += GIT_CHECKOUT_REMOVE_UNTRACKED;
-    if (mRemoveIgnored)
-        strategy += GIT_CHECKOUT_REMOVE_IGNORED;
-    if (mUpdateOnly)
-        strategy += GIT_CHECKOUT_UPDATE_ONLY;
-    if (mDontUpdateIndex)
-        strategy += GIT_CHECKOUT_DONT_UPDATE_INDEX;
-    if (mNoRefresh)
-        strategy += GIT_CHECKOUT_NO_REFRESH;
-    if (mSkipUnmerged)
-        strategy += GIT_CHECKOUT_SKIP_UNMERGED;
-    if (mUseOurs)
-        strategy += GIT_CHECKOUT_USE_OURS;
-    if (mUseTheirs)
-        strategy += GIT_CHECKOUT_USE_THEIRS;
-    if (mDisablePathspecMatch)
-        strategy += GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH;
-    if (mSkipLockedDirectories)
-        strategy += GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES;
-    if (mDontOverwriteIgnored)
-        strategy += GIT_CHECKOUT_DONT_OVERWRITE_IGNORED;
-    if (mConflictStyleMerge)
-        strategy += GIT_CHECKOUT_CONFLICT_STYLE_MERGE;
-    if (mConflictStyleDiFF3)
-        strategy += GIT_CHECKOUT_CONFLICT_STYLE_DIFF3;
-    if (mDontRemoveExisting)
-        strategy += GIT_CHECKOUT_DONT_REMOVE_EXISTING;
-    if (mDontWriteIndex)
-        strategy += GIT_CHECKOUT_DONT_WRITE_INDEX;
-    if (mUpdateSubmodules)
-        strategy += GIT_CHECKOUT_UPDATE_SUBMODULES;
-    if (mUpdateSubmodulesIfChanged)
-        strategy += GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED;
+    Q_EMIT opts->checkoutNotify(static_cast<CheckoutOptions::NotifyFlag>(why), QString{path}, DiffFile{baseline}, DiffFile{target}, DiffFile{workdir});
+    return GIT_OK;
+}
 
-    opts->checkout_strategy = strategy;
+void git_helper_checkout_progress_cb(const char *path, size_t completed_steps, size_t total_steps, void *payload)
+{
+    auto opts = reinterpret_cast<CheckoutOptions *>(payload);
+
+    Q_EMIT opts->checkoutProgress(QString{path}, completed_steps, total_steps);
+}
+void git_helper_checkout_perfdata_cb(const git_checkout_perfdata *perfdata, void *payload)
+{
+    auto opts = reinterpret_cast<CheckoutOptions *>(payload);
+    Q_EMIT opts->checkoutPerfData(perfdata->mkdir_calls, perfdata->stat_calls, perfdata->chmod_calls);
+}
+
+}
+
+CheckoutOptions::CheckoutOptions(QObject *parent)
+    : QObject{parent}
+{
+}
+
+void CheckoutOptions::applyToCheckoutOptions(git_checkout_options *opts)
+{
+    opts->checkout_strategy = static_cast<unsigned int>(mCheckoutStrategies);
 
     if (!mAncestorLabel.isEmpty())
         opts->ancestor_label = mAncestorLabel.toLocal8Bit().constData();
@@ -66,6 +55,21 @@ void CheckoutOptions::applyToCheckoutOptions(git_checkout_options *opts) const
         opts->our_label = mOurLabel.toLocal8Bit().constData();
     if (!mTheirLabel.isEmpty())
         opts->their_label = mTheirLabel.toLocal8Bit().constData();
+
+    if (mDirMode.isValid())
+        opts->dir_mode = mDirMode.value();
+    if (mFileMode.isValid())
+        opts->file_mode = mFileMode.value();
+
+    opts->notify_cb = CheckoutCallbacks::git_helper_checkout_notify_cb;
+    opts->notify_payload = this;
+    opts->notify_flags = static_cast<git_checkout_notify_t>(mNotifyFlags.toInt());
+
+    opts->progress_cb = CheckoutCallbacks::git_helper_checkout_progress_cb;
+    opts->progress_payload = this;
+
+    opts->perfdata_cb = CheckoutCallbacks::git_helper_checkout_perfdata_cb;
+    opts->perfdata_payload = this;
 }
 
 } // namespace Git

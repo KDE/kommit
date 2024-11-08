@@ -185,7 +185,7 @@ ArgParserReturn CommandArgsParser::help()
 
 ArgParserReturn CommandArgsParser::clone()
 {
-    CloneDialog d;
+    CloneDialog d{mGit};
 
     if (d.exec() == QDialog::Accepted) {
         RunnerDialog r(mGit);
@@ -200,7 +200,7 @@ ArgParserReturn CommandArgsParser::clone()
 
 ArgParserReturn CommandArgsParser::clone(const QString &path)
 {
-    CloneDialog d;
+    CloneDialog d{mGit};
     d.setLocalPath(path);
 
     if (d.exec() == QDialog::Accepted) {

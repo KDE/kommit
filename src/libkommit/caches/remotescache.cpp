@@ -122,7 +122,7 @@ bool RemotesCache::remove(const QString &name)
 
 bool RemotesCache::rename(const Remote &remote, const QString &newName)
 {
-    git_strarray problems = {0};
+    git_strarray problems{nullptr, 0};
 
     BEGIN
     STEP git_remote_rename(&problems, manager->repoPtr(), remote.name().toUtf8().data(), newName.toUtf8().data());

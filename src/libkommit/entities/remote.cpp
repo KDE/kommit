@@ -86,6 +86,16 @@ bool Remote::operator!=(const Remote &other) const
     return !(*this == other);
 }
 
+git_remote *Remote::data() const
+{
+    return d->remote;
+}
+
+const git_remote *Remote::constData() const
+{
+    return d->remote;
+}
+
 QString Remote::name() const
 {
     return QString{git_remote_name(d->remote)};

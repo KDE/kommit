@@ -260,7 +260,7 @@ bool Submodule::update(const FetchOptions &opts, FetchObserver *observer)
 
     git_submodule_update_options update_options = GIT_SUBMODULE_UPDATE_OPTIONS_INIT;
 
-    opts.applyToFetchOptions(&update_options.fetch_opts);
+    opts.apply(&update_options.fetch_opts);
     if (observer)
         observer->applyOfFetchOptions(&update_options.fetch_opts);
 

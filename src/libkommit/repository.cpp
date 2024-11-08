@@ -4,6 +4,7 @@
 #include "repository.h"
 
 #include "abstractreference.h"
+#include "blame.h"
 #include "caches/abstractcache.h"
 #include "caches/branchescache.h"
 #include "caches/commitscache.h"
@@ -29,6 +30,8 @@
 #include "observers/fetchobserver.h"
 #include "observers/pushobserver.h"
 #include "options/blameoptions.h"
+#include "remotecallbacks.h"
+#include "strarray.h"
 
 #include "libkommit_debug.h"
 #include <QFile>
@@ -1147,16 +1150,14 @@ bool Repository::commit(const QString &message)
     return r.isSuccess();
 }
 
-void Repository::push(PushObserver *observer) const
+void Repository::push(const Branch &branch, const Remote &remote, RemoteCallbacks *callback) const
 {
     git_push_options opts = GIT_PUSH_OPTIONS_INIT;
-    if (observer) {
-        opts.callbacks.pack_progress = &PushCallbacks::git_helper_packbuilder_progress;
-        opts.callbacks.push_transfer_progress = &PushCallbacks::git_helper_push_transfer_progress_cb;
-        opts.callbacks.credentials = &PushCallbacks::git_helper_credential_acquire_cb;
-        opts.callbacks.certificate_check = &PushCallbacks::git_helper_transport_certificate_check_cb;
-        opts.callbacks.payload = observer;
-    }
+    if (callback)
+        callback->apply(&opts.callbacks, const_cast<Repository *>(this));
+
+    StrArray a{branch.refName()};
+    git_remote_push(remote.data(), &a, &opts);
 
     //    git_remote_lookup()
     runGit({QStringLiteral("push"), QStringLiteral("origin"), QStringLiteral("master")});
@@ -1448,5 +1449,4 @@ void RepositoryPrivate::checkError()
 
 } // namespace Git
 
-#include "blame.h"
 #include "moc_repository.cpp"

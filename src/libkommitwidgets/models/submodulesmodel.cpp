@@ -139,11 +139,11 @@ bool SubmodulesModel::append(const Git::Submodule &module)
     return true;
 }
 
-const Git::Submodule &SubmodulesModel::fromIndex(const QModelIndex &index)
+Git::Submodule SubmodulesModel::fromIndex(const QModelIndex &index)
 {
     Q_D(SubmodulesModel);
     if (!index.isValid() || index.row() < 0 || index.row() >= d->list.size())
-        return nullptr;
+        return {};
 
     return d->list.at(index.row());
 }

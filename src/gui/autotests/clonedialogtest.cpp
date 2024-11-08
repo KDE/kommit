@@ -16,7 +16,7 @@ CloneDialogTest::CloneDialogTest(QObject *parent)
 
 void CloneDialogTest::shouldHaveDefaultValues()
 {
-    CloneDialog d;
+    CloneDialog d{nullptr};
     auto lineEditPath = d.findChild<KUrlRequester *>(QStringLiteral("lineEditPath"));
     QVERIFY(lineEditPath);
     QVERIFY(lineEditPath->text().isEmpty());
@@ -42,7 +42,7 @@ void CloneDialogTest::shouldChangePath()
     QFETCH(QString, localPath);
     QFETCH(QString, result);
 
-    CloneDialog d;
+    CloneDialog d{nullptr};
     auto lineEditPath = d.findChild<KUrlRequester *>(QStringLiteral("lineEditPath"));
     auto lineEditUrl = d.findChild<QLineEdit *>(QStringLiteral("lineEditUrl"));
 

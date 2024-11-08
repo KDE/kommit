@@ -15,7 +15,7 @@ class FileDeltaPrivate
     Q_DECLARE_PUBLIC(FileDelta)
 
 public:
-    FileDeltaPrivate(FileDelta *parent, git_diff_delta *delta);
+    FileDeltaPrivate(FileDelta *parent, const git_diff_delta *delta);
 
     git_delta_t status;
     FileDelta::Flags flags;
@@ -24,7 +24,7 @@ public:
     DiffFile old_file;
     DiffFile new_file;
 };
-FileDeltaPrivate::FileDeltaPrivate(FileDelta *parent, git_diff_delta *delta)
+FileDeltaPrivate::FileDeltaPrivate(FileDelta *parent, const git_diff_delta *delta)
     : q_ptr{parent}
     , status{delta->status}
     , flags{static_cast<FileDelta::Flags>(delta->flags)}
@@ -44,7 +44,21 @@ DiffFile::DiffFile(git_diff_file *file)
 {
 }
 
+DiffFile::DiffFile(const git_diff_file *file)
+    : oid{file->id}
+    , path{file->path}
+    , flags{static_cast<Flags>(file->flags)}
+    , mode{file->mode}
+    , size{file->size}
+{
+}
+
 FileDelta::FileDelta(git_diff_delta *delta)
+    : d_ptr{new FileDeltaPrivate{this, delta}}
+{
+}
+
+FileDelta::FileDelta(const git_diff_delta *delta)
     : d_ptr{new FileDeltaPrivate{this, delta}}
 {
 }

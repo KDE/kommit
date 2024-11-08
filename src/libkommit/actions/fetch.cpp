@@ -36,7 +36,7 @@ public:
     int depth{-1};
     Fetch::Prune prune{Fetch::Prune::PruneUnspecified};
     Fetch::DownloadTags downloadTags{Fetch::DownloadTags::Unspecified};
-    Fetch::Redirect redirect{Fetch::Redirect::All};
+    Redirect redirect{Redirect::All};
     Remote remote;
     Branch branch;
     QStringList customHeaders;
@@ -81,7 +81,7 @@ int FetchPrivate::run()
     if (!branch.isNull()) {
         StrArray refSpecs{1};
         refSpecs.add(branch.refName());
-        ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), *refSpecs, &opts, "fetch");
+        ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), &refSpecs, &opts, "fetch");
     } else {
         ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), (const git_strarray *)NULL, &opts, "fetch");
     }
@@ -89,7 +89,7 @@ int FetchPrivate::run()
 }
 
 Fetch::Fetch(Repository *repo, QObject *parent)
-    : QObject{parent}
+    : AbstractAction{parent}
     , d_ptr{new FetchPrivate{this, repo}}
 {
 }
@@ -146,7 +146,7 @@ void Fetch::setDepth(int depth)
     d->depth = depth;
 }
 
-Fetch::Redirect Fetch::redirect() const
+Redirect Fetch::redirect() const
 {
     Q_D(const Fetch);
     return d->redirect;
@@ -156,23 +156,6 @@ void Fetch::setRedirect(Redirect redirect)
 {
     Q_D(Fetch);
     d->redirect = redirect;
-}
-
-bool Fetch::run()
-{
-    Q_D(Fetch);
-    auto retCode = d->run();
-    Q_EMIT finished(0 == retCode);
-    return 0 == retCode;
-}
-
-void Fetch::runAsync()
-{
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QtConcurrent::run(this, &Fetch::run);
-#else
-    QtConcurrent::run(&Fetch::run, this);
-#endif
 }
 
 QStringList Fetch::customHeaders() const
@@ -220,6 +203,12 @@ const Proxy *Fetch::proxy() const
 {
     Q_D(const Fetch);
     return &d->proxy;
+}
+
+int Fetch::exec()
+{
+    Q_D(Fetch);
+    return d->run();
 }
 
 }
