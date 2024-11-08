@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "clone.h"
 
-#include "fetch.h"
+#include "actions/fetch.h"
 #include "remotecallbacks.h"
 
 #include <git2/clone.h>
@@ -40,14 +40,16 @@ ClonePrivate::ClonePrivate(Clone *parent, Repository *repo)
 {
 }
 
-Clone::Clone(Repository *repo)
-    : d{new ClonePrivate{this, repo}}
+Clone::Clone(Repository *repo, QObject *parent)
+    : AbstractAction{parent}
+    , d{new ClonePrivate{this, repo}}
 {
 }
 
-void Clone::run()
+int Clone::exec()
 {
-    git_clone_options opts = GIT_CLONE_OPTIONS_INIT;
+    git_clone_options opts;
+    git_clone_options_init(&opts, GIT_CLONE_OPTIONS_VERSION);
 
     opts.checkout_branch = d->checkoutBranchName.toUtf8().data();
 
@@ -57,6 +59,8 @@ void Clone::run()
         opts.checkout_opts.file_mode = d->fileMode.value();
 
     opts.fetch_opts.depth = d->depth;
+
+    return 0;
 }
 
 QString Clone::url() const

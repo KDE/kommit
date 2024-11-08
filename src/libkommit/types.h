@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QString>
 
 #include <git2/buffer.h>
+#include <git2/remote.h>
 #include <git2/strarray.h>
 #include <git2/types.h>
 
@@ -18,6 +19,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
+
+Q_NAMESPACE
+
+enum class Redirect { None = GIT_REMOTE_REDIRECT_NONE, Initial = GIT_REMOTE_REDIRECT_INITIAL, All = GIT_REMOTE_REDIRECT_ALL };
+Q_ENUM_NS(Redirect)
+
+class Branch;
+class Commit;
+class Tag;
+class Remote;
 
 QString convertToQString(git_buf *buf);
 QStringList convert(git_strarray *arr);

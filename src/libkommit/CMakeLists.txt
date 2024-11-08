@@ -33,12 +33,16 @@ target_sources(libkommit PRIVATE
     ioid.h
     blame.h blame.cpp
     blamehunk.h blamehunk.cpp
-    fetch.h fetch.cpp
     certificate.h certificate.cpp
     error.h error.cpp
     remotecallbacks.h remotecallbacks.cpp
     proxy.cpp proxy.h
-    clone.h clone.cpp
+
+    actions/abstractaction.h actions/abstractaction.cpp
+    actions/push.h actions/push.cpp
+    actions/fetch.h actions/fetch.cpp
+    actions/clone.h actions/clone.cpp
+    actions/checkout.h actions/checkout.cpp
 
     caches/abstractcache.cpp caches/abstractcache.h
     caches/branchescache.cpp caches/branchescache.h
@@ -91,6 +95,11 @@ target_sources(libkommit PRIVATE
     options/fetchoptions.cpp options/fetchoptions.h
     options/checkoutoptions.cpp options/checkoutoptions.h
     options/blameoptions.h options/blameoptions.cpp
+    options/pushoptions.h options/pushoptions.cpp
+    options/stashoptions.h options/stashoptions.cpp
+    options/cloneoptions.h options/cloneoptions.cpp
+    options/rebaseoptions.h options/rebaseoptions.cpp
+    options/mergeoptions.h options/mergeoptions.cpp
 )
 
 generate_export_header(libkommit BASE_NAME libkommit)
@@ -153,15 +162,10 @@ endif()
 # root folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
-        Clone
         Repository
 
         Blame
         BlameHunk
-        Fetch
-        # BlameDataRow
-
-        # ConfigEntry
         Config
 
         # ITree
@@ -183,6 +187,24 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
         RemoteCallbacks
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
+)
+
+# options sub folder
+ecm_generate_headers(libkommit_CamelCase_HEADERS
+    HEADER_NAMES
+        AddSubmoduleOptions
+        BlameOptions
+        CheckoutOptions
+        CloneOptions
+        FetchOptions
+        StashOptions
+        PushOptions
+        RebaseOptions
+        MergeOptions
+    PREFIX Kommit
+    REQUIRED_HEADERS kommit_HEADERS
+    RELATIVE
+        options
 )
 
 # entities sub folder
@@ -209,6 +231,20 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
     REQUIRED_HEADERS kommit_HEADERS
     RELATIVE
         entities
+)
+
+# actions sub folder
+ecm_generate_headers(libkommit_CamelCase_HEADERS
+    HEADER_NAMES
+        AbstractAction
+        Push
+        Fetch
+        Clone
+        Checkout
+    PREFIX Kommit
+    REQUIRED_HEADERS kommit_HEADERS
+    RELATIVE
+        actions
 )
 
 # commands sub folder

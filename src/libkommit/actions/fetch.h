@@ -6,13 +6,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <QObject>
 #include <QScopedPointer>
 #include <QSharedPointer>
 
 #include <git2/remote.h>
 
+#include "abstractaction.h"
 #include "libkommit_export.h"
+#include "types.h"
 
 namespace Git
 {
@@ -27,7 +28,7 @@ struct PackProgress;
 struct FetchTransferStat;
 class RemoteCallbacks;
 
-class LIBKOMMIT_EXPORT Fetch : public QObject
+class LIBKOMMIT_EXPORT Fetch : public AbstractAction
 {
     Q_OBJECT
 public:
@@ -41,9 +42,6 @@ public:
         All = GIT_REMOTE_DOWNLOAD_TAGS_ALL
     };
     Q_ENUM(DownloadTags)
-
-    enum class Redirect { None = GIT_REMOTE_REDIRECT_NONE, Initial = GIT_REMOTE_REDIRECT_INITIAL, All = GIT_REMOTE_REDIRECT_ALL };
-    Q_ENUM(Redirect)
 
     enum class AcceptCertificate { None, OnlyValid, All };
     Q_ENUM(AcceptCertificate)
@@ -78,11 +76,8 @@ public:
     [[nodiscard]] const RemoteCallbacks *remoteCallbacks() const;
     [[nodiscard]] const Proxy *proxy() const;
 
-    bool run();
-    void runAsync();
-
-Q_SIGNALS:
-    void finished(bool success);
+protected:
+    int exec() override;
 
 private:
     QScopedPointer<FetchPrivate> d_ptr;

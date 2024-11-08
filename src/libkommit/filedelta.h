@@ -27,7 +27,8 @@ struct DiffFile {
     };
     Q_DECLARE_FLAGS(Flags, Flag)
 
-    DiffFile(git_diff_file *file);
+    explicit DiffFile(git_diff_file *file);
+    explicit DiffFile(const git_diff_file *file);
 
     Oid oid;
     QString path;
@@ -50,7 +51,8 @@ public:
 
     Q_DECLARE_FLAGS(Flags, Flag)
 
-    FileDelta(git_diff_delta *delta);
+    explicit FileDelta(git_diff_delta *delta);
+    explicit FileDelta(const git_diff_delta *delta);
     ~FileDelta();
 
 private:

@@ -9,18 +9,24 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommit_export.h"
 #include "qobjectdefs.h"
 
+#include <Kommit/FileDelta>
+#include <Kommit/FileMode>
+
 #include <git2/checkout.h>
 
+#include <QObject>
 #include <QString>
 
 namespace Git
 {
 
-class LIBKOMMIT_EXPORT CheckoutOptions
+class LIBKOMMIT_EXPORT CheckoutOptions : public QObject
 {
+    Q_OBJECT
+
 public:
     enum class CheckoutStrategy {
-        None = 0,
+        None = GIT_CHECKOUT_NONE,
         Safe = GIT_CHECKOUT_SAFE,
         Force = GIT_CHECKOUT_FORCE,
         RecreateMissing = GIT_CHECKOUT_RECREATE_MISSING,
@@ -43,39 +49,37 @@ public:
         UpdateSubmodules = GIT_CHECKOUT_UPDATE_SUBMODULES,
         UpdateSubmodulesIfChanged = GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED,
     };
+    Q_DECLARE_FLAGS(CheckoutStrategies, CheckoutStrategy)
+    Q_FLAG(CheckoutStrategies)
 
-    // Q_DECLARE_FLAGS(CheckoutStrategies, CheckoutStrategy)
-    // Q_FLAG(CheckoutStrategies);
+    enum class NotifyFlag {
+        None = GIT_CHECKOUT_NOTIFY_NONE,
+        Conflict = GIT_CHECKOUT_NOTIFY_CONFLICT,
+        Dirty = GIT_CHECKOUT_NOTIFY_DIRTY,
+        Untracked = GIT_CHECKOUT_NOTIFY_UNTRACKED,
+        Ignored = GIT_CHECKOUT_NOTIFY_IGNORED,
+        All = GIT_CHECKOUT_NOTIFY_ALL,
+    };
+    Q_DECLARE_FLAGS(NotifyFlags, NotifyFlag)
+    Q_FLAG(NotifyFlags)
 
-    bool mSafe{false};
-    bool mForce{false};
-    bool mRecreateMissing{false};
-    bool mAllowConflicts{false};
-    bool mRemoveUntracked{false};
-    bool mRemoveIgnored{false};
-    bool mUpdateOnly{false};
-    bool mDontUpdateIndex{false};
-    bool mNoRefresh{false};
-    bool mSkipUnmerged{false};
-    bool mUseOurs{false};
-    bool mUseTheirs{false};
-    bool mDisablePathspecMatch{false};
-    bool mSkipLockedDirectories{false};
-    bool mDontOverwriteIgnored{false};
-    bool mConflictStyleMerge{false};
-    bool mConflictStyleDiFF3{false};
-    bool mDontRemoveExisting{false};
-    bool mDontWriteIndex{false};
-    bool mUpdateSubmodules{false};
-    bool mUpdateSubmodulesIfChanged{false};
+    CheckoutOptions(QObject *parent = nullptr);
 
+    void applyToCheckoutOptions(git_checkout_options *opts);
+
+Q_SIGNALS:
+    void checkoutNotify(NotifyFlag notify, QString path, DiffFile baseline, DiffFile target, DiffFile workdir);
+    void checkoutProgress(QString path, size_t completed_steps, size_t total_steps);
+    void checkoutPerfData(size_t mkdir_calls, size_t stat_calls, size_t chmod_calls);
+
+private:
     QString mAncestorLabel;
     QString mOurLabel;
     QString mTheirLabel;
-
-    CheckoutOptions();
-
-    void applyToCheckoutOptions(git_checkout_options *opts) const;
+    FileMode mDirMode;
+    FileMode mFileMode;
+    NotifyFlags mNotifyFlags{NotifyFlag::All};
+    CheckoutStrategies mCheckoutStrategies{CheckoutStrategy::Safe};
 };
 
 } // namespace Git

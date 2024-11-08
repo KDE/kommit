@@ -39,11 +39,13 @@ public:
     Q_DECLARE_FLAGS(BlameFlags, BlameFlag)
     // Q_FLAG(BlameFlags)
 
-    [[nodiscard]] QSharedPointer<Commit> firstCommit() const;
-    void setFirstCommit(QSharedPointer<Commit> firstCommit);
+    void apply(git_blame_options *opts);
 
-    [[nodiscard]] QSharedPointer<Commit> lastCommit() const;
-    void setLastCommit(QSharedPointer<Commit> lastCommit);
+    [[nodiscard]] Commit firstCommit() const;
+    void setFirstCommit(const Commit &firstCommit);
+
+    [[nodiscard]] Commit lastCommit() const;
+    void setLastCommit(const Commit &lastCommit);
 
     [[nodiscard]] int minMatchCharacters() const;
     void setMinMatchCharacters(int minMatchCharacters);
@@ -54,13 +56,11 @@ public:
     [[nodiscard]] int lastLineNumber() const;
     void setLastLineNumber(int lastLineNumber);
 
-    void apply(git_blame_options *opts);
     [[nodiscard]] BlameFlags flags() const;
     void setFlags(const BlameFlags &flags);
 
 private:
-    QScopedPointer<BlameOptionsPrivate> d_ptr;
-    Q_DECLARE_PRIVATE(BlameOptions)
+    QScopedPointer<BlameOptionsPrivate> d;
 };
 
 }

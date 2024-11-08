@@ -54,11 +54,11 @@ void SubmoduleTest::addSubmodule()
 {
     Git::AddSubmoduleOptions opts;
 
-    opts.url = "https://github.com/HamedMasafi/Logger.git";
-    opts.path = "3rdparty/libgit2";
+    opts.setUrl("https://github.com/HamedMasafi/Logger.git");
+    opts.setPath("3rdparty/libgit2");
     TestCommon::makePath(mManager, "3rdparty/libgit2");
 
-    auto ok = mManager->submodules()->add(opts);
+    auto ok = mManager->submodules()->add(&opts);
 
     QVERIFY(!ok.isNull());
 
@@ -94,10 +94,10 @@ void SubmoduleTest::addInSameLocation()
 {
     Git::AddSubmoduleOptions opts;
 
-    opts.url = "https://github.com/HamedMasafi/Logger.git";
-    opts.path = "3rdparty/libgit2";
+    opts.setUrl("https://github.com/HamedMasafi/Logger.git");
+    opts.setPath("3rdparty/libgit2");
 
-    auto ok = mManager->submodules()->add(opts);
+    auto ok = mManager->submodules()->add(&opts);
 
     QVERIFY(ok.isNull());
 

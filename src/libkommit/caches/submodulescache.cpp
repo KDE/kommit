@@ -23,17 +23,17 @@ SubmodulesCache::SubmodulesCache(Repository *manager)
 {
 }
 
-SubmodulesCache::DataType SubmodulesCache::add(const AddSubmoduleOptions &options)
+SubmodulesCache::DataType SubmodulesCache::add(AddSubmoduleOptions *options)
 {
     git_submodule *submodule{nullptr};
     git_repository *submoduleRepo;
     git_submodule_update_options opts = GIT_SUBMODULE_UPDATE_OPTIONS_INIT;
 
-    options.applyToFetchOptions(&opts.fetch_opts);
-    options.applyToCheckoutOptions(&opts.checkout_opts);
+    options->fetchOptions()->apply(&opts.fetch_opts);
+    options->checkoutOptions()->applyToCheckoutOptions(&opts.checkout_opts);
 
     BEGIN
-    STEP git_submodule_add_setup(&submodule, manager->repoPtr(), toConstChars(options.url), toConstChars(options.path), 1);
+    STEP git_submodule_add_setup(&submodule, manager->repoPtr(), toConstChars(options->url()), toConstChars(options->path()), 1);
     STEP git_submodule_clone(&submoduleRepo, submodule, &opts);
     STEP git_submodule_add_finalize(submodule);
     PRINT_ERROR;

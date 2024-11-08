@@ -105,13 +105,13 @@ void FetchDialog::startFetch()
     // set redirect
     switch (checkBoxRedirect->checkState()) {
     case Qt::Unchecked:
-        mFetch->setRedirect(Git::Fetch::Redirect::None);
+        mFetch->setRedirect(Git::Redirect::None);
         break;
     case Qt::PartiallyChecked:
-        mFetch->setRedirect(Git::Fetch::Redirect::Initial);
+        mFetch->setRedirect(Git::Redirect::Initial);
         break;
     case Qt::Checked:
-        mFetch->setRedirect(Git::Fetch::Redirect::All);
+        mFetch->setRedirect(Git::Redirect::All);
         break;
     }
 

@@ -74,9 +74,14 @@ StrArray::operator git_strarray *()
     return &strarray;
 }
 
-const git_strarray *StrArray::operator*() const
+const git_strarray *StrArray::operator&() const
 {
     return &strarray;
+}
+
+const git_strarray StrArray::operator*() const
+{
+    return strarray;
 }
 
 void StrArray::clear()

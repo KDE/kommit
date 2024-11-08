@@ -18,10 +18,10 @@ class BlameOptionsPrivate
     Q_DECLARE_PUBLIC(BlameOptions)
 
 public:
-    BlameOptionsPrivate(BlameOptions *parent);
+    explicit BlameOptionsPrivate(BlameOptions *parent);
 
-    QSharedPointer<Commit> firstCommit;
-    QSharedPointer<Commit> lastCommit;
+    Commit firstCommit;
+    Commit lastCommit;
     int minMatchCharacters{-1};
     int firstLineNumber{-1};
     int lastLineNumber{-1};
@@ -32,7 +32,7 @@ BlameOptionsPrivate::BlameOptionsPrivate(BlameOptions *parent)
 {
 }
 BlameOptions::BlameOptions()
-    : d_ptr{new BlameOptionsPrivate{this}}
+    : d{new BlameOptionsPrivate{this}}
 {
 }
 
@@ -40,69 +40,58 @@ BlameOptions::~BlameOptions()
 {
 }
 
-QSharedPointer<Commit> BlameOptions::firstCommit() const
+Commit BlameOptions::firstCommit() const
 {
-    Q_D(const BlameOptions);
     return d->firstCommit;
 }
 
-void BlameOptions::setFirstCommit(QSharedPointer<Commit> firstCommit)
+void BlameOptions::setFirstCommit(const Commit &firstCommit)
 {
-    Q_D(BlameOptions);
     d->firstCommit = firstCommit;
 }
 
-QSharedPointer<Commit> BlameOptions::lastCommit() const
+Commit BlameOptions::lastCommit() const
 {
-    Q_D(const BlameOptions);
     return d->lastCommit;
 }
 
-void BlameOptions::setLastCommit(QSharedPointer<Commit> lastCommit)
+void BlameOptions::setLastCommit(const Commit &lastCommit)
 {
-    Q_D(BlameOptions);
     d->lastCommit = lastCommit;
 }
 
 int BlameOptions::minMatchCharacters() const
 {
-    Q_D(const BlameOptions);
     return d->minMatchCharacters;
 }
 
 void BlameOptions::setMinMatchCharacters(int minMatchCharacters)
 {
-    Q_D(BlameOptions);
     d->minMatchCharacters = minMatchCharacters;
 }
 
 int BlameOptions::firstLineNumber() const
 {
-    Q_D(const BlameOptions);
     return d->firstLineNumber;
 }
 
 void BlameOptions::setFirstLineNumber(int firstLineNumber)
 {
-    Q_D(BlameOptions);
     d->firstLineNumber = firstLineNumber;
 }
 
 int BlameOptions::lastLineNumber() const
 {
-    Q_D(const BlameOptions);
     return d->lastLineNumber;
 }
 
 void BlameOptions::setLastLineNumber(int lastLineNumber)
 {
-    Q_D(BlameOptions);
     d->lastLineNumber = lastLineNumber;
 }
 
 void BlameOptions::apply(git_blame_options *opts)
 {
-    Q_D(BlameOptions);
     if (d->minMatchCharacters != -1)
         opts->min_match_characters = d->minMatchCharacters;
     if (d->firstLineNumber != -1)
@@ -111,24 +100,21 @@ void BlameOptions::apply(git_blame_options *opts)
         opts->max_line = d->firstLineNumber;
 
     if (!d->firstCommit.isNull()) {
-        opts->oldest_commit = *d->firstCommit->oid().data();
+        opts->oldest_commit = *d->firstCommit.oid().data();
     }
     if (!d->lastCommit.isNull()) {
-        opts->oldest_commit = *d->lastCommit->oid().data();
+        opts->oldest_commit = *d->lastCommit.oid().data();
     }
     opts->flags = d->flags;
 }
 
 BlameOptions::BlameFlags BlameOptions::flags() const
 {
-    Q_D(const BlameOptions);
     return d->flags;
 }
 
 void BlameOptions::setFlags(const BlameFlags &flags)
 {
-    Q_D(BlameOptions);
     d->flags = flags;
 }
-
 }

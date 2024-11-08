@@ -362,7 +362,7 @@ void AppWindow::showBranchesStatus()
 
 void AppWindow::clone()
 {
-    CloneDialog d(this);
+    CloneDialog d(mGitData->manager(), this);
     if (d.exec() == QDialog::Accepted) {
         RunnerDialog r(mGitData->manager(), this);
 

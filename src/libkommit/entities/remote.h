@@ -59,6 +59,9 @@ public:
     };
     // Q_ENUM(Direction)
 
+    [[nodiscard]] git_remote *data() const;
+    [[nodiscard]] const git_remote *constData() const;
+
     [[nodiscard]] QString name() const;
     [[nodiscard]] QList<RefSpec> refSpecList() const;
     [[nodiscard]] QString pushUrl() const;

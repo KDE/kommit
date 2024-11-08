@@ -28,6 +28,7 @@ public:
 
     [[nodiscard]] Type type() const;
     void setType(Type type);
+
 Q_SIGNALS:
     void credentialRequested(const QString &url, Credential *cred, bool *accept);
     void certificateCheck(const Certificate &cert, bool *accept);

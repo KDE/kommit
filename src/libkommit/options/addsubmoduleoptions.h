@@ -6,7 +6,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include <QSharedPointer>
 #include <QString>
+
+#include <git2/submodule.h>
 
 #include "checkoutoptions.h"
 #include "fetchoptions.h"
@@ -15,13 +18,25 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class LIBKOMMIT_EXPORT AddSubmoduleOptions : public FetchOptions, public CheckoutOptions
+class AddSubmoduleOptionsPrivate;
+class LIBKOMMIT_EXPORT AddSubmoduleOptions
 {
 public:
     AddSubmoduleOptions();
 
-    QString url;
-    QString path;
+    [[nodiscard]] QString url() const;
+    void setUrl(const QString &url);
+
+    [[nodiscard]] QString path() const;
+    void setPath(const QString &path);
+
+    FetchOptions *fetchOptions() const;
+    CheckoutOptions *checkoutOptions() const;
+
+    void apply(git_submodule_update_options *opts);
+
+private:
+    QSharedPointer<AddSubmoduleOptionsPrivate> d;
 };
 
 }

@@ -32,7 +32,7 @@ public:
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
     bool append(const Git::Submodule &module);
-    const Git::Submodule &fromIndex(const QModelIndex &index);
+    Git::Submodule fromIndex(const QModelIndex &index);
 
     void reload() override;
 

@@ -7,14 +7,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "libkommit_export.h"
+
 #include <QObject>
 #include <git2/remote.h>
+
+#include "types.h"
 
 namespace Git
 {
 
+class RemoteCallbacks;
 class Repository;
-class LIBKOMMIT_EXPORT FetchOptions
+class FetchOptionsPrivate;
+class LIBKOMMIT_EXPORT FetchOptions : public QObject
 {
 public:
     explicit FetchOptions(QObject *parent = nullptr);
@@ -32,9 +37,30 @@ public:
         NoPrune,
     };
 
-    DownloadTags downloadTags{DownloadTags::Unspecified};
-    Prune prune{Prune::Unspecified};
-    void applyToFetchOptions(git_fetch_options *opts) const;
-    void apply(git_remote_callbacks *callbacks, Repository *repo);
+    enum class UpdateFlag { Fetchhead = GIT_REMOTE_UPDATE_FETCHHEAD, ReportUnchanged = GIT_REMOTE_UPDATE_REPORT_UNCHANGED };
+    Q_DECLARE_FLAGS(UpdateFlags, UpdateFlag)
+
+    void apply(git_fetch_options *opts) const;
+
+    [[nodiscard]] Redirect redirect() const;
+    void setRedirect(Redirect redirect);
+
+    [[nodiscard]] int depth() const;
+    void setDepth(int depth);
+
+    [[nodiscard]] UpdateFlags updateFlags() const;
+    void setUpdateFlags(const UpdateFlags &updateFlags);
+
+    [[nodiscard]] RemoteCallbacks *remoteCallbacks() const;
+    void setRemoteCallbacks(RemoteCallbacks *remoteCallbacks);
+
+    [[nodiscard]] DownloadTags downloadTags() const;
+    void setDownloadTags(DownloadTags downloadTags);
+
+    [[nodiscard]] Prune prune() const;
+    void setPrune(Prune prune);
+
+private:
+    QSharedPointer<FetchOptionsPrivate> d;
 };
 }

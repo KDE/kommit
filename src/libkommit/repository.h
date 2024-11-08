@@ -26,7 +26,6 @@ class Repository;
 class Submodule;
 class FetchObserver;
 class CloneObserver;
-class PushObserver;
 class Reference;
 class AbstractReference;
 class Index;
@@ -50,6 +49,7 @@ struct BlameDataRow;
 class BlameOptions;
 class Blame;
 class BlameData;
+class RemoteCallbacks;
 
 class LIBKOMMIT_EXPORT Repository : public QObject
 {
@@ -85,7 +85,7 @@ public:
     bool init(const QString &path);
     bool clone(const QString &url, const QString &localPath, CloneObserver *observer = nullptr);
     bool commit(const QString &message);
-    void push(PushObserver *observer = nullptr) const;
+    void push(const Branch &branch, const Remote &remote, RemoteCallbacks *callback) const;
     bool open(const QString &newPath);
     Reference head() const;
     bool checkout();
