@@ -21,7 +21,7 @@ public:
     MergeOptions::FileFlavor fileFlavor{MergeOptions::FileFlavor::Normal};
     unsigned int renameThreshold{50};
     unsigned int targetLimit{200};
-    unsigned int recursionLimit{-1};
+    unsigned int recursionLimit{0};
 };
 
 MergeOptionsPrivate::MergeOptionsPrivate(MergeOptions *parent)
@@ -40,13 +40,13 @@ MergeOptions::~MergeOptions()
 
 void MergeOptions::apply(git_merge_options *opts)
 {
-    opts->flags = static_cast<uint32>(d->flags);
-    opts->file_flags = static_cast<uint32>(d->mergeFileFlags);
+    opts->flags = static_cast<uint32_t>(d->flags);
+    opts->file_flags = static_cast<uint32_t>(d->mergeFileFlags);
     opts->file_favor = static_cast<git_merge_file_favor_t>(d->fileFlavor);
     opts->rename_threshold = d->renameThreshold;
 }
 
-Flags MergeOptions::flags() const
+MergeOptions::Flags MergeOptions::flags() const
 {
     return d->flags;
 }
@@ -56,17 +56,17 @@ void MergeOptions::setFlags(const Flags &flags)
     d->flags = flags;
 }
 
-MergeOptions::MergeFileFlag MergeOptions::mergeFileFlags() const
+MergeOptions::MergeFileFlags MergeOptions::mergeFileFlags() const
 {
     return d->mergeFileFlags;
 }
 
-void MergeOptions::setMergeFileFlags(const MergeFileFlag &flags)
+void MergeOptions::setMergeFileFlags(const MergeFileFlags &flags)
 {
     d->mergeFileFlags = flags;
 }
 
-FileFlavor MergeOptions::fileFlavor() const
+MergeOptions::FileFlavor MergeOptions::fileFlavor() const
 {
     return d->fileFlavor;
 }
