@@ -31,7 +31,7 @@ public:
         All = GIT_REMOTE_DOWNLOAD_TAGS_ALL
     };
 
-    enum class Prune { PruneUnspecified = GIT_FETCH_PRUNE_UNSPECIFIED, Prune = GIT_FETCH_PRUNE, NoPrune = GIT_FETCH_NO_PRUNE };
+    enum class Prune { Unspecified = GIT_FETCH_PRUNE_UNSPECIFIED, Prune = GIT_FETCH_PRUNE, NoPrune = GIT_FETCH_NO_PRUNE };
 
     enum class UpdateFlag { Fetchhead = GIT_REMOTE_UPDATE_FETCHHEAD, ReportUnchanged = GIT_REMOTE_UPDATE_REPORT_UNCHANGED };
     Q_DECLARE_FLAGS(UpdateFlags, UpdateFlag)
