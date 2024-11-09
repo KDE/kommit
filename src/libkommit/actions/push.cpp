@@ -53,11 +53,13 @@ int Push::exec()
         opts.custom_headers = *customHeaders;
     }
 
+#if QT_VERSION_CHECK(LIBGIT2_VER_MAJOR, LIBGIT2_VER_MINOR, LIBGIT2_VER_MINOR) >= QT_VERSION_CHECK(1, 8, 0)
     StrArray remotePushOptions;
     if (d->remotePushOptions.size()) {
         remotePushOptions.fromQStringList(d->remotePushOptions);
         opts.remote_push_options = *remotePushOptions;
     }
+#endif
 
     opts.pb_parallelism = d->packBuilderParallelJobs;
     StrArray a{d->branch.refName()};
