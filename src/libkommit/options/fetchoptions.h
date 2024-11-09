@@ -25,17 +25,13 @@ public:
     explicit FetchOptions(QObject *parent = nullptr);
 
     enum class DownloadTags {
-        Unspecified = 0,
-        Auto,
-        None,
-        All,
+        Unspecified = GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED,
+        Auto = GIT_REMOTE_DOWNLOAD_TAGS_AUTO,
+        None = GIT_REMOTE_DOWNLOAD_TAGS_NONE,
+        All = GIT_REMOTE_DOWNLOAD_TAGS_ALL
     };
 
-    enum class Prune {
-        Unspecified = 0,
-        Prune,
-        NoPrune,
-    };
+    enum class Prune { PruneUnspecified = GIT_FETCH_PRUNE_UNSPECIFIED, Prune = GIT_FETCH_PRUNE, NoPrune = GIT_FETCH_NO_PRUNE };
 
     enum class UpdateFlag { Fetchhead = GIT_REMOTE_UPDATE_FETCHHEAD, ReportUnchanged = GIT_REMOTE_UPDATE_REPORT_UNCHANGED };
     Q_DECLARE_FLAGS(UpdateFlags, UpdateFlag)
