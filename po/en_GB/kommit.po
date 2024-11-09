@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-04 01:46+0000\n"
-"PO-Revision-Date: 2024-10-18 18:47+0100\n"
+"PO-Revision-Date: 2024-11-08 15:02+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -1443,19 +1443,18 @@ msgstr "Checkout"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.cpp:24
 #, kde-format
 msgid "Yes"
-msgstr ""
+msgstr "Yes"
 
 #: src/libkommitwidgets/dialogs/certificateinfodialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgid "No"
-msgstr "None"
+msgstr "No"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CertificateInfoDialog)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:14
 #, kde-format
 msgid "Confirm certificate"
-msgstr ""
+msgstr "Confirm certificate"
 
 #. i18n: ectx: property (text), widget (QLabel, label_21)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:23
@@ -1464,24 +1463,26 @@ msgid ""
 "Confirm this certificate by clicking OK, if this is not the correct "
 "certificate, click Cancel."
 msgstr ""
+"Confirm this certificate by clicking OK, if this is not the correct "
+"certificate, click Cancel."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:33
 #, kde-format
 msgid "Certificate details"
-msgstr ""
+msgstr "Certificate details"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:43
 #, kde-format
 msgid "Host"
-msgstr ""
+msgstr "Host"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:63
 #, kde-format
 msgid "Is valid"
-msgstr ""
+msgstr "Is valid"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:83
@@ -1495,45 +1496,43 @@ msgstr "Subject"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:103
 #, kde-format
 msgid "Issuer"
-msgstr ""
+msgstr "Issuer"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:123
 #, kde-format
 msgid "Serial number"
-msgstr ""
+msgstr "Serial number"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:143
-#, fuzzy, kde-format
-#| msgid "Pull from"
+#, kde-format
 msgid "Valid from"
-msgstr "Pull from"
+msgstr "Valid from"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:163
 #, kde-format
 msgid "Valid until"
-msgstr ""
+msgstr "Valid until"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:183
 #, kde-format
 msgid "Public key type"
-msgstr ""
+msgstr "Public key type"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:203
 #, kde-format
 msgid "Public key bits"
-msgstr ""
+msgstr "Public key bits"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:223
-#, fuzzy, kde-format
-#| msgid "Diff algorithm:"
+#, kde-format
 msgid "Signature algorithm"
-msgstr "Diff algorithm:"
+msgstr "Signature algorithm"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
@@ -1884,10 +1883,9 @@ msgstr "Credential for %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CredentialDialog)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Credentials:"
+#, kde-format
 msgid "Credential input"
-msgstr "Credentials:"
+msgstr "Credential input"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCredentialsUrl)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
@@ -1953,33 +1951,32 @@ msgstr "Old folder:"
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:149
 #, kde-format
 msgid "Receiving objects"
-msgstr ""
+msgstr "Receiving objects"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
 #, kde-format
 msgid "Stage %1"
-msgstr ""
+msgstr "Stage %1"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
-msgstr ""
+msgstr "Reference updated: %1  %2...%3"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:170
 #, kde-format
 msgid "Finished"
-msgstr ""
+msgstr "Finished"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
-#, fuzzy, kde-format
-#| msgid "Process finished with error"
+#, kde-format
 msgid "Finished with error"
-msgstr "Process finished with error"
+msgstr "Finished with error"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:173
 #, kde-format
 msgid "Error %1: %2"
-msgstr ""
+msgstr "Error %1: %2"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:14
@@ -2010,16 +2007,15 @@ msgstr "Prune"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRedirect)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:139
-#, fuzzy, kde-format
-#| msgid "New directory:"
+#, kde-format
 msgid "Redirect"
-msgstr "New folder:"
+msgstr "Redirect"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:186
 #, kde-format
 msgid "Starting..."
-msgstr ""
+msgstr "Starting..."
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
 #, kde-format
