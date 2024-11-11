@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-04 01:46+0000\n"
-"PO-Revision-Date: 2024-09-20 10:08+0200\n"
+"PO-Revision-Date: 2024-11-10 13:37+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -371,17 +371,17 @@ msgstr "Corrixir un gallo na selección de rama do trebello de remisións."
 #: src/gui/changelogsdata.cpp:79
 #, kde-format
 msgid "Improve merge algorithm and text rendering"
-msgstr ""
+msgstr "Mellorar o algoritmo de fusión e a renderización de texto."
 
 #: src/gui/changelogsdata.cpp:80
 #, kde-format
 msgid "Improve diff window text rendering"
-msgstr ""
+msgstr "Mellorar a renderización de texto da xanela de diferenzas."
 
 #: src/gui/changelogsdata.cpp:81
 #, kde-format
 msgid "Fix dolphin menu"
-msgstr ""
+msgstr "Corrixir o menú de Dolphin."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -457,14 +457,13 @@ msgstr "Retirado"
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:14
 #, kde-format
 msgid "Choose file version"
-msgstr ""
+msgstr "Escolla a versión do ficheiro"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBaseFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:25
-#, fuzzy, kde-format
-#| msgid "Base file:"
+#, kde-format
 msgid "Base file"
-msgstr "Ficheiro base:"
+msgstr "Ficheiro base"
 
 #. i18n: ectx: property (text), widget (QLabel, labelBaseFile)
 #. i18n: ectx: property (text), widget (QLabel, labelLocalFile)
@@ -520,100 +519,75 @@ msgstr "-"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLocalFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Local file:"
+#, kde-format
 msgid "Local file"
-msgstr "Ficheiro local:"
+msgstr "Ficheiro local"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoteFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:53
-#, fuzzy, kde-format
-#| msgid "Remote file:"
+#, kde-format
 msgid "Remote file"
-msgstr "Ficheiro remoto:"
+msgstr "Ficheiro remoto"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithLocal)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:85
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">Diff base with local </span></a></p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Se cambiar ou non os retornos de carro (CR) e os "
-"saltos de liña (LF).</p><p><a href=\"https://git-scm.com/docs/git-"
-"config#Documentation/git-config.txt-coreautocrlf\"><span style=\" text-"
-"decoration: underline; color:#007af4;\">Máis información…</span></a></p></"
-"body></html>"
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Comparar a base co local</span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithRemote)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:92
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">Diff base with remote </span></a></p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Se cambiar ou non os retornos de carro (CR) e os "
-"saltos de liña (LF).</p><p><a href=\"https://git-scm.com/docs/git-"
-"config#Documentation/git-config.txt-coreautocrlf\"><span style=\" text-"
-"decoration: underline; color:#007af4;\">Máis información…</span></a></p></"
-"body></html>"
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Comparar a base co remoto</span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffLocalWithRemote)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:99
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">Diff local with remote</span></a></p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Se cambiar ou non os retornos de carro (CR) e os "
-"saltos de liña (LF).</p><p><a href=\"https://git-scm.com/docs/git-"
-"config#Documentation/git-config.txt-coreautocrlf\"><span style=\" text-"
-"decoration: underline; color:#007af4;\">Máis información…</span></a></p></"
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Comparar o local co remoto</span></a></p></"
 "body></html>"
 
 #: src/gui/dialogs/resolvedialog.cpp:85
 #, kde-format
 msgid "All conflicts resolved"
-msgstr ""
+msgstr "Resolvéronse todos os conflitos."
 
 #: src/gui/dialogs/resolvedialog.cpp:87
 #, kde-format
 msgid "%1 conflict remained"
 msgid_plural "%1 conflicts remained"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Resta %1 conflito."
+msgstr[1] "Restan %1 conflitos."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
 #: src/gui/dialogs/resolvedialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Conflicts: %1"
+#, kde-format
 msgid "Conflicts"
-msgstr "Conflitos: %1"
+msgstr "Conflitos"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConflictsCount)
 #: src/gui/dialogs/resolvedialog.ui:26
-#, fuzzy, kde-format
-#| msgid "Conflicts: %1"
+#, kde-format
 msgid "Conflicts count"
-msgstr "Conflitos: %1"
+msgstr "Número de conflitos"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -1470,19 +1444,18 @@ msgstr "Cargar"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.cpp:24
 #, kde-format
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 #: src/libkommitwidgets/dialogs/certificateinfodialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgid "No"
-msgstr "Ningún"
+msgstr "Non"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CertificateInfoDialog)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:14
 #, kde-format
 msgid "Confirm certificate"
-msgstr ""
+msgstr "Confirmar o certificado"
 
 #. i18n: ectx: property (text), widget (QLabel, label_21)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:23
@@ -1491,24 +1464,26 @@ msgid ""
 "Confirm this certificate by clicking OK, if this is not the correct "
 "certificate, click Cancel."
 msgstr ""
+"Para confirmar o certificado prema «Aceptar». Se non é o certificado "
+"correcto, prema «Cancelar»."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:33
 #, kde-format
 msgid "Certificate details"
-msgstr ""
+msgstr "Detalles do certificado"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:43
 #, kde-format
 msgid "Host"
-msgstr ""
+msgstr "Servidor"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:63
 #, kde-format
 msgid "Is valid"
-msgstr ""
+msgstr "É válido"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:83
@@ -1522,44 +1497,43 @@ msgstr "Asunto"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:103
 #, kde-format
 msgid "Issuer"
-msgstr ""
+msgstr "Emisión"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:123
 #, kde-format
 msgid "Serial number"
-msgstr ""
+msgstr "Número de serie"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:143
 #, kde-format
 msgid "Valid from"
-msgstr ""
+msgstr "Válido desde"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:163
 #, kde-format
 msgid "Valid until"
-msgstr ""
+msgstr "Válido ata"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:183
 #, kde-format
 msgid "Public key type"
-msgstr ""
+msgstr "Tipo de chave pública"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:203
 #, kde-format
 msgid "Public key bits"
-msgstr ""
+msgstr "Bits da chave pública"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:223
-#, fuzzy, kde-format
-#| msgid "Diff algorithm:"
+#, kde-format
 msgid "Signature algorithm"
-msgstr "Algoritmo de comparación:"
+msgstr "Algoritmo da sinatura"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
@@ -1911,10 +1885,9 @@ msgstr "Credenciais de %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CredentialDialog)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Credentials:"
+#, kde-format
 msgid "Credential input"
-msgstr "Credenciais:"
+msgstr "Entrada de credenciais"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCredentialsUrl)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
@@ -1980,33 +1953,32 @@ msgstr "Cartafol anterior:"
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:149
 #, kde-format
 msgid "Receiving objects"
-msgstr ""
+msgstr "Recibindo obxectos"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
 #, kde-format
 msgid "Stage %1"
-msgstr ""
+msgstr "Fase %1"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
-msgstr ""
+msgstr "Actualizouse a referencia: %1 %2-%3"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:170
 #, kde-format
 msgid "Finished"
-msgstr ""
+msgstr "Rematouse"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
-#, fuzzy, kde-format
-#| msgid "Process finished with error"
+#, kde-format
 msgid "Finished with error"
-msgstr "O proceso rematou cun erro"
+msgstr "Rematou cun erro"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:173
 #, kde-format
 msgid "Error %1: %2"
-msgstr ""
+msgstr "Erro %1: %2"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:14
@@ -2037,20 +2009,18 @@ msgstr "Podar."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRedirect)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:139
-#, fuzzy, kde-format
-#| msgid "New directory:"
+#, kde-format
 msgid "Redirect"
-msgstr "Novo cartafol:"
+msgstr "Redirección"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:186
 #, kde-format
 msgid "Starting..."
-msgstr ""
+msgstr "Iniciando…"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Uncommited"
+#, kde-format
 msgid "Uncommitted"
 msgstr "Sen remitir"
 
@@ -3222,17 +3192,17 @@ msgstr "Non foi posíbel abrir o ficheiro %1"
 #: src/libkommitwidgets/windows/mergewindow.cpp:332
 #, kde-format
 msgid "Save result"
-msgstr ""
+msgstr "Gardar o resultado"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:400
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
-msgstr ""
+msgstr "Conflitos: <span style='font-weight:bold; color:red;'>%1</span>"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:402
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
-msgstr ""
+msgstr "<span style='color:green;'>Resolvéronse todos os conflitos.</span>"
 
 #~ msgctxt "@action"
 #~ msgid "Blame"
