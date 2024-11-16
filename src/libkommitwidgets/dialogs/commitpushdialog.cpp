@@ -166,8 +166,6 @@ void CommitPushDialog::slotPushButtonCommitClicked()
 
 void CommitPushDialog::slotPushButtonPushClicked()
 {
-    addFiles();
-
     if (groupBoxMakeCommit->isChecked()) {
         addFiles();
         Git::CommandCommit *commitCommand = new Git::CommandCommit;
@@ -213,7 +211,7 @@ void CommitPushDialog::addFiles()
         else
             Q_UNUSED(index.addByPath(file.filePath))
     }
-    // index.write();
+    index.write();
 }
 
 void CommitPushDialog::slotToolButtonAddAllClicked()
