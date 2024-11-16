@@ -206,12 +206,14 @@ void CommitPushDialog::addFiles()
 {
     auto index = mGit->index();
     for (const auto &file : mModel->data()) {
+        if (!file.checked)
+            continue;
         if (file.status == Git::ChangeStatus::Removed)
             Q_UNUSED(index.removeByPath(file.filePath))
         else
             Q_UNUSED(index.addByPath(file.filePath))
     }
-    index.write();
+    // index.write();
 }
 
 void CommitPushDialog::slotToolButtonAddAllClicked()

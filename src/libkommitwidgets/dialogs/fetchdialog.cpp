@@ -18,6 +18,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <Kommit/RemotesCache>
 #include <Kommit/Repository>
 
+#include <fetch.h>
+
 #include "certificateinfodialog.h"
 #include "credentialdialog.h"
 #include "runnerdialog.h"
