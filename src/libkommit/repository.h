@@ -50,6 +50,7 @@ class BlameOptions;
 class Blame;
 class BlameData;
 class RemoteCallbacks;
+class FetchOptions;
 
 class LIBKOMMIT_EXPORT Repository : public QObject
 {
@@ -104,6 +105,8 @@ public:
 
     // remotes
     bool fetch(const QString &remoteName, FetchObserver *observer = nullptr);
+
+    bool fetch(const Remote &remote, FetchOptions *options);
 
     // config
     [[nodiscard]] QString config(const QString &name, ConfigType type = ConfigLocal) const;

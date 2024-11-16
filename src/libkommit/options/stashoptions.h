@@ -22,7 +22,10 @@ class StashOptions
 public:
     StashOptions();
 
-    enum class StashApplyFlag { Default = GIT_STASH_APPLY_DEFAULT, ReinstateIndex = GIT_STASH_APPLY_REINSTATE_INDEX };
+    enum class StashApplyFlag {
+        Default = GIT_STASH_APPLY_DEFAULT,
+        ReinstateIndex = GIT_STASH_APPLY_REINSTATE_INDEX
+    };
     Q_DECLARE_FLAGS(StashApplyFlags, StashApplyFlag)
     Q_FLAG(StashApplyFlags)
 

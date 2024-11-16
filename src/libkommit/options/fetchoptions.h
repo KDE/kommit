@@ -8,6 +8,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "libkommit_export.h"
 
+#include <Kommit/Branch>
+
 #include <QObject>
 #include <git2/remote.h>
 
@@ -31,9 +33,16 @@ public:
         All = GIT_REMOTE_DOWNLOAD_TAGS_ALL
     };
 
-    enum class Prune { Unspecified = GIT_FETCH_PRUNE_UNSPECIFIED, Prune = GIT_FETCH_PRUNE, NoPrune = GIT_FETCH_NO_PRUNE };
+    enum class Prune {
+        Unspecified = GIT_FETCH_PRUNE_UNSPECIFIED,
+        Prune = GIT_FETCH_PRUNE,
+        NoPrune = GIT_FETCH_NO_PRUNE
+    };
 
-    enum class UpdateFlag { Fetchhead = GIT_REMOTE_UPDATE_FETCHHEAD, ReportUnchanged = GIT_REMOTE_UPDATE_REPORT_UNCHANGED };
+    enum class UpdateFlag {
+        Fetchhead = GIT_REMOTE_UPDATE_FETCHHEAD,
+        ReportUnchanged = GIT_REMOTE_UPDATE_REPORT_UNCHANGED
+    };
     Q_DECLARE_FLAGS(UpdateFlags, UpdateFlag)
 
     void apply(git_fetch_options *opts) const;
@@ -55,6 +64,9 @@ public:
 
     [[nodiscard]] Prune prune() const;
     void setPrune(Prune prune);
+
+    [[nodiscard]] Branch branch() const;
+    void setBranch(const Branch &branch);
 
 private:
     QSharedPointer<FetchOptionsPrivate> d;

@@ -10,8 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <Kommit/CommandFetch>
 #include <Kommit/Credential>
 #include <Kommit/Error>
-#include <Kommit/Fetch>
 #include <Kommit/FetchObserver>
+#include <Kommit/FetchOptions>
 #include <Kommit/Oid>
 #include <Kommit/Reference>
 #include <Kommit/RemoteCallbacks>
@@ -26,10 +26,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QtConcurrent/QtConcurrent>
 
 FetchDialog::FetchDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
     , mObserver{new Git::FetchObserver{git}}
+    , mFetch{new Git::FetchOptions}
 {
     setupUi(this);
 
@@ -40,6 +42,15 @@ FetchDialog::FetchDialog(Git::Repository *git, QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::accepted, this, &FetchDialog::slotAccept);
 
     stackedWidget->setCurrentIndex(0);
+
+    auto callbacks = mFetch->remoteCallbacks();
+    connect(callbacks, &Git::RemoteCallbacks::message, this, &FetchDialog::slotFetchMessage);
+    connect(callbacks, &Git::RemoteCallbacks::transferProgress, this, &FetchDialog::slotFetchTransferProgress);
+    connect(callbacks, &Git::RemoteCallbacks::packProgress, this, &FetchDialog::slotFetchPackProgress);
+    connect(callbacks, &Git::RemoteCallbacks::updateRef, this, &FetchDialog::slotFetchUpdateRef);
+    connect(callbacks, &Git::RemoteCallbacks::credentialRequested, this, &FetchDialog::slotCredentialRequested, Qt::DirectConnection);
+    connect(callbacks, &Git::RemoteCallbacks::certificateCheck, this, &FetchDialog::slotCertificateCheck, Qt::DirectConnection);
+    // connect(mFetch, &Git::FetchOptions::finished, this, &FetchDialog::slotFetchFinished);
 }
 
 void FetchDialog::setBranch(const QString &branch)
@@ -66,39 +77,49 @@ void FetchDialog::slotAccept()
     // d.exec();
 
     // accept();
+    // startFetch();
+
+    buttonBox_2->button(QDialogButtonBox::Close)->setEnabled(false);
+    stackedWidget->setCurrentIndex(1);
     startFetch();
+    // #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    //     QtConcurrent::run(this, &FetchDialog::startFetch);
+    // #else
+    //     QtConcurrent::run(&FetchDialog::startFetch, this);
+    // #endif
 }
 
 void FetchDialog::startFetch()
 {
-    mFetch = new Git::Fetch{mGit};
-
     auto remote = mGit->remotes()->findByName(comboBoxRemote->currentText());
-    mFetch->setRemote(remote);
+    // mFetch->setRemote(remote);
+
+    if (remote.isNull())
+        return;
 
     // set prune
     switch (checkBoxPrune->checkState()) {
     case Qt::Unchecked:
-        mFetch->setPrune(Git::Fetch::Prune::NoPrune);
+        mFetch->setPrune(Git::FetchOptions::Prune::NoPrune);
         break;
     case Qt::PartiallyChecked:
-        mFetch->setPrune(Git::Fetch::Prune::PruneUnspecified);
+        mFetch->setPrune(Git::FetchOptions::Prune::Unspecified);
         break;
     case Qt::Checked:
-        mFetch->setPrune(Git::Fetch::Prune::Prune);
+        mFetch->setPrune(Git::FetchOptions::Prune::Prune);
         break;
     }
 
     // set download tags
     switch (checkBoxTags->checkState()) {
     case Qt::Unchecked:
-        mFetch->setDownloadTags(Git::Fetch::DownloadTags::None);
+        mFetch->setDownloadTags(Git::FetchOptions::DownloadTags::None);
         break;
     case Qt::PartiallyChecked:
-        mFetch->setDownloadTags(Git::Fetch::DownloadTags::Auto);
+        mFetch->setDownloadTags(Git::FetchOptions::DownloadTags::Auto);
         break;
     case Qt::Checked:
-        mFetch->setDownloadTags(Git::Fetch::DownloadTags::All);
+        mFetch->setDownloadTags(Git::FetchOptions::DownloadTags::All);
         break;
     }
 
@@ -119,26 +140,11 @@ void FetchDialog::startFetch()
     if (checkBoxDepth->isChecked())
         mFetch->setDepth(spinBoxDepth->value());
 
-    auto callbacks = mFetch->remoteCallbacks();
-
-    connect(callbacks, &Git::RemoteCallbacks::message, this, &FetchDialog::slotFetchMessage);
-    connect(callbacks, &Git::RemoteCallbacks::transferProgress, this, &FetchDialog::slotFetchTransferProgress);
-    connect(callbacks, &Git::RemoteCallbacks::packProgress, this, &FetchDialog::slotFetchPackProgress);
-    connect(callbacks, &Git::RemoteCallbacks::updateRef, this, &FetchDialog::slotFetchUpdateRef);
-    connect(callbacks, &Git::RemoteCallbacks::credentialRequested, this, &FetchDialog::slotCredentialRequested);
-    connect(callbacks, &Git::RemoteCallbacks::certificateCheck, this, &FetchDialog::slotCertificateCheck);
-    connect(mFetch, &Git::Fetch::finished, this, &FetchDialog::slotFetchFinished);
-
-    stackedWidget->setCurrentIndex(1);
-    buttonBox_2->button(QDialogButtonBox::Close)->setEnabled(false);
-
-    qApp->processEvents();
     mIsChanged = false;
     mRetryCount = 0;
-    mFetch->run();
-    qApp->processEvents();
+    auto success = mGit->fetch(remote, mFetch);
 
-    buttonBox_2->button(QDialogButtonBox::Close)->setEnabled(true);
+    metaObject()->invokeMethod(this, "slotFetchFinished", Qt::QueuedConnection, success);
 }
 
 void FetchDialog::slotFetchMessage(const QString &message)
@@ -168,6 +174,8 @@ void FetchDialog::slotFetchUpdateRef(const Git::Reference &reference, const Git:
 
 void FetchDialog::slotFetchFinished(bool success)
 {
+    buttonBox_2->button(QDialogButtonBox::Close)->setEnabled(true);
+
     if (success) {
         labelStatus->setText(i18n("Finished"));
     } else {

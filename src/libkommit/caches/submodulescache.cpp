@@ -32,13 +32,12 @@ SubmodulesCache::DataType SubmodulesCache::add(AddSubmoduleOptions *options)
     options->fetchOptions()->apply(&opts.fetch_opts);
     options->checkoutOptions()->applyToCheckoutOptions(&opts.checkout_opts);
 
-    BEGIN
-    STEP git_submodule_add_setup(&submodule, manager->repoPtr(), toConstChars(options->url()), toConstChars(options->path()), 1);
-    STEP git_submodule_clone(&submoduleRepo, submodule, &opts);
-    STEP git_submodule_add_finalize(submodule);
-    PRINT_ERROR;
+    SequenceRunner r;
+    r.run(git_submodule_add_setup, &submodule, manager->repoPtr(), toConstChars(options->url()), toConstChars(options->path()), 1);
+    r.run(git_submodule_clone, &submoduleRepo, submodule, &opts);
+    r.run(git_submodule_add_finalize, submodule);
 
-    if (IS_OK) {
+    if (r.isSuccess()) {
         auto en = findByPtr(submodule);
 
         if (!en.isNull()) {
@@ -85,11 +84,8 @@ QList<Submodule> SubmodulesCache::allSubmodules()
 Submodule SubmodulesCache::findByName(const QString &name)
 {
     git_submodule *submodule{nullptr};
-    BEGIN
-    STEP git_submodule_lookup(&submodule, manager->repoPtr(), toConstChars(name));
-    PRINT_ERROR;
 
-    if (IS_ERROR)
+    if (!SequenceRunner::runSingle(git_submodule_lookup, &submodule, manager->repoPtr(), toConstChars(name)))
         return nullptr;
 
     return findByPtr(submodule);

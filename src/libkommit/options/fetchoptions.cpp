@@ -26,6 +26,7 @@ public:
     FetchOptions::DownloadTags downloadTags{FetchOptions::DownloadTags::Unspecified};
     FetchOptions::Prune prune{FetchOptions::Prune::Unspecified};
     Repository *repo;
+    Branch branch;
 };
 
 FetchOptions::FetchOptions(Repository *parent)
@@ -103,6 +104,16 @@ FetchOptions::Prune FetchOptions::prune() const
 void FetchOptions::setPrune(Prune prune)
 {
     d->prune = prune;
+}
+
+Branch FetchOptions::branch() const
+{
+    return d->branch;
+}
+
+void FetchOptions::setBranch(const Branch &branch)
+{
+    d->branch = branch;
 }
 
 FetchOptionsPrivate::FetchOptionsPrivate(FetchOptions *parent, Repository *repository)

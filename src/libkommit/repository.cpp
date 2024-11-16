@@ -24,6 +24,7 @@
 #include "entities/submodule.h"
 #include "entities/tree.h"
 #include "entities/treediff.h"
+#include "fetchoptions.h"
 #include "filestatus.h"
 #include "gitglobal_p.h"
 #include "observers/cloneobserver.h"
@@ -253,6 +254,28 @@ bool Repository::fetch(const QString &remoteName, FetchObserver *observer)
     PRINT_ERROR;
 
     return IS_OK;
+}
+
+bool Repository::fetch(const Remote &remote, FetchOptions *options)
+{
+    if (!remote.isConnected() && !remote.connect(Git::Remote::Direction::Fetch, options->remoteCallbacks()))
+        return false;
+
+    git_fetch_options opts;
+    git_fetch_options_init(&opts, GIT_FETCH_OPTIONS_VERSION);
+
+    options->apply(&opts);
+
+    int ret;
+    if (options->branch().isNull()) {
+        StrArray refSpecs{1};
+        refSpecs.add(options->branch().refName());
+        ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), &refSpecs, &opts, "fetch");
+    } else {
+        ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), (const git_strarray *)NULL, &opts, "fetch");
+    }
+
+    return GIT_OK == ret;
 }
 
 bool Repository::isIgnored(const QString &path)

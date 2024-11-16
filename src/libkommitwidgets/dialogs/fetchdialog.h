@@ -21,7 +21,7 @@ class Repository;
 class FetchObserver;
 struct PackProgress;
 struct FetchTransferStat;
-class Fetch;
+class FetchOptions;
 }
 
 class LIBKOMMITWIDGETS_EXPORT FetchDialog : public AppDialog, private Ui::FetchDialog
@@ -48,7 +48,7 @@ private:
     void slotCredentialRequested(const QString &url, Git::Credential *cred, bool *accept);
     void slotCertificateCheck(const Git::Certificate &cert, bool *accept);
 
-    Git::Fetch *mFetch;
+    Git::FetchOptions *mFetch;
     int mRetryCount{};
     bool mIsChanged{};
 };
