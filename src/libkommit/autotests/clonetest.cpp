@@ -59,22 +59,22 @@ void CloneTest::initialCommitTree()
 
     auto topLevelItems = tree.entries("");
 
-    QCOMPARE(topLevelItems.type("snapcraft.yaml"), Git::Tree::EntryType::File);
-    QCOMPARE(topLevelItems.type("Messages.sh"), Git::Tree::EntryType::File);
-    QCOMPARE(topLevelItems.type("LICENSE"), Git::Tree::EntryType::File);
-    QCOMPARE(topLevelItems.type("COPYING.DOC"), Git::Tree::EntryType::File);
-    QCOMPARE(topLevelItems.type("COPYING"), Git::Tree::EntryType::File);
-    QCOMPARE(topLevelItems.type("CMakeLists.txt"), Git::Tree::EntryType::File);
-    QCOMPARE(topLevelItems.type(".gitignore"), Git::Tree::EntryType::File);
-    QCOMPARE(topLevelItems.type("README.md"), Git::Tree::EntryType::File);
+    QCOMPARE(topLevelItems.type("snapcraft.yaml"), Git::EntryType::File);
+    QCOMPARE(topLevelItems.type("Messages.sh"), Git::EntryType::File);
+    QCOMPARE(topLevelItems.type("LICENSE"), Git::EntryType::File);
+    QCOMPARE(topLevelItems.type("COPYING.DOC"), Git::EntryType::File);
+    QCOMPARE(topLevelItems.type("COPYING"), Git::EntryType::File);
+    QCOMPARE(topLevelItems.type("CMakeLists.txt"), Git::EntryType::File);
+    QCOMPARE(topLevelItems.type(".gitignore"), Git::EntryType::File);
+    QCOMPARE(topLevelItems.type("README.md"), Git::EntryType::File);
 
-    QCOMPARE(topLevelItems.type("src"), Git::Tree::EntryType::Dir);
-    QCOMPARE(topLevelItems.type("icons"), Git::Tree::EntryType::Dir);
-    QCOMPARE(topLevelItems.type("dolphinplugins"), Git::Tree::EntryType::Dir);
-    QCOMPARE(topLevelItems.type("doc"), Git::Tree::EntryType::Dir);
-    QCOMPARE(topLevelItems.type("autotests"), Git::Tree::EntryType::Dir);
+    QCOMPARE(topLevelItems.type("src"), Git::EntryType::Dir);
+    QCOMPARE(topLevelItems.type("icons"), Git::EntryType::Dir);
+    QCOMPARE(topLevelItems.type("dolphinplugins"), Git::EntryType::Dir);
+    QCOMPARE(topLevelItems.type("doc"), Git::EntryType::Dir);
+    QCOMPARE(topLevelItems.type("autotests"), Git::EntryType::Dir);
 
-    auto src = tree.entries("src", Git::Tree::EntryType::Dir);
+    auto src = tree.entries("src", Git::EntryType::Dir);
     qDebug() << src;
 
     QVERIFY(src.contains("widgets"));

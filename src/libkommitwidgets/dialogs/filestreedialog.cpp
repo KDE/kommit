@@ -59,7 +59,7 @@ FilesTreeDialog::FilesTreeDialog(Git::Repository *git, Git::ITree *tree, QWidget
     mTreeModel->setShowRoot(true);
     mTreeModel->setRootTitle("/");
 
-    auto files = tree->tree().entries(Git::Tree::EntryType::File);
+    auto files = tree->tree().entries(Git::EntryType::File);
     lineEditBranchName->setText(tree->treeTitle());
     setWindowTitle(i18nc("@title:window", "Browse files: %1", tree->treeTitle()));
 
@@ -132,7 +132,7 @@ void FilesTreeDialog::slotExtract()
 
 void FilesTreeDialog::initModel(const Git::Tree &tree)
 {
-    auto dirs = tree.entries(Git::Tree::EntryType::Dir);
+    auto dirs = tree.entries(Git::EntryType::Dir);
 
     // mTreeModel->setShowRoot(true);
     // mTreeModel->setLastPartAsData(false);
@@ -142,7 +142,7 @@ void FilesTreeDialog::initModel(const Git::Tree &tree)
 
     for (auto const &dir : std::as_const(dirs)) {
         auto data = new DirData;
-        data->files = tree.entries(dir, Git::Tree::EntryType::File);
+        data->files = tree.entries(dir, Git::EntryType::File);
         mTreeModel->addItem(dir, data);
     }
 

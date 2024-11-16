@@ -28,13 +28,13 @@ public:
     ~TreePrivate();
 
     Tree *q;
-    QList<Tree::Entry *> entries;
-    QMultiMap<QString, Tree::Entry> treeData;
+    QList<TreeEntry *> entries;
+    QMultiMap<QString, TreeEntry> treeData;
 
     git_tree *tree{nullptr};
 
     void initTree();
-    void browseNestedEntities(Tree::EntryType type, const QString &path, QStringList &list) const;
+    void browseNestedEntities(EntryType type, const QString &path, QStringList &list) const;
 };
 
 Tree::Tree()
@@ -105,9 +105,9 @@ const git_tree *Tree::constData() const
     return d->tree;
 }
 
-Tree::EntryLists Tree::entries(const QString &path) const
+TreeEntryLists Tree::entries(const QString &path) const
 {
-    return EntryLists{d->treeData.values(path)};
+    return TreeEntryLists{d->treeData.values(path)};
 }
 
 QStringList Tree::entries(const QString &path, EntryType filter) const
@@ -219,11 +219,11 @@ void TreePrivate::initTree()
         auto type = git_tree_entry_type(entry);
         switch (type) {
         case GIT_OBJECT_BLOB:
-            w->treeData.insert(path, Tree::Entry{name, Tree::EntryType::File});
-            w->entries.append(new Tree::Entry{name, Tree::EntryType::File, path});
+            w->treeData.insert(path, TreeEntry{name, EntryType::File});
+            w->entries.append(new TreeEntry{name, EntryType::File, path});
             break;
         case GIT_OBJECT_TREE:
-            w->treeData.insert(path, Tree::Entry{name, Tree::EntryType::Dir});
+            w->treeData.insert(path, TreeEntry{name, EntryType::Dir});
             break;
         case GIT_OBJECT_COMMIT:
         case GIT_OBJECT_ANY:
@@ -239,19 +239,19 @@ void TreePrivate::initTree()
     git_tree_walk(tree, GIT_TREEWALK_PRE, cb, this);
 }
 
-void TreePrivate::browseNestedEntities(Tree::EntryType type, const QString &path, QStringList &list) const
+void TreePrivate::browseNestedEntities(EntryType type, const QString &path, QStringList &list) const
 {
     QString prefix;
     if (!path.isEmpty())
         prefix = path + QLatin1Char('/');
 
-    auto dirs = q->entries(path, Tree::EntryType::Dir);
-    auto files = q->entries(path, Tree::EntryType::File);
-    if (type == Tree::EntryType::Dir || type == Tree::EntryType::All) {
+    auto dirs = q->entries(path, EntryType::Dir);
+    auto files = q->entries(path, EntryType::File);
+    if (type == EntryType::Dir || type == EntryType::All) {
         for (auto const &dir : dirs)
             list.append(prefix + dir);
     }
-    if (type == Tree::EntryType::File || type == Tree::EntryType::All) {
+    if (type == EntryType::File || type == EntryType::All) {
         for (const auto &f : files)
             list.append(prefix + f);
     }
@@ -269,24 +269,24 @@ TreePrivate::~TreePrivate()
 {
     git_tree_free(tree);
 }
-Tree::EntryType Tree::EntryLists::type(const QString &entryName) const
+EntryType TreeEntryLists::type(const QString &entryName) const
 {
-    auto i = std::find_if(mEntries.begin(), mEntries.end(), [&entryName](const Git::Tree::Entry &en) {
+    auto i = std::find_if(mEntries.begin(), mEntries.end(), [&entryName](const Git::TreeEntry &en) {
         return en.name == entryName;
     });
 
     if (i == mEntries.end())
-        return Git::Tree::EntryType::Unknown;
+        return Git::EntryType::Unknown;
 
     return (*i).type;
 }
-bool Tree::EntryLists::contains(const QString &entryName) const
+bool TreeEntryLists::contains(const QString &entryName) const
 {
-    return std::any_of(mEntries.begin(), mEntries.end(), [&entryName](Git::Tree::Entry en) {
+    return std::any_of(mEntries.begin(), mEntries.end(), [&entryName](Git::TreeEntry en) {
         return en.name == entryName;
     });
 }
-qsizetype Tree::EntryLists::indexOf(const QString &entryName, qsizetype from) const
+qsizetype TreeEntryLists::indexOf(const QString &entryName, qsizetype from) const
 {
     for (qsizetype i = from; i < mEntries.size(); ++i) {
         if (mEntries.at(i).name == entryName) {
@@ -296,7 +296,7 @@ qsizetype Tree::EntryLists::indexOf(const QString &entryName, qsizetype from) co
 
     return -1;
 }
-qsizetype Tree::EntryLists::lastIndexOf(const QString &entryName, qsizetype from) const
+qsizetype TreeEntryLists::lastIndexOf(const QString &entryName, qsizetype from) const
 {
     auto startIndex = from;
     if (startIndex == -1) {
@@ -311,165 +311,111 @@ qsizetype Tree::EntryLists::lastIndexOf(const QString &entryName, qsizetype from
 
     return -1;
 }
-QList<Tree::Entry>::iterator Tree::EntryLists::begin()
+QList<TreeEntry>::iterator TreeEntryLists::begin()
 {
     return mEntries.begin();
 }
-QList<Tree::Entry>::iterator Tree::EntryLists::end()
+QList<TreeEntry>::iterator TreeEntryLists::end()
 {
     return mEntries.end();
 }
-QList<Tree::Entry>::const_iterator Tree::EntryLists::begin() const noexcept
+QList<TreeEntry>::const_iterator TreeEntryLists::begin() const noexcept
 {
     return mEntries.begin();
 }
-QList<Tree::Entry>::const_iterator Tree::EntryLists::end() const noexcept
+QList<TreeEntry>::const_iterator TreeEntryLists::end() const noexcept
 {
     return mEntries.end();
 }
-QList<Tree::Entry>::const_iterator Tree::EntryLists::cbegin() const noexcept
+QList<TreeEntry>::const_iterator TreeEntryLists::cbegin() const noexcept
 {
     return mEntries.cbegin();
 }
-QList<Tree::Entry>::const_iterator Tree::EntryLists::cend() const noexcept
+QList<TreeEntry>::const_iterator TreeEntryLists::cend() const noexcept
 {
     return mEntries.cend();
 }
-QList<Tree::Entry>::const_iterator Tree::EntryLists::constBegin() const noexcept
+QList<TreeEntry>::const_iterator TreeEntryLists::constBegin() const noexcept
 {
     return mEntries.constBegin();
 }
-QList<Tree::Entry>::const_iterator Tree::EntryLists::constEnd() const noexcept
+QList<TreeEntry>::const_iterator TreeEntryLists::constEnd() const noexcept
 {
     return mEntries.constEnd();
 }
-QList<Tree::Entry>::reverse_iterator Tree::EntryLists::rbegin()
+QList<TreeEntry>::reverse_iterator TreeEntryLists::rbegin()
 {
     return mEntries.rbegin();
 }
-QList<Tree::Entry>::reverse_iterator Tree::EntryLists::rend()
+QList<TreeEntry>::reverse_iterator TreeEntryLists::rend()
 {
     return mEntries.rend();
 }
-QList<Tree::Entry>::const_reverse_iterator Tree::EntryLists::rbegin() const noexcept
+QList<TreeEntry>::const_reverse_iterator TreeEntryLists::rbegin() const noexcept
 {
     return mEntries.rbegin();
 }
-QList<Tree::Entry>::const_reverse_iterator Tree::EntryLists::rend() const noexcept
+QList<TreeEntry>::const_reverse_iterator TreeEntryLists::rend() const noexcept
 {
     return mEntries.rend();
 }
-QList<Tree::Entry>::const_reverse_iterator Tree::EntryLists::crbegin() const noexcept
+QList<TreeEntry>::const_reverse_iterator TreeEntryLists::crbegin() const noexcept
 {
     return mEntries.crbegin();
 }
-QList<Tree::Entry>::const_reverse_iterator Tree::EntryLists::crend() const noexcept
+QList<TreeEntry>::const_reverse_iterator TreeEntryLists::crend() const noexcept
 {
     return mEntries.crend();
 }
-Tree::Entry Tree::EntryLists::at(qsizetype i)
+TreeEntry TreeEntryLists::at(qsizetype i)
 {
     return mEntries.at(i);
 }
-qsizetype Tree::EntryLists::size() const noexcept
+qsizetype TreeEntryLists::size() const noexcept
 {
     return mEntries.size();
 }
-qsizetype Tree::EntryLists::count() const noexcept
+qsizetype TreeEntryLists::count() const noexcept
 {
     return mEntries.size();
 }
-qsizetype Tree::EntryLists::length() const noexcept
+qsizetype TreeEntryLists::length() const noexcept
 {
     return mEntries.size();
 }
-Tree::EntryLists::EntryLists(const QList<Entry> &mEntries)
+TreeEntryLists::TreeEntryLists(const QList<TreeEntry> &mEntries)
     : mEntries(mEntries)
 {
 }
 
 }
-//
-// Git::Tree::EntryType QListSpecialMethods<Git::Tree::Entry>::type(const QString &entryName) const
-//{
-//    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
-//
-//    auto i = std::find_if(self->begin(), self->end(), [&entryName](const Git::Tree::Entry &en) {
-//        return en.name == entryName;
-//    });
-//
-//    if (i == self->end())
-//        return Git::Tree::EntryType::Unknown;
-//
-//    return (*i).type;
-//}
 
-QDebug operator<<(QDebug d, const QList<Git::Tree::Entry> &list)
-{
-    bool first{true};
+// QDebug operator<<(QDebug d, const QList<Git::TreeEntry> &list)
+// {
+//     bool first{true};
 
-    auto &dd = d.noquote().nospace();
+//     auto &dd = d.noquote().nospace();
 
-    for (auto &entry : list) {
-        if (!first)
-            dd << ", ";
+//     for (auto &entry : list) {
+//         if (!first)
+//             dd << ", ";
 
-        dd << "(" << entry.name << ": ";
+//         dd << "(" << entry.name << ": ";
 
-        switch (entry.type) {
-        case Git::Tree::EntryType::Unknown:
-            dd << "Unknown";
-            break;
-        case Git::Tree::EntryType::File:
-            dd << "File";
-            break;
-        case Git::Tree::EntryType::Dir:
-            dd << "Dir";
-            break;
-        }
-        dd << ")";
-        first = false;
-    }
+//         switch (entry.type) {
+//         case Git::EntryType::Unknown:
+//             dd << "Unknown";
+//             break;
+//         case Git::EntryType::File:
+//             dd << "File";
+//             break;
+//         case Git::EntryType::Dir:
+//             dd << "Dir";
+//             break;
+//         }
+//         dd << ")";
+//         first = false;
+//     }
 
-    return dd;
-}
-//
-// bool QListSpecialMethods<Git::Tree::Entry>::contains(const QString &entryName) const
-//{
-//    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
-//
-//    return std::any_of(self->begin(), self->end(), [&entryName](Git::Tree::Entry en) {
-//        return en.name == entryName;
-//    });
-//}
-//
-// qsizetype QListSpecialMethods<Git::Tree::Entry>::indexOf(const QString &entryName, qsizetype from) const
-//{
-//    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
-//
-//    for (qsizetype i = 0; i < self->size(); ++i) {
-//        if (self->at(i).name == entryName) {
-//            return i;
-//        }
-//    }
-//
-//    return -1;
-//}
-//
-// qsizetype QListSpecialMethods<Git::Tree::Entry>::lastIndexOf(const QString &entryName, qsizetype from) const
-//{
-//    auto self = static_cast<QList<Git::Tree::Entry> *>(const_cast<QListSpecialMethods<Git::Tree::Entry> *>(this));
-//
-//    auto startIndex = from;
-//    if (startIndex == -1) {
-//        startIndex = self->size();
-//    }
-//
-//    for (qsizetype i = startIndex; i > 0; --i) {
-//        if (self->at(i).name == entryName) {
-//            return i;
-//        }
-//    }
-//
-//    return -1;
-//}
+//     return dd;
+// }
