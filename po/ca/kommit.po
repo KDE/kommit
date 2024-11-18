@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-04 01:46+0000\n"
+"POT-Creation-Date: 2024-11-18 01:57+0000\n"
 "PO-Revision-Date: 2024-11-04 11:13+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1959,32 +1959,32 @@ msgstr "Directori nou:"
 msgid "Old directory:"
 msgstr "Directori antic:"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:149
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:151
 #, kde-format
 msgid "Receiving objects"
 msgstr "S'estan rebent objectes"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:158
 #, kde-format
 msgid "Stage %1"
 msgstr "Etapa %1"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:166
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
 msgstr "Referències actualitzades: %1  %2...%3"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:170
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
 #, kde-format
 msgid "Finished"
 msgstr "Finalitzat"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:174
 #, kde-format
 msgid "Finished with error"
 msgstr "Ha finalitzat amb error"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:173
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:175
 #, kde-format
 msgid "Error %1: %2"
 msgstr "Error %1: %2"

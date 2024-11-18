@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-04 01:46+0000\n"
+"POT-Creation-Date: 2024-11-18 01:57+0000\n"
 "PO-Revision-Date: 2024-10-14 20:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1950,32 +1950,32 @@ msgstr "Yeni dizin:"
 msgid "Old directory:"
 msgstr "Eski dizin:"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:149
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:151
 #, kde-format
 msgid "Receiving objects"
 msgstr "Nesneler alınıyor…"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:158
 #, kde-format
 msgid "Stage %1"
 msgstr "Hazırlık %1"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:166
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
 msgstr "Başvuru güncellendi: %1 %2…%3"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:170
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
 #, kde-format
 msgid "Finished"
 msgstr "Bitti"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:174
 #, kde-format
 msgid "Finished with error"
 msgstr "Hatayla bitti"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:173
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:175
 #, kde-format
 msgid "Error %1: %2"
 msgstr "Hata %1: %2"

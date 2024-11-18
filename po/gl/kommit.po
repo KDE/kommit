@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-04 01:46+0000\n"
+"POT-Creation-Date: 2024-11-18 01:57+0000\n"
 "PO-Revision-Date: 2024-11-10 13:37+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -1950,32 +1950,32 @@ msgstr "Novo cartafol:"
 msgid "Old directory:"
 msgstr "Cartafol anterior:"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:149
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:151
 #, kde-format
 msgid "Receiving objects"
 msgstr "Recibindo obxectos"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:158
 #, kde-format
 msgid "Stage %1"
 msgstr "Fase %1"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:166
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
 msgstr "Actualizouse a referencia: %1 %2-%3"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:170
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
 #, kde-format
 msgid "Finished"
 msgstr "Rematouse"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:174
 #, kde-format
 msgid "Finished with error"
 msgstr "Rematou cun erro"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:173
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:175
 #, kde-format
 msgid "Error %1: %2"
 msgstr "Erro %1: %2"

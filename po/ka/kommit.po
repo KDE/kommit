@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-04 01:46+0000\n"
+"POT-Creation-Date: 2024-11-18 01:57+0000\n"
 "PO-Revision-Date: 2024-07-07 07:29+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1922,32 +1922,32 @@ msgstr "ახალი საქაღალდე:"
 msgid "Old directory:"
 msgstr "ძველი საქაღალდე:"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:149
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:151
 #, kde-format
 msgid "Receiving objects"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:158
 #, kde-format
 msgid "Stage %1"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:166
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:170
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
 #, kde-format
 msgid "Finished"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:174
 #, kde-format
 msgid "Finished with error"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:173
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:175
 #, kde-format
 msgid "Error %1: %2"
 msgstr ""

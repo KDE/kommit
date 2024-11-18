@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-04 01:46+0000\n"
+"POT-Creation-Date: 2024-11-18 01:57+0000\n"
 "PO-Revision-Date: 2024-11-05 08:58+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1956,32 +1956,32 @@ msgstr "Новий каталог:"
 msgid "Old directory:"
 msgstr "Старий каталог:"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:149
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:151
 #, kde-format
 msgid "Receiving objects"
 msgstr "Отримуємо об'єкти"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:158
 #, kde-format
 msgid "Stage %1"
 msgstr "Етап %1"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:166
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
 msgstr "Оновлено посилання: %1  %2...%3"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:170
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
 #, kde-format
 msgid "Finished"
 msgstr "Завершено"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:174
 #, kde-format
 msgid "Finished with error"
 msgstr "Завершено з помилкою"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:173
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:175
 #, kde-format
 msgid "Error %1: %2"
 msgstr "Помилка %1: %2"
