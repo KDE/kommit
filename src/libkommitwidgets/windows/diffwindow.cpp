@@ -124,7 +124,7 @@ public:
 
 class DiffWindowPrivate
 {
-    DiffWindow *q_ptr;
+    DiffWindow *const q_ptr;
     Q_DECLARE_PUBLIC(DiffWindow)
 
 public:
