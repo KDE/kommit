@@ -46,8 +46,8 @@ BlameHunkPrivate::BlameHunkPrivate(Repository *git, const git_blame_hunk *hunk)
         originPath = hunk->orig_path;
         finalCommit = git->commits()->findByOid(&hunk->final_commit_id);
         originCommit = git->commits()->findByOid(&hunk->orig_commit_id);
-        finalSignature = Signature{hunk->orig_signature};
-        originSignature = Signature{hunk->final_signature};
+        finalSignature = Signature{const_cast<const git_signature *>(hunk->orig_signature)};
+        originSignature = Signature{const_cast<const git_signature *>(hunk->final_signature)};
         finalStartLineNumber = hunk->final_start_line_number;
         originStartLineNumber = hunk->orig_start_line_number;
     }
