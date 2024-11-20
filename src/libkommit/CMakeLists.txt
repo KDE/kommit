@@ -132,8 +132,8 @@ target_include_directories(libkommit PUBLIC
 )
 
 target_link_libraries(libkommit
-    PkgConfig::LIBGIT2
     Qt::Core
+    ${LIBGIT2_LIBRARIES}
     KF${KF_MAJOR_VERSION}::I18n
 )
 

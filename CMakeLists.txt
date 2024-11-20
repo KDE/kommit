@@ -17,9 +17,6 @@ set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
 add_definitions(-DGK_VERSION="${RELEASE_SERVICE_VERSION}")
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(LIBGIT2 "libgit2>=1.0" REQUIRED IMPORTED_TARGET)
-
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 find_package(OpenSSL OPTIONAL_COMPONENTS Crypto SSL)
 
@@ -40,6 +37,11 @@ include(ECMAddTests)
 include(ECMDeprecationSettings)
 include(ECMGenerateHeaders)
 include(ECMGenerateExportHeader)
+include(cmake/Findgit2.cmake)
+
+if (NOT LIBGIT2_FOUND)
+    message("libgit2 not found")
+endif()
 
 if(QT_MAJOR_VERSION STREQUAL "6")
     set(QT_MIN_VERSION "6.4.0")
