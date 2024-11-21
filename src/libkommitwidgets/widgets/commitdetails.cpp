@@ -55,6 +55,8 @@ CommitDetails::CommitDetails(QWidget *parent)
     connect(labelAuthor, &QLabel::linkActivated, this, &CommitDetails::slotEmailLinkClicked);
     connect(labelCommitter, &QLabel::linkActivated, this, &CommitDetails::slotEmailLinkClicked);
 
+    connect(checkBoxMarkdownDisplay, &QCheckBox::toggled, this, &CommitDetails::slotMarkdownDisplayToggled);
+
     stackedWidget->setCurrentIndex(0);
 }
 
@@ -73,7 +75,15 @@ void CommitDetails::setCommit(const Git::Commit &commit)
 
     labelCommitHash->setText(commit.commitHash());
     labelCommitSubject->setText(commit.summary());
-    labelCommitBody->setText(commit.body());
+    if (!commit.body().isEmpty()) {
+        labelCommitBody->setText(commit.body());
+        slotMarkdownDisplayToggled(checkBoxMarkdownDisplay->isChecked());
+        labelCommitBody->setVisible(true);
+        checkBoxMarkdownDisplay->setVisible(true);
+    } else {
+        labelCommitBody->setVisible(false);
+        checkBoxMarkdownDisplay->setVisible(false);
+    }
 
     showSignature(commit.author(), labelAuthorAvatar, labelAuthor, labelAuthTime, mEnableEmailsLinks);
     showSignature(commit.committer(), labelCommiterAvatar, labelCommitter, labelCommitTime, mEnableEmailsLinks);
@@ -168,6 +178,11 @@ void CommitDetails::setEnableFilesLinks(bool enableFilesLinks)
 void CommitDetails::slotEmailLinkClicked(const QString &link)
 {
     QDesktopServices::openUrl(QUrl{link});
+}
+
+void CommitDetails::slotMarkdownDisplayToggled(bool checked)
+{
+    labelCommitBody->setTextFormat(checked ? Qt::MarkdownText : Qt::PlainText);
 }
 
 QString CommitDetails::createChangedFiles()

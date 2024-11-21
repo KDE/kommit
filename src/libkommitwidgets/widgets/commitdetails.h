@@ -44,6 +44,7 @@ Q_SIGNALS:
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotEmailLinkClicked(const QString &link);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotMarkdownDisplayToggled(bool checked);
 
     [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT QString createChangedFiles();
     [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT QString generateCommitLink(const QString &hash);
