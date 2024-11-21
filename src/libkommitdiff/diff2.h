@@ -32,18 +32,20 @@ QList<DiffHunk *> diff(const QList<T> &oldText, const QList<T> &newText, const D
         segment->left.size = oldText.size();
         segment->right.size = newText.size();
         return {segment};
-    } else if (oldText.isEmpty()) {
+    } else if (newText.isEmpty()) {
         auto segment = new DiffHunk;
         segment->type = SegmentType::OnlyOnLeft;
         // segment->oldText = oldText;
         // segment->newText = newText;
         segment->left.size = oldText.size();
+        segment->right.size = 0;
         return {segment};
-    } else if (newText.isEmpty()) {
+    } else if (oldText.isEmpty()) {
         auto segment = new DiffHunk;
         segment->type = SegmentType::OnlyOnRight;
         // segment->oldText = oldText;
         // segment->newText = newText;
+        segment->left.size = 0;
         segment->right.size = newText.size();
         return {segment};
     }
@@ -84,16 +86,24 @@ QList<DiffHunk *> diff(const QList<T> &oldText, const QList<T> &newText, const D
     };
 
     for (auto const &p : lcs) {
+        // Note: lcs returns ranges like [begin, end],
+        // but we need ranges like [begin, end), so add
+        // 1 to p.leftEnd and p.rightEnd
+
+        // Blocks with diff
         if (p.leftStart != leftIndex || p.rightStart != rightIndex)
             add(leftIndex, p.leftStart, rightIndex, p.rightStart, false);
 
-        add(p.leftStart, p.leftEnd, p.rightStart, p.rightEnd, true);
         leftIndex = p.leftEnd + 1;
         rightIndex = p.rightEnd + 1;
+
+        // Blocks with no diff
+        add(p.leftStart, leftIndex, p.rightStart, rightIndex, true);
     }
 
-    if (leftIndex < oldText.size() - 1 || rightIndex < newText.size() - 1)
-        add(leftIndex, oldText.size() - 1, rightIndex, newText.size() - 1, false);
+    // Any remaining block?
+    if (leftIndex < oldText.size() || rightIndex < newText.size())
+        add(leftIndex, oldText.size(), rightIndex, newText.size(), false);
 
     return ret;
 }

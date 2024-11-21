@@ -10,6 +10,9 @@ namespace Diff
 {
 
 DiffHunk::DiffHunk()
+    : type{}
+    , right{}
+    , left{}
 {
 }
 
@@ -30,6 +33,9 @@ Range DiffHunk::get(int index) const
 }
 
 MergeHunk::MergeHunk()
+    : base{}
+    , local{}
+    , remote{}
 {
 }
 

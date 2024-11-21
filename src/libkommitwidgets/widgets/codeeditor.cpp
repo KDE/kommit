@@ -106,9 +106,10 @@ public:
                 if (ln > n + data->lineCount)
                     return -1;
 
-                return std::min(data->lineNumber + data->lineCount, ln);
+                return ln;
             }
-            n += data->maxLineCount;
+            n += data->lineCount;
+            ln -= data->maxLineCount - data->lineCount;
         }
         return 0;
     }
