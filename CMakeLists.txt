@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.16)
 
 project(kommit)
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
 set(PROJECT_VERSION_MAJOR 1)
 set(PROJECT_VERSION_MINOR 6)
 set(PROJECT_VERSION_PATCH 43)
@@ -37,7 +39,6 @@ include(ECMAddTests)
 include(ECMDeprecationSettings)
 include(ECMGenerateHeaders)
 include(ECMGenerateExportHeader)
-include(cmake/Findgit2.cmake)
 
 if (NOT LIBGIT2_FOUND)
     message("libgit2 not found")
@@ -82,6 +83,7 @@ find_package(
         TextEditor
         SyntaxHighlighting
 )
+find_package(Libgit2 REQUIRED)
 
 if(NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     find_package(KF${KF_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)

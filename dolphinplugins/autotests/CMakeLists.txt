@@ -7,7 +7,7 @@ macro(add_dolphinplugins_test _source)
     add_executable(${_name} ${_test} ${ARGN} ${_name}.h)
     add_test(NAME ${_name} COMMAND ${_name})
     ecm_mark_as_test(${_name})
-    target_link_libraries(${_name} Qt::Test libkommitgui DolphinVcs ${LIBGIT2_LIBRARIES})
+    target_link_libraries(${_name} Qt::Test libkommitgui DolphinVcs Libgit2::libgit2)
 endmacro()
 
 add_dolphinplugins_test(overlaytest.cpp)
