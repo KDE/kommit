@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-18 01:57+0000\n"
+"POT-Creation-Date: 2024-11-22 01:51+0000\n"
 "PO-Revision-Date: 2024-11-10 13:37+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -481,6 +481,7 @@ msgstr "Ficheiro base"
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
 #. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitBody)
 #. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
 #. i18n: ectx: property (text), widget (QLabel, labelRefName)
 #. i18n: ectx: property (text), widget (QLabel, labelParent)
@@ -505,14 +506,15 @@ msgstr "Ficheiro base"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:169
 #: src/libkommitwidgets/dialogs/mergedialog.ui:53
 #: src/libkommitwidgets/widgets/commitdetails.ui:69
-#: src/libkommitwidgets/widgets/commitdetails.ui:82
-#: src/libkommitwidgets/widgets/commitdetails.ui:136
-#: src/libkommitwidgets/widgets/commitdetails.ui:155
-#: src/libkommitwidgets/widgets/commitdetails.ui:177
-#: src/libkommitwidgets/widgets/commitdetails.ui:248
-#: src/libkommitwidgets/widgets/commitdetails.ui:258
-#: src/libkommitwidgets/widgets/commitdetails.ui:300
-#: src/libkommitwidgets/widgets/commitdetails.ui:310
+#: src/libkommitwidgets/widgets/commitdetails.ui:131
+#: src/libkommitwidgets/widgets/commitdetails.ui:186
+#: src/libkommitwidgets/widgets/commitdetails.ui:222
+#: src/libkommitwidgets/widgets/commitdetails.ui:241
+#: src/libkommitwidgets/widgets/commitdetails.ui:263
+#: src/libkommitwidgets/widgets/commitdetails.ui:334
+#: src/libkommitwidgets/widgets/commitdetails.ui:344
+#: src/libkommitwidgets/widgets/commitdetails.ui:386
+#: src/libkommitwidgets/widgets/commitdetails.ui:396
 #, kde-format
 msgid "-"
 msgstr "-"
@@ -1544,7 +1546,7 @@ msgstr "Ficheiros cambiados"
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:20
-#: src/libkommitwidgets/widgets/commitdetails.ui:192
+#: src/libkommitwidgets/widgets/commitdetails.ui:278
 #, kde-format
 msgid "Changed files:"
 msgstr "Ficheiros cambiados:"
@@ -2991,45 +2993,45 @@ msgstr "Formulario"
 msgid "Filter branches"
 msgstr "Filtrar as ramas"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:95
+#: src/libkommitwidgets/widgets/commitdetails.cpp:105
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
 #, kde-format
 msgid "Branch: "
 msgstr "Ramificacións: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:97
+#: src/libkommitwidgets/widgets/commitdetails.cpp:107
 #: src/libkommitwidgets/widgets/graphpainter.cpp:131
 #, kde-format
 msgid "Note: "
 msgstr "Nota: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:99
+#: src/libkommitwidgets/widgets/commitdetails.cpp:109
 #: src/libkommitwidgets/widgets/graphpainter.cpp:133
 #, kde-format
 msgid "Remote: "
 msgstr "Remota: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:101
+#: src/libkommitwidgets/widgets/commitdetails.cpp:111
 #: src/libkommitwidgets/widgets/graphpainter.cpp:135
 #, kde-format
 msgid "Tag: "
 msgstr "Etiqueta: "
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:110
-#: src/libkommitwidgets/widgets/commitdetails.ui:214
+#: src/libkommitwidgets/widgets/commitdetails.cpp:120
+#: src/libkommitwidgets/widgets/commitdetails.ui:300
 #, kde-format
 msgid "Ref:"
 msgstr "Referencia:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.cpp:120
 #, kde-format
 msgid "Refs:"
 msgstr "Referencias:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:120
-#: src/libkommitwidgets/widgets/commitdetails.ui:148
+#: src/libkommitwidgets/widgets/commitdetails.cpp:130
+#: src/libkommitwidgets/widgets/commitdetails.ui:234
 #, kde-format
 msgid "Parent:"
 msgid_plural "Parents:"
@@ -3037,8 +3039,8 @@ msgstr[0] "Ascendente:"
 msgstr[1] "Ascendentes:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:125
-#: src/libkommitwidgets/widgets/commitdetails.ui:170
+#: src/libkommitwidgets/widgets/commitdetails.cpp:135
+#: src/libkommitwidgets/widgets/commitdetails.ui:256
 #, kde-format
 msgid "Child:"
 msgid_plural "Children:"
@@ -3051,20 +3053,26 @@ msgstr[1] "Descendentes:"
 msgid "Commit is not selected"
 msgstr "Non hai ningunha remisión seleccionada."
 
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxMarkdownDisplay)
+#: src/libkommitwidgets/widgets/commitdetails.ui:147
+#, kde-format
+msgid "Render commit message in Markdown"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:117
+#: src/libkommitwidgets/widgets/commitdetails.ui:203
 #, kde-format
 msgid "Author:"
 msgstr "Autoría:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCommitterText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:129
+#: src/libkommitwidgets/widgets/commitdetails.ui:215
 #, kde-format
 msgid "Committer:"
 msgstr "Autoría da remisión:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
-#: src/libkommitwidgets/widgets/commitdetails.ui:199
+#: src/libkommitwidgets/widgets/commitdetails.ui:285
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
 msgstr "<html><head/><body><p>-</p></body></html>"

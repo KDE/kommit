@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-18 01:57+0000\n"
+"POT-Creation-Date: 2024-11-22 01:51+0000\n"
 "PO-Revision-Date: 2023-12-08 19:34+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -502,6 +502,7 @@ msgstr "Zobraziť súbor: %1"
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
 #. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitBody)
 #. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
 #. i18n: ectx: property (text), widget (QLabel, labelRefName)
 #. i18n: ectx: property (text), widget (QLabel, labelParent)
@@ -526,14 +527,15 @@ msgstr "Zobraziť súbor: %1"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:169
 #: src/libkommitwidgets/dialogs/mergedialog.ui:53
 #: src/libkommitwidgets/widgets/commitdetails.ui:69
-#: src/libkommitwidgets/widgets/commitdetails.ui:82
-#: src/libkommitwidgets/widgets/commitdetails.ui:136
-#: src/libkommitwidgets/widgets/commitdetails.ui:155
-#: src/libkommitwidgets/widgets/commitdetails.ui:177
-#: src/libkommitwidgets/widgets/commitdetails.ui:248
-#: src/libkommitwidgets/widgets/commitdetails.ui:258
-#: src/libkommitwidgets/widgets/commitdetails.ui:300
-#: src/libkommitwidgets/widgets/commitdetails.ui:310
+#: src/libkommitwidgets/widgets/commitdetails.ui:131
+#: src/libkommitwidgets/widgets/commitdetails.ui:186
+#: src/libkommitwidgets/widgets/commitdetails.ui:222
+#: src/libkommitwidgets/widgets/commitdetails.ui:241
+#: src/libkommitwidgets/widgets/commitdetails.ui:263
+#: src/libkommitwidgets/widgets/commitdetails.ui:334
+#: src/libkommitwidgets/widgets/commitdetails.ui:344
+#: src/libkommitwidgets/widgets/commitdetails.ui:386
+#: src/libkommitwidgets/widgets/commitdetails.ui:396
 #, kde-format
 msgid "-"
 msgstr "-"
@@ -1583,7 +1585,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:20
-#: src/libkommitwidgets/widgets/commitdetails.ui:192
+#: src/libkommitwidgets/widgets/commitdetails.ui:278
 #, kde-format
 msgid "Changed files:"
 msgstr ""
@@ -2968,46 +2970,46 @@ msgstr "Formulár"
 msgid "Filter branches"
 msgstr "Vetvy"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:95
+#: src/libkommitwidgets/widgets/commitdetails.cpp:105
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
 #, kde-format
 msgid "Branch: "
 msgstr "Vetva:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:97
+#: src/libkommitwidgets/widgets/commitdetails.cpp:107
 #: src/libkommitwidgets/widgets/graphpainter.cpp:131
 #, kde-format
 msgid "Note: "
 msgstr "Poznámka: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:99
+#: src/libkommitwidgets/widgets/commitdetails.cpp:109
 #: src/libkommitwidgets/widgets/graphpainter.cpp:133
 #, fuzzy, kde-format
 #| msgid "Remote:"
 msgid "Remote: "
 msgstr "Vzdialené"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:101
+#: src/libkommitwidgets/widgets/commitdetails.cpp:111
 #: src/libkommitwidgets/widgets/graphpainter.cpp:135
 #, fuzzy, kde-format
 msgid "Tag: "
 msgstr "Značka"
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:110
-#: src/libkommitwidgets/widgets/commitdetails.ui:214
+#: src/libkommitwidgets/widgets/commitdetails.cpp:120
+#: src/libkommitwidgets/widgets/commitdetails.ui:300
 #, kde-format
 msgid "Ref:"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.cpp:120
 #, kde-format
 msgid "Refs:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:120
-#: src/libkommitwidgets/widgets/commitdetails.ui:148
+#: src/libkommitwidgets/widgets/commitdetails.cpp:130
+#: src/libkommitwidgets/widgets/commitdetails.ui:234
 #, fuzzy, kde-format
 #| msgid "Parent"
 msgid "Parent:"
@@ -3017,8 +3019,8 @@ msgstr[1] "Rodič"
 msgstr[2] "Rodič"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:125
-#: src/libkommitwidgets/widgets/commitdetails.ui:170
+#: src/libkommitwidgets/widgets/commitdetails.cpp:135
+#: src/libkommitwidgets/widgets/commitdetails.ui:256
 #, fuzzy, kde-format
 #| msgid "Child"
 msgid "Child:"
@@ -3033,22 +3035,28 @@ msgstr[2] "Potomok"
 msgid "Commit is not selected"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxMarkdownDisplay)
+#: src/libkommitwidgets/widgets/commitdetails.ui:147
+#, kde-format
+msgid "Render commit message in Markdown"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:117
+#: src/libkommitwidgets/widgets/commitdetails.ui:203
 #, fuzzy, kde-format
 #| msgid "Author"
 msgid "Author:"
 msgstr "Autor"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCommitterText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:129
+#: src/libkommitwidgets/widgets/commitdetails.ui:215
 #, fuzzy, kde-format
 #| msgid "Commit"
 msgid "Committer:"
 msgstr "Začleniť"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
-#: src/libkommitwidgets/widgets/commitdetails.ui:199
+#: src/libkommitwidgets/widgets/commitdetails.ui:285
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
 msgstr ""
