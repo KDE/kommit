@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 01:51+0000\n"
-"PO-Revision-Date: 2024-11-04 11:13+0100\n"
+"PO-Revision-Date: 2024-11-22 09:47+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -377,12 +377,12 @@ msgstr "Corregix un error a la selecció de branca en el giny de comissions"
 #: src/gui/changelogsdata.cpp:79
 #, kde-format
 msgid "Improve merge algorithm and text rendering"
-msgstr "Millora l'algorisme de fusió i renderització de text"
+msgstr "Millora l'algorisme de fusió i renderització del text"
 
 #: src/gui/changelogsdata.cpp:80
 #, kde-format
 msgid "Improve diff window text rendering"
-msgstr "Millora la representació del text de la finestra de diferències"
+msgstr "Millora la renderització del text de la finestra de diferències"
 
 #: src/gui/changelogsdata.cpp:81
 #, kde-format
@@ -3065,7 +3065,7 @@ msgstr "No s'ha seleccionat la comissió"
 #: src/libkommitwidgets/widgets/commitdetails.ui:147
 #, kde-format
 msgid "Render commit message in Markdown"
-msgstr ""
+msgstr "Renderitza el missatge de comissió en Markdown"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:203
