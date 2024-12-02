@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the gitklient package.
-# Tommi Nieminen <translator@legisign.org>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-24 03:05+0000\n"
-"PO-Revision-Date: 2023-06-07 16:31+0300\n"
+"PO-Revision-Date: 2024-11-13 17:14+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -153,10 +153,9 @@ msgid "Push/Commit to %1"
 msgstr ""
 
 #: dolphinplugins/dolphinplugin.cpp:103
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgid "Push/Commit to submodule %1"
-msgstr "Toimita/vie"
+msgstr "Vie/toimita alimoduuliin %1"
 
 #: src/apps/main.cpp:58
 #, kde-format
@@ -164,10 +163,9 @@ msgid "Git client gui for KDE"
 msgstr "KDE:n Git-asiakaskäyttöliittymä"
 
 #: src/apps/main.cpp:60
-#, fuzzy, kde-format
-#| msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+#, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr "Tekijänoikeudet 2021–2023, Hamed Masafi <hamed.masafi@gmail.com>"
+msgstr "Tekijänoikeudet 2021–2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:62 src/libkommit/models/logsmodel.cpp:262
 #: src/libkommitwidgets/reports/authorsreport.cpp:78
@@ -176,15 +174,13 @@ msgid "Author"
 msgstr "Tekijä"
 
 #: src/apps/main.cpp:62
-#, fuzzy, kde-format
-#| msgid "Hamed Masafi"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
@@ -216,95 +212,82 @@ msgstr " (pohjataan uudelleen)"
 
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Init..."
+#, kde-format
 msgctxt "@action"
 msgid "Init..."
 msgstr "Alusta…"
 
 #: src/gui/appwindow.cpp:167
-#, fuzzy, kde-format
-#| msgid "Open..."
+#, kde-format
 msgctxt "@action"
 msgid "Open..."
 msgstr "Avaa…"
 
 #: src/gui/appwindow.cpp:172
-#, fuzzy, kde-format
-#| msgid "Clone..."
+#, kde-format
 msgctxt "@action"
 msgid "Clone..."
 msgstr "Monista…"
 
 #: src/gui/appwindow.cpp:175
-#, fuzzy, kde-format
-#| msgid "Changed files..."
+#, kde-format
 msgctxt "@action"
 msgid "Changed files..."
 msgstr "Muuttuneet tiedostot…"
 
 #: src/gui/appwindow.cpp:181
-#, fuzzy, kde-format
-#| msgid "Recent repos"
+#, kde-format
 msgctxt "@action"
 msgid "Recent repos"
-msgstr "Viimeaikaiset lähteet"
+msgstr "Viimeaikaiset tietovarastot"
 
 #: src/gui/appwindow.cpp:187
-#, fuzzy, kde-format
-#| msgid "Cleanup..."
+#, kde-format
 msgctxt "@action"
 msgid "Cleanup..."
 msgstr "Siivoa…"
 
 #: src/gui/appwindow.cpp:190
-#, fuzzy, kde-format
-#| msgid "Pull..."
+#, kde-format
 msgctxt "@action"
 msgid "Pull..."
 msgstr "Tuo…"
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
-#, fuzzy, kde-format
-#| msgid "Fetch..."
+#, kde-format
 msgctxt "@action"
 msgid "Fetch..."
 msgstr "Nouda…"
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
-#, fuzzy, kde-format
-#| msgid "Push..."
+#, kde-format
 msgctxt "@action"
 msgid "Push..."
 msgstr "Vie…"
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Merge..."
+#, kde-format
 msgctxt "@action"
 msgid "Merge..."
 msgstr "Yhdistä…"
 
 #: src/gui/appwindow.cpp:206
-#, fuzzy, kde-format
-#| msgid "Diff branches..."
+#, kde-format
 msgctxt "@action"
 msgid "Diff branches..."
 msgstr "Vertaa haaroja…"
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Search..."
+#, kde-format
 msgctxt "@action"
 msgid "Search..."
 msgstr "Etsi…"
 
 #: src/gui/appwindow.cpp:212
-#, fuzzy, kde-format
-#| msgid "Repo settings..."
+#, kde-format
 msgctxt "@action"
 msgid "Repo settings..."
-msgstr "Lähdeasetukset…"
+msgstr "Tietovarastoasetukset…"
 
 # Käännös perustuu siihen, että checkout = switch + jotakin lisää. ”Switch” näin ollen vain siirtyy toiseen haaraan, kun taas ”checkout” oikeasti vaihtaa haaraa.
 #: src/gui/appwindow.cpp:215
@@ -315,8 +298,7 @@ msgid "Switch/Checkout..."
 msgstr "Siirry/vaihda…"
 
 #: src/gui/appwindow.cpp:218
-#, fuzzy, kde-format
-#| msgid "Diff tree"
+#, kde-format
 msgctxt "@action"
 msgid "Diff tree"
 msgstr "Vertaa puuta"
@@ -582,16 +564,15 @@ msgstr "Nimi"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:172
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Ref name"
-msgstr "Muuta nimeä"
+msgstr "Viitenimi"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:177 src/libkommit/models/branchesmodel.cpp:75
 #, kde-format
 msgid "Upstream"
-msgstr ""
+msgstr "Ylävirta"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
@@ -603,47 +584,45 @@ msgstr "Tila"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
 #: src/gui/pages/reportswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Reports"
-msgstr "Lähde"
+msgstr "Raportit"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:33
 #, kde-format
 msgid "Table view"
-msgstr ""
+msgstr "Taulukkonäkymä"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:36
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "Taulukko"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:50
-#, fuzzy, kde-format
-#| msgid "Regular view"
+#, kde-format
 msgid "Chart view"
-msgstr "Tavallinen näkymä"
+msgstr "Kaavionäkymä"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:53
 #, kde-format
 msgid "Chart"
-msgstr ""
+msgstr "Kaavio"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:80
 #, kde-format
 msgid "Refresh data"
-msgstr ""
+msgstr "Virkistä tiedot"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:83
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Virkistä"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
 #: src/gui/pages/stasheswidget.ui:14
@@ -826,7 +805,7 @@ msgstr "Rekisteröi kommit-yhdistämistyökalu"
 #: src/gui/settings/settingspagegit.ui:37
 #, kde-format
 msgid "Git proxy:"
-msgstr ""
+msgstr "Git-välityspalvelin:"
 
 #: src/libkommit/commands/commandpull.cpp:62
 #, kde-format
@@ -878,10 +857,9 @@ msgid "Commit(s) ahead"
 msgstr "Toimitus(ta) edellä"
 
 #: src/libkommit/models/branchesmodel.cpp:71
-#, fuzzy, kde-format
-#| msgid "Commit(s) ahead"
+#, kde-format
 msgid "Is ahead"
-msgstr "Toimitus(ta) edellä"
+msgstr "On edellä"
 
 #: src/libkommit/models/branchesmodel.cpp:73
 #, kde-format
@@ -960,24 +938,21 @@ msgstr "HEAD"
 #: src/libkommit/models/tagsmodel.cpp:65
 #, kde-format
 msgid "Tagger"
-msgstr ""
+msgstr "Luokittelija"
 
 #: src/libkommit/models/tagsmodel.cpp:67
-#, fuzzy, kde-format
-#| msgid "Create tag"
+#, kde-format
 msgid "Create time"
-msgstr "Luo luokitus"
+msgstr "Luontiaika"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:31
-#, fuzzy, kde-format
-#| msgid "Create..."
+#, kde-format
 msgctxt "@action"
 msgid "Create..."
 msgstr "Luo…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
-#, fuzzy, kde-format
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action"
 msgid "Browse..."
 msgstr "Selaa…"
@@ -990,25 +965,22 @@ msgid "Switch"
 msgstr "Siirry"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:38
-#, fuzzy, kde-format
-#| msgid "Diff"
+#, kde-format
 msgctxt "@action"
 msgid "Diff"
-msgstr "Diff"
+msgstr "Vertaa"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:39
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Remove..."
+#, kde-format
 msgctxt "@action"
 msgid "Remove..."
 msgstr "Poista…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Note..."
+#, kde-format
 msgctxt "@action"
 msgid "Note..."
 msgstr "Huomautus…"
@@ -1029,32 +1001,28 @@ msgid "Remove Branch"
 msgstr "Poista haara"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
-#, fuzzy, kde-format
-#| msgid "Diff..."
+#, kde-format
 msgctxt "@action"
 msgid "Diff..."
-msgstr "Diff…"
+msgstr "Vertaa…"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
-#, fuzzy, kde-format
-#| msgid "Revert..."
+#, kde-format
 msgctxt "@action"
 msgid "Revert..."
-msgstr "Palaa takaisin…"
+msgstr "Palauta…"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Browse"
+#, kde-format
 msgctxt "@action"
 msgid "Browse"
 msgstr "Selaa"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Checkout"
-msgstr "Vaihda"
+msgstr "Nouda"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:47
@@ -1063,32 +1031,28 @@ msgstr "Vaihda"
 #, kde-format
 msgctxt "@action"
 msgid "Diff with working dir"
-msgstr ""
+msgstr "Näytä erot työkansioon"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Note"
+#, kde-format
 msgctxt "@action"
 msgid "Note"
 msgstr "Huomautus"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Preview"
+#, kde-format
 msgctxt "@action"
 msgid "Preview"
 msgstr "Esikatselu"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action"
 msgid "Open"
 msgstr "Avaa"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:45
-#, fuzzy, kde-format
-#| msgid "Open with..."
+#, kde-format
 msgctxt "@action"
 msgid "Open with..."
 msgstr "Avaa ohjelmalla…"
@@ -1097,25 +1061,22 @@ msgstr "Avaa ohjelmalla…"
 #, kde-format
 msgctxt "@action"
 msgid "Merge with working dir"
-msgstr ""
+msgstr "Yhdistä työkansioon"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:50
-#, fuzzy, kde-format
-#| msgid "Save as..."
+#, kde-format
 msgctxt "@action"
 msgid "Save as..."
 msgstr "Tallenna nimellä…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
-#, fuzzy, kde-format
-#| msgid "Log..."
+#, kde-format
 msgctxt "@action"
 msgid "Log"
-msgstr "Loki…"
+msgstr "Loki"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:52
-#, fuzzy, kde-format
-#| msgid "Blame"
+#, kde-format
 msgctxt "@action"
 msgid "Blame"
 msgstr "Moiti"
@@ -1123,25 +1084,22 @@ msgstr "Moiti"
 #: src/libkommitwidgets/actions/fileactions.cpp:72
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
-msgstr ""
+msgstr "%1-tiedosto (*.%1);;Kaikki tiedostot (*)"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New..."
+#, kde-format
 msgctxt "@action"
 msgid "New..."
 msgstr "Uusi…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
-#, fuzzy, kde-format
-#| msgid "Rename..."
+#, kde-format
 msgctxt "@action"
 msgid "Rename..."
 msgstr "Muuta nimeä…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
-#, fuzzy, kde-format
-#| msgid "Change url..."
+#, kde-format
 msgctxt "@action"
 msgid "Change url..."
 msgstr "Muuta verkko-osoitetta…"
@@ -1187,8 +1145,7 @@ msgid "New name"
 msgstr "Uusi nimi"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:22
-#, fuzzy, kde-format
-#| msgid "New stash..."
+#, kde-format
 msgctxt "@action"
 msgid "New stash..."
 msgstr "Uusi jemma…"
@@ -1201,8 +1158,7 @@ msgid "Pop..."
 msgstr "Palauta…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Apply..."
+#, kde-format
 msgctxt "@action"
 msgid "Apply..."
 msgstr "Käytä…"
@@ -1273,23 +1229,20 @@ msgid "Name of stash"
 msgstr "Jemman nimi"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action"
 msgid "Add..."
 msgstr "Lisää…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
-#, fuzzy, kde-format
-#| msgid "Update..."
+#, kde-format
 msgctxt "@action"
 msgid "Update..."
 msgstr "Päivitä…"
 
 #. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Sync..."
+#, kde-format
 msgctxt "@action"
 msgid "Sync..."
 msgstr "Tahdista…"
@@ -1315,18 +1268,16 @@ msgid "The submodule %1 removed"
 msgstr "Alimoduuli %1 on poistettu"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New tag..."
+#, kde-format
 msgctxt "@action"
 msgid "New tag..."
-msgstr "Uusi tunniste…"
+msgstr "Uusi luokitus…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
-#, fuzzy, kde-format
-#| msgid "Checkout..."
+#, kde-format
 msgctxt "@action"
 msgid "Checkout..."
-msgstr "Vaihda…"
+msgstr "Nouda…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1373,30 +1324,26 @@ msgstr "Lataa uudelleen"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonStashChanges)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
-#, fuzzy, kde-format
-#| msgid "Stashes"
+#, kde-format
 msgid "Stash changes"
-msgstr "Jemmat"
+msgstr "Kätkön muutokset"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgid "Commit/push"
 msgstr "Toimita/vie"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Commit/Push"
+#, kde-format
 msgid "Commit/Push submodule: %1"
-msgstr "Toimita/vie"
+msgstr "Toimita/vie alimoduuli: %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Changed files"
+#, kde-format
 msgid "Changed submodules"
-msgstr "Muuttuneet tiedostot"
+msgstr "Muuttuneet alimoduulit"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
@@ -1498,7 +1445,7 @@ msgstr "Alkuperän nimi"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:162
 #, kde-format
 msgid "Cloning into:"
-msgstr ""
+msgstr "Monistetaan kohteeseen:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
@@ -1530,7 +1477,7 @@ msgstr "–"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:176
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "Tekstiselite"
 
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:103
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
@@ -1723,16 +1670,15 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:97
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgid "Username:"
-msgstr "Muuta nimeä"
+msgstr "Käyttäjätunnus:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:45
 #, kde-format
 msgid "Password:"
-msgstr ""
+msgstr "Salasana:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14
@@ -2086,7 +2032,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/pulldialog.ui:101
 #, kde-format
 msgid "Squash"
-msgstr ""
+msgstr "Litistä"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonOurs)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:140
@@ -2314,7 +2260,7 @@ msgstr "Suorita komento"
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:36
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p %"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:47
@@ -2448,15 +2394,14 @@ msgid "HEAD"
 msgstr "HEAD"
 
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:101
-#, fuzzy, kde-format
-#| msgid "The path is not git repo: %1"
+#, kde-format
 msgid "The path is not inside of git directory"
-msgstr "Sijainti ei ole git-lähde: %1"
+msgstr "Sijainti ei ole Git-kansiossa"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:75
 #, kde-format
 msgid "The branch already exists"
-msgstr ""
+msgstr "Haara on jo olemassa"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:52
@@ -2471,20 +2416,19 @@ msgid "Tag name:"
 msgstr "Tunnisteen nimi:"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:139
-#, fuzzy, kde-format
-#| msgid "No commit"
+#, kde-format
 msgid " (new commit)"
-msgstr "Ei toimitusta"
+msgstr " (uusi toimitus)"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:141
 #, kde-format
 msgid " (content modified)"
-msgstr ""
+msgstr " (sisältö muuttunut)"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:58
 #, kde-format
 msgid "Commits count by author"
-msgstr ""
+msgstr "Tekijän mukainen toimitusmäärä"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:68
 #, kde-format
@@ -2500,83 +2444,82 @@ msgstr "Tekijät"
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:46
 #, kde-format
 msgid "Commits by hour of day"
-msgstr ""
+msgstr "Toimitukset tunneittain"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
 #, kde-format
 msgid "Hour"
-msgstr ""
+msgstr "Tunti"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:66
 #, kde-format
 msgid "Hour of day"
-msgstr ""
+msgstr "Päivän tunti"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:22
 #, kde-format
 msgid "Monday"
-msgstr ""
+msgstr "Maanantai"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:24
 #, kde-format
 msgid "Tuesday"
-msgstr ""
+msgstr "Tiistai"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:26
 #, kde-format
 msgid "Wednesday"
-msgstr ""
+msgstr "Keskiviikko"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:28
 #, kde-format
 msgid "Thursday"
-msgstr ""
+msgstr "Torstai"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:30
 #, kde-format
 msgid "Friday"
-msgstr ""
+msgstr "Perjantai"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:32
 #, kde-format
 msgid "Saturday"
-msgstr ""
+msgstr "Lauantai"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:34
 #, kde-format
 msgid "Sunday"
-msgstr ""
+msgstr "Sunnuntai"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
 #, kde-format
 msgid "Commits by day of week"
-msgstr ""
+msgstr "Toimitukset viikonpäivän mukaan"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
 #, kde-format
 msgid "Day"
-msgstr ""
+msgstr "Päivä"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:95
 #, kde-format
 msgid "Day of week"
-msgstr ""
+msgstr "Viikonpäivä"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:60
-#, fuzzy, kde-format
-#| msgid "Commit(s) behind"
+#, kde-format
 msgid "Commits by month"
-msgstr "Toimitus(ta) jäljessä"
+msgstr "Toimitukset kuukauden mukaan"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:70
 #, kde-format
 msgid "Month"
-msgstr ""
+msgstr "Kuukausi"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:80
 #, kde-format
 msgid "Month-year"
-msgstr ""
+msgstr "Kuukausi-vuosi"
 
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:41
 #, kde-format
@@ -2584,27 +2527,24 @@ msgid "Uncommited"
 msgstr "Ei toimitettu"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:88
-#, fuzzy, kde-format
-#| msgid "Branch:"
+#, kde-format
 msgid "Branch: "
-msgstr "Haara:"
+msgstr "Haara: "
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:90
-#, fuzzy, kde-format
-#| msgid "Note"
+#, kde-format
 msgid "Note: "
-msgstr "Huomautus"
+msgstr "Huomautus: "
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:92
-#, fuzzy, kde-format
-#| msgid "Remote:"
+#, kde-format
 msgid "Remote: "
-msgstr "Etäkohde: "
+msgstr "Etä: "
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:94
 #, kde-format
 msgid "Tag: "
-msgstr ""
+msgstr "Luokitus: "
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
@@ -2614,50 +2554,45 @@ msgstr "Lomake"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/widgets/commitdetails.ui:39
-#, fuzzy, kde-format
-#| msgid "Checkout to selected"
+#, kde-format
 msgid "Commit is not selected"
-msgstr "Vaihda valittuun"
+msgstr "Toimitusta ei ole valittu"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:99
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Author:"
-msgstr "Tekijä"
+msgstr "Tekijä:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCommitterText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:111
-#, fuzzy, kde-format
-#| msgid "Committer"
+#, kde-format
 msgid "Committer:"
-msgstr "Toimittaja"
+msgstr "Toimittaja:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, fuzzy, kde-format
-#| msgid "Parent"
+#, kde-format
 msgid "Parent:"
-msgstr "Vanhempi"
+msgstr "Emo:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, fuzzy, kde-format
-#| msgid "Child"
+#, kde-format
 msgid "Child:"
-msgstr "Lapsi"
+msgstr "Perillinen:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>-</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
 #: src/libkommitwidgets/widgets/commitdetails.ui:196
 #, kde-format
 msgid "Ref:"
-msgstr ""
+msgstr "Viite:"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/difftreeview.ui:17
@@ -2673,10 +2608,9 @@ msgstr "Piilota muuttamattomat"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Report"
-msgstr "Lähde"
+msgstr "Raportti"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
