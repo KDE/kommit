@@ -262,7 +262,7 @@ bool Repository::isIgnored(const QString &path)
 
     if (IS_ERROR)
         return false;
-    return !isIgnored;
+    return isIgnored;
 }
 
 QPair<int, int> Repository::uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const

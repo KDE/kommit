@@ -22,20 +22,30 @@ IgnoreFileDialog::IgnoreFileDialog(Git::Repository *git, const QString &filePath
 
     QFileInfo fi{filePath};
 
-    if (fi.isDir())
+    if (fi.isDir()) {
         groupBoxFileName->hide();
+        mPath = filePath;
 
-    mPath = fi.absolutePath() + QLatin1Char('/');
-    mPath = mPath.remove(git->path());
-    mName = fi.baseName();
-    mExt = fi.completeSuffix();
+        mPath = mPath.remove(git->path());
+
+        if (mPath.endsWith(QLatin1Char('/')))
+            mPath.removeLast();
+    } else {
+        mPath = fi.absolutePath();
+        if (!mPath.endsWith(QLatin1Char('/')))
+            mPath.append(QLatin1Char('/'));
+
+        mPath = mPath.remove(git->path());
+        mName = fi.baseName();
+        mExt = fi.completeSuffix();
+    }
 
     if (mPath == QLatin1Char('/'))
         radioButtonDirIgnoreFile->setEnabled(false);
 
     generateIgnorePattern();
 
-    const auto isIgnored = git->isIgnored(mName + QLatin1Char('.') + mExt);
+    const auto isIgnored = git->isIgnored(mPath);
 
     if (isIgnored) {
         groupBoxFileName->setEnabled(false);
@@ -45,7 +55,14 @@ IgnoreFileDialog::IgnoreFileDialog(Git::Repository *git, const QString &filePath
         mIsIgnoredAlready = true;
         buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
+
     connect(buttonBox, &QDialogButtonBox::accepted, this, &IgnoreFileDialog::slotAccept);
+
+    connect(radioButtonName, &QRadioButton::toggled, this, &IgnoreFileDialog::generateIgnorePattern);
+    connect(radioButtonExt, &QRadioButton::toggled, this, &IgnoreFileDialog::generateIgnorePattern);
+    connect(radioButtonNameAndExt, &QRadioButton::toggled, this, &IgnoreFileDialog::generateIgnorePattern);
+    connect(radioButtonExactPath, &QRadioButton::toggled, this, &IgnoreFileDialog::generateIgnorePattern);
+    connect(radioButtonEveryWhere, &QRadioButton::toggled, this, &IgnoreFileDialog::generateIgnorePattern);
 }
 
 void IgnoreFileDialog::generateIgnorePattern()
@@ -80,6 +97,7 @@ void IgnoreFileDialog::slotAccept()
         KMessageBoxHelper::error(this, i18n("Please enter the pattern"));
         return;
     }
+
     QFile f(getIgnoreFile());
     if (!f.open(QIODevice::Append | QIODevice::Text)) {
         KMessageBoxHelper::error(this, i18n("Unable to open file: %1", getIgnoreFile()));
@@ -95,11 +113,11 @@ void IgnoreFileDialog::slotAccept()
 QString IgnoreFileDialog::getIgnoreFile() const
 {
     if (radioButtonRootIgnoreFile->isChecked())
-        return mGit->path() + QStringLiteral("/.gitignore");
+        return mGit->path() + QStringLiteral(".gitignore");
     else if (radioButtonDirIgnoreFile->isChecked())
-        return mGit->path() + mPath + QStringLiteral(".gitignore");
+        return mGit->path() + mPath + QStringLiteral("/.gitignore");
     else
-        return mGit->path() + QStringLiteral("/.git/info/exclude");
+        return mGit->path() + QStringLiteral(".git/info/exclude");
 }
 
 #include "moc_ignorefiledialog.cpp"
