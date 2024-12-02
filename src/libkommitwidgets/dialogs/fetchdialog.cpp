@@ -121,12 +121,12 @@ void FetchDialog::startFetch()
 
     auto callbacks = mFetch->remoteCallbacks();
 
+    connectRemoteCallbacks(callbacks);
+
     connect(callbacks, &Git::RemoteCallbacks::message, this, &FetchDialog::slotFetchMessage);
     connect(callbacks, &Git::RemoteCallbacks::transferProgress, this, &FetchDialog::slotFetchTransferProgress);
     connect(callbacks, &Git::RemoteCallbacks::packProgress, this, &FetchDialog::slotFetchPackProgress);
     connect(callbacks, &Git::RemoteCallbacks::updateRef, this, &FetchDialog::slotFetchUpdateRef);
-    connect(callbacks, &Git::RemoteCallbacks::credentialRequested, this, &FetchDialog::slotCredentialRequested);
-    connect(callbacks, &Git::RemoteCallbacks::certificateCheck, this, &FetchDialog::slotCertificateCheck);
     connect(mFetch, &Git::Fetch::finished, this, &FetchDialog::slotFetchFinished);
 
     stackedWidget->setCurrentIndex(1);
@@ -134,7 +134,6 @@ void FetchDialog::startFetch()
 
     qApp->processEvents();
     mIsChanged = false;
-    mRetryCount = 0;
     mFetch->run();
     qApp->processEvents();
 
@@ -176,34 +175,6 @@ void FetchDialog::slotFetchFinished(bool success)
     }
 
     progressBar->setValue(progressBar->maximum());
-}
-
-void FetchDialog::slotCredentialRequested(const QString &url, Git::Credential *cred, bool *accept)
-{
-    CredentialDialog d{this};
-    d.setUrl(url);
-
-    if (d.exec() == QDialog::Accepted) {
-        cred->setUsername(d.username());
-        cred->setPassword(d.password());
-        *accept = true;
-    } else {
-        *accept = false;
-    }
-}
-
-void FetchDialog::slotCertificateCheck(const Git::Certificate &cert, bool *accept)
-{
-    if (cert.isValid()) {
-        *accept = true;
-        return;
-    }
-    if (++mRetryCount > 3) {
-        *accept = false;
-        return;
-    }
-    CertificateInfoDialog d{cert, this};
-    *accept = d.exec() == QDialog::Accepted;
 }
 
 #include "moc_fetchdialog.cpp"

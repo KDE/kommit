@@ -39,6 +39,7 @@ target_sources(libkommit PRIVATE
     remotecallbacks.h remotecallbacks.cpp
     proxy.cpp proxy.h
     clone.h clone.cpp
+    push.h push.cpp
 
     caches/abstractcache.cpp
     caches/branchescache.cpp
@@ -173,6 +174,7 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
         Certificate
         FileStatus
         Types
+        Push
         Error
         FileDelta
         FileMode

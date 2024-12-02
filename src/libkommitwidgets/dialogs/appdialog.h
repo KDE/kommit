@@ -10,6 +10,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDialog>
 #include <QMetaEnum>
 
+#include <Kommit/Certificate>
+#include <Kommit/Credential>
+#include <Kommit/RemoteCallbacks>
+
 #include "libkommitwidgets_export.h"
 
 namespace Git
@@ -26,7 +30,14 @@ public:
 
     bool event(QEvent *event) override;
 
+private:
+    void slotCredentialRequested(const QString &url, Git::Credential *cred, bool *accept);
+    void slotCertificateCheck(const Git::Certificate &cert, bool *accept);
+
+    int mRetryCount{0};
+
 protected:
+    void connectRemoteCallbacks(const Git::RemoteCallbacks *callbacks);
     Git::Repository *const mGit;
 
     template<typename _Enum>

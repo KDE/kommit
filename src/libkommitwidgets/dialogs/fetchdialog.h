@@ -10,8 +10,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include "ui_fetchdialog.h"
 
-#include <Kommit/Certificate>
-#include <Kommit/Credential>
 #include <Kommit/Oid>
 #include <Kommit/Reference>
 
@@ -45,10 +43,7 @@ private:
     void slotFetchPackProgress(const Git::PackProgress *p);
     void slotFetchUpdateRef(const Git::Reference &reference, const Git::Oid &a, const Git::Oid &b);
     void slotFetchFinished(bool success);
-    void slotCredentialRequested(const QString &url, Git::Credential *cred, bool *accept);
-    void slotCertificateCheck(const Git::Certificate &cert, bool *accept);
 
     Git::Fetch *mFetch;
-    int mRetryCount{};
     bool mIsChanged{};
 };

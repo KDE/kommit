@@ -1,5 +1,3 @@
-# In cmake/FindLibgit2.cmake
-# Best practice Find module for libgit2
 
 find_path(LIBGIT2_INCLUDE_DIR
     NAMES git2.h
