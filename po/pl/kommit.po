@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-22 01:51+0000\n"
+"POT-Creation-Date: 2024-12-03 01:50+0000\n"
 "PO-Revision-Date: 2024-10-19 13:32+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -2145,17 +2145,17 @@ msgstr "Podejrzyj plik: %1"
 msgid "MainWindow"
 msgstr "GłówneOkno"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:44
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
 msgid "The file is ignored already"
 msgstr "Plik jest już pomijany"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:80
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:97
 #, kde-format
 msgid "Please enter the pattern"
 msgstr "Wpisz wzorzec"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:85
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:103
 #, kde-format
 msgid "Unable to open file: %1"
 msgstr "Nie można otworzyć pliku: %1"

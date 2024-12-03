@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-22 01:51+0000\n"
+"POT-Creation-Date: 2024-12-03 01:50+0000\n"
 "PO-Revision-Date: 2024-11-22 07:39+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2144,17 +2144,17 @@ msgstr "Pokaži datoteko: %1"
 msgid "MainWindow"
 msgstr "Glavno okno"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:44
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
 msgid "The file is ignored already"
 msgstr "Datoteka je že prezrta"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:80
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:97
 #, kde-format
 msgid "Please enter the pattern"
 msgstr "Vnesite vzorec"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:85
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:103
 #, kde-format
 msgid "Unable to open file: %1"
 msgstr "Datoteke ni mogoče odpreti: %1"

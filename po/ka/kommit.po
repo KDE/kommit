@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-22 01:51+0000\n"
+"POT-Creation-Date: 2024-12-03 01:50+0000\n"
 "PO-Revision-Date: 2024-07-07 07:29+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2114,17 +2114,17 @@ msgstr ""
 msgid "MainWindow"
 msgstr "მთავარი ფანჯარა"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:44
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
 msgid "The file is ignored already"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:80
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:97
 #, kde-format
 msgid "Please enter the pattern"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:85
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:103
 #, kde-format
 msgid "Unable to open file: %1"
 msgstr "ფაილის გახსნა შეუძლებელია: %1"

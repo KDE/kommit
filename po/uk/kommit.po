@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-22 01:51+0000\n"
+"POT-Creation-Date: 2024-12-03 01:50+0000\n"
 "PO-Revision-Date: 2024-11-22 09:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -2146,17 +2146,17 @@ msgstr "Перегляд файла: %1"
 msgid "MainWindow"
 msgstr "Головне вікно"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:44
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
 msgid "The file is ignored already"
 msgstr "Файл вже проігноровано"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:80
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:97
 #, kde-format
 msgid "Please enter the pattern"
 msgstr "Будь ласка, вкажіть взірець"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:85
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:103
 #, kde-format
 msgid "Unable to open file: %1"
 msgstr "Не вдалося відкрити файл: %1"

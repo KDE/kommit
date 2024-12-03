@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-22 01:51+0000\n"
+"POT-Creation-Date: 2024-12-03 01:50+0000\n"
 "PO-Revision-Date: 2024-11-22 12:06+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2150,17 +2150,17 @@ msgstr "Ver archivo: %1"
 msgid "MainWindow"
 msgstr "Ventana principal"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:44
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
 msgid "The file is ignored already"
 msgstr "El archivo ya está ignorado"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:80
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:97
 #, kde-format
 msgid "Please enter the pattern"
 msgstr "Introduzca el patrón"
 
-#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:85
+#: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:103
 #, kde-format
 msgid "Unable to open file: %1"
 msgstr "No se puede abrir el archivo: %1"
