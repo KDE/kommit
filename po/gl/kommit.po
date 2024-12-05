@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-03 01:50+0000\n"
-"PO-Revision-Date: 2024-11-10 13:37+0100\n"
+"PO-Revision-Date: 2024-12-04 09:42+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -3057,7 +3057,7 @@ msgstr "Non hai ningunha remisión seleccionada."
 #: src/libkommitwidgets/widgets/commitdetails.ui:147
 #, kde-format
 msgid "Render commit message in Markdown"
-msgstr ""
+msgstr "Renderizar a mensaxe da remisión en Markdown."
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:203
