@@ -16,14 +16,14 @@ ecm_setup_version(1.0.0
 target_sources(libkommit PRIVATE
     libkommit_global.h
 
-    gitglobal.cpp
-    gitloglist.cpp
-    filestatus.cpp
-    repository.cpp
+    gitglobal.cpp gitglobal.h
+    gitloglist.cpp gitloglist.h
+    filestatus.cpp filestatus.h
+    repository.cpp repository.h
     types.cpp
-    abstractreference.cpp
-    buffer.cpp
-    credential.cpp
+    abstractreference.cpp abstractreference.h
+    buffer.cpp buffer.h
+    credential.cpp credential.h
     entities/blob.h entities/blob.cpp
     config.h config.cpp
     filedelta.h filedelta.cpp
@@ -40,56 +40,56 @@ target_sources(libkommit PRIVATE
     proxy.cpp proxy.h
     clone.h clone.cpp
 
-    caches/abstractcache.cpp
-    caches/branchescache.cpp
-    caches/commitscache.cpp
-    caches/remotescache.cpp
-    caches/tagscache.cpp
-    caches/notescache.cpp
-    caches/stashescache.cpp
-    caches/submodulescache.cpp
-    caches/referencecache.cpp
+    caches/abstractcache.cpp caches/abstractcache.h
+    caches/branchescache.cpp caches/branchescache.h
+    caches/commitscache.cpp caches/commitscache.h
+    caches/remotescache.cpp caches/remotescache.h
+    caches/tagscache.cpp caches/tagscache.h
+    caches/notescache.cpp caches/notescache.h
+    caches/stashescache.cpp caches/stashescache.h
+    caches/submodulescache.cpp caches/submodulescache.h
+    caches/referencecache.cpp caches/referencecache.h
 
-    commands/abstractcommand.cpp
-    commands/commandchangedfiles.cpp
-    commands/commandclone.cpp
-    commands/commandcommit.cpp
-    commands/commandfetch.cpp
-    commands/commandpull.cpp
-    commands/commandpush.cpp
-    commands/commandswitchbranch.cpp
-    commands/commandmerge.cpp
-    commands/addsubmodulecommand.cpp
-    commands/commandaddremote.cpp
-    commands/parameterescommand.cpp
-    commands/commandclean.cpp
+    commands/abstractcommand.cpp commands/abstractcommand.h
+    commands/commandchangedfiles.cpp commands/commandchangedfiles.h
+    commands/commandclone.cpp commands/commandclone.h
+    commands/commandcommit.cpp commands/commandcommit.h
+    commands/commandfetch.cpp commands/commandfetch.h
+    commands/commandpull.cpp commands/commandpull.h
+    commands/commandpush.cpp commands/commandpush.h
+    commands/commandswitchbranch.cpp commands/commandswitchbranch.h
+    commands/commandmerge.cpp commands/commandmerge.h
+    commands/addsubmodulecommand.cpp commands/addsubmodulecommand.h
+    commands/commandaddremote.cpp commands/commandaddremote.h
+    commands/parameterescommand.cpp commands/parameterescommand.h
+    commands/commandclean.cpp commands/commandclean.h
 
     entities/branch.cpp
     entities/commit.cpp
-    entities/file.cpp
-    entities/note.cpp
+    entities/file.cpp entities/file.h
+    entities/note.cpp entities/note.h
     entities/reference.cpp
     entities/remote.cpp
-    entities/signature.cpp
-    entities/stash.cpp
+    entities/signature.cpp entities/signature.h
+    entities/stash.cpp entities/stash.h
     entities/tree.cpp
-    entities/tag.cpp
-    entities/submodule.cpp
-    entities/index.cpp
-    entities/treediff.cpp
+    entities/tag.cpp entities/tag.h
+    entities/submodule.cpp entities/submodule.h
+    entities/index.cpp entities/index.h
+    entities/treediff.cpp entities/treediff.h
     entities/oid.h
     entities/oid.cpp
     entities/object.h
     entities/object.cpp
     entities/strarray.h entities/strarray.cpp
 
-    observers/fetchobserver.cpp
-    observers/cloneobserver.cpp
-    observers/pushobserver.cpp
+    observers/fetchobserver.cpp observers/fetchobserver.h
+    observers/cloneobserver.cpp observers/cloneobserver.h
+    observers/pushobserver.cpp observers/pushobserver.h
 
-    options/addsubmoduleoptions.cpp
-    options/fetchoptions.cpp
-    options/checkoutoptions.cpp
+    options/addsubmoduleoptions.cpp options/addsubmoduleoptions.h
+    options/fetchoptions.cpp options/fetchoptions.h
+    options/checkoutoptions.cpp options/checkoutoptions.h
     options/blameoptions.h options/blameoptions.cpp
 )
 
