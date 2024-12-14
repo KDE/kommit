@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-03 01:50+0000\n"
-"PO-Revision-Date: 2024-12-04 09:42+0100\n"
+"PO-Revision-Date: 2024-12-13 22:50+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -1588,6 +1588,7 @@ msgstr "Remitir/puxar"
 msgid "Changed submodules"
 msgstr "Cambiáronse os submódulos"
 
+# skip-rule: trasno-change_reverse
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
 #, kde-format
@@ -3083,6 +3084,7 @@ msgstr "<html><head/><body><p>-</p></body></html>"
 msgid "Type to filter"
 msgstr "Tipo de filtro"
 
+# skip-rule: trasno-change_reverse
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
 #, kde-format
