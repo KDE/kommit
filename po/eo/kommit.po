@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-03 01:50+0000\n"
-"PO-Revision-Date: 2025-01-05 23:54+0100\n"
+"PO-Revision-Date: 2025-01-07 14:53+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -366,22 +366,22 @@ msgstr "Ripari multajn cimetojn"
 #: src/gui/changelogsdata.cpp:72
 #, kde-format
 msgid "Fix bug in branch selection in commits widget"
-msgstr ""
+msgstr "Ripari cimon pri elekto de branĉo en enmeta fenestraĵo"
 
 #: src/gui/changelogsdata.cpp:79
 #, kde-format
 msgid "Improve merge algorithm and text rendering"
-msgstr ""
+msgstr "Plibonigi kunfandan algoritmon kaj tekstprezentadon"
 
 #: src/gui/changelogsdata.cpp:80
 #, kde-format
 msgid "Improve diff window text rendering"
-msgstr ""
+msgstr "Plibonigi prezentadon de fenestra teksto"
 
 #: src/gui/changelogsdata.cpp:81
 #, kde-format
 msgid "Fix dolphin menu"
-msgstr ""
+msgstr "Ripari dolfin-menuon"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -457,7 +457,7 @@ msgstr "Forigita"
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:14
 #, kde-format
 msgid "Choose file version"
-msgstr ""
+msgstr "Elekti dosierversion"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBaseFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:25
@@ -533,21 +533,15 @@ msgstr "Fora dosiero"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithLocal)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:85
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">Diff base with local </span></a></p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Ŝanĝi cr/lf aŭ ne</p><p><a href=\"https://git-scm.com/"
-"docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
-"text-decoration: underline; color:#007af4;\">Pliaj informoj...</span></a></"
-"p></body ></html>"
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Dif-i bazon kun loka </span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithRemote)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:92
@@ -574,7 +568,7 @@ msgstr ""
 #: src/gui/dialogs/resolvedialog.cpp:85
 #, kde-format
 msgid "All conflicts resolved"
-msgstr ""
+msgstr "Ĉiuj konfliktoj solviĝis"
 
 #: src/gui/dialogs/resolvedialog.cpp:87
 #, kde-format
@@ -1462,7 +1456,7 @@ msgstr "Ne"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:14
 #, kde-format
 msgid "Confirm certificate"
-msgstr ""
+msgstr "Konfirmi atestilon"
 
 #. i18n: ectx: property (text), widget (QLabel, label_21)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:23
@@ -1476,19 +1470,19 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:33
 #, kde-format
 msgid "Certificate details"
-msgstr ""
+msgstr "Detaloj de atestilo"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:43
 #, kde-format
 msgid "Host"
-msgstr ""
+msgstr "Gastiganto"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:63
 #, kde-format
 msgid "Is valid"
-msgstr ""
+msgstr "Estas valida"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:83
@@ -1502,37 +1496,37 @@ msgstr "Temo"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:103
 #, kde-format
 msgid "Issuer"
-msgstr ""
+msgstr "Eldonanto"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:123
 #, kde-format
 msgid "Serial number"
-msgstr ""
+msgstr "Seria numero"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:143
 #, kde-format
 msgid "Valid from"
-msgstr ""
+msgstr "Valida de"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:163
 #, kde-format
 msgid "Valid until"
-msgstr ""
+msgstr "Valida ĝis"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:183
 #, kde-format
 msgid "Public key type"
-msgstr ""
+msgstr "Publik-ŝlosila tipo"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:203
 #, kde-format
 msgid "Public key bits"
-msgstr ""
+msgstr "Publik-ŝlosilaj bitoj"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:223
@@ -2769,7 +2763,7 @@ msgstr "La branĉo jam ekzistas"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:90
 #, kde-format
 msgid "Unable to find the tag's target commit: %1"
-msgstr ""
+msgstr "Ne eblas trovi la cel-enmeton de la etikedo: %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
 #, kde-format
@@ -2779,7 +2773,7 @@ msgstr "Ne eblas krei la branĉon: %1"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:104
 #, kde-format
 msgid "Error switching to new target"
-msgstr ""
+msgstr "Eraro ŝaltante al nova celo"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:52
@@ -3056,7 +3050,7 @@ msgstr "Enmeto ne estas elektita"
 #: src/libkommitwidgets/widgets/commitdetails.ui:147
 #, kde-format
 msgid "Render commit message in Markdown"
-msgstr ""
+msgstr "Prezenti enmet-mesaĝon en Markdown"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:203
@@ -3199,24 +3193,14 @@ msgstr "Ne eblas malfermi la dosieron %1"
 #: src/libkommitwidgets/windows/mergewindow.cpp:332
 #, kde-format
 msgid "Save result"
-msgstr ""
+msgstr "Konservi rezulton"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:400
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
-msgstr ""
+msgstr "Konfliktoj: <span style='font-weight:bold; color:red;'>%1</span>"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:402
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
-msgstr ""
-
-#~ msgctxt "@action"
-#~ msgid "Blame"
-#~ msgstr "Kulpigi (blame)"
-
-#~ msgid "Blocks"
-#~ msgstr "Blokoj"
-
-#~ msgid "Files"
-#~ msgstr "Dosieroj"
+msgstr "<span style='color:green;'>Ĉiuj konfliktoj solviĝis</span>"
