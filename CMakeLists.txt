@@ -40,6 +40,8 @@ include(ECMDeprecationSettings)
 include(ECMGenerateHeaders)
 include(ECMGenerateExportHeader)
 
+option(BUILD_DOC "Whether to build the documentation" ON)
+
 if (NOT LIBGIT2_FOUND)
     message("libgit2 not found")
 endif()
@@ -75,7 +77,6 @@ find_package(
         ConfigWidgets
         CoreAddons
         Crash
-        DocTools
         I18n
         XmlGui
         KIO
@@ -88,6 +89,14 @@ find_package(Libgit2 REQUIRED)
 if(NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     find_package(KF${KF_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
     set(HAVE_KDBUSADDONS true)
+endif()
+
+if(BUILD_DOC)
+    find_package(KF${KF_MAJOR_VERSION}DocTools ${KF_MIN_VERSION})
+    set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES
+        DESCRIPTION "Tools to generate documentation"
+        TYPE REQUIRED
+    )
 endif()
 
 find_package(DolphinVcs)
@@ -121,8 +130,9 @@ if(BUILD_TESTING)
     add_definitions(-DBUILD_TESTING)
 endif()
 
-
-kdoctools_install(po)
+if(BUILD_DOC)
+    kdoctools_install(po)
+endif()
 
 add_subdirectory(icons)
 add_subdirectory(src)
