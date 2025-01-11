@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <Kommit/CommandFetch>
 #include <Kommit/Credential>
 #include <Kommit/Error>
+#include <Kommit/Fetch>
 #include <Kommit/FetchObserver>
 #include <Kommit/FetchOptions>
 #include <Kommit/Oid>
@@ -17,8 +18,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <Kommit/RemoteCallbacks>
 #include <Kommit/RemotesCache>
 #include <Kommit/Repository>
-
-#include <fetch.h>
 
 #include "certificateinfodialog.h"
 #include "credentialdialog.h"

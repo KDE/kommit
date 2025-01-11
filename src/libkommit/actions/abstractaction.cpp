@@ -12,6 +12,23 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class Worker : public QRunnable
+{
+public:
+    Worker(AbstractAction* action)
+    {
+
+    }
+
+    void run ()override
+    {
+        _action->run();
+    }
+
+private:
+    AbstractAction *_action;
+};
+
 AbstractAction::AbstractAction(QObject *parent)
     : QObject{parent}
 {
@@ -29,7 +46,8 @@ void AbstractAction::runAsync()
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QtConcurrent::run(this, &AbstractAction::run);
 #else
-    QtConcurrent::run(&AbstractAction::run, this);
+    auto w = new Worker{this};
+    QThreadPool::globalInstance()->start(w);
 #endif
 }
 

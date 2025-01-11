@@ -28,6 +28,8 @@ protected:
 
 Q_SIGNALS:
     void finished(bool success);
+
+    friend class Worker;
 };
 
 }
