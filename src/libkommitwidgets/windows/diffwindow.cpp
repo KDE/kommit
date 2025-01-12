@@ -31,13 +31,14 @@ class Storage
 {
 public:
     enum class Mode {
+        NotSet,
         File,
         Blob,
         Tree,
         Dir
     };
 
-    Mode _mode;
+    Mode _mode{Mode::NotSet};
     QString _path;
     QString _title;
     QString _filePath;
@@ -186,7 +187,7 @@ void DiffWindowPrivate::compareFile(const QString &file)
 
 void DiffWindowPrivate::compareDirs()
 {
-    if (left._mode == Impl::Storage::Mode::Tree && right._mode == Impl::Storage::Mode::Tree) {
+    if (left._mode == Impl::Storage::Mode::Tree) {
         auto diff = manager->diff(left._tree, right._tree);
 
         for (auto &d : diff) {
@@ -321,6 +322,7 @@ DiffWindow::DiffWindow(Git::Repository *git, Git::ITree *leftTree)
     Q_D(DiffWindow);
 
     d->init(true);
+    d->manager = git;
     d->left.setTree(leftTree);
     d->right.setDir(git->path());
     d->compareDirs();
