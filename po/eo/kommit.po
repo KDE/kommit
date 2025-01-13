@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 01:50+0000\n"
+"POT-Creation-Date: 2025-01-13 01:57+0000\n"
 "PO-Revision-Date: 2025-01-07 14:53+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -448,7 +448,7 @@ msgstr "---"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:431
+#: src/libkommitwidgets/windows/diffwindow.cpp:433
 #, kde-format
 msgid "Removed"
 msgstr "Forigita"
@@ -1550,7 +1550,7 @@ msgstr "Ŝanĝitaj dosieroj:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
-#: src/libkommitwidgets/windows/diffwindow.cpp:257
+#: src/libkommitwidgets/windows/diffwindow.cpp:258
 #, kde-format
 msgid "Reload"
 msgstr "Reŝargi"
@@ -1848,14 +1848,14 @@ msgstr "Indeksita"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:429
+#: src/libkommitwidgets/windows/diffwindow.cpp:431
 #, kde-format
 msgid "Added"
 msgstr "Aldonita"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:433
+#: src/libkommitwidgets/windows/diffwindow.cpp:435
 #, kde-format
 msgid "Modified"
 msgstr "Modifita"
@@ -3106,40 +3106,40 @@ msgstr "B"
 msgid "Report"
 msgstr "Raporto"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:238
+#: src/libkommitwidgets/windows/diffwindow.cpp:239
 #, kde-format
 msgid "View hidden chars…"
 msgstr "Rigardi kaŝitajn signojn…"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:243
+#: src/libkommitwidgets/windows/diffwindow.cpp:244
 #: src/libkommitwidgets/windows/mergewindow.cpp:184
 #, kde-format
 msgid "Same size blocks"
 msgstr "Samgrandaj blokoj"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:248
+#: src/libkommitwidgets/windows/diffwindow.cpp:249
 #, kde-format
 msgid "Show files names"
 msgstr "Montri dosierajn nomojn"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:254
+#: src/libkommitwidgets/windows/diffwindow.cpp:255
 #, kde-format
 msgid "Show Tree"
 msgstr "Montri Arbon"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:280
+#: src/libkommitwidgets/windows/diffwindow.cpp:281
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "Kommit Diferenco[*]"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:282
+#: src/libkommitwidgets/windows/diffwindow.cpp:283
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Arbo"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:427
+#: src/libkommitwidgets/windows/diffwindow.cpp:429
 #, kde-format
 msgid "Unchanged"
 msgstr "Neŝanĝita"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 01:50+0000\n"
+"POT-Creation-Date: 2025-01-13 01:57+0000\n"
 "PO-Revision-Date: 2024-11-22 09:47+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -454,7 +454,7 @@ msgstr "---"
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/gui/dialogs/chooseconflictedfiledialog.cpp:23
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
-#: src/libkommitwidgets/windows/diffwindow.cpp:431
+#: src/libkommitwidgets/windows/diffwindow.cpp:433
 #, kde-format
 msgid "Removed"
 msgstr "Eliminat"
@@ -1560,7 +1560,7 @@ msgstr "Fitxers canviats:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
-#: src/libkommitwidgets/windows/diffwindow.cpp:257
+#: src/libkommitwidgets/windows/diffwindow.cpp:258
 #, kde-format
 msgid "Reload"
 msgstr "Torna a carregar"
@@ -1860,14 +1860,14 @@ msgstr "Indexats"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
-#: src/libkommitwidgets/windows/diffwindow.cpp:429
+#: src/libkommitwidgets/windows/diffwindow.cpp:431
 #, kde-format
 msgid "Added"
 msgstr "Afegit"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
-#: src/libkommitwidgets/windows/diffwindow.cpp:433
+#: src/libkommitwidgets/windows/diffwindow.cpp:435
 #, kde-format
 msgid "Modified"
 msgstr "Modificat"
@@ -3121,40 +3121,40 @@ msgstr "B"
 msgid "Report"
 msgstr "Informe"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:238
+#: src/libkommitwidgets/windows/diffwindow.cpp:239
 #, kde-format
 msgid "View hidden chars…"
 msgstr "Mostra els caràcters ocults…"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:243
+#: src/libkommitwidgets/windows/diffwindow.cpp:244
 #: src/libkommitwidgets/windows/mergewindow.cpp:184
 #, kde-format
 msgid "Same size blocks"
 msgstr "Blocs de la mateixa mida"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:248
+#: src/libkommitwidgets/windows/diffwindow.cpp:249
 #, kde-format
 msgid "Show files names"
 msgstr "Mostra els noms de fitxer"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:254
+#: src/libkommitwidgets/windows/diffwindow.cpp:255
 #, kde-format
 msgid "Show Tree"
 msgstr "Mostra un arbre"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:280
+#: src/libkommitwidgets/windows/diffwindow.cpp:281
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
 msgstr "Diff[*] de Kommit"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:282
+#: src/libkommitwidgets/windows/diffwindow.cpp:283
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
 msgstr "Arbre"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:427
+#: src/libkommitwidgets/windows/diffwindow.cpp:429
 #, kde-format
 msgid "Unchanged"
 msgstr "Sense canvis"
