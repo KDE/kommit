@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Thomas Vergnaud <thomas.vergnaud@mailo.eu>, 2022.
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 # Valentin Poupon <valentin.poupon@gmail.com>, 2023.
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-13 01:57+0000\n"
-"PO-Revision-Date: 2024-11-23 10:26+0100\n"
+"PO-Revision-Date: 2025-01-14 15:14+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.80\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1475,7 +1475,7 @@ msgid ""
 "Confirm this certificate by clicking OK, if this is not the correct "
 "certificate, click Cancel."
 msgstr ""
-"Confirmez ce certificat en cliquant sur « OK », si ce n'est pas le bon "
+"Confirmez ce certificat en cliquant sur « Ok », si ce n'est pas le bon "
 "certificat, cliquez sur « Annuler »."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
