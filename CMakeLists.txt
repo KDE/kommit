@@ -61,6 +61,7 @@ find_package(
     CONFIG REQUIRED
         Core
         Gui
+        Svg
         Widgets
         Concurrent
 )

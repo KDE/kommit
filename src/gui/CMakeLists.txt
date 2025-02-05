@@ -47,6 +47,8 @@ target_sources(libkommitgui PRIVATE
     changelogsdialog.h changelogsdialog.cpp
     changelogsdata.h changelogsdata.cpp
 
+    themeiconprovider.h themeiconprovider.cpp
+
     commandargsparser.cpp
     appconfig.cpp
     settings/settingsmanager.cpp
@@ -113,6 +115,7 @@ target_link_libraries(libkommitgui
     Qt::Widgets
     Qt::Concurrent
     Qt::Network
+    Qt::Svg
 
     libkommit
     libkommitdiff

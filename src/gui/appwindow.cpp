@@ -52,6 +52,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QMenu>
 #include <QSettings>
 #include <QStatusBar>
+#include <themeiconprovider.h>
 
 AppWindow::AppWindow()
     : AppMainWindow()
@@ -89,14 +90,14 @@ void AppWindow::init()
     initActions();
     mMainWidget = new MultiPageWidget(this);
     mMainWidget->setDefaultGitManager(mGitData->manager());
-    addPage<HistoryViewWidget>(QStringLiteral("view_overview"));
-    addPage<BranchesStatusWidget>(QStringLiteral("view_branches"));
-    addPage<CommitsWidget>(QStringLiteral("view_commits"));
-    addPage<StashesWidget>(QStringLiteral("view_stashes"));
-    addPage<SubmodulesWidget>(QStringLiteral("view_submodules"));
-    addPage<RemotesWidget>(QStringLiteral("view_remotes"));
-    addPage<TagsWidget>(QStringLiteral("view_tags"));
-    addPage<ReportsWidget>(QStringLiteral("view_reports"));
+    addPage<HistoryViewWidget>(QStringLiteral("view_overview"), "sc-actions-git-overview.svg");
+    addPage<BranchesStatusWidget>(QStringLiteral("view_branches"), "sc-actions-git-overview.svg");
+    addPage<CommitsWidget>(QStringLiteral("view_commits"), "sc-actions-git-overview.svg");
+    addPage<StashesWidget>(QStringLiteral("view_stashes"), "sc-actions-git-overview.svg");
+    addPage<SubmodulesWidget>(QStringLiteral("view_submodules"), "sc-actions-git-overview.svg");
+    addPage<RemotesWidget>(QStringLiteral("view_remotes"), "sc-actions-git-overview.svg");
+    addPage<TagsWidget>(QStringLiteral("view_tags"), "sc-actions-git-overview.svg");
+    addPage<ReportsWidget>(QStringLiteral("view_reports"), "sc-actions-git-overview.svg");
 
     setupGUI(StandardWindowOption::Default, QStringLiteral("kommitui.rc"));
     mMainWidget->setCurrentIndex(0);
@@ -130,6 +131,16 @@ AppWindow *AppWindow::instance()
 {
     static auto *instance = new AppWindow;
     return instance;
+}
+
+bool AppWindow::event(QEvent *event)
+{
+    if (event->type() ==QEvent::ApplicationPaletteChange) {
+        ThemeIconProvider::reloadAll();
+        mRepoStatusAction->setIcon(ThemeIconProvider::icon(QStringLiteral(":/icons/changedfiles.svg")));
+    }
+
+    return AppMainWindow::event(event);
 }
 
 void AppWindow::gitPathChanged()
@@ -433,7 +444,7 @@ void AppWindow::cleanup()
 }
 
 template<class T>
-void AppWindow::addPage(const QString &actionName)
+void AppWindow::addPage(const QString &actionName, const QString &iconName)
 {
     const QList<Qt::Key> keys = {Qt::Key_0, Qt::Key_1, Qt::Key_2, Qt::Key_3, Qt::Key_4, Qt::Key_5, Qt::Key_6, Qt::Key_7, Qt::Key_8, Qt::Key_9};
     auto action = actionCollection()->addAction(actionName);
@@ -442,7 +453,9 @@ void AppWindow::addPage(const QString &actionName)
     if (mMainWidget->count() < 10)
         actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL + keys[mMainWidget->count()]));
 
-    mMainWidget->addPage(w, action);
+    auto icon = ThemeIconProvider::icon(":/icons/" + iconName);
+
+    mMainWidget->addPage(w, action, icon);
     QSettings s;
     w->restoreState(s);
     mBaseWidgets.append(w);

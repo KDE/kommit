@@ -5,8 +5,8 @@
    viewBox="0 0 127 127"
    height="480"
    width="480"
-   sodipodi:docname="sc-actions-diff-goto-prev-diff.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="sc-actions-diff-goto-next-diff.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,31 +23,35 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1516"
-     inkscape:window-height="871"
+     inkscape:window-width="1852"
+     inkscape:window-height="1052"
      id="namedview8"
      showgrid="false"
      inkscape:zoom="0.98333333"
-     inkscape:cx="247.62712"
-     inkscape:cy="254.23729"
-     inkscape:window-x="1599"
+     inkscape:cx="248.64407"
+     inkscape:cy="255.76271"
+     inkscape:window-x="68"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg8"
+     inkscape:current-layer="g1540"
      inkscape:pagecheckerboard="0"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:snap-path-clip="true"
      inkscape:snap-path-mask="true"
-     inkscape:snap-global="true">
+     inkscape:snap-global="true"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1">
     <sodipodi:guide
        position="63.561486,132.86553"
        orientation="1,0"
-       id="guide1534" />
+       id="guide1534"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="36.862288,63.769068"
        orientation="0,-1"
-       id="guide1536" />
+       id="guide1536"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <defs
      id="defs2" />
@@ -64,12 +68,12 @@
   </metadata>
   <g
      id="g1540"
-     transform="matrix(1.2927272,0,0,1.2927272,-18.568504,-17.357723)">
+     transform="matrix(1.2927272,0,0,-1.2927272,-18.568504,143.73566)">
     <path
        id="path3"
        d="m 59.029589,44.330156 c 2.246076,-3.87831 6.738227,-3.87831 8.984303,0 l 33.691138,48.866759 c 2.8076,3.878313 0,10.083615 -4.492147,10.083615 H 29.830608 c -4.49215,0 -7.29975,-6.205302 -4.49215,-10.859278 z"
        inkscape:connector-curvature="0"
-       style="stroke-width:6.59961"
+       style="stroke-width:6.59961;fill:#000000;fill-opacity:1"
        sodipodi:nodetypes="ccccccc" />
     <path
        id="path5"

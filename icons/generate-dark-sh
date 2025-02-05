@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Input and output directories
+INPUT_DIR="./hicolor"  # Folder containing original SVG files
+OUTPUT_DIR="./breeze-dark"  # Folder to save recolored SVG files
+
+# Color to replace (original color in SVG files)
+OLD_COLOR="#000000"  # Black
+# New color for dark theme
+NEW_COLOR="#ffffff"  # White
+
+# Create output directory if it doesn't exist
+mkdir -p "$OUTPUT_DIR"
+
+# Loop through all SVG files in the input directory
+find "$INPUT_DIR" -type f -name "*.svg" | while read -r svg_file; do
+    # Get the relative path of the file (to preserve subdirectories)
+    relative_path="${svg_file#$INPUT_DIR/}"
+
+    # Output file path (preserve subdirectory structure)
+    output_file="$OUTPUT_DIR/$relative_path"
+
+    # Create the output subdirectory if it doesn't exist
+    mkdir -p "$(dirname "$output_file")"
+
+    # Use sed to replace the fill color in the SVG file
+    sed "s/fill=\"$OLD_COLOR\"/fill=\"$NEW_COLOR\"/g; s/fill:$OLD_COLOR/fill:$NEW_COLOR/g;  s/stroke:$OLD_COLOR/stroke:$NEW_COLOR/g" "$svg_file" > "$output_file"
+
+    echo "Recolored $relative_path and saved to $output_file"
+done
+
+echo "All SVG files have been recolored and saved to $OUTPUT_DIR."
