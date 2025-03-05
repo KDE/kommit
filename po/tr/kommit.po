@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the gitklient package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-13 01:57+0000\n"
-"PO-Revision-Date: 2024-11-22 18:06+0300\n"
+"PO-Revision-Date: 2025-03-04 12:59+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1783,10 +1783,10 @@ msgid ""
 "#2980b9;\">More information</span></a></p></body></html>"
 msgstr ""
 "<html><head/><body><p>İşleme iletisini oluşturmak için bir düzenleyici "
-"kullanıldığında, &quot;git status&quot; çıktısını işleme iletisi şablonunda "
-"içer.</p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/git-"
-"commit.txt---status\"><span style=\" text-decoration: underline; color:"
-"#2980b9;\">Daha Fazla Bilgi…</span></a></p></body></html>"
+"kullanıldığında, “git status” çıktısını işleme iletisi şablonunda içer.</"
+"p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit."
+"txt---status\"><span style=\" text-decoration: underline; color:#2980b9;"
+"\">Daha Fazla Bilgi…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:110
