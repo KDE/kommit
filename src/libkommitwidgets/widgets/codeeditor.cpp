@@ -19,6 +19,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QLabel>
 #include <QPainter>
 #include <QPalette>
+#include <QStyleHints>
 
 #include <QtMath>
 
@@ -169,11 +170,14 @@ CodeEditor::CodeEditor(QWidget *parent)
 {
     Q_D(CodeEditor);
 
+    qApp->installEventFilter(this);
+
     setFont(QFontDatabase::systemFont(QFontDatabase::FixedFont));
     setWordWrapMode(QTextOption::NoWrap);
 
-    setTheme((palette().color(QPalette::Base).lightness() < 128) ? d->mRepository.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                                                                 : d->mRepository.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
+    const bool isDarkTheme = QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark;
+    setTheme(isDarkTheme ? d->mRepository.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                         : d->mRepository.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
 
     connect(this, &QPlainTextEdit::blockCountChanged, this, &CodeEditor::updateViewPortGeometry);
     connect(this, &QPlainTextEdit::updateRequest, this, &CodeEditor::updateSidebarArea);
@@ -1027,6 +1031,18 @@ CodeEditor::BlockData::BlockData(int lineNumber, int lineCount, int maxLineCount
     , maxLineCount{maxLineCount}
     , type{type}
 {
+}
+
+bool CodeEditor::eventFilter(QObject *watched, QEvent *e)
+{
+    Q_D(CodeEditor);
+
+    if (watched == this->parentWidget() && e->type() == QEvent::PaletteChange) {
+        const bool isDarkTheme = QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark;
+        setTheme(isDarkTheme ? d->mRepository.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                             : d->mRepository.defaultTheme(KSyntaxHighlighting::Repository::LightTheme));
+    }
+    return QPlainTextEdit::eventFilter(watched, e);
 }
 
 #include "moc_codeeditor.cpp"
