@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QAction>
 #include <QActionGroup>
+#include <QStyleHints>
 #include <QToolButton>
 
 Git::Repository *MultiPageWidget::defaultGitManager() const
@@ -33,8 +34,15 @@ MultiPageWidget::MultiPageWidget(QWidget *parent)
     Q_SET_OBJECT_NAME(mActionGroup);
 
     setupUi(this);
+    updateStyleSheet();
 
     connect(mActionGroup, &QActionGroup::triggered, this, &MultiPageWidget::slotPageSelected);
+}
+
+void MultiPageWidget::updateStyleSheet()
+{
+    const bool isDarkTheme = QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark;
+
     const auto styleSheet = QStringLiteral(R"CSS(
         #scrollAreaWidgetContents {
             background-color: #%1;
@@ -58,7 +66,7 @@ MultiPageWidget::MultiPageWidget(QWidget *parent)
 
 )CSS")
                                 .arg(palette().color(QPalette::Base).rgba(), 0, 16)
-                                .arg(palette().color(QPalette::Highlight).lighter().rgba(), 0, 16)
+                                .arg(isDarkTheme ? palette().color(QPalette::Highlight).darker().rgba() : palette().color(QPalette::Highlight).lighter().rgba(), 0, 16)
                                 .arg(palette().color(QPalette::Highlight).rgba(), 0, 16);
 
     scrollAreaWidgetContents->setStyleSheet(styleSheet);
@@ -126,6 +134,14 @@ void MultiPageWidget::slotPageSelected(QAction *action)
     stackedWidget->setCurrentIndex(action->data().toInt());
     labelTitle->setText(action->text().remove(QLatin1Char('&')));
     labelPageIcon->setPixmap(action->icon().pixmap({32, 32}));
+}
+
+bool MultiPageWidget::event(QEvent *e)
+{
+    if (e->type() == QEvent::PaletteChange) {
+        updateStyleSheet();
+    }
+    return QWidget::event(e);
 }
 
 #include "moc_multipagewidget.cpp"

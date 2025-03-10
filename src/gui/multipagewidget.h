@@ -36,7 +36,11 @@ public:
 
     [[nodiscard]] int count() const;
 
+protected:
+    bool event(QEvent *event) override;
+
 private:
+    void updateStyleSheet();
     void slotPageSelected(QAction *action);
     QActionGroup *const mActionGroup;
     Git::Repository *mDefaultGitManager = nullptr;
