@@ -98,7 +98,7 @@ public:
             qDebug().noquote().nospace() << "libgit2 error: " << n << ", class: " << __git_err_class << ", Message: " << __git_err_msg;
         }
 
-        return n;
+        return !n;
     }
 
     inline bool isSuccess()

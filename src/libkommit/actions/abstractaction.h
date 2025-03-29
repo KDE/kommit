@@ -13,6 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class Error;
 class LIBKOMMIT_EXPORT AbstractAction : public QObject
 {
     Q_OBJECT
@@ -24,6 +25,7 @@ public:
     void runAsync();
 
 protected:
+    void setEror(const Error &err);
     virtual int exec() = 0;
 
 Q_SIGNALS:

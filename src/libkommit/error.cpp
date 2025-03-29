@@ -11,6 +11,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+Error::Error()
+{
+    auto e = git_error_last();
+}
+
 int Error::klass()
 {
     return git_error_last()->klass;

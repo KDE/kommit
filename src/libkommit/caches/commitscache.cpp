@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "gitglobal_p.h"
 #include "repository.h"
 #include "types.h"
+#include "index.h"
 
 #include <git2/commit.h>
 #include <git2/revparse.h>
@@ -26,11 +27,12 @@ Commit CommitsCache::find(const QString &hash)
 {
     git_commit *commit;
     git_object *commitObject;
-    BEGIN
-    STEP git_revparse_single(&commitObject, manager->repoPtr(), hash.toLatin1().constData());
-    STEP git_commit_lookup(&commit, manager->repoPtr(), git_object_id(commitObject));
 
-    if (IS_OK)
+    SequenceRunner r;
+    r.run(git_revparse_single, &commitObject, manager->repoPtr(), hash.toLatin1().constData());
+    r.run(git_commit_lookup, &commit, manager->repoPtr(), git_object_id(commitObject));
+
+    if (r.isSuccess())
         return Cache::findByPtr(commit);
 
     return Commit{};
@@ -46,9 +48,9 @@ QList<Commit> CommitsCache::allCommits()
     git_revwalk *walker;
     git_oid oid;
 
-    BEGIN
-    STEP git_revwalk_new(&walker, manager->repoPtr());
-    STEP git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL | GIT_SORT_TIME);
+    SequenceRunner r;
+    r.run(git_revwalk_new, &walker, manager->repoPtr());
+    r.run(git_revwalk_sorting, walker, GIT_SORT_TOPOLOGICAL | GIT_SORT_TIME);
     // STEP git_revwalk_push_head(walker);
 
     // include all branches
@@ -64,7 +66,7 @@ QList<Commit> CommitsCache::allCommits()
     }
     git_branch_iterator_free(it);
 
-    if (IS_ERROR)
+    if (r.isError())
         return list;
 
     while (!git_revwalk_next(&oid, walker)) {
@@ -92,14 +94,14 @@ QList<Commit> CommitsCache::commitsInBranch(const Branch &branch)
     git_revwalk *walker;
     git_oid oid;
 
-    BEGIN
-    STEP git_revwalk_new(&walker, manager->repoPtr());
-    STEP git_revwalk_sorting(walker, GIT_SORT_TOPOLOGICAL);
+    SequenceRunner r;
+    r.run(git_revwalk_new, &walker, manager->repoPtr());
+    r.run(git_revwalk_sorting, walker, GIT_SORT_TOPOLOGICAL);
 
     auto refName = git_reference_name(branch.refPtr());
-    STEP git_revwalk_push_ref(walker, refName);
+    r.run(git_revwalk_push_ref, walker, refName);
 
-    if (IS_ERROR)
+    if (r.isError())
         return list;
 
     while (!git_revwalk_next(&oid, walker))
@@ -107,6 +109,90 @@ QList<Commit> CommitsCache::commitsInBranch(const Branch &branch)
 
     git_revwalk_free(walker);
     return list;
+}
+
+bool CommitsCache::create(const QString &message, const CommitOptions &opts)
+{
+    CommitOptions options{opts};
+    options.setRepo(manager->repoPtr());
+
+    SequenceRunner r;
+    git_oid commit_oid;
+    git_tree *tree = nullptr;
+    git_commit *parent_commit = nullptr;
+
+    auto indexPtr = manager->index();
+    indexPtr.writeTree();
+    auto lastTreeId = indexPtr.lastOid();
+
+    r.run(git_tree_lookup, &tree, manager->repoPtr(), &lastTreeId);
+
+    git_reference *head_ref = nullptr;
+    git_oid parent_commit_oid;
+
+    if (git_repository_head(&head_ref, manager->repoPtr()) == 0) {
+        r.run(git_reference_name_to_id, &parent_commit_oid, manager->repoPtr(), "HEAD");
+        r.run(git_commit_lookup, &parent_commit, manager->repoPtr(), &parent_commit_oid);
+    }
+
+    parent_commit = options.parentCommit();
+
+    const git_commit *parents[1] = {const_cast<git_commit *>(parent_commit)};
+
+    r.run(git_commit_create,
+          &commit_oid,
+          manager->repoPtr(),
+          "HEAD",
+          options.author(),
+          options.committer(),
+          nullptr,
+          message.toUtf8().constData(),
+          tree,
+          parent_commit ? 1 : 0,
+          parent_commit ? parents : nullptr);
+
+    r.printError();
+
+    git_tree_free(tree);
+    git_commit_free(parent_commit);
+    git_reference_free(head_ref);
+
+    // manager->d_ptr->index = Index{};
+
+    auto newCommit = findByOid(&commit_oid);
+    Q_EMIT added(newCommit);
+    Q_EMIT reloadRequired();
+    return r.isSuccess();
+}
+
+bool CommitsCache::amend(const QString &message, const CommitOptions &opts)
+{
+    CommitOptions options{opts};
+    options.setRepo(manager->repoPtr());
+
+    git_oid commit_oid;
+    git_tree *tree = nullptr;
+    SequenceRunner r;
+
+    auto index = manager->index();
+    index.writeTree();
+    auto lastTreeId = index.lastOid();
+
+    r.run(git_tree_lookup, &tree, manager->repoPtr(), &lastTreeId);
+
+    r.run(git_commit_amend,
+          &commit_oid,
+          options.parentCommit(),
+          "HEAD",
+          options.author(),
+          options.committer(),
+          nullptr,
+          message.toUtf8().constData(),
+          tree);
+
+    git_tree_free(tree);
+
+    return r.isSuccess();
 }
 
 void CommitsCache::clearChildData()

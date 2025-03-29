@@ -5,18 +5,21 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "commitpushdialog.h"
+
 #include "actions/changedfileactions.h"
-#include "caches/branchescache.h"
-#include "caches/remotescache.h"
-#include "caches/submodulescache.h"
 #include "commands/commandcommit.h"
 #include "commands/commandpush.h"
 #include "dialogs/changedsubmodulesdialog.h"
-#include "entities/index.h"
-#include "entities/submodule.h"
 #include "models/changedfilesmodel.h"
-#include "repository.h"
 #include "runnerdialog.h"
+
+#include <Kommit/Index>
+#include <Kommit/SubModule>
+#include <Kommit/Repository>
+#include <Kommit/BranchesCache>
+#include <Kommit/CommitsCache>
+#include <Kommit/RemotesCache>
+#include <Kommit/SubmodulesCache>
 
 #include <QWindow>
 
@@ -30,7 +33,8 @@ static const char myCommitPushDialogGroupName[] = "CommitPushDialog";
 
 CommitPushDialog::CommitPushDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
-    , mModel(new ChangedFilesModel(git, true, this))
+    , mPush{git, this}
+    , mChangedFilesModel(new ChangedFilesModel(git, true, this))
 {
     setupUi(this);
 
@@ -51,13 +55,13 @@ CommitPushDialog::CommitPushDialog(Git::Repository *git, QWidget *parent)
     connect(listView, &QListView::doubleClicked, this, &CommitPushDialog::slotListWidgetItemDoubleClicked);
     connect(listView, &QListView::customContextMenuRequested, this, &CommitPushDialog::slotListWidgetCustomContextMenuRequested);
     connect(groupBoxMakeCommit, &QGroupBox::toggled, this, &CommitPushDialog::slotGroupBoxMakeCommitToggled);
-    connect(mModel, &ChangedFilesModel::checkedCountChanged, this, &CommitPushDialog::checkButtonsEnable);
+    connect(mChangedFilesModel, &ChangedFilesModel::checkedCountChanged, this, &CommitPushDialog::checkButtonsEnable);
     connect(textEditMessage, &QTextEdit::textChanged, this, &CommitPushDialog::checkButtonsEnable);
     connect(checkBoxAmend, &QCheckBox::toggled, this, &CommitPushDialog::checkButtonsEnable);
-    connect(mActions, &ChangedFileActions::reloadNeeded, mModel, &ChangedFilesModel::reload);
+    connect(mActions, &ChangedFileActions::reloadNeeded, mChangedFilesModel, &ChangedFilesModel::reload);
 
-    listView->setModel(mModel);
-    mModel->reload();
+    listView->setModel(mChangedFilesModel);
+    mChangedFilesModel->reload();
     readConfig();
 
     auto submodules = mGit->submodules()->allSubmodules();
@@ -94,9 +98,9 @@ void CommitPushDialog::writeConfig()
 
 void CommitPushDialog::reload()
 {
-    mModel->reload();
+    mChangedFilesModel->reload();
 
-    if (!mModel->size()) {
+    if (!mChangedFilesModel->size()) {
         pushButtonCommit->setEnabled(false);
         pushButtonPush->setEnabled(true);
         groupBoxMakeCommit->setEnabled(false);
@@ -118,7 +122,7 @@ void CommitPushDialog::reload()
         _words.insert(b);
     for (const auto &r : std::as_const(remotes))
         _words.insert(r);
-    auto data = mModel->data();
+    auto data = mChangedFilesModel->data();
     for (const auto &row : data) {
         const auto parts = row.filePath.split(QLatin1Char('/'));
         for (const auto &p : parts)
@@ -138,7 +142,7 @@ void CommitPushDialog::checkButtonsEnable()
     }
     bool enable{false};
 
-    if (!mModel->checkedCount()) {
+    if (!mChangedFilesModel->checkedCount()) {
         pushButtonCommit->setEnabled(false);
         pushButtonPush->setEnabled(false);
         return;
@@ -180,6 +184,11 @@ void CommitPushDialog::slotPushButtonPushClicked()
         //        qDebug() << dd;
         if (dd != QDialog::Accepted)
             return;
+
+        if (!mGit->commits()->create(textEditMessage->toPlainText())) {
+            //TODO: show messagebox
+            return;
+        }
     }
 
     Git::CommandPush *cmd = new Git::CommandPush;
@@ -203,7 +212,7 @@ void CommitPushDialog::slotPushButtonPushClicked()
 void CommitPushDialog::addFiles()
 {
     auto index = mGit->index();
-    for (const auto &file : mModel->data()) {
+    for (const auto &file : mChangedFilesModel->data()) {
         if (!file.checked)
             continue;
         if (file.status == Git::ChangeStatus::Removed)
@@ -216,35 +225,35 @@ void CommitPushDialog::addFiles()
 
 void CommitPushDialog::slotToolButtonAddAllClicked()
 {
-    mModel->toggleCheckAll(true);
+    mChangedFilesModel->toggleCheckAll(true);
     checkButtonsEnable();
 }
 
 void CommitPushDialog::slotToolButtonAddNoneClicked()
 {
-    mModel->toggleCheckAll(false);
+    mChangedFilesModel->toggleCheckAll(false);
     checkButtonsEnable();
 }
 
 void CommitPushDialog::slotToolButtonAddIndexedClicked()
 {
-    mModel->checkByStatus({Git::ChangeStatus::Removed, Git::ChangeStatus::Modified});
+    mChangedFilesModel->checkByStatus({Git::ChangeStatus::Removed, Git::ChangeStatus::Modified});
     checkButtonsEnable();
 }
 
 void CommitPushDialog::slotToolButtonAddAddedClicked()
 {
-    mModel->checkByStatus(Git::ChangeStatus::Untracked);
+    mChangedFilesModel->checkByStatus(Git::ChangeStatus::Untracked);
 }
 
 void CommitPushDialog::slotToolButtonAddRemovedClicked()
 {
-    mModel->checkByStatus(Git::ChangeStatus::Removed);
+    mChangedFilesModel->checkByStatus(Git::ChangeStatus::Removed);
 }
 
 void CommitPushDialog::slotToolButtonAddModifiedClicked()
 {
-    mModel->checkByStatus(Git::ChangeStatus::Modified);
+    mChangedFilesModel->checkByStatus(Git::ChangeStatus::Modified);
 }
 
 void CommitPushDialog::slotListWidgetItemDoubleClicked(const QModelIndex &index)
@@ -252,7 +261,7 @@ void CommitPushDialog::slotListWidgetItemDoubleClicked(const QModelIndex &index)
     if (!index.isValid())
         return;
 
-    auto data = mModel->data(index.row());
+    auto data = mChangedFilesModel->data(index.row());
 
     if (!data->submodule.isNull())
         return;
@@ -276,7 +285,7 @@ void CommitPushDialog::slotListWidgetCustomContextMenuRequested(const QPoint &po
     if (!listView->currentIndex().isValid())
         return;
 
-    mActions->setFilePath(mModel->filePath(listView->currentIndex().row()));
+    mActions->setFilePath(mChangedFilesModel->filePath(listView->currentIndex().row()));
     mActions->popup();
 }
 

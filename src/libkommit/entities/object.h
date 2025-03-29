@@ -31,9 +31,7 @@ public:
         Commit = GIT_OBJECT_COMMIT,
         Tree = GIT_OBJECT_TREE,
         Blob = GIT_OBJECT_BLOB,
-        Tag = GIT_OBJECT_TAG,
-        // OfsDelta = GIT_OBJECT_OFS_DELTA,
-        // RefDelta = GIT_OBJECT_REF_DELTA,
+        Tag = GIT_OBJECT_TAG
     };
     Object();
     explicit Object(git_object *obj);

@@ -44,7 +44,7 @@ private:
     void slotFetchTransferProgress(const Git::FetchTransferStat *stat);
     void slotFetchPackProgress(const Git::PackProgress *p);
     void slotFetchUpdateRef(const Git::Reference &reference, const Git::Oid &a, const Git::Oid &b);
-    void slotFetchFinished(bool success);
+    Q_INVOKABLE void slotFetchFinished(bool success);
     void slotCredentialRequested(const QString &url, Git::Credential *cred, bool *accept);
     void slotCertificateCheck(const Git::Certificate &cert, bool *accept);
 

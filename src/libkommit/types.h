@@ -22,7 +22,11 @@ namespace Git
 
 Q_NAMESPACE
 
-enum class Redirect { None = GIT_REMOTE_REDIRECT_NONE, Initial = GIT_REMOTE_REDIRECT_INITIAL, All = GIT_REMOTE_REDIRECT_ALL };
+enum class Redirect {
+    None = GIT_REMOTE_REDIRECT_NONE,
+    Initial = GIT_REMOTE_REDIRECT_INITIAL,
+    All = GIT_REMOTE_REDIRECT_ALL
+};
 Q_ENUM_NS(Redirect)
 
 class Branch;

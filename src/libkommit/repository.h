@@ -10,12 +10,13 @@
 
 #include <git2.h>
 
+#include <Kommit/Blame>
+#include <Kommit/Branch>
+#include <Kommit/CommitOptions>
 #include <QObject>
 #include <QScopedPointer>
 #include <QSharedPointer>
 #include <QString>
-
-#include <Kommit/Blame>
 
 namespace Git
 {
@@ -85,7 +86,7 @@ public:
     // common actions
     bool init(const QString &path);
     bool clone(const QString &url, const QString &localPath, CloneObserver *observer = nullptr);
-    bool commit(const QString &message);
+    bool commit(const QString &message, Branch branch = {}, const CommitOptions &options = {});
     void push(const Branch &branch, const Remote &remote, RemoteCallbacks *callback) const;
     bool open(const QString &newPath);
     Reference head() const;

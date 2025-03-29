@@ -14,6 +14,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <git2/types.h>
 
+#include <Kommit/CommitOptions>
+
 namespace Git
 {
 
@@ -31,12 +33,15 @@ public:
     [[nodiscard]] QList<Commit> allCommits();
     [[nodiscard]] QList<Commit> commitsInBranch(const Branch &branch);
 
+    [[nodiscard]] bool create(const QString &message, const CommitOptions &options = {});
+    [[nodiscard]] bool amend(const QString &message, const CommitOptions &options = {});
+
 protected:
     void clearChildData() override;
 
 Q_SIGNALS:
-    void added(DataType commit);
-    void removed(DataType commit);
+    void added(Commit commit);
+    void removed(Commit commit);
     void reloadRequired();
 };
 }

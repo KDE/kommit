@@ -32,7 +32,11 @@ class LIBKOMMIT_EXPORT Fetch : public AbstractAction
 {
     Q_OBJECT
 public:
-    enum class Prune { PruneUnspecified = GIT_FETCH_PRUNE_UNSPECIFIED, Prune = GIT_FETCH_PRUNE, NoPrune = GIT_FETCH_NO_PRUNE };
+    enum class Prune {
+        PruneUnspecified = GIT_FETCH_PRUNE_UNSPECIFIED,
+        Prune = GIT_FETCH_PRUNE,
+        NoPrune = GIT_FETCH_NO_PRUNE
+    };
     Q_ENUM(Prune)
 
     enum class DownloadTags {
@@ -43,7 +47,11 @@ public:
     };
     Q_ENUM(DownloadTags)
 
-    enum class AcceptCertificate { None, OnlyValid, All };
+    enum class AcceptCertificate {
+        None,
+        OnlyValid,
+        All
+    };
     Q_ENUM(AcceptCertificate)
 
     explicit Fetch(Repository *repo, QObject *parent = nullptr);

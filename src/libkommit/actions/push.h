@@ -20,12 +20,12 @@ namespace Git
 class RemoteCallbacks;
 class PushPrivate;
 class Repository;
-class LIBKOMMIT_EXPORT Push : public AbstractAction
+class LIBKOMMIT_EXPORT PushAction : public AbstractAction
 {
     Q_OBJECT
 
 public:
-    explicit Push(Repository *repo, QObject *parent = nullptr);
+    explicit PushAction(Repository *repo, QObject *parent = nullptr);
 
     enum { PackBuilderParallelJobsAutoDetect = 0 };
 

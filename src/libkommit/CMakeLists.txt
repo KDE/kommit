@@ -20,6 +20,7 @@ target_sources(libkommit PRIVATE
     gitloglist.cpp gitloglist.h
     filestatus.cpp filestatus.h
     repository.cpp repository.h
+    types.h
     types.cpp
     abstractreference.cpp abstractreference.h
     buffer.cpp buffer.h
@@ -42,7 +43,9 @@ target_sources(libkommit PRIVATE
     actions/push.h actions/push.cpp
     actions/fetch.h actions/fetch.cpp
     actions/clone.h actions/clone.cpp
-    actions/checkout.h actions/checkout.cpp
+    actions/checkoutaction.h actions/checkoutaction.cpp
+    actions/pushaction.h actions/pushaction.cpp
+    actions/commitaction.h actions/commitaction.cpp
 
     caches/abstractcache.cpp caches/abstractcache.h
     caches/branchescache.cpp caches/branchescache.h
@@ -100,6 +103,7 @@ target_sources(libkommit PRIVATE
     options/cloneoptions.h options/cloneoptions.cpp
     options/rebaseoptions.h options/rebaseoptions.cpp
     options/mergeoptions.h options/mergeoptions.cpp
+    options/commitoptions.h options/commitoptions.cpp
 )
 
 generate_export_header(libkommit BASE_NAME libkommit)
@@ -201,6 +205,7 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
         PushOptions
         RebaseOptions
         MergeOptions
+        CommitOptions
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
     RELATIVE
@@ -237,10 +242,11 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
         AbstractAction
-        Push
+        CheckoutAction
+        CommitAction
+        PushAction
         Fetch
         Clone
-        Checkout
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
     RELATIVE

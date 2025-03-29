@@ -16,6 +16,7 @@ namespace Git
 class LIBKOMMIT_EXPORT Error
 {
 public:
+    Error();
     static int klass();
     static QString message();
 };

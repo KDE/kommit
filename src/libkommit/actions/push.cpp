@@ -28,7 +28,7 @@ public:
     int packBuilderParallelJobs{1};
 };
 
-Push::Push(Repository *repo, QObject *parent)
+PushAction::PushAction(Repository *repo, QObject *parent)
     : AbstractAction{parent}
     , d{new PushPrivate}
 {
@@ -36,7 +36,7 @@ Push::Push(Repository *repo, QObject *parent)
     d->callbacks = new RemoteCallbacks{parent};
 }
 
-int Push::exec()
+int PushAction::exec()
 {
     if (d->remote.isNull() || d->branch.isNull())
         return GIT_EUSER;
@@ -68,67 +68,67 @@ int Push::exec()
     return GIT_OK;
 }
 
-Remote Push::remote() const
+Remote PushAction::remote() const
 {
     return d->remote;
 }
 
-void Push::setRemote(const Remote &remote)
+void PushAction::setRemote(const Remote &remote)
 {
     d->remote = remote;
 }
 
-Branch Push::branch() const
+Branch PushAction::branch() const
 {
     return d->branch;
 }
 
-void Push::setBranch(const Branch &branch)
+void PushAction::setBranch(const Branch &branch)
 {
     d->branch = branch;
 }
 
-RemoteCallbacks *Push::remoteCallbacks() const
+RemoteCallbacks *PushAction::remoteCallbacks() const
 {
     return d->callbacks;
 }
 
-Redirect Push::redirect() const
+Redirect PushAction::redirect() const
 {
     return d->redirect;
 }
 
-void Push::setRedirect(Redirect redirect)
+void PushAction::setRedirect(Redirect redirect)
 {
     d->redirect = redirect;
 }
 
-QStringList Push::customHeaders() const
+QStringList PushAction::customHeaders() const
 {
     return d->customHeaders;
 }
 
-void Push::setCustomHeaders(const QStringList &customHeaders)
+void PushAction::setCustomHeaders(const QStringList &customHeaders)
 {
     d->customHeaders = customHeaders;
 }
 
-QStringList Push::remotePushOptions() const
+QStringList PushAction::remotePushOptions() const
 {
     return d->remotePushOptions;
 }
 
-void Push::setRemotePushOptions(const QStringList &remotePushOptions)
+void PushAction::setRemotePushOptions(const QStringList &remotePushOptions)
 {
     d->remotePushOptions = remotePushOptions;
 }
 
-int Push::packBuilderParallelJobs() const
+int PushAction::packBuilderParallelJobs() const
 {
     return d->packBuilderParallelJobs;
 }
 
-void Push::setPackBuilderParallelJobs(int packBuilderParallelJobs)
+void PushAction::setPackBuilderParallelJobs(int packBuilderParallelJobs)
 {
     d->packBuilderParallelJobs = packBuilderParallelJobs;
 }

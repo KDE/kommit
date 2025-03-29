@@ -229,8 +229,6 @@ void TreePrivate::initTree()
         case GIT_OBJECT_ANY:
         case GIT_OBJECT_INVALID:
         case GIT_OBJECT_TAG:
-            // case GIT_OBJECT_OFS_DELTA:
-            // case GIT_OBJECT_REF_DELTA:
             break;
         }
         return 0;

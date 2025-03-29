@@ -549,14 +549,12 @@ const Index &Repository::index()
 {
     Q_D(Repository);
 
-    BEGIN
     if (d->index.isNull()) {
         git_index *index;
-        STEP git_repository_index(&index, d->repo);
-        if (IS_OK)
+        auto ok = SequenceRunner::runSingle(git_repository_index, &index, d->repo);
+        if (ok)
             d->index = Index{index};
     }
-    PRINT_ERROR;
 
     return d->index;
 }
@@ -1067,16 +1065,13 @@ QMap<QString, ChangeStatus> Repository::changedFiles() const
     return w.files;
 }
 
-bool Repository::commit(const QString &message)
+bool Repository::commit(const QString &message, Branch branch, const CommitOptions &options)
 {
     Q_D(Repository);
     SequenceRunner r;
     git_oid commit_oid;
     git_tree *tree = nullptr;
     git_commit *parent_commit = nullptr;
-    git_signature *author = nullptr;
-    git_signature *committer = nullptr;
-    git_index *index = nullptr;
 
     auto indexPtr = this->index();
     indexPtr.writeTree();
@@ -1094,40 +1089,36 @@ bool Repository::commit(const QString &message)
         r.run(git_commit_lookup, &parent_commit, d->repo, &parent_commit_oid);
     }
 
-    r.run(git_signature_default, &author, d->repo);
-    r.run(git_signature_default, &committer, d->repo);
+    if (branch.isNull()) {
+        branches()->current();
+    } else {
+        // commit_oid = *branch.commit().oid().data();
+    }
+
+    auto reflogMessage = options.reflogMessage();
+
+    if (reflogMessage.isEmpty())
+        reflogMessage = QStringLiteral("commit: ") + message;
 
     git_commit *parents[1] = {const_cast<git_commit *>(parent_commit)};
 
-    r.run(reinterpret_cast<int (*)(git_oid *,
-                                   git_repository *,
-                                   const char *,
-                                   const git_signature *,
-                                   const git_signature *,
-                                   const char *,
-                                   const char *,
-                                   const git_tree *,
-                                   size_t,
-                                   git_commit **)>(git_commit_create),
+    r.run(git_commit_create,
           &commit_oid,
           d->repo,
-          "HEAD",
-          author,
-          committer,
+          reflogMessage.toUtf8().constData(),
+          options.author(),
+          options.committer(),
           nullptr,
           message.toUtf8().constData(),
           tree,
           parent_commit ? 1 : 0,
-          parent_commit ? parents : nullptr);
+          const_cast<const git_commit **>(parent_commit ? parents : nullptr));
 
     r.printError();
 
-    git_signature_free(author);
-    git_signature_free(committer);
     git_tree_free(tree);
     git_commit_free(parent_commit);
     git_reference_free(head_ref);
-    git_index_free(index);
 
     // runGit({QStringLiteral("commit"), QStringLiteral("-m"), message});
     /*

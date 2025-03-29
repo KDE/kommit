@@ -10,6 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include "ui_commitpushdialog.h"
 
+#include <Kommit/Push>
+
 namespace Git
 {
 class Repository;
@@ -37,14 +39,12 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotGroupBoxMakeCommitToggled(bool);
     LIBKOMMITWIDGETS_NO_EXPORT void slotListWidgetCustomContextMenuRequested(const QPoint &pos);
     LIBKOMMITWIDGETS_NO_EXPORT void checkButtonsEnable();
-
-    enum Roles {
-        StatusRole = Qt::UserRole + 1,
-    };
     LIBKOMMITWIDGETS_NO_EXPORT void addFiles();
     LIBKOMMITWIDGETS_NO_EXPORT void reload();
     LIBKOMMITWIDGETS_NO_EXPORT void readConfig();
     LIBKOMMITWIDGETS_NO_EXPORT void writeConfig();
+
+    Git::PushAction mPush;
     ChangedFileActions *mActions = nullptr;
-    ChangedFilesModel *const mModel;
+    ChangedFilesModel *const mChangedFilesModel;
 };
