@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 01:57+0000\n"
+"POT-Creation-Date: 2025-03-30 01:54+0000\n"
 "PO-Revision-Date: 2024-12-24 17:30+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -505,15 +505,15 @@ msgstr "기반 파일"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:169
 #: src/libkommitwidgets/dialogs/mergedialog.ui:53
 #: src/libkommitwidgets/widgets/commitdetails.ui:69
-#: src/libkommitwidgets/widgets/commitdetails.ui:131
-#: src/libkommitwidgets/widgets/commitdetails.ui:186
-#: src/libkommitwidgets/widgets/commitdetails.ui:222
-#: src/libkommitwidgets/widgets/commitdetails.ui:241
-#: src/libkommitwidgets/widgets/commitdetails.ui:263
-#: src/libkommitwidgets/widgets/commitdetails.ui:334
-#: src/libkommitwidgets/widgets/commitdetails.ui:344
-#: src/libkommitwidgets/widgets/commitdetails.ui:386
-#: src/libkommitwidgets/widgets/commitdetails.ui:396
+#: src/libkommitwidgets/widgets/commitdetails.ui:82
+#: src/libkommitwidgets/widgets/commitdetails.ui:137
+#: src/libkommitwidgets/widgets/commitdetails.ui:173
+#: src/libkommitwidgets/widgets/commitdetails.ui:192
+#: src/libkommitwidgets/widgets/commitdetails.ui:214
+#: src/libkommitwidgets/widgets/commitdetails.ui:285
+#: src/libkommitwidgets/widgets/commitdetails.ui:295
+#: src/libkommitwidgets/widgets/commitdetails.ui:337
+#: src/libkommitwidgets/widgets/commitdetails.ui:347
 #, kde-format
 msgid "-"
 msgstr "-"
@@ -1540,7 +1540,7 @@ msgstr "변경된 파일"
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:20
-#: src/libkommitwidgets/widgets/commitdetails.ui:278
+#: src/libkommitwidgets/widgets/commitdetails.ui:229
 #, kde-format
 msgid "Changed files:"
 msgstr "변경된 파일:"
@@ -3001,7 +3001,7 @@ msgstr "태그:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:120
-#: src/libkommitwidgets/widgets/commitdetails.ui:300
+#: src/libkommitwidgets/widgets/commitdetails.ui:251
 #, kde-format
 msgid "Ref:"
 msgstr "참조:"
@@ -3013,7 +3013,7 @@ msgstr "참조:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:130
-#: src/libkommitwidgets/widgets/commitdetails.ui:234
+#: src/libkommitwidgets/widgets/commitdetails.ui:185
 #, kde-format
 msgid "Parent:"
 msgid_plural "Parents:"
@@ -3021,7 +3021,7 @@ msgstr[0] "상위:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:135
-#: src/libkommitwidgets/widgets/commitdetails.ui:256
+#: src/libkommitwidgets/widgets/commitdetails.ui:207
 #, kde-format
 msgid "Child:"
 msgid_plural "Children:"
@@ -3034,25 +3034,25 @@ msgid "Commit is not selected"
 msgstr "커밋이 선택되지 않았음"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxMarkdownDisplay)
-#: src/libkommitwidgets/widgets/commitdetails.ui:147
+#: src/libkommitwidgets/widgets/commitdetails.ui:98
 #, kde-format
 msgid "Render commit message in Markdown"
 msgstr "마크다운으로 커밋 메시지 표시"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:203
+#: src/libkommitwidgets/widgets/commitdetails.ui:154
 #, kde-format
 msgid "Author:"
 msgstr "작성자:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCommitterText)
-#: src/libkommitwidgets/widgets/commitdetails.ui:215
+#: src/libkommitwidgets/widgets/commitdetails.ui:166
 #, kde-format
 msgid "Committer:"
 msgstr "커미터:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
-#: src/libkommitwidgets/widgets/commitdetails.ui:285
+#: src/libkommitwidgets/widgets/commitdetails.ui:236
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
 msgstr "<html><head/><body><p>-</p></body></html>"
