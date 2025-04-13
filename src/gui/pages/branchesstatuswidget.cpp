@@ -44,7 +44,6 @@ void BranchesStatusWidget::init()
     mActions->setOtherBranch(mModel->findByName(comboBoxReferenceBranch->currentText()));
 
     connect(comboBoxReferenceBranch, &QComboBox::currentIndexChanged, this, &BranchesStatusWidget::slotComboBoxReferenceBranchCurrentIndexChanged);
-    connect(pushButtonRemoveSelected, &QPushButton::clicked, this, &BranchesStatusWidget::slotPushButtonRemoveSelectedClicked);
     connect(treeView, &QTreeView::customContextMenuRequested, this, &BranchesStatusWidget::slotTreeViewCustomContextMenuRequested);
     connect(treeView, &QTreeView::activated, this, &BranchesStatusWidget::slotTreeViewActivated);
     connect(treeView, &QTreeView::clicked, this, &BranchesStatusWidget::slotTreeViewActivated);
@@ -85,23 +84,6 @@ void BranchesStatusWidget::slotReloadData()
     }
 
     mModel->setBranchesType(t);
-}
-
-void BranchesStatusWidget::slotPushButtonRemoveSelectedClicked()
-{
-    if (!treeView->currentIndex().isValid())
-        return;
-
-    if (KMessageBoxHelper::removeQuestion(this, i18n("Are you sure to remove the selected branch?"))) {
-        auto branch = mGit->branchesModel()->fromIndex(treeView->currentIndex());
-        if (!branch.isNull()) {
-            if (!mGit->manager()->branches()->remove(branch)) {
-                KMessageBox::information(this, i18n("Unable to remove the selected branch"));
-                return;
-            }
-            mGit->branchesModel()->load();
-        }
-    }
 }
 
 void BranchesStatusWidget::slotTreeViewCustomContextMenuRequested(const QPoint &pos)
