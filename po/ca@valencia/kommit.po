@@ -1473,8 +1473,8 @@ msgid ""
 "Confirm this certificate by clicking OK, if this is not the correct "
 "certificate, click Cancel."
 msgstr ""
-"Confirmeu este certificat fent clic en D'acord; si no és el certificat "
-"correcte, feu clic en Cancel·la."
+"Confirmeu este certificat clicant damunt «D'acord»; si no és el certificat "
+"correcte, cliqueu damunt «Cancel·la»."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:33
