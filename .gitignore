@@ -84,6 +84,7 @@ compile_commands.json
 
 # End of https://www.gitignore.io/api/qt,qtcreator
 
+# Ignore the following files
 __pycache__
 .vs
 app/translations/app_*.qm
@@ -101,4 +102,6 @@ doxygen_log.txt
 
 build2
 _packages/
-.clang-format
+/.clang-format
+/compile_commands.json
+.cache
