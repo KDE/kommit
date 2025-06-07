@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QScopedPointer>
 #include <QSharedPointer>
 
-#include <git2/blame.h>
+#include <git2.h>
 
 namespace Git
 {
