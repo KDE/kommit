@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
-#include <git2/blame.h>
+#include <git2.h>
 
 #include <Kommit/Commit>
 #include <Kommit/Oid>
