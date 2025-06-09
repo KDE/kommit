@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-30 01:54+0000\n"
+"POT-Creation-Date: 2025-06-09 02:03+0000\n"
 "PO-Revision-Date: 2024-11-22 11:33+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -439,8 +439,8 @@ msgstr "Status:"
 #. i18n: ectx: property (text), widget (QLabel, labelRemoteName)
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName)
 #: src/gui/commandpullwidget.ui:26 src/gui/pages/remoteswidget.ui:92
-#: src/gui/pages/remoteswidget.ui:109 src/gui/pages/remoteswidget.ui:129
-#: src/gui/pages/remoteswidget.ui:146
+#: src/gui/pages/remoteswidget.ui:106 src/gui/pages/remoteswidget.ui:123
+#: src/gui/pages/remoteswidget.ui:137
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:78
 #, kde-format
 msgid "---"
@@ -653,18 +653,6 @@ msgstr "Niet afsluiten"
 msgid "Overview"
 msgstr "Overzicht"
 
-#: src/gui/pages/branchesstatuswidget.cpp:95
-#: src/libkommitwidgets/actions/branchactions.cpp:115
-#, kde-format
-msgid "Are you sure to remove the selected branch?"
-msgstr "Wilt u de geselecteerde branch verwijderen?"
-
-#: src/gui/pages/branchesstatuswidget.cpp:99
-#: src/libkommitwidgets/actions/branchactions.cpp:117
-#, kde-format
-msgid "Unable to remove the selected branch"
-msgstr "Kan de geselecteerde branch niet verwijderen"
-
 #. i18n: ectx: property (windowTitle), widget (QWidget, BranchesStatusWidget)
 #: src/gui/pages/branchesstatuswidget.ui:14
 #, kde-format
@@ -775,20 +763,20 @@ msgid "Default branch:"
 msgstr "Standaard branch:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/gui/pages/remoteswidget.ui:102
+#: src/gui/pages/remoteswidget.ui:99
 #, kde-format
 msgid "Fetch url:"
 msgstr "URL ophalen:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/gui/pages/remoteswidget.ui:122
+#: src/gui/pages/remoteswidget.ui:116
 #, kde-format
 msgid "Push url:"
 msgstr "Push URL:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/gui/pages/remoteswidget.ui:139
+#: src/gui/pages/remoteswidget.ui:130
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:25
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:25
 #, kde-format
@@ -796,14 +784,14 @@ msgid "Name:"
 msgstr "Naam:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/gui/pages/remoteswidget.ui:159
+#: src/gui/pages/remoteswidget.ui:147
 #, kde-format
 msgid "Branches:"
 msgstr "Branches:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
-#: src/gui/pages/remoteswidget.ui:167
+#: src/gui/pages/remoteswidget.ui:155
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
 #: src/libkommitwidgets/models/branchesmodel.cpp:89
 #: src/libkommitwidgets/models/tagsmodel.cpp:59
@@ -813,20 +801,20 @@ msgid "Name"
 msgstr "Naam"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/gui/pages/remoteswidget.ui:172
+#: src/gui/pages/remoteswidget.ui:160
 #, kde-format
 msgid "Ref name"
 msgstr "Referentienaam"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/gui/pages/remoteswidget.ui:177
+#: src/gui/pages/remoteswidget.ui:165
 #: src/libkommitwidgets/models/branchesmodel.cpp:99
 #, kde-format
 msgid "Upstream"
 msgstr "Upstream"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
-#: src/gui/pages/remoteswidget.ui:182
+#: src/gui/pages/remoteswidget.ui:170
 #: src/libkommitwidgets/models/submodulesmodel.cpp:127
 #, kde-format
 msgid "Status"
@@ -1155,8 +1143,18 @@ msgstr "Naam van branch"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:115
 #, kde-format
+msgid "Are you sure to remove the selected branch?"
+msgstr "Wilt u de geselecteerde branch verwijderen?"
+
+#: src/libkommitwidgets/actions/branchactions.cpp:115
+#, kde-format
 msgid "Remove Branch"
 msgstr "Branch verwijderen"
+
+#: src/libkommitwidgets/actions/branchactions.cpp:117
+#, kde-format
+msgid "Unable to remove the selected branch"
+msgstr "Kan de geselecteerde branch niet verwijderen"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:22
 #, kde-format
