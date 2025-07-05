@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:55+0000\n"
 "PO-Revision-Date: 2024-12-24 17:30+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -47,24 +47,32 @@ msgstr "열기"
 msgid "Pull"
 msgstr "풀"
 
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
 #: dolphinplugins/actions.h:20
+#: src/libkommitwidgets/dialogs/remoteinfodialog.ui:64
 #, kde-format
 msgid "Fetch"
 msgstr "가져오기"
 
-#: dolphinplugins/actions.h:21
+#. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
+#: dolphinplugins/actions.h:21 src/gui/pages/tagswidget.ui:69
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:101
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:299
 #, kde-format
 msgid "Push"
 msgstr "푸시"
 
-#: dolphinplugins/actions.h:22
+#. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
+#: dolphinplugins/actions.h:22 src/libkommitwidgets/dialogs/mergedialog.ui:14
 #, kde-format
 msgid "Merge"
 msgstr "병합"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
 #: dolphinplugins/actions.h:23
+#: src/libkommitwidgets/dialogs/switchbranchdialog.ui:14
 #, kde-format
 msgid "Switch/Checkout"
 msgstr "전환/체크아웃"
@@ -74,12 +82,20 @@ msgstr "전환/체크아웃"
 msgid "Modifications"
 msgstr "수정"
 
-#: dolphinplugins/actions.h:25 src/gui/settings/settingsmanager.cpp:96
+#. i18n: ectx: Menu (diff)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
+#: dolphinplugins/actions.h:25 src/gui/kommitmergeui.rc:17
+#: src/gui/pages/branchesstatuswidget.ui:121
+#: src/gui/settings/settingsmanager.cpp:96
 #, kde-format
 msgid "Diff"
 msgstr "차이점"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, IgnoreFileDialog)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxIgnoreFile)
 #: dolphinplugins/actions.h:26
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:14
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:96
 #, kde-format
 msgid "Ignore file"
 msgstr "파일 무시"
@@ -94,12 +110,18 @@ msgstr "과거 기록"
 msgid "Blame"
 msgstr "블레임"
 
-#: dolphinplugins/actions.h:29
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
+#: dolphinplugins/actions.h:29 src/gui/pages/remoteswidget.ui:56
+#: src/gui/pages/tagswidget.ui:48
 #, kde-format
 msgid "Add"
 msgstr "추가"
 
-#: dolphinplugins/actions.h:30
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
+#: dolphinplugins/actions.h:30 src/gui/pages/branchesstatuswidget.ui:101
+#: src/gui/pages/remoteswidget.ui:66
 #, kde-format
 msgid "Remove"
 msgstr "삭제"
@@ -334,6 +356,85 @@ msgstr "색인에서 삭제"
 msgid "File(s) removed from git successfully"
 msgstr "Git에서 파일을 삭제함"
 
+#. i18n: ectx: property (text), widget (QLabel, labelStatus_2)
+#: src/gui/commandpullwidget.ui:19
+#, kde-format
+msgid "Status:"
+msgstr "상태:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelStatus)
+#. i18n: ectx: property (text), widget (QLabel, labelDefaultBranch)
+#. i18n: ectx: property (text), widget (QLabel, labelFetchUrl)
+#. i18n: ectx: property (text), widget (QLabel, labelPushUrl)
+#. i18n: ectx: property (text), widget (QLabel, labelRemoteName)
+#. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName)
+#: src/gui/commandpullwidget.ui:26 src/gui/pages/remoteswidget.ui:92
+#: src/gui/pages/remoteswidget.ui:109 src/gui/pages/remoteswidget.ui:129
+#: src/gui/pages/remoteswidget.ui:146
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:78
+#, kde-format
+msgid "---"
+msgstr "---"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
+#: src/gui/kommitui.rc:46
+#, kde-format
+msgid "Main Toolbar"
+msgstr "주 도구 모음"
+
+#. i18n: ectx: Menu (file)
+#. i18n: ectx: Menu (repo)
+#: src/gui/kommitui.rc:10 src/gui/kommitui.rc:27
+#, kde-format
+msgid "Repo"
+msgstr "저장소"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CloseEventDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, MergeCloseEventDialog)
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonClose)
+#: src/gui/merge/closeeventdialog.ui:14
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:73
+#: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:14
+#, kde-format
+msgid "Close"
+msgstr "닫기"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/merge/closeeventdialog.ui:20
+#: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:20
+#, kde-format
+msgid "The changes to file are not saved to the disk. What you want to do?"
+msgstr "파일의 변경 사항이 디스크에 저장되지 않았습니다. 무엇을 하시겠습니까?"
+
+#. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonMarkResolved)
+#: src/gui/merge/closeeventdialog.ui:49
+#: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:49
+#, kde-format
+msgid "Mark as resolved"
+msgstr "해결됨으로 표시"
+
+#. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonLeaveAsIs)
+#: src/gui/merge/closeeventdialog.ui:62
+#: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:62
+#, kde-format
+msgid "Leave as is"
+msgstr "그대로 두기"
+
+#. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonDontExit)
+#: src/gui/merge/closeeventdialog.ui:75
+#: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:75
+#, kde-format
+msgid "Don't exit"
+msgstr "끝내지 않기"
+
+#. i18n: ectx: property (text), widget (QLabel, labelTitle)
+#. i18n: ectx: property (windowTitle), widget (QWidget, HistoryViewWidget)
+#: src/gui/multipagewidget.ui:131 src/gui/pages/historyviewwidget.ui:14
+#, kde-format
+msgid "Overview"
+msgstr "요약"
+
 #: src/gui/pages/branchesstatuswidget.cpp:71
 #: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
@@ -346,10 +447,310 @@ msgstr "선택한 브랜치를 삭제하시겠습니까?"
 msgid "Unable to remove the selected branch"
 msgstr "선택한 브랜치를 삭제할 수 없음"
 
-#: src/gui/pages/remoteswidget.cpp:62
+#. i18n: ectx: property (windowTitle), widget (QWidget, BranchesStatusWidget)
+#: src/gui/pages/branchesstatuswidget.ui:14
+#, kde-format
+msgid "Branches"
+msgstr "브랜치"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/pages/branchesstatuswidget.ui:25
+#, kde-format
+msgid "Reference branch:"
+msgstr "참조 브랜치:"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonNew)
+#: src/gui/pages/branchesstatuswidget.ui:78
+#, kde-format
+msgid "New"
+msgstr "새로 만들기"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
+#: src/gui/pages/branchesstatuswidget.ui:91
+#: src/libkommitwidgets/actions/tagsactions.cpp:51
+#, kde-format
+msgid "Checkout"
+msgstr "체크아웃"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
+#: src/gui/pages/branchesstatuswidget.ui:111
+#, kde-format
+msgid "Browse"
+msgstr "찾아보기"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
+#: src/gui/pages/commitswidget.ui:14
+#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#: src/libkommitwidgets/reports/authorsreport.cpp:83
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
+#: src/libkommitwidgets/reports/commitsbydayhour.cpp:71
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
+#: src/libkommitwidgets/reports/commitsbydayweek.cpp:100
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:70
+#: src/libkommitwidgets/reports/commitsbymonth.cpp:85
+#, kde-format
+msgid "Commits"
+msgstr "커밋"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
+#: src/gui/pages/commitswidget.ui:41
+#, kde-format
+msgid "Filter..."
+msgstr "필터..."
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
+#: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:59
 #, kde-format
 msgid "Update"
 msgstr "업데이트"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, RemotesWidget)
+#: src/gui/pages/remoteswidget.ui:14
+#, kde-format
+msgid "Remotes"
+msgstr "원격"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gui/pages/remoteswidget.ui:79
+#, kde-format
+msgid "Information"
+msgstr "정보"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/pages/remoteswidget.ui:85
+#, kde-format
+msgid "Default branch:"
+msgstr "기본 브랜치:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/gui/pages/remoteswidget.ui:102
+#, kde-format
+msgid "Fetch url:"
+msgstr "가져오기 URL:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/gui/pages/remoteswidget.ui:122
+#, kde-format
+msgid "Push url:"
+msgstr "푸시 URL:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/pages/remoteswidget.ui:139
+#: src/libkommitwidgets/dialogs/remoteinfodialog.ui:25
+#: src/libkommitwidgets/dialogs/reposettingsdialog.ui:25
+#, kde-format
+msgid "Name:"
+msgstr "이름:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/gui/pages/remoteswidget.ui:159
+#, kde-format
+msgid "Branches:"
+msgstr "브랜치:"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
+#: src/gui/pages/remoteswidget.ui:167 src/libkommit/models/branchesmodel.cpp:65
+#: src/libkommit/models/tagsmodel.cpp:61
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
+#: src/libkommitwidgets/models/treemodel.cpp:146
+#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#, kde-format
+msgid "Name"
+msgstr "이름"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/pages/remoteswidget.ui:172
+#, kde-format
+msgid "Ref name"
+msgstr "참조 이름"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/pages/remoteswidget.ui:177 src/libkommit/models/branchesmodel.cpp:75
+#, kde-format
+msgid "Upstream"
+msgstr "업스트림"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/gui/pages/remoteswidget.ui:182
+#: src/libkommit/models/submodulesmodel.cpp:64
+#: src/libkommitwidgets/models/treemodel.cpp:148
+#, kde-format
+msgid "Status"
+msgstr "상태"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
+#: src/gui/pages/reportswidget.ui:14
+#, kde-format
+msgid "Reports"
+msgstr "보고서"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
+#: src/gui/pages/reportswidget.ui:33
+#, kde-format
+msgid "Table view"
+msgstr "테이블 보기"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonTable)
+#: src/gui/pages/reportswidget.ui:36
+#, kde-format
+msgid "Table"
+msgstr "표"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonChart)
+#: src/gui/pages/reportswidget.ui:50
+#, kde-format
+msgid "Chart view"
+msgstr "차트 보기"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonChart)
+#: src/gui/pages/reportswidget.ui:53
+#, kde-format
+msgid "Chart"
+msgstr "차트"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
+#: src/gui/pages/reportswidget.ui:80
+#, kde-format
+msgid "Refresh data"
+msgstr "데이터 새로 고침"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
+#: src/gui/pages/reportswidget.ui:83
+#, kde-format
+msgid "Refresh"
+msgstr "새로 고침"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
+#: src/gui/pages/stasheswidget.ui:14
+#, kde-format
+msgid "Stashes"
+msgstr "스태시"
+
+#. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
+#. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
+#: src/gui/pages/stasheswidget.ui:49 src/gui/pages/submoduleswidget.ui:56
+#, kde-format
+msgid ""
+"<html><head/><body><p>Save your local modifications to a new stash entry and "
+"roll them back to HEAD (in the working tree and in the index). The part is "
+"optional and gives the description along with the stashed state.</p><p><br/"
+"></p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
+"txt-push-p--patch-k--no-keep-index-u--include-untracked-a--all-q--quiet-m--"
+"messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--"
+"ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">More information...</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>로컬 변경 사항을 새 스태시 항목으로 저장하고 HEAD(작업 "
+"트리와 색인에서)로 되돌립니다. 이 부분은 선택 사항이며 스태시된 상태와 설명"
+"을 저장합니다.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"stash#Documentation/git-stash.txt-push-p--patch-k--no-keep-index-u--include-"
+"untracked-a--all-q--quiet-m--messageltmessagegt--pathspec-from-fileltfilegt--"
+"pathspec-file-nul--ltpathspecgt82308203\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">자세한 정보...</span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
+#: src/gui/pages/stasheswidget.ui:52
+#, kde-format
+msgid "Create new"
+msgstr "새로 만들기"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
+#. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
+#: src/gui/pages/stasheswidget.ui:59 src/gui/pages/tagswidget.ui:55
+#, kde-format
+msgid "Remove selected"
+msgstr "선택한 항목 삭제"
+
+#. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonApply)
+#: src/gui/pages/stasheswidget.ui:66
+#, kde-format
+msgid ""
+"<html><head/><body><p>Apply stash to top of current working directory</"
+"p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
+"txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">More information...</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>현재 작업 디렉터리에 스태시를 적용합니다.</p><p><a "
+"href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-apply--"
+"index-q--quietltstashgt\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">자세한 정보...</span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
+#: src/gui/pages/stasheswidget.ui:69
+#, kde-format
+msgid "Apply selected"
+msgstr "선택 항목 적용"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, SubmodulesWidget)
+#: src/gui/pages/submoduleswidget.ui:14
+#, kde-format
+msgid "Submodules"
+msgstr "하위 모듈"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
+#. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
+#: src/gui/pages/submoduleswidget.ui:49
+#: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:14
+#, kde-format
+msgid "Add new submodule"
+msgstr "새 하위 모듈 추가"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
+#: src/gui/pages/tagswidget.ui:14
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:108
+#: src/libkommitwidgets/dialogs/pulldialog.ui:153
+#: src/libkommitwidgets/dialogs/remoteinfodialog.ui:54
+#: src/libkommitwidgets/reports/authorsreport.cpp:68
+#, kde-format
+msgid "Tags"
+msgstr "태그"
+
+#. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
+#: src/gui/pages/tagswidget.ui:62
+#, kde-format
+msgid "Checkout to selected"
+msgstr "선택 항목 체크아웃"
+
+#. i18n: ectx: label, entry (diffAddedColor), group (Preferences)
+#: src/gui/settings/KommitSettings.kcfg:9
+#, kde-format
+msgid "Added color"
+msgstr "추가된 부분 색상"
+
+#. i18n: ectx: label, entry (diffRemovedColor), group (Preferences)
+#: src/gui/settings/KommitSettings.kcfg:13
+#, kde-format
+msgid "Removed color"
+msgstr "삭제된 부분 색상"
+
+#. i18n: ectx: label, entry (diffModifiedColor), group (Preferences)
+#: src/gui/settings/KommitSettings.kcfg:17
+#, kde-format
+msgid "Modified color"
+msgstr "수정된 부분 색상"
+
+#. i18n: ectx: label, entry (colorForeground), group (Preferences)
+#: src/gui/settings/KommitSettings.kcfg:21
+#, kde-format
+msgid "color of the foreground"
+msgstr "글자색"
+
+#. i18n: ectx: label, entry (gitBinPath), group (Preferences)
+#: src/gui/settings/KommitSettings.kcfg:26
+#, kde-format
+msgid "age of the project"
+msgstr "프로젝트의 나이"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_openLastRepo)
+#. i18n: ectx: label, entry (openLastRepo), group (Preferences)
+#: src/gui/settings/KommitSettings.kcfg:33
+#: src/gui/settings/settingspagebase.ui:29
+#, kde-format
+msgid "Open last repo at startup"
+msgstr "시작할 때 마지막 저장소 열기"
 
 #: src/gui/settings/settingsmanager.cpp:95
 #, kde-format
@@ -360,6 +761,60 @@ msgstr "일반"
 #, kde-format
 msgid "Git"
 msgstr "Git"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gui/settings/settingspagebase.ui:23
+#, kde-format
+msgid "Startup"
+msgstr "시작"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDefaultCalendar)
+#: src/gui/settings/settingspagebase.ui:41
+#, kde-format
+msgid "Default calendar:"
+msgstr "기본 캘린더:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/gui/settings/settingspagebase.ui:51
+#, kde-format
+msgid "Git binary path:"
+msgstr "Git 실행 파일 경로:"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundLabel)
+#: src/gui/settings/settingspagediff.ui:17
+#, kde-format
+msgid "Added diff color:"
+msgstr "추가된 차이점 색상:"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundLabel_2)
+#: src/gui/settings/settingspagediff.ui:27
+#, kde-format
+msgid "Removed diff color:"
+msgstr "삭제된 차이점 색상:"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundLabel_3)
+#: src/gui/settings/settingspagediff.ui:37
+#, kde-format
+msgid "Modified diff color:"
+msgstr "수정된 차이점 색상:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerDiffTool)
+#: src/gui/settings/settingspagegit.ui:19
+#, kde-format
+msgid "Register kommit diff tool"
+msgstr "kommit diff 도구 등록"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
+#: src/gui/settings/settingspagegit.ui:26
+#, kde-format
+msgid "Register kommit merge tool"
+msgstr "kommit merge 도구 등록"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/settings/settingspagegit.ui:37
+#, kde-format
+msgid "Git proxy:"
+msgstr "Git 프록시:"
 
 #: src/libkommit/commands/commandpull.cpp:62
 #, kde-format
@@ -400,14 +855,6 @@ msgstr "정방향 진행 가능"
 msgid "Local out of date"
 msgstr "로컬이 오래됨"
 
-#: src/libkommit/models/branchesmodel.cpp:65
-#: src/libkommit/models/tagsmodel.cpp:61
-#: src/libkommitwidgets/models/treemodel.cpp:146
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
-#, kde-format
-msgid "Name"
-msgstr "이름"
-
 #: src/libkommit/models/branchesmodel.cpp:67
 #, kde-format
 msgid "Commit(s) behind"
@@ -428,12 +875,12 @@ msgstr "앞서 있음"
 msgid "Ref"
 msgstr "참조"
 
-#: src/libkommit/models/branchesmodel.cpp:75
-#, kde-format
-msgid "Upstream"
-msgstr "업스트림"
-
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
+#. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommit/models/branchesmodel.cpp:77
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:31
+#: src/libkommitwidgets/dialogs/pulldialog.ui:20
+#: src/libkommitwidgets/dialogs/pulldialog.ui:26
 #, kde-format
 msgid "Remote"
 msgstr "원격"
@@ -460,7 +907,11 @@ msgstr "그래프"
 msgid "Subject"
 msgstr "제목"
 
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommit/models/stashesmodel.cpp:68
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:289
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:65
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:37
 #, kde-format
 msgid "Commit"
@@ -481,7 +932,9 @@ msgstr "작성자 이메일 주소"
 msgid "Time"
 msgstr "시간"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommit/models/submodulesmodel.cpp:60
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
 #, kde-format
 msgid "Path"
 msgstr "경로"
@@ -490,12 +943,6 @@ msgstr "경로"
 #, kde-format
 msgid "Head"
 msgstr "헤드"
-
-#: src/libkommit/models/submodulesmodel.cpp:64
-#: src/libkommitwidgets/models/treemodel.cpp:148
-#, kde-format
-msgid "Status"
-msgstr "상태"
 
 #: src/libkommit/models/tagsmodel.cpp:65
 #, kde-format
@@ -861,15 +1308,183 @@ msgstr "태그 삭제"
 msgid "Are you sure to checkout to the selected tag?"
 msgstr "선택한 태그를 체크아웃하시겠습니까?"
 
-#: src/libkommitwidgets/actions/tagsactions.cpp:51
+#. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
 #, kde-format
-msgid "Checkout"
-msgstr "체크아웃"
+msgid "Changed files"
+msgstr "변경된 파일"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:20
+#: src/libkommitwidgets/widgets/commitdetails.ui:174
+#, kde-format
+msgid "Changed files:"
+msgstr "변경된 파일:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
+#: src/libkommitwidgets/windows/diffwindow.cpp:210
+#, kde-format
+msgid "Reload"
+msgstr "새로 고침"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonStashChanges)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
+#, kde-format
+msgid "Stash changes"
+msgstr "변경 사항 스태시"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
+#: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
+#, kde-format
+msgid "Commit/push"
+msgstr "커밋/푸시"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
 #, kde-format
 msgid "Commit/Push submodule: %1"
 msgstr "하위 모듈 커밋/푸시: %1"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
+#, kde-format
+msgid "Changed submodules"
+msgstr "변경된 하위 모듈"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
+#, kde-format
+msgid "The following submodules are dirty. Would you like to push them?"
+msgstr "다음 하위 모듈이 변경되었습니다. 푸시하시겠습니까?"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
+#: src/libkommitwidgets/dialogs/cleanupdialog.ui:14
+#, kde-format
+msgid "Cleanup repo"
+msgstr "저장소 정리"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/libkommitwidgets/dialogs/cleanupdialog.ui:23
+#, kde-format
+msgid "Clean type"
+msgstr "정리 형식"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonNonIgnoredUntrackedFiles)
+#: src/libkommitwidgets/dialogs/cleanupdialog.ui:29
+#, kde-format
+msgid "Remove non-ignored untracked files"
+msgstr "무시되지 않는 추적하지 않는 파일 삭제"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllUntrackedFiles)
+#: src/libkommitwidgets/dialogs/cleanupdialog.ui:39
+#, kde-format
+msgid "Remove all untracked files"
+msgstr "모든 추적하지 않는 파일 삭제"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
+#: src/libkommitwidgets/dialogs/cleanupdialog.ui:46
+#, kde-format
+msgid "Remove ignored files"
+msgstr "무시되는 파일 삭제"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
+#: src/libkommitwidgets/dialogs/cleanupdialog.ui:56
+#, kde-format
+msgid "Remove untracked directories"
+msgstr "추적하지 않는 디렉터리 삭제"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CloneDialog)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:14
+#, kde-format
+msgid "Clone a repository"
+msgstr "저장소 복제"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:53
+#: src/libkommitwidgets/dialogs/remoteinfodialog.ui:35
+#: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:28
+#, kde-format
+msgid "Url:"
+msgstr "URL:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:60
+#: src/libkommitwidgets/dialogs/initdialog.ui:25
+#: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:35
+#, kde-format
+msgid "Directory:"
+msgstr "디렉터리:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxRecursive)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:81
+#, kde-format
+msgid "Recursive"
+msgstr "재귀적"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxDepth)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:88
+#, kde-format
+msgid "Depth"
+msgstr "깊이"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxBranch)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:108
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:34
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:75
+#: src/libkommitwidgets/dialogs/pulldialog.ui:36
+#: src/libkommitwidgets/dialogs/searchdialog.cpp:36
+#: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:66
+#, kde-format
+msgid "Branch"
+msgstr "브랜치"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxOriginName)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:122
+#, kde-format
+msgid "Origin name"
+msgstr "원본 이름"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:162
+#, kde-format
+msgid "Cloning into:"
+msgstr "다음으로 복제:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
+#. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitSubject)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
+#. i18n: ectx: property (text), widget (QLabel, labelRefName)
+#. i18n: ectx: property (text), widget (QLabel, labelParent)
+#. i18n: ectx: property (text), widget (QLabel, labelChildren)
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#. i18n: ectx: property (text), widget (QLabel, labelAuthTime)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitter)
+#. i18n: ectx: property (text), widget (QLabel, labelCommitTime)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:169
+#: src/libkommitwidgets/dialogs/mergedialog.ui:53
+#: src/libkommitwidgets/widgets/commitdetails.ui:69
+#: src/libkommitwidgets/widgets/commitdetails.ui:82
+#: src/libkommitwidgets/widgets/commitdetails.ui:118
+#: src/libkommitwidgets/widgets/commitdetails.ui:137
+#: src/libkommitwidgets/widgets/commitdetails.ui:159
+#: src/libkommitwidgets/widgets/commitdetails.ui:230
+#: src/libkommitwidgets/widgets/commitdetails.ui:240
+#: src/libkommitwidgets/widgets/commitdetails.ui:282
+#: src/libkommitwidgets/widgets/commitdetails.ui:292
+#, kde-format
+msgid "-"
+msgstr "-"
+
+#. i18n: ectx: property (text), widget (QLabel, labelMessage)
+#: src/libkommitwidgets/dialogs/clonedialog.ui:176
+#, kde-format
+msgid "TextLabel"
+msgstr "텍스트 레이블"
 
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:103
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
@@ -877,10 +1492,312 @@ msgstr "하위 모듈 커밋/푸시: %1"
 msgid "Commit and push"
 msgstr "커밋 후 푸시"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
+#, kde-format
+msgid "Commit/Push"
+msgstr "커밋/푸시"
+
+#. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:22
+#, kde-format
+msgid "Remote:"
+msgstr "원격지:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonCurrentBranch)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:40
+#, kde-format
+msgid "Current branch"
+msgstr "현재 브랜치"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonExistingBranch)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:50
+#: src/libkommitwidgets/dialogs/switchbranchdialog.ui:25
+#, kde-format
+msgid "Existing branch"
+msgstr "기존 브랜치"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonNewBranch)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:64
+#: src/libkommitwidgets/dialogs/switchbranchdialog.ui:38
+#, kde-format
+msgid "New branch"
+msgstr "새 브랜치"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxForce)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:88
+#, kde-format
+msgid ""
+"<html><head/><body><p>Usually, the command refuses to update a remote ref "
+"that is not an ancestor of the local ref used to overwrite it. Also, when --"
+"force-with-lease option is used, the command refuses to update a remote ref "
+"whose current value does not match what is expected.</p><p>This flag "
+"disables these checks, and can cause the remote repository to lose commits; "
+"use it with care.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"push#Documentation/git-push.txt--f\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">More information...</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>이 명령은 원격 참조가 로컬 참조의 상위 커밋이 아닌 경우"
+"에는 업데이트를 거부합니다. --force-with-lease 옵션을 사용했다면 이 명령은 원"
+"격 참조와 현재 참조가 일치하지 않는 경우에 업데이트를 거부합니다.</p><p>이 플"
+"래그는 해당 검사를 비활성화하며 원격 저장소에서 커밋이 손실될 수도 있습니다. "
+"주의하여 사용하십시오.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/"
+"git-push#Documentation/git-push.txt--f\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">자세한 정보...</span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:91
+#: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:59
+#: src/libkommitwidgets/dialogs/switchbranchdialog.ui:74
+#, kde-format
+msgid "Force"
+msgstr "강제"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxMakeCommit)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:98
+#, kde-format
+msgid "Create a commit"
+msgstr "커밋 만들기"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIncludeStatus)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Include the output of &quot;git status&quot; in the "
+"commit message template when using an editor to prepare the commit message. "
+"</p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/git-"
+"commit.txt---status\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">More information</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>커밋 메시지를 작성하는 편집기를 열 때 커밋 메시지 템플"
+"릿에 &quot;git status&quot;의 출력을 포함합니다.</p><p><a href=\"https://git-"
+"scm.com/docs/git-commit#Documentation/git-commit.txt---status\"><span style="
+"\" text-decoration: underline; color:#2980b9;\">자세한 정보</span></a></p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:110
+#, kde-format
+msgid "Include status to the message"
+msgstr "메시지에 상태 포함"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAmend)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:120
+#, kde-format
+msgid ""
+"<html><head/><body><p>Replace the tip of the current branch by creating a "
+"new commit.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"commit#Documentation/git-commit.txt---amend\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">More info</span></a></p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>현재 브랜치의 팁을 새 커밋을 생성하여 대체합니다.</"
+"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/"
+"git-commit.txt---amend\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">자세한 정보</span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxAmend)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:123
+#, kde-format
+msgid "Amend to previous commit"
+msgstr "현재 커밋에 덧붙이기"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:152
+#: src/libkommitwidgets/dialogs/taginfodialog.ui:36
+#, kde-format
+msgid "Message:"
+msgstr "메시지:"
+
+#. i18n: ectx: property (whatsThis), widget (CompletionTextEdit, textEditMessage)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:162
+#, kde-format
+msgid ""
+"<html><head/><body><p>Use the given text as the commit message. </p><p><a "
+"href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
+"messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
+"\">More information</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>지정한 텍스트를 커밋 메시지로 사용합니다.</p><p><a "
+"href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
+"messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;\">"
+"자세한 정보</span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:175
+#, kde-format
+msgid "Files:"
+msgstr "파일:"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:195
+#, kde-format
+msgid "All"
+msgstr "모두"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddIndexed)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:205
+#, kde-format
+msgid "Indexed"
+msgstr "색인에 포함됨"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
+#: src/libkommitwidgets/windows/diffwindow.cpp:273
+#, kde-format
+msgid "Added"
+msgstr "추가됨"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
+#: src/libkommitwidgets/windows/diffwindow.cpp:275
+#, kde-format
+msgid "Removed"
+msgstr "삭제됨"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
+#: src/libkommitwidgets/windows/diffwindow.cpp:277
+#, kde-format
+msgid "Modified"
+msgstr "수정됨"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButtonAddNone)
+#: src/libkommitwidgets/dialogs/commitpushdialog.ui:245
+#, kde-format
+msgid "None"
+msgstr "없음"
+
 #: src/libkommitwidgets/dialogs/credentialdialog.cpp:32
 #, kde-format
 msgid "Credential for %1"
 msgstr "%1의 자격 증명"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, CredentialDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, FilesTreeDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, TagInfoDialog)
+#: src/libkommitwidgets/dialogs/credentialdialog.ui:14
+#: src/libkommitwidgets/dialogs/fileblamedialog.ui:14
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:14
+#: src/libkommitwidgets/dialogs/filestreedialog.ui:14
+#: src/libkommitwidgets/dialogs/taginfodialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "대화 상자"
+
+#. i18n: ectx: property (text), widget (QLabel, labelCredentialsUrl)
+#: src/libkommitwidgets/dialogs/credentialdialog.ui:23
+#, kde-format
+msgid "Credentials:"
+msgstr "자격 증명:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/credentialdialog.ui:35
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:97
+#, kde-format
+msgid "Username:"
+msgstr "사용자 이름:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/libkommitwidgets/dialogs/credentialdialog.ui:45
+#, kde-format
+msgid "Password:"
+msgstr "암호:"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
+#: src/libkommitwidgets/dialogs/diffopendialog.ui:14
+#, kde-format
+msgid "Select files/folders"
+msgstr "파일 및 폴더 선택"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
+#: src/libkommitwidgets/dialogs/diffopendialog.ui:23
+#, kde-format
+msgid "Compare files"
+msgstr "파일 비교"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFolders)
+#: src/libkommitwidgets/dialogs/diffopendialog.ui:30
+#, kde-format
+msgid "Compare directories"
+msgstr "디렉터리 비교"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/diffopendialog.ui:40
+#, kde-format
+msgid "Old file:"
+msgstr "이전 파일:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/libkommitwidgets/dialogs/diffopendialog.ui:50
+#, kde-format
+msgid "New file:"
+msgstr "새 파일:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/libkommitwidgets/dialogs/diffopendialog.ui:69
+#, kde-format
+msgid "New directory:"
+msgstr "새 디렉터리:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/libkommitwidgets/dialogs/diffopendialog.ui:76
+#, kde-format
+msgid "Old directory:"
+msgstr "이전 디렉터리:"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:14
+#, kde-format
+msgid "Fetch from origin"
+msgstr "원본에서 가져오기"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllBranches)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:43
+#, kde-format
+msgid "All branches"
+msgstr "모든 브랜치"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:88
+#: src/libkommitwidgets/dialogs/pulldialog.ui:49
+#: src/libkommitwidgets/dialogs/switchbranchdialog.ui:68
+#, kde-format
+msgid "Options"
+msgstr "옵션"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoFastForward)
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:94
+#: src/libkommitwidgets/dialogs/mergedialog.ui:86
+#, kde-format
+msgid "No fast forward"
+msgstr "정방향 진행 없음"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:101
+#: src/libkommitwidgets/dialogs/pulldialog.ui:146
+#, kde-format
+msgid "No commit"
+msgstr "커밋 없음"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:115
+#: src/libkommitwidgets/dialogs/mergedialog.ui:81
+#, kde-format
+msgid "Fast forward only"
+msgstr "정방향 진행만"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
+#: src/libkommitwidgets/dialogs/fetchdialog.ui:122
+#: src/libkommitwidgets/dialogs/pulldialog.ui:160
+#, kde-format
+msgid "Prune"
+msgstr "잘라내기"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:39
 #, kde-format
@@ -894,12 +1811,52 @@ msgctxt "@title:window"
 msgid "File log: %1"
 msgstr "파일 로그: %1"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:27
+#, kde-format
+msgid "View type"
+msgstr "보기 형식"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:33
+#, kde-format
+msgid "Regular view"
+msgstr "일반 보기"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:40
+#, kde-format
+msgid "Differential view"
+msgstr "차분 보기"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:70
+#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:25
+#, kde-format
+msgid "Left"
+msgstr "왼쪽"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
+#: src/libkommitwidgets/dialogs/filehistorydialog.ui:75
+#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:54
+#, kde-format
+msgid "Right"
+msgstr "오른쪽"
+
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
 msgstr "파일 탐색: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/filestreedialog.ui:31
+#, kde-format
+msgid "Branch:"
+msgstr "브랜치:"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
 #, kde-format
@@ -918,6 +1875,12 @@ msgctxt "@title:window"
 msgid "View file: %1"
 msgstr "파일 보기: %1"
 
+#. i18n: ectx: property (windowTitle), widget (QMainWindow, FileViewerDialog)
+#: src/libkommitwidgets/dialogs/fileviewerdialog.ui:14
+#, kde-format
+msgid "MainWindow"
+msgstr "주 창"
+
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:44
 #, kde-format
 msgid "The file is ignored already"
@@ -933,15 +1896,423 @@ msgstr "패턴을 입력하십시오"
 msgid "Unable to open file: %1"
 msgstr "파일을 열 수 없음: %1"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:25
+#, kde-format
+msgid "Pattern:"
+msgstr "패턴:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonNameAndExt)
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:43
+#, kde-format
+msgid "Name and extension"
+msgstr "이름과 확장자"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonExt)
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:53
+#, kde-format
+msgid "All files by this extension"
+msgstr "이 확장자를 갖는 모든 파일"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonName)
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:60
+#, kde-format
+msgid "All files by this name"
+msgstr "이 이름을 갖는 모든 파일"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonExactPath)
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:76
+#, kde-format
+msgid "Exact the path"
+msgstr "정확한 경로"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonEveryWhere)
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:86
+#, kde-format
+msgid "File in everywhere"
+msgstr "어디에든 있는 파일"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRootIgnoreFile)
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:102
+#, kde-format
+msgid ".gitignore in the repository root"
+msgstr "저장소 루트에 있는 .gitignore"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonDirIgnoreFile)
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:112
+#, kde-format
+msgid ".gitignore in the containing directory"
+msgstr "포함하는 디렉터리에 있는 .gitignore"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonExcludeFile)
+#: src/libkommitwidgets/dialogs/ignorefiledialog.ui:119
+#, kde-format
+msgid ".git/info/exclude"
+msgstr ".git/info/exclude"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, InitDialog)
+#: src/libkommitwidgets/dialogs/initdialog.ui:14
+#, kde-format
+msgid "Init git repo"
+msgstr "Git 저장소 초기화"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:22
+#, kde-format
+msgid "From:"
+msgstr "원본:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:32
+#, kde-format
+msgid "Strategy:"
+msgstr "전략:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxStrategy)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:39
+#, kde-format
+msgid ""
+"<html><head/><body><p>The merge mechanism (git merge and git pull commands) "
+"allows the backend merge strategies to be chosen with -s option. Some "
+"strategies can also take their own options, which can be passed by giving -"
+"X&lt;option&gt; arguments to git merge and/or git pull.</p><p><a href="
+"\"https://git-scm.com/docs/merge-strategies\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">More information</span></a></p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>git merge와 git pull 명령에 사용되는 병합 메커니즘에서"
+"는 -s 옵션을 사용하여 백엔드 병합 전략을 지정할 수 있습니다. 일부 전략에는 개"
+"별적으로 옵션을 지정할 수 있으며, git merge, git pull 명령에 -X&lt;"
+"option&gt; 인자를 지정하여 옵션을 지정할 수 있습니다.</p><p><a href="
+"\"https://git-scm.com/docs/merge-strategies\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">더 많은 정보</span></a></p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:46
+#, kde-format
+msgid "To:"
+msgstr "대상:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:60
+#: src/libkommitwidgets/dialogs/pulldialog.ui:79
+#, kde-format
+msgid "Fast forward:"
+msgstr "정방향 진행:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFastForward)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:67
+#, kde-format
+msgid ""
+"<html><head/><body><p>Specifies how a merge is handled when the merged-in "
+"history is already a descendant of the current history.</p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">More "
+"information</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>병합된 역사가 현재 역사의 상위 항목일 때 병합 진행 방식"
+"을 지정합니다.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt---ff\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">더 많은 정보</span></a></p></body></html>"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:71
+#: src/libkommitwidgets/dialogs/mergedialog.ui:130
+#, kde-format
+msgid "Default"
+msgstr "기본값"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:76
+#, kde-format
+msgid "Allow fast forward"
+msgstr "정방향 진행 허용"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:94
+#, kde-format
+msgid ""
+"<html><head/><body><p>By default, git merge command refuses to merge "
+"histories that do not share a common ancestor. This option can be used to "
+"override this safety when merging histories of two projects that started "
+"their lives independently. As that is a very rare occasion, no configuration "
+"variable to enable this by default exists and will not be added.</p><p><br/"
+"></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
+"txt---allow-unrelated-histories\"><span style=\" text-decoration: underline; "
+"color:#007af4;\">More information</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>기본값으로 git merge 명령은 공통 상위 항목이 없는 역사 "
+"병합을 거부합니다. 이 옵션은 개별적으로 시작된 두 프로젝트의 역사를 합칠 때 "
+"안전 장치를 끌 수 있습니다. 일반적인 경우가 아니기 때문에 이 옵션을 기본값으"
+"로 활성화할 수 있는 설정 변수는 없으며 앞으로도 추가되지 않을 것입니다.</"
+"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
+"git-merge.txt---allow-unrelated-histories\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">더 많은 정보</span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:97
+#, kde-format
+msgid "Allow unrelated histories"
+msgstr "연결되지 않은 과거 기록 허용"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxSquash)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Produce the working tree and index state as if a real "
+"merge happened (except for the merge information), but do not actually make "
+"a commit, move the HEAD, or record $GIT_DIR/MERGE_HEAD (to cause the next "
+"git commit command to create a merge commit). This allows you to create a "
+"single commit on top of the current branch whose effect is the same as "
+"merging another branch (or more in case of an octopus).</p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---"
+"squash\"><span style=\" text-decoration: underline; color:#007af4;\">More "
+"information</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>실제 병합이 일어난 것처럼 작업 폴더와 인덱스 상태를 생"
+"성하지만(병합 정보 제외), 실제 커밋 생성, HEAD 이동, $GIT_DIR/MERGE_HEAD 기록"
+"(다음 git commit 명령이 병합 커밋을 생성하도록)을 변경하지는 않습니다. 현재 "
+"브랜치 하에서 다른 브랜치를 병합하는 것과 효과가 동일한 새 단일 커밋을 생성합"
+"니다.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt---squash\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">더 많은 정보</span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:110
+#: src/libkommitwidgets/dialogs/pulldialog.ui:101
+#, kde-format
+msgid "Squash"
+msgstr "합치기"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonOurs)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:140
+#, kde-format
+msgid "Ours"
+msgstr "내 편"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonTheirs)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:147
+#, kde-format
+msgid "Theirs"
+msgstr "상대방 편"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreAllSpace)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreCrAtEol)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:154
+#: src/libkommitwidgets/dialogs/mergedialog.ui:164
+#: src/libkommitwidgets/dialogs/mergedialog.ui:174
+#: src/libkommitwidgets/dialogs/mergedialog.ui:184
+#, kde-format
+msgid ""
+"<html><head/><body><p>Treats lines with the indicated type of whitespace "
+"change as unchanged for the sake of a three-way merge. Whitespace changes "
+"mixed with other changes to a line are not ignored. </p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-ignore-"
+"space-change\"><span style=\" text-decoration: underline; color:#007af4;"
+"\">More information</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>3방향 병합을 실행할 때 지정한 공백 문자 변경 사항이 있"
+"는 줄을 변경 사항이 없는 것처럼 처리합니다. 공백 문자 변경 사항과 다른 변경 "
+"사항이 동시에 존재할 경우에는 무시하지 않습니다.</p><p><br/></p><p><a href="
+"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-ignore-"
+"space-change\"><span style=\" text-decoration: underline; color:#007af4;\">"
+"더 많은 정보</span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:157
+#, kde-format
+msgid "Ignore space change"
+msgstr "공백 변경 무시"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreAllSpace)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:167
+#, kde-format
+msgid "Ignore all space"
+msgstr "모든 공백 무시"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:177
+#, kde-format
+msgid "Ignore space at eol"
+msgstr "줄 끝의 공백 무시"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreCrAtEol)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:187
+#, kde-format
+msgid "Ignore cr at eol"
+msgstr "줄 끝의 CR 무시"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxRenormalize)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:194
+#, kde-format
+msgid ""
+"<html><head/><body><p>This runs a virtual check-out and check-in of all "
+"three stages of a file when resolving a three-way merge. This option is "
+"meant to be used when merging branches with different clean filters or end-"
+"of-line normalization rules.</p><p><br/></p><p><a href=\"https://git-scm.com/"
+"docs/git-merge#Documentation/git-merge.txt-renormalize\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">More information</span></a></p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>3방향 병합을 실행할 때 파일의 모든 세 단계에서 가상 체"
+"크아웃과 체크인을 실행합니다. 이 옵션은 병합하는 브랜치별로 정규화 필터나 줄 "
+"끝 문자가 다른 경우에 사용합니다.</p><p><br/></p><p><a href=\"https://git-"
+"scm.com/docs/git-merge#Documentation/git-merge.txt-renormalize\"><span style="
+"\" text-decoration: underline; color:#007af4;\">더 많은 정보</span></a></p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:197
+#, kde-format
+msgid "Renormalize"
+msgstr "재정규화"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:211
+#, kde-format
+msgid "Diff algorithm:"
+msgstr "Diff 알고리즘:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxDiffAlgoritm)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:218
+#, kde-format
+msgid ""
+"<html><head/><body><p>Use a different diff algorithm while merging, which "
+"can help avoid mismerges that occur due to unimportant matching lines (such "
+"as braces from distinct functions).</p><p><br/></p><p><a href=\"https://git-"
+"scm.com/docs/git-merge#Documentation/git-merge.txt-diff-"
+"algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">More information</span></a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>병합하는 과정에서 다른 diff 알고리즘을 사용하여 중요하"
+"지 않은 변경 사항으로 인하여 잘못 병합되는 경우(예: 관계 없는 함수의 괄호)를 "
+"방지합니다.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt-diff-algorithmpatienceminimalhistogrammyers"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">자세한 정보</"
+"span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
+#: src/libkommitwidgets/dialogs/mergedialog.ui:225
+#, kde-format
+msgid "Turn off rename detection"
+msgstr "이름 바꾸기 감지 끄기"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, MergeOpenFilesDialog)
+#: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:14
+#, kde-format
+msgid "Select files to merge"
+msgstr "병합할 파일 선택"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:25
+#, kde-format
+msgid "Local file:"
+msgstr "로컬 파일:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:35
+#, kde-format
+msgid "Remote file:"
+msgstr "원격 파일:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:45
+#, kde-format
+msgid "Base file:"
+msgstr "기반 파일:"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
+#: src/libkommitwidgets/dialogs/notedialog.ui:14
+#, kde-format
+msgid "Note"
+msgstr "메모"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, PullDialog)
+#: src/libkommitwidgets/dialogs/pulldialog.ui:14
+#, kde-format
+msgid "Pull changes"
+msgstr "변경 사항 풀"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/libkommitwidgets/dialogs/pulldialog.ui:63
+#, kde-format
+msgid "Rebase:"
+msgstr "리베이스:"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteInfoDialog)
+#: src/libkommitwidgets/dialogs/remoteinfodialog.ui:14
+#, kde-format
+msgid "New remote"
+msgstr "새 리모트"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxMirror)
+#: src/libkommitwidgets/dialogs/remoteinfodialog.ui:47
+#, kde-format
+msgid "Mirror"
+msgstr "미러"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, RepoSettingsDialog)
+#: src/libkommitwidgets/dialogs/reposettingsdialog.ui:14
+#, kde-format
+msgid "Repo settings"
+msgstr "저장소 설정"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/libkommitwidgets/dialogs/reposettingsdialog.ui:35
+#, kde-format
+msgid "Email:"
+msgstr "이메일:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/libkommitwidgets/dialogs/reposettingsdialog.ui:45
+#, kde-format
+msgid "Auto crlf:"
+msgstr "자동 CRLF:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
+#: src/libkommitwidgets/dialogs/reposettingsdialog.ui:52
+#, kde-format
+msgid ""
+"<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+"com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
+"\" text-decoration: underline; color:#007af4;\">More informations...</span></"
+"a></p></body></html>"
+msgstr ""
+"<html><head/><body><p>CR/LF를 변경할지 여부입니다</p><p><a href=\"https://"
+"git-scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">자세한 정보..."
+"</span></a></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/libkommitwidgets/dialogs/reposettingsdialog.ui:59
+#, kde-format
+msgid "File mode:"
+msgstr "파일 모드:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
+#: src/libkommitwidgets/dialogs/reposettingsdialog.ui:66
+#, kde-format
+msgid ""
+"<html><head/><body><p>Tells Git if the executable bit of files in the "
+"working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
+"config#Documentation/git-config.txt-corefileMode\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">More informations...</span></a></p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Git에 작업 트리에 있는 파일의 실행 가능 비트 유지 여부"
+"를 알립니다.</p><p><a href=\"https://git-scm.com/docs/git-"
+"config#Documentation/git-config.txt-corefileMode\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">자세한 정보...</span></a></p></"
+"body></html>"
+
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
 #, kde-format
 msgid "View"
 msgstr "보기"
-
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:97
-#, kde-format
-msgid "Username:"
-msgstr "사용자 이름:"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
@@ -958,15 +2329,102 @@ msgstr "git 프로세스가 충돌함"
 msgid "Process finished with error"
 msgstr "프로세스가 종료 오류를 반환함"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
+#: src/libkommitwidgets/dialogs/runnerdialog.ui:14
+#, kde-format
+msgid "Run command"
+msgstr "명령 실행"
+
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar)
+#: src/libkommitwidgets/dialogs/runnerdialog.ui:36
+#, no-c-format, kde-format
+msgid "%p%"
+msgstr "%p%"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: src/libkommitwidgets/dialogs/runnerdialog.ui:47
+#, kde-format
+msgid "Output"
+msgstr "출력"
+
+#. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
+#: src/libkommitwidgets/dialogs/runnerdialog.ui:74
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"size:9pt;\"><br /></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"size:9pt;\"><br /></p></body></html>"
+
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "File name"
 msgstr "파일 이름"
 
-#: src/libkommitwidgets/dialogs/searchdialog.cpp:36
+#. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
+#: src/libkommitwidgets/dialogs/searchdialog.ui:14
 #, kde-format
-msgid "Branch"
-msgstr "브랜치"
+msgid "Search in repo"
+msgstr "저장소에서 검색"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/searchdialog.ui:25
+#, kde-format
+msgid "Path:"
+msgstr "경로:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/libkommitwidgets/dialogs/searchdialog.ui:35
+#, kde-format
+msgid "Text:"
+msgstr "텍스트:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchBranches)
+#: src/libkommitwidgets/dialogs/searchdialog.ui:45
+#, kde-format
+msgid "Search all branches"
+msgstr "모든 브랜치 검색"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
+#: src/libkommitwidgets/dialogs/searchdialog.ui:55
+#, kde-format
+msgid "Search all commits"
+msgstr "모든 커밋 검색"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
+#: src/libkommitwidgets/dialogs/searchdialog.ui:62
+#, kde-format
+msgid "Case sensitive"
+msgstr "대소문자 구분"
+
+#. i18n: ectx: property (text), widget (QPushButton, pushButtonSearch)
+#: src/libkommitwidgets/dialogs/searchdialog.ui:86
+#, kde-format
+msgid "Search"
+msgstr "검색"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
@@ -978,6 +2436,28 @@ msgstr "선택한 브랜치는 서로 달라야 합니다!"
 msgid "Select Branches"
 msgstr "브랜치 선택"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
+#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:14
+#, kde-format
+msgid "Select branches"
+msgstr "브랜치 선택"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectLeftBranch)
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
+#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:31
+#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:60
+#, kde-format
+msgid "Select branch"
+msgstr "브랜치 선택"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonLeftIsHead)
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRightIsHead)
+#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:44
+#: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:73
+#, kde-format
+msgid "HEAD"
+msgstr "HEAD"
+
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:101
 #, kde-format
 msgid "The path is not inside of git directory"
@@ -987,6 +2467,18 @@ msgstr "경로가 git 디렉터리 내부가 아님"
 #, kde-format
 msgid "The branch already exists"
 msgstr "브랜치가 이미 존재함"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
+#: src/libkommitwidgets/dialogs/switchbranchdialog.ui:52
+#, kde-format
+msgid "Tag"
+msgstr "태그"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/taginfodialog.ui:22
+#, kde-format
+msgid "Tag name:"
+msgstr "태그 이름:"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:139
 #, kde-format
@@ -1004,18 +2496,6 @@ msgid "Commits count by author"
 msgstr "작성자별 커밋"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:68
-#: src/libkommitwidgets/reports/authorsreport.cpp:83
-#: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
-#: src/libkommitwidgets/reports/commitsbydayhour.cpp:71
-#: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
-#: src/libkommitwidgets/reports/commitsbydayweek.cpp:100
-#: src/libkommitwidgets/reports/commitsbymonth.cpp:70
-#: src/libkommitwidgets/reports/commitsbymonth.cpp:85
-#, kde-format
-msgid "Commits"
-msgstr "커밋"
-
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
 #, kde-format
 msgid "Email"
 msgstr "이메일"
@@ -1024,11 +2504,6 @@ msgstr "이메일"
 #, kde-format
 msgid "Autheds"
 msgstr "작성자"
-
-#: src/libkommitwidgets/reports/authorsreport.cpp:68
-#, kde-format
-msgid "Tags"
-msgstr "태그"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:46
 #, kde-format
@@ -1135,6 +2610,72 @@ msgstr "원격:"
 msgid "Tag: "
 msgstr "태그:"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
+#: src/libkommitwidgets/widgets/commitdetails.ui:14
+#, kde-format
+msgid "Form"
+msgstr "폼"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/widgets/commitdetails.ui:39
+#, kde-format
+msgid "Commit is not selected"
+msgstr "커밋이 선택되지 않았음"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
+#: src/libkommitwidgets/widgets/commitdetails.ui:99
+#, kde-format
+msgid "Author:"
+msgstr "작성자:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelCommitterText)
+#: src/libkommitwidgets/widgets/commitdetails.ui:111
+#, kde-format
+msgid "Committer:"
+msgstr "커미터:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelParentsText)
+#: src/libkommitwidgets/widgets/commitdetails.ui:130
+#, kde-format
+msgid "Parent:"
+msgstr "상위:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
+#: src/libkommitwidgets/widgets/commitdetails.ui:152
+#, kde-format
+msgid "Child:"
+msgstr "하위:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
+#: src/libkommitwidgets/widgets/commitdetails.ui:181
+#, kde-format
+msgid "<html><head/><body><p>-</p></body></html>"
+msgstr "<html><head/><body><p>-</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, labelRefType)
+#: src/libkommitwidgets/widgets/commitdetails.ui:196
+#, kde-format
+msgid "Ref:"
+msgstr "참조:"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
+#: src/libkommitwidgets/widgets/difftreeview.ui:17
+#, kde-format
+msgid "Type to filter"
+msgstr "입력하여 필터"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
+#: src/libkommitwidgets/widgets/difftreeview.ui:53
+#, kde-format
+msgid "Hide unchangeds"
+msgstr "변경되지 않은 항목 숨기기"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
+#: src/libkommitwidgets/widgets/reportwidget.ui:14
+#, kde-format
+msgid "Report"
+msgstr "보고서"
+
 #: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
 msgctxt "@title:window"
@@ -1168,30 +2709,10 @@ msgstr "파일 이름 표시"
 msgid "Show Tree"
 msgstr "트리 표시"
 
-#: src/libkommitwidgets/windows/diffwindow.cpp:210
-#, kde-format
-msgid "Reload"
-msgstr "새로 고침"
-
 #: src/libkommitwidgets/windows/diffwindow.cpp:271
 #, kde-format
 msgid "Unchanged"
 msgstr "변경하지 않음"
-
-#: src/libkommitwidgets/windows/diffwindow.cpp:273
-#, kde-format
-msgid "Added"
-msgstr "추가됨"
-
-#: src/libkommitwidgets/windows/diffwindow.cpp:275
-#, kde-format
-msgid "Removed"
-msgstr "삭제됨"
-
-#: src/libkommitwidgets/windows/diffwindow.cpp:277
-#, kde-format
-msgid "Modified"
-msgstr "수정됨"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:278
 #, kde-format
@@ -1252,798 +2773,6 @@ msgstr "다음 차이점"
 #, kde-format
 msgid "Unable to open the file"
 msgstr "파일을 열 수 없음"
-
-#~ msgid "Status:"
-#~ msgstr "상태:"
-
-#~ msgid "---"
-#~ msgstr "---"
-
-#~ msgid "Main Toolbar"
-#~ msgstr "주 도구 모음"
-
-#~ msgid "Repo"
-#~ msgstr "저장소"
-
-#~ msgid "Close"
-#~ msgstr "닫기"
-
-#~ msgid "The changes to file are not saved to the disk. What you want to do?"
-#~ msgstr ""
-#~ "파일의 변경 사항이 디스크에 저장되지 않았습니다. 무엇을 하시겠습니까?"
-
-#~ msgid "Mark as resolved"
-#~ msgstr "해결됨으로 표시"
-
-#~ msgid "Leave as is"
-#~ msgstr "그대로 두기"
-
-#~ msgid "Don't exit"
-#~ msgstr "끝내지 않기"
-
-#~ msgid "Overview"
-#~ msgstr "요약"
-
-#~ msgid "Branches"
-#~ msgstr "브랜치"
-
-#~ msgid "Reference branch:"
-#~ msgstr "참조 브랜치:"
-
-#~ msgid "New"
-#~ msgstr "새로 만들기"
-
-#~ msgid "Browse"
-#~ msgstr "찾아보기"
-
-#~ msgid "Filter..."
-#~ msgstr "필터..."
-
-#~ msgid "Remotes"
-#~ msgstr "원격"
-
-#~ msgid "Information"
-#~ msgstr "정보"
-
-#~ msgid "Default branch:"
-#~ msgstr "기본 브랜치:"
-
-#~ msgid "Fetch url:"
-#~ msgstr "가져오기 URL:"
-
-#~ msgid "Push url:"
-#~ msgstr "푸시 URL:"
-
-#~ msgid "Name:"
-#~ msgstr "이름:"
-
-#~ msgid "Branches:"
-#~ msgstr "브랜치:"
-
-#~ msgid "Ref name"
-#~ msgstr "참조 이름"
-
-#~ msgid "Reports"
-#~ msgstr "보고서"
-
-#~ msgid "Table view"
-#~ msgstr "테이블 보기"
-
-#~ msgid "Table"
-#~ msgstr "표"
-
-#~ msgid "Chart view"
-#~ msgstr "차트 보기"
-
-#~ msgid "Chart"
-#~ msgstr "차트"
-
-#~ msgid "Refresh data"
-#~ msgstr "데이터 새로 고침"
-
-#~ msgid "Refresh"
-#~ msgstr "새로 고침"
-
-#~ msgid "Stashes"
-#~ msgstr "스태시"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Save your local modifications to a new stash entry "
-#~ "and roll them back to HEAD (in the working tree and in the index). The "
-#~ "part is optional and gives the description along with the stashed state.</"
-#~ "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-#~ "stash#Documentation/git-stash.txt-push-p--patch-k--no-keep-index-u--"
-#~ "include-untracked-a--all-q--quiet-m--messageltmessagegt--pathspec-from-"
-#~ "fileltfilegt--pathspec-file-nul--ltpathspecgt82308203\"><span style=\" "
-#~ "text-decoration: underline; color:#2980b9;\">More information...</span></"
-#~ "a></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>로컬 변경 사항을 새 스태시 항목으로 저장하고 HEAD(작"
-#~ "업 트리와 색인에서)로 되돌립니다. 이 부분은 선택 사항이며 스태시된 상태와 "
-#~ "설명을 저장합니다.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/"
-#~ "git-stash#Documentation/git-stash.txt-push-p--patch-k--no-keep-index-u--"
-#~ "include-untracked-a--all-q--quiet-m--messageltmessagegt--pathspec-from-"
-#~ "fileltfilegt--pathspec-file-nul--ltpathspecgt82308203\"><span style=\" "
-#~ "text-decoration: underline; color:#2980b9;\">자세한 정보...</span></a></"
-#~ "p></body></html>"
-
-#~ msgid "Create new"
-#~ msgstr "새로 만들기"
-
-#~ msgid "Remove selected"
-#~ msgstr "선택한 항목 삭제"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Apply stash to top of current working directory</"
-#~ "p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
-#~ "txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
-#~ "underline; color:#2980b9;\">More information...</span></a></p></body></"
-#~ "html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>현재 작업 디렉터리에 스태시를 적용합니다.</p><p><a "
-#~ "href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-"
-#~ "apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
-#~ "underline; color:#2980b9;\">자세한 정보...</span></a></p></body></html>"
-
-#~ msgid "Apply selected"
-#~ msgstr "선택 항목 적용"
-
-#~ msgid "Submodules"
-#~ msgstr "하위 모듈"
-
-#~ msgid "Add new submodule"
-#~ msgstr "새 하위 모듈 추가"
-
-#~ msgid "Checkout to selected"
-#~ msgstr "선택 항목 체크아웃"
-
-#~ msgid "Added color"
-#~ msgstr "추가된 부분 색상"
-
-#~ msgid "Removed color"
-#~ msgstr "삭제된 부분 색상"
-
-#~ msgid "Modified color"
-#~ msgstr "수정된 부분 색상"
-
-#~ msgid "color of the foreground"
-#~ msgstr "글자색"
-
-#~ msgid "age of the project"
-#~ msgstr "프로젝트의 나이"
-
-#~ msgid "Open last repo at startup"
-#~ msgstr "시작할 때 마지막 저장소 열기"
-
-#~ msgid "Startup"
-#~ msgstr "시작"
-
-#~ msgid "Default calendar:"
-#~ msgstr "기본 캘린더:"
-
-#~ msgid "Git binary path:"
-#~ msgstr "Git 실행 파일 경로:"
-
-#~ msgid "Added diff color:"
-#~ msgstr "추가된 차이점 색상:"
-
-#~ msgid "Removed diff color:"
-#~ msgstr "삭제된 차이점 색상:"
-
-#~ msgid "Modified diff color:"
-#~ msgstr "수정된 차이점 색상:"
-
-#~ msgid "Register kommit diff tool"
-#~ msgstr "kommit diff 도구 등록"
-
-#~ msgid "Register kommit merge tool"
-#~ msgstr "kommit merge 도구 등록"
-
-#~ msgid "Git proxy:"
-#~ msgstr "Git 프록시:"
-
-#~ msgid "Changed files"
-#~ msgstr "변경된 파일"
-
-#~ msgid "Changed files:"
-#~ msgstr "변경된 파일:"
-
-#~ msgid "Stash changes"
-#~ msgstr "변경 사항 스태시"
-
-#~ msgid "Commit/push"
-#~ msgstr "커밋/푸시"
-
-#~ msgid "Changed submodules"
-#~ msgstr "변경된 하위 모듈"
-
-#~ msgid "The following submodules are dirty. Would you like to push them?"
-#~ msgstr "다음 하위 모듈이 변경되었습니다. 푸시하시겠습니까?"
-
-#~ msgid "Cleanup repo"
-#~ msgstr "저장소 정리"
-
-#~ msgid "Clean type"
-#~ msgstr "정리 형식"
-
-#~ msgid "Remove non-ignored untracked files"
-#~ msgstr "무시되지 않는 추적하지 않는 파일 삭제"
-
-#~ msgid "Remove all untracked files"
-#~ msgstr "모든 추적하지 않는 파일 삭제"
-
-#~ msgid "Remove ignored files"
-#~ msgstr "무시되는 파일 삭제"
-
-#~ msgid "Remove untracked directories"
-#~ msgstr "추적하지 않는 디렉터리 삭제"
-
-#~ msgid "Clone a repository"
-#~ msgstr "저장소 복제"
-
-#~ msgid "Url:"
-#~ msgstr "URL:"
-
-#~ msgid "Directory:"
-#~ msgstr "디렉터리:"
-
-#~ msgid "Recursive"
-#~ msgstr "재귀적"
-
-#~ msgid "Depth"
-#~ msgstr "깊이"
-
-#~ msgid "Origin name"
-#~ msgstr "원본 이름"
-
-#~ msgid "Cloning into:"
-#~ msgstr "다음으로 복제:"
-
-#~ msgid "-"
-#~ msgstr "-"
-
-#~ msgid "TextLabel"
-#~ msgstr "텍스트 레이블"
-
-#~ msgid "Commit/Push"
-#~ msgstr "커밋/푸시"
-
-#~ msgid "Remote:"
-#~ msgstr "원격지:"
-
-#~ msgid "Current branch"
-#~ msgstr "현재 브랜치"
-
-#~ msgid "Existing branch"
-#~ msgstr "기존 브랜치"
-
-#~ msgid "New branch"
-#~ msgstr "새 브랜치"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Usually, the command refuses to update a remote ref "
-#~ "that is not an ancestor of the local ref used to overwrite it. Also, when "
-#~ "--force-with-lease option is used, the command refuses to update a remote "
-#~ "ref whose current value does not match what is expected.</p><p>This flag "
-#~ "disables these checks, and can cause the remote repository to lose "
-#~ "commits; use it with care.</p><p><br/></p><p><a href=\"https://git-scm."
-#~ "com/docs/git-push#Documentation/git-push.txt--f\"><span style=\" text-"
-#~ "decoration: underline; color:#007af4;\">More information...</span></a></"
-#~ "p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>이 명령은 원격 참조가 로컬 참조의 상위 커밋이 아닌 "
-#~ "경우에는 업데이트를 거부합니다. --force-with-lease 옵션을 사용했다면 이 명"
-#~ "령은 원격 참조와 현재 참조가 일치하지 않는 경우에 업데이트를 거부합니다.</"
-#~ "p><p>이 플래그는 해당 검사를 비활성화하며 원격 저장소에서 커밋이 손실될 수"
-#~ "도 있습니다. 주의하여 사용하십시오.</p><p><br/></p><p><a href=\"https://"
-#~ "git-scm.com/docs/git-push#Documentation/git-push.txt--f\"><span style=\" "
-#~ "text-decoration: underline; color:#007af4;\">자세한 정보...</span></a></"
-#~ "p></body></html>"
-
-#~ msgid "Force"
-#~ msgstr "강제"
-
-#~ msgid "Create a commit"
-#~ msgstr "커밋 만들기"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Include the output of &quot;git status&quot; in the "
-#~ "commit message template when using an editor to prepare the commit "
-#~ "message. </p><p><a href=\"https://git-scm.com/docs/git-"
-#~ "commit#Documentation/git-commit.txt---status\"><span style=\" text-"
-#~ "decoration: underline; color:#2980b9;\">More information</span></a></p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>커밋 메시지를 작성하는 편집기를 열 때 커밋 메시지 템"
-#~ "플릿에 &quot;git status&quot;의 출력을 포함합니다.</p><p><a href="
-#~ "\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-#~ "status\"><span style=\" text-decoration: underline; color:#2980b9;\">자세"
-#~ "한 정보</span></a></p></body></html>"
-
-#~ msgid "Include status to the message"
-#~ msgstr "메시지에 상태 포함"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Replace the tip of the current branch by creating a "
-#~ "new commit.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-#~ "commit#Documentation/git-commit.txt---amend\"><span style=\" text-"
-#~ "decoration: underline; color:#2980b9;\">More info</span></a></p></body></"
-#~ "html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>현재 브랜치의 팁을 새 커밋을 생성하여 대체합니다.</"
-#~ "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-#~ "commit#Documentation/git-commit.txt---amend\"><span style=\" text-"
-#~ "decoration: underline; color:#2980b9;\">자세한 정보</span></a></p></"
-#~ "body></html>"
-
-#~ msgid "Amend to previous commit"
-#~ msgstr "현재 커밋에 덧붙이기"
-
-#~ msgid "Message:"
-#~ msgstr "메시지:"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
-#~ "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-#~ "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-#~ "\">More information</span></a></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>지정한 텍스트를 커밋 메시지로 사용합니다.</p><p><a "
-#~ "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-#~ "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-#~ "\">자세한 정보</span></a></p></body></html>"
-
-#~ msgid "Files:"
-#~ msgstr "파일:"
-
-#~ msgid "All"
-#~ msgstr "모두"
-
-#~ msgid "Indexed"
-#~ msgstr "색인에 포함됨"
-
-#~ msgid "None"
-#~ msgstr "없음"
-
-#~ msgid "Dialog"
-#~ msgstr "대화 상자"
-
-#~ msgid "Credentials:"
-#~ msgstr "자격 증명:"
-
-#~ msgid "Password:"
-#~ msgstr "암호:"
-
-#~ msgid "Select files/folders"
-#~ msgstr "파일 및 폴더 선택"
-
-#~ msgid "Compare files"
-#~ msgstr "파일 비교"
-
-#~ msgid "Compare directories"
-#~ msgstr "디렉터리 비교"
-
-#~ msgid "Old file:"
-#~ msgstr "이전 파일:"
-
-#~ msgid "New file:"
-#~ msgstr "새 파일:"
-
-#~ msgid "New directory:"
-#~ msgstr "새 디렉터리:"
-
-#~ msgid "Old directory:"
-#~ msgstr "이전 디렉터리:"
-
-#~ msgid "Fetch from origin"
-#~ msgstr "원본에서 가져오기"
-
-#~ msgid "All branches"
-#~ msgstr "모든 브랜치"
-
-#~ msgid "Options"
-#~ msgstr "옵션"
-
-#~ msgid "No fast forward"
-#~ msgstr "정방향 진행 없음"
-
-#~ msgid "No commit"
-#~ msgstr "커밋 없음"
-
-#~ msgid "Fast forward only"
-#~ msgstr "정방향 진행만"
-
-#~ msgid "Prune"
-#~ msgstr "잘라내기"
-
-#~ msgid "View type"
-#~ msgstr "보기 형식"
-
-#~ msgid "Regular view"
-#~ msgstr "일반 보기"
-
-#~ msgid "Differential view"
-#~ msgstr "차분 보기"
-
-#~ msgid "Left"
-#~ msgstr "왼쪽"
-
-#~ msgid "Right"
-#~ msgstr "오른쪽"
-
-#~ msgid "Branch:"
-#~ msgstr "브랜치:"
-
-#~ msgid "MainWindow"
-#~ msgstr "주 창"
-
-#~ msgid "Pattern:"
-#~ msgstr "패턴:"
-
-#~ msgid "Name and extension"
-#~ msgstr "이름과 확장자"
-
-#~ msgid "All files by this extension"
-#~ msgstr "이 확장자를 갖는 모든 파일"
-
-#~ msgid "All files by this name"
-#~ msgstr "이 이름을 갖는 모든 파일"
-
-#~ msgid "Exact the path"
-#~ msgstr "정확한 경로"
-
-#~ msgid "File in everywhere"
-#~ msgstr "어디에든 있는 파일"
-
-#~ msgid ".gitignore in the repository root"
-#~ msgstr "저장소 루트에 있는 .gitignore"
-
-#~ msgid ".gitignore in the containing directory"
-#~ msgstr "포함하는 디렉터리에 있는 .gitignore"
-
-#~ msgid ".git/info/exclude"
-#~ msgstr ".git/info/exclude"
-
-#~ msgid "Init git repo"
-#~ msgstr "Git 저장소 초기화"
-
-#~ msgid "From:"
-#~ msgstr "원본:"
-
-#~ msgid "Strategy:"
-#~ msgstr "전략:"
-
-#~ msgid ""
-#~ "<html><head/><body><p>The merge mechanism (git merge and git pull "
-#~ "commands) allows the backend merge strategies to be chosen with -s "
-#~ "option. Some strategies can also take their own options, which can be "
-#~ "passed by giving -X&lt;option&gt; arguments to git merge and/or git pull."
-#~ "</p><p><a href=\"https://git-scm.com/docs/merge-strategies\"><span style="
-#~ "\" text-decoration: underline; color:#2980b9;\">More information</span></"
-#~ "a></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>git merge와 git pull 명령에 사용되는 병합 메커니즘에"
-#~ "서는 -s 옵션을 사용하여 백엔드 병합 전략을 지정할 수 있습니다. 일부 전략에"
-#~ "는 개별적으로 옵션을 지정할 수 있으며, git merge, git pull 명령에 -X&lt;"
-#~ "option&gt; 인자를 지정하여 옵션을 지정할 수 있습니다.</p><p><a href="
-#~ "\"https://git-scm.com/docs/merge-strategies\"><span style=\" text-"
-#~ "decoration: underline; color:#2980b9;\">더 많은 정보</span></a></p></"
-#~ "body></html>"
-
-#~ msgid "To:"
-#~ msgstr "대상:"
-
-#~ msgid "Fast forward:"
-#~ msgstr "정방향 진행:"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Specifies how a merge is handled when the merged-in "
-#~ "history is already a descendant of the current history.</p><p><br/></"
-#~ "p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
-#~ "txt---ff\"><span style=\" text-decoration: underline; color:#007af4;"
-#~ "\">More information</span></a></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>병합된 역사가 현재 역사의 상위 항목일 때 병합 진행 "
-#~ "방식을 지정합니다.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/"
-#~ "git-merge#Documentation/git-merge.txt---ff\"><span style=\" text-"
-#~ "decoration: underline; color:#007af4;\">더 많은 정보</span></a></p></"
-#~ "body></html>"
-
-#~ msgid "Default"
-#~ msgstr "기본값"
-
-#~ msgid "Allow fast forward"
-#~ msgstr "정방향 진행 허용"
-
-#~ msgid ""
-#~ "<html><head/><body><p>By default, git merge command refuses to merge "
-#~ "histories that do not share a common ancestor. This option can be used to "
-#~ "override this safety when merging histories of two projects that started "
-#~ "their lives independently. As that is a very rare occasion, no "
-#~ "configuration variable to enable this by default exists and will not be "
-#~ "added.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-#~ "merge#Documentation/git-merge.txt---allow-unrelated-histories\"><span "
-#~ "style=\" text-decoration: underline; color:#007af4;\">More information</"
-#~ "span></a></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>기본값으로 git merge 명령은 공통 상위 항목이 없는 역"
-#~ "사 병합을 거부합니다. 이 옵션은 개별적으로 시작된 두 프로젝트의 역사를 합"
-#~ "칠 때 안전 장치를 끌 수 있습니다. 일반적인 경우가 아니기 때문에 이 옵션을 "
-#~ "기본값으로 활성화할 수 있는 설정 변수는 없으며 앞으로도 추가되지 않을 것입"
-#~ "니다.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-#~ "merge#Documentation/git-merge.txt---allow-unrelated-histories\"><span "
-#~ "style=\" text-decoration: underline; color:#007af4;\">더 많은 정보</"
-#~ "span></a></p></body></html>"
-
-#~ msgid "Allow unrelated histories"
-#~ msgstr "연결되지 않은 과거 기록 허용"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Produce the working tree and index state as if a "
-#~ "real merge happened (except for the merge information), but do not "
-#~ "actually make a commit, move the HEAD, or record $GIT_DIR/MERGE_HEAD (to "
-#~ "cause the next git commit command to create a merge commit). This allows "
-#~ "you to create a single commit on top of the current branch whose effect "
-#~ "is the same as merging another branch (or more in case of an octopus).</"
-#~ "p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
-#~ "merge#Documentation/git-merge.txt---squash\"><span style=\" text-"
-#~ "decoration: underline; color:#007af4;\">More information</span></a></p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>실제 병합이 일어난 것처럼 작업 폴더와 인덱스 상태를 "
-#~ "생성하지만(병합 정보 제외), 실제 커밋 생성, HEAD 이동, $GIT_DIR/"
-#~ "MERGE_HEAD 기록(다음 git commit 명령이 병합 커밋을 생성하도록)을 변경하지"
-#~ "는 않습니다. 현재 브랜치 하에서 다른 브랜치를 병합하는 것과 효과가 동일한 "
-#~ "새 단일 커밋을 생성합니다.</p><p><br/></p><p><a href=\"https://git-scm."
-#~ "com/docs/git-merge#Documentation/git-merge.txt---squash\"><span style=\" "
-#~ "text-decoration: underline; color:#007af4;\">더 많은 정보</span></a></p></"
-#~ "body></html>"
-
-#~ msgid "Squash"
-#~ msgstr "합치기"
-
-#~ msgid "Ours"
-#~ msgstr "내 편"
-
-#~ msgid "Theirs"
-#~ msgstr "상대방 편"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Treats lines with the indicated type of whitespace "
-#~ "change as unchanged for the sake of a three-way merge. Whitespace changes "
-#~ "mixed with other changes to a line are not ignored. </p><p><br/></p><p><a "
-#~ "href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-"
-#~ "ignore-space-change\"><span style=\" text-decoration: underline; color:"
-#~ "#007af4;\">More information</span></a></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>3방향 병합을 실행할 때 지정한 공백 문자 변경 사항이 "
-#~ "있는 줄을 변경 사항이 없는 것처럼 처리합니다. 공백 문자 변경 사항과 다른 "
-#~ "변경 사항이 동시에 존재할 경우에는 무시하지 않습니다.</p><p><br/></"
-#~ "p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
-#~ "txt-ignore-space-change\"><span style=\" text-decoration: underline; "
-#~ "color:#007af4;\">더 많은 정보</span></a></p></body></html>"
-
-#~ msgid "Ignore space change"
-#~ msgstr "공백 변경 무시"
-
-#~ msgid "Ignore all space"
-#~ msgstr "모든 공백 무시"
-
-#~ msgid "Ignore space at eol"
-#~ msgstr "줄 끝의 공백 무시"
-
-#~ msgid "Ignore cr at eol"
-#~ msgstr "줄 끝의 CR 무시"
-
-#~ msgid ""
-#~ "<html><head/><body><p>This runs a virtual check-out and check-in of all "
-#~ "three stages of a file when resolving a three-way merge. This option is "
-#~ "meant to be used when merging branches with different clean filters or "
-#~ "end-of-line normalization rules.</p><p><br/></p><p><a href=\"https://git-"
-#~ "scm.com/docs/git-merge#Documentation/git-merge.txt-renormalize\"><span "
-#~ "style=\" text-decoration: underline; color:#007af4;\">More information</"
-#~ "span></a></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>3방향 병합을 실행할 때 파일의 모든 세 단계에서 가상 "
-#~ "체크아웃과 체크인을 실행합니다. 이 옵션은 병합하는 브랜치별로 정규화 필터"
-#~ "나 줄 끝 문자가 다른 경우에 사용합니다.</p><p><br/></p><p><a href="
-#~ "\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-"
-#~ "renormalize\"><span style=\" text-decoration: underline; color:#007af4;\">"
-#~ "더 많은 정보</span></a></p></body></html>"
-
-#~ msgid "Renormalize"
-#~ msgstr "재정규화"
-
-#~ msgid "Diff algorithm:"
-#~ msgstr "Diff 알고리즘:"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Use a different diff algorithm while merging, which "
-#~ "can help avoid mismerges that occur due to unimportant matching lines "
-#~ "(such as braces from distinct functions).</p><p><br/></p><p><a href="
-#~ "\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-diff-"
-#~ "algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
-#~ "underline; color:#007af4;\">More information</span></a></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>병합하는 과정에서 다른 diff 알고리즘을 사용하여 중요"
-#~ "하지 않은 변경 사항으로 인하여 잘못 병합되는 경우(예: 관계 없는 함수의 괄"
-#~ "호)를 방지합니다.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/"
-#~ "git-merge#Documentation/git-merge.txt-diff-"
-#~ "algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
-#~ "underline; color:#007af4;\">자세한 정보</span></a></p></body></html>"
-
-#~ msgid "Turn off rename detection"
-#~ msgstr "이름 바꾸기 감지 끄기"
-
-#~ msgid "Select files to merge"
-#~ msgstr "병합할 파일 선택"
-
-#~ msgid "Local file:"
-#~ msgstr "로컬 파일:"
-
-#~ msgid "Remote file:"
-#~ msgstr "원격 파일:"
-
-#~ msgid "Base file:"
-#~ msgstr "기반 파일:"
-
-#~ msgid "Note"
-#~ msgstr "메모"
-
-#~ msgid "Pull changes"
-#~ msgstr "변경 사항 풀"
-
-#~ msgid "Rebase:"
-#~ msgstr "리베이스:"
-
-#~ msgid "New remote"
-#~ msgstr "새 리모트"
-
-#~ msgid "Mirror"
-#~ msgstr "미러"
-
-#~ msgid "Repo settings"
-#~ msgstr "저장소 설정"
-
-#~ msgid "Email:"
-#~ msgstr "이메일:"
-
-#~ msgid "Auto crlf:"
-#~ msgstr "자동 CRLF:"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#~ "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#~ "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#~ "</span></a></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>CR/LF를 변경할지 여부입니다</p><p><a href=\"https://"
-#~ "git-scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf"
-#~ "\"><span style=\" text-decoration: underline; color:#007af4;\">자세한 정"
-#~ "보...</span></a></p></body></html>"
-
-#~ msgid "File mode:"
-#~ msgstr "파일 모드:"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Tells Git if the executable bit of files in the "
-#~ "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/"
-#~ "git-config#Documentation/git-config.txt-corefileMode\"><span style=\" "
-#~ "text-decoration: underline; color:#007af4;\">More informations...</span></"
-#~ "a></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Git에 작업 트리에 있는 파일의 실행 가능 비트 유지 여"
-#~ "부를 알립니다.</p><p><a href=\"https://git-scm.com/docs/git-"
-#~ "config#Documentation/git-config.txt-corefileMode\"><span style=\" text-"
-#~ "decoration: underline; color:#007af4;\">자세한 정보...</span></a></p></"
-#~ "body></html>"
-
-#~ msgid "Run command"
-#~ msgstr "명령 실행"
-
-#~ msgid "%p%"
-#~ msgstr "%p%"
-
-#~ msgid "Output"
-#~ msgstr "출력"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
-#~ "\"utf-8\" /><style type=\"text/css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "hr { height: 1px; border-width: 0; }\n"
-#~ "li.unchecked::marker { content: \"\\2610\"; }\n"
-#~ "li.checked::marker { content: \"\\2612\"; }\n"
-#~ "</style></head><body style=\" font-family:'Monospace'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#~ "font-size:9pt;\"><br /></p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
-#~ "\"utf-8\" /><style type=\"text/css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "hr { height: 1px; border-width: 0; }\n"
-#~ "li.unchecked::marker { content: \"\\2610\"; }\n"
-#~ "li.checked::marker { content: \"\\2612\"; }\n"
-#~ "</style></head><body style=\" font-family:'Monospace'; font-size:10pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#~ "font-size:9pt;\"><br /></p></body></html>"
-
-#~ msgid "Search in repo"
-#~ msgstr "저장소에서 검색"
-
-#~ msgid "Path:"
-#~ msgstr "경로:"
-
-#~ msgid "Text:"
-#~ msgstr "텍스트:"
-
-#~ msgid "Search all branches"
-#~ msgstr "모든 브랜치 검색"
-
-#~ msgid "Search all commits"
-#~ msgstr "모든 커밋 검색"
-
-#~ msgid "Case sensitive"
-#~ msgstr "대소문자 구분"
-
-#~ msgid "Search"
-#~ msgstr "검색"
-
-#~ msgid "Select branches"
-#~ msgstr "브랜치 선택"
-
-#~ msgid "Select branch"
-#~ msgstr "브랜치 선택"
-
-#~ msgid "HEAD"
-#~ msgstr "HEAD"
-
-#~ msgid "Tag"
-#~ msgstr "태그"
-
-#~ msgid "Tag name:"
-#~ msgstr "태그 이름:"
-
-#~ msgid "Form"
-#~ msgstr "폼"
-
-#~ msgid "Commit is not selected"
-#~ msgstr "커밋이 선택되지 않았음"
-
-#~ msgid "Author:"
-#~ msgstr "작성자:"
-
-#~ msgid "Committer:"
-#~ msgstr "커미터:"
-
-#~ msgid "Parent:"
-#~ msgstr "상위:"
-
-#~ msgid "Child:"
-#~ msgstr "하위:"
-
-#~ msgid "<html><head/><body><p>-</p></body></html>"
-#~ msgstr "<html><head/><body><p>-</p></body></html>"
-
-#~ msgid "Ref:"
-#~ msgstr "참조:"
-
-#~ msgid "Type to filter"
-#~ msgstr "입력하여 필터"
-
-#~ msgid "Hide unchangeds"
-#~ msgstr "변경되지 않은 항목 숨기기"
-
-#~ msgid "Report"
-#~ msgstr "보고서"
 
 #~ msgid "Stop"
 #~ msgstr "정지"
