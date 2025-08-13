@@ -2,30 +2,31 @@
 # This file is distributed under the same license as the kommit package.
 #
 # SPDX-FileCopyrightText: 2024 Geraldo Simiao <geraldosimiao@fedoraproject.org>
+# SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:55+0000\n"
-"PO-Revision-Date: 2024-04-05 00:32-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"PO-Revision-Date: 2025-08-12 10:36-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Geraldo Simião"
+msgstr "Geraldo Simião, Marcus Gama"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "geraldosimiao@fedoraproject.org"
+msgstr "geraldosimiao@fedoraproject.org, marcus.gama@gmail.com"
 
 #: dolphinplugins/actions.h:16
 #, kde-format
@@ -108,7 +109,7 @@ msgstr "Histórico"
 #: dolphinplugins/actions.h:28
 #, kde-format
 msgid "Blame"
-msgstr ""
+msgstr "Culpar"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
@@ -139,7 +140,7 @@ msgstr "Limpeza"
 #: dolphinplugins/actions.h:33
 #, kde-format
 msgid "Diff branches"
-msgstr ""
+msgstr "Diferenciar ramificações"
 
 #: dolphinplugins/dolphinplugin.cpp:31 dolphinplugins/dolphinplugin.cpp:35
 #: src/apps/main.cpp:56
@@ -150,12 +151,12 @@ msgstr "Kommit"
 #: dolphinplugins/dolphinplugin.cpp:101
 #, kde-format
 msgid "Push/Commit to %1"
-msgstr ""
+msgstr "Enviar/Salvar para %1"
 
 #: dolphinplugins/dolphinplugin.cpp:103
 #, kde-format
 msgid "Push/Commit to submodule %1"
-msgstr ""
+msgstr "Enviar/Salvar para o submódulo %1"
 
 #: src/apps/main.cpp:58
 #, kde-format
@@ -163,10 +164,9 @@ msgid "Git client gui for KDE"
 msgstr "Cliente de interface gráfica pra git do KDE"
 
 #: src/apps/main.cpp:60
-#, fuzzy, kde-format
-#| msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+#, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:62 src/libkommit/models/logsmodel.cpp:262
 #: src/libkommitwidgets/reports/authorsreport.cpp:78
@@ -175,15 +175,13 @@ msgid "Author"
 msgstr "Autor"
 
 #: src/apps/main.cpp:62
-#, fuzzy, kde-format
-#| msgid "Hamed Masafi"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
 #: src/apps/main.cpp:63
-#, fuzzy, kde-format
-#| msgid "Laurent Montel"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
@@ -191,7 +189,7 @@ msgstr "Laurent Montel"
 #: src/apps/main.cpp:63
 #, kde-format
 msgid "Bug fixing"
-msgstr ""
+msgstr "Correção de erros"
 
 #: src/gui/appwindow.cpp:96
 #, kde-format
@@ -201,85 +199,75 @@ msgstr "Nenhum repositório selecionado"
 #: src/gui/appwindow.cpp:128
 #, kde-format
 msgid "Current branch: %1"
-msgstr ""
+msgstr "Ramificação atual: %1"
 
 #: src/gui/appwindow.cpp:130
 #, kde-format
 msgid " (merging)"
-msgstr ""
+msgstr " (mesclando)"
 
 #: src/gui/appwindow.cpp:132
 #, kde-format
 msgid " (rebasing)"
-msgstr ""
+msgstr " (alterando a base)"
 
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Init"
+#, kde-format
 msgctxt "@action"
 msgid "Init..."
-msgstr "Init"
+msgstr "Iniciar..."
 
 #: src/gui/appwindow.cpp:167
-#, fuzzy, kde-format
-#| msgid "Open..."
+#, kde-format
 msgctxt "@action"
 msgid "Open..."
 msgstr "Abrir..."
 
 #: src/gui/appwindow.cpp:172
-#, fuzzy, kde-format
-#| msgid "Clone..."
+#, kde-format
 msgctxt "@action"
 msgid "Clone..."
 msgstr "Clonar..."
 
 #: src/gui/appwindow.cpp:175
-#, fuzzy, kde-format
-#| msgid "Changed files..."
+#, kde-format
 msgctxt "@action"
 msgid "Changed files..."
-msgstr "Arquivos alterados..."
+msgstr "Arquivos modificados..."
 
 #: src/gui/appwindow.cpp:181
-#, fuzzy, kde-format
-#| msgid "Recent repos"
+#, kde-format
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Repositórios recentes"
 
 #: src/gui/appwindow.cpp:187
-#, fuzzy, kde-format
-#| msgid "Cleanup..."
+#, kde-format
 msgctxt "@action"
 msgid "Cleanup..."
 msgstr "Limpeza..."
 
 #: src/gui/appwindow.cpp:190
-#, fuzzy, kde-format
-#| msgid "Pull..."
+#, kde-format
 msgctxt "@action"
 msgid "Pull..."
 msgstr "Puxar..."
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
-#, fuzzy, kde-format
-#| msgid "Fetch..."
+#, kde-format
 msgctxt "@action"
 msgid "Fetch..."
 msgstr "Obter..."
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
-#, fuzzy, kde-format
-#| msgid "Push..."
+#, kde-format
 msgctxt "@action"
 msgid "Push..."
 msgstr "Enviar..."
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Merge..."
+#, kde-format
 msgctxt "@action"
 msgid "Merge..."
 msgstr "Mesclar..."
@@ -288,96 +276,92 @@ msgstr "Mesclar..."
 #, kde-format
 msgctxt "@action"
 msgid "Diff branches..."
-msgstr ""
+msgstr "Diferenciar ramificações..."
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Search..."
+#, kde-format
 msgctxt "@action"
 msgid "Search..."
 msgstr "Pesquisar..."
 
 #: src/gui/appwindow.cpp:212
-#, fuzzy, kde-format
-#| msgid "Repo settings..."
+#, kde-format
 msgctxt "@action"
 msgid "Repo settings..."
 msgstr "Configurações do repositório..."
 
 #: src/gui/appwindow.cpp:215
-#, fuzzy, kde-format
-#| msgid "Switch/Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout..."
-msgstr "Trocar/Checkout"
+msgstr "Trocar/Checkout..."
 
 #: src/gui/appwindow.cpp:218
-#, fuzzy, kde-format
-#| msgid "Diff"
+#, kde-format
 msgctxt "@action"
 msgid "Diff tree"
-msgstr "Diferenças"
+msgstr "Diferenciar árvore"
 
 #: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
-msgstr ""
+msgstr "Não foi possível criar o caminho: %1"
 
 #: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
-msgstr ""
+msgstr "Iniciar repositório"
 
 #: src/gui/appwindow.cpp:282
 #, kde-format
 msgid "Open repository"
-msgstr ""
+msgstr "Abrir repositório"
 
 #: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
-msgstr ""
+msgstr "Não é possível alternar a ramificação durante a mesclagem"
 
 #: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
-msgstr ""
+msgstr "Trocar a ramificação"
 
 #: src/gui/commandargsparser.cpp:74
 #, kde-format
 msgid "The path is not git repo: %1"
-msgstr ""
+msgstr "O caminho não é um repositório git: %1"
 
 #: src/gui/commandargsparser.cpp:259
 #, kde-format
 msgid "The repo inited successfully"
-msgstr ""
+msgstr "O repositório foi iniciado com sucesso"
 
 #: src/gui/commandargsparser.cpp:560
 #, kde-format
 msgid "File(s) added to git successfully"
-msgstr ""
+msgstr "Arquivo(s) adicionado(s) ao git com sucesso"
 
 #: src/gui/commandargsparser.cpp:570
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
-msgstr ""
+msgstr "Você gostaria de deixar o(s) arquivo(s) no disco?"
 
 #: src/gui/commandargsparser.cpp:570
 #, kde-format
 msgid "Remove from index"
-msgstr ""
+msgstr "Remover do índice"
 
 #: src/gui/commandargsparser.cpp:572
 #, kde-format
 msgid "File(s) removed from git successfully"
-msgstr ""
+msgstr "Arquivo(s) removido(s) do git com sucesso"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus_2)
 #: src/gui/commandpullwidget.ui:19
 #, kde-format
 msgid "Status:"
-msgstr ""
+msgstr "Status:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus)
 #. i18n: ectx: property (text), widget (QLabel, labelDefaultBranch)
@@ -391,7 +375,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:78
 #, kde-format
 msgid "---"
-msgstr ""
+msgstr "---"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -415,7 +399,7 @@ msgstr "Repositório"
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:14
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/merge/closeeventdialog.ui:20
@@ -423,27 +407,28 @@ msgstr ""
 #, kde-format
 msgid "The changes to file are not saved to the disk. What you want to do?"
 msgstr ""
+"As alterações no arquivo não foram salvas no disco. O que você quer fazer?"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonMarkResolved)
 #: src/gui/merge/closeeventdialog.ui:49
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:49
 #, kde-format
 msgid "Mark as resolved"
-msgstr ""
+msgstr "Marcar como resolvido"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonLeaveAsIs)
 #: src/gui/merge/closeeventdialog.ui:62
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:62
 #, kde-format
 msgid "Leave as is"
-msgstr ""
+msgstr "Deixar como está"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonDontExit)
 #: src/gui/merge/closeeventdialog.ui:75
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:75
 #, kde-format
 msgid "Don't exit"
-msgstr ""
+msgstr "Não sair"
 
 #. i18n: ectx: property (text), widget (QLabel, labelTitle)
 #. i18n: ectx: property (windowTitle), widget (QWidget, HistoryViewWidget)
@@ -456,45 +441,44 @@ msgstr "Visão geral"
 #: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
-msgstr ""
+msgstr "Tem certeza de que deseja remover a ramificação selecionada?"
 
 #: src/gui/pages/branchesstatuswidget.cpp:75
 #: src/libkommitwidgets/actions/branchactions.cpp:121
 #, kde-format
 msgid "Unable to remove the selected branch"
-msgstr ""
+msgstr "Não foi possível remover a ramificação selecionada"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, BranchesStatusWidget)
 #: src/gui/pages/branchesstatuswidget.ui:14
 #, kde-format
 msgid "Branches"
-msgstr ""
+msgstr "Ramificações"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/pages/branchesstatuswidget.ui:25
 #, kde-format
 msgid "Reference branch:"
-msgstr ""
+msgstr "Ramificação de referência:"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonNew)
 #: src/gui/pages/branchesstatuswidget.ui:78
 #, kde-format
 msgid "New"
-msgstr ""
+msgstr "Nova"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/branchesstatuswidget.ui:91
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Checkout"
-msgstr ""
+msgstr "Checkout"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/pages/branchesstatuswidget.ui:111
-#, fuzzy, kde-format
-#| msgid "Browse..."
+#, kde-format
 msgid "Browse"
-msgstr "Escolher..."
+msgstr "Navegar"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitsWidget)
 #: src/gui/pages/commitswidget.ui:14
@@ -508,52 +492,49 @@ msgstr "Escolher..."
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:85
 #, kde-format
 msgid "Commits"
-msgstr ""
+msgstr "Envios"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/gui/pages/commitswidget.ui:41
 #, kde-format
 msgid "Filter..."
-msgstr ""
+msgstr "Filtro..."
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
 #: src/gui/pages/remoteswidget.cpp:62 src/gui/pages/submoduleswidget.ui:59
 #, kde-format
 msgid "Update"
-msgstr ""
+msgstr "Atualizar"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, RemotesWidget)
 #: src/gui/pages/remoteswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remotes"
-msgstr "Remover"
+msgstr "Remotos"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/pages/remoteswidget.ui:79
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Informações"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/pages/remoteswidget.ui:85
 #, kde-format
 msgid "Default branch:"
-msgstr ""
+msgstr "Ramificação padrão:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/pages/remoteswidget.ui:102
-#, fuzzy, kde-format
-#| msgid "Fetch"
+#, kde-format
 msgid "Fetch url:"
-msgstr "Obter"
+msgstr "Obter URL:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/pages/remoteswidget.ui:122
-#, fuzzy, kde-format
-#| msgid "Push"
+#, kde-format
 msgid "Push url:"
-msgstr "Enviar"
+msgstr "Enviar URL:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -562,13 +543,13 @@ msgstr "Enviar"
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:25
 #, kde-format
 msgid "Name:"
-msgstr ""
+msgstr "Nome:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/pages/remoteswidget.ui:159
 #, kde-format
 msgid "Branches:"
-msgstr ""
+msgstr "Ramificações:"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
@@ -579,19 +560,19 @@ msgstr ""
 #: src/libkommitwidgets/reports/authorsreport.cpp:68
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:172
 #, kde-format
 msgid "Ref name"
-msgstr ""
+msgstr "Nome de referência"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:177 src/libkommit/models/branchesmodel.cpp:75
 #, kde-format
 msgid "Upstream"
-msgstr ""
+msgstr "Upstream"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
@@ -599,56 +580,55 @@ msgstr ""
 #: src/libkommitwidgets/models/treemodel.cpp:148
 #, kde-format
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportsWidget)
 #: src/gui/pages/reportswidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Reports"
-msgstr "Repositório"
+msgstr "Relatórios"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:33
 #, kde-format
 msgid "Table view"
-msgstr ""
+msgstr "Visão em tabela"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:36
 #, kde-format
 msgid "Table"
-msgstr ""
+msgstr "Tabela"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:50
 #, kde-format
 msgid "Chart view"
-msgstr ""
+msgstr "Visão em gráfico"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:53
 #, kde-format
 msgid "Chart"
-msgstr ""
+msgstr "Gráfico"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:80
 #, kde-format
 msgid "Refresh data"
-msgstr ""
+msgstr "Atualizar dados"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:83
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Atualizar"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
 #: src/gui/pages/stasheswidget.ui:14
 #, kde-format
 msgid "Stashes"
-msgstr ""
+msgstr "Stashes"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
@@ -664,21 +644,27 @@ msgid ""
 "ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Salva suas modificações locais em uma nova entrada do "
+"stash e retorna-as para o HEAD (na árvore de trabalho e no índice). Esta "
+"parte é opcional e fornece a descrição juntamente com o estado do stash.</"
+"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/"
+"git-stash.txt-push-p--patch-k--no-keep-index-u--include-untracked-a--all-q--"
+"quiet-m--messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--"
+"ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">Mais informações...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
 #: src/gui/pages/stasheswidget.ui:52
-#, fuzzy, kde-format
-#| msgid "Create tag"
+#, kde-format
 msgid "Create new"
-msgstr "Criar marcador"
+msgstr "Criar novo"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
 #: src/gui/pages/stasheswidget.ui:59 src/gui/pages/tagswidget.ui:55
-#, fuzzy, kde-format
-#| msgid "No repo selected"
+#, kde-format
 msgid "Remove selected"
-msgstr "Nenhum repositório selecionado"
+msgstr "Remover selecionado"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonApply)
 #: src/gui/pages/stasheswidget.ui:66
@@ -689,19 +675,22 @@ msgid ""
 "txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
 "underline; color:#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Aplica o stash ao topo do diretório de trabalho atual</"
+"p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
+"txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration:"
+"underline; color:#2980b9;\">Mais informações...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
 #: src/gui/pages/stasheswidget.ui:69
-#, fuzzy, kde-format
-#| msgid "No repo selected"
+#, kde-format
 msgid "Apply selected"
-msgstr "Nenhum repositório selecionado"
+msgstr "Aplicar selecionado"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SubmodulesWidget)
 #: src/gui/pages/submoduleswidget.ui:14
 #, kde-format
 msgid "Submodules"
-msgstr ""
+msgstr "Submódulos"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
@@ -709,7 +698,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:14
 #, kde-format
 msgid "Add new submodule"
-msgstr ""
+msgstr "Adicionar novo submódulo"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
@@ -720,45 +709,43 @@ msgstr ""
 #: src/libkommitwidgets/reports/authorsreport.cpp:68
 #, kde-format
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/tagswidget.ui:62
-#, fuzzy, kde-format
-#| msgid "No repo selected"
+#, kde-format
 msgid "Checkout to selected"
-msgstr "Nenhum repositório selecionado"
+msgstr "Checkout para o selecionado"
 
 #. i18n: ectx: label, entry (diffAddedColor), group (Preferences)
 #: src/gui/settings/KommitSettings.kcfg:9
 #, kde-format
 msgid "Added color"
-msgstr ""
+msgstr "Cor de adicionado"
 
 #. i18n: ectx: label, entry (diffRemovedColor), group (Preferences)
 #: src/gui/settings/KommitSettings.kcfg:13
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Removed color"
-msgstr "Remover"
+msgstr "Cor de removido"
 
 #. i18n: ectx: label, entry (diffModifiedColor), group (Preferences)
 #: src/gui/settings/KommitSettings.kcfg:17
 #, kde-format
 msgid "Modified color"
-msgstr ""
+msgstr "Cor de modificado"
 
 #. i18n: ectx: label, entry (colorForeground), group (Preferences)
 #: src/gui/settings/KommitSettings.kcfg:21
 #, kde-format
 msgid "color of the foreground"
-msgstr ""
+msgstr "cor do primeiro plano"
 
 #. i18n: ectx: label, entry (gitBinPath), group (Preferences)
 #: src/gui/settings/KommitSettings.kcfg:26
 #, kde-format
 msgid "age of the project"
-msgstr ""
+msgstr "idade do projeto"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_openLastRepo)
 #. i18n: ectx: label, entry (openLastRepo), group (Preferences)
@@ -766,81 +753,81 @@ msgstr ""
 #: src/gui/settings/settingspagebase.ui:29
 #, kde-format
 msgid "Open last repo at startup"
-msgstr ""
+msgstr "Abrir o último repositório na inicialização"
 
 #: src/gui/settings/settingsmanager.cpp:95
 #, kde-format
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: src/gui/settings/settingsmanager.cpp:97
 #, kde-format
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/settings/settingspagebase.ui:23
 #, kde-format
 msgid "Startup"
-msgstr ""
+msgstr "Inicialização"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDefaultCalendar)
 #: src/gui/settings/settingspagebase.ui:41
 #, kde-format
 msgid "Default calendar:"
-msgstr ""
+msgstr "Calendário padrão:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/settings/settingspagebase.ui:51
 #, kde-format
 msgid "Git binary path:"
-msgstr ""
+msgstr "Caminho para o binário do git:"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel)
 #: src/gui/settings/settingspagediff.ui:17
 #, kde-format
 msgid "Added diff color:"
-msgstr ""
+msgstr "Cor de diferença adicionada:"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel_2)
 #: src/gui/settings/settingspagediff.ui:27
 #, kde-format
 msgid "Removed diff color:"
-msgstr ""
+msgstr "Cor de diferença removida:"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel_3)
 #: src/gui/settings/settingspagediff.ui:37
 #, kde-format
 msgid "Modified diff color:"
-msgstr ""
+msgstr "Cor de diferença modificada:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerDiffTool)
 #: src/gui/settings/settingspagegit.ui:19
 #, kde-format
 msgid "Register kommit diff tool"
-msgstr ""
+msgstr "Registrar ferramenta de diferença do kommit"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
 #: src/gui/settings/settingspagegit.ui:26
 #, kde-format
 msgid "Register kommit merge tool"
-msgstr ""
+msgstr "Registrar ferramenta de mesclagem do kommit"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/settings/settingspagegit.ui:37
 #, kde-format
 msgid "Git proxy:"
-msgstr ""
+msgstr "Proxy do git:"
 
 #: src/libkommit/commands/commandpull.cpp:62
 #, kde-format
 msgid "Already up to date."
-msgstr ""
+msgstr "Já atualizado."
 
 #: src/libkommit/commands/commandpull.cpp:66
 #, kde-format
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 #: src/libkommit/commands/commandswitchbranch.cpp:26
 #, kde-format
@@ -848,46 +835,49 @@ msgid ""
 "Your local changes to the following files would be overwritten by checkout. "
 "Please commit your changes or stash them before you switch branches."
 msgstr ""
+"Suas alterações locais nos seguintes arquivos serão substituídas pelo "
+"checkout. Por favor, envie suas alterações ou armazene-as em um repositório "
+"antes de trocar de ramificação."
 
 #: src/libkommit/entities/remote.cpp:217
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #: src/libkommit/entities/remote.cpp:219
 #, kde-format
 msgid "Up to date"
-msgstr ""
+msgstr "Atualizado"
 
 #: src/libkommit/entities/remote.cpp:221
 #, kde-format
 msgid "Fast forwardable"
-msgstr ""
+msgstr "Avanço rápido"
 
 #: src/libkommit/entities/remote.cpp:223
 #, kde-format
 msgid "Local out of date"
-msgstr ""
+msgstr "Local desatualizado"
 
 #: src/libkommit/models/branchesmodel.cpp:67
 #, kde-format
 msgid "Commit(s) behind"
-msgstr ""
+msgstr "Envio(s) em atraso"
 
 #: src/libkommit/models/branchesmodel.cpp:69
 #, kde-format
 msgid "Commit(s) ahead"
-msgstr ""
+msgstr "Envio(s) adiantados"
 
 #: src/libkommit/models/branchesmodel.cpp:71
 #, kde-format
 msgid "Is ahead"
-msgstr ""
+msgstr "Está à frente"
 
 #: src/libkommit/models/branchesmodel.cpp:73
 #, kde-format
 msgid "Ref"
-msgstr ""
+msgstr "Ref"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -897,29 +887,29 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/pulldialog.ui:26
 #, kde-format
 msgid "Remote"
-msgstr ""
+msgstr "Remoto"
 
 #: src/libkommit/models/logsmodel.cpp:258
 #: src/libkommit/models/logsmodel.cpp:269
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "Mensagem"
 
 #: src/libkommit/models/logsmodel.cpp:260
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: src/libkommit/models/logsmodel.cpp:267
 #, kde-format
 msgid "Graph"
-msgstr ""
+msgstr "Gráfico"
 
 #: src/libkommit/models/stashesmodel.cpp:66
 #: src/libkommit/models/tagsmodel.cpp:63
 #, kde-format
 msgid "Subject"
-msgstr ""
+msgstr "Assunto"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -929,68 +919,65 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:37
 #, kde-format
 msgid "Commit"
-msgstr ""
+msgstr "Enviar"
 
 #: src/libkommit/models/stashesmodel.cpp:70
 #, kde-format
 msgid "Author name"
-msgstr ""
+msgstr "Nome do autor"
 
 #: src/libkommit/models/stashesmodel.cpp:72
 #, kde-format
 msgid "Author email"
-msgstr ""
+msgstr "E-mail do autor"
 
 #: src/libkommit/models/stashesmodel.cpp:74
 #, kde-format
 msgid "Time"
-msgstr ""
+msgstr "Data e hora"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxPath)
 #: src/libkommit/models/submodulesmodel.cpp:60
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:70
 #, kde-format
 msgid "Path"
-msgstr ""
+msgstr "Caminho"
 
 #: src/libkommit/models/submodulesmodel.cpp:62
 #, kde-format
 msgid "Head"
-msgstr ""
+msgstr "Cabeçalho"
 
 #: src/libkommit/models/tagsmodel.cpp:65
 #, kde-format
 msgid "Tagger"
-msgstr ""
+msgstr "Etiquetador"
 
 #: src/libkommit/models/tagsmodel.cpp:67
 #, kde-format
 msgid "Create time"
-msgstr ""
+msgstr "Hora de criação"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:31
-#, fuzzy, kde-format
-#| msgid "Create tag"
+#, kde-format
 msgctxt "@action"
 msgid "Create..."
-msgstr "Criar marcador"
+msgstr "Criar..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
-#, fuzzy, kde-format
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action"
 msgid "Browse..."
-msgstr "Escolher..."
+msgstr "Navegar..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Switch"
-msgstr ""
+msgstr "Mudar"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:38
-#, fuzzy, kde-format
-#| msgid "Diff"
+#, kde-format
 msgctxt "@action"
 msgid "Diff"
 msgstr "Diferenças"
@@ -999,60 +986,55 @@ msgstr "Diferenças"
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action"
 msgid "Remove..."
-msgstr "Remover"
+msgstr "Remover..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
-#, fuzzy, kde-format
-#| msgid "Clone..."
+#, kde-format
 msgctxt "@action"
 msgid "Note..."
-msgstr "Clonar..."
+msgstr "Anotar..."
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Create new branch"
-msgstr ""
+msgstr "Criar uma nova ramificação"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Branch name"
-msgstr ""
+msgstr "Nome da ramificação"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Remove Branch"
-msgstr ""
+msgstr "Remover ramificação"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
-#, fuzzy, kde-format
-#| msgid "Diff"
+#, kde-format
 msgctxt "@action"
 msgid "Diff..."
-msgstr "Diferenças"
+msgstr "Diferenças..."
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, kde-format
 msgctxt "@action"
 msgid "Revert..."
-msgstr ""
+msgstr "Reverter..."
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
-#, fuzzy, kde-format
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action"
 msgid "Browse"
-msgstr "Escolher..."
+msgstr "Navegar"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:37
-#, fuzzy, kde-format
-#| msgid "Switch/Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Checkout"
-msgstr "Trocar/Checkout"
+msgstr "Checkout"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:47
@@ -1061,225 +1043,220 @@ msgstr "Trocar/Checkout"
 #, kde-format
 msgctxt "@action"
 msgid "Diff with working dir"
-msgstr ""
+msgstr "Diferenças com a pasta de trabalho"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:39
 #, kde-format
 msgctxt "@action"
 msgid "Note"
-msgstr ""
+msgstr "Anotação"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:43
-#, fuzzy, kde-format
-#| msgid "Overview"
+#, kde-format
 msgctxt "@action"
 msgid "Preview"
-msgstr "Visão geral"
+msgstr "Visualização"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action"
 msgid "Open"
 msgstr "Abrir"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:45
-#, fuzzy, kde-format
-#| msgid "Open..."
+#, kde-format
 msgctxt "@action"
 msgid "Open with..."
-msgstr "Abrir..."
+msgstr "Abrir com..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
 #, kde-format
 msgctxt "@action"
 msgid "Merge with working dir"
-msgstr ""
+msgstr "Mesclar com a pasta de trabalho"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:50
 #, kde-format
 msgctxt "@action"
 msgid "Save as..."
-msgstr ""
+msgstr "Salvar como..."
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
 msgctxt "@action"
 msgid "Log"
-msgstr ""
+msgstr "Registro"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:52
 #, kde-format
 msgctxt "@action"
 msgid "Blame"
-msgstr ""
+msgstr "Culpar"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:72
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
-msgstr ""
+msgstr "%1 arquivo (*.%1);;Todos os arquivos(*)"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
 msgctxt "@action"
 msgid "New..."
-msgstr ""
+msgstr "Novo..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Rename..."
-msgstr ""
+msgstr "Renomear..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
-#, fuzzy, kde-format
-#| msgid "Changed files..."
+#, kde-format
 msgctxt "@action"
 msgid "Change url..."
-msgstr "Arquivos alterados..."
+msgstr "Mudar URL..."
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
-msgstr ""
+msgstr "Tem certeza de que deseja remover o remoto selecionado?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Remove remote?"
-msgstr ""
+msgstr "Remover remoto?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:62
 #, kde-format
 msgid "Unable to remove the selected remote"
-msgstr ""
+msgstr "Não foi possível remover o remoto selecionado"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
 msgid "Change url"
-msgstr ""
+msgstr "Mudar URL"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:78
 #, kde-format
 msgid "Url for remote changed successfully"
-msgstr ""
+msgstr "A URL para o remoto foi mudada com sucesso"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
 msgid "Rename"
-msgstr ""
+msgstr "Renomear"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
 msgid "New name"
-msgstr ""
+msgstr "Novo nome"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:22
-#, fuzzy, kde-format
-#| msgid "New tag"
+#, kde-format
 msgctxt "@action"
 msgid "New stash..."
-msgstr "Novo marcador"
+msgstr "Novo stash..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
 msgctxt "@action"
 msgid "Pop..."
-msgstr ""
+msgstr "Pop..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
 msgctxt "@action"
 msgid "Apply..."
-msgstr ""
+msgstr "Aplicar..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
-msgstr ""
+msgstr "Tem certeza de que deseja aplicar o stash selecionado?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Apply stash %1"
-msgstr ""
+msgstr "Aplicar stash %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
 msgid "Unable to apply the selected stash"
-msgstr ""
+msgstr "Não foi possível aplicar o stash selecionado"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
-msgstr ""
+msgstr "Tem certeza de que deseja descartar o stash selecionado?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Drop stash %1"
-msgstr ""
+msgstr "Descartar stash %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
 #: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
-msgstr ""
+msgstr "Não foi possível remover o stash selecionado"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
-msgstr ""
+msgstr "Tem certeza de que deseja realizar um pop do stash selecionado?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Pop stash %1"
-msgstr ""
+msgstr "Pop stash %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
-msgstr ""
+msgstr "Você não tem nenhuma alteração!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "Stash"
-msgstr ""
+msgstr "Stash"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
-msgstr ""
+msgstr "Criar novo stash"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
-msgstr ""
+msgstr "Nome do stash"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
 #, kde-format
 msgctxt "@action"
 msgid "Add..."
-msgstr ""
+msgstr "Adicionar..."
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, kde-format
 msgctxt "@action"
 msgid "Update..."
-msgstr ""
+msgstr "Atualizar..."
 
 #. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
 #, kde-format
 msgctxt "@action"
 msgid "Sync..."
-msgstr ""
+msgstr "Sincronizar..."
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
