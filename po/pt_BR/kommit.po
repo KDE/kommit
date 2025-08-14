@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:55+0000\n"
-"PO-Revision-Date: 2025-08-12 10:36-0300\n"
+"PO-Revision-Date: 2025-08-13 14:10-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -675,7 +675,7 @@ msgid ""
 "txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
 "underline; color:#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>Aplica o stash ao topo do diretório de trabalho atual</"
+"<html><head/><body><p>Aplica o stash ao topo da pasta de trabalho atual</"
 "p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
 "txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration:"
 "underline; color:#2980b9;\">Mais informações...</span></a></p></body></html>"
@@ -709,7 +709,7 @@ msgstr "Adicionar novo submódulo"
 #: src/libkommitwidgets/reports/authorsreport.cpp:68
 #, kde-format
 msgid "Tags"
-msgstr "Tags"
+msgstr "Etiquetas"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCheckout)
 #: src/gui/pages/tagswidget.ui:62
@@ -1261,156 +1261,148 @@ msgstr "Sincronizar..."
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
-msgstr ""
+msgstr "Tem certeza de que deseja remover o submódulo selecionado?"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Remove Submodule"
-msgstr ""
+msgstr "Remover submódulo"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:82
 #, kde-format
 msgid "Unable to remove the module directory"
-msgstr ""
+msgstr "Não foi possível remover a pasta do submódulo"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:89
 #, kde-format
 msgid "The submodule %1 removed"
-msgstr ""
+msgstr "O submódulo %1 foi removido"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
-#, fuzzy, kde-format
-#| msgid "New tag"
+#, kde-format
 msgctxt "@action"
 msgid "New tag..."
-msgstr "Novo marcador"
+msgstr "Nova etiqueta..."
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
-#, fuzzy, kde-format
-#| msgid "Switch/Checkout"
+#, kde-format
 msgctxt "@action"
 msgid "Checkout..."
-msgstr "Trocar/Checkout"
+msgstr "Checkout..."
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
 #, kde-format
 msgctxt "@title:window"
 msgid "New tag"
-msgstr ""
+msgstr "Nova etiqueta"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
-msgstr ""
+msgstr "Tem certeza de que deseja remover a etiqueta selecionada?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, kde-format
 msgid "Remove tag"
-msgstr ""
+msgstr "Remover etiqueta"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr ""
+msgstr "Tem certeza de que deseja fazer checkout da etiqueta selecionada?"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Changed files..."
+#, kde-format
 msgid "Changed files"
-msgstr "Arquivos alterados..."
+msgstr "Arquivos alterados"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:20
 #: src/libkommitwidgets/widgets/commitdetails.ui:174
-#, fuzzy, kde-format
-#| msgid "Changed files..."
+#, kde-format
 msgid "Changed files:"
-msgstr "Arquivos alterados..."
+msgstr "Arquivos alterados:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
 #: src/libkommitwidgets/windows/diffwindow.cpp:210
 #, kde-format
 msgid "Reload"
-msgstr ""
+msgstr "Recarregar"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonStashChanges)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
 #, kde-format
 msgid "Stash changes"
-msgstr ""
+msgstr "Stash das alterações"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
 #, kde-format
 msgid "Commit/push"
-msgstr ""
+msgstr "Confirmar/enviar"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
 #, kde-format
 msgid "Commit/Push submodule: %1"
-msgstr ""
+msgstr "Confirmar/enviar submódulo: %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Changed files..."
+#, kde-format
 msgid "Changed submodules"
-msgstr "Arquivos alterados..."
+msgstr "Submódulos alterados"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
 #, kde-format
 msgid "The following submodules are dirty. Would you like to push them?"
-msgstr ""
+msgstr "Os seguintes submódulos estão sujos. Gostaria de enviá-los?"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Cleanup"
+#, kde-format
 msgid "Cleanup repo"
-msgstr "Limpeza"
+msgstr "Limpar repositório"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:23
-#, fuzzy, kde-format
-#| msgid "Cleanup"
+#, kde-format
 msgid "Clean type"
-msgstr "Limpeza"
+msgstr "Tipo de limpeza"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNonIgnoredUntrackedFiles)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:29
 #, kde-format
 msgid "Remove non-ignored untracked files"
-msgstr ""
+msgstr "Remover arquivos não ignorados e não rastreados"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllUntrackedFiles)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:39
 #, kde-format
 msgid "Remove all untracked files"
-msgstr ""
+msgstr "Remover todos os arquivos não rastreados"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:46
-#, fuzzy, kde-format
-#| msgid "Ignore file"
+#, kde-format
 msgid "Remove ignored files"
-msgstr "Arquivo ignorar"
+msgstr "Remover arquivos ignorados"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:56
 #, kde-format
 msgid "Remove untracked directories"
-msgstr ""
+msgstr "Remover pastas não rastreadas"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloneDialog)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:14
 #, kde-format
 msgid "Clone a repository"
-msgstr ""
+msgstr "Clonar um repositório"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -1419,7 +1411,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:28
 #, kde-format
 msgid "Url:"
-msgstr ""
+msgstr "URL:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:60
@@ -1427,19 +1419,19 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:35
 #, kde-format
 msgid "Directory:"
-msgstr ""
+msgstr "Pasta:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRecursive)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:81
 #, kde-format
 msgid "Recursive"
-msgstr ""
+msgstr "Recursivo"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxDepth)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:88
 #, kde-format
 msgid "Depth"
-msgstr ""
+msgstr "Profundidade"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -1452,19 +1444,19 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:66
 #, kde-format
 msgid "Branch"
-msgstr ""
+msgstr "Ramificação"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxOriginName)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:122
 #, kde-format
 msgid "Origin name"
-msgstr ""
+msgstr "Nome da origem"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:162
 #, kde-format
 msgid "Cloning into:"
-msgstr ""
+msgstr "Clonar em:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
@@ -1490,52 +1482,51 @@ msgstr ""
 #: src/libkommitwidgets/widgets/commitdetails.ui:292
 #, kde-format
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #. i18n: ectx: property (text), widget (QLabel, labelMessage)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:176
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "RótuloTexto"
 
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:103
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
 #, kde-format
 msgid "Commit and push"
-msgstr ""
+msgstr "Confirmar e enviar"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
 #, kde-format
 msgid "Commit/Push"
-msgstr ""
+msgstr "Confirmar/Enviar"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:22
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remote:"
-msgstr "Remover"
+msgstr "Remoto:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCurrentBranch)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:40
 #, kde-format
 msgid "Current branch"
-msgstr ""
+msgstr "Ramificação atual"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExistingBranch)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:50
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:25
 #, kde-format
 msgid "Existing branch"
-msgstr ""
+msgstr "Ramificação existente"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNewBranch)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:64
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:38
 #, kde-format
 msgid "New branch"
-msgstr ""
+msgstr "Nova ramificação"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxForce)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:88
@@ -1550,6 +1541,15 @@ msgid ""
 "push#Documentation/git-push.txt--f\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Normalmente, o comando se recusa a atualizar uma "
+"referência remota que não seja ancestral da referência local usada para "
+"sobrescrevê-la. Além disso, quando a opção --force-with-lease é usada, o "
+"comando se recusa a atualizar uma referência remota cujo valor atual não "
+"corresponde ao esperado.</p><p>Esta flag desativa essas verificações e pode "
+"fazer com que o repositório remoto perca commits; use-a com cuidado.</"
+"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-push#Documentation/"
+"git-push.txt--f\"><span style=\" text-decoration:underline; color:#007af4;"
+"\">Mais informações...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:91
@@ -1557,14 +1557,13 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:74
 #, kde-format
 msgid "Force"
-msgstr ""
+msgstr "Forçar"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxMakeCommit)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:98
-#, fuzzy, kde-format
-#| msgid "Create tag"
+#, kde-format
 msgid "Create a commit"
-msgstr "Criar marcador"
+msgstr "Criar um envio"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:107
@@ -1576,12 +1575,17 @@ msgid ""
 "commit.txt---status\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Inclui a saída de &quot;git status&quot; no modelo de "
+"mensagem de commit ao usar um editor para preparar a mensagem de commit. </"
+"p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit."
+"txt---status\"><span style=\" text-decoration: underline; color:#2980b9;"
+"\">Mais informações</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:110
 #, kde-format
 msgid "Include status to the message"
-msgstr ""
+msgstr "Incluir mensagem de estado"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAmend)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:120
@@ -1593,12 +1597,17 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More info</span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p>Substitui a ponta da ramificação atual criando um novo "
+"commit.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"commit#Documentation/git-commit.txt---amend\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">Mais informações</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAmend)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:123
 #, kde-format
 msgid "Amend to previous commit"
-msgstr ""
+msgstr "Alterar envio anterior"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -1606,7 +1615,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/taginfodialog.ui:36
 #, kde-format
 msgid "Message:"
-msgstr ""
+msgstr "Mensagem:"
 
 #. i18n: ectx: property (whatsThis), widget (CompletionTextEdit, textEditMessage)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:162
@@ -1617,56 +1626,60 @@ msgid ""
 "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Usa o texto fornecido como mensagem de commit.</"
+"p><p><ahref=\"https://git-scm.com/docs/git-commit#Documentation/git-commit."
+"txt---messageltmsggt\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">Mais informações</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:175
 #, kde-format
 msgid "Files:"
-msgstr ""
+msgstr "Arquivos:"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:195
 #, kde-format
 msgid "All"
-msgstr ""
+msgstr "Todos"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddIndexed)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:205
 #, kde-format
 msgid "Indexed"
-msgstr ""
+msgstr "Indexados"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAdded)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:215
 #: src/libkommitwidgets/windows/diffwindow.cpp:273
 #, kde-format
 msgid "Added"
-msgstr ""
+msgstr "Adicionados"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddRemoved)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:225
 #: src/libkommitwidgets/windows/diffwindow.cpp:275
 #, kde-format
 msgid "Removed"
-msgstr ""
+msgstr "Removidos"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
 #: src/libkommitwidgets/windows/diffwindow.cpp:277
 #, kde-format
 msgid "Modified"
-msgstr ""
+msgstr "Modificados"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddNone)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:245
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 #: src/libkommitwidgets/dialogs/credentialdialog.cpp:32
 #, kde-format
 msgid "Credential for %1"
-msgstr ""
+msgstr "Credencial para %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
@@ -1680,82 +1693,80 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/taginfodialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Diálogo"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCredentialsUrl)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
 #, kde-format
 msgid "Credentials:"
-msgstr ""
+msgstr "Credenciais:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:97
 #, kde-format
 msgid "Username:"
-msgstr ""
+msgstr "Nome de usuário:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:45
 #, kde-format
 msgid "Password:"
-msgstr ""
+msgstr "Senha:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DiffOpenDialog)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14
 #, kde-format
 msgid "Select files/folders"
-msgstr ""
+msgstr "Selecionar arquivos/pastas"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:23
-#, fuzzy, kde-format
-#| msgid "Ignore file"
+#, kde-format
 msgid "Compare files"
-msgstr "Arquivo ignorar"
+msgstr "Comparar arquivos"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFolders)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:30
 #, kde-format
 msgid "Compare directories"
-msgstr ""
+msgstr "Comparar pastas"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:40
 #, kde-format
 msgid "Old file:"
-msgstr ""
+msgstr "Arquivo antigo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:50
-#, fuzzy, kde-format
-#| msgid "Ignore file"
+#, kde-format
 msgid "New file:"
-msgstr "Arquivo ignorar"
+msgstr "Novo arquivo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:69
 #, kde-format
 msgid "New directory:"
-msgstr ""
+msgstr "Nova pasta:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:76
 #, kde-format
 msgid "Old directory:"
-msgstr ""
+msgstr "Pasta antiga:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:14
 #, kde-format
 msgid "Fetch from origin"
-msgstr ""
+msgstr "Obter da origem"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllBranches)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:43
 #, kde-format
 msgid "All branches"
-msgstr ""
+msgstr "Todas as ramificações"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:88
@@ -1763,7 +1774,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:68
 #, kde-format
 msgid "Options"
-msgstr ""
+msgstr "Opções"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoFastForward)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
@@ -1771,15 +1782,14 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/mergedialog.ui:86
 #, kde-format
 msgid "No fast forward"
-msgstr ""
+msgstr "Sem avanço rápido"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:101
 #: src/libkommitwidgets/dialogs/pulldialog.ui:146
-#, fuzzy, kde-format
-#| msgid "Kommit"
+#, kde-format
 msgid "No commit"
-msgstr "Kommit"
+msgstr "Sem envio"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
@@ -1787,45 +1797,44 @@ msgstr "Kommit"
 #: src/libkommitwidgets/dialogs/mergedialog.ui:81
 #, kde-format
 msgid "Fast forward only"
-msgstr ""
+msgstr "Somente avanço rápido"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:122
 #: src/libkommitwidgets/dialogs/pulldialog.ui:160
 #, kde-format
 msgid "Prune"
-msgstr ""
+msgstr "Eliminar"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:39
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
-msgstr ""
+msgstr "Culpa do arquivo: %1"
 
 #: src/libkommitwidgets/dialogs/filehistorydialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
-msgstr ""
+msgstr "Registro do arquivo: %1"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:27
 #, kde-format
 msgid "View type"
-msgstr ""
+msgstr "Tipo de visualização"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRegularView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:33
-#, fuzzy, kde-format
-#| msgid "Overview"
+#, kde-format
 msgid "Regular view"
-msgstr "Visão geral"
+msgstr "Visualização normal"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:40
 #, kde-format
 msgid "Differential view"
-msgstr ""
+msgstr "Visualização diferencial"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -1833,7 +1842,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:25
 #, kde-format
 msgid "Left"
-msgstr ""
+msgstr "Esquerda"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -1841,130 +1850,130 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:54
 #, kde-format
 msgid "Right"
-msgstr ""
+msgstr "Direita"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
 #, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
-msgstr ""
+msgstr "Navegar arquivos: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/filestreedialog.ui:31
 #, kde-format
 msgid "Branch:"
-msgstr ""
+msgstr "Ramificação:"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
-msgstr ""
+msgstr "Fechando a visualização"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgid "Please wait while the preview is being closed..."
-msgstr ""
+msgstr "Aguarde enquanto a visualização é fechada..."
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
-msgstr ""
+msgstr "Visualizar arquivo: %1"
 
 #. i18n: ectx: property (windowTitle), widget (QMainWindow, FileViewerDialog)
 #: src/libkommitwidgets/dialogs/fileviewerdialog.ui:14
 #, kde-format
 msgid "MainWindow"
-msgstr ""
+msgstr "JanelaPrincipal"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:44
 #, kde-format
 msgid "The file is ignored already"
-msgstr ""
+msgstr "O arquivo já é ignorado"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:80
 #, kde-format
 msgid "Please enter the pattern"
-msgstr ""
+msgstr "Insira o padrão"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:85
 #, kde-format
 msgid "Unable to open file: %1"
-msgstr ""
+msgstr "Não foi possível abrir o arquivo: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:25
 #, kde-format
 msgid "Pattern:"
-msgstr ""
+msgstr "Padrão:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNameAndExt)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:43
 #, kde-format
 msgid "Name and extension"
-msgstr ""
+msgstr "Nome e extensão"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExt)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:53
 #, kde-format
 msgid "All files by this extension"
-msgstr ""
+msgstr "Todos os arquivos por esta extensão"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonName)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:60
 #, kde-format
 msgid "All files by this name"
-msgstr ""
+msgstr "Todos os arquivos por este nome"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExactPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:76
 #, kde-format
 msgid "Exact the path"
-msgstr ""
+msgstr "O caminho exato"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonEveryWhere)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:86
 #, kde-format
 msgid "File in everywhere"
-msgstr ""
+msgstr "Arquivo em qualquer local"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRootIgnoreFile)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:102
 #, kde-format
 msgid ".gitignore in the repository root"
-msgstr ""
+msgstr ".gitignore no repositório raiz"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDirIgnoreFile)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:112
 #, kde-format
 msgid ".gitignore in the containing directory"
-msgstr ""
+msgstr ".gitignore na pasta que o contém"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExcludeFile)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:119
 #, kde-format
 msgid ".git/info/exclude"
-msgstr ""
+msgstr ".git/info/exclude"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, InitDialog)
 #: src/libkommitwidgets/dialogs/initdialog.ui:14
 #, kde-format
 msgid "Init git repo"
-msgstr ""
+msgstr "Iniciar repositório do git"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:22
 #, kde-format
 msgid "From:"
-msgstr ""
+msgstr "De:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:32
 #, kde-format
 msgid "Strategy:"
-msgstr ""
+msgstr "Estratégia:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxStrategy)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:39
@@ -1978,19 +1987,26 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>O mecanismo de mesclagem (comandos git merge e git "
+"pull) permite que as estratégias de mesclagem do backend sejam escolhidas "
+"com a opção -s. Algumas estratégias também podem ter suas próprias opções, "
+"que podem ser passadas fornecendo argumentos -X<option> para git merge e/ou "
+"git pull.</p><p><a href=\"https://git-scm.com/docs/merge-strategies\"><span "
+"style=\" text-decoration: underline; color:#2980b9;\">Mais informações</"
+"span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:46
 #, kde-format
 msgid "To:"
-msgstr ""
+msgstr "Para:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:60
 #: src/libkommitwidgets/dialogs/pulldialog.ui:79
 #, kde-format
 msgid "Fast forward:"
-msgstr ""
+msgstr "Avanço rápido:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFastForward)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:67
@@ -2002,6 +2018,11 @@ msgid ""
 "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Especifica como uma mesclagem é tratada quando o "
+"histórico mesclado já é descendente do histórico atual.</p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">Mais "
+"informações</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
@@ -2009,13 +2030,13 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/mergedialog.ui:130
 #, kde-format
 msgid "Default"
-msgstr ""
+msgstr "Padrão"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:76
 #, kde-format
 msgid "Allow fast forward"
-msgstr ""
+msgstr "Permitir avanço rápido"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:94
@@ -2030,12 +2051,21 @@ msgid ""
 "txt---allow-unrelated-histories\"><span style=\" text-decoration: underline; "
 "color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Por padrão, o comando git merge se recusa a mesclar "
+"históricos que não compartilham um ancestral comum. Esta opção pode ser "
+"usada para anular essa segurança ao mesclar históricos de dois projetos que "
+"começaram suas vidas de forma independente. Como essa é uma ocasião muito "
+"rara, não existe nenhuma variável de configuração que habilite isso por "
+"padrão e ela não será adicionada.</p><p><br/></p><p><a href=\"https://git-"
+"scm.com/docs/git-merge#Documentation/git-merge.txt---allow-unrelated-"
+"histories\"><span style=\" text-decoration: underline; color:#007af4;\">Mais "
+"informações</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:97
 #, kde-format
 msgid "Allow unrelated histories"
-msgstr ""
+msgstr "Permitir históricos não relacionados"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxSquash)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:107
@@ -2051,25 +2081,34 @@ msgid ""
 "squash\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Produz a árvore de trabalho e o estado do índice como "
+"se uma mesclagem real tivesse ocorrido (exceto pelas informações de "
+"mesclagem), mas não faz um commit, move o HEAD ou grava $GIT_DIR/MERGE_HEAD "
+"(para fazer com que o próximo comando git commit crie um commit de "
+"mesclagem). Isso permite que você crie um commit único sobre a ramificação "
+"atual, cujo efeito é o mesmo que mesclar outra ramificação (ou mais, no caso "
+"de um polvo).</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt---squash\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Mais informações</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:110
 #: src/libkommitwidgets/dialogs/pulldialog.ui:101
 #, kde-format
 msgid "Squash"
-msgstr ""
+msgstr "Achatar"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonOurs)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:140
 #, kde-format
 msgid "Ours"
-msgstr ""
+msgstr "Nosso"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTheirs)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:147
 #, kde-format
 msgid "Theirs"
-msgstr ""
+msgstr "Deles"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreAllSpace)
@@ -2088,31 +2127,37 @@ msgid ""
 "space-change\"><span style=\" text-decoration: underline; color:#007af4;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Trata linhas com o tipo indicado de alteração de "
+"espaço em branco como inalteradas para fins de uma mesclagem tripla. "
+"Alterações de espaço em branco misturadas com outras alterações em uma linha "
+"não são ignoradas.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt-ignore-space-change\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">Mais informações</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:157
 #, kde-format
 msgid "Ignore space change"
-msgstr ""
+msgstr "Ignorar mudanças de espaços"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreAllSpace)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:167
-#, fuzzy, kde-format
-#| msgid "Ignore file"
+#, kde-format
 msgid "Ignore all space"
-msgstr "Arquivo ignorar"
+msgstr "Ignorar todos os espaços"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:177
 #, kde-format
 msgid "Ignore space at eol"
-msgstr ""
+msgstr "Ignorar espaços no final da linha"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreCrAtEol)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:187
 #, kde-format
 msgid "Ignore cr at eol"
-msgstr ""
+msgstr "Ignorar caractere de nova linha no final da linha"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxRenormalize)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:194
@@ -2126,18 +2171,25 @@ msgid ""
 "decoration: underline; color:#007af4;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Isto executa um check-out e check-in virtual de todos "
+"os três estágios de um arquivo ao resolver uma mesclagem tripla. Esta opção "
+"deve ser usada ao mesclar ramificações com diferentes filtros de limpeza ou "
+"regras de normalização de fim de linha.</p><p><br/></p><p><a href=\"https://"
+"git-scm.com/docs/git-merge#Documentation/git-merge.txt-renormalize\"><span "
+"style=\" text-decoration: underline; color:#007af4;\">Mais informações</"
+"span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:197
 #, kde-format
 msgid "Renormalize"
-msgstr ""
+msgstr "Renormalizar"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:211
 #, kde-format
 msgid "Diff algorithm:"
-msgstr ""
+msgstr "Algoritmo de diferença:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxDiffAlgoritm)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:218
@@ -2150,87 +2202,91 @@ msgid ""
 "algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Usa um algoritmo diff diferente ao mesclar, o que pode "
+"ajudar a evitar mesclagens incorretas que ocorrem devido a linhas de "
+"correspondência sem importância (como chaves de funções distintas).</"
+"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
+"git-merge.txt-diff-algorithmpatienceminimalhistogrammyers\"><span style=\" "
+"text-decoration:underline; color:#007af4;\">Mais informações</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:225
 #, kde-format
 msgid "Turn off rename detection"
-msgstr ""
+msgstr "Desligar detecção de renomeamento"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeOpenFilesDialog)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:14
 #, kde-format
 msgid "Select files to merge"
-msgstr ""
+msgstr "Selecionar arquivos para mesclagem"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:25
 #, kde-format
 msgid "Local file:"
-msgstr ""
+msgstr "Arquivo local:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:35
-#, fuzzy, kde-format
-#| msgid "Ignore file"
+#, kde-format
 msgid "Remote file:"
-msgstr "Arquivo ignorar"
+msgstr "Arquivo remoto:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:45
 #, kde-format
 msgid "Base file:"
-msgstr ""
+msgstr "Arquivo base:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
 #: src/libkommitwidgets/dialogs/notedialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Clone..."
+#, kde-format
 msgid "Note"
-msgstr "Clonar..."
+msgstr "Anotação"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PullDialog)
 #: src/libkommitwidgets/dialogs/pulldialog.ui:14
 #, kde-format
 msgid "Pull changes"
-msgstr ""
+msgstr "Enviar alterações"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/pulldialog.ui:63
 #, kde-format
 msgid "Rebase:"
-msgstr ""
+msgstr "Rebasear:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RemoteInfoDialog)
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:14
 #, kde-format
 msgid "New remote"
-msgstr ""
+msgstr "Novo remoto"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxMirror)
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:47
 #, kde-format
 msgid "Mirror"
-msgstr ""
+msgstr "Espelho"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RepoSettingsDialog)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo settings..."
+#, kde-format
 msgid "Repo settings"
-msgstr "Configurações do repositório..."
+msgstr "Configurações do repositório"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:35
 #, kde-format
 msgid "Email:"
-msgstr ""
+msgstr "E-mail:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:45
 #, kde-format
 msgid "Auto crlf:"
-msgstr ""
+msgstr "CRLF automático:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:52
@@ -2241,12 +2297,16 @@ msgid ""
 "\" text-decoration: underline; color:#007af4;\">More informations...</span></"
 "a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Altera o CR/LF ou não</p><p><a href=\"https://git-scm."
+"com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
+"\" text-decoration: underline; color:#007af4;\">Mais informações...</span></"
+"a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:59
 #, kde-format
 msgid "File mode:"
-msgstr ""
+msgstr "Modo de arquivo:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:66
@@ -2258,44 +2318,49 @@ msgid ""
 "decoration: underline; color:#007af4;\">More informations...</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Informa ao Git se o bit executável dos arquivos na "
+"árvore de trabalho deve ser respeitado.</p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-corefileMode\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Mais informações...</span></a></"
+"p></body></html>"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
 #, kde-format
 msgid "View"
-msgstr ""
+msgstr "Exibir"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
 msgid "Process finished"
-msgstr ""
+msgstr "Processo terminado"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:134
 #, kde-format
 msgid "The git process crashed"
-msgstr ""
+msgstr "O processo do git travou"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:135
 #, kde-format
 msgid "Process finished with error"
-msgstr ""
+msgstr "O processo terminou com erro"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14
 #, kde-format
 msgid "Run command"
-msgstr ""
+msgstr "Executar comando"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:36
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:47
 #, kde-format
 msgid "Output"
-msgstr ""
+msgstr "Saída"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:74
@@ -2315,71 +2380,82 @@ msgid ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
 "size:9pt;\"><br /></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"size:9pt;\"><br /></p></body></html>"
 
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "Nome do arquivo"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Recent repos"
+#, kde-format
 msgid "Search in repo"
-msgstr "Repositórios recentes"
+msgstr "Pesquisar no repositório"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:25
 #, kde-format
 msgid "Path:"
-msgstr ""
+msgstr "Caminho:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:35
 #, kde-format
 msgid "Text:"
-msgstr ""
+msgstr "Texto:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchBranches)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:45
 #, kde-format
 msgid "Search all branches"
-msgstr ""
+msgstr "Pesquisar todas as ramificações"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
-msgstr ""
+msgstr "Pesquisar todos os envios"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:62
 #, kde-format
 msgid "Case sensitive"
-msgstr ""
+msgstr "Diferenciar maiúsculas de minúsculas"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonSearch)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:86
-#, fuzzy, kde-format
-#| msgid "Search..."
+#, kde-format
 msgid "Search"
-msgstr "Pesquisar..."
+msgstr "Pesquisar"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
 msgid "The selected branches must be different!"
-msgstr ""
+msgstr "As ramificações selecionadas devem ser diferentes!"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
 msgid "Select Branches"
-msgstr ""
+msgstr "Selecionar ramificações"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:14
 #, kde-format
 msgid "Select branches"
-msgstr ""
+msgstr "Selecionar ramificações"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectLeftBranch)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
@@ -2387,7 +2463,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:60
 #, kde-format
 msgid "Select branch"
-msgstr ""
+msgstr "Selecionar ramificação"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLeftIsHead)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRightIsHead)
@@ -2395,159 +2471,159 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:73
 #, kde-format
 msgid "HEAD"
-msgstr ""
+msgstr "HEAD"
 
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:101
 #, kde-format
 msgid "The path is not inside of git directory"
-msgstr ""
+msgstr "O caminho não está dentro da pasta git"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:75
 #, kde-format
 msgid "The branch already exists"
-msgstr ""
+msgstr "A ramificação já existe"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:52
 #, kde-format
 msgid "Tag"
-msgstr ""
+msgstr "Etiqueta"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/taginfodialog.ui:22
 #, kde-format
 msgid "Tag name:"
-msgstr ""
+msgstr "Nome da etiqueta:"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:139
 #, kde-format
 msgid " (new commit)"
-msgstr ""
+msgstr " (novo envio)"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:141
 #, kde-format
 msgid " (content modified)"
-msgstr ""
+msgstr " (conteúdo modificado)"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:58
 #, kde-format
 msgid "Commits count by author"
-msgstr ""
+msgstr "Contagem de envios por autor"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:68
 #, kde-format
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:68
 #, kde-format
 msgid "Autheds"
-msgstr ""
+msgstr "Autorizados"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:46
 #, kde-format
 msgid "Commits by hour of day"
-msgstr ""
+msgstr "Envios por hora do dia"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:56
 #, kde-format
 msgid "Hour"
-msgstr ""
+msgstr "Hora"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:66
 #, kde-format
 msgid "Hour of day"
-msgstr ""
+msgstr "Hora do dia"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:22
 #, kde-format
 msgid "Monday"
-msgstr ""
+msgstr "Segunda-feira"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:24
 #, kde-format
 msgid "Tuesday"
-msgstr ""
+msgstr "Terça-feira"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:26
 #, kde-format
 msgid "Wednesday"
-msgstr ""
+msgstr "Quarta-feira"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:28
 #, kde-format
 msgid "Thursday"
-msgstr ""
+msgstr "Quinta-feira"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:30
 #, kde-format
 msgid "Friday"
-msgstr ""
+msgstr "Sexta-feira"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:32
 #, kde-format
 msgid "Saturday"
-msgstr ""
+msgstr "Sábado"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:34
 #, kde-format
 msgid "Sunday"
-msgstr ""
+msgstr "Domingo"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:75
 #, kde-format
 msgid "Commits by day of week"
-msgstr ""
+msgstr "Envios por dia da semana"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:85
 #, kde-format
 msgid "Day"
-msgstr ""
+msgstr "Dia"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:95
 #, kde-format
 msgid "Day of week"
-msgstr ""
+msgstr "Dia da semana"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:60
 #, kde-format
 msgid "Commits by month"
-msgstr ""
+msgstr "Envios por mês"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:70
 #, kde-format
 msgid "Month"
-msgstr ""
+msgstr "Mês"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:80
 #, kde-format
 msgid "Month-year"
-msgstr ""
+msgstr "Mês-ano"
 
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:41
 #, kde-format
 msgid "Uncommited"
-msgstr ""
+msgstr "Não confirmado"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:88
 #, kde-format
 msgid "Branch: "
-msgstr ""
+msgstr "Ramificação: "
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:90
 #, kde-format
 msgid "Note: "
-msgstr ""
+msgstr "Anotação: "
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:92
 #, kde-format
 msgid "Remote: "
-msgstr ""
+msgstr "Remoto: "
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:94
 #, kde-format
 msgid "Tag: "
-msgstr ""
+msgstr "Etiqueta: "
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #: src/libkommitwidgets/widgets/commitdetails.ui:14
@@ -2557,162 +2633,158 @@ msgstr "Formulário"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/widgets/commitdetails.ui:39
-#, fuzzy, kde-format
-#| msgid "No repo selected"
+#, kde-format
 msgid "Commit is not selected"
-msgstr "Nenhum repositório selecionado"
+msgstr "O envio não está selecionado"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:99
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Author:"
-msgstr "Autor"
+msgstr "Autor:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCommitterText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:111
-#, fuzzy, kde-format
-#| msgid "Kommit"
+#, kde-format
 msgid "Committer:"
-msgstr "Kommit"
+msgstr "Remetente:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
 #, kde-format
 msgid "Parent:"
-msgstr ""
+msgstr "Pai:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
 #, kde-format
 msgid "Child:"
-msgstr ""
+msgstr "Filho:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:181
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>-</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
 #: src/libkommitwidgets/widgets/commitdetails.ui:196
 #, kde-format
 msgid "Ref:"
-msgstr ""
+msgstr "Ref:"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/difftreeview.ui:17
 #, kde-format
 msgid "Type to filter"
-msgstr ""
+msgstr "Digite para filtrar"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
 #, kde-format
 msgid "Hide unchangeds"
-msgstr ""
+msgstr "Ocultar não modificados"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ReportWidget)
 #: src/libkommitwidgets/widgets/reportwidget.ui:14
-#, fuzzy, kde-format
-#| msgid "Repo"
+#, kde-format
 msgid "Report"
-msgstr "Repositório"
+msgstr "Relatório"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
-msgstr ""
+msgstr "Kommit Diff[*]"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:164
 #, kde-format
 msgctxt "@title:window"
 msgid "Tree"
-msgstr ""
+msgstr "Árvore"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:191
 #, kde-format
 msgid "View hidden chars..."
-msgstr ""
+msgstr "Mostrar caracteres ocultos..."
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
 #: src/libkommitwidgets/windows/mergewindow.cpp:336
 #, kde-format
 msgid "Same size blocks"
-msgstr ""
+msgstr "Blocos do mesmo tamanho"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:201
 #, kde-format
 msgid "Show files names"
-msgstr ""
+msgstr "Mostrar nomes dos arquivos"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:207
 #, kde-format
 msgid "Show Tree"
-msgstr ""
+msgstr "Mostrar árvore"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:271
 #, kde-format
 msgid "Unchanged"
-msgstr ""
+msgstr "Não modificado"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:278
 #, kde-format
 msgid "Conflicts: %1"
-msgstr ""
+msgstr "Conflitos: %1"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:286
 #, kde-format
 msgid "Keep mine"
-msgstr ""
+msgstr "Manter o meu"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:291
 #, kde-format
 msgid "Keep their"
-msgstr ""
+msgstr "Manter o deles"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:297
 #, kde-format
 msgid "Keep mine before their"
-msgstr ""
+msgstr "Manter o meu antes deles"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:302
 #, kde-format
 msgid "Keep their before mine"
-msgstr ""
+msgstr "Manter o deles antes do meu"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:307
 #, kde-format
 msgid "Keep my file"
-msgstr ""
+msgstr "Manter meu arquivo"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:312
 #, kde-format
 msgid "Keep their file"
-msgstr ""
+msgstr "Manter o arquivo deles"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:317
 #, kde-format
 msgid "Blocks"
-msgstr ""
+msgstr "Blocos"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:321
 #, kde-format
 msgid "Files"
-msgstr ""
+msgstr "Arquivos"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:325
 #, kde-format
 msgid "Previous diff"
-msgstr ""
+msgstr "Diferença anterior"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:331
 #, kde-format
 msgid "Next diff"
-msgstr ""
+msgstr "Próxima diferença"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:430
 #, kde-format
 msgid "Unable to open the file"
-msgstr ""
+msgstr "Não foi possível abrir o arquivo"
