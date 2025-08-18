@@ -1,6 +1,6 @@
 [![pipeline](https://invent.kde.org/sdk/kommit/badges/master/pipeline.svg)](https://invent.kde.org/sdk/kommit/-/pipelines)
 
-# Kommit
+# <img src="icons/48-apps-kommit.png " width="48"/>Kommit
 
 Git gui client for KDE
 
