@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-09 02:03+0000\n"
-"PO-Revision-Date: 2025-08-20 12:18-0300\n"
+"PO-Revision-Date: 2025-08-23 15:46-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -46,14 +46,14 @@ msgstr "Abrir"
 #: dolphinplugins/actions.h:16
 #, kde-format
 msgid "Pull"
-msgstr "Puxar"
+msgstr "Pull (Obter e Mesclar)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
 #: dolphinplugins/actions.h:17
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:64
 #, kde-format
 msgid "Fetch"
-msgstr "Obter"
+msgstr "Fetch (Obter)"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
@@ -63,13 +63,13 @@ msgstr "Obter"
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:299
 #, kde-format
 msgid "Push"
-msgstr "Enviar"
+msgstr "Push (Enviar)"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeDialog)
 #: dolphinplugins/actions.h:19 src/libkommitwidgets/dialogs/mergedialog.ui:14
 #, kde-format
 msgid "Merge"
-msgstr "Mesclar"
+msgstr "Merge (Mesclar)"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SwitchBranchDialog)
 #: dolphinplugins/actions.h:20
@@ -151,12 +151,12 @@ msgstr "Kommit"
 #: dolphinplugins/dolphinplugin.cpp:101
 #, kde-format
 msgid "Push/Commit to %1"
-msgstr "Enviar/Salvar para %1"
+msgstr "Commit/Push para %1"
 
 #: dolphinplugins/dolphinplugin.cpp:103
 #, kde-format
 msgid "Push/Commit to submodule %1"
-msgstr "Enviar/Salvar para o submódulo %1"
+msgstr "Commit/Push para o submódulo %1"
 
 #: src/apps/main.cpp:58
 #, kde-format
@@ -252,25 +252,25 @@ msgstr "Limpeza..."
 #, kde-format
 msgctxt "@action"
 msgid "Pull…"
-msgstr "Puxar..."
+msgstr "Pull (Obter e Mesclar)..."
 
 #: src/gui/appwindow.cpp:213 src/libkommitwidgets/actions/branchactions.cpp:33
 #, kde-format
 msgctxt "@action"
 msgid "Fetch…"
-msgstr "Obter..."
+msgstr "Fetch (Obter)..."
 
 #: src/gui/appwindow.cpp:217 src/libkommitwidgets/actions/tagsactions.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Push…"
-msgstr "Enviar..."
+msgstr "Push (Enviar)..."
 
 #: src/gui/appwindow.cpp:221 src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Merge…"
-msgstr "Mesclar..."
+msgstr "Merge (Mesclar)..."
 
 #: src/gui/appwindow.cpp:225
 #, kde-format
@@ -729,7 +729,7 @@ msgstr "Navegar"
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:89
 #, kde-format
 msgid "Commits"
-msgstr "Envios"
+msgstr "Commits"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/gui/pages/commitswidget.ui:31
@@ -765,13 +765,13 @@ msgstr "Ramificação padrão:"
 #: src/gui/pages/remoteswidget.ui:99
 #, kde-format
 msgid "Fetch url:"
-msgstr "Obter URL:"
+msgstr "URL de obtenção:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/pages/remoteswidget.ui:116
 #, kde-format
 msgid "Push url:"
-msgstr "Enviar URL:"
+msgstr "URL de envio:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -1569,19 +1569,19 @@ msgstr "Stash das alterações"
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
 #, kde-format
 msgid "Commit/push"
-msgstr "Confirmar/enviar"
+msgstr "Commit/push"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
-msgstr "Confirmar/enviar submódulo: %1"
+msgstr "Commit/Push do submódulo: %1"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:52
 #, kde-format
 msgctxt "@action"
 msgid "Commit/Push"
-msgstr "Confirmar/Enviar"
+msgstr "Commit/Push"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
@@ -1702,13 +1702,13 @@ msgstr "RótuloTexto"
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:270
 #, kde-format
 msgid "Commit and push"
-msgstr "Confirmar e enviar"
+msgstr "Commit e push"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
 #, kde-format
 msgid "Commit/Push"
-msgstr "Confirmar/Enviar"
+msgstr "Commit/Push"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:22
@@ -1771,7 +1771,7 @@ msgstr "Forçar"
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:98
 #, kde-format
 msgid "Create a commit"
-msgstr "Criar um envio"
+msgstr "Criar um commit"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:107
@@ -1815,7 +1815,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:123
 #, kde-format
 msgid "Amend to previous commit"
-msgstr "Alterar envio anterior"
+msgstr "Alterar commit anterior"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -1879,7 +1879,7 @@ msgstr "Nenhum"
 #: src/libkommitwidgets/models/stashesmodel.cpp:67
 #, kde-format
 msgid "Commit"
-msgstr "Enviar"
+msgstr "Commit"
 
 #: src/libkommitwidgets/dialogs/credentialdialog.cpp:33
 #, kde-format
@@ -1987,7 +1987,7 @@ msgstr "Erro %1: %2"
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:14
 #, kde-format
 msgid "Fetch from origin"
-msgstr "Obter da origem"
+msgstr "Fetch (obter) da origem"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllBranches)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:50
@@ -2025,7 +2025,7 @@ msgstr "Iniciando..."
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
 #, kde-format
 msgid "Uncommitted"
-msgstr "Não confirmado"
+msgstr "Remover commit"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:57
 #, kde-format
@@ -2522,7 +2522,7 @@ msgstr "Anotação"
 #: src/libkommitwidgets/dialogs/pulldialog.ui:14
 #, kde-format
 msgid "Pull changes"
-msgstr "Enviar alterações"
+msgstr "Alterações do pull"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/pulldialog.ui:63
@@ -2534,7 +2534,7 @@ msgstr "Rebasear:"
 #: src/libkommitwidgets/dialogs/pulldialog.ui:146
 #, kde-format
 msgid "No commit"
-msgstr "Sem envio"
+msgstr "Sem commit"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RemoteInfoDialog)
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:14
@@ -2710,7 +2710,7 @@ msgstr "Pesquisar todas as ramificações"
 #: src/libkommitwidgets/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
-msgstr "Pesquisar todos os envios"
+msgstr "Pesquisar todos os commits"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:62
@@ -2770,7 +2770,7 @@ msgstr "A ramificação já existe"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:90
 #, kde-format
 msgid "Unable to find the tag's target commit: %1"
-msgstr "Não foi possível encontrar o envio de destino da etiqueta: %1"
+msgstr "Não foi possível encontrar o commit de destino da etiqueta: %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
 #, kde-format
@@ -2797,12 +2797,12 @@ msgstr "Nome da etiqueta:"
 #: src/libkommitwidgets/models/branchesmodel.cpp:91
 #, kde-format
 msgid "Commit(s) behind"
-msgstr "Envio(s) em atraso"
+msgstr "Commit(s) atrás"
 
 #: src/libkommitwidgets/models/branchesmodel.cpp:93
 #, kde-format
 msgid "Commit(s) ahead"
-msgstr "Envio(s) adiantados"
+msgstr "Commit(s) à frente"
 
 #: src/libkommitwidgets/models/branchesmodel.cpp:95
 #, kde-format
@@ -2817,7 +2817,7 @@ msgstr "Ref"
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:169
 #, kde-format
 msgid " (new commit)"
-msgstr " (novo envio)"
+msgstr " (novo commit)"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:171
 #, kde-format
@@ -2878,7 +2878,7 @@ msgstr "Árvore"
 #: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format
 msgid "Commits count by author"
-msgstr "Contagem de envios por autor"
+msgstr "Contagem de commits por autor"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
@@ -2893,7 +2893,7 @@ msgstr "Autorizados"
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:49
 #, kde-format
 msgid "Commits by hour of day"
-msgstr "Envios por hora do dia"
+msgstr "Commits por hora do dia"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:59
 #, kde-format
@@ -2943,7 +2943,7 @@ msgstr "Domingo"
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:79
 #, kde-format
 msgid "Commits by day of week"
-msgstr "Envios por dia da semana"
+msgstr "Commits por dia da semana"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:89
 #, kde-format
@@ -2958,7 +2958,7 @@ msgstr "Dia da semana"
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:64
 #, kde-format
 msgid "Commits by month"
-msgstr "Envios por mês"
+msgstr "Commits por mês"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:74
 #, kde-format
@@ -2973,7 +2973,7 @@ msgstr "Mês-ano"
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:37
 #, kde-format
 msgid "Uncommited"
-msgstr "Não confirmado"
+msgstr "Remover commit"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #. i18n: ectx: property (windowTitle), widget (QWidget, MergeWidget)
@@ -3051,13 +3051,13 @@ msgstr[1] "Filhos:"
 #: src/libkommitwidgets/widgets/commitdetails.ui:39
 #, kde-format
 msgid "Commit is not selected"
-msgstr "O envio não está selecionado"
+msgstr "Commit não está selecionado"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxMarkdownDisplay)
 #: src/libkommitwidgets/widgets/commitdetails.ui:98
 #, kde-format
 msgid "Render commit message in Markdown"
-msgstr "Renderizar mensagem de envio em Markdown"
+msgstr "Renderizar mensagem do commit em Markdown"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:154
