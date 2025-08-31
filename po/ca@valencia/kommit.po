@@ -1721,7 +1721,7 @@ msgstr "Contrasenya:"
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14
 #, kde-format
 msgid "Select files/folders"
-msgstr "Seleccioneu els fitxers i carpetes"
+msgstr "Trieu els fitxers i carpetes"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:23
@@ -2223,7 +2223,7 @@ msgstr "Desactiva la detecció de canvis de nom"
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:14
 #, kde-format
 msgid "Select files to merge"
-msgstr "Seleccioneu els fitxers que s'han de fusionar"
+msgstr "Trieu els fitxers que s'han de fusionar"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:25
@@ -2452,13 +2452,13 @@ msgstr "Cal que les branques seleccionades siguen diferents!"
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
 msgid "Select Branches"
-msgstr "Seleccioneu les branques"
+msgstr "Trieu les branques"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:14
 #, kde-format
 msgid "Select branches"
-msgstr "Seleccioneu les branques"
+msgstr "Trieu les branques"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectLeftBranch)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
@@ -2466,7 +2466,7 @@ msgstr "Seleccioneu les branques"
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:60
 #, kde-format
 msgid "Select branch"
-msgstr "Seleccioneu la branca"
+msgstr "Trieu la branca"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLeftIsHead)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRightIsHead)
