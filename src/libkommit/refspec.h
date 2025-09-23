@@ -31,7 +31,7 @@ public:
 
     [[nodiscard]] QString name() const;
     [[nodiscard]] Direction direction() const;
-    [[nodiscard]] QString destionation() const;
+    [[nodiscard]] QString destination() const;
     [[nodiscard]] QString source() const;
     [[nodiscard]] bool isNull() const;
 

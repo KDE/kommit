@@ -25,7 +25,7 @@ public:
         UserpassPlaintext = GIT_CREDENTIAL_USERPASS_PLAINTEXT,
         SshKey = GIT_CREDENTIAL_SSH_KEY,
         SshCustom = GIT_CREDENTIAL_SSH_CUSTOM,
-        Defaut = GIT_CREDENTIAL_DEFAULT,
+        Default = GIT_CREDENTIAL_DEFAULT,
         SshInteractive = GIT_CREDENTIAL_SSH_INTERACTIVE,
         Username = GIT_CREDENTIAL_USERNAME,
         SshMemory = GIT_CREDENTIAL_SSH_MEMORY,

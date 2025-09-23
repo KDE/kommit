@@ -87,7 +87,7 @@ int git_helper_credentials_cb(git_credential **out, const char *url, const char 
     if (allowed_types & GIT_CREDENTIAL_SSH_CUSTOM)
         credAllowedType |= Credential::AllowedType::SshCustom;
     if (allowed_types & GIT_CREDENTIAL_DEFAULT)
-        credAllowedType |= Credential::AllowedType::Defaut;
+        credAllowedType |= Credential::AllowedType::Default;
     if (allowed_types & GIT_CREDENTIAL_SSH_INTERACTIVE)
         credAllowedType |= Credential::AllowedType::SshInteractive;
     if (allowed_types & GIT_CREDENTIAL_USERNAME)

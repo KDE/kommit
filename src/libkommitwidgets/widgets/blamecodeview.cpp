@@ -34,7 +34,7 @@ void BlameCodeView::setBlameData(const Git::Blame &newBlameData)
         }
 
         auto data = new BlockData{-1, nullptr, type};
-        data->extraText = blame.finalCommit().isNull() ? i18n("Uncommited") : blame.finalCommit().committer().name();
+        data->extraText = blame.finalCommit().isNull() ? i18n("Uncommitted") : blame.finalCommit().committer().name();
         data->data = blame.finalCommit().data();
 
         appendCode(mBlameData.codeLines(blame), type);

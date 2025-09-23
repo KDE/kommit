@@ -59,7 +59,7 @@ RefSpec::Direction RefSpec::direction() const
     return static_cast<Direction>(git_refspec_direction(d->refspec));
 }
 
-QString RefSpec::destionation() const
+QString RefSpec::destination() const
 {
     return QString{git_refspec_dst(d->refspec)};
 }
