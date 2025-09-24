@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-09 02:03+0000\n"
+"POT-Creation-Date: 2025-09-24 02:01+0000\n"
 "PO-Revision-Date: 2024-11-22 17:36+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -2022,6 +2022,7 @@ msgid "Starting..."
 msgstr "Avvio in corso..."
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
+#: src/libkommitwidgets/widgets/blamecodeview.cpp:37
 #, kde-format
 msgid "Uncommitted"
 msgstr "Non depositato"
@@ -2569,11 +2570,16 @@ msgstr "crlf automatico:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
+#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
+#| "</span></a></p></body></html>"
 msgid ""
 "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
 "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
-"\" text-decoration: underline; color:#007af4;\">More informations...</span></"
+"\" text-decoration: underline; color:#007af4;\">More information...</span></"
 "a></p></body></html>"
 msgstr ""
 "<html><head/><body><p>Cambia cr/lf o no</p><p><a href=\"https://git-scm.com/"
@@ -2589,12 +2595,18 @@ msgstr "Modalità file:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Tells Git if the executable bit of files in the "
+#| "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/"
+#| "git-config#Documentation/git-config.txt-corefileMode\"><span style=\" "
+#| "text-decoration: underline; color:#007af4;\">More informations...</span></"
+#| "a></p></body></html>"
 msgid ""
 "<html><head/><body><p>Tells Git if the executable bit of files in the "
 "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
 "config#Documentation/git-config.txt-corefileMode\"><span style=\" text-"
-"decoration: underline; color:#007af4;\">More informations...</span></a></p></"
+"decoration: underline; color:#007af4;\">More information...</span></a></p></"
 "body></html>"
 msgstr ""
 "<html><head/><body><p>Indica a Git se il bit eseguibile dei file nell'albero "
@@ -2971,11 +2983,6 @@ msgstr "Mese"
 msgid "Month-year"
 msgstr "Mese-anno"
 
-#: src/libkommitwidgets/widgets/blamecodeview.cpp:37
-#, kde-format
-msgid "Uncommited"
-msgstr "Senza commit"
-
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #. i18n: ectx: property (windowTitle), widget (QWidget, MergeWidget)
 #. i18n: ectx: property (windowTitle), widget (QWidget, FetchResultWidget)
@@ -3212,6 +3219,9 @@ msgstr "Conflitti: <span style='font-weight:bold; color:red;'>%1</span>"
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>Tutti i conflitti risolti</span>"
+
+#~ msgid "Uncommited"
+#~ msgstr "Senza commit"
 
 #~ msgctxt "@action"
 #~ msgid "Blame"

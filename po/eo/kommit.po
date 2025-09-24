@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-09 02:03+0000\n"
+"POT-Creation-Date: 2025-09-24 02:01+0000\n"
 "PO-Revision-Date: 2025-01-07 14:53+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -2016,6 +2016,7 @@ msgid "Starting..."
 msgstr "Komencante..."
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
+#: src/libkommitwidgets/widgets/blamecodeview.cpp:37
 #, kde-format
 msgid "Uncommitted"
 msgstr "Neenmetita"
@@ -2559,11 +2560,16 @@ msgstr "Aŭtomata CR-LF:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
+#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
+#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
+#| "</span></a></p></body></html>"
 msgid ""
 "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
 "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
-"\" text-decoration: underline; color:#007af4;\">More informations...</span></"
+"\" text-decoration: underline; color:#007af4;\">More information...</span></"
 "a></p></body></html>"
 msgstr ""
 "<html><head/><body><p>Ŝanĝi cr/lf aŭ ne</p><p><a href=\"https://git-scm.com/"
@@ -2579,12 +2585,18 @@ msgstr "Dosierreĝimo:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Tells Git if the executable bit of files in the "
+#| "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/"
+#| "git-config#Documentation/git-config.txt-corefileMode\"><span style=\" "
+#| "text-decoration: underline; color:#007af4;\">More informations...</span></"
+#| "a></p></body></html>"
 msgid ""
 "<html><head/><body><p>Tells Git if the executable bit of files in the "
 "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
 "config#Documentation/git-config.txt-corefileMode\"><span style=\" text-"
-"decoration: underline; color:#007af4;\">More informations...</span></a></p></"
+"decoration: underline; color:#007af4;\">More information...</span></a></p></"
 "body></html>"
 msgstr ""
 "<html><head/><body><p>Instruas al Git ĉu la plenumebla bito de dosieroj en "
@@ -2961,11 +2973,6 @@ msgstr "Monato"
 msgid "Month-year"
 msgstr "Monato-jaro"
 
-#: src/libkommitwidgets/widgets/blamecodeview.cpp:37
-#, kde-format
-msgid "Uncommited"
-msgstr "Neengaĝita"
-
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #. i18n: ectx: property (windowTitle), widget (QWidget, MergeWidget)
 #. i18n: ectx: property (windowTitle), widget (QWidget, FetchResultWidget)
@@ -3202,3 +3209,6 @@ msgstr "Konfliktoj: <span style='font-weight:bold; color:red;'>%1</span>"
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>Ĉiuj konfliktoj solviĝis</span>"
+
+#~ msgid "Uncommited"
+#~ msgstr "Neengaĝita"
