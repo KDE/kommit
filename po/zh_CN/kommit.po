@@ -2509,22 +2509,13 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
-#| "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-#| "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-#| "\">More information</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
 "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
 "\" text-decoration: underline; color:#007af4;\">More information...</span></"
 "a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>使用给定文本作为提交消息。</p><p><a href=\"https://git-"
-"scm.com/docs/git-commit#Documentation/git-commit.txt---messageltmsggt"
-"\"><span style=\" text-decoration: underline; color:#2980b9;\">更多信息</"
-"span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:59
@@ -2534,12 +2525,7 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:66
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Use the given text as the commit message. </p><p><a "
-#| "href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
-#| "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
-#| "\">More information</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Tells Git if the executable bit of files in the "
 "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
@@ -2547,10 +2533,6 @@ msgid ""
 "decoration: underline; color:#007af4;\">More information...</span></a></p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>使用给定文本作为提交消息。</p><p><a href=\"https://git-"
-"scm.com/docs/git-commit#Documentation/git-commit.txt---messageltmsggt"
-"\"><span style=\" text-decoration: underline; color:#2980b9;\">更多信息</"
-"span></a></p></body></html>"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
 #, kde-format
@@ -3141,6 +3123,3 @@ msgstr ""
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr ""
-
-#~ msgid "Uncommited"
-#~ msgstr "未提交"

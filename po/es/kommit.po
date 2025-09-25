@@ -1,15 +1,15 @@
-# Spanish translations for gitklient.po package.
-# Copyright (C) 2022 This file is copyright:
-# This file is distributed under the same license as the gitklient package.
-#
+# Spanish translations for kommit.po package.
+# Copyright (C) 2022-2025 This file is copyright:
+# This file is distributed under the same license as the kommit package.
 # Automatically generated, 2022.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+#
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: gitklient\n"
+"Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-24 02:01+0000\n"
-"PO-Revision-Date: 2024-11-22 12:06+0100\n"
+"PO-Revision-Date: 2025-09-25 00:07+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -217,25 +217,25 @@ msgstr " (rebasando)"
 #, kde-format
 msgctxt "@action"
 msgid "Init…"
-msgstr "Iniciar..."
+msgstr "Iniciar…"
 
 #: src/gui/appwindow.cpp:186
 #, kde-format
 msgctxt "@action"
 msgid "Open…"
-msgstr "Abrir..."
+msgstr "Abrir…"
 
 #: src/gui/appwindow.cpp:191
 #, kde-format
 msgctxt "@action"
 msgid "Clone…"
-msgstr "Clonar..."
+msgstr "Clonar…"
 
 #: src/gui/appwindow.cpp:194
 #, kde-format
 msgctxt "@action"
 msgid "Changed files…"
-msgstr "Archivos cambiados..."
+msgstr "Archivos cambiados…"
 
 #: src/gui/appwindow.cpp:200
 #, kde-format
@@ -247,67 +247,67 @@ msgstr "Repositorios recientes"
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
-msgstr "Limpiar..."
+msgstr "Limpiar…"
 
 #: src/gui/appwindow.cpp:209
 #, kde-format
 msgctxt "@action"
 msgid "Pull…"
-msgstr "Descargar..."
+msgstr "Descargar…"
 
 #: src/gui/appwindow.cpp:213 src/libkommitwidgets/actions/branchactions.cpp:33
 #, kde-format
 msgctxt "@action"
 msgid "Fetch…"
-msgstr "Extraer..."
+msgstr "Extraer…"
 
 #: src/gui/appwindow.cpp:217 src/libkommitwidgets/actions/tagsactions.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Push…"
-msgstr "Enviar..."
+msgstr "Enviar…"
 
 #: src/gui/appwindow.cpp:221 src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Merge…"
-msgstr "Fusionar..."
+msgstr "Fusionar…"
 
 #: src/gui/appwindow.cpp:225
 #, kde-format
 msgctxt "@action"
 msgid "Diff branches…"
-msgstr "Diferencias entre ramas..."
+msgstr "Diferencias entre ramas…"
 
 #: src/gui/appwindow.cpp:228 src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
 msgctxt "@action"
 msgid "Search…"
-msgstr "Buscar..."
+msgstr "Buscar…"
 
 #: src/gui/appwindow.cpp:231
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
-msgstr "Preferencias del repositorio..."
+msgstr "Preferencias del repositorio…"
 
 #: src/gui/appwindow.cpp:234
 #, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
-msgstr "Cambiar/cambiar rama..."
+msgstr "Cambiar/cambiar rama…"
 
 #: src/gui/appwindow.cpp:237
 #, kde-format
 msgctxt "@action"
 msgid "Diff tree…"
-msgstr "Árbol de diferencias..."
+msgstr "Árbol de diferencias…"
 
 #: src/gui/appwindow.cpp:240
 #, kde-format
 msgctxt "@action"
 msgid "Change logs…"
-msgstr "Cambiar registros..."
+msgstr "Cambiar registros…"
 
 #: src/gui/appwindow.cpp:283
 #, kde-format
@@ -739,7 +739,7 @@ msgstr "Confirmaciones"
 #: src/gui/pages/commitswidget.ui:31
 #, kde-format
 msgid "Filter..."
-msgstr "Filtrar..."
+msgstr "Filtrar…"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
 #: src/gui/pages/remoteswidget.cpp:57 src/gui/pages/submoduleswidget.ui:59
@@ -892,7 +892,7 @@ msgstr ""
 "stash#Documentation/git-stash.txt-push-p--patch-k--no-keep-index-u--include-"
 "untracked-a--all-q--quiet-m--messageltmessagegt--pathspec-from-fileltfilegt--"
 "pathspec-file-nul--ltpathspecgt82308203\"><span style=\" text-decoration: "
-"underline; color:#2980b9;\">Más información...</span></a></p></body></html>"
+"underline; color:#2980b9;\">Más información…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
 #: src/gui/pages/stasheswidget.ui:52
@@ -919,7 +919,7 @@ msgstr ""
 "<html><head/><body><p>Aplicar la reserva encima del directorio de trabajo "
 "actual</p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-"
 "stash.txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
-"underline; color:#2980b9;\">Más información...</span></a></p></body></html>"
+"underline; color:#2980b9;\">Más información…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
 #: src/gui/pages/stasheswidget.ui:69
@@ -1104,13 +1104,13 @@ msgstr "Local no actualizado"
 #, kde-format
 msgctxt "@action"
 msgid "Create…"
-msgstr "Crear..."
+msgstr "Crear…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgctxt "@action"
 msgid "Browse…"
-msgstr "Explorar..."
+msgstr "Explorar…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
 #, kde-format
@@ -1131,7 +1131,7 @@ msgstr "Diferencias"
 #, kde-format
 msgctxt "@action"
 msgid "Remove…"
-msgstr "Eliminar..."
+msgstr "Eliminar…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:67
 #, kde-format
@@ -1163,13 +1163,13 @@ msgstr "No se puede eliminar la rama seleccionada"
 #, kde-format
 msgctxt "@action"
 msgid "Diff…"
-msgstr "Diferencias..."
+msgstr "Diferencias…"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:23
 #, kde-format
 msgctxt "@action"
 msgid "Revert…"
-msgstr "Revertir..."
+msgstr "Revertir…"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
 #, kde-format
@@ -1214,7 +1214,7 @@ msgstr "Abrir"
 #, kde-format
 msgctxt "@action"
 msgid "Open with…"
-msgstr "Abrir con..."
+msgstr "Abrir con…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:47
 #, kde-format
@@ -1226,7 +1226,7 @@ msgstr "Fusionar con el directorio de trabajo"
 #, kde-format
 msgctxt "@action"
 msgid "Save as…"
-msgstr "Guardar como..."
+msgstr "Guardar como…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:50
 #, kde-format
@@ -1243,19 +1243,19 @@ msgstr "Archivo %1 (*.%1);;Todos los archivos (*)"
 #, kde-format
 msgctxt "@action"
 msgid "New…"
-msgstr "Nuevo..."
+msgstr "Nuevo…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Rename…"
-msgstr "Cambiar nombre..."
+msgstr "Cambiar nombre…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Change url…"
-msgstr "Cambiar URL..."
+msgstr "Cambiar URL…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:53
 #, kde-format
@@ -1308,19 +1308,19 @@ msgstr "Nuevo nombre"
 #, kde-format
 msgctxt "@action"
 msgid "New stash…"
-msgstr "Nueva reserva..."
+msgstr "Nueva reserva…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Pop…"
-msgstr "Sacar reserva..."
+msgstr "Sacar reserva…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Apply…"
-msgstr "Aplicar..."
+msgstr "Aplicar…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
@@ -1393,32 +1393,32 @@ msgstr "Nombre de la reserva"
 #, kde-format
 msgctxt "@action"
 msgid "Add…"
-msgstr "Añadir..."
+msgstr "Añadir…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Update…"
-msgstr "Actualizar..."
+msgstr "Actualizar…"
 
 #. i18nc("@action", "Remove…"), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:31
 #, kde-format
 msgctxt "@action"
 msgid "Sync…"
-msgstr "Sincronizar..."
+msgstr "Sincronizar…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, kde-format
 msgctxt "@action"
 msgid "New tag…"
-msgstr "Nueva etiqueta..."
+msgstr "Nueva etiqueta…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Checkout…"
-msgstr "Cambiar rama..."
+msgstr "Cambiar rama…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:35
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1761,7 +1761,7 @@ msgstr ""
 "comprobaciones y puede ocasionar que el repositorio remoto pierda "
 "confirmaciones; úselo con cuidado.</p><p><br/></p><p><a href=\"https://git-"
 "scm.com/docs/git-push#Documentation/git-push.txt--f\"><span style=\" text-"
-"decoration: underline; color:#007af4;\">Más información...</span></a></p></"
+"decoration: underline; color:#007af4;\">Más información…</span></a></p></"
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
@@ -1792,7 +1792,7 @@ msgstr ""
 "mensaje de confirmación al usar un editor para preparar el mensaje de "
 "confirmación.</p><p><a href=\"https://git-scm.com/docs/git-"
 "commit#Documentation/git-commit.txt---status\"><span style=\" text-"
-"decoration: underline; color:#2980b9;\">Más información...</span></a></p></"
+"decoration: underline; color:#2980b9;\">Más información…</span></a></p></"
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
@@ -1814,7 +1814,7 @@ msgstr ""
 "<html><head/><body><p>Sustituir la punta de la rama actual creando una nueva "
 "confirmación.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
 "commit#Documentation/git-commit.txt---amend\"><span style=\" text-"
-"decoration: underline; color:#2980b9;\">Más información...</span></a></p></"
+"decoration: underline; color:#2980b9;\">Más información…</span></a></p></"
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAmend)
@@ -1843,7 +1843,7 @@ msgstr ""
 "<html><head/><body><p>Usar el texto indicado como mensaje de la "
 "confirmación. </p><p><a href=\"https://git-scm.com/docs/git-"
 "commit#Documentation/git-commit.txt---messageltmsggt\"><span style=\" text-"
-"decoration: underline; color:#2980b9;\">Más información...</span></a></p></"
+"decoration: underline; color:#2980b9;\">Más información…</span></a></p></"
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -1973,7 +1973,7 @@ msgstr "Etapa %1"
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:166
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
-msgstr "Referencia actualizada: %1  %2...%3"
+msgstr "Referencia actualizada: %1  %2…%3"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
 #, kde-format
@@ -2027,7 +2027,7 @@ msgstr "Redirigir"
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:186
 #, kde-format
 msgid "Starting..."
-msgstr "Iniciando..."
+msgstr "Iniciando…"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:37
@@ -2135,7 +2135,7 @@ msgstr "Cerrando vista previa"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgid "Please wait while the preview is being closed…"
-msgstr "Espere mientras se cierra la vista previa..."
+msgstr "Espere mientras se cierra la vista previa…"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
 #, kde-format
@@ -2260,7 +2260,7 @@ msgstr ""
 "s». Algunas estrategias también pueden tener sus propias opciones, que se "
 "pueden pasar usando argumentos -X&lt;option&gt; en «git merge» y/o «git "
 "pull».</p><p><a href=\"https://git-scm.com/docs/merge-strategies\"><span "
-"style=\" text-decoration: underline; color:#2980b9;\">Más información...</"
+"style=\" text-decoration: underline; color:#2980b9;\">Más información…</"
 "span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
@@ -2339,7 +2339,7 @@ msgstr ""
 "activar esto de forma predeterminada, ni se añadirá en el futuro.</p><p><br/"
 "></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
 "txt---allow-unrelated-histories\"><span style=\" text-decoration: underline; "
-"color:#007af4;\">Más información...</span></a></p></body></html>"
+"color:#007af4;\">Más información…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:97
@@ -2370,7 +2370,7 @@ msgstr ""
 "fusionar otra rama (o más, en caso de una fusión en modo pulpo).</p><p><br/"
 "></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
 "txt---squash\"><span style=\" text-decoration: underline; color:#007af4;"
-"\">Más información...</span></a></p></body></html>"
+"\">Más información…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:110
@@ -2413,7 +2413,7 @@ msgstr ""
 "se ignoran los cambios de espacios en blanco de una línea fusionados con "
 "otros cambios.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
 "merge#Documentation/git-merge.txt-ignore-space-change\"><span style=\" text-"
-"decoration: underline; color:#007af4;\">Más información...</span></a></p></"
+"decoration: underline; color:#007af4;\">Más información…</span></a></p></"
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
@@ -2458,7 +2458,7 @@ msgstr ""
 "con reglas de normalización de fin de línea.</p><p><br/></p><p><a href="
 "\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-renormalize"
 "\"><span style=\" text-decoration: underline; color:#007af4;\">Más "
-"información...</span></a></p></body></html>"
+"información…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:197
@@ -2577,12 +2577,7 @@ msgstr "«crlf» automático:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
 "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
@@ -2591,7 +2586,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Cambiar cr/lf o no</p><p><a href=\"https://git-scm.com/"
 "docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
-"text-decoration: underline; color:#007af4;\">Más información...</span></a></"
+"text-decoration: underline; color:#007af4;\">Más información…</span></a></"
 "p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
@@ -2602,13 +2597,7 @@ msgstr "Modo de archivo:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:66
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Tells Git if the executable bit of files in the "
-#| "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/"
-#| "git-config#Documentation/git-config.txt-corefileMode\"><span style=\" "
-#| "text-decoration: underline; color:#007af4;\">More informations...</span></"
-#| "a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Tells Git if the executable bit of files in the "
 "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
@@ -2619,7 +2608,7 @@ msgstr ""
 "<html><head/><body><p>Le indica a Git si se debe respetar el bit de "
 "ejecutable de los archivos del árbol de trabajo.</p><p><a href=\"https://git-"
 "scm.com/docs/git-config#Documentation/git-config.txt-corefileMode\"><span "
-"style=\" text-decoration: underline; color:#007af4;\">Más información...</"
+"style=\" text-decoration: underline; color:#007af4;\">Más información…</"
 "span></a></p></body></html>"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
@@ -3132,7 +3121,7 @@ msgstr "Informe"
 #: src/libkommitwidgets/windows/diffwindow.cpp:239
 #, kde-format
 msgid "View hidden chars…"
-msgstr "Ver caracteres ocultos..."
+msgstr "Ver caracteres ocultos…"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:244
 #: src/libkommitwidgets/windows/mergewindow.cpp:184
@@ -3227,250 +3216,3 @@ msgstr "Conflictos: <span style='font-weight:bold; color:red;'>%1</span>"
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>Se han resuelto todos los conflictos</span>"
-
-#~ msgid "Uncommited"
-#~ msgstr "Sin confirmar"
-
-#~ msgid "1 conflict remains"
-#~ msgstr "Queda 1 conflicto"
-
-#~ msgctxt "@action"
-#~ msgid "Blame"
-#~ msgstr "Responsables"
-
-#~ msgid "Blocks"
-#~ msgstr "Bloques"
-
-#~ msgid "Files"
-#~ msgstr "Archivos"
-
-#~ msgctxt "@action"
-#~ msgid "Note…"
-#~ msgstr "Nota..."
-
-#~ msgid "Are you sure to remove the selected submodule?"
-#~ msgstr "¿Seguro que quiere eliminar el submódulo seleccionado?"
-
-#~ msgid "Remove Submodule"
-#~ msgstr "Eliminar submódulo"
-
-#~ msgid "Unable to remove the module directory"
-#~ msgstr "No se ha podido eliminar el directorio del módulo"
-
-#~ msgid "The submodule %1 removed"
-#~ msgstr "Submódulo %1 eliminado"
-
-#~ msgctxt "@action"
-#~ msgid "Init..."
-#~ msgstr "Iniciar..."
-
-#~ msgctxt "@action"
-#~ msgid "Open..."
-#~ msgstr "Abrir..."
-
-#~ msgctxt "@action"
-#~ msgid "Clone..."
-#~ msgstr "Clonar..."
-
-#~ msgctxt "@action"
-#~ msgid "Changed files..."
-#~ msgstr "Archivos cambiados..."
-
-#~ msgctxt "@action"
-#~ msgid "Cleanup..."
-#~ msgstr "Limpiar..."
-
-#~ msgctxt "@action"
-#~ msgid "Pull..."
-#~ msgstr "Descargar..."
-
-#~ msgctxt "@action"
-#~ msgid "Fetch..."
-#~ msgstr "Extraer..."
-
-#~ msgctxt "@action"
-#~ msgid "Push..."
-#~ msgstr "Enviar..."
-
-#~ msgctxt "@action"
-#~ msgid "Merge..."
-#~ msgstr "Fusionar..."
-
-#~ msgctxt "@action"
-#~ msgid "Diff branches..."
-#~ msgstr "Diferencias entre ramas..."
-
-#~ msgctxt "@action"
-#~ msgid "Search..."
-#~ msgstr "Buscar..."
-
-#~ msgctxt "@action"
-#~ msgid "Repo settings..."
-#~ msgstr "Preferencias del repositorio..."
-
-#~ msgctxt "@action"
-#~ msgid "Switch/Checkout..."
-#~ msgstr "Cambiar/cambiar rama..."
-
-#~ msgctxt "@action"
-#~ msgid "Browse..."
-#~ msgstr "Explorar..."
-
-#~ msgctxt "@action"
-#~ msgid "Remove..."
-#~ msgstr "Eliminar..."
-
-#~ msgctxt "@action"
-#~ msgid "Note..."
-#~ msgstr "Nota..."
-
-#~ msgctxt "@action"
-#~ msgid "Diff..."
-#~ msgstr "Diferencias..."
-
-#~ msgctxt "@action"
-#~ msgid "New..."
-#~ msgstr "Nuevo..."
-
-#~ msgctxt "@action"
-#~ msgid "Rename..."
-#~ msgstr "Cambiar nombre..."
-
-#~ msgctxt "@action"
-#~ msgid "Change url..."
-#~ msgstr "Cambiar URL..."
-
-#~ msgctxt "@action"
-#~ msgid "Pop..."
-#~ msgstr "Sacar..."
-
-#~ msgctxt "@action"
-#~ msgid "Add..."
-#~ msgstr "Añadir..."
-
-#~ msgctxt "@action"
-#~ msgid "Update..."
-#~ msgstr "Actualizar..."
-
-#~ msgctxt "@action"
-#~ msgid "Sync..."
-#~ msgstr "Sincronizar..."
-
-#~ msgctxt "@action"
-#~ msgid "New tag..."
-#~ msgstr "Nueva etiqueta..."
-
-#~ msgctxt "@action"
-#~ msgid "Checkout..."
-#~ msgstr "Cambiar rama..."
-
-#~ msgid "Stop"
-#~ msgstr "Detener"
-
-#~ msgid "Diff with master..."
-#~ msgstr "Diferencias con master.."
-
-#~ msgid "Authors"
-#~ msgstr "Autores"
-
-#~ msgid "Diff with HEAD..."
-#~ msgstr "Diferencias con HEAD..."
-
-#~ msgid "Merge with HEAD..."
-#~ msgstr "Fusionar con HEAD..."
-
-#~ msgid "Blame..."
-#~ msgstr "Responsables..."
-
-#~ msgid "time"
-#~ msgstr "fecha"
-
-#~ msgid "Commit time"
-#~ msgstr "Fecha de la confirmación"
-
-#~ msgid "Auth time"
-#~ msgstr "Fecha del autor"
-
-#~ msgid "Hash"
-#~ msgstr "Hash"
-
-#~ msgid "Parents"
-#~ msgstr "Padres"
-
-#~ msgid "Children"
-#~ msgstr "Hijos"
-
-#~ msgid "Push to"
-#~ msgstr "Enviar a"
-
-#~ msgid "Git Klient"
-#~ msgstr "Git Klient"
-
-#~ msgid "GitKlient"
-#~ msgstr "GitKlient"
-
-#~ msgid "Auto file mode"
-#~ msgstr "Modo de archivo automático"
-
-#~ msgid "You don't have any modified file!"
-#~ msgstr "No tiene ningún archivo con modificaciones."
-
-#~ msgid "Select new file"
-#~ msgstr "Seleccionar archivo nuevo"
-
-#~ msgid "Select old file"
-#~ msgstr "Seleccionar archivo antiguo"
-
-#~ msgid "Select new directory"
-#~ msgstr "Seleccionar directorio nuevo"
-
-#~ msgid "Select old directory"
-#~ msgstr "Seleccionar directorio antiguo"
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgid "Select local file"
-#~ msgstr "Seleccionar archivo local"
-
-#~ msgid "Select remote file"
-#~ msgstr "Seleccionar archivo remoto"
-
-#~ msgid "Select base file"
-#~ msgstr "Seleccionar archivo base"
-
-#~ msgid "View..."
-#~ msgstr "Ver..."
-
-#~ msgid "The selected path is outside of working dir"
-#~ msgstr "La ruta seleccionada está fuera del directorio de trabajo"
-
-#~ msgid "Leave"
-#~ msgstr "Dejar"
-
-#~ msgid "Save diff"
-#~ msgstr "Guardar diferencias"
-
-#~ msgid "Left:"
-#~ msgstr "Izquierda:"
-
-#~ msgid "Right:"
-#~ msgstr "Derecha:"
-
-#~ msgid "Show hidden chars"
-#~ msgstr "Mostrar caracteres ocultos"
-
-#~ msgid "Save diff as..."
-#~ msgstr "Guardar diferencias como..."
-
-#~ msgid "Resolve"
-#~ msgstr "Resolver"
-
-#~ msgid "Ignoer file"
-#~ msgstr "Ignorar archivo"
-
-#~ msgid "Add new submoudle"
-#~ msgstr "Añadir nuevo submódulo"
-
-#~ msgid "Open last repo as startup"
-#~ msgstr "Abrir el último repositorio durante el inicio"
