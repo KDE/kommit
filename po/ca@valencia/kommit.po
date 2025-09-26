@@ -1,15 +1,15 @@
 # Translation of kommit.po to Catalan (Valencian)
-# Copyright (C) 2022-2024 This_file_is_part_of_KDE
+# Copyright (C) 2022-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-24 02:01+0000\n"
-"PO-Revision-Date: 2024-11-22 09:47+0100\n"
+"PO-Revision-Date: 2025-09-24 20:24+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 # NdT: Com que és una capa gràfica del Git, he intentat seguir la terminologia pròpia de la traducció del Git (https://github.com/Softcatala/git-po/blob/master/po/ca.po)
 #, kde-format
@@ -2574,12 +2574,7 @@ msgstr "CRLF automàtic:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
 "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
@@ -2599,13 +2594,7 @@ msgstr "Mode del fitxer:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:66
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Tells Git if the executable bit of files in the "
-#| "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/"
-#| "git-config#Documentation/git-config.txt-corefileMode\"><span style=\" "
-#| "text-decoration: underline; color:#007af4;\">More informations...</span></"
-#| "a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Tells Git if the executable bit of files in the "
 "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
@@ -3224,6 +3213,3 @@ msgstr "Conflictes: <span style='font-weight:bold; color:red;'>%1</span>"
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>S'han resolt tots els conflictes</span>"
-
-#~ msgid "Uncommited"
-#~ msgstr "Sense cometre"
