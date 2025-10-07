@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Kommit
+Name[ar]=كومت
 Name[ca]=Kommit
 Name[ca@valencia]=Kommit
 Name[cs]=Kommit
@@ -30,6 +31,7 @@ Icon=kommit
 Type=Application
 X-DocPath=kommit/index.html
 GenericName=Git client GUI
+GenericName[ar]=العميل
 GenericName[ca]=IGU de client del Git
 GenericName[ca@valencia]=IGU de client de Git
 GenericName[cs]=Grafický klient pro Git
