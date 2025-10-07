@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Kommit Merge
+Name[ar]=دمج كومت
 Name[ca]=Merge del Kommit
 Name[ca@valencia]=Merge de Kommit
 Name[cs]=Kommit Merge
@@ -30,6 +31,7 @@ Icon=kommit
 Type=Application
 X-DocPath=kommit/index.html
 GenericName=Git client gui for KDE
+GenericName[ar]=واجهة المستخدم الرسومية لعميل غت لكيدي
 GenericName[ca]=Client gràfic del Git de KDE
 GenericName[ca@valencia]=Client gràfic de Git de KDE
 GenericName[cs]=GUI git klient od KDE
