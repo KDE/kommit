@@ -5,6 +5,7 @@
   <project_license>GPL-3.0</project_license>
   <developer_name translate="no">KDE</developer_name>
   <name>Kommit</name>
+  <name xml:lang="ar">كومت</name>
   <name xml:lang="ca">Kommit</name>
   <name xml:lang="ca-valencia">Kommit</name>
   <name xml:lang="cs">Kommit</name>
@@ -29,6 +30,7 @@
   <name xml:lang="uk">Kommit</name>
   <name xml:lang="zh-TW">Kommit</name>
   <summary>Git GUI client</summary>
+  <summary xml:lang="ar">عميل غيت واجهة المستخدم الرسومية</summary>
   <summary xml:lang="ca">Client amb IGU del Git</summary>
   <summary xml:lang="ca-valencia">Client amb IGU de Git</summary>
   <summary xml:lang="cs">Grafický klient pro Git</summary>
@@ -55,6 +57,7 @@
   <summary xml:lang="zh-TW">Git GUI 用戶端</summary>
   <description>
     <p>Git GUI client</p>
+    <p xml:lang="ar">عميل غيت واجهة المستخدم الرسومية</p>
     <p xml:lang="ca">Client amb IGU del Git</p>
     <p xml:lang="ca-valencia">Client amb IGU de Git</p>
     <p xml:lang="cs">Grafický klient pro Git</p>
