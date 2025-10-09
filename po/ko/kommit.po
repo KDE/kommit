@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kommit package.
-# SPDX-FileCopyrightText: 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:55+0000\n"
-"PO-Revision-Date: 2024-12-24 17:30+0100\n"
+"PO-Revision-Date: 2025-10-09 00:58+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -648,7 +648,7 @@ msgstr ""
 "stash#Documentation/git-stash.txt-push-p--patch-k--no-keep-index-u--include-"
 "untracked-a--all-q--quiet-m--messageltmessagegt--pathspec-from-fileltfilegt--"
 "pathspec-file-nul--ltpathspecgt82308203\"><span style=\" text-decoration: "
-"underline; color:#2980b9;\">자세한 정보...</span></a></p></body></html>"
+"underline; color:#2980b9;\">더 많은 정보...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
 #: src/gui/pages/stasheswidget.ui:52
@@ -675,7 +675,7 @@ msgstr ""
 "<html><head/><body><p>현재 작업 디렉터리에 스태시를 적용합니다.</p><p><a "
 "href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-apply--"
 "index-q--quietltstashgt\"><span style=\" text-decoration: underline; color:"
-"#2980b9;\">자세한 정보...</span></a></p></body></html>"
+"#2980b9;\">더 많은 정보...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
 #: src/gui/pages/stasheswidget.ui:69

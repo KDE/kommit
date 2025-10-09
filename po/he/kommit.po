@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:55+0000\n"
-"PO-Revision-Date: 2025-08-07 20:47+0300\n"
+"PO-Revision-Date: 2025-10-07 11:09+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -160,7 +160,7 @@ msgstr ""
 #: src/apps/main.cpp:58
 #, kde-format
 msgid "Git client gui for KDE"
-msgstr ""
+msgstr "לקוח Git חזותי ל־KDE"
 
 #: src/apps/main.cpp:60
 #, kde-format
@@ -177,38 +177,38 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
-msgstr ""
+msgstr "חאמר מסאפי"
 
 #: src/apps/main.cpp:63
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
-msgstr ""
+msgstr "לורנט מונטל"
 
 #: src/apps/main.cpp:63
 #, kde-format
 msgid "Bug fixing"
-msgstr ""
+msgstr "תיקון תקלות"
 
 #: src/gui/appwindow.cpp:96
 #, kde-format
 msgid "No repo selected"
-msgstr ""
+msgstr "לא נבחר מאגר"
 
 #: src/gui/appwindow.cpp:128
 #, kde-format
 msgid "Current branch: %1"
-msgstr ""
+msgstr "ענף נוכחי: %1"
 
 #: src/gui/appwindow.cpp:130
 #, kde-format
 msgid " (merging)"
-msgstr ""
+msgstr " (מיזוג)"
 
 #: src/gui/appwindow.cpp:132
 #, kde-format
 msgid " (rebasing)"
-msgstr ""
+msgstr " (ביסוס מחדש)"
 
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
@@ -2105,7 +2105,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/mergedialog.ui:211
 #, kde-format
 msgid "Diff algorithm:"
-msgstr ""
+msgstr "אלגוריתם הבדלים:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxDiffAlgoritm)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:218
@@ -2123,79 +2123,79 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/mergedialog.ui:225
 #, kde-format
 msgid "Turn off rename detection"
-msgstr ""
+msgstr "כיבוי זיהוי שינוי שם"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeOpenFilesDialog)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:14
 #, kde-format
 msgid "Select files to merge"
-msgstr ""
+msgstr "בחירת קבצים למיזוג"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:25
 #, kde-format
 msgid "Local file:"
-msgstr ""
+msgstr "קובץ מקומי:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:35
 #, kde-format
 msgid "Remote file:"
-msgstr ""
+msgstr "קובץ מרוחק:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:45
 #, kde-format
 msgid "Base file:"
-msgstr ""
+msgstr "קובץ בסיס:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
 #: src/libkommitwidgets/dialogs/notedialog.ui:14
 #, kde-format
 msgid "Note"
-msgstr ""
+msgstr "הערה"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PullDialog)
 #: src/libkommitwidgets/dialogs/pulldialog.ui:14
 #, kde-format
 msgid "Pull changes"
-msgstr ""
+msgstr "משיכת שינויים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/pulldialog.ui:63
 #, kde-format
 msgid "Rebase:"
-msgstr ""
+msgstr "ביסוס מחדש:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RemoteInfoDialog)
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:14
 #, kde-format
 msgid "New remote"
-msgstr ""
+msgstr "מרוחק חדש"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxMirror)
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:47
 #, kde-format
 msgid "Mirror"
-msgstr ""
+msgstr "מראה"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RepoSettingsDialog)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:14
 #, kde-format
 msgid "Repo settings"
-msgstr ""
+msgstr "הגדרות מאגר"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:35
 #, kde-format
 msgid "Email:"
-msgstr ""
+msgstr "דוא״ל:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:45
 #, kde-format
 msgid "Auto crlf:"
-msgstr ""
+msgstr "סוף שורה אוטומטי:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:52
@@ -2211,7 +2211,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:59
 #, kde-format
 msgid "File mode:"
-msgstr ""
+msgstr "מצב קובץ:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:66
@@ -2227,40 +2227,40 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
 #, kde-format
 msgid "View"
-msgstr ""
+msgstr "תצוגה"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
 #, kde-format
 msgid "Process finished"
-msgstr ""
+msgstr "התהליך הסתיים"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:134
 #, kde-format
 msgid "The git process crashed"
-msgstr ""
+msgstr "תהליך ה־git קרס"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:135
 #, kde-format
 msgid "Process finished with error"
-msgstr ""
+msgstr "התהליך הסתיים עם שגיאה"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14
 #, kde-format
 msgid "Run command"
-msgstr ""
+msgstr "הרצת פקודה"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:36
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:47
 #, kde-format
 msgid "Output"
-msgstr ""
+msgstr "פלט"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:74
@@ -2284,49 +2284,49 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:35
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "שם קובץ"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SearchDialog)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:14
 #, kde-format
 msgid "Search in repo"
-msgstr ""
+msgstr "חיפוש במאגר"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:25
 #, kde-format
 msgid "Path:"
-msgstr ""
+msgstr "נתיב:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:35
 #, kde-format
 msgid "Text:"
-msgstr ""
+msgstr "טקסט:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchBranches)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:45
 #, kde-format
 msgid "Search all branches"
-msgstr ""
+msgstr "חיפוש בכל הענפים"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
-msgstr ""
+msgstr "חיפוש בכל הקיבועים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:62
 #, kde-format
 msgid "Case sensitive"
-msgstr ""
+msgstr "תלוי רישיות"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonSearch)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:86
 #, kde-format
 msgid "Search"
-msgstr ""
+msgstr "חיפוש"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:42
 #, kde-format
@@ -2593,7 +2593,7 @@ msgstr "עץ"
 #: src/libkommitwidgets/windows/diffwindow.cpp:191
 #, kde-format
 msgid "View hidden chars..."
-msgstr ""
+msgstr "הצגת תווים נסתרים…"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:196
 #: src/libkommitwidgets/windows/mergewindow.cpp:336
@@ -2619,7 +2619,7 @@ msgstr "ללא שינוי"
 #: src/libkommitwidgets/windows/mergewindow.cpp:278
 #, kde-format
 msgid "Conflicts: %1"
-msgstr ""
+msgstr "סתירות: %1"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:286
 #, kde-format
@@ -2659,7 +2659,7 @@ msgstr ""
 #: src/libkommitwidgets/windows/mergewindow.cpp:321
 #, kde-format
 msgid "Files"
-msgstr ""
+msgstr "קבצים"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:325
 #, kde-format
@@ -2674,4 +2674,4 @@ msgstr "ההבדל הבא"
 #: src/libkommitwidgets/windows/mergewindow.cpp:430
 #, kde-format
 msgid "Unable to open the file"
-msgstr ""
+msgstr "לא ניתן לפתוח את הקובץ"
