@@ -155,6 +155,9 @@ void DiffWidget::setOldFile(const QString &title, const QString &content)
 {
     Q_D(DiffWidget);
 
+    leftCodeEditor->clear();
+    d->mPreviewEditorLeft->clear();
+
     leftCodeEditor->setHighlighting(title);
     d->mPreviewEditorLeft->setHighlighting(title);
 
@@ -165,6 +168,9 @@ void DiffWidget::setOldFile(const QString &title, const QString &content)
 void DiffWidget::setNewFile(const QString &title, const QString &content)
 {
     Q_D(DiffWidget);
+
+    rightCodeEditor->clear();
+    d->mPreviewEditorRight->clear();
 
     rightCodeEditor->setHighlighting(title);
     d->mPreviewEditorRight->setHighlighting(title);

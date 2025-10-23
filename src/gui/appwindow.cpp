@@ -1,3 +1,4 @@
+
 /*
 SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 
@@ -52,7 +53,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QMenu>
 #include <QSettings>
 #include <QStatusBar>
-#include <themeiconprovider.h>
 
 AppWindow::AppWindow()
     : AppMainWindow()
@@ -88,16 +88,17 @@ void AppWindow::init()
     connect(mGitData->manager(), &Git::Repository::currentBranchChanged, this, &AppWindow::gitCurrentBranchChanged);
 
     initActions();
-    mMainWidget = new MultiPageWidget(this);
+
+    mMainWidget = new MultiPageWidget{this};
     mMainWidget->setDefaultGitManager(mGitData->manager());
-    addPage<HistoryViewWidget>(QStringLiteral("view_overview"), "sc-actions-git-overview.svg");
-    addPage<BranchesStatusWidget>(QStringLiteral("view_branches"), "sc-actions-git-overview.svg");
-    addPage<CommitsWidget>(QStringLiteral("view_commits"), "sc-actions-git-overview.svg");
-    addPage<StashesWidget>(QStringLiteral("view_stashes"), "sc-actions-git-overview.svg");
-    addPage<SubmodulesWidget>(QStringLiteral("view_submodules"), "sc-actions-git-overview.svg");
-    addPage<RemotesWidget>(QStringLiteral("view_remotes"), "sc-actions-git-overview.svg");
-    addPage<TagsWidget>(QStringLiteral("view_tags"), "sc-actions-git-overview.svg");
-    addPage<ReportsWidget>(QStringLiteral("view_reports"), "sc-actions-git-overview.svg");
+    addPage<HistoryViewWidget>(QStringLiteral("view_overview"), QStringLiteral("git_overview"));
+    addPage<BranchesStatusWidget>(QStringLiteral("view_branches"), QStringLiteral("git_branch"));
+    addPage<CommitsWidget>(QStringLiteral("view_commits"), QStringLiteral("git_commit"));
+    addPage<StashesWidget>(QStringLiteral("view_stashes"), QStringLiteral("git_stash"));
+    addPage<SubmodulesWidget>(QStringLiteral("view_submodules"), QStringLiteral("git_submodule"));
+    addPage<RemotesWidget>(QStringLiteral("view_remotes"), QStringLiteral("git_remote"));
+    addPage<TagsWidget>(QStringLiteral("view_tags"), QStringLiteral("git_tag"));
+    addPage<ReportsWidget>(QStringLiteral("view_reports"), QStringLiteral("git_report"));
 
     setupGUI(StandardWindowOption::Default, QStringLiteral("kommitui.rc"));
     mMainWidget->setCurrentIndex(0);
@@ -131,16 +132,6 @@ AppWindow *AppWindow::instance()
 {
     static auto *instance = new AppWindow;
     return instance;
-}
-
-bool AppWindow::event(QEvent *event)
-{
-    if (event->type() ==QEvent::ApplicationPaletteChange) {
-        ThemeIconProvider::reloadAll();
-        mRepoStatusAction->setIcon(ThemeIconProvider::icon(QStringLiteral(":/icons/changedfiles.svg")));
-    }
-
-    return AppMainWindow::event(event);
 }
 
 void AppWindow::gitPathChanged()
@@ -203,7 +194,7 @@ void AppWindow::initActions()
 
     mRepoStatusAction = actionCollection->addAction(QStringLiteral("repo_status"), this, &AppWindow::repoStatus);
     mRepoStatusAction->setText(i18nc("@action", "Changed files…"));
-    mRepoStatusAction->setIcon(QIcon::fromTheme(QStringLiteral("kommit-changedfiles")));
+    mRepoStatusAction->setIcon(QIcon::fromTheme(QStringLiteral("git_changedfiles")));
     actionCollection->setDefaultShortcut(mRepoStatusAction, QKeySequence(Qt::CTRL | Qt::Key_S));
 
     {
@@ -218,19 +209,19 @@ void AppWindow::initActions()
 
     mRepoPullAction = actionCollection->addAction(QStringLiteral("repo_pull"), this, &AppWindow::pull);
     mRepoPullAction->setText(i18nc("@action", "Pull…"));
-    mRepoPullAction->setIcon(QIcon::fromTheme(QStringLiteral("git-pull")));
+    mRepoPullAction->setIcon(QIcon::fromTheme(QStringLiteral("git_pull")));
 
     mRepoFetchAction = actionCollection->addAction(QStringLiteral("repo_fetch"), this, &AppWindow::fetch);
     mRepoFetchAction->setText(i18nc("@action", "Fetch…"));
-    mRepoFetchAction->setIcon(QIcon::fromTheme(QStringLiteral("git-fetch")));
+    mRepoFetchAction->setIcon(QIcon::fromTheme(QStringLiteral("git_fetch")));
 
     mRepoPushAction = actionCollection->addAction(QStringLiteral("repo_push"), this, &AppWindow::commitPushAction);
     mRepoPushAction->setText(i18nc("@action", "Push…"));
-    mRepoPushAction->setIcon(QIcon::fromTheme(QStringLiteral("git-push")));
+    mRepoPushAction->setIcon(QIcon::fromTheme(QStringLiteral("git_push")));
 
     mRepoMergeAction = actionCollection->addAction(QStringLiteral("repo_merge"), this, &AppWindow::merge);
     mRepoMergeAction->setText(i18nc("@action", "Merge…"));
-    mRepoMergeAction->setIcon(QIcon::fromTheme(QStringLiteral("git-merge")));
+    mRepoMergeAction->setIcon(QIcon::fromTheme(QStringLiteral("git_merge")));
 
     mDiffBranchesAction = actionCollection->addAction(QStringLiteral("diff_branches"), this, &AppWindow::diffBranches);
     mDiffBranchesAction->setText(i18nc("@action", "Diff branches…"));
@@ -450,12 +441,13 @@ void AppWindow::addPage(const QString &actionName, const QString &iconName)
     auto action = actionCollection()->addAction(actionName);
     auto w = new T(mGitData, this);
     action->setText(w->windowTitle());
-    if (mMainWidget->count() < 10)
-        actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL + keys[mMainWidget->count()]));
+    if (pagesCount < 10)
+        actionCollection()->setDefaultShortcut(action, QKeySequence(Qt::CTRL | keys[pagesCount]));
+    pagesCount++;
+    auto icon = QIcon::fromTheme(iconName);
 
-    auto icon = ThemeIconProvider::icon(":/icons/" + iconName);
-
-    mMainWidget->addPage(w, action, icon);
+    w->setWindowIcon(icon);
+    mMainWidget->addPage(w, action, icon); // action, icon);// w->windowIcon());
     QSettings s;
     w->restoreState(s);
     mBaseWidgets.append(w);

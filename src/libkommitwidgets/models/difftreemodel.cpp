@@ -69,15 +69,15 @@ QString icon(Diff::DiffType status)
 {
     switch (status) {
     case Diff::DiffType::Added:
-        return QStringLiteral("git-status-added");
+        return QStringLiteral(":/kommit/icons/status-added");
     case Diff::DiffType::Modified:
-        return QStringLiteral("git-status-modified");
+        return QStringLiteral(":/kommit/icons/status-modified");
     case Diff::DiffType::Removed:
-        return QStringLiteral("git-status-removed");
+        return QStringLiteral(":/kommit/icons/status-removed");
     case Diff::DiffType::Unchanged:
-        return QStringLiteral("git-status-update");
+        return QStringLiteral(":/kommit/icons/status-update");
     }
-    return QStringLiteral("git-status-update");
+    return QStringLiteral(":/kommit/icons/status-update");
 }
 
 Diff::DiffType DiffTreeModel::toDiffType(Git::FileStatus::Status status) const

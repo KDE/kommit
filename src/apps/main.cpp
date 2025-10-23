@@ -21,12 +21,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QCommandLineParser>
 #include <QIcon>
 
-#define HAVE_KICONTHEME __has_include(<KIconTheme>)
+#define HAVE_KICONTHEME 1 // __has_include(<KIconTheme>)
 #if HAVE_KICONTHEME
 #include <KIconTheme>
 #endif
 
-#define HAVE_STYLE_MANAGER __has_include(<KStyleManager>)
+#define HAVE_STYLE_MANAGER 1 // __has_include(<KStyleManager>)
 #if HAVE_STYLE_MANAGER
 #include <KStyleManager>
 #endif
@@ -35,6 +35,10 @@ int main(int argc, char **argv)
 {
     qputenv("GIT_TRACE", "1");
 
+    auto paths = QIcon::themeSearchPaths();
+    paths << ":/icons" << ":/icons/hicolor";
+    QIcon::setThemeSearchPaths(paths);
+
 #if HAVE_KICONTHEME && (KICONTHEMES_VERSION >= QT_VERSION_CHECK(6, 3, 0))
     KIconTheme::initTheme();
 #endif
@@ -42,6 +46,7 @@ int main(int argc, char **argv)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
+
     QApplication application(argc, argv);
 
     KLocalizedString::setApplicationDomain("kommit");

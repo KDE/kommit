@@ -121,7 +121,7 @@ void SegmentConnector::paintEvent(QPaintEvent *event)
         painter.translate(QPoint(0, mTopMargin));
 
     painter.setRenderHint(QPainter::Antialiasing, true);
-    painter.fillRect(rect(), Qt::white);
+    painter.fillRect(rect(), palette().base());
 
     for (auto s = mSegmentPos.begin(); s != mSegmentPos.end(); ++s) {
         if (s.key()->type == Diff::SegmentType::SameOnBoth)

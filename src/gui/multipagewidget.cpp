@@ -96,7 +96,7 @@ void MultiPageWidget::addPage(const QString &title, const QIcon &icon, WidgetBas
     action->setCheckable(true);
     action->setData(mActionGroup->actions().size());
     if (mActionGroup->actions().size() < 10)
-        action->setShortcut(QKeySequence(Qt::CTRL + keys[mActionGroup->actions().size()]));
+        action->setShortcut(QKeySequence(Qt::CTRL | keys[mActionGroup->actions().size()]));
     btn->setDefaultAction(action);
     mActionGroup->addAction(action);
 
@@ -150,12 +150,14 @@ void MultiPageWidget::slotPageSelected(QAction *action)
     labelPageIcon->setPixmap(action->icon().pixmap({32, 32}));
 }
 
-bool MultiPageWidget::event(QEvent *e)
-{
-    if (e->type() == QEvent::PaletteChange) {
-        updateStyleSheet();
-    }
-    return QWidget::event(e);
+// bool MultiPageWidget::event(QEvent *e)
+// {
+//     if (e->type() == QEvent::PaletteChange) {
+//         updateStyleSheet();
+//     }
+//     return QWidget::event(e);
+// }
+
 void MultiPageWidget::updateTheme()
 {
     const auto styleSheet = QStringLiteral(R"CSS(

@@ -25,6 +25,10 @@ DolphinPlugin::DolphinPlugin(QObject *parent, const QList<QVariant> &args)
 {
     Q_UNUSED(args);
 
+    auto paths = QIcon::themeSearchPaths();
+    paths << ":/icons" << ":/icons/hicolor";
+    QIcon::setThemeSearchPaths(paths);
+
     git_libgit2_init();
 
     mMainActionGit = new QAction;
@@ -38,10 +42,11 @@ DolphinPlugin::DolphinPlugin(QObject *parent, const QList<QVariant> &args)
 #define f(name, text, args, icon)                                                                                                                              \
     name = new QAction{text};                                                                                                                                  \
     if (!icon.isEmpty())                                                                                                                                       \
-        name->setIcon(QIcon::fromTheme(icon));                                                                                                                 \
+        name->setIcon(QIcon::fromTheme(icon, QIcon{":/hicolor/scalable/actions/" + icon + ".svg"}));                                                           \
     connect(name, &QAction::triggered, this, &DolphinPlugin::name##Clicked);
 
     ACTIONS_FOR_EACH(f)
+
 #undef f
 
     auto gitMenu = new QMenu;

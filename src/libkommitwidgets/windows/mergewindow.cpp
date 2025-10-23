@@ -142,42 +142,42 @@ void MergeWindowPrivate::initActions()
 
     auto actionKeepMine = actionCollection->addAction(QStringLiteral("keep_mine"), mergeWidget->keepMineAction());
     actionKeepMine->setText(i18n("Keep mine"));
-    actionKeepMine->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-mine")));
+    actionKeepMine->setIcon(QIcon::fromTheme(QStringLiteral("git_keep_mine")));
     actionCollection->setDefaultShortcut(actionKeepMine, QKeySequence(Qt::CTRL | Qt::Key_L));
 
     auto actionKeepTheir = actionCollection->addAction(QStringLiteral("keep_their"), mergeWidget->keepTheirAction());
     actionKeepTheir->setText(i18n("Keep their"));
-    actionKeepTheir->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their")));
+    actionKeepTheir->setIcon(QIcon::fromTheme(QStringLiteral("git_keep_their")));
     actionCollection->setDefaultShortcut(actionKeepTheir, QKeySequence(Qt::CTRL | Qt::Key_R));
 
     auto actionKeepMineBeforeTheir = actionCollection->addAction(QStringLiteral("keep_mine_before_their"), mergeWidget->keepMineBeforeTheirAction());
     actionKeepMineBeforeTheir->setText(i18n("Keep mine before their"));
-    actionKeepMineBeforeTheir->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-mine-before-their")));
+    actionKeepMineBeforeTheir->setIcon(QIcon::fromTheme(QStringLiteral("git_keep_mine_before_their")));
     actionCollection->setDefaultShortcut(actionKeepMineBeforeTheir, QKeySequence(QKeyCombination{Qt::CTRL | Qt::SHIFT, Qt::Key_L}));
 
     auto actionKeepTheirBeforeMine = actionCollection->addAction(QStringLiteral("keep_their_before_mine"), mergeWidget->keepTheirBeforeMineAction());
     actionKeepTheirBeforeMine->setText(i18n("Keep their before mine"));
-    actionKeepTheirBeforeMine->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their-before-mine")));
+    actionKeepTheirBeforeMine->setIcon(QIcon::fromTheme(QStringLiteral("git_keep_their_before_mine")));
     actionCollection->setDefaultShortcut(actionKeepTheirBeforeMine, QKeySequence(QKeyCombination{Qt::CTRL | Qt::SHIFT, Qt::Key_R}));
 
     auto actionKeepMyFile = actionCollection->addAction(QStringLiteral("keep_my_file"), mergeWidget->keepMyFileAction());
     actionKeepMyFile->setText(i18n("Keep my file"));
-    actionKeepMyFile->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-mine-file")));
+    actionKeepMyFile->setIcon(QIcon::fromTheme(QStringLiteral("git_keep_mine_file")));
     actionCollection->setDefaultShortcut(actionKeepMyFile, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_L));
 
     auto actionKeepTheirFile = actionCollection->addAction(QStringLiteral("keep_their_file"), mergeWidget->keepTheirFileAction());
     actionKeepTheirFile->setText(i18n("Keep their file"));
-    actionKeepTheirFile->setIcon(QIcon::fromTheme(QStringLiteral("diff-keep-their-file")));
+    actionKeepTheirFile->setIcon(QIcon::fromTheme(QStringLiteral("git_keep_their_file")));
     actionCollection->setDefaultShortcut(actionKeepTheirFile, QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_R));
 
     auto actionGotoPrevDiff = actionCollection->addAction(QStringLiteral("goto_prev_diff"), mergeWidget->gotoPrevDiffAction());
     actionGotoPrevDiff->setText(i18n("Previous diff"));
-    actionGotoPrevDiff->setIcon(QIcon::fromTheme(QStringLiteral("diff-goto-prev-diff")));
+    actionGotoPrevDiff->setIcon(QIcon::fromTheme(QStringLiteral("git_goto_prev_diff")));
     actionCollection->setDefaultShortcut(actionGotoPrevDiff, QKeySequence(Qt::Key_PageUp));
 
     auto actionGotoNextDiff = actionCollection->addAction(QStringLiteral("goto_next_diff"), mergeWidget->gotoNextDiffAction());
     actionGotoNextDiff->setText(i18n("Next diff"));
-    actionGotoNextDiff->setIcon(QIcon::fromTheme(QStringLiteral("diff-goto-next-diff")));
+    actionGotoNextDiff->setIcon(QIcon::fromTheme(QStringLiteral("git_goto_next_diff")));
     actionCollection->setDefaultShortcut(actionGotoNextDiff, QKeySequence(Qt::Key_PageDown));
 
     auto actionViewSameSizeBlocks = actionCollection->addAction(QStringLiteral("view_same_size_blocks"), q, &MergeWindow::slotSameSizeActivated);

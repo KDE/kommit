@@ -33,7 +33,6 @@ public:
     ~AppWindow() override;
 
     static AppWindow *instance();
-    bool event(QEvent *event) override;
 
 private:
     void gitPathChanged();
@@ -60,6 +59,7 @@ private:
 
     template<class T>
     void addPage(const QString &actionName, const QString &iconName);
+    int pagesCount{0};
     void init();
     void updateActions(bool enabled);
 

@@ -27,7 +27,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/taginfodialog.h"
 #include "kommit_appdebug.h"
 #include "settings/settingsmanager.h"
-#include "themeiconprovider.h"
 
 #include <dialogs/filestreedialog.h>
 #include <windows/diffwindow.h>
@@ -61,7 +60,6 @@ CommandArgsParser::CommandArgsParser()
     , mGit(new Git::Repository)
 {
     SettingsManager::applyToLib();
-    ThemeIconProvider::reloadAll();
 }
 
 CommandArgsParser::~CommandArgsParser()

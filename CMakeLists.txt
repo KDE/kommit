@@ -81,6 +81,7 @@ find_package(
         I18n
         XmlGui
         KIO
+        IconThemes
         TextWidgets
         TextEditor
         SyntaxHighlighting

@@ -20,6 +20,7 @@ kcoreaddons_add_plugin(kommitdolphinplugin INSTALL_NAMESPACE "dolphin/vcs")
 target_sources(kommitdolphinplugin PRIVATE
     dolphinplugin.h dolphinplugin.cpp
     statuscache.h statuscache.cpp
+    ../src/libkommitwidgets/icons/icons.qrc
 )
 
 target_link_libraries(kommitdolphinplugin PRIVATE

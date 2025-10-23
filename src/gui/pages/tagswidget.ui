@@ -14,13 +14,13 @@
    <string>Tags</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="git-tag"/>
+   <iconset theme="gittag"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="TreeView" name="treeViewTags">
      <property name="contextMenuPolicy">
-      <enum>Qt::CustomContextMenu</enum>
+      <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
      </property>
      <property name="rootIsDecorated">
       <bool>false</bool>
@@ -32,7 +32,7 @@
      <item>
       <spacer name="horizontalSpacer_3">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>

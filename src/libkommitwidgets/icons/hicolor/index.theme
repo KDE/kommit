@@ -1,0 +1,9 @@
+[Icon Theme]
+Name=Hicolor
+Comment=Application embedded icon theme
+Directories=scalable/actions
+
+[scalable/actions]
+Size=22
+Type=Scalable
+Context=Actions

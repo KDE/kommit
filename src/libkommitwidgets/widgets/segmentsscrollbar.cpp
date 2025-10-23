@@ -71,7 +71,7 @@ void SegmentsScrollBar::paintEvent(QPaintEvent *event)
     Q_D(SegmentsScrollBar);
 
     QPainter painter(this);
-    painter.fillRect(event->rect(), Qt::white);
+    painter.fillRect(event->rect(), palette().window());
 
     if (!Q_UNLIKELY(d->mSegmentConnector))
         return;
@@ -81,7 +81,7 @@ void SegmentsScrollBar::paintEvent(QPaintEvent *event)
     auto leftArea = d->mSegmentConnector->left()->visibleLines();
     auto rightArea = d->mSegmentConnector->right()->visibleLines();
 
-    QBrush br(Qt::gray);
+    QBrush br(palette().highlight());
 
     painter.fillRect(QRect{int(width() * .4), 0, int(width() * .2), height() - 1}, palette().base());
     painter.drawLine(width() * .4, 0, width() * .4, height() - 1);
@@ -229,9 +229,9 @@ void SegmentsScrollBarPrivate::paintSection(QPainter &painter, Side side, int fr
         painter.drawRect(rc);
 }
 
-#include "moc_segmentsscrollbar.cpp"
-
 SegmentsScrollBarPrivate::SegmentsScrollBarPrivate(SegmentsScrollBar *parent)
     : q_ptr{parent}
 {
 }
+
+#include "moc_segmentsscrollbar.cpp"

@@ -14,14 +14,14 @@
    <string>Reports</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../icons/icons.qrc">
+   <iconset>
     <normaloff>:/icons/bar-chart.png</normaloff>:/icons/bar-chart.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -36,8 +36,7 @@
             <string>Table</string>
            </property>
            <property name="icon">
-            <iconset resource="../icons/icons.qrc">
-             <normaloff>:/icons/table.png</normaloff>:/icons/table.png</iconset>
+            <iconset theme="table"/>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -53,8 +52,7 @@
             <string>Chart</string>
            </property>
            <property name="icon">
-            <iconset resource="../icons/icons.qrc">
-             <normaloff>:/icons/chart.png</normaloff>:/icons/chart.png</iconset>
+            <iconset theme="git_chart"/>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -64,7 +62,7 @@
          <item>
           <spacer name="horizontalSpacer">
            <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+            <enum>Qt::Orientation::Horizontal</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -83,8 +81,7 @@
             <string>Refresh</string>
            </property>
            <property name="icon">
-            <iconset resource="../icons/icons.qrc">
-             <normaloff>:/icons/refresh.png</normaloff>:/icons/refresh.png</iconset>
+            <iconset theme="QIcon::ThemeIcon::ViewRefresh"/>
            </property>
           </widget>
          </item>
@@ -100,8 +97,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../icons/icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

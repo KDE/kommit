@@ -1,0 +1,19 @@
+<svg width="24" height="24" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style id="current-color-scheme" type="text/css">
+            .ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }
+        </style>
+    </defs>
+
+ <g class="ColorScheme-Text" style="fill:currentColor">
+  <circle cx="12.119" cy="3.8666" r="2.5"/>
+  <circle cx="12.088" cy="20.069" r="2.5"/>
+  <circle cx="19.607" cy="16.086" r="2.5"/>
+  <circle cx="19.615" cy="7.8858" r="2.5"/>
+  <circle cx="4.5092" cy="7.8994" r="2.5"/>
+  <circle cx="4.4448" cy="15.9" r="2.5"/>
+  <rect x="11.223" y="5.1069" width="1.8265" height="13.845"/>
+  <rect transform="rotate(60.808)" x="15.508" y="-11.65" width="1.8265" height="13.845"/>
+  <rect transform="rotate(-64.631)" x="-6.5829" y="9.1974" width="1.8265" height="13.845"/>
+ </g>
+</svg>

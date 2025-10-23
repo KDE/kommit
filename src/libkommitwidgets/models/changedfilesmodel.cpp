@@ -22,28 +22,28 @@ QIcon statusIcon(Git::ChangeStatus status)
 {
     switch (status) {
     case Git::ChangeStatus::Added:
-        return QIcon::fromTheme(QStringLiteral("git-status-added"));
+        return QIcon::fromTheme(QStringLiteral(":/kommit/icons/status-added"));
     case Git::ChangeStatus::Ignored:
-        return QIcon::fromTheme(QStringLiteral("git-status-ignored"));
+        return QIcon::fromTheme(QStringLiteral(":/kommit/icons/status-ignored"));
     case Git::ChangeStatus::Modified:
-        return QIcon::fromTheme(QStringLiteral("git-status-modified"));
+        return QIcon::fromTheme(QStringLiteral(":/kommit/icons/status-modified"));
     case Git::ChangeStatus::Removed:
-        return QIcon::fromTheme(QStringLiteral("git-status-removed"));
+        return QIcon::fromTheme(QStringLiteral(":/kommit/icons/status-removed"));
     case Git::ChangeStatus::Renamed:
-        return QIcon::fromTheme(QStringLiteral("git-status-renamed"));
+        return QIcon::fromTheme(QStringLiteral(":/kommit/icons/status-renamed"));
         //    case ChangeStatus::Unknown:
     case Git::ChangeStatus::Untracked:
-        return QIcon::fromTheme(QStringLiteral("git-status-unknown"));
+        return QIcon::fromTheme(QStringLiteral(":/kommit/icons/status-unknown"));
     case Git::ChangeStatus::Copied:
     case Git::ChangeStatus::UpdatedButInmerged:
     case Git::ChangeStatus::Unmodified:
-        return QIcon::fromTheme(QStringLiteral("git-status-update"));
+        return QIcon::fromTheme(QStringLiteral(":/kommit/icons/status-update"));
     case Git::ChangeStatus::Unknown:
         return {};
     default:
         qCWarning(KOMMIT_WIDGETS_LOG) << "Unknown icon" << (int)status;
     }
-    return QIcon::fromTheme(QStringLiteral("git-status-update"));
+    return QIcon::fromTheme(QStringLiteral(":/kommit/icons/status-update"));
 }
 }
 

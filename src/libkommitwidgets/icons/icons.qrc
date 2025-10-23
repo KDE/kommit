@@ -8,4 +8,33 @@
         <file>status-ignored.svg</file>
         <file>status-added.svg</file>
     </qresource>
+    <qresource prefix="/icons">
+        <file>hicolor/scalable/actions/git_table.svg</file>
+        <file>hicolor/scalable/actions/git_refresh.svg</file>
+        <file>hicolor/scalable/actions/git_report.svg</file>
+        <file>hicolor/scalable/actions/git_fetch.svg</file>
+        <file>hicolor/scalable/actions/git_ignore.svg</file>
+        <file>hicolor/scalable/actions/git_chart.svg</file>
+        <file>hicolor/scalable/actions/git_submodule.svg</file>
+        <file>hicolor/scalable/actions/git_split.svg</file>
+        <file>hicolor/scalable/actions/git_remote.svg</file>
+        <file>hicolor/scalable/actions/git_push.svg</file>
+        <file>hicolor/scalable/actions/git_overview.svg</file>
+        <file>hicolor/scalable/actions/git_merge.svg</file>
+        <file>hicolor/scalable/actions/git_commit.svg</file>
+        <file>hicolor/scalable/actions/git_changedfiles.svg</file>
+        <file>hicolor/scalable/actions/git_stash.svg</file>
+        <file>hicolor/scalable/actions/git_branch.svg</file>
+        <file>hicolor/scalable/actions/git_keep_their_file.svg</file>
+        <file>hicolor/scalable/actions/git_keep_their_before_mine.svg</file>
+        <file>hicolor/scalable/actions/git_keep_their.svg</file>
+        <file>hicolor/scalable/actions/git_keep_mine_file.svg</file>
+        <file>hicolor/scalable/actions/git_keep_mine_before_their.svg</file>
+        <file>hicolor/scalable/actions/git_goto_prev_diff.svg</file>
+        <file>hicolor/scalable/actions/git_goto_next_diff.svg</file>
+        <file>hicolor/scalable/actions/git_keep_mine.svg</file>
+        <file>hicolor/scalable/actions/git_pull.svg</file>
+        <file>hicolor/scalable/actions/git_tag.svg</file>
+        <file>hicolor/index.theme</file>
+    </qresource>
 </RCC>

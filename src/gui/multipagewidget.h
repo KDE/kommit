@@ -35,7 +35,6 @@ public:
     void setDefaultGitManager(Git::Repository *newDefaultGitManager);
 
     [[nodiscard]] int count() const;
-    bool event(QEvent *event) override;
 
 protected:
     bool event(QEvent *event) override;
