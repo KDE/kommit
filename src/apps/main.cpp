@@ -21,12 +21,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QCommandLineParser>
 #include <QIcon>
 
-#define HAVE_KICONTHEME 1 // __has_include(<KIconTheme>)
+#define HAVE_KICONTHEME __has_include(<KIconTheme>)
 #if HAVE_KICONTHEME
 #include <KIconTheme>
 #endif
 
-#define HAVE_STYLE_MANAGER 1 // __has_include(<KStyleManager>)
+#define HAVE_STYLE_MANAGER __has_include(<KStyleManager>)
 #if HAVE_STYLE_MANAGER
 #include <KStyleManager>
 #endif
@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 #endif
     KAboutData aboutData(QStringLiteral("kommit"),
                          i18n("Kommit"),
-                         QStringLiteral(GK_VERSION),
+                         QStringLiteral(KOMMIT_VERSION),
                          i18n("Git client gui for KDE"),
                          KAboutLicense::GPL_V3,
                          i18n("Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"));
