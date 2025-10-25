@@ -164,10 +164,9 @@ msgid "Git client gui for KDE"
 msgstr "Git-Programm für KDE"
 
 #: src/apps/main.cpp:60
-#, fuzzy, kde-format
-#| msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+#, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
+msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:62 src/libkommit/models/logsmodel.cpp:262
 #: src/libkommitwidgets/reports/authorsreport.cpp:78
