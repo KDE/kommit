@@ -50,7 +50,7 @@
        <item>
         <widget class="QCheckBox" name="checkBoxHideUnchangeds">
          <property name="text">
-          <string>Hide unchangeds</string>
+          <string>Hide unchanged</string>
          </property>
         </widget>
        </item>

@@ -13,16 +13,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
     f(actionClone,          i18n("Clone"),              PACK(QStringLiteral("clone"), PACK(mPath)),         QLatin1String())                                   \
     f(actionInit,           i18n("Init"),               PACK(QStringLiteral("init"), PACK(mPath)),          QLatin1String())                                   \
     f(actionOpen,           i18n("Open"),               PACK(mPath),                                        QLatin1String())                                   \
-    f(actionPull,           i18n("Pull"),               PACK(QStringLiteral("pull"), mPath),                QStringLiteral("git-pull"))                        \
-    f(actionFetch,          i18n("Fetch"),              PACK(QStringLiteral("fetch"), mPath),               QStringLiteral("git-fetch"))                       \
-    f(actionPush,           i18n("Push"),               PACK(QStringLiteral("push"), mPath),                QStringLiteral("git-push"))                        \
-    f(actionMerge,          i18n("Merge"),              PACK(QStringLiteral("merge"), mPath),               QStringLiteral("git-merge"))                       \
+    f(actionPull,           i18n("Pull"),               PACK(QStringLiteral("pull"), mPath),                QStringLiteral("git_pull"))                        \
+    f(actionFetch,          i18n("Fetch"),              PACK(QStringLiteral("fetch"), mPath),               QStringLiteral("git_fetch"))                       \
+    f(actionPush,           i18n("Push"),               PACK(QStringLiteral("push"), mPath),                QStringLiteral("git_push"))                        \
+    f(actionMerge,          i18n("Merge"),              PACK(QStringLiteral("merge"), mPath),               QStringLiteral("git_merge"))                       \
     f(actionSwitchCheckout, i18n("Switch/Checkout"),    PACK(QStringLiteral("switch-checkout"), mPath),     QLatin1String())                                   \
-    f(actionModifications,  i18n("Modifications"),      PACK(QStringLiteral("changes"), mPath),             QStringLiteral("kommit-changedfiles"))             \
+    f(actionModifications,  i18n("Modifications"),      PACK(QStringLiteral("changes"), mPath),             QStringLiteral("git_changedfiles"))                \
     f(actionDiff,           i18n("Diff"),               PACK(QStringLiteral("diff"), mPath),                QLatin1String())                                   \
-    f(actionIgnoreFile,     i18n("Ignore file"),        PACK(QStringLiteral("ignore"), mPath),              QStringLiteral("git-ignore"))                      \
+    f(actionIgnoreFile,     i18n("Ignore file"),        PACK(QStringLiteral("ignore"), mPath),              QStringLiteral("git_ignore"))                      \
     f(actionHistory,        i18n("History"),            PACK(QStringLiteral("history"), mPath),             QLatin1String())                                   \
-    f(actionBlame,          i18n("Blame"),              PACK(QStringLiteral("blame"), mPath),               QLatin1String())                                   \
+    f(actionBlame,          i18n("Blame"),              PACK(QStringLiteral("blame"), mPath),               QLatin1String(":/hicolor/scalable/actions/git_keep_mine_before_their.svg"))                                   \
     f(actionAdd,            i18n("Add"),                PACK(QStringLiteral("add"), mPath),                 QLatin1String())                                   \
     f(actionRemove,         i18n("Remove"),             PACK(QStringLiteral("remove"), mPath),              QLatin1String())                                   \
     f(actionCreateTag,      i18n("Create tag"),         PACK(QStringLiteral("create-tag"), mPath),          QLatin1String())                                   \

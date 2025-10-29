@@ -47,6 +47,7 @@ target_sources(libkommitgui PRIVATE
     changelogsdialog.h changelogsdialog.cpp
     changelogsdata.h changelogsdata.cpp
 
+
     commandargsparser.cpp
     appconfig.cpp
     settings/settingsmanager.cpp
@@ -59,7 +60,7 @@ target_sources(libkommitgui PRIVATE
     appconfig.h
     settings/settingsmanager.h
     kommit.qrc
-    icons/icons.qrc
+    # icons/icons.qrc
 
     pages/reportswidget.h
     pages/reportswidget.cpp
@@ -113,6 +114,7 @@ target_link_libraries(libkommitgui
     Qt::Widgets
     Qt::Concurrent
     Qt::Network
+    Qt::Svg
 
     libkommit
     libkommitdiff
@@ -129,6 +131,7 @@ target_link_libraries(libkommitgui
     KF${KF_MAJOR_VERSION}::Parts
     KF${KF_MAJOR_VERSION}::TextWidgets
     KF${KF_MAJOR_VERSION}::TextEditor
+    KF${KF_MAJOR_VERSION}::IconThemes
 
     KF${KF_MAJOR_VERSION}::SyntaxHighlighting
 )

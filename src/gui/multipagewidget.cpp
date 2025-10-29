@@ -27,6 +27,15 @@ int MultiPageWidget::count() const
     return mActionGroup->actions().size();
 }
 
+bool MultiPageWidget::event(QEvent *event)
+{
+    if (event->type() == QEvent::PaletteChange) {
+        qDebug() << "Change theme";
+        updateTheme();
+    }
+    return QWidget::event(event);
+}
+
 MultiPageWidget::MultiPageWidget(QWidget *parent)
     : QWidget(parent)
     , mActionGroup(new QActionGroup(this))
@@ -70,6 +79,7 @@ void MultiPageWidget::updateStyleSheet()
                                 .arg(palette().color(QPalette::Highlight).rgba(), 0, 16);
 
     scrollAreaWidgetContents->setStyleSheet(styleSheet);
+    updateTheme();
 }
 
 void MultiPageWidget::addPage(const QString &title, const QIcon &icon, WidgetBase *widget)
@@ -86,7 +96,7 @@ void MultiPageWidget::addPage(const QString &title, const QIcon &icon, WidgetBas
     action->setCheckable(true);
     action->setData(mActionGroup->actions().size());
     if (mActionGroup->actions().size() < 10)
-        action->setShortcut(QKeySequence(Qt::CTRL + keys[mActionGroup->actions().size()]));
+        action->setShortcut(QKeySequence(Qt::CTRL | keys[mActionGroup->actions().size()]));
     btn->setDefaultAction(action);
     mActionGroup->addAction(action);
 
@@ -97,7 +107,7 @@ void MultiPageWidget::addPage(const QString &title, const QIcon &icon, WidgetBas
     verticalLayoutButtons->insertWidget(mActionGroup->actions().size() - 1, btn);
 }
 
-void MultiPageWidget::addPage(WidgetBase *widget, QAction *action)
+void MultiPageWidget::addPage(WidgetBase *widget, QAction *action, const QIcon &icon)
 {
     auto btn = new QToolButton(this);
     btn->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
@@ -106,7 +116,11 @@ void MultiPageWidget::addPage(WidgetBase *widget, QAction *action)
     if (!action)
         action = new QAction(this);
     action->setText(widget->windowTitle());
-    action->setIcon(widget->windowIcon());
+
+    if (icon.isNull())
+        action->setIcon(widget->windowIcon());
+    else
+        action->setIcon(icon);
     action->setCheckable(true);
     action->setData(mActionGroup->actions().size());
     btn->setDefaultAction(action);
@@ -136,12 +150,44 @@ void MultiPageWidget::slotPageSelected(QAction *action)
     labelPageIcon->setPixmap(action->icon().pixmap({32, 32}));
 }
 
-bool MultiPageWidget::event(QEvent *e)
+// bool MultiPageWidget::event(QEvent *e)
+// {
+//     if (e->type() == QEvent::PaletteChange) {
+//         updateStyleSheet();
+//     }
+//     return QWidget::event(e);
+// }
+
+void MultiPageWidget::updateTheme()
 {
-    if (e->type() == QEvent::PaletteChange) {
-        updateStyleSheet();
-    }
-    return QWidget::event(e);
+    const auto styleSheet = QStringLiteral(R"CSS(
+        #scrollAreaWidgetContents {
+            color: #%4;
+            background-color: #%1;
+        }
+        QToolButton {
+            color: #%4;
+            background-color: #%1;
+            border: none;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height: 48px;
+        }
+
+        QToolButton:hover {
+            background-color: #%2;
+        }
+
+        QToolButton:checked {
+            background-color: #%3;
+        }
+
+)CSS")
+                                .arg(palette().color(QPalette::Window).rgba(), 0, 16)
+                                .arg(palette().color(QPalette::Active, QPalette::Button).rgba(), 0, 16)
+                                .arg(palette().color(QPalette::Highlight).rgba(), 0, 16)
+                                .arg(palette().color(QPalette::ButtonText).rgba(), 0, 16);
+    scrollAreaWidgetContents->setStyleSheet(styleSheet);
 }
 
 #include "moc_multipagewidget.cpp"

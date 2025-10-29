@@ -14,6 +14,9 @@ MergeOpenFilesDialog::MergeOpenFilesDialog(QWidget *parent)
     setupUi(this);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &MergeOpenFilesDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &MergeOpenFilesDialog::reject);
+
+    setWindowFlag(Qt::WindowMinMaxButtonsHint, false);
+    setWindowFlag(Qt::BypassWindowManagerHint, false);
 }
 
 QString MergeOpenFilesDialog::filePathLocal() const

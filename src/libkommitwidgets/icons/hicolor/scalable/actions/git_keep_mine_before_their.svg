@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="480" height="480" version="1.1" viewBox="0 0 127 127" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+ <defs>
+  <style id="current-color-scheme" type="text/css">
+   .ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }
+  </style>
+ </defs>
+ <path style="fill:currentColor" class="ColorScheme-Text" d="m51.599 25.348-23.813 23.812-7.9375-7.9375-7.9375 7.9375 15.875 15.875 31.751-31.75-7.9375-7.9375zm-45.947 9.4521v1.5875 33.336h50.801v-31.517l-3.176 2.683v25.66h-44.449v-28.577h28.625l2.9094-3.1734h-34.711zm110.26 13.771-23.812 23.812-7.9375-7.9375-7.9375 7.9375 15.875 15.875 31.75-31.75-7.9375-7.9375zm-45.946 9.4521v1.5875 33.336h50.801v-31.517l-3.176 2.683v25.66h-44.449v-28.577h28.625l2.9094-3.1734h-34.711z" />
+
+</svg>

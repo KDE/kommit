@@ -14,14 +14,13 @@
    <string>Submodules</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../icons/icons.qrc">
-    <normaloff>:/icons/submodule.svg</normaloff>:/icons/submodule.svg</iconset>
+   <iconset theme="git-submodules-symbolic"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="TreeView" name="treeView">
      <property name="contextMenuPolicy">
-      <enum>Qt::CustomContextMenu</enum>
+      <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
      </property>
      <property name="rootIsDecorated">
       <bool>false</bool>
@@ -33,7 +32,7 @@
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -76,8 +75,6 @@
    <header>core/treeview.h</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../icons/icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

@@ -58,7 +58,8 @@ private:
     void initRecentRepos(const QString &newItem = QString());
 
     template<class T>
-    void addPage(const QString &actionName);
+    void addPage(const QString &actionName, const QString &iconName);
+    int pagesCount{0};
     void init();
     void updateActions(bool enabled);
 

@@ -35,6 +35,10 @@ int main(int argc, char **argv)
 {
     qputenv("GIT_TRACE", "1");
 
+    auto paths = QIcon::themeSearchPaths();
+    paths << ":/icons" << ":/icons/hicolor";
+    QIcon::setThemeSearchPaths(paths);
+
 #if HAVE_KICONTHEME && (KICONTHEMES_VERSION >= QT_VERSION_CHECK(6, 3, 0))
     KIconTheme::initTheme();
 #endif
@@ -42,6 +46,7 @@ int main(int argc, char **argv)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
+
     QApplication application(argc, argv);
 
     KLocalizedString::setApplicationDomain("kommit");
@@ -54,7 +59,7 @@ int main(int argc, char **argv)
 #endif
     KAboutData aboutData(QStringLiteral("kommit"),
                          i18n("Kommit"),
-                         QStringLiteral(GK_VERSION),
+                         QStringLiteral(KOMMIT_VERSION),
                          i18n("Git client gui for KDE"),
                          KAboutLicense::GPL_V3,
                          i18n("Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"));

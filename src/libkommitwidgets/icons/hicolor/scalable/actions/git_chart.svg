@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg enable-background="new 0 0 64 64" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+	<defs>
+	<style id="current-color-scheme" type="text/css">
+	.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }
+</style>
+</defs>
+<path style="fill:currentColor" class="ColorScheme-Text" d="m30.131 3.791c-2.603 0-4.6992 2.0962-4.6992 4.6992v43.803c0 2.603 2.0962 4.6973 4.6992 4.6973h3.5684c2.603 0 4.6973-2.0943 4.6973-4.6973v-43.803c0-2.603-2.0943-4.6992-4.6973-4.6992h-3.5684zm20.436 21.289c-1.9533 0-3.5254 1.5721-3.5254 3.5254v25.086c0 1.9533 1.5721 3.5254 3.5254 3.5254h6.3672c1.9533 0 3.5254-1.5721 3.5254-3.5254v-25.086c0-1.9533-1.5721-3.5254-3.5254-3.5254h-6.3672zm-43.094 9.7676c-1.9479 0-3.5176 1.5677-3.5176 3.5156v15.471c0 1.9479 1.5697 3.5156 3.5176 3.5156h6.6523c1.9479 0 3.5156-1.5677 3.5156-3.5156v-15.471c0-1.9479-1.5677-3.5156-3.5156-3.5156h-6.6523z"/>
+
+</svg>
