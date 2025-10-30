@@ -23,6 +23,8 @@ public:
     explicit Oid(const git_oid oid);
     Oid(const Oid &other) = default;
 
+    Oid &operator=(const git_oid *oid);
+    Oid &operator=(const git_oid oid);
     Oid &operator=(const Oid &other);
     bool operator==(const Oid &other);
     bool operator!=(const Oid &other);

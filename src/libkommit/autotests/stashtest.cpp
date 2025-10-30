@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "repository.h"
 #include "testcommon.h"
 #include <QTest>
+#include <Kommit/CommitsCache>
 
 QTEST_GUILESS_MAIN(StashTest)
 
@@ -45,7 +46,7 @@ void StashTest::makeACommit()
     auto index = mManager->index();
     index.addByPath("README.md");
     index.writeTree();
-    mManager->commit("commit1");
+    mManager->commits()->create("commit1");
 }
 
 void StashTest::touchAFile()
@@ -92,7 +93,7 @@ void StashTest::commitAndApplyStash()
     auto index = mManager->index();
     index.addByPath("README.md");
     index.writeTree();
-    mManager->commit("commit2");
+    mManager->commits()->create("commit2");
 
     auto ok = mManager->stashes()->apply(QStringLiteral("On master: stash1"));
     QVERIFY(ok);

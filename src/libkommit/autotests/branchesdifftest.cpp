@@ -12,6 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QTest>
 #include <entities/branch.h>
 #include <repository.h>
+#include <Kommit/CommitsCache>
 
 QTEST_GUILESS_MAIN(BranchesDiffTest)
 
@@ -56,7 +57,7 @@ void BranchesDiffTest::makeACommit()
     TestCommon::touch(mManager, "/inside_dir/changed_in_master");
     TestCommon::touch(mManager, "/inside_dir/changed_in_dev");
 
-    mManager->commit("commit1");
+    mManager->commits()->create("commit1");
 }
 
 void BranchesDiffTest::createBranch()
@@ -84,7 +85,7 @@ void BranchesDiffTest::switchToNewBranch()
     TestCommon::touch(mManager, "/inside_dir/changed_in_dev");
     TestCommon::touch(mManager, "/inside_dir/only_in_dev");
 
-    mManager->commit("commit_in_dev");
+    mManager->commits()->create("commit_in_dev");
 }
 
 void BranchesDiffTest::switchToMaster()
@@ -100,7 +101,7 @@ void BranchesDiffTest::switchToMaster()
     TestCommon::touch(mManager, "/inside_dir/changed_in_master");
     TestCommon::touch(mManager, "/inside_dir/only_in_master");
 
-    mManager->commit("commit_in_master");
+    mManager->commits()->create("commit_in_master");
 }
 
 void BranchesDiffTest::diff()

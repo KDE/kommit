@@ -36,21 +36,25 @@ FileDeltaPrivate::FileDeltaPrivate(FileDelta *parent, const git_diff_delta *delt
 }
 
 DiffFile::DiffFile(git_diff_file *file)
-    : oid{file->id}
-    , path{file->path}
-    , flags{static_cast<Flags>(file->flags)}
-    , mode{file->mode}
-    , size{file->size}
 {
+    if (file) {
+        oid = file->id;
+        path = file->path;
+        flags = static_cast<Flags>(file->flags);
+        mode = file->mode;
+        size = file->size;
+    }
 }
 
 DiffFile::DiffFile(const git_diff_file *file)
-    : oid{file->id}
-    , path{file->path}
-    , flags{static_cast<Flags>(file->flags)}
-    , mode{file->mode}
-    , size{file->size}
 {
+    if (file) {
+        oid = file->id;
+        path = file->path;
+        flags = static_cast<Flags>(file->flags);
+        mode = file->mode;
+        size = file->size;
+    }
 }
 
 FileDelta::FileDelta(git_diff_delta *delta)

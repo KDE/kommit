@@ -27,6 +27,21 @@ Oid::Oid(const git_oid oid)
     git_oid_cpy(data(), &oid);
 }
 
+Oid &Oid::operator=(const git_oid other)
+{
+    git_oid_cpy(data(), &other);
+
+    return *this;
+}
+
+Oid &Oid::operator=(const git_oid *other)
+{
+    if (other)
+        git_oid_cpy(data(), other);
+
+    return *this;
+}
+
 Oid &Oid::operator=(const Oid &other)
 {
     if (this != &other)

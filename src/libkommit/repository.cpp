@@ -1277,22 +1277,19 @@ bool Repository::switchBranch(const QString &branchName) const
 
     opts.checkout_strategy = GIT_CHECKOUT_SAFE;
 
-    BEGIN
-    STEP git_branch_lookup(&branch, d->repo, branchName.toLocal8Bit().constData(), GIT_BRANCH_ALL);
-    STEP git_reference_resolve(&branch, branch);
-
-    STEP git_revparse_single(&treeish, d->repo, branchName.toLocal8Bit().constData());
-    STEP git_checkout_tree(d->repo, treeish, &opts);
+    SequenceRunner r;
+    r.run(git_branch_lookup, &branch, d->repo, branchName.toLocal8Bit().constData(), GIT_BRANCH_ALL);
+    r.run(git_reference_resolve, &branch, branch);
+    r.run(git_revparse_single, &treeish, d->repo, branchName.toLocal8Bit().constData());
+    r.run(git_checkout_tree, d->repo, treeish, &opts);
     auto refName = git_reference_name(branch);
-    STEP git_repository_set_head(d->repo, refName);
+    r.run(git_repository_set_head, d->repo, refName);
 
-    PRINT_ERROR;
-
-    if (IS_OK)
+    if (r.isSuccess())
         Q_EMIT currentBranchChanged();
 
     git_reference_free(branch);
-    return IS_OK;
+    return r.isSuccess();
 }
 
 bool Repository::isRebasing() const

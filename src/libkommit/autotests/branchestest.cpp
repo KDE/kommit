@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <caches/branchescache.h>
 #include <entities/branch.h>
 #include <repository.h>
+#include <Kommit/CommitsCache>
 
 QTEST_GUILESS_MAIN(BranchesTest)
 
@@ -48,7 +49,8 @@ void BranchesTest::makeACommit()
     TestCommon::touch(mManager->path() + "/README.md");
 
     mManager->addFile("README.md");
-    mManager->commit("commit1");
+    auto ok = mManager->commits()->create("commit1");
+    QVERIFY(ok);
 }
 
 void BranchesTest::createBranch()

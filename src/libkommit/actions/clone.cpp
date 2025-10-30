@@ -61,7 +61,7 @@ int Clone::exec()
     opts.fetch_opts.depth = d->depth;
 
     git_repository *repo;
-    auto n = git_clone(repo, d->url.toStdString().c_str(), d->localPath.toStdString().c_str(), &opts);
+    auto n = git_clone(&repo, d->url.toStdString().c_str(), d->localPath.toStdString().c_str(), &opts);
     return 0;
 }
 

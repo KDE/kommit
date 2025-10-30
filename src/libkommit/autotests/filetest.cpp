@@ -17,6 +17,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QTest>
 
 #include <entities/commit.h>
+#include <Kommit/CommitsCache>
 
 QTEST_GUILESS_MAIN(FileTest)
 
@@ -56,7 +57,7 @@ void FileTest::makeFirstCommit()
     QVERIFY(!index.isNull());
     QVERIFY(index.addByPath("README.md"));
     QVERIFY(index.writeTree());
-    mManager->commit("first commit");
+    mManager->commits()->create("first commit");
 }
 
 void FileTest::makeSecondCommit()
@@ -66,7 +67,7 @@ void FileTest::makeSecondCommit()
     QVERIFY(!index.isNull());
     QVERIFY(index.addByPath("README.md"));
     QVERIFY(index.writeTree());
-    mManager->commit("second commit");
+    mManager->commits()->create("second commit");
 }
 
 void FileTest::makeThirdCommit()
@@ -76,7 +77,7 @@ void FileTest::makeThirdCommit()
     QVERIFY(!index.isNull());
     QVERIFY(index.addByPath("README.md"));
     QVERIFY(index.writeTree());
-    mManager->commit("third commit");
+    mManager->commits()->create("third commit");
 }
 
 void FileTest::checkContents()

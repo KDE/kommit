@@ -1,62 +1,55 @@
 <!DOCTYPE RCC>
 <RCC>
     <qresource>
-        <file>kommit_sample_repo/README.md</file>
-        <file>kommit_sample_repo/file4.txt</file>
-        <file>kommit_sample_repo/.git/HEAD</file>
-        <file>kommit_sample_repo/.git/objects/44/6248de955d262228150ff7436394ffcf088e46</file>
-        <file>kommit_sample_repo/.git/objects/89/a923fe80b4894acf5d3efec63029ba0c7cd0c3</file>
-        <file>kommit_sample_repo/.git/objects/28/7249edfb0ef44cb25ca3c6063d6a32c6cb345c</file>
-        <file>kommit_sample_repo/.git/objects/4b/af30b33deabe36e05c73fb3ed5ab330a4854d9</file>
-        <file>kommit_sample_repo/.git/objects/e7/fd89e794a377f575351a78cf632690952fbb17</file>
-        <file>kommit_sample_repo/.git/objects/b8/293b9cac56550ade8235389336ef3328a7ad79</file>
-        <file>kommit_sample_repo/.git/objects/45/48c111870c90c451c4c1a22c72d1685e63d5e4</file>
-        <file>kommit_sample_repo/.git/objects/e6/702da0b734bad21a3de20f42a0aed2347f437f</file>
-        <file>kommit_sample_repo/.git/objects/63/ddddf963295651c4886165f00bf3a986326b6f</file>
-        <file>kommit_sample_repo/.git/objects/31/1e1078870d154453d56c0c73d0e11aa8622859</file>
-        <file>kommit_sample_repo/.git/objects/0a/7e763ff1a462cdd8051f9a5505b5dde0bbffae</file>
-        <file>kommit_sample_repo/.git/objects/a0/35f5be109c2a31aefdfdbf18cbf324b30ef1bf</file>
-        <file>kommit_sample_repo/.git/objects/3e/1b1b17e61b13acdb1d254a10b743c144d5343d</file>
-        <file>kommit_sample_repo/.git/objects/1f/7b81ed444bd41fcc2e02cf6aeaa3673085190d</file>
-        <file>kommit_sample_repo/.git/objects/d7/9356a41c34292c8a76212816feb88e35f2d832</file>
-        <file>kommit_sample_repo/.git/objects/c0/a4b96c2a107d81ae90e932a12d63d0303fd6d9</file>
-        <file>kommit_sample_repo/.git/objects/68/b2951b2674ef5610fb8c18f74f3dcf9022aca1</file>
-        <file>kommit_sample_repo/.git/objects/c7/6e2d5c2f0eb2c96d4372875fccb02f020448c1</file>
-        <file>kommit_sample_repo/.git/objects/09/ec6ccff8987b35b57c391d0003e3ba7e4141d5</file>
-        <file>kommit_sample_repo/.git/objects/7f/3764a362cd9096598161ff6b98f819df652920</file>
-        <file>kommit_sample_repo/.git/objects/27/e51ad5894ffeb5836c0a6f484d87d48d86c030</file>
-        <file>kommit_sample_repo/.git/objects/c3/42b3b3e0894f04b3505ee7a5f9cdde82e99911</file>
-        <file>kommit_sample_repo/.git/objects/ce/90af695e76976f27384c0010f3480f59621ce4</file>
-        <file>kommit_sample_repo/.git/objects/8b/c7ce1474ea8e832765c80369fef18bfb316e1b</file>
-        <file>kommit_sample_repo/.git/objects/b2/1612e61845b0817b7515a846d5832242affea3</file>
-        <file>kommit_sample_repo/.git/objects/c8/5e333cc1b581212049fb6f6b8b9f940839b26b</file>
-        <file>kommit_sample_repo/.git/index</file>
-        <file>kommit_sample_repo/.git/hooks/applypatch-msg.sample</file>
-        <file>kommit_sample_repo/.git/hooks/pre-commit.sample</file>
-        <file>kommit_sample_repo/.git/hooks/pre-rebase.sample</file>
-        <file>kommit_sample_repo/.git/hooks/commit-msg.sample</file>
-        <file>kommit_sample_repo/.git/hooks/pre-merge-commit.sample</file>
-        <file>kommit_sample_repo/.git/hooks/update.sample</file>
-        <file>kommit_sample_repo/.git/hooks/prepare-commit-msg.sample</file>
-        <file>kommit_sample_repo/.git/hooks/pre-applypatch.sample</file>
-        <file>kommit_sample_repo/.git/hooks/pre-push.sample</file>
-        <file>kommit_sample_repo/.git/hooks/fsmonitor-watchman.sample</file>
-        <file>kommit_sample_repo/.git/hooks/post-update.sample</file>
-        <file>kommit_sample_repo/.git/hooks/push-to-checkout.sample</file>
-        <file>kommit_sample_repo/.git/hooks/pre-receive.sample</file>
-        <file>kommit_sample_repo/.git/COMMIT_EDITMSG</file>
-        <file>kommit_sample_repo/.git/description</file>
-        <file>kommit_sample_repo/.git/refs/heads/dev</file>
-        <file>kommit_sample_repo/.git/refs/heads/master</file>
-        <file>kommit_sample_repo/.git/refs/tags/v2.0</file>
-        <file>kommit_sample_repo/.git/refs/tags/v1.0</file>
-        <file>kommit_sample_repo/.git/logs/HEAD</file>
-        <file>kommit_sample_repo/.git/logs/refs/heads/dev</file>
-        <file>kommit_sample_repo/.git/logs/refs/heads/master</file>
-        <file>kommit_sample_repo/.git/info/exclude</file>
-        <file>kommit_sample_repo/.git/config</file>
+        <file>kommit_sample_repo/shared.txt</file>
+        <file alias="kommit_sample_repo/.git/HEAD">kommit_sample_repo/_git/HEAD</file>
+        <file alias="kommit_sample_repo/.git/objects/de/aea7fb39e13017eefbe69aa75a4ab1eca2a456">kommit_sample_repo/_git/objects/de/aea7fb39e13017eefbe69aa75a4ab1eca2a456</file>
+        <file alias="kommit_sample_repo/.git/objects/12/6a8ae90d655cba63275bb9aaf20082271d0132">kommit_sample_repo/_git/objects/12/6a8ae90d655cba63275bb9aaf20082271d0132</file>
+        <file alias="kommit_sample_repo/.git/objects/19/db951c791fe29458c1bf6f9ed026eead9a43ce">kommit_sample_repo/_git/objects/19/db951c791fe29458c1bf6f9ed026eead9a43ce</file>
+        <file alias="kommit_sample_repo/.git/objects/e6/34887d3497c2a1894ae2e83fa8705611979a25">kommit_sample_repo/_git/objects/e6/34887d3497c2a1894ae2e83fa8705611979a25</file>
+        <file alias="kommit_sample_repo/.git/objects/ff/553bbf992ee55311a392b486d46b1605aa9d5f">kommit_sample_repo/_git/objects/ff/553bbf992ee55311a392b486d46b1605aa9d5f</file>
+        <file alias="kommit_sample_repo/.git/objects/c4/53512c9198c1f0103a80aef88f8b16764cecf9">kommit_sample_repo/_git/objects/c4/53512c9198c1f0103a80aef88f8b16764cecf9</file>
+        <file alias="kommit_sample_repo/.git/objects/a9/696f57b61167e7edbde9ea2455ee54c2704622">kommit_sample_repo/_git/objects/a9/696f57b61167e7edbde9ea2455ee54c2704622</file>
+        <file alias="kommit_sample_repo/.git/objects/d4/3a68944e1df5658e2c5c1e38a9003de744e0c5">kommit_sample_repo/_git/objects/d4/3a68944e1df5658e2c5c1e38a9003de744e0c5</file>
+        <file alias="kommit_sample_repo/.git/objects/ac/6a17f02099b0d70f9e9c00b0f003f3644a35dd">kommit_sample_repo/_git/objects/ac/6a17f02099b0d70f9e9c00b0f003f3644a35dd</file>
+        <file alias="kommit_sample_repo/.git/objects/5d/1cc7476296439c45da5d28361b308b0caa7b64">kommit_sample_repo/_git/objects/5d/1cc7476296439c45da5d28361b308b0caa7b64</file>
+        <file alias="kommit_sample_repo/.git/objects/2e/c67ddbefc3475435ca358e53e99919341de01a">kommit_sample_repo/_git/objects/2e/c67ddbefc3475435ca358e53e99919341de01a</file>
+        <file alias="kommit_sample_repo/.git/objects/4c/796cc001b5fb8af6b3c46e42d57fa57275c5b3">kommit_sample_repo/_git/objects/4c/796cc001b5fb8af6b3c46e42d57fa57275c5b3</file>
+        <file alias="kommit_sample_repo/.git/objects/b1/bc87ce107906e4f62cc9370510572e90acd56f">kommit_sample_repo/_git/objects/b1/bc87ce107906e4f62cc9370510572e90acd56f</file>
+        <file alias="kommit_sample_repo/.git/objects/09/6754ac7b6b23ff5c0fadf749cd19810c05a247">kommit_sample_repo/_git/objects/09/6754ac7b6b23ff5c0fadf749cd19810c05a247</file>
+        <file alias="kommit_sample_repo/.git/objects/1c/2f7e8278df55e5458c9e8bf3b0cc9715e13bc2">kommit_sample_repo/_git/objects/1c/2f7e8278df55e5458c9e8bf3b0cc9715e13bc2</file>
+        <file alias="kommit_sample_repo/.git/objects/78/9f794e66b58ac42832a473417598ff5ddcf592">kommit_sample_repo/_git/objects/78/9f794e66b58ac42832a473417598ff5ddcf592</file>
+        <file alias="kommit_sample_repo/.git/objects/86/2d190e7bea2c41f4baf9383e058d5e4ed6291a">kommit_sample_repo/_git/objects/86/2d190e7bea2c41f4baf9383e058d5e4ed6291a</file>
+        <file alias="kommit_sample_repo/.git/objects/c5/0ffa8fbdd64843d96e25b868ebd64e183cc64f">kommit_sample_repo/_git/objects/c5/0ffa8fbdd64843d96e25b868ebd64e183cc64f</file>
+        <file alias="kommit_sample_repo/.git/objects/ea/a8abea4dc38836509e77f69234c912fe0e1789">kommit_sample_repo/_git/objects/ea/a8abea4dc38836509e77f69234c912fe0e1789</file>
+        <file alias="kommit_sample_repo/.git/index">kommit_sample_repo/_git/index</file>
+        <file alias="kommit_sample_repo/.git/hooks/applypatch-msg.sample">kommit_sample_repo/_git/hooks/applypatch-msg.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/pre-commit.sample">kommit_sample_repo/_git/hooks/pre-commit.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/pre-rebase.sample">kommit_sample_repo/_git/hooks/pre-rebase.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/sendemail-validate.sample">kommit_sample_repo/_git/hooks/sendemail-validate.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/commit-msg.sample">kommit_sample_repo/_git/hooks/commit-msg.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/pre-merge-commit.sample">kommit_sample_repo/_git/hooks/pre-merge-commit.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/update.sample">kommit_sample_repo/_git/hooks/update.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/prepare-commit-msg.sample">kommit_sample_repo/_git/hooks/prepare-commit-msg.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/pre-applypatch.sample">kommit_sample_repo/_git/hooks/pre-applypatch.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/pre-push.sample">kommit_sample_repo/_git/hooks/pre-push.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/fsmonitor-watchman.sample">kommit_sample_repo/_git/hooks/fsmonitor-watchman.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/post-update.sample">kommit_sample_repo/_git/hooks/post-update.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/push-to-checkout.sample">kommit_sample_repo/_git/hooks/push-to-checkout.sample</file>
+        <file alias="kommit_sample_repo/.git/hooks/pre-receive.sample">kommit_sample_repo/_git/hooks/pre-receive.sample</file>
+        <file alias="kommit_sample_repo/.git/COMMIT_EDITMSG">kommit_sample_repo/_git/COMMIT_EDITMSG</file>
+        <file alias="kommit_sample_repo/.git/description">kommit_sample_repo/_git/description</file>
+        <file alias="kommit_sample_repo/.git/refs/heads/dev">kommit_sample_repo/_git/refs/heads/dev</file>
+        <file alias="kommit_sample_repo/.git/refs/heads/master">kommit_sample_repo/_git/refs/heads/master</file>
+        <file alias="kommit_sample_repo/.git/refs/tags/v1">kommit_sample_repo/_git/refs/tags/v1</file>
+        <file alias="kommit_sample_repo/.git/logs/HEAD">kommit_sample_repo/_git/logs/HEAD</file>
+        <file alias="kommit_sample_repo/.git/logs/refs/heads/dev">kommit_sample_repo/_git/logs/refs/heads/dev</file>
+        <file alias="kommit_sample_repo/.git/logs/refs/heads/master">kommit_sample_repo/_git/logs/refs/heads/master</file>
+        <file alias="kommit_sample_repo/.git/info/exclude">kommit_sample_repo/_git/info/exclude</file>
+        <file alias="kommit_sample_repo/.git/config">kommit_sample_repo/_git/config</file>
         <file>kommit_sample_repo/file2.txt</file>
         <file>kommit_sample_repo/file1.txt</file>
+        <file>kommit_sample_repo/v1.txt</file>
         <file>files.txt</file>
     </qresource>
 </RCC>

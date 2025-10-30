@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class Repository;
-};
+}
 
 class IndexTest : public QObject
 {

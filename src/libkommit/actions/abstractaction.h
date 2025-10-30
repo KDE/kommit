@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QObject>
 
 #include "libkommit_export.h"
+#include <Kommit/Repository>
 
 namespace Git
 {
@@ -27,6 +28,7 @@ public:
 protected:
     void setEror(const Error &err);
     virtual int exec() = 0;
+    Repository *repo;
 
 Q_SIGNALS:
     void finished(bool success);

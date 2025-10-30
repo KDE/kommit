@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "testcommon.h"
 #include <QTest>
 #include <entities/index.h>
+#include <Kommit/CommitsCache>
 
 QTEST_GUILESS_MAIN(IndexTest)
 
@@ -52,7 +53,7 @@ void IndexTest::addFile()
     changedFiles = mManager->changedFiles();
     QCOMPARE(changedFiles.value("README.md"), Git::ChangeStatus::Added);
 
-    mManager->commit("sample commit");
+    mManager->commits()->create("sample commit");
 
     changedFiles = mManager->changedFiles();
     QVERIFY(!changedFiles.contains("README.md"));
@@ -99,7 +100,7 @@ void IndexTest::revertFileOfFour()
 
         index.write();
     }
-    mManager->commit("change 4 files");
+    mManager->commits()->create("change 4 files");
 
     auto fileTouchedContent1 = TestCommon::touch(mManager->path() + "/1.txt");
     auto fileTouchedContent2 = TestCommon::touch(mManager->path() + "/2.txt");

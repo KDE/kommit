@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "options/addsubmoduleoptions.h"
 #include "repository.h"
 #include "types.h"
+#include "remotecallbacks.h"
 
 namespace Git
 {
@@ -31,6 +32,7 @@ SubmodulesCache::DataType SubmodulesCache::add(AddSubmoduleOptions *options)
 
     options->fetchOptions()->apply(&opts.fetch_opts);
     options->checkoutOptions()->applyToCheckoutOptions(&opts.checkout_opts);
+    options->fetchOptions()->remoteCallbacks()->apply(&opts.fetch_opts.callbacks, manager);
 
     SequenceRunner r;
     r.run(git_submodule_add_setup, &submodule, manager->repoPtr(), toConstChars(options->url()), toConstChars(options->path()), 1);

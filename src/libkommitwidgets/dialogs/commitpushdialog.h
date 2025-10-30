@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include "ui_commitpushdialog.h"
 
-#include <Kommit/Push>
+#include <Kommit/PushAction>
 
 namespace Git
 {

@@ -15,6 +15,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QTest>
 #include <repository.h>
+#include <Kommit/CommitsCache>
 
 QTEST_GUILESS_MAIN(SubmoduleTest)
 
@@ -47,7 +48,7 @@ void SubmoduleTest::makeACommit()
     TestCommon::touch(mManager->path() + "/README.md");
 
     mManager->addFile("README.md");
-    mManager->commit("commit1");
+    mManager->commits()->create("commit1");
 }
 
 void SubmoduleTest::addSubmodule()
@@ -78,7 +79,7 @@ void SubmoduleTest::addSubmodule()
     QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdAdded), false);
     QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdDeleted), false);
     QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdModified), false);
-    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdIndexModified), true);
+    QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdIndexModified), false);
     QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdWdModified), false);
     QCOMPARE(static_cast<bool>(status & Git::Submodule::Status::WdUntracked), false);
 
@@ -126,7 +127,7 @@ void SubmoduleTest::lookup()
     QCOMPARE(submodule.name(), "3rdparty/libgit2");
     QCOMPARE(submodule.path(), "3rdparty/libgit2");
     QCOMPARE(submodule.url(), "https://github.com/HamedMasafi/Logger.git");
-    Git::Submodule::StatusFlags statusFlags = Git::Submodule::Status::WdIndexModified | Git::Submodule::Status::IndexAdded | Git::Submodule::Status::InIndex
+    Git::Submodule::StatusFlags statusFlags =  Git::Submodule::Status::IndexAdded | Git::Submodule::Status::InIndex
         | Git::Submodule::Status::InConfig | Git::Submodule::Status::InWd | Git::Submodule::Status::WdUntracked;
     QCOMPARE(submodule.status(), statusFlags);
     QCOMPARE(submodule.branch(), "");

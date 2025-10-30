@@ -17,7 +17,13 @@ echo '    <qresource>' >> "$OUTPUT_QRC_FILE"
 
 # Read each file from files.txt and append to the qrc file with the kommit_sample_repo/ prefix
 while IFS= read -r file; do
-    echo "        <file>$TARGET_DIR/$file</file>" >> "$OUTPUT_QRC_FILE"
+    if [[ $file == _git/* ]]; then
+        # Remove the "_git/" prefix and replace it with ".git/"
+        alias_path=".git/${file#_git/}"
+        echo "        <file alias=\"kommit_sample_repo/$alias_path\">$TARGET_DIR/$file</file>" >> "$OUTPUT_QRC_FILE"
+    else
+        echo "        <file>$TARGET_DIR/$file</file>" >> "$OUTPUT_QRC_FILE"
+    fi
 done < "$OUTPUT_FILES_LIST"
 
 # Add files.txt itself to the qrc file

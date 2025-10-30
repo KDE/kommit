@@ -39,7 +39,7 @@ void NoteTest::makeACommit()
     TestCommon::touch(mManager->path() + "/README.md");
 
     mManager->addFile("README.md");
-    mManager->commit("commit1");
+    mManager->commits()->create("commit1");
 }
 
 void NoteTest::readEmptyNote()

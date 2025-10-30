@@ -110,7 +110,6 @@ bool copyFolder(const QString &srcPath, const QString &destPath)
         }
     }
 
-    // Get the list of files and directories in the source folder
     auto fileList = sourceDir.entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot | QDir::Hidden);
 
     for (auto &fileInfo : fileList) {
@@ -118,13 +117,19 @@ bool copyFolder(const QString &srcPath, const QString &destPath)
         QString destFilePath = destPath + QDir::separator() + fileInfo.fileName();
 
         if (fileInfo.isDir()) {
-            // Recursively copy subdirectory
             if (!copyFolder(srcFilePath, destFilePath)) {
                 return false;
             }
         } else {
             // Copy the file
-            if (!QFile::copy(srcFilePath, destFilePath)) {
+            if (QFile::copy(srcFilePath, destFilePath)) {
+                // clang-format off
+                QFile::setPermissions(destFilePath,
+                                      QFileDevice::ReadOwner | QFileDevice::WriteOwner |
+                                      QFileDevice::ReadGroup |
+                                      QFileDevice::ReadOther );
+                // clang-format on
+            }else {
                 qDebug() << "Failed to copy file:" << srcFilePath << "to" << destFilePath;
                 return false;
             }
@@ -136,7 +141,7 @@ bool copyFolder(const QString &srcPath, const QString &destPath)
 
 bool extractSampleRepo(const QString &path)
 {
-    return copyFolder(SAMPLES_PATH, path);
+    return copyFolder(":/kommit_sample_repo", path);
 }
 
 }

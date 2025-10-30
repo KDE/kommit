@@ -44,8 +44,8 @@ void SwitchTest::switchToMasterBranch()
 
     QVERIFY(mManager->switchBranch(masterBranch));
     QCOMPARE(mManager->branches()->currentName(), "master");
-    auto content = TestCommon::readFile(mManager->path() + "/content.txt");
-    QCOMPARE(content, "file3 created\n");
+    auto content = TestCommon::readFile(mManager->path() + "/shared.txt");
+    QCOMPARE(content, "v2 on master\n");
 }
 
 void SwitchTest::switchToDevBranch()
@@ -54,24 +54,24 @@ void SwitchTest::switchToDevBranch()
     QVERIFY(!devBranch.isNull());
     QVERIFY(mManager->switchBranch(devBranch));
 
-    auto content = TestCommon::readFile(mManager->path() + "/content.txt");
+    auto content = TestCommon::readFile(mManager->path() + "/shared.txt");
 
     auto headTree = mManager->headTree();
     QVERIFY(!headTree.isNull());
-    auto contentFile = headTree.file("content.txt");
-    QCOMPARE(content, "file2 edited\n");
+    auto contentFile = headTree.file("shared.txt");
+    QCOMPARE(content, "v2 on dev\n");
     QCOMPARE(contentFile.content(), content);
 }
 
 void SwitchTest::switchToTagV1()
 {
-    auto tag = mManager->tags()->find("v1.0");
+    auto tag = mManager->tags()->find("v1");
     QVERIFY(!tag.isNull());
 
     QVERIFY(mManager->reset(tag.commit(), Git::Repository::ResetType::Hard));
 
-    auto content = TestCommon::readFile(mManager->path() + "/content.txt");
-    QCOMPARE(content, "file1 created\n");
+    auto content = TestCommon::readFile(mManager->path() + "/v1.txt");
+    QCOMPARE(content, "v1 tag\n");
 }
 
 #include "moc_switchtest.cpp"
