@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-24 02:01+0000\n"
+"POT-Creation-Date: 2025-10-30 02:04+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -149,219 +149,219 @@ msgstr "Txukuntzea..."
 msgid "Diff branches"
 msgstr "Diff adarrak..."
 
-#: dolphinplugins/dolphinplugin.cpp:31 dolphinplugins/dolphinplugin.cpp:35
-#: src/apps/main.cpp:56
+#: dolphinplugins/dolphinplugin.cpp:35 dolphinplugins/dolphinplugin.cpp:39
+#: src/apps/main.cpp:61
 #, fuzzy, kde-format
 #| msgid "Commit"
 msgid "Kommit"
 msgstr "Baliozkotu"
 
-#: dolphinplugins/dolphinplugin.cpp:101
+#: dolphinplugins/dolphinplugin.cpp:106
 #, kde-format
 msgid "Push/Commit to %1"
 msgstr ""
 
-#: dolphinplugins/dolphinplugin.cpp:103
+#: dolphinplugins/dolphinplugin.cpp:108
 #, fuzzy, kde-format
 #| msgid "Commit/Push"
 msgid "Push/Commit to submodule %1"
 msgstr "Baliozkotu/Bultzatu"
 
-#: src/apps/main.cpp:58
+#: src/apps/main.cpp:63
 #, kde-format
 msgid "Git client gui for KDE"
 msgstr "KDEren Git GUI bezeroa"
 
-#: src/apps/main.cpp:60
+#: src/apps/main.cpp:65
 #, fuzzy, kde-format
 #| msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:62 src/libkommitwidgets/models/commitsmodel.cpp:296
+#: src/apps/main.cpp:67 src/libkommitwidgets/models/commitsmodel.cpp:296
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
 msgstr "Egilea"
 
-#: src/apps/main.cpp:62
+#: src/apps/main.cpp:67
 #, fuzzy, kde-format
 #| msgid "Hamed Masafi"
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
-#: src/apps/main.cpp:63
+#: src/apps/main.cpp:68
 #, fuzzy, kde-format
 #| msgid "Laurent Montel"
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/apps/main.cpp:63
+#: src/apps/main.cpp:68
 #, kde-format
 msgid "Bug fixing"
 msgstr "Akatsak konpontzea"
 
-#: src/gui/appwindow.cpp:108 src/gui/appwindow.cpp:152
+#: src/gui/appwindow.cpp:110 src/gui/appwindow.cpp:154
 #, kde-format
 msgid "No repo selected"
 msgstr "Ez da gordetegirik hautatu"
 
-#: src/gui/appwindow.cpp:144
+#: src/gui/appwindow.cpp:146
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Uneko adarra: %1"
 
-#: src/gui/appwindow.cpp:146
+#: src/gui/appwindow.cpp:148
 #, kde-format
 msgid " (merging)"
 msgstr " (bateratzen)"
 
-#: src/gui/appwindow.cpp:148
+#: src/gui/appwindow.cpp:150
 #, fuzzy, kde-format
 #| msgid " (merging)"
 msgid " (rebasing)"
 msgstr " (bateratzen)"
 
-#: src/gui/appwindow.cpp:183
+#: src/gui/appwindow.cpp:185
 #: src/libkommitwidgets/actions/submoduleactions.cpp:28
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Init…"
 msgstr "Hasieratu"
 
-#: src/gui/appwindow.cpp:186
+#: src/gui/appwindow.cpp:188
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action"
 msgid "Open…"
 msgstr "Ireki"
 
-#: src/gui/appwindow.cpp:191
+#: src/gui/appwindow.cpp:193
 #, fuzzy, kde-format
 #| msgid "Clone..."
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Itxi..."
 
-#: src/gui/appwindow.cpp:194
+#: src/gui/appwindow.cpp:196
 #, fuzzy, kde-format
 #| msgid "Changed files"
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Aldatutako fitxategiak"
 
-#: src/gui/appwindow.cpp:200
+#: src/gui/appwindow.cpp:202
 #, fuzzy, kde-format
 #| msgid "Recent repos"
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Azkenaldiko gordetegiak"
 
-#: src/gui/appwindow.cpp:206
+#: src/gui/appwindow.cpp:208
 #, fuzzy, kde-format
 #| msgid "Cleanup..."
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Txukuntzea..."
 
-#: src/gui/appwindow.cpp:209
+#: src/gui/appwindow.cpp:211
 #, fuzzy, kde-format
 #| msgid "Pull..."
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Tira egin..."
 
-#: src/gui/appwindow.cpp:213 src/libkommitwidgets/actions/branchactions.cpp:33
+#: src/gui/appwindow.cpp:215 src/libkommitwidgets/actions/branchactions.cpp:33
 #, fuzzy, kde-format
 #| msgid "Fetch"
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Ekarri"
 
-#: src/gui/appwindow.cpp:217 src/libkommitwidgets/actions/tagsactions.cpp:29
+#: src/gui/appwindow.cpp:219 src/libkommitwidgets/actions/tagsactions.cpp:29
 #, fuzzy, kde-format
 #| msgid "Push"
 msgctxt "@action"
 msgid "Push…"
 msgstr "Bultzatu"
 
-#: src/gui/appwindow.cpp:221 src/libkommitwidgets/actions/branchactions.cpp:36
+#: src/gui/appwindow.cpp:223 src/libkommitwidgets/actions/branchactions.cpp:36
 #, fuzzy, kde-format
 #| msgid "Merge"
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Bateratu"
 
-#: src/gui/appwindow.cpp:225
+#: src/gui/appwindow.cpp:227
 #, fuzzy, kde-format
 #| msgid "Diff branches..."
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Diff adarrak..."
 
-#: src/gui/appwindow.cpp:228 src/libkommitwidgets/actions/fileactions.cpp:51
+#: src/gui/appwindow.cpp:230 src/libkommitwidgets/actions/fileactions.cpp:51
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@action"
 msgid "Search…"
 msgstr "Bilatu"
 
-#: src/gui/appwindow.cpp:231
+#: src/gui/appwindow.cpp:233
 #, fuzzy, kde-format
 #| msgid "Repo settings"
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "Gordetegiaren ezarpenak"
 
-#: src/gui/appwindow.cpp:234
+#: src/gui/appwindow.cpp:236
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Atera"
 
-#: src/gui/appwindow.cpp:237
+#: src/gui/appwindow.cpp:239
 #, fuzzy, kde-format
 #| msgid "Diff tree"
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr "Diff zuhaitza"
 
-#: src/gui/appwindow.cpp:240
+#: src/gui/appwindow.cpp:242
 #, fuzzy, kde-format
 #| msgid "Change url"
 msgctxt "@action"
 msgid "Change logs…"
 msgstr "Aldatu URLa..."
 
-#: src/gui/appwindow.cpp:283
+#: src/gui/appwindow.cpp:285
 #, fuzzy, kde-format
 #| msgid "Cleanup..."
 msgid "Clear"
 msgstr "Txukuntzea..."
 
-#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:225
+#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:225
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ez da bide-izena sortzeko gai: %1"
 
-#: src/gui/appwindow.cpp:305 src/gui/commandargsparser.cpp:225
+#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:225
 #, kde-format
 msgid "Init repo"
 msgstr "Hasieratu gordetegia"
 
-#: src/gui/appwindow.cpp:318
+#: src/gui/appwindow.cpp:320
 #, kde-format
 msgid "Open repository"
 msgstr "Ireki gordetegia"
 
-#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:478
+#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Ezin du adarra aldatu bateratu bitartean"
 
-#: src/gui/appwindow.cpp:401 src/gui/commandargsparser.cpp:478
+#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:478
 #, kde-format
 msgid "Switch branch"
 msgstr "Adarrez aldatu"
@@ -409,6 +409,21 @@ msgstr ""
 #: src/gui/changelogsdata.cpp:81
 #, kde-format
 msgid "Fix dolphin menu"
+msgstr ""
+
+#: src/gui/changelogsdata.cpp:88
+#, kde-format
+msgid "Change icons to symbolic to reponse the theme changes"
+msgstr ""
+
+#: src/gui/changelogsdata.cpp:89
+#, kde-format
+msgid "Fix crash on diff page"
+msgstr ""
+
+#: src/gui/changelogsdata.cpp:90
+#, kde-format
+msgid "Fix missing icons"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
@@ -766,7 +781,7 @@ msgid "Filter..."
 msgstr "Iragazi..."
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonUpdate)
-#: src/gui/pages/remoteswidget.cpp:57 src/gui/pages/submoduleswidget.ui:59
+#: src/gui/pages/remoteswidget.cpp:57 src/gui/pages/submoduleswidget.ui:58
 #, kde-format
 msgid "Update"
 msgstr "Eguneratu"
@@ -868,26 +883,26 @@ msgid "Table"
 msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonChart)
-#: src/gui/pages/reportswidget.ui:50
+#: src/gui/pages/reportswidget.ui:49
 #, fuzzy, kde-format
 #| msgid "Overview"
 msgid "Chart view"
 msgstr "Ikuspegi orokorra"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonChart)
-#: src/gui/pages/reportswidget.ui:53
+#: src/gui/pages/reportswidget.ui:52
 #, kde-format
 msgid "Chart"
 msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, toolButtonRefresh)
-#: src/gui/pages/reportswidget.ui:80
+#: src/gui/pages/reportswidget.ui:78
 #, kde-format
 msgid "Refresh data"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
-#: src/gui/pages/reportswidget.ui:83
+#: src/gui/pages/reportswidget.ui:81
 #, kde-format
 msgid "Refresh"
 msgstr ""
@@ -900,7 +915,7 @@ msgstr "Gordelekuak"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
-#: src/gui/pages/stasheswidget.ui:49 src/gui/pages/submoduleswidget.ui:56
+#: src/gui/pages/stasheswidget.ui:49 src/gui/pages/submoduleswidget.ui:55
 #, kde-format
 msgid ""
 "<html><head/><body><p>Save your local modifications to a new stash entry and "
@@ -950,7 +965,7 @@ msgstr "Azpimoduluak"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
-#: src/gui/pages/submoduleswidget.ui:49
+#: src/gui/pages/submoduleswidget.ui:48
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:14
 #, kde-format
 msgid "Add new submodule"
@@ -3065,8 +3080,9 @@ msgstr "Iragazi beharreko mota"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
-#, kde-format
-msgid "Hide unchangeds"
+#, fuzzy, kde-format
+#| msgid "Hide unchangeds"
+msgid "Hide unchanged"
 msgstr "Ezkutatu aldaketa ez dutenak"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
