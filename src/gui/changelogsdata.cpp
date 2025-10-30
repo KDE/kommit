@@ -85,7 +85,7 @@ void ChangeLogsDataPrivate::fill()
     data << Row{
         QVersionNumber{1, 8, 0},
         QStringList{
-            i18n("Change icons to symbolic to reponse the theme changes"),
+            i18n("Change icons to symbolic to response the theme changes"),
             i18n("Fix crash on diff page"),
             i18n("Fix missing icons")
         }
