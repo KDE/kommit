@@ -26,12 +26,17 @@ FileViewerDialog::FileViewerDialog(const Git::Blob &file, QWidget *parent)
     : KParts::MainWindow(parent)
 {
     setupUi(this);
-    showFile(file);
+
+    if (file.isBinary()) {
+        stackedWidget->setCurrentIndex(3);
+    } else {
+        showFile(file);
+    }
     QSettings s;
     restoreGeometry(s.value(QStringLiteral("FileViewerDialog_Geometry")).toByteArray());
     KStandardAction::close(this, &QMainWindow::close, actionCollection());
 
-    setupGUI(ToolBar, QStringLiteral("kommitfileviewerui.rc"));
+    // setupGUI(ToolBar, QStringLiteral("kommitfileviewerui.rc"));
 }
 
 FileViewerDialog::~FileViewerDialog()
@@ -43,27 +48,23 @@ FileViewerDialog::~FileViewerDialog()
         QFile::remove(mFilePath);
 
     if (mPart) {
-        QProgressDialog progressDialog(this);
-        progressDialog.setWindowTitle(i18nc("@title:window", "Closing preview"));
-        progressDialog.setLabelText(i18n("Please wait while the preview is being closed…"));
+        // QProgressDialog progressDialog(this);
+        // progressDialog.setWindowTitle(i18nc("@title:window", "Closing preview"));
+        // progressDialog.setLabelText(i18n("Please wait while the preview is being closed…"));
 
-        progressDialog.setMinimumDuration(500);
-        progressDialog.setModal(true);
-        progressDialog.setCancelButton(nullptr);
-        progressDialog.setRange(0, 0);
+        // progressDialog.setMinimumDuration(500);
+        // progressDialog.setModal(true);
+        // progressDialog.setCancelButton(nullptr);
+        // progressDialog.setRange(0, 0);
 
         // #261785: this preview dialog is not modal, so we need to delete
         //          the previewed file ourselves when the dialog is closed;
 
         mPart.data()->closeUrl();
-
-        //        if (!m_fileName.isEmpty()) {
-        //            QFile::remove(m_fileName);
-        //        }
     }
 
     guiFactory()->removeClient(mPart);
-    delete mPart;
+    // delete mPart;
 }
 
 void FileViewerDialog::showFile(const Git::Blob &file)
@@ -72,14 +73,12 @@ void FileViewerDialog::showFile(const Git::Blob &file)
     const auto fn = file.filePath().mid(file.filePath().lastIndexOf(QLatin1Char('/')) + 1);
     const auto mime = mimeDatabase.mimeTypeForFile(fn, QMimeDatabase::MatchExtension);
 
-    // TODO: remove place
-    //  lineEditBranchName->setText(file.place());
-    lineEditFileName->setText(file.filePath());
     plainTextEdit->setReadOnly(true);
 
     setWindowTitle(i18nc("@title:window", "View file: %1", file.filePath()));
     setWindowFilePath(file.filePath());
-    labelFileIcon->setPixmap(QIcon::fromTheme(mime.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize)));
+    auto icon = QIcon::fromTheme(mime.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize));
+    setWindowIcon(icon);
 
     if (showWithParts(mime, file))
         return;
@@ -107,41 +106,27 @@ void FileViewerDialog::showAsImage(const Git::Blob &file)
 
 bool FileViewerDialog::showWithParts(const QMimeType &mimeType, const Git::Blob &file)
 {
-    auto parts = KParts::PartLoader::partsForMimeType(mimeType.name());
+    const auto result = KParts::PartLoader::instantiatePartForMimeType<KParts::ReadOnlyPart>(mimeType.name(), widgetContainer, widgetContainer);
 
-    if (parts.empty())
-        return false;
-
-    auto viewer = parts[0];
-    auto icon = QIcon::fromTheme(mimeType.iconName()).pixmap(style()->pixelMetric(QStyle::PixelMetric::PM_SmallIconSize));
-    setWindowIcon(icon);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    const auto result = KParts::PartLoader::createPartInstanceForMimeType<KParts::ReadOnlyPart>(mimeType.name(), this, this);
-#else
-    const auto result = KParts::PartLoader::instantiatePart<KParts::ReadOnlyPart>(mimeType.name(), this, this);
-#endif
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    mPart = result;
-#else
-    mPart = result.plugin;
-#endif
     if (!result) {
         qDebug() << "Failed to create internal viewer";
         return false;
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    kPartWidgetLayout->addWidget(result->widget());
-#else
+    mPart = std::move(result.plugin);
+
+    if (!mPart.data()) {
+        qDebug() << "Failed to create internal viewer's data";
+        return false;
+    }
+
     kPartWidgetLayout->addWidget(mPart->widget());
-#endif
     stackedWidget->setCurrentIndex(2);
 
     createGUI(mPart.data());
 
     auto f = file.saveAsTemp();
-    mPart.data()->openUrl(QUrl::fromLocalFile(f));
+    mPart->openUrl(QUrl::fromLocalFile(f));
     return true;
 }
 
