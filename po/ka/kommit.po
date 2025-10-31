@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 02:00+0000\n"
+"POT-Creation-Date: 2025-10-31 15:53+0000\n"
 "PO-Revision-Date: 2025-04-26 10:21+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2085,18 +2085,7 @@ msgstr "გაშლა"
 msgid "Branch:"
 msgstr "ბრენჩი:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
-#, kde-format
-msgctxt "@title:window"
-msgid "Closing preview"
-msgstr "გადახედვის დახურვა"
-
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, kde-format
-msgid "Please wait while the preview is being closed…"
-msgstr "მიმდინარეობს მინიატურის დახურვა. მოითმინეთ…"
-
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2107,6 +2096,12 @@ msgstr ""
 #, kde-format
 msgid "MainWindow"
 msgstr "მთავარი ფანჯარა"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/fileviewerdialog.ui:94
+#, kde-format
+msgid "Can't show the binary file!"
+msgstr ""
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
@@ -3101,6 +3096,13 @@ msgstr ""
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr ""
+
+#~ msgctxt "@title:window"
+#~ msgid "Closing preview"
+#~ msgstr "გადახედვის დახურვა"
+
+#~ msgid "Please wait while the preview is being closed…"
+#~ msgstr "მიმდინარეობს მინიატურის დახურვა. მოითმინეთ…"
 
 #~ msgctxt "@action"
 #~ msgid "Blame"

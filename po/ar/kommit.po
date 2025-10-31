@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 02:00+0000\n"
+"POT-Creation-Date: 2025-10-31 15:53+0000\n"
 "PO-Revision-Date: 2025-10-06 17:13+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2131,18 +2131,7 @@ msgstr "استخرج"
 msgid "Branch:"
 msgstr "الفرع:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
-#, kde-format
-msgctxt "@title:window"
-msgid "Closing preview"
-msgstr "يُغلَق المعاينة"
-
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, kde-format
-msgid "Please wait while the preview is being closed…"
-msgstr "تفضّل بالانتظار ريثما تُغلَق المعاينة..."
-
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2153,6 +2142,12 @@ msgstr "اعرض الملف: %1"
 #, kde-format
 msgid "MainWindow"
 msgstr "النافذة الرئيسية"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/fileviewerdialog.ui:94
+#, kde-format
+msgid "Can't show the binary file!"
+msgstr ""
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
@@ -3221,3 +3216,10 @@ msgstr "تعارضات: <span style='font-weight:bold; color:red;'>%1</span>"
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>حُلّت جميع التعارضات</span>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Closing preview"
+#~ msgstr "يُغلَق المعاينة"
+
+#~ msgid "Please wait while the preview is being closed…"
+#~ msgstr "تفضّل بالانتظار ريثما تُغلَق المعاينة..."

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 02:00+0000\n"
-"PO-Revision-Date: 2025-10-30 07:22+0100\n"
+"POT-Creation-Date: 2025-10-31 15:53+0000\n"
+"PO-Revision-Date: 2025-10-31 05:44+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -387,8 +387,7 @@ msgid "Fix dolphin menu"
 msgstr "Popravi dolphinov meni"
 
 #: src/gui/changelogsdata.cpp:88
-#, fuzzy, kde-format
-#| msgid "Change icons to symbolic to reponse the theme changes"
+#, kde-format
 msgid "Change icons to symbolic to response the theme changes"
 msgstr "Spremeni ikone v simbolične kot odziv na spremembo teme"
 
@@ -2136,18 +2135,7 @@ msgstr "Izvleci"
 msgid "Branch:"
 msgstr "Veja:"
 
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:47
-#, kde-format
-msgctxt "@title:window"
-msgid "Closing preview"
-msgstr "Zapiranje predogleda"
-
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
-#, kde-format
-msgid "Please wait while the preview is being closed…"
-msgstr "Počakajte, da se predogled zapre…"
-
-#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:80
+#: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
@@ -2158,6 +2146,12 @@ msgstr "Pokaži datoteko: %1"
 #, kde-format
 msgid "MainWindow"
 msgstr "Glavno okno"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/libkommitwidgets/dialogs/fileviewerdialog.ui:94
+#, kde-format
+msgid "Can't show the binary file!"
+msgstr ""
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
@@ -3227,6 +3221,13 @@ msgstr "Spori: <span style='font-weight:bold; color:red;'>%1</span>"
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>Vsi spori razrešeni</span>"
+
+#~ msgctxt "@title:window"
+#~ msgid "Closing preview"
+#~ msgstr "Zapiranje predogleda"
+
+#~ msgid "Please wait while the preview is being closed…"
+#~ msgstr "Počakajte, da se predogled zapre…"
 
 #~ msgid "Uncommited"
 #~ msgstr "Neobjavljeno"
