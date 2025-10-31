@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 02:04+0000\n"
-"PO-Revision-Date: 2025-09-24 20:24+0200\n"
+"POT-Creation-Date: 2025-10-31 02:00+0000\n"
+"PO-Revision-Date: 2025-10-30 10:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -390,19 +390,20 @@ msgid "Fix dolphin menu"
 msgstr "Corregix el menú de Dolphin"
 
 #: src/gui/changelogsdata.cpp:88
-#, kde-format
-msgid "Change icons to symbolic to reponse the theme changes"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Change icons to symbolic to reponse the theme changes"
+msgid "Change icons to symbolic to response the theme changes"
+msgstr "Canvia les icones a simbòliques en resposta als canvis de tema"
 
 #: src/gui/changelogsdata.cpp:89
 #, kde-format
 msgid "Fix crash on diff page"
-msgstr ""
+msgstr "Corregix una fallada a la pàgina de diferències"
 
 #: src/gui/changelogsdata.cpp:90
 #, kde-format
 msgid "Fix missing icons"
-msgstr ""
+msgstr "Corregix les icones que falten"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -3102,8 +3103,7 @@ msgstr "Teclegeu per a filtrar"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
-#, fuzzy, kde-format
-#| msgid "Hide unchangeds"
+#, kde-format
 msgid "Hide unchanged"
 msgstr "Oculta els no canviats"
 

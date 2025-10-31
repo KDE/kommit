@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 02:04+0000\n"
-"PO-Revision-Date: 2025-09-24 06:55+0200\n"
+"POT-Creation-Date: 2025-10-31 02:00+0000\n"
+"PO-Revision-Date: 2025-10-30 07:22+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -387,19 +387,20 @@ msgid "Fix dolphin menu"
 msgstr "Popravi dolphinov meni"
 
 #: src/gui/changelogsdata.cpp:88
-#, kde-format
-msgid "Change icons to symbolic to reponse the theme changes"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Change icons to symbolic to reponse the theme changes"
+msgid "Change icons to symbolic to response the theme changes"
+msgstr "Spremeni ikone v simbolične kot odziv na spremembo teme"
 
 #: src/gui/changelogsdata.cpp:89
 #, kde-format
 msgid "Fix crash on diff page"
-msgstr ""
+msgstr "Popravi sesutje strani diff"
 
 #: src/gui/changelogsdata.cpp:90
 #, kde-format
 msgid "Fix missing icons"
-msgstr ""
+msgstr "Popravi manjkajoče ikone"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -3100,8 +3101,7 @@ msgstr "Vrste za filtriranje"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
-#, fuzzy, kde-format
-#| msgid "Hide unchangeds"
+#, kde-format
 msgid "Hide unchanged"
 msgstr "Skrij nespremenjene"
 

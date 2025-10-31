@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 02:04+0000\n"
+"POT-Creation-Date: 2025-10-31 02:00+0000\n"
 "PO-Revision-Date: 2025-01-26 18:49+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -385,7 +385,7 @@ msgstr "Corrixir o menú de Dolphin."
 
 #: src/gui/changelogsdata.cpp:88
 #, kde-format
-msgid "Change icons to symbolic to reponse the theme changes"
+msgid "Change icons to symbolic to response the theme changes"
 msgstr ""
 
 #: src/gui/changelogsdata.cpp:89

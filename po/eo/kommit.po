@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 02:04+0000\n"
+"POT-Creation-Date: 2025-10-31 02:00+0000\n"
 "PO-Revision-Date: 2025-01-07 14:53+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -385,7 +385,7 @@ msgstr "Ripari dolfin-menuon"
 
 #: src/gui/changelogsdata.cpp:88
 #, kde-format
-msgid "Change icons to symbolic to reponse the theme changes"
+msgid "Change icons to symbolic to response the theme changes"
 msgstr ""
 
 #: src/gui/changelogsdata.cpp:89

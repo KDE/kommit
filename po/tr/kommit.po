@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 02:04+0000\n"
-"PO-Revision-Date: 2025-09-24 09:07+0300\n"
-"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
-"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"POT-Creation-Date: 2025-10-31 02:00+0000\n"
+"PO-Revision-Date: 2025-10-30 06:18+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -383,19 +383,22 @@ msgid "Fix dolphin menu"
 msgstr "Dolphin menüsünü onar"
 
 #: src/gui/changelogsdata.cpp:88
-#, kde-format
-msgid "Change icons to symbolic to reponse the theme changes"
+#, fuzzy, kde-format
+#| msgid "Change icons to symbolic to reponse the theme changes"
+msgid "Change icons to symbolic to response the theme changes"
 msgstr ""
+"Tema değişikliklerine yanıt verebilmek adına simgeleri sembolik varyantlarla "
+"değiştir"
 
 #: src/gui/changelogsdata.cpp:89
 #, kde-format
 msgid "Fix crash on diff page"
-msgstr ""
+msgstr "Diff sayfasındaki çökmeyi onar"
 
 #: src/gui/changelogsdata.cpp:90
 #, kde-format
 msgid "Fix missing icons"
-msgstr ""
+msgstr "Eksik simgeleri koy"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -3092,8 +3095,7 @@ msgstr "Süzmek için yaz"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
-#, fuzzy, kde-format
-#| msgid "Hide unchangeds"
+#, kde-format
 msgid "Hide unchanged"
 msgstr "Değiştirilmeyenleri gizle"
 

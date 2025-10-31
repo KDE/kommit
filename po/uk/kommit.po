@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 02:04+0000\n"
-"PO-Revision-Date: 2025-09-24 20:35+0300\n"
+"POT-Creation-Date: 2025-10-31 02:00+0000\n"
+"PO-Revision-Date: 2025-10-30 14:56+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -384,19 +384,20 @@ msgid "Fix dolphin menu"
 msgstr "Виправлено меню у Dolphin"
 
 #: src/gui/changelogsdata.cpp:88
-#, kde-format
-msgid "Change icons to symbolic to reponse the theme changes"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Change icons to symbolic to reponse the theme changes"
+msgid "Change icons to symbolic to response the theme changes"
+msgstr "Змінено піктограми на символічні у відповідності до змін у темі"
 
 #: src/gui/changelogsdata.cpp:89
 #, kde-format
 msgid "Fix crash on diff page"
-msgstr ""
+msgstr "Виправлено аварійне завершення роботи на сторінці відмінностей"
 
 #: src/gui/changelogsdata.cpp:90
 #, kde-format
 msgid "Fix missing icons"
-msgstr ""
+msgstr "Виправлено відсутність піктограм"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -3102,10 +3103,9 @@ msgstr "Введіть щось для фільтрування"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
-#, fuzzy, kde-format
-#| msgid "Hide unchangeds"
+#, kde-format
 msgid "Hide unchanged"
-msgstr "Приховати незмінене"
+msgstr "Приховувати незмінені"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33

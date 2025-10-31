@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 02:04+0000\n"
-"PO-Revision-Date: 2025-09-24 09:48+0200\n"
+"POT-Creation-Date: 2025-10-31 02:00+0000\n"
+"PO-Revision-Date: 2025-10-30 12:29+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -385,19 +385,22 @@ msgid "Fix dolphin menu"
 msgstr "Dolphin-menu repareren"
 
 #: src/gui/changelogsdata.cpp:88
-#, kde-format
-msgid "Change icons to symbolic to reponse the theme changes"
+#, fuzzy, kde-format
+#| msgid "Change icons to symbolic to reponse the theme changes"
+msgid "Change icons to symbolic to response the theme changes"
 msgstr ""
+"Wijzig pictogrammen naar symbolische om te antwoorden op de wijzigingen in "
+"het thema"
 
 #: src/gui/changelogsdata.cpp:89
 #, kde-format
 msgid "Fix crash on diff page"
-msgstr ""
+msgstr "Crash repareren op diff-pagina"
 
 #: src/gui/changelogsdata.cpp:90
 #, kde-format
 msgid "Fix missing icons"
-msgstr ""
+msgstr "Ontbrekende pictogrammen repareren"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -3100,8 +3103,7 @@ msgstr "Typen om te filteren"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
-#, fuzzy, kde-format
-#| msgid "Hide unchangeds"
+#, kde-format
 msgid "Hide unchanged"
 msgstr "Ongewijzigden verbergen"
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 02:04+0000\n"
+"POT-Creation-Date: 2025-10-31 02:00+0000\n"
 "PO-Revision-Date: 2022-09-07 22:16-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -381,7 +381,7 @@ msgstr ""
 
 #: src/gui/changelogsdata.cpp:88
 #, kde-format
-msgid "Change icons to symbolic to reponse the theme changes"
+msgid "Change icons to symbolic to response the theme changes"
 msgstr ""
 
 #: src/gui/changelogsdata.cpp:89
