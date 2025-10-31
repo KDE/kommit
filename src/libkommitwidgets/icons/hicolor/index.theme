@@ -1,6 +1,20 @@
 [Icon Theme]
 Name=Hicolor
+Name[ca]=Hicolor
+Name[ca@valencia]=Hicolor
+Name[nl]=Hicolor
+Name[pt_BR]=Hicolor
+Name[sl]=Svetla barva
+Name[tr]=Yüksek Renk
+Name[uk]=Кольорова
 Comment=Application embedded icon theme
+Comment[ca]=Tema d'icones incrustades d'aplicació
+Comment[ca@valencia]=Tema d'icones incrustades d'aplicació
+Comment[nl]=Pictogramthema ingebed in toepassingen
+Comment[pt_BR]=Tema de ícones embutido ao aplicativo
+Comment[sl]=Tema ikone vdelana v aplikaciji
+Comment[tr]=Uygulamaya gömülü simge teması
+Comment[uk]=Вбудована до програми тема піктограм
 Directories=scalable/actions
 
 [scalable/actions]
