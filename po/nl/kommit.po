@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-31 15:53+0000\n"
-"PO-Revision-Date: 2025-10-30 12:29+0100\n"
+"PO-Revision-Date: 2025-10-31 11:04+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -385,8 +385,7 @@ msgid "Fix dolphin menu"
 msgstr "Dolphin-menu repareren"
 
 #: src/gui/changelogsdata.cpp:88
-#, fuzzy, kde-format
-#| msgid "Change icons to symbolic to reponse the theme changes"
+#, kde-format
 msgid "Change icons to symbolic to response the theme changes"
 msgstr ""
 "Wijzig pictogrammen naar symbolische om te antwoorden op de wijzigingen in "

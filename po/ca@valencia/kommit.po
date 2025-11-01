@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-31 15:53+0000\n"
-"PO-Revision-Date: 2025-10-30 10:29+0100\n"
+"PO-Revision-Date: 2025-10-31 10:23+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -390,8 +390,7 @@ msgid "Fix dolphin menu"
 msgstr "Corregix el menú de Dolphin"
 
 #: src/gui/changelogsdata.cpp:88
-#, fuzzy, kde-format
-#| msgid "Change icons to symbolic to reponse the theme changes"
+#, kde-format
 msgid "Change icons to symbolic to response the theme changes"
 msgstr "Canvia les icones a simbòliques en resposta als canvis de tema"
 
@@ -3224,10 +3223,3 @@ msgstr "Conflictes: <span style='font-weight:bold; color:red;'>%1</span>"
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>S'han resolt tots els conflictes</span>"
-
-#~ msgctxt "@title:window"
-#~ msgid "Closing preview"
-#~ msgstr "Tanqueu la vista prèvia"
-
-#~ msgid "Please wait while the preview is being closed…"
-#~ msgstr "Espereu mentre es tanca la vista prèvia…"

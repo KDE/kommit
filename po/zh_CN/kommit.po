@@ -3133,7 +3133,3 @@ msgstr ""
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr ""
-
-#~ msgctxt "@title:window"
-#~ msgid "Closing preview"
-#~ msgstr "关闭预览"
