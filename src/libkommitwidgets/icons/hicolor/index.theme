@@ -2,6 +2,7 @@
 Name=Hicolor
 Name[ca]=Hicolor
 Name[ca@valencia]=Hicolor
+Name[es]=Hicolor
 Name[it]=Molti colori
 Name[nl]=Hicolor
 Name[pt_BR]=Hicolor
@@ -11,6 +12,7 @@ Name[uk]=Кольорова
 Comment=Application embedded icon theme
 Comment[ca]=Tema d'icones incrustades d'aplicació
 Comment[ca@valencia]=Tema d'icones incrustades d'aplicació
+Comment[es]=Tema de iconos integrado en la aplicación
 Comment[it]=Tema di icone incorporato nell'applicazione
 Comment[nl]=Pictogramthema ingebed in toepassingen
 Comment[pt_BR]=Tema de ícones embutido ao aplicativo
