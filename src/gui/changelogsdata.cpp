@@ -91,6 +91,13 @@ void ChangeLogsDataPrivate::fill()
         }
     };
 
+    data << Row{
+        QVersionNumber{1, 8, 1},
+        QStringList{
+            i18n("Fix file viewer API")
+        }
+    };
+
     // clang-format on
 
     std::sort(data.begin(), data.end(), [](const Row &r1, const Row &r2) {
