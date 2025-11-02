@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 15:53+0000\n"
+"POT-Creation-Date: 2025-11-02 01:59+0000\n"
 "PO-Revision-Date: 2025-01-26 18:49+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -396,6 +396,11 @@ msgstr ""
 #: src/gui/changelogsdata.cpp:90
 #, kde-format
 msgid "Fix missing icons"
+msgstr ""
+
+#: src/gui/changelogsdata.cpp:97
+#, kde-format
+msgid "Fix file viewer API"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 15:53+0000\n"
+"POT-Creation-Date: 2025-11-02 01:59+0000\n"
 "PO-Revision-Date: 2025-10-31 20:21+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -400,6 +400,11 @@ msgstr "Popravi sesutje strani diff"
 #, kde-format
 msgid "Fix missing icons"
 msgstr "Popravi manjkajoče ikone"
+
+#: src/gui/changelogsdata.cpp:97
+#, kde-format
+msgid "Fix file viewer API"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14

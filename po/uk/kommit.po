@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 15:53+0000\n"
-"PO-Revision-Date: 2025-10-31 11:34+0200\n"
+"POT-Creation-Date: 2025-11-02 01:59+0000\n"
+"PO-Revision-Date: 2025-11-01 15:55+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -397,6 +397,11 @@ msgstr "Виправлено аварійне завершення роботи 
 #, kde-format
 msgid "Fix missing icons"
 msgstr "Виправлено відсутність піктограм"
+
+#: src/gui/changelogsdata.cpp:97
+#, kde-format
+msgid "Fix file viewer API"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -2153,7 +2158,7 @@ msgstr "Головне вікно"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.ui:94
 #, kde-format
 msgid "Can't show the binary file!"
-msgstr ""
+msgstr "Не можна показати двійковий файл!"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format

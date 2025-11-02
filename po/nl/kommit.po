@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 15:53+0000\n"
-"PO-Revision-Date: 2025-10-31 11:04+0100\n"
+"POT-Creation-Date: 2025-11-02 01:59+0000\n"
+"PO-Revision-Date: 2025-11-01 17:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -400,6 +400,11 @@ msgstr "Crash repareren op diff-pagina"
 #, kde-format
 msgid "Fix missing icons"
 msgstr "Ontbrekende pictogrammen repareren"
+
+#: src/gui/changelogsdata.cpp:97
+#, kde-format
+msgid "Fix file viewer API"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -2155,7 +2160,7 @@ msgstr "Hoofdvenster"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.ui:94
 #, kde-format
 msgid "Can't show the binary file!"
-msgstr ""
+msgstr "Kan het binaire bestand niet tonen!"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format

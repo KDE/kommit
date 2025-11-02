@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-31 15:53+0000\n"
-"PO-Revision-Date: 2025-10-31 10:23+0100\n"
+"POT-Creation-Date: 2025-11-02 01:59+0000\n"
+"PO-Revision-Date: 2025-11-01 09:20+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -403,6 +403,11 @@ msgstr "Corregix una fallada a la pàgina de diferències"
 #, kde-format
 msgid "Fix missing icons"
 msgstr "Corregix les icones que falten"
+
+#: src/gui/changelogsdata.cpp:97
+#, kde-format
+msgid "Fix file viewer API"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -2155,7 +2160,7 @@ msgstr "Finestra principal"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.ui:94
 #, kde-format
 msgid "Can't show the binary file!"
-msgstr ""
+msgstr "No es pot mostrar el fitxer binari!"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
