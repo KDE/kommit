@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.16)
 
 project(kommit)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-
 set(PROJECT_VERSION_MAJOR 1)
 set(PROJECT_VERSION_MINOR 8)
 set(PROJECT_VERSION_PATCH 0)
@@ -22,7 +20,7 @@ add_definitions(-DKOMMIT_VERSION="${RELEASE_SERVICE_VERSION}")
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 find_package(OpenSSL OPTIONAL_COMPONENTS Crypto SSL)
 
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(FeatureSummary)
 include(GenerateExportHeader)
@@ -41,10 +39,6 @@ include(ECMGenerateHeaders)
 include(ECMGenerateExportHeader)
 
 option(BUILD_DOC "Whether to build the documentation" ON)
-
-if (NOT LIBGIT2_FOUND)
-    message("libgit2 not found")
-endif()
 
 if(QT_MAJOR_VERSION STREQUAL "6")
     set(QT_MIN_VERSION "6.4.0")
@@ -86,7 +80,7 @@ find_package(
         TextEditor
         SyntaxHighlighting
 )
-find_package(Libgit2 REQUIRED)
+find_package(LibGit2 REQUIRED)
 
 if(NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     find_package(KF${KF_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)

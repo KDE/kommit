@@ -29,7 +29,7 @@ target_link_libraries(kommitdolphinplugin PRIVATE
     KF${KF_MAJOR_VERSION}::I18n
     KF${QT_MAJOR_VERSION}::KIOCore
     DolphinVcs
-    Libgit2
+    LibGit2::LibGit2
 )
 
 #install(FILES fileviewgitpluginsettings.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})

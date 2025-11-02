@@ -133,7 +133,7 @@ target_include_directories(libkommit PUBLIC
 
 target_link_libraries(libkommit
     Qt::Core
-    Libgit2
+    LibGit2::LibGit2
     KF${KF_MAJOR_VERSION}::I18n
 )
 
