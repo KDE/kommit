@@ -2,7 +2,8 @@
 # SPDX-License-Identifier: BSD-3-Clause
 add_library(libkommit SHARED
     actions/pull.h actions/pull.cpp
-    actions/merge.h actions/merge.cpp)
+    actions/merge.h actions/merge.cpp
+    entities/annotatedcommit.h entities/annotatedcommit.cpp)
 
 set(KOMMIT_INSTALL_INCLUDEDIR "${KDE_INSTALL_INCLUDEDIR}/Kommit")
 set(KOMMIT_CMAKECONFIG_NAME "Kommit")

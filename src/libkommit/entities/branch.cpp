@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "repository.h"
 #include "types.h"
 
+#include <git2/annotated_commit.h>
 #include <git2/branch.h>
 #include <git2/buffer.h>
 #include <git2/commit.h>
@@ -185,6 +186,19 @@ Commit Branch::commit()
     // }
 
     return Commit{};
+}
+
+AnnotatedCommit Branch::annotatedCommit()
+{
+    git_annotated_commit *c;
+    auto repo = git_reference_owner(d->branch);
+
+    if (git_annotated_commit_from_ref(&c, repo, d->branch))
+        return {};
+
+    const git_oid *oid = git_annotated_commit_id(c);
+
+    return {}; // AnnotatedCommit{oid};
 }
 
 Reference Branch::reference() const

@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QSharedPointer>
 #include <QString>
 
+#include "annotatedcommit.h"
 #include "libkommit_export.h"
 
 #include "git2/types.h"
@@ -48,6 +49,7 @@ public:
 
     [[nodiscard]] Tree tree() const override;
     [[nodiscard]] Commit commit();
+    [[nodiscard]] AnnotatedCommit annotatedCommit();
     [[nodiscard]] Reference reference() const;
 
     [[nodiscard]] QString treeTitle() const override;
