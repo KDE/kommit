@@ -18,14 +18,11 @@ namespace Git
 {
 
 class Certificate;
-class Credential;
 class Branch;
 class Remote;
 class FetchPrivate;
 class Repository;
 class Proxy;
-class Reference;
-class Oid;
 struct PackProgress;
 struct FetchTransferStat;
 class RemoteCallbacks;

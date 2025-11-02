@@ -17,13 +17,6 @@
 
 #include "libkommitwidgets_export.h"
 
-class QLabel;
-
-namespace KSyntaxHighlighting
-{
-class SyntaxHighlighter;
-}
-
 class CodeEditorSidebar;
 
 class CodeEditorPrivate;

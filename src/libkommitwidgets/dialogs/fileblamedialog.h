@@ -15,7 +15,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class Repository;
-class Blob;
 }
 
 class LIBKOMMITWIDGETS_EXPORT FileBlameDialog : public AppDialog, private Ui::FileBlameDialog

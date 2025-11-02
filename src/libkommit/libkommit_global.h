@@ -13,8 +13,6 @@ namespace Git
 {
 
 class Branch;
-class Commit;
-class Tag;
 class Remote;
 
 enum class BranchType {

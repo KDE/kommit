@@ -46,7 +46,6 @@ class AbstractCommand;
 class FileStatus;
 class File;
 class TreeDiff;
-class Blob;
 struct BlameDataRow;
 class BlameOptions;
 class Blame;

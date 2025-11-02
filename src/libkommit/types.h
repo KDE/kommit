@@ -19,11 +19,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
-class Branch;
-class Commit;
-class Tag;
-class Remote;
-
 QString convertToQString(git_buf *buf);
 QStringList convert(git_strarray *arr);
 QString convertToString(const git_oid *id, int len);

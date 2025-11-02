@@ -20,8 +20,6 @@ namespace Git
 class Repository;
 }
 
-class SegmentsMapper;
-class QLabel;
 class MergeWidget;
 class MergeWindowPrivate;
 class LIBKOMMITWIDGETS_EXPORT MergeWindow : public AppMainWindow
