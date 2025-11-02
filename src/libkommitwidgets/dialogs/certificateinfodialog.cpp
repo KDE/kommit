@@ -39,3 +39,5 @@ CertificateInfoDialog::CertificateInfoDialog(const Git::Certificate &cert, QWidg
         break;
     }
 }
+
+#include "moc_certificateinfodialog.cpp"

@@ -169,3 +169,5 @@ void RemoteCallbacks::apply(git_remote_callbacks *callbacks, Repository *repo)
 }
 
 } // namespace Git
+
+#include "moc_remotecallbacks.cpp"

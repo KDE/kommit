@@ -66,3 +66,5 @@ void CloneObserver::init(git_checkout_options *opts)
     opts->perfdata_cb = &CloneCallbacks::git_helper_checkout_perfdata_cb;
 }
 }
+
+#include "moc_cloneobserver.cpp"

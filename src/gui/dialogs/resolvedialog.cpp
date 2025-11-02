@@ -86,3 +86,5 @@ void ResolveDialog::updateConflictsCount()
     else
         labelConflictsCount->setText(i18np("%1 conflict remained", "%1 conflicts remained", mConflicts->size()));
 }
+
+#include "moc_resolvedialog.cpp"

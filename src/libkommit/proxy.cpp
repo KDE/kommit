@@ -81,3 +81,4 @@ void Proxy::setType(Proxy::Type type)
 }
 
 }
+#include "moc_proxy.cpp"

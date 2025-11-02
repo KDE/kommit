@@ -564,3 +564,5 @@ int MergeWidget::conflicts() const
     Q_D(const MergeWidget);
     return d->conflictSegments.size();
 }
+
+#include "moc_mergewidget.cpp"

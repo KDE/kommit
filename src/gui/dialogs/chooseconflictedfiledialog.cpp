@@ -134,3 +134,5 @@ ChooseConflictedFileDialog::Side ChooseConflictedFileDialog::selectedSide() cons
 {
     return _selectedSide;
 }
+
+#include "moc_chooseconflictedfiledialog.cpp"

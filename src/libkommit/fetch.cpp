@@ -223,3 +223,5 @@ const Proxy *Fetch::proxy() const
 }
 
 }
+
+#include "moc_fetch.cpp"
