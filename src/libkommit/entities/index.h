@@ -40,7 +40,7 @@ public:
     };
 
     IndexEntry();
-    IndexEntry(const git_index_entry *entryPtr);
+    explicit IndexEntry(const git_index_entry *entryPtr);
 
     QString path() const;
     quint16 fileSize() const;

@@ -19,7 +19,7 @@ class BranchesSelectionWidgetPrivate
     Q_DECLARE_PUBLIC(BranchesSelectionWidget)
 
 public:
-    BranchesSelectionWidgetPrivate(BranchesSelectionWidget *parent);
+    explicit BranchesSelectionWidgetPrivate(BranchesSelectionWidget *parent);
 
     TreeModel *treeModel{nullptr};
     BranchesFilterModel *filterModel;
@@ -31,7 +31,7 @@ public:
 
 struct BranchTreeNode : public NodeData {
     Git::Branch branch;
-    BranchTreeNode(const Git::Branch &branch);
+    explicit BranchTreeNode(const Git::Branch &branch);
 };
 
 BranchesSelectionWidget::BranchesSelectionWidget(QWidget *parent)

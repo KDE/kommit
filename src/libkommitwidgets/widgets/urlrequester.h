@@ -9,7 +9,7 @@ class UrlRequester : public KUrlRequester
     Q_OBJECT
 
 public:
-    UrlRequester(QWidget *parent = nullptr);
+    explicit UrlRequester(QWidget *parent = nullptr);
 
     enum class Mode {
         File = 1,
@@ -50,7 +50,7 @@ public:
         LocalOnly = 16,
         ModeMax = 65536,
     };
-    UrlRequester(QWidget *parent = nullptr);
+    explicit UrlRequester(QWidget *parent = nullptr);
     [[nodiscard]] QUrl url() const;
     void setUrl(const QUrl &url);
 

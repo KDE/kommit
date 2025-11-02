@@ -17,7 +17,7 @@ class BranchesModelPrivate
     Q_DECLARE_PUBLIC(BranchesModel)
 
 public:
-    BranchesModelPrivate(BranchesModel *parent);
+    explicit BranchesModelPrivate(BranchesModel *parent);
 
     void calculateCommitStats();
 

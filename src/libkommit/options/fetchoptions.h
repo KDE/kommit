@@ -17,7 +17,7 @@ class Repository;
 class LIBKOMMIT_EXPORT FetchOptions
 {
 public:
-    FetchOptions(QObject *parent = nullptr);
+    explicit FetchOptions(QObject *parent = nullptr);
 
     enum class DownloadTags {
         Unspecified = 0,

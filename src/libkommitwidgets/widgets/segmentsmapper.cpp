@@ -15,7 +15,7 @@ class SegmentsMapperPrivate
     Q_DECLARE_PUBLIC(SegmentsMapper)
 
 public:
-    SegmentsMapperPrivate(SegmentsMapper *parent);
+    explicit SegmentsMapperPrivate(SegmentsMapper *parent);
 
     Diff::Segment *currentSegment{nullptr};
     QList<Diff::Segment *> segments;

@@ -30,7 +30,7 @@ class LIBKOMMIT_EXPORT BranchesCache : public QObject, public Cache<Branch, git_
 
 public:
     explicit BranchesCache(Repository *manager);
-    ~BranchesCache();
+    ~BranchesCache() override;
 
     [[nodiscard]] ListType allBranches(BranchType type = BranchType::AllBranches);
     [[nodiscard]] DataType findByName(const QString &key);

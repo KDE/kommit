@@ -13,7 +13,7 @@ class LIBKOMMITWIDGETS_EXPORT CommitsByDayHour : public AbstractReport
 {
     Q_OBJECT
 public:
-    CommitsByDayHour(Git::Repository *git, QObject *parent = nullptr);
+    explicit CommitsByDayHour(Git::Repository *git, QObject *parent = nullptr);
 
     void reload() override;
     [[nodiscard]] QString name() const override;

@@ -134,7 +134,7 @@ public:
         Dirs,
         Files
     };
-    DiffWindowPrivate(DiffWindow *parent);
+    explicit DiffWindowPrivate(DiffWindow *parent);
 
     EditActionsMapper *mapper{nullptr};
     DiffWidget *diffWidget{nullptr};

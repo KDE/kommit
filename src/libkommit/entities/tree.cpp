@@ -260,8 +260,8 @@ void TreePrivate::browseNestedEntities(EntryType type, const QString &path, QStr
 }
 
 TreePrivate::TreePrivate(Tree *parent, git_tree *tree)
-    : tree{tree}
-    , q{parent}
+    : q{parent}
+    , tree{tree}
 {
 }
 

@@ -29,7 +29,7 @@ class LIBKOMMIT_EXPORT ReferenceCache : public Cache<Reference, git_reference>
 {
 public:
     explicit ReferenceCache(Repository *parent);
-    ~ReferenceCache();
+    ~ReferenceCache() override;
 
     DataType findByName(const QString &name);
     DataType findForNote(const Note &note);
@@ -55,7 +55,7 @@ class ReferenceCachePrivate
     Q_DECLARE_PUBLIC(ReferenceCache)
 
 public:
-    ReferenceCachePrivate(ReferenceCache *parent);
+    explicit ReferenceCachePrivate(ReferenceCache *parent);
 
     QList<Reference> list;
     QMultiMap<Commit, Reference> dataByCommit;

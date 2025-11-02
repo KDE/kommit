@@ -19,7 +19,7 @@ class SegmentsScrollBarPrivate
     Q_DECLARE_PUBLIC(SegmentsScrollBar)
 
 public:
-    SegmentsScrollBarPrivate(SegmentsScrollBar *parent);
+    explicit SegmentsScrollBarPrivate(SegmentsScrollBar *parent);
     enum Side {
         Left,
         Right

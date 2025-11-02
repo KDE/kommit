@@ -69,7 +69,7 @@ void ConfigTest::allConfigs()
     auto userNameFound{false};
     auto userEmailFound{false};
 
-    mManager->forEachConfig([&](QString name, QString val) {
+    mManager->forEachConfig([&](const QString &name, const QString &val) {
         if (name == "user.name" && val == userName)
             userNameFound = true;
         if (name == "user.email" && val == userEmail)
