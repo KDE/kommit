@@ -23,10 +23,10 @@ public:
 
     void apply(git_proxy_options *opts);
 
-    [[nodiscard]] QString url();
+    [[nodiscard]] QString url() const;
     void setUrl(const QString &url);
 
-    [[nodiscard]] Type type();
+    [[nodiscard]] Type type() const;
     void setType(Type type);
 Q_SIGNALS:
     void credentialRequested(const QString &url, Credential *cred, bool *accept);

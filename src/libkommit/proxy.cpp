@@ -63,7 +63,7 @@ void Proxy::apply(git_proxy_options *opts)
     opts->credentials = ProxyCallbacks::git_helper_credentials_cb;
     opts->payload = this;
 }
-QString Proxy::url()
+QString Proxy::url() const
 {
     return mUrl;
 }
@@ -71,7 +71,7 @@ void Proxy::setUrl(const QString &url)
 {
     mUrl = url;
 }
-Proxy::Type Proxy::type()
+Proxy::Type Proxy::type() const
 {
     return mType;
 }
