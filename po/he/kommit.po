@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:55+0000\n"
-"PO-Revision-Date: 2025-10-16 07:57+0300\n"
+"PO-Revision-Date: 2025-11-02 09:25+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -215,25 +215,25 @@ msgstr " (ביסוס מחדש)"
 #, kde-format
 msgctxt "@action"
 msgid "Init..."
-msgstr ""
+msgstr "אתחול…"
 
 #: src/gui/appwindow.cpp:167
 #, kde-format
 msgctxt "@action"
 msgid "Open..."
-msgstr ""
+msgstr "פתיחה…"
 
 #: src/gui/appwindow.cpp:172
 #, kde-format
 msgctxt "@action"
 msgid "Clone..."
-msgstr ""
+msgstr "שכפול…"
 
 #: src/gui/appwindow.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Changed files..."
-msgstr ""
+msgstr "קבצים שהשתנו…"
 
 #: src/gui/appwindow.cpp:181
 #, kde-format
@@ -245,13 +245,13 @@ msgstr "מאגרים אחרונים"
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup..."
-msgstr ""
+msgstr "ניקוי…"
 
 #: src/gui/appwindow.cpp:190
 #, kde-format
 msgctxt "@action"
 msgid "Pull..."
-msgstr ""
+msgstr "משיכה…"
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
@@ -263,13 +263,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Push..."
-msgstr ""
+msgstr "דחיפה…"
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Merge..."
-msgstr ""
+msgstr "מיזוג…"
 
 #: src/gui/appwindow.cpp:206
 #, kde-format
@@ -281,25 +281,25 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Search..."
-msgstr ""
+msgstr "חיפוש…"
 
 #: src/gui/appwindow.cpp:212
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings..."
-msgstr ""
+msgstr "הגדרות מאגר…"
 
 #: src/gui/appwindow.cpp:215
 #, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout..."
-msgstr ""
+msgstr "החלפה/שליפה…"
 
 #: src/gui/appwindow.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Diff tree"
-msgstr ""
+msgstr "עץ הבדלים"
 
 #: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
 #, kde-format
@@ -701,7 +701,7 @@ msgstr "תגיות"
 #: src/gui/pages/tagswidget.ui:62
 #, kde-format
 msgid "Checkout to selected"
-msgstr ""
+msgstr "שליפה לנבחר"
 
 #. i18n: ectx: label, entry (diffAddedColor), group (Preferences)
 #: src/gui/settings/KommitSettings.kcfg:9
@@ -773,47 +773,47 @@ msgstr "נתיב לבינרי של Git:"
 #: src/gui/settings/settingspagediff.ui:17
 #, kde-format
 msgid "Added diff color:"
-msgstr ""
+msgstr "צבע הבדל שנוסף:"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel_2)
 #: src/gui/settings/settingspagediff.ui:27
 #, kde-format
 msgid "Removed diff color:"
-msgstr ""
+msgstr "צבע הבדל שהוסר:"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel_3)
 #: src/gui/settings/settingspagediff.ui:37
 #, kde-format
 msgid "Modified diff color:"
-msgstr ""
+msgstr "צבע הבדל שהשתנה:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerDiffTool)
 #: src/gui/settings/settingspagegit.ui:19
 #, kde-format
 msgid "Register kommit diff tool"
-msgstr ""
+msgstr "רישום כלי ההבדלים של kommit"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
 #: src/gui/settings/settingspagegit.ui:26
 #, kde-format
 msgid "Register kommit merge tool"
-msgstr ""
+msgstr "רישום כלי המיזוג של kommit"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/settings/settingspagegit.ui:37
 #, kde-format
 msgid "Git proxy:"
-msgstr ""
+msgstr "מתווך Git:"
 
 #: src/libkommit/commands/commandpull.cpp:62
 #, kde-format
 msgid "Already up to date."
-msgstr ""
+msgstr "כבר עדכני."
 
 #: src/libkommit/commands/commandpull.cpp:66
 #, kde-format
 msgid "Error"
-msgstr ""
+msgstr "שגיאה"
 
 #: src/libkommit/commands/commandswitchbranch.cpp:26
 #, kde-format
@@ -821,26 +821,28 @@ msgid ""
 "Your local changes to the following files would be overwritten by checkout. "
 "Please commit your changes or stash them before you switch branches."
 msgstr ""
+"השינויים המקומיים שערכת בקבצים הבאים יידרסו על ידי השליפה. נא לקבע את "
+"השינויים שלך או להטמין אותם לפני מעבר בין ענפים."
 
 #: src/libkommit/entities/remote.cpp:217
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "לא ידוע"
 
 #: src/libkommit/entities/remote.cpp:219
 #, kde-format
 msgid "Up to date"
-msgstr ""
+msgstr "עדכני"
 
 #: src/libkommit/entities/remote.cpp:221
 #, kde-format
 msgid "Fast forwardable"
-msgstr ""
+msgstr "אפשר להריץ קדימה"
 
 #: src/libkommit/entities/remote.cpp:223
 #, kde-format
 msgid "Local out of date"
-msgstr ""
+msgstr "המקומי לא עדכני"
 
 #: src/libkommit/models/branchesmodel.cpp:67
 #, kde-format
@@ -870,7 +872,7 @@ msgstr "הפניה"
 #: src/libkommitwidgets/dialogs/pulldialog.ui:26
 #, kde-format
 msgid "Remote"
-msgstr ""
+msgstr "מרוחק"
 
 #: src/libkommit/models/logsmodel.cpp:258
 #: src/libkommit/models/logsmodel.cpp:269
@@ -892,7 +894,7 @@ msgstr "תרשים"
 #: src/libkommit/models/tagsmodel.cpp:63
 #, kde-format
 msgid "Subject"
-msgstr ""
+msgstr "נושא"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommit)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -945,25 +947,25 @@ msgstr "יצירה"
 #, kde-format
 msgctxt "@action"
 msgid "Create..."
-msgstr ""
+msgstr "יצירה…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:35
 #, kde-format
 msgctxt "@action"
 msgid "Browse..."
-msgstr ""
+msgstr "עיון…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Switch"
-msgstr ""
+msgstr "החלפה"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:38
 #, kde-format
 msgctxt "@action"
 msgid "Diff"
-msgstr ""
+msgstr "הבדלים"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:39
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
@@ -972,52 +974,52 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Remove..."
-msgstr ""
+msgstr "הסרה…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:40
 #, kde-format
 msgctxt "@action"
 msgid "Note..."
-msgstr ""
+msgstr "הערה…"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Create new branch"
-msgstr ""
+msgstr "יצירת ענף חדש"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Branch name"
-msgstr ""
+msgstr "שם הענף"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Remove Branch"
-msgstr ""
+msgstr "הסרת ענף"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, kde-format
 msgctxt "@action"
 msgid "Diff..."
-msgstr ""
+msgstr "הבדלים…"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:19
 #, kde-format
 msgctxt "@action"
 msgid "Revert..."
-msgstr ""
+msgstr "הסגה…"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Browse"
-msgstr ""
+msgstr "עיון"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Checkout"
-msgstr ""
+msgstr "שליפה"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:47
@@ -1026,98 +1028,98 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Diff with working dir"
-msgstr ""
+msgstr "הבדלים מול תיקיית העבודה"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:39
 #, kde-format
 msgctxt "@action"
 msgid "Note"
-msgstr ""
+msgstr "הערה"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:43
 #, kde-format
 msgctxt "@action"
 msgid "Preview"
-msgstr ""
+msgstr "תצוגה מקדימה"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
 msgctxt "@action"
 msgid "Open"
-msgstr ""
+msgstr "פתיחה"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:45
 #, kde-format
 msgctxt "@action"
 msgid "Open with..."
-msgstr ""
+msgstr "פתיחה עם…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:48
 #, kde-format
 msgctxt "@action"
 msgid "Merge with working dir"
-msgstr ""
+msgstr "מיזוג עם תיקיית העבודה"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:50
 #, kde-format
 msgctxt "@action"
 msgid "Save as..."
-msgstr ""
+msgstr "שמירה בשם…"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
 msgctxt "@action"
 msgid "Log"
-msgstr ""
+msgstr "יומן"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:52
 #, kde-format
 msgctxt "@action"
 msgid "Blame"
-msgstr ""
+msgstr "אשמה"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:72
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
-msgstr ""
+msgstr "קובץ %1 (‎*.%1);;כל הקבצים (*)"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:24
 #, kde-format
 msgctxt "@action"
 msgid "New..."
-msgstr ""
+msgstr "חדש…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Rename..."
-msgstr ""
+msgstr "שינוי שם…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Change url..."
-msgstr ""
+msgstr "החלפת כתובת…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
-msgstr ""
+msgstr "להסיר את המרוחק הנוכחי?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Remove remote?"
-msgstr ""
+msgstr "להסיר מרוחק?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:62
 #, kde-format
 msgid "Unable to remove the selected remote"
-msgstr ""
+msgstr "לא ניתן להסיר את המרוחק הנבחר"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
 msgid "Change url"
-msgstr ""
+msgstr "החלפת כתובת"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
@@ -1127,7 +1129,7 @@ msgstr "כתובת"
 #: src/libkommitwidgets/actions/remotesactions.cpp:78
 #, kde-format
 msgid "Url for remote changed successfully"
-msgstr ""
+msgstr "כתובת המרוחק השתנתה בהצלחה"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
@@ -1143,7 +1145,7 @@ msgstr "שם חדש"
 #, kde-format
 msgctxt "@action"
 msgid "New stash..."
-msgstr ""
+msgstr "הטמנה חדשה..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
@@ -1155,7 +1157,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Apply..."
-msgstr ""
+msgstr "החלה…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
@@ -1226,52 +1228,52 @@ msgstr "שם ההטמנה"
 #, kde-format
 msgctxt "@action"
 msgid "Add..."
-msgstr ""
+msgstr "הוספה…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:41
 #, kde-format
 msgctxt "@action"
 msgid "Update..."
-msgstr ""
+msgstr "עדכון…"
 
 #. i18nc("@action", "Remove..."), this, &SubmoduleActions::deinit, false);
 #: src/libkommitwidgets/actions/submoduleactions.cpp:43
 #, kde-format
 msgctxt "@action"
 msgid "Sync..."
-msgstr ""
+msgstr "סנכרון…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
-msgstr ""
+msgstr "להסיר את התת־מודול הנבחר?"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Remove Submodule"
-msgstr ""
+msgstr "הסרת תת־מודול"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:82
 #, kde-format
 msgid "Unable to remove the module directory"
-msgstr ""
+msgstr "לא ניתן להסיר את תיקיית המודולים"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:89
 #, kde-format
 msgid "The submodule %1 removed"
-msgstr ""
+msgstr "תת־המודול %1 הוסר"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, kde-format
 msgctxt "@action"
 msgid "New tag..."
-msgstr ""
+msgstr "תגית חדשה…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:26
 #, kde-format
 msgctxt "@action"
 msgid "Checkout..."
-msgstr ""
+msgstr "שליפה…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1293,13 +1295,13 @@ msgstr "הסרת תגית"
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr ""
+msgstr "לשלוף את התגית הנבחרת?"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
 #, kde-format
 msgid "Changed files"
-msgstr ""
+msgstr "קבצים שהשתנו"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_10)
@@ -1307,37 +1309,37 @@ msgstr ""
 #: src/libkommitwidgets/widgets/commitdetails.ui:174
 #, kde-format
 msgid "Changed files:"
-msgstr ""
+msgstr "קבצים שהשתנו:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
 #: src/libkommitwidgets/windows/diffwindow.cpp:210
 #, kde-format
 msgid "Reload"
-msgstr ""
+msgstr "ריענון"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonStashChanges)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
 #, kde-format
 msgid "Stash changes"
-msgstr ""
+msgstr "הטמנת השינויים"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
 #, kde-format
 msgid "Commit/push"
-msgstr ""
+msgstr "קיבוע/דחיפה"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
 #, kde-format
 msgid "Commit/Push submodule: %1"
-msgstr ""
+msgstr "קיבוע/דחיפת תת־מודול: %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
 #, kde-format
 msgid "Changed submodules"
-msgstr ""
+msgstr "תת־מודולים שהשתנו"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
@@ -1349,7 +1351,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:14
 #, kde-format
 msgid "Cleanup repo"
-msgstr ""
+msgstr "ניקוי מאגר"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:23
@@ -1385,7 +1387,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/clonedialog.ui:14
 #, kde-format
 msgid "Clone a repository"
-msgstr ""
+msgstr "שיבוט מאגר"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -1394,7 +1396,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:28
 #, kde-format
 msgid "Url:"
-msgstr ""
+msgstr "כתובת:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:60
@@ -1402,7 +1404,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:35
 #, kde-format
 msgid "Directory:"
-msgstr ""
+msgstr "תיקייה:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRecursive)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:81
@@ -1414,7 +1416,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/clonedialog.ui:88
 #, kde-format
 msgid "Depth"
-msgstr ""
+msgstr "עומק"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -1427,19 +1429,19 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:66
 #, kde-format
 msgid "Branch"
-msgstr ""
+msgstr "ענף"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxOriginName)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:122
 #, kde-format
 msgid "Origin name"
-msgstr ""
+msgstr "שם מקור"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:162
 #, kde-format
 msgid "Cloning into:"
-msgstr ""
+msgstr "שיבוט אל:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
@@ -1471,45 +1473,45 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/clonedialog.ui:176
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "תווית טקסט"
 
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:103
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
 #, kde-format
 msgid "Commit and push"
-msgstr ""
+msgstr "קיבוע ודחיפה"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
 #, kde-format
 msgid "Commit/Push"
-msgstr ""
+msgstr "קיבוע/דחיפה"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:22
 #, kde-format
 msgid "Remote:"
-msgstr ""
+msgstr "מרוחק:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCurrentBranch)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:40
 #, kde-format
 msgid "Current branch"
-msgstr ""
+msgstr "ענף נוכחי"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExistingBranch)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:50
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:25
 #, kde-format
 msgid "Existing branch"
-msgstr ""
+msgstr "ענף קיים"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNewBranch)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:64
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:38
 #, kde-format
 msgid "New branch"
-msgstr ""
+msgstr "ענף חדש"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxForce)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:88
@@ -1537,7 +1539,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:98
 #, kde-format
 msgid "Create a commit"
-msgstr ""
+msgstr "יצירת קיבוע"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:107
@@ -1554,7 +1556,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:110
 #, kde-format
 msgid "Include status to the message"
-msgstr ""
+msgstr "לכלול מצב בהודעה"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAmend)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:120
@@ -1605,7 +1607,7 @@ msgstr "קבצים:"
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:195
 #, kde-format
 msgid "All"
-msgstr ""
+msgstr "הכול"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddIndexed)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:205
@@ -1625,7 +1627,7 @@ msgstr "מועד הוספה"
 #: src/libkommitwidgets/windows/diffwindow.cpp:275
 #, kde-format
 msgid "Removed"
-msgstr ""
+msgstr "הוסר"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddModified)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:235
@@ -1768,7 +1770,7 @@ msgstr "הרצה קדימה בלבד"
 #: src/libkommitwidgets/dialogs/pulldialog.ui:160
 #, kde-format
 msgid "Prune"
-msgstr ""
+msgstr "פינוי"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:39
 #, kde-format
@@ -1850,7 +1852,7 @@ msgstr "הצגת קובץ: %1"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.ui:14
 #, kde-format
 msgid "MainWindow"
-msgstr ""
+msgstr "חלון ראשי"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:44
 #, kde-format
@@ -1907,25 +1909,25 @@ msgstr "הקובץ בכל מקום"
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:102
 #, kde-format
 msgid ".gitignore in the repository root"
-msgstr ""
+msgstr "‎.gitignore בתיקיית העל של המאגר"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDirIgnoreFile)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:112
 #, kde-format
 msgid ".gitignore in the containing directory"
-msgstr ""
+msgstr "‎.gitignore בתיקייה המכילה"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExcludeFile)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:119
 #, kde-format
 msgid ".git/info/exclude"
-msgstr ""
+msgstr "‎.git/info/exclude"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, InitDialog)
 #: src/libkommitwidgets/dialogs/initdialog.ui:14
 #, kde-format
 msgid "Init git repo"
-msgstr ""
+msgstr "אתחול מאגר git"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:22
@@ -1975,6 +1977,11 @@ msgid ""
 "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>לציין איך מטופל מיזוג כאשר ההיסטוריה שמוזגה פנימה היא "
+"כבר צאצאית של ההיסטוריה הנוכחית.</p><p><br/></p><p><a href=\"https://git-scm."
+"com/docs/git-merge#Documentation/git-merge.txt---ff\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">מידע נוסף</span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
