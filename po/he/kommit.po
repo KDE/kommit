@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-02 01:59+0000\n"
-"PO-Revision-Date: 2025-11-02 09:25+0200\n"
+"PO-Revision-Date: 2025-11-04 10:08+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -233,7 +233,7 @@ msgstr "שכפול…"
 #, kde-format
 msgctxt "@action"
 msgid "Changed files…"
-msgstr ""
+msgstr "קבצים שהשתנו…"
 
 #: src/gui/appwindow.cpp:202
 #, kde-format
@@ -245,7 +245,7 @@ msgstr "מאגרים אחרונים"
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
-msgstr ""
+msgstr "ניקוי…"
 
 #: src/gui/appwindow.cpp:211
 #, kde-format
@@ -293,13 +293,13 @@ msgstr "הגדרות מאגר…"
 #, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
-msgstr ""
+msgstr "החלפה/שליפה…"
 
 #: src/gui/appwindow.cpp:239
 #, kde-format
 msgctxt "@action"
 msgid "Diff tree…"
-msgstr ""
+msgstr "עץ הבדלים…"
 
 #: src/gui/appwindow.cpp:242
 #, kde-format
@@ -350,32 +350,32 @@ msgstr "ציור התרשימים השתפר"
 #: src/gui/changelogsdata.cpp:63
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
-msgstr ""
+msgstr "שיפור בספרייה של kommit (הוסרו תלויות נוספות כגון kf)"
 
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Add changes logs dialog"
-msgstr ""
+msgstr "הוספת חלונית יומן שינויים"
 
 #: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Fix many small bugs"
-msgstr ""
+msgstr "תוקנו מגוון תקלות קטנות"
 
 #: src/gui/changelogsdata.cpp:72
 #, kde-format
 msgid "Fix bug in branch selection in commits widget"
-msgstr ""
+msgstr "תוקנה תקלה בבחירת ענף בווידג׳ט הקיבועים"
 
 #: src/gui/changelogsdata.cpp:79
 #, kde-format
 msgid "Improve merge algorithm and text rendering"
-msgstr ""
+msgstr "אלגוריתם המיזוג ותיצוג הטקסט השתפרו"
 
 #: src/gui/changelogsdata.cpp:80
 #, kde-format
 msgid "Improve diff window text rendering"
-msgstr ""
+msgstr "תיצוג הטקסט בחלון ההבדלים השתפר"
 
 #: src/gui/changelogsdata.cpp:81
 #, kde-format
@@ -385,28 +385,28 @@ msgstr "תפריט Dolphin תוקן"
 #: src/gui/changelogsdata.cpp:88
 #, kde-format
 msgid "Change icons to symbolic to response the theme changes"
-msgstr ""
+msgstr "החלפת הסמלים בייצוג סמלי בהמשך לשינויי ערכות העיצוב"
 
 #: src/gui/changelogsdata.cpp:89
 #, kde-format
 msgid "Fix crash on diff page"
-msgstr ""
+msgstr "תוקנה קריסה בעמוד ההבדלים"
 
 #: src/gui/changelogsdata.cpp:90
 #, kde-format
 msgid "Fix missing icons"
-msgstr ""
+msgstr "תוקנו סמלים חסרים"
 
 #: src/gui/changelogsdata.cpp:97
 #, kde-format
 msgid "Fix file viewer API"
-msgstr ""
+msgstr "תוקן ה־API של מציג הקבצים"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
 #, kde-format
 msgid "Change logs"
-msgstr ""
+msgstr "יומני שינויים"
 
 #: src/gui/commandargsparser.cpp:79
 #, kde-format
@@ -536,7 +536,7 @@ msgstr "קובץ בסיס"
 #: src/libkommitwidgets/widgets/commitdetails.ui:347
 #, kde-format
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLocalFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:39
@@ -1471,6 +1471,7 @@ msgid ""
 "Confirm this certificate by clicking OK, if this is not the correct "
 "certificate, click Cancel."
 msgstr ""
+"יש לאשר את האישור בלחיצה על אישור, אם זה לא האישור הנכון, יש ללחוץ על ביטול."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:33
@@ -1577,7 +1578,7 @@ msgstr "קיבוע/דחיפה"
 #, kde-format
 msgctxt "@title:window"
 msgid "Commit/Push submodule: %1"
-msgstr ""
+msgstr "קיבוע/דחיפת תת־מודול: %1"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:52
 #, kde-format
@@ -1595,19 +1596,19 @@ msgstr "תת־מודולים שהשתנו"
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
 #, kde-format
 msgid "The following submodules are dirty. Would you like to push them?"
-msgstr ""
+msgstr "תת־המודולים הבאים מלוכלכים. לדחוף אותם?"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:14
 #, kde-format
 msgid "Cleanup repo"
-msgstr ""
+msgstr "ניקוי במאגר"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:23
 #, kde-format
 msgid "Clean type"
-msgstr ""
+msgstr "סוג ניקיון"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNonIgnoredUntrackedFiles)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:29
