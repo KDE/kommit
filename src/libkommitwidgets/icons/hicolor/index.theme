@@ -1,5 +1,6 @@
 [Icon Theme]
 Name=Hicolor
+Name[ar]=الألوان الزاهية
 Name[ca]=Hicolor
 Name[ca@valencia]=Hicolor
 Name[es]=Hicolor
@@ -12,6 +13,7 @@ Name[sl]=Svetla barva
 Name[tr]=Yüksek Renk
 Name[uk]=Кольорова
 Comment=Application embedded icon theme
+Comment[ar]=سمة أيقونة مدمجة في التطبيق
 Comment[ca]=Tema d'icones incrustades d'aplicació
 Comment[ca@valencia]=Tema d'icones incrustades d'aplicació
 Comment[es]=Tema de iconos integrado en la aplicación
