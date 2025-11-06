@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:55+0000\n"
-"PO-Revision-Date: 2025-11-02 09:25+0200\n"
+"PO-Revision-Date: 2025-11-04 10:07+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1345,7 +1345,7 @@ msgstr "תת־מודולים שהשתנו"
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
 #, kde-format
 msgid "The following submodules are dirty. Would you like to push them?"
-msgstr ""
+msgstr "תת־המודולים הבאים מלוכלכים. לדחוף אותם?"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:14
@@ -1357,7 +1357,7 @@ msgstr "ניקוי מאגר"
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:23
 #, kde-format
 msgid "Clean type"
-msgstr ""
+msgstr "סוג ניקיון"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNonIgnoredUntrackedFiles)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:29
@@ -1467,7 +1467,7 @@ msgstr "שיבוט אל:"
 #: src/libkommitwidgets/widgets/commitdetails.ui:292
 #, kde-format
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #. i18n: ectx: property (text), widget (QLabel, labelMessage)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:176
