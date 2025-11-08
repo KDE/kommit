@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-02 01:59+0000\n"
-"PO-Revision-Date: 2025-11-04 10:08+0200\n"
+"PO-Revision-Date: 2025-11-07 12:05+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -52,7 +52,7 @@ msgstr "משיכה"
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:64
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "אחזור"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonPush)
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPush)
@@ -257,7 +257,7 @@ msgstr "משיכה…"
 #, kde-format
 msgctxt "@action"
 msgid "Fetch…"
-msgstr ""
+msgstr "אחזור…"
 
 #: src/gui/appwindow.cpp:219 src/libkommitwidgets/actions/tagsactions.cpp:29
 #, kde-format
@@ -827,7 +827,7 @@ msgstr "שם הפניה"
 #: src/libkommitwidgets/models/branchesmodel.cpp:99
 #, kde-format
 msgid "Upstream"
-msgstr ""
+msgstr "מקור"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:170
@@ -898,6 +898,14 @@ msgid ""
 "ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>לשמור את השינויים המקומיים שלך לרשומת הטמנה חדשה "
+"ולהסיג אותם בחזרה לראש/HEAD (בעץ העבודה ובמפתח). החלק הוא בגדר רשות ומספק "
+"תיאור לצד מצב ההטמנה.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/"
+"git-stash#Documentation/git-stash.txt-push-p--patch-k--no-keep-index-u--"
+"include-untracked-a--all-q--quiet-m--messageltmessagegt--pathspec-from-"
+"fileltfilegt--pathspec-file-nul--ltpathspecgt82308203\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">פרטים נוספים…</span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
 #: src/gui/pages/stasheswidget.ui:52
@@ -921,6 +929,10 @@ msgid ""
 "txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
 "underline; color:#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>החלת הטמעה על גבי תיקיית העבודה הנוכחית</p><p><a href="
+"\"https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-apply--"
+"index-q--quietltstashgt\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">פרטים נוספים…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
 #: src/gui/pages/stasheswidget.ui:69
@@ -1614,25 +1626,25 @@ msgstr "סוג ניקיון"
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:29
 #, kde-format
 msgid "Remove non-ignored untracked files"
-msgstr ""
+msgstr "הסרת כל הקבצים שאינם במעקב ואינם בהתעלמות"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllUntrackedFiles)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:39
 #, kde-format
 msgid "Remove all untracked files"
-msgstr ""
+msgstr "הסרת כל הקבצים שאינם במעקב"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:46
 #, kde-format
 msgid "Remove ignored files"
-msgstr ""
+msgstr "הסרת קבצים בהתעלמות"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:56
 #, kde-format
 msgid "Remove untracked directories"
-msgstr ""
+msgstr "הסרת תיקיות שאינן במעקב"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloneDialog)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:14
@@ -1661,7 +1673,7 @@ msgstr "תיקייה:"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:81
 #, kde-format
 msgid "Recursive"
-msgstr ""
+msgstr "רקורסיבי"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxDepth)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:88
@@ -1752,6 +1764,14 @@ msgid ""
 "push#Documentation/git-push.txt--f\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>בדרך כלל, הפקודה מסרבת לעדכן הפניה מרוחקת שאינה צאצאית "
+"של ההפניה המקומי ששימשה לדרוס אותה. כמו כן, כשנעשה שימוש ב־‎--force-with-"
+"lease, הפקודה מסרבת לעדכן את ההפניה המרוחק שהערך הנוכחי שלה לא תואם את הצפוי."
+"</p><p>הדגלון הזה משבית את הבדיקות האלה, ויכול לגרום למאגר המרוחק לאבד "
+"קיבועים, יש להשתמש בו בזהירות.</p><p><br/></p><p><a href=\"https://git-scm."
+"com/docs/git-push#Documentation/git-push.txt--f\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">פרטים נוספים…</span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:91
@@ -1759,7 +1779,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:74
 #, kde-format
 msgid "Force"
-msgstr ""
+msgstr "בכוח"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxMakeCommit)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:98
@@ -1777,6 +1797,11 @@ msgid ""
 "commit.txt---status\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>לכלול את הפלט של &quot;git status&quot; בתבנית הודעת "
+"הקיבוע בעת שימוש בעורך להכנת הודעת הקיבוע. </p><p><a href=\"https://git-scm."
+"com/docs/git-commit#Documentation/git-commit.txt---status\"><span style=\" "
+"text-decoration: underline; color:#2980b9;\">More information</span></a></"
+"p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:110
@@ -1794,12 +1819,16 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More info</span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p>יש להחליף את קצה הענף הנוכחי על ידי יצירת קיבוע חדש.</"
+"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/"
+"git-commit.txt---amend\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">פרטים נוספים</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAmend)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:123
 #, kde-format
 msgid "Amend to previous commit"
-msgstr ""
+msgstr "שילוב עם הקיבוע הקודם"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -2227,6 +2256,12 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>מנגנון המיזוג (פקודות git merge ו־git pull) מאפשר "
+"לבחור אסטרטגיות מיזוג עם האפשרות ‎-s. חלק מהאסטרטגיות מקבלות אפשרויות משלהן, "
+"אפשר להעביר אותן דרך ארגומנטים של ‎-X&lt;option&gt; ל־git merge ו/או ל־git "
+"pull.</p><p><a href=\"https://git-scm.com/docs/merge-strategies\"><span "
+"style=\" text-decoration: underline; color:#2980b9;\">פרטים נוספים</span></"
+"a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:46
@@ -2415,6 +2450,12 @@ msgid ""
 "algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>להשתמש באלגוריתם הבדלים שונה בזמן, המיזוג, מה שיכול "
+"לסייע להימנע ממיזוגים מבולגנים שקורים עקב שורות לא חשובות שתואמות (כגון "
+"סוגריים מסולסלים מפונקציות נפרדות).</p><p><br/></p><p><a href=\"https://git-"
+"scm.com/docs/git-merge#Documentation/git-merge.txt-diff-"
+"algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">פרטים נוספים</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:225
