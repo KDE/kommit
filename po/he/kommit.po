@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:55+0000\n"
-"PO-Revision-Date: 2025-11-07 12:05+0200\n"
+"PO-Revision-Date: 2025-11-08 21:50+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -257,7 +257,7 @@ msgstr "משיכה…"
 #, kde-format
 msgctxt "@action"
 msgid "Fetch..."
-msgstr ""
+msgstr "אחזור…"
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
@@ -275,7 +275,7 @@ msgstr "מיזוג…"
 #, kde-format
 msgctxt "@action"
 msgid "Diff branches..."
-msgstr ""
+msgstr "הבדל בין ענפים…"
 
 #: src/gui/appwindow.cpp:209 src/libkommitwidgets/actions/fileactions.cpp:53
 #, kde-format
@@ -1163,7 +1163,7 @@ msgstr "הטמנה חדשה..."
 #, kde-format
 msgctxt "@action"
 msgid "Pop..."
-msgstr ""
+msgstr "הקפצה…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
@@ -1823,13 +1823,13 @@ msgstr "הצגת סוג"
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:33
 #, kde-format
 msgid "Regular view"
-msgstr ""
+msgstr "תצוגה רגילה"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:40
 #, kde-format
 msgid "Differential view"
-msgstr ""
+msgstr "תצוגת הבדלים"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -1869,7 +1869,7 @@ msgstr "התצוגה המקדימה נסגרת"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgid "Please wait while the preview is being closed..."
-msgstr ""
+msgstr "נא להמתין לסגירת התצוגה המקדימה…"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
@@ -2258,6 +2258,10 @@ msgid ""
 "\" text-decoration: underline; color:#007af4;\">More informations...</span></"
 "a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>האם להחליף cr/lf או לא</p><p><a href=\"https://git-scm."
+"com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
+"\" text-decoration: underline; color:#007af4;\">פרטים נוספים…</span></a></"
+"p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:59
@@ -2275,6 +2279,10 @@ msgid ""
 "decoration: underline; color:#007af4;\">More informations...</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>אומר ל־Git אם חלק ההפעלה בעץ העבודה יכובד. </p><p><a "
+"href=\"https://git-scm.com/docs/git-config#Documentation/git-config.txt-"
+"corefileMode\"><span style=\" text-decoration: underline; color:#007af4;"
+"\">פרטים נוספים…</span></a></p></body></html>"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
 #, kde-format
@@ -2332,6 +2340,19 @@ msgid ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
 "size:9pt;\"><br /></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"size:9pt;\"><br /></p></body></html>"
 
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:35
 #, kde-format
@@ -2706,7 +2727,7 @@ msgstr "להשאיר את הקובץ שלהם"
 #: src/libkommitwidgets/windows/mergewindow.cpp:317
 #, kde-format
 msgid "Blocks"
-msgstr ""
+msgstr "מקטעים"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:321
 #, kde-format
