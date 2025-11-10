@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-02 01:59+0000\n"
-"PO-Revision-Date: 2025-10-31 11:50+0100\n"
+"PO-Revision-Date: 2025-11-02 15:29+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -401,7 +401,7 @@ msgstr "Corregge le icone mancanti"
 #: src/gui/changelogsdata.cpp:97
 #, kde-format
 msgid "Fix file viewer API"
-msgstr ""
+msgstr "Corregge l'API del visore di file"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -2155,7 +2155,7 @@ msgstr "Finestra principale"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.ui:94
 #, kde-format
 msgid "Can't show the binary file!"
-msgstr ""
+msgstr "Impossibile mostrare il file binario!"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
