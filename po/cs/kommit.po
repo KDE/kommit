@@ -2974,10 +2974,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
-#, fuzzy, kde-format
-#| msgid "Unchanged"
+#, kde-format
 msgid "Hide unchanged"
-msgstr "Nezměněno"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
@@ -3101,7 +3100,3 @@ msgstr ""
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>Všechny konflikty byly vyřešeny</span> "
-
-#~ msgctxt "@title:window"
-#~ msgid "Closing preview"
-#~ msgstr "Zavírám náhled"

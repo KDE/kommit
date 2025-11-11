@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-02 01:59+0000\n"
-"PO-Revision-Date: 2025-11-08 20:35+0200\n"
+"PO-Revision-Date: 2025-11-10 14:07+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -2331,6 +2331,13 @@ msgid ""
 "txt---allow-unrelated-histories\"><span style=\" text-decoration: underline; "
 "color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>כברירת מחדל, פקודת git merge מסרבת למזג היסטוריות שלא "
+"חולקות הורה משותף. אפשר להשתמש באפשרות הזאת כדי למזג היסטוריות של שני מיזמים "
+"שהחלו את חייהם בנפרד זה מזה. כיוון שזה מאורע נדיר יחסית, אף משתנה בהגדרות "
+"מפעיל את זה כברירת מחדל וכנראה שגם לא יהיה כזה בעתיד.</p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---"
+"allow-unrelated-histories\"><span style=\" text-decoration: underline; color:"
+"#007af4;\">פרטים נוספים</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:97
@@ -2389,6 +2396,12 @@ msgid ""
 "space-change\"><span style=\" text-decoration: underline; color:#007af4;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>מתייחס לשורות עם שינויים בסוגים מוגדרים של רווחים. "
+"כאילו לא גרמו לשינויים לטובת מיזוג תלת־כיווני. שינויים ברווחים בערבוב עם "
+"שינויים אחרים לשורה לא נפסחים.</p><p><br/></p><p><a href=\"https://git-scm."
+"com/docs/git-merge#Documentation/git-merge.txt-ignore-space-change\"><span "
+"style=\" text-decoration: underline; color:#007af4;\">פרטים נוספים</span></"
+"a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:157
@@ -2431,7 +2444,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/mergedialog.ui:197
 #, kde-format
 msgid "Renormalize"
-msgstr ""
+msgstr "נרמול מחדש"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:211
