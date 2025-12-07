@@ -137,7 +137,7 @@ const QList<Branch> &Remote::branches()
         auto owner = Repository::owner(git_remote_owner(d->remote));
 
         auto branches = owner->branches()->allBranches();
-        for (auto const &branch : branches)
+        for (auto const &branch : std::as_const(branches))
             if (branch.remoteName() == name())
                 d->branches << branch;
     }
@@ -156,13 +156,7 @@ bool Remote::connect(Direction direction, RemoteCallbacks *callBacks) const
     if (callBacks) {
         callBacks->apply(&cb, Repository::owner(git_remote_owner(d->remote)));
     }
-    return 0
-        == SequenceRunner::runSingle(git_remote_connect,
-                                     d->remote,
-                                     static_cast<git_direction>(direction),
-                                     &cb,
-                                     (const git_proxy_options *)NULL,
-                                     (const git_strarray *)NULL);
+    return 0 == git_remote_connect(d->remote, static_cast<git_direction>(direction), &cb, (const git_proxy_options *)NULL, (const git_strarray *)NULL);
 }
 
 git_remote *Remote::remotePtr() const

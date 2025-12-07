@@ -22,11 +22,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
     f(actionDiff,           i18n("Diff"),               PACK(QStringLiteral("diff"), mPath),                QLatin1String())                                   \
     f(actionIgnoreFile,     i18n("Ignore file"),        PACK(QStringLiteral("ignore"), mPath),              QStringLiteral("git_ignore"))                      \
     f(actionHistory,        i18n("History"),            PACK(QStringLiteral("history"), mPath),             QLatin1String())                                   \
-    f(actionBlame,          i18n("Blame"),              PACK(QStringLiteral("blame"), mPath),               QLatin1String(":/hicolor/scalable/actions/git_keep_mine_before_their.svg"))                                   \
+    f(actionBlame,          i18n("Blame"),              PACK(QStringLiteral("blame"), mPath),               QLatin1String())                                   \
     f(actionAdd,            i18n("Add"),                PACK(QStringLiteral("add"), mPath),                 QLatin1String())                                   \
     f(actionRemove,         i18n("Remove"),             PACK(QStringLiteral("remove"), mPath),              QLatin1String())                                   \
     f(actionCreateTag,      i18n("Create tag"),         PACK(QStringLiteral("create-tag"), mPath),          QLatin1String())                                   \
     f(actionCleanup,        i18n("Cleanup"),            PACK(QStringLiteral("cleanup"), mPath),             QLatin1String())                                   \
+    f(actionConflicts,      i18n("Conflicts"),          PACK(QStringLiteral("conflicts"), mPath),           QLatin1String())                                   \
     f(actionDiffBranches,   i18n("Diff branches"),      PACK(QStringLiteral("diff_branches"), mPath),       QLatin1String())
 
 // clang-format on

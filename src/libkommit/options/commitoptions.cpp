@@ -28,6 +28,8 @@ public:
     git_signature *author{};
     git_signature *committer{};
 
+    Signature auth;
+
     QString authorName;
     QString authorEmail;
     QDateTime authTime;

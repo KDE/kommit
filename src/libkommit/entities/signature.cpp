@@ -53,6 +53,7 @@ SignaturePrivate::~SignaturePrivate()
 Signature::Signature()
     : d{new SignaturePrivate{}}
 {
+    // git_signature_now(&d->signature, "", "");
 }
 
 Signature::Signature(git_signature *signature)
@@ -115,7 +116,13 @@ QString Signature::email() const
 
 QDateTime Signature::time() const
 {
-    QTimeZone timeZone{d->signature->when.offset};
-    return QDateTime::fromSecsSinceEpoch(d->signature->when.time, timeZone);
+    if (d->signature->when.sign == '+') {
+        QTimeZone timeZone{d->signature->when.offset * 60};
+        return QDateTime::fromSecsSinceEpoch(d->signature->when.time, timeZone);
+    } else {
+        QTimeZone timeZone{-d->signature->when.offset * 60};
+        return QDateTime::fromSecsSinceEpoch(d->signature->when.time, timeZone);
+    }
 }
+
 }

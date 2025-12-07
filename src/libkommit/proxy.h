@@ -30,8 +30,8 @@ public:
     void setType(Type type);
 
 Q_SIGNALS:
-    void credentialRequested(const QString &url, Credential *cred, bool *accept);
-    void certificateCheck(const Certificate &cert, bool *accept);
+    void credentialRequested(const QString &url, Git::Credential *cred, bool *accept);
+    void certificateCheck(const Git::Certificate &cert, bool *accept);
 
 private:
     QString mUrl;

@@ -21,8 +21,10 @@ namespace Git
 class RemoteCallbacks;
 class Repository;
 class FetchOptionsPrivate;
+class Proxy;
 class LIBKOMMIT_EXPORT FetchOptions : public QObject
 {
+    Q_OBJECT
 public:
     explicit FetchOptions(QObject *parent = nullptr);
 
@@ -47,6 +49,9 @@ public:
 
     void apply(git_fetch_options *opts) const;
 
+    [[nodiscard]] const Remote &remote() const;
+    void setRemote(const Remote &remote);
+
     [[nodiscard]] Redirect redirect() const;
     void setRedirect(Redirect redirect);
 
@@ -57,7 +62,7 @@ public:
     void setUpdateFlags(const UpdateFlags &updateFlags);
 
     [[nodiscard]] RemoteCallbacks *remoteCallbacks() const;
-    void setRemoteCallbacks(RemoteCallbacks *remoteCallbacks);
+    [[nodiscard]] Proxy *proxy() const;
 
     [[nodiscard]] DownloadTags downloadTags() const;
     void setDownloadTags(DownloadTags downloadTags);
@@ -67,6 +72,9 @@ public:
 
     [[nodiscard]] Branch branch() const;
     void setBranch(const Branch &branch);
+
+Q_SIGNALS:
+    void finished(bool success);
 
 private:
     QSharedPointer<FetchOptionsPrivate> d;

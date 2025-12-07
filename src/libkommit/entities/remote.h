@@ -39,6 +39,7 @@ public:
     };
     Status status{Status::Unknown};
 
+    Q_DECL_DEPRECATED
     [[nodiscard]] QString statusText() const;
 };
 

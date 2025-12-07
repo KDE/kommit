@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "reference.h"
 #include "remotecallbacks.h"
 #include "repository.h"
+#include "proxy.h"
 
 namespace Git
 {
@@ -27,6 +28,8 @@ public:
     FetchOptions::Prune prune{FetchOptions::Prune::Unspecified};
     Repository *repo;
     Branch branch;
+    Proxy proxy;
+    Remote remote;
 };
 
 FetchOptions::FetchOptions(Repository *parent)
@@ -44,6 +47,16 @@ void FetchOptions::apply(git_fetch_options *opts) const
     opts->update_fetchhead = static_cast<unsigned int>(d->updateFlags);
 
     d->remoteCallbacks->apply(&opts->callbacks, d->repo);
+}
+
+const Remote &FetchOptions::remote() const
+{
+    return d->remote;
+}
+
+void FetchOptions::setRemote(const Remote &remote)
+{
+    d->remote = remote;
 }
 
 Redirect FetchOptions::redirect() const
@@ -81,9 +94,9 @@ RemoteCallbacks *FetchOptions::remoteCallbacks() const
     return d->remoteCallbacks;
 }
 
-void FetchOptions::setRemoteCallbacks(RemoteCallbacks *remoteCallbacks)
+Proxy *FetchOptions::proxy() const
 {
-    d->remoteCallbacks = remoteCallbacks;
+    return &d->proxy;
 }
 
 FetchOptions::DownloadTags FetchOptions::downloadTags() const

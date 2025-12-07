@@ -199,6 +199,7 @@ const RemoteCallbacks *Fetch::remoteCallbacks() const
     Q_D(const Fetch);
     return &d->callbacks;
 }
+
 const Proxy *Fetch::proxy() const
 {
     Q_D(const Fetch);

@@ -31,6 +31,7 @@
 #include "observers/fetchobserver.h"
 #include "observers/pushobserver.h"
 #include "options/blameoptions.h"
+#include "proxy.h"
 #include "remotecallbacks.h"
 #include "strarray.h"
 
@@ -227,56 +228,56 @@ bool Repository::isValid() const
     return d->isValid;
 }
 
-bool Repository::fetch(const QString &remoteName, FetchObserver *observer)
-{
-    Q_D(Repository);
+// bool Repository::fetch(const QString &remoteName, FetchObserver *observer)
+// {
+//     Q_D(Repository);
 
-    git_remote *remote;
+//     git_remote *remote;
 
-    BEGIN
+//     BEGIN
 
-    STEP git_remote_lookup(&remote, d->repo, remoteName.toUtf8().data());
+//     STEP git_remote_lookup(&remote, d->repo, remoteName.toUtf8().data());
 
-    if (IS_ERROR) {
-        END;
-        return false;
-    }
+//     if (IS_ERROR) {
+//         END;
+//         return false;
+//     }
 
-    git_fetch_options fetch_opts = GIT_FETCH_OPTIONS_INIT;
+//     git_fetch_options fetch_opts = GIT_FETCH_OPTIONS_INIT;
 
-    if (observer) {
-        observer->applyOfFetchOptions(&fetch_opts);
-    }
+//     if (observer) {
+//         observer->applyOfFetchOptions(&fetch_opts);
+//     }
 
-    STEP git_remote_fetch(remote, NULL, &fetch_opts, "fetch");
-    git_remote_free(remote);
+//     STEP git_remote_fetch(remote, NULL, &fetch_opts, "fetch");
+//     git_remote_free(remote);
 
-    PRINT_ERROR;
+//     PRINT_ERROR;
 
-    return IS_OK;
-}
+//     return IS_OK;
+// }
 
-bool Repository::fetch(const Remote &remote, FetchOptions *options)
-{
-    if (!remote.isConnected() && !remote.connect(Git::Remote::Direction::Fetch, options->remoteCallbacks()))
-        return false;
+// bool Repository::fetch(const Remote &remote, FetchOptions *options)
+// {
+//     if (!remote.isConnected() && !remote.connect(Git::Remote::Direction::Fetch, options->remoteCallbacks()))
+//         return false;
 
-    git_fetch_options opts;
-    git_fetch_options_init(&opts, GIT_FETCH_OPTIONS_VERSION);
+//     git_fetch_options opts;
+//     git_fetch_options_init(&opts, GIT_FETCH_OPTIONS_VERSION);
 
-    options->apply(&opts);
+//     options->apply(&opts);
 
-    int ret;
-    if (options->branch().isNull()) {
-        StrArray refSpecs{1};
-        refSpecs.add(options->branch().refName());
-        ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), &refSpecs, &opts, "fetch");
-    } else {
-        ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), (const git_strarray *)NULL, &opts, "fetch");
-    }
+//     int ret;
+//     if (options->branch().isNull()) {
+//         StrArray refSpecs{1};
+//         refSpecs.add(options->branch().refName());
+//         ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), &refSpecs, &opts, "fetch");
+//     } else {
+//         ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), (const git_strarray *)NULL, &opts, "fetch");
+//     }
 
-    return GIT_OK == ret;
-}
+//     return GIT_OK == ret;
+// }
 
 bool Repository::isIgnored(const QString &path)
 {
@@ -806,6 +807,41 @@ bool Repository::reset(const Commit &commit, ResetType type) const
         Q_EMIT currentBranchChanged();
 
     return r.isSuccess();
+}
+
+bool Repository::fetch(FetchOptions *options)
+{
+    if (options->remote().isNull())
+        return -1;
+
+    if (!options->remote().isConnected() && !options->remote().connect(Git::Remote::Direction::Fetch, options->remoteCallbacks()))
+        return -1;
+
+    git_fetch_options opts = GIT_FETCH_OPTIONS_INIT;
+    git_fetch_options_init(&opts, GIT_FETCH_OPTIONS_VERSION);
+
+    options->remoteCallbacks()->apply(&opts.callbacks, this);
+    options->proxy()->apply(&opts.proxy_opts);
+
+    // set variables
+    if (options->depth() > -1)
+        opts.depth = options->depth();
+
+    opts.download_tags = static_cast<git_remote_autotag_option_t>(options->downloadTags());
+    opts.follow_redirects = static_cast<git_remote_redirect_t>(options->redirect());
+    opts.prune = static_cast<git_fetch_prune_t>(options->prune());
+
+    int ret;
+    if (!options->branch().isNull()) {
+        StrArray refSpecs{1};
+        refSpecs.add(options->branch().refName());
+        ret = SequenceRunner::runSingle(git_remote_fetch, options->remote().remotePtr(), &refSpecs, &opts, "fetch");
+    } else {
+        ret = SequenceRunner::runSingle(git_remote_fetch, options->remote().remotePtr(), (const git_strarray *)NULL, &opts, "fetch");
+    }
+
+    emit options->finished(ret);
+    return ret;
 }
 
 QString Repository::run(const AbstractCommand &cmd) const

@@ -36,7 +36,7 @@ public:
 
 private:
     void gitPathChanged();
-    void gitCurrentBranchChanged();
+    void gitCurrentBranchChanged() const;
     void settingsUpdated();
     void repoStatus();
     void initRepo();
@@ -61,7 +61,7 @@ private:
     void addPage(const QString &actionName, const QString &iconName);
     int pagesCount{0};
     void init();
-    void updateActions(bool enabled);
+    void updateActions(bool enabled) const;
 
     RepositoryData *mGitData{nullptr};
 

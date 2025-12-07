@@ -46,8 +46,9 @@ void AbstractAction::runAsync()
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QtConcurrent::run(this, &AbstractAction::run);
 #else
-    auto w = new Worker{this};
-    QThreadPool::globalInstance()->start(w);
+    QtConcurrent::run(&AbstractAction::run, this);
+    // auto w = new Worker{this};
+    // QThreadPool::globalInstance()->start(w);
 #endif
 }
 

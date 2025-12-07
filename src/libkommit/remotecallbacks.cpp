@@ -24,7 +24,7 @@ struct FetchBridge {
     Repository *manager;
 };
 
-int git_helper_update_tips_cb(const char *refname, const git_oid *a, const git_oid *b, void *data)
+int git_helper_update_tips_cb(const char *refname, const git_oid *a, const git_oid *b, git_refspec *refs, void *data)
 {
     auto bridge = reinterpret_cast<FetchBridge *>(data);
 
@@ -32,10 +32,11 @@ int git_helper_update_tips_cb(const char *refname, const git_oid *a, const git_o
         return GIT_EUSER;
 
     auto ref = bridge->manager->references()->findByName(QString{refname});
+    RefSpec refSpec{refs};
     Oid oidA{a};
     Oid oidB{b};
 
-    Q_EMIT bridge->fetch->updateRef(ref, oidA, oidB);
+    Q_EMIT bridge->fetch->updateRef(ref, oidA, oidB, refSpec);
     return 0;
 }
 
@@ -85,7 +86,7 @@ int git_helper_credentials_cb(git_credential **out, const char *url, const char 
     if (!accept)
         return GIT_PASSTHROUGH;
 
-    git_credential_userpass_plaintext_new(out, cred.username().toLocal8Bit().data(), cred.password().toLocal8Bit().data());
+    return git_credential_userpass_plaintext_new(out, cred.username().toLocal8Bit().data(), cred.password().toLocal8Bit().data());
 
     return 0;
 }
@@ -157,7 +158,8 @@ void RemoteCallbacks::apply(git_remote_callbacks *callbacks, Repository *repo)
     auto bridge = new Callbacks::FetchBridge;
     bridge->manager = repo;
     bridge->fetch = this;
-    callbacks->update_tips = &Callbacks::git_helper_update_tips_cb;
+    // callbacks->update_tips = &Callbacks::git_helper_update_tips_cb;
+    callbacks->update_refs = &Callbacks::git_helper_update_tips_cb;
     callbacks->sideband_progress = &Callbacks::git_helper_sideband_progress_cb;
     callbacks->transfer_progress = &Callbacks::git_helper_transfer_progress_cb;
     callbacks->credentials = &Callbacks::git_helper_credentials_cb;

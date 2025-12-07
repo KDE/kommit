@@ -105,9 +105,10 @@ public:
     bool reset(const Commit &commit, ResetType type) const;
 
     // remotes
-    bool fetch(const QString &remoteName, FetchObserver *observer = nullptr);
+    bool fetch(FetchOptions *options);
+    // bool fetch(const QString &remoteName, FetchObserver *observer = nullptr);
 
-    bool fetch(const Remote &remote, FetchOptions *options);
+    // bool fetch(const Remote &remote, FetchOptions *options);
 
     // config
     [[nodiscard]] QString config(const QString &name, ConfigType type = ConfigLocal) const;

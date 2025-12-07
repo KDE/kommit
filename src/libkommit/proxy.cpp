@@ -55,6 +55,7 @@ int git_helper_transport_certificate_check(git_cert *cert, int valid, const char
     return b ? 0 : -1;
 }
 }
+
 void Proxy::apply(git_proxy_options *opts)
 {
     opts->type = static_cast<git_proxy_t>(mType);

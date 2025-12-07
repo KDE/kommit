@@ -27,6 +27,7 @@ RemotesActions::RemotesActions(Git::Repository *git, QWidget *parent)
     _actionRename = addActionDisabled(i18nc("@action", "Rename…"), this, &RemotesActions::rename);
     _actionChangeUrl = addActionDisabled(i18nc("@action", "Change url…"), this, &RemotesActions::changeUrl);
     _actionUpdate = nullptr;
+    _actionCreate->setEnabled(true);
 }
 
 const QString &RemotesActions::remoteName() const
@@ -38,7 +39,6 @@ void RemotesActions::setRemoteName(const QString &newRemoteName)
 {
     mRemoteName = newRemoteName;
 
-    setActionEnabled(_actionRemove, true);
     setActionEnabled(_actionRename, true);
     setActionEnabled(_actionChangeUrl, true);
 }

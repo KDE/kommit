@@ -37,12 +37,12 @@ public:
 
 Q_SIGNALS:
     void message(const QString &message);
-    void transferProgress(const FetchTransferStat *stat);
-    void packProgress(const PackProgress *p);
-    void updateRef(const Reference &reference, const Oid &a, const Oid &b);
-    void credentialRequested(const QString &url, Credential *cred, bool *accept);
-    void certificateCheck(const Certificate &cert, bool *accept);
-    void remoteReady(const Remote &remote, Remote::Direction direction, QString *newUrl);
+    void transferProgress(const Git::FetchTransferStat *stat);
+    void packProgress(const Git::PackProgress *p);
+    void updateRef(const Git::Reference &reference, const Git::Oid &a, const Git::Oid &b, Git::RefSpec refSpec);
+    void credentialRequested(const QString &url, Git::Credential *cred, bool *accept);
+    void certificateCheck(const Git::Certificate &cert, bool *accept);
+    void remoteReady(const Git::Remote &remote, Git::Remote::Direction direction, QString *newUrl);
 };
 
 } // namespace Git

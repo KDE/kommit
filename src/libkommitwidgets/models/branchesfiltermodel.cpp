@@ -46,12 +46,10 @@ void BranchesFilterModel::setTreeModel(TreeModel *newTreeModel)
 {
     Q_D(BranchesFilterModel);
 
-    beginResetModel();
+    // beginResetModel();
     d->treeModel = newTreeModel;
     setSourceModel(newTreeModel);
-    endResetModel();
-
-    qDebug() << "Source model set:" << (sourceModel() != nullptr);
+    // endResetModel();
 }
 
 QString BranchesFilterModel::filterTerm() const

@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/remotescache.h"
 #include "testcommon.h"
 
+#include <Kommit/FetchOptions>
 #include <QTest>
 #include <observers/fetchobserver.h>
 #include <repository.h>
@@ -53,13 +54,14 @@ void RemoteTest::addRemote()
 
 void RemoteTest::fetch()
 {
-    auto observer = new Git::FetchObserver{mManager};
-    qDebug() << mManager->remotes()->allNames();
-    auto ok = mManager->fetch("origin", observer);
-    QVERIFY(ok);
+    auto fetchOptions = new Git::FetchOptions;
 
-    // QCOMPARE(observer->receivedObjects(), observer->totalObjects());
-    delete observer;
+    auto remote = mManager->remotes()->findByName("origin");
+    QVERIFY(!remote.isNull());
+
+    fetchOptions->setRemote(remote);
+    auto ok = mManager->fetch(fetchOptions);
+    QVERIFY(ok);
 }
 
 void RemoteTest::renameRemote()

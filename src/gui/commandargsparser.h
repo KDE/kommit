@@ -21,12 +21,12 @@ struct ArgParserReturn {
     int code{0};
 
     ArgParserReturn() = default;
-    ArgParserReturn(int code)
+    explicit ArgParserReturn(int code)
         : type{ReturnCode}
         , code{code}
     {
     }
-    ArgParserReturn(ParseReturnType type)
+    explicit ArgParserReturn(ParseReturnType type)
         : type{type}
         , code{0}
     {

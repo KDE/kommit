@@ -70,7 +70,7 @@ int main(int argc, char **argv)
 
     KAboutData::setApplicationData(aboutData);
     KCrash::initialize();
-    application.setWindowIcon(QIcon::fromTheme(QStringLiteral("kommit")));
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kommit")));
 
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
@@ -83,9 +83,9 @@ int main(int argc, char **argv)
 #endif
 
     CommandArgsParser p;
-    const auto w = p.run(application.arguments());
+    const auto w = p.run(QApplication::arguments());
     if (w.type == ExecApp)
-        return application.exec();
+        return QApplication::exec();
 
     return w.code;
 }

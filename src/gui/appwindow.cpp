@@ -140,7 +140,7 @@ void AppWindow::gitPathChanged()
     setWindowFilePath(mGitData->manager()->path());
 }
 
-void AppWindow::gitCurrentBranchChanged()
+void AppWindow::gitCurrentBranchChanged() const
 {
     if (mGitData->manager()->isValid()) {
         QString statusText = i18n("Current branch: %1", mGitData->manager()->branches()->currentName());
@@ -162,7 +162,7 @@ void AppWindow::settingsUpdated()
     mGitData->commitsModel()->setCalendarType(KommitSettings::calendarType());
 }
 
-void AppWindow::updateActions(bool enabled)
+void AppWindow::updateActions(const bool enabled) const
 {
     mRepoStatusAction->setEnabled(enabled);
     mRepoCleanupAction->setEnabled(enabled);
