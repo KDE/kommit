@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2025-02-09 08:33+0100\n"
+"PO-Revision-Date: 2025-12-15 08:51+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
-"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language-Team: pl\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -386,22 +387,22 @@ msgstr "Naprawiono menu Dolphina"
 #: src/gui/changelogsdata.cpp:88
 #, kde-format
 msgid "Change icons to symbolic to response the theme changes"
-msgstr ""
+msgstr "Zmiana ikon na symboliczne jako odpowiedź na zmianę zestawu ikon"
 
 #: src/gui/changelogsdata.cpp:89
 #, kde-format
 msgid "Fix crash on diff page"
-msgstr ""
+msgstr "Naprawa wysypania na stronie różnicy"
 
 #: src/gui/changelogsdata.cpp:90
 #, kde-format
 msgid "Fix missing icons"
-msgstr ""
+msgstr "Dodano brakujące ikony"
 
 #: src/gui/changelogsdata.cpp:97
 #, kde-format
 msgid "Fix file viewer API"
-msgstr ""
+msgstr "Naprawiono API przeglądarki plików"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -590,27 +591,27 @@ msgstr ""
 #: src/gui/dialogs/resolvedialog.cpp:85
 #, kde-format
 msgid "All conflicts resolved"
-msgstr "Rozwiązano wszystkie sprzeczności"
+msgstr "Rozwiązano wszystkie błędy"
 
 #: src/gui/dialogs/resolvedialog.cpp:87
 #, kde-format
 msgid "%1 conflict remained"
 msgid_plural "%1 conflicts remained"
-msgstr[0] "Pozostała %1 sprzeczność"
-msgstr[1] "Pozostały %1 sprzeczności"
-msgstr[2] "Pozostało %1 sprzeczności"
+msgstr[0] "Pozostał %1 błąd"
+msgstr[1] "Pozostały %1 błędy"
+msgstr[2] "Pozostało %1 błędów"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
 #: src/gui/dialogs/resolvedialog.ui:14
 #, kde-format
 msgid "Conflicts"
-msgstr "Sprzeczności"
+msgstr "Błędy"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConflictsCount)
 #: src/gui/dialogs/resolvedialog.ui:26
 #, kde-format
 msgid "Conflicts count"
-msgstr "Liczba sprzeczności"
+msgstr "Liczba błędów"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -2152,7 +2153,7 @@ msgstr "GłówneOkno"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.ui:94
 #, kde-format
 msgid "Can't show the binary file!"
-msgstr ""
+msgstr "Nie można pokazać pliku binarnego!"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
@@ -2581,12 +2582,7 @@ msgstr "Sam postępuj z crlf:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
-#| "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
-#| "style=\" text-decoration: underline; color:#007af4;\">More informations..."
-#| "</span></a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
 "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
@@ -2596,7 +2592,7 @@ msgstr ""
 "<html><head/><body><p>Zamieniać cr/lf czy nie zamieniać</p><p><a href="
 "\"https://git-scm.com/docs/git-config#Documentation/git-config.txt-"
 "coreautocrlf\"><span style=\" text-decoration: underline; color:#007af4;"
-"\">Więcej szczegółów...</span></a></p></body></html>"
+"\">Więcej szczegółów…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:59
@@ -2606,13 +2602,7 @@ msgstr "Tryb pliku:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:66
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Tells Git if the executable bit of files in the "
-#| "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/"
-#| "git-config#Documentation/git-config.txt-corefileMode\"><span style=\" "
-#| "text-decoration: underline; color:#007af4;\">More informations...</span></"
-#| "a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Tells Git if the executable bit of files in the "
 "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
@@ -2623,7 +2613,7 @@ msgstr ""
 "<html><head/><body><p>Mówi Gitowi, czy bit wykonywalny plików w drzewie "
 "pracy ma robić różnicę. </p><p><a href=\"https://git-scm.com/docs/git-"
 "config#Documentation/git-config.txt-corefileMode\"><span style=\" text-"
-"decoration: underline; color:#007af4;\">Więcej szczegółów...</span></a></p></"
+"decoration: underline; color:#007af4;\">Więcej szczegółów…</span></a></p></"
 "body></html>"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
@@ -3106,8 +3096,7 @@ msgstr "Zacznij pisać, aby zacząć filtrować"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
-#, fuzzy, kde-format
-#| msgid "Hide unchangeds"
+#, kde-format
 msgid "Hide unchanged"
 msgstr "Ukryj niezmienione"
 
@@ -3227,12 +3216,12 @@ msgstr "Zapisz wynik"
 #: src/libkommitwidgets/windows/mergewindow.cpp:400
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
-msgstr "Sprzeczności: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "Błędy: <span style='font-weight:bold; color:red;'>%1</span>"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:402
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
-msgstr "<span style='color:green;'>Rozwiązano wszystkie sprzeczności</span>"
+msgstr "<span style='color:green;'>Rozwiązano wszystkie błędy</span>"
 
 #~ msgctxt "@title:window"
 #~ msgid "Closing preview"
