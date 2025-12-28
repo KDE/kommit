@@ -54,7 +54,7 @@ void StashTest::touchAFile()
     mFileContentInStash = TestCommon::touch(mManager->path() + "/README.md");
     auto changedFiles = mManager->changedFiles();
     QCOMPARE(changedFiles.count(), 1);
-    QCOMPARE(changedFiles.value("README.md"), Git::ChangeStatus::Modified);
+    QVERIFY(changedFiles.value("README.md") & Git::StatusFlag::Modified);
 }
 
 void StashTest::makeStash()

@@ -72,15 +72,14 @@ RemotesCache::DataType RemotesCache::findByName(const QString &name)
 bool RemotesCache::create(const QString &name, const QString &url)
 {
     git_remote *remote;
-    BEGIN
-    STEP git_remote_create(&remote, manager->repoPtr(), name.toUtf8().data(), url.toUtf8().data());
-    END;
 
-    if (IS_OK) {
+    auto ok = SequenceRunner::runSingle(git_remote_create, &remote, manager->repoPtr(), name.toUtf8().data(), url.toUtf8().data());
+
+    if (ok) {
         auto newRemote = Cache::findByPtr(remote);
         Q_EMIT added(newRemote);
     }
-    return IS_OK;
+    return ok;
 }
 
 bool RemotesCache::setUrl(const Remote &remote, const QString &url)

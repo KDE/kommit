@@ -5,14 +5,18 @@
 
 #include "libkommit_export.h"
 
+#include "diffdelta.h"
 #include "libkommit_global.h"
 #include "types.h"
 
 #include <git2.h>
+#include <statusoptions.h>
 
 #include <Kommit/Blame>
 #include <Kommit/Branch>
 #include <Kommit/CommitOptions>
+#include <Kommit/Config>
+#include <Kommit/InitOptions>
 #include <QObject>
 #include <QScopedPointer>
 #include <QSharedPointer>
@@ -21,12 +25,9 @@
 namespace Git
 {
 
-class Branch;
 class Tag;
 class Repository;
 class Submodule;
-class FetchObserver;
-class CloneObserver;
 class Reference;
 class AbstractReference;
 class Index;
@@ -52,6 +53,9 @@ class Blame;
 class BlameData;
 class RemoteCallbacks;
 class FetchOptions;
+class CloneOptions;
+class PushOptions;
+class CheckoutOptions;
 
 class LIBKOMMIT_EXPORT Repository : public QObject
 {
@@ -84,13 +88,13 @@ public:
     QString runGit(const QStringList &args) const;
 
     // common actions
-    bool init(const QString &path);
-    bool clone(const QString &url, const QString &localPath, CloneObserver *observer = nullptr);
+    bool init(const QString &path, InitOptions *options = nullptr);
+    bool clone(const QString &url, const QString &localPath, CloneOptions *options = nullptr);
     bool commit(const QString &message, Branch branch = {}, const CommitOptions &options = {});
-    void push(const Branch &branch, const Remote &remote, RemoteCallbacks *callback) const;
+    bool push(const Branch &branch, const Remote &remote, PushOptions *options = nullptr);
     bool open(const QString &newPath);
     Reference head() const;
-    bool checkout();
+    bool checkout(Object target, CheckoutOptions *options = nullptr);
 
     // properties
     [[nodiscard]] const QString &path() const;
@@ -106,42 +110,33 @@ public:
 
     // remotes
     bool fetch(FetchOptions *options);
-    // bool fetch(const QString &remoteName, FetchObserver *observer = nullptr);
-
-    // bool fetch(const Remote &remote, FetchOptions *options);
 
     // config
-    [[nodiscard]] QString config(const QString &name, ConfigType type = ConfigLocal) const;
-    [[nodiscard]] bool configBool(const QString &name, ConfigType type = ConfigLocal) const;
-    void setConfig(const QString &name, const QString &value, ConfigType type = ConfigLocal) const;
-    void unsetConfig(const QString &name, ConfigType type = ConfigLocal) const;
-    void forEachConfig(std::function<void(QString, QString)> cb);
+    Config config() const;
+    static Config globalConfig();
 
     // files
     void addFile(const QString &file);
     [[nodiscard]] QStringList ls(const QString &place) const;
     [[nodiscard]] QString fileContent(const QString &place, const QString &fileName) const;
-    void saveFile(const QString &place, const QString &fileName, const QString &localFile) const;
     bool revertFile(const QString &filePath) const;
     bool removeFile(const QString &file, bool cached) const;
     [[nodiscard]] QStringList fileLog(const QString &fileName) const;
     Blame blame(const QString &filePath, BlameOptions *options = nullptr);
-    [[nodiscard]] QMap<QString, ChangeStatus> changedFiles() const;
+
+    [[nodiscard]] QMap<QString, StatusFlags> changedFiles() const;
+    [[nodiscard]] QList<FileStatus> changedFiles(StatusOptions options) const;
+    [[nodiscard]] QMap<QString, DeltaFlag> changedFiles(const Commit &commit) const;
     [[nodiscard]] QMap<QString, ChangeStatus> changedFiles(const QString &hash) const;
     [[nodiscard]] QStringList ignoredFiles() const;
-
-    Q_DECL_DEPRECATED
-    [[nodiscard]] Q_DECL_DEPRECATED QList<FileStatus> repoFilesStatus() const;
 
     // ignores
     bool isIgnored(const QString &path);
 
     // diffs
-    [[nodiscard]] QString diff(const QString &from, const QString &to) const;
-    [[nodiscard]] QList<FileStatus> diffBranch(const QString &from) const;
-    [[nodiscard]] QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
-    [[nodiscard]] QList<FileStatus> diff(AbstractReference *from, AbstractReference *to) const;
-    [[nodiscard]] TreeDiff diff(const Tree &oldTree, const Tree &newTree);
+    // [[nodiscard]] QList<FileStatus> diffBranches(const QString &from, const QString &to) const;
+    [[nodiscard]] QList<DiffDelta> diff(AbstractReference *from, AbstractReference *to) const;
+    [[nodiscard]] TreeDiff diff(const Tree &oldTree, const Tree &newTree) const;
 
     Q_DECL_DEPRECATED_X("Use commits()->forEach")
     void forEachCommits(std::function<void(QSharedPointer<Commit>)> callback, const QString &branchName) const;

@@ -28,21 +28,21 @@ void SettingsManager::settingsChanged()
     KommitSettings::setCalendarType(pageBase.kcfg_calendarTypeIndex->currentText());
     KommitSettings::self()->save();
 
-    mGit->setConfig(QStringLiteral("http.proxy"), pageGit.lineEditGitProxy->text(), Git::Repository::ConfigGlobal);
+    auto globalConfig = Git::Repository::globalConfig();
+
+    globalConfig.set(QStringLiteral("http.proxy"), pageGit.lineEditGitProxy->text());
 
     if (KommitSettings::registerDiffTool()) {
-        mGit->setConfig(QStringLiteral("difftool.kommitdiff.cmd"), QStringLiteral("kommitdiff \"$LOCAL\" \"$REMOTE\""), Git::Repository::ConfigGlobal);
+        globalConfig.set(QStringLiteral("difftool.kommitdiff.cmd"), QStringLiteral("kommitdiff \"$LOCAL\" \"$REMOTE\""));
     } else {
-        mGit->unsetConfig(QStringLiteral("difftool.kommitdiff.cmd"), Git::Repository::ConfigGlobal);
+        globalConfig.remove(QStringLiteral("difftool.kommitdiff.cmd"));
     }
     if (KommitSettings::registerMergeTool()) {
-        mGit->setConfig(QStringLiteral("mergetool.kommitmerge.cmd"),
-                        QStringLiteral("kommitmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\""),
-                        Git::Repository::ConfigGlobal);
-        mGit->setConfig(QStringLiteral("mergetool.kommitmerge.trustExitCode"), QStringLiteral("true"), Git::Repository::ConfigGlobal);
+        globalConfig.set(QStringLiteral("mergetool.kommitmerge.cmd"), QStringLiteral("kommitmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\""));
+        globalConfig.set(QStringLiteral("mergetool.kommitmerge.trustExitCode"), QStringLiteral("true"));
     } else {
-        mGit->unsetConfig(QStringLiteral("mergetool.kommitmerge.cmd"), Git::Repository::ConfigGlobal);
-        mGit->unsetConfig(QStringLiteral("mergetool.kommitmerge.trustExitCode"), Git::Repository::ConfigGlobal);
+        globalConfig.remove(QStringLiteral("mergetool.kommitmerge.cmd"));
+        globalConfig.remove(QStringLiteral("mergetool.kommitmerge.trustExitCode"));
     }
 
     applyToLib();
@@ -75,7 +75,8 @@ QWidget *SettingsManager::createGitPage()
 {
     auto w = new QWidget;
     pageGit.setupUi(w);
-    pageGit.lineEditGitProxy->setText(mGit->config(QStringLiteral("http.proxy"), Git::Repository::ConfigGlobal));
+    auto config = Git::Repository::globalConfig();
+    pageGit.lineEditGitProxy->setText(config.valueString(QStringLiteral("http.proxy")));
     return w;
 }
 

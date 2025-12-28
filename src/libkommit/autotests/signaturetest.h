@@ -26,6 +26,8 @@ private Q_SLOTS:
     void emptysign();
     void defaultSign();
     void nowSign();
+    void testTime();
+    void testData();
 
 private:
     Git::Repository *mManager;

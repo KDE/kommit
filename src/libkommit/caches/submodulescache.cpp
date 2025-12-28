@@ -31,7 +31,7 @@ SubmodulesCache::DataType SubmodulesCache::add(AddSubmoduleOptions *options)
     git_submodule_update_options opts = GIT_SUBMODULE_UPDATE_OPTIONS_INIT;
 
     options->fetchOptions()->apply(&opts.fetch_opts);
-    options->checkoutOptions()->applyToCheckoutOptions(&opts.checkout_opts);
+    options->checkoutOptions()->apply(&opts.checkout_opts);
     options->fetchOptions()->remoteCallbacks()->apply(&opts.fetch_opts.callbacks, manager);
 
     SequenceRunner r;

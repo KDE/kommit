@@ -75,7 +75,6 @@ void CloneTest::initialCommitTree()
     QCOMPARE(topLevelItems.type("autotests"), Git::EntryType::Dir);
 
     auto src = tree.entries("src", Git::EntryType::Dir);
-    qDebug() << src;
 
     QVERIFY(src.contains("widgets"));
     QVERIFY(src.contains("settings"));

@@ -65,6 +65,9 @@ void CommitsWidget::settingsUpdated()
 void CommitsWidget::init()
 {
     branchesView->setGit(mGit->manager());
+
+    widgetCommitDetails->setRepo(mGit->manager());
+
     mHistoryModel = new CommitsModel(mGit->manager(), this);
     mHistoryModel->setCalendarType(KommitSettings::calendarType());
     mHistoryModel->setFullDetails(true);

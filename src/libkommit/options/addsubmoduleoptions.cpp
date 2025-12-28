@@ -58,7 +58,7 @@ CheckoutOptions *AddSubmoduleOptions::checkoutOptions() const
 
 void AddSubmoduleOptions::apply(git_submodule_update_options *opts)
 {
-    d->checkoutOptions->applyToCheckoutOptions(&opts->checkout_opts);
+    d->checkoutOptions->apply(&opts->checkout_opts);
     d->fetchOptions->apply(&opts->fetch_opts);
 }
 

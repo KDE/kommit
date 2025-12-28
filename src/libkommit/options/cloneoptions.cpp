@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "checkoutoptions.h"
 #include "fetchoptions.h"
+#include "repository.h"
 
 namespace Git
 {
@@ -52,7 +53,7 @@ CloneOptions::~CloneOptions()
 
 void CloneOptions::apply(git_clone_options *opts)
 {
-    d->checkoutOptions->applyToCheckoutOptions(&opts->checkout_opts);
+    d->checkoutOptions->apply(&opts->checkout_opts);
     d->fetchOptions->apply(&opts->fetch_opts);
 
     opts->checkout_branch = d->checkoutBranchName.toUtf8().data();

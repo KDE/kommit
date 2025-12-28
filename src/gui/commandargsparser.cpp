@@ -180,7 +180,7 @@ ArgParserReturn CommandArgsParser::help()
         qCDebug(KOMMIT_LOG).noquote() << "    " << method.name() << method.parameterNames().join(" ");
         qCDebug(KOMMIT_LOG).noquote() << mHelpTexts.value(method.name());
     }
-    return 0;
+    return ArgParserReturn{0};
 }
 
 ArgParserReturn CommandArgsParser::clone()

@@ -1,9 +1,8 @@
 # SPDX-FileCopyrightText: none
 # SPDX-License-Identifier: BSD-3-Clause
 add_library(libkommit SHARED
-    actions/pull.h actions/pull.cpp
-    actions/merge.h actions/merge.cpp
-    entities/annotatedcommit.h entities/annotatedcommit.cpp)
+    diffdelta.h diffdelta.cpp
+)
 
 set(KOMMIT_INSTALL_INCLUDEDIR "${KDE_INSTALL_INCLUDEDIR}/Kommit")
 set(KOMMIT_CMAKECONFIG_NAME "Kommit")
@@ -20,7 +19,7 @@ target_sources(libkommit PRIVATE
     libkommit_global.h
 
     gitglobal.cpp gitglobal.h
-    gitloglist.cpp gitloglist.h
+
     filestatus.cpp filestatus.h
     repository.cpp repository.h
     types.h
@@ -41,14 +40,6 @@ target_sources(libkommit PRIVATE
     error.h error.cpp
     remotecallbacks.h remotecallbacks.cpp
     proxy.cpp proxy.h
-
-    actions/abstractaction.h actions/abstractaction.cpp
-    actions/push.h actions/push.cpp
-    actions/fetch.h actions/fetch.cpp
-    actions/clone.h actions/clone.cpp
-    actions/checkoutaction.h actions/checkoutaction.cpp
-    actions/pushaction.h actions/pushaction.cpp
-    actions/commitaction.h actions/commitaction.cpp
 
     caches/abstractcache.cpp caches/abstractcache.h
     caches/branchescache.cpp caches/branchescache.h
@@ -92,11 +83,13 @@ target_sources(libkommit PRIVATE
     entities/object.h
     entities/object.cpp
     entities/strarray.h entities/strarray.cpp
+    entities/annotatedcommit.h entities/annotatedcommit.cpp
 
-    observers/fetchobserver.cpp observers/fetchobserver.h
-    observers/cloneobserver.cpp observers/cloneobserver.h
-    observers/pushobserver.cpp observers/pushobserver.h
 
+
+
+    options/initoptions.h options/initoptions.cpp
+    options/statusoptions.h options/statusoptions.cpp
     options/addsubmoduleoptions.cpp options/addsubmoduleoptions.h
     options/fetchoptions.cpp options/fetchoptions.h
     options/checkoutoptions.cpp options/checkoutoptions.h
@@ -138,7 +131,7 @@ set_target_properties(libkommit
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/kommit)
 target_include_directories(libkommit
     INTERFACE
-        "$<INSTALL_INTERFACE:${KOMMIT_INSTALL_INCLUDEDIR}>"
+    "$<INSTALL_INTERFACE:${KOMMIT_INSTALL_INCLUDEDIR}>"
 )
 
 target_include_directories(libkommit PUBLIC
@@ -169,29 +162,31 @@ endif()
 # root folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
-        Repository
+    Repository
 
-        Blame
-        BlameHunk
-        Config
+    Blame
+    BlameHunk
+    Config
 
-        # ITree
-        # IOid
-        AbstractReference
+    # ITree
+    # IOid
+    AbstractReference
 
-        Buffer
-        Credential
-        Certificate
-        FileStatus
-        Types
-        Error
-        FileDelta
-        FileMode
-        Proxy
-        RefSpec
-        ITree
-        IOid
-        RemoteCallbacks
+    Buffer
+    Credential
+    Certificate
+    FileStatus
+    Types
+    Error
+    FileDelta
+    FileMode
+    Proxy
+    RefSpec
+    ITree
+    IOid
+    FileDelta
+    DiffDelta
+    RemoteCallbacks
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
 )
@@ -199,137 +194,112 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
 # options sub folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
-        AddSubmoduleOptions
-        BlameOptions
-        CheckoutOptions
-        CloneOptions
-        FetchOptions
-        StashOptions
-        PushOptions
-        RebaseOptions
-        MergeOptions
-        CommitOptions
+    AddSubmoduleOptions
+    BlameOptions
+    CheckoutOptions
+    CloneOptions
+    FetchOptions
+    StashOptions
+    PushOptions
+    RebaseOptions
+    MergeOptions
+    CommitOptions
+    StatusOptions
+    InitOptions
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
     RELATIVE
-        options
+    options
 )
 
 # entities sub folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
-        Blob
-        Branch
-        Commit
-        File
-        Index
-        Note
-        Object
-        Oid
-        Reference
-        Remote
-        Signature
-        Stash
-        StrArray
-        SubModule
-        Tag
-        Tree
-        TreeDiff
+    Blob
+    Branch
+    Commit
+    File
+    Index
+    Note
+    Object
+    Oid
+    Reference
+    Remote
+    Signature
+    Stash
+    StrArray
+    SubModule
+    Tag
+    Tree
+    TreeDiff
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
     RELATIVE
-        entities
-)
-
-# actions sub folder
-ecm_generate_headers(libkommit_CamelCase_HEADERS
-    HEADER_NAMES
-        AbstractAction
-        CheckoutAction
-        CommitAction
-        PushAction
-        Fetch
-        Clone
-    PREFIX Kommit
-    REQUIRED_HEADERS kommit_HEADERS
-    RELATIVE
-        actions
+    entities
 )
 
 # commands sub folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
-        AbstractCommand
-        ParameteresCommand
-        AddSubmoduleCommand
-        CommandSwitchBranch
-        CommandMerge
-        CommandChangedFiles
-        CommandPush
-        CommandPull
-        CommandFetch
-        CommandCommit
-        CommandClone
-        CommandClean
-        CommandAddRemote
+    AbstractCommand
+    ParameteresCommand
+    AddSubmoduleCommand
+    CommandSwitchBranch
+    CommandMerge
+    CommandChangedFiles
+    CommandPush
+    CommandPull
+    CommandFetch
+    CommandCommit
+    CommandClone
+    CommandClean
+    CommandAddRemote
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
     RELATIVE
-        commands
+    commands
 )
 
 # caches sub folder
 ecm_generate_headers(libkommit_CamelCase_HEADERS
     HEADER_NAMES
-        TagsCache
-        SubmodulesCache
-        StashesCache
-        RemotesCache
-        ReferenceCache
-        NotesCache
-        CommitsCache
-        BranchesCache
-        AbstractCache
+    TagsCache
+    SubmodulesCache
+    StashesCache
+    RemotesCache
+    ReferenceCache
+    NotesCache
+    CommitsCache
+    BranchesCache
+    AbstractCache
     PREFIX Kommit
     REQUIRED_HEADERS kommit_HEADERS
     RELATIVE
-        caches
-)
-
-# observers sub folder
-ecm_generate_headers(libkommit_CamelCase_HEADERS
-    HEADER_NAMES
-        FetchObserver
-        PushObserver
-        CloneObserver
-    PREFIX Kommit
-    REQUIRED_HEADERS kommit_HEADERS
-    RELATIVE
-        observers
+    caches
 )
 
 install(
     FILES
-        ${libkommit_CamelCase_HEADERS}
-        ${CMAKE_CURRENT_BINARY_DIR}/libkommit_export.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/libkommit_global.h
-        ${CMAKE_CURRENT_BINARY_DIR}/libkommit_version.h
+    ${libkommit_CamelCase_HEADERS}
+    ${CMAKE_CURRENT_BINARY_DIR}/libkommit_export.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/libkommit_global.h
+    ${CMAKE_CURRENT_BINARY_DIR}/libkommit_version.h
     DESTINATION
-        ${KOMMIT_INSTALL_INCLUDEDIR}/Kommit
+    ${KOMMIT_INSTALL_INCLUDEDIR}/Kommit
     COMPONENT
-        Devel
+    Devel
 )
 
 install(
     FILES
-        ${kommit_HEADERS}
-        ${CMAKE_CURRENT_BINARY_DIR}/libkommit_export.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/libkommit_global.h
-        ${CMAKE_CURRENT_BINARY_DIR}/libkommit_version.h
+    ${kommit_HEADERS}
+    ${CMAKE_CURRENT_BINARY_DIR}/libkommit_export.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/libkommit_global.h
+    ${CMAKE_CURRENT_BINARY_DIR}/libkommit_version.h
     DESTINATION
-        ${KOMMIT_INSTALL_INCLUDEDIR}/kommit
+    ${KOMMIT_INSTALL_INCLUDEDIR}/kommit
     COMPONENT
-        Devel
+    Devel
 )
 
 

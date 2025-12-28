@@ -13,12 +13,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/changedfilesmodel.h"
 #include "runnerdialog.h"
 
-#include <Kommit/Index>
-#include <Kommit/SubModule>
-#include <Kommit/Repository>
 #include <Kommit/BranchesCache>
 #include <Kommit/CommitsCache>
+#include <Kommit/Index>
 #include <Kommit/RemotesCache>
+#include <Kommit/Repository>
+#include <Kommit/SubModule>
 #include <Kommit/SubmodulesCache>
 
 #include <QWindow>
@@ -33,7 +33,6 @@ static const char myCommitPushDialogGroupName[] = "CommitPushDialog";
 
 CommitPushDialog::CommitPushDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
-    , mPush{git, this}
     , mChangedFilesModel(new ChangedFilesModel(git, true, this))
 {
     setupUi(this);
@@ -186,7 +185,7 @@ void CommitPushDialog::slotPushButtonPushClicked()
             return;
 
         if (!mGit->commits()->create(textEditMessage->toPlainText())) {
-            //TODO: show messagebox
+            // TODO: show messagebox
             return;
         }
     }

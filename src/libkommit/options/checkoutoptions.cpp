@@ -45,7 +45,7 @@ CheckoutOptions::CheckoutOptions(QObject *parent)
 {
 }
 
-void CheckoutOptions::applyToCheckoutOptions(git_checkout_options *opts)
+void CheckoutOptions::apply(git_checkout_options *opts)
 {
     opts->checkout_strategy = static_cast<unsigned int>(mCheckoutStrategies);
 

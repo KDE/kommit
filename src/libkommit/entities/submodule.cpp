@@ -7,7 +7,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/submodule.h"
 #include "entities/oid.h"
 #include "gitglobal_p.h"
-#include "observers/fetchobserver.h"
 #include "options/fetchoptions.h"
 #include "qdebug.h"
 #include "types.h"
@@ -253,7 +252,7 @@ Repository *Submodule::open() const
     return new Git::Repository{repo};
 }
 
-bool Submodule::update(const FetchOptions &opts, FetchObserver *observer)
+bool Submodule::update(const FetchOptions &opts)
 {
     if (!d->submodule)
         return {};
@@ -261,13 +260,13 @@ bool Submodule::update(const FetchOptions &opts, FetchObserver *observer)
     git_submodule_update_options update_options = GIT_SUBMODULE_UPDATE_OPTIONS_INIT;
 
     opts.apply(&update_options.fetch_opts);
-    if (observer)
-        observer->applyOfFetchOptions(&update_options.fetch_opts);
+    // if (observer)
+    // observer->applyOfFetchOptions(&update_options.fetch_opts);
 
     auto r = git_submodule_update(d->submodule, 1, &update_options);
 
-    if (observer)
-        Q_EMIT observer->finished();
+    // if (observer)
+    // Q_EMIT observer->finished();
 
     return r == 0;
 }

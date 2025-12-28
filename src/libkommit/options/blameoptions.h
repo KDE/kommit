@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include <QFlags>
+#include <QObject>
 #include <QScopedPointer>
 #include <QSharedPointer>
 
@@ -20,7 +21,8 @@ class Commit;
 class BlameOptionsPrivate;
 class BlameOptions
 {
-    // Q_GADGET
+    Q_GADGET
+
 public:
     BlameOptions();
     ~BlameOptions();
@@ -37,7 +39,7 @@ public:
     };
 
     Q_DECLARE_FLAGS(BlameFlags, BlameFlag)
-    // Q_FLAG(BlameFlags)
+    Q_FLAG(BlameFlags)
 
     void apply(git_blame_options *opts);
 

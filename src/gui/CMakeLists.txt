@@ -49,7 +49,7 @@ target_sources(libkommitgui PRIVATE
 
 
     commandargsparser.cpp
-    appconfig.cpp
+
     settings/settingsmanager.cpp
     appwindow.h
     buttonsgroup.h
@@ -57,7 +57,7 @@ target_sources(libkommitgui PRIVATE
 
 
     commandargsparser.h
-    appconfig.h
+
     settings/settingsmanager.h
     kommit.qrc
     # icons/icons.qrc

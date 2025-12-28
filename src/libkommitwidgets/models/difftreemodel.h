@@ -6,10 +6,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include "treemodel.h"
 #include <Kommit/FileStatus>
 #include <diff.h>
-#define TREEMODEL_NODE_DATA_TYPE Diff::DiffType
-#include "treemodel.h"
 #include <entities/treediff.h>
 
 class TreeNode;
@@ -30,7 +29,7 @@ public:
 
 private:
     [[nodiscard]] Diff::DiffType toDiffType(Git::FileStatus::Status status) const;
-    [[nodiscard]] Diff::DiffType toDiffType(Git::ChangeStatus status) const;
+    [[nodiscard]] Diff::DiffType toDiffType(Git::DeltaFlag status) const;
     TreeNode *createPath(const QStringList &path, Diff::DiffType status);
     Diff::DiffType calculateNodeType(TreeNode *node) const;
 };

@@ -91,18 +91,6 @@ private:
     Q_DECLARE_PRIVATE(ConflictIndexList)
 };
 
-class ConflictIndexListPrivate
-{
-    ConflictIndexList *q_ptr;
-    Q_DECLARE_PUBLIC(ConflictIndexList)
-
-public:
-    explicit ConflictIndexListPrivate(ConflictIndexList *parent, QList<ConflictIndex *> conflicts);
-    ~ConflictIndexListPrivate();
-
-    QList<ConflictIndex *> conflicts;
-};
-
 class IndexPrivate;
 class LIBKOMMIT_EXPORT Index : public ITree
 {

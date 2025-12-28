@@ -12,9 +12,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "types.h"
 #include "index.h"
 
+#include <QIODevice>
 #include <git2/commit.h>
 #include <git2/revparse.h>
-
 namespace Git
 {
 
@@ -38,7 +38,7 @@ Commit CommitsCache::find(const QString &hash)
     return Commit{};
 }
 
-QList<Commit> CommitsCache::allCommits()
+QList<Commit> CommitsCache::allCommits(SortingMode sortMode)
 {
     QList<Commit> list;
 
@@ -50,7 +50,7 @@ QList<Commit> CommitsCache::allCommits()
 
     SequenceRunner r;
     r.run(git_revwalk_new, &walker, manager->repoPtr());
-    r.run(git_revwalk_sorting, walker, GIT_SORT_TOPOLOGICAL | GIT_SORT_TIME);
+    r.run(git_revwalk_sorting, walker, static_cast<unsigned int>(sortMode));
     // STEP git_revwalk_push_head(walker);
 
     // include all branches
@@ -143,8 +143,8 @@ bool CommitsCache::create(const QString &message, const CommitOptions &opts)
           &commit_oid,
           manager->repoPtr(),
           "HEAD",
-          options.author(),
-          options.committer(),
+          options.author().isNull() ? Signature(manager).data() : options.author().data(),
+          options.committer().isNull() ? Signature(manager).data() : options.committer().data(),
           nullptr,
           message.toUtf8().constData(),
           tree,
@@ -184,8 +184,8 @@ bool CommitsCache::amend(const QString &message, const CommitOptions &opts)
           &commit_oid,
           options.parentCommit(),
           "HEAD",
-          options.author(),
-          options.committer(),
+          options.author().isNull() ? Signature(manager).data() : options.author().data(),
+          options.committer().isNull() ? Signature(manager).data() : options.committer().data(),
           nullptr,
           message.toUtf8().constData(),
           tree);

@@ -30,15 +30,6 @@ public:
     };
     Q_DECLARE_FLAGS(Permissions, Permission)
 
-    // enum class Permission2 : quint16 {
-    //     Execute =  0,
-    //     Write =  1,
-    //     Read =  2,
-    // };
-
-    // enum class Cat : quint16 { Others = 0, Group = 1, Owner = 2 };
-
-    // Constructor with optional default permissions
     FileMode();
     explicit FileMode(Permissions permissions);
     explicit FileMode(quint16 mode);

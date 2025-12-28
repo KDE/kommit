@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QProcess>
 #include <QResource>
 #include <QStandardPaths>
 #include <QUuid>
@@ -73,14 +74,15 @@ QString touch(Git::Repository *manager, const QString &fileName)
         content = touch(manager->path() + fileName);
     else
         content = touch(manager->path() + QLatin1Char('/') + fileName);
-    manager->addFile(fileName);
     return content;
 }
 
 void initSignature(Git::Repository *manager)
 {
-    manager->setConfig("user.name", "kommit test user", Git::Repository::ConfigLocal);
-    manager->setConfig("user.email", "kommit@kde.org", Git::Repository::ConfigLocal);
+    auto config = manager->config();
+
+    config.set("user.name", "kommit test user");
+    config.set("user.email", "kommit@kde.org");
 }
 
 bool writeFile(Git::Repository *manager, const QString &fileName, const QString &content)
@@ -144,4 +146,27 @@ bool extractSampleRepo(const QString &path)
     return copyFolder(":/kommit_sample_repo", path);
 }
 
+QString runGit(const QString &workingDir, const QStringList &args)
+{
+#ifdef GIT_FOUND
+    QProcess p;
+    p.setProgram(QStringLiteral(GIT_BINARY_PATH));
+    p.setArguments(args);
+    p.setWorkingDirectory(workingDir);
+    p.start();
+    p.waitForFinished();
+    auto out = p.readAllStandardOutput();
+    auto err = p.readAllStandardError();
+
+    if (p.exitStatus() == QProcess::CrashExit) {
+        qWarning() << "=== Crash on git process ===";
+        qWarning() << "====\nERROR:\n====\n" << err;
+        qWarning() << "====\nOUTPUR:\n====\n" << out;
+    }
+    return QString::fromUtf8(out);
+#else
+    qWarning() << "git binary not found";
+    return {};
+#endif
+}
 }

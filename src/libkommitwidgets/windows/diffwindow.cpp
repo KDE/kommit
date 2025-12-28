@@ -190,32 +190,18 @@ void DiffWindowPrivate::compareDirs()
     if (left._mode == Impl::Storage::Mode::Tree) {
         auto diff = manager->diff(left._tree, right._tree);
 
-        for (auto &d : diff) {
+        for (Git::TreeDiffEntry &d : diff) {
             Diff::DiffType type{Diff::DiffType::Unchanged};
+            auto status = d.status();
 
-            switch (d.status()) {
-            case Git::ChangeStatus::Unknown:
-            case Git::ChangeStatus::Unmodified:
-            case Git::ChangeStatus::Ignored:
-            case Git::ChangeStatus::Untracked:
-            case Git::ChangeStatus::Unreadable:
-                type = Diff::DiffType::Unchanged;
-                break;
-            case Git::ChangeStatus::Modified:
-            case Git::ChangeStatus::Renamed:
-            case Git::ChangeStatus::Copied:
-            case Git::ChangeStatus::TypeChange:
-            case Git::ChangeStatus::UpdatedButInmerged:
-            case Git::ChangeStatus::Conflicted:
-                type = Diff::DiffType::Modified;
-                break;
-            case Git::ChangeStatus::Added:
+            if (status & Git::DeltaFlag::Added)
                 type = Diff::DiffType::Added;
-                break;
-            case Git::ChangeStatus::Removed:
+            else if (status & Git::DeltaFlag::Deleted)
                 type = Diff::DiffType::Removed;
-                break;
-            }
+            else if (status & Git::DeltaFlag::Unmodified)
+                type = Diff::DiffType::Unchanged;
+            else
+                type = Diff::DiffType::Modified;
 
             diffModel->addFile(d.newFile(), type);
         }

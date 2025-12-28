@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <Kommit/FileDelta>
 #include <Kommit/FileMode>
+#include <diffdelta.h>
 
 #include <git2/checkout.h>
 
@@ -65,7 +66,7 @@ public:
 
     CheckoutOptions(QObject *parent = nullptr);
 
-    void applyToCheckoutOptions(git_checkout_options *opts);
+    void apply(git_checkout_options *opts);
 
 Q_SIGNALS:
     void checkoutNotify(NotifyFlag notify, QString path, DiffFile baseline, DiffFile target, DiffFile workdir);

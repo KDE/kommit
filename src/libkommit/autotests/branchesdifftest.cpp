@@ -9,10 +9,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/treediff.h"
 #include "testcommon.h"
 
+#include <Kommit/CommitsCache>
+#include <Kommit/Index>
+
 #include <QTest>
 #include <entities/branch.h>
 #include <repository.h>
-#include <Kommit/CommitsCache>
 
 QTEST_GUILESS_MAIN(BranchesDiffTest)
 
@@ -47,17 +49,30 @@ void BranchesDiffTest::cleanupTestCase()
 
 void BranchesDiffTest::makeACommit()
 {
-    TestCommon::touch(mManager, "/unchanged");
-    TestCommon::touch(mManager, "/changed_in_both");
-    TestCommon::touch(mManager, "/changed_in_master");
-    TestCommon::touch(mManager, "/changed_in_dev");
+    TestCommon::touch(mManager, "unchanged");
+    TestCommon::touch(mManager, "changed_in_both");
+    TestCommon::touch(mManager, "changed_in_master");
+    TestCommon::touch(mManager, "changed_in_dev");
 
-    TestCommon::touch(mManager, "/inside_dir/unchanged");
-    TestCommon::touch(mManager, "/inside_dir/changed_in_both");
-    TestCommon::touch(mManager, "/inside_dir/changed_in_master");
-    TestCommon::touch(mManager, "/inside_dir/changed_in_dev");
+    TestCommon::touch(mManager, "inside_dir/unchanged");
+    TestCommon::touch(mManager, "inside_dir/changed_in_both");
+    TestCommon::touch(mManager, "inside_dir/changed_in_master");
+    TestCommon::touch(mManager, "inside_dir/changed_in_dev");
 
-    mManager->commits()->create("commit1");
+    auto index = mManager->index();
+
+    index.addByPath("unchanged");
+    index.addByPath("changed_in_both");
+    index.addByPath("changed_in_master");
+    index.addByPath("changed_in_dev");
+    index.addByPath("inside_dir/unchanged");
+    index.addByPath("inside_dir/changed_in_both");
+    index.addByPath("inside_dir/changed_in_master");
+    index.addByPath("inside_dir/changed_in_dev");
+    index.writeTree();
+
+    auto ok = mManager->commit("commit1");
+    QVERIFY(ok);
 }
 
 void BranchesDiffTest::createBranch()
@@ -77,15 +92,24 @@ void BranchesDiffTest::switchToNewBranch()
     QVERIFY(ok);
     QCOMPARE(mManager->branches()->currentName(), mNewBranchName);
 
-    TestCommon::touch(mManager, "/changed_in_both");
-    TestCommon::touch(mManager, "/changed_in_dev");
-    TestCommon::touch(mManager, "/only_in_dev");
+    TestCommon::touch(mManager, "changed_in_both");
+    TestCommon::touch(mManager, "changed_in_dev");
+    TestCommon::touch(mManager, "only_in_dev");
+    TestCommon::touch(mManager, "inside_dir/changed_in_both");
+    TestCommon::touch(mManager, "inside_dir/changed_in_dev");
+    TestCommon::touch(mManager, "inside_dir/only_in_dev");
 
-    TestCommon::touch(mManager, "/inside_dir/changed_in_both");
-    TestCommon::touch(mManager, "/inside_dir/changed_in_dev");
-    TestCommon::touch(mManager, "/inside_dir/only_in_dev");
+    auto index = mManager->index();
+    index.addByPath("changed_in_both");
+    index.addByPath("changed_in_dev");
+    index.addByPath("only_in_dev");
+    index.addByPath("inside_dir/changed_in_both");
+    index.addByPath("inside_dir/changed_in_dev");
+    index.addByPath("inside_dir/only_in_dev");
+    index.writeTree();
 
-    mManager->commits()->create("commit_in_dev");
+    ok = mManager->commits()->create("commit_in_dev");
+    QVERIFY(ok);
 }
 
 void BranchesDiffTest::switchToMaster()
@@ -93,15 +117,25 @@ void BranchesDiffTest::switchToMaster()
     auto ok = mManager->switchBranch("master");
     QVERIFY(ok);
 
-    TestCommon::touch(mManager, "/changed_in_both");
-    TestCommon::touch(mManager, "/changed_in_master");
-    TestCommon::touch(mManager, "/only_in_master");
+    TestCommon::touch(mManager, "changed_in_both");
+    TestCommon::touch(mManager, "changed_in_master");
+    TestCommon::touch(mManager, "only_in_master");
 
-    TestCommon::touch(mManager, "/inside_dir/changed_in_both");
-    TestCommon::touch(mManager, "/inside_dir/changed_in_master");
-    TestCommon::touch(mManager, "/inside_dir/only_in_master");
+    TestCommon::touch(mManager, "inside_dir/changed_in_both");
+    TestCommon::touch(mManager, "inside_dir/changed_in_master");
+    TestCommon::touch(mManager, "inside_dir/only_in_master");
 
-    mManager->commits()->create("commit_in_master");
+    auto index = mManager->index();
+    index.addByPath("changed_in_both");
+    index.addByPath("changed_in_master");
+    index.addByPath("only_in_master");
+    index.addByPath("inside_dir/changed_in_both");
+    index.addByPath("inside_dir/changed_in_master");
+    index.addByPath("inside_dir/only_in_master");
+    index.writeTree();
+
+    ok = mManager->commits()->create("commit_in_master");
+    QVERIFY(ok);
 }
 
 void BranchesDiffTest::diff()
@@ -122,19 +156,19 @@ void BranchesDiffTest::diff()
     QVERIFY(diff.contains("only_in_master"));
     QVERIFY(diff.contains("only_in_dev"));
 
-    QCOMPARE(diff.status("unchanged"), Git::ChangeStatus::Unmodified);
-    QCOMPARE(diff.status("changed_in_both"), Git::ChangeStatus::Modified);
-    QCOMPARE(diff.status("changed_in_master"), Git::ChangeStatus::Modified);
-    QCOMPARE(diff.status("changed_in_dev"), Git::ChangeStatus::Modified);
-    QCOMPARE(diff.status("only_in_master"), Git::ChangeStatus::Removed);
-    QCOMPARE(diff.status("only_in_dev"), Git::ChangeStatus::Added);
+    QVERIFY((diff.status("unchanged") & Git::DeltaFlag::Unmodified) == Git::DeltaFlag::Unmodified);
+    QVERIFY((diff.status("changed_in_both") & Git::DeltaFlag::Modified) == Git::DeltaFlag::Modified);
+    QVERIFY((diff.status("changed_in_master") & Git::DeltaFlag::Modified) == Git::DeltaFlag::Modified);
+    QVERIFY((diff.status("changed_in_dev") & Git::DeltaFlag::Modified) == Git::DeltaFlag::Modified);
+    QVERIFY((diff.status("only_in_master") & Git::DeltaFlag::Deleted) == Git::DeltaFlag::Deleted);
+    QVERIFY((diff.status("only_in_dev") & Git::DeltaFlag::Added) == Git::DeltaFlag::Added);
 
-    QCOMPARE(diff.status("inside_dir/unchanged"), Git::ChangeStatus::Unmodified);
-    QCOMPARE(diff.status("inside_dir/changed_in_both"), Git::ChangeStatus::Modified);
-    QCOMPARE(diff.status("inside_dir/changed_in_master"), Git::ChangeStatus::Modified);
-    QCOMPARE(diff.status("inside_dir/changed_in_dev"), Git::ChangeStatus::Modified);
-    QCOMPARE(diff.status("inside_dir/only_in_master"), Git::ChangeStatus::Removed);
-    QCOMPARE(diff.status("inside_dir/only_in_dev"), Git::ChangeStatus::Added);
+    QVERIFY((diff.status("inside_dir/unchanged") & Git::DeltaFlag::Unmodified) == Git::DeltaFlag::Unmodified);
+    QVERIFY((diff.status("inside_dir/changed_in_both") & Git::DeltaFlag::Modified) == Git::DeltaFlag::Modified);
+    QVERIFY((diff.status("inside_dir/changed_in_master") & Git::DeltaFlag::Modified) == Git::DeltaFlag::Modified);
+    QVERIFY((diff.status("inside_dir/changed_in_dev") & Git::DeltaFlag::Modified) == Git::DeltaFlag::Modified);
+    QVERIFY((diff.status("inside_dir/only_in_master") & Git::DeltaFlag::Deleted) == Git::DeltaFlag::Deleted);
+    QVERIFY((diff.status("inside_dir/only_in_dev") & Git::DeltaFlag::Added) == Git::DeltaFlag::Added);
 }
 
 #include "moc_branchesdifftest.cpp"

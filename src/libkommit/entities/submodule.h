@@ -21,9 +21,6 @@ namespace Git
 {
 
 class FetchOptions;
-
-class FetchObserver;
-
 class Repository;
 class SubmodulePrivate;
 class LIBKOMMIT_EXPORT Submodule
@@ -80,7 +77,7 @@ public:
     bool reload(bool force = false) const;
 
     [[nodiscard]] Repository *open() const;
-    bool update(const FetchOptions &opts, FetchObserver *observer = nullptr);
+    bool update(const FetchOptions &opts);
 
 private:
     QSharedPointer<SubmodulePrivate> d;

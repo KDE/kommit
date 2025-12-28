@@ -17,6 +17,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class ConflictIndexListPrivate
+{
+    ConflictIndexList *q_ptr;
+    Q_DECLARE_PUBLIC(ConflictIndexList)
+
+public:
+    explicit ConflictIndexListPrivate(ConflictIndexList *parent, QList<ConflictIndex *> conflicts);
+    ~ConflictIndexListPrivate();
+
+    QList<ConflictIndex *> conflicts;
+};
+
 class IndexEntryPrivate
 {
 public:
@@ -165,17 +177,16 @@ bool Index::addAll()
 
 bool Index::addByPath(const QString &path)
 {
-    BEGIN;
+    bool ok;
     if (path.startsWith(QLatin1Char('/')))
-        STEP git_index_add_bypath(d->index, toConstChars(path.mid(1)));
+        ok = SequenceRunner::runSingle(git_index_add_bypath, d->index, toConstChars(path.mid(1)));
     else
-        STEP git_index_add_bypath(d->index, path.toUtf8().data());
-    PRINT_ERROR;
+        ok = SequenceRunner::runSingle(git_index_add_bypath, d->index, path.toUtf8().constData());
 
-    if (IS_OK)
+    if (ok)
         d->writeNeeded = true;
 
-    return IS_OK;
+    return ok;
 }
 
 bool Index::removeByPath(const QString &path)
@@ -209,8 +220,11 @@ bool Index::writeTree()
 {
     if (!d->writeNeeded)
         return true;
-    git_index_write(d->index);
-    return !git_index_write_tree(&d->mLastOid, d->index);
+    SequenceRunner r;
+    r.run(git_index_write, d->index);
+    r.run(git_index_write_tree, &d->mLastOid, d->index);
+    d->writeNeeded = false;
+    return r.isSuccess();
 }
 
 QString Index::treeTitle() const

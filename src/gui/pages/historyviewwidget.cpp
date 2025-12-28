@@ -22,6 +22,9 @@ HistoryViewWidget::HistoryViewWidget(RepositoryData *git, AppWindow *parent)
     , mGraphPainter(new GraphPainter(mHistoryModel, this))
 {
     setupUi(this);
+
+    widgetCommit->setRepo(git->manager());
+
     treeViewHistory->setModel(mHistoryModel);
 
     treeViewHistory->setItemDelegateForColumn(0, mGraphPainter);

@@ -6,84 +6,98 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "filestatus.h"
 
+#include "filedelta.h"
+
 #include <utility>
 
 namespace Git
 {
 
+class FileStatusPrivate
+{
+public:
+    FileStatusPrivate();
+    FileStatusPrivate(const QString &oldName, const QString &newName, ChangeStatus status);
+    FileStatusPrivate(const StatusFlags &status, const DiffDelta &headToIndex, const DiffDelta &indexToWorkdir);
+
+    QString fullPath;
+    QString oldName;
+    QString newName;
+    ChangeStatus status;
+
+    FileStatus::Status mStatus;
+
+    StatusFlags statusFlags;
+    DiffDelta headToIndex;
+    DiffDelta indexToWorkdir;
+};
+
 FileStatus::FileStatus() = default;
 
+FileStatus::FileStatus(StatusFlags status, DiffDelta headToIndex, DiffDelta indexToWorkdir)
+    : d{new FileStatusPrivate{status, headToIndex, indexToWorkdir}}
+{
+}
+
 FileStatus::FileStatus(QString name, FileStatus::Status status)
-    : mName(std::move(name))
-    , mStatus(status)
+    : d{new FileStatusPrivate}
+{
+    d->newName = name;
+    d->mStatus = status;
+}
+
+FileStatus::FileStatus(const QString &oldName, const QString &newName, ChangeStatus status)
+    : d{new FileStatusPrivate{oldName, newName, status}}
 {
 }
 
 const QString &FileStatus::name() const
 {
-    return mName;
+    switch (d->statusFlags) {
+    }
+    if (!d->headToIndex.isNull())
+        return d->headToIndex.newFile().path();
+
+    if (!d->indexToWorkdir.isNull())
+        return d->indexToWorkdir.newFile().path();
+    return {};
 }
 
 FileStatus::Status FileStatus::status() const
 {
-    return mStatus;
-}
-
-void FileStatus::parseStatusLine(const QString &line)
-{
-    const auto statusX = line.at(0);
-    const auto statusY = line.at(1);
-    const auto fileName = line.mid(3);
-    mName = fileName;
-
-    setStatus(statusX, statusY);
-}
-
-const QString &FileStatus::fullPath() const
-{
-    return mFullPath;
-}
-
-void FileStatus::setFullPath(const QString &newFullPath)
-{
-    mFullPath = newFullPath;
-}
-
-void FileStatus::setStatus(Status status)
-{
-    mStatus = status;
+    return d->mStatus;
 }
 
 void FileStatus::setStatus(const QString &x, const QString &y)
 {
     if (x == QLatin1Char('M') || y == QLatin1Char('M'))
-        mStatus = Modified;
+        d->mStatus = Modified;
     else if (x == QLatin1Char('A'))
-        mStatus = Added;
+        d->mStatus = Added;
     else if (x == QLatin1Char('D'))
-        mStatus = Removed;
+        d->mStatus = Removed;
     else if (x == QLatin1Char('R'))
-        mStatus = Renamed;
+        d->mStatus = Renamed;
     else if (x == QLatin1Char('C'))
-        mStatus = Copied;
+        d->mStatus = Copied;
     else if (x == QLatin1Char('U'))
-        mStatus = UpdatedButInmerged;
+        d->mStatus = UpdatedButInmerged;
     else if (x == QLatin1Char('?'))
-        mStatus = Untracked;
+        d->mStatus = Untracked;
     else if (x == QLatin1Char('!'))
-        mStatus = Ignored;
+        d->mStatus = Ignored;
     else
-        mStatus = Unknown;
+        d->mStatus = Unknown;
 }
 
 void FileStatus::setName(const QString &newName)
 {
-    mName = newName;
+    // mName = newName;
 }
 
 bool FileStatus::operator==(const FileStatus &other)
 {
-    return mName == other.name();
+    return false; // mName == other.name();
 }
 
 bool operator==(const FileStatus &f1, const FileStatus &f2)
@@ -91,4 +105,25 @@ bool operator==(const FileStatus &f1, const FileStatus &f2)
     return f1.name() == f2.name();
 }
 
+FileStatusPrivate::FileStatusPrivate()
+    : headToIndex{nullptr}
+    , indexToWorkdir{nullptr}
+{
+}
+
+FileStatusPrivate::FileStatusPrivate(const QString &oldName, const QString &newName, ChangeStatus status)
+    : oldName(oldName)
+    , newName(newName)
+    , status(status)
+    , headToIndex{nullptr}
+    , indexToWorkdir{nullptr}
+{
+}
+
+FileStatusPrivate::FileStatusPrivate(const StatusFlags &status, const DiffDelta &headToIndex, const DiffDelta &indexToWorkdir)
+    : statusFlags(status)
+    , headToIndex(headToIndex)
+    , indexToWorkdir(indexToWorkdir)
+{
+}
 }

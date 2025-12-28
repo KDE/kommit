@@ -41,7 +41,7 @@ StashOptions::StashOptions()
 
 void StashOptions::apply(git_stash_apply_options *opts)
 {
-    d->checkoutOptions->applyToCheckoutOptions(&opts->checkout_options);
+    d->checkoutOptions->apply(&opts->checkout_options);
     opts->flags = static_cast<uint32_t>(d->flags);
 }
 

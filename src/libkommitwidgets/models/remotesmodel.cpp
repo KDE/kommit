@@ -65,13 +65,18 @@ Git::Remote RemotesModel::findByName(const QString &name)
 
 void RemotesModel::rename(const QString &oldName, const QString &newName)
 {
-    mGit->runGit({QStringLiteral("remote"), QStringLiteral("rename"), oldName, newName});
+    git_strarray problems = {0};
+
+    git_remote_rename(&problems, mGit->repoPtr(), oldName.toUtf8().data(), newName.toUtf8().data());
+
+    // mGit->runGit({QStringLiteral("remote"), QStringLiteral("rename"), oldName, newName});
     load();
 }
 
 void RemotesModel::setUrl(const QString &remoteName, const QString &newUrl)
 {
-    mGit->runGit({QStringLiteral("remote"), QStringLiteral("set-url"), remoteName, newUrl});
+    git_remote_set_url(mGit->repoPtr(), remoteName.toUtf8().data(), newUrl.toUtf8().data());
+    // mGit->runGit({QStringLiteral("remote"), QStringLiteral("set-url"), remoteName, newUrl});
     load();
 }
 

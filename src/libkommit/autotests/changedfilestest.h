@@ -7,27 +7,27 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include <QObject>
+#include <QTemporaryDir>
 
 namespace Git
 {
 class Repository;
 }
 
-class ConfigTest : public QObject
+class ChangedFilesTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ConfigTest(QObject *parent = nullptr);
-    ~ConfigTest() override;
+    explicit ChangedFilesTest(QObject *parent = nullptr);
+    ~ChangedFilesTest() override;
 
 private Q_SLOTS:
     void initTestCase();
-    void cleanupTestCase();
-
-    void setUserInfo();
-    void setGlobalConfig();
-    void allConfigs();
+    void makeACommit();
+    void changeSomeFiles();
+    void checkChangedFiles();
 
 private:
+    QTemporaryDir dir;
     Git::Repository *mManager;
 };

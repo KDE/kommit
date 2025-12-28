@@ -48,6 +48,7 @@ Q_SIGNALS:
 
 private:
     void createIcon(Git::ChangeStatus status);
+    void createIcon(Git::StatusFlags status);
 
     Git::Repository *mGit{nullptr};
     QList<Row> mData;

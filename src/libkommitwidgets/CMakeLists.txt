@@ -40,8 +40,8 @@ target_sources(libkommitwidgets PRIVATE
     widgets/commitdetails.h
     widgets/urlrequester.cpp
     widgets/urlrequester.h
-    widgets/fetchresultwidget.h
-    widgets/fetchresultwidget.cpp
+
+
     widgets/branchesselectionwidget.h widgets/branchesselectionwidget.cpp
     widgets/mergewidget.h widgets/mergewidget.cpp
 
@@ -214,7 +214,6 @@ ki18n_wrap_ui(
     widgets/reportwidget.ui
     widgets/difftreeview.ui
     windows/kommitmergeview.ui
-    widgets/fetchresultwidget.ui
     widgets/branchesselectionwidget.ui
     widgets/mergewidget.ui
 

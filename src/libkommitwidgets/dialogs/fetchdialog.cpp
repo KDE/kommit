@@ -10,7 +10,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <Kommit/CommandFetch>
 #include <Kommit/Credential>
 #include <Kommit/Error>
-#include <Kommit/FetchObserver>
 #include <Kommit/FetchOptions>
 #include <Kommit/Oid>
 #include <Kommit/Reference>
@@ -28,7 +27,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 FetchDialog::FetchDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
-    , mObserver{new Git::FetchObserver{git}}
     , mFetch{new Git::FetchOptions{git}}
 {
     setupUi(this);
@@ -80,7 +78,7 @@ void FetchDialog::startFetch()
         mFetch->setPrune(Git::FetchOptions::Prune::Unspecified);
         break;
     case Qt::Checked:
-        mFetch->setPrune(Git::FetchOptions::Prune::Prune);
+        mFetch->setPrune(Git::FetchOptions::Prune::True);
         break;
     }
 
@@ -158,7 +156,7 @@ void FetchDialog::slotFetchFinished(bool success)
         labelStatus->setText(i18n("Finished"));
     } else {
         labelStatus->setText(i18n("Finished with error"));
-        textBrowser->append(i18n("Error %1: %2", Git::Error::klass(), Git::Error::message()));
+        textBrowser->append(i18n("Error %1: %2", Git::Error::lastType(), Git::Error::lastMessage()));
     }
 
     progressBar->setValue(progressBar->maximum());

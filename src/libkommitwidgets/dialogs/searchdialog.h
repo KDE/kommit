@@ -35,7 +35,7 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewDoubleClicked(const QModelIndex &index);
     LIBKOMMITWIDGETS_NO_EXPORT void beginSearch();
     LIBKOMMITWIDGETS_NO_EXPORT void searchOnPlace(const QString &place, const QString &commit);
-    LIBKOMMITWIDGETS_NO_EXPORT void searchOnCommit(QSharedPointer<Git::Commit> commit);
+    LIBKOMMITWIDGETS_NO_EXPORT void searchOnCommit(const Git::Commit &commit);
     struct {
         int value;
         int total;

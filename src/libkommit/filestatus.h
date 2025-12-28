@@ -7,12 +7,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include "libkommit_export.h"
+
+#include <Kommit/DiffDelta>
 #include <QObject>
 #include <QString>
+
+#include "types.h"
 
 namespace Git
 {
 
+class FileStatusPrivate;
 class LIBKOMMIT_EXPORT FileStatus
 {
 public:
@@ -31,28 +36,36 @@ public:
     };
 
     FileStatus();
+    FileStatus(StatusFlags status, DiffDelta headToIndex, DiffDelta indexToWorkdir);
     explicit FileStatus(QString name, Status status);
+    FileStatus(const QString &oldName, const QString &newName, ChangeStatus status);
 
     [[nodiscard]] const QString &name() const;
     [[nodiscard]] Status status() const;
 
-    void parseStatusLine(const QString &line);
-    [[nodiscard]] const QString &fullPath() const;
+    // void parseStatusLine(const QString &line)
+    // {
+    //     const auto statusX = line.at(0);
+    //     const auto statusY = line.at(1);
+    //     const auto fileName = line.mid(3);
+    //     d->newName = fileName;
 
-    void setFullPath(const QString &newFullPath);
+    //     setStatus(statusX, statusY);
+    // }
 
-    void setStatus(Status status);
+    // void setStatus(Status status)
+    // {
+    //     mStatus = status;
+    // }
     void setStatus(const QString &x, const QString &y = QString());
     void setName(const QString &newName);
 
     bool operator==(const FileStatus &other);
 
 private:
-    QString mFullPath;
-    QString mName;
-    Status mStatus;
-
     friend class Repository;
+
+    QSharedPointer<FileStatusPrivate> d;
 };
 LIBKOMMIT_EXPORT bool operator==(const FileStatus &f1, const FileStatus &f2);
 }

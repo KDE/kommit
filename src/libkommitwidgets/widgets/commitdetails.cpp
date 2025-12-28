@@ -187,8 +187,25 @@ void CommitDetails::slotMarkdownDisplayToggled(bool checked)
 
 QString CommitDetails::createChangedFiles()
 {
-    const auto files = Git::Repository::instance()->changedFiles(mCommit.commitHash());
     QStringList filesHtml;
+    QMap<QString, Git::DeltaFlag> changedFiles = mRepo->changedFiles(mCommit);
+
+    for (auto file = changedFiles.begin(); file != changedFiles.end(); ++file) {
+        Git::ChangeStatus status;
+
+        if (file.value() == Git::DeltaFlag::Added)
+            status = Git::ChangeStatus::Added;
+
+        QColor color = KommitWidgetsGlobalOptions::instance()->statucColor(status);
+
+        if (mEnableFilesLinks)
+            filesHtml.append(QStringLiteral("<span style=\"border: 1px solid gray; border-radius: 5px; background-color: %1; display: inline-block; width:10p; "
+                                            "height:10px\">&nbsp;&nbsp;&nbsp;</span> <font color=%1><a href=\"%2\">%2</a></font>")
+                                 .arg(color.name(), file.key()));
+        else
+            filesHtml.append(QStringLiteral("<font color=%1>%2</a>").arg(color.name(), file.key()));
+    }
+    const auto files = Git::Repository::instance()->changedFiles(mCommit.commitHash());
 
     for (auto i = files.constBegin(); i != files.constEnd(); ++i) {
         QColor color = KommitWidgetsGlobalOptions::instance()->statucColor(i.value());
@@ -237,6 +254,16 @@ QString CommitDetails::generateCommitsLink(const QStringList &hashes)
         ret << generateCommitLink(hash);
 
     return ret.join(QStringLiteral(", "));
+}
+
+Git::Repository *CommitDetails::repo() const
+{
+    return mRepo;
+}
+
+void CommitDetails::setRepo(Git::Repository *newRepo)
+{
+    mRepo = newRepo;
 }
 
 #include "moc_commitdetails.cpp"

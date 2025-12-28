@@ -10,8 +10,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "dialogs/submoduleinfodialog.h"
 
 #include "entities/submodule.h"
-#include "observers/fetchobserver.h"
-#include "widgets/fetchresultwidget.h"
 
 #include <caches/submodulescache.h>
 #include <options/addsubmoduleoptions.h>

@@ -21,6 +21,8 @@ FileBlameDialog::FileBlameDialog(Git::Repository *git, const QString &file, QWid
 {
     setupUi(this);
 
+    widgetCommitDetails->setRepo(git);
+
     widgetCommitDetails->setEnableCommitsLinks(false);
     plainTextEdit->setShowTitleBar(false);
 

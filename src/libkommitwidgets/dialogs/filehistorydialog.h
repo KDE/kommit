@@ -27,6 +27,7 @@ public:
 private:
     static constexpr int dataRole{Qt::UserRole + 1};
 
+    LIBKOMMITWIDGETS_NO_EXPORT void load();
     LIBKOMMITWIDGETS_NO_EXPORT void slotListWidgetItemClicked(QListWidgetItem *item);
     LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewItemClicked(QTreeWidgetItem *item, int column);
     LIBKOMMITWIDGETS_NO_EXPORT void slotRadioButtonRegularViewToggled(bool toggle);

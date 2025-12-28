@@ -11,9 +11,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QDateTime>
 #include <QSharedPointer>
 
+#include <git2/commit.h>
 #include <git2/types.h>
 
 #include <Kommit/Branch>
+#include <Kommit/Signature>
 
 namespace Git
 {
@@ -23,43 +25,25 @@ class LIBKOMMIT_EXPORT CommitOptions
 {
 public:
     CommitOptions();
-    explicit CommitOptions(const CommitOptions &other);
-    explicit CommitOptions(CommitOptions &&other) noexcept = default;
-    CommitOptions &operator=(const CommitOptions &other) = default;
-    CommitOptions &operator=(CommitOptions &&other) noexcept = default;
-    ~CommitOptions() = default;
-
-    QString authorName() const;
-    void setAuthorName(const QString &authorName);
-
-    QString authorEmail() const;
-    void setAuthorEmail(const QString &authorEmail);
-
-    QDateTime authTime() const;
-    void setAuthTime(const QDateTime &authTime);
-
-    QString committerName() const;
-    void setCommitterName(const QString &committerName);
-
-    QString committerEmail() const;
-    void setCommitterEmail(const QString &committerEmail);
-
-    QDateTime commitTime() const;
-    void setCommitTime(const QDateTime &commitTime);
-
-    QString reflogMessage() const;
-    void setReflogMessage(const QString &reflogMessage);
 
     Branch branch() const;
     void setBranch(const Branch &branch);
 
-    git_signature *author() const;
-    git_signature *committer() const;
+    Signature author() const;
+    void setAuthor(const Signature &author);
+
+    Signature committer() const;
+    void setCommitter(const Signature &committer);
+
+    QString reflogMessage() const;
+    void setReflogMessage(const QString &reflogMessage);
+
     git_commit *parentCommit() const;
     void setRepo(git_repository *repo);
 
-private:
+    void apply(git_commit_create_options *options);
 
+private:
     QSharedPointer<CommitOptionsPrivate> d;
 
     friend class Repository;

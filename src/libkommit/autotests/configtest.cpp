@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "configtest.h"
 #include "testcommon.h"
 
+#include <Kommit/Config>
 #include <QTest>
 #include <repository.h>
 
@@ -43,38 +44,48 @@ void ConfigTest::cleanupTestCase()
 
 void ConfigTest::setUserInfo()
 {
-    mManager->setConfig("user.name", "kommit");
-    mManager->setConfig("user.email", "kommit@kde.org");
+    auto config = mManager->config();
 
-    QCOMPARE(mManager->config("user.name"), "kommit");
-    QCOMPARE(mManager->config("user.email"), "kommit@kde.org");
+    QVERIFY(!config.isNull());
+
+    config.set("user.name", "kommit");
+    config.set("user.email", "kommit@kde.org");
+
+    QCOMPARE(config.valueString("user.name"), "kommit");
+    QCOMPARE(config.valueString("user.email"), "kommit@kde.org");
 
     auto val = QUuid::createUuid().toString(QUuid::Id128);
-    mManager->setConfig("kommit.test", val);
-    QCOMPARE(mManager->config("kommit.test"), val);
+    config.set("kommit.test", val);
+    QCOMPARE(config.valueString("kommit.test"), val);
 }
 
 void ConfigTest::setGlobalConfig()
 {
     auto val = QUuid::createUuid().toString(QUuid::Id128);
-    mManager->setConfig("kommit.test", val, Git::Repository::ConfigGlobal);
-    QCOMPARE(mManager->config("kommit.test", Git::Repository::ConfigGlobal), val);
+    auto config = Git::Repository::globalConfig();
+
+    QVERIFY(!config.isNull());
+
+    config.set("kommit.test", val);
+    QCOMPARE(config.valueString("kommit.test"), val);
 }
 
 void ConfigTest::allConfigs()
 {
-    auto userName = mManager->config("user.name", Git::Repository::ConfigGlobal);
-    auto userEmail = mManager->config("user.email", Git::Repository::ConfigGlobal);
+    auto config = Git::Repository::globalConfig();
+
+    auto userName = config.valueString("user.name");
+    auto userEmail = config.valueString("user.email");
 
     auto userNameFound{false};
     auto userEmailFound{false};
 
-    mManager->forEachConfig([&](const QString &name, const QString &val) {
-        if (name == "user.name" && val == userName)
+    config.forEach([&](const QString &name, const QString &value) {
+        if (name == "user.name" && value == userName)
             userNameFound = true;
-        if (name == "user.email" && val == userEmail)
+        if (name == "user.email" && value == userEmail)
             userEmailFound = true;
-        qDebug() << name << val;
+        qDebug() << name << value;
     });
 
     QVERIFY(userNameFound);

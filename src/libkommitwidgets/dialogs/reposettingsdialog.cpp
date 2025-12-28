@@ -13,16 +13,18 @@ RepoSettingsDialog::RepoSettingsDialog(Git::Repository *git, QWidget *parent)
 {
     setupUi(this);
 
-    lineEditUserName->setText(git->config(QStringLiteral("user.name")));
-    lineEditUserEmail->setText(git->config(QStringLiteral("user.email")));
+    auto config = git->config();
+
+    lineEditUserName->setText(config.valueString(QStringLiteral("user.name")));
+    lineEditUserEmail->setText(config.valueString(QStringLiteral("user.email")));
 
     connect(buttonBox, &QDialogButtonBox::accepted, this, &RepoSettingsDialog::slotAccepted);
 
     initComboBox<AutoCrlf>(comboBoxAutoCrlf);
     initComboBox<FileMode>(comboBoxFileMode);
 
-    auto autoCrlf = git->config(QStringLiteral("core.autocrlf"));
-    auto fileMode = git->config(QStringLiteral("core.fileMode"));
+    auto autoCrlf = config.valueString(QStringLiteral("core.autocrlf"));
+    auto fileMode = config.valueString(QStringLiteral("core.fileMode"));
 
     if (autoCrlf == QStringLiteral("input"))
         setComboboxValue(comboBoxAutoCrlf, AutoCrlf::Input);
@@ -43,36 +45,37 @@ RepoSettingsDialog::RepoSettingsDialog(Git::Repository *git, QWidget *parent)
 
 void RepoSettingsDialog::slotAccepted()
 {
-    mGit->setConfig(QStringLiteral("user.name"), lineEditUserName->text());
-    mGit->setConfig(QStringLiteral("user.email"), lineEditUserEmail->text());
+    auto config = mGit->config();
+    config.set(QStringLiteral("user.name"), lineEditUserName->text());
+    config.set(QStringLiteral("user.email"), lineEditUserEmail->text());
 
     auto autoCrlf = comboBoxCurrentValue<AutoCrlf>(comboBoxAutoCrlf);
     auto fileMode = comboBoxCurrentValue<FileMode>(comboBoxFileMode);
 
     switch (autoCrlf) {
     case AutoCrlf::Unset:
-        mGit->unsetConfig(QStringLiteral("core.autocrlf"));
+        config.remove(QStringLiteral("core.autocrlf"));
         break;
     case AutoCrlf::Enable:
-        mGit->setConfig(QStringLiteral("core.autocrlf"), "true");
+        config.set(QStringLiteral("core.autocrlf"), "true");
         break;
     case AutoCrlf::Disable:
-        mGit->setConfig(QStringLiteral("core.autocrlf"), "false");
+        config.set(QStringLiteral("core.autocrlf"), "false");
         break;
     case AutoCrlf::Input:
-        mGit->setConfig(QStringLiteral("core.autocrlf"), "input");
+        config.set(QStringLiteral("core.autocrlf"), "input");
         break;
     }
 
     switch (fileMode) {
     case FileMode::Unset:
-        mGit->unsetConfig(QStringLiteral("core.fileMode"));
+        config.remove(QStringLiteral("core.fileMode"));
         break;
     case FileMode::Enable:
-        mGit->setConfig(QStringLiteral("core.fileMode"), "true");
+        config.set(QStringLiteral("core.fileMode"), "true");
         break;
     case FileMode::Disable:
-        mGit->setConfig(QStringLiteral("core.fileMode"), "false");
+        config.set(QStringLiteral("core.fileMode"), "false");
         break;
     }
 

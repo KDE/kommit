@@ -5,18 +5,20 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "searchdialog.h"
-#include "caches/branchescache.h"
-#include "caches/commitscache.h"
-#include "fileviewerdialog.h"
 
-#include <entities/tree.h>
+#include <Kommit/BranchesCache>
+#include <Kommit/Commit>
+#include <Kommit/CommitsCache>
+#include <Kommit/File>
+#include <Kommit/Repository>
+#include <Kommit/Tree>
 
 #include <KLocalizedString>
+
 #include <QStandardItemModel>
 #include <QtConcurrent>
-#include <entities/commit.h>
-#include <gitloglist.h>
-#include <repository.h>
+
+#include "fileviewerdialog.h"
 
 SearchDialog::SearchDialog(const QString &path, Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
@@ -98,14 +100,18 @@ void SearchDialog::beginSearch()
         }
     } else {
         auto commits = mGit->commits()->allCommits();
-        Git::LogList list;
-        list.load(mGit);
-
-        mProgress.total = list.size();
-        for (const auto &branch : std::as_const(list)) {
-            searchOnPlace(QString(), branch->commitHash());
+        for (auto &commit : commits) {
+            searchOnCommit(commit);
             mProgress.value++;
         }
+        // Git::LogList list;
+        // list.load(mGit);
+
+        // mProgress.total = list.size();
+        // for (const auto &branch : std::as_const(list)) {
+        //     searchOnPlace(QString(), branch->commitHash());
+        //     mProgress.value++;
+        // }
     }
 
     pushButtonSearch->setEnabled(true);
@@ -127,10 +133,18 @@ void SearchDialog::searchOnPlace(const QString &branch, const QString &commit)
     }
 }
 
-void SearchDialog::searchOnCommit(QSharedPointer<Git::Commit> commit)
+void SearchDialog::searchOnCommit(const Git::Commit &commit)
 {
-    mProgress.currentPlace = commit->message();
-    // auto tree = commit->tree();
+    mProgress.currentPlace = commit.message();
+    auto tree = commit.tree();
+
+    auto files = tree.entries(Git::EntryType::File);
+
+    for (auto &fileName : files) {
+        auto file = tree.file(fileName);
+        if (file.content().contains(lineEditPath->text().toUtf8()))
+            mModel->appendRow({new QStandardItem(fileName)});
+    }
     // tree.create()
 }
 

@@ -10,6 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QTimeZone>
 
+#include <Kommit/Error>
+#include <Kommit/Repository>
 namespace Git
 {
 
@@ -17,19 +19,32 @@ class SignaturePrivate
 {
 public:
     SignaturePrivate();
+    explicit SignaturePrivate(Repository *repo);
+    SignaturePrivate(const QString &name, const QString &email);
     explicit SignaturePrivate(git_signature *signature);
     explicit SignaturePrivate(const git_signature *signature);
     ~SignaturePrivate();
-    const git_signature *signature;
+    git_signature *signature{nullptr};
 
 private:
     bool own;
 };
 
 SignaturePrivate::SignaturePrivate()
-    : signature{nullptr}
-    , own{false}
+    : own{false}
 {
+}
+
+SignaturePrivate::SignaturePrivate(Repository *repo)
+    : own{true}
+{
+    git_signature_default(&signature, repo->repoPtr());
+}
+
+SignaturePrivate::SignaturePrivate(const QString &name, const QString &email)
+    : own{true}
+{
+    git_signature_now(&signature, name.toUtf8().data(), email.toUtf8().data());
 }
 
 SignaturePrivate::SignaturePrivate(git_signature *signature)
@@ -39,7 +54,7 @@ SignaturePrivate::SignaturePrivate(git_signature *signature)
 }
 
 SignaturePrivate::SignaturePrivate(const git_signature *signature)
-    : signature{signature}
+    : signature{const_cast<git_signature *>(signature)}
     , own{false}
 {
 }
@@ -51,9 +66,18 @@ SignaturePrivate::~SignaturePrivate()
 }
 
 Signature::Signature()
-    : d{new SignaturePrivate{}}
+    : d{new SignaturePrivate}
 {
-    // git_signature_now(&d->signature, "", "");
+}
+
+Signature::Signature(Repository *repo)
+    : d{new SignaturePrivate{repo}}
+{
+}
+
+Signature::Signature(const QString &name, const QString &email)
+    : d{new SignaturePrivate{name, email}}
+{
 }
 
 Signature::Signature(git_signature *signature)
@@ -63,11 +87,6 @@ Signature::Signature(git_signature *signature)
 
 Signature::Signature(const git_signature *signature)
     : d{new SignaturePrivate{signature}}
-{
-}
-
-Signature::Signature(const Signature &other)
-    : d{other.d}
 {
 }
 
@@ -109,9 +128,25 @@ QString Signature::name() const
     return QString{d->signature->name};
 }
 
+void Signature::setName(const QString &name)
+{
+    QByteArray utf8 = name.toUtf8();
+    delete[] d->signature->name;
+    d->signature->name = new char[utf8.size() + 1];
+    qstrcpy(d->signature->name, utf8.constData());
+}
+
 QString Signature::email() const
 {
     return QString{d->signature->email};
+}
+
+void Signature::setEmail(const QString &email)
+{
+    QByteArray utf8 = email.toUtf8();
+    delete[] d->signature->email;
+    d->signature->email = new char[utf8.size() + 1];
+    qstrcpy(d->signature->email, utf8.constData());
 }
 
 QDateTime Signature::time() const
@@ -125,4 +160,18 @@ QDateTime Signature::time() const
     }
 }
 
+void Signature::setTime(const QDateTime &time)
+{
+    d->signature->when.time = time.toSecsSinceEpoch();
+
+    int offsetMinutes = time.offsetFromUtc() / 60;
+
+    if (offsetMinutes >= 0) {
+        d->signature->when.sign = '+';
+        d->signature->when.offset = offsetMinutes;
+    } else {
+        d->signature->when.sign = '-';
+        d->signature->when.offset = -offsetMinutes;
+    }
+}
 }

@@ -34,6 +34,9 @@ public:
     [[nodiscard]] bool enableFilesLinks() const;
     void setEnableFilesLinks(bool enableFilesLinks);
 
+    Git::Repository *repo() const;
+    void setRepo(Git::Repository *newRepo);
+
 Q_SIGNALS:
     void hashClicked(const QString &hash);
     void fileClicked(const QString &file);
@@ -53,6 +56,7 @@ private:
     CommitsModel *mLogsModel{nullptr};
 
     Git::Commit mCommit;
+    Git::Repository *mRepo;
     bool mEnableCommitsLinks{true};
     bool mEnableEmailsLinks{true};
     bool mEnableFilesLinks{true};

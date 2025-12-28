@@ -26,7 +26,7 @@ class LIBKOMMIT_EXPORT FetchOptions : public QObject
 {
     Q_OBJECT
 public:
-    explicit FetchOptions(QObject *parent = nullptr);
+    explicit FetchOptions(Repository *parent = nullptr);
 
     enum class DownloadTags {
         Unspecified = GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED,
@@ -37,7 +37,7 @@ public:
 
     enum class Prune {
         Unspecified = GIT_FETCH_PRUNE_UNSPECIFIED,
-        Prune = GIT_FETCH_PRUNE,
+        True = GIT_FETCH_PRUNE,
         NoPrune = GIT_FETCH_NO_PRUNE
     };
 

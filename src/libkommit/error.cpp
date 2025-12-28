@@ -8,22 +8,46 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <git2/errors.h>
 
+#include <QMetaEnum>
+
 namespace Git
 {
 
 Error::Error()
 {
-    auto e = git_error_last();
+    _type = static_cast<Type>(git_error_last()->klass);
+    _message = QString{git_error_last()->message};
 }
 
-int Error::klass()
+QString Error::typeString() const
 {
-    return git_error_last()->klass;
+    auto e = QMetaEnum::fromType<Type>();
+    return QString{e.valueToKey(static_cast<quint64>(_type))};
 }
 
-QString Error::message()
+QString Error::message() const
+{
+    return _message;
+}
+
+int Error::lastType()
+{
+    return static_cast<Type>(git_error_last()->klass);
+}
+
+QString Error::lastTypeString()
+{
+    auto e = QMetaEnum::fromType<Type>();
+    return QString{e.valueToKey(static_cast<quint64>(git_error_last()->klass))};
+}
+
+QString Error::lastMessage()
 {
     return QString{git_error_last()->message};
 }
 
+Error::Type Error::type() const
+{
+    return _type;
+}
 }

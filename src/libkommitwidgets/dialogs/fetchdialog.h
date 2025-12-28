@@ -18,7 +18,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 class Repository;
-class FetchObserver;
 struct PackProgress;
 struct FetchTransferStat;
 class FetchOptions;
@@ -35,8 +34,6 @@ public:
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotAccept();
-
-    Git::FetchObserver *const mObserver;
 
     void startFetch();
 

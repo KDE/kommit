@@ -56,6 +56,10 @@ void ChangedFilesModel::createIcon(Git::ChangeStatus status)
     mIcons.insert(status, icon);
 }
 
+void ChangedFilesModel::createIcon(Git::StatusFlags status)
+{
+}
+
 bool ChangedFilesModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (mCheckable && role == Qt::CheckStateRole && index.isValid()) {
@@ -109,12 +113,12 @@ void ChangedFilesModel::reload()
 
     auto files = mGit->changedFiles();
     for (auto i = files.begin(); i != files.end(); ++i) {
-        if (i.value() == Git::ChangeStatus::Ignored)
+        if (i.value() == Git::StatusFlag::Ignored)
             continue;
 
         Row d;
         d.filePath = i.key();
-        d.status = i.value();
+        d.status = Git::toChangeStatus(i.value());
         d.checked = true;
 
         createIcon(d.status);

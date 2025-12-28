@@ -19,24 +19,25 @@ FileHistoryDialog::FileHistoryDialog(Git::Repository *git, const QString &fileNa
 {
     setupUi(this);
 
-    const auto hashes = git->fileLog(fileName);
+    // const auto hashes = git->fileLog(fileName);
 
-    const auto logs = git->commits();
+    // const auto logs = git->commits();
 
-    for (const auto &hash : hashes) {
-        auto log = logs->find(hash);
-        if (log.isNull())
-            continue;
+    // for (const auto &hash : hashes) {
+    //     auto log = logs->find(hash);
+    //     if (log.isNull())
+    //         continue;
 
-        auto item = new QListWidgetItem(log.message());
-        item->setData(dataRole, log.commitHash());
-        listWidget->addItem(item);
+    //     auto item = new QListWidgetItem(log.message());
+    //     item->setData(dataRole, log.commitHash());
+    //     listWidget->addItem(item);
 
-        auto treeItem = new QTreeWidgetItem{treeWidget};
-        treeItem->setText(0, log.message());
-        treeItem->setData(0, dataRole, log.commitHash());
-        treeWidget->addTopLevelItem(treeItem);
-    }
+    //     auto treeItem = new QTreeWidgetItem{treeWidget};
+    //     treeItem->setText(0, log.message());
+    //     treeItem->setData(0, dataRole, log.commitHash());
+    //     treeWidget->addTopLevelItem(treeItem);
+    // }
+    load();
     plainTextEdit->setHighlighting(fileName);
     setWindowTitle(i18nc("@title:window", "File log: %1", fileName));
 
@@ -56,6 +57,36 @@ FileHistoryDialog::FileHistoryDialog(Git::Repository *git, const QString &fileNa
 FileHistoryDialog::FileHistoryDialog(Git::Repository *git, const Git::Blob &file, QWidget *parent)
     : FileHistoryDialog(git, file.name(), parent)
 {
+}
+
+void FileHistoryDialog::load()
+{
+    auto commits = mGit->commits()->allCommits();
+    for (Git::Commit &commit : commits) {
+        auto file = commit.tree().file(mFileName);
+        if (file.isNull())
+            continue;
+        for (auto &parentHash : commit.parents()) {
+            auto parent = mGit->commits()->find(parentHash);
+            if (parent.isNull())
+                continue;
+
+            auto parentFile = parent.tree().file(mFileName);
+
+            if (file.content() != parentFile.content()) {
+                // save the log
+
+                auto item = new QListWidgetItem(commit.message());
+                item->setData(dataRole, commit.commitHash());
+                listWidget->addItem(item);
+
+                auto treeItem = new QTreeWidgetItem{treeWidget};
+                treeItem->setText(0, commit.message());
+                treeItem->setData(0, dataRole, commit.commitHash());
+                treeWidget->addTopLevelItem(treeItem);
+            }
+        }
+    }
 }
 
 void FileHistoryDialog::slotListWidgetItemClicked(QListWidgetItem *item)

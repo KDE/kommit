@@ -26,7 +26,7 @@ public:
     [[nodiscard]] git_diff_delta *deltaPtr() const;
     [[nodiscard]] QString oldFile() const;
     [[nodiscard]] QString newFile() const;
-    [[nodiscard]] ChangeStatus status() const;
+    [[nodiscard]] DeltaFlag status() const;
 
     bool operator==(const TreeDiffEntry &other) const;
 
@@ -35,7 +35,7 @@ private:
 
     QString mOldFile;
     QString mNewFile;
-    ChangeStatus mStatus;
+    DeltaFlag mStatus;
 };
 
 class LIBKOMMIT_EXPORT TreeDiff : public QList<TreeDiffEntry>
@@ -46,7 +46,7 @@ public:
     ~TreeDiff();
 
     bool contains(const QString &entryPath) const;
-    ChangeStatus status(const QString &entryPath) const;
+    DeltaFlag status(const QString &entryPath) const;
 
 private:
     git_diff *mDiff{nullptr};

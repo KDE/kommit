@@ -4,6 +4,8 @@ SPDX-FileCopyrightText: 2021 Hamed Masafi <hamed.masfi@gmail.com>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
+#include "libkommit_export.h"
+
 #include <QStringList>
 #include <git2/tree.h>
 
@@ -67,5 +69,55 @@ void addToArray(git_strarray *arr, const QStringList &list)
         arr->strings[i] = list.at(i).toLocal8Bit().data();
     }
     arr->count = 1;
+}
+
+LIBKOMMIT_EXPORT ChangeStatus toChangeStatus(StatusFlags flags)
+{
+    if (flags & StatusFlag::Modified)
+        return ChangeStatus::Modified;
+    if (flags & StatusFlag::New)
+        return ChangeStatus::Added;
+    if (flags & StatusFlag::Deleted)
+        return ChangeStatus::Removed;
+    if (flags & StatusFlag::Ignored)
+        return ChangeStatus::Ignored;
+    if (flags & StatusFlag::Current)
+        return ChangeStatus::Unmodified;
+    if (flags & StatusFlag::WtUnreadable)
+        return ChangeStatus::Unreadable;
+    if (flags & StatusFlag::Conflicted)
+        return ChangeStatus::Conflicted;
+
+    return ChangeStatus::Modified;
+}
+
+ChangeStatus toChangeStatus(DeltaFlag deltaStatus)
+{
+    switch (deltaStatus) {
+    case DeltaFlag::Unmodified:
+        return ChangeStatus::Unmodified;
+    case DeltaFlag::Added:
+        return ChangeStatus::Added;
+    case DeltaFlag::Deleted:
+        return ChangeStatus::Removed;
+    case DeltaFlag::Modified:
+        return ChangeStatus::Modified;
+    case DeltaFlag::Renamed:
+        return ChangeStatus::Renamed;
+    case DeltaFlag::Copied:
+        return ChangeStatus::Copied;
+    case DeltaFlag::Ignored:
+        return ChangeStatus::Ignored;
+    case DeltaFlag::Untracked:
+        return ChangeStatus::Untracked;
+    case DeltaFlag::Typechange:
+        return ChangeStatus::Modified;
+    case DeltaFlag::Unreadable:
+        return ChangeStatus::Unreadable;
+    case DeltaFlag::Conflicted:
+        return ChangeStatus::Conflicted;
+    }
+
+    return ChangeStatus::Unknown;
 }
 }

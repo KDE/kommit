@@ -27,11 +27,11 @@
 #include "fetchoptions.h"
 #include "filestatus.h"
 #include "gitglobal_p.h"
-#include "observers/cloneobserver.h"
-#include "observers/fetchobserver.h"
-#include "observers/pushobserver.h"
 #include "options/blameoptions.h"
+#include "options/checkoutoptions.h"
+#include "options/cloneoptions.h"
 #include "proxy.h"
+#include "pushoptions.h"
 #include "remotecallbacks.h"
 #include "strarray.h"
 
@@ -150,16 +150,16 @@ Reference Repository::head() const
     return Reference{};
 }
 
-bool Repository::checkout()
+bool Repository::checkout(Object target, CheckoutOptions *options)
 {
     Q_D(Repository);
-
-    Tag tag;
-    auto target = tag.target();
 
     git_checkout_options checkoutOptions;
     git_checkout_options_init(&checkoutOptions, GIT_CHECKOUT_OPTIONS_VERSION);
     checkoutOptions.checkout_strategy = GIT_CHECKOUT_SAFE;
+
+    if (options)
+        options->apply(&checkoutOptions);
 
     git_checkout_tree(d->repo, target.data(), &checkoutOptions);
 
@@ -198,29 +198,6 @@ QStringList Repository::ignoredFiles() const
 }
 
 // TODO: remove this
-QList<FileStatus> Repository::repoFilesStatus() const
-{
-    Q_D(const Repository);
-
-    const auto buffer = runGit({QStringLiteral("status"),
-                                QStringLiteral("--untracked-files=all"),
-                                QStringLiteral("--ignored"),
-                                QStringLiteral("--short"),
-                                QStringLiteral("--ignore-submodules"),
-                                QStringLiteral("--porcelain")})
-                            .split(QLatin1Char('\n'));
-    QList<FileStatus> files;
-    for (const auto &item : buffer) {
-        if (!item.trimmed().size())
-            continue;
-        FileStatus fs;
-        fs.parseStatusLine(item);
-        qCDebug(KOMMITLIB_LOG) << "[STATUS]" << fs.name() << fs.status();
-        fs.setFullPath(d->path + QLatin1Char('/') + fs.name());
-        files.append(fs);
-    }
-    return files;
-}
 
 bool Repository::isValid() const
 {
@@ -326,181 +303,158 @@ QStringList Repository::fileLog(const QString &fileName) const
     return readAllNonEmptyOutput({QStringLiteral("log"), QStringLiteral("--format=format:%H"), QStringLiteral("--"), fileName});
 }
 
-QString Repository::diff(const QString &from, const QString &to) const
-{
-    return runGit({QStringLiteral("diff"), from, to});
-}
+// QList<FileStatus> Repository::diffBranches(const QString &from, const QString &to) const
+// {
+//     Q_D(const Repository);
 
-QList<FileStatus> Repository::diffBranch(const QString &from) const
-{
-    const QStringList buffer = QString(runGit({QStringLiteral("diff"), from, QStringLiteral("--name-status")})).split(QLatin1Char('\n'));
-    QList<FileStatus> files;
-    for (const auto &item : buffer) {
-        if (!item.trimmed().size())
-            continue;
-        const auto parts = item.split(QStringLiteral("\t"));
-        if (parts.size() != 2)
-            continue;
+//     BEGIN
 
-        FileStatus fs;
-        fs.setStatus(parts.at(0));
-        fs.setName(parts.at(1));
-        files.append(fs);
-    }
-    return files;
-}
+//     git_tree *fromTree{nullptr};
+//     git_tree *toTree{nullptr};
 
-QList<FileStatus> Repository::diffBranches(const QString &from, const QString &to) const
-{
-    Q_D(const Repository);
+//     git_object *fromObject;
+//     git_commit *fromCommit = NULL;
+//     git_object *toObject;
+//     git_commit *toCommit = NULL;
+//     git_diff *diff;
+//     git_diff_options opts = GIT_DIFF_OPTIONS_INIT;
+//     opts.flags = GIT_DIFF_NORMAL;
 
-    BEGIN
+//     STEP git_revparse_single(&fromObject, d->repo, from.toLatin1().constData());
+//     STEP git_commit_lookup(&fromCommit, d->repo, git_object_id(fromObject));
+//     STEP git_commit_tree(&fromTree, fromCommit);
 
-    git_tree *fromTree{nullptr};
-    git_tree *toTree{nullptr};
+//     if (to.isEmpty()) {
+//         git_diff_tree_to_workdir(&diff, d->repo, fromTree, &opts);
+//         RETURN_IF_ERR({});
+//     } else {
+//         STEP git_revparse_single(&toObject, d->repo, to.toLatin1().constData());
+//         STEP git_commit_lookup(&toCommit, d->repo, git_object_id(toObject));
+//         STEP git_commit_tree(&toTree, toCommit);
 
-    git_object *fromObject;
-    git_commit *fromCommit = NULL;
-    git_object *toObject;
-    git_commit *toCommit = NULL;
-    git_diff *diff;
-    git_diff_options opts = GIT_DIFF_OPTIONS_INIT;
-    opts.flags = GIT_DIFF_NORMAL;
+//         RETURN_IF_ERR({});
 
-    STEP git_revparse_single(&fromObject, d->repo, from.toLatin1().constData());
-    STEP git_commit_lookup(&fromCommit, d->repo, git_object_id(fromObject));
-    STEP git_commit_tree(&fromTree, fromCommit);
+//         git_diff_tree_to_tree(&diff, d->repo, fromTree, toTree, &opts);
+//         git_commit_free(toCommit);
+//     }
 
-    if (to.isEmpty()) {
-        git_diff_tree_to_workdir(&diff, d->repo, fromTree, &opts);
-        RETURN_IF_ERR({});
-    } else {
-        STEP git_revparse_single(&toObject, d->repo, to.toLatin1().constData());
-        STEP git_commit_lookup(&toCommit, d->repo, git_object_id(toObject));
-        STEP git_commit_tree(&toTree, toCommit);
+//     git_commit_free(fromCommit);
 
-        RETURN_IF_ERR({});
+//     git_diff_stats *stats;
+//     git_diff_get_stats(&stats, diff);
+//     auto n = git_diff_stats_files_changed(stats);
+//     QList<FileStatus> files2;
 
-        git_diff_tree_to_tree(&diff, d->repo, fromTree, toTree, &opts);
-        git_commit_free(toCommit);
-    }
+//     for (size_t i = 0; i < n; ++i) {
+//         auto delta = git_diff_get_delta(diff, i);
+//         DiffDelta d{delta};
 
-    git_commit_free(fromCommit);
+//         FileStatus fs;
+//         fs.mName = delta->new_file.path;
 
-    git_diff_stats *stats;
-    git_diff_get_stats(&stats, diff);
-    auto n = git_diff_stats_files_changed(stats);
-    QList<FileStatus> files2;
+//         switch (delta->status) {
+//         case GIT_DELTA_UNMODIFIED:
+//             fs.mStatus = FileStatus::Unmodified;
+//             break;
+//         case GIT_DELTA_ADDED:
+//             fs.mStatus = FileStatus::Added;
+//             break;
+//         case GIT_DELTA_DELETED:
+//             fs.mStatus = FileStatus::Removed;
+//             break;
+//         case GIT_DELTA_MODIFIED:
+//             fs.mStatus = FileStatus::Modified;
+//             break;
+//         case GIT_DELTA_RENAMED:
+//             fs.mStatus = FileStatus::Renamed;
+//             break;
+//         case GIT_DELTA_COPIED:
+//             fs.mStatus = FileStatus::Copied;
+//             break;
+//         case GIT_DELTA_IGNORED:
+//             fs.mStatus = FileStatus::Ignored;
+//             break;
+//         case GIT_DELTA_UNTRACKED:
+//             fs.mStatus = FileStatus::Untracked;
+//             break;
+//         case GIT_DELTA_TYPECHANGE:
+//             fs.mStatus = FileStatus::Unknown;
+//             break;
+//         case GIT_DELTA_UNREADABLE:
+//             fs.mStatus = FileStatus::Unknown;
+//             break;
+//         case GIT_DELTA_CONFLICTED:
+//             fs.mStatus = FileStatus::Unknown;
+//             break;
+//         }
+//         files2 << fs;
+//     }
 
-    for (size_t i = 0; i < n; ++i) {
-        auto delta = git_diff_get_delta(diff, i);
-        FileStatus fs;
-        fs.mName = delta->new_file.path;
+//     return files2;
+// }
 
-        switch (delta->status) {
-        case GIT_DELTA_UNMODIFIED:
-            fs.mStatus = FileStatus::Unmodified;
-            break;
-        case GIT_DELTA_ADDED:
-            fs.mStatus = FileStatus::Added;
-            break;
-        case GIT_DELTA_DELETED:
-            fs.mStatus = FileStatus::Removed;
-            break;
-        case GIT_DELTA_MODIFIED:
-            fs.mStatus = FileStatus::Modified;
-            break;
-        case GIT_DELTA_RENAMED:
-            fs.mStatus = FileStatus::Renamed;
-            break;
-        case GIT_DELTA_COPIED:
-            fs.mStatus = FileStatus::Copied;
-            break;
-        case GIT_DELTA_IGNORED:
-            fs.mStatus = FileStatus::Ignored;
-            break;
-        case GIT_DELTA_UNTRACKED:
-            fs.mStatus = FileStatus::Untracked;
-            break;
-        case GIT_DELTA_TYPECHANGE:
-            fs.mStatus = FileStatus::Unknown;
-            break;
-        case GIT_DELTA_UNREADABLE:
-            fs.mStatus = FileStatus::Unknown;
-            break;
-        case GIT_DELTA_CONFLICTED:
-            fs.mStatus = FileStatus::Unknown;
-            break;
-        }
-        files2 << fs;
-    }
-
-    return files2;
-}
-
-QList<FileStatus> Repository::diff(AbstractReference *from, AbstractReference *to) const
+QList<DiffDelta> Repository::diff(AbstractReference *from, AbstractReference *to) const
 {
     Q_D(const Repository);
-
-    BEGIN
 
     git_diff *diff;
     git_diff_options opts = GIT_DIFF_OPTIONS_INIT;
     opts.flags = GIT_DIFF_NORMAL;
 
-    STEP git_diff_tree_to_tree(&diff, d->repo, from->tree().data(), to->tree().data(), &opts);
+    auto ok = SequenceRunner::runSingle(git_diff_tree_to_tree, &diff, d->repo, from->tree().data(), to->tree().data(), &opts);
 
-    if (IS_ERROR) {
-        PRINT_ERROR;
-        return QList<FileStatus>{};
-    }
+    if (!ok)
+        return QList<DiffDelta>{};
 
     git_diff_stats *stats;
     git_diff_get_stats(&stats, diff);
     auto n = git_diff_stats_files_changed(stats);
-    QList<FileStatus> files2;
+    QList<DiffDelta> files2;
 
     for (size_t i = 0; i < n; ++i) {
         auto delta = git_diff_get_delta(diff, i);
-        FileStatus fs;
-        fs.mName = delta->new_file.path;
+        files2 << DiffDelta{delta};
+        /*
+                FileStatus fs;
+                fs.mName = delta->new_file.path;
 
-        switch (delta->status) {
-        case GIT_DELTA_UNMODIFIED:
-            fs.mStatus = FileStatus::Unmodified;
-            break;
-        case GIT_DELTA_ADDED:
-            fs.mStatus = FileStatus::Added;
-            break;
-        case GIT_DELTA_DELETED:
-            fs.mStatus = FileStatus::Removed;
-            break;
-        case GIT_DELTA_MODIFIED:
-            fs.mStatus = FileStatus::Modified;
-            break;
-        case GIT_DELTA_RENAMED:
-            fs.mStatus = FileStatus::Renamed;
-            break;
-        case GIT_DELTA_COPIED:
-            fs.mStatus = FileStatus::Copied;
-            break;
-        case GIT_DELTA_IGNORED:
-            fs.mStatus = FileStatus::Ignored;
-            break;
-        case GIT_DELTA_UNTRACKED:
-            fs.mStatus = FileStatus::Untracked;
-            break;
-        case GIT_DELTA_TYPECHANGE:
-            fs.mStatus = FileStatus::Unknown;
-            break;
-        case GIT_DELTA_UNREADABLE:
-            fs.mStatus = FileStatus::Unknown;
-            break;
-        case GIT_DELTA_CONFLICTED:
-            fs.mStatus = FileStatus::Unknown;
-            break;
-        }
-        files2 << fs;
+                switch (delta->status) {
+                case GIT_DELTA_UNMODIFIED:
+                    fs.mStatus = FileStatus::Unmodified;
+                    break;
+                case GIT_DELTA_ADDED:
+                    fs.mStatus = FileStatus::Added;
+                    break;
+                case GIT_DELTA_DELETED:
+                    fs.mStatus = FileStatus::Removed;
+                    break;
+                case GIT_DELTA_MODIFIED:
+                    fs.mStatus = FileStatus::Modified;
+                    break;
+                case GIT_DELTA_RENAMED:
+                    fs.mStatus = FileStatus::Renamed;
+                    break;
+                case GIT_DELTA_COPIED:
+                    fs.mStatus = FileStatus::Copied;
+                    break;
+                case GIT_DELTA_IGNORED:
+                    fs.mStatus = FileStatus::Ignored;
+                    break;
+                case GIT_DELTA_UNTRACKED:
+                    fs.mStatus = FileStatus::Untracked;
+                    break;
+                case GIT_DELTA_TYPECHANGE:
+                    fs.mStatus = FileStatus::Unknown;
+                    break;
+                case GIT_DELTA_UNREADABLE:
+                    fs.mStatus = FileStatus::Unknown;
+                    break;
+                case GIT_DELTA_CONFLICTED:
+                    fs.mStatus = FileStatus::Unknown;
+                    break;
+                }
+                files2 << fs;
+                */
     }
 
     return files2;
@@ -578,9 +532,9 @@ Tree Repository::headTree() const
     return Commit{headCommit}.tree();
 }
 
-TreeDiff Repository::diff(const Tree &oldTree, const Tree &newTree)
+TreeDiff Repository::diff(const Tree &oldTree, const Tree &newTree) const
 {
-    Q_D(Repository);
+    Q_D(const Repository);
 
     git_diff *diff;
     git_diff_options opts = GIT_DIFF_OPTIONS_INIT;
@@ -609,129 +563,6 @@ TreeDiff Repository::diff(const Tree &oldTree, const Tree &newTree)
     git_diff_free(diff);
 
     return treeDiff;
-}
-
-QString Repository::config(const QString &name, ConfigType type) const
-{
-    Q_D(const Repository);
-
-    if (!d->repo) {
-        return {};
-    }
-    BEGIN
-    git_config *cfg;
-    switch (type) {
-    case ConfigLocal:
-        STEP git_repository_config(&cfg, d->repo);
-        break;
-    case ConfigGlobal:
-        STEP git_config_open_default(&cfg);
-        break;
-    }
-    git_config_entry *entry = NULL;
-    STEP git_config_get_entry(&entry, cfg, name.toLatin1().data());
-    PRINT_ERROR;
-
-    if (!entry)
-        return {};
-
-    QString s = entry->value;
-    git_config_entry_free(entry);
-    return s;
-}
-
-bool Repository::configBool(const QString &name, ConfigType type) const
-{
-    Q_D(const Repository);
-
-    BEGIN
-    int buf{};
-    git_config *cfg;
-    switch (type) {
-    case ConfigLocal:
-        STEP git_repository_config(&cfg, d->repo);
-        break;
-    case ConfigGlobal:
-        STEP git_config_open_default(&cfg);
-        break;
-    }
-    STEP git_config_get_bool(&buf, cfg, name.toLatin1().data());
-
-    PRINT_ERROR;
-    if (IS_ERROR)
-        return false;
-
-    return buf;
-}
-
-void Repository::setConfig(const QString &name, const QString &value, ConfigType type) const
-{
-    Q_D(const Repository);
-
-    BEGIN
-
-    git_config *cfg;
-    switch (type) {
-    case ConfigLocal:
-        STEP git_repository_config(&cfg, d->repo);
-        break;
-    case ConfigGlobal:
-        STEP git_config_open_default(&cfg);
-        break;
-    }
-    STEP git_config_set_string(cfg, name.toLatin1().data(), value.toLatin1().data());
-    END;
-}
-
-void Repository::unsetConfig(const QString &name, ConfigType type) const
-{
-    Q_D(const Repository);
-
-    BEGIN
-
-    git_config *cfg;
-    switch (type) {
-    case ConfigLocal:
-        STEP git_repository_config(&cfg, d->repo);
-        break;
-    case ConfigGlobal:
-        STEP git_config_open_default(&cfg);
-        break;
-    }
-    STEP git_config_delete_entry(cfg, name.toLatin1().data());
-
-    return;
-
-    QStringList cmd{QStringLiteral("config"), QStringLiteral("--unset")};
-
-    if (type == ConfigGlobal)
-        cmd.append(QStringLiteral("--global"));
-
-    cmd.append(name);
-
-    runGit(cmd);
-}
-
-void Repository::forEachConfig(std::function<void(QString, QString)> calback)
-{
-    struct wrapper {
-        std::function<void(QString, QString)> calback;
-    };
-    wrapper w;
-    w.calback = calback;
-    git_config *cfg = nullptr;
-
-    BEGIN
-    STEP git_config_open_default(&cfg);
-
-    auto cb = [](const git_config_entry *entry, void *payload) -> int {
-        auto w = reinterpret_cast<wrapper *>(payload);
-        w->calback(QString{entry->name}, QString{entry->value});
-        return 0;
-    };
-
-    git_config_foreach(cfg, cb, &w);
-    git_config_free(cfg);
 }
 
 QStringList Repository::readAllNonEmptyOutput(const QStringList &cmd) const
@@ -823,14 +654,6 @@ bool Repository::fetch(FetchOptions *options)
     options->remoteCallbacks()->apply(&opts.callbacks, this);
     options->proxy()->apply(&opts.proxy_opts);
 
-    // set variables
-    if (options->depth() > -1)
-        opts.depth = options->depth();
-
-    opts.download_tags = static_cast<git_remote_autotag_option_t>(options->downloadTags());
-    opts.follow_redirects = static_cast<git_remote_redirect_t>(options->redirect());
-    opts.prune = static_cast<git_fetch_prune_t>(options->prune());
-
     int ret;
     if (!options->branch().isNull()) {
         StrArray refSpecs{1};
@@ -844,21 +667,42 @@ bool Repository::fetch(FetchOptions *options)
     return ret;
 }
 
+Config Repository::config() const
+{
+    Q_D(const Repository);
+
+    git_config *cfg;
+    if (git_repository_config(&cfg, d->repo))
+        return Config{nullptr};
+
+    return Config{cfg};
+}
+
+Config Repository::globalConfig()
+{
+    git_config *cfg;
+    if (git_config_open_default(&cfg))
+        return Config{nullptr};
+    return Config{cfg};
+}
+
 QString Repository::run(const AbstractCommand &cmd) const
 {
     return runGit(cmd.generateArgs());
 }
 
-bool Repository::init(const QString &path)
+bool Repository::init(const QString &path, InitOptions *options)
 {
     Q_D(Repository);
     git_repository *repo;
 
-    BEGIN
     git_repository_init_options initopts = {GIT_REPOSITORY_INIT_OPTIONS_VERSION, GIT_REPOSITORY_INIT_MKPATH};
-    STEP git_repository_init_ext(&repo, path.toUtf8().data(), &initopts);
+    if (options)
+        options->apply(&initopts);
 
-    if (IS_ERROR) {
+    auto ok = SequenceRunner::runSingle(git_repository_init_ext, &repo, path.toUtf8().data(), &initopts);
+
+    if (!ok) {
         git_repository_free(repo);
         return false;
     }
@@ -869,38 +713,25 @@ bool Repository::init(const QString &path)
     return true;
 }
 
-bool Repository::clone(const QString &url, const QString &localPath, CloneObserver *observer)
+bool Repository::clone(const QString &url, const QString &localPath, CloneOptions *options)
 {
     Q_D(Repository);
 
-    git_repository *repo{nullptr};
     git_clone_options opts = GIT_CLONE_OPTIONS_INIT;
 
-    if (observer) {
-        observer->applyOfFetchOptions(&opts.fetch_opts);
+    if (options)
+        options->apply(&opts);
+    git_repository *repo{nullptr};
 
-        opts.checkout_opts.progress_cb = &CloneCallbacks::git_helper_checkout_progress_cb;
-        opts.checkout_opts.notify_cb = &CloneCallbacks::git_helper_checkout_notify_cb;
-        opts.checkout_opts.perfdata_cb = &CloneCallbacks::git_helper_checkout_perfdata_cb;
+    auto ok = SequenceRunner::runSingle(git_clone, &repo, url.toStdString().c_str(), localPath.toStdString().c_str(), &opts);
 
-        observer->init(&opts.checkout_opts);
-
-        opts.fetch_opts.callbacks.payload = observer;
-    }
-
-    BEGIN
-    STEP git_clone(&repo, url.toStdString().c_str(), localPath.toStdString().c_str(), &opts);
-
-    PRINT_ERROR;
-
-    if (IS_ERROR) {
+    if (!ok) {
         git_repository_free(repo);
         return false;
     }
 
     d->changeRepo(repo);
-
-    return IS_OK;
+    return true;
 }
 
 QString Repository::runGit(const QStringList &args) const
@@ -996,16 +827,6 @@ QString Repository::fileContent(const QString &place, const QString &fileName) c
     return ch;
 }
 
-void Repository::saveFile(const QString &place, const QString &fileName, const QString &localFile) const
-{
-    auto buffer = runGit({QStringLiteral("show"), place + QLatin1Char(':') + fileName});
-    QFile f{localFile};
-    if (!f.open(QIODevice::WriteOnly))
-        return;
-    f.write(buffer.toUtf8());
-    f.close();
-}
-
 Blame Repository::blame(const QString &filePath, BlameOptions *options)
 {
     Q_D(Repository);
@@ -1033,6 +854,48 @@ Blame Repository::blame(const QString &filePath, BlameOptions *options)
     return Blame{this, content.split('\n'), blame};
 }
 
+QList<FileStatus> Repository::changedFiles(StatusOptions options) const
+{
+    Q_D(const Repository);
+
+    git_status_options *opts;
+    options.apply(opts);
+    git_status_list *list;
+    git_status_list_new(&list, d->repo, opts);
+
+    auto count = git_status_list_entrycount(list);
+    QList<FileStatus> files;
+    for (auto i = 0; i < count; ++i) {
+        auto entry = git_status_byindex(list, i);
+
+        auto statusFlags = static_cast<StatusFlags>(entry->status);
+        DiffDelta headToIndex{entry->head_to_index};
+        DiffDelta indexToWorkdir{entry->index_to_workdir};
+
+        files << FileStatus{statusFlags, headToIndex, indexToWorkdir};
+    }
+    return files;
+}
+
+QMap<QString, DeltaFlag> Repository::changedFiles(const Commit &commit) const
+{
+    QMap<QString, DeltaFlag> ret;
+    auto parents = commit.parents();
+    for (auto &parent : parents) {
+        auto parentCommit = commits()->find(parent);
+        auto treeDiff = diff(parentCommit.tree(), commit.tree());
+
+        for (TreeDiffEntry &d : treeDiff) {
+            auto status = toChangeStatus(d.status());
+
+            if (ret.contains(d.newFile())) { }
+
+            ret.insert(d.newFile(), d.status());
+        }
+    }
+    return ret;
+}
+
 bool Repository::revertFile(const QString &filePath) const
 {
     Q_D(const Repository);
@@ -1054,32 +917,36 @@ bool Repository::revertFile(const QString &filePath) const
     return IS_OK;
 }
 
-QMap<QString, ChangeStatus> Repository::changedFiles() const
+QMap<QString, StatusFlags> Repository::changedFiles() const
 {
     Q_D(const Repository);
 
+    // git_status_list *list;
+    // git_status_list_new(&list, d->repo, nullptr);
+
+    // auto count = git_status_list_entrycount(list);
+    // QList<FileStatus> files;
+    // for (auto i = 0; i < count; ++i) {
+    //     auto entry = git_status_byindex(list, i);
+
+    //     auto statusFlags = static_cast<StatusFlags>(entry->status);
+    //     DiffDelta headToIndex{entry->head_to_index};
+    //     DiffDelta indexToWorkdir{entry->index_to_workdir};
+
+    //     fiels << FileStatus{statusFlags, headToIndex, indexToWorkdir};
+    //     // entry->
+    // }
+
     struct wrapper {
-        QMap<QString, ChangeStatus> files;
+        QMap<QString, StatusFlags> files;
+        QList<FileStatus> filsList;
     };
     auto cb = [](const char *path, unsigned int status_flags, void *payload) -> int {
         auto w = reinterpret_cast<wrapper *>(payload);
-
-        auto status = ChangeStatus::Unknown;
-        if (status_flags & GIT_STATUS_WT_NEW || status_flags & GIT_STATUS_INDEX_NEW)
-            status = ChangeStatus::Added;
-        else if ((status_flags & GIT_STATUS_WT_MODIFIED) || (status_flags & GIT_STATUS_INDEX_MODIFIED))
-            status = ChangeStatus::Modified;
-        else if ((status_flags & GIT_STATUS_WT_DELETED) || (status_flags & GIT_STATUS_INDEX_DELETED))
-            status = ChangeStatus::Removed;
-        else if ((status_flags & GIT_STATUS_WT_RENAMED) || (status_flags & GIT_STATUS_INDEX_RENAMED))
-            status = ChangeStatus::Renamed;
-        else if (status_flags & GIT_STATUS_IGNORED)
-            status = ChangeStatus::Ignored;
-        else
-            status = ChangeStatus::Unknown;
-        //        if (status_flags & GIT_STATUS_INDEX_TYPECHANGE) status = ChangeStatus::ty ;
+        auto status = static_cast<StatusFlags>(status_flags);
 
         w->files.insert(QString{path}, status);
+
         return 0;
     };
 
@@ -1120,97 +987,61 @@ bool Repository::commit(const QString &message, Branch branch, const CommitOptio
     git_reference *head_ref = nullptr;
     git_oid parent_commit_oid;
 
+    if (branch.isNull()) {
+        branch = branches()->current();
+    } else {
+        // commit_oid = *branch.commit().oid().data();
+    }
+
     if (git_repository_head(&head_ref, d->repo) == 0) {
         r.run(git_reference_name_to_id, &parent_commit_oid, d->repo, "HEAD");
         r.run(git_commit_lookup, &parent_commit, d->repo, &parent_commit_oid);
-    }
-
-    if (branch.isNull()) {
-        branches()->current();
     } else {
-        // commit_oid = *branch.commit().oid().data();
+        qDebug() << "No head found";
     }
 
     auto reflogMessage = options.reflogMessage();
 
     if (reflogMessage.isEmpty())
-        reflogMessage = QStringLiteral("commit: ") + message;
+        reflogMessage = QStringLiteral("refs/heads/main");
 
     git_commit *parents[1] = {const_cast<git_commit *>(parent_commit)};
 
-    r.run(git_commit_create,
-          &commit_oid,
-          d->repo,
-          reflogMessage.toUtf8().constData(),
-          options.author(),
-          options.committer(),
-          nullptr,
-          message.toUtf8().constData(),
-          tree,
-          parent_commit ? 1 : 0,
-          const_cast<const git_commit **>(parent_commit ? parents : nullptr));
+    git_signature *author;
+    git_signature *committer;
+    if (options.author().isNull())
+        git_signature_default(&author, d->repo);
+    else
+        author = options.author().data();
 
-    r.printError();
+    if (options.committer().isNull())
+        git_signature_default(&committer, d->repo);
+    else
+        committer = options.committer().data();
+    git_commit_create_options opts;
+    opts = GIT_COMMIT_CREATE_OPTIONS_INIT;
+    // r.run(git_commit_create_from_stage, &commit_oid, d->repo, message.toUtf8().constData(), &opts);
+    r.run(git_commit_create_v, &commit_oid, d->repo, "HEAD", author, committer, nullptr, message.toUtf8().constData(), tree, 0);
 
     git_tree_free(tree);
     git_commit_free(parent_commit);
     git_reference_free(head_ref);
 
-    // runGit({QStringLiteral("commit"), QStringLiteral("-m"), message});
-    /*
-        git_index *index = nullptr;
-        git_tree *tree = nullptr;
-        git_tree *parent_tree = nullptr;
-        git_commit *parent_commit = nullptr;
-        git_signature *author = nullptr;
-        git_signature *committer = nullptr;
-        git_oid tree_oid, parent_commit_oid, commit_oid;
-        // git_oid head_oid;
-        git_reference *head_ref = nullptr;
-        auto lastTreeId = this->index()->lastOid();
-
-        SequenceRunner r;
-        r.run(git_tree_lookup, &tree, d->repo, &lastTreeId);
-        r.run(git_repository_head, &head_ref, d->repo);
-        auto head_oid = git_reference_target(head_ref);
-        r.run(git_commit_lookup, &parent_commit, d->repo, head_oid);
-        r.run(git_signature_default, &author, d->repo);
-        r.run(git_signature_default, &committer, d->repo);
-
-        r.run(git_commit_create_v,
-              &commit_oid, // Output: The oid of the new commit
-              d->repo, // Repository
-              "HEAD", // Name of the reference to update (HEAD)
-              author, // Author signature
-              committer, // Committer signature
-              nullptr, // No reflog message
-              message.toLocal8Bit().data(), // Commit message
-              tree, // Tree to commit
-              1, // Number of parents
-              parent_commit // Parent commit
-        );
-
-        git_commit_free(parent_commit);
-        git_tree_free(parent_tree);
-        git_tree_free(tree);
-        git_index_free(index);
-            */
     d->index = Index{};
     Q_EMIT reloadRequired();
     return r.isSuccess();
 }
 
-void Repository::push(const Branch &branch, const Remote &remote, RemoteCallbacks *callback) const
+bool Repository::push(const Branch &branch, const Remote &remote, PushOptions *options)
 {
     git_push_options opts = GIT_PUSH_OPTIONS_INIT;
-    if (callback)
-        callback->apply(&opts.callbacks, const_cast<Repository *>(this));
+    if (options)
+        options->apply(&opts);
 
     StrArray a{branch.refName()};
-    git_remote_push(remote.data(), &a, &opts);
+    auto ok = SequenceRunner::runSingle(git_remote_push, remote.data(), &a, &opts);
 
-    //    git_remote_lookup()
-    runGit({QStringLiteral("push"), QStringLiteral("origin"), QStringLiteral("master")});
+    return ok;
 }
 
 void Repository::addFile(const QString &file)
@@ -1496,4 +1327,7 @@ void RepositoryPrivate::checkError()
 
 } // namespace Git
 
+#include "diffdelta.h"
 #include "moc_repository.cpp"
+
+#include <checkoutoptions.h>

@@ -10,7 +10,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <Kommit/FetchOptions>
 #include <QTest>
-#include <observers/fetchobserver.h>
 #include <repository.h>
 
 QTEST_GUILESS_MAIN(RemoteTest)

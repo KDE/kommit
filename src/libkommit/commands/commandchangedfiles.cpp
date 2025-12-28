@@ -74,8 +74,8 @@ void CommandChangedFiles::parseOutputSection(const QByteArray &output, const QBy
         if (item.trimmed().isEmpty())
             continue;
         FileStatus fs;
-        fs.parseStatusLine(item);
-        fs.setFullPath(mGit->path() + fs.name());
+        // fs.parseStatusLine(item);
+        // fs.setFullPath(mGit->path() + fs.name());
         mFiles.append(fs);
     }
 }

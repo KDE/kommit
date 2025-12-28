@@ -48,7 +48,8 @@ void TagsActions::remove()
 void TagsActions::checkout()
 {
     if (KMessageBoxHelper::applyQuestion(mParent, i18n("Are you sure to checkout to the selected tag?"), i18nc("@title:window", "Checkout"))) {
-        mGit->runGit({QStringLiteral("tag"), QStringLiteral("checkout"), QStringLiteral("tags/") + mTag.name()});
+        // mGit->runGit({QStringLiteral("tag"), QStringLiteral("checkout"), QStringLiteral("tags/") + mTag.name()});
+        mGit->checkout(mTag.target());
     }
 }
 

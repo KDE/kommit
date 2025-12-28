@@ -26,4 +26,5 @@ LIBKOMMITTESTSCOMMON_EXPORT bool cleanPath(Git::Repository *manager);
 LIBKOMMITTESTSCOMMON_EXPORT QString touch(Git::Repository *manager, const QString &fileName);
 LIBKOMMITTESTSCOMMON_EXPORT bool makePath(Git::Repository *manager, const QString &path);
 LIBKOMMITTESTSCOMMON_EXPORT bool extractSampleRepo(const QString &path);
+LIBKOMMITTESTSCOMMON_EXPORT QString runGit(const QString &workingDir, const QStringList &args);
 }

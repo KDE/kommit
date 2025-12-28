@@ -17,14 +17,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class Repository;
 class SignaturePrivate;
 class LIBKOMMIT_EXPORT Signature
 {
 public:
     Signature();
+    explicit Signature(Repository *repo);
+    Signature(const QString &name, const QString &email);
     explicit Signature(git_signature *signature);
     explicit Signature(const git_signature *signature);
-    Signature(const Signature &other);
+    Signature(const Signature &other) = default;
     Signature &operator=(const Signature &other);
     bool operator==(const Signature &other) const;
     bool operator!=(const Signature &other) const;
@@ -34,8 +37,11 @@ public:
     [[nodiscard]] const git_signature *constData() const;
 
     [[nodiscard]] QString name() const;
+    void setName(const QString &name);
     [[nodiscard]] QString email() const;
+    void setEmail(const QString &email);
     [[nodiscard]] QDateTime time() const;
+    void setTime(const QDateTime &time);
 
 private:
     QSharedPointer<SignaturePrivate> d;

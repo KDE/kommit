@@ -10,8 +10,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include "ui_commitpushdialog.h"
 
-#include <Kommit/PushAction>
-
 namespace Git
 {
 class Repository;
@@ -44,7 +42,6 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void readConfig();
     LIBKOMMITWIDGETS_NO_EXPORT void writeConfig();
 
-    Git::PushAction mPush;
     ChangedFileActions *mActions = nullptr;
     ChangedFilesModel *const mChangedFilesModel;
 };

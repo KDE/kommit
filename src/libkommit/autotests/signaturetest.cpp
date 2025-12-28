@@ -38,7 +38,7 @@ void SignatureTest::initTestCase()
 void SignatureTest::emptysign()
 {
     Git::Signature sign;
-    QVERIFY(!sign.isNull());
+    QVERIFY(sign.isNull());
 }
 
 void SignatureTest::defaultSign()
@@ -49,6 +49,11 @@ void SignatureTest::defaultSign()
 
     QCOMPARE(sign.name(), "kommit test user");
     QCOMPARE(sign.email(), "kommit@kde.org");
+
+    Git::Signature sign2{mManager};
+
+    QCOMPARE(sign.name(), sign2.name());
+    QCOMPARE(sign.email(), sign2.email());
 }
 
 void SignatureTest::nowSign()
@@ -63,6 +68,21 @@ void SignatureTest::nowSign()
     auto now = QDateTime::currentDateTime();
     QCOMPARE(signTime.timeZone().offsetFromUtc(signTime), now.timeZone().offsetFromUtc(now));
     QCOMPARE(signTime.toString("HH:mm:ss"), now.toString("HH:mm:ss"));
+}
+
+void SignatureTest::testTime()
+{
+    Git::Signature sign{mManager};
+    auto now = QDateTime::currentDateTime();
+    sign.setTime(now);
+    QCOMPARE(sign.time().toSecsSinceEpoch(), now.toSecsSinceEpoch());
+}
+
+void SignatureTest::testData()
+{
+    Git::Signature sign{"kommit test user", "kommit@kde.org"};
+    QCOMPARE(sign.name(), "kommit test user");
+    QCOMPARE(sign.email(), "kommit@kde.org");
 }
 
 #include "moc_signaturetest.cpp"

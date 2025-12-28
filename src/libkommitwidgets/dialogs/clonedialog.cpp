@@ -19,7 +19,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <Kommit/CloneOptions>
 #include <Kommit/Credential>
 #include <Kommit/Fetch>
-#include <Kommit/FetchObserver>
 
 #include <dialogs/credentialdialog.h>
 #include <repository.h>

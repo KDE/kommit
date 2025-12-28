@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include <QTreeWidget>
 
+// TODO: mark for delete
 class LIBKOMMITWIDGETS_EXPORT FilesStatusesList : public QTreeWidget
 {
     Q_OBJECT
