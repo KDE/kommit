@@ -282,21 +282,21 @@ void CommitPushDialog::slotPushButtonPushClicked()
 
     mGit->push(branch, remote);
 
-    Git::CommandPush *cmd = new Git::CommandPush;
-    cmd->setRemote(comboBoxRemote->currentText());
+    // Git::CommandPush *cmd = new Git::CommandPush;
+    // cmd->setRemote(comboBoxRemote->currentText());
 
-    if (radioButtonCurrentBranch->isChecked())
-        cmd->setLocalBranch(labelCurrentBranchName->text());
-    else if (radioButtonExistingBranch->isChecked())
-        cmd->setLocalBranch(comboBoxBranch->currentText());
-    else
-        cmd->setLocalBranch(lineEditNewBranchName->text());
-    cmd->setForce(checkBoxForce->isChecked());
+    // if (radioButtonCurrentBranch->isChecked())
+    //     cmd->setLocalBranch(labelCurrentBranchName->text());
+    // else if (radioButtonExistingBranch->isChecked())
+    //     cmd->setLocalBranch(comboBoxBranch->currentText());
+    // else
+    //     cmd->setLocalBranch(lineEditNewBranchName->text());
+    // cmd->setForce(checkBoxForce->isChecked());
 
-    mGit->commit(textEditMessage->toPlainText());
-    RunnerDialog d(mGit, this);
-    d.run(cmd);
-    d.exec();
+    // mGit->commit(textEditMessage->toPlainText());
+    // RunnerDialog d(mGit, this);
+    // d.run(cmd);
+    // d.exec();
     accept();
 }
 
