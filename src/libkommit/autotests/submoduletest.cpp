@@ -5,17 +5,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "submoduletest.h"
-#include "caches/submodulescache.h"
 #include "qtestcase.h"
 #include "testcommon.h"
-#include <entities/commit.h>
-#include <entities/submodule.h>
-#include <entities/tree.h>
-#include <options/addsubmoduleoptions.h>
 
 #include <QTest>
-#include <repository.h>
+
+#include <Kommit/AddSubmoduleOptions>
+#include <Kommit/Commit>
 #include <Kommit/CommitsCache>
+#include <Kommit/Index>
+#include <Kommit/Repository>
+#include <Kommit/SubModule>
+#include <Kommit/SubmodulesCache>
+#include <Kommit/Tree>
 
 QTEST_GUILESS_MAIN(SubmoduleTest)
 
@@ -47,7 +49,7 @@ void SubmoduleTest::makeACommit()
 {
     TestCommon::touch(mManager->path() + "/README.md");
 
-    mManager->addFile("README.md");
+    mManager->index().addByPath("README.md");
     mManager->commits()->create("commit1");
 }
 

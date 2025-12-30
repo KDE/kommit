@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # Directory to search
-TARGET_DIR="kommit_sample_repo"
+TARGET_DIR="$1"
 
 # Output files
 OUTPUT_FILES_LIST="files.txt"
-OUTPUT_QRC_FILE="repo.qrc"
+OUTPUT_QRC_FILE="$1.qrc"
 
+mv $1/.git $1/_git
 # Find all files in the target directory and save them to files.txt, excluding the directory prefix
 find "$TARGET_DIR" -type f | sed "s|^$TARGET_DIR/||" > "$OUTPUT_FILES_LIST"
 
@@ -15,12 +16,12 @@ echo '<!DOCTYPE RCC>' > "$OUTPUT_QRC_FILE"
 echo '<RCC>' >> "$OUTPUT_QRC_FILE"
 echo '    <qresource>' >> "$OUTPUT_QRC_FILE"
 
-# Read each file from files.txt and append to the qrc file with the kommit_sample_repo/ prefix
+# Read each file from files.txt and append to the qrc file with the dir_name prefix
 while IFS= read -r file; do
     if [[ $file == _git/* ]]; then
         # Remove the "_git/" prefix and replace it with ".git/"
         alias_path=".git/${file#_git/}"
-        echo "        <file alias=\"kommit_sample_repo/$alias_path\">$TARGET_DIR/$file</file>" >> "$OUTPUT_QRC_FILE"
+        echo "        <file alias=\"$TARGET_DIR/$alias_path\">$TARGET_DIR/$file</file>" >> "$OUTPUT_QRC_FILE"
     else
         echo "        <file>$TARGET_DIR/$file</file>" >> "$OUTPUT_QRC_FILE"
     fi

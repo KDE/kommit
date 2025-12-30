@@ -169,4 +169,10 @@ QString runGit(const QString &workingDir, const QStringList &args)
     return {};
 #endif
 }
+
+bool extractSampleRepo(const QString &repoName, const QString &path)
+{
+    return copyFolder(":/" + repoName, path);
+}
+
 }

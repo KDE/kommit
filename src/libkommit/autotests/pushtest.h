@@ -7,11 +7,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include <QObject>
+#include <QProcess>
 #include <QTemporaryDir>
 
 namespace Git
 {
 class Repository;
+class Credential ;
 }
 
 class PushTest : public QObject
@@ -25,11 +27,14 @@ private Q_SLOTS:
     void initTestCase();
     void makeCommit();
     void push();
-    void cleanupTestCase();
+    void checkCommit();
 
 private:
-    Git::Repository *mRepo;
+    void credentialRequested(const QString &url, Git::Credential *cred, bool *accept);
+    Git::Repository *mLocalRepo;
     Git::Repository *mBareRepo;
-    QTemporaryDir dir;
-    // QTemporaryDir server;
+    QTemporaryDir mBareDir;
+    QTemporaryDir mLocalDir;
+    QProcess mGitDaemon;
+    bool mIsCredentialRequested{false};
 };

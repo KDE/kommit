@@ -1,0 +1,88 @@
+<!DOCTYPE RCC>
+<RCC>
+    <qresource>
+        <file>kommit-git-sample-test/CMakeLists.txt</file>
+        <file>kommit-git-sample-test/logindialog.cpp</file>
+        <file>kommit-git-sample-test/mainwindow.h</file>
+        <file>kommit-git-sample-test/README.md</file>
+        <file alias="kommit-git-sample-test/.git/HEAD">kommit-git-sample-test/_git/HEAD</file>
+        <file alias="kommit-git-sample-test/.git/objects/48/49d019b94e2b3ceb8b407cf511a0c5a2ac83a4">kommit-git-sample-test/_git/objects/48/49d019b94e2b3ceb8b407cf511a0c5a2ac83a4</file>
+        <file alias="kommit-git-sample-test/.git/objects/0e/110c5cbe3dcb3070937919fb0d446c104f19f0">kommit-git-sample-test/_git/objects/0e/110c5cbe3dcb3070937919fb0d446c104f19f0</file>
+        <file alias="kommit-git-sample-test/.git/objects/e4/41d8c5f61f88a20f3a64eff8f84b550e6ffc20">kommit-git-sample-test/_git/objects/e4/41d8c5f61f88a20f3a64eff8f84b550e6ffc20</file>
+        <file alias="kommit-git-sample-test/.git/objects/a4/543313adf0355d4d9f30e3886e7af40b2078f6">kommit-git-sample-test/_git/objects/a4/543313adf0355d4d9f30e3886e7af40b2078f6</file>
+        <file alias="kommit-git-sample-test/.git/objects/7e/0abba29cab9013d3e3981bec2dfa1b4df30250">kommit-git-sample-test/_git/objects/7e/0abba29cab9013d3e3981bec2dfa1b4df30250</file>
+        <file alias="kommit-git-sample-test/.git/objects/e7/c48eda35b517c15f920e59833db8183d80ea4a">kommit-git-sample-test/_git/objects/e7/c48eda35b517c15f920e59833db8183d80ea4a</file>
+        <file alias="kommit-git-sample-test/.git/objects/1b/e0552254dafdba59591bfaaf5567a822e882b7">kommit-git-sample-test/_git/objects/1b/e0552254dafdba59591bfaaf5567a822e882b7</file>
+        <file alias="kommit-git-sample-test/.git/objects/dd/e1108b0ca759b3d454cbcb7456e5aa65722eaa">kommit-git-sample-test/_git/objects/dd/e1108b0ca759b3d454cbcb7456e5aa65722eaa</file>
+        <file alias="kommit-git-sample-test/.git/objects/b4/b24a836907cc7a3d47886a5d677b47db25f21d">kommit-git-sample-test/_git/objects/b4/b24a836907cc7a3d47886a5d677b47db25f21d</file>
+        <file alias="kommit-git-sample-test/.git/objects/b3/bc9ea059b62d6a0a8d5b5ff2d33634ba007dd9">kommit-git-sample-test/_git/objects/b3/bc9ea059b62d6a0a8d5b5ff2d33634ba007dd9</file>
+        <file alias="kommit-git-sample-test/.git/objects/54/48176e405ce447e78a4567493ebf6b17ac2bf6">kommit-git-sample-test/_git/objects/54/48176e405ce447e78a4567493ebf6b17ac2bf6</file>
+        <file alias="kommit-git-sample-test/.git/objects/9f/703ac7d399520d8aedd5d12618b8c8d0bd2d0e">kommit-git-sample-test/_git/objects/9f/703ac7d399520d8aedd5d12618b8c8d0bd2d0e</file>
+        <file alias="kommit-git-sample-test/.git/objects/ec/4674d7f2af6cef2677dd1c72764136f0dd32dc">kommit-git-sample-test/_git/objects/ec/4674d7f2af6cef2677dd1c72764136f0dd32dc</file>
+        <file alias="kommit-git-sample-test/.git/objects/38/0d02cab000c6631015ba3570faa2911fbf6609">kommit-git-sample-test/_git/objects/38/0d02cab000c6631015ba3570faa2911fbf6609</file>
+        <file alias="kommit-git-sample-test/.git/objects/fe/dad33f5dd8b95752e447cb73c9d59ad60cd60e">kommit-git-sample-test/_git/objects/fe/dad33f5dd8b95752e447cb73c9d59ad60cd60e</file>
+        <file alias="kommit-git-sample-test/.git/objects/6c/3e35564151cabefac99fea6d1df924c846c3e7">kommit-git-sample-test/_git/objects/6c/3e35564151cabefac99fea6d1df924c846c3e7</file>
+        <file alias="kommit-git-sample-test/.git/objects/fd/3e533415011b7a24814fe7f3ac990d6a811132">kommit-git-sample-test/_git/objects/fd/3e533415011b7a24814fe7f3ac990d6a811132</file>
+        <file alias="kommit-git-sample-test/.git/objects/61/329a76b99cb087cfe024d64a56a3a096d55a2c">kommit-git-sample-test/_git/objects/61/329a76b99cb087cfe024d64a56a3a096d55a2c</file>
+        <file alias="kommit-git-sample-test/.git/objects/61/95fc6377c8d3ce5a01a0b0c81cb3118464a08c">kommit-git-sample-test/_git/objects/61/95fc6377c8d3ce5a01a0b0c81cb3118464a08c</file>
+        <file alias="kommit-git-sample-test/.git/objects/ab/bcd88d0bdca490bc8298b19324274b7db743ab">kommit-git-sample-test/_git/objects/ab/bcd88d0bdca490bc8298b19324274b7db743ab</file>
+        <file alias="kommit-git-sample-test/.git/objects/80/ea51cea23fe4449e1d76672da24958607de5fc">kommit-git-sample-test/_git/objects/80/ea51cea23fe4449e1d76672da24958607de5fc</file>
+        <file alias="kommit-git-sample-test/.git/objects/5f/c32c39b5716a78a5c851447a6650b0e32748e9">kommit-git-sample-test/_git/objects/5f/c32c39b5716a78a5c851447a6650b0e32748e9</file>
+        <file alias="kommit-git-sample-test/.git/objects/0c/07ffe9dca665b411fc228e4b449c0e4ea5697e">kommit-git-sample-test/_git/objects/0c/07ffe9dca665b411fc228e4b449c0e4ea5697e</file>
+        <file alias="kommit-git-sample-test/.git/objects/11/3efd1da67d40064d1162a0adef703d78961117">kommit-git-sample-test/_git/objects/11/3efd1da67d40064d1162a0adef703d78961117</file>
+        <file alias="kommit-git-sample-test/.git/objects/c1/fc7bab3ec28d29d03112b70393ffea19ba1c8d">kommit-git-sample-test/_git/objects/c1/fc7bab3ec28d29d03112b70393ffea19ba1c8d</file>
+        <file alias="kommit-git-sample-test/.git/objects/3a/c96d81e5be13f923e4c69bc11819de4d9e196e">kommit-git-sample-test/_git/objects/3a/c96d81e5be13f923e4c69bc11819de4d9e196e</file>
+        <file alias="kommit-git-sample-test/.git/objects/47/58536a7dddc03079370e6dd808c0a17101d947">kommit-git-sample-test/_git/objects/47/58536a7dddc03079370e6dd808c0a17101d947</file>
+        <file alias="kommit-git-sample-test/.git/objects/41/82f396b387a9d3016f25f9bcbad489978cc9a4">kommit-git-sample-test/_git/objects/41/82f396b387a9d3016f25f9bcbad489978cc9a4</file>
+        <file alias="kommit-git-sample-test/.git/objects/c0/7e5caf6ee320efbab33ce7c798bd61de4c215d">kommit-git-sample-test/_git/objects/c0/7e5caf6ee320efbab33ce7c798bd61de4c215d</file>
+        <file alias="kommit-git-sample-test/.git/objects/34/37f74dc27596c8d35bee5965e31ae68f025348">kommit-git-sample-test/_git/objects/34/37f74dc27596c8d35bee5965e31ae68f025348</file>
+        <file alias="kommit-git-sample-test/.git/objects/2c/d24c9289232bbcdd2c16a11c876d3b339526c0">kommit-git-sample-test/_git/objects/2c/d24c9289232bbcdd2c16a11c876d3b339526c0</file>
+        <file alias="kommit-git-sample-test/.git/objects/27/958ae6ef54119ad433f8fe523369170e844072">kommit-git-sample-test/_git/objects/27/958ae6ef54119ad433f8fe523369170e844072</file>
+        <file alias="kommit-git-sample-test/.git/objects/c3/c356c7f4bec4e9c1e592f930b86ce5b72c7122">kommit-git-sample-test/_git/objects/c3/c356c7f4bec4e9c1e592f930b86ce5b72c7122</file>
+        <file alias="kommit-git-sample-test/.git/objects/58/6c06a5f6d08d42fdb5f9244c5b4a4b93718bcc">kommit-git-sample-test/_git/objects/58/6c06a5f6d08d42fdb5f9244c5b4a4b93718bcc</file>
+        <file alias="kommit-git-sample-test/.git/objects/bc/fdeaa0cf62a9f45655ef00cec1830f790f2107">kommit-git-sample-test/_git/objects/bc/fdeaa0cf62a9f45655ef00cec1830f790f2107</file>
+        <file alias="kommit-git-sample-test/.git/objects/98/3a1fab98d87cd3263ec0d2a6bd48e41dc5a800">kommit-git-sample-test/_git/objects/98/3a1fab98d87cd3263ec0d2a6bd48e41dc5a800</file>
+        <file alias="kommit-git-sample-test/.git/objects/98/239299e320f5e7572c0b338b3b48b739c1c734">kommit-git-sample-test/_git/objects/98/239299e320f5e7572c0b338b3b48b739c1c734</file>
+        <file alias="kommit-git-sample-test/.git/objects/77/f45a69ce33a730d85f72b47782da7475f78f1a">kommit-git-sample-test/_git/objects/77/f45a69ce33a730d85f72b47782da7475f78f1a</file>
+        <file alias="kommit-git-sample-test/.git/objects/5a/0f4b39d1cde082f3c92f8ea746b17a0184bd58">kommit-git-sample-test/_git/objects/5a/0f4b39d1cde082f3c92f8ea746b17a0184bd58</file>
+        <file alias="kommit-git-sample-test/.git/objects/03/e48db59368ef73ff07cf637bc8ecb7b5a4181c">kommit-git-sample-test/_git/objects/03/e48db59368ef73ff07cf637bc8ecb7b5a4181c</file>
+        <file alias="kommit-git-sample-test/.git/objects/d2/69e09632fde4440d3933361137c255e6cfee1e">kommit-git-sample-test/_git/objects/d2/69e09632fde4440d3933361137c255e6cfee1e</file>
+        <file alias="kommit-git-sample-test/.git/objects/cd/4835efadc953ae113c5738463089885d8c7668">kommit-git-sample-test/_git/objects/cd/4835efadc953ae113c5738463089885d8c7668</file>
+        <file alias="kommit-git-sample-test/.git/objects/60/a0bd62315ed97aad78ee307b0bd320da8e9735">kommit-git-sample-test/_git/objects/60/a0bd62315ed97aad78ee307b0bd320da8e9735</file>
+        <file alias="kommit-git-sample-test/.git/objects/43/f61d7b49f514b23ac2f0c63325c25f5d0886f1">kommit-git-sample-test/_git/objects/43/f61d7b49f514b23ac2f0c63325c25f5d0886f1</file>
+        <file alias="kommit-git-sample-test/.git/objects/f5/e3da77a195d3843fec95e8f77e1a47bb1718bc">kommit-git-sample-test/_git/objects/f5/e3da77a195d3843fec95e8f77e1a47bb1718bc</file>
+        <file alias="kommit-git-sample-test/.git/index">kommit-git-sample-test/_git/index</file>
+        <file alias="kommit-git-sample-test/.git/hooks/applypatch-msg.sample">kommit-git-sample-test/_git/hooks/applypatch-msg.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/pre-commit.sample">kommit-git-sample-test/_git/hooks/pre-commit.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/pre-rebase.sample">kommit-git-sample-test/_git/hooks/pre-rebase.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/sendemail-validate.sample">kommit-git-sample-test/_git/hooks/sendemail-validate.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/commit-msg.sample">kommit-git-sample-test/_git/hooks/commit-msg.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/pre-merge-commit.sample">kommit-git-sample-test/_git/hooks/pre-merge-commit.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/update.sample">kommit-git-sample-test/_git/hooks/update.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/prepare-commit-msg.sample">kommit-git-sample-test/_git/hooks/prepare-commit-msg.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/pre-applypatch.sample">kommit-git-sample-test/_git/hooks/pre-applypatch.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/pre-push.sample">kommit-git-sample-test/_git/hooks/pre-push.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/fsmonitor-watchman.sample">kommit-git-sample-test/_git/hooks/fsmonitor-watchman.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/post-update.sample">kommit-git-sample-test/_git/hooks/post-update.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/push-to-checkout.sample">kommit-git-sample-test/_git/hooks/push-to-checkout.sample</file>
+        <file alias="kommit-git-sample-test/.git/hooks/pre-receive.sample">kommit-git-sample-test/_git/hooks/pre-receive.sample</file>
+        <file alias="kommit-git-sample-test/.git/COMMIT_EDITMSG">kommit-git-sample-test/_git/COMMIT_EDITMSG</file>
+        <file alias="kommit-git-sample-test/.git/description">kommit-git-sample-test/_git/description</file>
+        <file alias="kommit-git-sample-test/.git/refs/heads/wip/change">kommit-git-sample-test/_git/refs/heads/wip/change</file>
+        <file alias="kommit-git-sample-test/.git/refs/heads/dev">kommit-git-sample-test/_git/refs/heads/dev</file>
+        <file alias="kommit-git-sample-test/.git/refs/heads/master">kommit-git-sample-test/_git/refs/heads/master</file>
+        <file alias="kommit-git-sample-test/.git/logs/HEAD">kommit-git-sample-test/_git/logs/HEAD</file>
+        <file alias="kommit-git-sample-test/.git/logs/refs/heads/wip/change">kommit-git-sample-test/_git/logs/refs/heads/wip/change</file>
+        <file alias="kommit-git-sample-test/.git/logs/refs/heads/dev">kommit-git-sample-test/_git/logs/refs/heads/dev</file>
+        <file alias="kommit-git-sample-test/.git/logs/refs/heads/master">kommit-git-sample-test/_git/logs/refs/heads/master</file>
+        <file alias="kommit-git-sample-test/.git/info/exclude">kommit-git-sample-test/_git/info/exclude</file>
+        <file alias="kommit-git-sample-test/.git/config">kommit-git-sample-test/_git/config</file>
+        <file>kommit-git-sample-test/logindialog.ui</file>
+        <file>kommit-git-sample-test/main.cpp</file>
+        <file>kommit-git-sample-test/mainwindow.ui</file>
+        <file>kommit-git-sample-test/logindialog.h</file>
+        <file>kommit-git-sample-test/mainwindow.cpp</file>
+        <file>kommit-git-sample-test/.gitignore</file>
+        <file>files.txt</file>
+    </qresource>
+</RCC>

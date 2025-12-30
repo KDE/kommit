@@ -45,7 +45,7 @@ private:
     void slotCredentialRequested(const QString &url, Git::Credential *cred, bool *accept);
     void slotCertificateCheck(const Git::Certificate &cert, bool *accept);
 
-    Git::FetchOptions *mFetch;
+    Git::FetchOptions *mFetchOptions;
     int mRetryCount{};
     bool mIsChanged{};
 };

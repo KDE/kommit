@@ -1,0 +1,15 @@
+0000000000000000000000000000000000000000 77f45a69ce33a730d85f72b47782da7475f78f1a Hamed Masafi <hamed.masafi@gmail.com> 1766821907 +0330	commit (initial): initial
+77f45a69ce33a730d85f72b47782da7475f78f1a 80ea51cea23fe4449e1d76672da24958607de5fc Hamed Masafi <hamed.masafi@gmail.com> 1766821950 +0330	commit: ignore build folder
+80ea51cea23fe4449e1d76672da24958607de5fc 9f703ac7d399520d8aedd5d12618b8c8d0bd2d0e Hamed Masafi <hamed.masafi@gmail.com> 1766822048 +0330	commit: change to qt6
+9f703ac7d399520d8aedd5d12618b8c8d0bd2d0e 5448176e405ce447e78a4567493ebf6b17ac2bf6 Hamed Masafi <hamed.masafi@gmail.com> 1766822076 +0330	commit: remove comment from cmakelists
+5448176e405ce447e78a4567493ebf6b17ac2bf6 983a1fab98d87cd3263ec0d2a6bd48e41dc5a800 Hamed Masafi <hamed.masafi@gmail.com> 1766822145 +0330	commit: Add some widgets
+983a1fab98d87cd3263ec0d2a6bd48e41dc5a800 d269e09632fde4440d3933361137c255e6cfee1e Hamed Masafi <hamed.masafi@gmail.com> 1766822166 +0330	commit: set widgets name
+d269e09632fde4440d3933361137c255e6cfee1e 380d02cab000c6631015ba3570faa2911fbf6609 Hamed Masafi <hamed.masafi@gmail.com> 1766822254 +0330	commit: Add readme
+380d02cab000c6631015ba3570faa2911fbf6609 abbcd88d0bdca490bc8298b19324274b7db743ab Hamed Masafi <hamed.masafi@gmail.com> 1766822465 +0330	commit: Add login form
+abbcd88d0bdca490bc8298b19324274b7db743ab 61329a76b99cb087cfe024d64a56a3a096d55a2c Hamed Masafi <hamed.masafi@gmail.com> 1766822479 +0330	commit: format code
+61329a76b99cb087cfe024d64a56a3a096d55a2c 61329a76b99cb087cfe024d64a56a3a096d55a2c Hamed Masafi <hamed.masafi@gmail.com> 1767009306 +0330	checkout: moving from master to dev
+61329a76b99cb087cfe024d64a56a3a096d55a2c 4182f396b387a9d3016f25f9bcbad489978cc9a4 Hamed Masafi <hamed.masafi@gmail.com> 1767014063 +0330	commit: new features
+4182f396b387a9d3016f25f9bcbad489978cc9a4 61329a76b99cb087cfe024d64a56a3a096d55a2c Hamed Masafi <hamed.masafi@gmail.com> 1767018328 +0330	checkout: moving from dev to master
+61329a76b99cb087cfe024d64a56a3a096d55a2c 61329a76b99cb087cfe024d64a56a3a096d55a2c Hamed Masafi <hamed.masafi@gmail.com> 1767018338 +0330	checkout: moving from master to wip/change
+61329a76b99cb087cfe024d64a56a3a096d55a2c 4849d019b94e2b3ceb8b407cf511a0c5a2ac83a4 Hamed Masafi <hamed.masafi@gmail.com> 1767018981 +0330	commit: change to text editor
+4849d019b94e2b3ceb8b407cf511a0c5a2ac83a4 61329a76b99cb087cfe024d64a56a3a096d55a2c Hamed Masafi <hamed.masafi@gmail.com> 1767018986 +0330	checkout: moving from wip/change to master

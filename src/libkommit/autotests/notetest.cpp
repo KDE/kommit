@@ -5,13 +5,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "notetest.h"
-#include "caches/commitscache.h"
-#include "entities/commit.h"
 #include "testcommon.h"
 
+#include <Kommit/Commit>
+#include <Kommit/CommitsCache>
+#include <Kommit/Index>
+#include <Kommit/Note>
+#include <Kommit/Repository>
+
 #include <QTest>
-#include <entities/note.h>
-#include <repository.h>
 
 QTEST_GUILESS_MAIN(NoteTest)
 
@@ -38,7 +40,8 @@ void NoteTest::makeACommit()
 {
     TestCommon::touch(mManager->path() + "/README.md");
 
-    mManager->addFile("README.md");
+    auto index = mManager->index();
+    index.addByPath("README.md");
     mManager->commits()->create("commit1");
 }
 

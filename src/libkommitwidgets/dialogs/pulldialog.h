@@ -9,6 +9,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "appdialog.h"
 #include "libkommitwidgets_export.h"
 #include "ui_pulldialog.h"
+#include <Kommit/CheckoutOptions>
+#include <Kommit/FetchOptions>
+#include <Kommit/MergeOptions>
 
 namespace Git
 {
@@ -23,4 +26,8 @@ public:
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotAccepted();
+
+    Git::FetchOptions mFetchOptions;
+    Git::MergeOptions mMergeOptions;
+    Git::CheckoutOptions mCheckoutOptions;
 };

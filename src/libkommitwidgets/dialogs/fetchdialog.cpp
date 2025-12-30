@@ -27,7 +27,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 FetchDialog::FetchDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
-    , mFetch{new Git::FetchOptions{git}}
+    , mFetchOptions{new Git::FetchOptions{git}}
 {
     setupUi(this);
 
@@ -39,14 +39,14 @@ FetchDialog::FetchDialog(Git::Repository *git, QWidget *parent)
 
     stackedWidget->setCurrentIndex(0);
 
-    auto callbacks = mFetch->remoteCallbacks();
+    auto callbacks = mFetchOptions->remoteCallbacks();
     connect(callbacks, &Git::RemoteCallbacks::message, this, &FetchDialog::slotFetchMessage);
     connect(callbacks, &Git::RemoteCallbacks::transferProgress, this, &FetchDialog::slotFetchTransferProgress);
     connect(callbacks, &Git::RemoteCallbacks::packProgress, this, &FetchDialog::slotFetchPackProgress);
     connect(callbacks, &Git::RemoteCallbacks::updateRef, this, &FetchDialog::slotFetchUpdateRef);
     connect(callbacks, &Git::RemoteCallbacks::credentialRequested, this, &FetchDialog::slotCredentialRequested, Qt::BlockingQueuedConnection);
     connect(callbacks, &Git::RemoteCallbacks::certificateCheck, this, &FetchDialog::slotCertificateCheck, Qt::BlockingQueuedConnection);
-    connect(mFetch, &Git::FetchOptions::finished, this, &FetchDialog::slotFetchFinished);
+    // connect(mFetchOptions, &Git::FetchOptions::finished, this, &FetchDialog::slotFetchFinished);
 }
 
 void FetchDialog::setBranch(const QString &branch)
@@ -72,54 +72,54 @@ void FetchDialog::startFetch()
     // set prune
     switch (checkBoxPrune->checkState()) {
     case Qt::Unchecked:
-        mFetch->setPrune(Git::FetchOptions::Prune::NoPrune);
+        mFetchOptions->setPrune(Git::FetchOptions::Prune::NoPrune);
         break;
     case Qt::PartiallyChecked:
-        mFetch->setPrune(Git::FetchOptions::Prune::Unspecified);
+        mFetchOptions->setPrune(Git::FetchOptions::Prune::Unspecified);
         break;
     case Qt::Checked:
-        mFetch->setPrune(Git::FetchOptions::Prune::True);
+        mFetchOptions->setPrune(Git::FetchOptions::Prune::True);
         break;
     }
 
     // set download tags
     switch (checkBoxTags->checkState()) {
     case Qt::Unchecked:
-        mFetch->setDownloadTags(Git::FetchOptions::DownloadTags::None);
+        mFetchOptions->setDownloadTags(Git::FetchOptions::DownloadTags::None);
         break;
     case Qt::PartiallyChecked:
-        mFetch->setDownloadTags(Git::FetchOptions::DownloadTags::Auto);
+        mFetchOptions->setDownloadTags(Git::FetchOptions::DownloadTags::Auto);
         break;
     case Qt::Checked:
-        mFetch->setDownloadTags(Git::FetchOptions::DownloadTags::All);
+        mFetchOptions->setDownloadTags(Git::FetchOptions::DownloadTags::All);
         break;
     }
 
     // set redirect
     switch (checkBoxRedirect->checkState()) {
     case Qt::Unchecked:
-        mFetch->setRedirect(Git::Redirect::None);
+        mFetchOptions->setRedirect(Git::Redirect::None);
         break;
     case Qt::PartiallyChecked:
-        mFetch->setRedirect(Git::Redirect::Initial);
+        mFetchOptions->setRedirect(Git::Redirect::Initial);
         break;
     case Qt::Checked:
-        mFetch->setRedirect(Git::Redirect::All);
+        mFetchOptions->setRedirect(Git::Redirect::All);
         break;
     }
 
     // set depth
     if (checkBoxDepth->isChecked())
-        mFetch->setDepth(spinBoxDepth->value());
+        mFetchOptions->setDepth(spinBoxDepth->value());
 
     mIsChanged = false;
     mRetryCount = 0;
     // auto success = mGit->fetch(remote, mFetch);
 
-    mFetch->setRemote(remote);
-
     QThreadPool::globalInstance()->start([=]() {
-        mGit->fetch(mFetch);
+        auto ok = mGit->fetch(remote, Git::Branch{}, mFetchOptions);
+
+        metaObject()->invokeMethod(this, "slotFetchFinished", Q_ARG(bool, ok));
     });
 }
 

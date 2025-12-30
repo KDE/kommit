@@ -10,6 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include "ui_filehistorydialog.h"
 
+#include <Kommit/Commit>
+
 namespace Git
 {
 class Repository;
@@ -33,6 +35,7 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotRadioButtonRegularViewToggled(bool toggle);
     LIBKOMMITWIDGETS_NO_EXPORT void slotRadioButtonDifferentialViewToggled(bool toggle);
     LIBKOMMITWIDGETS_NO_EXPORT void compareFiles();
+    LIBKOMMITWIDGETS_NO_EXPORT void addToList(const Git::Commit &commit);
 
     const QString mFileName;
     QTreeWidgetItem *mLeftFile{nullptr};

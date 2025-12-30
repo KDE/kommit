@@ -20,7 +20,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -188,7 +188,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="textBrowser"/>
+        <widget class="QTextBrowser" name="textBrowser">
+         <property name="openLinks">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QDialogButtonBox" name="buttonBox_2">

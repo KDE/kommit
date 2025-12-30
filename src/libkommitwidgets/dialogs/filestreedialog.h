@@ -37,7 +37,6 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void initModel(const Git::Tree &tree);
 
     TreeModel *const mTreeModel;
-    const QString mPlace;
     FileActions *const mActions;
     Git::Tree mTree;
     QMenu *const mTreeViewMenu;

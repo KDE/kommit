@@ -34,11 +34,7 @@ MergeOptions::MergeOptions()
 {
 }
 
-MergeOptions::~MergeOptions()
-{
-}
-
-void MergeOptions::apply(git_merge_options *opts)
+void MergeOptions::apply(git_merge_options *opts) const
 {
     opts->flags = static_cast<uint32_t>(d->flags);
     opts->file_flags = static_cast<uint32_t>(d->mergeFileFlags);

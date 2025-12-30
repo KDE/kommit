@@ -38,13 +38,16 @@
 #include "libkommit_debug.h"
 #include <QFile>
 #include <QProcess>
+#include <QElapsedTimer>
 
 #include <git2/branch.h>
 #include <git2/diff.h>
 #include <git2/errors.h>
 #include <git2/refs.h>
 #include <git2/repository.h>
+#include <git2/revwalk.h>
 #include <git2/stash.h>
+#include <git2/diff.h>
 #include <git2/submodule.h>
 #include <git2/tag.h>
 
@@ -133,6 +136,122 @@ bool Repository::open(const QString &newPath)
     Q_EMIT currentBranchChanged();
 
     return IS_OK;
+}
+
+bool Repository::merge(const Branch &source, const CheckoutOptions &checkoutOptions, const MergeOptions &mergeOptions)
+{
+    Q_D(Repository);
+
+    // git_reference *upstream_ref = NULL;
+    git_annotated_commit *upstream_head = NULL;
+    git_merge_analysis_t analysis;
+    git_merge_preference_t preference;
+
+    /* 1. resolve upstream reference */
+    // int err = git_reference_lookup(&upstream_ref, repo, upstreamBranch);
+    // if (err < 0)
+    //     goto cleanup;
+
+    /* 2. convert to annotated commit */
+    SequenceRunner r;
+
+    r.run(git_annotated_commit_from_ref, &upstream_head, d->repo, source.reference().constData());
+    if (r.isError())
+        return false;
+
+    /* 3. merge analysis */
+    const git_annotated_commit *heads[] = {upstream_head};
+
+    r.run(git_merge_analysis, &analysis, &preference, d->repo, heads, 1);
+    if (r.isError())
+        return false;
+
+    /* 4. decide what to do */
+    if (analysis & GIT_MERGE_ANALYSIS_UP_TO_DATE) {
+        /* nothing to do */
+        return false;
+    }
+
+    if (analysis & GIT_MERGE_ANALYSIS_FASTFORWARD) {
+        /* fast-forward */
+        git_reference *head_ref = NULL;
+        git_reference *new_ref = NULL;
+        const git_oid *target_oid = git_annotated_commit_id(upstream_head);
+
+        r.run(git_repository_head, &head_ref, d->repo);
+        if (r.isError())
+            return false;
+
+        r.run(git_reference_set_target, &new_ref, head_ref, target_oid, "fast-forward");
+
+        git_reference_free(head_ref);
+        git_reference_free(new_ref);
+
+        if (r.isError())
+            return false;
+
+        /* update working tree */
+        git_checkout_options checkout_opts = GIT_CHECKOUT_OPTIONS_INIT;
+        checkout_opts.checkout_strategy = GIT_CHECKOUT_SAFE;
+
+        r.run(git_checkout_head, d->repo, &checkout_opts);
+        return r.isSuccess();
+    }
+
+    /* 5. normal merge */
+    if (analysis & GIT_MERGE_ANALYSIS_NORMAL) {
+        git_merge_options merge_opts = GIT_MERGE_OPTIONS_INIT;
+        git_checkout_options checkout_opts = GIT_CHECKOUT_OPTIONS_INIT;
+
+        mergeOptions.apply(&merge_opts);
+        checkoutOptions.apply(&checkout_opts);
+
+        checkout_opts.checkout_strategy = GIT_CHECKOUT_SAFE | GIT_CHECKOUT_RECREATE_MISSING;
+
+        r.run(git_merge, d->repo, heads, 1, &merge_opts, &checkout_opts);
+        return r.isSuccess();
+
+        /*
+         * IMPORTANT:
+         * at this point:
+         * - index may have conflicts
+         * - no commit is created yet
+         */
+
+        /* caller must:
+         * - check git_index_has_conflicts()
+         * - create merge commit if clean
+         */
+    }
+
+    return true;
+
+    // cleanup:
+    //     git_annotated_commit_free(upstream_head);
+    //     git_reference_free(upstream_ref);
+
+}
+
+Index Repository::mergeBranches(Branch from, Branch to, const MergeOptions &mergeOptions)
+{
+    Q_D(Repository);
+
+    git_oid oid;
+    git_index *merged_index;
+
+    SequenceRunner r;
+    r.run(git_merge_base, &oid, d->repo, from.object().id().data(), to.object().id().data());
+
+    if (r.isError())
+        return {};
+
+    auto baseCommit = d->commitsCache->findByOid(&oid);
+
+    git_merge_options opts;
+    mergeOptions.apply(&opts);
+    // r.run(git_merge_trees, &merged_index, d->repo, baseCommit.tree().data(), to.tree().data(), from.tree().data(), opts);
+
+    return Index{merged_index};
 }
 
 Reference Repository::head() const
@@ -298,9 +417,129 @@ QPair<int, int> Repository::uniqueCommitsOnBranches(const QString &branch1, cons
     return qMakePair(ahead, behind);
 }
 
-QStringList Repository::fileLog(const QString &fileName) const
+
+static int diff_file_cb(
+    const git_diff_delta *delta,
+    float progress,
+    void *payload)
 {
-    return readAllNonEmptyOutput({QStringLiteral("log"), QStringLiteral("--format=format:%H"), QStringLiteral("--"), fileName});
+    const char *target = (const char *)payload;
+
+    if ((delta->new_file.path && strcmp(delta->new_file.path, target) == 0) ||
+        (delta->old_file.path && strcmp(delta->old_file.path, target) == 0))
+        return 1; // stop iteration – file found
+
+    return 0;
+}
+
+QList<Commit> Repository::fileLog(const QString &fileName) const
+{
+    Q_D(const Repository);
+    QList<Commit> ret;
+
+    auto commits = readAllNonEmptyOutput({QStringLiteral("log"), QStringLiteral("--format=format:%H"), QStringLiteral("--"), fileName});
+    for (auto &c: commits)
+        ret << d->commitsCache->find(c);
+
+    return ret;
+    QElapsedTimer timer;
+    timer.start();
+    git_revwalk *walker;
+    git_oid oid;
+
+    SequenceRunner r;
+    r.run(git_revwalk_new, &walker, d->repo);
+    r.run(git_revwalk_sorting, walker, GIT_SORT_TOPOLOGICAL | GIT_SORT_TIME);
+
+    git_reference *ref;
+    git_branch_iterator *it;
+    git_branch_t b;
+
+    git_branch_iterator_new(&it, d->repo, GIT_BRANCH_ALL);
+
+    while (!git_branch_next(&ref, &b, it)) {
+        auto refname = git_reference_name(ref);
+        git_revwalk_push_ref(walker, refname);
+    }
+    git_branch_iterator_free(it);
+
+    if (r.isError())
+        return {};
+
+    git_diff_options opts = GIT_DIFF_OPTIONS_INIT;
+    opts.flags = GIT_DIFF_NORMAL;
+    git_strarray paths;
+    paths.count = 1;
+    QByteArray utf8Path = fileName.toUtf8();
+    const char *path = utf8Path.constData();
+    paths.strings = const_cast<char **>(&path);
+
+    while (!git_revwalk_next(&oid, walker)) {
+        git_commit *commit;
+        r.run(git_commit_lookup, &commit, d->repo, &oid);
+
+        if (r.isError())
+            return {};
+
+        auto parentsCount = git_commit_parentcount(commit);
+
+        for (auto i = 0u; i < parentsCount; ++i) {
+            git_commit *parentCommit;
+            r.run(git_commit_parent, &parentCommit, commit, i);
+
+            git_tree *commitTree;
+            git_tree *parentCommitTree;
+            r.run(git_commit_tree, &commitTree, commit);
+            r.run(git_commit_tree, &parentCommitTree, parentCommit);
+            git_diff *diff;
+            r.run(git_diff_tree_to_tree, &diff, d->repo, parentCommitTree, commitTree, &opts);
+
+            git_diff_stats *stats;
+            git_diff_get_stats(&stats, diff);
+            auto count = git_diff_stats_files_changed(stats);
+            for (auto di = 0u; di < count; ++di) {
+                auto delta = git_diff_get_delta(diff, di);
+                if (fileName == delta->new_file.path || fileName == delta->old_file.path) {
+                    auto hash = git_oid_tostr_s(&oid);
+
+                    auto commitToAdd = d->commitsCache->find(hash);
+                    ret << commitToAdd;
+                }
+            }
+        }
+    }
+
+    qDebug() << Q_FUNC_INFO << timer.elapsed();
+    return ret;
+
+    // for (auto &commit : list) {
+    //     for (auto const &parentHash : commit.parents()) {
+    //         auto parent = find(parentHash);
+    //         parent.addChild(commit.commitHash());
+    //     commit.setReferences(manager->references()->findForCommit(commit));
+
+    //     }
+    // }
+
+    // git_revwalk_free(walker);
+
+    // QElapsedTimer timer;
+    // timer.start();
+    // auto commits = d->commitsCache->allCommits();
+    // for (auto &commit : commits) {
+    //     auto parentHashes = commit.parents();
+    //     for (auto &parent : parentHashes) {
+    //         auto parentCommit = d->commitsCache->find(parent);
+
+    //         auto d = diff(parentCommit.tree(), commit.tree());
+
+    //         if (d.contains(fileName)) {
+    //             ret << commit;
+    //             break;
+    //         }
+    //     }
+    // }
+    // return ret;
 }
 
 // QList<FileStatus> Repository::diffBranches(const QString &from, const QString &to) const
@@ -500,7 +739,7 @@ void Repository::forEachCommits(std::function<void(QSharedPointer<Commit>)> call
     git_revwalk_free(walker);
 }
 
-const Index &Repository::index()
+Index &Repository::index()
 {
     Q_D(Repository);
 
@@ -640,30 +879,29 @@ bool Repository::reset(const Commit &commit, ResetType type) const
     return r.isSuccess();
 }
 
-bool Repository::fetch(FetchOptions *options)
+bool Repository::fetch(Remote remote, Branch branch, FetchOptions *options)
 {
-    if (options->remote().isNull())
-        return -1;
+    if (remote.isNull())
+        return false;
 
-    if (!options->remote().isConnected() && !options->remote().connect(Git::Remote::Direction::Fetch, options->remoteCallbacks()))
-        return -1;
+
+    if (!remote.isConnected() && !remote.connect(Git::Remote::Direction::Fetch, options->remoteCallbacks()))
+        return false;
 
     git_fetch_options opts = GIT_FETCH_OPTIONS_INIT;
-    git_fetch_options_init(&opts, GIT_FETCH_OPTIONS_VERSION);
 
-    options->remoteCallbacks()->apply(&opts.callbacks, this);
-    options->proxy()->apply(&opts.proxy_opts);
+    options->apply(&opts);
 
     int ret;
-    if (!options->branch().isNull()) {
+    if (!branch.isNull()) {
         StrArray refSpecs{1};
-        refSpecs.add(options->branch().refName());
-        ret = SequenceRunner::runSingle(git_remote_fetch, options->remote().remotePtr(), &refSpecs, &opts, "fetch");
+        refSpecs.add(branch.refName());
+        ret = SequenceRunner::runSingle(git_remote_fetch, remote.data(), &refSpecs, &opts, "fetch");
     } else {
-        ret = SequenceRunner::runSingle(git_remote_fetch, options->remote().remotePtr(), (const git_strarray *)NULL, &opts, "fetch");
+        ret = SequenceRunner::runSingle(git_remote_fetch, remote.data(), (const git_strarray *)NULL, &opts, "fetch");
     }
 
-    emit options->finished(ret);
+    // emit options->finished(ret);
     return ret;
 }
 
@@ -886,9 +1124,10 @@ QMap<QString, DeltaFlag> Repository::changedFiles(const Commit &commit) const
         auto treeDiff = diff(parentCommit.tree(), commit.tree());
 
         for (TreeDiffEntry &d : treeDiff) {
-            auto status = toChangeStatus(d.status());
+            // auto status = toChangeStatus(d.status());
 
-            if (ret.contains(d.newFile())) { }
+            if (ret.contains(d.newFile())) {
+            }
 
             ret.insert(d.newFile(), d.status());
         }
@@ -1032,6 +1271,35 @@ bool Repository::commit(const QString &message, Branch branch, const CommitOptio
     return r.isSuccess();
 }
 
+bool Repository::pull(const Remote &remote,
+                      const Branch &branch,
+                      const FetchOptions &fetchOptions,
+                      const CheckoutOptions &checkoutOptions,
+                      const MergeOptions &mergeOptions)
+{
+    Q_D(const Repository);
+
+    auto upstreamBranch = d->branchesCache->findByName(branch.upStreamName());
+
+    if (upstreamBranch.isNull()) {
+        auto upstreamGuessName = remote.name() + "/" + branch.name();
+        upstreamBranch = d->branchesCache->findByName(upstreamGuessName);
+    }
+
+    if (upstreamBranch.isNull()) {
+        // unable to guess the upstream branch
+        return false;
+    }
+
+    // fetchOptions.setBranch(branch);
+    // fetchOptions.setRemote(remote);
+    // if (!fetch(&fetchOptions))
+        // return false;
+    if (!merge(upstreamBranch, checkoutOptions, mergeOptions))
+        return false;
+    return true;
+}
+
 bool Repository::push(const Branch &branch, const Remote &remote, PushOptions *options)
 {
     git_push_options opts = GIT_PUSH_OPTIONS_INIT;
@@ -1044,59 +1312,9 @@ bool Repository::push(const Branch &branch, const Remote &remote, PushOptions *o
     return ok;
 }
 
-void Repository::addFile(const QString &file)
-{
-    // Q_D(const Manager);
 
-    // git_index *index{nullptr};
-    // git_tree *tree{nullptr};
-    // git_oid oid;
 
-    // BEGIN
-    // STEP git_repository_index(&index, d->repo);
-    // if (file.startsWith(QLatin1Char('/')))
-    //     STEP git_index_add_bypath(index, toConstChars(file.mid(1)));
-    // else
-    //     STEP git_index_add_bypath(index, toConstChars(file));
-    // STEP git_index_write_tree_to(&oid, index, d->repo);
-    // STEP git_tree_lookup(&tree, d->repo, &oid);
-    // STEP git_index_write(index);
 
-    // PRINT_ERROR;
-
-    // git_tree_free(tree);
-    // git_index_free(index);
-    auto idx = index();
-    idx.addByPath(file);
-    idx.writeTree();
-}
-
-bool Repository::removeFile(const QString &file, bool cached) const
-{
-    Q_D(const Repository);
-
-    git_index *index = nullptr;
-    git_oid oid;
-    git_tree *tree{nullptr};
-
-    BEGIN
-    STEP git_repository_index(&index, d->repo);
-    STEP git_index_read(index, true);
-    STEP git_index_remove_bypath(index, file.toLocal8Bit().constData());
-    STEP git_index_write_tree(&oid, index);
-    STEP git_tree_lookup(&tree, d->repo, &oid);
-    // STEP git_index_write(index);
-    PRINT_ERROR;
-
-    git_tree_free(tree);
-    git_index_free(index);
-
-    PRINT_ERROR;
-    if (!cached && IS_OK)
-        return QFile::remove(d->path + "/" + file);
-
-    return IS_OK;
-}
 
 bool Repository::isMerging() const
 {

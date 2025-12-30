@@ -66,7 +66,28 @@ public:
 
     CheckoutOptions(QObject *parent = nullptr);
 
-    void apply(git_checkout_options *opts);
+    void apply(git_checkout_options *opts) const;
+
+    QString ancestorLabel() const;
+    void setAncestorLabel(const QString &newAncestorLabel);
+
+    QString ourLabel() const;
+    void setOurLabel(const QString &newOurLabel);
+
+    QString theirLabel() const;
+    void setTheirLabel(const QString &newTheirLabel);
+
+    FileMode dirMode() const;
+    void setDirMode(const FileMode &newDirMode);
+
+    FileMode fileMode() const;
+    void setFileMode(const FileMode &newFileMode);
+
+    NotifyFlags notifyFlags() const;
+    void setNotifyFlags(const NotifyFlags &newNotifyFlags);
+
+    CheckoutStrategies checkoutStrategies() const;
+    void setCheckoutStrategies(const CheckoutStrategies &newCheckoutStrategies);
 
 Q_SIGNALS:
     void checkoutNotify(NotifyFlag notify, QString path, DiffFile baseline, DiffFile target, DiffFile workdir);

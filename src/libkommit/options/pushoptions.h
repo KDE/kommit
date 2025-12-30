@@ -19,6 +19,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+class RemoteCallbacks;
 class Repository;
 class PushOptionsPrivate;
 class LIBKOMMIT_EXPORT PushOptions

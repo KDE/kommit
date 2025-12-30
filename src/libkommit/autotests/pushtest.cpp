@@ -6,70 +6,91 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "pushtest.h"
 #include "testcommon.h"
+
 #include <Kommit/BranchesCache>
 #include <Kommit/Commit>
 #include <Kommit/CommitsCache>
 #include <Kommit/Error>
 #include <Kommit/Index>
+#include <Kommit/PushOptions>
+#include <Kommit/RemoteCallbacks>
 #include <Kommit/RemotesCache>
-#include <entities/tree.h>
+#include <Kommit/Repository>
+#include <Kommit/Tree>
 
 #include <QTest>
-#include <repository.h>
 
 QTEST_GUILESS_MAIN(PushTest)
 
 PushTest::PushTest(QObject *parent)
     : QObject{parent}
-    , mRepo{new Git::Repository{this}}
+    , mLocalRepo{new Git::Repository{this}}
     , mBareRepo{new Git::Repository{this}}
 {
 }
 
 PushTest::~PushTest()
 {
-    delete mRepo;
+    delete mLocalRepo;
 }
 
 void PushTest::initTestCase()
 {
-    QVERIFY(dir.isValid());
-    QVERIFY(mRepo->init(dir.path()));
     Git::InitOptions options;
     options.setFlags(Git::InitOptions::Bare);
-    QVERIFY(mBareRepo->init(dir.path(), &options));
+    QVERIFY(mBareRepo->init(mBareDir.path(), &options));
 
-    qDebug() << Git::Error::lastTypeString() << Git::Error::lastMessage();
-    qDebug() << dir.path();
-    QVERIFY(mRepo->isValid());
-
-    // QVERIFY(mRepo->remotes()->create("origin", "file://" + dir.path()));
-    QVERIFY(mBareRepo->remotes()->create("origin", "file://" + dir.path()));
+    QVERIFY(mLocalRepo->init(mLocalDir.path()));
+    QVERIFY(mLocalRepo->isValid());
+    QVERIFY(mLocalRepo->remotes()->create("origin", mBareDir.path()));
 }
 
 void PushTest::makeCommit()
 {
-    TestCommon::touch(mRepo, "file1.txt");
-    auto index = mRepo->index();
+    TestCommon::touch(mLocalRepo, "file1.txt");
+    auto index = mLocalRepo->index();
     index.addByPath("file1.txt");
-    index.write();
-    QVERIFY(mRepo->commits()->create("commit1"));
+    index.writeTree();
+    QVERIFY(mLocalRepo->commits()->create("commit1"));
 }
 
 void PushTest::push()
 {
-    auto branch = mRepo->branches()->findByName("master");
-    auto remote = mRepo->remotes()->findByName("origin");
+    auto branch = mLocalRepo->branches()->findByName("master");
+    auto remote = mLocalRepo->remotes()->findByName("origin");
 
     QVERIFY(!branch.isNull());
     QVERIFY(!remote.isNull());
 
-    mRepo->push(branch, remote);
+    auto options = new Git::PushOptions(mLocalRepo);
+
+    connect(options->remoteCallbacks(), &Git::RemoteCallbacks::credentialRequested, this, &PushTest::credentialRequested, Qt::BlockingQueuedConnection);
+
+    QVERIFY(mLocalRepo->push(branch, remote, options));
+    QVERIFY(!mIsCredentialRequested);
+
+    auto originBranch = mLocalRepo->branches()->findByName("origin/master");
+    QVERIFY(!originBranch.isNull());
+    QVERIFY(branch.isHead());
+    QCOMPARE(branch.commit().commitHash(), originBranch.commit().commitHash());
 }
 
-void PushTest::cleanupTestCase()
+void PushTest::checkCommit()
 {
-    TestCommon::cleanPath(mRepo);
+    QTemporaryDir dir;
+    auto manager = new Git::Repository;
+
+    QVERIFY(manager->clone(mBareDir.path(), dir.path()));
+    QCOMPARE(manager->remotes()->allNames().size(), 1);
+    QCOMPARE(manager->commits()->allCommits().size(), 1);
+}
+
+void PushTest::credentialRequested(const QString &url, Git::Credential *cred, bool *accept)
+{
+    Q_UNUSED(cred)
+    qDebug() << url;
+    *accept = true;
+    mIsCredentialRequested = true;
 }
 
 #include "moc_pushtest.cpp"

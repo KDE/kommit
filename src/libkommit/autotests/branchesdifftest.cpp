@@ -30,8 +30,7 @@ BranchesDiffTest::~BranchesDiffTest()
 
 void BranchesDiffTest::initTestCase()
 {
-    auto path = TestCommon::getTempPath();
-    qDebug() << path;
+    auto path = mDir.path();
     mManager = new Git::Repository;
     QVERIFY(!mManager->isValid());
 

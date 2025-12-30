@@ -5,14 +5,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "tagtest.h"
-#include "caches/branchescache.h"
-#include "caches/tagscache.h"
 #include "testcommon.h"
 
 #include <QTest>
-#include <entities/tag.h>
-#include <repository.h>
+
+#include <Kommit/BranchesCache>
 #include <Kommit/CommitsCache>
+#include <Kommit/Index>
+#include <Kommit/Repository>
+#include <Kommit/Tag>
+#include <Kommit/TagsCache>
 
 QTEST_GUILESS_MAIN(TagTest)
 
@@ -56,7 +58,7 @@ void TagTest::makeACommit()
 {
     TestCommon::touch(mManager->path() + "/README.md");
 
-    mManager->addFile("README.md");
+    mManager->index().addByPath("README.md");
     auto ok = mManager->commits()->create("commit1");
     QVERIFY(ok);
 }

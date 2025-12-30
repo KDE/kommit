@@ -8,10 +8,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "caches/referencecache.h"
 #include "certificate.h"
 #include "credential.h"
+#include "proxy.h"
 #include "reference.h"
 #include "remotecallbacks.h"
 #include "repository.h"
-#include "proxy.h"
 
 namespace Git
 {
@@ -27,19 +27,22 @@ public:
     FetchOptions::DownloadTags downloadTags{FetchOptions::DownloadTags::Unspecified};
     FetchOptions::Prune prune{FetchOptions::Prune::Unspecified};
     Repository *repo;
-    Branch branch;
     Proxy proxy;
-    Remote remote;
 };
 
 FetchOptions::FetchOptions(Repository *parent)
-    : QObject{parent}
-    , d{new FetchOptionsPrivate{this, parent}}
+    : d{new FetchOptionsPrivate{this, parent}}
 {
+}
+
+FetchOptions::~FetchOptions()
+{
+    d->remoteCallbacks->deleteLater();
 }
 
 void FetchOptions::apply(git_fetch_options *opts) const
 {
+    git_fetch_options_init(opts, GIT_FETCH_OPTIONS_VERSION);
     opts->download_tags = static_cast<git_remote_autotag_option_t>(d->downloadTags);
     opts->prune = static_cast<git_fetch_prune_t>(d->prune);
     opts->follow_redirects = static_cast<git_remote_redirect_t>(d->redirect);
@@ -47,17 +50,12 @@ void FetchOptions::apply(git_fetch_options *opts) const
     opts->update_fetchhead = static_cast<unsigned int>(d->updateFlags);
 
     d->remoteCallbacks->apply(&opts->callbacks, d->repo);
+    // d->proxy.apply(&opts->proxy_opts);
 }
 
-const Remote &FetchOptions::remote() const
-{
-    return d->remote;
-}
 
-void FetchOptions::setRemote(const Remote &remote)
-{
-    d->remote = remote;
-}
+
+
 
 Redirect FetchOptions::redirect() const
 {
@@ -119,18 +117,12 @@ void FetchOptions::setPrune(Prune prune)
     d->prune = prune;
 }
 
-Branch FetchOptions::branch() const
-{
-    return d->branch;
-}
 
-void FetchOptions::setBranch(const Branch &branch)
-{
-    d->branch = branch;
-}
+
+
 
 FetchOptionsPrivate::FetchOptionsPrivate(FetchOptions *parent, Repository *repository)
-    : remoteCallbacks{new RemoteCallbacks{parent}}
+    : remoteCallbacks{new RemoteCallbacks}
     , repo{repository}
 {
 }

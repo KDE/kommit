@@ -17,6 +17,8 @@
 #include <Kommit/CommitOptions>
 #include <Kommit/Config>
 #include <Kommit/InitOptions>
+#include <Kommit/MergeOptions>
+
 #include <QObject>
 #include <QScopedPointer>
 #include <QSharedPointer>
@@ -91,8 +93,15 @@ public:
     bool init(const QString &path, InitOptions *options = nullptr);
     bool clone(const QString &url, const QString &localPath, CloneOptions *options = nullptr);
     bool commit(const QString &message, Branch branch = {}, const CommitOptions &options = {});
+    bool pull(const Remote &remote,
+              const Branch &branch,
+              const FetchOptions &fetchOptions,
+              const CheckoutOptions &checkoutOptions,
+              const MergeOptions &mergeOptions);
     bool push(const Branch &branch, const Remote &remote, PushOptions *options = nullptr);
     bool open(const QString &newPath);
+    bool merge(const Branch &source, const CheckoutOptions &checkoutOptions, const MergeOptions &mergeOptions);
+    Index mergeBranches(Branch from, Branch to, const MergeOptions &mergeOptions);
     Reference head() const;
     bool checkout(Object target, CheckoutOptions *options = nullptr);
 
@@ -109,19 +118,17 @@ public:
     bool reset(const Commit &commit, ResetType type) const;
 
     // remotes
-    bool fetch(FetchOptions *options);
+    bool fetch(Remote remote, Branch branch, FetchOptions *options);
 
     // config
     Config config() const;
     static Config globalConfig();
 
     // files
-    void addFile(const QString &file);
     [[nodiscard]] QStringList ls(const QString &place) const;
     [[nodiscard]] QString fileContent(const QString &place, const QString &fileName) const;
     bool revertFile(const QString &filePath) const;
-    bool removeFile(const QString &file, bool cached) const;
-    [[nodiscard]] QStringList fileLog(const QString &fileName) const;
+    [[nodiscard]] QList<Commit> fileLog(const QString &fileName) const;
     Blame blame(const QString &filePath, BlameOptions *options = nullptr);
 
     [[nodiscard]] QMap<QString, StatusFlags> changedFiles() const;
@@ -141,7 +148,7 @@ public:
     Q_DECL_DEPRECATED_X("Use commits()->forEach")
     void forEachCommits(std::function<void(QSharedPointer<Commit>)> callback, const QString &branchName) const;
 
-    [[nodiscard]] const Index &index();
+    [[nodiscard]] Index &index();
     [[nodiscard]] Tree headTree() const;
 
     [[nodiscard]] bool isRebasing() const;

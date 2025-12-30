@@ -61,6 +61,11 @@ FileHistoryDialog::FileHistoryDialog(Git::Repository *git, const Git::Blob &file
 
 void FileHistoryDialog::load()
 {
+    auto changedCommits = mGit->fileLog(mFileName);
+
+    for (auto &commit: changedCommits)
+        addToList(commit);
+    /*
     auto commits = mGit->commits()->allCommits();
     for (Git::Commit &commit : commits) {
         auto file = commit.tree().file(mFileName);
@@ -86,7 +91,7 @@ void FileHistoryDialog::load()
                 treeWidget->addTopLevelItem(treeItem);
             }
         }
-    }
+    }*/
 }
 
 void FileHistoryDialog::slotListWidgetItemClicked(QListWidgetItem *item)
@@ -123,6 +128,18 @@ void FileHistoryDialog::compareFiles()
     widgetDiffView->setNewFile(mFileName, rightFileContent);
 
     widgetDiffView->compare();
+}
+
+void FileHistoryDialog::addToList(const Git::Commit &commit)
+{
+    auto item = new QListWidgetItem(commit.message());
+    item->setData(dataRole, commit.commitHash());
+    listWidget->addItem(item);
+
+    auto treeItem = new QTreeWidgetItem{treeWidget};
+    treeItem->setText(0, commit.message());
+    treeItem->setData(0, dataRole, commit.commitHash());
+    treeWidget->addTopLevelItem(treeItem);
 }
 
 void FileHistoryDialog::slotTreeViewItemClicked(QTreeWidgetItem *item, int column)

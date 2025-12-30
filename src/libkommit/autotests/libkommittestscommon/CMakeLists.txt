@@ -3,6 +3,7 @@ add_library(libkommitTestsCommon SHARED
   testcommon.cpp
   testcommon.h
   repo.qrc
+  kommit-git-sample-test.qrc
 )
 
 target_link_libraries(libkommitTestsCommon PRIVATE Qt${QT_VERSION_MAJOR}::Core libkommit)

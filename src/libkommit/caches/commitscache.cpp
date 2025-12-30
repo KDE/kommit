@@ -122,7 +122,8 @@ bool CommitsCache::create(const QString &message, const CommitOptions &opts)
     git_commit *parent_commit = nullptr;
 
     auto indexPtr = manager->index();
-    indexPtr.writeTree();
+    if (!indexPtr.writeTree())
+        return false;
     auto lastTreeId = indexPtr.lastOid();
 
     r.run(git_tree_lookup, &tree, manager->repoPtr(), &lastTreeId);

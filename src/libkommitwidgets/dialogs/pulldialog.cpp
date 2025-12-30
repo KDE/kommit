@@ -11,9 +11,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commands/commandpull.h"
 #include "repository.h"
+#include <Kommit/CommandPull>
+#include <Kommit/FetchOptions>
+#include <Kommit/MergeOptions>
 #include <QDialogButtonBox>
 #include <QPushButton>
-#include <Kommit/CommandPull>
 
 PullDialog::PullDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
@@ -33,6 +35,18 @@ PullDialog::PullDialog(Git::Repository *git, QWidget *parent)
 void PullDialog::slotAccepted()
 {
     Git::CommandPull *cmd = new Git::CommandPull;
+
+    auto remote = mGit->remotes()->findByName(comboBoxRemote->currentText());
+    auto branch = mGit->branches()->findByName(comboBoxBranch->currentText());
+
+    auto upstreamBranch = mGit->branches()->findByName(branch.upStreamName());
+
+    if (upstreamBranch.isNull()) {
+        auto upstreamGuessName = remote.name() + "/" + branch.name();
+        upstreamBranch = mGit->branches()->findByName(upstreamGuessName);
+    }
+
+    mGit->fetch(remote, branch, nullptr);
 
     cmd->setRemote(comboBoxRemote->currentText());
     cmd->setBranch(comboBoxBranch->currentText());

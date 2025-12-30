@@ -56,8 +56,10 @@ void CommitTest::firstCommit()
     index.addByPath("file.txt");
     index.write();
 
+    auto commitsCount = mManager->commits()->size();
     auto ok = mManager->commits()->create("first commit");
     QVERIFY(ok);
+    QCOMPARE(mManager->commits()->size(), commitsCount + 1);
 }
 
 void CommitTest::secondCommit()
@@ -70,8 +72,10 @@ void CommitTest::secondCommit()
     index.addByPath("file.txt");
     index.write();
 
+    auto commitsCount = mManager->commits()->size();
     auto ok = mManager->commits()->create("second commit");
     QVERIFY(ok);
+    QCOMPARE(mManager->commits()->size(), commitsCount + 1);
 }
 
 void CommitTest::thirdCommit()
@@ -84,8 +88,10 @@ void CommitTest::thirdCommit()
     index.addByPath("file.txt");
     index.write();
 
+    auto commitsCount = mManager->commits()->size();
     auto ok = mManager->commits()->create("third commit");
     QVERIFY(ok);
+    QCOMPARE(mManager->commits()->size(), commitsCount + 1);
 }
 
 void CommitTest::amendCommit()
@@ -98,8 +104,10 @@ void CommitTest::amendCommit()
     index.addByPath("file.txt");
     index.write();
 
+    auto commitsCount = mManager->commits()->size();
     auto ok = mManager->commits()->amend("amend commit");
     QVERIFY(ok);
+    QCOMPARE(mManager->commits()->size(), commitsCount);
 }
 
 void CommitTest::checkAmendFileContent()

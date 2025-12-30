@@ -120,11 +120,6 @@ Index::Index(git_index *index)
 {
 }
 
-Index::~Index()
-{
-    git_index_free(d->index);
-}
-
 Index::Index(const Index &other)
     : d{other.d}
 {

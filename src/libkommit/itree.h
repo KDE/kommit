@@ -16,10 +16,6 @@ namespace Git
 class LIBKOMMIT_EXPORT ITree
 {
 public:
-    enum class TreeType {
-        Commit,
-        Branch
-    };
 
     virtual ~ITree();
     virtual Tree tree() const = 0;

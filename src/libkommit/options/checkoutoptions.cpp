@@ -45,7 +45,7 @@ CheckoutOptions::CheckoutOptions(QObject *parent)
 {
 }
 
-void CheckoutOptions::apply(git_checkout_options *opts)
+void CheckoutOptions::apply(git_checkout_options *opts) const
 {
     opts->checkout_strategy = static_cast<unsigned int>(mCheckoutStrategies);
 
@@ -62,14 +62,84 @@ void CheckoutOptions::apply(git_checkout_options *opts)
         opts->file_mode = mFileMode.value();
 
     opts->notify_cb = CheckoutCallbacks::git_helper_checkout_notify_cb;
-    opts->notify_payload = this;
+    opts->notify_payload = const_cast<CheckoutOptions *>(this);
     opts->notify_flags = static_cast<git_checkout_notify_t>(mNotifyFlags.toInt());
 
     opts->progress_cb = CheckoutCallbacks::git_helper_checkout_progress_cb;
-    opts->progress_payload = this;
+    opts->progress_payload = const_cast<CheckoutOptions *>(this);
 
     opts->perfdata_cb = CheckoutCallbacks::git_helper_checkout_perfdata_cb;
-    opts->perfdata_payload = this;
+    opts->perfdata_payload = const_cast<CheckoutOptions *>(this);
+}
+
+QString CheckoutOptions::ancestorLabel() const
+{
+    return mAncestorLabel;
+}
+
+void CheckoutOptions::setAncestorLabel(const QString &newAncestorLabel)
+{
+    mAncestorLabel = newAncestorLabel;
+}
+
+QString CheckoutOptions::ourLabel() const
+{
+    return mOurLabel;
+}
+
+void CheckoutOptions::setOurLabel(const QString &newOurLabel)
+{
+    mOurLabel = newOurLabel;
+}
+
+QString CheckoutOptions::theirLabel() const
+{
+    return mTheirLabel;
+}
+
+void CheckoutOptions::setTheirLabel(const QString &newTheirLabel)
+{
+    mTheirLabel = newTheirLabel;
+}
+
+FileMode CheckoutOptions::dirMode() const
+{
+    return mDirMode;
+}
+
+void CheckoutOptions::setDirMode(const FileMode &newDirMode)
+{
+    mDirMode = newDirMode;
+}
+
+FileMode CheckoutOptions::fileMode() const
+{
+    return mFileMode;
+}
+
+void CheckoutOptions::setFileMode(const FileMode &newFileMode)
+{
+    mFileMode = newFileMode;
+}
+
+CheckoutOptions::NotifyFlags CheckoutOptions::notifyFlags() const
+{
+    return mNotifyFlags;
+}
+
+void CheckoutOptions::setNotifyFlags(const NotifyFlags &newNotifyFlags)
+{
+    mNotifyFlags = newNotifyFlags;
+}
+
+CheckoutOptions::CheckoutStrategies CheckoutOptions::checkoutStrategies() const
+{
+    return mCheckoutStrategies;
+}
+
+void CheckoutOptions::setCheckoutStrategies(const CheckoutStrategies &newCheckoutStrategies)
+{
+    mCheckoutStrategies = newCheckoutStrategies;
 }
 
 } // namespace Git

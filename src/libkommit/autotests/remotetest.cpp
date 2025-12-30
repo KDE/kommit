@@ -21,14 +21,12 @@ RemoteTest::RemoteTest(QObject *parent)
 
 RemoteTest::~RemoteTest()
 {
-    delete mManager;
 }
 
 void RemoteTest::initTestCase()
 {
-    auto path = TestCommon::getTempPath();
-    qDebug() << path;
-    mManager = new Git::Repository;
+    auto path = mDir.path();
+    mManager = new Git::Repository{this};
     QVERIFY(!mManager->isValid());
 
     auto ok = mManager->init(path);
@@ -53,13 +51,12 @@ void RemoteTest::addRemote()
 
 void RemoteTest::fetch()
 {
-    auto fetchOptions = new Git::FetchOptions;
+    Git::FetchOptions fetchOptions{mManager};
 
     auto remote = mManager->remotes()->findByName("origin");
     QVERIFY(!remote.isNull());
 
-    fetchOptions->setRemote(remote);
-    auto ok = mManager->fetch(fetchOptions);
+    auto ok = mManager->fetch(remote, Git::Branch{}, &fetchOptions);
     QVERIFY(ok);
 }
 

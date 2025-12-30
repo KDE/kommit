@@ -14,13 +14,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 namespace Git
 {
-
+class Repository;
 class AnnotatedCommitPrivate;
 class LIBKOMMIT_EXPORT AnnotatedCommit
 {
 public:
-    AnnotatedCommit();
-    AnnotatedCommit(git_oid *oid);
+    AnnotatedCommit(git_annotated_commit *commit);
 
     [[nodiscard]] git_annotated_commit *data() const;
     [[nodiscard]] const git_annotated_commit *constData() const;

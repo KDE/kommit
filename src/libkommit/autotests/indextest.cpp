@@ -5,10 +5,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "indextest.h"
-#include "repository.h"
 #include "testcommon.h"
 #include <QTest>
-#include <entities/index.h>
+
+#include <Kommit/Repository>
+#include <Kommit/Index>
 #include <Kommit/CommitsCache>
 
 QTEST_GUILESS_MAIN(IndexTest)
@@ -48,7 +49,7 @@ void IndexTest::addFile()
     auto changedFiles = mManager->changedFiles();
     QVERIFY(changedFiles.contains("README.md"));
 
-    mManager->addFile("README.md");
+    mManager->index().addByPath("README.md");
 
     changedFiles = mManager->changedFiles();
     // QVERIFY(changedFiles.value("README.md"), Git::ChangeStatus::Added);
@@ -76,10 +77,10 @@ void IndexTest::revertFile()
 
 void IndexTest::removeFile()
 {
-    auto ok = mManager->removeFile("README.md", false);
+    auto index = mManager->index();
+    auto ok = index.removeByPath("README.md");
     QVERIFY(ok);
 
-    auto index = mManager->index();
     auto tree = index.tree();
     TestCommon::touch(mManager->path() + "/README.md");
     auto changedFiles = mManager->changedFiles();

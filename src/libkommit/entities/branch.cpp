@@ -193,12 +193,11 @@ AnnotatedCommit Branch::annotatedCommit()
     git_annotated_commit *c;
     auto repo = git_reference_owner(d->branch);
 
-    if (git_annotated_commit_from_ref(&c, repo, d->branch))
-        return {};
+    auto ok = SequenceRunner::runSingle(git_annotated_commit_from_ref, &c, repo, d->branch);
 
-    const git_oid *oid = git_annotated_commit_id(c);
-
-    return {}; // AnnotatedCommit{oid};
+    if (ok)
+        return AnnotatedCommit{c};
+    return AnnotatedCommit{nullptr};
 }
 
 Reference Branch::reference() const

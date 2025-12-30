@@ -7,15 +7,21 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "commitpushdialog.h"
 
 #include "actions/changedfileactions.h"
+#include "certificateinfodialog.h"
+#include "changedsubmodulesdialog.h"
 #include "commands/commandcommit.h"
 #include "commands/commandpush.h"
+#include "credentialdialog.h"
 #include "dialogs/changedsubmodulesdialog.h"
 #include "models/changedfilesmodel.h"
 #include "runnerdialog.h"
 
 #include <Kommit/BranchesCache>
 #include <Kommit/CommitsCache>
+#include <Kommit/Error>
 #include <Kommit/Index>
+#include <Kommit/PushOptions>
+#include <Kommit/RemoteCallbacks>
 #include <Kommit/RemotesCache>
 #include <Kommit/Repository>
 #include <Kommit/SubModule>
@@ -34,6 +40,7 @@ static const char myCommitPushDialogGroupName[] = "CommitPushDialog";
 CommitPushDialog::CommitPushDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)
     , mChangedFilesModel(new ChangedFilesModel(git, true, this))
+    , mPushOptions{git}
 {
     setupUi(this);
 
@@ -59,6 +66,14 @@ CommitPushDialog::CommitPushDialog(Git::Repository *git, QWidget *parent)
     connect(checkBoxAmend, &QCheckBox::toggled, this, &CommitPushDialog::checkButtonsEnable);
     connect(mActions, &ChangedFileActions::reloadNeeded, mChangedFilesModel, &ChangedFilesModel::reload);
 
+    auto callbacks = mPushOptions.remoteCallbacks();
+    connect(callbacks, &Git::RemoteCallbacks::message, this, &CommitPushDialog::slotPushMessage);
+    connect(callbacks, &Git::RemoteCallbacks::transferProgress, this, &CommitPushDialog::slotPushTransferProgress);
+    connect(callbacks, &Git::RemoteCallbacks::packProgress, this, &CommitPushDialog::slotPushPackProgress);
+    connect(callbacks, &Git::RemoteCallbacks::updateRef, this, &CommitPushDialog::slotPushUpdateRef);
+    connect(callbacks, &Git::RemoteCallbacks::credentialRequested, this, &CommitPushDialog::slotCredentialRequested, Qt::BlockingQueuedConnection);
+    connect(callbacks, &Git::RemoteCallbacks::certificateCheck, this, &CommitPushDialog::slotCertificateCheck, Qt::BlockingQueuedConnection);
+
     listView->setModel(mChangedFilesModel);
     mChangedFilesModel->reload();
     readConfig();
@@ -78,6 +93,73 @@ CommitPushDialog::CommitPushDialog(Git::Repository *git, QWidget *parent)
 CommitPushDialog::~CommitPushDialog()
 {
     writeConfig();
+}
+
+void CommitPushDialog::slotPushMessage(const QString &message)
+{
+    labelStatus->setText(message);
+}
+
+void CommitPushDialog::slotPushTransferProgress(const Git::FetchTransferStat *stat)
+{
+    labelStatus->setText(i18n("Sending objects"));
+    progressBar->setMaximum(stat->totalObjects);
+    progressBar->setValue(stat->receivedObjects);
+}
+
+void CommitPushDialog::slotPushPackProgress(const Git::PackProgress *p)
+{
+    labelStatus->setText(i18n("Stage %1", p->stage));
+    progressBar->setMaximum(p->total);
+    progressBar->setValue(p->current);
+}
+
+void CommitPushDialog::slotPushUpdateRef(const Git::Reference &reference, const Git::Oid &a, const Git::Oid &b)
+{
+    mIsChanged = true;
+    textBrowser->append(i18n("Reference updated: %1  <a href=\"%2\">%2</a>...<a href=\"%3\">%3</a>", reference.name(), a.toString(), b.toString()));
+}
+
+void CommitPushDialog::slotFetchFinished(bool success)
+{
+    buttonBox_2->button(QDialogButtonBox::Close)->setEnabled(true);
+
+    if (success) {
+        labelStatus->setText(i18n("Finished"));
+    } else {
+        labelStatus->setText(i18n("Finished with error"));
+        textBrowser->append(i18n("Error %1: %2", Git::Error::lastType(), Git::Error::lastMessage()));
+    }
+
+    progressBar->setValue(progressBar->maximum());
+}
+
+void CommitPushDialog::slotCredentialRequested(const QString &url, Git::Credential *cred, bool *accept)
+{
+    CredentialDialog d{this};
+    d.setUrl(url);
+
+    if (d.exec() == QDialog::Accepted) {
+        cred->setUsername(d.username());
+        cred->setPassword(d.password());
+        *accept = true;
+    } else {
+        *accept = false;
+    }
+}
+
+void CommitPushDialog::slotCertificateCheck(const Git::Certificate &cert, bool *accept)
+{
+    if (cert.isValid()) {
+        *accept = true;
+        return;
+    }
+    if (++mRetryCount > 3) {
+        *accept = false;
+        return;
+    }
+    CertificateInfoDialog d{cert, this};
+    *accept = d.exec() == QDialog::Accepted;
 }
 
 void CommitPushDialog::readConfig()
@@ -155,15 +237,16 @@ void CommitPushDialog::checkButtonsEnable()
 void CommitPushDialog::slotPushButtonCommitClicked()
 {
     addFiles();
-    Git::CommandCommit *cmd = new Git::CommandCommit;
-    cmd->setAmend(checkBoxAmend->isChecked());
-    cmd->setMessage(textEditMessage->toPlainText());
-    cmd->setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
 
-    RunnerDialog d(mGit);
-    d.run(cmd);
-    d.exec();
+    // Git::CommandCommit *cmd = new Git::CommandCommit;
+    // cmd->setAmend(checkBoxAmend->isChecked());
+    // cmd->setMessage(textEditMessage->toPlainText());
+    // cmd->setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
 
+    // RunnerDialog d(mGit);
+    // d.run(cmd);
+    // d.exec();
+    commit();
     accept();
 }
 
@@ -171,24 +254,33 @@ void CommitPushDialog::slotPushButtonPushClicked()
 {
     if (groupBoxMakeCommit->isChecked()) {
         addFiles();
-        Git::CommandCommit *commitCommand = new Git::CommandCommit;
-        commitCommand->setAmend(checkBoxAmend->isChecked());
-        commitCommand->setMessage(textEditMessage->toPlainText());
-        commitCommand->setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
+        commit();
+        // Git::CommandCommit *commitCommand = new Git::CommandCommit;
+        // commitCommand->setAmend(checkBoxAmend->isChecked());
+        // commitCommand->setMessage(textEditMessage->toPlainText());
+        // commitCommand->setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
 
-        RunnerDialog d(mGit, this);
-        d.setAutoClose(true);
-        d.run(commitCommand);
-        auto dd = d.exec();
-        //        qDebug() << dd;
-        if (dd != QDialog::Accepted)
-            return;
+        // RunnerDialog d(mGit, this);
+        // d.setAutoClose(true);
+        // d.run(commitCommand);
+        // auto dd = d.exec();
+        // //        qDebug() << dd;
+        // if (dd != QDialog::Accepted)
+        //     return;
 
-        if (!mGit->commits()->create(textEditMessage->toPlainText())) {
-            // TODO: show messagebox
-            return;
-        }
+        // if (!mGit->commits()->create(textEditMessage->toPlainText())) {
+        //     // TODO: show messagebox
+        //     return;
+        // }
     }
+
+    auto branch = mGit->branches()->findByName(comboBoxBranch->currentText());
+    auto remote = mGit->remotes()->findByName(comboBoxRemote->currentText());
+
+    mPushOptions.setBranch(branch);
+    mPushOptions.setRemote(remote);
+
+    mGit->push(branch, remote);
 
     Git::CommandPush *cmd = new Git::CommandPush;
     cmd->setRemote(comboBoxRemote->currentText());
@@ -220,6 +312,16 @@ void CommitPushDialog::addFiles()
             Q_UNUSED(index.addByPath(file.filePath))
     }
     index.write();
+}
+
+void CommitPushDialog::commit()
+{
+    Git::CommitOptions options;
+
+    if (checkBoxAmend->isChecked())
+        mGit->commits()->amend(textEditMessage->toPlainText(), options);
+    else
+        mGit->commits()->create(textEditMessage->toPlainText(), options);
 }
 
 void CommitPushDialog::slotToolButtonAddAllClicked()
@@ -288,5 +390,4 @@ void CommitPushDialog::slotListWidgetCustomContextMenuRequested(const QPoint &po
     mActions->popup();
 }
 
-#include "changedsubmodulesdialog.h"
 #include "moc_commitpushdialog.cpp"

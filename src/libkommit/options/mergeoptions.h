@@ -6,6 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include "libkommit_export.h"
+
 #include <QSharedPointer>
 
 #include <git2/merge.h>
@@ -14,7 +16,7 @@ namespace Git
 {
 
 class MergeOptionsPrivate;
-class MergeOptions
+class LIBKOMMIT_EXPORT MergeOptions
 {
     Q_GADGET
 
@@ -52,9 +54,8 @@ public:
     };
 
     MergeOptions();
-    ~MergeOptions();
 
-    void apply(git_merge_options *opts);
+    void apply(git_merge_options *opts) const;
 
     [[nodiscard]] Flags flags() const;
     void setFlags(const Flags &flags);
@@ -75,7 +76,7 @@ public:
     void setRecursionLimit(const unsigned int &recursionLimit);
 
 private:
-    QScopedPointer<MergeOptionsPrivate> d;
+    QSharedPointer<MergeOptionsPrivate> d;
 };
 
 }

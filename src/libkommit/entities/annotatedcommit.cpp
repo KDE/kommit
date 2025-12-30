@@ -7,8 +7,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "annotatedcommit.h"
 
 #include <git2/annotated_commit.h>
+#include <git2/refs.h>
 
 #include <Kommit/Commit>
+#include <Kommit/Repository>
 
 namespace Git
 {
@@ -16,18 +18,22 @@ namespace Git
 class AnnotatedCommitPrivate
 {
 public:
-    git_annotated_commit *annotatedCommit;
+    AnnotatedCommitPrivate(git_annotated_commit *commit)
+        : annotatedCommit{commit}
+    {
+    }
+
+    ~AnnotatedCommitPrivate()
+    {
+        git_annotated_commit_free(annotatedCommit);
+    }
+
+    git_annotated_commit *annotatedCommit{nullptr};
 };
 
-AnnotatedCommit::AnnotatedCommit()
-    : d{new AnnotatedCommitPrivate}
+AnnotatedCommit::AnnotatedCommit(git_annotated_commit *commit)
+    : d{new AnnotatedCommitPrivate{commit}}
 {
-}
-
-AnnotatedCommit::AnnotatedCommit(git_oid *oid)
-    : d{new AnnotatedCommitPrivate}
-{
-    // git_annotated_commit_lookup()
 }
 
 git_annotated_commit *AnnotatedCommit::data() const
@@ -42,8 +48,12 @@ const git_annotated_commit *AnnotatedCommit::constData() const
 
 Reference AnnotatedCommit::reference() const
 {
-    git_annotated_commit_ref(d->annotatedCommit);
-    return {}; // TODO
+    auto refName = git_annotated_commit_ref(d->annotatedCommit);
+    // git_reference_owner()
+    git_reference *ref;
+    if (git_reference_lookup(&ref, nullptr, refName))
+        return {};
+    return Reference{ref};
 }
 
 Commit AnnotatedCommit::commit() const

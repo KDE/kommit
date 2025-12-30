@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "remotecallbacks.h"
 #include "strarray.h"
+#include "remotecallbacks.h"
 
 namespace Git
 {

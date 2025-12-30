@@ -22,6 +22,7 @@ public:
 };
 
 InitOptions::InitOptions()
+    : d{new InitOptionsPrivate}
 {
 }
 

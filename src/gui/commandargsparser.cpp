@@ -560,7 +560,24 @@ ArgParserReturn CommandArgsParser::remove(const QString &path)
     }
 
     auto cached = KMessageBoxHelper::removeQuestion(nullptr, i18n("Would you like to leave file(s) on disk?"), i18nc("@title:window", "Remove from index"));
-    mGit->removeFile(path, cached);
+    auto index = mGit->index();
+
+    auto ok = index.removeByPath(path);
+
+    if (!ok) {
+        KMessageBox::error(nullptr, i18n("Unable to remove the file %1 from index", path));
+        return 0;
+    }
+
+    if (!cached) {
+        ok = QFile::remove(mGit->path() + "/" + path);
+
+        if (!ok) {
+            KMessageBox::error(nullptr, i18n("Unable to remove the file %1 from disk", path));
+            return 0;
+        }
+    }
+
     KMessageBox::information(nullptr, i18n("File(s) removed from git successfully"));
 
     return 0;

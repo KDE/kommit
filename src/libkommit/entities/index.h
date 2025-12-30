@@ -97,7 +97,7 @@ class LIBKOMMIT_EXPORT Index : public ITree
 public:
     Index();
     explicit Index(git_index *index);
-    ~Index();
+
     Index(const Index &other);
     Index &operator=(const Index &other);
     bool operator==(const Index &other) const;

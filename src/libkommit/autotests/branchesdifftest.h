@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include <QObject>
+#include <QTemporaryDir>
 
 namespace Git
 {
@@ -32,6 +33,6 @@ private Q_SLOTS:
 
 private:
     Git::Repository *mManager;
-
+    QTemporaryDir mDir;
     QString mNewBranchName{"dev"};
 };

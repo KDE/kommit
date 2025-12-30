@@ -13,6 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 
+//TODO: mark for delete
 class LIBKOMMIT_EXPORT IOid
 {
 public:

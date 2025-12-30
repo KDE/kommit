@@ -7,11 +7,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
 #include <QObject>
+#include <QTemporaryDir>
 
 namespace Git
 {
 class Repository;
-};
+}
 
 class RemoteTest : public QObject
 {
@@ -31,4 +32,5 @@ private Q_SLOTS:
 
 private:
     Git::Repository *mManager;
+    QTemporaryDir mDir;
 };

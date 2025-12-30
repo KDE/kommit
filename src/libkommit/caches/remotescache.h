@@ -40,8 +40,8 @@ protected:
     void clearChildData() override;
 
 Q_SIGNALS:
-    void added(DataType commit);
-    void removed(DataType commit);
+    void added(Git::Remote commit);
+    void removed(Git::Remote commit);
 };
 
 }

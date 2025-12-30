@@ -25,7 +25,6 @@ struct DirData : public NodeData {
 FilesTreeDialog::FilesTreeDialog(Git::Repository *git, const QString &place, QWidget *parent)
     : AppDialog(git, parent)
     , mTreeModel(new TreeModel(this))
-    , mPlace(place)
     , mActions(new FileActions(git, this))
     , mTreeViewMenu{new QMenu{this}}
 {
@@ -48,7 +47,6 @@ FilesTreeDialog::FilesTreeDialog(Git::Repository *git, const QString &place, QWi
 FilesTreeDialog::FilesTreeDialog(Git::Repository *git, Git::ITree *tree, QWidget *parent)
     : AppDialog(nullptr, parent)
     , mTreeModel(new TreeModel(this))
-    , mPlace{}
     , mActions(new FileActions(git, this))
     , mTree{tree->tree()}
     , mTreeViewMenu{new QMenu{this}}
@@ -59,7 +57,7 @@ FilesTreeDialog::FilesTreeDialog(Git::Repository *git, Git::ITree *tree, QWidget
     mTreeModel->setShowRoot(true);
     mTreeModel->setRootTitle("/");
 
-    auto files = tree->tree().entries(Git::EntryType::File);
+    // auto files = tree->tree().entries(Git::EntryType::File);
     lineEditBranchName->setText(tree->treeTitle());
     setWindowTitle(i18nc("@title:window", "Browse files: %1", tree->treeTitle()));
 
@@ -147,16 +145,6 @@ void FilesTreeDialog::initModel(const Git::Tree &tree)
     }
 
     treeView->setModel(mTreeModel);
-
-    // const auto rootData = static_cast<DirData *>(mTreeModel->rootNode()->nodeData)->files;
-    // for (const auto &f : rootData) {
-    //     const QFileInfo fi(f);
-    //     const auto icon = p.icon(fi);
-    //     auto item = new QListWidgetItem(listWidget);
-    //     item->setText(f);
-    //     item->setIcon(icon);
-    //     listWidget->addItem(item);
-    // }
 
     connect(treeView, &QTreeView::clicked, this, &FilesTreeDialog::slotTreeViewClicked);
     connect(listWidget, &QListWidget::customContextMenuRequested, this, &FilesTreeDialog::slotListWidgetCustomContextMenuRequested);
