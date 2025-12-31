@@ -34,6 +34,7 @@ public:
     explicit BlobPrivate(Blob *parent);
     ~BlobPrivate();
 
+    QString path;
     git_blob *blob{nullptr};
     QString name;
 };
@@ -58,13 +59,14 @@ Blob::Blob(git_blob *blob)
     d->blob = blob;
 }
 
-Blob::Blob(git_repository *repo, git_tree_entry *entry)
+Blob::Blob(git_repository *repo, git_tree_entry *entry, const QString &path)
     : d{new BlobPrivate{this}}
 {
     d->name = QString{git_tree_entry_name(entry)};
 
     auto oid = git_tree_entry_id(entry);
     git_blob_lookup(&d->blob, repo, oid);
+    d->path =path;
 }
 
 Blob::Blob(git_repository *repo, const git_index_entry *entry)
@@ -73,6 +75,7 @@ Blob::Blob(git_repository *repo, const git_index_entry *entry)
     d->name = QString{entry->path};
 
     git_blob_lookup(&d->blob, repo, &entry->id);
+    d->path = entry->path;
 }
 
 Blob::Blob(git_repository *repo, const QString &relativePath)
@@ -89,18 +92,9 @@ Blob::Blob(Repository *git, const Oid &oid)
     git_blob_lookup(&d->blob, git->repoPtr(), oid.constData());
 }
 
-Blob::Blob(const Blob &other)
-    : d{other.d}
-{
-}
 
-Blob &Blob::operator=(const Blob &other)
-{
-    if (this != &other)
-        d = other.d;
 
-    return *this;
-}
+
 
 const QString &Blob::name() const
 {
@@ -182,7 +176,7 @@ QString Blob::fileName() const
 
 QString Blob::filePath() const
 {
-    return d->name;
+    return d->path + "/" + d->name;
 }
 
 bool Blob::isNull() const

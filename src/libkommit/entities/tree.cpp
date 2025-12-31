@@ -134,15 +134,18 @@ Blob Tree::file(const QString &path) const
     git_tree_entry *entry;
     BEGIN
 
-    if (path.startsWith(QLatin1Char('/')))
-        STEP git_tree_entry_bypath(&entry, d->tree, toConstChars(path.mid(1)));
-    else
-        STEP git_tree_entry_bypath(&entry, d->tree, toConstChars(path));
+    auto p = path;
+    if (p.startsWith("/"))
+        p = p.remove(0, 1);
+
+    auto filePath = p.mid(0, p.lastIndexOf("/"));
+
+    STEP git_tree_entry_bypath(&entry, d->tree, toConstChars(p));
 
     if (IS_ERROR)
         return Blob{};
 
-    return Blob{git_tree_owner(d->tree), entry};
+    return Blob{git_tree_owner(d->tree), entry, filePath};
 }
 
 bool Tree::extract(const QString &destinationFolder, const QString &prefix)

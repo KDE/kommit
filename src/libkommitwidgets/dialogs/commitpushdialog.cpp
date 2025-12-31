@@ -28,6 +28,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <Kommit/SubmodulesCache>
 
 #include <QWindow>
+#include <QThreadPool>
 
 #include <KSharedConfig>
 #include <KWindowConfig>
@@ -77,6 +78,7 @@ CommitPushDialog::CommitPushDialog(Git::Repository *git, QWidget *parent)
     listView->setModel(mChangedFilesModel);
     mChangedFilesModel->reload();
     readConfig();
+    stackedWidget->setCurrentIndex(0);
 
     auto submodules = mGit->submodules()->allSubmodules();
     auto modifiedSubmoduleFound = std::any_of(submodules.constBegin(), submodules.constEnd(), [](const Git::Submodule &submodule) {
@@ -88,6 +90,7 @@ CommitPushDialog::CommitPushDialog(Git::Repository *git, QWidget *parent)
         d.exec();
         reload();
     }
+
 }
 
 CommitPushDialog::~CommitPushDialog()
@@ -280,7 +283,12 @@ void CommitPushDialog::slotPushButtonPushClicked()
     mPushOptions.setBranch(branch);
     mPushOptions.setRemote(remote);
 
-    mGit->push(branch, remote);
+    QThreadPool::globalInstance()->start([=]() {
+        mGit->push(branch, remote, &mPushOptions);
+
+        // metaObject()->invokeMethod(this, "slotFetchFinished", Q_ARG(bool, ok));
+    });
+    stackedWidget->setCurrentIndex(1);
 
     // Git::CommandPush *cmd = new Git::CommandPush;
     // cmd->setRemote(comboBoxRemote->currentText());
@@ -297,7 +305,7 @@ void CommitPushDialog::slotPushButtonPushClicked()
     // RunnerDialog d(mGit, this);
     // d.run(cmd);
     // d.exec();
-    accept();
+    // accept();
 }
 
 void CommitPushDialog::addFiles()

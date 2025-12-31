@@ -26,13 +26,10 @@ class LIBKOMMIT_EXPORT Blob
 public:
     Blob();
     explicit Blob(git_blob *blob);
-    Blob(git_repository *repo, git_tree_entry *entry);
+    Blob(git_repository *repo, git_tree_entry *entry, const QString &path);
     Blob(git_repository *repo, const git_index_entry *entry);
     Blob(git_repository *repo, const QString &relativePath);
     explicit Blob(Repository *git, const Oid &oid);
-    Blob(const Blob &other);
-
-    Blob &operator=(const Blob &other);
 
     [[nodiscard]] const QString &name() const;
     bool save(const QString &path) const;

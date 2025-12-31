@@ -36,10 +36,9 @@ SearchDialog::SearchDialog(const QString &path, Git::Repository *git, QWidget *p
 
 void SearchDialog::initModel()
 {
-    mModel->setColumnCount(3);
+    mModel->setColumnCount(2);
     mModel->setHeaderData(0, Qt::Horizontal, i18n("File name"));
-    mModel->setHeaderData(1, Qt::Horizontal, i18n("Branch"));
-    mModel->setHeaderData(2, Qt::Horizontal, i18n("Commit"));
+    mModel->setHeaderData(1, Qt::Horizontal, i18n("Place"));
 }
 
 SearchDialog::SearchDialog(Git::Repository *git, QWidget *parent)
@@ -58,94 +57,104 @@ void SearchDialog::slotPushButtonSearchClicked()
 {
     mModel->clear();
     initModel();
-    startTimer(500);
+    mTimerId = startTimer(500);
     pushButtonSearch->setEnabled(false);
+    mProgress.isCommit = radioButtonSearchCommits->isChecked();
     mProgress.total = mProgress.value = 0;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    auto f = QtConcurrent::run(this, &SearchDialog::beginSearch);
-#else
-    auto f = QtConcurrent::run(&SearchDialog::beginSearch, this);
-#endif
+    QThreadPool::globalInstance()->start([this]() {
+        beginSearch();
+    });
 }
 
 void SearchDialog::slotTreeViewDoubleClicked(const QModelIndex &index)
 {
     if (!index.isValid())
         return;
-    const auto file = mModel->data(mModel->index(index.row(), 0)).toString();
-    const auto branch = mModel->data(mModel->index(index.row(), 1)).toString();
-    const auto commit = mModel->data(mModel->index(index.row(), 2)).toString();
+    auto fileNameIndex = mModel->index(index.row(), 0);
+    auto placeIndex = mModel->index(index.row(), 1);
+    const auto fileName = mModel->data(fileNameIndex).toString();
+    const auto place = mModel->data(placeIndex).toString();
 
-    QString place;
-    if (!commit.isEmpty() && !branch.isEmpty())
-        place = branch + QLatin1Char(':') + commit;
+    Git::Tree tree;
+
+    if (mProgress.isCommit)
+        tree = mGit->commits()->find(place).tree();
     else
-        place = branch.isEmpty() ? commit : branch;
+        tree = mGit->branches()->findByName(place).tree();
 
-    // auto f = QSharedPointer<Git::File>{new Git::File{mGit, place, file}};
-    // auto d = new FileViewerDialog(f);
-    // d->setWindowModality(Qt::ApplicationModal);
-    // d->setAttribute(Qt::WA_DeleteOnClose, true);
-    // d->show();
+    auto file = tree.file(fileName);
+    qDebug() << fileName << place << mProgress.isCommit << file.name();
+
+    auto d = new FileViewerDialog(file);
+    d->setWindowModality(Qt::ApplicationModal);
+    d->setAttribute(Qt::WA_DeleteOnClose, true);
+    d->show();
 }
 
 void SearchDialog::beginSearch()
 {
     if (radioButtonSearchBranches->isChecked()) {
-        const auto branchesList = mGit->branches()->names(Git::BranchType::LocalBranch);
-        mProgress.total = branchesList.size();
-        for (const auto &branch : branchesList) {
-            searchOnPlace(branch, QString());
+        auto branches = mGit->branches()->allBranches(Git::BranchType::LocalBranch);
+
+        mProgress.total = branches.size();
+        for (Git::Branch &branch : branches) {
+            mProgress.currentPlace = branch.name();
             mProgress.value++;
-        }
+            searchOnTree(branch.tree(), branch.name());
+        };
     } else {
         auto commits = mGit->commits()->allCommits();
-        for (auto &commit : commits) {
-            searchOnCommit(commit);
+        mProgress.total = commits.size();
+        for (Git::Commit &commit : commits) {
+            mProgress.currentPlace = commit.message();
             mProgress.value++;
+            searchOnTree(commit.tree(), commit.commitHash());
         }
-        // Git::LogList list;
-        // list.load(mGit);
-
-        // mProgress.total = list.size();
-        // for (const auto &branch : std::as_const(list)) {
-        //     searchOnPlace(QString(), branch->commitHash());
-        //     mProgress.value++;
-        // }
     }
 
     pushButtonSearch->setEnabled(true);
+
+    metaObject()->invokeMethod(this, "searchFinished");
 }
 
-void SearchDialog::searchOnPlace(const QString &branch, const QString &commit)
+void SearchDialog::searchOnTree(const Git::Tree &tree, const QString &place)
 {
-    const QString place = branch.isEmpty() ? commit : branch;
-    const auto files = mGit->ls(place);
+    auto files = tree.entries(Git::EntryType::File);
+    auto searchPath = lineEditPath->text();
+    auto search = lineEditText->text().toUtf8();
 
-    for (const auto &file : files) {
-        if (!lineEditPath->text().isEmpty() && !file.contains(lineEditPath->text()))
+    for (auto &fileName : files) {
+        if (!searchPath.isEmpty() && !searchPath.contains(fileName, Qt::CaseInsensitive))
             continue;
+        auto file = tree.file(fileName);
 
-        bool ok = mGit->fileContent(place, file).contains(lineEditText->text(), checkBoxCaseSensetive->isChecked() ? Qt::CaseSensitive : Qt::CaseInsensitive);
-        if (ok) {
-            mModel->appendRow({new QStandardItem(file), new QStandardItem(branch), new QStandardItem(commit)});
+        if (file.isNull() || file.isBinary())
+            continue;
+        if (file.content().contains(search)) {
+            mResultsLock.lockForWrite();
+            mProgress.found++;
+            mProgress.foundFiles << SearchResult{file, place};
+            mResultsLock.unlock();
         }
     }
 }
 
-void SearchDialog::searchOnCommit(const Git::Commit &commit)
+void SearchDialog::addSearchResult(const Git::Blob &file)
 {
-    mProgress.currentPlace = commit.message();
-    auto tree = commit.tree();
+    // qDebug() << file.name();
+    mModel->appendRow(new QStandardItem(file.name()));
+}
 
-    auto files = tree.entries(Git::EntryType::File);
-
-    for (auto &fileName : files) {
-        auto file = tree.file(fileName);
-        if (file.content().contains(lineEditPath->text().toUtf8()))
-            mModel->appendRow({new QStandardItem(fileName)});
+void SearchDialog::searchFinished()
+{
+    killTimer(mTimerId);
+    for (auto &f : std::as_const(mProgress.foundFiles)) {
+        // auto nameItem = new QStandardItem(file.name());
+        // addSearchResult(f.file);
+        mModel->appendRow({new QStandardItem(f.file.filePath()), new QStandardItem(f.place)});
     }
-    // tree.create()
+
+    mProgress.foundFiles.clear();
 }
 
 void SearchDialog::timerEvent(QTimerEvent *event)
@@ -153,6 +162,12 @@ void SearchDialog::timerEvent(QTimerEvent *event)
     Q_UNUSED(event)
     progressBar->setMaximum(mProgress.total);
     progressBar->setValue(mProgress.value);
+
+    // mResultsLock.lockForWrite();
+    // for (auto f : std::as_const(mProgress.foundFiles))
+    //     addSearchResult(f);
+    // mProgress.foundFiles.clear();
+    // mResultsLock.unlock();
 }
 
 #include "moc_searchdialog.cpp"

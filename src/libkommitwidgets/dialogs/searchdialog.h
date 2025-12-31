@@ -10,6 +10,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommitwidgets_export.h"
 #include "ui_searchdialog.h"
 
+#include <Kommit/Tree>
+
+#include <QReadWriteLock>
+
 namespace Git
 {
 class Repository;
@@ -34,13 +38,24 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotPushButtonSearchClicked();
     LIBKOMMITWIDGETS_NO_EXPORT void slotTreeViewDoubleClicked(const QModelIndex &index);
     LIBKOMMITWIDGETS_NO_EXPORT void beginSearch();
-    LIBKOMMITWIDGETS_NO_EXPORT void searchOnPlace(const QString &place, const QString &commit);
-    LIBKOMMITWIDGETS_NO_EXPORT void searchOnCommit(const Git::Commit &commit);
+    LIBKOMMITWIDGETS_NO_EXPORT void searchOnTree(const Git::Tree &tree, const QString &place);
+    LIBKOMMITWIDGETS_NO_EXPORT void addSearchResult(const Git::Blob &file);
+    Q_INVOKABLE LIBKOMMITWIDGETS_NO_EXPORT void searchFinished();
+
+    struct SearchResult {
+        Git::Blob file;
+        QString place;
+    };
     struct {
         int value;
         int total;
+        int found;
+        bool isCommit;
         QString message;
         QString currentPlace;
+        QList<SearchResult> foundFiles;
     } mProgress;
+    int mTimerId;
+    QReadWriteLock mResultsLock;
     QStandardItemModel *const mModel;
 };

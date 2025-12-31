@@ -30,6 +30,11 @@ QString CredentialDialog::url() const
 void CredentialDialog::setUrl(const QString &url)
 {
     mUrl = url;
+    QUrl u{url};
+    if (u.isValid()) {
+        lineEditUsername->setText(u.userName());
+        lineEditUsername->setFocus();
+    }
     labelCredentialsUrl->setText(i18n("Credential for %1", url));
 }
 

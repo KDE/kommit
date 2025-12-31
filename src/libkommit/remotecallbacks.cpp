@@ -19,14 +19,14 @@ namespace Git
 namespace Callbacks
 {
 
-struct FetchBridge {
-    RemoteCallbacks *fetch;
+struct Bridge {
+    RemoteCallbacks *payload;
     Repository *manager;
 };
 
 int git_helper_update_tips_cb(const char *refname, const git_oid *a, const git_oid *b, git_refspec *refs, void *data)
 {
-    auto bridge = reinterpret_cast<FetchBridge *>(data);
+    auto bridge = reinterpret_cast<Bridge *>(data);
 
     if (!Q_UNLIKELY(bridge))
         return GIT_EUSER;
@@ -36,25 +36,25 @@ int git_helper_update_tips_cb(const char *refname, const git_oid *a, const git_o
     Oid oidA{a};
     Oid oidB{b};
 
-    Q_EMIT bridge->fetch->updateRef(ref, oidA, oidB, refSpec);
+    Q_EMIT bridge->payload->updateRef(ref, oidA, oidB, refSpec);
     return 0;
 }
 
 int git_helper_sideband_progress_cb(const char *str, int len, void *payload)
 {
-    auto bridge = reinterpret_cast<FetchBridge *>(payload);
+    auto bridge = reinterpret_cast<Bridge *>(payload);
 
     if (!Q_UNLIKELY(bridge))
         return GIT_EUSER;
 
-    Q_EMIT bridge->fetch->message(QString::fromUtf8(str, len));
+    Q_EMIT bridge->payload->message(QString::fromUtf8(str, len));
 
     return 0;
 }
 
 int git_helper_transfer_progress_cb(const git_indexer_progress *stats, void *payload)
 {
-    auto bridge = reinterpret_cast<FetchBridge *>(payload);
+    auto bridge = reinterpret_cast<Bridge *>(payload);
 
     if (!Q_UNLIKELY(bridge))
         return GIT_EUSER;
@@ -63,13 +63,13 @@ int git_helper_transfer_progress_cb(const git_indexer_progress *stats, void *pay
 
     auto stat = reinterpret_cast<const FetchTransferStat *>(stats);
 
-    Q_EMIT bridge->fetch->transferProgress(stat);
+    Q_EMIT bridge->payload->transferProgress(stat);
     return 0;
 }
 
 int git_helper_credentials_cb(git_credential **out, const char *url, const char *username_from_url, unsigned int allowed_types, void *payload)
 {
-    auto bridge = reinterpret_cast<FetchBridge *>(payload);
+    auto bridge = reinterpret_cast<Bridge *>(payload);
 
     if (!Q_UNLIKELY(bridge))
         return GIT_EUSER;
@@ -81,7 +81,7 @@ int git_helper_credentials_cb(git_credential **out, const char *url, const char 
 
     bool accept{false};
 
-    Q_EMIT bridge->fetch->credentialRequested(QString{url}, &cred, &accept);
+    Q_EMIT bridge->payload->credentialRequested(QString{url}, &cred, &accept);
 
     if (!accept)
         return GIT_PASSTHROUGH;
@@ -93,13 +93,13 @@ int git_helper_credentials_cb(git_credential **out, const char *url, const char 
 
 int git_helper_packbuilder_progress(int stage, uint32_t current, uint32_t total, void *payload)
 {
-    auto bridge = reinterpret_cast<FetchBridge *>(payload);
+    auto bridge = reinterpret_cast<Bridge *>(payload);
 
     if (!Q_UNLIKELY(bridge))
         return GIT_EUSER;
 
     PackProgress p{stage, current, total};
-    Q_EMIT bridge->fetch->packProgress(&p);
+    Q_EMIT bridge->payload->packProgress(&p);
     return 0;
 }
 
@@ -114,7 +114,7 @@ int git_helper_transport_cb(git_transport **out, git_remote *owner, void *param)
 
 int git_helper_transport_certificate_check(git_cert *cert, int valid, const char *host, void *payload)
 {
-    auto bridge = reinterpret_cast<FetchBridge *>(payload);
+    auto bridge = reinterpret_cast<Bridge *>(payload);
 
     if (Q_UNLIKELY(!bridge))
         return GIT_EUSER;
@@ -123,13 +123,13 @@ int git_helper_transport_certificate_check(git_cert *cert, int valid, const char
 
     bool b{true};
 
-    Q_EMIT bridge->fetch->certificateCheck(c, &b);
+    Q_EMIT bridge->payload->certificateCheck(c, &b);
     return b ? 0 : -1;
 }
 
 int git_helper_remote_ready_cb(git_remote *remote, int direction, void *payload)
 {
-    auto bridge = reinterpret_cast<FetchBridge *>(payload);
+    auto bridge = reinterpret_cast<Bridge *>(payload);
 
     if (Q_UNLIKELY(!bridge))
         return GIT_EUSER;
@@ -138,7 +138,7 @@ int git_helper_remote_ready_cb(git_remote *remote, int direction, void *payload)
     auto dir = static_cast<Remote::Direction>(direction);
     QString newUrl;
 
-    Q_EMIT bridge->fetch->remoteReady(remoteObject, dir, &newUrl);
+    Q_EMIT bridge->payload->remoteReady(remoteObject, dir, &newUrl);
 
     if (!newUrl.isEmpty())
         git_remote_set_instance_url(remote, newUrl.toUtf8().data());
@@ -155,9 +155,9 @@ RemoteCallbacks::RemoteCallbacks(QObject *parent)
 
 void RemoteCallbacks::apply(git_remote_callbacks *callbacks, Repository *repo)
 {
-    auto bridge = new Callbacks::FetchBridge;
+    auto bridge = new Callbacks::Bridge;
     bridge->manager = repo;
-    bridge->fetch = this;
+    bridge->payload = this;
     // callbacks->update_tips = &Callbacks::git_helper_update_tips_cb;
     callbacks->update_refs = &Callbacks::git_helper_update_tips_cb;
     callbacks->sideband_progress = &Callbacks::git_helper_sideband_progress_cb;
