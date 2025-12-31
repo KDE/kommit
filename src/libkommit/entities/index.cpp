@@ -278,7 +278,7 @@ bool Index::hasConflicts() const
     return 1 == git_index_has_conflicts(d->index);
 }
 
-QSharedPointer<ConflictIndexList> Index::conflicts() const
+QSharedPointer<ConflictIndexList> Index::conflicts() const // TODO: remove QSharedPointer
 {
     QList<ConflictIndex *> list;
 
