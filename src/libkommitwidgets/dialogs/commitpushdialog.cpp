@@ -284,9 +284,9 @@ void CommitPushDialog::slotPushButtonPushClicked()
     mPushOptions.setRemote(remote);
 
     QThreadPool::globalInstance()->start([=]() {
-        mGit->push(branch, remote, &mPushOptions);
+        auto ok = mGit->push(branch, remote, &mPushOptions);
 
-        // metaObject()->invokeMethod(this, "slotFetchFinished", Q_ARG(bool, ok));
+        metaObject()->invokeMethod(this, "slotFetchFinished", Q_ARG(bool, ok));
     });
     stackedWidget->setCurrentIndex(1);
 
