@@ -1306,15 +1306,11 @@ bool Repository::push(const Branch &branch, const Remote &remote, PushOptions *o
     if (options)
         options->apply(&opts);
 
-    StrArray a{branch.refName()};
+    StrArray a{branch.refName() + ":" + branch.refName()};
     auto ok = SequenceRunner::runSingle(git_remote_push, remote.data(), &a, &opts);
 
     return ok;
 }
-
-
-
-
 
 bool Repository::isMerging() const
 {
