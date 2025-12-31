@@ -280,6 +280,13 @@ void CommitPushDialog::slotPushButtonPushClicked()
     auto branch = mGit->branches()->findByName(comboBoxBranch->currentText());
     auto remote = mGit->remotes()->findByName(comboBoxRemote->currentText());
 
+    if (radioButtonCurrentBranch->isChecked())
+        branch = mGit->branches()->findByName(labelCurrentBranchName->text());
+    else if (radioButtonExistingBranch->isChecked())
+        branch = mGit->branches()->findByName(comboBoxBranch->currentText());
+    // else
+        // cmd->setLocalBranch(lineEditNewBranchName->text());
+
     mPushOptions.setBranch(branch);
     mPushOptions.setRemote(remote);
 
