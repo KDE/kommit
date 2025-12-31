@@ -14,14 +14,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QStandardPaths>
 
 #include <Kommit/CheckoutOptions>
-#include <Kommit/Clone>
-#include <Kommit/CloneObserver>
 #include <Kommit/CloneOptions>
 #include <Kommit/Credential>
-#include <Kommit/Fetch>
+#include <Kommit/Repository>
 
 #include <dialogs/credentialdialog.h>
-#include <repository.h>
 
 CloneDialog::CloneDialog(Git::Repository *git, QWidget *parent)
     : AppDialog(git, parent)

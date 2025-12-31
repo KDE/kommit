@@ -98,6 +98,13 @@ void ChangeLogsDataPrivate::fill()
         }
     };
 
+    data << Row{
+        QVersionNumber{1, 9, 0},
+        QStringList{
+            i18n("Migrate clone/fetch/push libgit")
+        }
+    };
+
     // clang-format on
 
     std::sort(data.begin(), data.end(), [](const Row &r1, const Row &r2) {
