@@ -66,7 +66,7 @@ void PushTest::push()
 
     connect(options->remoteCallbacks(), &Git::RemoteCallbacks::credentialRequested, this, &PushTest::credentialRequested, Qt::BlockingQueuedConnection);
 
-    QVERIFY(mLocalRepo->push(branch, remote, options));
+    QVERIFY(mLocalRepo->push(branch, remote, {}, false, options));
     QVERIFY(!mIsCredentialRequested);
 
     auto originBranch = mLocalRepo->branches()->findByName("origin/master");

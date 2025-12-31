@@ -27,8 +27,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <Kommit/SubModule>
 #include <Kommit/SubmodulesCache>
 
-#include <QWindow>
 #include <QThreadPool>
+#include <QWindow>
 
 #include <KSharedConfig>
 #include <KWindowConfig>
@@ -90,7 +90,6 @@ CommitPushDialog::CommitPushDialog(Git::Repository *git, QWidget *parent)
         d.exec();
         reload();
     }
-
 }
 
 CommitPushDialog::~CommitPushDialog()
@@ -180,6 +179,32 @@ void CommitPushDialog::writeConfig()
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
+void CommitPushDialog::guessUpstreamBranch()
+{
+    auto remote = mGit->remotes()->findByName(comboBoxRemote->currentText());
+
+    if (remote.isNull()) {
+        labelCurrentBranchUpstreamName->setText("...");
+        return;
+    }
+    if (radioButtonCurrentBranch->isChecked()) {
+        labelCurrentBranchUpstreamName->setText(remote.name() + QStringLiteral("/") + labelCurrentBranchName->text());
+        return;
+    }
+    auto branch = mGit->branches()->findByName(comboBoxBranch->currentText());
+    if (branch.isNull()) {
+        labelCurrentBranchUpstreamName->setText("...");
+        return;
+    }
+
+    auto upstreamBranch = mGit->branches()->findByName(remote.name() + "/" + branch.name());
+    if (upstreamBranch.isNull() || branch.isNull()) {
+        labelCurrentBranchUpstreamName->setText("...");
+        return;
+    }
+    labelCurrentBranchUpstreamName->setText(upstreamBranch.name());
+}
+
 void CommitPushDialog::reload()
 {
     mChangedFilesModel->reload();
@@ -258,23 +283,6 @@ void CommitPushDialog::slotPushButtonPushClicked()
     if (groupBoxMakeCommit->isChecked()) {
         addFiles();
         commit();
-        // Git::CommandCommit *commitCommand = new Git::CommandCommit;
-        // commitCommand->setAmend(checkBoxAmend->isChecked());
-        // commitCommand->setMessage(textEditMessage->toPlainText());
-        // commitCommand->setIncludeStatus(Git::checkStateToOptionalBool(checkBoxIncludeStatus->checkState()));
-
-        // RunnerDialog d(mGit, this);
-        // d.setAutoClose(true);
-        // d.run(commitCommand);
-        // auto dd = d.exec();
-        // //        qDebug() << dd;
-        // if (dd != QDialog::Accepted)
-        //     return;
-
-        // if (!mGit->commits()->create(textEditMessage->toPlainText())) {
-        //     // TODO: show messagebox
-        //     return;
-        // }
     }
 
     auto branch = mGit->branches()->findByName(comboBoxBranch->currentText());
@@ -282,37 +290,22 @@ void CommitPushDialog::slotPushButtonPushClicked()
 
     if (radioButtonCurrentBranch->isChecked())
         branch = mGit->branches()->findByName(labelCurrentBranchName->text());
-    else if (radioButtonExistingBranch->isChecked())
+    else
         branch = mGit->branches()->findByName(comboBoxBranch->currentText());
-    // else
-        // cmd->setLocalBranch(lineEditNewBranchName->text());
 
     mPushOptions.setBranch(branch);
     mPushOptions.setRemote(remote);
 
     QThreadPool::globalInstance()->start([=]() {
-        auto ok = mGit->push(branch, remote, &mPushOptions);
+        QString upstreamName;
+        if (radioButtonNewRemoteBranch->isChecked())
+            upstreamName = remote.name() + "/" + lineEditNewBranchName->text();
+
+        auto ok = mGit->push(branch, remote, upstreamName, checkBoxForce, &mPushOptions);
 
         metaObject()->invokeMethod(this, "slotFetchFinished", Q_ARG(bool, ok));
     });
     stackedWidget->setCurrentIndex(1);
-
-    // Git::CommandPush *cmd = new Git::CommandPush;
-    // cmd->setRemote(comboBoxRemote->currentText());
-
-    // if (radioButtonCurrentBranch->isChecked())
-    //     cmd->setLocalBranch(labelCurrentBranchName->text());
-    // else if (radioButtonExistingBranch->isChecked())
-    //     cmd->setLocalBranch(comboBoxBranch->currentText());
-    // else
-    //     cmd->setLocalBranch(lineEditNewBranchName->text());
-    // cmd->setForce(checkBoxForce->isChecked());
-
-    // mGit->commit(textEditMessage->toPlainText());
-    // RunnerDialog d(mGit, this);
-    // d.run(cmd);
-    // d.exec();
-    // accept();
 }
 
 void CommitPushDialog::addFiles()
@@ -403,6 +396,24 @@ void CommitPushDialog::slotListWidgetCustomContextMenuRequested(const QPoint &po
 
     mActions->setFilePath(mChangedFilesModel->filePath(listView->currentIndex().row()));
     mActions->popup();
+}
+
+void CommitPushDialog::on_comboBoxRemote_currentIndexChanged(int index)
+{
+    Q_UNUSED(index)
+    guessUpstreamBranch();
+}
+
+void CommitPushDialog::on_comboBoxBranch_currentIndexChanged(int index)
+{
+    Q_UNUSED(index)
+    guessUpstreamBranch();
+}
+
+void CommitPushDialog::on_radioButtonCurrentBranch_toggled(bool checked)
+{
+    Q_UNUSED(checked)
+    guessUpstreamBranch();
 }
 
 #include "moc_commitpushdialog.cpp"

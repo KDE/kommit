@@ -1300,13 +1300,22 @@ bool Repository::pull(const Remote &remote,
     return true;
 }
 
-bool Repository::push(const Branch &branch, const Remote &remote, PushOptions *options)
+bool Repository::push(const Branch &branch, const Remote &remote, const QString &upstreamRefName, bool force, PushOptions *options)
 {
     git_push_options opts = GIT_PUSH_OPTIONS_INIT;
     if (options)
         options->apply(&opts);
 
-    StrArray a{branch.refName() + ":" + branch.refName()};
+    QString refspecs;
+    if (force)
+        refspecs = QStringLiteral("+");
+    refspecs = branch.refName() + QStringLiteral(":");
+
+    if (upstreamRefName.isEmpty())
+        refspecs += branch.refName();
+    else
+        refspecs += upstreamRefName;
+    StrArray a{refspecs};
     auto ok = SequenceRunner::runSingle(git_remote_push, remote.data(), &a, &opts);
 
     return ok;

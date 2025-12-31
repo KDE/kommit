@@ -98,7 +98,7 @@ public:
               const FetchOptions &fetchOptions,
               const CheckoutOptions &checkoutOptions,
               const MergeOptions &mergeOptions);
-    bool push(const Branch &branch, const Remote &remote, PushOptions *options = nullptr);
+    bool push(const Branch &branch, const Remote &remote, const QString &upstreamRefName = {}, bool force = false, PushOptions *options = nullptr);
     bool open(const QString &newPath);
     bool merge(const Branch &source, const CheckoutOptions &checkoutOptions, const MergeOptions &mergeOptions);
     Index mergeBranches(Branch from, Branch to, const MergeOptions &mergeOptions);

@@ -28,6 +28,13 @@ public:
     explicit CommitPushDialog(Git::Repository *git, QWidget *parent = nullptr);
     ~CommitPushDialog() override;
 
+private slots:
+    void on_comboBoxRemote_currentIndexChanged(int index);
+
+    void on_comboBoxBranch_currentIndexChanged(int index);
+
+    void on_radioButtonCurrentBranch_toggled(bool checked);
+
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotPushMessage(const QString &message);
     LIBKOMMITWIDGETS_NO_EXPORT void slotPushTransferProgress(const Git::FetchTransferStat *stat);
@@ -54,6 +61,7 @@ private:
     LIBKOMMITWIDGETS_NO_EXPORT void reload();
     LIBKOMMITWIDGETS_NO_EXPORT void readConfig();
     LIBKOMMITWIDGETS_NO_EXPORT void writeConfig();
+    LIBKOMMITWIDGETS_NO_EXPORT void guessUpstreamBranch();
 
     int mRetryCount{};
     bool mIsChanged{};
