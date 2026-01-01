@@ -100,6 +100,7 @@ public:
               const MergeOptions &mergeOptions);
     bool push(const Branch &branch, const Remote &remote, const QString &upstreamRefName = {}, bool force = false, PushOptions *options = nullptr);
     bool open(const QString &newPath);
+    MergeAnalysis mergeAnalyse(QList<AnnotatedCommit> commits);
     bool merge(const Branch &source, const CheckoutOptions &checkoutOptions, const MergeOptions &mergeOptions);
     Index mergeBranches(Branch from, Branch to, const MergeOptions &mergeOptions);
     Reference head() const;

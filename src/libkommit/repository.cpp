@@ -138,6 +138,24 @@ bool Repository::open(const QString &newPath)
     return IS_OK;
 }
 
+MergeAnalysis Repository::mergeAnalyse(QList<AnnotatedCommit> commits)
+{
+    Q_D(Repository);
+    git_merge_preference_t preference;
+    git_merge_analysis_t analysis;
+
+    std::vector<const git_annotated_commit*> heads;
+    for (auto &c: commits) {
+        heads.push_back(c.data());
+    }
+
+    auto ok = SequenceRunner::runSingle(git_merge_analysis, &analysis, &preference, d->repo, heads.data(), heads.size());
+
+    if (!ok)
+        return MergeAnalysis::None;
+    return static_cast<MergeAnalysis>(analysis);
+}
+
 bool Repository::merge(const Branch &source, const CheckoutOptions &checkoutOptions, const MergeOptions &mergeOptions)
 {
     Q_D(Repository);

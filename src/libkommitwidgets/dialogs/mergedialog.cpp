@@ -11,6 +11,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "models/branchesmodel.h"
 #include "repository.h"
 
+#include <KLocalizedString>
+
 void MergeDialog::init(Git::Repository *git)
 {
     comboBoxBranchName->addItems(git->branches()->names());
@@ -25,6 +27,7 @@ void MergeDialog::init(Git::Repository *git)
     initComboBox<Git::CommandMerge::DiffAlgorithm>(comboBoxDiffAlgoritm);
 
     connect(comboBoxStrategy, &QComboBox::currentIndexChanged, this, &MergeDialog::slotComboBoxStrategyCurrentIndexChanged);
+    connect(pushButtonAnalyse, &QPushButton::clicked, this, &MergeDialog::slotPushButtonAnalyseClicked);
 }
 
 MergeDialog::MergeDialog(Git::Repository *git, QWidget *parent)
@@ -98,6 +101,36 @@ void MergeDialog::slotComboBoxStrategyCurrentIndexChanged(int index)
         break;
     default:
         stackedWidget->setCurrentWidget(pageEmpty);
+        break;
+    }
+}
+
+void MergeDialog::slotPushButtonAnalyseClicked()
+{
+    auto branch =mGit->branches()->findByName(comboBoxBranchName->currentText());
+    if (branch.isNull()) {
+        labelAnalyseResult->setText(i18n("Branch not found!"));
+        return;
+    }
+
+    auto annotatedCommit = branch.annotatedCommit();
+    auto status = mGit->mergeAnalyse({annotatedCommit});
+
+    switch (status) {
+    case Git::MergeAnalysis::None:
+        labelAnalyseResult->setText(i18n("None!"));
+        break;
+    case Git::MergeAnalysis::Normal:
+        labelAnalyseResult->setText(i18n("Normal merge"));
+        break;
+    case Git::MergeAnalysis::UpToDate:
+        labelAnalyseResult->setText(i18n("Already up-to-date"));
+        break;
+    case Git::MergeAnalysis::FastForward:
+        labelAnalyseResult->setText(i18n("Fast forward avalible"));
+        break;
+    case Git::MergeAnalysis::Unborn:
+        labelAnalyseResult->setText(i18n("The branch is unborn!"));
         break;
     }
 }

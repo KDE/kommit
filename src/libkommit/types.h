@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <git2/status.h>
 #include <git2/strarray.h>
 #include <git2/types.h>
+#include <git2/merge.h>
 
 #include "libkommit_export.h"
 #include "libkommit_global.h"
@@ -22,6 +23,14 @@ namespace Git
 {
 
 Q_NAMESPACE
+
+enum class MergeAnalysis {
+    None = GIT_MERGE_ANALYSIS_NONE ,
+    Normal = GIT_MERGE_ANALYSIS_NORMAL,
+    UpToDate = GIT_MERGE_ANALYSIS_UP_TO_DATE,
+    FastForward = GIT_MERGE_ANALYSIS_FASTFORWARD,
+    Unborn = GIT_MERGE_ANALYSIS_UNBORN,
+};
 
 enum class Redirect {
     None = GIT_REMOTE_REDIRECT_NONE,

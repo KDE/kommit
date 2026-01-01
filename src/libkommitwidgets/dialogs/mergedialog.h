@@ -25,6 +25,7 @@ public:
 
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void slotComboBoxStrategyCurrentIndexChanged(int index);
+    LIBKOMMITWIDGETS_NO_EXPORT void slotPushButtonAnalyseClicked();
     LIBKOMMITWIDGETS_NO_EXPORT void init(Git::Repository *git);
     const QString mSourceBranch;
 };
