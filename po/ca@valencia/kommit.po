@@ -1504,7 +1504,7 @@ msgstr "Detalls del certificat"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:43
 #, kde-format
 msgid "Host"
-msgstr "Servidor"
+msgstr "Amfitrió"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:63
@@ -2131,7 +2131,7 @@ msgstr "Els fitxers s'han extret correctament"
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:102
 #, kde-format
 msgid "An error occurred while extracting file(s)"
-msgstr "S'ha produït un error mentre s'extragueren fitxers"
+msgstr "S'ha produït un error mentre s'extreien fitxers"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:165
 #, kde-format
@@ -2801,7 +2801,7 @@ msgstr "No s'ha pogut crear la branca: %1"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:104
 #, kde-format
 msgid "Error switching to new target"
-msgstr "S'ha produït un error en canviar a la destinació nova"
+msgstr "S'ha produït un error mentre es canviava a la destinació nova"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:52
