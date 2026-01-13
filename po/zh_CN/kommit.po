@@ -30,22 +30,22 @@ msgstr "kde-china@kde.org, henry.hu.sh@gmail.com"
 #: dolphinplugins/actions.h:13
 #, kde-format
 msgid "Clone"
-msgstr ""
+msgstr "克隆"
 
 #: dolphinplugins/actions.h:14
 #, kde-format
 msgid "Init"
-msgstr ""
+msgstr "初始化仓库"
 
 #: dolphinplugins/actions.h:15
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "打开工作树"
 
 #: dolphinplugins/actions.h:16
 #, kde-format
 msgid "Pull"
-msgstr ""
+msgstr "拉取"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
 #: dolphinplugins/actions.h:17
@@ -80,7 +80,7 @@ msgstr "切换/检出"
 #: dolphinplugins/actions.h:21
 #, kde-format
 msgid "Modifications"
-msgstr ""
+msgstr "变更"
 
 #. i18n: ectx: Menu (diff)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonDiff)
@@ -103,12 +103,12 @@ msgstr "忽略文件"
 #: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:404
 #, kde-format
 msgid "History"
-msgstr ""
+msgstr "历史"
 
 #: dolphinplugins/actions.h:25
 #, kde-format
 msgid "Blame"
-msgstr ""
+msgstr "追溯"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
@@ -129,33 +129,33 @@ msgstr "移除"
 #: dolphinplugins/actions.h:28
 #, kde-format
 msgid "Create tag"
-msgstr ""
+msgstr "创建标签"
 
 #: dolphinplugins/actions.h:29
 #, kde-format
 msgid "Cleanup"
-msgstr ""
+msgstr "清理"
 
 #: dolphinplugins/actions.h:30
 #, kde-format
 msgid "Diff branches"
-msgstr ""
+msgstr "变更的分支"
 
 #: dolphinplugins/dolphinplugin.cpp:35 dolphinplugins/dolphinplugin.cpp:39
 #: src/apps/main.cpp:61
 #, kde-format
 msgid "Kommit"
-msgstr ""
+msgstr "Kommit"
 
 #: dolphinplugins/dolphinplugin.cpp:106
 #, kde-format
 msgid "Push/Commit to %1"
-msgstr ""
+msgstr "推送/提交到 %1"
 
 #: dolphinplugins/dolphinplugin.cpp:108
 #, kde-format
 msgid "Push/Commit to submodule %1"
-msgstr ""
+msgstr "推送/提交到子模块 %1"
 
 #: src/apps/main.cpp:63
 #, kde-format
@@ -208,50 +208,50 @@ msgstr " (合并中)"
 #: src/gui/appwindow.cpp:150
 #, kde-format
 msgid " (rebasing)"
-msgstr ""
+msgstr "（变基中）"
 
 #: src/gui/appwindow.cpp:185
 #: src/libkommitwidgets/actions/submoduleactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Init…"
-msgstr ""
+msgstr "初始化仓库…"
 
 #: src/gui/appwindow.cpp:188
 #, kde-format
 msgctxt "@action"
 msgid "Open…"
-msgstr ""
+msgstr "打开工作树…"
 
 #: src/gui/appwindow.cpp:193
 #, kde-format
 msgctxt "@action"
 msgid "Clone…"
-msgstr ""
+msgstr "克隆…"
 
 #: src/gui/appwindow.cpp:196
 #, kde-format
 msgctxt "@action"
 msgid "Changed files…"
-msgstr ""
+msgstr "变更的文件…"
 
 #: src/gui/appwindow.cpp:202
 #, kde-format
 msgctxt "@action"
 msgid "Recent repos"
-msgstr ""
+msgstr "最近打开的仓库"
 
 #: src/gui/appwindow.cpp:208
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
-msgstr ""
+msgstr "清理…"
 
 #: src/gui/appwindow.cpp:211
 #, kde-format
 msgctxt "@action"
 msgid "Pull…"
-msgstr ""
+msgstr "拉取…"
 
 #: src/gui/appwindow.cpp:215 src/libkommitwidgets/actions/branchactions.cpp:33
 #, kde-format
@@ -263,37 +263,37 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Push…"
-msgstr ""
+msgstr "推送…"
 
 #: src/gui/appwindow.cpp:223 src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Merge…"
-msgstr ""
+msgstr "合并…"
 
 #: src/gui/appwindow.cpp:227
 #, kde-format
 msgctxt "@action"
 msgid "Diff branches…"
-msgstr ""
+msgstr "变更的分支…"
 
 #: src/gui/appwindow.cpp:230 src/libkommitwidgets/actions/fileactions.cpp:51
 #, kde-format
 msgctxt "@action"
 msgid "Search…"
-msgstr ""
+msgstr "搜索…"
 
 #: src/gui/appwindow.cpp:233
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
-msgstr ""
+msgstr "仓库设置…"
 
 #: src/gui/appwindow.cpp:236
 #, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
-msgstr ""
+msgstr "切换分支…"
 
 #: src/gui/appwindow.cpp:239
 #, kde-format
@@ -325,7 +325,7 @@ msgstr "初始化仓库"
 #: src/gui/appwindow.cpp:320
 #, kde-format
 msgid "Open repository"
-msgstr ""
+msgstr "打开仓库"
 
 #: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:478
 #, kde-format
@@ -340,7 +340,7 @@ msgstr "切换分支"
 #: src/gui/changelogsdata.cpp:44
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "版本"
 
 #: src/gui/changelogsdata.cpp:62
 #, kde-format
