@@ -161,7 +161,7 @@ msgstr "ادفع/أودع في الوحدة الفرعية %1"
 #: src/apps/main.cpp:63
 #, kde-format
 msgid "Git client gui for KDE"
-msgstr "عميل غيت رسومي لكدي"
+msgstr "عميل غيت رسومي لكِيدِي"
 
 #: src/apps/main.cpp:65
 #, kde-format
