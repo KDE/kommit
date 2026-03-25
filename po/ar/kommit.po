@@ -1881,7 +1881,7 @@ msgstr "اعرض الملف: %1"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.ui:14
 #, kde-format
 msgid "MainWindow"
-msgstr "النافذة الرئيسية"
+msgstr "النافذة الرئيسة"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:44
 #, kde-format
