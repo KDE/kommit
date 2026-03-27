@@ -1308,7 +1308,7 @@ msgstr "新名称"
 #, kde-format
 msgctxt "@action"
 msgid "New stash…"
-msgstr ""
+msgstr "新建暂存…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:26
 #, kde-format
@@ -1330,38 +1330,38 @@ msgstr "您确定要应用选定的暂存？"
 #: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
 msgid "Apply stash %1"
-msgstr ""
+msgstr "应用暂存 %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:38
 #, kde-format
 msgid "Unable to apply the selected stash"
-msgstr ""
+msgstr "无法应用选定的暂存"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
-msgstr ""
+msgstr "您确定要应用选定的暂存？"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
 #, kde-format
 msgid "Drop stash %1"
-msgstr ""
+msgstr "丢弃暂存 %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:46
 #: src/libkommitwidgets/actions/stashactions.cpp:56
 #, kde-format
 msgid "Unable to remove the selected stash"
-msgstr ""
+msgstr "无法删除选定的暂存"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:54
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
-msgstr ""
+msgstr "您确定要弹出选定的暂存？"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:54
 #, kde-format
 msgid "Pop stash %1"
-msgstr ""
+msgstr "弹出暂存 %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:61
@@ -1374,14 +1374,14 @@ msgstr "您没有任何更改！"
 #, kde-format
 msgctxt "@title:window"
 msgid "Stash"
-msgstr ""
+msgstr "暂存"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
-msgstr ""
+msgstr "创建新的暂存"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
@@ -1565,7 +1565,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
 #, kde-format
 msgid "Stash changes"
-msgstr ""
+msgstr "暂存更改"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
