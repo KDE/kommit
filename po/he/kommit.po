@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2025-11-25 11:02+0200\n"
+"PO-Revision-Date: 2026-04-01 17:51+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1574,8 +1574,8 @@ msgstr ""
 "<html><head/><body><p>לכלול את הפלט של &quot;git status&quot; בתבנית הודעת "
 "הקיבוע בעת שימוש בעורך להכנת הודעת הקיבוע. </p><p><a href=\"https://git-scm."
 "com/docs/git-commit#Documentation/git-commit.txt---status\"><span style=\" "
-"text-decoration: underline; color:#2980b9;\">More information</span></a></"
-"p></body></html>"
+"text-decoration: underline; color:#2980b9;\">פרטים נוספים</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:110
@@ -2581,7 +2581,7 @@ msgstr "לא קובע"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:88
 #, kde-format
 msgid "Branch: "
-msgstr "ענף:"
+msgstr "ענף: "
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:90
 #, kde-format
