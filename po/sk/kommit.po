@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1176,9 +1176,9 @@ msgid "Are you sure to apply the selected stash?"
 msgstr "Ste si istí, že chcete aplikovať vybrané odloženie?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
-#, fuzzy, kde-format
+#, kde-format
 msgid "Apply stash %1"
-msgstr "Aplikovať úschovňu"
+msgstr "Aplikovať úschovňu %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
@@ -1191,9 +1191,9 @@ msgid "Are you sure to drop the selected stash?"
 msgstr "Ste si istí, že chcete zahodiť vybrané odloženie?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:42
-#, fuzzy, kde-format
+#, kde-format
 msgid "Drop stash %1"
-msgstr "Vymazať úschovňu"
+msgstr "Vymazať úschovňu %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
 #: src/libkommitwidgets/actions/stashactions.cpp:55
@@ -1207,9 +1207,9 @@ msgid "Are you sure to pop the selected stash?"
 msgstr "Ste si istí, že chcete vybrať vybrané odloženie?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:53
-#, fuzzy, kde-format
+#, kde-format
 msgid "Pop stash %1"
-msgstr "Aplikovať a vymazať úschovňu"
+msgstr "Aplikovať a vymazať úschovňu %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
@@ -1850,10 +1850,10 @@ msgstr "Vpravo"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:39
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:84
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Browse files: %1"
-msgstr "Prehliadať súbory"
+msgstr "Briadokse files: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/filestreedialog.ui:31
@@ -1873,10 +1873,10 @@ msgid "Please wait while the preview is being closed..."
 msgstr "Čakajte, prosím kým sa uzavrie náhľad..."
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "View file: %1"
-msgstr "Zobraziť súbor"
+msgstr "Zobraziť súbor: %1"
 
 #. i18n: ectx: property (windowTitle), widget (QMainWindow, FileViewerDialog)
 #: src/libkommitwidgets/dialogs/fileviewerdialog.ui:14
@@ -2230,9 +2230,9 @@ msgstr "Vzdialené:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:45
-#, fuzzy, kde-format
+#, kde-format
 msgid "Base file:"
-msgstr "Zobraziť súbor: %1"
+msgstr "Base file:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
 #: src/libkommitwidgets/dialogs/notedialog.ui:14
@@ -2786,8 +2786,6 @@ msgstr "Nie je možné otvoriť súbor"
 #~ msgid "New tag"
 #~ msgstr "Nová značka"
 
-#
-#~| msgid "Author"
 #~ msgid "Authors"
 #~ msgstr "Autori"
 
@@ -2797,8 +2795,6 @@ msgstr "Nie je možné otvoriť súbor"
 #~ msgid "time"
 #~ msgstr "čas"
 
-#
-#~| msgid "Author name"
 #~ msgid "Auth time"
 #~ msgstr "Meno autora"
 
@@ -2811,8 +2807,6 @@ msgstr "Nie je možné otvoriť súbor"
 #~ msgid "Children"
 #~ msgstr "Deti"
 
-#
-#~| msgid "GitKlient"
 #~ msgid "Git Klient"
 #~ msgstr "GitKlient"
 
@@ -2828,8 +2822,6 @@ msgstr "Nie je možné otvoriť súbor"
 #~ msgid "Local path"
 #~ msgstr "Lokálna cesta"
 
-#
-#~| msgid "Leave as is"
 #~ msgid "Leave"
 #~ msgstr "Nechať tak"
 
