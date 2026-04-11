@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2023-12-08 19:34+0100\n"
+"PO-Revision-Date: 2026-04-10 12:00+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -285,7 +285,7 @@ msgstr "Hľadať"
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
-msgstr ""
+msgstr "Nastavenia repozitára…"
 
 #: src/gui/appwindow.cpp:236
 #, kde-format
@@ -343,62 +343,63 @@ msgstr "Verzia"
 #: src/gui/changelogsdata.cpp:62
 #, kde-format
 msgid "Improve graph painting"
-msgstr ""
+msgstr "Vylepšenie vykresľovania grafu"
 
 #: src/gui/changelogsdata.cpp:63
 #, kde-format
 msgid "Improve on kommit lib (remove extra dependencies like kf)"
 msgstr ""
+"Vylepšenie knižnice kommit (odstránenie nadbytočných závislostí ako kf)"
 
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Add changes logs dialog"
-msgstr ""
+msgstr "Pridanie dialógu s históriou zmien"
 
 #: src/gui/changelogsdata.cpp:65
 #, kde-format
 msgid "Fix many small bugs"
-msgstr ""
+msgstr "Oprava mnohých drobných chýb"
 
 #: src/gui/changelogsdata.cpp:72
 #, kde-format
 msgid "Fix bug in branch selection in commits widget"
-msgstr ""
+msgstr "Oprava chyby vo výbere vetvy v prvku commitov"
 
 #: src/gui/changelogsdata.cpp:79
 #, kde-format
 msgid "Improve merge algorithm and text rendering"
-msgstr ""
+msgstr "Vylepšenie algoritmu zlučovania a vykresľovania textu"
 
 #: src/gui/changelogsdata.cpp:80
 #, kde-format
 msgid "Improve diff window text rendering"
-msgstr ""
+msgstr "Vylepšenie vykresľovania textu v okne diff"
 
 #: src/gui/changelogsdata.cpp:81
 #, kde-format
 msgid "Fix dolphin menu"
-msgstr ""
+msgstr "Oprava ponuky Dolphin"
 
 #: src/gui/changelogsdata.cpp:88
 #, kde-format
 msgid "Change icons to symbolic to response the theme changes"
-msgstr ""
+msgstr "Zmena ikon na symbolické pre reakciu na zmeny témy"
 
 #: src/gui/changelogsdata.cpp:89
 #, kde-format
 msgid "Fix crash on diff page"
-msgstr ""
+msgstr "Oprava pádu na stránke diff"
 
 #: src/gui/changelogsdata.cpp:90
 #, kde-format
 msgid "Fix missing icons"
-msgstr ""
+msgstr "Oprava chýbajúcich ikon"
 
 #: src/gui/changelogsdata.cpp:97
 #, kde-format
 msgid "Fix file viewer API"
-msgstr ""
+msgstr "Oprava API prehliadača súborov"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -419,7 +420,7 @@ msgstr "Repozitár bol úspešne inicializovaný"
 #: src/gui/commandargsparser.cpp:404
 #, kde-format
 msgid "Cannot find the file"
-msgstr ""
+msgstr "Nemožno nájsť súbor"
 
 #: src/gui/commandargsparser.cpp:551
 #, kde-format
@@ -474,13 +475,13 @@ msgstr "Odstránené"
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:14
 #, kde-format
 msgid "Choose file version"
-msgstr ""
+msgstr "Výber verzie súboru"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBaseFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:25
 #, kde-format
 msgid "Base file"
-msgstr ""
+msgstr "Základný súbor"
 
 #. i18n: ectx: property (text), widget (QLabel, labelBaseFile)
 #. i18n: ectx: property (text), widget (QLabel, labelLocalFile)
@@ -556,6 +557,9 @@ msgid ""
 "underline; color:#007af4;\">Diff base with local </span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff základný s lokálnym </span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithRemote)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:92
@@ -565,6 +569,9 @@ msgid ""
 "underline; color:#007af4;\">Diff base with remote </span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff základný so vzdialeným </span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffLocalWithRemote)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:99
@@ -574,19 +581,22 @@ msgid ""
 "underline; color:#007af4;\">Diff local with remote</span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Diff lokálny so vzdialeným</span></a></p></"
+"body></html>"
 
 #: src/gui/dialogs/resolvedialog.cpp:85
 #, kde-format
 msgid "All conflicts resolved"
-msgstr ""
+msgstr "Všetky konflikty vyriešené"
 
 #: src/gui/dialogs/resolvedialog.cpp:87
 #, kde-format
 msgid "%1 conflict remained"
 msgid_plural "%1 conflicts remained"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Zostal %1 konflikt"
+msgstr[1] "Zostali %1 konflikty"
+msgstr[2] "Zostalo %1 konfliktov"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
 #: src/gui/dialogs/resolvedialog.ui:14
@@ -598,7 +608,7 @@ msgstr "Nezhody"
 #: src/gui/dialogs/resolvedialog.ui:26
 #, kde-format
 msgid "Conflicts count"
-msgstr ""
+msgstr "Počet konfliktov"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -1246,7 +1256,7 @@ msgstr "%1 súbor (*.%1);;Všetky súbory(*)"
 #, kde-format
 msgctxt "@action"
 msgid "New…"
-msgstr ""
+msgstr "Nový…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:27
 #, kde-format
@@ -1263,7 +1273,7 @@ msgstr "Zmeniť URL..."
 #: src/libkommitwidgets/actions/remotesactions.cpp:53
 #, kde-format
 msgid "Unable to create remote"
-msgstr ""
+msgstr "Nepodarilo sa vytvoriť vzdialený repozitár"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:59
 #, kde-format
@@ -1317,7 +1327,7 @@ msgstr "Nová značka..."
 #, kde-format
 msgctxt "@action"
 msgid "Pop…"
-msgstr ""
+msgstr "Vybrať…"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:27
 #, kde-format
@@ -1409,7 +1419,7 @@ msgstr "Aktualizovať"
 #, kde-format
 msgctxt "@action"
 msgid "Sync…"
-msgstr ""
+msgstr "Synchronizovať…"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:25
 #, kde-format
@@ -1465,7 +1475,7 @@ msgstr "Nie"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:14
 #, kde-format
 msgid "Confirm certificate"
-msgstr ""
+msgstr "Potvrdiť certifikát"
 
 #. i18n: ectx: property (text), widget (QLabel, label_21)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:23
@@ -1474,6 +1484,8 @@ msgid ""
 "Confirm this certificate by clicking OK, if this is not the correct "
 "certificate, click Cancel."
 msgstr ""
+"Potvrďte tento certifikát kliknutím na OK, ak to nie je správny certifikát, "
+"kliknite na Zrušiť."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:33
@@ -1491,7 +1503,7 @@ msgstr "Hostiteľ"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:63
 #, kde-format
 msgid "Is valid"
-msgstr ""
+msgstr "Je platný"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:83
@@ -1529,19 +1541,19 @@ msgstr "Platný do"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:183
 #, kde-format
 msgid "Public key type"
-msgstr ""
+msgstr "Typ verejného kľúča"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:203
 #, kde-format
 msgid "Public key bits"
-msgstr ""
+msgstr "Bity verejného kľúča"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:223
 #, kde-format
 msgid "Signature algorithm"
-msgstr ""
+msgstr "Algoritmus podpisu"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
@@ -1895,7 +1907,7 @@ msgstr "Prihlasovacie údaje pre %1"
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:14
 #, kde-format
 msgid "Credential input"
-msgstr ""
+msgstr "Zadanie prihlasovacích údajov"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCredentialsUrl)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
@@ -1961,17 +1973,17 @@ msgstr "Adresár:"
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:151
 #, kde-format
 msgid "Receiving objects"
-msgstr ""
+msgstr "Prijímanie objektov"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:158
 #, kde-format
 msgid "Stage %1"
-msgstr ""
+msgstr "Fáza %1"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:166
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
-msgstr ""
+msgstr "Referencia aktualizovaná: %1  %2...%3"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
 #, kde-format
@@ -1981,12 +1993,12 @@ msgstr "Dokončené"
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:174
 #, kde-format
 msgid "Finished with error"
-msgstr ""
+msgstr "Dokončené s chybou"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:175
 #, kde-format
 msgid "Error %1: %2"
-msgstr ""
+msgstr "Chyba %1: %2"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:14
@@ -2025,7 +2037,7 @@ msgstr "Presmerovanie"
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:186
 #, kde-format
 msgid "Starting..."
-msgstr ""
+msgstr "Spúšťanie..."
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:37
@@ -2073,7 +2085,7 @@ msgstr "Prehľad"
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:40
 #, kde-format
 msgid "Differential &view"
-msgstr ""
+msgstr "Diferenčný &pohľad"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -2106,12 +2118,12 @@ msgstr "Rozbaliť do"
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:100
 #, kde-format
 msgid "All file(s) extracted successfully"
-msgstr ""
+msgstr "Všetky súbory boli úspešne extrahované"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:102
 #, kde-format
 msgid "An error occurred while extracting file(s)"
-msgstr ""
+msgstr "Vyskytla sa chyba pri extrahovaní súboru(ov)"
 
 #: src/libkommitwidgets/dialogs/filestreedialog.cpp:165
 #, kde-format
@@ -2140,7 +2152,7 @@ msgstr "MainWindow"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.ui:94
 #, kde-format
 msgid "Can't show the binary file!"
-msgstr ""
+msgstr "Nemožno zobraziť binárny súbor!"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
@@ -2574,6 +2586,10 @@ msgid ""
 "\" text-decoration: underline; color:#007af4;\">More information...</span></"
 "a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Zmeniť cr/lf alebo nie</p><p><a href=\"https://git-scm."
+"com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
+"\" text-decoration: underline; color:#007af4;\">Viac informácií...</span></"
+"a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:59
@@ -2591,6 +2607,11 @@ msgid ""
 "decoration: underline; color:#007af4;\">More information...</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Určuje, či má Git rešpektovať bit spustiteľnosti "
+"súborov v pracovnom strome. </p><p><a href=\"https://git-scm.com/docs/git-"
+"config#Documentation/git-config.txt-corefileMode\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">Viac informácií...</span></a></p></"
+"body></html>"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
 #, kde-format
@@ -2615,7 +2636,7 @@ msgstr "Proces skončil s chybou"
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
 #, kde-format
 msgid "%1: (Elapsed time: %2)"
-msgstr ""
+msgstr "%1: (Uplynulý čas: %2)"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RunnerDialog)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:14
@@ -2653,6 +2674,19 @@ msgid ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
 "size:9pt;\"><br /></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"size:9pt;\"><br /></p></body></html>"
 
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:38
 #, kde-format
@@ -2747,7 +2781,7 @@ msgstr "Vetva už existuje"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:90
 #, kde-format
 msgid "Unable to find the tag's target commit: %1"
-msgstr ""
+msgstr "Nepodarilo sa nájsť cieľový commit značky: %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
 #, kde-format
@@ -2757,7 +2791,7 @@ msgstr "Nemôžem otvoriť súbor: %1"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:104
 #, kde-format
 msgid "Error switching to new target"
-msgstr ""
+msgstr "Chyba pri prepínaní na nový cieľ"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:52
@@ -2999,7 +3033,7 @@ msgstr "Ref:"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:120
 #, kde-format
 msgid "Refs:"
-msgstr ""
+msgstr "Referencie:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:130
@@ -3031,7 +3065,7 @@ msgstr "Commit nie je vybraný"
 #: src/libkommitwidgets/widgets/commitdetails.ui:98
 #, kde-format
 msgid "Render commit message in Markdown"
-msgstr ""
+msgstr "Vykresliť správu commitu v Markdowne"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:154
@@ -3090,7 +3124,7 @@ msgstr "Výkaz"
 #: src/libkommitwidgets/windows/diffwindow.cpp:239
 #, kde-format
 msgid "View hidden chars…"
-msgstr ""
+msgstr "Zobraziť skryté znaky…"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:244
 #: src/libkommitwidgets/windows/mergewindow.cpp:184
@@ -3179,12 +3213,12 @@ msgstr "Uložiť výsledok"
 #: src/libkommitwidgets/windows/mergewindow.cpp:400
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
-msgstr ""
+msgstr "Konflikty: <span style='font-weight:bold; color:red;'>%1</span>"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:402
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
-msgstr ""
+msgstr "<span style='color:green;'>Všetky konflikty vyriešené</span>"
 
 #~ msgctxt "@title:window"
 #~ msgid "Closing preview"
