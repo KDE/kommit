@@ -12,22 +12,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #ifdef QT_CHARTS_LIB
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-namespace QtCharts
-{
 class QValueAxis;
 class QBarSeries;
 class QBarCategoryAxis;
 class QChart;
-};
-
-using namespace QtCharts;
-#else
-class QValueAxis;
-class QBarSeries;
-class QBarCategoryAxis;
-class QChart;
-#endif
 
 #endif
 

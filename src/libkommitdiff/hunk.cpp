@@ -10,9 +10,9 @@ namespace Diff
 {
 
 DiffHunk::DiffHunk()
-    : type{}
+    : left{}
     , right{}
-    , left{}
+    , type{}
 {
 }
 

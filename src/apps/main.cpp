@@ -39,13 +39,7 @@ int main(int argc, char **argv)
     paths << ":/icons" << ":/icons/hicolor";
     QIcon::setThemeSearchPaths(paths);
 
-#if HAVE_KICONTHEME && (KICONTHEMES_VERSION >= QT_VERSION_CHECK(6, 3, 0))
     KIconTheme::initTheme();
-#endif
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-#endif
 
     QApplication application(argc, argv);
 

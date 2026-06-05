@@ -11,8 +11,8 @@ set(RELEASE_SERVICE_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.$
 set(LIBKOMMIT_LIB_VERSION "${RELEASE_SERVICE_VERSION}")
 set(LIBKOMMIT_LIB_SOVERSION "0")
 
-set(QT_MIN_VERSION 5.15.2)
-set(KF_MIN_VERSION 6.0.0)
+set(QT_MIN_VERSION 6.4.0)
+set(KF_MIN_VERSION 6.3.0)
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
 add_definitions(-DKOMMIT_VERSION="${RELEASE_SERVICE_VERSION}")
@@ -40,13 +40,7 @@ include(ECMGenerateExportHeader)
 
 option(BUILD_DOC "Whether to build the documentation" ON)
 
-if(QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_MIN_VERSION "6.4.0")
-    set(KF_MIN_VERSION "6.3.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
+set(KF_MAJOR_VERSION "6")
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -112,7 +106,7 @@ add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
 
 configure_file(config-kommit.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kommit.h)
 
-ecm_set_disabled_deprecation_versions(QT 5.15.2 KF 6.5)
+ecm_set_disabled_deprecation_versions(QT 6.4 KF 6.5)
 
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
 
