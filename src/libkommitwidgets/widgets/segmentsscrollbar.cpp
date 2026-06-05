@@ -118,11 +118,7 @@ void SegmentsScrollBar::resizeEvent(QResizeEvent *event)
         d->generateSegmentsImage();
 }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-void SegmentsScrollBar::enterEvent(QEvent *event)
-#else
 void SegmentsScrollBar::enterEvent(QEnterEvent *event)
-#endif
 {
     QWidget::enterEvent(event);
     Q_EMIT mouseEntered();
@@ -138,7 +134,7 @@ void SegmentsScrollBar::reload()
 {
     Q_D(SegmentsScrollBar);
     d->leftCount = d->rightCount = 0;
-    for (const auto &segment : qAsConst(d->mSegmentConnector->segments())) {
+    for (const auto &segment : std::as_const(d->mSegmentConnector->segments())) {
         if (d->mSegmentConnector->sameSize()) {
             auto m = qMax(segment->left.size, segment->right.size);
             d->leftCount += m;
@@ -162,7 +158,7 @@ void SegmentsScrollBarPrivate::generateSegmentsImage()
     int countLeft{0};
     int countRight{0};
 
-    for (const auto &segment : qAsConst(mSegmentConnector->segments())) {
+    for (const auto &segment : std::as_const(mSegmentConnector->segments())) {
         QBrush brush;
         switch (segment->type) {
         case Diff::SegmentType::OnlyOnLeft:

@@ -20,12 +20,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KLocalizedString>
 #include <kjobtrackerinterface.h>
 
-#include <kio_version.h>
-#if KIO_VERSION >= QT_VERSION_CHECK(5, 98, 0)
 #include <KIO/JobUiDelegateFactory>
-#else
-#include <KIO/JobUiDelegate>
-#endif
+#include <kio_version.h>
 
 #include <QAction>
 #include <QDebug>
@@ -101,11 +97,7 @@ void FileActions::openFile()
     // TODO: needs to be checked
     /*KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url);
 
-#if KIO_VERSION >= QT_VERSION_CHECK(5, 98, 0)
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
-#else
-    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
-#endif
     qDebug() << "Starting";
     if(!job->exec()) {
         qDebug() << job->errorString();
@@ -123,11 +115,7 @@ void FileActions::openWith()
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob();
     job->setUrls({QUrl::fromLocalFile(tempFilePath)});
 
-#if KIO_VERSION >= QT_VERSION_CHECK(5, 98, 0)
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
-#else
-    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
-#endif
 
     job->start();
 }

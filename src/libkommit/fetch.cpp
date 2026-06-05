@@ -168,11 +168,7 @@ bool Fetch::run()
 
 void Fetch::runAsync()
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QtConcurrent::run(this, &Fetch::run);
-#else
     QtConcurrent::run(&Fetch::run, this);
-#endif
 }
 
 QStringList Fetch::customHeaders() const

@@ -84,11 +84,7 @@ bool CommandArgsParser::checkGitPath(const QString &path)
 
 ArgParserReturn CommandArgsParser::run(const QStringList &args)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#define GET_OP(x) params.size() > x ? Q_ARG(QString, params.at(x)) : QGenericArgument()
-#else
 #define GET_OP(x) params.size() > x ? Q_ARG(QString, params.at(x)) : QMetaMethodArgument()
-#endif
     if (args.size() == 1)
         return main();
     const auto name = QString(args.at(1)).replace(QLatin1String("-"), QLatin1String("_")).toLocal8Bit();
@@ -103,21 +99,6 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
                 ArgParserReturn r;
                 qCDebug(KOMMIT_LOG) << "Running:" << method.name();
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-                auto b = metaObject()->invokeMethod(this,
-                                                    method.name().constData(),
-                                                    Q_RETURN_ARG(ArgParserReturn, r),
-                                                    GET_OP(0),
-                                                    GET_OP(1),
-                                                    GET_OP(2),
-                                                    GET_OP(3),
-                                                    GET_OP(4),
-                                                    GET_OP(5),
-                                                    GET_OP(6),
-                                                    GET_OP(7),
-                                                    GET_OP(8),
-                                                    GET_OP(9));
-#else
                 bool b{};
                 switch (method.parameterCount()) {
                 case 0:
@@ -141,7 +122,6 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
                             ->invokeMethod(this, method.name().constData(), Q_RETURN_ARG(ArgParserReturn, r), GET_OP(0), GET_OP(1), GET_OP(2), GET_OP(3));
                     break;
                 }
-#endif
 
                 if (!b) {
                     qCDebug(KOMMIT_LOG) << args.size() << method.parameterCount();

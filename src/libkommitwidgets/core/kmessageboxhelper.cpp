@@ -21,14 +21,8 @@ KMessageBoxHelper::KMessageBoxHelper()
 bool KMessageBoxHelper::removeQuestion(QWidget *parent, const QString &text, const QString &caption)
 {
 #ifdef LIBKOMMIT_WIDGET_USE_KF
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     auto r = KMessageBox::questionTwoActions(parent, text, caption, KStandardGuiItem::remove(), KStandardGuiItem::cancel());
     return r == KMessageBox::ButtonCode::PrimaryAction;
-#else
-    auto r = KMessageBox::questionYesNo(parent, text, caption);
-    return r == KMessageBox::Yes;
-#endif
-
 #else
     return QMessageBox::Yes == QMessageBox::question(parent, caption, text, QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
 #endif
@@ -37,13 +31,8 @@ bool KMessageBoxHelper::removeQuestion(QWidget *parent, const QString &text, con
 bool KMessageBoxHelper::applyQuestion(QWidget *parent, const QString &text, const QString &caption)
 {
 #ifdef LIBKOMMIT_WIDGET_USE_KF
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     auto r = KMessageBox::questionTwoActions(parent, text, caption, KStandardGuiItem::apply(), KStandardGuiItem::cancel());
     return r == KMessageBox::ButtonCode::PrimaryAction;
-#else
-    auto r = KMessageBox::questionYesNo(parent, text, caption);
-    return r == KMessageBox::Yes;
-#endif
 #else
     return QMessageBox::Yes == QMessageBox::question(parent, caption, text, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
 #endif

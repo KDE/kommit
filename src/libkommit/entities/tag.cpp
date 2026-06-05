@@ -54,15 +54,15 @@ TagPrivate::TagPrivate(git_tag *tag)
 }
 
 TagPrivate::TagPrivate(git_commit *commit, const QString &name)
-    : mTagType{Tag::Type::LightTag}
-    , mLightTagCommit{commit}
+    : mLightTagCommit{commit}
+    , mTagType{Tag::Type::LightTag}
     , mName{name}
 {
 }
 
 TagPrivate::TagPrivate(Commit *parentCommit)
-    : mTagType{Tag::Type::LightTag}
-    , mLightTagCommit{*parentCommit}
+    : mLightTagCommit{*parentCommit}
+    , mTagType{Tag::Type::LightTag}
 
 {
 }

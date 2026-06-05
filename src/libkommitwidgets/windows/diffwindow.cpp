@@ -162,13 +162,13 @@ public:
 DiffWindowPrivate::DiffWindowPrivate(DiffWindow *parent)
     : q_ptr{parent}
     , mapper{new EditActionsMapper(parent)}
-    , left{}
-    , right{}
     , diffWidget{new DiffWidget(parent)}
     , filesModel{new FilesModel(parent)}
     , diffModel{new DiffTreeModel(parent)}
     , treeView{new DiffTreeView(parent)}
     , dock{new QDockWidget(parent)}
+    , left{}
+    , right{}
 {
 }
 
