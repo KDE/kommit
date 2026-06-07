@@ -3,7 +3,30 @@
         "MimeTypes": [
             "text/plain"
         ],
-        "Name": "Kommit dolphin plugin"
+        "Name": "Kommit dolphin plugin",
+        "Name[ar]": "ملحق كومت دولفين",
+        "Name[ca@valencia]": "Connector Kommit de Dolphin",
+        "Name[ca]": "Connector Kommit del Dolphin",
+        "Name[cs]": "Modul Kommit pro Dolphin",
+        "Name[en_GB]": "Kommit dolphin plugin",
+        "Name[eo]": "Kommit dolfin-kromprogramo",
+        "Name[es]": "Complemento Kommit de Dolphin",
+        "Name[fi]": "Kommit-Dolphin-liitännäinen",
+        "Name[fr]": "Module externe Kommit pour Dolphin",
+        "Name[gl]": "Complemento Kommit para Dolphin",
+        "Name[he]": "תוסף Kommit ל־Dolphin",
+        "Name[it]": "Estensione Kommit di Dolphin",
+        "Name[ko]": "Kommit Dolphin 플러그인",
+        "Name[nl]": "Kommit dolphin-plug-in",
+        "Name[pl]": "Wtyczka Dolphina do Kommita",
+        "Name[pt_BR]": "Plugin do Kommit para o Dolphin ",
+        "Name[ro]": "Extensie Kommit pentru Dolphin",
+        "Name[sk]": "Plugin pre Dolphin Kommit",
+        "Name[sl]": "Uveljavi dolphinov vtičnik",
+        "Name[sv]": "Dolphin Kommit-insticksprogram",
+        "Name[tr]": "Kommit Dolphin Eklentisi",
+        "Name[uk]": "Додаток Kommit до Dolphin",
+        "Name[zh_TW]": "Kommit Dolphin 外掛程式"
     },
     "MimeType": "text/plain;"
 }
