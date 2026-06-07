@@ -1,21 +1,22 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kommit package.
 #
-# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2026-04-01 17:51+0300\n"
+"PO-Revision-Date: 2026-06-06 21:21+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.8\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1926,7 +1927,7 @@ msgstr "כל הקבצים בשם הזה"
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:76
 #, kde-format
 msgid "Exact the path"
-msgstr ""
+msgstr "דיוק הנתיב"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonEveryWhere)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:86
@@ -2073,6 +2074,14 @@ msgid ""
 "squash\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>הפקת עץ העבודה ואת מצב המפתח כאילו בוצע מיזוג אמיתי "
+"(למעט פרטי המיזוג), אבל לא לבצע קיבוע בפועל, להעביר את הראש (HEAD) או לתעד את"
+" ‎$GIT_DIR/MERGE_HEAD (כדי לגרום לפקודת קיבוע ה־git הבאה ליצור קיבוע מיזוג). "
+"הפעולה הזאת מאפשרת לך ליצור קיבוע בודד על גבי הענף הנוכחי שההשפעה שלו זהה "
+"למיזוג ענף אחר (או יותר במקרה של תמנון).</p><p><br/></p><p><a href=\"https://"
+"git-scm.com/docs/git-merge#Documentation/git-merge.txt---squash\"><span "
+"style=\" text-decoration: underline; color:#007af4;\">פרטים נוספים</span></"
+"a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:110
@@ -2153,6 +2162,12 @@ msgid ""
 "decoration: underline; color:#007af4;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>מריץ שליפה וקליטה וירטואליות של כל שלושת השלבים של "
+"קובץ בעת פתרון מיזוג תלת־כיווני. האפשרות הזאת מיועדת לשימוש בעת מיזוג ענפים "
+"עם מסננים נקיים שונים או כללי נירמול לסוף שורה.</p><p><br/></p><p><a href="
+"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-renormalize"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">פרטים נוספים</"
+"span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:197
@@ -2491,7 +2506,7 @@ msgstr "דוא״ל"
 #: src/libkommitwidgets/reports/authorsreport.cpp:68
 #, kde-format
 msgid "Autheds"
-msgstr ""
+msgstr "יוצרים"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:46
 #, kde-format
