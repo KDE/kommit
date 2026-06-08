@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2026-06-06 05:29+0200\n"
+"PO-Revision-Date: 2026-06-07 07:36+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -901,6 +901,14 @@ msgid ""
 "ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>შეინახეთ თქვენი ლოკალური ცვლილებები ახალ სათავსოში და "
+"დააბრუნეთ ისინი HEAD-ზე (სამუშაო ხეში და ინდექსში). ეს ნაწილი "
+"არასავალდებულოა და გაძლევთ აღწერას სათავსოში მოთავსებულ მდგომარეობასთან "
+"ერთად.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"stash#Documentation/git-stash.txt-push-p--patch-k--no-keep-index-u--include-"
+"untracked-a--all-q--quiet-m--messageltmessagegt--pathspec-from-fileltfilegt--"
+"pathspec-file-nul--ltpathspecgt82308203\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">მეტი ინფორმაცია...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
 #: src/gui/pages/stasheswidget.ui:52
@@ -924,6 +932,10 @@ msgid ""
 "txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
 "underline; color:#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>სათავსოს გადატარება მიმდინარე სამუშაო საქაღალდის "
+"ზემოდან</p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-"
+"stash.txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">მეტი ინფორმაცია...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
 #: src/gui/pages/stasheswidget.ui:69
@@ -1756,6 +1768,16 @@ msgid ""
 "push#Documentation/git-push.txt--f\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>ჩვეულებრივ, ბრძანება უარს აცხადებს, განაახლოს "
+"დაშორებული მიმართვა, რომელიც არ წარმოადგენს ლოკალური მიმართვის წინაპარს, "
+"რომელიც მის თავზე გადასაწერადაა გამოყენებული. ასევე, როცა გამოიყენება "
+"პარამეტრი --force-with-lease, ბრძანება უარს იტყვის, განაახლოს დაშორებული "
+"მიმართვა, რომლის მიმდინარე მნიშვნელობა მოსალოდნელს არ ემთხვევა.</p><p>ეს "
+"ალამი გამორთავს იმ შემოწმებებს და, ასევე, შეუძლია გამოიწვიოს დაშორებული "
+"რეპოზიტორიიდან კომიტების კარგვა. ფრთხილად გამოიყენეთ ის.</p><p><br/></"
+"p><p><a href=\"https://git-scm.com/docs/git-push#Documentation/git-push.txt--"
+"f\"><span style=\" text-decoration: underline; color:#007af4;\">მეტი "
+"ინფორმაცია...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:91
@@ -1781,6 +1803,12 @@ msgid ""
 "commit.txt---status\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>ბრძანების &quot;git status&quot; ჩასმა კომიტის "
+"შეტყობინების ნიმუშში, როცა კომიტის შეტყობინების მომზადებისთვის რედაქტორი "
+"გამოიყენება. </p><p><a href=\"https://git-scm.com/docs/git-"
+"commit#Documentation/git-commit.txt---status\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">მეტი ინფორმაცია</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:110
@@ -1798,6 +1826,11 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More info</span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p>მიმდინარე ბრენჩის თავის ჩანაცვლება ახალი კომიტის "
+"შექმნით.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"commit#Documentation/git-commit.txt---amend\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">მეტი ინფორმაცია</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAmend)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:123
@@ -1822,6 +1855,10 @@ msgid ""
 "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>მითითებული ტექსტის გამოყენება კომიტის შეტყობინებად. </"
+"p><p><a href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit."
+"txt---messageltmsggt\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">მეტი ინფორმაცია</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:175
@@ -2251,6 +2288,11 @@ msgid ""
 "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>მიუთითებს, როგორ ხდება შერწყმა, როცა შერწყმული ისტორია "
+"უკვე წარმოადგენს მიმდინარე ისტორიის წინაპარს.</p><p><br/></p><p><a href="
+"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">მეტი "
+"ინფორმაცია</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
@@ -2410,6 +2452,13 @@ msgid ""
 "algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>განსხვავებული სხვაობის ალგორითმის გამოყენება "
+"შერწყმისას. მას შეუძლია დაგეხმაროთ, თავიდან აიცილოთ არასწორი შერწყმა, "
+"რომელიც ხდება უმნიშვნელო შესაბამისი ხაზების (როგორიცაა ფრჩხილები დაშორებული "
+"ფუნქციებიდან) გამო.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt-diff-algorithmpatienceminimalhistogrammyers"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">მეტი "
+"ინფორმაცია</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:225
@@ -2504,6 +2553,10 @@ msgid ""
 "\" text-decoration: underline; color:#007af4;\">More information...</span></"
 "a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>შეიცვლება cr/lf, თუ არა</p><p><a href=\"https://git-"
+"scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span "
+"style=\" text-decoration: underline; color:#007af4;\">მეტი ინფორმაცია...</"
+"span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:59
@@ -2521,6 +2574,11 @@ msgid ""
 "decoration: underline; color:#007af4;\">More information...</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>ეუბნება Git-ის, უნდა მოხდეს სამუშაო ხეში არსებული "
+"ფაილების გაშვებადობის ალამი გათვალისწინებული, თუ არა. </p><p><a href="
+"\"https://git-scm.com/docs/git-config#Documentation/git-config.txt-"
+"corefileMode\"><span style=\" text-decoration: underline; color:#007af4;"
+"\">მეტი ინფორმაცია...</span></a></p></body></html>"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
 #, kde-format
@@ -2583,6 +2641,19 @@ msgid ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
 "size:9pt;\"><br /></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"size:9pt;\"><br /></p></body></html>"
 
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:38
 #, kde-format

@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the gitklient package.
 #
-# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023-2024, 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2024-07-23 22:31+0900\n"
+"PO-Revision-Date: 2026-06-07 16:51+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 26.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -380,7 +380,7 @@ msgstr ""
 #: src/gui/changelogsdata.cpp:81
 #, kde-format
 msgid "Fix dolphin menu"
-msgstr ""
+msgstr "修正 Dolphin 選單"
 
 #: src/gui/changelogsdata.cpp:88
 #, kde-format
@@ -480,10 +480,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBaseFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:25
-#, fuzzy, kde-format
-#| msgid "Base file:"
+#, kde-format
 msgid "Base file"
-msgstr "基底檔案："
+msgstr "基底檔案"
 
 #. i18n: ectx: property (text), widget (QLabel, labelBaseFile)
 #. i18n: ectx: property (text), widget (QLabel, labelLocalFile)
@@ -541,17 +540,15 @@ msgstr "-"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLocalFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:39
-#, fuzzy, kde-format
-#| msgid "Local file:"
+#, kde-format
 msgid "Local file"
-msgstr "本機檔案："
+msgstr "本機檔案"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoteFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:53
-#, fuzzy, kde-format
-#| msgid "Remote file:"
+#, kde-format
 msgid "Remote file"
-msgstr "遠端檔案："
+msgstr "遠端檔案"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithLocal)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:85
@@ -583,7 +580,7 @@ msgstr ""
 #: src/gui/dialogs/resolvedialog.cpp:85
 #, kde-format
 msgid "All conflicts resolved"
-msgstr ""
+msgstr "所有衝突皆已解決"
 
 #: src/gui/dialogs/resolvedialog.cpp:87
 #, kde-format
@@ -593,17 +590,15 @@ msgstr[0] ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
 #: src/gui/dialogs/resolvedialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Conflicts: %1"
+#, kde-format
 msgid "Conflicts"
-msgstr "衝突：%1"
+msgstr "衝突"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConflictsCount)
 #: src/gui/dialogs/resolvedialog.ui:26
-#, fuzzy, kde-format
-#| msgid "Conflicts: %1"
+#, kde-format
 msgid "Conflicts count"
-msgstr "衝突：%1"
+msgstr "衝突數"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kommitdiffui.rc:23 src/gui/kommitmergeui.rc:33
@@ -672,10 +667,9 @@ msgstr "分支"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/pages/branchesstatuswidget.ui:25
-#, fuzzy, kde-format
-#| msgid "Branches:"
+#, kde-format
 msgid "Branches type:"
-msgstr "分支："
+msgstr "分支類型："
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonAddAll)
@@ -689,10 +683,9 @@ msgstr "全部"
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #: src/gui/pages/branchesstatuswidget.ui:38
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:33
-#, fuzzy, kde-format
-#| msgid "Local file:"
+#, kde-format
 msgid "Local"
-msgstr "本機檔案："
+msgstr "本機"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxBranchesType)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxBranches)
@@ -1254,10 +1247,9 @@ msgid "Change url…"
 msgstr "變更網址…"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:53
-#, fuzzy, kde-format
-#| msgid "Unable to create path: %1"
+#, kde-format
 msgid "Unable to create remote"
-msgstr "無法建立路徑：%1"
+msgstr "無法建立遠端"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:59
 #, kde-format
@@ -1448,13 +1440,12 @@ msgstr "簽出"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.cpp:24
 #, kde-format
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: src/libkommitwidgets/dialogs/certificateinfodialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgid "No"
-msgstr "無"
+msgstr "否"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CertificateInfoDialog)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:14
@@ -1480,13 +1471,13 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:43
 #, kde-format
 msgid "Host"
-msgstr ""
+msgstr "主機"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:63
 #, kde-format
 msgid "Is valid"
-msgstr ""
+msgstr "有效"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:83
@@ -1500,7 +1491,7 @@ msgstr "主旨"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:103
 #, kde-format
 msgid "Issuer"
-msgstr ""
+msgstr "配發者"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:123
@@ -1510,16 +1501,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:143
-#, fuzzy, kde-format
-#| msgid "Pull from"
+#, kde-format
 msgid "Valid from"
-msgstr "從哪裡拉取"
+msgstr "有效自"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:163
 #, kde-format
 msgid "Valid until"
-msgstr ""
+msgstr "有效期限"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:183
@@ -1535,10 +1525,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:223
-#, fuzzy, kde-format
-#| msgid "Diff algorithm:"
+#, kde-format
 msgid "Signature algorithm"
-msgstr "差異演算法："
+msgstr "簽名演算法"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
@@ -1871,10 +1860,9 @@ msgstr "%1 的認證資訊"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CredentialDialog)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Credentials:"
+#, kde-format
 msgid "Credential input"
-msgstr "認證資訊："
+msgstr "認證資訊輸入"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCredentialsUrl)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
@@ -1955,13 +1943,12 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
 #, kde-format
 msgid "Finished"
-msgstr ""
+msgstr "已完成"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Process finished with error"
+#, kde-format
 msgid "Finished with error"
-msgstr "行程已完成但有錯誤"
+msgstr "已完成但有錯誤"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:175
 #, kde-format
@@ -1997,10 +1984,9 @@ msgstr "剪除"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRedirect)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:139
-#, fuzzy, kde-format
-#| msgid "New directory:"
+#, kde-format
 msgid "Redirect"
-msgstr "新目錄："
+msgstr "重新導向"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:186
@@ -2010,8 +1996,7 @@ msgstr ""
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:37
-#, fuzzy, kde-format
-#| msgid "Uncommited"
+#, kde-format
 msgid "Uncommitted"
 msgstr "尚未提交"
 
@@ -2730,10 +2715,9 @@ msgid "Unable to find the tag's target commit: %1"
 msgstr ""
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
-#, fuzzy, kde-format
-#| msgid "Unable to create path: %1"
+#, kde-format
 msgid "Unable to create the branch: %1"
-msgstr "無法建立路徑：%1"
+msgstr "無法建立分支：%1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:104
 #, kde-format
@@ -2829,9 +2813,7 @@ msgid "Create time"
 msgstr "建立時間"
 
 #: src/libkommitwidgets/models/treemodel.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Tree"
+#, kde-format
 msgid "Tree"
 msgstr "樹狀圖"
 
@@ -2944,10 +2926,9 @@ msgstr ""
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:20
-#, fuzzy, kde-format
-#| msgid "All branches"
+#, kde-format
 msgid "Filter branches"
-msgstr "所有分支"
+msgstr "過濾分支"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:105
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
@@ -3039,8 +3020,7 @@ msgstr "輸入以過濾"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
-#, fuzzy, kde-format
-#| msgid "Hide unchangeds"
+#, kde-format
 msgid "Hide unchanged"
 msgstr "隱藏未變更"
 
@@ -3155,7 +3135,7 @@ msgstr "無法開啟檔案 %1"
 #: src/libkommitwidgets/windows/mergewindow.cpp:332
 #, kde-format
 msgid "Save result"
-msgstr ""
+msgstr "儲存結果"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:400
 #, kde-format
