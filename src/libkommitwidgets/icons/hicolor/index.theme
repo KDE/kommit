@@ -16,6 +16,7 @@ Name[sk]=Hicolor
 Name[sl]=Svetla barva
 Name[tr]=Yüksek Renk
 Name[uk]=Кольорова
+Name[zh_TW]=Hicolor
 Comment=Application embedded icon theme
 Comment[ar]=سمة أيقونة مدمجة في التطبيق
 Comment[ca]=Tema d'icones incrustades d'aplicació
@@ -33,6 +34,7 @@ Comment[sk]=Téma ikon vložená do aplikácie
 Comment[sl]=Tema ikone vdelana v aplikaciji
 Comment[tr]=Uygulamaya gömülü simge teması
 Comment[uk]=Вбудована до програми тема піктограм
+Comment[zh_TW]=應用程式內嵌的圖示主題
 Directories=scalable/actions
 
 [scalable/actions]
