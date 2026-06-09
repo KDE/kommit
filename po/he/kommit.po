@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2026-06-06 21:21+0300\n"
+"PO-Revision-Date: 2026-06-06 21:47+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -593,13 +593,13 @@ msgid "All conflicts resolved"
 msgstr "כל הסתירות נפתרו"
 
 #: src/gui/dialogs/resolvedialog.cpp:87
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 conflict remained"
 msgid_plural "%1 conflicts remained"
 msgstr[0] "נשארה סתירה"
-msgstr[1] "נשארו %1 סתירות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "נשארו שתי סתירות"
+msgstr[2] "נשארו %1 סתירות"
+msgstr[3] "נשארו %1 סתירות"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
 #: src/gui/dialogs/resolvedialog.ui:14
@@ -3031,24 +3031,24 @@ msgstr "הפניות:"
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:130
 #: src/libkommitwidgets/widgets/commitdetails.ui:185
-#, fuzzy, kde-format
+#, kde-format
 msgid "Parent:"
 msgid_plural "Parents:"
 msgstr[0] "הורה:"
-msgstr[1] "הורה:"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "הורים:"
+msgstr[2] "הורים:"
+msgstr[3] "הורים:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:135
 #: src/libkommitwidgets/widgets/commitdetails.ui:207
-#, fuzzy, kde-format
+#, kde-format
 msgid "Child:"
 msgid_plural "Children:"
 msgstr[0] "צאצא:"
-msgstr[1] "צאצא:"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "צאצאים:"
+msgstr[2] "צאצאים:"
+msgstr[3] "צאצאים:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/widgets/commitdetails.ui:39

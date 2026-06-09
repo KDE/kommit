@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2026-06-07 07:36+0200\n"
+"PO-Revision-Date: 2026-06-08 14:54+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2264,6 +2264,13 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>შერწყმის მექანიზმი (ბრძანებები git merge და git pull) "
+"საშუალებას გაძლევთ, პარამეტრით -s აირჩიოთ უკანაბოლოს შერწყმის სტრატეგია. "
+"ზოგიერთ სტრატეგიას საკუთარი პარამეტრი აქვს, რომლიც გადაცემაც -X&lt;"
+"პარამეტრის&gt; არგუმენტების გადაცემით შეგიძლიათ git merge ან/და git pull "
+"ბრძანებებისთვის.</p><p><a href=\"https://git-scm.com/docs/merge-strategies"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">მეტი "
+"ინფორმაცია</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:46
@@ -2333,6 +2340,15 @@ msgid ""
 "txt---allow-unrelated-histories\"><span style=\" text-decoration: underline; "
 "color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>ნაგულისხმევად ბრძანება git merge უარს იტყვის იმ "
+"ისტორიების შერწყმაზე, რომლებსაც საერთო წინაპარი არ ჰყავთ. ეს პარამეტრი "
+"შეგიძლიათ, გამოიყენოთ ამ უსაფრთხოების ზომის უგულებელსაყოფად მაშინ, როცა "
+"ხდება ორი ისეთი პროექტის შერწყმა, რომლებიც ცალ-ცალკე დაიწყო. რადგანაც ეს, "
+"ძალიან, იშვიათი შემთხვევაა, ამის ნაგულისხმევად ჩასართავი პარამეტრები არც "
+"ახლა არსებობს და არც იარსებებს.</p><p><br/></p><p><a href=\"https://git-scm."
+"com/docs/git-merge#Documentation/git-merge.txt---allow-unrelated-histories"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">მეტი "
+"ინფორმაცია</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:97
@@ -2354,6 +2370,15 @@ msgid ""
 "squash\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>სამუშაო ხის და ინდექსის მდგომარეობის შექმნა ისე, "
+"თითქოს მოხდა რეალური შერწყმა (შერწყმის ინფორმაციის გარდა), მაგრამ კომიტი, "
+"HEAD_ის გადატანა, ან $GIT_DIR/MERGE_HEAD-ის ჩაწერა არ მოხდება (რომ შემდეგმა "
+"ბრძანებამ git commit შექმნას რეალური შერწყმის მოთხოვნა). ეს საშუალებას "
+"გაძლევთ, შექმნათ ერთი კომიტი მიმდინარე ბრენჩზე, რომელის ეფექტიც იგივე "
+"იქნება, რაც სხვა ბრენჩთან შერწყმა (ან მეტის, რვაფეხის შემთხვევაში).</"
+"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
+"git-merge.txt---squash\"><span style=\" text-decoration: underline; color:"
+"#007af4;\">მეტი ინფორმაცია</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:110
@@ -2391,6 +2416,12 @@ msgid ""
 "space-change\"><span style=\" text-decoration: underline; color:#007af4;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>განიხილავს მითითებული ტიპის მქონე თეთრი გამოტოვების "
+"მქონე ხაზების ცვლილებას უცვლელად სამმხრივი შერწყმისთვის. ტეტრი ჰარეების "
+"ცვლილებები, შერეული სხვა ცვლილებებთან იგივე ხაზზე გამოტოვებული არ იქნება. </"
+"p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/"
+"git-merge.txt-ignore-space-change\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">მეტი ინფორმაცია</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:157
@@ -2428,6 +2459,13 @@ msgid ""
 "decoration: underline; color:#007af4;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>ეს გაუშვებს ვირტუალურ check-out-ს და check-in-ს ფაილის "
+"სამივე ფაზისთვის, როცა ხდება სამმხრივი შერწყმის ამოხსნა. ეს პარამეტრი "
+"განკუთვნილია განსხვავებული სუფთა ფილტრების, ან ხაზის ბოლოს ნორმალიზაციის "
+"წესების მქონე ბრენჩების შერწყმისას გამოსაყენებლად.</p><p><br/></p><p><a href="
+"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-renormalize"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">მეტი "
+"ინფორმაცია</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:197
@@ -3184,216 +3222,3 @@ msgstr "კონფლიქტები: <span style='font-weight:bold; color:
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
 msgstr "<span style='color:green;'>ყველა კონფლიქტი მოგვარებულია</span>"
-
-#~ msgctxt "@title:window"
-#~ msgid "Closing preview"
-#~ msgstr "გადახედვის დახურვა"
-
-#~ msgid "Please wait while the preview is being closed…"
-#~ msgstr "მიმდინარეობს მინიატურის დახურვა. მოითმინეთ…"
-
-#~ msgctxt "@action"
-#~ msgid "Blame"
-#~ msgstr "პასუხისმგებლობა"
-
-#~ msgid "Blocks"
-#~ msgstr "ბლოკები"
-
-#~ msgid "Files"
-#~ msgstr "ფაილები"
-
-#~ msgctxt "@action"
-#~ msgid "Note…"
-#~ msgstr "შენიშვნა…"
-
-#~ msgid "Remove Submodule"
-#~ msgstr "ქვემოდულის წაშლა"
-
-#~ msgid "Unable to remove the module directory"
-#~ msgstr "მოდულის საქაღალდის წაშლის შეცდომა"
-
-#~ msgid "The submodule %1 removed"
-#~ msgstr "ქვემოდული %1 აშლილია"
-
-#, fuzzy
-#~| msgid "Init"
-#~ msgctxt "@action"
-#~ msgid "Init..."
-#~ msgstr "ერთეული"
-
-#, fuzzy
-#~| msgid "Open..."
-#~ msgctxt "@action"
-#~ msgid "Open..."
-#~ msgstr "გახსნა..."
-
-#, fuzzy
-#~| msgid "Clone..."
-#~ msgctxt "@action"
-#~ msgid "Clone..."
-#~ msgstr "კლონირება..."
-
-#, fuzzy
-#~| msgid "Changed files..."
-#~ msgctxt "@action"
-#~ msgid "Changed files..."
-#~ msgstr "შეცვლილი ფაილები..."
-
-#, fuzzy
-#~| msgid "Cleanup..."
-#~ msgctxt "@action"
-#~ msgid "Cleanup..."
-#~ msgstr "მოსუფთავება..."
-
-#, fuzzy
-#~| msgid "Pull"
-#~ msgctxt "@action"
-#~ msgid "Pull..."
-#~ msgstr "მიღება"
-
-#, fuzzy
-#~| msgid "Fetch..."
-#~ msgctxt "@action"
-#~ msgid "Fetch..."
-#~ msgstr "გამოთხოვა..."
-
-#, fuzzy
-#~| msgid "Push"
-#~ msgctxt "@action"
-#~ msgid "Push..."
-#~ msgstr "გადაცემა"
-
-#, fuzzy
-#~| msgid "Merge..."
-#~ msgctxt "@action"
-#~ msgid "Merge..."
-#~ msgstr "შერწყმა..."
-
-#, fuzzy
-#~| msgid "Diff branches"
-#~ msgctxt "@action"
-#~ msgid "Diff branches..."
-#~ msgstr "ბრენჩების diff"
-
-#, fuzzy
-#~| msgid "Search..."
-#~ msgctxt "@action"
-#~ msgid "Search..."
-#~ msgstr "ძებნა..."
-
-#, fuzzy
-#~| msgid "Browse..."
-#~ msgctxt "@action"
-#~ msgid "Browse..."
-#~ msgstr "ამორჩევა..."
-
-#, fuzzy
-#~| msgid "Remove..."
-#~ msgctxt "@action"
-#~ msgid "Remove..."
-#~ msgstr "წაშლა..."
-
-#, fuzzy
-#~| msgid "Note..."
-#~ msgctxt "@action"
-#~ msgid "Note..."
-#~ msgstr "შენიშვნა..."
-
-#, fuzzy
-#~| msgid "Diff..."
-#~ msgctxt "@action"
-#~ msgid "Diff..."
-#~ msgstr "განსხვავება..."
-
-#, fuzzy
-#~| msgid "New..."
-#~ msgctxt "@action"
-#~ msgid "New..."
-#~ msgstr "ახალი..."
-
-#, fuzzy
-#~| msgid "Rename..."
-#~ msgctxt "@action"
-#~ msgid "Rename..."
-#~ msgstr "სახელის გადარქმევა..."
-
-#, fuzzy
-#~| msgid "Change url..."
-#~ msgctxt "@action"
-#~ msgid "Change url..."
-#~ msgstr "URL-ის შეცვლა..."
-
-#, fuzzy
-#~| msgid "Add..."
-#~ msgctxt "@action"
-#~ msgid "Add..."
-#~ msgstr "დამატება..."
-
-#, fuzzy
-#~| msgid "Update..."
-#~ msgctxt "@action"
-#~ msgid "Update..."
-#~ msgstr "განახლება..."
-
-#, fuzzy
-#~| msgid "Sync..."
-#~ msgctxt "@action"
-#~ msgid "Sync..."
-#~ msgstr "სინქრონიზაცია..."
-
-#, fuzzy
-#~| msgid "New tag..."
-#~ msgctxt "@action"
-#~ msgid "New tag..."
-#~ msgstr "ახალი ჭდე..."
-
-#, fuzzy
-#~| msgid "Checkout..."
-#~ msgctxt "@action"
-#~ msgid "Checkout..."
-#~ msgstr "გამოთხოვა..."
-
-#~ msgid "Stop"
-#~ msgstr "შეჩერება"
-
-#~ msgid "Authors"
-#~ msgstr "ავტორები"
-
-#~ msgid "Diff with HEAD..."
-#~ msgstr "Diff-ი HEAD-თან..."
-
-#~ msgid "Merge with HEAD..."
-#~ msgstr "HEAD-თან შერწყმა..."
-
-#~ msgid "Blame..."
-#~ msgstr "პასუხისმგებლობა..."
-
-#~ msgid "time"
-#~ msgstr "დრო"
-
-#~ msgid "Commit time"
-#~ msgstr "კომიტის დრო"
-
-#~ msgid "Auth time"
-#~ msgstr "ავტორიზაციის დრო"
-
-#~ msgid "Hash"
-#~ msgstr "ჰეში"
-
-#~ msgid "Parents"
-#~ msgstr "მშობლები"
-
-#~ msgid "Children"
-#~ msgstr "ბავშვები"
-
-#~ msgid "Git Klient"
-#~ msgstr "Git Klient"
-
-#~ msgid "GitKlient"
-#~ msgstr "GitKlient"
-
-#~ msgid "View..."
-#~ msgstr "ხედი..."
-
-#~ msgid "..."
-#~ msgstr "..."
