@@ -168,6 +168,14 @@ QString submodulePath(const QString &rootPath, const QString &childPath)
 
 StatusCache::StatusCache() = default;
 
+StatusCache::~StatusCache()
+{
+    if (mRepo) {
+        git_repository_free(mRepo);
+        mRepo = nullptr;
+    }
+}
+
 KVersionControlPlugin::ItemVersion StatusCache::status(const QString &name)
 {
     if (mCurrentPathIsIgnored || name.startsWith(QStringLiteral(".git/")) || name == QStringLiteral(".git"))

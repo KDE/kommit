@@ -31,16 +31,16 @@ DolphinPlugin::DolphinPlugin(QObject *parent, const QList<QVariant> &args)
 
     git_libgit2_init();
 
-    mMainActionGit = new QAction;
+    mMainActionGit = new QAction(this);
     mMainActionGit->setText(i18n("Kommit"));
     mMainActionGit->setIcon(QIcon::fromTheme(QStringLiteral("kommit")));
 
-    mMainActionNonGit = new QAction;
+    mMainActionNonGit = new QAction(this);
     mMainActionNonGit->setText(i18n("Kommit"));
     mMainActionNonGit->setIcon(QIcon::fromTheme(QStringLiteral("kommit")));
 
 #define f(name, text, args, icon)                                                                                                                              \
-    name = new QAction{text};                                                                                                                                  \
+    name = new QAction{text, this};                                                                                                                            \
     if (!icon.isEmpty())                                                                                                                                       \
         name->setIcon(QIcon::fromTheme(icon, QIcon{":/hicolor/scalable/actions/" + icon + ".svg"}));                                                           \
     connect(name, &QAction::triggered, this, &DolphinPlugin::name##Clicked);
@@ -78,6 +78,14 @@ DolphinPlugin::DolphinPlugin(QObject *parent, const QList<QVariant> &args)
 
 DolphinPlugin::~DolphinPlugin()
 {
+    // The actions are parented to this and cleaned up by QObject, but a QMenu
+    // cannot have a non-widget parent and QAction::setMenu does not take
+    // ownership, so the two menus are deleted explicitly.
+    delete mMainActionGit->menu();
+    delete mMainActionNonGit->menu();
+
+    delete mCache;
+
     git_libgit2_shutdown();
 }
 

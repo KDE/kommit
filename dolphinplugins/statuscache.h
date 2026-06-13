@@ -21,6 +21,7 @@ class StatusCache
 {
 public:
     StatusCache();
+    ~StatusCache();
 
     [[nodiscard]] KVersionControlPlugin::ItemVersion status(const QString &name);
     [[nodiscard]] bool setPath(const QString &path);
