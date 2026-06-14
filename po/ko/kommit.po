@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 09:01+0000\n"
+"POT-Creation-Date: 2026-06-14 00:46+0000\n"
 "PO-Revision-Date: 2026-02-04 00:10+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -147,12 +147,12 @@ msgstr "브랜치간 Diff"
 msgid "Kommit"
 msgstr "Kommit"
 
-#: dolphinplugins/dolphinplugin.cpp:106
+#: dolphinplugins/dolphinplugin.cpp:114
 #, kde-format
 msgid "Push/Commit to %1"
 msgstr "%1에 푸시/커밋"
 
-#: dolphinplugins/dolphinplugin.cpp:108
+#: dolphinplugins/dolphinplugin.cpp:116
 #, kde-format
 msgid "Push/Commit to submodule %1"
 msgstr "하위 모듈 %1에 푸시/커밋"

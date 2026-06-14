@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 09:01+0000\n"
+"POT-Creation-Date: 2026-06-14 00:46+0000\n"
 "PO-Revision-Date: 2025-11-02 07:13+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -151,12 +151,12 @@ msgstr "Razlika vej"
 msgid "Kommit"
 msgstr "Kommit"
 
-#: dolphinplugins/dolphinplugin.cpp:106
+#: dolphinplugins/dolphinplugin.cpp:114
 #, kde-format
 msgid "Push/Commit to %1"
 msgstr "Potisni/Objavi na %1"
 
-#: dolphinplugins/dolphinplugin.cpp:108
+#: dolphinplugins/dolphinplugin.cpp:116
 #, kde-format
 msgid "Push/Commit to submodule %1"
 msgstr "Potisni/Objavi v podmodul %1"

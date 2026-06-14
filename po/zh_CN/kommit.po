@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 09:01+0000\n"
+"POT-Creation-Date: 2026-06-14 00:46+0000\n"
 "PO-Revision-Date: 2025-04-15 22:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -147,12 +147,12 @@ msgstr "变更的分支"
 msgid "Kommit"
 msgstr "Kommit"
 
-#: dolphinplugins/dolphinplugin.cpp:106
+#: dolphinplugins/dolphinplugin.cpp:114
 #, kde-format
 msgid "Push/Commit to %1"
 msgstr "推送/提交到 %1"
 
-#: dolphinplugins/dolphinplugin.cpp:108
+#: dolphinplugins/dolphinplugin.cpp:116
 #, kde-format
 msgid "Push/Commit to submodule %1"
 msgstr "推送/提交到子模块 %1"

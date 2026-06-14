@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 09:01+0000\n"
+"POT-Creation-Date: 2026-06-14 00:46+0000\n"
 "PO-Revision-Date: 2025-11-03 09:41+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -149,12 +149,12 @@ msgstr "Calculer la différence entre branches"
 msgid "Kommit"
 msgstr "Kommit"
 
-#: dolphinplugins/dolphinplugin.cpp:106
+#: dolphinplugins/dolphinplugin.cpp:114
 #, kde-format
 msgid "Push/Commit to %1"
 msgstr "Intégrer / valider vers %1"
 
-#: dolphinplugins/dolphinplugin.cpp:108
+#: dolphinplugins/dolphinplugin.cpp:116
 #, kde-format
 msgid "Push/Commit to submodule %1"
 msgstr "Intégrer / valider vers le sous-module %1"

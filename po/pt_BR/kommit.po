@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 09:01+0000\n"
+"POT-Creation-Date: 2026-06-14 00:46+0000\n"
 "PO-Revision-Date: 2025-11-02 06:07-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -148,12 +148,12 @@ msgstr "Diferenciar ramificações"
 msgid "Kommit"
 msgstr "Kommit"
 
-#: dolphinplugins/dolphinplugin.cpp:106
+#: dolphinplugins/dolphinplugin.cpp:114
 #, kde-format
 msgid "Push/Commit to %1"
 msgstr "Commit/Push para %1"
 
-#: dolphinplugins/dolphinplugin.cpp:108
+#: dolphinplugins/dolphinplugin.cpp:116
 #, kde-format
 msgid "Push/Commit to submodule %1"
 msgstr "Commit/Push para o submódulo %1"
