@@ -24,15 +24,15 @@ private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
 
-    void makeACommit();
     void createBranch();
     void switchToNewBranch();
     void removeCurrentBranch();
-    void switchToMaster();
+    void switchToInitialBranch();
     void removeNewBranch();
 
 private:
     Git::Repository *mManager;
 
     QString newBranchName{"new_branch_name"};
+    QString initialBranchName;
 };

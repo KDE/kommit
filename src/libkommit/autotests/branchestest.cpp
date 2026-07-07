@@ -36,19 +36,17 @@ void BranchesTest::initTestCase()
     QCOMPARE(path, mManager->path());
 
     TestCommon::initSignature(mManager);
+
+    // Reading HEAD throws an error on an empty repo with no commits
+    TestCommon::touch(mManager->path() + "/README.md");
+    mManager->addFile("README.md");
+    mManager->commit("commit1");
+    initialBranchName = mManager->branches()->currentName();
 }
 
 void BranchesTest::cleanupTestCase()
 {
     TestCommon::cleanPath(mManager);
-}
-
-void BranchesTest::makeACommit()
-{
-    TestCommon::touch(mManager->path() + "/README.md");
-
-    mManager->addFile("README.md");
-    mManager->commit("commit1");
 }
 
 void BranchesTest::createBranch()
@@ -76,9 +74,9 @@ void BranchesTest::removeCurrentBranch()
     QVERIFY(!ok); // we can't remove current branch
 }
 
-void BranchesTest::switchToMaster()
+void BranchesTest::switchToInitialBranch()
 {
-    auto ok = mManager->switchBranch("master");
+    auto ok = mManager->switchBranch(initialBranchName);
     QVERIFY(ok);
 }
 
