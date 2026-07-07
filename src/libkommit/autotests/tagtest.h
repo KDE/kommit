@@ -31,4 +31,5 @@ private Q_SLOTS:
 
 private:
     Git::Repository *mManager;
+    QString tagName{"tag1"};
 };

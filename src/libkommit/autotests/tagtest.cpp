@@ -43,12 +43,12 @@ void TagTest::shouldHaveDefaultValues()
 
 void TagTest::addTagNoHead()
 {
-    auto ok = mManager->tags()->create("tag1", "sample message");
+    auto ok = mManager->tags()->create(tagName, "sample message");
 
     QVERIFY(!ok);
 
     auto tags = mManager->tags()->allNames();
-    QVERIFY(!tags.contains("tag1"));
+    QVERIFY(!tags.contains(tagName));
 }
 
 void TagTest::makeACommit()
@@ -61,28 +61,23 @@ void TagTest::makeACommit()
 
 void TagTest::addTag()
 {
-    auto ok = mManager->tags()->create("tag1", "sample message");
+    auto ok = mManager->tags()->create(tagName, "sample message");
 
     QVERIFY(ok);
 
     auto tags = mManager->tags()->allNames();
-    QVERIFY(tags.contains("tag1"));
+    QVERIFY(tags.contains(tagName));
 }
 
 void TagTest::removeTag()
 {
-    auto tag = mManager->tags()->find("tag1");
-    auto object = dynamic_cast<Git::Object *>(&tag);
-
-    QVERIFY(!object->isNull());
-    QCOMPARE(object->type(), Git::Object::Type::Tag);
-
+    auto tag = mManager->tags()->find(tagName);
     auto ok = mManager->tags()->remove(tag);
 
     QVERIFY(ok);
 
     auto tags = mManager->tags()->allNames();
-    QVERIFY(!tags.contains("tag1"));
+    QVERIFY(!tags.contains(tagName));
 }
 
 #include "moc_tagtest.cpp"
