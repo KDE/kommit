@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kommit package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2023-2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-14 00:46+0000\n"
-"PO-Revision-Date: 2025-09-26 14:09+0200\n"
+"PO-Revision-Date: 2026-07-07 10:16+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -385,22 +385,22 @@ msgstr "Rätta Dolphin-meny"
 #: src/gui/changelogsdata.cpp:88
 #, kde-format
 msgid "Change icons to symbolic to response the theme changes"
-msgstr ""
+msgstr "Ändra ikoner till symboliska för att svara på temaändringar"
 
 #: src/gui/changelogsdata.cpp:89
 #, kde-format
 msgid "Fix crash on diff page"
-msgstr ""
+msgstr "Rätta krasch på jämförelsesida"
 
 #: src/gui/changelogsdata.cpp:90
 #, kde-format
 msgid "Fix missing icons"
-msgstr ""
+msgstr "Rätta saknade ikoner"
 
 #: src/gui/changelogsdata.cpp:97
 #, kde-format
 msgid "Fix file viewer API"
-msgstr ""
+msgstr "Rätta filvisarens programmeringsgränssnitt"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -2152,7 +2152,7 @@ msgstr "Huvudfönster"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.ui:94
 #, kde-format
 msgid "Can't show the binary file!"
-msgstr ""
+msgstr "Kan inte visa binärfilen."
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
@@ -3093,8 +3093,7 @@ msgstr "Skriv för att filtrera"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
-#, fuzzy, kde-format
-#| msgid "Hide unchangeds"
+#, kde-format
 msgid "Hide unchanged"
 msgstr "Dölj oförändrade"
 
