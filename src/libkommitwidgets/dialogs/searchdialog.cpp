@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <KLocalizedString>
 #include <QStandardItemModel>
-#include <QtConcurrent>
+#include <QtConcurrentRun>
 #include <entities/commit.h>
 #include <gitloglist.h>
 #include <repository.h>

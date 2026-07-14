@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "strarray.h"
 
 #include <QFuture>
-#include <QtConcurrent/QtConcurrent>
+#include <QtConcurrentRun>
 
 namespace Git
 {
