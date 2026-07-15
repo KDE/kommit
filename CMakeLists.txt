@@ -19,6 +19,7 @@ add_definitions(-DKOMMIT_VERSION="${RELEASE_SERVICE_VERSION}")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 find_package(OpenSSL OPTIONAL_COMPONENTS Crypto SSL)
+find_package(Gpgmepp QUIET)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 

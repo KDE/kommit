@@ -9,6 +9,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "kommitwidgetsglobaloptions.h"
 
 #include <entities/commit.h>
+#include <entities/commitsignatureinfo.h>
 #include <models/commitsmodel.h>
 #include <repository.h>
 
@@ -87,6 +88,55 @@ void CommitDetails::setCommit(const Git::Commit &commit)
 
     showSignature(commit.author(), labelAuthorAvatar, labelAuthor, labelAuthTime, mEnableEmailsLinks);
     showSignature(commit.committer(), labelCommiterAvatar, labelCommitter, labelCommitTime, mEnableEmailsLinks);
+
+    const auto sigInfo = commit.signatureInfo();
+    labelSignatureText->setVisible(true);
+    if (sigInfo.isNull()) {
+        labelSignature->setText(i18n("Not signed"));
+    } else {
+        QString sigText;
+        switch (sigInfo.status()) {
+        case Git::CommitSignatureInfo::Good:
+            if (sigInfo.trustLevel().isEmpty()) {
+                sigText = i18nc("@info commit signature", "<span style='color:orange;font-weight:bold'>%1</span>", sigInfo.statusText());
+            } else {
+                sigText = i18nc("@info commit signature", "<span style='color:green;font-weight:bold'>%1</span>", sigInfo.statusText());
+            }
+            break;
+        case Git::CommitSignatureInfo::ExpiredKey:
+        case Git::CommitSignatureInfo::ExpiredSig:
+        case Git::CommitSignatureInfo::MissingKey:
+        case Git::CommitSignatureInfo::Unknown:
+            sigText = i18nc("@info commit signature", "<span style='color:orange;font-weight:bold'>%1</span>", sigInfo.statusText());
+            break;
+        case Git::CommitSignatureInfo::Bad:
+        case Git::CommitSignatureInfo::RevokedKey:
+        case Git::CommitSignatureInfo::Error:
+            sigText = i18nc("@info commit signature", "<span style='color:red;font-weight:bold'>%1</span>", sigInfo.statusText());
+            break;
+        default:
+            sigText = i18nc("@info commit signature", "<span style='color:orange;font-weight:bold'>%1</span>", sigInfo.statusText());
+            break;
+        }
+
+        QString detailLine;
+        if (!sigInfo.typeText().isEmpty())
+            detailLine.append(sigInfo.typeText());
+        if (!sigInfo.signer().isEmpty()) {
+            if (sigInfo.email().isEmpty())
+                detailLine.append(i18n(" by %1", sigInfo.signer()));
+            else
+                detailLine.append(i18n(" by %1 <%2>", sigInfo.signer(), sigInfo.email()));
+        }
+        if (!sigInfo.keyId().isEmpty())
+            detailLine.append(i18n(" (Key: %1)", sigInfo.keyId()));
+        else if (!sigInfo.fingerprint().isEmpty())
+            detailLine.append(i18n(" (Fingerprint: %1)", sigInfo.fingerprint()));
+        if (!detailLine.isEmpty())
+            sigText.append(QStringLiteral("<br/><span style='color:gray'>%1</span>").arg(detailLine));
+
+        labelSignature->setText(sigText);
+    }
 
     widgetCommitterInfo->setVisible(!commit.isNull() && commit.author().email() != commit.committer().email());
     labelCommitterText->setVisible(widgetCommitterInfo->isVisible());

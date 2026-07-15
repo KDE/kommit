@@ -34,6 +34,7 @@ class Tree;
 class Note;
 class RepositoryPrivate;
 class Commit;
+class CommitSignatureInfo;
 class CommitsCache;
 class BranchesCache;
 class TagsCache;
@@ -164,6 +165,8 @@ public:
     [[nodiscard]] NotesCache *notes() const;
     [[nodiscard]] StashesCache *stashes() const;
     [[nodiscard]] ReferenceCache *references() const;
+
+    CommitSignatureInfo verifyCommitSignature(const QString &hash) const;
 
 Q_SIGNALS:
     void pathChanged();

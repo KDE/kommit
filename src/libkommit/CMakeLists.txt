@@ -64,8 +64,11 @@ target_sources(libkommit PRIVATE
     commands/parameterescommand.cpp commands/parameterescommand.h
     commands/commandclean.cpp commands/commandclean.h
 
+    signatureverifier.cpp signatureverifier.h
+
     entities/branch.cpp
     entities/commit.cpp
+    entities/commitsignatureinfo.cpp entities/commitsignatureinfo.h
     entities/file.cpp entities/file.h
     entities/note.cpp entities/note.h
     entities/reference.cpp
@@ -146,6 +149,14 @@ else()
     message(STATUS "OpenSSL not found, building without OpenSSL support")
 endif()
 
+if (Gpgmepp_FOUND)
+    message(STATUS "Gpgmepp found, enabling GPG signature verification")
+    add_definitions(-DLIBKOMMIT_USE_GPGME)
+    target_link_libraries(libkommit Gpgmepp)
+else()
+    message(STATUS "Gpgmepp not found, building without GPG signature verification")
+endif()
+
 
 if(BUILD_TESTING)
     add_subdirectory(autotests)
@@ -192,6 +203,7 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
         Blob
         Branch
         Commit
+        CommitSignatureInfo
         File
         Index
         Note

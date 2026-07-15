@@ -17,6 +17,7 @@
 #include "entities/blob.h"
 #include "entities/branch.h"
 #include "entities/commit.h"
+#include "entities/commitsignatureinfo.h"
 #include "entities/file.h"
 #include "entities/index.h"
 #include "entities/note.h"
@@ -29,6 +30,7 @@
 #include "observers/fetchobserver.h"
 #include "observers/pushobserver.h"
 #include "options/blameoptions.h"
+#include "signatureverifier.h"
 
 #include "libkommit_debug.h"
 #include <QFile>
@@ -862,6 +864,21 @@ QString Repository::runGit(const QStringList &args) const
         qCWarning(KOMMITLIB_LOG) << "====\nOUTPUR:\n====\n" << out;
     }
     return QString::fromUtf8(out); // + err;
+}
+
+CommitSignatureInfo Repository::verifyCommitSignature(const QString &hash) const
+{
+    Q_D(const Repository);
+
+    git_oid oid;
+    if (git_oid_fromstr(&oid, hash.toUtf8().constData()) != 0) {
+        CommitSignatureInfo info;
+        info.setStatus(CommitSignatureInfo::Error);
+        return info;
+    }
+
+    SignatureVerifier verifier;
+    return verifier.verify(d->repo, &oid);
 }
 
 QStringList Repository::ls(const QString &place) const

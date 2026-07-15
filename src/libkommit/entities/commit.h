@@ -26,6 +26,7 @@ namespace Git
 
 class Tree;
 class Note;
+class CommitSignatureInfo;
 
 class CommitPrivate;
 class LIBKOMMIT_EXPORT Commit : public ITree, public IOid
@@ -73,6 +74,8 @@ public:
     [[nodiscard]] Note note() const;
     bool createNote(const QString &message);
     Oid oid() const override;
+
+    [[nodiscard]] CommitSignatureInfo signatureInfo() const;
 
 private:
     QSharedPointer<CommitPrivate> d;

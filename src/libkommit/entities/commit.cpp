@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "commit.h"
 #include "branch.h"
+#include "commitsignatureinfo.h"
 #include "note.h"
 #include "oid.h"
 #include "repository.h"
@@ -213,6 +214,14 @@ bool Commit::createNote(const QString &message)
 Oid Commit::oid() const
 {
     return Oid{git_commit_id(d->commit)};
+}
+
+CommitSignatureInfo Commit::signatureInfo() const
+{
+    auto repo = Repository::owner(git_commit_owner(d->commit));
+    if (!repo)
+        return {};
+    return repo->verifyCommitSignature(d->hash);
 }
 
 void Commit::clearChildren()
