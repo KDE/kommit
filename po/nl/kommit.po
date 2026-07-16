@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:46+0000\n"
+"POT-Creation-Date: 2026-07-16 00:47+0000\n"
 "PO-Revision-Date: 2025-11-02 13:43+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -100,7 +100,7 @@ msgstr "Diff"
 msgid "Ignore file"
 msgstr "Bestand negeren"
 
-#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:404
+#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:384
 #, kde-format
 msgid "History"
 msgstr "Geschiedenis"
@@ -142,7 +142,7 @@ msgid "Diff branches"
 msgstr "Diff branches"
 
 #: dolphinplugins/dolphinplugin.cpp:35 dolphinplugins/dolphinplugin.cpp:39
-#: src/apps/main.cpp:61
+#: src/apps/main.cpp:55
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
@@ -157,35 +157,35 @@ msgstr "Push/Commit naar %1"
 msgid "Push/Commit to submodule %1"
 msgstr "Push/Commit naar submodule %1"
 
-#: src/apps/main.cpp:63
+#: src/apps/main.cpp:57
 #, kde-format
 msgid "Git client gui for KDE"
 msgstr "Git client gui voor KDE"
 
-#: src/apps/main.cpp:65
+#: src/apps/main.cpp:59
 #, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:67 src/libkommitwidgets/models/commitsmodel.cpp:296
+#: src/apps/main.cpp:61 src/libkommitwidgets/models/commitsmodel.cpp:296
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
 msgstr "Auteur"
 
-#: src/apps/main.cpp:67
+#: src/apps/main.cpp:61
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
-#: src/apps/main.cpp:68
+#: src/apps/main.cpp:62
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/apps/main.cpp:68
+#: src/apps/main.cpp:62
 #, kde-format
 msgid "Bug fixing"
 msgstr "Repareren van bugs"
@@ -277,7 +277,7 @@ msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Diff branches…"
 
-#: src/gui/appwindow.cpp:230 src/libkommitwidgets/actions/fileactions.cpp:51
+#: src/gui/appwindow.cpp:230 src/libkommitwidgets/actions/fileactions.cpp:46
 #, kde-format
 msgctxt "@action"
 msgid "Search…"
@@ -312,12 +312,12 @@ msgstr "Logs wijzigen…"
 msgid "Clear"
 msgstr "Wissen"
 
-#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:225
+#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:205
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Kan pad '%1' niet aanmaken"
 
-#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:225
+#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:205
 #, kde-format
 msgid "Init repo"
 msgstr "Repo initialiseren"
@@ -327,12 +327,12 @@ msgstr "Repo initialiseren"
 msgid "Open repository"
 msgstr "Opslagruimte openen"
 
-#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:478
+#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:458
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Kan branch niet omschakelen tijdens samenvoegen"
 
-#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:478
+#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:458
 #, kde-format
 msgid "Switch branch"
 msgstr "Branch omschakelen"
@@ -417,33 +417,33 @@ msgstr "Logs wijzigen"
 msgid "The path is not git repo: %1"
 msgstr "Het pad is geen git-repo: %1"
 
-#: src/gui/commandargsparser.cpp:230
+#: src/gui/commandargsparser.cpp:210
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "De repo is met succes geïnitialiseerd"
 
-#: src/gui/commandargsparser.cpp:404
+#: src/gui/commandargsparser.cpp:384
 #, kde-format
 msgid "Cannot find the file"
 msgstr "Kan het bestand niet vinden"
 
-#: src/gui/commandargsparser.cpp:551
+#: src/gui/commandargsparser.cpp:531
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Bestand(en) met succes toegevoegd aan git "
 
-#: src/gui/commandargsparser.cpp:562
+#: src/gui/commandargsparser.cpp:542
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Wilt u bestand(en) op schijf laten?"
 
-#: src/gui/commandargsparser.cpp:562
+#: src/gui/commandargsparser.cpp:542
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Uit index verwijderen"
 
-#: src/gui/commandargsparser.cpp:564
+#: src/gui/commandargsparser.cpp:544
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Bestand(en) met succes verwijderd uit git "
@@ -507,6 +507,7 @@ msgstr "Basisbestand"
 #. i18n: ectx: property (text), widget (QLabel, labelCommitBody)
 #. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
 #. i18n: ectx: property (text), widget (QLabel, labelRefName)
+#. i18n: ectx: property (text), widget (QLabel, labelSignature)
 #. i18n: ectx: property (text), widget (QLabel, labelParent)
 #. i18n: ectx: property (text), widget (QLabel, labelChildren)
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
@@ -533,11 +534,12 @@ msgstr "Basisbestand"
 #: src/libkommitwidgets/widgets/commitdetails.ui:137
 #: src/libkommitwidgets/widgets/commitdetails.ui:173
 #: src/libkommitwidgets/widgets/commitdetails.ui:192
-#: src/libkommitwidgets/widgets/commitdetails.ui:214
-#: src/libkommitwidgets/widgets/commitdetails.ui:285
-#: src/libkommitwidgets/widgets/commitdetails.ui:295
-#: src/libkommitwidgets/widgets/commitdetails.ui:337
-#: src/libkommitwidgets/widgets/commitdetails.ui:347
+#: src/libkommitwidgets/widgets/commitdetails.ui:217
+#: src/libkommitwidgets/widgets/commitdetails.ui:239
+#: src/libkommitwidgets/widgets/commitdetails.ui:310
+#: src/libkommitwidgets/widgets/commitdetails.ui:320
+#: src/libkommitwidgets/widgets/commitdetails.ui:362
+#: src/libkommitwidgets/widgets/commitdetails.ui:372
 #, kde-format
 msgid "-"
 msgstr "-"
@@ -1203,7 +1205,7 @@ msgid "Checkout"
 msgstr "Checkout"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
-#: src/libkommitwidgets/actions/fileactions.cpp:46
+#: src/libkommitwidgets/actions/fileactions.cpp:41
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
@@ -1217,43 +1219,43 @@ msgctxt "@action"
 msgid "Note"
 msgstr "Notitie"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:42
+#: src/libkommitwidgets/actions/fileactions.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Preview"
 msgstr "Voorbeeld"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:43
+#: src/libkommitwidgets/actions/fileactions.cpp:38
 #, kde-format
 msgctxt "@action"
 msgid "Open"
 msgstr "Openen"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:44
+#: src/libkommitwidgets/actions/fileactions.cpp:39
 #, kde-format
 msgctxt "@action"
 msgid "Open with…"
 msgstr "Openen met…"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:47
+#: src/libkommitwidgets/actions/fileactions.cpp:42
 #, kde-format
 msgctxt "@action"
 msgid "Merge with working dir"
 msgstr "Merge met werkende map"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:49
+#: src/libkommitwidgets/actions/fileactions.cpp:44
 #, kde-format
 msgctxt "@action"
 msgid "Save as…"
 msgstr "Opslaan als…"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:50
+#: src/libkommitwidgets/actions/fileactions.cpp:45
 #, kde-format
 msgctxt "@action"
 msgid "Log"
 msgstr "Log"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:70
+#: src/libkommitwidgets/actions/fileactions.cpp:65
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
 msgstr "%1 bestand (*.%1);;Alle bestanden(*)"
@@ -1570,7 +1572,7 @@ msgstr "Gewijzigde bestanden"
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:20
-#: src/libkommitwidgets/widgets/commitdetails.ui:229
+#: src/libkommitwidgets/widgets/commitdetails.ui:254
 #, kde-format
 msgid "Changed files:"
 msgstr "Gewijzigde bestanden:"
@@ -3010,45 +3012,93 @@ msgstr "Formulier"
 msgid "Filter branches"
 msgstr "Branches filteren"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:105
+#: src/libkommitwidgets/widgets/commitdetails.cpp:95
+#, kde-format
+msgid "Not signed"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:101
+#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.cpp:118
+#, fuzzy, kde-format
+#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+msgctxt "@info commit signature"
+msgid "<span style='color:orange;font-weight:bold'>%1</span>"
+msgstr "Conflicten: <span style='font-weight:bold; color:red;'>%1</span>"
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:103
+#, fuzzy, kde-format
+#| msgid "<span style='color:green;'>All conflicts resolved</span>"
+msgctxt "@info commit signature"
+msgid "<span style='color:green;font-weight:bold'>%1</span>"
+msgstr "<span style='color:green;'>Alle conflicten opgelost</span>"
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#, fuzzy, kde-format
+#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+msgctxt "@info commit signature"
+msgid "<span style='color:red;font-weight:bold'>%1</span>"
+msgstr "Conflicten: <span style='font-weight:bold; color:red;'>%1</span>"
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:127
+#, kde-format
+msgid " by %1"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:129
+#, kde-format
+msgid " by %1 <%2>"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:132
+#, kde-format
+msgid " (Key: %1)"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:134
+#, kde-format
+msgid " (Fingerprint: %1)"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:155
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
 #, kde-format
 msgid "Branch: "
 msgstr "Branch: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:107
+#: src/libkommitwidgets/widgets/commitdetails.cpp:157
 #: src/libkommitwidgets/widgets/graphpainter.cpp:131
 #, kde-format
 msgid "Note: "
 msgstr "Notitie: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:109
+#: src/libkommitwidgets/widgets/commitdetails.cpp:159
 #: src/libkommitwidgets/widgets/graphpainter.cpp:133
 #, kde-format
 msgid "Remote: "
 msgstr "Op afstand: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:111
+#: src/libkommitwidgets/widgets/commitdetails.cpp:161
 #: src/libkommitwidgets/widgets/graphpainter.cpp:135
 #, kde-format
 msgid "Tag: "
 msgstr "Tag: "
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:120
-#: src/libkommitwidgets/widgets/commitdetails.ui:251
+#: src/libkommitwidgets/widgets/commitdetails.cpp:170
+#: src/libkommitwidgets/widgets/commitdetails.ui:276
 #, kde-format
 msgid "Ref:"
 msgstr "Ref:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:120
+#: src/libkommitwidgets/widgets/commitdetails.cpp:170
 #, kde-format
 msgid "Refs:"
 msgstr "Referenties:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:130
-#: src/libkommitwidgets/widgets/commitdetails.ui:185
+#: src/libkommitwidgets/widgets/commitdetails.cpp:180
+#: src/libkommitwidgets/widgets/commitdetails.ui:210
 #, kde-format
 msgid "Parent:"
 msgid_plural "Parents:"
@@ -3056,8 +3106,8 @@ msgstr[0] "Ouder:"
 msgstr[1] "Ouders:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:135
-#: src/libkommitwidgets/widgets/commitdetails.ui:207
+#: src/libkommitwidgets/widgets/commitdetails.cpp:185
+#: src/libkommitwidgets/widgets/commitdetails.ui:232
 #, kde-format
 msgid "Child:"
 msgid_plural "Children:"
@@ -3088,8 +3138,15 @@ msgstr "Auteur:"
 msgid "Committer:"
 msgstr "Committer:"
 
+#. i18n: ectx: property (text), widget (QLabel, labelSignatureText)
+#: src/libkommitwidgets/widgets/commitdetails.ui:185
+#, fuzzy, kde-format
+#| msgid "Signature algorithm"
+msgid "Signature:"
+msgstr "Ondertekeningsalgoritme"
+
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
-#: src/libkommitwidgets/widgets/commitdetails.ui:236
+#: src/libkommitwidgets/widgets/commitdetails.ui:261
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
 msgstr "<html><head/><body><p>-</p></body></html>"

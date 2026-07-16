@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:46+0000\n"
+"POT-Creation-Date: 2026-07-16 00:47+0000\n"
 "PO-Revision-Date: 2023-06-09 23:19+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -110,7 +110,7 @@ msgstr "Diferenças"
 msgid "Ignore file"
 msgstr "Ignorar o ficheiro"
 
-#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:404
+#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:384
 #, kde-format
 msgid "History"
 msgstr "Histórico"
@@ -152,7 +152,7 @@ msgid "Diff branches"
 msgstr "Diferenças entre ramificações"
 
 #: dolphinplugins/dolphinplugin.cpp:35 dolphinplugins/dolphinplugin.cpp:39
-#: src/apps/main.cpp:61
+#: src/apps/main.cpp:55
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
@@ -168,38 +168,38 @@ msgstr ""
 msgid "Push/Commit to submodule %1"
 msgstr "Gravar/Enviar"
 
-#: src/apps/main.cpp:63
+#: src/apps/main.cpp:57
 #, kde-format
 msgid "Git client gui for KDE"
 msgstr "Cliente gráfico de Git para o KDE"
 
-#: src/apps/main.cpp:65
+#: src/apps/main.cpp:59
 #, fuzzy, kde-format
 #| msgid "Copyright 2021-2023, Hamed Masafi <hamed.masafi@gmail.com>"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "'Copyright' 2021-2023 de Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:67 src/libkommitwidgets/models/commitsmodel.cpp:296
+#: src/apps/main.cpp:61 src/libkommitwidgets/models/commitsmodel.cpp:296
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
 msgstr "Autoria"
 
-#: src/apps/main.cpp:67
+#: src/apps/main.cpp:61
 #, fuzzy, kde-format
 #| msgid "Hamed Masafi"
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
-#: src/apps/main.cpp:68
+#: src/apps/main.cpp:62
 #, fuzzy, kde-format
 #| msgid "Laurent Montel"
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/apps/main.cpp:68
+#: src/apps/main.cpp:62
 #, kde-format
 msgid "Bug fixing"
 msgstr "Correcção de erros"
@@ -302,7 +302,7 @@ msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Diferenças entre ramificações"
 
-#: src/gui/appwindow.cpp:230 src/libkommitwidgets/actions/fileactions.cpp:51
+#: src/gui/appwindow.cpp:230 src/libkommitwidgets/actions/fileactions.cpp:46
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@action"
@@ -343,12 +343,12 @@ msgstr "Modificar o URL"
 msgid "Clear"
 msgstr "Limpeza"
 
-#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:225
+#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:205
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Não é possível criar a localização: %1"
 
-#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:225
+#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:205
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializar o repositório"
@@ -358,12 +358,12 @@ msgstr "Inicializar o repositório"
 msgid "Open repository"
 msgstr "Abrir um repositório"
 
-#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:478
+#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:458
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Não é possível mudar de ramificação durante uma junção"
 
-#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:478
+#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:458
 #, kde-format
 msgid "Switch branch"
 msgstr "Mudar de ramificação"
@@ -445,35 +445,35 @@ msgstr "Modificar o URL"
 msgid "The path is not git repo: %1"
 msgstr "A localização não é de um repositório Git: %1"
 
-#: src/gui/commandargsparser.cpp:230
+#: src/gui/commandargsparser.cpp:210
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "O repositório foi inicializado com sucesso"
 
-#: src/gui/commandargsparser.cpp:404
+#: src/gui/commandargsparser.cpp:384
 #, fuzzy, kde-format
 #| msgid "Unable to open the file"
 msgid "Cannot find the file"
 msgstr "Não é possível aceder ao ficheiro"
 
-#: src/gui/commandargsparser.cpp:551
+#: src/gui/commandargsparser.cpp:531
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Os ficheiros foram adicionados com sucesso ao Git"
 
-#: src/gui/commandargsparser.cpp:562
+#: src/gui/commandargsparser.cpp:542
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Deseja deixar os ficheiros no disco?"
 
-#: src/gui/commandargsparser.cpp:562
+#: src/gui/commandargsparser.cpp:542
 #, fuzzy, kde-format
 #| msgid "Remove from index"
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Remover do índice"
 
-#: src/gui/commandargsparser.cpp:564
+#: src/gui/commandargsparser.cpp:544
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Os ficheiros foram removidos com sucesso do Git"
@@ -538,6 +538,7 @@ msgstr "Ficheiro de base:"
 #. i18n: ectx: property (text), widget (QLabel, labelCommitBody)
 #. i18n: ectx: property (text), widget (QLabel, labelCommitHash)
 #. i18n: ectx: property (text), widget (QLabel, labelRefName)
+#. i18n: ectx: property (text), widget (QLabel, labelSignature)
 #. i18n: ectx: property (text), widget (QLabel, labelParent)
 #. i18n: ectx: property (text), widget (QLabel, labelChildren)
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
@@ -564,11 +565,12 @@ msgstr "Ficheiro de base:"
 #: src/libkommitwidgets/widgets/commitdetails.ui:137
 #: src/libkommitwidgets/widgets/commitdetails.ui:173
 #: src/libkommitwidgets/widgets/commitdetails.ui:192
-#: src/libkommitwidgets/widgets/commitdetails.ui:214
-#: src/libkommitwidgets/widgets/commitdetails.ui:285
-#: src/libkommitwidgets/widgets/commitdetails.ui:295
-#: src/libkommitwidgets/widgets/commitdetails.ui:337
-#: src/libkommitwidgets/widgets/commitdetails.ui:347
+#: src/libkommitwidgets/widgets/commitdetails.ui:217
+#: src/libkommitwidgets/widgets/commitdetails.ui:239
+#: src/libkommitwidgets/widgets/commitdetails.ui:310
+#: src/libkommitwidgets/widgets/commitdetails.ui:320
+#: src/libkommitwidgets/widgets/commitdetails.ui:362
+#: src/libkommitwidgets/widgets/commitdetails.ui:372
 #, kde-format
 msgid "-"
 msgstr "-"
@@ -1272,7 +1274,7 @@ msgid "Checkout"
 msgstr "Obter"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
-#: src/libkommitwidgets/actions/fileactions.cpp:46
+#: src/libkommitwidgets/actions/fileactions.cpp:41
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #: src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
@@ -1287,48 +1289,48 @@ msgctxt "@action"
 msgid "Note"
 msgstr "Nota"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:42
+#: src/libkommitwidgets/actions/fileactions.cpp:37
 #, fuzzy, kde-format
 #| msgid "Preview"
 msgctxt "@action"
 msgid "Preview"
 msgstr "Antevisão"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:43
+#: src/libkommitwidgets/actions/fileactions.cpp:38
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action"
 msgid "Open"
 msgstr "Abrir"
 
-#: src/libkommitwidgets/actions/fileactions.cpp:44
+#: src/libkommitwidgets/actions/fileactions.cpp:39
 #, fuzzy, kde-format
 #| msgid "Open with..."
 msgctxt "@action"
 msgid "Open with…"
 msgstr "Abrir com..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:47
+#: src/libkommitwidgets/actions/fileactions.cpp:42
 #, kde-format
 msgctxt "@action"
 msgid "Merge with working dir"
 msgstr ""
 
-#: src/libkommitwidgets/actions/fileactions.cpp:49
+#: src/libkommitwidgets/actions/fileactions.cpp:44
 #, fuzzy, kde-format
 #| msgid "Save as..."
 msgctxt "@action"
 msgid "Save as…"
 msgstr "Gravar como..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:50
+#: src/libkommitwidgets/actions/fileactions.cpp:45
 #, fuzzy, kde-format
 #| msgid "Log..."
 msgctxt "@action"
 msgid "Log"
 msgstr "Registo..."
 
-#: src/libkommitwidgets/actions/fileactions.cpp:70
+#: src/libkommitwidgets/actions/fileactions.cpp:65
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
 msgstr ""
@@ -1664,7 +1666,7 @@ msgstr "Ficheiros modificados"
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:20
-#: src/libkommitwidgets/widgets/commitdetails.ui:229
+#: src/libkommitwidgets/widgets/commitdetails.ui:254
 #, kde-format
 msgid "Changed files:"
 msgstr "Ficheiros modificados:"
@@ -3150,48 +3152,93 @@ msgstr "Formulário"
 msgid "Filter branches"
 msgstr "Todas as ramificações"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:105
+#: src/libkommitwidgets/widgets/commitdetails.cpp:95
+#, kde-format
+msgid "Not signed"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:101
+#: src/libkommitwidgets/widgets/commitdetails.cpp:110
+#: src/libkommitwidgets/widgets/commitdetails.cpp:118
+#, kde-format
+msgctxt "@info commit signature"
+msgid "<span style='color:orange;font-weight:bold'>%1</span>"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:103
+#, kde-format
+msgctxt "@info commit signature"
+msgid "<span style='color:green;font-weight:bold'>%1</span>"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#, kde-format
+msgctxt "@info commit signature"
+msgid "<span style='color:red;font-weight:bold'>%1</span>"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:127
+#, kde-format
+msgid " by %1"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:129
+#, kde-format
+msgid " by %1 <%2>"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:132
+#, kde-format
+msgid " (Key: %1)"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:134
+#, kde-format
+msgid " (Fingerprint: %1)"
+msgstr ""
+
+#: src/libkommitwidgets/widgets/commitdetails.cpp:155
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
 #, fuzzy, kde-format
 #| msgid "Branch:"
 msgid "Branch: "
 msgstr "Ramificação:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:107
+#: src/libkommitwidgets/widgets/commitdetails.cpp:157
 #: src/libkommitwidgets/widgets/graphpainter.cpp:131
 #, fuzzy, kde-format
 #| msgid "Note"
 msgid "Note: "
 msgstr "Nota"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:109
+#: src/libkommitwidgets/widgets/commitdetails.cpp:159
 #: src/libkommitwidgets/widgets/graphpainter.cpp:133
 #, fuzzy, kde-format
 #| msgid "Remote:"
 msgid "Remote: "
 msgstr "Remoto:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:111
+#: src/libkommitwidgets/widgets/commitdetails.cpp:161
 #: src/libkommitwidgets/widgets/graphpainter.cpp:135
 #, kde-format
 msgid "Tag: "
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:120
-#: src/libkommitwidgets/widgets/commitdetails.ui:251
+#: src/libkommitwidgets/widgets/commitdetails.cpp:170
+#: src/libkommitwidgets/widgets/commitdetails.ui:276
 #, kde-format
 msgid "Ref:"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:120
+#: src/libkommitwidgets/widgets/commitdetails.cpp:170
 #, kde-format
 msgid "Refs:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:130
-#: src/libkommitwidgets/widgets/commitdetails.ui:185
+#: src/libkommitwidgets/widgets/commitdetails.cpp:180
+#: src/libkommitwidgets/widgets/commitdetails.ui:210
 #, fuzzy, kde-format
 #| msgid "Parent"
 msgid "Parent:"
@@ -3200,8 +3247,8 @@ msgstr[0] "Versão-Mãe"
 msgstr[1] "Versão-Mãe"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:135
-#: src/libkommitwidgets/widgets/commitdetails.ui:207
+#: src/libkommitwidgets/widgets/commitdetails.cpp:185
+#: src/libkommitwidgets/widgets/commitdetails.ui:232
 #, fuzzy, kde-format
 #| msgid "Child"
 msgid "Child:"
@@ -3236,8 +3283,15 @@ msgstr "Autoria"
 msgid "Committer:"
 msgstr "Modificado por"
 
+#. i18n: ectx: property (text), widget (QLabel, labelSignatureText)
+#: src/libkommitwidgets/widgets/commitdetails.ui:185
+#, fuzzy, kde-format
+#| msgid "Diff algorithm:"
+msgid "Signature:"
+msgstr "Algoritmo de diferenças:"
+
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
-#: src/libkommitwidgets/widgets/commitdetails.ui:236
+#: src/libkommitwidgets/widgets/commitdetails.ui:261
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
 msgstr ""
