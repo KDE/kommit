@@ -3014,7 +3014,7 @@ msgstr ""
 #: src/libkommitwidgets/widgets/commitdetails.ui:185
 #, kde-format
 msgid "Signature:"
-msgstr ""
+msgstr "Podpis:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:261

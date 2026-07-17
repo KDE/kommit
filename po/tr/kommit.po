@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the gitklient package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-16 00:47+0000\n"
-"PO-Revision-Date: 2026-05-02 18:44+0300\n"
+"PO-Revision-Date: 2026-07-16 19:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3007,50 +3007,47 @@ msgstr "Dalları süz"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:95
 #, kde-format
 msgid "Not signed"
-msgstr ""
+msgstr "İmzalanmamış"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:101
 #: src/libkommitwidgets/widgets/commitdetails.cpp:110
 #: src/libkommitwidgets/widgets/commitdetails.cpp:118
-#, fuzzy, kde-format
-#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:orange;font-weight:bold'>%1</span>"
-msgstr "Çakışmalar: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "<span style='color:orange;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:103
-#, fuzzy, kde-format
-#| msgid "<span style='color:green;'>All conflicts resolved</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:green;font-weight:bold'>%1</span>"
-msgstr "<span style='color:green;'>Tüm çakışmalar çözüldü</span>"
+msgstr "<span style='color:green;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:115
-#, fuzzy, kde-format
-#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:red;font-weight:bold'>%1</span>"
-msgstr "Çakışmalar: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "<span style='color:red;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:127
 #, kde-format
 msgid " by %1"
-msgstr ""
+msgstr " %1 tarafından"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:129
 #, kde-format
 msgid " by %1 <%2>"
-msgstr ""
+msgstr " %1 tarafından <%2>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:132
 #, kde-format
 msgid " (Key: %1)"
-msgstr ""
+msgstr " (Anahtar: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:134
 #, kde-format
 msgid " (Fingerprint: %1)"
-msgstr ""
+msgstr " (Parmak izi: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:155
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
@@ -3132,10 +3129,9 @@ msgstr "İşleyen:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelSignatureText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:185
-#, fuzzy, kde-format
-#| msgid "Signature algorithm"
+#, kde-format
 msgid "Signature:"
-msgstr "İmza algoritması"
+msgstr "İmza:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:261

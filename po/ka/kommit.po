@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-16 00:47+0000\n"
-"PO-Revision-Date: 2026-06-08 14:54+0200\n"
+"PO-Revision-Date: 2026-07-16 06:17+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3009,50 +3009,47 @@ msgstr "ბრენჩების გაფილტვრა"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:95
 #, kde-format
 msgid "Not signed"
-msgstr ""
+msgstr "ხელმოწერილი არაა"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:101
 #: src/libkommitwidgets/widgets/commitdetails.cpp:110
 #: src/libkommitwidgets/widgets/commitdetails.cpp:118
-#, fuzzy, kde-format
-#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:orange;font-weight:bold'>%1</span>"
-msgstr "კონფლიქტები: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "<span style='color:orange;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:103
-#, fuzzy, kde-format
-#| msgid "<span style='color:green;'>All conflicts resolved</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:green;font-weight:bold'>%1</span>"
-msgstr "<span style='color:green;'>ყველა კონფლიქტი მოგვარებულია</span>"
+msgstr "<span style='color:green;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:115
-#, fuzzy, kde-format
-#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:red;font-weight:bold'>%1</span>"
-msgstr "კონფლიქტები: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "<span style='color:red;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:127
 #, kde-format
 msgid " by %1"
-msgstr ""
+msgstr " %1-ის მიერ"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:129
 #, kde-format
 msgid " by %1 <%2>"
-msgstr ""
+msgstr " %1-ის მიერ <%2>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:132
 #, kde-format
 msgid " (Key: %1)"
-msgstr ""
+msgstr " (გასაღები: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:134
 #, kde-format
 msgid " (Fingerprint: %1)"
-msgstr ""
+msgstr " (ანაბეჭდი: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:155
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
@@ -3134,10 +3131,9 @@ msgstr "დამკომიტებელი:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelSignatureText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:185
-#, fuzzy, kde-format
-#| msgid "Signature algorithm"
+#, kde-format
 msgid "Signature:"
-msgstr "ხელმოწერის ალგორითმი"
+msgstr "ხელმოწერა:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:261
