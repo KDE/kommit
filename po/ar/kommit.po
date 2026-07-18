@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the kommit package.
-# SPDX-FileCopyrightText: 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-16 00:47+0000\n"
-"PO-Revision-Date: 2025-11-05 18:41+0400\n"
+"PO-Revision-Date: 2026-07-17 15:14+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2999,50 +2999,47 @@ msgstr "رَشّح الفروع"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:95
 #, kde-format
 msgid "Not signed"
-msgstr ""
+msgstr "غير موقعة"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:101
 #: src/libkommitwidgets/widgets/commitdetails.cpp:110
 #: src/libkommitwidgets/widgets/commitdetails.cpp:118
-#, fuzzy, kde-format
-#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:orange;font-weight:bold'>%1</span>"
-msgstr "تعارضات: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "<span style='color:orange;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:103
-#, fuzzy, kde-format
-#| msgid "<span style='color:green;'>All conflicts resolved</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:green;font-weight:bold'>%1</span>"
-msgstr "<span style='color:green;'>حُلّت جميع التعارضات</span>"
+msgstr "<span style='color:green;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:115
-#, fuzzy, kde-format
-#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:red;font-weight:bold'>%1</span>"
-msgstr "تعارضات: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "<span style='color:red;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:127
 #, kde-format
 msgid " by %1"
-msgstr ""
+msgstr " بواسطة %1"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:129
 #, kde-format
 msgid " by %1 <%2>"
-msgstr ""
+msgstr " بواسطة %1 <%2>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:132
 #, kde-format
 msgid " (Key: %1)"
-msgstr ""
+msgstr " (المفتاح: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:134
 #, kde-format
 msgid " (Fingerprint: %1)"
-msgstr ""
+msgstr " (البصمة: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:155
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
@@ -3132,10 +3129,9 @@ msgstr "المودع:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelSignatureText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:185
-#, fuzzy, kde-format
-#| msgid "Signature algorithm"
+#, kde-format
 msgid "Signature:"
-msgstr "خوارزمية التوقيع"
+msgstr "التّوقيع:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:261
