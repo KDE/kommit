@@ -74,6 +74,8 @@ add_compile_definitions(LIBKOMMIT_WIDGET_USE_KF)
 
 install(TARGETS libkommitgui ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
+install(FILES settings/KommitSettings.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
+
 ecm_qt_declare_logging_category(libkommitgui
     HEADER kommit_appdebug.h
     IDENTIFIER KOMMIT_LOG
