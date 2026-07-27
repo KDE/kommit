@@ -27,7 +27,7 @@
         </entry>
         <entry name="calendarType" type="String">
         </entry>
-        <entry name="calendarTypeIndex" type="int">
+        <entry name="calendarTypeIndex" type="Int">
         </entry>
         <entry name="openLastRepo" type="Bool">
             <label>Open last repo at startup</label>
