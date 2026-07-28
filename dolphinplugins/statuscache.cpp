@@ -148,21 +148,21 @@ QStringList submodules(git_repository *repo)
 QString submodulePath(const QString &rootPath, const QString &childPath)
 {
     qDebug() << Q_FUNC_INFO << rootPath << childPath;
-    git_repository *repo;
-    auto n = git_repository_open_ext(&repo, rootPath.toUtf8().data(), GIT_REPOSITORY_OPEN_NO_SEARCH, NULL);
-
-    if (n) {
-        git_repository_free(repo);
+    git_repository *repo{nullptr};
+    if (git_repository_open_ext(&repo, rootPath.toUtf8().data(), GIT_REPOSITORY_OPEN_NO_SEARCH, NULL))
         return {};
+
+    QString name;
+    const auto submodulesList = submodules(repo);
+    for (auto const &submodule : submodulesList) {
+        if (rootPath + QLatin1Char('/') + submodule + QLatin1Char('/') == childPath) {
+            name = submodule;
+            break;
+        }
     }
 
-    auto submodulesList = submodules(repo);
-    for (auto const &submodule : submodulesList) {
-        qDebug() << "FFFFF" << submodule << rootPath << childPath;
-        if (rootPath + QLatin1Char('/') + submodule + QLatin1Char('/') == childPath)
-            return submodule;
-    }
-    return {};
+    git_repository_free(repo);
+    return name;
 }
 }
 
@@ -191,13 +191,12 @@ bool StatusCache::setPath(const QString &path)
 
     mPath = path;
 
-    if (mRepo)
+    if (mRepo) {
         git_repository_free(mRepo);
+        mRepo = nullptr;
+    }
 
-    int n = git_repository_open_ext(&mRepo, path.toUtf8().data(), 0, NULL);
-
-    if (n) {
-        git_repository_free(mRepo);
+    if (git_repository_open_ext(&mRepo, path.toUtf8().data(), 0, NULL)) {
         mRepo = nullptr;
         return false;
     }
@@ -211,6 +210,7 @@ bool StatusCache::setPath(const QString &path)
         mCurrentPathIsIgnored = true;
 
         git_repository_free(mRepo);
+        mRepo = nullptr;
         return true;
     }
 
@@ -243,6 +243,9 @@ bool StatusCache::setPath(const QString &path)
 
 QString StatusCache::currentBranch() const
 {
+    if (!mRepo)
+        return {};
+
     if (git_repository_head_detached(mRepo) == 1)
         return {};
 
