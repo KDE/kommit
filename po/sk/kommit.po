@@ -3004,50 +3004,47 @@ msgstr "Filtrovať vetvy"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:95
 #, kde-format
 msgid "Not signed"
-msgstr ""
+msgstr "Nepodpísané"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:101
 #: src/libkommitwidgets/widgets/commitdetails.cpp:110
 #: src/libkommitwidgets/widgets/commitdetails.cpp:118
-#, fuzzy, kde-format
-#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:orange;font-weight:bold'>%1</span>"
-msgstr "Konflikty: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "<span style='color:orange;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:103
-#, fuzzy, kde-format
-#| msgid "<span style='color:green;'>All conflicts resolved</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:green;font-weight:bold'>%1</span>"
-msgstr "<span style='color:green;'>Všetky konflikty vyriešené</span>"
+msgstr "<span style='color:green;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:115
-#, fuzzy, kde-format
-#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:red;font-weight:bold'>%1</span>"
-msgstr "Konflikty: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "<span style='color:red;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:127
 #, kde-format
 msgid " by %1"
-msgstr ""
+msgstr " od %1"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:129
 #, kde-format
 msgid " by %1 <%2>"
-msgstr ""
+msgstr " od %1 <%2>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:132
 #, kde-format
 msgid " (Key: %1)"
-msgstr ""
+msgstr " (kľúč: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:134
 #, kde-format
 msgid " (Fingerprint: %1)"
-msgstr ""
+msgstr " (odtlačok: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:155
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
@@ -3131,10 +3128,9 @@ msgstr "Committer:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelSignatureText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:185
-#, fuzzy, kde-format
-#| msgid "Signature algorithm"
+#, kde-format
 msgid "Signature:"
-msgstr "Algoritmus podpisu"
+msgstr "Podpis:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:261
