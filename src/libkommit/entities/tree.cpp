@@ -33,8 +33,13 @@ public:
 
     git_tree *tree{nullptr};
 
+    /// Reads every entry of the tree, once, the first time one of them is asked for.
     void initTree();
     void browseNestedEntities(EntryType type, const QString &path, QStringList &list) const;
+
+    /// Whether initTree() has run. Walking a tree of a large project costs an entry object
+    /// per file, and a tree is often opened only to be handed to a diff.
+    bool walked{false};
 };
 
 Tree::Tree()
@@ -45,8 +50,6 @@ Tree::Tree()
 Tree::Tree(git_tree *tree)
     : d{new TreePrivate{this, tree}}
 {
-    if (tree)
-        d->initTree();
 }
 
 Tree::Tree(git_repository *repo, const QString &place)
@@ -61,10 +64,8 @@ Tree::Tree(git_repository *repo, const QString &place)
     r.run(git_commit_lookup, &commit, repo, git_object_id(placeObject));
     r.run(git_commit_tree, &tree, commit);
 
-    if (r.isSuccess()) {
+    if (r.isSuccess())
         d->tree = tree;
-        d->initTree();
-    }
 }
 
 Tree::Tree(const Tree &other)
@@ -107,6 +108,7 @@ const git_tree *Tree::constData() const
 
 TreeEntryLists Tree::entries(const QString &path) const
 {
+    d->initTree();
     return TreeEntryLists{d->treeData.values(path)};
 }
 
@@ -122,6 +124,8 @@ QStringList Tree::entries(const QString &path, EntryType filter) const
 
 QStringList Tree::entries(EntryType filter) const
 {
+    d->initTree();
+
     QStringList list;
 
     d->browseNestedEntities(filter, QString(), list);
@@ -208,6 +212,10 @@ Oid Tree::oid() const
 
 void TreePrivate::initTree()
 {
+    if (walked || !tree)
+        return;
+    walked = true;
+
     auto cb = [](const char *root, const git_tree_entry *entry, void *payload) -> int {
         auto w = reinterpret_cast<TreePrivate *>(payload);
         QString path{root};
