@@ -136,12 +136,7 @@ QString Blob::saveAsTemp() const
 
 QString Blob::stringContent() const
 {
-    auto blob = d->blob;
-    if (!blob)
-        return {};
-
-    QString ch = (char *)git_blob_rawcontent(blob);
-    return ch;
+    return QString::fromUtf8(content());
 }
 
 QByteArray Blob::content() const
@@ -150,9 +145,10 @@ QByteArray Blob::content() const
     if (!blob)
         return QByteArray{};
 
-    QByteArray buffer{(char *)git_blob_rawcontent(blob)};
-    git_blob_free(blob);
-    return buffer;
+    // A blob is a count of bytes, not a C string. Built from the pointer alone the content
+    // stops at the first zero byte, which for a picture is a few bytes in. The blob itself
+    // belongs to the private, which frees it.
+    return QByteArray{static_cast<const char *>(git_blob_rawcontent(blob)), static_cast<qsizetype>(git_blob_rawsize(blob))};
 }
 
 bool Blob::isValid() const
