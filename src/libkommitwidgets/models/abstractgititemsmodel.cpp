@@ -16,7 +16,38 @@ AbstractGitItemsModel::AbstractGitItemsModel(Git::Repository *git, QObject *pare
     : QAbstractListModel(parent)
     , mGit(git)
 {
-    connect(git, &Git::Repository::pathChanged, this, &AbstractGitItemsModel::load);
+    connect(git, &Git::Repository::pathChanged, this, &AbstractGitItemsModel::repositoryChanged);
+}
+
+void AbstractGitItemsModel::repositoryChanged()
+{
+    mStale = true;
+
+    if (!mLoadOnDemand) {
+        load();
+        return;
+    }
+
+    // Drop the previous repository's rows straight away, so nothing shows stale content
+    // while the real load waits for someone to ask for it.
+    clear();
+    setStatus(NotLoaded);
+}
+
+bool AbstractGitItemsModel::loadOnDemand() const
+{
+    return mLoadOnDemand;
+}
+
+void AbstractGitItemsModel::setLoadOnDemand(bool loadOnDemand)
+{
+    mLoadOnDemand = loadOnDemand;
+}
+
+void AbstractGitItemsModel::loadIfNeeded()
+{
+    if (mStale || m_status != Loaded)
+        load();
 }
 
 bool AbstractGitItemsModel::isLoaded() const
@@ -44,6 +75,7 @@ void AbstractGitItemsModel::load()
     beginResetModel();
     reload();
     endResetModel();
+    mStale = false;
     setStatus(Loaded);
 }
 

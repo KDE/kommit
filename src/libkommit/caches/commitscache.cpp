@@ -74,9 +74,15 @@ QList<Commit> CommitsCache::allCommits()
     }
 
     for (auto &commit : list) {
-        for (auto const &parentHash : commit.parents()) {
-            auto parent = find(parentHash);
-            parent.addChild(commit.commitHash());
+        // Look the parents up by oid rather than by their hash string: find() turns the
+        // hash back into an oid with git_revparse_single(), once per parent, when the oid
+        // is right there in the commit.
+        auto commitPtr = commit.data();
+        const auto parentCount = git_commit_parentcount(commitPtr);
+        for (unsigned int i = 0; i < parentCount; ++i) {
+            auto parent = findByOid(git_commit_parent_id(commitPtr, i));
+            if (!parent.isNull())
+                parent.addChild(commit.commitHash());
         }
         commit.setReferences(manager->references()->findForCommit(commit));
     }

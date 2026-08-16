@@ -57,6 +57,10 @@ private:
     void changeLogs();
     void initRecentRepos(const QString &newItem = QString());
 
+    /// Opens @p path once control is back in the event loop, so the window is on screen first.
+    void loadRepoWhenShown(const QString &path);
+    bool loadRepo(const QString &path);
+
     template<class T>
     void addPage(const QString &actionName, const QString &iconName);
     int pagesCount{0};

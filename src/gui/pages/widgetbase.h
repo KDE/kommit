@@ -24,6 +24,16 @@ protected:
     AppWindow *mParent{nullptr};
     QString stateName(QWidget *w) const;
 
+    /**
+     * Asks for a reload the next time this page is shown.
+     *
+     * Only one page is on screen at a time, so a page that is not visible has no reason to
+     * read the repository yet; deferring it is what keeps opening a large repository from
+     * doing the same expensive work once per page.
+     */
+    void markNeedsReload();
+    void showEvent(QShowEvent *event) override;
+
 public:
     explicit WidgetBase(RepositoryData *git, AppWindow *parent = nullptr);
     RepositoryData *git() const;
@@ -47,4 +57,6 @@ public:
 
 private:
     void gitPathChanged();
+
+    bool mNeedsReload{false};
 };

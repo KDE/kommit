@@ -95,10 +95,30 @@ void WidgetBase::settingsUpdated()
 
 void WidgetBase::gitPathChanged()
 {
-    if (mGit->manager()->isValid())
+    if (!mGit->manager()->isValid()) {
+        clear();
+        return;
+    }
+
+    if (isVisible())
         reload();
     else
-        clear();
+        markNeedsReload();
+}
+
+void WidgetBase::markNeedsReload()
+{
+    mNeedsReload = true;
+}
+
+void WidgetBase::showEvent(QShowEvent *event)
+{
+    if (mNeedsReload) {
+        mNeedsReload = false;
+        reload();
+    }
+
+    QWidget::showEvent(event);
 }
 
 QString WidgetBase::stateName(QWidget *w) const

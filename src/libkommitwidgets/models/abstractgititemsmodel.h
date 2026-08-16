@@ -38,8 +38,19 @@ public:
 
     [[nodiscard]] Git::Repository *manager() const;
 
+    /**
+     * When set, opening a repository only marks the model out of date instead of loading
+     * it there and then. Whoever shows the model is then responsible for calling
+     * loadIfNeeded(). Use it for models whose load is expensive enough to be worth
+     * skipping while nothing displays them.
+     */
+    [[nodiscard]] bool loadOnDemand() const;
+    void setLoadOnDemand(bool loadOnDemand);
+
 public Q_SLOTS:
     void load();
+    /// Loads the model unless it already holds the current repository's content.
+    void loadIfNeeded();
 
 protected:
     void setStatus(Status newStatus);
@@ -51,5 +62,9 @@ Q_SIGNALS:
     void statusChanged();
 
 private:
+    LIBKOMMITWIDGETS_NO_EXPORT void repositoryChanged();
+
     Status m_status{NotLoaded};
+    bool mLoadOnDemand{false};
+    bool mStale{true};
 };

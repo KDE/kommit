@@ -48,11 +48,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KActionCollection>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KShell>
 #include <KStandardShortcut>
+#include <QApplication>
+#include <QDir>
 #include <QFileDialog>
 #include <QMenu>
 #include <QSettings>
 #include <QStatusBar>
+#include <QTimer>
 
 AppWindow::AppWindow()
     : AppMainWindow()
@@ -64,10 +68,8 @@ AppWindow::AppWindow()
     if (KommitSettings::openLastRepo()) {
         const QString p = s.value(QStringLiteral("last_repo")).toString();
 
-        if (!p.isEmpty()) {
-            mGitData->manager()->open(p);
-            initRecentRepos(p);
-        }
+        if (!p.isEmpty())
+            loadRepoWhenShown(p);
     }
 
     auto lastDisplayedversion = s.value("last_displayed_version");
@@ -125,7 +127,34 @@ AppWindow::AppWindow(const QString &path)
     : mGitData{new RepositoryData{Git::Repository::instance()}}
 {
     init();
-    mGitData->manager()->open(path);
+    loadRepoWhenShown(path);
+}
+
+void AppWindow::loadRepoWhenShown(const QString &path)
+{
+    // Opening a repository reads its whole history, which on a big one takes long enough
+    // that doing it from the constructor leaves the user staring at nothing. Let the
+    // window come up first, then load.
+    QTimer::singleShot(0, this, [this, path] {
+        loadRepo(path);
+    });
+}
+
+bool AppWindow::loadRepo(const QString &path)
+{
+    mStatusCurrentBranchLabel->setText(i18nc("@info:status", "Loading %1…", KShell::tildeCollapse(QDir::cleanPath(path))));
+    QApplication::setOverrideCursor(Qt::BusyCursor);
+
+    const bool ok = mGitData->manager()->open(path);
+
+    QApplication::restoreOverrideCursor();
+
+    if (ok)
+        initRecentRepos(path);
+    else
+        gitCurrentBranchChanged();
+
+    return ok;
 }
 
 AppWindow *AppWindow::instance()
@@ -276,9 +305,7 @@ void AppWindow::initRecentRepos(const QString &newItem)
     for (const auto &item : std::as_const(recentList)) {
         auto action = mRecentAction->menu()->addAction(QStringLiteral("%1    %2").arg(index++).arg(item));
         connect(action, &QAction::triggered, this, [this, item]() {
-            if (mGitData->manager()->open(item)) {
-                initRecentRepos(item);
-            }
+            loadRepo(item);
         });
     }
     mRecentAction->menu()->addSeparator();
@@ -319,10 +346,8 @@ void AppWindow::openRepo()
 {
     const auto dir = QFileDialog::getExistingDirectory(this, i18n("Open repository"));
 
-    if (!dir.isEmpty()) {
-        mGitData->manager()->open(dir);
-        initRecentRepos(dir);
-    }
+    if (!dir.isEmpty())
+        loadRepo(dir);
 }
 
 void AppWindow::commitPushAction()

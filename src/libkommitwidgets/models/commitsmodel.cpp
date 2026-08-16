@@ -232,8 +232,10 @@ CommitsModel::CommitsModel(Git::Repository *git, QObject *parent)
     : AbstractGitItemsModel(git, parent)
     , d_ptr{new CommitsModelPrivate{this}}
 {
-    connect(git->commits(), &Git::CommitsCache::added, this, &CommitsModel::reload);
-    connect(git, &Git::Repository::pathChanged, this, &CommitsModel::reload);
+    // Opening a repository is handled by AbstractGitItemsModel, which wraps the reload in
+    // the model reset the views need. A second, direct pathChanged connection would walk
+    // the history again, and would do it without ever telling the views.
+    connect(git->commits(), &Git::CommitsCache::added, this, &CommitsModel::load);
 }
 
 CommitsModel::~CommitsModel()
@@ -255,9 +257,9 @@ void CommitsModel::setBranch(const Git::Branch &newBranch)
 
     d->branch = newBranch;
 
-    beginResetModel();
-    reload();
-    endResetModel();
+    // load() rather than a bare reload(), so the model does not stay marked out of date
+    // and get walked a second time the next time it is shown.
+    load();
 }
 
 int CommitsModel::rowCount(const QModelIndex &parent) const
