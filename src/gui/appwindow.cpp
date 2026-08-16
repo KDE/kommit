@@ -166,7 +166,17 @@ AppWindow *AppWindow::instance()
 void AppWindow::gitPathChanged()
 {
     updateActions(mGitData->manager()->isValid());
-    setWindowFilePath(mGitData->manager()->path());
+
+    const QString path = mGitData->manager()->path();
+    setWindowFilePath(path);
+
+    if (path.isEmpty()) {
+        setCaption(QString{});
+        return;
+    }
+
+    // git_repository_workdir() hands back a trailing slash, which reads badly in a title bar
+    setCaption(KShell::tildeCollapse(QDir::cleanPath(path)));
 }
 
 void AppWindow::gitCurrentBranchChanged()
