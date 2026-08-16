@@ -19,6 +19,7 @@ target_sources(libkommit PRIVATE
     gitglobal.cpp gitglobal.h
     gitloglist.cpp gitloglist.h
     filestatus.cpp filestatus.h
+    commitwalk.cpp commitwalk.h
     repository.cpp repository.h
     types.cpp
     abstractreference.cpp abstractreference.h
@@ -184,6 +185,7 @@ ecm_generate_headers(libkommit_CamelCase_HEADERS
         Credential
         Certificate
         FileStatus
+        CommitWalk
         Types
         Error
         FileDelta

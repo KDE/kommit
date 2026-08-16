@@ -73,7 +73,36 @@ QList<Commit> CommitsCache::allCommits()
         list << en;
     }
 
+    linkCommits(list);
+
+    git_revwalk_free(walker);
+    return list;
+}
+
+QList<Commit> CommitsCache::commitsFromOids(const QList<git_oid> &oids)
+{
+    QList<Commit> list;
+    list.reserve(oids.size());
+
+    for (const auto &oid : oids) {
+        auto en = findByOid(&oid);
+        en.clearChildren();
+        list << en;
+    }
+
+    linkCommits(list);
+
+    return list;
+}
+
+void CommitsCache::linkCommits(QList<Commit> &list)
+{
     for (auto &commit : list) {
+        // An oid the repository does not hold gives back nothing, which has no parents to
+        // read and no children to be given.
+        if (commit.isNull())
+            continue;
+
         // Look the parents up by oid rather than by their hash string: find() turns the
         // hash back into an oid with git_revparse_single(), once per parent, when the oid
         // is right there in the commit.
@@ -86,9 +115,6 @@ QList<Commit> CommitsCache::allCommits()
         }
         commit.setReferences(manager->references()->findForCommit(commit));
     }
-
-    git_revwalk_free(walker);
-    return list;
 }
 
 QList<Commit> CommitsCache::commitsInBranch(const Branch &branch)
