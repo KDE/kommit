@@ -24,6 +24,9 @@ WidgetBase::WidgetBase(RepositoryData *git, AppWindow *parent)
     , mParent{parent}
 {
     connect(mGit->manager(), &Git::Repository::pathChanged, this, &WidgetBase::gitPathChanged);
+    // A page on screen follows the repository as it changes. One that is not waits, so a
+    // commit made on another page does not send every page off reading the whole history.
+    connect(mGit->manager(), &Git::Repository::reloadRequired, this, &WidgetBase::gitPathChanged);
 }
 
 RepositoryData *WidgetBase::git() const
