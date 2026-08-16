@@ -24,7 +24,6 @@ ReportsWidget::ReportsWidget(RepositoryData *git, AppWindow *parent)
     addReport(new CommitsByDayHour{git->manager(), this});
     addReport(new CommitsByMonth{git->manager(), this});
 
-    connect(git->manager(), &Git::Repository::reloadRequired, this, &ReportsWidget::reloadReports);
     connect(toolButtonRefresh, &QToolButton::clicked, this, &ReportsWidget::reloadReports);
     connect(listWidget, &QListWidget::currentRowChanged, stackedWidget, &QStackedWidget::setCurrentIndex);
 
@@ -39,6 +38,14 @@ ReportsWidget::ReportsWidget(RepositoryData *git, AppWindow *parent)
     toolButtonTable->hide();
     toolButtonChart->hide();
 #endif
+}
+
+void ReportsWidget::reload()
+{
+    // Every report reads the whole history, so this waits until the page is looked at. It
+    // used to run whenever the repository reloaded, which on a long history left the window
+    // unable to draw for as long as the walk took.
+    reloadReports();
 }
 
 void ReportsWidget::saveState(QSettings &settings) const

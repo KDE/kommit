@@ -18,6 +18,8 @@ class ReportsWidget : public WidgetBase, private Ui::ReportsWidget
 public:
     explicit ReportsWidget(RepositoryData *git, AppWindow *parent = nullptr);
 
+    void reload() override;
+
     void saveState(QSettings &settings) const override;
     void restoreState(QSettings &settings) override;
 
