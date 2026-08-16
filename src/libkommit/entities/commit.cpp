@@ -174,7 +174,10 @@ QString Commit::message() const
 
 QString Commit::body() const
 {
-    return QString{git_commit_body(d->commit)}.remove(QLatin1Char('\n'));
+    // The message as it was written, paragraphs and all. git_commit_body() returns nothing
+    // for a commit whose message is a summary line on its own.
+    const auto *body = git_commit_body(d->commit);
+    return body ? QString::fromUtf8(body) : QString{};
 }
 
 QString Commit::summary() const
