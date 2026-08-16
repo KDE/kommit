@@ -23,30 +23,25 @@ namespace Impl
 template<typename T>
 QList<DiffHunk *> diff(const QList<T> &oldText, const QList<T> &newText, const DiffOptions<T> &opts = {})
 {
+    // These shortcuts have to set begin as well as size: Range() starts life at -1, so a
+    // caller that reads the range back gets one line of nonsense in front of the text.
     if (oldText == newText) {
         auto segment = new DiffHunk;
         segment->type = SegmentType::SameOnBoth;
-        // segment->oldText = oldText;
-        // segment->newText = newText;
-
-        segment->left.size = oldText.size();
-        segment->right.size = newText.size();
+        segment->left = Range{0, static_cast<int>(oldText.size())};
+        segment->right = Range{0, static_cast<int>(newText.size())};
         return {segment};
     } else if (newText.isEmpty()) {
         auto segment = new DiffHunk;
         segment->type = SegmentType::OnlyOnLeft;
-        // segment->oldText = oldText;
-        // segment->newText = newText;
-        segment->left.size = oldText.size();
-        segment->right.size = 0;
+        segment->left = Range{0, static_cast<int>(oldText.size())};
+        segment->right = Range{0, 0};
         return {segment};
     } else if (oldText.isEmpty()) {
         auto segment = new DiffHunk;
         segment->type = SegmentType::OnlyOnRight;
-        // segment->oldText = oldText;
-        // segment->newText = newText;
-        segment->left.size = 0;
-        segment->right.size = newText.size();
+        segment->left = Range{0, 0};
+        segment->right = Range{0, static_cast<int>(newText.size())};
         return {segment};
     }
 
