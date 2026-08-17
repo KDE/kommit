@@ -3,93 +3,54 @@
 namespace Git
 {
 
-StrArray::StrArray(size_t initialSize)
-    : capacity{}
+StrArray::StrArray(const QStringList &strings)
 {
-    char **newStrings = static_cast<char **>(malloc(initialSize * sizeof(char *)));
-    if (newStrings) {
-        strarray.count = initialSize;
-        strarray.strings = newStrings;
-    }
+    setStrings(strings);
 }
 
-StrArray::StrArray(const QString &item)
+StrArray::StrArray(const QString &string)
+    : StrArray{QStringList{string}}
 {
-    strarray.strings = new char *[1];
-    strarray.strings[0] = strdup(item.toUtf8().constData());
-    strarray.count = 1;
 }
 
-StrArray::StrArray(const QStringList &list)
+void StrArray::setStrings(const QStringList &strings)
 {
-    fromQStringList(list);
+    mUtf8.clear();
+    mPointers.clear();
+    mUtf8.reserve(strings.size());
+    mPointers.reserve(strings.size());
+
+    for (const auto &string : strings)
+        mUtf8 << string.toUtf8();
+
+    // Filled after every byte array is in place: appending to mUtf8 can move what is in it,
+    // and a pointer taken before that would be left behind.
+    for (auto &bytes : mUtf8)
+        mPointers << bytes.data();
+
+    mArray.strings = mPointers.data();
+    mArray.count = static_cast<size_t>(mPointers.size());
 }
 
-StrArray::~StrArray()
+QStringList StrArray::strings() const
 {
-    clear();
-}
+    QStringList strings;
+    strings.reserve(mUtf8.size());
 
-void StrArray::reserve(size_t size)
-{
-    if (size > capacity) {
-        char **newStrings = static_cast<char **>(realloc(strarray.strings, size * sizeof(char *)));
-        if (newStrings) {
-            strarray.count = size;
-            strarray.strings = newStrings;
-            capacity = size;
-        }
-    }
-}
+    for (const auto &bytes : mUtf8)
+        strings << QString::fromUtf8(bytes);
 
-void StrArray::add(const QString &str)
-{
-    if (strarray.count < capacity) {
-        reserve(strarray.count + 1); // Reserve exactly the needed size
-    }
-    strarray.strings[strarray.count] = strdup(str.toUtf8().constData());
-    capacity++;
-}
-
-void StrArray::fromQStringList(const QStringList &list)
-{
-    clear();
-    reserve(list.size());
-    for (int i = 0; i < list.size(); ++i) {
-        add(list[i]);
-    }
-}
-
-QStringList StrArray::toQStringList() const
-{
-    QStringList list;
-    for (size_t i = 0; i < strarray.count; ++i) {
-        list.append(QString::fromUtf8(strarray.strings[i]));
-    }
-    return list;
+    return strings;
 }
 
 StrArray::operator git_strarray *()
 {
-    return &strarray;
+    return &mArray;
 }
 
 const git_strarray *StrArray::operator*() const
 {
-    return &strarray;
-}
-
-void StrArray::clear()
-{
-    if (strarray.strings) {
-        for (size_t i = 0; i < strarray.count; ++i) {
-            free(strarray.strings[i]);
-        }
-        free(strarray.strings);
-        strarray.strings = nullptr;
-        strarray.count = 0;
-        capacity = 0;
-    }
+    return &mArray;
 }
 
 }

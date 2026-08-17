@@ -79,8 +79,7 @@ int FetchPrivate::run()
 
     int ret;
     if (!branch.isNull()) {
-        StrArray refSpecs{1};
-        refSpecs.add(branch.refName());
+        StrArray refSpecs{branch.refName()};
         ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), *refSpecs, &opts, "fetch");
     } else {
         ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), (const git_strarray *)NULL, &opts, "fetch");
