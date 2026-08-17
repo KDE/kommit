@@ -5,6 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "graphpainter.h"
+#include <Kommit/BranchesCache>
+#include <Kommit/Repository>
 
 #include "entities/commit.h"
 #include "models/commitsmodel.h"
@@ -20,6 +22,58 @@ namespace Sizes
 {
 constexpr const int dotSize{3};
 }
+
+namespace
+{
+/// The colour every repository's main line is drawn in, whatever else is in it.
+const QColor DefaultBranchColor{Qt::red};
+
+/// A branch without the remote it came from, so a branch and its remote share a colour.
+QString branchName(const QString &shorthand)
+{
+    const auto slash = shorthand.lastIndexOf(QLatin1Char('/'));
+
+    return slash == -1 ? shorthand : shorthand.mid(slash + 1);
+}
+
+/**
+ * The colour of @p branch, the same one every time and everywhere it is drawn.
+ *
+ * Red is kept for the line the history is built on, so it is recognisable at a glance in
+ * any repository, and the rest are told apart by the name they are given.
+ */
+QColor branchColor(const QString &branch, const QString &defaultBranch)
+{
+    static const QVector<QColor> colors{Qt::blue,
+                                        Qt::darkGreen,
+                                        Qt::magenta,
+                                        Qt::darkCyan,
+                                        Qt::darkYellow,
+                                        Qt::darkBlue,
+                                        Qt::darkMagenta,
+                                        QColor{0xE9, 0x6D, 0x00},
+                                        QColor{0x00, 0x7A, 0x7A},
+                                        QColor{0x6A, 0x3D, 0x9A}};
+
+    const auto name = branchName(branch);
+    if (name.isEmpty())
+        return {};
+
+    if (!defaultBranch.isEmpty() && name == branchName(defaultBranch))
+        return DefaultBranchColor;
+
+    return colors.at(static_cast<int>(qHash(name) % static_cast<size_t>(colors.size())));
+}
+
+/// Black or white, whichever stands out against @p background.
+QColor readableTextColor(const QColor &background)
+{
+    // Rec. 601 luminance, the weighting qGray uses.
+    const auto luminance = (background.redF() * 299 + background.greenF() * 587 + background.blueF() * 114) / 1000;
+
+    return luminance > 0.5 ? QColor{Qt::black} : QColor{Qt::white};
+}
+}
 class GraphPainterPrivate
 {
     GraphPainter *q_ptr;
@@ -30,6 +84,10 @@ public:
 
     CommitsModel *const model;
     QVector<QColor> colors;
+    /// Asked of the repository once, and again whenever the model is read afresh.
+    mutable QString defaultBranch;
+
+    [[nodiscard]] QString defaultBranchName() const;
 
     int colX(int col) const;
     void paintLane(QPainter *painter, const GraphLane &lane, int index) const;
@@ -42,10 +100,24 @@ public:
     void paintPathToDown(QPainter *painter, int from, int to) const;
 };
 
+QString GraphPainterPrivate::defaultBranchName() const
+{
+    if (defaultBranch.isEmpty() && model && model->manager())
+        defaultBranch = model->manager()->branches()->defaultName();
+
+    return defaultBranch;
+}
+
 GraphPainter::GraphPainter(CommitsModel *model, QObject *parent)
     : QStyledItemDelegate(parent)
     , d_ptr{new GraphPainterPrivate{this, model}}
 {
+    Q_D(GraphPainter);
+
+    // Another repository, or the same one read again, may be built on another branch.
+    connect(model, &QAbstractItemModel::modelReset, this, [d] {
+        d->defaultBranch.clear();
+    });
 }
 
 GraphPainter::~GraphPainter()
@@ -82,13 +154,14 @@ void GraphPainter::paint(QPainter *painter, const QStyleOptionViewItem &option, 
         if (l.type() == GraphLane::None)
             continue;
 
-        if (x >= d->colors.size()) {
-            painter->setPen(Qt::black);
-            painter->setBrush(Qt::black);
-        } else {
-            painter->setPen(d->colors.at(x));
-            painter->setBrush(d->colors.at(x));
-        }
+        // The colour of the branch the line carries, and failing that one told apart from its
+        // neighbours by where it sits.
+        auto color = branchColor(l.branch(), d->defaultBranchName());
+        if (!color.isValid())
+            color = x < d->colors.size() ? d->colors.at(x) : QColor{Qt::black};
+
+        painter->setPen(color);
+        painter->setBrush(color);
         //        painter->setPen(l.color());
         //        painter->setBrush(l.color());
         d->paintLane(painter, l, x);
@@ -138,9 +211,23 @@ void GraphPainterPrivate::drawReference(QPainter *painter, const Git::Reference 
     QRect rcBox(x, 0, painter->fontMetrics().horizontalAdvance(ref) + 8, painter->fontMetrics().height() + 4);
     rcBox.moveTop((HEIGHT - rcBox.height()) / 2);
 
-    painter->setBrush(Qt::transparent);
-    painter->drawRoundedRect(rcBox, 5, 5);
+    // The name of a branch on the colour of its line, so the two read as the same thing.
+    const auto color = branchColor(reference.shorthand(), defaultBranchName());
+
+    painter->save();
+    if (color.isValid()) {
+        painter->setPen(color);
+        painter->setBrush(color);
+        painter->drawRoundedRect(rcBox, 5, 5);
+        painter->setPen(readableTextColor(color));
+    } else {
+        painter->setBrush(Qt::transparent);
+        painter->drawRoundedRect(rcBox, 5, 5);
+    }
+
     painter->drawText(rcBox, Qt::AlignVCenter | Qt::AlignHCenter, ref);
+    painter->restore();
+
     x += rcBox.width() + 4;
 }
 

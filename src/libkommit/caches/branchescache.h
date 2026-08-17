@@ -38,6 +38,16 @@ public:
     [[nodiscard]] DataType current();
     [[nodiscard]] QString currentName();
 
+    /**
+     * The branch this repository is built on, by what the repository itself says rather than
+     * by the names such a branch usually has.
+     *
+     * Cloning writes refs/remotes/<remote>/HEAD and git remote set-head keeps it, so that is
+     * the answer where there is one. A repository nobody cloned has init.defaultBranch to say
+     * what it would have been given, and failing both, the branch being worked on.
+     */
+    [[nodiscard]] QString defaultName();
+
     bool create(const QString &name);
     bool remove(DataType branch);
 

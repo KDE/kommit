@@ -216,6 +216,8 @@ public:
 
     void initChilds();
     void initGraph();
+    /// Works out which branch each line of the graph belongs to.
+    void nameLanes();
 
     bool fullDetails{false};
     Git::Branch branch;
@@ -471,6 +473,70 @@ void CommitsModelPrivate::initGraph()
     for (auto i = data.rbegin(); i != data.rend(); i++) {
         auto d = *i;
         d->lanes = factory.apply(d->commit);
+    }
+
+    nameLanes();
+}
+
+void CommitsModelPrivate::nameLanes()
+{
+    // Which branch each column of the graph is carrying, as far down as it has been read.
+    // Nothing in git says which branch an old commit was made on, so the answer comes from
+    // the branch that points at the newest commit of a line: the rows are walked from the
+    // newest down, and a line keeps the name it was given at its tip.
+    QHash<int, QString> branchOfColumn;
+
+    for (auto *row : std::as_const(data)) {
+        const auto references = row->commit.references();
+
+        // The column the commit itself sits in. A row can end one line while carrying others,
+        // so the one that is the commit comes first, then the tip of a line, then its end.
+        int node{-1};
+        for (const auto wanted : {GraphLane::Node, GraphLane::Start, GraphLane::End}) {
+            for (int column = 0; column < row->lanes.size() && node == -1; ++column) {
+                if (row->lanes.at(column).type() == wanted)
+                    node = column;
+            }
+
+            if (node != -1)
+                break;
+        }
+
+        if (node != -1) {
+            // A local branch names the line it is on. A remote one names it too, since a line
+            // that only exists on a server is still that branch.
+            QString local;
+            QString remote;
+            for (const auto &reference : references) {
+                if (reference.isBranch() && local.isEmpty())
+                    local = reference.shorthand();
+                else if (reference.isRemote() && remote.isEmpty())
+                    remote = reference.shorthand();
+            }
+
+            const auto branch = local.isEmpty() ? remote : local;
+            if (!branch.isEmpty())
+                branchOfColumn.insert(node, branch);
+        }
+
+        for (int column = 0; column < row->lanes.size(); ++column) {
+            auto &lane = row->lanes[column];
+
+            if (lane.type() == GraphLane::None) {
+                branchOfColumn.remove(column);
+                continue;
+            }
+
+            // A line that reaches another one carries its name along, so a branch that was
+            // merged keeps its colour down to where it started.
+            const auto joins = lane.upJoins() + lane.bottomJoins();
+            for (const auto joined : joins) {
+                if (!branchOfColumn.contains(column) && branchOfColumn.contains(joined))
+                    branchOfColumn.insert(column, branchOfColumn.value(joined));
+            }
+
+            lane.setBranch(branchOfColumn.value(column));
+        }
     }
 }
 
