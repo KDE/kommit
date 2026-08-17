@@ -33,8 +33,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 int main(int argc, char **argv)
 {
-    qputenv("GIT_TRACE", "1");
-
     auto paths = QIcon::themeSearchPaths();
     paths << ":/icons" << ":/icons/hicolor";
     QIcon::setThemeSearchPaths(paths);
