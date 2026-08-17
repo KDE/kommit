@@ -9,8 +9,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QAction>
 #include <QActionGroup>
+#include <QScrollBar>
+#include <QStyle>
 #include <QStyleHints>
 #include <QToolButton>
+
+namespace
+{
+/// The strip is no narrower than this, however short the names on it are.
+constexpr int SmallestStripWidth = 120;
+}
 
 Git::Repository *MultiPageWidget::defaultGitManager() const
 {
@@ -29,6 +37,9 @@ int MultiPageWidget::count() const
 
 bool MultiPageWidget::event(QEvent *event)
 {
+    if (event->type() == QEvent::Resize)
+        scheduleStripUpdate();
+
     if (event->type() == QEvent::PaletteChange) {
         updateTheme();
     }
@@ -45,13 +56,57 @@ MultiPageWidget::MultiPageWidget(QWidget *parent)
     updateStyleSheet();
 
     connect(mActionGroup, &QActionGroup::triggered, this, &MultiPageWidget::slotPageSelected);
+
+    connect(scrollAreaPages->verticalScrollBar(), &QScrollBar::rangeChanged, this, &MultiPageWidget::scheduleStripUpdate);
+}
+
+void MultiPageWidget::scheduleStripUpdate()
+{
+    if (mStripUpdateScheduled)
+        return;
+
+    // After the layout has settled: whether a scroll bar is there is only known once it has,
+    // and the width and the margins are both worked out from that.
+    mStripUpdateScheduled = true;
+    QMetaObject::invokeMethod(
+        this,
+        [this] {
+            mStripUpdateScheduled = false;
+            updateStripWidth();
+        },
+        Qt::QueuedConnection);
+}
+
+void MultiPageWidget::updateStripWidth()
+{
+    // The strip is as wide as the widest of the names on it, so a name is never cut in half.
+    int widest{0};
+    for (int i = 0; i < verticalLayoutButtons->count(); ++i) {
+        if (auto *button = verticalLayoutButtons->itemAt(i)->widget())
+            widest = qMax(widest, button->sizeHint().width());
+    }
+
+    if (!widest)
+        return;
+
+    // Room for the scroll bar as well, which comes and goes with the height of the window, so
+    // a name is not cut short when it appears.
+    const int reserved = style()->pixelMetric(QStyle::PM_ScrollBarExtent);
+
+    // An even width for the buttons, so an icon or a name of even width lands exactly in the
+    // middle of one rather than half a pixel off it.
+    const int frames = 2 * scrollAreaPages->frameWidth();
+    const int width = qMax(SmallestStripWidth, widest + reserved + frames);
+
+    scrollAreaPages->setFixedWidth(width + ((width - reserved - frames) % 2));
 }
 
 void MultiPageWidget::updateStyleSheet()
 {
     const bool isDarkTheme = QGuiApplication::styleHints()->colorScheme() == Qt::ColorScheme::Dark;
 
-    const auto styleSheet = QStringLiteral(R"CSS(
+    const auto styleSheet =
+        QStringLiteral(R"CSS(
         #scrollAreaWidgetContents {
             background-color: #%1;
         }
@@ -73,9 +128,9 @@ void MultiPageWidget::updateStyleSheet()
         }
 
 )CSS")
-                                .arg(palette().color(QPalette::Base).rgba(), 0, 16)
-                                .arg(isDarkTheme ? palette().color(QPalette::Highlight).darker().rgba() : palette().color(QPalette::Highlight).lighter().rgba(), 0, 16)
-                                .arg(palette().color(QPalette::Highlight).rgba(), 0, 16);
+            .arg(palette().color(QPalette::Base).rgba(), 0, 16)
+            .arg(isDarkTheme ? palette().color(QPalette::Highlight).darker().rgba() : palette().color(QPalette::Highlight).lighter().rgba(), 0, 16)
+            .arg(palette().color(QPalette::Highlight).rgba(), 0, 16);
 
     scrollAreaWidgetContents->setStyleSheet(styleSheet);
     updateTheme();
@@ -104,6 +159,8 @@ void MultiPageWidget::addPage(const QString &title, const QIcon &icon, WidgetBas
     widget->layout()->setContentsMargins({});
 
     verticalLayoutButtons->insertWidget(mActionGroup->actions().size() - 1, btn);
+
+    scheduleStripUpdate();
 }
 
 void MultiPageWidget::addPage(WidgetBase *widget, QAction *action, const QIcon &icon)
