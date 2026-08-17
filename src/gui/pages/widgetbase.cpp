@@ -100,10 +100,22 @@ void WidgetBase::gitPathChanged()
         return;
     }
 
-    if (isVisible())
-        reload();
-    else
+    if (!isVisible()) {
         markNeedsReload();
+        return;
+    }
+
+    // Read once every model has seen the change too. The models are told the same way this
+    // page is, and a page that reads them first reads what the last repository left.
+    QMetaObject::invokeMethod(
+        this,
+        [this] {
+            if (isVisible())
+                reload();
+            else
+                markNeedsReload();
+        },
+        Qt::QueuedConnection);
 }
 
 void WidgetBase::markNeedsReload()
