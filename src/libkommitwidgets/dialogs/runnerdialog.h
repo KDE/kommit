@@ -33,6 +33,9 @@ public:
     void setAutoClose(bool newAutoClose);
 
 private:
+    /// Adds @p text to the output, with any address in it as a link.
+    void appendOutput(const QString &text);
+
     LIBKOMMITWIDGETS_NO_EXPORT void git_readyReadStandardOutput();
     LIBKOMMITWIDGETS_NO_EXPORT void git_readyReadStandardError();
     LIBKOMMITWIDGETS_NO_EXPORT void git_finished(int exitCode, QProcess::ExitStatus exitStatus);

@@ -6,6 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "runnerdialog.h"
 
+#include "linkify.h"
+
 #include "commands/abstractcommand.h"
 #include "core/kmessageboxhelper.h"
 #include "repository.h"
@@ -33,6 +35,9 @@ RunnerDialog::RunnerDialog(Git::Repository *git, QWidget *parent)
 
     buttonBox->button(QDialogButtonBox::Cancel)->hide();
     buttonBox->button(QDialogButtonBox::Close)->show();
+
+    // Clicking an address a server sent back opens it where the user reads such pages.
+    textBrowser->setOpenExternalLinks(true);
 }
 
 RunnerDialog::~RunnerDialog()
@@ -82,11 +87,18 @@ void RunnerDialog::run(Git::AbstractCommand *command)
     buttonBox->button(QDialogButtonBox::Close)->hide();
 }
 
+void RunnerDialog::appendOutput(const QString &text)
+{
+    // A server answers a push with the address of the merge request to open, and that is
+    // there to be followed rather than copied out by hand.
+    textBrowser->append(Git::linkifyUrls(text));
+}
+
 void RunnerDialog::git_readyReadStandardOutput()
 {
     const auto buffer = mGitProcess->readAllStandardOutput();
     mErrorOutput.append(buffer);
-    textBrowser->append(buffer);
+    appendOutput(buffer);
 
     if (mCmd && mCmd->supportProgress())
         mCmd->parseOutputSection(buffer, QByteArray());
@@ -102,7 +114,7 @@ void RunnerDialog::git_readyReadStandardError()
 {
     const auto buffer = mGitProcess->readAllStandardError();
     mStandardOutput.append(buffer);
-    textBrowser->append(buffer);
+    appendOutput(buffer);
 
     if (mCmd && mCmd->supportProgress())
         mCmd->parseOutputSection(QByteArray(), buffer);
