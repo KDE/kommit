@@ -79,7 +79,13 @@ int FetchPrivate::run()
 
     int ret;
     if (!branch.isNull()) {
-        StrArray refSpecs{branch.refName()};
+        // One branch, written to the remote tracking branch that follows it, so what came
+        // down is where the rest of the program looks for it. A refspec with no destination
+        // would leave the answer in FETCH_HEAD and nowhere else.
+        const auto name = branch.name();
+        const QString refSpec = QStringLiteral("+refs/heads/%1:refs/remotes/%2/%1").arg(name, remote.name());
+
+        StrArray refSpecs{refSpec};
         ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), *refSpecs, &opts, "fetch");
     } else {
         ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), (const git_strarray *)NULL, &opts, "fetch");

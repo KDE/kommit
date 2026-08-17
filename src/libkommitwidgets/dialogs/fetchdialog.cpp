@@ -36,7 +36,7 @@ FetchDialog::FetchDialog(Git::Repository *git, QWidget *parent)
     comboBoxRemote->addItems(git->remotes()->allNames());
     comboBoxBranch->addItems(git->branches()->names(Git::BranchType::LocalBranch));
 
-    comboBoxRemote->setCurrentText(git->branches()->currentName());
+    comboBoxBranch->setCurrentText(git->branches()->currentName());
     connect(buttonBox, &QDialogButtonBox::accepted, this, &FetchDialog::slotAccept);
 
     stackedWidget->setCurrentIndex(0);
@@ -49,23 +49,6 @@ void FetchDialog::setBranch(const QString &branch)
 
 void FetchDialog::slotAccept()
 {
-    // Git::CommandFetch *cmd = new Git::CommandFetch;
-
-    // cmd->setRemote(comboBoxRemote->currentText());
-
-    // if (!checkBoxAllBranches->isChecked())
-    //     cmd->setBranch(comboBoxBranch->currentText());
-    // // cmd->setNoFf(checkBoxNoFastForward->isChecked());
-    // // cmd->setFfOnly(checkBoxFastForwardOnly->isChecked());
-    // // cmd->setNoCommit(checkBoxNoCommit->isChecked());
-    // cmd->setPrune(checkBoxPrune->isChecked());
-    // cmd->setTags(checkBoxTags->isChecked());
-
-    // RunnerDialog d(mGit, this);
-    // d.run(cmd);
-    // d.exec();
-
-    // accept();
     startFetch();
 }
 
@@ -75,6 +58,13 @@ void FetchDialog::startFetch()
 
     auto remote = mGit->remotes()->findByName(comboBoxRemote->currentText());
     mFetch->setRemote(remote);
+
+    // With all branches left out, only the one named is asked for.
+    if (!checkBoxAllBranches->isChecked()) {
+        auto branch = mGit->branches()->findByName(comboBoxBranch->currentText());
+        if (!branch.isNull())
+            mFetch->setBranch(branch);
+    }
 
     // set prune
     switch (checkBoxPrune->checkState()) {
