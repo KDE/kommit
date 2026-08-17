@@ -6,6 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "difftreemodel.h"
 
+#include <QHash>
+#include <QIcon>
 #include <QSet>
 
 struct DiffNodeData : public NodeData {
@@ -65,7 +67,25 @@ TreeNode *DiffTreeModel::createPath(const QStringList &path, Diff::DiffType stat
     return parent;
 }
 
-QString icon(Diff::DiffType status)
+QString iconPath(Diff::DiffType status);
+
+QIcon statusIcon(Diff::DiffType status)
+{
+    // Built once each: a tree of a few thousand files asks its model for the icon of every
+    // row it lays out, and building one reads the file behind it.
+    static QHash<int, QIcon> icons;
+
+    const auto cached = icons.constFind(static_cast<int>(status));
+    if (cached != icons.constEnd())
+        return *cached;
+
+    const auto icon = QIcon::fromTheme(iconPath(status));
+    icons.insert(static_cast<int>(status), icon);
+
+    return icon;
+}
+
+QString iconPath(Diff::DiffType status)
 {
     switch (status) {
     case Diff::DiffType::Added:
@@ -195,9 +215,9 @@ QVariant DiffTreeModel::data(const QModelIndex &index, int role) const
 
         auto diffData = static_cast<DiffNodeData *>(item->nodeData);
         if (diffData)
-            return QIcon::fromTheme(icon(diffData->diffType));
+            return statusIcon(diffData->diffType);
         else
-            return QIcon::fromTheme(icon(calculateNodeType(item)));
+            return statusIcon(calculateNodeType(item));
     } else if (role == Qt::ForegroundRole) {
         //        Node *item = static_cast<Node *>(index.internalPointer());
         //        return textColor(item->metaData);
