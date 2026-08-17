@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "commitdetails.h"
 #include "avatarview.h"
 #include "kommitwidgetsglobaloptions.h"
+#include "linkify.h"
 
 #include <entities/commit.h>
 #include <entities/commitsignatureinfo.h>
@@ -58,6 +59,10 @@ CommitDetails::CommitDetails(QWidget *parent)
 
     connect(checkBoxMarkdownDisplay, &QCheckBox::toggled, this, &CommitDetails::slotMarkdownDisplayToggled);
 
+    // A message carries the address of the review it went through, and following it is the
+    // point of having it there.
+    labelCommitBody->setOpenExternalLinks(true);
+
     stackedWidget->setCurrentIndex(0);
 }
 
@@ -77,7 +82,6 @@ void CommitDetails::setCommit(const Git::Commit &commit)
     labelCommitHash->setText(commit.commitHash());
     labelCommitSubject->setText(commit.summary());
     if (!commit.body().isEmpty()) {
-        labelCommitBody->setText(commit.body());
         slotMarkdownDisplayToggled(checkBoxMarkdownDisplay->isChecked());
         labelCommitBody->setVisible(true);
         checkBoxMarkdownDisplay->setVisible(true);
@@ -232,7 +236,16 @@ void CommitDetails::slotEmailLinkClicked(const QString &link)
 
 void CommitDetails::slotMarkdownDisplayToggled(bool checked)
 {
-    labelCommitBody->setTextFormat(checked ? Qt::MarkdownText : Qt::PlainText);
+    if (checked) {
+        labelCommitBody->setTextFormat(Qt::MarkdownText);
+        labelCommitBody->setText(mCommit.body());
+        return;
+    }
+
+    // Rich text rather than plain, so the addresses in it can be followed. What that costs
+    // in spacing and line breaks linkifyUrls() puts back.
+    labelCommitBody->setTextFormat(Qt::RichText);
+    labelCommitBody->setText(Git::linkifyUrls(mCommit.body()));
 }
 
 QString CommitDetails::createChangedFiles()

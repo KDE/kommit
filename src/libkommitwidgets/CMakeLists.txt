@@ -7,6 +7,8 @@ generate_export_header(libkommitwidgets BASE_NAME libkommitwidgets)
 target_sources(libkommitwidgets PRIVATE
     kommitwidgetsglobaloptions.h
     kommitwidgetsglobaloptions.cpp
+    linkify.h
+    linkify.cpp
     gitgraphlane.h
     gitgraphlane.cpp
 
