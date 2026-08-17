@@ -113,8 +113,11 @@ void MultiPageWidget::updateStyleSheet()
         QToolButton {
             background-color: #%1;
             border: none;
-            padding-top: 10px;
-            padding-bottom: 10px;
+            /* The room an icon is given is taller than the room its name is given, which
+               leaves the two of them sitting high in the button. The padding makes up the
+               difference, so what is above the icon and what is below the name match. */
+            padding-top: 14px;
+            padding-bottom: 6px;
             height: 48px;
         }
 
@@ -225,8 +228,11 @@ void MultiPageWidget::updateTheme()
             color: #%4;
             background-color: #%1;
             border: none;
-            padding-top: 10px;
-            padding-bottom: 10px;
+            /* The room an icon is given is taller than the room its name is given, which
+               leaves the two of them sitting high in the button. The padding makes up the
+               difference, so what is above the icon and what is below the name match. */
+            padding-top: 14px;
+            padding-bottom: 6px;
             height: 48px;
         }
 
