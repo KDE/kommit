@@ -22,6 +22,16 @@ void GraphLane::generateRandomColor()
     //    _color = QColor(r->bounded(0, 150), r->bounded(0, 150), r->bounded(0, 150));
 }
 
+QString GraphLane::branch() const
+{
+    return mBranch;
+}
+
+void GraphLane::setBranch(const QString &branch)
+{
+    mBranch = branch;
+}
+
 void GraphLane::setType(Type newType)
 {
     mType = newType;

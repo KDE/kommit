@@ -5,10 +5,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 #include "branchescache.h"
+#include "caches/remotescache.h"
+#include "entities/remote.h"
 #include "gitglobal_p.h"
 #include "repository.h"
 
 #include <git2/branch.h>
+#include <git2/refs.h>
 
 #include <QDebug>
 #include <QHash>
@@ -171,6 +174,45 @@ BranchesCache::DataType BranchesCache::current()
 
     auto b = findByPtr(ref);
     return b;
+}
+
+QString BranchesCache::defaultName()
+{
+    const auto shorthandOfRemoteHead = [this](const QString &remoteName) -> QString {
+        const auto refName = QStringLiteral("refs/remotes/%1/HEAD").arg(remoteName);
+
+        git_reference *ref{nullptr};
+        if (git_reference_lookup(&ref, manager->repoPtr(), refName.toUtf8().constData()))
+            return {};
+
+        QString branchName;
+        if (const auto *target = git_reference_symbolic_target(ref)) {
+            const auto prefix = QStringLiteral("refs/remotes/%1/").arg(remoteName);
+            const QString targetName{QString::fromUtf8(target)};
+            if (targetName.startsWith(prefix))
+                branchName = targetName.mid(prefix.size());
+        }
+
+        git_reference_free(ref);
+
+        return branchName;
+    };
+
+    // The remote it was cloned from first, then any other, since that is where the answer was
+    // written.
+    if (const auto fromOrigin = shorthandOfRemoteHead(QStringLiteral("origin")); !fromOrigin.isEmpty())
+        return fromOrigin;
+
+    const auto remotes = manager->remotes()->allRemotes();
+    for (const auto &remote : remotes) {
+        if (const auto name = shorthandOfRemoteHead(remote.name()); !name.isEmpty())
+            return name;
+    }
+
+    if (const auto configured = manager->config(QStringLiteral("init.defaultBranch")); !configured.isEmpty())
+        return configured;
+
+    return currentName();
 }
 
 QString BranchesCache::currentName()

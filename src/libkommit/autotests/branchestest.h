@@ -31,6 +31,10 @@ private Q_SLOTS:
     void removeNewBranch();
     void shouldRemoveABranchThatWasOnlyRead();
 
+    void shouldFallBackToTheBranchBeingWorkedOn();
+    void shouldTakeTheDefaultBranchTheConfigNames();
+    void shouldPreferWhatTheRemoteWasClonedFrom();
+
 private:
     Git::Repository *mManager;
 

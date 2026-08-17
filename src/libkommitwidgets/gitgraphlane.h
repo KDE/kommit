@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 #include "libkommitwidgets_export.h"
 #include <QList>
+#include <QString>
 
 namespace Impl
 {
@@ -33,10 +34,15 @@ public:
     const QList<int> &upJoins() const;
     void setType(Type newType);
 
+    /// The branch whose line this is, empty when no branch points at anything along it.
+    [[nodiscard]] QString branch() const;
+    void setBranch(const QString &branch);
+
 private:
     LIBKOMMITWIDGETS_NO_EXPORT void generateRandomColor();
 
     Type mType{None};
+    QString mBranch;
     QList<int> mBottomJoins;
     QList<int> mUpJoins;
 
