@@ -292,22 +292,43 @@ void AppWindow::changeLogs()
     ChangeLogsDialog d{this};
     d.exec();
 }
+namespace
+{
+/// A repository path as the recent list keeps it, with the separator at the end, so the same
+/// repository named with one and without one does not take two places in it.
+QString recentReposPath(const QString &path)
+{
+    if (path.isEmpty() || path.endsWith(QLatin1Char('/')))
+        return path;
+
+    return path + QLatin1Char('/');
+}
+}
+
 void AppWindow::initRecentRepos(const QString &newItem)
 {
     mRecentAction->menu()->clear();
     QSettings s;
     auto recentList = s.value(QStringLiteral("recent_files")).toStringList();
 
-    if (!newItem.isEmpty()) {
-        recentList.removeOne(newItem);
-        recentList.prepend(newItem);
+    // Every path with the separator at the end, both the one arriving and those written
+    // before the list was kept that way, so a repository does not take two places in it.
+    for (auto &entry : recentList)
+        entry = recentReposPath(entry);
+    recentList.removeDuplicates();
 
-        if (recentList.size() > 10)
-            recentList = recentList.mid(0, 10);
-        s.setValue(QStringLiteral("recent_files"), recentList);
-        s.setValue(QStringLiteral("last_repo"), newItem);
-        s.sync();
+    const auto item = recentReposPath(newItem);
+    if (!item.isEmpty()) {
+        recentList.removeAll(item);
+        recentList.prepend(item);
+        s.setValue(QStringLiteral("last_repo"), item);
     }
+
+    if (recentList.size() > 10)
+        recentList = recentList.mid(0, 10);
+
+    s.setValue(QStringLiteral("recent_files"), recentList);
+    s.sync();
 
     mRecentAction->setVisible(!recentList.isEmpty());
 
