@@ -41,8 +41,13 @@ protected:
 
 private:
     void updateStyleSheet();
+    /// Gives the strip the width the longest of the names on it needs.
+    void updateStripWidth();
+    /// Works both out once the layout has settled, since a scroll bar appears during it.
+    void scheduleStripUpdate();
     void slotPageSelected(QAction *action);
     QActionGroup *const mActionGroup;
+    bool mStripUpdateScheduled{false};
     Git::Repository *mDefaultGitManager = nullptr;
     void updateTheme();
 };
