@@ -33,6 +33,11 @@ BranchesModel::BranchesModel(Git::Repository *git, QObject *parent)
     , d_ptr{new BranchesModelPrivate{this}}
 {
     connect(git->branches(), &Git::BranchesCache::reseted, this, &BranchesModel::reload);
+
+    // A branch that was just made or taken away is a row more or a row less, and the rows are
+    // what a view reads: reload() alone changes them behind its back.
+    connect(git->branches(), &Git::BranchesCache::added, this, &BranchesModel::load);
+    connect(git->branches(), &Git::BranchesCache::removed, this, &BranchesModel::load);
 }
 
 BranchesModel::~BranchesModel()
