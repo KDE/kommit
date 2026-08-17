@@ -87,4 +87,24 @@ void BranchesTest::removeNewBranch()
     QVERIFY(ok);
 }
 
+void BranchesTest::shouldRemoveABranchThatWasOnlyRead()
+{
+    const QString name{QStringLiteral("read_branch_name")};
+    QVERIFY(mManager->branches()->create(name));
+
+    // A repository opened again knows of the branch only what it reads, which is the way a
+    // list of branches on screen comes by them: one after another, not looked up by name.
+    Git::Repository other;
+    QVERIFY(other.open(mManager->path()));
+
+    const auto branches = other.branches()->allBranches(Git::BranchType::LocalBranch);
+    const auto found = std::find_if(branches.begin(), branches.end(), [&name](const Git::Branch &branch) {
+        return branch.name() == name;
+    });
+    QVERIFY(found != branches.end());
+
+    QVERIFY(other.branches()->remove(*found));
+    QVERIFY(!other.branches()->names(Git::BranchType::LocalBranch).contains(name));
+}
+
 #include "moc_branchestest.cpp"

@@ -29,6 +29,7 @@ private Q_SLOTS:
     void removeCurrentBranch();
     void switchToInitialBranch();
     void removeNewBranch();
+    void shouldRemoveABranchThatWasOnlyRead();
 
 private:
     Git::Repository *mManager;

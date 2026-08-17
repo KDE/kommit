@@ -95,11 +95,20 @@ bool BranchesCache::remove(DataType branch)
     BEGIN
     STEP git_branch_delete(branch.refPtr());
 
-    if (IS_OK && d->remove(branch)) {
-        Q_EMIT removed(branch);
-        return true;
+    if (IS_ERROR) {
+        PRINT_ERROR;
+        return false;
     }
-    return false;
+
+    // The branch is gone from the repository whether or not this held a copy of it: the ones
+    // read from it are kept by reference, the ones made here by name, and a branch removed
+    // through neither of those was still removed.
+    removeFromList(branch.refPtr());
+    d->remove(branch);
+
+    Q_EMIT removed(branch);
+
+    return true;
 }
 
 BranchesCache::ListType BranchesCache::allBranches(BranchType type)
