@@ -55,6 +55,12 @@ MultiPageWidget::MultiPageWidget(QWidget *parent)
     setupUi(this);
     updateStyleSheet();
 
+    // A strip of page names is not a list to scroll: a bar down the side of it reads as one
+    // more thing to deal with, and the wheel and the page a name belongs to both still reach
+    // whatever a short window leaves out of sight.
+    scrollAreaPages->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollAreaPages->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     connect(mActionGroup, &QActionGroup::triggered, this, &MultiPageWidget::slotPageSelected);
 
     connect(scrollAreaPages->verticalScrollBar(), &QScrollBar::rangeChanged, this, &MultiPageWidget::scheduleStripUpdate);
@@ -89,16 +95,12 @@ void MultiPageWidget::updateStripWidth()
     if (!widest)
         return;
 
-    // Room for the scroll bar as well, which comes and goes with the height of the window, so
-    // a name is not cut short when it appears.
-    const int reserved = style()->pixelMetric(QStyle::PM_ScrollBarExtent);
-
     // An even width for the buttons, so an icon or a name of even width lands exactly in the
     // middle of one rather than half a pixel off it.
     const int frames = 2 * scrollAreaPages->frameWidth();
-    const int width = qMax(SmallestStripWidth, widest + reserved + frames);
+    const int width = qMax(SmallestStripWidth, widest + frames);
 
-    scrollAreaPages->setFixedWidth(width + ((width - reserved - frames) % 2));
+    scrollAreaPages->setFixedWidth(width + ((width - frames) % 2));
 }
 
 void MultiPageWidget::updateStyleSheet()
@@ -204,9 +206,18 @@ QList<QAction *> MultiPageWidget::actions() const
 
 void MultiPageWidget::slotPageSelected(QAction *action)
 {
-    stackedWidget->setCurrentIndex(action->data().toInt());
+    const auto index = action->data().toInt();
+
+    stackedWidget->setCurrentIndex(index);
     labelTitle->setText(action->text().remove(QLatin1Char('&')));
     labelPageIcon->setPixmap(action->icon().pixmap({32, 32}));
+
+    // The name of the page being shown is brought into view, since there is no bar to say
+    // that the strip goes on past the bottom of a short window.
+    if (auto *item = verticalLayoutButtons->itemAt(index)) {
+        if (auto *button = item->widget())
+            scrollAreaPages->ensureWidgetVisible(button);
+    }
 }
 
 // bool MultiPageWidget::event(QEvent *e)
