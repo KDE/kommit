@@ -33,6 +33,9 @@ public:
 
     void reload();
 
+protected:
+    void showEvent(QShowEvent *event) override;
+
 Q_SIGNALS:
     void branchActivated(const Git::Branch &branch);
 
