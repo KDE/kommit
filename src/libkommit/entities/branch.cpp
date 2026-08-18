@@ -39,8 +39,18 @@ public:
     git_reference *const branch;
     QString name;
     QString refName;
-    QString upStreamName;
-    QString remoteName;
+    /**
+     * The branch this one follows on a server, and which server that is.
+     *
+     * Both are read from the config and from the refspecs of every remote, which is dear
+     * enough that a repository with a few hundred branches spends a second of the opening on
+     * them. They are read the first time they are asked for instead, since a list on screen
+     * asks about the rows it draws and nothing else.
+     */
+    mutable QString upStreamName;
+    mutable QString remoteName;
+    mutable bool namesRead{false};
+    void readNames() const;
 
     // Commit commit;
 };
@@ -57,18 +67,27 @@ Branch::Branch(git_reference *branch)
         const char *tmp;
         git_branch_name(&tmp, branch);
         d->name = tmp;
-        auto refName = git_reference_name(branch);
-        d->refName = refName;
-
-        auto repo = git_reference_owner(branch);
-        Buf buf;
-        if (!git_branch_upstream_name(&buf, repo, refName))
-            d->upStreamName = buf.toString();
-
-        Buf buf2;
-        if (!git_branch_remote_name(&buf2, repo, refName))
-            d->remoteName = buf2.toString();
+        d->refName = git_reference_name(branch);
     }
+}
+
+void BranchPrivate::readNames() const
+{
+    if (namesRead || !branch)
+        return;
+
+    namesRead = true;
+
+    auto *repo = git_reference_owner(branch);
+    const auto *refName = git_reference_name(branch);
+
+    Buf upstream;
+    if (!git_branch_upstream_name(&upstream, repo, refName))
+        upStreamName = upstream.toString();
+
+    Buf remote;
+    if (!git_branch_remote_name(&remote, repo, refName))
+        remoteName = remote.toString();
 }
 
 Branch::Branch(const Branch &other)
@@ -126,11 +145,13 @@ QString Branch::refName() const
 
 QString Branch::upStreamName() const
 {
+    d->readNames();
     return d->upStreamName;
 }
 
 QString Branch::remoteName() const
 {
+    d->readNames();
     return d->remoteName;
 }
 
