@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-16 00:47+0000\n"
+"POT-Creation-Date: 2026-08-18 00:48+0000\n"
 "PO-Revision-Date: 2025-01-07 14:53+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -168,7 +168,7 @@ msgstr "Git-kliento por KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Kopirajto 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:61 src/libkommitwidgets/models/commitsmodel.cpp:296
+#: src/apps/main.cpp:61 src/libkommitwidgets/models/commitsmodel.cpp:298
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -191,149 +191,155 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Cimkorektado"
 
-#: src/gui/appwindow.cpp:110 src/gui/appwindow.cpp:154
+#: src/gui/appwindow.cpp:112 src/gui/appwindow.cpp:193
 #, kde-format
 msgid "No repo selected"
 msgstr "Neniu deponejo elektita"
 
-#: src/gui/appwindow.cpp:146
+#: src/gui/appwindow.cpp:145
+#, kde-format
+msgctxt "@info:status"
+msgid "Loading %1…"
+msgstr ""
+
+#: src/gui/appwindow.cpp:185
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Aktuala branĉo: %1"
 
-#: src/gui/appwindow.cpp:148
+#: src/gui/appwindow.cpp:187
 #, kde-format
 msgid " (merging)"
 msgstr " (kunfandante)"
 
-#: src/gui/appwindow.cpp:150
+#: src/gui/appwindow.cpp:189
 #, kde-format
 msgid " (rebasing)"
 msgstr " (rebazigante)"
 
-#: src/gui/appwindow.cpp:185
+#: src/gui/appwindow.cpp:224
 #: src/libkommitwidgets/actions/submoduleactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Init…"
 msgstr "Iniciati…"
 
-#: src/gui/appwindow.cpp:188
+#: src/gui/appwindow.cpp:227
 #, kde-format
 msgctxt "@action"
 msgid "Open…"
 msgstr "Malfermi…"
 
-#: src/gui/appwindow.cpp:193
+#: src/gui/appwindow.cpp:232
 #, kde-format
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Kloni…"
 
-#: src/gui/appwindow.cpp:196
+#: src/gui/appwindow.cpp:235
 #, kde-format
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Ŝanĝitaj dosieroj…"
 
-#: src/gui/appwindow.cpp:202
+#: src/gui/appwindow.cpp:241
 #, kde-format
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Lasttempaj deponejoj"
 
-#: src/gui/appwindow.cpp:208
+#: src/gui/appwindow.cpp:247
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Purigi…"
 
-#: src/gui/appwindow.cpp:211
+#: src/gui/appwindow.cpp:250
 #, kde-format
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Tiri (pull)…"
 
-#: src/gui/appwindow.cpp:215 src/libkommitwidgets/actions/branchactions.cpp:33
+#: src/gui/appwindow.cpp:254 src/libkommitwidgets/actions/branchactions.cpp:33
 #, kde-format
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Preni (fetch)…"
 
-#: src/gui/appwindow.cpp:219 src/libkommitwidgets/actions/tagsactions.cpp:29
+#: src/gui/appwindow.cpp:258 src/libkommitwidgets/actions/tagsactions.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Push…"
 msgstr "Puŝi…"
 
-#: src/gui/appwindow.cpp:223 src/libkommitwidgets/actions/branchactions.cpp:36
+#: src/gui/appwindow.cpp:262 src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Kunfandi (merge)…"
 
-#: src/gui/appwindow.cpp:227
+#: src/gui/appwindow.cpp:266
 #, kde-format
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Dif-i branĉojn…"
 
-#: src/gui/appwindow.cpp:230 src/libkommitwidgets/actions/fileactions.cpp:46
+#: src/gui/appwindow.cpp:269 src/libkommitwidgets/actions/fileactions.cpp:46
 #, kde-format
 msgctxt "@action"
 msgid "Search…"
 msgstr "Serĉi…"
 
-#: src/gui/appwindow.cpp:233
+#: src/gui/appwindow.cpp:272
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "Deponej-agordoj…"
 
-#: src/gui/appwindow.cpp:236
+#: src/gui/appwindow.cpp:275
 #, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Ŝanĝi/Elpreni (switch/checkout)…"
 
-#: src/gui/appwindow.cpp:239
+#: src/gui/appwindow.cpp:278
 #, kde-format
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr "Dif-i arbon…"
 
-#: src/gui/appwindow.cpp:242
+#: src/gui/appwindow.cpp:281
 #, kde-format
 msgctxt "@action"
 msgid "Change logs…"
 msgstr "Ŝanĝi protokolojn…"
 
-#: src/gui/appwindow.cpp:285
+#: src/gui/appwindow.cpp:343
 #, kde-format
 msgid "Clear"
 msgstr "Purigi"
 
-#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:365 src/gui/commandargsparser.cpp:205
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Ne eblas krei vojon: %1"
 
-#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:365 src/gui/commandargsparser.cpp:205
 #, kde-format
 msgid "Init repo"
 msgstr "Iniciati deponejon"
 
-#: src/gui/appwindow.cpp:320
+#: src/gui/appwindow.cpp:378
 #, kde-format
 msgid "Open repository"
 msgstr "Malfermi deponejon"
 
-#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:459 src/gui/commandargsparser.cpp:458
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Ne povas ŝanĝi branĉon dum kunfandado"
 
-#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:459 src/gui/commandargsparser.cpp:458
 #, kde-format
 msgid "Switch branch"
 msgstr "Ŝanĝi branĉon"
@@ -2844,18 +2850,18 @@ msgstr "(nova enmeto)"
 msgid " (content modified)"
 msgstr " (enhavo modofita)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:292
-#: src/libkommitwidgets/models/commitsmodel.cpp:303
+#: src/libkommitwidgets/models/commitsmodel.cpp:294
+#: src/libkommitwidgets/models/commitsmodel.cpp:305
 #, kde-format
 msgid "Message"
 msgstr "Mesaĝo"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:294
+#: src/libkommitwidgets/models/commitsmodel.cpp:296
 #, kde-format
 msgid "Date"
 msgstr "Dato"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:301
+#: src/libkommitwidgets/models/commitsmodel.cpp:303
 #, kde-format
 msgid "Graph"
 msgstr "Grafiko"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-16 00:47+0000\n"
+"POT-Creation-Date: 2026-08-18 00:48+0000\n"
 "PO-Revision-Date: 2024-10-08 15:18+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -167,7 +167,7 @@ msgstr ""
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr ""
 
-#: src/apps/main.cpp:61 src/libkommitwidgets/models/commitsmodel.cpp:296
+#: src/apps/main.cpp:61 src/libkommitwidgets/models/commitsmodel.cpp:298
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -190,149 +190,155 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Opravy chyb"
 
-#: src/gui/appwindow.cpp:110 src/gui/appwindow.cpp:154
+#: src/gui/appwindow.cpp:112 src/gui/appwindow.cpp:193
 #, kde-format
 msgid "No repo selected"
 msgstr ""
 
-#: src/gui/appwindow.cpp:146
+#: src/gui/appwindow.cpp:145
+#, kde-format
+msgctxt "@info:status"
+msgid "Loading %1…"
+msgstr ""
+
+#: src/gui/appwindow.cpp:185
 #, kde-format
 msgid "Current branch: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:148
+#: src/gui/appwindow.cpp:187
 #, kde-format
 msgid " (merging)"
 msgstr ""
 
-#: src/gui/appwindow.cpp:150
+#: src/gui/appwindow.cpp:189
 #, kde-format
 msgid " (rebasing)"
 msgstr ""
 
-#: src/gui/appwindow.cpp:185
+#: src/gui/appwindow.cpp:224
 #: src/libkommitwidgets/actions/submoduleactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Init…"
 msgstr "Inicializovat..."
 
-#: src/gui/appwindow.cpp:188
+#: src/gui/appwindow.cpp:227
 #, kde-format
 msgctxt "@action"
 msgid "Open…"
 msgstr "Otevřít…"
 
-#: src/gui/appwindow.cpp:193
+#: src/gui/appwindow.cpp:232
 #, kde-format
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Clone…"
 
-#: src/gui/appwindow.cpp:196
+#: src/gui/appwindow.cpp:235
 #, kde-format
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Změněné soubory…"
 
-#: src/gui/appwindow.cpp:202
+#: src/gui/appwindow.cpp:241
 #, kde-format
 msgctxt "@action"
 msgid "Recent repos"
 msgstr ""
 
-#: src/gui/appwindow.cpp:208
+#: src/gui/appwindow.cpp:247
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Cleanup…"
 
-#: src/gui/appwindow.cpp:211
+#: src/gui/appwindow.cpp:250
 #, kde-format
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Pull…"
 
-#: src/gui/appwindow.cpp:215 src/libkommitwidgets/actions/branchactions.cpp:33
+#: src/gui/appwindow.cpp:254 src/libkommitwidgets/actions/branchactions.cpp:33
 #, kde-format
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Fetch…"
 
-#: src/gui/appwindow.cpp:219 src/libkommitwidgets/actions/tagsactions.cpp:29
+#: src/gui/appwindow.cpp:258 src/libkommitwidgets/actions/tagsactions.cpp:29
 #, kde-format
 msgctxt "@action"
 msgid "Push…"
 msgstr "Push…"
 
-#: src/gui/appwindow.cpp:223 src/libkommitwidgets/actions/branchactions.cpp:36
+#: src/gui/appwindow.cpp:262 src/libkommitwidgets/actions/branchactions.cpp:36
 #, kde-format
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Merge…"
 
-#: src/gui/appwindow.cpp:227
+#: src/gui/appwindow.cpp:266
 #, kde-format
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Rozdíly mezi větvemi…"
 
-#: src/gui/appwindow.cpp:230 src/libkommitwidgets/actions/fileactions.cpp:46
+#: src/gui/appwindow.cpp:269 src/libkommitwidgets/actions/fileactions.cpp:46
 #, kde-format
 msgctxt "@action"
 msgid "Search…"
 msgstr "Hledat…"
 
-#: src/gui/appwindow.cpp:233
+#: src/gui/appwindow.cpp:272
 #, kde-format
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "Nastavení repozitáře…"
 
-#: src/gui/appwindow.cpp:236
+#: src/gui/appwindow.cpp:275
 #, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Switch/Checkout…"
 
-#: src/gui/appwindow.cpp:239
+#: src/gui/appwindow.cpp:278
 #, kde-format
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr ""
 
-#: src/gui/appwindow.cpp:242
+#: src/gui/appwindow.cpp:281
 #, kde-format
 msgctxt "@action"
 msgid "Change logs…"
 msgstr "Záznamy změn..."
 
-#: src/gui/appwindow.cpp:285
+#: src/gui/appwindow.cpp:343
 #, kde-format
 msgid "Clear"
 msgstr "Vyprázdnit"
 
-#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:365 src/gui/commandargsparser.cpp:205
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr ""
 
-#: src/gui/appwindow.cpp:307 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:365 src/gui/commandargsparser.cpp:205
 #, kde-format
 msgid "Init repo"
 msgstr ""
 
-#: src/gui/appwindow.cpp:320
+#: src/gui/appwindow.cpp:378
 #, kde-format
 msgid "Open repository"
 msgstr "Otevřít repozitář"
 
-#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:459 src/gui/commandargsparser.cpp:458
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr ""
 
-#: src/gui/appwindow.cpp:403 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:459 src/gui/commandargsparser.cpp:458
 #, kde-format
 msgid "Switch branch"
 msgstr ""
@@ -2718,18 +2724,18 @@ msgstr ""
 msgid " (content modified)"
 msgstr ""
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:292
-#: src/libkommitwidgets/models/commitsmodel.cpp:303
+#: src/libkommitwidgets/models/commitsmodel.cpp:294
+#: src/libkommitwidgets/models/commitsmodel.cpp:305
 #, kde-format
 msgid "Message"
 msgstr "Zpráva"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:294
+#: src/libkommitwidgets/models/commitsmodel.cpp:296
 #, kde-format
 msgid "Date"
 msgstr "Datum"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:301
+#: src/libkommitwidgets/models/commitsmodel.cpp:303
 #, kde-format
 msgid "Graph"
 msgstr "Graf"
