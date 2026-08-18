@@ -25,6 +25,8 @@ public:
     BranchesFilterModel *filterModel;
     QMap<QString, Git::Branch> branchesMap;
     Git::Repository *manager;
+    /// Whether the tree is of a repository other than the one that is open.
+    bool stale{true};
 
     void reload();
 };
@@ -64,14 +66,36 @@ void BranchesSelectionWidget::setGit(Git::Repository *git)
 {
     Q_D(BranchesSelectionWidget);
     d->manager = git;
-    d->reload();
+    reload();
     connect(git, &Git::Repository::pathChanged, this, &BranchesSelectionWidget::reload);
 }
 
 void BranchesSelectionWidget::reload()
 {
     Q_D(BranchesSelectionWidget);
+
+    // Reading every branch of a repository takes a second on one with a few hundred of them,
+    // and this sits on a page that may never be opened: the tree is filled when it is about to
+    // be looked at rather than when the repository is.
+    if (!isVisible()) {
+        d->stale = true;
+        return;
+    }
+
+    d->stale = false;
     d->reload();
+}
+
+void BranchesSelectionWidget::showEvent(QShowEvent *event)
+{
+    Q_D(BranchesSelectionWidget);
+
+    if (d->stale) {
+        d->stale = false;
+        d->reload();
+    }
+
+    QWidget::showEvent(event);
 }
 
 void BranchesSelectionWidget::slotTreeViewRepoItemActivated(const QModelIndex &index)
