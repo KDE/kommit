@@ -53,7 +53,6 @@ template<typename T>
 {
     Array2<int> l(left.size() + 1, right.size() + 1);
 
-    // 1. ساخت ماتریس LCS
     for (int i = 0; i <= left.count(); i++) {
         for (int j = 0; j <= right.count(); j++) {
             if (i == 0 || j == 0) {
@@ -66,25 +65,17 @@ template<typename T>
         }
     }
 
-    // 2. بازگشت به عقب (Backtracking) برای یافتن Chunkهای تطابق
     int i = left.count();
     int j = right.count();
     QList<LcsResult> result;
 
     while (i > 0 && j > 0) {
         if (equals(left.at(i - 1), right.at(j - 1))) {
-            // نکته کلیدی اصلاح:
-            // اگر طول LCS با نادیده گرفتن عنصر فعلی از right (یا left) یکسان باشد،
-            // یعنی این عنصر جزو "ضروری‌ترین" تطابق‌ها نیست. با عقب گرد (j-- یا i--)،
-            // الگوریتم مجبور می‌شود به عقب برگردد و اولین وقوع ممکن را پیدا کند.
-            // این کار باعث می‌شود آکولادهای پایانی به درستی به بلوک اصلی خود گره بخورند
-            // و بلوک‌های جدید به صورت یکپارچه در انتها به عنوان Insert شناسایی شوند.
             if (l(i, j) == l(i, j - 1)) {
                 j--;
             } else if (l(i, j) == l(i - 1, j)) {
                 i--;
             } else {
-                // این یک تطابق ضروری است. حالا تمام خطوط متوالی یکسان را پیدا کن (Chunk)
                 int leftEnd = i - 1;
                 int rightEnd = j - 1;
                 int leftStart = leftEnd;
@@ -100,8 +91,6 @@ template<typename T>
                 result.prepend({leftStart, leftEnd, rightStart, rightEnd});
             }
         } else {
-            // منطق استاندارد و صحیح بازگشت به عقب در LCS
-            // در حالت تساوی، ترجیح با i-- است که منجر به Diff پایدارتر (Stable) می‌شود
             if (l(i - 1, j) >= l(i, j - 1)) {
                 i--;
             } else {
