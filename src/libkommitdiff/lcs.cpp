@@ -74,6 +74,7 @@ Solution longestCommonSubsequence(const QStringList &source, const QStringList &
 {
     Array2<int> l(source.size() + 1, target.size() + 1);
 
+    // 1. ساخت ماتریس LCS
     for (int i = 0; i <= source.count(); i++) {
         for (int j = 0; j <= target.count(); j++) {
             if (i == 0 || j == 0) {
@@ -86,36 +87,30 @@ Solution longestCommonSubsequence(const QStringList &source, const QStringList &
         }
     }
 
+    // 2. بازگشت به عقب (Backtracking) برای یافتن مسیر تطابق
     int i = source.count();
     int j = target.count();
     Solution r;
 
-    int si{-1};
-    int sj{-1};
-
     while (i > 0 && j > 0) {
         if (isEqual(source.at(i - 1), target.at(j - 1))) {
-            r.prepend(qMakePair(i - 1, j - 1));
-            i--;
-            j--;
-            si = i;
-            sj = j;
-        } else {
-            if (si != -1 && sj != -1) { }
-
-            int n = maxIn(l(i - 1, j), l(i, j - 1), l(i - 1, j - 1));
-            switch (n) {
-            case 1:
-                i--;
-                break;
-            case 2:
+            // نکته کلیدی اینجاست:
+            // اگر طول LCS با نادیده گرفتن عنصر فعلی target یکسان باشد، یعنی این عنصر
+            // جزو بهترین تطابق نیست. با انجام j--، الگوریتم مجبور می‌شود به عقب برگردد
+            // و اولین وقوع این خط را پیدا کند. این کار باعث گروه‌بندی صحیح خطوط اضافه
+            // شده در انتها می‌شود و از پراکندگی آن‌ها جلوگیری می‌کند.
+            if (l(i, j) == l(i, j - 1)) {
                 j--;
-                break;
-            default:
+            } else {
+                r.prepend(qMakePair(i - 1, j - 1));
                 i--;
                 j--;
-                break;
             }
+        } else if (l(i - 1, j) >= l(i, j - 1)) {
+            // ترجیح دادن i-- در حالت تساوی، یک استاندارد رایج برای تولید Diff پایدار است
+            i--;
+        } else {
+            j--;
         }
     }
 

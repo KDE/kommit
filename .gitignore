@@ -105,3 +105,4 @@ _packages/
 /.clang-format
 /compile_commands.json
 .cache
+.qtcreator/
