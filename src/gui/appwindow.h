@@ -58,7 +58,8 @@ private:
     void initRecentRepos(const QString &newItem = QString());
 
     /// Opens @p path once control is back in the event loop, so the window is on screen first.
-    void loadRepoWhenShown(const QString &path);
+    /// Reads @p path once the window has been drawn, @p waited turns of the event loop in.
+    void loadRepoWhenShown(const QString &path, int waited = 0);
     bool loadRepo(const QString &path);
 
     template<class T>

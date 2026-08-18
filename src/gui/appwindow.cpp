@@ -57,6 +57,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QSettings>
 #include <QStatusBar>
 #include <QTimer>
+#include <QWindow>
 
 AppWindow::AppWindow()
     : AppMainWindow()
@@ -130,12 +131,27 @@ AppWindow::AppWindow(const QString &path)
     loadRepoWhenShown(path);
 }
 
-void AppWindow::loadRepoWhenShown(const QString &path)
+void AppWindow::loadRepoWhenShown(const QString &path, int waited)
 {
-    // Opening a repository reads its whole history, which on a big one takes long enough
-    // that doing it from the constructor leaves the user staring at nothing. Let the
-    // window come up first, then load.
-    QTimer::singleShot(0, this, [this, path] {
+    // Reading a repository takes long enough on a big one that doing it before the window is
+    // on screen leaves the user with nothing to look at. show() only asks for the window: it
+    // is drawn a turn or two of the event loop later, and the reading has to wait for that
+    // rather than for the loop to merely start.
+    constexpr int triesWaiting{50};
+    constexpr int msBetweenTries{5};
+
+    QTimer::singleShot(waited ? msBetweenTries : 0, this, [this, path, waited] {
+        // No handle yet means the window has not even been made, which show() is what does.
+        auto *window = windowHandle();
+        const auto drawn = window && window->isExposed();
+
+        // Whether it is drawn or not, the reading starts once the tries run out: a window the
+        // desktop never puts on screen is no reason to leave the repository unread.
+        if (!drawn && waited < triesWaiting) {
+            loadRepoWhenShown(path, waited + 1);
+            return;
+        }
+
         loadRepo(path);
     });
 }
