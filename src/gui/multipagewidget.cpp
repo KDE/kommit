@@ -30,7 +30,6 @@ int MultiPageWidget::count() const
 bool MultiPageWidget::event(QEvent *event)
 {
     if (event->type() == QEvent::PaletteChange) {
-        qDebug() << "Change theme";
         updateTheme();
     }
     return QWidget::event(event);
