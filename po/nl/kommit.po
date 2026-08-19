@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-18 00:48+0000\n"
-"PO-Revision-Date: 2026-07-16 18:56+0200\n"
+"PO-Revision-Date: 2026-08-19 13:56+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -199,7 +199,7 @@ msgstr "Geen repo geselecteerd"
 #, kde-format
 msgctxt "@info:status"
 msgid "Loading %1…"
-msgstr ""
+msgstr "Bezig met laden %1…"
 
 #: src/gui/appwindow.cpp:185
 #, kde-format
