@@ -6,7 +6,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "branchesfiltermodel.h"
 
-#include "qdebug.h"
 #include "treemodel.h"
 
 class BranchesFilterModelPrivate
@@ -46,12 +45,8 @@ void BranchesFilterModel::setTreeModel(TreeModel *newTreeModel)
 {
     Q_D(BranchesFilterModel);
 
-    beginResetModel();
     d->treeModel = newTreeModel;
     setSourceModel(newTreeModel);
-    endResetModel();
-
-    qDebug() << "Source model set:" << (sourceModel() != nullptr);
 }
 
 QString BranchesFilterModel::filterTerm() const
