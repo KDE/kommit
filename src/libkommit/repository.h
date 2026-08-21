@@ -88,6 +88,16 @@ public:
     bool commit(const QString &message);
     void push(PushObserver *observer = nullptr) const;
     bool open(const QString &newPath);
+
+    /**
+     * Reads this repository again, for after something outside this program moved it.
+     *
+     * open() answers a request to open what is already open by doing nothing, which is right
+     * for opening and wrong for a checkout: the head, the index and the working copy have all
+     * moved and everything read from them is stale. This empties the caches, says so, and
+     * comes back readable, which is what a page waits for.
+     */
+    void reload();
     Reference head() const;
     bool checkout();
 
