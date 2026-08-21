@@ -97,7 +97,7 @@ void RunnerDialog::appendOutput(const QString &text)
 void RunnerDialog::git_readyReadStandardOutput()
 {
     const auto buffer = mGitProcess->readAllStandardOutput();
-    mErrorOutput.append(buffer);
+    mStandardOutput.append(buffer);
     appendOutput(buffer);
 
     if (mCmd && mCmd->supportProgress())
@@ -113,7 +113,7 @@ void RunnerDialog::git_readyReadStandardOutput()
 void RunnerDialog::git_readyReadStandardError()
 {
     const auto buffer = mGitProcess->readAllStandardError();
-    mStandardOutput.append(buffer);
+    mErrorOutput.append(buffer);
     appendOutput(buffer);
 
     if (mCmd && mCmd->supportProgress())
@@ -122,7 +122,10 @@ void RunnerDialog::git_readyReadStandardError()
 
 void RunnerDialog::git_finished(int exitCode, QProcess::ExitStatus exitStatus)
 {
-    Q_UNUSED(exitCode)
+    // The end of the process can be heard before the last of what it wrote has been read.
+    git_readyReadStandardOutput();
+    git_readyReadStandardError();
+
     buttonBox->button(QDialogButtonBox::Cancel)->hide();
     buttonBox->button(QDialogButtonBox::Close)->show();
 
@@ -133,7 +136,10 @@ void RunnerDialog::git_finished(int exitCode, QProcess::ExitStatus exitStatus)
     if (mCmd)
         isSuccessful = mCmd->parseOutput(mStandardOutput, mErrorOutput);
     else
-        isSuccessful = exitStatus == QProcess::NormalExit;
+        // git says what it refused to do by the code it exits with. Reading only whether it
+        // crashed called a refusal a success, and with autoClose() the dialog then closed on
+        // the way in and took the reason with it.
+        isSuccessful = exitStatus == QProcess::NormalExit && exitCode == 0;
 
     QString exitMessage;
 
@@ -142,8 +148,12 @@ void RunnerDialog::git_finished(int exitCode, QProcess::ExitStatus exitStatus)
     } else {
         if (mCmd)
             KMessageBoxHelper::error(this, mCmd->errorMessage());
-        else
+        else if (const auto refusal = QString::fromUtf8(mErrorOutput).trimmed(); !refusal.isEmpty())
+            KMessageBoxHelper::error(this, refusal);
+        else if (exitStatus != QProcess::NormalExit)
             KMessageBoxHelper::error(this, i18n("The git process crashed"));
+        else
+            KMessageBoxHelper::error(this, i18n("git refused, and said nothing about why"));
         exitMessage = i18n("Process finished with error");
     }
 
