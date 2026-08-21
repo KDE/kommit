@@ -51,9 +51,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <KShell>
 #include <KStandardShortcut>
 #include <QApplication>
+#include <QCoreApplication>
 #include <QDir>
 #include <QFileDialog>
 #include <QMenu>
+#include <QPointer>
 #include <QSettings>
 #include <QStatusBar>
 #include <QTimer>
@@ -175,7 +177,22 @@ bool AppWindow::loadRepo(const QString &path)
 
 AppWindow *AppWindow::instance()
 {
-    static auto *instance = new AppWindow;
+    // Held weakly because KMainWindow deletes itself when it is closed, which would leave a
+    // plain pointer here reading freed memory the next time this is asked.
+    static QPointer<AppWindow> instance;
+
+    if (!instance) {
+        instance = new AppWindow;
+
+        // Deleted when the application goes, rather than left standing until the process does.
+        // The window holds the models, the models hold the commits, and the commits hold what
+        // libgit2 handed out, so nothing under it is let go until it is. A window closed on the
+        // way out has already gone, and deleting nothing is what that comes to here.
+        qAddPostRoutine([] {
+            delete instance.data();
+        });
+    }
+
     return instance;
 }
 
