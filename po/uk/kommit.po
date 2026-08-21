@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:48+0000\n"
+"POT-Creation-Date: 2026-08-21 00:47+0000\n"
 "PO-Revision-Date: 2026-08-18 13:48+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -143,7 +143,7 @@ msgid "Diff branches"
 msgstr "Різниця гілок"
 
 #: dolphinplugins/dolphinplugin.cpp:35 dolphinplugins/dolphinplugin.cpp:39
-#: src/apps/main.cpp:55
+#: src/apps/main.cpp:53
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
@@ -158,35 +158,35 @@ msgstr "Записати/Внести до %1"
 msgid "Push/Commit to submodule %1"
 msgstr "Записати/Внести до підмодуля %1"
 
-#: src/apps/main.cpp:57
+#: src/apps/main.cpp:55
 #, kde-format
 msgid "Git client gui for KDE"
 msgstr "Клієнтська графічна оболонка git для KDE"
 
-#: src/apps/main.cpp:59
+#: src/apps/main.cpp:57
 #, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "© Hamed Masafi <hamed.masafi@gmail.com>, 2021–2024"
 
-#: src/apps/main.cpp:61 src/libkommitwidgets/models/commitsmodel.cpp:298
+#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:298
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
 msgstr "Автор"
 
-#: src/apps/main.cpp:61
+#: src/apps/main.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
-#: src/apps/main.cpp:62
+#: src/apps/main.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/apps/main.cpp:62
+#: src/apps/main.cpp:60
 #, kde-format
 msgid "Bug fixing"
 msgstr "Виправлення вад"
@@ -1931,7 +1931,7 @@ msgstr "Реєстраційні дані:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:97
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:109
 #, kde-format
 msgid "Username:"
 msgstr "Користувач:"
@@ -1984,32 +1984,32 @@ msgstr "Новий каталог:"
 msgid "Old directory:"
 msgstr "Старий каталог:"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:151
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:141
 #, kde-format
 msgid "Receiving objects"
 msgstr "Отримуємо об'єкти"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:158
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:148
 #, kde-format
 msgid "Stage %1"
 msgstr "Етап %1"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:166
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
 msgstr "Оновлено посилання: %1  %2...%3"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:162
 #, kde-format
 msgid "Finished"
 msgstr "Завершено"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:174
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
 #, kde-format
 msgid "Finished with error"
 msgstr "Завершено з помилкою"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:175
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:165
 #, kde-format
 msgid "Error %1: %2"
 msgstr "Помилка %1: %2"
@@ -2628,27 +2628,27 @@ msgstr ""
 "decoration: underline; color:#007af4;\">Докладніше…</span></a></p></body></"
 "html>"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:66
 #, kde-format
 msgid "View"
 msgstr "Перегляд"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:141
 #, kde-format
 msgid "Process finished"
 msgstr "Процес завершив роботу"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:134
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:146
 #, kde-format
 msgid "The git process crashed"
 msgstr "Процес git завершив роботу в аварійному режимі"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:135
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:147
 #, kde-format
 msgid "Process finished with error"
 msgstr "Виконання завершилося з помилкою"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:150
 #, kde-format
 msgid "%1: (Elapsed time: %2)"
 msgstr "%1: (час, що минув: %2)"
@@ -3014,89 +3014,89 @@ msgstr "Форма"
 msgid "Filter branches"
 msgstr "Фільтрування гілок"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:95
+#: src/libkommitwidgets/widgets/commitdetails.cpp:99
 #, kde-format
 msgid "Not signed"
 msgstr "Не підписано"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:101
-#: src/libkommitwidgets/widgets/commitdetails.cpp:110
-#: src/libkommitwidgets/widgets/commitdetails.cpp:118
+#: src/libkommitwidgets/widgets/commitdetails.cpp:105
+#: src/libkommitwidgets/widgets/commitdetails.cpp:114
+#: src/libkommitwidgets/widgets/commitdetails.cpp:122
 #, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:orange;font-weight:bold'>%1</span>"
 msgstr "<span style='color:orange;font-weight:bold'>%1</span>"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:103
+#: src/libkommitwidgets/widgets/commitdetails.cpp:107
 #, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:green;font-weight:bold'>%1</span>"
 msgstr "<span style='color:green;font-weight:bold'>%1</span>"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#: src/libkommitwidgets/widgets/commitdetails.cpp:119
 #, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:red;font-weight:bold'>%1</span>"
 msgstr "<span style='color:red;font-weight:bold'>%1</span>"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:127
+#: src/libkommitwidgets/widgets/commitdetails.cpp:131
 #, kde-format
 msgid " by %1"
 msgstr " %1"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:129
+#: src/libkommitwidgets/widgets/commitdetails.cpp:133
 #, kde-format
 msgid " by %1 <%2>"
 msgstr " %1 <%2>"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:132
+#: src/libkommitwidgets/widgets/commitdetails.cpp:136
 #, kde-format
 msgid " (Key: %1)"
 msgstr " (Ключ %1)"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:134
+#: src/libkommitwidgets/widgets/commitdetails.cpp:138
 #, kde-format
 msgid " (Fingerprint: %1)"
 msgstr " (Відбиток: %1)"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:155
+#: src/libkommitwidgets/widgets/commitdetails.cpp:159
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
 #, kde-format
 msgid "Branch: "
 msgstr "Гілка: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:157
+#: src/libkommitwidgets/widgets/commitdetails.cpp:161
 #: src/libkommitwidgets/widgets/graphpainter.cpp:131
 #, kde-format
 msgid "Note: "
 msgstr "Нотатка: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:159
+#: src/libkommitwidgets/widgets/commitdetails.cpp:163
 #: src/libkommitwidgets/widgets/graphpainter.cpp:133
 #, kde-format
 msgid "Remote: "
 msgstr "Віддалене:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:161
+#: src/libkommitwidgets/widgets/commitdetails.cpp:165
 #: src/libkommitwidgets/widgets/graphpainter.cpp:135
 #, kde-format
 msgid "Tag: "
 msgstr "Мітка: "
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:170
+#: src/libkommitwidgets/widgets/commitdetails.cpp:174
 #: src/libkommitwidgets/widgets/commitdetails.ui:276
 #, kde-format
 msgid "Ref:"
 msgstr "Посилання:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:170
+#: src/libkommitwidgets/widgets/commitdetails.cpp:174
 #, kde-format
 msgid "Refs:"
 msgstr "Посилання:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:180
+#: src/libkommitwidgets/widgets/commitdetails.cpp:184
 #: src/libkommitwidgets/widgets/commitdetails.ui:210
 #, kde-format
 msgid "Parent:"
@@ -3107,7 +3107,7 @@ msgstr[2] "Батьківські:"
 msgstr[3] "Батьківські:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:185
+#: src/libkommitwidgets/widgets/commitdetails.cpp:189
 #: src/libkommitwidgets/widgets/commitdetails.ui:232
 #, kde-format
 msgid "Child:"

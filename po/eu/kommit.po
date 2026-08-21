@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:48+0000\n"
+"POT-Creation-Date: 2026-08-21 00:47+0000\n"
 "PO-Revision-Date: 2022-12-02 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -150,7 +150,7 @@ msgid "Diff branches"
 msgstr "Diff adarrak..."
 
 #: dolphinplugins/dolphinplugin.cpp:35 dolphinplugins/dolphinplugin.cpp:39
-#: src/apps/main.cpp:55
+#: src/apps/main.cpp:53
 #, fuzzy, kde-format
 #| msgid "Commit"
 msgid "Kommit"
@@ -167,38 +167,38 @@ msgstr ""
 msgid "Push/Commit to submodule %1"
 msgstr "Baliozkotu/Bultzatu"
 
-#: src/apps/main.cpp:57
+#: src/apps/main.cpp:55
 #, kde-format
 msgid "Git client gui for KDE"
 msgstr "KDEren Git GUI bezeroa"
 
-#: src/apps/main.cpp:59
+#: src/apps/main.cpp:57
 #, fuzzy, kde-format
 #| msgid "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2022, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:61 src/libkommitwidgets/models/commitsmodel.cpp:298
+#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:298
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
 msgstr "Egilea"
 
-#: src/apps/main.cpp:61
+#: src/apps/main.cpp:59
 #, fuzzy, kde-format
 #| msgid "Hamed Masafi"
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
-#: src/apps/main.cpp:62
+#: src/apps/main.cpp:60
 #, fuzzy, kde-format
 #| msgid "Laurent Montel"
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/apps/main.cpp:62
+#: src/apps/main.cpp:60
 #, kde-format
 msgid "Bug fixing"
 msgstr "Akatsak konpontzea"
@@ -1958,7 +1958,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:97
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:109
 #, fuzzy, kde-format
 #| msgid "Rename"
 msgid "Username:"
@@ -2012,33 +2012,33 @@ msgstr "Direktorio berria:"
 msgid "Old directory:"
 msgstr "Direktorio zaharra:"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:151
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:141
 #, kde-format
 msgid "Receiving objects"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:158
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:148
 #, kde-format
 msgid "Stage %1"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:166
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:162
 #, kde-format
 msgid "Finished"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:174
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
 #, fuzzy, kde-format
 #| msgid "Process finished with error"
 msgid "Finished with error"
 msgstr "Prozesua erroreekin bukatu da"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:175
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:165
 #, kde-format
 msgid "Error %1: %2"
 msgstr ""
@@ -2604,27 +2604,27 @@ msgid ""
 "body></html>"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:66
 #, kde-format
 msgid "View"
 msgstr "Ikuspegia"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:141
 #, kde-format
 msgid "Process finished"
 msgstr "Prozesua bukatu da"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:134
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:146
 #, kde-format
 msgid "The git process crashed"
 msgstr "Git prozesua kraskatu egin da"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:135
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:147
 #, kde-format
 msgid "Process finished with error"
 msgstr "Prozesua erroreekin bukatu da"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:150
 #, kde-format
 msgid "%1: (Elapsed time: %2)"
 msgstr ""
@@ -2987,92 +2987,92 @@ msgstr "Inprimakia"
 msgid "Filter branches"
 msgstr "Adar guztiak"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:95
+#: src/libkommitwidgets/widgets/commitdetails.cpp:99
 #, kde-format
 msgid "Not signed"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:101
-#: src/libkommitwidgets/widgets/commitdetails.cpp:110
-#: src/libkommitwidgets/widgets/commitdetails.cpp:118
+#: src/libkommitwidgets/widgets/commitdetails.cpp:105
+#: src/libkommitwidgets/widgets/commitdetails.cpp:114
+#: src/libkommitwidgets/widgets/commitdetails.cpp:122
 #, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:orange;font-weight:bold'>%1</span>"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:103
+#: src/libkommitwidgets/widgets/commitdetails.cpp:107
 #, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:green;font-weight:bold'>%1</span>"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#: src/libkommitwidgets/widgets/commitdetails.cpp:119
 #, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:red;font-weight:bold'>%1</span>"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:127
+#: src/libkommitwidgets/widgets/commitdetails.cpp:131
 #, kde-format
 msgid " by %1"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:129
+#: src/libkommitwidgets/widgets/commitdetails.cpp:133
 #, kde-format
 msgid " by %1 <%2>"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:132
+#: src/libkommitwidgets/widgets/commitdetails.cpp:136
 #, kde-format
 msgid " (Key: %1)"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:134
+#: src/libkommitwidgets/widgets/commitdetails.cpp:138
 #, kde-format
 msgid " (Fingerprint: %1)"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:155
+#: src/libkommitwidgets/widgets/commitdetails.cpp:159
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
 #, fuzzy, kde-format
 #| msgid "Branch:"
 msgid "Branch: "
 msgstr "Adarra:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:157
+#: src/libkommitwidgets/widgets/commitdetails.cpp:161
 #: src/libkommitwidgets/widgets/graphpainter.cpp:131
 #, fuzzy, kde-format
 #| msgid "Note"
 msgid "Note: "
 msgstr "Oharra"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:159
+#: src/libkommitwidgets/widgets/commitdetails.cpp:163
 #: src/libkommitwidgets/widgets/graphpainter.cpp:133
 #, fuzzy, kde-format
 #| msgid "Remote:"
 msgid "Remote: "
 msgstr "Urrutikoa:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:161
+#: src/libkommitwidgets/widgets/commitdetails.cpp:165
 #: src/libkommitwidgets/widgets/graphpainter.cpp:135
 #, kde-format
 msgid "Tag: "
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:170
+#: src/libkommitwidgets/widgets/commitdetails.cpp:174
 #: src/libkommitwidgets/widgets/commitdetails.ui:276
 #, kde-format
 msgid "Ref:"
 msgstr ""
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:170
+#: src/libkommitwidgets/widgets/commitdetails.cpp:174
 #, kde-format
 msgid "Refs:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:180
+#: src/libkommitwidgets/widgets/commitdetails.cpp:184
 #: src/libkommitwidgets/widgets/commitdetails.ui:210
 #, fuzzy, kde-format
 #| msgid "Parent"
@@ -3082,7 +3082,7 @@ msgstr[0] "Gurasoa"
 msgstr[1] "Gurasoa"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:185
+#: src/libkommitwidgets/widgets/commitdetails.cpp:189
 #: src/libkommitwidgets/widgets/commitdetails.ui:232
 #, fuzzy, kde-format
 #| msgid "Child"

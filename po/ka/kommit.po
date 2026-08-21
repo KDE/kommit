@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:48+0000\n"
+"POT-Creation-Date: 2026-08-21 00:47+0000\n"
 "PO-Revision-Date: 2026-08-18 08:14+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -143,7 +143,7 @@ msgid "Diff branches"
 msgstr "ბრენჩების diff"
 
 #: dolphinplugins/dolphinplugin.cpp:35 dolphinplugins/dolphinplugin.cpp:39
-#: src/apps/main.cpp:55
+#: src/apps/main.cpp:53
 #, kde-format
 msgid "Kommit"
 msgstr "Kommit"
@@ -158,35 +158,35 @@ msgstr "კომიტი/პუში %1-ზე"
 msgid "Push/Commit to submodule %1"
 msgstr "კომიტი/პუში ქვემოდულზე %1"
 
-#: src/apps/main.cpp:57
+#: src/apps/main.cpp:55
 #, kde-format
 msgid "Git client gui for KDE"
 msgstr "Git-ის კლიენტი KDE-სთვის"
 
-#: src/apps/main.cpp:59
+#: src/apps/main.cpp:57
 #, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:61 src/libkommitwidgets/models/commitsmodel.cpp:298
+#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:298
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
 msgstr "ავტორი"
 
-#: src/apps/main.cpp:61
+#: src/apps/main.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hamed Masafi"
 msgstr "Hamed Masafi"
 
-#: src/apps/main.cpp:62
+#: src/apps/main.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/apps/main.cpp:62
+#: src/apps/main.cpp:60
 #, kde-format
 msgid "Bug fixing"
 msgstr "შეცდომების გამართვა"
@@ -1929,7 +1929,7 @@ msgstr "ავტორიზაციის დეტალები:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:97
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:109
 #, kde-format
 msgid "Username:"
 msgstr "სახელი:"
@@ -1982,32 +1982,32 @@ msgstr "ახალი საქაღალდე:"
 msgid "Old directory:"
 msgstr "ძველი საქაღალდე:"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:151
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:141
 #, kde-format
 msgid "Receiving objects"
 msgstr "ობიექტების მიღება"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:158
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:148
 #, kde-format
 msgid "Stage %1"
 msgstr "ფაზა %1"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:166
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
 msgstr "მიმართვა განახლდა: %1  %2...%3"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:172
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:162
 #, kde-format
 msgid "Finished"
 msgstr "დასრულდა"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:174
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:164
 #, kde-format
 msgid "Finished with error"
 msgstr "დასრულდა შეცდომით"
 
-#: src/libkommitwidgets/dialogs/fetchdialog.cpp:175
+#: src/libkommitwidgets/dialogs/fetchdialog.cpp:165
 #, kde-format
 msgid "Error %1: %2"
 msgstr "შეცდომა %1: %2"
@@ -2626,27 +2626,27 @@ msgstr ""
 "corefileMode\"><span style=\" text-decoration: underline; color:#007af4;"
 "\">მეტი ინფორმაცია...</span></a></p></body></html>"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:66
 #, kde-format
 msgid "View"
 msgstr "ნახვა"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:129
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:141
 #, kde-format
 msgid "Process finished"
 msgstr "პროცესი დასრულდა"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:134
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:146
 #, kde-format
 msgid "The git process crashed"
 msgstr "პროცესი git ავარიულად დასრულდა"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:135
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:147
 #, kde-format
 msgid "Process finished with error"
 msgstr "პროცესი შეცდომით დასრულდა"
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:138
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:150
 #, kde-format
 msgid "%1: (Elapsed time: %2)"
 msgstr "%1: (გასული დრო: %2)"
@@ -3012,89 +3012,89 @@ msgstr "ფორმა"
 msgid "Filter branches"
 msgstr "ბრენჩების გაფილტვრა"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:95
+#: src/libkommitwidgets/widgets/commitdetails.cpp:99
 #, kde-format
 msgid "Not signed"
 msgstr "ხელმოწერილი არაა"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:101
-#: src/libkommitwidgets/widgets/commitdetails.cpp:110
-#: src/libkommitwidgets/widgets/commitdetails.cpp:118
+#: src/libkommitwidgets/widgets/commitdetails.cpp:105
+#: src/libkommitwidgets/widgets/commitdetails.cpp:114
+#: src/libkommitwidgets/widgets/commitdetails.cpp:122
 #, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:orange;font-weight:bold'>%1</span>"
 msgstr "<span style='color:orange;font-weight:bold'>%1</span>"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:103
+#: src/libkommitwidgets/widgets/commitdetails.cpp:107
 #, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:green;font-weight:bold'>%1</span>"
 msgstr "<span style='color:green;font-weight:bold'>%1</span>"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:115
+#: src/libkommitwidgets/widgets/commitdetails.cpp:119
 #, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:red;font-weight:bold'>%1</span>"
 msgstr "<span style='color:red;font-weight:bold'>%1</span>"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:127
+#: src/libkommitwidgets/widgets/commitdetails.cpp:131
 #, kde-format
 msgid " by %1"
 msgstr " %1-ის მიერ"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:129
+#: src/libkommitwidgets/widgets/commitdetails.cpp:133
 #, kde-format
 msgid " by %1 <%2>"
 msgstr " %1-ის მიერ <%2>"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:132
+#: src/libkommitwidgets/widgets/commitdetails.cpp:136
 #, kde-format
 msgid " (Key: %1)"
 msgstr " (გასაღები: %1)"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:134
+#: src/libkommitwidgets/widgets/commitdetails.cpp:138
 #, kde-format
 msgid " (Fingerprint: %1)"
 msgstr " (ანაბეჭდი: %1)"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:155
+#: src/libkommitwidgets/widgets/commitdetails.cpp:159
 #: src/libkommitwidgets/widgets/graphpainter.cpp:129
 #, kde-format
 msgid "Branch: "
 msgstr "ბრენჩი: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:157
+#: src/libkommitwidgets/widgets/commitdetails.cpp:161
 #: src/libkommitwidgets/widgets/graphpainter.cpp:131
 #, kde-format
 msgid "Note: "
 msgstr "შენიშვნა: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:159
+#: src/libkommitwidgets/widgets/commitdetails.cpp:163
 #: src/libkommitwidgets/widgets/graphpainter.cpp:133
 #, kde-format
 msgid "Remote: "
 msgstr "დაშორებული: "
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:161
+#: src/libkommitwidgets/widgets/commitdetails.cpp:165
 #: src/libkommitwidgets/widgets/graphpainter.cpp:135
 #, kde-format
 msgid "Tag: "
 msgstr "ჭდე: "
 
 #. i18n: ectx: property (text), widget (QLabel, labelRefType)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:170
+#: src/libkommitwidgets/widgets/commitdetails.cpp:174
 #: src/libkommitwidgets/widgets/commitdetails.ui:276
 #, kde-format
 msgid "Ref:"
 msgstr "მიმართვა:"
 
-#: src/libkommitwidgets/widgets/commitdetails.cpp:170
+#: src/libkommitwidgets/widgets/commitdetails.cpp:174
 #, kde-format
 msgid "Refs:"
 msgstr "მიმართვები:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:180
+#: src/libkommitwidgets/widgets/commitdetails.cpp:184
 #: src/libkommitwidgets/widgets/commitdetails.ui:210
 #, kde-format
 msgid "Parent:"
@@ -3103,7 +3103,7 @@ msgstr[0] "მშობელი:"
 msgstr[1] "მშობელი:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
-#: src/libkommitwidgets/widgets/commitdetails.cpp:185
+#: src/libkommitwidgets/widgets/commitdetails.cpp:189
 #: src/libkommitwidgets/widgets/commitdetails.ui:232
 #, kde-format
 msgid "Child:"
