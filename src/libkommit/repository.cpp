@@ -95,6 +95,20 @@ const QString &Repository::path() const
     return d->path;
 }
 
+void Repository::reload()
+{
+    Q_D(Repository);
+
+    if (d->path.isEmpty())
+        return;
+
+    // The handle is opened again rather than kept: after a checkout the index it holds is the
+    // one from before, and everything read through it would be as well.
+    const auto path = d->path;
+    d->path.clear();
+    open(path);
+}
+
 bool Repository::open(const QString &newPath)
 {
     Q_D(Repository);
@@ -1276,6 +1290,9 @@ bool Repository::switchBranch(const Branch &branch) const
     r.run(git_reference_peel, &target, ref, GIT_OBJ_COMMIT);
     r.run(git_checkout_tree, d->repo, target, &opts);
     r.run(git_repository_set_head, d->repo, branch.refName().toUtf8().constData());
+
+    if (r.isSuccess())
+        Q_EMIT currentBranchChanged();
 
     return r.isSuccess();
 }
