@@ -8,8 +8,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "linkify.h"
 
+#include <QTextCursor>
+
 #include "commands/abstractcommand.h"
-#include "core/kmessageboxhelper.h"
 #include "repository.h"
 
 #include <KLocalizedString>
@@ -92,6 +93,10 @@ void RunnerDialog::appendOutput(const QString &text)
     // A server answers a push with the address of the merge request to open, and that is
     // there to be followed rather than copied out by hand.
     textBrowser->append(Git::linkifyUrls(text));
+
+    // The last of it is the part worth reading, so that is the part left in view.
+    textBrowser->moveCursor(QTextCursor::End);
+    textBrowser->ensureCursorVisible();
 }
 
 void RunnerDialog::git_readyReadStandardOutput()
@@ -141,23 +146,17 @@ void RunnerDialog::git_finished(int exitCode, QProcess::ExitStatus exitStatus)
         // the way in and took the reason with it.
         isSuccessful = exitStatus == QProcess::NormalExit && exitCode == 0;
 
-    QString exitMessage;
-
-    if (isSuccessful) {
-        exitMessage = i18n("Process finished");
-    } else {
-        if (mCmd)
-            KMessageBoxHelper::error(this, mCmd->errorMessage());
-        else if (const auto refusal = QString::fromUtf8(mErrorOutput).trimmed(); !refusal.isEmpty())
-            KMessageBoxHelper::error(this, refusal);
-        else if (exitStatus != QProcess::NormalExit)
-            KMessageBoxHelper::error(this, i18n("The git process crashed"));
-        else
-            KMessageBoxHelper::error(this, i18n("git refused, and said nothing about why"));
-        exitMessage = i18n("Process finished with error");
-    }
-
+    const QString exitMessage = isSuccessful ? i18n("Process finished") : i18n("Process finished with error");
     textBrowser->append(i18n("%1: (Elapsed time: %2)", exitMessage, QTime::fromMSecsSinceStartOfDay(mTimer.elapsed()).toString(QStringLiteral("HH:mm:ss"))));
+
+    if (!isSuccessful) {
+        // What git said is in the output already, which is why nothing else is put on top of
+        // it: a box repeating the window behind it is one window too many.
+        if (mCmd && !mCmd->errorMessage().isEmpty())
+            appendOutput(mCmd->errorMessage());
+        else if (exitStatus != QProcess::NormalExit)
+            appendOutput(i18n("The git process crashed"));
+    }
 
     if (mAutoClose) {
         if (isSuccessful)
