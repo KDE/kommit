@@ -43,9 +43,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <Kommit/Tree>
 
 #include <QApplication>
+#include <QCoreApplication>
 #include <QDir>
 #include <QFileInfo>
 #include <QMetaMethod>
+#include <QPointer>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -565,7 +567,16 @@ ArgParserReturn CommandArgsParser::main()
 
 ArgParserReturn CommandArgsParser::main(const QString &path)
 {
-    auto window = new AppWindow(path);
+    // Kept here so that the routine below, which takes a plain function, can reach it, and held
+    // weakly because KMainWindow deletes itself when it is closed. It goes with the
+    // application, so what the window holds is let go before the process ends.
+    static QPointer<AppWindow> window;
+    window = new AppWindow(path);
+
+    qAddPostRoutine([] {
+        delete window.data();
+    });
+
     window->show();
     return ExecApp;
 }
