@@ -85,11 +85,14 @@ void TagsCache::forEach(std::function<void(const Tag &)> cb)
                 w->cb(tag);
                 return 0;
             }
-            git_reference *ref;
+            git_reference *ref{nullptr};
             STEP git_reference_lookup(&ref, w->repo, name);
             RETURN_IF_ERR(0);
 
+            // The name is copied out, so the reference is of no further use and goes back here.
             auto lightTagName = QString{git_reference_shorthand(ref)};
+            git_reference_free(ref);
+
             w->cb(Tag{commit, lightTagName});
             return 0;
         }
