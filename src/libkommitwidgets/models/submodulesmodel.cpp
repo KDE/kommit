@@ -63,8 +63,8 @@ public:
     Q_DECLARE_PUBLIC(SubmodulesModel)
 };
 
-SubmodulesModel::SubmodulesModel(Git::Repository *manager)
-    : AbstractGitItemsModel{manager}
+SubmodulesModel::SubmodulesModel(Git::Repository *manager, QObject *parent)
+    : AbstractGitItemsModel{manager, parent}
     , d_ptr{new SubmodulesModelPrivate{this, manager}}
 {
     connect(manager->submodules(), &Git::SubmodulesCache::added, this, &SubmodulesModel::append);

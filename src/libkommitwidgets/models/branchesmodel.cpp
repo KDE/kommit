@@ -28,8 +28,8 @@ public:
     Git::BranchType branchType{Git::BranchType::AllBranches};
 };
 
-BranchesModel::BranchesModel(Git::Repository *git)
-    : AbstractGitItemsModel{git}
+BranchesModel::BranchesModel(Git::Repository *git, QObject *parent)
+    : AbstractGitItemsModel{git, parent}
     , d_ptr{new BranchesModelPrivate{this}}
 {
     connect(git->branches(), &Git::BranchesCache::reseted, this, &BranchesModel::reload);

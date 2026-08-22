@@ -10,8 +10,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "entities/remote.h"
 #include "repository.h"
 
-RemotesModel::RemotesModel(Git::Repository *git)
-    : AbstractGitItemsModel(git)
+RemotesModel::RemotesModel(Git::Repository *git, QObject *parent)
+    : AbstractGitItemsModel(git, parent)
 {
     connect(git->remotes(), &Git::RemotesCache::added, this, &RemotesModel::reload);
     connect(git->remotes(), &Git::RemotesCache::removed, this, &RemotesModel::reload);

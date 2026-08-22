@@ -23,7 +23,7 @@ class LIBKOMMITWIDGETS_EXPORT SubmodulesModel : public AbstractGitItemsModel
     Q_OBJECT
 
 public:
-    explicit SubmodulesModel(Git::Repository *git);
+    explicit SubmodulesModel(Git::Repository *git, QObject *parent = nullptr);
     ~SubmodulesModel();
 
     int rowCount(const QModelIndex &parent) const override;
