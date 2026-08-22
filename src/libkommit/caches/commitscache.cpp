@@ -12,6 +12,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "types.h"
 
 #include <git2/commit.h>
+#include <git2/object.h>
 #include <git2/revparse.h>
 
 namespace Git
@@ -24,16 +25,28 @@ CommitsCache::CommitsCache(Repository *parent)
 
 Commit CommitsCache::find(const QString &hash)
 {
-    git_commit *commit;
-    git_object *commitObject;
+    git_commit *commit{nullptr};
+    git_object *commitObject{nullptr};
     BEGIN
     STEP git_revparse_single(&commitObject, manager->repoPtr(), hash.toLatin1().constData());
     STEP git_commit_lookup(&commit, manager->repoPtr(), git_object_id(commitObject));
 
-    if (IS_OK)
-        return Cache::findByPtr(commit);
+    // What the hash was turned into on the way is of no further use here.
+    if (commitObject)
+        git_object_free(commitObject);
 
-    return Commit{};
+    if (IS_ERROR)
+        return Commit{};
+
+    bool isNew{false};
+    auto entity = Cache::findByPtr(commit, &isNew);
+
+    // The same object comes back from a second lookup with a reference added, and the entity
+    // already here owns one, so this one belongs to nobody.
+    if (!isNew)
+        git_object_free(reinterpret_cast<git_object *>(commit));
+
+    return entity;
 }
 
 QList<Commit> CommitsCache::allCommits()
