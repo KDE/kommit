@@ -213,6 +213,7 @@ class CommitsModelPrivate
 
 public:
     explicit CommitsModelPrivate(CommitsModel *parent);
+    ~CommitsModelPrivate();
 
     void initChilds();
     void initGraph();
@@ -570,6 +571,15 @@ void CommitsModel::clear()
 CommitsModelPrivate::CommitsModelPrivate(CommitsModel *parent)
     : q_ptr(parent)
 {
+}
+
+CommitsModelPrivate::~CommitsModelPrivate()
+{
+    // What reload() and applyFilter() hand out with new, and what they take back before
+    // filling the list again. Nothing was taking it back at the end, so the last set of rows
+    // stayed, and with each of them a commit, its signatures and the object libgit2 gave for
+    // it.
+    qDeleteAll(data);
 }
 
 #include "moc_commitsmodel.cpp"
