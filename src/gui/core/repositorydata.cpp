@@ -17,10 +17,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 RepositoryData::RepositoryData(Git::Repository *git)
     : QObject{git}
-    , mManager{git}
-    , mRemotesModel{new RemotesModel{mManager}}
-    , mSubmodulesModel{new SubmodulesModel{mManager}}
-    , mBranchesModel{new BranchesModel{mManager}}
+    , mManager{git} // Parented, as the three below already were: this owns every model it makes, and nothing
+                    // else was deleting these ones at all.
+    , mRemotesModel{new RemotesModel{mManager, this}}
+    , mSubmodulesModel{new SubmodulesModel{mManager, this}}
+    , mBranchesModel{new BranchesModel{mManager, this}}
     , mLogsCache{new CommitsModel{mManager, this}}
     , mStashesCache{new StashesModel{mManager, this}}
     , mTagsModel{new TagsModel{mManager, this}}
