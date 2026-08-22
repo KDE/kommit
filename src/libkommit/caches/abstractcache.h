@@ -6,6 +6,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include <git2/object.h>
+
 #include <QHash>
 #include <QMap>
 #include <QObject>
@@ -85,12 +87,25 @@ Q_OUTOFLINE_TEMPLATE ObjectType OidCache<ObjectType, PtrType>::findByOid(const g
 {
     PtrType *ptr;
     auto r = gitLookupFunc(&ptr, Impl::getRepo(Cache<ObjectType, PtrType>::manager), oid);
-    if (!r)
-        return Cache<ObjectType, PtrType>::findByPtr(ptr, isNew);
+    if (r) {
+        if (isNew)
+            *isNew = false;
+        return ObjectType{};
+    }
+
+    bool isNewEntity{false};
+    auto entity = Cache<ObjectType, PtrType>::findByPtr(ptr, &isNewEntity);
+
+    // libgit2 keeps objects of its own and hands the same one back with a reference added, so
+    // a lookup for something already held here comes with a reference nobody owns. The entity
+    // holding it lets go of one when it goes, which leaves this one to let go of now.
+    if (!isNewEntity)
+        git_object_free(reinterpret_cast<git_object *>(ptr));
 
     if (isNew)
-        *isNew = false;
-    return ObjectType{};
+        *isNew = isNewEntity;
+
+    return entity;
 }
 
 template<class ObjectType, class PtrType>
