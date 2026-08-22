@@ -48,16 +48,28 @@ QString GravatarCache::avatarPath(const QString &email)
     QNetworkRequest request{QUrl{avatarUrl}};
 
     QNetworkReply *reply = mNet.get(request);
-    connect(reply, &QNetworkReply::finished, this, [this, emailHash, avatarUrl, reply, email]() {
+    connect(reply, &QNetworkReply::finished, this, [this, emailHash, reply, email]() {
+        reply->deleteLater();
+
+        // Nothing came back, which happens whenever there is no way out to the network. Read
+        // it anyway and Qt says so itself, on the terminal, once per picture that was wanted.
+        if (reply->error() != QNetworkReply::NoError)
+            return;
+
+        const auto avatar = reply->readAll();
+        if (avatar.isEmpty())
+            return;
+
         const QString avatarFileName{cacheLocalPath() + QLatin1Char('/') + emailHash};
-        QFile avatarFile(avatarFileName);
-        if (avatarFile.open(QIODevice::WriteOnly)) {
-            avatarFile.write(reply->readAll());
-            avatarFile.close();
-            mAvatarsCache.insert(emailHash, avatarFileName);
-            Q_EMIT avatarUpdated(avatarFileName, email);
-        }
-        delete reply;
+        QFile avatarFile{avatarFileName};
+        if (!avatarFile.open(QIODevice::WriteOnly))
+            return;
+
+        avatarFile.write(avatar);
+        avatarFile.close();
+
+        mAvatarsCache.insert(emailHash, avatarFileName);
+        Q_EMIT avatarUpdated(avatarFileName, email);
     });
     return {};
 }
