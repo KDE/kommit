@@ -18,7 +18,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 namespace Git
 {
 SubmodulesCache::SubmodulesCache(Repository *manager)
-    : QObject{manager}
+    // Owned by RepositoryPrivate, which deletes every cache before the repository handle
+    // they read through is closed, so this is not a child of anything.
+    : QObject{nullptr}
     , Cache<Submodule, git_submodule>{manager}
 {
 }
