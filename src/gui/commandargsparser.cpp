@@ -133,10 +133,20 @@ ArgParserReturn CommandArgsParser::run(const QStringList &args)
     }
 #undef GET_OP
 
+    // A path is a repository to open, whatever else came with it on the line, and not a
+    // command whose name happens to look like one.
+    for (int i = 1; i < args.size(); ++i) {
+        const QFileInfo info{args.at(i)};
+        if (info.exists())
+            return main(info.absoluteFilePath());
+    }
+
     if (args.size() == 2)
         return main(args.at(1));
 
-    qWarning().noquote() << "Method not found" << args.at(1);
+    // Said under this program's own category rather than printed at whoever started it: a
+    // name that matches nothing is worth reading while looking into it and noise otherwise.
+    qCWarning(KOMMIT_LOG) << "No command by the name" << args.at(1);
     return main();
 }
 
