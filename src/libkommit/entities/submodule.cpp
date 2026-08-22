@@ -46,6 +46,8 @@ SubmodulePrivate::SubmodulePrivate()
 {
 }
 
+// The reference the caller holds on the submodule comes along with the pointer, and goes back
+// to libgit2 when this object dies.
 SubmodulePrivate::SubmodulePrivate(git_submodule *submodule, git_repository *repo)
     : submodule{submodule}
     , repo{repo}
@@ -71,13 +73,6 @@ SubmodulePrivate::~SubmodulePrivate()
 void SubmodulePrivate::fillData()
 {
     if (submodule) {
-#if QT_VERSION_CHECK(LIBGIT2_VER_MAJOR, LIBGIT2_VER_MINOR, LIBGIT2_VER_MINOR) >= QT_VERSION_CHECK(1, 2, 0)
-        git_submodule *sm;
-        git_submodule_dup(&sm, submodule);
-        submodule = sm;
-        own = true;
-#endif
-
         name = QString{git_submodule_name(submodule)};
         path = QString{git_submodule_path(submodule)};
         url = QString{git_submodule_url(submodule)};
