@@ -11,6 +11,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QDebug>
 
+#include <git2/object.h>
 #include <git2/revparse.h>
 #include <git2/tag.h>
 
@@ -61,7 +62,14 @@ void TagsCache::forEach(std::function<void(const Tag &)> cb)
         STEP git_tag_lookup(&t, w->repo, oid_c);
 
         if (IS_OK) {
-            auto tag = w->cache->findByPtr(t);
+            bool isNew{false};
+            auto tag = w->cache->findByPtr(t, &isNew);
+
+            // libgit2 hands the same object back with a reference added, and the one held here
+            // already owns one, so this one is nobody's.
+            if (!isNew)
+                git_object_free(reinterpret_cast<git_object *>(t));
+
             w->cb(tag);
             return 0;
         } else {

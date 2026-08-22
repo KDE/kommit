@@ -38,8 +38,10 @@ CommitWalk walkCommits(const QString &path, const QString &branchRefName, int ma
         if (!git_branch_iterator_new(&iterator, repo, GIT_BRANCH_ALL)) {
             git_reference *ref{nullptr};
             git_branch_t type;
-            while (!git_branch_next(&ref, &type, iterator))
+            while (!git_branch_next(&ref, &type, iterator)) {
                 git_revwalk_push_ref(walker, git_reference_name(ref));
+                git_reference_free(ref);
+            }
             git_branch_iterator_free(iterator);
         }
     } else {

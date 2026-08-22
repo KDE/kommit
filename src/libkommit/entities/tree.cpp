@@ -146,7 +146,12 @@ Blob Tree::file(const QString &path) const
     if (IS_ERROR)
         return Blob{};
 
-    return Blob{git_tree_owner(d->tree), entry};
+    // The blob reads what it needs of the entry and holds none of it, and the entry was asked
+    // for here, so it is let go of here.
+    Blob blob{git_tree_owner(d->tree), entry};
+    git_tree_entry_free(entry);
+
+    return blob;
 }
 
 bool Tree::extract(const QString &destinationFolder, const QString &prefix)

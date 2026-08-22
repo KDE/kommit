@@ -573,8 +573,10 @@ TreeDiff Repository::diff(const Tree &oldTree, const Tree &newTree)
     }
     STEP git_diff_get_stats(&stats, diff);
 
-    if (IS_ERROR)
+    if (IS_ERROR) {
+        git_diff_free(diff);
         return {};
+    }
 
     auto n = git_diff_stats_files_changed(stats);
 
@@ -583,6 +585,7 @@ TreeDiff Repository::diff(const Tree &oldTree, const Tree &newTree)
     for (size_t i = 0; i < n; ++i)
         treeDiff << TreeDiffEntry{git_diff_get_delta(diff, i)};
 
+    git_diff_stats_free(stats);
     git_diff_free(diff);
 
     return treeDiff;
