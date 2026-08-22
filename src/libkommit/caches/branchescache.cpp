@@ -36,7 +36,9 @@ public:
 };
 
 BranchesCache::BranchesCache(Repository *manager)
-    : QObject{manager}
+    // Owned by RepositoryPrivate, which deletes every cache before the repository handle
+    // they read through is closed, so this is not a child of anything.
+    : QObject{nullptr}
     , Cache<Branch, git_reference>{manager}
     , d_ptr{new BranchesCachePrivate{this, manager}}
 {

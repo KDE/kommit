@@ -30,7 +30,9 @@ public:
 };
 
 StashesCache::StashesCache(Repository *manager)
-    : QObject{manager}
+    // Owned by RepositoryPrivate, which deletes every cache before the repository handle
+    // they read through is closed, so this is not a child of anything.
+    : QObject{nullptr}
     , d_ptr{new StashesCachePrivate{this, manager}}
 {
 }
