@@ -52,9 +52,6 @@ Remote::Remote(git_remote *remote)
     : d{new RemotePrivate{remote}}
 {
     if (remote) {
-        git_strarray a1, a2;
-        git_remote_get_fetch_refspecs(&a1, remote);
-        git_remote_get_push_refspecs(&a2, remote);
         auto refCount = git_remote_refspec_count(remote);
         for (size_t i = 0; i < refCount; ++i) {
             auto ref = git_remote_get_refspec(remote, i);
