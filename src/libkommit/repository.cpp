@@ -1465,6 +1465,12 @@ void RepositoryPrivate::changeRepo(git_repository *repo)
 
 void RepositoryPrivate::resetCaches()
 {
+    // The index was read through the handle that is going, and libgit2 takes the owner off an
+    // index when the repository it belongs to is freed. Held on to past that, it is an index
+    // that answers about no repository at all, so it goes here and is read again when asked
+    // for next.
+    index = Index{};
+
     commitsCache->clear();
     branchesCache->clear();
     tagsCache->clear();

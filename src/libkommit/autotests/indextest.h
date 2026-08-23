@@ -28,6 +28,7 @@ private Q_SLOTS:
     void revertFile();
     void removeFile();
     void revertFileOfFour();
+    void shouldGiveAnIndexThatWorksAfterTheRepositoryWasReadAgain();
 
 private:
     Git::Repository *mManager;
