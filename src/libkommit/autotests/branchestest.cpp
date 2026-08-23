@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "testcommon.h"
 #include <QDir>
 #include <QFile>
+#include <QProcess>
 
 #include <QTest>
 #include <caches/branchescache.h>
@@ -140,6 +141,43 @@ void BranchesTest::shouldPreferWhatTheRemoteWasClonedFrom()
     QCOMPARE(mManager->branches()->defaultName(), QStringLiteral("release"));
 
     QVERIFY(head.remove());
+}
+
+namespace
+{
+/// Runs git in @p path the way anything outside this program would.
+bool runGitBeside(const QString &path, const QStringList &args)
+{
+    QProcess process;
+    process.setProgram(QStringLiteral("git"));
+    process.setArguments(args);
+    process.setWorkingDirectory(path);
+    process.start();
+
+    return process.waitForFinished() && process.exitStatus() == QProcess::NormalExit && process.exitCode() == 0;
+}
+}
+
+void BranchesTest::shouldSayThereIsNoCurrentBranchWhereTheHeadIsOnNone()
+{
+    const auto branchBefore = mManager->branches()->currentName();
+    QVERIFY(!branchBefore.isEmpty());
+
+    // Where a checkout of a commit, of a tag, or a rebase part way through leaves the head.
+    QVERIFY(runGitBeside(mManager->path(), {QStringLiteral("checkout"), QStringLiteral("--detach"), QStringLiteral("--quiet")}));
+    mManager->reload();
+
+    QVERIFY(mManager->isDetached());
+
+    // No branch to give back, rather than the head reference dressed up as one.
+    const auto current = mManager->branches()->current();
+    QVERIFY(current.isNull());
+    QVERIFY(current.name().isEmpty());
+    QCOMPARE_NE(mManager->branches()->currentName(), branchBefore);
+
+    QVERIFY(runGitBeside(mManager->path(), {QStringLiteral("checkout"), branchBefore, QStringLiteral("--quiet")}));
+    mManager->reload();
+    QCOMPARE(mManager->branches()->currentName(), branchBefore);
 }
 
 #include "moc_branchestest.cpp"

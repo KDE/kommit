@@ -178,11 +178,18 @@ BranchesCache::DataType BranchesCache::current()
 {
     Q_D(BranchesCache);
 
-    git_reference *ref;
+    git_reference *ref{nullptr};
     BEGIN
     STEP git_repository_head(&ref, d->manager->repoPtr());
     if (IS_ERROR) {
         PRINT_ERROR;
+        return Branch{};
+    }
+
+    // A head left on a commit rather than on a branch, which is where a checkout of a tag or a
+    // rebase part way through leaves it. There is no branch to give back.
+    if (!git_reference_is_branch(ref)) {
+        git_reference_free(ref);
         return Branch{};
     }
 
