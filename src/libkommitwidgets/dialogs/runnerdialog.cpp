@@ -43,7 +43,27 @@ RunnerDialog::RunnerDialog(Git::Repository *git, QWidget *parent)
 
 RunnerDialog::~RunnerDialog()
 {
+    // The window can go while git is still running: closed from its frame, dismissed with
+    // Escape, or deleted by whoever opened it. The run belongs to this window, so it ends with it.
+    endProcess();
+
     delete mCmd;
+}
+
+void RunnerDialog::endProcess()
+{
+    if (!mGitProcess || mGitProcess->state() == QProcess::NotRunning)
+        return;
+
+    // Nothing the process writes after this reaches the window, which may already be going.
+    mGitProcess->disconnect(this);
+    mGitProcess->kill();
+
+    // Not waited for: a git blocked in the kernel, on a hung mount for example, would freeze
+    // the window. The process deletes itself once it has ended.
+    mGitProcess->setParent(nullptr);
+    connect(mGitProcess, &QProcess::finished, mGitProcess, &QObject::deleteLater);
+    mGitProcess = nullptr;
 }
 
 void RunnerDialog::run(const QStringList &args)
@@ -175,8 +195,7 @@ void RunnerDialog::slotPushButtonCloseClicked()
 
 void RunnerDialog::slotPushButtonStopClicked()
 {
-    if (mGitProcess->isOpen())
-        mGitProcess->kill();
+    endProcess();
     close();
 }
 
