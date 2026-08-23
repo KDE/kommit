@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "repository.h"
 #include "testcommon.h"
 #include <QTest>
+#include <entities/blob.h>
 #include <entities/index.h>
 
 QTEST_GUILESS_MAIN(IndexTest)
@@ -126,6 +127,25 @@ void IndexTest::revertFileOfFour()
     QCOMPARE(fileContent2, fileTouchedContent2);
     QCOMPARE(fileContent3, fileTouchedContent3);
     QCOMPARE(fileContent4, fileTouchedContent4);
+}
+
+void IndexTest::shouldGiveAnIndexThatWorksAfterTheRepositoryWasReadAgain()
+{
+    const QString name{QStringLiteral("after-reading-again.txt")};
+    QVERIFY(TestCommon::writeFile(mManager, name, QStringLiteral("one\n")));
+    mManager->addFile(name);
+
+    const auto before = mManager->index().blobByPath(name);
+    QVERIFY(!before.isNull());
+
+    // The handle the index was read through is closed and opened again in here, and libgit2
+    // takes the owner off an index when its repository goes, so one kept from before answers
+    // about a repository that is not there any more.
+    mManager->reload();
+
+    const auto after = mManager->index().blobByPath(name);
+    QVERIFY(!after.isNull());
+    QCOMPARE(after.content(), before.content());
 }
 
 #include "moc_indextest.cpp"
