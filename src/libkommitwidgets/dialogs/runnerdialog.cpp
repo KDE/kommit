@@ -43,7 +43,26 @@ RunnerDialog::RunnerDialog(Git::Repository *git, QWidget *parent)
 
 RunnerDialog::~RunnerDialog()
 {
+    // The window can go while git is still going: closed from its frame, dismissed with Escape,
+    // or let go of by whoever opened it. What the process still had to say would then arrive at
+    // an object that is already part way through being taken apart, so it is cut off first and
+    // the process ended after that. The run belongs to this window, so it ends with it.
+    mGitProcess->disconnect(this);
+    endProcess();
+
     delete mCmd;
+}
+
+void RunnerDialog::endProcess()
+{
+    if (mGitProcess->state() == QProcess::NotRunning)
+        return;
+
+    mGitProcess->kill();
+
+    // Waited for, so the process is gone before the object that owns it is, with an end to the
+    // wait in case it takes longer than that to die.
+    mGitProcess->waitForFinished(2000);
 }
 
 void RunnerDialog::run(const QStringList &args)
@@ -173,8 +192,7 @@ void RunnerDialog::slotPushButtonCloseClicked()
 
 void RunnerDialog::slotPushButtonStopClicked()
 {
-    if (mGitProcess->isOpen())
-        mGitProcess->kill();
+    endProcess();
     close();
 }
 

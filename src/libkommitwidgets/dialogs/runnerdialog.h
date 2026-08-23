@@ -33,6 +33,9 @@ public:
     void setAutoClose(bool newAutoClose);
 
 private:
+    /// Ends the process where it is still going, waiting for it to be gone before returning.
+    LIBKOMMITWIDGETS_NO_EXPORT void endProcess();
+
     /// Adds @p text to the output, with any address in it as a link.
     void appendOutput(const QString &text);
 
