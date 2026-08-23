@@ -224,6 +224,9 @@ Tree Index::tree() const
     git_oid oid;
 
     auto repo = git_index_owner(d->index);
+    if (!repo)
+        return Tree{};
+
     if (git_tree_lookup(&tree, repo, &oid))
         return Tree{};
 
@@ -257,11 +260,17 @@ IndexEntry Index::entryByPath(const QString &path) const
 
 Blob Index::blobByPath(const QString &path) const
 {
+    // An index whose repository has been closed has no owner any more, and there is nowhere to
+    // look a blob up.
+    auto repo = git_index_owner(d->index);
+    if (!repo)
+        return Blob{};
+
     auto entry = git_index_get_bypath(d->index, path.toUtf8().data(), 0);
     if (!entry)
         return Blob{};
 
-    return Blob{git_index_owner(d->index), entry};
+    return Blob{repo, entry};
 }
 
 bool Index::hasConflicts() const

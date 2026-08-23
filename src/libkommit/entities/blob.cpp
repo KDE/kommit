@@ -61,6 +61,9 @@ Blob::Blob(git_blob *blob)
 Blob::Blob(git_repository *repo, git_tree_entry *entry)
     : d{new BlobPrivate{this}}
 {
+    if (!repo || !entry)
+        return;
+
     d->name = QString{git_tree_entry_name(entry)};
 
     auto oid = git_tree_entry_id(entry);
@@ -70,6 +73,11 @@ Blob::Blob(git_repository *repo, git_tree_entry *entry)
 Blob::Blob(git_repository *repo, const git_index_entry *entry)
     : d{new BlobPrivate{this}}
 {
+    // Nothing to read, and nowhere to read it from: what comes out is a blob that says it is
+    // null, which every caller here asks about.
+    if (!repo || !entry)
+        return;
+
     d->name = QString{entry->path};
 
     git_blob_lookup(&d->blob, repo, &entry->id);
