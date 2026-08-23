@@ -772,7 +772,7 @@ bool Repository::setHead(const Reference &ref) const
 bool Repository::reset(const Commit &commit, ResetType type) const
 {
     Q_D(const Repository);
-    git_object *object;
+    git_object *object{nullptr};
     SequenceRunner r;
     r.run(git_object_lookup, &object, d->repo, commit.oid().data(), GIT_OBJECT_COMMIT);
 
@@ -782,6 +782,9 @@ bool Repository::reset(const Commit &commit, ResetType type) const
     git_checkout_options opts = GIT_CHECKOUT_OPTIONS_INIT;
     r.run(git_reset, d->repo, object, static_cast<git_reset_t>(type), &opts);
     r.printError();
+
+    // The commit the hash was looked up as has said all it has to say.
+    git_object_free(object);
 
     if (r.isSuccess())
         Q_EMIT currentBranchChanged();
