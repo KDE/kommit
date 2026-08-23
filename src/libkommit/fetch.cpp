@@ -60,7 +60,8 @@ int FetchPrivate::run()
     if (remote.isNull())
         return -1;
 
-    if (!remote.isConnected() && !remote.connect(Git::Remote::Direction::Fetch, &callbacks))
+    const bool wasConnected = remote.isConnected();
+    if (!wasConnected && !remote.connect(Git::Remote::Direction::Fetch, &callbacks))
         return -1;
 
     git_fetch_options opts = GIT_FETCH_OPTIONS_INIT;
@@ -90,6 +91,12 @@ int FetchPrivate::run()
     } else {
         ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), (const git_strarray *)NULL, &opts, "fetch");
     }
+
+    // git_remote_fetch() disconnects once the download has run, but returns before it when an
+    // earlier step fails, and the remote is kept for as long as the repository is open.
+    if (!wasConnected)
+        remote.disconnect();
+
     return ret;
 }
 

@@ -134,7 +134,6 @@ const QList<Branch> &Remote::branches()
 bool Remote::isConnected() const
 {
     return git_remote_connected(d->remote);
-    return 1 == SequenceRunner::runSingle(git_remote_connected, d->remote);
 }
 
 bool Remote::connect(Direction direction, RemoteCallbacks *callBacks) const
@@ -150,6 +149,12 @@ bool Remote::connect(Direction direction, RemoteCallbacks *callBacks) const
                                      &cb,
                                      (const git_proxy_options *)NULL,
                                      (const git_strarray *)NULL);
+}
+
+void Remote::disconnect() const
+{
+    if (git_remote_connected(d->remote))
+        git_remote_disconnect(d->remote);
 }
 
 git_remote *Remote::remotePtr() const

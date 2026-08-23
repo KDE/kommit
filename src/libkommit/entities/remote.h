@@ -71,6 +71,15 @@ public:
     [[nodiscard]] bool isConnected() const;
     [[nodiscard]] bool connect(Direction direction, RemoteCallbacks *callBacks) const;
 
+    /**
+     * Closes the connection to the server.
+     *
+     * What a connection holds -- the stream, and the session it was agreed over -- belongs to
+     * the remote until it is closed, and a remote is kept for as long as the repository is
+     * open. Whatever opens one closes it when it has what it came for.
+     */
+    void disconnect() const;
+
     [[nodiscard]] git_remote *remotePtr() const;
 
 private:
