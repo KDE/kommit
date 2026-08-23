@@ -35,6 +35,8 @@ private Q_SLOTS:
     void shouldTakeTheDefaultBranchTheConfigNames();
     void shouldPreferWhatTheRemoteWasClonedFrom();
 
+    void shouldSayThereIsNoCurrentBranchWhereTheHeadIsOnNone();
+
 private:
     Git::Repository *mManager;
 
