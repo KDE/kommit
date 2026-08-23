@@ -64,10 +64,14 @@ Branch::Branch(git_reference *branch)
     : d{new BranchPrivate{this, branch}}
 {
     if (branch) {
-        const char *tmp;
-        git_branch_name(&tmp, branch);
-        d->name = tmp;
-        d->refName = git_reference_name(branch);
+        // A reference that is not a branch has no branch name in it, and what libgit2 does
+        // when it says so is leave the pointer it was handed as it found it.
+        const char *name{nullptr};
+        if (!git_branch_name(&name, branch) && name)
+            d->name = QString::fromUtf8(name);
+
+        if (const auto *refName = git_reference_name(branch))
+            d->refName = QString::fromUtf8(refName);
     }
 }
 
