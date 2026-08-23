@@ -10,6 +10,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QCryptographicHash>
 #include <QDir>
 #include <QFile>
+#include <QNetworkInformation>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QStandardPaths>
@@ -36,12 +37,41 @@ QString GravatarCache::cacheLocalPath() const
     return path;
 }
 
+bool GravatarCache::canReachTheNetwork()
+{
+    if (mRequestsFail)
+        return false;
+
+    static const bool backend = QNetworkInformation::loadDefaultBackend();
+    if (!backend)
+        return true;
+
+    auto *information = QNetworkInformation::instance();
+    if (!information)
+        return true;
+
+    // A machine that comes back onto the network is worth asking again.
+    static bool watched{false};
+    if (!watched) {
+        watched = true;
+        connect(information, &QNetworkInformation::reachabilityChanged, this, [this](QNetworkInformation::Reachability reachability) {
+            if (reachability == QNetworkInformation::Reachability::Online)
+                mRequestsFail = false;
+        });
+    }
+
+    return information->reachability() == QNetworkInformation::Reachability::Online;
+}
+
 QString GravatarCache::avatarPath(const QString &email)
 {
     const auto emailHash = QCryptographicHash::hash(email.toUtf8(), QCryptographicHash::Md5).toHex().toLower();
 
     if (mAvatarsCache.contains(emailHash))
         return mAvatarsCache[emailHash];
+
+    if (!canReachTheNetwork())
+        return {};
 
     const auto avatarUrl = QStringLiteral("https://www.gravatar.com/avatar/%1").arg(QString::fromLatin1(emailHash));
 
@@ -51,10 +81,13 @@ QString GravatarCache::avatarPath(const QString &email)
     connect(reply, &QNetworkReply::finished, this, [this, emailHash, reply, email]() {
         reply->deleteLater();
 
-        // Nothing came back, which happens whenever there is no way out to the network. Read
-        // it anyway and Qt says so itself, on the terminal, once per picture that was wanted.
-        if (reply->error() != QNetworkReply::NoError)
+        // Nothing came back, which happens whenever there is no way out to the network. The
+        // ones after this are not asked for at all, since they would go the same way and Qt
+        // says so on the terminal every time.
+        if (reply->error() != QNetworkReply::NoError) {
+            mRequestsFail = true;
             return;
+        }
 
         const auto avatar = reply->readAll();
         if (avatar.isEmpty())

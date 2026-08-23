@@ -29,6 +29,17 @@ Q_SIGNALS:
     void avatarUpdated(const QString &fileName, const QString &email);
 
 private:
+    /**
+     * Whether there is a way out to the network to ask for a picture through.
+     *
+     * A machine with no way out answers every request with a failure, and Qt says so on the
+     * terminal for each of them, one line per picture wanted. Asking beforehand is what keeps
+     * that quiet. Where Qt cannot tell, this says yes and the request is made as before.
+     */
+    [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT bool canReachTheNetwork();
+
     QNetworkAccessManager mNet;
     QMap<QString, QString> mAvatarsCache;
+    /// Set once a request has failed, so the ones after it are not made at all.
+    bool mRequestsFail{false};
 };
