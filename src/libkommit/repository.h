@@ -66,9 +66,13 @@ public:
         ConfigGlobal,
         ConfigLocal,
     };
+    /// What a reset does to the index and the working copy, on top of moving the branch.
     enum class ResetType {
+        /// The index and the working copy are left as they are, so what was committed is staged.
         Soft = GIT_RESET_SOFT,
-        Mied = GIT_RESET_MIXED,
+        /// The index goes with the branch, and the working copy is left as it is.
+        Mixed = GIT_RESET_MIXED,
+        /// The index and the working copy are made to match the commit.
         Hard = GIT_RESET_HARD
     };
 
