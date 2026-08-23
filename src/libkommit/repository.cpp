@@ -599,7 +599,7 @@ QString Repository::config(const QString &name, ConfigType type) const
         return {};
     }
     BEGIN
-    git_config *cfg;
+    git_config *cfg{nullptr};
     switch (type) {
     case ConfigLocal:
         STEP git_repository_config(&cfg, d->repo);
@@ -612,11 +612,16 @@ QString Repository::config(const QString &name, ConfigType type) const
     STEP git_config_get_entry(&entry, cfg, name.toLatin1().data());
     PRINT_ERROR;
 
-    if (!entry)
-        return {};
+    QString s;
+    if (entry) {
+        s = QString::fromUtf8(entry->value);
+        git_config_entry_free(entry);
+    }
 
-    QString s = entry->value;
-    git_config_entry_free(entry);
+    // Asking a repository for its configuration hands out a hold on it, and opening the
+    // default one hands out a configuration outright. Both are given back the same way.
+    git_config_free(cfg);
+
     return s;
 }
 
