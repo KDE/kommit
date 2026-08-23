@@ -60,7 +60,8 @@ int FetchPrivate::run()
     if (remote.isNull())
         return -1;
 
-    if (!remote.isConnected() && !remote.connect(Git::Remote::Direction::Fetch, &callbacks))
+    const bool wasConnected = remote.isConnected();
+    if (!wasConnected && !remote.connect(Git::Remote::Direction::Fetch, &callbacks))
         return -1;
 
     git_fetch_options opts = GIT_FETCH_OPTIONS_INIT;
@@ -90,6 +91,13 @@ int FetchPrivate::run()
     } else {
         ret = SequenceRunner::runSingle(git_remote_fetch, remote.remotePtr(), (const git_strarray *)NULL, &opts, "fetch");
     }
+
+    // The connection opened here is closed here. It belongs to the remote, and the remote is
+    // held for as long as the repository is open, so a connection left open is a stream and a
+    // session held with it until the program ends.
+    if (!wasConnected)
+        remote.disconnect();
+
     return ret;
 }
 
