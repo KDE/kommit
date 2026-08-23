@@ -34,7 +34,8 @@ private:
      *
      * A machine with no way out answers every request with a failure, and Qt says so on the
      * terminal for each of them, one line per picture wanted. Asking beforehand is what keeps
-     * that quiet. Where Qt cannot tell, this says yes and the request is made as before.
+     * that quiet. What is asked is whether any interface but the machine itself is up, which
+     * is as much as can be known without asking something that holds state for the whole run.
      */
     [[nodiscard]] LIBKOMMITWIDGETS_NO_EXPORT bool canReachTheNetwork();
 

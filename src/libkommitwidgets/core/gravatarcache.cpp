@@ -10,7 +10,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QCryptographicHash>
 #include <QDir>
 #include <QFile>
-#include <QNetworkInformation>
+#include <algorithm>
+
+#include <QNetworkInterface>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QSslConfiguration>
@@ -54,25 +56,15 @@ bool GravatarCache::canReachTheNetwork()
     if (mRequestsFail)
         return false;
 
-    static const bool backend = QNetworkInformation::loadDefaultBackend();
-    if (!backend)
-        return true;
+    // Whether anything but the machine itself can be reached at all. Asked of the interfaces
+    // rather than of QNetworkInformation, whose backend is a plugin that talks over the bus and
+    // holds what it makes there for as long as the program runs.
+    const auto interfaces = QNetworkInterface::allInterfaces();
 
-    auto *information = QNetworkInformation::instance();
-    if (!information)
-        return true;
-
-    // A machine that comes back onto the network is worth asking again.
-    static bool watched{false};
-    if (!watched) {
-        watched = true;
-        connect(information, &QNetworkInformation::reachabilityChanged, this, [this](QNetworkInformation::Reachability reachability) {
-            if (reachability == QNetworkInformation::Reachability::Online)
-                mRequestsFail = false;
-        });
-    }
-
-    return information->reachability() == QNetworkInformation::Reachability::Online;
+    return std::any_of(interfaces.constBegin(), interfaces.constEnd(), [](const QNetworkInterface &interface) {
+        const auto flags = interface.flags();
+        return flags.testFlag(QNetworkInterface::IsUp) && flags.testFlag(QNetworkInterface::IsRunning) && !flags.testFlag(QNetworkInterface::IsLoopBack);
+    });
 }
 
 QString GravatarCache::avatarPath(const QString &email)
