@@ -74,6 +74,10 @@ QList<Commit> CommitsCache::allCommits()
     while (!git_branch_next(&ref, &b, it)) {
         auto refname = git_reference_name(ref);
         git_revwalk_push_ref(walker, refname);
+
+        // The iterator hands out a reference of its own each step, and the walk keeps nothing
+        // of it: it has resolved the name by the time the push returns.
+        git_reference_free(ref);
     }
     git_branch_iterator_free(it);
 
