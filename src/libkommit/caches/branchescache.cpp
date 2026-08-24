@@ -97,8 +97,20 @@ bool BranchesCache::remove(DataType branch)
 {
     Q_D(BranchesCache);
 
+    if (branch.name().isEmpty())
+        return false;
+
+    // The branch is looked up again here rather than removed through the reference in hand.
+    // libgit2 does not tell a reference when the repository it came from is closed, so a
+    // branch held from before this repository was opened points at what is gone, and removing
+    // it through that reference follows the pointer there. Its name says which branch was
+    // asked for either way, and that is what a name is for.
+    const auto wanted = findByName(branch.name());
+    if (wanted.isNull())
+        return false;
+
     BEGIN
-    STEP git_branch_delete(branch.refPtr());
+    STEP git_branch_delete(wanted.refPtr());
 
     if (IS_ERROR) {
         PRINT_ERROR;
@@ -108,10 +120,10 @@ bool BranchesCache::remove(DataType branch)
     // The branch is gone from the repository whether or not this held a copy of it: the ones
     // read from it are kept by reference, the ones made here by name, and a branch removed
     // through neither of those was still removed.
-    removeFromList(branch.refPtr());
-    d->remove(branch);
+    removeFromList(wanted.refPtr());
+    d->remove(wanted);
 
-    Q_EMIT removed(branch);
+    Q_EMIT removed(wanted);
 
     return true;
 }
