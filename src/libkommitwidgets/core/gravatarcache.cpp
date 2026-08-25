@@ -13,7 +13,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include <QNetworkInformation>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+#include <QSslConfiguration>
 #include <QStandardPaths>
+#include <QtConcurrent>
 
 GravatarCache::GravatarCache(QObject *parent)
     : QObject{parent}
@@ -21,6 +23,16 @@ GravatarCache::GravatarCache(QObject *parent)
     const auto path = cacheLocalPath();
     QDir d;
     d.mkpath(path);
+
+    // Qt reads and parses the whole store of certificate authorities the first time anything
+    // asks for a standard secure configuration, which the first request for a picture does. On
+    // the thread that draws the window that took three seconds, at the moment a commit was
+    // picked and its author's picture was asked for. Asked for here instead, on a thread of its
+    // own, so that by the time a picture is wanted the parsing is behind us.
+    static auto warmed = QtConcurrent::run([] {
+        QSslConfiguration::defaultConfiguration().caCertificates();
+    });
+    Q_UNUSED(warmed)
 }
 
 GravatarCache::~GravatarCache() = default;
