@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-21 00:47+0000\n"
+"POT-Creation-Date: 2026-08-28 00:48+0000\n"
 "PO-Revision-Date: 2023-06-09 23:19+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -179,7 +179,7 @@ msgstr "Cliente gráfico de Git para o KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "'Copyright' 2021-2023 de Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:298
+#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:300
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -204,33 +204,33 @@ msgstr "Laurent Montel"
 msgid "Bug fixing"
 msgstr "Correcção de erros"
 
-#: src/gui/appwindow.cpp:112 src/gui/appwindow.cpp:193
+#: src/gui/appwindow.cpp:113 src/gui/appwindow.cpp:209
 #, kde-format
 msgid "No repo selected"
 msgstr "Nenhum repositório seleccionado"
 
-#: src/gui/appwindow.cpp:145
+#: src/gui/appwindow.cpp:161
 #, kde-format
 msgctxt "@info:status"
 msgid "Loading %1…"
 msgstr ""
 
-#: src/gui/appwindow.cpp:185
+#: src/gui/appwindow.cpp:201
 #, kde-format
 msgid "Current branch: %1"
 msgstr "Ramificação actual: %1"
 
-#: src/gui/appwindow.cpp:187
+#: src/gui/appwindow.cpp:203
 #, kde-format
 msgid " (merging)"
 msgstr " (a reunir)"
 
-#: src/gui/appwindow.cpp:189
+#: src/gui/appwindow.cpp:205
 #, kde-format
 msgid " (rebasing)"
 msgstr " (a avançar)"
 
-#: src/gui/appwindow.cpp:224
+#: src/gui/appwindow.cpp:240
 #: src/libkommitwidgets/actions/submoduleactions.cpp:28
 #, fuzzy, kde-format
 #| msgid "Init"
@@ -238,138 +238,138 @@ msgctxt "@action"
 msgid "Init…"
 msgstr "Inicializar"
 
-#: src/gui/appwindow.cpp:227
+#: src/gui/appwindow.cpp:243
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action"
 msgid "Open…"
 msgstr "Abrir"
 
-#: src/gui/appwindow.cpp:232
+#: src/gui/appwindow.cpp:248
 #, fuzzy, kde-format
 #| msgid "Clone"
 msgctxt "@action"
 msgid "Clone…"
 msgstr "Clonar"
 
-#: src/gui/appwindow.cpp:235
+#: src/gui/appwindow.cpp:251
 #, fuzzy, kde-format
 #| msgid "Changed files"
 msgctxt "@action"
 msgid "Changed files…"
 msgstr "Ficheiros modificados"
 
-#: src/gui/appwindow.cpp:241
+#: src/gui/appwindow.cpp:257
 #, fuzzy, kde-format
 #| msgid "Recent repos"
 msgctxt "@action"
 msgid "Recent repos"
 msgstr "Repositórios recentes"
 
-#: src/gui/appwindow.cpp:247
+#: src/gui/appwindow.cpp:263
 #, fuzzy, kde-format
 #| msgid "Cleanup"
 msgctxt "@action"
 msgid "Cleanup…"
 msgstr "Limpeza"
 
-#: src/gui/appwindow.cpp:250
+#: src/gui/appwindow.cpp:266
 #, fuzzy, kde-format
 #| msgid "Pull"
 msgctxt "@action"
 msgid "Pull…"
 msgstr "Obter"
 
-#: src/gui/appwindow.cpp:254 src/libkommitwidgets/actions/branchactions.cpp:33
+#: src/gui/appwindow.cpp:270 src/libkommitwidgets/actions/branchactions.cpp:33
 #, fuzzy, kde-format
 #| msgid "Fetch"
 msgctxt "@action"
 msgid "Fetch…"
 msgstr "Obter"
 
-#: src/gui/appwindow.cpp:258 src/libkommitwidgets/actions/tagsactions.cpp:29
+#: src/gui/appwindow.cpp:274 src/libkommitwidgets/actions/tagsactions.cpp:29
 #, fuzzy, kde-format
 #| msgid "Push"
 msgctxt "@action"
 msgid "Push…"
 msgstr "Enviar"
 
-#: src/gui/appwindow.cpp:262 src/libkommitwidgets/actions/branchactions.cpp:36
+#: src/gui/appwindow.cpp:278 src/libkommitwidgets/actions/branchactions.cpp:36
 #, fuzzy, kde-format
 #| msgid "Merge"
 msgctxt "@action"
 msgid "Merge…"
 msgstr "Reunir"
 
-#: src/gui/appwindow.cpp:266
+#: src/gui/appwindow.cpp:282
 #, fuzzy, kde-format
 #| msgid "Diff branches"
 msgctxt "@action"
 msgid "Diff branches…"
 msgstr "Diferenças entre ramificações"
 
-#: src/gui/appwindow.cpp:269 src/libkommitwidgets/actions/fileactions.cpp:46
+#: src/gui/appwindow.cpp:285 src/libkommitwidgets/actions/fileactions.cpp:46
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@action"
 msgid "Search…"
 msgstr "Procurar"
 
-#: src/gui/appwindow.cpp:272
+#: src/gui/appwindow.cpp:288
 #, fuzzy, kde-format
 #| msgid "Repo settings"
 msgctxt "@action"
 msgid "Repo settings…"
 msgstr "Configuração do repositório"
 
-#: src/gui/appwindow.cpp:275
+#: src/gui/appwindow.cpp:291
 #, fuzzy, kde-format
 #| msgid "Switch/Checkout"
 msgctxt "@action"
 msgid "Switch/Checkout…"
 msgstr "Mudar/Seleccionar"
 
-#: src/gui/appwindow.cpp:278
+#: src/gui/appwindow.cpp:294
 #, fuzzy, kde-format
 #| msgid "Diff tree"
 msgctxt "@action"
 msgid "Diff tree…"
 msgstr "Diferenças da árvore"
 
-#: src/gui/appwindow.cpp:281
+#: src/gui/appwindow.cpp:297
 #, fuzzy, kde-format
 #| msgid "Change url"
 msgctxt "@action"
 msgid "Change logs…"
 msgstr "Modificar o URL"
 
-#: src/gui/appwindow.cpp:343
+#: src/gui/appwindow.cpp:359
 #, fuzzy, kde-format
 #| msgid "Cleanup"
 msgid "Clear"
 msgstr "Limpeza"
 
-#: src/gui/appwindow.cpp:365 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:205
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Não é possível criar a localização: %1"
 
-#: src/gui/appwindow.cpp:365 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:205
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializar o repositório"
 
-#: src/gui/appwindow.cpp:378
+#: src/gui/appwindow.cpp:394
 #, kde-format
 msgid "Open repository"
 msgstr "Abrir um repositório"
 
-#: src/gui/appwindow.cpp:459 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:458
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Não é possível mudar de ramificação durante uma junção"
 
-#: src/gui/appwindow.cpp:459 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:458
 #, kde-format
 msgid "Switch branch"
 msgstr "Mudar de ramificação"
@@ -2988,18 +2988,18 @@ msgstr "Sem modificação"
 msgid " (content modified)"
 msgstr ""
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:294
-#: src/libkommitwidgets/models/commitsmodel.cpp:305
+#: src/libkommitwidgets/models/commitsmodel.cpp:296
+#: src/libkommitwidgets/models/commitsmodel.cpp:307
 #, kde-format
 msgid "Message"
 msgstr "Mensagem"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:296
+#: src/libkommitwidgets/models/commitsmodel.cpp:298
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:303
+#: src/libkommitwidgets/models/commitsmodel.cpp:305
 #, kde-format
 msgid "Graph"
 msgstr "Gráfico"
@@ -3204,28 +3204,28 @@ msgid " (Fingerprint: %1)"
 msgstr ""
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:159
-#: src/libkommitwidgets/widgets/graphpainter.cpp:129
+#: src/libkommitwidgets/widgets/graphpainter.cpp:202
 #, fuzzy, kde-format
 #| msgid "Branch:"
 msgid "Branch: "
 msgstr "Ramificação:"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:161
-#: src/libkommitwidgets/widgets/graphpainter.cpp:131
+#: src/libkommitwidgets/widgets/graphpainter.cpp:204
 #, fuzzy, kde-format
 #| msgid "Note"
 msgid "Note: "
 msgstr "Nota"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:163
-#: src/libkommitwidgets/widgets/graphpainter.cpp:133
+#: src/libkommitwidgets/widgets/graphpainter.cpp:206
 #, fuzzy, kde-format
 #| msgid "Remote:"
 msgid "Remote: "
 msgstr "Remoto:"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:165
-#: src/libkommitwidgets/widgets/graphpainter.cpp:135
+#: src/libkommitwidgets/widgets/graphpainter.cpp:208
 #, kde-format
 msgid "Tag: "
 msgstr ""
