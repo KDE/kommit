@@ -365,7 +365,7 @@ msgstr ""
 #: src/gui/changelogsdata.cpp:64
 #, kde-format
 msgid "Add changes logs dialog"
-msgstr "Boîte de dialogue « Ajouter des journaux de modifications »"
+msgstr "Boite de dialogue « Ajouter des journaux de modifications »"
 
 #: src/gui/changelogsdata.cpp:65
 #, kde-format
