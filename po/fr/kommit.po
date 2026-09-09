@@ -887,13 +887,13 @@ msgstr "Diagramme"
 #: src/gui/pages/reportswidget.ui:78
 #, kde-format
 msgid "Refresh data"
-msgstr "Rafraîchir les données"
+msgstr "Rafraichir les données"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonRefresh)
 #: src/gui/pages/reportswidget.ui:81
 #, kde-format
 msgid "Refresh"
-msgstr "Rafraîchir"
+msgstr "Rafraichir"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, StashesWidget)
 #: src/gui/pages/stasheswidget.ui:14
