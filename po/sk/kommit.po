@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-28 00:48+0000\n"
-"PO-Revision-Date: 2026-04-10 12:00+0200\n"
-"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"PO-Revision-Date: 2026-09-14 20:10+0200\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +197,7 @@ msgstr "Nie je vybraný žiadny repozitár"
 #, kde-format
 msgctxt "@info:status"
 msgid "Loading %1…"
-msgstr ""
+msgstr "Načítava sa %1…"
 
 #: src/gui/appwindow.cpp:201
 #, kde-format
