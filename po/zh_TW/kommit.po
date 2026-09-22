@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-28 00:48+0000\n"
-"PO-Revision-Date: 2026-06-07 16:51+0900\n"
+"PO-Revision-Date: 2026-09-22 01:39+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.07.70\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -199,7 +199,7 @@ msgstr "未選取版本庫"
 #, kde-format
 msgctxt "@info:status"
 msgid "Loading %1…"
-msgstr ""
+msgstr "正在載入 %1…"
 
 #: src/gui/appwindow.cpp:201
 #, kde-format
@@ -371,17 +371,17 @@ msgstr "修正許多小錯誤"
 #: src/gui/changelogsdata.cpp:72
 #, kde-format
 msgid "Fix bug in branch selection in commits widget"
-msgstr ""
+msgstr "修正提交元件選取分支的問題"
 
 #: src/gui/changelogsdata.cpp:79
 #, kde-format
 msgid "Improve merge algorithm and text rendering"
-msgstr ""
+msgstr "改善合併演算法與文字繪製"
 
 #: src/gui/changelogsdata.cpp:80
 #, kde-format
 msgid "Improve diff window text rendering"
-msgstr ""
+msgstr "改善差異比對視窗文字繪製"
 
 #: src/gui/changelogsdata.cpp:81
 #, kde-format
@@ -391,22 +391,22 @@ msgstr "修正 Dolphin 選單"
 #: src/gui/changelogsdata.cpp:88
 #, kde-format
 msgid "Change icons to symbolic to response the theme changes"
-msgstr ""
+msgstr "將圖示改為符號式來反映主題變更"
 
 #: src/gui/changelogsdata.cpp:89
 #, kde-format
 msgid "Fix crash on diff page"
-msgstr ""
+msgstr "修正差異比對頁面的崩潰"
 
 #: src/gui/changelogsdata.cpp:90
 #, kde-format
 msgid "Fix missing icons"
-msgstr ""
+msgstr "修正缺乏圖示的問題"
 
 #: src/gui/changelogsdata.cpp:97
 #, kde-format
 msgid "Fix file viewer API"
-msgstr ""
+msgstr "修正檔案檢視器 API"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangeLogsDialog)
 #: src/gui/changelogsdialog.ui:14
@@ -482,7 +482,7 @@ msgstr "已移除"
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:14
 #, kde-format
 msgid "Choose file version"
-msgstr ""
+msgstr "選擇檔案版本"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBaseFile)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:25
@@ -566,6 +566,8 @@ msgid ""
 "underline; color:#007af4;\">Diff base with local </span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">比對基底與本地的差異</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffBaseWithRemote)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:92
@@ -575,6 +577,8 @@ msgid ""
 "underline; color:#007af4;\">Diff base with remote </span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">比對基底與遠端的差異</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDiffLocalWithRemote)
 #: src/gui/dialogs/chooseconflictedfiledialog.ui:99
@@ -584,6 +588,8 @@ msgid ""
 "underline; color:#007af4;\">Diff local with remote</span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p><a href=\"#\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">比對本地與遠端的差異</span></a></p></body></html>"
 
 #: src/gui/dialogs/resolvedialog.cpp:85
 #, kde-format
@@ -594,7 +600,7 @@ msgstr "所有衝突皆已解決"
 #, kde-format
 msgid "%1 conflict remained"
 msgid_plural "%1 conflicts remained"
-msgstr[0] ""
+msgstr[0] "還有 %1 個衝突"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ResolveDialog)
 #: src/gui/dialogs/resolvedialog.ui:14
@@ -919,6 +925,10 @@ msgid ""
 "txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
 "underline; color:#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>將貯存套用到目前工作目錄</p><p><a href=\"https://git-"
+"scm.com/docs/git-stash#Documentation/git-stash.txt-apply--index-q--"
+"quietltstashgt\"><span style=\" text-decoration: underline; color:#2980b9;\">"
+"更多資訊...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
 #: src/gui/pages/stasheswidget.ui:69
@@ -1234,7 +1244,7 @@ msgstr "日誌"
 #: src/libkommitwidgets/actions/fileactions.cpp:65
 #, kde-format
 msgid "%1 file (*.%1);;All files(*)"
-msgstr ""
+msgstr "%1 檔案 (*.%1);;所有檔案(*)"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:25
 #, kde-format
@@ -1459,7 +1469,7 @@ msgstr "否"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:14
 #, kde-format
 msgid "Confirm certificate"
-msgstr ""
+msgstr "確認憑證"
 
 #. i18n: ectx: property (text), widget (QLabel, label_21)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:23
@@ -1467,13 +1477,13 @@ msgstr ""
 msgid ""
 "Confirm this certificate by clicking OK, if this is not the correct "
 "certificate, click Cancel."
-msgstr ""
+msgstr "按確認來確認此憑證，如果憑證不正確則請按取消。"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:33
 #, kde-format
 msgid "Certificate details"
-msgstr ""
+msgstr "憑證詳情"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:43
@@ -1505,7 +1515,7 @@ msgstr "配發者"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:123
 #, kde-format
 msgid "Serial number"
-msgstr ""
+msgstr "序號"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:143
@@ -1523,13 +1533,13 @@ msgstr "有效期限"
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:183
 #, kde-format
 msgid "Public key type"
-msgstr ""
+msgstr "公鑰類型"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:203
 #, kde-format
 msgid "Public key bits"
-msgstr ""
+msgstr "公鑰位元數"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: src/libkommitwidgets/dialogs/certificateinfodialog.ui:223
@@ -1592,7 +1602,7 @@ msgstr "已變更的子模組"
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
 #, kde-format
 msgid "The following submodules are dirty. Would you like to push them?"
-msgstr ""
+msgstr "以下子模組有異動。您要推送它們嗎？"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:14
@@ -1818,6 +1828,10 @@ msgid ""
 "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>將指定文字作為提交訊息使用。</p><p><a href=\"https://"
+"git-scm.com/docs/git-commit#Documentation/git-commit.txt---messageltmsggt"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">更多資訊</"
+"span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:175
@@ -1936,17 +1950,17 @@ msgstr "舊目錄："
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:141
 #, kde-format
 msgid "Receiving objects"
-msgstr ""
+msgstr "正在接收物件"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:148
 #, kde-format
 msgid "Stage %1"
-msgstr ""
+msgstr "階段 %1"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:156
 #, kde-format
 msgid "Reference updated: %1  %2...%3"
-msgstr ""
+msgstr "已更新參照：%1  %2...%3"
 
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:162
 #, kde-format
@@ -1961,7 +1975,7 @@ msgstr "已完成但有錯誤"
 #: src/libkommitwidgets/dialogs/fetchdialog.cpp:165
 #, kde-format
 msgid "Error %1: %2"
-msgstr ""
+msgstr "錯誤 %1：%2"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:14
@@ -2000,7 +2014,7 @@ msgstr "重新導向"
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:186
 #, kde-format
 msgid "Starting..."
-msgstr ""
+msgstr "啟動中..."
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:48
 #: src/libkommitwidgets/widgets/blamecodeview.cpp:37
@@ -2115,7 +2129,7 @@ msgstr "主視窗"
 #: src/libkommitwidgets/dialogs/fileviewerdialog.ui:94
 #, kde-format
 msgid "Can't show the binary file!"
-msgstr ""
+msgstr "無法顯示二進位檔案！"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:54
 #, kde-format
@@ -2393,7 +2407,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/mergedialog.ui:197
 #, kde-format
 msgid "Renormalize"
-msgstr ""
+msgstr "重新正規化"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:211
@@ -2499,23 +2513,17 @@ msgstr "自動 crlf："
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Tells Git if the executable bit of files in the "
-#| "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/"
-#| "git-config#Documentation/git-config.txt-corefileMode\"><span style=\" "
-#| "text-decoration: underline; color:#007af4;\">More informations...</span></"
-#| "a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Change cr/lf or not</p><p><a href=\"https://git-scm."
 "com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
 "\" text-decoration: underline; color:#007af4;\">More information...</span></"
 "a></p></body></html>"
 msgstr ""
-"<html><head/><body><p>告訴 Git 是否要尊重工作樹中的檔案的可執行位元。 </"
-"p><p><a href=\"https://git-scm.com/docs/git-config#Documentation/git-config."
-"txt-corefileMode\"><span style=\" text-decoration: underline; color:#007af4;"
-"\">更多資訊...</span></a></p></body></html>"
+"<html><head/><body><p>是否要改變 CR/LF</p><p><a href=\"https://git-scm.com/"
+"docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">更多資訊...</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:59
@@ -2525,13 +2533,7 @@ msgstr "檔案模式："
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:66
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Tells Git if the executable bit of files in the "
-#| "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/"
-#| "git-config#Documentation/git-config.txt-corefileMode\"><span style=\" "
-#| "text-decoration: underline; color:#007af4;\">More informations...</span></"
-#| "a></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Tells Git if the executable bit of files in the "
 "working tree is to be honored. </p><p><a href=\"https://git-scm.com/docs/git-"
@@ -2589,18 +2591,7 @@ msgstr "輸出"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textBrowser)
 #: src/libkommitwidgets/dialogs/runnerdialog.ui:74
-#, fuzzy, kde-format
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\">\n"
-#| "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#| "css\">\n"
-#| "p, li { white-space: pre-wrap; }\n"
-#| "</style></head><body style=\" font-family:'Monospace'; font-size:10pt; "
-#| "font-weight:400; font-style:normal;\">\n"
-#| "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#| "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
-#| "font-size:9pt;\"><br /></p></body></html>"
+#, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
@@ -2618,9 +2609,12 @@ msgid ""
 msgstr ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
@@ -2720,7 +2714,7 @@ msgstr "分支已存在"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:90
 #, kde-format
 msgid "Unable to find the tag's target commit: %1"
-msgstr ""
+msgstr "找不到標籤的目標提交：%1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
 #, kde-format
@@ -2730,7 +2724,7 @@ msgstr "無法建立分支：%1"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:104
 #, kde-format
 msgid "Error switching to new target"
-msgstr ""
+msgstr "切換到新目標時發生錯誤"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:52
@@ -2898,12 +2892,12 @@ msgstr "依星期幾的提交"
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:89
 #, kde-format
 msgid "Day"
-msgstr ""
+msgstr "日"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:99
 #, kde-format
 msgid "Day of week"
-msgstr ""
+msgstr "星期幾"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:64
 #, kde-format
@@ -2913,12 +2907,12 @@ msgstr "依月份的提交"
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:74
 #, kde-format
 msgid "Month"
-msgstr ""
+msgstr "月"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:84
 #, kde-format
 msgid "Month-year"
-msgstr ""
+msgstr "月份與年份"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #. i18n: ectx: property (windowTitle), widget (QWidget, MergeWidget)
@@ -2941,7 +2935,7 @@ msgstr "過濾分支"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:99
 #, kde-format
 msgid "Not signed"
-msgstr ""
+msgstr "未簽章"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:105
 #: src/libkommitwidgets/widgets/commitdetails.cpp:114
@@ -2949,39 +2943,39 @@ msgstr ""
 #, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:orange;font-weight:bold'>%1</span>"
-msgstr ""
+msgstr "<span style='color:orange;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:107
 #, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:green;font-weight:bold'>%1</span>"
-msgstr ""
+msgstr "<span style='color:green;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
 #, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:red;font-weight:bold'>%1</span>"
-msgstr ""
+msgstr "<span style='color:red;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:131
 #, kde-format
 msgid " by %1"
-msgstr ""
+msgstr " 由 %1"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:133
 #, kde-format
 msgid " by %1 <%2>"
-msgstr ""
+msgstr " 由 %1 <%2>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:136
 #, kde-format
 msgid " (Key: %1)"
-msgstr ""
+msgstr " (金鑰: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:138
 #, kde-format
 msgid " (Fingerprint: %1)"
-msgstr ""
+msgstr " (指紋: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:159
 #: src/libkommitwidgets/widgets/graphpainter.cpp:202
@@ -3045,7 +3039,7 @@ msgstr "未選取提交"
 #: src/libkommitwidgets/widgets/commitdetails.ui:98
 #, kde-format
 msgid "Render commit message in Markdown"
-msgstr ""
+msgstr "將提交訊息視為 Markdown 繪製"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:154
@@ -3061,16 +3055,15 @@ msgstr "提交者："
 
 #. i18n: ectx: property (text), widget (QLabel, labelSignatureText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:185
-#, fuzzy, kde-format
-#| msgid "Signature algorithm"
+#, kde-format
 msgid "Signature:"
-msgstr "簽名演算法"
+msgstr "簽章："
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:261
 #, kde-format
 msgid "<html><head/><body><p>-</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>-</p></body></html>"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/difftreeview.ui:17
@@ -3200,12 +3193,12 @@ msgstr "儲存結果"
 #: src/libkommitwidgets/windows/mergewindow.cpp:400
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
-msgstr ""
+msgstr "衝突：<span style='font-weight:bold; color:red;'>%1</span>"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:402
 #, kde-format
 msgid "<span style='color:green;'>All conflicts resolved</span>"
-msgstr ""
+msgstr "<span style='color:green;'>所有衝突皆已解決</span>"
 
 #~ msgctxt "@title:window"
 #~ msgid "Closing preview"
