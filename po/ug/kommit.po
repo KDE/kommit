@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-28 00:48+0000\n"
-"PO-Revision-Date: 2026-06-15 17:04+0900\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -2914,7 +2914,7 @@ msgstr ""
 #: src/libkommitwidgets/widgets/commitdetails.cpp:131
 #, kde-format
 msgid " by %1"
-msgstr ""
+msgstr " ئاپتور %1"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:133
 #, kde-format
@@ -3041,7 +3041,7 @@ msgstr "نەقىل"
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:38
 #, kde-format
 msgid "A"
-msgstr ""
+msgstr "قوشۇمچە ئاتنىڭ بىرىنچى ھەرپى"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:43
