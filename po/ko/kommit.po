@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-28 00:48+0000\n"
-"PO-Revision-Date: 2026-02-04 00:10+0100\n"
+"PO-Revision-Date: 2026-09-29 00:51+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -199,7 +199,7 @@ msgstr "선택한 저장소 없음"
 #, kde-format
 msgctxt "@info:status"
 msgid "Loading %1…"
-msgstr ""
+msgstr "%1 불러오는 중…"
 
 #: src/gui/appwindow.cpp:201
 #, kde-format
@@ -2995,50 +2995,47 @@ msgstr "브랜치 필터"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:99
 #, kde-format
 msgid "Not signed"
-msgstr ""
+msgstr "서명되지 않음"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:105
 #: src/libkommitwidgets/widgets/commitdetails.cpp:114
 #: src/libkommitwidgets/widgets/commitdetails.cpp:122
-#, fuzzy, kde-format
-#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:orange;font-weight:bold'>%1</span>"
-msgstr "충돌: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "<span style='color:orange;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:107
-#, fuzzy, kde-format
-#| msgid "<span style='color:green;'>All conflicts resolved</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:green;font-weight:bold'>%1</span>"
-msgstr "<span style='color:green;'>모든 충돌 해결됨</span>"
+msgstr "<span style='color:green;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
-#, fuzzy, kde-format
-#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:red;font-weight:bold'>%1</span>"
-msgstr "충돌: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "<span style='color:red;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:131
 #, kde-format
 msgid " by %1"
-msgstr ""
+msgstr " 작성: %1"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:133
 #, kde-format
 msgid " by %1 <%2>"
-msgstr ""
+msgstr " 작성: %1 <%2>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:136
 #, kde-format
 msgid " (Key: %1)"
-msgstr ""
+msgstr " (키: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:138
 #, kde-format
 msgid " (Fingerprint: %1)"
-msgstr ""
+msgstr " (지문: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:159
 #: src/libkommitwidgets/widgets/graphpainter.cpp:202
@@ -3118,10 +3115,9 @@ msgstr "커미터:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelSignatureText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:185
-#, fuzzy, kde-format
-#| msgid "Signature algorithm"
+#, kde-format
 msgid "Signature:"
-msgstr "서명 알고리즘:"
+msgstr "서명:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:261
