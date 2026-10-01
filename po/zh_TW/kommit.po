@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-28 00:48+0000\n"
-"PO-Revision-Date: 2026-09-22 01:39+0900\n"
+"PO-Revision-Date: 2026-10-01 01:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -902,6 +902,13 @@ msgid ""
 "ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>將您的本地修改儲存到新的貯存項目，然後將工作樹與索引退"
+"回到 HEAD。Part 是非必要的，可以用來提供描述給貯存狀態。</p><p><br/></"
+"p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash."
+"txt-push-p--patch-k--no-keep-index-u--include-untracked-a--all-q--quiet-m--"
+"messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--"
+"ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">更多資訊...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
 #: src/gui/pages/stasheswidget.ui:52
@@ -1758,6 +1765,12 @@ msgid ""
 "push#Documentation/git-push.txt--f\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>通常此命令拒絕更新不是用來覆寫的本地 ref 的祖先的遠端 "
+"ref。另外，當使用 --force-with-lease 選項時，此命令拒絕更新目前值不符合預期的"
+"遠端 ref。</p><p>這個旗標會停用這些檢查，因此可能會讓遠端版本庫丟失提交。使用"
+"時請小心。</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"push#Documentation/git-push.txt--f\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">更多資訊...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:91
@@ -1783,6 +1796,11 @@ msgid ""
 "commit.txt---status\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>用編輯器準備提交訊息時，在提交訊息模板裡包含 &quot;git "
+"status&quot; 的輸出。</p><p><a href=\"https://git-scm.com/docs/git-"
+"commit#Documentation/git-commit.txt---status\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">更多資訊…</span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:110
@@ -2237,6 +2255,11 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>合併功能（git merge 與 git pull 命令）允許使用 -s 選項"
+"指定後端合併策略。某些合併策略有自己的選項，要指定這些選項傳遞 -X&lt;選項"
+"&gt; 參數給 git merge 或 git pull。</p><p><a href=\"https://git-scm.com/docs/"
+"merge-strategies\"><span style=\" text-decoration: underline; color:#2980b9;"
+"\">更多資訊…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:46
@@ -2261,6 +2284,10 @@ msgid ""
 "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>指定合併進去的歷史已經是目前歷史的後代的時候要如何處理"
+"合併。</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt---ff\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">更多資訊…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
@@ -2328,6 +2355,13 @@ msgid ""
 "squash\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>讓工作樹和索引狀態更新為如同合併已經完成（除了合併資訊"
+"以外），但不實際進行合併、移動 HEAD，或是記錄 $GIT_DIR/MERGE_HEAD（這個紀錄會"
+"讓下次 git commit 命令建立合併提交）。這讓您在目前分支上建立一個如同合併另一"
+"個（章魚合併時更多）分支的效果的提交。</p><p><br/></p><p><a href=\"https://"
+"git-scm.com/docs/git-merge#Documentation/git-merge.txt---squash\"><span "
+"style=\" text-decoration: underline; color:#007af4;\">更多資訊…</span></a></"
+"p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:110
@@ -2365,6 +2399,11 @@ msgid ""
 "space-change\"><span style=\" text-decoration: underline; color:#007af4;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>對於三方合併，將指定種類的空白變更視為未變更。（同一行"
+"同時有空白變更與其他變更時，空白變更不會被忽略。）</p><p><br/></p><p><a href="
+"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-ignore-"
+"space-change\"><span style=\" text-decoration: underline; color:#007af4;\">更"
+"多資訊…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:157
@@ -2402,6 +2441,11 @@ msgid ""
 "decoration: underline; color:#007af4;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>這會在解決三方合併時為檔案全部三個階段進行虛擬簽出與簽"
+"入。這個選項用於合併清理過濾器或行尾正規化規則不同的分支。</p><p><br/></"
+"p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
+"txt-renormalize\"><span style=\" text-decoration: underline; color:#007af4;"
+"\">更多資訊…</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:197
@@ -2426,6 +2470,12 @@ msgid ""
 "algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>合併時使用另一個差異演算法，這可以幫助避免由於不重要但"
+"相符的行數（像是不同函數的結尾大括號）而造成的錯誤合併。</p><p><br/></"
+"p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
+"txt-diff-algorithmpatienceminimalhistogrammyers\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">更多資訊…</span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:225
@@ -2924,7 +2974,7 @@ msgstr "月份與年份"
 #: src/libkommitwidgets/widgets/mergewidget.ui:14
 #, kde-format
 msgid "Form"
-msgstr ""
+msgstr "表單"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEditFilter)
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:20
