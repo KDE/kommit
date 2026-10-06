@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:48+0000\n"
+"POT-Creation-Date: 2026-10-06 00:52+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -98,7 +98,7 @@ msgstr "Diff"
 msgid "Ignore file"
 msgstr "Ignorovať súbor"
 
-#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:384
+#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:394
 #, kde-format
 msgid "History"
 msgstr "História"
@@ -165,7 +165,7 @@ msgstr "Git client gui pre KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:300
+#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:301
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -316,12 +316,12 @@ msgstr "Zmeniť logy…"
 msgid "Clear"
 msgstr "Vyčistiť"
 
-#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:215
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Nie je možné vytvoriť cestu: %1"
 
-#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:215
 #, kde-format
 msgid "Init repo"
 msgstr "Inicializovať repozitár"
@@ -331,12 +331,12 @@ msgstr "Inicializovať repozitár"
 msgid "Open repository"
 msgstr "Otvoriť repozitár"
 
-#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:468
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Nie je možné prepnúť vetvu počas zlučovania"
 
-#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:468
 #, kde-format
 msgid "Switch branch"
 msgstr "Prepnúť vetvu"
@@ -418,33 +418,33 @@ msgstr "Zmeniť logy"
 msgid "The path is not git repo: %1"
 msgstr "Cesta nie je git repozitár: %1"
 
-#: src/gui/commandargsparser.cpp:210
+#: src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "Repozitár bol úspešne inicializovaný"
 
-#: src/gui/commandargsparser.cpp:384
+#: src/gui/commandargsparser.cpp:394
 #, kde-format
 msgid "Cannot find the file"
 msgstr "Nemožno nájsť súbor"
 
-#: src/gui/commandargsparser.cpp:531
+#: src/gui/commandargsparser.cpp:541
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Súbor(y) boli úspešne pridané do git"
 
-#: src/gui/commandargsparser.cpp:542
+#: src/gui/commandargsparser.cpp:552
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Chcete ponechať súbor(y) na disku?"
 
-#: src/gui/commandargsparser.cpp:542
+#: src/gui/commandargsparser.cpp:552
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Odstrániť z indexu"
 
-#: src/gui/commandargsparser.cpp:544
+#: src/gui/commandargsparser.cpp:554
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Súbor(y) boli úspešne odstránené z git"
@@ -1101,22 +1101,22 @@ msgstr ""
 "Vaše lokálne zmeny v nasledujúcich súboroch by boli prepísané pri checkout. "
 "Prosím, uložte svoje zmeny alebo ich odložte pred prepnutím vetiev."
 
-#: src/libkommit/entities/remote.cpp:167
+#: src/libkommit/entities/remote.cpp:164
 #, kde-format
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: src/libkommit/entities/remote.cpp:169
+#: src/libkommit/entities/remote.cpp:166
 #, kde-format
 msgid "Up to date"
 msgstr "Aktuálne"
 
-#: src/libkommit/entities/remote.cpp:171
+#: src/libkommit/entities/remote.cpp:168
 #, kde-format
 msgid "Fast forwardable"
 msgstr "Rýchlo preposielateľné"
 
-#: src/libkommit/entities/remote.cpp:173
+#: src/libkommit/entities/remote.cpp:170
 #, kde-format
 msgid "Local out of date"
 msgstr "Lokálna verzia je zastaraná"
@@ -2843,18 +2843,18 @@ msgstr " (nový commit)"
 msgid " (content modified)"
 msgstr " (obsah zmenený)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:296
-#: src/libkommitwidgets/models/commitsmodel.cpp:307
+#: src/libkommitwidgets/models/commitsmodel.cpp:297
+#: src/libkommitwidgets/models/commitsmodel.cpp:308
 #, kde-format
 msgid "Message"
 msgstr "Správa"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:298
+#: src/libkommitwidgets/models/commitsmodel.cpp:299
 #, kde-format
 msgid "Date"
 msgstr "Dátum"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:305
+#: src/libkommitwidgets/models/commitsmodel.cpp:306
 #, kde-format
 msgid "Graph"
 msgstr "Graf"

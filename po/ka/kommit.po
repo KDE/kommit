@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:48+0000\n"
+"POT-Creation-Date: 2026-10-06 00:52+0000\n"
 "PO-Revision-Date: 2026-08-18 08:14+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -101,7 +101,7 @@ msgstr "სხვაობა"
 msgid "Ignore file"
 msgstr "ფაილის იგნორი"
 
-#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:384
+#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:394
 #, kde-format
 msgid "History"
 msgstr "ისტორია"
@@ -168,7 +168,7 @@ msgstr "Git-ის კლიენტი KDE-სთვის"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:300
+#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:301
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -319,12 +319,12 @@ msgstr "ცვლილებების ჟურნალი…"
 msgid "Clear"
 msgstr "გასუფთავება"
 
-#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:215
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "ბილიკის შექმნის შეცდომა: %1"
 
-#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:215
 #, kde-format
 msgid "Init repo"
 msgstr "რეპოზიტორიის ინიციალიზაცია"
@@ -334,12 +334,12 @@ msgstr "რეპოზიტორიის ინიციალიზაც�
 msgid "Open repository"
 msgstr "რეპოზიტორიის გახსნა"
 
-#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:468
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "შერწყმისას ბრენჩის გადართვა შეუძლებელია"
 
-#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:468
 #, kde-format
 msgid "Switch branch"
 msgstr "ბრენჩის შეცვლა"
@@ -422,33 +422,33 @@ msgstr "ცვლილებების ჟურნალი"
 msgid "The path is not git repo: %1"
 msgstr "ბილიკი git-ის რეპო არაა: %1"
 
-#: src/gui/commandargsparser.cpp:210
+#: src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "რეპოზიტორიის ინიციალიზაცია წარმატებულია"
 
-#: src/gui/commandargsparser.cpp:384
+#: src/gui/commandargsparser.cpp:394
 #, kde-format
 msgid "Cannot find the file"
 msgstr "ფაილის პოვნა შეუძლებელია"
 
-#: src/gui/commandargsparser.cpp:531
+#: src/gui/commandargsparser.cpp:541
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "ფაილ(ებ)-ი წარმატებით დაემატა git-ს"
 
-#: src/gui/commandargsparser.cpp:542
+#: src/gui/commandargsparser.cpp:552
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "გნებავთ ფაილ(ებ)-ის შენარჩუნება დისკზე?"
 
-#: src/gui/commandargsparser.cpp:542
+#: src/gui/commandargsparser.cpp:552
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "ინდექსიდან წაშლა"
 
-#: src/gui/commandargsparser.cpp:544
+#: src/gui/commandargsparser.cpp:554
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "ფაილ(ებ)-ი git-იდან წარმატებით წაიშალა"
@@ -1103,22 +1103,22 @@ msgstr ""
 "თქვენი ლოკალური თვისებებს შემდეგ ფაილებში გამოთხოვის დროს თავზე გადაეწერება. "
 "სათავსოების გადართვამდე დააკომიტეთ ცვლილებები ან შეინახეთ ისინი."
 
-#: src/libkommit/entities/remote.cpp:167
+#: src/libkommit/entities/remote.cpp:164
 #, kde-format
 msgid "Unknown"
 msgstr "უცნობი"
 
-#: src/libkommit/entities/remote.cpp:169
+#: src/libkommit/entities/remote.cpp:166
 #, kde-format
 msgid "Up to date"
 msgstr "განახლებულია"
 
-#: src/libkommit/entities/remote.cpp:171
+#: src/libkommit/entities/remote.cpp:168
 #, kde-format
 msgid "Fast forwardable"
 msgstr "სწრაფად გადახვევადი"
 
-#: src/libkommit/entities/remote.cpp:173
+#: src/libkommit/entities/remote.cpp:170
 #, kde-format
 msgid "Local out of date"
 msgstr "ლოკალური მოძველებულია"
@@ -2848,18 +2848,18 @@ msgstr " (ახალი კომიტი)"
 msgid " (content modified)"
 msgstr " (შემცველობა შეიცვალა)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:296
-#: src/libkommitwidgets/models/commitsmodel.cpp:307
+#: src/libkommitwidgets/models/commitsmodel.cpp:297
+#: src/libkommitwidgets/models/commitsmodel.cpp:308
 #, kde-format
 msgid "Message"
 msgstr "შეტყობინება"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:298
+#: src/libkommitwidgets/models/commitsmodel.cpp:299
 #, kde-format
 msgid "Date"
 msgstr "თარიღი"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:305
+#: src/libkommitwidgets/models/commitsmodel.cpp:306
 #, kde-format
 msgid "Graph"
 msgstr "გრაფიკი"

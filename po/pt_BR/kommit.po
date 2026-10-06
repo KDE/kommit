@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:48+0000\n"
+"POT-Creation-Date: 2026-10-06 00:52+0000\n"
 "PO-Revision-Date: 2026-08-18 06:50-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -101,7 +101,7 @@ msgstr "Diferenças"
 msgid "Ignore file"
 msgstr "Arquivo ignorar"
 
-#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:384
+#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:394
 #, kde-format
 msgid "History"
 msgstr "Histórico"
@@ -168,7 +168,7 @@ msgstr "Cliente de interface gráfica pra git do KDE"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:300
+#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:301
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -319,12 +319,12 @@ msgstr "Registros de alterações..."
 msgid "Clear"
 msgstr "Limpar"
 
-#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:215
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "Não foi possível criar o caminho: %1"
 
-#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:215
 #, kde-format
 msgid "Init repo"
 msgstr "Iniciar repositório"
@@ -334,12 +334,12 @@ msgstr "Iniciar repositório"
 msgid "Open repository"
 msgstr "Abrir repositório"
 
-#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:468
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "Não é possível alternar a ramificação durante a mesclagem"
 
-#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:468
 #, kde-format
 msgid "Switch branch"
 msgstr "Trocar a ramificação"
@@ -421,33 +421,33 @@ msgstr "Registros de alterações"
 msgid "The path is not git repo: %1"
 msgstr "O caminho não é um repositório git: %1"
 
-#: src/gui/commandargsparser.cpp:210
+#: src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "O repositório foi iniciado com sucesso"
 
-#: src/gui/commandargsparser.cpp:384
+#: src/gui/commandargsparser.cpp:394
 #, kde-format
 msgid "Cannot find the file"
 msgstr "Não foi possível encontrar o arquivo"
 
-#: src/gui/commandargsparser.cpp:531
+#: src/gui/commandargsparser.cpp:541
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Arquivo(s) adicionado(s) ao git com sucesso"
 
-#: src/gui/commandargsparser.cpp:542
+#: src/gui/commandargsparser.cpp:552
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "Você gostaria de deixar o(s) arquivo(s) no disco?"
 
-#: src/gui/commandargsparser.cpp:542
+#: src/gui/commandargsparser.cpp:552
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "Remover do índice"
 
-#: src/gui/commandargsparser.cpp:544
+#: src/gui/commandargsparser.cpp:554
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Arquivo(s) removido(s) do git com sucesso"
@@ -1104,22 +1104,22 @@ msgstr ""
 "checkout. Por favor, envie suas alterações ou armazene-as em um repositório "
 "antes de trocar de ramificação."
 
-#: src/libkommit/entities/remote.cpp:167
+#: src/libkommit/entities/remote.cpp:164
 #, kde-format
 msgid "Unknown"
 msgstr "Desconhecido"
 
-#: src/libkommit/entities/remote.cpp:169
+#: src/libkommit/entities/remote.cpp:166
 #, kde-format
 msgid "Up to date"
 msgstr "Atualizado"
 
-#: src/libkommit/entities/remote.cpp:171
+#: src/libkommit/entities/remote.cpp:168
 #, kde-format
 msgid "Fast forwardable"
 msgstr "Avanço rápido"
 
-#: src/libkommit/entities/remote.cpp:173
+#: src/libkommit/entities/remote.cpp:170
 #, kde-format
 msgid "Local out of date"
 msgstr "Local desatualizado"
@@ -2848,18 +2848,18 @@ msgstr " (novo commit)"
 msgid " (content modified)"
 msgstr " (conteúdo modificado)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:296
-#: src/libkommitwidgets/models/commitsmodel.cpp:307
+#: src/libkommitwidgets/models/commitsmodel.cpp:297
+#: src/libkommitwidgets/models/commitsmodel.cpp:308
 #, kde-format
 msgid "Message"
 msgstr "Mensagem"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:298
+#: src/libkommitwidgets/models/commitsmodel.cpp:299
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:305
+#: src/libkommitwidgets/models/commitsmodel.cpp:306
 #, kde-format
 msgid "Graph"
 msgstr "Gráfico"

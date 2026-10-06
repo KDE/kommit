@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:48+0000\n"
+"POT-Creation-Date: 2026-10-06 00:52+0000\n"
 "PO-Revision-Date: 2026-09-29 00:51+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -100,7 +100,7 @@ msgstr "차이점"
 msgid "Ignore file"
 msgstr "파일 무시"
 
-#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:384
+#: dolphinplugins/actions.h:24 src/gui/commandargsparser.cpp:394
 #, kde-format
 msgid "History"
 msgstr "과거 기록"
@@ -167,7 +167,7 @@ msgstr "KDE의 Git 클라이언트 GUI"
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 msgstr "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
-#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:300
+#: src/apps/main.cpp:59 src/libkommitwidgets/models/commitsmodel.cpp:301
 #: src/libkommitwidgets/reports/authorsreport.cpp:83
 #, kde-format
 msgid "Author"
@@ -318,12 +318,12 @@ msgstr "변경 기록…"
 msgid "Clear"
 msgstr "지우기"
 
-#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:215
 #, kde-format
 msgid "Unable to create path: %1"
 msgstr "경로를 만들 수 없음: %1"
 
-#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:205
+#: src/gui/appwindow.cpp:381 src/gui/commandargsparser.cpp:215
 #, kde-format
 msgid "Init repo"
 msgstr "저장소 초기화"
@@ -333,12 +333,12 @@ msgstr "저장소 초기화"
 msgid "Open repository"
 msgstr "저장소 열기"
 
-#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:468
 #, kde-format
 msgid "Cannot switch branch while merging"
 msgstr "병합 중에는 브랜치를 전환할 수 없음"
 
-#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:458
+#: src/gui/appwindow.cpp:475 src/gui/commandargsparser.cpp:468
 #, kde-format
 msgid "Switch branch"
 msgstr "브랜치 전환"
@@ -419,33 +419,33 @@ msgstr "변경 기록"
 msgid "The path is not git repo: %1"
 msgstr "경로가 Git 저장소가 아님: %1"
 
-#: src/gui/commandargsparser.cpp:210
+#: src/gui/commandargsparser.cpp:220
 #, kde-format
 msgid "The repo inited successfully"
 msgstr "저장소가 초기화됨"
 
-#: src/gui/commandargsparser.cpp:384
+#: src/gui/commandargsparser.cpp:394
 #, kde-format
 msgid "Cannot find the file"
 msgstr "파일을 찾을 수 없음"
 
-#: src/gui/commandargsparser.cpp:531
+#: src/gui/commandargsparser.cpp:541
 #, kde-format
 msgid "File(s) added to git successfully"
 msgstr "Git에 파일을 추가함"
 
-#: src/gui/commandargsparser.cpp:542
+#: src/gui/commandargsparser.cpp:552
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
 msgstr "디스크에 파일을 유지하시겠습니까?"
 
-#: src/gui/commandargsparser.cpp:542
+#: src/gui/commandargsparser.cpp:552
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove from index"
 msgstr "색인에서 삭제"
 
-#: src/gui/commandargsparser.cpp:544
+#: src/gui/commandargsparser.cpp:554
 #, kde-format
 msgid "File(s) removed from git successfully"
 msgstr "Git에서 파일을 삭제함"
@@ -1095,22 +1095,22 @@ msgstr ""
 "체크아웃 시 다음 파일의 로컬 변경 사항을 덮어씁니다. 브랜치를 전환하기 전에 "
 "변경 사항을 커밋하거나 스태시하십시오."
 
-#: src/libkommit/entities/remote.cpp:167
+#: src/libkommit/entities/remote.cpp:164
 #, kde-format
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: src/libkommit/entities/remote.cpp:169
+#: src/libkommit/entities/remote.cpp:166
 #, kde-format
 msgid "Up to date"
 msgstr "최신 상태"
 
-#: src/libkommit/entities/remote.cpp:171
+#: src/libkommit/entities/remote.cpp:168
 #, kde-format
 msgid "Fast forwardable"
 msgstr "정방향 진행 가능"
 
-#: src/libkommit/entities/remote.cpp:173
+#: src/libkommit/entities/remote.cpp:170
 #, kde-format
 msgid "Local out of date"
 msgstr "로컬이 오래됨"
@@ -2828,18 +2828,18 @@ msgstr " (새 커밋)"
 msgid " (content modified)"
 msgstr " (내용 수정됨)"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:296
-#: src/libkommitwidgets/models/commitsmodel.cpp:307
+#: src/libkommitwidgets/models/commitsmodel.cpp:297
+#: src/libkommitwidgets/models/commitsmodel.cpp:308
 #, kde-format
 msgid "Message"
 msgstr "메시지"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:298
+#: src/libkommitwidgets/models/commitsmodel.cpp:299
 #, kde-format
 msgid "Date"
 msgstr "날짜"
 
-#: src/libkommitwidgets/models/commitsmodel.cpp:305
+#: src/libkommitwidgets/models/commitsmodel.cpp:306
 #, kde-format
 msgid "Graph"
 msgstr "그래프"
