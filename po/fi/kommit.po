@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-06 00:52+0000\n"
-"PO-Revision-Date: 2026-07-23 20:25+0300\n"
+"PO-Revision-Date: 2026-10-29 18:39+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -199,7 +199,7 @@ msgstr "Lähdettä ei ole valittu"
 #, kde-format
 msgctxt "@info:status"
 msgid "Loading %1…"
-msgstr ""
+msgstr "Ladataan: %1…"
 
 #: src/gui/appwindow.cpp:201
 #, kde-format
@@ -1380,19 +1380,20 @@ msgstr "Palauta jemma %1"
 msgid "You don't have any changes!"
 msgstr "Muutoksia ei ole!"
 
+# Yritetään yhtenäistää: stash → jemma
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Stash"
-msgstr "Kätkö"
+msgstr "Jemma"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Create new stash"
-msgstr "Luo uusi kätkö"
+msgstr "Luo uusi jemma"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:66
@@ -1578,7 +1579,7 @@ msgstr "Lataa uudelleen"
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
 #, kde-format
 msgid "Stash changes"
-msgstr "Kätkön muutokset"
+msgstr "Jemmaa muutokset"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
@@ -2719,7 +2720,7 @@ msgstr "Haara on jo olemassa"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:90
 #, kde-format
 msgid "Unable to find the tag's target commit: %1"
-msgstr ""
+msgstr "Tunnisteen kohdetoimitusta ei löytynyt: %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
 #, kde-format
@@ -2941,50 +2942,47 @@ msgstr "Suodata haaroja"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:99
 #, kde-format
 msgid "Not signed"
-msgstr ""
+msgstr "Ei allekirjoitettu"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:105
 #: src/libkommitwidgets/widgets/commitdetails.cpp:114
 #: src/libkommitwidgets/widgets/commitdetails.cpp:122
-#, fuzzy, kde-format
-#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:orange;font-weight:bold'>%1</span>"
-msgstr "Ristiriidat: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "<span style='color:orange;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:107
-#, fuzzy, kde-format
-#| msgid "<span style='color:green;'>All conflicts resolved</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:green;font-weight:bold'>%1</span>"
-msgstr "<span style='color:green;'>Kaikki ristiriidat ratkaistu</span>"
+msgstr "<span style='color:green;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
-#, fuzzy, kde-format
-#| msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:red;font-weight:bold'>%1</span>"
-msgstr "Ristiriidat: <span style='font-weight:bold; color:red;'>%1</span>"
+msgstr "<span style='color:red;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:131
 #, kde-format
 msgid " by %1"
-msgstr ""
+msgstr " tekijältä %1"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:133
 #, kde-format
 msgid " by %1 <%2>"
-msgstr ""
+msgstr " tekijältä %1 <%2>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:136
 #, kde-format
 msgid " (Key: %1)"
-msgstr ""
+msgstr " (avain: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:138
 #, kde-format
 msgid " (Fingerprint: %1)"
-msgstr ""
+msgstr " (sormenjälki: %1)"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:159
 #: src/libkommitwidgets/widgets/graphpainter.cpp:202
@@ -3066,10 +3064,9 @@ msgstr "Toimittaja:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelSignatureText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:185
-#, fuzzy, kde-format
-#| msgid "Signature algorithm"
+#, kde-format
 msgid "Signature:"
-msgstr "Allekirjoitusalgoritmi"
+msgstr "Allekirjoitus:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChangedFiles)
 #: src/libkommitwidgets/widgets/commitdetails.ui:261
