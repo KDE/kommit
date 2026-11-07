@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-06 00:52+0000\n"
+"POT-Creation-Date: 2026-11-07 01:00+0000\n"
 "PO-Revision-Date: 2025-12-29 14:33+0000\n"
 "Last-Translator: Irish Translation Team <gaeilge-gnulinux@lists.sourceforge."
 "net>\n"
@@ -2517,22 +2517,27 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:141
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:147
 #, kde-format
 msgid "Process finished"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:146
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:154
 #, kde-format
 msgid "The git process crashed"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:147
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:156
+#, kde-format
+msgid "git refused, and said nothing about why"
+msgstr ""
+
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:157
 #, kde-format
 msgid "Process finished with error"
 msgstr ""
 
-#: src/libkommitwidgets/dialogs/runnerdialog.cpp:150
+#: src/libkommitwidgets/dialogs/runnerdialog.cpp:160
 #, kde-format
 msgid "%1: (Elapsed time: %2)"
 msgstr ""
