@@ -1,31 +1,32 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the gitklient package.
 # SPDX-FileCopyrightText: 2023, 2024 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 00:16+0000\n"
-"PO-Revision-Date: 2024-06-25 10:58+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-11-09 23:04+0100\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vít Pelčák"
+msgstr "Vít Pelčák,Libor Filípek"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "vit@pelcak.org"
+msgstr "vit@pelcak.org,libor.filipek@gmail.com"
 
 #: dolphinplugins/actions.h:16
 #, kde-format
@@ -45,7 +46,7 @@ msgstr "Otevřít"
 #: dolphinplugins/actions.h:19
 #, kde-format
 msgid "Pull"
-msgstr "Stáhnout"
+msgstr "Načíst"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFetch)
 #: dolphinplugins/actions.h:20
@@ -75,7 +76,7 @@ msgstr "Sloučit"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:14
 #, kde-format
 msgid "Switch/Checkout"
-msgstr ""
+msgstr "Přepnout/Načíst"
 
 #: dolphinplugins/actions.h:24
 #, kde-format
@@ -108,7 +109,7 @@ msgstr "Historie"
 #: dolphinplugins/actions.h:28
 #, kde-format
 msgid "Blame"
-msgstr ""
+msgstr "Autor a revize"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAdd)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddTag)
@@ -134,7 +135,7 @@ msgstr "Vytvořit značku"
 #: dolphinplugins/actions.h:32
 #, kde-format
 msgid "Cleanup"
-msgstr "Úklid"
+msgstr "Vyčistit"
 
 #: dolphinplugins/actions.h:33
 #, kde-format
@@ -150,22 +151,22 @@ msgstr "Kommit"
 #: dolphinplugins/dolphinplugin.cpp:101
 #, kde-format
 msgid "Push/Commit to %1"
-msgstr ""
+msgstr "Commit/Odeslat do %1"
 
 #: dolphinplugins/dolphinplugin.cpp:103
 #, kde-format
 msgid "Push/Commit to submodule %1"
-msgstr ""
+msgstr "Commit/Odeslat do submodulu %1"
 
 #: src/apps/main.cpp:58
 #, kde-format
 msgid "Git client gui for KDE"
-msgstr ""
+msgstr "GUI git klient od KDE"
 
 #: src/apps/main.cpp:60
 #, kde-format
 msgid "Copyright 2021-2024, Hamed Masafi <hamed.masafi@gmail.com>"
-msgstr ""
+msgstr "Autorská práva 2021–2024, Hamed Masafi <hamed.masafi@gmail.com>"
 
 #: src/apps/main.cpp:62 src/libkommit/models/logsmodel.cpp:262
 #: src/libkommitwidgets/reports/authorsreport.cpp:78
@@ -193,22 +194,22 @@ msgstr "Opravy chyb"
 #: src/gui/appwindow.cpp:96
 #, kde-format
 msgid "No repo selected"
-msgstr ""
+msgstr "Není vybrán žádný repozitář"
 
 #: src/gui/appwindow.cpp:128
 #, kde-format
 msgid "Current branch: %1"
-msgstr ""
+msgstr "Současná větev: %1"
 
 #: src/gui/appwindow.cpp:130
 #, kde-format
 msgid " (merging)"
-msgstr ""
+msgstr " (slučování)"
 
 #: src/gui/appwindow.cpp:132
 #, kde-format
 msgid " (rebasing)"
-msgstr ""
+msgstr " (začleňování)"
 
 #: src/gui/appwindow.cpp:164
 #: src/libkommitwidgets/actions/submoduleactions.cpp:40
@@ -239,37 +240,37 @@ msgstr "Změněné soubory..."
 #, kde-format
 msgctxt "@action"
 msgid "Recent repos"
-msgstr ""
+msgstr "Nedávné repozitáře"
 
 #: src/gui/appwindow.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Cleanup..."
-msgstr "Cleanup..."
+msgstr "Vyčistit..."
 
 #: src/gui/appwindow.cpp:190
 #, kde-format
 msgctxt "@action"
 msgid "Pull..."
-msgstr "Pull..."
+msgstr "Načíst..."
 
 #: src/gui/appwindow.cpp:194 src/libkommitwidgets/actions/branchactions.cpp:34
 #, kde-format
 msgctxt "@action"
 msgid "Fetch..."
-msgstr "Fetch..."
+msgstr "Stáhnout..."
 
 #: src/gui/appwindow.cpp:198 src/libkommitwidgets/actions/tagsactions.cpp:28
 #, kde-format
 msgctxt "@action"
 msgid "Push..."
-msgstr "Push..."
+msgstr "Odeslat..."
 
 #: src/gui/appwindow.cpp:202 src/libkommitwidgets/actions/branchactions.cpp:37
 #, kde-format
 msgctxt "@action"
 msgid "Merge..."
-msgstr "Merge..."
+msgstr "Sloučit..."
 
 #: src/gui/appwindow.cpp:206
 #, kde-format
@@ -293,23 +294,23 @@ msgstr "Nastavení repozitáře..."
 #, kde-format
 msgctxt "@action"
 msgid "Switch/Checkout..."
-msgstr ""
+msgstr "Přepnout/Načíst..."
 
 #: src/gui/appwindow.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Diff tree"
-msgstr ""
+msgstr "Rozdíly stromu"
 
 #: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Unable to create path: %1"
-msgstr ""
+msgstr "Nelze vytvořit cestu: %1"
 
 #: src/gui/appwindow.cpp:269 src/gui/commandargsparser.cpp:254
 #, kde-format
 msgid "Init repo"
-msgstr ""
+msgstr "Inicializace repozitáře"
 
 #: src/gui/appwindow.cpp:282
 #, kde-format
@@ -319,42 +320,42 @@ msgstr "Otevřít repozitář"
 #: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Cannot switch branch while merging"
-msgstr ""
+msgstr "Při slučování nelze přepnout na jinou větev"
 
 #: src/gui/appwindow.cpp:361 src/gui/commandargsparser.cpp:504
 #, kde-format
 msgid "Switch branch"
-msgstr ""
+msgstr "Přepnout větev"
 
 #: src/gui/commandargsparser.cpp:74
 #, kde-format
 msgid "The path is not git repo: %1"
-msgstr ""
+msgstr "Cesta není repozitářem Git: %1"
 
 #: src/gui/commandargsparser.cpp:259
 #, kde-format
 msgid "The repo inited successfully"
-msgstr ""
+msgstr "Repo bylo úspěšně vytvořeno"
 
 #: src/gui/commandargsparser.cpp:560
 #, kde-format
 msgid "File(s) added to git successfully"
-msgstr ""
+msgstr "Soubory byly úspěšně přidány do Gitu"
 
 #: src/gui/commandargsparser.cpp:570
 #, kde-format
 msgid "Would you like to leave file(s) on disk?"
-msgstr ""
+msgstr "Chcete ponechat soubor(y) na disku?"
 
 #: src/gui/commandargsparser.cpp:570
 #, kde-format
 msgid "Remove from index"
-msgstr ""
+msgstr "Odstranit z indexu"
 
 #: src/gui/commandargsparser.cpp:572
 #, kde-format
 msgid "File(s) removed from git successfully"
-msgstr ""
+msgstr "Soubory byly úspěšně odstraněny z gitu"
 
 #. i18n: ectx: property (text), widget (QLabel, labelStatus_2)
 #: src/gui/commandpullwidget.ui:19
@@ -405,14 +406,14 @@ msgstr "Zavřít"
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:20
 #, kde-format
 msgid "The changes to file are not saved to the disk. What you want to do?"
-msgstr ""
+msgstr "Změny v souboru nejsou uloženy na disk. Co chcete udělat?"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonMarkResolved)
 #: src/gui/merge/closeeventdialog.ui:49
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:49
 #, kde-format
 msgid "Mark as resolved"
-msgstr ""
+msgstr "Označit jako vyřešené"
 
 #. i18n: ectx: property (text), widget (QCommandLinkButton, commandLinkButtonLeaveAsIs)
 #: src/gui/merge/closeeventdialog.ui:62
@@ -426,7 +427,7 @@ msgstr "Ponechat jak je"
 #: src/libkommitwidgets/dialogs/mergecloseeventdialog.ui:75
 #, kde-format
 msgid "Don't exit"
-msgstr ""
+msgstr "Neukončovat"
 
 #. i18n: ectx: property (text), widget (QLabel, labelTitle)
 #. i18n: ectx: property (windowTitle), widget (QWidget, HistoryViewWidget)
@@ -439,13 +440,13 @@ msgstr "Přehled"
 #: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Are you sure to remove the selected branch?"
-msgstr ""
+msgstr "Opravdu chcete odstranit vybranou větev?"
 
 #: src/gui/pages/branchesstatuswidget.cpp:75
 #: src/libkommitwidgets/actions/branchactions.cpp:121
 #, kde-format
 msgid "Unable to remove the selected branch"
-msgstr ""
+msgstr "Nelze odstranit vybranou větev"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, BranchesStatusWidget)
 #: src/gui/pages/branchesstatuswidget.ui:14
@@ -457,7 +458,7 @@ msgstr "Větve"
 #: src/gui/pages/branchesstatuswidget.ui:25
 #, kde-format
 msgid "Reference branch:"
-msgstr ""
+msgstr "Referenční větev:"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonNew)
 #: src/gui/pages/branchesstatuswidget.ui:78
@@ -470,7 +471,7 @@ msgstr "Nový"
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Checkout"
-msgstr "Checkout"
+msgstr "Načíst"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonBrowse)
 #: src/gui/pages/branchesstatuswidget.ui:111
@@ -508,7 +509,7 @@ msgstr "Aktualizovat"
 #: src/gui/pages/remoteswidget.ui:14
 #, kde-format
 msgid "Remotes"
-msgstr ""
+msgstr "Vzdálené"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/pages/remoteswidget.ui:79
@@ -520,19 +521,19 @@ msgstr "Informace"
 #: src/gui/pages/remoteswidget.ui:85
 #, kde-format
 msgid "Default branch:"
-msgstr ""
+msgstr "Výchozí větev:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/pages/remoteswidget.ui:102
 #, kde-format
 msgid "Fetch url:"
-msgstr ""
+msgstr "URL pro načtení:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/pages/remoteswidget.ui:122
 #, kde-format
 msgid "Push url:"
-msgstr ""
+msgstr "URL pro odeslání:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -564,13 +565,13 @@ msgstr "Název"
 #: src/gui/pages/remoteswidget.ui:172
 #, kde-format
 msgid "Ref name"
-msgstr ""
+msgstr "Název odkazu"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:177 src/libkommit/models/branchesmodel.cpp:75
 #, kde-format
 msgid "Upstream"
-msgstr ""
+msgstr "Upstream"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:182
@@ -590,7 +591,7 @@ msgstr "Hlášení"
 #: src/gui/pages/reportswidget.ui:33
 #, kde-format
 msgid "Table view"
-msgstr ""
+msgstr "Zobrazení tabulky"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonTable)
 #: src/gui/pages/reportswidget.ui:36
@@ -602,7 +603,7 @@ msgstr "Tabulka"
 #: src/gui/pages/reportswidget.ui:50
 #, kde-format
 msgid "Chart view"
-msgstr ""
+msgstr "Zobrazení grafu"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButtonChart)
 #: src/gui/pages/reportswidget.ui:53
@@ -626,7 +627,7 @@ msgstr "Obnovit"
 #: src/gui/pages/stasheswidget.ui:14
 #, kde-format
 msgid "Stashes"
-msgstr ""
+msgstr "Úschovna"
 
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonUpdate)
 #. i18n: ectx: property (whatsThis), widget (PushButton, pushButtonCreateNew)
@@ -642,12 +643,20 @@ msgid ""
 "ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Uložte své lokální změny do nové položky v úschovně a "
+"vraťte je do stavu HEAD (v pracovním stromu i v indexu). Část je volitelná a "
+"poskytuje popis spolu se stavem uloženým v úložišti.</p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-stash#Documentation/git-stash.txt-push-"
+"p--patch-k--no-keep-index-u--include-untracked-a--all-q--quiet -m--"
+"messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--"
+"ltpathspecgt82308203\"><span style=\" text-decoration: underline; color:"
+"#2980b9;\">Další informace...</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonCreateNew)
 #: src/gui/pages/stasheswidget.ui:52
 #, kde-format
 msgid "Create new"
-msgstr "Vytvořit nový"
+msgstr "Vytvořit novou"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemove)
 #. i18n: ectx: property (text), widget (PushButton, pushButtonRemoveSelected)
@@ -665,18 +674,23 @@ msgid ""
 "txt-apply--index-q--quietltstashgt\"><span style=\" text-decoration: "
 "underline; color:#2980b9;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Použít úschovnu na vrchol aktuálního pracovního "
+"adresáře</p><p><a href=\"https://git-scm.com/docs/git-stash#Documentation/"
+"git-stash.txt-apply--index-q--quietltstashgt\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">Další informace...</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonApply)
 #: src/gui/pages/stasheswidget.ui:69
 #, kde-format
 msgid "Apply selected"
-msgstr ""
+msgstr "Použít vybrané"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SubmodulesWidget)
 #: src/gui/pages/submoduleswidget.ui:14
 #, kde-format
 msgid "Submodules"
-msgstr ""
+msgstr "Submoduly"
 
 #. i18n: ectx: property (text), widget (PushButton, pushButtonAddNew)
 #. i18n: ectx: property (windowTitle), widget (QDialog, SubmoduleInfoDialog)
@@ -684,7 +698,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.ui:14
 #, kde-format
 msgid "Add new submodule"
-msgstr ""
+msgstr "Přidat nový submodul"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, TagsWidget)
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxTags)
@@ -701,7 +715,7 @@ msgstr "Značky"
 #: src/gui/pages/tagswidget.ui:62
 #, kde-format
 msgid "Checkout to selected"
-msgstr ""
+msgstr "Načíst do vybraného"
 
 #. i18n: ectx: label, entry (diffAddedColor), group (Preferences)
 #: src/gui/settings/KommitSettings.kcfg:9
@@ -719,7 +733,7 @@ msgstr "Barva odstraněného"
 #: src/gui/settings/KommitSettings.kcfg:17
 #, kde-format
 msgid "Modified color"
-msgstr ""
+msgstr "Upravená barva"
 
 #. i18n: ectx: label, entry (colorForeground), group (Preferences)
 #: src/gui/settings/KommitSettings.kcfg:21
@@ -731,7 +745,7 @@ msgstr "barva popředí"
 #: src/gui/settings/KommitSettings.kcfg:26
 #, kde-format
 msgid "age of the project"
-msgstr ""
+msgstr "doba trvání projektu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_openLastRepo)
 #. i18n: ectx: label, entry (openLastRepo), group (Preferences)
@@ -739,7 +753,7 @@ msgstr ""
 #: src/gui/settings/settingspagebase.ui:29
 #, kde-format
 msgid "Open last repo at startup"
-msgstr ""
+msgstr "Otevřít poslední repozitář při spuštění"
 
 #: src/gui/settings/settingsmanager.cpp:95
 #, kde-format
@@ -767,43 +781,43 @@ msgstr "Výchozí kalendář:"
 #: src/gui/settings/settingspagebase.ui:51
 #, kde-format
 msgid "Git binary path:"
-msgstr ""
+msgstr "Cesta k binárnímu souboru Git:"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel)
 #: src/gui/settings/settingspagediff.ui:17
 #, kde-format
 msgid "Added diff color:"
-msgstr ""
+msgstr "Barva přidaného rozdílu:"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel_2)
 #: src/gui/settings/settingspagediff.ui:27
 #, kde-format
 msgid "Removed diff color:"
-msgstr ""
+msgstr "Barva odstraněného rozdílu:"
 
 #. i18n: ectx: property (text), widget (QLabel, backgroundLabel_3)
 #: src/gui/settings/settingspagediff.ui:37
 #, kde-format
 msgid "Modified diff color:"
-msgstr ""
+msgstr "Barva upraveného rozdílu:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerDiffTool)
 #: src/gui/settings/settingspagegit.ui:19
 #, kde-format
 msgid "Register kommit diff tool"
-msgstr ""
+msgstr "Registrovat nástroj kommit diff"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_registerMergeTool)
 #: src/gui/settings/settingspagegit.ui:26
 #, kde-format
 msgid "Register kommit merge tool"
-msgstr ""
+msgstr "Registrovat nástroj kommit merge"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/settings/settingspagegit.ui:37
 #, kde-format
 msgid "Git proxy:"
-msgstr ""
+msgstr "Git proxy:"
 
 #: src/libkommit/commands/commandpull.cpp:62
 #, kde-format
@@ -821,6 +835,9 @@ msgid ""
 "Your local changes to the following files would be overwritten by checkout. "
 "Please commit your changes or stash them before you switch branches."
 msgstr ""
+"Vaše lokální změny v následujících souborech mohou být při načtení přepsány. "
+"Před přepnutím na jinou větev prosím své změny uložte do revize nebo je "
+"odložte do úschovny."
 
 #: src/libkommit/entities/remote.cpp:217
 #, kde-format
@@ -835,12 +852,12 @@ msgstr "Aktuální"
 #: src/libkommit/entities/remote.cpp:221
 #, kde-format
 msgid "Fast forwardable"
-msgstr ""
+msgstr "Lze přejít rychle vpřed"
 
 #: src/libkommit/entities/remote.cpp:223
 #, kde-format
 msgid "Local out of date"
-msgstr ""
+msgstr "Místní neaktuální"
 
 #: src/libkommit/models/branchesmodel.cpp:67
 #, kde-format
@@ -988,12 +1005,12 @@ msgstr "Vytvořit novou větev"
 #: src/libkommitwidgets/actions/branchactions.cpp:70
 #, kde-format
 msgid "Branch name"
-msgstr ""
+msgstr "Název větve"
 
 #: src/libkommitwidgets/actions/branchactions.cpp:119
 #, kde-format
 msgid "Remove Branch"
-msgstr ""
+msgstr "Odstranit větev"
 
 #: src/libkommitwidgets/actions/changedfileactions.cpp:18
 #, kde-format
@@ -1017,7 +1034,7 @@ msgstr "Procházet"
 #, kde-format
 msgctxt "@action"
 msgid "Checkout"
-msgstr "Checkout"
+msgstr "Načíst"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:38
 #: src/libkommitwidgets/actions/fileactions.cpp:47
@@ -1026,7 +1043,7 @@ msgstr "Checkout"
 #, kde-format
 msgctxt "@action"
 msgid "Diff with working dir"
-msgstr ""
+msgstr "Rozdíl s pracovním adresářem"
 
 #: src/libkommitwidgets/actions/commitactions.cpp:39
 #, kde-format
@@ -1056,7 +1073,7 @@ msgstr "Otevřít pomocí..."
 #, kde-format
 msgctxt "@action"
 msgid "Merge with working dir"
-msgstr ""
+msgstr "Sloučení s pracovním adresářem"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:50
 #, kde-format
@@ -1074,7 +1091,7 @@ msgstr "Záznam"
 #, kde-format
 msgctxt "@action"
 msgid "Blame"
-msgstr ""
+msgstr "Autor a revize"
 
 #: src/libkommitwidgets/actions/fileactions.cpp:72
 #, kde-format
@@ -1102,17 +1119,17 @@ msgstr "Změnit URL..."
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Are you sure to remove the selected remote?"
-msgstr ""
+msgstr "Opravdu chcete odstranit vybraný vzdálený repozitář?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:60
 #, kde-format
 msgid "Remove remote?"
-msgstr ""
+msgstr "Odstranit vzdálený repozitář?"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:62
 #, kde-format
 msgid "Unable to remove the selected remote"
-msgstr ""
+msgstr "Nelze odstranit vybraný vzdálený repozitář"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:75
 #, kde-format
@@ -1127,7 +1144,7 @@ msgstr "URL"
 #: src/libkommitwidgets/actions/remotesactions.cpp:78
 #, kde-format
 msgid "Url for remote changed successfully"
-msgstr ""
+msgstr "URL pro vzdálený repozitář byla úspěšně změněna"
 
 #: src/libkommitwidgets/actions/remotesactions.cpp:84
 #, kde-format
@@ -1143,13 +1160,13 @@ msgstr "Nový název"
 #, kde-format
 msgctxt "@action"
 msgid "New stash..."
-msgstr ""
+msgstr "Nová úschovna..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:24
 #, kde-format
 msgctxt "@action"
 msgid "Pop..."
-msgstr ""
+msgstr "Obnovit změny..."
 
 #: src/libkommitwidgets/actions/stashactions.cpp:25
 #, kde-format
@@ -1160,49 +1177,49 @@ msgstr "Použít..."
 #: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Are you sure to apply the selected stash?"
-msgstr ""
+msgstr "Opravdu chcete použít vybranou úschovnu?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:34
 #, kde-format
 msgid "Apply stash %1"
-msgstr ""
+msgstr "Použít úschovnu %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:36
 #, kde-format
 msgid "Unable to apply the selected stash"
-msgstr ""
+msgstr "Nelze použít vybranou úschovnu"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Are you sure to drop the selected stash?"
-msgstr ""
+msgstr "Opravdu chcete zahodit vybranou úschovnu?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:42
 #, kde-format
 msgid "Drop stash %1"
-msgstr ""
+msgstr "Zahodit úschovnu %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:44
 #: src/libkommitwidgets/actions/stashactions.cpp:55
 #, kde-format
 msgid "Unable to remove the selected stash"
-msgstr ""
+msgstr "Nelze odstranit vybranou úschovnu"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Are you sure to pop the selected stash?"
-msgstr ""
+msgstr "Opravdu chcete obnovit vybranou úschovnu?"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:53
 #, kde-format
 msgid "Pop stash %1"
-msgstr ""
+msgstr "Obnovit úschovnu %1"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
 #, kde-format
 msgid "You don't have any changes!"
-msgstr ""
+msgstr "Nemáte žádné změny!"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:71
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:60
@@ -1214,13 +1231,13 @@ msgstr "Úschovna"
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Create new stash"
-msgstr ""
+msgstr "Vytvořit novou úschovnu"
 
 #: src/libkommitwidgets/actions/stashactions.cpp:76
 #: src/libkommitwidgets/dialogs/changedfilesdialog.cpp:65
 #, kde-format
 msgid "Name of stash"
-msgstr ""
+msgstr "Název úschovny"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:39
 #, kde-format
@@ -1239,27 +1256,27 @@ msgstr "Aktualizovat..."
 #, kde-format
 msgctxt "@action"
 msgid "Sync..."
-msgstr ""
+msgstr "Synchronizovat…"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Are you sure to remove the selected submodule?"
-msgstr ""
+msgstr "Opravdu chcete odstranit vybraný submodul?"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:75
 #, kde-format
 msgid "Remove Submodule"
-msgstr ""
+msgstr "Odstranit submodul"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:82
 #, kde-format
 msgid "Unable to remove the module directory"
-msgstr ""
+msgstr "Nelze odstranit adresář modulu"
 
 #: src/libkommitwidgets/actions/submoduleactions.cpp:89
 #, kde-format
 msgid "The submodule %1 removed"
-msgstr ""
+msgstr "Submodul %1 byl odstraněn"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:24
 #, kde-format
@@ -1271,7 +1288,7 @@ msgstr "Nová značka..."
 #, kde-format
 msgctxt "@action"
 msgid "Checkout..."
-msgstr "Checkout..."
+msgstr "Načíst..."
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:34
 #: src/libkommitwidgets/dialogs/taginfodialog.cpp:14
@@ -1283,7 +1300,7 @@ msgstr "Nová značka"
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, kde-format
 msgid "Are you sure to remove the selected tag?"
-msgstr ""
+msgstr "Opravdu chcete odstranit vybranou značku?"
 
 #: src/libkommitwidgets/actions/tagsactions.cpp:43
 #, kde-format
@@ -1293,13 +1310,13 @@ msgstr "Odstranit značku"
 #: src/libkommitwidgets/actions/tagsactions.cpp:51
 #, kde-format
 msgid "Are you sure to checkout to the selected tag?"
-msgstr ""
+msgstr "Opravdu chcete přejít na vybranou značku?"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedFilesDialog)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:14
 #, kde-format
 msgid "Changed files"
-msgstr ""
+msgstr "Změněné soubory"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_10)
@@ -1307,7 +1324,7 @@ msgstr ""
 #: src/libkommitwidgets/widgets/commitdetails.ui:174
 #, kde-format
 msgid "Changed files:"
-msgstr ""
+msgstr "Změněné soubory:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonReload)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:36
@@ -1320,72 +1337,72 @@ msgstr "Obnovit"
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:59
 #, kde-format
 msgid "Stash changes"
-msgstr ""
+msgstr "Uschovat změny"
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonCommitPush)
 #: src/libkommitwidgets/dialogs/changedfilesdialog.ui:66
 #, kde-format
 msgid "Commit/push"
-msgstr ""
+msgstr "Commit/Odeslat"
 
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.cpp:30
 #, kde-format
 msgid "Commit/Push submodule: %1"
-msgstr ""
+msgstr "Commit/Odeslat submodul: %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, ChangedSubmodulesDialog)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:14
 #, kde-format
 msgid "Changed submodules"
-msgstr ""
+msgstr "Změněné submoduly"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/changedsubmodulesdialog.ui:23
 #, kde-format
 msgid "The following submodules are dirty. Would you like to push them?"
-msgstr ""
+msgstr "Následující submoduly obsahují změny. Chcete je odeslat?"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CleanupDialog)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:14
 #, kde-format
 msgid "Cleanup repo"
-msgstr ""
+msgstr "Vyčistit repozitář"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:23
 #, kde-format
 msgid "Clean type"
-msgstr ""
+msgstr "Typ vyčištění"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNonIgnoredUntrackedFiles)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:29
 #, kde-format
 msgid "Remove non-ignored untracked files"
-msgstr ""
+msgstr "Odstranit neignorované nesledované soubory"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonAllUntrackedFiles)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:39
 #, kde-format
 msgid "Remove all untracked files"
-msgstr ""
+msgstr "Odstranit všechny nesledované soubory"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRemoveAllIgnoredFiles)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:46
 #, kde-format
 msgid "Remove ignored files"
-msgstr ""
+msgstr "Odstranit ignorované soubory"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRemoveDirectories)
 #: src/libkommitwidgets/dialogs/cleanupdialog.ui:56
 #, kde-format
 msgid "Remove untracked directories"
-msgstr ""
+msgstr "Odstranit nesledované adresáře"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CloneDialog)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:14
 #, kde-format
 msgid "Clone a repository"
-msgstr ""
+msgstr "Klonovat repozitář"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -1433,13 +1450,13 @@ msgstr "Větev"
 #: src/libkommitwidgets/dialogs/clonedialog.ui:122
 #, kde-format
 msgid "Origin name"
-msgstr ""
+msgstr "Původní název"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/clonedialog.ui:162
 #, kde-format
 msgid "Cloning into:"
-msgstr ""
+msgstr "Klonovat do:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelToBranchName)
 #. i18n: ectx: property (text), widget (QLabel, labelCloneDestination)
@@ -1477,13 +1494,13 @@ msgstr "Textový štítek"
 #: src/libkommitwidgets/dialogs/commitpushdialog.cpp:268
 #, kde-format
 msgid "Commit and push"
-msgstr ""
+msgstr "Commit a odeslat"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CommitPushDialog)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:14
 #, kde-format
 msgid "Commit/Push"
-msgstr ""
+msgstr "Commit/Odeslat"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCurrentBranchName_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:22
@@ -1495,14 +1512,14 @@ msgstr "Vzdálený:"
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:40
 #, kde-format
 msgid "Current branch"
-msgstr ""
+msgstr "Současná větev"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExistingBranch)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:50
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:25
 #, kde-format
 msgid "Existing branch"
-msgstr ""
+msgstr "Existující větev"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonNewBranch)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:64
@@ -1524,6 +1541,15 @@ msgid ""
 "push#Documentation/git-push.txt--f\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information...</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Příkaz obvykle odmítne aktualizovat vzdálený odkaz, "
+"který není předkem lokálního odkazu použitého k jeho přepsání. Rovněž při "
+"použití volby --force-with-lease příkaz odmítne aktualizovat vzdálený odkaz, "
+"jehož aktuální hodnota neodpovídá očekávané hodnotě.</p><p>Tento příznak "
+"tyto kontroly deaktivuje a může způsobit ztrátu commitů ve vzdáleném "
+"repozitáři; používejte jej s opatrností.</p><p><br/></p><p><a href=\"https://"
+"git-scm.com/docs/git-push#Documentation/git-push.txt--f\"><span style=\" "
+"text-decoration: underline; color:#007af4;\">Další informace...</span></a></"
+"p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxForce)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:91
@@ -1537,7 +1563,7 @@ msgstr "Vynutit"
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:98
 #, kde-format
 msgid "Create a commit"
-msgstr ""
+msgstr "Vytvořit commit"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:107
@@ -1549,12 +1575,17 @@ msgid ""
 "commit.txt---status\"><span style=\" text-decoration: underline; color:"
 "#2980b9;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Při přípravě zprávy o commitu v editoru zahrnout do "
+"šablony zprávy výstup příkazu &quot;git status&quot;. </p><p><a href="
+"\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---status"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">Další "
+"informace</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIncludeStatus)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:110
 #, kde-format
 msgid "Include status to the message"
-msgstr ""
+msgstr "Do zprávy přidat stav"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAmend)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:120
@@ -1566,12 +1597,17 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More info</span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p>Nahradit konec aktuální větve vytvořením nového "
+"commitu.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"commit#Documentation/git-commit.txt---amend\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">Další informace</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAmend)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:123
 #, kde-format
 msgid "Amend to previous commit"
-msgstr ""
+msgstr "Provést změnu oproti předchozímu commitu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_2)
@@ -1590,6 +1626,10 @@ msgid ""
 "messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Jako zprávu k revizi použít uvedený text. </p><p><a "
+"href=\"https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---"
+"messageltmsggt\"><span style=\" text-decoration: underline; color:#2980b9;"
+"\">Další informace</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/commitpushdialog.ui:175
@@ -1639,7 +1679,7 @@ msgstr "Žádný"
 #: src/libkommitwidgets/dialogs/credentialdialog.cpp:32
 #, kde-format
 msgid "Credential for %1"
-msgstr ""
+msgstr "Přihlašovací údaje pro %1"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileBlameDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FileHistoryDialog)
@@ -1659,7 +1699,7 @@ msgstr "Dialog"
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:23
 #, kde-format
 msgid "Credentials:"
-msgstr ""
+msgstr "Přihlašovací údaje:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/credentialdialog.ui:35
@@ -1678,7 +1718,7 @@ msgstr "Heslo:"
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:14
 #, kde-format
 msgid "Select files/folders"
-msgstr ""
+msgstr "Vybrat soubory/složky"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonCompareFiles)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:23
@@ -1690,13 +1730,13 @@ msgstr "Porovnat soubory"
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:30
 #, kde-format
 msgid "Compare directories"
-msgstr ""
+msgstr "Porovnat adresáře"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:40
 #, kde-format
 msgid "Old file:"
-msgstr ""
+msgstr "Starý soubor:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:50
@@ -1708,25 +1748,25 @@ msgstr "Nový soubor:"
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:69
 #, kde-format
 msgid "New directory:"
-msgstr ""
+msgstr "Nový adresář:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/diffopendialog.ui:76
 #, kde-format
 msgid "Old directory:"
-msgstr ""
+msgstr "Starý adresář:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, FetchDialog)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:14
 #, kde-format
 msgid "Fetch from origin"
-msgstr ""
+msgstr "Načíst z původního"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllBranches)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:43
 #, kde-format
 msgid "All branches"
-msgstr ""
+msgstr "Všechny větve"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:88
@@ -1742,14 +1782,14 @@ msgstr "Možnosti"
 #: src/libkommitwidgets/dialogs/mergedialog.ui:86
 #, kde-format
 msgid "No fast forward"
-msgstr ""
+msgstr "Nikdy rychle vpřed"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoCommit)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:101
 #: src/libkommitwidgets/dialogs/pulldialog.ui:146
 #, kde-format
 msgid "No commit"
-msgstr ""
+msgstr "Žádný commit"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxFastForwardOnly)
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
@@ -1757,26 +1797,26 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/mergedialog.ui:81
 #, kde-format
 msgid "Fast forward only"
-msgstr ""
+msgstr "Pouze rychle vpřed"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxPrune)
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:122
 #: src/libkommitwidgets/dialogs/pulldialog.ui:160
 #, kde-format
 msgid "Prune"
-msgstr ""
+msgstr "Uklidit"
 
 #: src/libkommitwidgets/dialogs/fileblamedialog.cpp:39
 #, kde-format
 msgctxt "@title:window"
 msgid "Blame file: %1"
-msgstr ""
+msgstr "Autor a revize souboru: %1"
 
 #: src/libkommitwidgets/dialogs/filehistorydialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "File log: %1"
-msgstr ""
+msgstr "Záznam souboru: %1"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:27
@@ -1788,13 +1828,13 @@ msgstr "Typ pohledu"
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:33
 #, kde-format
 msgid "Regular view"
-msgstr ""
+msgstr "Normální pohled"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDifferentialView)
 #: src/libkommitwidgets/dialogs/filehistorydialog.ui:40
 #, kde-format
 msgid "Differential view"
-msgstr ""
+msgstr "Rozdílový pohled"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
@@ -1829,12 +1869,12 @@ msgstr "Větev:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Closing preview"
-msgstr "Zavírám náhled"
+msgstr "Zavírání náhledu"
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:48
 #, kde-format
 msgid "Please wait while the preview is being closed..."
-msgstr "Prosím, vyčkejte, než se náhled uzavře..."
+msgstr "Počkejte prosím, než se náhled zavře..."
 
 #: src/libkommitwidgets/dialogs/fileviewerdialog.cpp:79
 #, kde-format
@@ -1851,12 +1891,12 @@ msgstr "MainWindow"
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:44
 #, kde-format
 msgid "The file is ignored already"
-msgstr ""
+msgstr "Tento soubor je již ignorován"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:80
 #, kde-format
 msgid "Please enter the pattern"
-msgstr ""
+msgstr "Zadejte prosím vzor"
 
 #: src/libkommitwidgets/dialogs/ignorefiledialog.cpp:85
 #, kde-format
@@ -1873,55 +1913,55 @@ msgstr "Vzorek:"
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:43
 #, kde-format
 msgid "Name and extension"
-msgstr ""
+msgstr "Název a přípona"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExt)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:53
 #, kde-format
 msgid "All files by this extension"
-msgstr ""
+msgstr "Všechny soubory s touto příponou"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonName)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:60
 #, kde-format
 msgid "All files by this name"
-msgstr ""
+msgstr "Všechny soubory s tímto názvem"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExactPath)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:76
 #, kde-format
 msgid "Exact the path"
-msgstr ""
+msgstr "Zadat přesnou cestu"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonEveryWhere)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:86
 #, kde-format
 msgid "File in everywhere"
-msgstr ""
+msgstr "Soubor kdekoli"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRootIgnoreFile)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:102
 #, kde-format
 msgid ".gitignore in the repository root"
-msgstr ""
+msgstr "Soubor .gitignore v kořenovém adresáři repozitáře"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDirIgnoreFile)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:112
 #, kde-format
 msgid ".gitignore in the containing directory"
-msgstr ""
+msgstr "Soubor .gitignore v daném adresáři"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonExcludeFile)
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:119
 #, kde-format
 msgid ".git/info/exclude"
-msgstr ""
+msgstr ".git/info/exclude"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, InitDialog)
 #: src/libkommitwidgets/dialogs/initdialog.ui:14
 #, kde-format
 msgid "Init git repo"
-msgstr ""
+msgstr "Inicializace Git repozitáře"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:22
@@ -1947,6 +1987,13 @@ msgid ""
 "decoration: underline; color:#2980b9;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Mechanismus slučování (příkazy git merge a git pull) "
+"umožňuje volbu strategií slučování na straně podpůrné vrstvy pomocí volby -"
+"s. Některé strategie mohou také vyžadovat vlastní volby, které lze předat "
+"zadáním argumentů -X&lt;volba&gt; v příkazech git merge a/nebo git pull.</"
+"p><p><a href=\"https://git-scm.com/docs/merge-strategies\"><span style=\" "
+"text-decoration: underline; color:#2980b9;\">Další informace</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:46
@@ -1971,6 +2018,11 @@ msgid ""
 "\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Určuje, jak se má provést sloučení, pokud je historie, "
+"která se má sloučit, již potomkem aktuální historie.</p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---ff"
+"\"><span style=\" text-decoration: underline; color:#007af4;\">Další "
+"informace</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, comboBoxFastForward)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonDefault)
@@ -1984,7 +2036,7 @@ msgstr "Výchozí"
 #: src/libkommitwidgets/dialogs/mergedialog.ui:76
 #, kde-format
 msgid "Allow fast forward"
-msgstr ""
+msgstr "Povolit rychle vpřed"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:94
@@ -1999,12 +2051,21 @@ msgid ""
 "txt---allow-unrelated-histories\"><span style=\" text-decoration: underline; "
 "color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Ve výchozím nastavení příkaz git merge odmítá sloučit "
+"historie, které nemají společného předka. Tuto volbu lze použít k přepsání "
+"tohoto bezpečnostního opatření při slučování historií dvou projektů, které "
+"vznikly nezávisle na sobě. Jelikož se jedná o velmi vzácný případ, "
+"neexistuje žádná konfigurační proměnná, která by tuto funkci ve výchozím "
+"nastavení povolila, a ani nebude přidána.</p><p><br/></p><p><a href="
+"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---allow-"
+"unrelated-histories\"><span style=\" text-decoration: underline; color:"
+"#007af4;\">Další informace</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxAllowUnrelatedHistories)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:97
 #, kde-format
 msgid "Allow unrelated histories"
-msgstr ""
+msgstr "Povolit nesouvisející historie"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxSquash)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:107
@@ -2020,25 +2081,34 @@ msgid ""
 "squash\"><span style=\" text-decoration: underline; color:#007af4;\">More "
 "information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Vytvoří stav pracovního stromu a indexu tak, jako by "
+"došlo ke skutečnému sloučení (s výjimkou informací o sloučení), ale "
+"neprovede skutečný commit, nepřesune HEAD ani nezaznamená $GIT_DIR/"
+"MERGE_HEAD (aby příští příkaz git commit vytvořil merge commit). To vám "
+"umožní vytvořit na vrcholu aktuální větve jediný commit, jehož účinek je "
+"stejný jako sloučení jiné větve (nebo více v případě octopusu).</p><p><br/></"
+"p><p><a href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge."
+"txt---squash\"><span style=\" text-decoration: underline; color:#007af4;"
+"\">Další informace</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxSquash)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:110
 #: src/libkommitwidgets/dialogs/pulldialog.ui:101
 #, kde-format
 msgid "Squash"
-msgstr ""
+msgstr "Spojit commity"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonOurs)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:140
 #, kde-format
 msgid "Ours"
-msgstr ""
+msgstr "Naše"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTheirs)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:147
 #, kde-format
 msgid "Theirs"
-msgstr ""
+msgstr "Jejich"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxIgnoreAllSpace)
@@ -2057,30 +2127,36 @@ msgid ""
 "space-change\"><span style=\" text-decoration: underline; color:#007af4;"
 "\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Pro účely třícestného sloučení zachází s řádky "
+"obsahujícími uvedený typ změny mezer jako s nezměněnými. Změny mezer, které "
+"se v řádku mísí s jinými změnami, nejsou ignorovány. </p><p><br/></p><p><a "
+"href=\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-ignore-"
+"space-change\"><span style=\" text-decoration: underline; color:#007af4;"
+"\">Další informace</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceChanges)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:157
 #, kde-format
 msgid "Ignore space change"
-msgstr ""
+msgstr "Ignorovat změnu mezer"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreAllSpace)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:167
 #, kde-format
 msgid "Ignore all space"
-msgstr ""
+msgstr "Ignorovat všechny mezery"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreSpaceAtEol)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:177
 #, kde-format
 msgid "Ignore space at eol"
-msgstr ""
+msgstr "Ignorovat mezeru na konci řádku"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxIgnoreCrAtEol)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:187
 #, kde-format
 msgid "Ignore cr at eol"
-msgstr ""
+msgstr "Ignorovat cr na konci řádku"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, checkBoxRenormalize)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:194
@@ -2094,18 +2170,25 @@ msgid ""
 "decoration: underline; color:#007af4;\">More information</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Tato volba provede virtuální check-out a check-in "
+"všech tří fází souboru při řešení třícestného sloučení. Je určena k použití "
+"při slučování větví s odlišnými filtry clean nebo pravidly normalizace konců "
+"řádků.</p><p><br/></p><p><a href=\"https://git-scm.com/docs/git-"
+"merge#Documentation/git-merge.txt-renormalize\"><span style=\" text-"
+"decoration: underline; color:#007af4;\">Další informace</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxRenormalize)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:197
 #, kde-format
 msgid "Renormalize"
-msgstr ""
+msgstr "Renormalizovat"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:211
 #, kde-format
 msgid "Diff algorithm:"
-msgstr ""
+msgstr "Algoritmus rozdílů:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxDiffAlgoritm)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:218
@@ -2118,18 +2201,24 @@ msgid ""
 "algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
 "underline; color:#007af4;\">More information</span></a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Při slučování použijte jiný algoritmus rozdílů, což "
+"může pomoci zabránit nesprávnému sloučení způsobenému nepodstatnými shodnými "
+"řádky (například závorkami z různých funkcí).</p><p><br/></p><p><a href="
+"\"https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-diff-"
+"algorithmpatienceminimalhistogrammyers\"><span style=\" text-decoration: "
+"underline; color:#007af4;\">Další informace</span></a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxNoRenames)
 #: src/libkommitwidgets/dialogs/mergedialog.ui:225
 #, kde-format
 msgid "Turn off rename detection"
-msgstr ""
+msgstr "Vypnout detekci přejmenování"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, MergeOpenFilesDialog)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:14
 #, kde-format
 msgid "Select files to merge"
-msgstr ""
+msgstr "Vybrat soubory ke sloučení"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:25
@@ -2141,13 +2230,13 @@ msgstr "Místní soubor:"
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:35
 #, kde-format
 msgid "Remote file:"
-msgstr ""
+msgstr "Vzdálený soubor:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/mergeopenfilesdialog.ui:45
 #, kde-format
 msgid "Base file:"
-msgstr ""
+msgstr "Základní soubor:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NoteDialog)
 #: src/libkommitwidgets/dialogs/notedialog.ui:14
@@ -2159,19 +2248,19 @@ msgstr "Poznámka"
 #: src/libkommitwidgets/dialogs/pulldialog.ui:14
 #, kde-format
 msgid "Pull changes"
-msgstr ""
+msgstr "Načíst změny"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/libkommitwidgets/dialogs/pulldialog.ui:63
 #, kde-format
 msgid "Rebase:"
-msgstr "Rebase:"
+msgstr "Začlenit do základu:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, RemoteInfoDialog)
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:14
 #, kde-format
 msgid "New remote"
-msgstr ""
+msgstr "Nový vzdálený repozitář"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxMirror)
 #: src/libkommitwidgets/dialogs/remoteinfodialog.ui:47
@@ -2183,7 +2272,7 @@ msgstr "Zrcadlit"
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:14
 #, kde-format
 msgid "Repo settings"
-msgstr ""
+msgstr "Nastavení repozitáře"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:35
@@ -2195,7 +2284,7 @@ msgstr "E-mail:"
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:45
 #, kde-format
 msgid "Auto crlf:"
-msgstr ""
+msgstr "Automatické crlf:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxAutoCrlf)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:52
@@ -2206,12 +2295,16 @@ msgid ""
 "\" text-decoration: underline; color:#007af4;\">More informations...</span></"
 "a></p></body></html>"
 msgstr ""
+"<html><head/><body><p>Změnit cr/lf nebo ne</p><p><a href=\"https://git-scm."
+"com/docs/git-config#Documentation/git-config.txt-coreautocrlf\"><span style="
+"\" text-decoration: underline; color:#007af4;\">Další informace...</span></"
+"a></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:59
 #, kde-format
 msgid "File mode:"
-msgstr ""
+msgstr "Režim souboru:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, comboBoxFileMode)
 #: src/libkommitwidgets/dialogs/reposettingsdialog.ui:66
@@ -2223,6 +2316,11 @@ msgid ""
 "decoration: underline; color:#007af4;\">More informations...</span></a></p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Určuje, zda má Git respektovat oprávnění "
+"spustitelnosti souborů v pracovním stromu. </p><p><a href=\"https://git-scm."
+"com/docs/git-config#Documentation/git-config.txt-corefileMode\"><span style="
+"\" text-decoration: underline; color:#007af4;\">Další informace...</span></"
+"a></p></body></html>"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:61
 #, kde-format
@@ -2342,7 +2440,7 @@ msgstr "Vyberte větve"
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:14
 #, kde-format
 msgid "Select branches"
-msgstr ""
+msgstr "Vyberte větve"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectLeftBranch)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
@@ -2350,7 +2448,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:60
 #, kde-format
 msgid "Select branch"
-msgstr ""
+msgstr "Vybrat větev"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonLeftIsHead)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRightIsHead)
@@ -2358,7 +2456,7 @@ msgstr ""
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:73
 #, kde-format
 msgid "HEAD"
-msgstr ""
+msgstr "HEAD"
 
 #: src/libkommitwidgets/dialogs/submoduleinfodialog.cpp:101
 #, kde-format
@@ -2538,13 +2636,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Parent:"
 msgid "Parent:"
 msgstr "Rodič:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:152
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Child:"
 msgid "Child:"
 msgstr "Potomek:"
 
@@ -2582,7 +2682,7 @@ msgstr "Hlášení"
 #, kde-format
 msgctxt "@title:window"
 msgid "Kommit Diff[*]"
-msgstr ""
+msgstr "Kommit Diff[*]"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:164
 #, kde-format
@@ -2674,4 +2774,4 @@ msgstr ""
 #: src/libkommitwidgets/windows/mergewindow.cpp:430
 #, kde-format
 msgid "Unable to open the file"
-msgstr ""
+msgstr "Soubor nelze otevřít"
