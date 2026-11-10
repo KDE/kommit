@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 03:00+0000\n"
-"PO-Revision-Date: 2026-08-18 10:20+0200\n"
+"PO-Revision-Date: 2026-11-07 09:17+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 # NdT: Com que és una capa gràfica del Git, he intentat seguir la terminologia pròpia de la traducció del Git (https://github.com/Softcatala/git-po/blob/master/po/ca.po)
 #, kde-format
@@ -2649,7 +2649,7 @@ msgstr "El procés «git» ha fallat"
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:156
 #, kde-format
 msgid "git refused, and said nothing about why"
-msgstr ""
+msgstr "«git» ho ha rebutjat i no ha explicat res del perquè"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:157
 #, kde-format
