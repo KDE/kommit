@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 03:00+0000\n"
-"PO-Revision-Date: 2026-11-09 23:04+0100\n"
+"PO-Revision-Date: 2026-11-10 16:49+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -2638,17 +2638,17 @@ msgstr "Proces dokončen"
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:154
 #, kde-format
 msgid "The git process crashed"
-msgstr ""
+msgstr "Proces git se zhroutil"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:156
 #, kde-format
 msgid "git refused, and said nothing about why"
-msgstr ""
+msgstr "git to odmítl a nijak nevysvětlil, proč"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:157
 #, kde-format
 msgid "Process finished with error"
-msgstr ""
+msgstr "Proces byl ukončen s chybou"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:160
 #, kde-format
@@ -2691,6 +2691,19 @@ msgid ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
 "size:9pt;\"><br /></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset="
+"\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Monospace'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"size:9pt;\"><br /></p></body></html>"
 
 #: src/libkommitwidgets/dialogs/searchdialog.cpp:38
 #, kde-format
@@ -2701,7 +2714,7 @@ msgstr "Název souboru"
 #: src/libkommitwidgets/dialogs/searchdialog.ui:14
 #, kde-format
 msgid "Search in repo"
-msgstr ""
+msgstr "Hledat v repozitáři"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:25
@@ -2719,13 +2732,13 @@ msgstr "Text:"
 #: src/libkommitwidgets/dialogs/searchdialog.ui:45
 #, kde-format
 msgid "Search all branches"
-msgstr ""
+msgstr "Prohledat všechny větve"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSearchCommits)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:55
 #, kde-format
 msgid "Search all commits"
-msgstr ""
+msgstr "Prohledat všechny commity"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxCaseSensetive)
 #: src/libkommitwidgets/dialogs/searchdialog.ui:62
@@ -2742,19 +2755,19 @@ msgstr "Hledat"
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:43
 #, kde-format
 msgid "The selected branches must be different!"
-msgstr ""
+msgstr "Vybrané větve se musí lišit!"
 
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Branches"
-msgstr "Vyberte větve"
+msgstr "Vybrat větve"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SelectBranchesToDiffDialog)
 #: src/libkommitwidgets/dialogs/selectbranchestodiffdialog.ui:14
 #, kde-format
 msgid "Select branches"
-msgstr "Vyberte větve"
+msgstr "Vybrat větve"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectLeftBranch)
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectRightBranch)
@@ -2785,7 +2798,7 @@ msgstr "Větev již existuje"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:90
 #, kde-format
 msgid "Unable to find the tag's target commit: %1"
-msgstr ""
+msgstr "Nelze najít značku cílového commitu: %1"
 
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:96
 #, kde-format
@@ -2795,7 +2808,7 @@ msgstr "Nelze vytvořit větev: %1"
 #: src/libkommitwidgets/dialogs/switchbranchdialog.cpp:104
 #, kde-format
 msgid "Error switching to new target"
-msgstr ""
+msgstr "Chyba při přepnutí na nový cíl"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonTag)
 #: src/libkommitwidgets/dialogs/switchbranchdialog.ui:52
@@ -2812,32 +2825,32 @@ msgstr "Název značky:"
 #: src/libkommitwidgets/models/branchesmodel.cpp:91
 #, kde-format
 msgid "Commit(s) behind"
-msgstr ""
+msgstr "Commity za"
 
 #: src/libkommitwidgets/models/branchesmodel.cpp:93
 #, kde-format
 msgid "Commit(s) ahead"
-msgstr ""
+msgstr "Commity před"
 
 #: src/libkommitwidgets/models/branchesmodel.cpp:95
 #, kde-format
 msgid "Is ahead"
-msgstr ""
+msgstr "Je před"
 
 #: src/libkommitwidgets/models/branchesmodel.cpp:97
 #, kde-format
 msgid "Ref"
-msgstr ""
+msgstr "Ref"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:169
 #, kde-format
 msgid " (new commit)"
-msgstr ""
+msgstr " (nový commit)"
 
 #: src/libkommitwidgets/models/changedfilesmodel.cpp:171
 #, kde-format
 msgid " (content modified)"
-msgstr ""
+msgstr " (obsah změněn)"
 
 #: src/libkommitwidgets/models/commitsmodel.cpp:297
 #: src/libkommitwidgets/models/commitsmodel.cpp:308
@@ -2883,7 +2896,7 @@ msgstr "Štítkovač"
 #: src/libkommitwidgets/models/tagsmodel.cpp:65
 #, kde-format
 msgid "Create time"
-msgstr ""
+msgstr "Vytvořit čas"
 
 #: src/libkommitwidgets/models/treemodel.cpp:126
 #, kde-format
@@ -2893,7 +2906,7 @@ msgstr "Strom"
 #: src/libkommitwidgets/reports/authorsreport.cpp:63
 #, kde-format
 msgid "Commits count by author"
-msgstr ""
+msgstr "Počet commitů podle autora"
 
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
@@ -2903,12 +2916,12 @@ msgstr "E-mail"
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
 msgid "Autheds"
-msgstr ""
+msgstr "Autheds"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:49
 #, kde-format
 msgid "Commits by hour of day"
-msgstr ""
+msgstr "Commity podle hodin dne"
 
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:59
 #, kde-format
@@ -2918,7 +2931,7 @@ msgstr "Hodina"
 #: src/libkommitwidgets/reports/commitsbydayhour.cpp:69
 #, kde-format
 msgid "Hour of day"
-msgstr ""
+msgstr "Hodina dne"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:22
 #, kde-format
@@ -2958,7 +2971,7 @@ msgstr "Neděle"
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:79
 #, kde-format
 msgid "Commits by day of week"
-msgstr ""
+msgstr "Commity podle dnu v týdnu"
 
 #: src/libkommitwidgets/reports/commitsbydayweek.cpp:89
 #, kde-format
@@ -2973,7 +2986,7 @@ msgstr "Den týdne"
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:64
 #, kde-format
 msgid "Commits by month"
-msgstr ""
+msgstr "Commity podle měsíce"
 
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:74
 #, kde-format
@@ -2983,7 +2996,7 @@ msgstr "Měsíc"
 #: src/libkommitwidgets/reports/commitsbymonth.cpp:84
 #, kde-format
 msgid "Month-year"
-msgstr ""
+msgstr "Měsíc-rok"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CommitDetails)
 #. i18n: ectx: property (windowTitle), widget (QWidget, MergeWidget)
@@ -3011,25 +3024,22 @@ msgstr "Nepodepsáno"
 #: src/libkommitwidgets/widgets/commitdetails.cpp:105
 #: src/libkommitwidgets/widgets/commitdetails.cpp:114
 #: src/libkommitwidgets/widgets/commitdetails.cpp:122
-#, fuzzy, kde-format
-#| msgid "<span style='color:green;'>All conflicts resolved</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:orange;font-weight:bold'>%1</span>"
-msgstr "<span style='color:green;'>Všechny konflikty byly vyřešeny</span> "
+msgstr "<span style='color:orange;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:107
-#, fuzzy, kde-format
-#| msgid "<span style='color:green;'>All conflicts resolved</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:green;font-weight:bold'>%1</span>"
-msgstr "<span style='color:green;'>Všechny konflikty byly vyřešeny</span> "
+msgstr "<span style='color:green;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:119
-#, fuzzy, kde-format
-#| msgid "<span style='color:green;'>All conflicts resolved</span>"
+#, kde-format
 msgctxt "@info commit signature"
 msgid "<span style='color:red;font-weight:bold'>%1</span>"
-msgstr "<span style='color:green;'>Všechny konflikty byly vyřešeny</span> "
+msgstr "<span style='color:red;font-weight:bold'>%1</span>"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:131
 #, kde-format
@@ -3080,48 +3090,44 @@ msgstr "Značka: "
 #: src/libkommitwidgets/widgets/commitdetails.ui:276
 #, kde-format
 msgid "Ref:"
-msgstr ""
+msgstr "Ref:"
 
 #: src/libkommitwidgets/widgets/commitdetails.cpp:174
 #, kde-format
 msgid "Refs:"
-msgstr ""
+msgstr "Refs:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelParentsText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:184
 #: src/libkommitwidgets/widgets/commitdetails.ui:210
-#, fuzzy, kde-format
-#| msgid "Parent:"
-#| msgid_plural "Parents:"
+#, kde-format
 msgid "Parent:"
 msgid_plural "Parents:"
-msgstr[0] "Rodič:"
-msgstr[1] "Rodiče:"
-msgstr[2] "Rodiče:"
+msgstr[0] "Nadřízený:"
+msgstr[1] "Nadřízení:"
+msgstr[2] "Nadřízení:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelChildrenText)
 #: src/libkommitwidgets/widgets/commitdetails.cpp:189
 #: src/libkommitwidgets/widgets/commitdetails.ui:232
-#, fuzzy, kde-format
-#| msgid "Child:"
-#| msgid_plural "Children:"
+#, kde-format
 msgid "Child:"
 msgid_plural "Children:"
-msgstr[0] "Potomek:"
-msgstr[1] "Potomci:"
-msgstr[2] "Potomci:"
+msgstr[0] "Podřízený:"
+msgstr[1] "Podřízení:"
+msgstr[2] "Podřízení:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/libkommitwidgets/widgets/commitdetails.ui:39
 #, kde-format
 msgid "Commit is not selected"
-msgstr ""
+msgstr "Commit není vybrán"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxMarkdownDisplay)
 #: src/libkommitwidgets/widgets/commitdetails.ui:98
 #, kde-format
 msgid "Render commit message in Markdown"
-msgstr ""
+msgstr "Zobrazit zprávu commitu v Markdownu"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthorText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:154
@@ -3133,7 +3139,7 @@ msgstr "Autor:"
 #: src/libkommitwidgets/widgets/commitdetails.ui:166
 #, kde-format
 msgid "Committer:"
-msgstr ""
+msgstr "Autor commitu:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelSignatureText)
 #: src/libkommitwidgets/widgets/commitdetails.ui:185
@@ -3151,13 +3157,13 @@ msgstr "<html><head/><body><p>-</p></body></html>"
 #: src/libkommitwidgets/widgets/difftreeview.ui:17
 #, kde-format
 msgid "Type to filter"
-msgstr ""
+msgstr "Zadejte text pro filtrování"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxHideUnchangeds)
 #: src/libkommitwidgets/widgets/difftreeview.ui:53
 #, kde-format
 msgid "Hide unchanged"
-msgstr ""
+msgstr "Skrýt nezměněné"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/libkommitwidgets/widgets/fetchresultwidget.ui:33
@@ -3186,23 +3192,23 @@ msgstr "Hlášení"
 #: src/libkommitwidgets/windows/diffwindow.cpp:239
 #, kde-format
 msgid "View hidden chars…"
-msgstr ""
+msgstr "Zobrazit skryté znaky…"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:244
 #: src/libkommitwidgets/windows/mergewindow.cpp:184
 #, kde-format
 msgid "Same size blocks"
-msgstr ""
+msgstr "Bloky stejné velikosti"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:249
 #, kde-format
 msgid "Show files names"
-msgstr ""
+msgstr "Zobrazit názvy souborů"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:255
 #, kde-format
 msgid "Show Tree"
-msgstr ""
+msgstr "Zobrazit strom"
 
 #: src/libkommitwidgets/windows/diffwindow.cpp:281
 #, kde-format
@@ -3234,12 +3240,12 @@ msgstr "Ponechat jejich"
 #: src/libkommitwidgets/windows/mergewindow.cpp:154
 #, kde-format
 msgid "Keep mine before their"
-msgstr ""
+msgstr "Ponechat moje před jejich"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:159
 #, kde-format
 msgid "Keep their before mine"
-msgstr ""
+msgstr "Ponechat jejich před mým"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:164
 #, kde-format
@@ -3254,12 +3260,12 @@ msgstr "Ponechat jejich soubor"
 #: src/libkommitwidgets/windows/mergewindow.cpp:174
 #, kde-format
 msgid "Previous diff"
-msgstr ""
+msgstr "Předchozí rozdíl"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:179
 #, kde-format
 msgid "Next diff"
-msgstr ""
+msgstr "Další rozdíl"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:325
 #: src/libkommitwidgets/windows/mergewindow.cpp:339
@@ -3275,7 +3281,7 @@ msgstr "Uložit výsledek"
 #: src/libkommitwidgets/windows/mergewindow.cpp:400
 #, kde-format
 msgid "Conflicts: <span style='font-weight:bold; color:red;'>%1</span>"
-msgstr ""
+msgstr "Konflikty: <span style='font-weight:bold; color:red;'>%1</span>"
 
 #: src/libkommitwidgets/windows/mergewindow.cpp:402
 #, kde-format
