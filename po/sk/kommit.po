@@ -2639,7 +2639,7 @@ msgstr "Proces git havaroval"
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:156
 #, kde-format
 msgid "git refused, and said nothing about why"
-msgstr ""
+msgstr "git odmietol a neuviedol prečo"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:157
 #, kde-format

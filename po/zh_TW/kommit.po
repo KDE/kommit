@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 03:00+0000\n"
-"PO-Revision-Date: 2026-10-01 01:59+0900\n"
+"PO-Revision-Date: 2026-11-19 22:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.11.70\n"
+"X-Generator: Lokalize 27.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2614,7 +2614,7 @@ msgstr "git 行程已崩潰"
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:156
 #, kde-format
 msgid "git refused, and said nothing about why"
-msgstr ""
+msgstr "git 已拒絕，且未提供原因"
 
 #: src/libkommitwidgets/dialogs/runnerdialog.cpp:157
 #, kde-format
