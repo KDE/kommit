@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gitklient\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 03:00+0000\n"
+"POT-Creation-Date: 2026-11-23 01:07+0000\n"
 "PO-Revision-Date: 2026-11-07 13:01+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -715,7 +715,7 @@ msgstr "Локальне"
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:38
 #: src/libkommitwidgets/dialogs/pulldialog.ui:20
 #: src/libkommitwidgets/dialogs/pulldialog.ui:26
-#: src/libkommitwidgets/models/branchesmodel.cpp:101
+#: src/libkommitwidgets/models/branchesmodel.cpp:106
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:38
 #, kde-format
 msgid "Remote"
@@ -820,7 +820,7 @@ msgstr "Гілки:"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #: src/gui/pages/remoteswidget.ui:155
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
-#: src/libkommitwidgets/models/branchesmodel.cpp:89
+#: src/libkommitwidgets/models/branchesmodel.cpp:94
 #: src/libkommitwidgets/models/tagsmodel.cpp:59
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
@@ -835,7 +835,7 @@ msgstr "Назва посилання"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:165
-#: src/libkommitwidgets/models/branchesmodel.cpp:99
+#: src/libkommitwidgets/models/branchesmodel.cpp:104
 #, kde-format
 msgid "Upstream"
 msgstr "Основна гілка"
@@ -2825,22 +2825,22 @@ msgstr "Мітка"
 msgid "Tag name:"
 msgstr "Назва мітки:"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:91
+#: src/libkommitwidgets/models/branchesmodel.cpp:96
 #, kde-format
 msgid "Commit(s) behind"
 msgstr "Відсталі внески"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:93
+#: src/libkommitwidgets/models/branchesmodel.cpp:98
 #, kde-format
 msgid "Commit(s) ahead"
 msgstr "Випереджальні внески"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:95
+#: src/libkommitwidgets/models/branchesmodel.cpp:100
 #, kde-format
 msgid "Is ahead"
 msgstr "Є попереду"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:97
+#: src/libkommitwidgets/models/branchesmodel.cpp:102
 #, kde-format
 msgid "Ref"
 msgstr "Пос."

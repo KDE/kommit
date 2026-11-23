@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kommit\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 03:00+0000\n"
+"POT-Creation-Date: 2026-11-23 01:07+0000\n"
 "PO-Revision-Date: 2026-08-18 18:34+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -712,7 +712,7 @@ msgstr "Lokala"
 #: src/libkommitwidgets/dialogs/fetchdialog.ui:38
 #: src/libkommitwidgets/dialogs/pulldialog.ui:20
 #: src/libkommitwidgets/dialogs/pulldialog.ui:26
-#: src/libkommitwidgets/models/branchesmodel.cpp:101
+#: src/libkommitwidgets/models/branchesmodel.cpp:106
 #: src/libkommitwidgets/widgets/branchesselectionwidget.ui:38
 #, kde-format
 msgid "Remote"
@@ -817,7 +817,7 @@ msgstr "Grenar:"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxFileName)
 #: src/gui/pages/remoteswidget.ui:155
 #: src/libkommitwidgets/dialogs/ignorefiledialog.ui:37
-#: src/libkommitwidgets/models/branchesmodel.cpp:89
+#: src/libkommitwidgets/models/branchesmodel.cpp:94
 #: src/libkommitwidgets/models/tagsmodel.cpp:59
 #: src/libkommitwidgets/reports/authorsreport.cpp:73
 #, kde-format
@@ -832,7 +832,7 @@ msgstr "Ref-namn"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, treeWidget)
 #: src/gui/pages/remoteswidget.ui:165
-#: src/libkommitwidgets/models/branchesmodel.cpp:99
+#: src/libkommitwidgets/models/branchesmodel.cpp:104
 #, kde-format
 msgid "Upstream"
 msgstr "Uppströms"
@@ -2820,22 +2820,22 @@ msgstr "Tagg"
 msgid "Tag name:"
 msgstr "Etikettnamn:"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:91
+#: src/libkommitwidgets/models/branchesmodel.cpp:96
 #, kde-format
 msgid "Commit(s) behind"
 msgstr "Arkivering(ar) bakom"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:93
+#: src/libkommitwidgets/models/branchesmodel.cpp:98
 #, kde-format
 msgid "Commit(s) ahead"
 msgstr "Arkivering(ar) framför"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:95
+#: src/libkommitwidgets/models/branchesmodel.cpp:100
 #, kde-format
 msgid "Is ahead"
 msgstr "Är framför"
 
-#: src/libkommitwidgets/models/branchesmodel.cpp:97
+#: src/libkommitwidgets/models/branchesmodel.cpp:102
 #, kde-format
 msgid "Ref"
 msgstr "Ref"
